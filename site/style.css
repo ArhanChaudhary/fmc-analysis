@@ -30,6 +30,7 @@ aside.toc { position: sticky; top: 3.6rem; align-self: start; max-height: calc(1
 aside.toc summary { cursor: pointer; font-weight: 650; margin-bottom: .4rem; }
 aside.toc ul { list-style: none; margin: 0; padding-left: .9rem; }
 aside.toc > details > ul { padding-left: 0; }
+main details > summary { cursor: pointer; font-weight: 650; color: var(--link); margin: .2rem 0 .6rem; }
 aside.toc li { margin: .2rem 0; }
 aside.toc a { color: var(--muted); }
 aside.toc a:hover { color: var(--link); }

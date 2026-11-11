@@ -1106,7 +1106,9 @@ fn names(mask: usize, table: &[&str; 8]) -> String {
     }
 }
 
-pub fn run_read(bfsdir: &Path, lsfile: &Path) -> io::Result<i32> {
+/// `quick`: only the lines a table of many DRs needs (subset, corner_case, true_pairs, htr, optimal),
+/// which costs one depth lookup per state instead of a few hundred.
+pub fn run_read(bfsdir: &Path, lsfile: &Path, quick: bool) -> io::Result<i32> {
     use crate::core::{parse_moves, rank_perm, St, MOVE_NAME};
     use crate::reduced::{exact_depth, open_depth_files};
     use std::io::BufRead;
@@ -1185,6 +1187,22 @@ pub fn run_read(bfsdir: &Path, lsfile: &Path) -> io::Result<i32> {
         let (ai, bi) = (cls.ccos[ci] as usize, cls.epat[ei] as usize);
         writeln!(out, "subset: {}", cls.sub48_name[cls.sub48[a][b] as usize])?;
         writeln!(out, "corner_case: {} {}", ccase[a], ccase[ai])?;
+        if quick {
+            let mut tp = 0;
+            for &(p, q) in &ADJ {
+                let (cpiece, epiece) = (g.c[p] as usize, g.e[q] as usize);
+                let good = TETRAD[cpiece] == TETRAD[p];
+                let axis = (EDGE_FACE[q] & 1) as usize ^ (!good) as usize;
+                if CORNER_COL[cpiece][axis] == EDGE_FACE[epiece] && (cpiece < 4) == (epiece < 4) {
+                    tp += 1;
+                }
+            }
+            writeln!(out, "true_pairs: {}", tp)?;
+            writeln!(out, "htr: {} {}", cls.htr_dist[a][b], cls.htr_dist[ai][bi])?;
+            writeln!(out, "optimal: {}", depth(&g))?;
+            writeln!(out)?;
+            continue;
+        }
         writeln!(
             out,
             "bad_corners: {} | {}",
