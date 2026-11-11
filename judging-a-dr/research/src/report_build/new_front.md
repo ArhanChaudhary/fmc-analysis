@@ -25,7 +25,7 @@ What came out:
 - **For a 10 or an 11, the subset does most of the pruning.** In 11: 10% of 1–2qt DRs, 4.6% of 3qt, 1.1% of 4qt, 0.24% of 5qt. In 10: 2.4%, 0.87%, 0.16%, 0.02%.
 - **The lower the target, the more the reads tell you.** Keep only the best-looking quarter of 4qt DRs, going by pairs and corner case, which need no solving. It holds 65% of the finishes in 12, 77% of those in 11 and 89% of those in 10. At 3qt: 52%, 63%, 74%. HTR length on both sides adds a few points on top, and at 1–2qt it is the best single read.
 - **Still no clean yes/no.** The subset explains 35% of the variance of the optimal, everything readable together 48%, and what's left has an sd of 0.78 moves. Zagros's hunch that corner case + HTR on both sides pins the optimal to ~0.25 moves: it's 0.80.
-- **Plain rules, with their price.** Zagros's "9+ on both sides, toss", moved to your target T: drop every DR that is T−1 or more to HTR on both sides. For an 11 that's 10+ on both sides, and it drops 8% of 3qt and 31% of 4qt DRs for 0.2% and 2.5% of the 11s. T−2 or more (9+ for an 11) drops 28% and 67% and costs 5% and 20% of them. With no solving: dropping every DR without a pair drops 14% and costs 2–7% of the 11s. And a five-line prune list that needs no solving (section 8) throws away {= PRUNE('drop') =} of all DR states and keeps {= PRUNE('keep',11) =} of the finishes in 11.
+- **Plain rules, with their price.** Zagros's "9+ on both sides, toss" turned into a rule against your target T. The safe version drops every DR that is T−1 or more to HTR on both sides: for an 11 that's 10+, and it drops 8% of 3qt and 31% of 4qt DRs for 0.2% and 2.5% of the 11s. The aggressive version, T−2 or more, is his 9+ when you need an 11: it drops 28% and 67% and costs 5% and 20% of them. With no solving: dropping every DR without a pair drops 14% and costs 2–7% of the 11s. And a five-line prune list that needs no solving (section 8) throws away {= PRUNE('drop') =} of all DR states and keeps {= PRUNE('keep',11) =} of the finishes in 11.
 - **The two guaranteed hand bounds wake up at low targets.** The longer HTR and the corner solution with the right E-parity prove almost nothing for a 12 (5% of 4qt DRs, 13% of 5qt). For a 10 they rule out half of 4qt and 80% of 5qt DRs.
 - **A few real kill rules.** 2c5 with the bad corners stacked on both sides: no 12 at all. 2c5 stacked on one side and opposite on the other: no 11, 0.24% in 12. 2c4 stacked on both sides: no 10, 0.06% in 11, 1.1% in 12. 4a2 2e with all four bad corners on one layer on both sides: no 12 at all.
 - **Questions from the server, answered exactly**: stats by bad corner position (Daichi, JTuu, wen), by pairs (Rodney, Levi), the normal × inverse HTR table (Zagros), the 4a1 4e bound against the real leave slice (count quackula), the cost of the slice (JTuu), an invertible last move (Zagros), God's number per subset (compLex), optimal lengths of all corner cases (Evan).
@@ -113,7 +113,7 @@ Another way to cut it. Say a class of DRs is "under 1%" if at most one in a hund
 
 {{PIV_DEAD}}
 
-Read the row "4qt, 11 or less" like this. By subset alone 35% of 4qt DRs are under 1% (that's 4c4 and 0c4). With pairs and corner cases it's 69%, and those 69% hold 17% of the 11s. For a 10, all of 4qt is under 1% as a group, and the reads work the other way: with pairs, corner cases and HTR they pick out the 4% of 4qt DRs that hold half of the 10s. For a 13 no read puts more than 4% of any qt group under 1%.
+Read the row "4qt, 11 or less" like this. By subset alone 35% of 4qt DRs are under 1% (that's 4c4, 0c4 with four or more bad edges, and 2c4 8e). With pairs and corner cases it's 69%, and those 69% hold 17% of the 11s. For a 10, all of 4qt is under 1% as a group, and the reads work the other way: with pairs, corner cases and HTR they pick out the 4% of 4qt DRs that hold half of the 10s. For a 13 no read puts more than 4% of any qt group under 1%.
 
 So tseitsei89's "100% cases and 0% cases" don't exist at any target. There is no feature count that sorts DRs into good and bad. What exists is a set of reads that each multiply your hit rate by two or three, more the lower your target, and a handful of corners of the tables that really are dead.
 
@@ -160,6 +160,7 @@ The same thing without a target: how much scatter is left in the optimal once yo
 | + corner case on both sides | no | 0.83 |
 | + pairs and corner cases | no | 0.80 |
 | + HTR length on both sides | yes | 0.82 |
+| + corner case and HTR on both sides | yes | 0.80 |
 | + corner length L and E-parity | yes | 0.83 |
 | + pairs, corner cases and HTR | yes | 0.78 |
 | + pairs, HTR, L and E-parity | yes | 0.78 |
@@ -210,7 +211,9 @@ Share of each corner subset finishing in 10, 11 and 12 or less, by number of tru
 
 {{MAIN_PAIRS}}
 
-Each pair is worth about 0.15 moves of average optimal. It multiplies your odds of a 12 by about 1.4, of an 11 by 1.4 to 1.7 (2 at 5qt), and of a 10 by 1.5 to 2. So pairs matter more the lower your target. Levi is right about blocky 2c4s: for an 11, from {= pct(q(cs='2c4',pairs=0),11) =} with no pairs to {= pct(q(cs='2c4',pairs=5),11) =} with five or more. It's not special to 2c4 though, the ratio is about the same in every subset. Appendix D has all 48 subsets, for 10, 11, 12 and 13.
+Each pair is worth about 0.15 moves of average optimal. What that does to the odds depends on how rare the finish is. One more pair multiplies the odds of a 12 by {= PPR('4a1',12) =} at 4a1, {= PPR('2c4',12) =} at 2c4 and {= PPR('2c5',12) =} at 2c5. For an 11 it's {= PPR('4a1',11) =}, {= PPR('2c4',11) =} and {= PPR('2c5',11) =}, and for a 10 at 4a1 and 2c4, {= PPR('4a1',10) =} and {= PPR('2c4',10) =}. So pairs matter more the lower your target and the higher the qt.
+
+Levi is right about blocky 2c4s: for an 11, from {= pct(q(cs='2c4',pairs=0),11) =} with no pairs to {= pct(q(cs='2c4',pairs=5),11) =} with five or more, {= P05('2c4',11) =} times as often. The same step is worth ×{= P05('4a1',11) =} at 4a1, ×{= P05('2c3',11) =} at 2c3 and ×{= P05('2c5',11) =} at 2c5. Appendix D has all 48 subsets, for 10, 11, 12 and 13.
 
 On Rodney's finer split: I also counted pseudo-pairs (both stickers opposite), side semi-pairs and top semi-pairs, defined as in his message. Knowing all four counts instead of just the true pairs moves the sd left from 0.850 to 0.842. Pairs with E-slice edges add even less. So count true pairs and stop.
 
@@ -220,7 +223,7 @@ You don't need to count again on the inverse scramble: a block stays a block, so
 
 {{CORNER_SECTION}}
 
-A warning: the bad corner *positions* don't always tell you the case. 2c4 has three different "both on one layer, adjacent" cases, at {= pct(q(cs='2c4',cc=S('8')),12) =}, {= pct(q(cs='2c4',cc=S('7')),12) =} and {= pct(q(cs='2c4',cc=S('2')),12) =} in 12. What separates them is the corner permutation, which you get the way you already get the subset (tracing, or whatever corner-case system you use). The column "a qt takes it straight to" is the quick tell: if some U or D quarter turn drops the corner qt count right away, you're in one of the good ones.
+A warning: the bad corner *positions* don't always tell you the case. 2c4 has three different "both on one layer, adjacent" cases, at {= C1('2c4','8') =}, {= C1('2c4','7') =} and {= C1('2c4','2') =} (in 10 / 11 / 12). What separates them is the corner permutation, which you get the way you already get the subset (tracing, or whatever corner-case system you use). The column "a qt takes it straight to" is the quick tell: if some U or D quarter turn drops the corner qt count right away, you're in one of the good ones.
 
 ### 4.4 HTR length on both sides
 
@@ -228,7 +231,7 @@ Zagros asked for the square table ([[T11190]]); trangium posted one from samples
 
 {{MAIN_SQUARES}}
 
-One more move to HTR on both sides costs about half a move of average optimal. It cuts the odds of a 12 by three to six, of an 11 by five or more, and of a 10 by ten or more. Appendix F has every subset with share, average, fastest finish, and odds for 10 to 13. Section 3 has the same read as a plain rule against your target.
+One more move to HTR on both sides costs about half a move of average optimal. From 8 and 8 to 9 and 9 it divides the odds of a 12 by about three, of an 11 by about five and of a 10 by more than ten. The step from 7 and 7 to 8 and 8 is gentler: about two, three and three to five. Appendix F has every subset with share, average, fastest finish, and odds for 10 to 13. Section 3 has the same read as a plain rule against your target.
 
 **By the longer side alone**, for a whole corner-qt group. This is the table to use when you have one HTR length per side and no time for more (rows under 0.1% of the group are left out):
 
@@ -238,7 +241,7 @@ One more move to HTR on both sides costs about half a move of average optimal. I
 
 {{MAIN_ZAGROS}}
 
-So the rule halves your 4c3s, and what it costs depends on what you need. For an 11-move DR, which needs a 10 or an 11, it is a good rule. For a 12 it throws away a quarter of the finishes. It does throw away real finds:
+So the rule halves your 4c3s, and what it costs depends on what you need. For an 11-move DR, which needs a 10 or an 11, it trades half of your 4c3s for 8% of the 10s and 17% of the 11s. For a 12 it throws away a quarter of the finishes. It does throw away real finds:
 
     U' L2 D' B2 U' B2 U L2 D     // 4c3 4e, 9 to HTR on both sides
     D' L2 U' B2 U B2 D L2 U      // its optimal finish: 9
@@ -278,7 +281,7 @@ Two DRs where it bites:
     U' R2 U' R2 U                                   // corners in 5, but two side turns
     U R2 U2 R2 U R2 U                               // best with an odd number: 7
 
-As an odds read, L does about what HTR length does (Appendix H). Appendix B splits the big high-qt subsets by L and parity. For 2c4 4e, in 10 / 11 / 12: with L = 8, {= T(q2(cs='2c4',e=4,L=8)) =}. With L = 11, {= T(q2(cs='2c4',e=4,L=11)) =}. With L = 12, {= T(q2(cs='2c4',e=4,L=12,parity=0)) =} if the E-slice is even and {= T(q2(cs='2c4',e=4,L=12,parity=1)) =} if it's odd.
+As an odds read, L does about what HTR length does from 3qt up, and less at 1–2qt (Appendix H). Appendix B splits the big high-qt subsets by L and parity. For 2c4 4e, in 10 / 11 / 12: with L = 8, {= T(q2(cs='2c4',e=4,L=8)) =}. With L = 11, {= T(q2(cs='2c4',e=4,L=11)) =}. With L = 12, {= T(q2(cs='2c4',e=4,L=12,parity=0)) =} if the E-slice is even and {= T(q2(cs='2c4',e=4,L=12,parity=1)) =} if it's odd.
 
 The E-slice parity on its own, without L, is a small read but it's free. It mostly decides whether the finish wants to be even or odd in length. At 4qt, {= pct(q2(group='4qt',parity=1),12) =} finish in 12 with an odd E-slice against {= pct(q2(group='4qt',parity=0),12) =} with an even one, and in 11 it's the even one that is ahead, {= pct(q2(group='4qt',parity=0),11) =} against {= pct(q2(group='4qt',parity=1),11) =}. At 5qt, {= pct(q2(group='5qt',parity=1),13) =} finish in 13 with an odd E-slice against {= pct(q2(group='5qt',parity=0),13) =} with an even one.
 
@@ -288,7 +291,7 @@ Zagros asked what one invertible move is worth. If your DR ends in R, then R' is
 
 {{PIV_LASTMOVE}}
 
-A third of the time the other DR is one shorter, a third the same, a third one longer, in every subset. So it's worth 0.33 moves flat, and it raises the odds of an 11 or a 12 by half or more. (If you could pick any of the four side half turns it would be 0.73.) An example:
+A third of the time the other DR is one shorter, a third the same, a third one longer, in every subset. So it's worth 0.33 moves flat. It multiplies the odds of a 10 or an 11 by 1.6 to 2 and of a 12 by 1.4 to 1.8. (If you could pick any of the four side half turns it would be 0.73.) An example:
 
     D' L2 D R2 B2 F2 U2 B2 R2 U L2 U'       // optimal 12
     D' L2 D R2 B2 F2 U2 B2 R2 U L2 U' L2    // the same DR with its last move (an L) turned the other way: optimal 11
@@ -406,7 +409,7 @@ The longer the finish, the more room to fit the slice for free. (+1 happens beca
 | 15 | 4.3 | 8% |
 | 16 | 7.6 | 0.2% |
 
-Short finishes are narrow: when a DR has a 12, two times out of three there is exactly one first move that gets it. Long finishes are wide. Higher qt DRs have more optimal first moves (3.1 on average at 5qt against 2.6 at 2qt) only because their optimals are longer. One of each:
+Short finishes are narrow: when the optimal is 10 or 11, three times out of four exactly one first move gets it, and with a 12 two times out of three. Long finishes are wide. Higher qt DRs have more optimal first moves (3.1 on average at 5qt against 2.6 at 2qt) only because their optimals are longer. One of each:
 
     D' L2 D R2 B2 F2 U2 B2 R2 U L2 U'                  // optimal 12: only U or L2 starts an optimal finish
     D2 B2 U' R2 D R2 B2 R2 F2 U2 R2 D F2 U R2 U'       // optimal 16: nine of the ten moves do

@@ -112,7 +112,7 @@ def rule(grp, T, pred):
     return 100 * dn / n, (100 * dg / good if good else 0.0)
 def rc(x, proven=False):
     d, l = x
-    if d == 0: return '–'
+    if d == 0: return '0'
     return pv.num(d) if proven else f'{pv.num(d)} ({pv.num(l)})'
 L = ['| Corner qt | Finish needed, T | Longer side more than T (proven, loses nothing) | Both sides T or more | Longer side T or more | Both sides T−1 or more | Longer side T−1 or more | Both sides T−2 or more |', '|---|---|---:|---:|---:|---:|---:|---:|']
 for grp in pv.GROUPS:
@@ -168,7 +168,7 @@ for x, hmax, G, d, c in pv.rows('h7_setup_bound.csv'):
         o = sb[(pv.QT[x.split()[0]], T)]; c_ = int(c); o[0] += c_; o[1] += c_ * (int(d) <= T); o[2] += c_ * (int(G) > T); o[3] += c_ * (int(G) > T and int(d) <= T)
 def setup_cell(grp, T):
     o = sb[(grp, T)]
-    return '–' if o[2] == 0 else f'{pv.num(100 * o[2] / o[0])} ({pv.num(100 * o[3] / o[1]) if o[1] else "0"})'
+    return '0' if o[2] == 0 else f'{pv.num(100 * o[2] / o[0])} ({pv.num(100 * o[3] / o[1]) if o[1] else "0"})'
 L = ['| Corner qt | Finish needed | DRs with no such finish | Longer HTR proves it | Corner length with parity proves it | Either one | Setup + HTR says no (not a proof: share of the finishes in T it is wrong about) | NISS@DR table | Everything visible |', '|---|---|---:|---:|---:|---:|---:|---:|---:|']
 for grp in pv.GROUPS:
     for T in pv.WIDE:

@@ -33,11 +33,14 @@ def XPS(cs, which): return SH(cs, _pairs(cs)[0 if which == 'best' else -1][1])
 _HIGH = ('2c5', '4b5', '4c4', '0c3', '0c4')
 _G24 = S('8 7 24')       # 2c4: not stacked, and a qt goes straight to 2c3 or 4b3
 _G43 = S('32 30')        # 4c3: the 4a3 side is 2-2 with a qt straight to 4b2
+_W42 = S('31 4')         # 4a2: 2-2 with the pairs on opposite sides, or all four on one layer
 def _dropped(cs, e, a, b, tp, lo, hi):
-    if cs in _HIGH: return tp < 5
+    if cs in _HIGH: return True
     if cs == '2c4': return not ((a in _G24 and b in _G24) or tp >= 4)
     if cs == '4c3': return not (a in _G43 or b in _G43 or tp >= 4)
-    if cs == '4a2': return a == '4' or b == '4' or (e in (0, 2) and a != '42' and b != '42')
+    if cs == '4a2':
+        if e == 4: return a in _W42 and b in _W42
+        return a != '42' and b != '42'
     return False
 def _prune(group=None):
     n = [0] * 19; dn = [0] * 19
@@ -60,10 +63,19 @@ def LOSS(cs, rule, T=11):
         n += c
         if (_dropped(xs, e, a, b, tp, lo, hi) if rule == 'list' else rule(e, a, b, tp, lo, hi)): dn += c
     return f'{100 * dn / n:.0f}%'
+def PRUNE_HIGHQT():
+    """Share of the DRs the list drops that are 4qt or 5qt."""
+    tot = sum(_prune()[1]); return f"{100 * (sum(_prune('4qt')[1]) + sum(_prune('5qt')[1])) / tot:.0f}%"
+def PPR(cs, T):
+    """What one more pair multiplies the odds of a finish in T by (geometric mean of the steps from 0 to 4 pairs)."""
+    return f"{(share(q(cs=cs, pairs=4), T) / share(q(cs=cs, pairs=0), T)) ** 0.25:.1f}"
+def P05(cs, T):
+    """Odds of a finish in T with five or more pairs, as a multiple of the odds with none."""
+    return f"{share(q(cs=cs, pairs=5), T) / share(q(cs=cs, pairs=0), T):.0f}"
 def PRUNE_TABLE():
     L = ['| DRs | Dropped | 10s lost | 11s lost | 12s lost | All of them: in 10 / 11 / 12 | What you keep: in 10 / 11 / 12 |', '|---|---:|---:|---:|---:|---|---|']
     for g in pv.GROUPS + [None]:
         n, dn = _prune(g); kept = [x - y for x, y in zip(n, dn)]
-        L.append(f"| {pv.GROUP_NAME[g] if g else '**all DR states**'} | {100 * sum(dn) / sum(n):.0f}% | " + ' | '.join(pv.num(100 * sum(dn[:T + 1]) / sum(n[:T + 1])) for T in (10, 11, 12)) + f' | {tri(n)} | {tri(kept)} |')
+        L.append(f"| {pv.GROUP_NAME[g] if g else '**all DR states**'} | {100 * sum(dn) / sum(n):.0f}% | " + ' | '.join(pv.num(100 * sum(dn[:T + 1]) / sum(n[:T + 1])) for T in (10, 11, 12)) + f' | {tri(n)} | {tri(kept) if sum(kept) else "nothing is kept"} |')
     return '\n'.join(L)
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}

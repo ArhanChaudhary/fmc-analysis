@@ -75,7 +75,7 @@ How to read the tables:
 Both sides together:
 
 {both('2c4', [('the best case on both sides (adjacent, a qt straight to 2c3, first row)', lambda a, b: a == b == '2c4-1'),
-              ('a qt goes straight to 2c3 or 4b3 on both sides', lambda a, b: straight(a) and straight(b) and not stk(a) and not stk(b)),
+              ('no stack on either side, and a qt goes straight to 2c3 or 4b3 on both', lambda a, b: straight(a) and straight(b) and not stk(a) and not stk(b)),
               ('a stack on one side only', lambda a, b: stk(a) != stk(b)),
               ('a stack on both sides', lambda a, b: stk(a) and stk(b))])}
 

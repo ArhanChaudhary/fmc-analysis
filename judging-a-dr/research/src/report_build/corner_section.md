@@ -25,7 +25,7 @@ Both sides together:
 | Normal and inverse | Share | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|---:|
 | the best case on both sides (adjacent, a qt straight to 2c3, first row) | 2.8% | 0.92% | 5.6% | 26% | 75% |
-| a qt goes straight to 2c3 or 4b3 on both sides | 17.4% | 0.68% | 4.2% | 21% | 66% |
+| no stack on either side, and a qt goes straight to 2c3 or 4b3 on both | 17.4% | 0.68% | 4.2% | 21% | 66% |
 | a stack on one side only | 37.5% | 0.10% | 0.92% | 6.4% | 32% |
 | a stack on both sides | 6.2% | 0 | 0.06% | 1.1% | 11% |
 
