@@ -162,12 +162,19 @@ for r in h2:
     grp = pv.QT[r[0].split()[0]]; hi = int(r[2]); lp = int(r[3]) + int(r[4]); d = int(r[6]); c = int(r[7])
     for T in pv.WIDE:
         o = hb[(grp, T)]; o[0] += c; o[1] += c * (d > T); o[2] += c * (hi > T); o[3] += c * (lp > T); o[4] += c * (max(hi, lp) > T)
-L = ['| Corner qt | Finish needed | DRs with no such finish | Longer HTR proves it | Corner length with parity proves it | Either one | NISS@DR table | Everything visible |', '|---|---|---:|---:|---:|---:|---:|---:|']
+sb = collections.defaultdict(lambda: [0, 0, 0, 0])      # (group, T) -> n, finishes in T, setup+HTR bound above T, those among the finishes
+for x, hmax, G, d, c in pv.rows('h7_setup_bound.csv'):
+    for T in pv.WIDE:
+        o = sb[(pv.QT[x.split()[0]], T)]; c_ = int(c); o[0] += c_; o[1] += c_ * (int(d) <= T); o[2] += c_ * (int(G) > T); o[3] += c_ * (int(G) > T and int(d) <= T)
+def setup_cell(grp, T):
+    o = sb[(grp, T)]
+    return '–' if o[2] == 0 else f'{pv.num(100 * o[2] / o[0])} ({pv.num(100 * o[3] / o[1]) if o[1] else "0"})'
+L = ['| Corner qt | Finish needed | DRs with no such finish | Longer HTR proves it | Corner length with parity proves it | Either one | Setup + HTR says no (not a proof: share of the finishes in T it is wrong about) | NISS@DR table | Everything visible |', '|---|---|---:|---:|---:|---:|---:|---:|---:|']
 for grp in pv.GROUPS:
     for T in pv.WIDE:
         o = hb[(grp, T)]
         assert abs(100 * o[2] / o[0] - proves('htr', grp, T)) < 1e-9 and abs(100 * o[3] / o[0] - proves('c+p', grp, T)) < 1e-9
-        L.append(f'| {grp.replace("-", "–")} | {T} or less | {pv.num(100*o[1]/o[0])} | ' + ' | '.join(pv.num(100 * o[i] / o[0]) for i in (2, 3, 4)) + f" | {pv.num(proves('KF', grp, T))} | {pv.num(proves('c+2520+F', grp, T))} |")
+        L.append(f'| {grp.replace("-", "–")} | {T} or less | {pv.num(100*o[1]/o[0])} | ' + ' | '.join(pv.num(100 * o[i] / o[0]) for i in (2, 3, 4)) + f" | {setup_cell(grp, T)} | {pv.num(proves('KF', grp, T))} | {pv.num(proves('c+2520+F', grp, T))} |")
 write('pivots_bounds.md', L)
 
 # ---- the last DR move

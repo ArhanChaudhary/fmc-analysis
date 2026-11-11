@@ -87,7 +87,7 @@ How rare each target is, as a share of all DR states of the kind:
 
 {{PIV_BASE}}
 
-For a 10 or an 11 the subset has already done most of the pruning: one 4qt DR in 90 finishes in 11, one 5qt DR in 400. The reads matter most where the odds are still alive, at 1–3qt, and for finding the few high-qt DRs worth keeping.
+For a 10 or an 11 the subset has already done most of the pruning: one 4qt DR in 90 finishes in 11, one 5qt DR in 400. The reads matter most where the odds are still alive, at 1–3qt, and for finding the few high-qt DRs worth keeping. (The tables below go by corner-qt group from 1–2qt up. 0c0, half a percent of DR states, has its own row in section 8.)
 
 **Two kinds of read.** Some need no solving: the subset, the true pairs, the corner case on normal and on inverse. Some need you to solve something: the shortest HTR on both sides, the optimal corner solution and its parity. The tables keep the two apart, because a read you have to work for costs time, and because the HTR numbers assume you found the *shortest* HTR. If yours is longer than the shortest, the DR looks worse than it is, and an HTR rule drops more than it should.
 
@@ -143,6 +143,8 @@ The corner-case rules are per subset. They are in section 8 and section 4.3.
 {{PIV_BOUNDS}}
 
 For a 12 the hand bounds prove next to nothing below 5qt. For a 10 they rule out half of the 4qt DRs and 80% of the 5qt ones, and for an 11 a fifth and 38%. So the lower your target, the more a guaranteed bound is worth working out, on the high-qt DRs where it bites.
+
+The setup + HTR bound of section 5 (trangium's 2q bound taken to any qt) is not a proof, because a finish with extra quarter turns can get under it. From 3qt up that almost never happens: it is wrong about 0.2% of the finishes in T at most. It is the hand bound that does something at 3qt, where it rules out 19% of the DRs for a 10 and 6% for an 11, more than the two proven bounds together. At 1–2qt it rules out a third of the DRs for a 10 and a sixth for an 11, and is wrong about 5–7% of those finishes.
 
 Appendix H has every read at every target with more cut-offs (best 10%, 25%, 50%; keeping 90%, 95%, 99%).
 

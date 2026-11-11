@@ -23,7 +23,7 @@ This is long because most of it is reference. You don't have to read it front to
 | [1. What I'd do per subset](#1-what-id-do-per-subset) | **The one to read.** For each of the 12 corner subsets: how often it finishes in 10, 11 and 12, what to read, when to drop it for the finish you need, what not to conclude. | 4,700 words |
 | [2. What people asked for](#2-what-people-asked-for) | The gap in the solvers' own words, and the sixteen questions from the server that are answered here. | 500 words |
 | [3. The data](#3-the-data) | What was computed, and what "optimal" and "in 11" mean. | 200 words |
-| [4. How much can a read tell you?](#4-how-much-can-a-read-tell-you) | Every read against the exact finish, for each finish you might need from 9 to 13: ranking, throwing away, plain rules with their price, what is proven. Zagros's two hunches. | 3,300 words |
+| [4. How much can a read tell you?](#4-how-much-can-a-read-tell-you) | Every read against the exact finish, for each finish you might need from 9 to 13: ranking, throwing away, plain rules with their price, what is proven. Zagros's two hunches. | 3,500 words |
 | [5. The reads, cheapest first](#5-the-reads-cheapest-first) | What each read is worth, with the tables: [5.1 Subset](#51-subset), [5.2 Pairs](#52-pairs), [5.3 Corner case, on both sides](#53-corner-case-on-both-sides), [5.4 HTR length on both sides](#54-htr-length-on-both-sides), [5.5 Corner length and E-slice parity](#55-corner-length-and-e-slice-parity), [5.6 The last DR move](#56-the-last-dr-move). | 4,300 words |
 | [6. Bounds people use, graded](#6-bounds-people-use-graded) | Levi's formula, trangium's 2q bound at any qt, HTR length, the parity bound. Which never fail, how often the others do. | 1,350 words |
 | [7. Leave slice, the slice, and width](#7-leave-slice-the-slice-and-width) | What the slice costs, and how many first moves are optimal. | 300 words |
@@ -202,7 +202,7 @@ How rare each target is, as a share of all DR states of the kind:
 | 4b5 | 11.4% | 0 | <0.01% | 0.02% | 0.21% | 1.9% | 14% | 58% |
 | **all DRs** | 100% | 0.03% | 0.14% | 0.74% | 3.6% | 15% | 44% | 80% |
 
-For a 10 or an 11 the subset has already done most of the pruning: one 4qt DR in 90 finishes in 11, one 5qt DR in 400. The reads matter most where the odds are still alive, at 1–3qt, and for finding the few high-qt DRs worth keeping.
+For a 10 or an 11 the subset has already done most of the pruning: one 4qt DR in 90 finishes in 11, one 5qt DR in 400. The reads matter most where the odds are still alive, at 1–3qt, and for finding the few high-qt DRs worth keeping. (The tables below go by corner-qt group from 1–2qt up. 0c0, half a percent of DR states, has its own row in section 1.)
 
 **Two kinds of read.** Some need no solving: the subset, the true pairs, the corner case on normal and on inverse. Some need you to solve something: the shortest HTR on both sides, the optimal corner solution and its parity. The tables keep the two apart, because a read you have to work for costs time, and because the HTR numbers assume you found the *shortest* HTR. If yours is longer than the shortest, the DR looks worse than it is, and an HTR rule drops more than it should.
 
@@ -360,30 +360,32 @@ The corner-case rules are per subset. They are in section 1 and section 5.3.
 
 **What is proven at each target.** Two bounds hold for every finish and can be worked out by hand: the longer HTR, and the best corner solution with the right E-parity (section 5.5). Share of DRs for which they prove there is no finish in T, next to two of the computer tables of section 8:
 
-| Corner qt | Finish needed | DRs with no such finish | Longer HTR proves it | Corner length with parity proves it | Either one | NISS@DR table | Everything visible |
-|---|---|---:|---:|---:|---:|---:|---:|
-| 1–2qt | 9 or less | 99.5% | 8.8% | 4.2% | 10% | 88% | 98% |
-| 1–2qt | 10 or less | 98% | 3.2% | 1.4% | 3.8% | 57% | 90% |
-| 1–2qt | 11 or less | 90% | 0.15% | 0.23% | 0.37% | 16% | 66% |
-| 1–2qt | 12 or less | 65% | 0 | 0 | 0 | 3.8% | 24% |
-| 1–2qt | 13 or less | 21% | 0 | 0 | 0 | 0.74% | 3.8% |
-| 3qt | 9 or less | 99.9% | 23% | 29% | 37% | 95% | 99.5% |
-| 3qt | 10 or less | 99.1% | 4.6% | 12% | 13% | 77% | 97% |
-| 3qt | 11 or less | 95% | 2.2% | 2.5% | 3.6% | 37% | 84% |
-| 3qt | 12 or less | 80% | 0.37% | 0.71% | 1.0% | 9.2% | 49% |
-| 3qt | 13 or less | 41% | 0 | 0 | 0 | 2.1% | 13% |
-| 4qt | 9 or less | 99.9% | 59% | 72% | 78% | 99.6% | 99.9% |
-| 4qt | 10 or less | 99.8% | 26% | 48% | 51% | 96% | 99.6% |
-| 4qt | 11 or less | 99% | 3.9% | 21% | 22% | 75% | 97% |
-| 4qt | 12 or less | 93% | 0.15% | 5.0% | 5.1% | 34% | 81% |
-| 4qt | 13 or less | 70% | 0 | 0 | 0 | 5.2% | 41% |
-| 5qt | 9 or less | 99.9% | 97% | 95% | 99.5% | 99.9% | 99.9% |
-| 5qt | 10 or less | 99.9% | 44% | 73% | 80% | 99.6% | 99.9% |
-| 5qt | 11 or less | 99.8% | 5.9% | 37% | 38% | 94% | 99.4% |
-| 5qt | 12 or less | 98% | 0 | 13% | 13% | 59% | 95% |
-| 5qt | 13 or less | 86% | 0 | 1.2% | 1.2% | 7.9% | 66% |
+| Corner qt | Finish needed | DRs with no such finish | Longer HTR proves it | Corner length with parity proves it | Either one | Setup + HTR says no (not a proof: share of the finishes in T it is wrong about) | NISS@DR table | Everything visible |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| 1–2qt | 9 or less | 99.5% | 8.8% | 4.2% | 10% | 50% (5.9%) | 88% | 98% |
+| 1–2qt | 10 or less | 98% | 3.2% | 1.4% | 3.8% | 32% (6.6%) | 57% | 90% |
+| 1–2qt | 11 or less | 90% | 0.15% | 0.23% | 0.37% | 16% (5.2%) | 16% | 66% |
+| 1–2qt | 12 or less | 65% | 0 | 0 | 0 | 6.5% (3.3%) | 3.8% | 24% |
+| 1–2qt | 13 or less | 21% | 0 | 0 | 0 | 2.4% (1.9%) | 0.74% | 3.8% |
+| 3qt | 9 or less | 99.9% | 23% | 29% | 37% | 42% (0.15%) | 95% | 99.5% |
+| 3qt | 10 or less | 99.1% | 4.6% | 12% | 13% | 19% (0.03%) | 77% | 97% |
+| 3qt | 11 or less | 95% | 2.2% | 2.5% | 3.6% | 6.2% (0.01%) | 37% | 84% |
+| 3qt | 12 or less | 80% | 0.37% | 0.71% | 1.0% | 1.7% (0) | 9.2% | 49% |
+| 3qt | 13 or less | 41% | 0 | 0 | 0 | 0.24% (<0.01%) | 2.1% | 13% |
+| 4qt | 9 or less | 99.9% | 59% | 72% | 78% | 75% (0) | 99.6% | 99.9% |
+| 4qt | 10 or less | 99.8% | 26% | 48% | 51% | 42% (0) | 96% | 99.6% |
+| 4qt | 11 or less | 99% | 3.9% | 21% | 22% | 19% (0.16%) | 75% | 97% |
+| 4qt | 12 or less | 93% | 0.15% | 5.0% | 5.1% | 2.6% (0.03%) | 34% | 81% |
+| 4qt | 13 or less | 70% | 0 | 0 | 0 | 0.10% (<0.01%) | 5.2% | 41% |
+| 5qt | 9 or less | 99.9% | 97% | 95% | 99.5% | 97% (0) | 99.9% | 99.9% |
+| 5qt | 10 or less | 99.9% | 44% | 73% | 80% | 44% (0) | 99.6% | 99.9% |
+| 5qt | 11 or less | 99.8% | 5.9% | 37% | 38% | 5.9% (0) | 94% | 99.4% |
+| 5qt | 12 or less | 98% | 0 | 13% | 13% | – | 59% | 95% |
+| 5qt | 13 or less | 86% | 0 | 1.2% | 1.2% | – | 7.9% | 66% |
 
 For a 12 the hand bounds prove next to nothing below 5qt. For a 10 they rule out half of the 4qt DRs and 80% of the 5qt ones, and for an 11 a fifth and 38%. So the lower your target, the more a guaranteed bound is worth working out, on the high-qt DRs where it bites.
+
+The setup + HTR bound of section 6 (trangium's 2q bound taken to any qt) is not a proof, because a finish with extra quarter turns can get under it. From 3qt up that almost never happens: it is wrong about 0.2% of the finishes in T at most. It is the hand bound that does something at 3qt, where it rules out 19% of the DRs for a 10 and 6% for an 11, more than the two proven bounds together. At 1–2qt it rules out a third of the DRs for a 10 and a sixth for an 11, and is wrong about 5–7% of those finishes.
 
 Appendix H has every read at every target with more cut-offs (best 10%, 25%, 50%; keeping 90%, 95%, 99%).
 
