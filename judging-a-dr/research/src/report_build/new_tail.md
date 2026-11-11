@@ -104,7 +104,7 @@ Each cell: share finishing in 12 / in 13 (%), for DRs of that subset with that m
 
 ## Appendix E: the 46 corner cases
 
-A corner case is what the corners look like up to rotation, mirror and turning a layer. "Bad corners" says where the bad ones sit for the example (fewest bad corners, shortest corner solution). L is the range of optimal corner solution lengths the case can have. The example scramble, done on a solved cube, gives a state of that case. "A qt takes it straight to" lists the corner subsets one U or D quarter turn can reach with one qt less. Shares are of the corner subset, all edge counts together; odds are for the full finish.
+A corner case is what the corners look like up to rotation, mirror and turning a layer. "Bad corners" says where the bad ones sit for the example (fewest bad corners, shortest corner solution). L is the range of optimal corner solution lengths the case can have. Each case has two scrambles. "A typical DR" is a state of that case whose optimal finish is the median for the case, with that optimal in brackets: this is what the case usually looks like. "Shortest setup" is the shortest scramble that produces those corners, there so you can put the layout on a cube quickly. As a DR it is one of the rare best ones of its case (it finishes in as many moves as the scramble is long), so don't judge the case by it. "A qt takes it straight to" lists the corner subsets one U or D quarter turn can reach with one qt less. Shares are of the corner subset, all edge counts together; odds are for the full finish.
 
 In the both-sides tables the two columns are the case on normal and on inverse, in either order.
 

@@ -1234,6 +1234,9 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
         per: Vec<Best>,
         single: Vec<Best>,
         cl: HashMap<u32, (u8, (usize, usize, usize), u8, (usize, usize, usize), u64)>,
+        // per corner case and optimal length: a state (one with four bad edges if there is one), and how many
+        cc: Vec<Best>,
+        cc_hist: Vec<u64>,
         row: RowDepths,
     }
     let parts = par::for_each_with_local(
@@ -1243,6 +1246,8 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
             per: vec![NONE; nsub * PER],
             single: vec![NONE; NSINGLE],
             cl: HashMap::new(),
+            cc: vec![NONE; 64 * MAXD],
+            cc_hist: vec![0; 64 * MAXD],
             row: RowDepths::new(),
         },
         |local, k| {
@@ -1278,6 +1283,12 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
                     let at = (k, e, s12);
                     let di = d as i64;
                     keep(&mut local.per[sub * PER], di, at);
+                    keep(
+                        &mut local.cc[ccase[a] * MAXD + d],
+                        name.ends_with("4e") as i64,
+                        at,
+                    );
+                    local.cc_hist[ccase[a] * MAXD + d] += w;
                     keep(&mut local.per[sub * PER + 1], -di, at);
                     if d == hn.max(hi) {
                         keep(&mut local.per[sub * PER + 2], di, at);
@@ -1336,6 +1347,8 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
         },
     );
     let mut per = vec![NONE; nsub * PER];
+    let mut cc = vec![NONE; 64 * MAXD];
+    let mut cc_hist = vec![0u64; 64 * MAXD];
     let mut single = vec![NONE; NSINGLE];
     let mut cl: HashMap<u32, (u8, (usize, usize, usize), u8, (usize, usize, usize), u64)> =
         HashMap::new();
@@ -1348,6 +1361,14 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
             if x.score != i64::MIN {
                 keep(t, x.score, x.at);
             }
+        }
+        for (t, x) in cc.iter_mut().zip(&local.cc) {
+            if x.score != i64::MIN {
+                keep(t, x.score, x.at);
+            }
+        }
+        for (t, x) in cc_hist.iter_mut().zip(&local.cc_hist) {
+            *t += *x;
         }
         for (key, v) in local.cl {
             let entry = cl.entry(key).or_insert(v);
@@ -1544,6 +1565,26 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
         } else {
             writeln!(out, "{} :: none", label)?;
         }
+    }
+    // a typical state of every corner case: one whose optimal is the median for that case
+    for case in 0..64 {
+        let hist = &cc_hist[case * MAXD..(case + 1) * MAXD];
+        let total: u64 = hist.iter().sum();
+        if total == 0 {
+            continue;
+        }
+        let mut acc = 0;
+        let median = (0..MAXD)
+            .find(|&d| {
+                acc += hist[d];
+                acc * 2 >= total
+            })
+            .unwrap();
+        show(
+            &mut out,
+            &format!("corner case {} typical", case),
+            cc[case * MAXD + median].at,
+        )?;
     }
     // same subset, same corner case on both sides, same HTR on both sides, optimal furthest apart
     let mut best: Vec<(u32, u8, u8)> = cl.iter().map(|(&key, v)| (key, v.0, v.2)).collect();

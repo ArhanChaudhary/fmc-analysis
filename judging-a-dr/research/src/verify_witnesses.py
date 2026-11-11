@@ -22,6 +22,8 @@ for w, block in zip(wit, out):
     kv = dict(x.split(': ', 1) for x in block.split('\n') if ': ' in x)
     ok = int(kv['optimal']) == w[3] and (w[2] is None or kv['subset'] == w[2]) and (w[4] is None or tuple(map(int, kv['htr'].split())) == w[4]) and (w[5] is None or int(kv['leave_slice']) == w[5])
     ok = ok and len(w[1].split()) == w[3]          # the scramble is itself as short as the optimal
+    m = re.match(r'corner case (\d+) typical', w[0])
+    if m: ok = ok and kv['corner_case'].split()[0] == m.group(1)    # and it really has that corner case
     if not ok: bad += 1; print('MISMATCH', w, kv['subset'], kv['optimal'], kv['htr'])
 print(f'{len(wit)} witnesses re-read from their scrambles, {bad} mismatches')
 for pat in sys.argv[1:]:

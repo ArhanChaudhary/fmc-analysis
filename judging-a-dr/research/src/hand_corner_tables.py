@@ -27,6 +27,12 @@ def layout(mask):
         return f'2-2, {su} over {sd}'
     return f'{len(bad)} bad'
 cc = {r[0]: r for r in load('corner_cases.csv')[1]}   # id -> row
+import re as _re
+_W = open('/data/fmc/judging-a-dr/research/out/witnesses.txt').read().split('\n')
+TYP = {}
+for _i, _l in enumerate(_W):
+    _m = _re.match(r'^corner case (\d+) typical :: (.*)$', _l)
+    if _m: TYP[_m.group(1)] = (_m.group(2).strip() or '(solved)', int(_re.search(r'optimal (\d+)', _W[_i + 1]).group(1)))
 NAME = {}
 def label(k):
     r = cc[k]; return f'{NAME[k]} ({layout(int(r[2]))}, L {r[5]}–{r[6]})'
@@ -39,10 +45,10 @@ for s, a, b, d, c in k1:
 out = []
 for cs in ['0c0', '4a1', '4a2', '4b2', '0c3', '2c3', '4c3', '0c4', '2c4', '4c4', '2c5', '4b5']:
     tot = sum(sum(h) for h in one[cs].values())
-    out.append(f'\n**{cs}**\n\n| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |\n|---|---|---|---|---|---:|---:|---:|---:|')
+    out.append(f'\n**{cs}**\n\n| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |\n|---|---|---|---|---|---|---:|---:|---:|---:|')
     for i, (k, h) in enumerate(sorted(one[cs].items(), key=lambda kv: st(kv[1])[1])):
         NAME[k] = f'{cs}-{i+1}'
-        out.append(f'| {NAME[k]} | {layout(int(cc[k][2]))} | {cc[k][5]}–{cc[k][6]} | `{cc[k][9]}` | {cc[k][10] or "nothing (set up first)"} | {100*sum(h)/tot:.1f}% | {st(h)[1]:.2f} | {P(h,12):.1f}% | {P(h,13):.1f}% |')
+        out.append(f'| {NAME[k]} | {layout(int(cc[k][2]))} | {cc[k][5]}–{cc[k][6]} | `{TYP[k][0]}` ({TYP[k][1]}) | `{cc[k][9]}` | {cc[k][10] or "nothing (set up first)"} | {100*sum(h)/tot:.1f}% | {st(h)[1]:.2f} | {P(h,12):.1f}% | {P(h,13):.1f}% |')
     if len(one[cs]) > 1:
         out.append(f'\n{cs}, corner case on both sides (normal and inverse, either order):\n\n| One side | Other side | Share | Avg optimal | ≤ 12 | ≤ 13 |\n|---|---|---:|---:|---:|---:|')
         for k, h in sorted(two[cs].items(), key=lambda kv: st(kv[1])[1]):

@@ -162,29 +162,29 @@ This is what Daichi, JTuu and wen asked for. There are 46 corner cases once you 
 
 **2c4** (wen's stacks). Seven cases:
 
-| Bad corners | A qt takes it straight to | L | Share of 2c4 | Finishes in 12 | in 13 | A DR with these corners |
+| Bad corners | A qt takes it straight to | L | Share of 2c4 | Finishes in 12 | in 13 | A typical DR with these corners (its optimal) |
 |---|---|---|---:|---:|---:|---|
-| both on one layer, adjacent | 2c3 | 7–10 | 17% | 16.2% | 57% | `U F2 U L2 U' F2 U'` |
-| one up one down, opposite | 4b3 | 8–10 | 8% | 13.2% | 51% | `U' F2 U' L2 U R2 U F2` |
-| both on one layer, adjacent | 2c3 | 7–10 | 17% | 12.5% | 47% | `D F2 U' F2 U R2 U'` |
-| both on one layer, adjacent | nothing, needs a setup | 8–11 | 17% | 7.0% | 33% | `U' R2 U' R2 U F2 U' F2` |
-| one up one down, stacked | 4b3 | 9–11 | 8% | 7.0% | 33% | `D F2 U2 R2 U F2 U' F2 U` |
-| one up one down, opposite | nothing, needs a setup | 8–11 | 17% | 6.4% | 31% | `U' R2 U F2 U' R2 U R2` |
-| one up one down, stacked | nothing, needs a setup | 9–12 | 17% | 4.1% | 23% | `U F2 D' L2 U F2 U' F2 U2` |
+| both on one layer, adjacent | 2c3 | 7–10 | 17% | 16.2% | 57% | `R2 D' B2 F2 L2 D' B2 U B2 D' B2 F2 U2` (13) |
+| one up one down, opposite | 4b3 | 8–10 | 8% | 13.2% | 51% | `R2 B2 F2 U' L2 D2 B2 U' F2 L2 U' L2 U'` (13) |
+| both on one layer, adjacent | 2c3 | 7–10 | 17% | 12.5% | 47% | `F2 U' B2 D' L2 D' L2 U B2 R2 U L2 F2 U'` (14) |
+| both on one layer, adjacent | nothing, needs a setup | 8–11 | 17% | 7.0% | 33% | `B2 D2 R2 U F2 U L2 U' R2 D2 R2 F2 U' R2` (14) |
+| one up one down, stacked | 4b3 | 9–11 | 8% | 7.0% | 33% | `B2 U B2 U2 B2 F2 R2 D B2 L2 U' B2 R2 U'` (14) |
+| one up one down, opposite | nothing, needs a setup | 8–11 | 17% | 6.4% | 31% | `U' L2 D B2 U2 B2 L2 F2 U' L2 B2 D2 U' R2` (14) |
+| one up one down, stacked | nothing, needs a setup | 9–12 | 17% | 4.1% | 23% | `U F2 U' L2 F2 D B2 R2 F2 D2 B2 U' F2 U2` (14) |
 
 Both sides together: best is the first case on both sides, 26% in 12 and 75% in 13. Stacked-with-setup on both sides: 0.6% in 12 and 7.5% in 13. Any pair of stacked cases: 0.6–2.5% in 12. So "double stack" is as dead as a 5qt, and the best layout on both sides is as good as an average 2c3 4e (27%). The fastest any double-stacked 2c4 finishes is 11: `U2 L2 D' F2 U' R2 U F2 D L2 U2`.
 
-**2c5.** Three cases: adjacent on one layer (half of 2c5, 3.4% in 12; `U R2 U F2 U' F2 U R2 U` is one), one up one down opposite (1.9%; `D B2 U' R2 U F2 U' R2 U R2`), stacked (0.6%; `D F2 U' F2 U F2 U' F2 U R2 U2`). Both sides adjacent: 4.7% in 12, 25% in 13. Both sides stacked: **0.0% in 12, 0.6% in 13**, average optimal 15.3. That's 6% of all 2c5 you can drop on sight, and with stacked on one side and opposite on the other (0.2% in 12) it's 19%. The fastest any double-stacked 2c5 finishes is 13: `U2 F2 U' R2 U F2 D' L2 U B2 U' L2 U2`.
+**2c5.** Three cases: adjacent on one layer (half of 2c5, 3.4% in 12; a typical one is `D' R2 D R2 U2 L2 D' F2 U' R2 U F2 L2 U2` (14)), one up one down opposite (1.9%; typical: `B2 D U2 F2 U L2 U R2 U2 L2 U' F2 U' R2` (14)), stacked (0.6%; typical: `B2 D' B2 D' B2 R2 D2 L2 U' F2 D F2 L2 U R2` (15)). Both sides adjacent: 4.7% in 12, 25% in 13. Both sides stacked: **0.0% in 12, 0.6% in 13**, average optimal 15.3. That's 6% of all 2c5 you can drop on sight, and with stacked on one side and opposite on the other (0.2% in 12) it's 19%. The fastest any double-stacked 2c5 finishes is 13: `U2 F2 U' R2 U F2 D' L2 U B2 U' L2 U2`.
 
-**4c3** (JTuu's question). Nine cases, seven of them 4a3 and two 4b3. By the case you see on one side, the share finishing in 12 runs from 21.6% (a 4a3 with L 7–9, for example `D B2 U F2 U2 R2 U`) down to 3.6% (a 4a3 with L 9–11, for example `D' B2 U' F2 U2 R2 U F2 U2`). The two 4b3 cases sit in the middle at 13.5% and 11.4%. With both sides: 23% down to 3%.
+**4c3** (JTuu's question). Nine cases, seven of them 4a3 and two 4b3. By the case you see on one side, the share finishing in 12 runs from 21.6% (a 4a3 with L 7–9; a typical one is `D R2 D' F2 D' B2 R2 B2 U L2 D2 U' R2` (13)) down to 3.6% (a 4a3 with L 9–11; typical: `D' L2 U F2 D' B2 L2 U' R2 U L2 D F2 U'` (14)). The two 4b3 cases sit in the middle at 13.5% and 11.4%. With both sides: 23% down to 3%.
 
-**4b2** (Daichi's four). They are exactly his list: 2-2 with L 3–6 (44% in 12; `U R2 U'`), 3-1 with L 4–7 (40%; `D' F2 U' F2`), 3-1 with L 5–8 (33%; `U' L2 U' F2 U2`), 2-2 with L 6–9 (30%; `D F2 U R2 U2 F2`). Both sides good 2-2: 50%. Both sides bad 2-2: 21%.
+**4b2** (Daichi's four). They are exactly his list: 2-2 with L 3–6 (44% in 12; typical: `U' L2 D' L2 U' F2 U L2 U2 R2 D' R2 U'` (13)), 3-1 with L 4–7 (40%; `U' L2 D' L2 U B2 D2 B2 U' L2 U B2 D'` (13)), 3-1 with L 5–8 (33%; `R2 U L2 R2 D L2 U' B2 F2 R2 D' R2 D2` (13)), 2-2 with L 6–9 (30%; `B2 D2 L2 D R2 F2 D' L2 B2 F2 D' U' L2` (13)). Both sides good 2-2: 50%. Both sides bad 2-2: 21%.
 
-**4a2.** The widest spread of the low-qt subsets: 31% in 12 for the best case (L 5–8; `U R2 U2 F2 U`) down to 9% for the worst (L 8–11; `D R2 U2 F2 U F2 U2 R2`). Both sides worst: 2.3%.
+**4a2.** The widest spread of the low-qt subsets: 31% in 12 for the best case (L 5–8; typical: `F2 R2 U B2 F2 U' L2 R2 U' R2 D2 F2 U` (13)) down to 9% for the worst (L 8–11; typical: `B2 R2 U2 R2 U' B2 R2 U2 R2 D B2 L2 U2 L2` (14)). Both sides worst: 2.3%.
 
 **4c4**: 0.6% to 4.3%. **4b5**: 1.3% to 2.2%, nothing to see.
 
-Appendix E lists all 46 cases with an example scramble for each, the L range (the optimal corner solution lengths the case can have, which is what Evan asked for), and the both-sides tables.
+The scrambles quoted here are typical DRs of each case, with their optimal in brackets: a state whose optimal is the median for that case. Appendix E lists all 46 cases with a typical DR and the shortest setup for each, the L range (the optimal corner solution lengths the case can have, which is what Evan asked for), and the both-sides tables.
 
 A warning: the bad corner *positions* don't always tell you the case. 2c4 has three different "both on one layer, adjacent" cases, at 16%, 12.5% and 7%. What separates them is the corner permutation, which you get the way you already get the subset (tracing, or whatever corner-case system you use). The column "a qt takes it straight to" is the quick tell: if some U or D quarter turn drops the corner qt count right away, you're in one of the good ones.
 

@@ -1,18 +1,18 @@
 
 **0c0**
 
-| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---:|---:|---:|---:|
-| 0c0-1 | none bad | 0–5 | `` | nothing (set up first) | 100.0% | 12.28 | 53.7% | 89.9% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---:|---:|---:|---:|
+| 0c0-1 | none bad | 0–5 | `R2 U' F2 R2 D L2 B2 R2 U L2 U R2` (12) | `` | nothing (set up first) | 100.0% | 12.28 | 53.7% | 89.9% |
 
 **4a1**
 
-| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---:|---:|---:|---:|
-| 4a1-1 | 4-0 | 1–4 | `D` | 0c0 | 16.7% | 12.30 | 52.5% | 90.7% |
-| 4a1-2 | 2-2, pairs on opposite sides | 2–5 | `D B2` | nothing (set up first) | 33.3% | 12.36 | 50.1% | 90.7% |
-| 4a1-3 | 2-2, pairs stacked | 3–6 | `D B2 D2` | nothing (set up first) | 33.3% | 12.48 | 44.7% | 88.1% |
-| 4a1-4 | 2-2, diagonal over diagonal | 4–7 | `D' R2 D2 F2` | nothing (set up first) | 16.7% | 12.54 | 42.3% | 85.8% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---:|---:|---:|---:|
+| 4a1-1 | 4-0 | 1–4 | `U2 F2 R2 B2 U B2 U2 B2 U2 R2 F2 U2` (12) | `D` | 0c0 | 16.7% | 12.30 | 52.5% | 90.7% |
+| 4a1-2 | 2-2, pairs on opposite sides | 2–5 | `B2 U' F2 D F2 L2 U2 B2 D2 B2 U' L2` (12) | `D B2` | nothing (set up first) | 33.3% | 12.36 | 50.1% | 90.7% |
+| 4a1-3 | 2-2, pairs stacked | 3–6 | `R2 U' B2 L2 D2 B2 D2 B2 D B2 U' F2 U2` (13) | `D B2 D2` | nothing (set up first) | 33.3% | 12.48 | 44.7% | 88.1% |
+| 4a1-4 | 2-2, diagonal over diagonal | 4–7 | `D2 B2 U L2 D' B2 R2 B2 D' L2 D' U' F2` (13) | `D' R2 D2 F2` | nothing (set up first) | 16.7% | 12.54 | 42.3% | 85.8% |
 
 4a1, corner case on both sides (normal and inverse, either order):
 
@@ -31,12 +31,12 @@
 
 **4a2**
 
-| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---:|---:|---:|---:|
-| 4a2-1 | 2-2, diagonal over diagonal | 5–8 | `U R2 U2 F2 U` | 4a1 | 16.7% | 12.86 | 31.0% | 72.3% |
-| 4a2-2 | 2-2, pairs stacked | 6–9 | `D' B2 D2 R2 U R2` | nothing (set up first) | 33.3% | 13.14 | 22.4% | 60.5% |
-| 4a2-3 | 2-2, pairs on opposite sides | 7–10 | `U' R2 U2 F2 U R2 U2` | nothing (set up first) | 33.3% | 13.58 | 12.4% | 41.6% |
-| 4a2-4 | 4-0 | 8–11 | `D R2 U2 F2 U F2 U2 R2` | nothing (set up first) | 16.7% | 13.80 | 9.3% | 33.4% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---:|---:|---:|---:|
+| 4a2-1 | 2-2, diagonal over diagonal | 5–8 | `F2 R2 U B2 F2 U' L2 R2 U' R2 D2 F2 U` (13) | `U R2 U2 F2 U` | 4a1 | 16.7% | 12.86 | 31.0% | 72.3% |
+| 4a2-2 | 2-2, pairs stacked | 6–9 | `B2 L2 D' L2 D2 B2 D F2 R2 U2 R2 F2 D2` (13) | `D' B2 D2 R2 U R2` | nothing (set up first) | 33.3% | 13.14 | 22.4% | 60.5% |
+| 4a2-3 | 2-2, pairs on opposite sides | 7–10 | `D R2 U2 L2 R2 B2 U' B2 R2 U B2 U2 R2 U'` (14) | `U' R2 U2 F2 U R2 U2` | nothing (set up first) | 33.3% | 13.58 | 12.4% | 41.6% |
+| 4a2-4 | 4-0 | 8–11 | `B2 R2 U2 R2 U' B2 R2 U2 R2 D B2 L2 U2 L2` (14) | `D R2 U2 F2 U F2 U2 R2` | nothing (set up first) | 16.7% | 13.80 | 9.3% | 33.4% |
 
 4a2, corner case on both sides (normal and inverse, either order):
 
@@ -55,12 +55,12 @@
 
 **4b2**
 
-| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---:|---:|---:|---:|
-| 4b2-1 | 2-2, pairs sharing one column | 3–6 | `U R2 U'` | 4a1 | 16.7% | 12.50 | 43.9% | 88.3% |
-| 4b2-2 | 3-1 | 4–7 | `D' F2 U' F2` | nothing (set up first) | 33.3% | 12.61 | 39.6% | 85.6% |
-| 4b2-3 | 3-1 | 5–8 | `U' L2 U' F2 U2` | nothing (set up first) | 33.3% | 12.76 | 33.1% | 80.7% |
-| 4b2-4 | 2-2, pairs sharing one column | 6–9 | `D F2 U R2 U2 F2` | nothing (set up first) | 16.7% | 12.85 | 29.6% | 77.5% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---:|---:|---:|---:|
+| 4b2-1 | 2-2, pairs sharing one column | 3–6 | `U' L2 D' L2 U' F2 U L2 U2 R2 D' R2 U'` (13) | `U R2 U'` | 4a1 | 16.7% | 12.50 | 43.9% | 88.3% |
+| 4b2-2 | 3-1 | 4–7 | `U' L2 D' L2 U B2 D2 B2 U' L2 U B2 D'` (13) | `D' F2 U' F2` | nothing (set up first) | 33.3% | 12.61 | 39.6% | 85.6% |
+| 4b2-3 | 3-1 | 5–8 | `R2 U L2 R2 D L2 U' B2 F2 R2 D' R2 D2` (13) | `U' L2 U' F2 U2` | nothing (set up first) | 33.3% | 12.76 | 33.1% | 80.7% |
+| 4b2-4 | 2-2, pairs sharing one column | 6–9 | `B2 D2 L2 D R2 F2 D' L2 B2 F2 D' U' L2` (13) | `D F2 U R2 U2 F2` | nothing (set up first) | 16.7% | 12.85 | 29.6% | 77.5% |
 
 4b2, corner case on both sides (normal and inverse, either order):
 
@@ -79,10 +79,10 @@
 
 **0c3**
 
-| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---:|---:|---:|---:|
-| 0c3-1 | none bad | 9–12 | `D' R2 D2 F2 U F2 U2 R2 U` | 4a2 | 33.3% | 14.29 | 4.0% | 17.8% |
-| 0c3-2 | none bad | 10–12 | `U L2 D2 F2 U F2 U2 R2 U R2` | nothing (set up first) | 66.7% | 14.54 | 1.9% | 11.1% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---:|---:|---:|---:|
+| 0c3-1 | none bad | 9–12 | `R2 U F2 U2 L2 D' L2 U B2 U2 L2 U' F2 U'` (14) | `D' R2 D2 F2 U F2 U2 R2 U` | 4a2 | 33.3% | 14.29 | 4.0% | 17.8% |
+| 0c3-2 | none bad | 10–12 | `L2 B2 D L2 F2 U2 F2 D L2 U2 B2 U' L2 B2 U2` (15) | `U L2 D2 F2 U F2 U2 R2 U R2` | nothing (set up first) | 66.7% | 14.54 | 1.9% | 11.1% |
 
 0c3, corner case on both sides (normal and inverse, either order):
 
@@ -94,11 +94,11 @@
 
 **2c3**
 
-| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---:|---:|---:|---:|
-| 2c3-1 | 1 up 1 down, stacked | 5–8 | `D' F2 D' L2 U'` | 4b2 | 25.0% | 12.68 | 36.9% | 83.4% |
-| 2c3-2 | 1 up 1 down, opposite | 5–8 | `U' R2 U' R2 U` | 4b2 | 25.0% | 12.87 | 29.2% | 75.3% |
-| 2c3-3 | both on one layer, adjacent | 6–9 | `U R2 U' F2 U F2` | nothing (set up first) | 50.0% | 13.08 | 22.3% | 66.1% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---:|---:|---:|---:|
+| 2c3-1 | 1 up 1 down, stacked | 5–8 | `R2 D' F2 D' R2 D2 F2 R2 U F2 D' L2 U'` (13) | `D' F2 D' L2 U'` | 4b2 | 25.0% | 12.68 | 36.9% | 83.4% |
+| 2c3-2 | 1 up 1 down, opposite | 5–8 | `L2 D2 B2 D R2 D' B2 L2 D R2 U B2 U'` (13) | `U' R2 U' R2 U` | 4b2 | 25.0% | 12.87 | 29.2% | 75.3% |
+| 2c3-3 | both on one layer, adjacent | 6–9 | `L2 B2 F2 D' R2 F2 D' F2 D2 U' F2 L2 D2` (13) | `U R2 U' F2 U F2` | nothing (set up first) | 50.0% | 13.08 | 22.3% | 66.1% |
 
 2c3, corner case on both sides (normal and inverse, either order):
 
@@ -113,17 +113,17 @@
 
 **4c3**
 
-| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---:|---:|---:|---:|
-| 4c3-1 | 2-2, pairs on opposite sides | 7–9 | `D B2 U F2 U2 R2 U` | 4b2 | 8.3% | 13.06 | 21.6% | 68.1% |
-| 4c3-2 | 2-2, pairs stacked | 7–9 | `D' R2 D' B2 U2 R2 U` | 4b2 | 8.3% | 13.21 | 17.6% | 59.6% |
-| 4c3-3 | 4-0 | 8–9 | `D' R2 U B2 U2 R2 U R2` | nothing (set up first) | 4.2% | 13.27 | 15.2% | 57.0% |
-| 4c3-4 | 2-2, pairs sharing one column | 7–10 | `D' B2 U2 R2 U F2 U` | 4a2 | 16.7% | 13.45 | 13.5% | 47.2% |
-| 4c3-5 | 3-1 | 8–11 | `D B2 D2 R2 U F2 U' R2` | nothing (set up first) | 33.3% | 13.51 | 11.4% | 45.1% |
-| 4c3-6 | 2-2, diagonal over diagonal | 8–10 | `U' F2 U' R2 U2 F2 U F2` | nothing (set up first) | 8.3% | 13.52 | 10.3% | 43.0% |
-| 4c3-7 | 2-2, pairs stacked | 8–10 | `U' L2 U' R2 U2 F2 U F2` | nothing (set up first) | 8.3% | 13.59 | 9.4% | 39.8% |
-| 4c3-8 | 4-0 | 9–10 | `U' F2 D R2 U2 F2 U R2 U2` | nothing (set up first) | 4.2% | 13.83 | 5.1% | 28.5% |
-| 4c3-9 | 2-2, pairs on opposite sides | 9–11 | `D' B2 U' F2 U2 R2 U F2 U2` | nothing (set up first) | 8.3% | 14.00 | 3.6% | 21.5% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---:|---:|---:|---:|
+| 4c3-1 | 2-2, pairs on opposite sides | 7–9 | `D R2 D' F2 D' B2 R2 B2 U L2 D2 U' R2` (13) | `D B2 U F2 U2 R2 U` | 4b2 | 8.3% | 13.06 | 21.6% | 68.1% |
+| 4c3-2 | 2-2, pairs stacked | 7–9 | `R2 U' F2 U R2 B2 D L2 U2 R2 U' R2 U'` (13) | `D' R2 D' B2 U2 R2 U` | 4b2 | 8.3% | 13.21 | 17.6% | 59.6% |
+| 4c3-3 | 4-0 | 8–9 | `D2 B2 D' B2 U' B2 D2 L2 U' L2 U' F2 U'` (13) | `D' R2 U B2 U2 R2 U R2` | nothing (set up first) | 4.2% | 13.27 | 15.2% | 57.0% |
+| 4c3-4 | 2-2, pairs sharing one column | 7–10 | `R2 D2 R2 U L2 U' B2 R2 B2 U L2 D F2 U'` (14) | `D' B2 U2 R2 U F2 U` | 4a2 | 16.7% | 13.45 | 13.5% | 47.2% |
+| 4c3-5 | 3-1 | 8–11 | `R2 F2 U' B2 D' B2 R2 D' R2 D R2 U2 L2 U'` (14) | `D B2 D2 R2 U F2 U' R2` | nothing (set up first) | 33.3% | 13.51 | 11.4% | 45.1% |
+| 4c3-6 | 2-2, diagonal over diagonal | 8–10 | `B2 F2 U' F2 L2 U R2 U2 L2 R2 B2 D' F2 L2` (14) | `U' F2 U' R2 U2 F2 U F2` | nothing (set up first) | 8.3% | 13.52 | 10.3% | 43.0% |
+| 4c3-7 | 2-2, pairs stacked | 8–10 | `D' L2 U' F2 D' F2 L2 D' L2 U B2 U2 R2 U2` (14) | `U' L2 U' R2 U2 F2 U F2` | nothing (set up first) | 8.3% | 13.59 | 9.4% | 39.8% |
+| 4c3-8 | 4-0 | 9–10 | `D' F2 U L2 D' L2 R2 U' B2 U R2 D F2 U'` (14) | `U' F2 D R2 U2 F2 U R2 U2` | nothing (set up first) | 4.2% | 13.83 | 5.1% | 28.5% |
+| 4c3-9 | 2-2, pairs on opposite sides | 9–11 | `D' L2 U F2 D' B2 L2 U' R2 U L2 D F2 U'` (14) | `D' B2 U' F2 U2 R2 U F2 U2` | nothing (set up first) | 8.3% | 14.00 | 3.6% | 21.5% |
 
 4c3, corner case on both sides (normal and inverse, either order):
 
@@ -146,21 +146,21 @@
 
 **0c4**
 
-| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---:|---:|---:|---:|
-| 0c4-1 | none bad | 9–10 | `U' F2 D L2 U2 F2 U F2 U'` | 4a3 | 100.0% | 13.67 | 6.7% | 35.8% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---:|---:|---:|---:|
+| 0c4-1 | none bad | 9–10 | `B2 U R2 B2 U' L2 B2 D2 B2 U B2 R2 D2 U'` (14) | `U' F2 D L2 U2 F2 U F2 U'` | 4a3 | 100.0% | 13.67 | 6.7% | 35.8% |
 
 **2c4**
 
-| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---:|---:|---:|---:|
-| 2c4-1 | both on one layer, adjacent | 7–10 | `U F2 U L2 U' F2 U'` | 2c3 | 16.7% | 13.27 | 16.2% | 56.7% |
-| 2c4-2 | 1 up 1 down, opposite | 8–10 | `U' F2 U' L2 U R2 U F2` | 4b3 | 8.3% | 13.39 | 13.2% | 50.9% |
-| 2c4-3 | both on one layer, adjacent | 7–10 | `D F2 U' F2 U R2 U'` | 2c3 | 16.7% | 13.45 | 12.5% | 47.3% |
-| 2c4-4 | both on one layer, adjacent | 8–11 | `U' R2 U' R2 U F2 U' F2` | nothing (set up first) | 16.7% | 13.77 | 7.0% | 32.5% |
-| 2c4-5 | 1 up 1 down, stacked | 9–11 | `D F2 U2 R2 U F2 U' F2 U` | 4b3 | 8.3% | 13.77 | 7.0% | 33.1% |
-| 2c4-6 | 1 up 1 down, opposite | 8–11 | `U' R2 U F2 U' R2 U R2` | nothing (set up first) | 16.7% | 13.80 | 6.4% | 30.8% |
-| 2c4-7 | 1 up 1 down, stacked | 9–12 | `U F2 D' L2 U F2 U' F2 U2` | nothing (set up first) | 16.7% | 14.01 | 4.1% | 22.9% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---:|---:|---:|---:|
+| 2c4-1 | both on one layer, adjacent | 7–10 | `R2 D' B2 F2 L2 D' B2 U B2 D' B2 F2 U2` (13) | `U F2 U L2 U' F2 U'` | 2c3 | 16.7% | 13.27 | 16.2% | 56.7% |
+| 2c4-2 | 1 up 1 down, opposite | 8–10 | `R2 B2 F2 U' L2 D2 B2 U' F2 L2 U' L2 U'` (13) | `U' F2 U' L2 U R2 U F2` | 4b3 | 8.3% | 13.39 | 13.2% | 50.9% |
+| 2c4-3 | both on one layer, adjacent | 7–10 | `F2 U' B2 D' L2 D' L2 U B2 R2 U L2 F2 U'` (14) | `D F2 U' F2 U R2 U'` | 2c3 | 16.7% | 13.45 | 12.5% | 47.3% |
+| 2c4-4 | both on one layer, adjacent | 8–11 | `B2 D2 R2 U F2 U L2 U' R2 D2 R2 F2 U' R2` (14) | `U' R2 U' R2 U F2 U' F2` | nothing (set up first) | 16.7% | 13.77 | 7.0% | 32.5% |
+| 2c4-5 | 1 up 1 down, stacked | 9–11 | `B2 U B2 U2 B2 F2 R2 D B2 L2 U' B2 R2 U'` (14) | `D F2 U2 R2 U F2 U' F2 U` | 4b3 | 8.3% | 13.77 | 7.0% | 33.1% |
+| 2c4-6 | 1 up 1 down, opposite | 8–11 | `U' L2 D B2 U2 B2 L2 F2 U' L2 B2 D2 U' R2` (14) | `U' R2 U F2 U' R2 U R2` | nothing (set up first) | 16.7% | 13.80 | 6.4% | 30.8% |
+| 2c4-7 | 1 up 1 down, stacked | 9–12 | `U F2 U' L2 F2 D B2 R2 F2 D2 B2 U' F2 U2` (14) | `U F2 D' L2 U F2 U' F2 U2` | nothing (set up first) | 16.7% | 14.01 | 4.1% | 22.9% |
 
 2c4, corner case on both sides (normal and inverse, either order):
 
@@ -197,14 +197,14 @@
 
 **4c4**
 
-| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---:|---:|---:|---:|
-| 4c4-1 | 2-2, diagonal over diagonal | 9–10 | `U' R2 U' R2 U2 F2 U R2 U` | 4a3 | 8.3% | 13.97 | 4.3% | 23.4% |
-| 4c4-2 | 2-2, pairs sharing one column | 9–11 | `U' R2 U' F2 U2 R2 U R2 U` | 4a3 | 16.7% | 14.25 | 2.5% | 15.0% |
-| 4c4-3 | 2-2, pairs stacked | 10–11 | `U L2 D' B2 U2 R2 U F2 U' R2` | nothing (set up first) | 16.7% | 14.27 | 1.9% | 13.1% |
-| 4c4-4 | 3-1 | 10–12 | `D' R2 D' B2 U2 R2 U R2 U' R2` | nothing (set up first) | 33.3% | 14.48 | 1.2% | 9.3% |
-| 4c4-5 | 2-2, pairs on opposite sides | 11–12 | `D B2 U' L2 U2 F2 U R2 U' R2 U2` | nothing (set up first) | 16.7% | 14.60 | 0.6% | 6.0% |
-| 4c4-6 | 4-0 | 11–12 | `D F2 U2 R2 U F2 U2 R2 U F2 U` | 0c3 | 8.3% | 14.71 | 0.6% | 5.6% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---:|---:|---:|---:|
+| 4c4-1 | 2-2, diagonal over diagonal | 9–10 | `L2 B2 D2 B2 D' L2 B2 D B2 U2 R2 U' R2 U'` (14) | `U' R2 U' R2 U2 F2 U R2 U` | 4a3 | 8.3% | 13.97 | 4.3% | 23.4% |
+| 4c4-2 | 2-2, pairs sharing one column | 9–11 | `F2 U B2 R2 U' R2 D2 F2 D' B2 R2 U2 R2 U'` (14) | `U' R2 U' F2 U2 R2 U R2 U` | 4a3 | 16.7% | 14.25 | 2.5% | 15.0% |
+| 4c4-3 | 2-2, pairs stacked | 10–11 | `B2 L2 F2 U' R2 U F2 U' L2 D L2 U L2 D` (14) | `U L2 D' B2 U2 R2 U F2 U' R2` | nothing (set up first) | 16.7% | 14.27 | 1.9% | 13.1% |
+| 4c4-4 | 3-1 | 10–12 | `U' F2 D' L2 B2 D2 F2 U F2 R2 U2 R2 U F2 R2` (15) | `D' R2 D' B2 U2 R2 U R2 U' R2` | nothing (set up first) | 33.3% | 14.48 | 1.2% | 9.3% |
+| 4c4-5 | 2-2, pairs on opposite sides | 11–12 | `R2 B2 D R2 U' B2 U' F2 D F2 U' F2 U L2 U2` (15) | `D B2 U' L2 U2 F2 U R2 U' R2 U2` | nothing (set up first) | 16.7% | 14.60 | 0.6% | 6.0% |
+| 4c4-6 | 4-0 | 11–12 | `B2 U R2 F2 D2 F2 D' F2 R2 D2 R2 D' F2 R2 U'` (15) | `D F2 U2 R2 U F2 U2 R2 U F2 U` | 0c3 | 8.3% | 14.71 | 0.6% | 5.6% |
 
 4c4, corner case on both sides (normal and inverse, either order):
 
@@ -221,11 +221,11 @@
 
 **2c5**
 
-| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---:|---:|---:|---:|
-| 2c5-1 | both on one layer, adjacent | 9–12 | `U R2 U F2 U' F2 U R2 U` | 2c4 | 50.0% | 14.12 | 3.4% | 19.4% |
-| 2c5-2 | 1 up 1 down, opposite | 10–13 | `D B2 U' R2 U F2 U' R2 U R2` | 4b4 | 25.0% | 14.34 | 1.9% | 12.9% |
-| 2c5-3 | 1 up 1 down, stacked | 11–13 | `D F2 U' F2 U F2 U' F2 U R2 U2` | 4b4 | 25.0% | 14.72 | 0.6% | 6.0% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---:|---:|---:|---:|
+| 2c5-1 | both on one layer, adjacent | 9–12 | `D' R2 D R2 U2 L2 D' F2 U' R2 U F2 L2 U2` (14) | `U R2 U F2 U' F2 U R2 U` | 2c4 | 50.0% | 14.12 | 3.4% | 19.4% |
+| 2c5-2 | 1 up 1 down, opposite | 10–13 | `B2 D U2 F2 U L2 U R2 U2 L2 U' F2 U' R2` (14) | `D B2 U' R2 U F2 U' R2 U R2` | 4b4 | 25.0% | 14.34 | 1.9% | 12.9% |
+| 2c5-3 | 1 up 1 down, stacked | 11–13 | `B2 D' B2 D' B2 R2 D2 L2 U' F2 D F2 L2 U R2` (15) | `D F2 U' F2 U F2 U' F2 U R2 U2` | 4b4 | 25.0% | 14.72 | 0.6% | 6.0% |
 
 2c5, corner case on both sides (normal and inverse, either order):
 
@@ -240,10 +240,10 @@
 
 **4b5**
 
-| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---:|---:|---:|---:|
-| 4b5-1 | 3-1 | 9–12 | `U' L2 D F2 U' R2 U F2 U` | 2c4 | 66.7% | 14.23 | 2.2% | 15.1% |
-| 4b5-2 | 2-2, pairs sharing one column | 10–12 | `D F2 U R2 U' R2 U R2 U F2` | 4a4 | 33.3% | 14.37 | 1.3% | 10.7% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---:|---:|---:|---:|
+| 4b5-1 | 3-1 | 9–12 | `D' L2 F2 U' B2 D B2 L2 D B2 F2 R2 D' U2` (14) | `U' L2 D F2 U' R2 U F2 U` | 2c4 | 66.7% | 14.23 | 2.2% | 15.1% |
+| 4b5-2 | 2-2, pairs sharing one column | 10–12 | `R2 D' L2 U L2 U' B2 U L2 F2 U' L2 B2 D2` (14) | `D F2 U R2 U' R2 U R2 U F2` | 4a4 | 33.3% | 14.37 | 1.3% | 10.7% |
 
 4b5, corner case on both sides (normal and inverse, either order):
 
