@@ -12,7 +12,7 @@ This is long because most of it is reference. You don't have to read it front to
 
 - **If you read one thing**: the table in [section 1](#1-what-id-do-per-subset). For each kind of DR it says how often it finishes short, what to look at, when to drop it, and what not to conclude.
 - **If you have five minutes**: the [Introduction](#introduction), then [section 4](#4-how-much-can-a-read-tell-you), which measures how much any read can tell you for the finish you need (10, 11, 12 or 13).
-- **To see it on real DRs**: the examples file that goes with this doc, eleven DRs read step by step.
+- **To see it on real DRs**: the examples file that goes with this doc: eleven DRs read step by step, then 100 scrambles with the DRs on the page and the answers folded away.
 - **Everything from section 9 on** is checking and reference: the 216 cases, the proof, how it was computed, and eight appendices of tables to look things up in.
 
 ## Contents
@@ -20,7 +20,7 @@ This is long because most of it is reference. You don't have to read it front to
 | Section | What is in it | Size |
 |---|---|---|
 | [Introduction](#introduction) | The question, which finish matters, and what came out. | 950 words |
-| [1. What I'd do per subset](#1-what-id-do-per-subset) | **The one to read.** For each of the 12 corner subsets: how often it finishes in 10, 11 and 12, what to read, when to drop it for the finish you need, what not to conclude. | 4,900 words |
+| [1. What I'd do per subset](#1-what-id-do-per-subset) | **The one to read.** For each of the 12 corner subsets: how often it finishes in 10, 11 and 12, what to read, when to drop it for the finish you need, what not to conclude. | 4,950 words |
 | [2. What people asked for](#2-what-people-asked-for) | The gap in the solvers' own words, and the sixteen questions from the server that are answered here. | 500 words |
 | [3. The data](#3-the-data) | What was computed, and what "optimal" and "in 11" mean. | 200 words |
 | [4. How much can a read tell you?](#4-how-much-can-a-read-tell-you) | Every read against the exact finish, for each finish you might need from 9 to 13: ranking, throwing away, plain rules with their price, what is proven. Zagros's two hunches. | 3,550 words |
@@ -116,6 +116,8 @@ Read it row by row, not from the last row. The last row counts every DR state on
 - **4qt**: drops 81%, loses 36% of the finishes in 11. If you'd skip 4qt anyway, read that the other way round: the 2c4s the list keeps are 19% of 4qt and hold 64% of its finishes in 11.
 - **5qt**: all dropped. 0.24% of 5qt DRs finish in 11.
 - **All DR states**: 57% dropped, 92% of the finishes in 11 and 96% of those in 10 kept.
+
+On real scrambles the price is smaller still, because the short DRs carry most of the result. Over the 491 of 500 random scrambles that have an EO-first DR of 10 moves or less: finish every DR of 10 or less and every 11-mover, optimally, and the best solution averages 19.96 (668 DRs per scramble). Finish only the 11-movers the list keeps and it averages 19.98 (337 DRs). The tally is at the end of the examples page.
 
 If you have the HTR lengths, do the 4c3 line as "9+ on both sides, toss" instead: it drops about as many and loses 17% of the 4c3 finishes in 11 instead of 28%.
 

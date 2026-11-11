@@ -34,6 +34,8 @@ Read it row by row, not from the last row. The last row counts every DR state on
 - **5qt**: all dropped. {= PRUNE('base',11,'5qt') =} of 5qt DRs finish in 11.
 - **All DR states**: {= PRUNE('drop') =} dropped, {= PRUNE('keep',11) =} of the finishes in 11 and {= PRUNE('keep',10) =} of those in 10 kept.
 
+On real scrambles the price is smaller still, because the short DRs carry most of the result. Over the {= ATT('have') =} of {= ATT('n') =} random scrambles that have an EO-first DR of 10 moves or less: finish every DR of 10 or less and every 11-mover, optimally, and the best solution averages {= ATT('res_all') =} ({= ATT('drs_all') =} DRs per scramble). Finish only the 11-movers the list keeps and it averages {= ATT('res_kept') =} ({= ATT('drs_kept') =} DRs). The tally is at the end of the examples page.
+
 If you have the HTR lengths, do the 4c3 line as "9+ on both sides, toss" instead: it drops about as many and loses {= LOSS('4c3', lambda e, a, b, tp, lo, hi: lo >= 9) =} of the 4c3 finishes in 11 instead of {= LOSS('4c3', 'list') =}.
 
 The table, subset by subset:

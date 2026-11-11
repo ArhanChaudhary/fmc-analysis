@@ -70,6 +70,25 @@ def LOSS(cs, rule, T=11):
 def PRUNE_HIGHQT():
     """Share of the DRs the list drops that are 4qt or 5qt."""
     tot = sum(_prune()[1]); return f"{100 * (sum(_prune('4qt')[1]) + sum(_prune('5qt')[1])) / tot:.0f}%"
+def _attempts():
+    """Rows of out/hand/attempt_run.csv (many_examples.py --rerun): per random scramble, every EO-first DR up to 12
+    moves by length class, with the best solution through them (optimal finishes) with and without the prune list."""
+    import csv
+    with open(pv.H + 'attempt_run.csv') as f:
+        rd = csv.reader(l for l in f if not l.startswith('#')); head = next(rd)
+        return [dict(zip(head, map(int, r))) for r in rd]
+def ATT(what):
+    """The prune list on the 11-movers of real scrambles.  'n': scrambles in the run; 'have': those with a DR of 10
+    moves or less; 'drs_all' / 'drs_kept': DRs to finish per scramble (10 or less, plus every 11-mover / plus the
+    kept ones); 'res_all' / 'res_kept': average best solution."""
+    run = _attempts(); have = [x for x in run if x['n9'] + x['n10'] > 0]; a = lambda xs: sum(xs) / len(have)
+    if what == 'n': return str(len(run))
+    if what == 'have': return str(len(have))
+    if what == 'drs_all': return f"{a(x['n9'] + x['n10'] + x['n11'] for x in have):,.0f}"
+    if what == 'drs_kept': return f"{a(x['n9'] + x['n10'] + x['kept11'] for x in have):,.0f}"
+    if what == 'res_all': return f"{a(min(x['best9'], x['best10'], x['best11']) for x in have):.2f}"
+    if what == 'res_kept': return f"{a(min(x['best9'], x['best10'], x['best_kept11']) for x in have):.2f}"
+    raise KeyError(what)
 def QTSHARE(*groups):
     """Share of all DR states in these qt groups."""
     return pv.num(100 * sum(sum(_prune(g)[0]) for g in groups) / sum(_prune()[0]))
