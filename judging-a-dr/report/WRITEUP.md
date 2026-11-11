@@ -20,11 +20,11 @@ This is long because most of it is reference. You don't have to read it front to
 | Section | What is in it | Size |
 |---|---|---|
 | [Introduction](#introduction) | The question, and what came out, in seven bullets. | 600 words |
-| [1. What I'd do per subset](#1-what-id-do-per-subset) | **The one to read.** For each of the 12 corner subsets: how it finishes, what to read, when to drop it, what not to conclude. | 3,550 words |
+| [1. What I'd do per subset](#1-what-id-do-per-subset) | **The one to read.** For each of the 12 corner subsets: how it finishes, what to read, when to drop it, what not to conclude. | 3,600 words |
 | [2. What people asked for](#2-what-people-asked-for) | The gap in the solvers' own words, and the sixteen questions from the server that are answered here. | 500 words |
 | [3. The data](#3-the-data) | What was computed, and what "optimal" and "in 12" mean. | 200 words |
 | [4. How much can a read tell you?](#4-how-much-can-a-read-tell-you) | The ceiling: every read against the exact finish. Zagros's two hunches. | 550 words |
-| [5. The reads, cheapest first](#5-the-reads-cheapest-first) | What each read is worth, with the tables: [5.1 Subset](#51-subset), [5.2 Pairs](#52-pairs), [5.3 Corner case, on both sides](#53-corner-case-on-both-sides), [5.4 HTR length on both sides](#54-htr-length-on-both-sides), [5.5 Corner length and E-slice parity](#55-corner-length-and-e-slice-parity), [5.6 The last DR move](#56-the-last-dr-move). | 2,900 words |
+| [5. The reads, cheapest first](#5-the-reads-cheapest-first) | What each read is worth, with the tables: [5.1 Subset](#51-subset), [5.2 Pairs](#52-pairs), [5.3 Corner case, on both sides](#53-corner-case-on-both-sides), [5.4 HTR length on both sides](#54-htr-length-on-both-sides), [5.5 Corner length and E-slice parity](#55-corner-length-and-e-slice-parity), [5.6 The last DR move](#56-the-last-dr-move). | 3,200 words |
 | [6. Bounds people use, graded](#6-bounds-people-use-graded) | Levi's formula, trangium's 2q bound at any qt, HTR length, the parity bound. Which never fail, how often the others do. | 1,300 words |
 | [7. Leave slice, the slice, and width](#7-leave-slice-the-slice-and-width) | What the slice costs, and how many first moves are optimal. | 300 words |
 | [8. What a computer can prove from the DR](#8-what-a-computer-can-prove-from-the-dr) | Table lookups that prove "no 12" for most 4–5qt DRs, and why no hand read gets there. | 1,450 words |
@@ -41,7 +41,7 @@ This is long because most of it is reference. You don't have to read it front to
 | [Appendix G: a scramble for every subset](#appendix-g-a-scramble-for-every-subset) | A longest state, and one that finishes in exactly its longer HTR, for each of the 48 subsets. | tables |
 | [Docs and sheets referred to](#docs-and-sheets-referred-to) | Links. | links |
 
-Sections 1 to 8 are the main text, about 11,500 words with their tables. The rest is reference.
+Sections 1 to 8 are the main text, about 12,000 words with their tables. The rest is reference.
 
 ---
 
@@ -89,11 +89,11 @@ This table is the short version of the whole doc, so it's long. Read these first
 | **0c0**<br>0.5% of all DRs<br>average 12.28 | Depends almost only on the bad edges.<br>0e: 99% in 12 (these are HTR states and their U D' turns).<br>2e: 80% in 12, 99% in 13.<br>4e: 53% in 12, 93% in 13.<br>6e: 27% in 12, 75% in 13.<br>8e: 39% in 12, 78% in 13. | **Pairs**, per edge count: with 2e, 67% in 12 with none and 86% with five or more. With 4e, 40% and 74%. With 6e, 19% with none and 35% with two.<br>**HTR length** adds nothing once you know the edge count. With 2e the longer side is always 5 or 6 (82% and 79% in 12). With 4e it's 5, 6 or 7 (59%, 52%, 53%). With 6e it's 7 or 8 (28% and 27%).<br>**Corners**: one case only, nothing to read.<br>**Parity**: L is 0–5, and the wrong E-parity costs +2 or more for three corner states in four, so check it before trusting a short corner solution.<br>For 6e and 8e, go for the setup to a quarter turn first (Rodney's examples in [Rodney, 23 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1563054901871902741)). | Never because of the subset. The weakest is 6e with no pairs: still 19% in 12 and 67% in 13.<br>**Don't conclude** that "0" means no quarter turns: every 0c0 with bad edges needs two. The shortest 0c0 2e is `D F2 R2 F2 D`, solved by `D' F2 R2 F2 D'`. |
 | **4a1**<br>2.9% of all DRs<br>average 12.42 | 4e: 53% in 12, 91% in 13 (average 12.27).<br>2e: 42% in 12, 88% in 13 (average 12.56).<br>0e: 24% in 12, 70% in 13 (average 13.01, and only 3% of 4a1).<br>Only 4e can be finished with one quarter turn. 2e and 0e need three. | **Pairs**: with 4e, 38% in 12 with none and 84% with five or more. With 2e, 27% and 69%.<br>**Longer HTR**: with 4e, 5 gives 81% in 12, 6 gives 67%, 7 gives 47%, 8 gives 32%. With 2e, 6 gives 59%, 7 gives 46%, 8 gives 34%.<br>**Corners**: four cases. With 4e they barely differ (50% to 56% in 12). With 2e they do: 50% for all four on one layer (L 1–4) down to 35% for the L 4–7 case, and 22% with that case on both sides.<br>**Levi's formula (4e only)**: shortest *1qt* HTR on normal + on inverse − 1. It bounds the finishes with one quarter turn. For one case in six the shortest HTR is a 3qt one, and the formula wants the 1qt length. A 3qt finish is shorter than the formula 11.7% of the time (2.5% when the formula says 12 or less). | Rarely. 4a1 0e is the weak one.<br>**Don't conclude** that 4a1 2e or 0e are bad DRs: 2e is one of the better subsets. Levi's formula doesn't apply to them, that's all.<br>**Don't forget** the 3qt finishes on 4e. When a 4a1 4e is very blocky and the formula still says 10+, look for one: `U2 F2 R2 B2 U D2 B2 R2 B2 R2 F2` has formula 10 and a 3qt finish in 7 (`U B2 L2 F2 D F2 D`).<br>2e and 0e really need three quarter turns: `D F2 U' B2 F2 D'` (4a1 2e) is solved by `D F2 B2 U F2 D'`, and `U L2 R2 U L2 R2 U'` (4a1 0e) by `U R2 L2 U' R2 L2 U'`. |
 | **4a2**<br>2.9% of all DRs<br>average 13.35 | 4e: 26% in 12, 64% in 13.<br>2e: 10% in 12, 39% in 13.<br>0e: 6% in 12, 29% in 13.<br>So 4a2 2e and 0e finish like a 2c4, not like a 2qt. | **Corners** carry the most. Best case: 2-2, each layer's pair on a diagonal, L 5–8, a qt goes straight to 4a1. Worst case: all four on one layer, L 8–11. With 4e: 41% in 12 and 81% in 13 for the best, 16% and 47% for the worst, 53% and 89% for the best on both sides, 4% and 24% for the worst on both sides. With 2e: 21% and 64% for the best, 3% and 19% for the worst, 34% and 77% for the best on both sides, and for the worst on both sides no 12 at all and 1% in 13.<br>**Longer HTR**: with 4e, 7 gives 59% in 12, 8 gives 36%, 9 gives 20%, 10 gives 10%, 11 gives 7%. With 2e it is almost always 9 or more: 9 gives 21%, 10 gives 8%, 11 gives 3% (21% in 13).<br>**Pairs**: with 4e, 21% in 12 with none and 37% with five or more. With 2e, 5% and 19%.<br>**Method**: 4a2 4e is where Levi's bounding and Rodney's rules work best. Use them. | 10 or more to HTR on both sides (12% of 4a2): 0.6–2% in 12, 8–17% in 13.<br>The worst corner case on both sides, above all with 2e (no 12, 1% in 13).<br>**Don't conclude** that 2qt means good. On average 4a2 finishes worse than 2c3 and 4b2 (18% in 12 against 28% and 37%). |
-| **4b2**<br>11.4% of all DRs<br>average 12.68 | Flat across edges.<br>2e: 39% in 12, 85% in 13.<br>4e: 34% in 12, 82% in 13.<br>0e: 29% in 12, 74% in 13. | **Pairs** are the best read here: 23% in 12 with none, 65% with five or more (27% and 70% with 2e, 20% and 62% with 4e).<br>**Corners**: four cases. 2-2 with L 3–6 (a qt goes straight to 4a1) 44% in 12. 3-1 with L 4–7 40%. 3-1 with L 5–8 33%. 2-2 with L 6–9 30%. Best on both sides 50%, worst on both sides 21%. A few points higher with 2e than with 4e throughout.<br>**Longer HTR** has to be read with the edge count, because 4e HTRs run a move longer. With 2e: 6 gives 48% in 12, 7 gives 34%, 8 gives 24%. With 4e: 7 gives 49%, 8 gives 33%, 9 gives 22%.<br>**Method**: Rodney's, as written. | There is no dead corner of 4b2. The worst cells (8 and 9 to HTR) are still 15% in 12 and 63% in 13.<br>**Don't conclude** that a short HTR means a short finish. Example 10 in the examples file has a 4-move HTR, sits in an 85%-in-12 cell, and is a 13. |
+| **4b2**<br>11.4% of all DRs<br>average 12.68 | Flat across edges.<br>2e: 39% in 12, 85% in 13.<br>4e: 34% in 12, 82% in 13.<br>0e: 29% in 12, 74% in 13. | **Pairs** are the best read here: 23% in 12 with none, 65% with five or more (27% and 70% with 2e, 20% and 62% with 4e).<br>**Corners**: four cases. 2-2 with L 3–6 (a qt goes straight to 4a1) 44% in 12. 3-1: 36% (this is two cases that look the same, 40% and 33%; only the optimal corner solution separates them, 4 moves being the better one and 8 the worse). 2-2 with L 6–9 30%. Best on both sides 50%, worst on both sides 21%. A few points higher with 2e than with 4e throughout.<br>**Longer HTR** has to be read with the edge count, because 4e HTRs run a move longer. With 2e: 6 gives 48% in 12, 7 gives 34%, 8 gives 24%. With 4e: 7 gives 49%, 8 gives 33%, 9 gives 22%.<br>**Method**: Rodney's, as written. | There is no dead corner of 4b2. The worst cells (8 and 9 to HTR) are still 15% in 12 and 63% in 13.<br>**Don't conclude** that a short HTR means a short finish. Example 10 in the examples file has a 4-move HTR, sits in an 85%-in-12 cell, and is a 13. |
 | **2c3**<br>15.2% of all DRs<br>average 12.92 | The edge count matters a lot.<br>2e: 42% in 12, 88% in 13.<br>4e: 27% in 12, 73% in 13.<br>6e: 17% in 12, 61% in 13.<br>0e: 12% in 12, 52% in 13.<br>8e: 10% in 12, 45% in 13.<br>(0e and 8e are 1% of 2c3 each.) | **Corners**: three cases. Stacked (one above the other), L 5–8, a qt goes straight to 4b2. Opposite corners of the cube, L 5–8, also straight to 4b2. Next to each other on one layer, L 6–9, needs a setup (half of all 2c3). Share in 12 for stacked / opposite / adjacent: 52% / 44% / 36% with 2e, 36% / 28% / 21% with 4e, 26% / 19% / 12% with 6e. Stacked on both sides: 59%, 44%, 35% with 2e, 4e, 6e. Adjacent on both sides (a quarter of 2c3): 29%, 16%, 8%.<br>**Pairs**, none against five or more: 30% and 63% in 12 with 2e, 16% and 51% with 4e, 11% and 36% with 6e.<br>**Longer HTR**: with 4e, 7 gives 35% in 12, 8 gives 24%, 9 gives 14%. With 6e, 8 gives 19% and 9 gives 14%. With 2e it's 6 (52%) or 7 (40%).<br>**Parity**: for half of all 2c3 corner states the wrong E-parity costs +2, so the corner solution you like may be two moves short of reality.<br>**Method**: Rodney's. | Nothing is dead. Least promising: 6e with adjacent corners on both sides (8% in 12, 41% in 13).<br>**Don't conclude** that stacked corners are bad. At 3qt stacked is the *best* layout. It's at 4qt and 5qt that stacked is the worst. |
-| **4c3**<br>(4a3 and 4b3)<br>11.4% of all DRs<br>average 13.49 | Flat across edges.<br>4e: 12% in 12, 45% in 13.<br>2e: 12% in 12, 46% in 13.<br>0e: 17% in 12, 54% in 13. | **Corners** carry the most, and which 4a3 you have is the big one. 4a3 that is 2-2 with L 7–9 and a qt straight to 4b2 (two such cases): 18–22% in 12, 60–68% in 13. 4b3 (3-1, a third of all 4c3): 11% and 45%. 4a3 with L 9–11: 3.6% and 22%. 4a3 with all four on one layer and L 9–10: 5.1% and 28%. Both sides: 23% in 12 for the best pair of cases, 3.0% for the worst (and the worst pair is 11% of all 4c3).<br>**HTR on both sides**: 7 and 8 gives 34% in 12. 8 and 9 gives 16% (56% in 13). 9 and 9 gives 9.4% (43%). 9 and 10 gives 5.0% (31%). 10 and 10 gives 1.9% (17%). The same length is worth a little more with 4e than with 2e (longer side 9: 17% in 12 with 4e, 12% with 2e), because 4e HTRs run about a move longer.<br>**Pairs**: 7% with none, 27% with five or more.<br>Corners and pairs read the same at 2e and 4e. | For a 12: 10 to HTR on both sides, or 9 and 10 with nothing else going for it. For a 13 nothing is dead; 10 and 10 is still 17%.<br>**Zagros's rule** (9+ on both sides, toss) drops half of all 4c3 and keeps 73% of the 12s.<br>**Don't conclude** that the rule is free: 6.4% of what it drops finishes in 12 and 34% in 13. `U' L2 D' B2 U' B2 U L2 D` is 9 to HTR on both sides and finishes in 9. |
+| **4c3**<br>(4a3 and 4b3)<br>11.4% of all DRs<br>average 13.49 | Flat across edges.<br>4e: 12% in 12, 45% in 13.<br>2e: 12% in 12, 46% in 13.<br>0e: 17% in 12, 54% in 13. | **Corners** carry the most, and which 4a3 you have is the big one. 4a3 that is 2-2 with L 7–9 and a qt straight to 4b2 (two such cases): 18–22% in 12, 60–68% in 13. 4b3 (3-1, a third of all 4c3): 11% and 45%. 4a3 with L 9–11: 3.6% and 22%. 4a3 with all four on one layer: 10% and 43% (two cases that look the same; with an optimal corner solution of 8 it is the better one, 15% and 57%, with 10 the worse one, 5% and 28%). Both sides: 23% in 12 for the best pair of cases, 3.0% for the worst (and the worst pair is 11% of all 4c3).<br>**HTR on both sides**: 7 and 8 gives 34% in 12. 8 and 9 gives 16% (56% in 13). 9 and 9 gives 9.4% (43%). 9 and 10 gives 5.0% (31%). 10 and 10 gives 1.9% (17%). The same length is worth a little more with 4e than with 2e (longer side 9: 17% in 12 with 4e, 12% with 2e), because 4e HTRs run about a move longer.<br>**Pairs**: 7% with none, 27% with five or more.<br>Corners and pairs read the same at 2e and 4e. | For a 12: 10 to HTR on both sides, or 9 and 10 with nothing else going for it. For a 13 nothing is dead; 10 and 10 is still 17%.<br>**Zagros's rule** (9+ on both sides, toss) drops half of all 4c3 and keeps 73% of the 12s.<br>**Don't conclude** that the rule is free: 6.4% of what it drops finishes in 12 and 34% in 13. `U' L2 D' B2 U' B2 U L2 D` is 9 to HTR on both sides and finishes in 9. |
 | **0c3**<br>1.4% of all DRs<br>average 14.46 | The worst subset on average, worse than 5qt.<br>4e (half of 0c3): 1.5% in 12, 9% in 13.<br>2e and 6e: 3.7% in 12, 17–18% in 13.<br>0e and 8e: 5.6% in 12, 25% in 13. | **Longer HTR** is the read, and it has to be read with the edge count. With 4e the longer side is 11 (one in seven: 6% in 12, 19% in 13), 12 (most of them: 1% and 8%) or 13 (one in seven: no 12, 1% in 13). With 2e or 6e it is 10 (two thirds: 4% and 19%) or 11 (a third: 1% and 12%). So an 11 is the best case with 4e and the worst with 2e or 6e.<br>**Corners**: two cases, both with no bad corners. If a qt goes straight to 4a2 (a third of 0c3): 5% in 12 and 22% in 13 with 2e or 6e, 2% and 13% with 4e. Otherwise 3% and 15%, or 1% and 7% with 4e.<br>**Pairs** barely move it: with 2e, 1% in 12 with none and 6% with five or more. With 4e, 1% and 2%.<br>**Parity**: the wrong E-parity always costs exactly +1. | By default. 0c3 4e with 12 or 13 on the longer side (six in seven of 0c3 4e) is at most 1% for a 12 and 8% for a 13.<br>**Don't conclude** that no bad corners means good corners. |
-| **2c4**<br>22.9% of all DRs, the most common subset<br>average 13.65 | 2e: 12% in 12, 44% in 13.<br>4e: 9% in 12, 38% in 13.<br>6e: 8% in 12, 35% in 13.<br>0e: 20% in 12, 59% in 13.<br>8e: 4.5% in 12, 24% in 13.<br>(0e and 8e are 1% of 2c4 each.) | **Corners first**, seven cases. Next to each other on one layer with a qt straight to 2c3 (two cases, L 7–10): 16% and 12.5% in 12. Opposite corners with a qt straight to 4b3 (L 8–10): 13%. The other two non-stacked cases need a setup: 6–7%. Stacked (one above the other): 7% if a qt goes straight to 4b3, 4% if not. Both sides: 26% in 12 and 75% in 13 for the best layout on both, 15–23% for other straight-to-2c3 or 4b3 pairs, 0.6–2.5% in 12 for a stack on both sides. This holds at every edge count to within a few points: the best layout on both sides is 31% in 12 with 2e, 25% with 4e, 24% with 6e, and a stack on both sides is 1% or less at all three.<br>**Pairs**: 4% with none, 26% with five or more, the same at 2e, 4e and 6e.<br>**HTR on both sides**: 7 and 8 gives 29% in 12. 8 and 8 gives 20%. 8 and 9 gives 12%. 9 and 9 gives 6.1% (32% in 13). 9 and 10 gives 3.1% (22%). 10 and 10 gives 0.9% (11%). Within two or three points of this at 2e, 4e and 6e.<br>**Parity** (if the corner solutions are written down): for 2c4 4e, L = 12 with an odd E-slice has no 12 at all, and L of 11 or more is about 2%. | A stack on both sides (the fastest any of them finishes is 11: `U2 L2 D' F2 U' R2 U F2 D L2 U2`). 10 to HTR on both sides. No pairs and nothing else going for it.<br>**Don't conclude** that 2c4 is bad as a subset. The best layouts are as good as an average 2c3 4e, and 2c4 is where reading pays the most, because the spread inside it is the widest (0.6% to 26%).<br>**Don't conclude** that 6e is a discard on its own: it's 8% in 12 against 9% for 4e. 8e is worse (4.5%). |
+| **2c4**<br>22.9% of all DRs, the most common subset<br>average 13.65 | 2e: 12% in 12, 44% in 13.<br>4e: 9% in 12, 38% in 13.<br>6e: 8% in 12, 35% in 13.<br>0e: 20% in 12, 59% in 13.<br>8e: 4.5% in 12, 24% in 13.<br>(0e and 8e are 1% of 2c4 each.) | **Corners first**, seven cases. Next to each other on one layer with a qt straight to 2c3: two cases with the same bad corners, 16% and 12.5% in 12, told apart by the diagonals of the back face (section 6.3 says how). Opposite corners with a qt straight to 4b3 (L 8–10): 13%. The other two non-stacked cases need a setup: 6–7%. Stacked (one above the other): 7% if a qt goes straight to 4b3, 4% if not. Both sides: 26% in 12 and 75% in 13 for the best layout on both, 15–23% for other straight-to-2c3 or 4b3 pairs, 0.6–2.5% in 12 for a stack on both sides. This holds at every edge count to within a few points: the best layout on both sides is 31% in 12 with 2e, 25% with 4e, 24% with 6e, and a stack on both sides is 1% or less at all three.<br>**Pairs**: 4% with none, 26% with five or more, the same at 2e, 4e and 6e.<br>**HTR on both sides**: 7 and 8 gives 29% in 12. 8 and 8 gives 20%. 8 and 9 gives 12%. 9 and 9 gives 6.1% (32% in 13). 9 and 10 gives 3.1% (22%). 10 and 10 gives 0.9% (11%). Within two or three points of this at 2e, 4e and 6e.<br>**Parity** (if the corner solutions are written down): for 2c4 4e, L = 12 with an odd E-slice has no 12 at all, and L of 11 or more is about 2%. | A stack on both sides (the fastest any of them finishes is 11: `U2 L2 D' F2 U' R2 U F2 D L2 U2`). 10 to HTR on both sides. No pairs and nothing else going for it.<br>**Don't conclude** that 2c4 is bad as a subset. The best layouts are as good as an average 2c3 4e, and 2c4 is where reading pays the most, because the spread inside it is the widest (0.6% to 26%).<br>**Don't conclude** that 6e is a discard on its own: it's 8% in 12 against 9% for 4e. 8e is worse (4.5%). |
 | **0c4**<br>1.0% of all DRs<br>average 13.67 | Finishes like an average 2c4.<br>2e: 9% in 12, 44% in 13.<br>4e: 7% in 12, 37% in 13.<br>6e: 3.6% in 12, 24% in 13. | **Pairs** are the only read with much in it: about 3% in 12 with none and 15–17% with five or more, at 2e and 4e alike. With 6e, 2% with none and 5% with two.<br>**HTR** is always 9 or 10 on each side and tells you nothing beyond the edge count: with 2e, 9 and 10 both give 9% in 12 and 44% in 13, and with 6e it's always 10.<br>**Corners**: one case, L is always 9 or 10, and the wrong E-parity always costs +1. | 6e or 8e, or no pairs.<br>**Don't conclude** anything from the corners here, there's nothing to tell apart. |
 | **4c4**<br>(4a4 and 4b4)<br>11.4% of all DRs<br>average 14.40 | Flat across edges: 1.2–1.8% in 12, 9–12% in 13. | **Corners**: best case (2-2, each layer's pair on a diagonal, L 9–10, a qt straight to 4a3) 4.3% in 12 and 23% in 13. The two worst (L 11–12) 0.6% and 6%. Best pair of cases on both sides 5.6% and 28%. Worst pair 0.2% and 4%.<br>**Longer HTR**: 10 gives 3.5% in 12 and 19% in 13. 11 (two thirds of 4c4) gives 1.2% and 9%. 12 gives 0.3% and 4%.<br>**Pairs**: 0.7% with none, 5.0% in 12 and 25% in 13 with five or more.<br>All of this reads the same at 2e and 4e. | By default. It takes a short DR *and* something going for it (five pairs, or 9 and 10 to HTR, or the best corners), and then it's about 5% for a 12 and 25% for a 13.<br>11 to HTR on both sides: 0.4% in 12, 6% in 13.<br>**Don't conclude** from examples 2 and 9 in the examples file that 4c4 comes good. Those were a 10% and a 3% outcome. |
 | **2c5**<br>7.6% of all DRs<br>average 14.33 | Flat across edges: 1.5–2.6% in 12, 11–16% in 13. | **Corners**: next to each other on one layer (half of 2c5) 3.4% in 12 and 19% in 13. Opposite corners 1.9% and 13%. Stacked 0.6% and 6%. Adjacent on both sides (a quarter of 2c5) 4.7% and 25%. **Stacked on both sides: never a 12, 0.6% in 13** (the fastest is 13: `U2 F2 U' R2 U F2 D' L2 U B2 U' L2 U2`). Stacked on one side and opposite on the other: 0.2% and 4.5%.<br>**Pairs**: 0.7% with none, 9% in 12 and 35% in 13 with five or more.<br>**Longer HTR**: 9 (2% of 2c5) gives 13% in 12 and 47% in 13. 10 gives 4.0% and 23%. 11 gives 1.2% and 10%. 12 gives 0.3% and 4%.<br>**Parity**: this is where the parity bound does the most. It proves "no 12" outright for 13% of 5qt DRs.<br>The reads are about the same at 2e, 4e and 6e, a little lower with 6e. | By default, and at once with a stack on both sides, a stack plus opposite, or 11 to HTR on both sides (0.1% in 12, 3% in 13).<br>Worth a look with a short DR and five pairs, or adjacent corners on both sides with 9 or 10 to HTR.<br>**Don't conclude** that "5qt, skip" loses nothing: one 2c5 in seven finishes in 13. |
@@ -249,17 +249,19 @@ How to read the tables:
 - L is the range of optimal corner solution lengths the case can have.
 - The last column is a typical DR of the case: a state whose optimal is the median for that case, with that optimal in brackets.
 
-**2c4** (wen's stacks). Seven cases:
+**2c4** (wen's stacks). Seven cases. Two of them have the same bad corners and are told apart by the back face, as explained under the table:
 
 | Bad corners | L | A qt takes it straight to | Share | In 12 | In 13 | A typical DR (its optimal) |
 |---|---|---|---:|---:|---:|---|
-| both on one layer, adjacent | 7–10 | 2c3 | 17% | 16.2% | 57% | `R2 D' B2 F2 L2 D' B2 U B2 D' B2 F2 U2` (13) |
+| both on one layer, adjacent; back-face diagonals agree | 7–10 | 2c3 | 17% | 16.2% | 57% | `R2 D' B2 F2 L2 D' B2 U B2 D' B2 F2 U2` (13) |
 | 1 up 1 down, opposite | 8–10 | 4b3 | 8% | 13.2% | 51% | `R2 B2 F2 U' L2 D2 B2 U' F2 L2 U' L2 U'` (13) |
-| both on one layer, adjacent | 7–10 | 2c3 | 17% | 12.5% | 47% | `F2 U' B2 D' L2 D' L2 U B2 R2 U L2 F2 U'` (14) |
+| both on one layer, adjacent; back-face diagonals differ | 7–10 | 2c3 | 17% | 12.5% | 47% | `F2 U' B2 D' L2 D' L2 U B2 R2 U L2 F2 U'` (14) |
 | both on one layer, adjacent | 8–11 | nothing, needs a setup | 17% | 7.0% | 33% | `B2 D2 R2 U F2 U L2 U' R2 D2 R2 F2 U' R2` (14) |
 | 1 up 1 down, stacked | 9–11 | 4b3 | 8% | 7.0% | 33% | `B2 U B2 U2 B2 F2 R2 D B2 L2 U' B2 R2 U'` (14) |
 | 1 up 1 down, opposite | 8–11 | nothing, needs a setup | 17% | 6.4% | 31% | `U' L2 D B2 U2 B2 L2 F2 U' L2 B2 D2 U' R2` (14) |
 | 1 up 1 down, stacked | 9–12 | nothing, needs a setup | 17% | 4.1% | 23% | `U F2 U' L2 F2 D B2 R2 F2 D2 B2 U' F2 U2` (14) |
+
+**Telling the two look-alike 2c4 cases apart.** Hold the cube so the two bad corners are on the front edge of one layer (if you see six bad corners, turn both layers, U D', and you will see two). The four corners of the back face are then all good. Take each diagonal of the back face. Its two corners share exactly one colour: their sticker on the back face, their U/D sticker, or their sticker on the side. If both diagonals share the same kind of sticker, the diagonals agree; otherwise they differ.
 
 Both sides together:
 
@@ -297,19 +299,20 @@ The last two rows are 19% of all 2c5, and you can drop them on sight: a 2c5 that
 
     U2 F2 U' R2 U F2 D' L2 U B2 U' L2 U2   // the fastest any double-stacked 2c5 finishes: 13
 
-**4c3** (JTuu's question). Nine cases, seven of them 4a3 and two 4b3:
+**4c3** (JTuu's question). Nine cases, seven of them 4a3 and two 4b3. Eight rows, because two of the 4a3 cases look the same:
 
 | Bad corners | Subset | L | A qt takes it straight to | Share | In 12 | In 13 | A typical DR (its optimal) |
 |---|---|---|---|---:|---:|---:|---|
 | 2-2, pairs on opposite sides | 4a3 | 7–9 | 4b2 | 8% | 21.6% | 68% | `D R2 D' F2 D' B2 R2 B2 U L2 D2 U' R2` (13) |
 | 2-2, pairs stacked | 4a3 | 7–9 | 4b2 | 8% | 17.6% | 60% | `R2 U' F2 U R2 B2 D L2 U2 R2 U' R2 U'` (13) |
-| 4-0 | 4a3 | 8–9 | nothing, needs a setup | 4% | 15.2% | 57% | `D2 B2 D' B2 U' B2 D2 L2 U' L2 U' F2 U'` (13) |
 | 2-2, pairs sharing one column | 4b3 | 7–10 | 4a2 | 17% | 13.5% | 47% | `R2 D2 R2 U L2 U' B2 R2 B2 U L2 D F2 U'` (14) |
 | 3-1 | 4b3 | 8–11 | nothing, needs a setup | 33% | 11.4% | 45% | `R2 F2 U' B2 D' B2 R2 D' R2 D R2 U2 L2 U'` (14) |
 | 2-2, diagonal over diagonal | 4a3 | 8–10 | nothing, needs a setup | 8% | 10.3% | 43% | `B2 F2 U' F2 L2 U R2 U2 L2 R2 B2 D' F2 L2` (14) |
+| 4-0 (two cases that look the same) | 4a3 | 8–10 | nothing, needs a setup | 8% | 10.2% | 43% | `D2 B2 D' B2 U' B2 D2 L2 U' L2 U' F2 U'` (13) or `D' F2 U L2 D' L2 R2 U' B2 U R2 D F2 U'` (14) |
 | 2-2, pairs stacked | 4a3 | 8–10 | nothing, needs a setup | 8% | 9.4% | 40% | `D' L2 U' F2 D' F2 L2 D' L2 U B2 U2 R2 U2` (14) |
-| 4-0 | 4a3 | 9–10 | nothing, needs a setup | 4% | 5.1% | 28% | `D' F2 U L2 D' L2 R2 U' B2 U R2 D F2 U'` (14) |
 | 2-2, pairs on opposite sides | 4a3 | 9–11 | nothing, needs a setup | 8% | 3.6% | 22% | `D' L2 U F2 D' B2 L2 U' R2 U L2 D F2 U'` (14) |
+
+The row marked "two cases that look the same" is two corner cases with the same bad corners and no quarter turn that lowers the count. I have not found a visible test that separates them, so the row gives their odds together. Apart, they are 15% in 12 (57% in 13) and 5% in 12 (28% in 13), and only the optimal corner solution tells you which: 8 moves is the better one, 10 the worse one, and with 9 it can be either.
 
 Both sides together:
 
@@ -318,14 +321,15 @@ Both sides together:
 | the best pair of cases | 5.6% | 23.1% | 67.8% |
 | the worst pair of cases | 11.1% | 3.0% | 20.3% |
 
-**4b2** (Daichi's four). They are exactly his list, 2-2 and 3-1 with good and bad parity:
+**4b2** (Daichi's four: 2-2 and 3-1, each with good and bad parity). Three rows, because the two 3-1 cases look the same:
 
 | Bad corners | L | A qt takes it straight to | Share | In 12 | In 13 | A typical DR (its optimal) |
 |---|---|---|---:|---:|---:|---|
 | 2-2, pairs sharing one column | 3–6 | 4a1 | 17% | 43.9% | 88% | `U' L2 D' L2 U' F2 U L2 U2 R2 D' R2 U'` (13) |
-| 3-1 | 4–7 | nothing, needs a setup | 33% | 39.6% | 86% | `U' L2 D' L2 U B2 D2 B2 U' L2 U B2 D'` (13) |
-| 3-1 | 5–8 | nothing, needs a setup | 33% | 33.1% | 81% | `R2 U L2 R2 D L2 U' B2 F2 R2 D' R2 D2` (13) |
+| 3-1 (two cases that look the same) | 4–8 | nothing, needs a setup | 67% | 36.4% | 83% | `U' L2 D' L2 U B2 D2 B2 U' L2 U B2 D'` (13) or `R2 U L2 R2 D L2 U' B2 F2 R2 D' R2 D2` (13) |
 | 2-2, pairs sharing one column | 6–9 | nothing, needs a setup | 17% | 29.6% | 78% | `B2 D2 L2 D R2 F2 D' L2 B2 F2 D' U' L2` (13) |
+
+The 3-1 row is two corner cases that look the same (Daichi's "3-1 good parity" and "3-1 bad parity"). I have not found a visible test that separates them, so the row gives their odds together. Apart, they are 40% in 12 and 33% in 12, and only the optimal corner solution tells you which: 4 moves is the better one, 8 the worse one, and with 5 to 7 it can be either.
 
 Both sides together:
 
@@ -1285,18 +1289,18 @@ In the both-sides tables the two columns are the case on normal and on inverse, 
 
 **0c0**
 
-| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---|---:|---:|---:|---:|
-| 0c0-1 | none bad | 0–5 | `R2 U' F2 R2 D L2 B2 R2 U L2 U R2` (12) | `` | nothing (set up first) | 100.0% | 12.28 | 53.7% | 89.9% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---|---:|---:|---:|---:|
+| 0c0-1 | none bad | 0–5 | `R2 U' F2 R2 D L2 B2 R2 U L2 U R2` (12) | `` | nothing (set up first) |  | 100.0% | 12.28 | 53.7% | 89.9% |
 
 **4a1**
 
-| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---|---:|---:|---:|---:|
-| 4a1-1 | 4-0 | 1–4 | `U2 F2 R2 B2 U B2 U2 B2 U2 R2 F2 U2` (12) | `D` | 0c0 | 16.7% | 12.30 | 52.5% | 90.7% |
-| 4a1-2 | 2-2, pairs on opposite sides | 2–5 | `B2 U' F2 D F2 L2 U2 B2 D2 B2 U' L2` (12) | `D B2` | nothing (set up first) | 33.3% | 12.36 | 50.1% | 90.7% |
-| 4a1-3 | 2-2, pairs stacked | 3–6 | `R2 U' B2 L2 D2 B2 D2 B2 D B2 U' F2 U2` (13) | `D B2 D2` | nothing (set up first) | 33.3% | 12.48 | 44.7% | 88.1% |
-| 4a1-4 | 2-2, diagonal over diagonal | 4–7 | `D2 B2 U L2 D' B2 R2 B2 D' L2 D' U' F2` (13) | `D' R2 D2 F2` | nothing (set up first) | 16.7% | 12.54 | 42.3% | 85.8% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---|---:|---:|---:|---:|
+| 4a1-1 | 4-0 | 1–4 | `U2 F2 R2 B2 U B2 U2 B2 U2 R2 F2 U2` (12) | `D` | 0c0 |  | 16.7% | 12.30 | 52.5% | 90.7% |
+| 4a1-2 | 2-2, pairs on opposite sides | 2–5 | `B2 U' F2 D F2 L2 U2 B2 D2 B2 U' L2` (12) | `D B2` | nothing (set up first) |  | 33.3% | 12.36 | 50.1% | 90.7% |
+| 4a1-3 | 2-2, pairs stacked | 3–6 | `R2 U' B2 L2 D2 B2 D2 B2 D B2 U' F2 U2` (13) | `D B2 D2` | nothing (set up first) |  | 33.3% | 12.48 | 44.7% | 88.1% |
+| 4a1-4 | 2-2, diagonal over diagonal | 4–7 | `D2 B2 U L2 D' B2 R2 B2 D' L2 D' U' F2` (13) | `D' R2 D2 F2` | nothing (set up first) |  | 16.7% | 12.54 | 42.3% | 85.8% |
 
 4a1, corner case on both sides (normal and inverse, either order):
 
@@ -1315,12 +1319,12 @@ In the both-sides tables the two columns are the case on normal and on inverse, 
 
 **4a2**
 
-| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---|---:|---:|---:|---:|
-| 4a2-1 | 2-2, diagonal over diagonal | 5–8 | `F2 R2 U B2 F2 U' L2 R2 U' R2 D2 F2 U` (13) | `U R2 U2 F2 U` | 4a1 | 16.7% | 12.86 | 31.0% | 72.3% |
-| 4a2-2 | 2-2, pairs stacked | 6–9 | `B2 L2 D' L2 D2 B2 D F2 R2 U2 R2 F2 D2` (13) | `D' B2 D2 R2 U R2` | nothing (set up first) | 33.3% | 13.14 | 22.4% | 60.5% |
-| 4a2-3 | 2-2, pairs on opposite sides | 7–10 | `D R2 U2 L2 R2 B2 U' B2 R2 U B2 U2 R2 U'` (14) | `U' R2 U2 F2 U R2 U2` | nothing (set up first) | 33.3% | 13.58 | 12.4% | 41.6% |
-| 4a2-4 | 4-0 | 8–11 | `B2 R2 U2 R2 U' B2 R2 U2 R2 D B2 L2 U2 L2` (14) | `D R2 U2 F2 U F2 U2 R2` | nothing (set up first) | 16.7% | 13.80 | 9.3% | 33.4% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---|---:|---:|---:|---:|
+| 4a2-1 | 2-2, diagonal over diagonal | 5–8 | `F2 R2 U B2 F2 U' L2 R2 U' R2 D2 F2 U` (13) | `U R2 U2 F2 U` | 4a1 |  | 16.7% | 12.86 | 31.0% | 72.3% |
+| 4a2-2 | 2-2, pairs stacked | 6–9 | `B2 L2 D' L2 D2 B2 D F2 R2 U2 R2 F2 D2` (13) | `D' B2 D2 R2 U R2` | nothing (set up first) |  | 33.3% | 13.14 | 22.4% | 60.5% |
+| 4a2-3 | 2-2, pairs on opposite sides | 7–10 | `D R2 U2 L2 R2 B2 U' B2 R2 U B2 U2 R2 U'` (14) | `U' R2 U2 F2 U R2 U2` | nothing (set up first) |  | 33.3% | 13.58 | 12.4% | 41.6% |
+| 4a2-4 | 4-0 | 8–11 | `B2 R2 U2 R2 U' B2 R2 U2 R2 D B2 L2 U2 L2` (14) | `D R2 U2 F2 U F2 U2 R2` | nothing (set up first) |  | 16.7% | 13.80 | 9.3% | 33.4% |
 
 4a2, corner case on both sides (normal and inverse, either order):
 
@@ -1339,12 +1343,12 @@ In the both-sides tables the two columns are the case on normal and on inverse, 
 
 **4b2**
 
-| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---|---:|---:|---:|---:|
-| 4b2-1 | 2-2, pairs sharing one column | 3–6 | `U' L2 D' L2 U' F2 U L2 U2 R2 D' R2 U'` (13) | `U R2 U'` | 4a1 | 16.7% | 12.50 | 43.9% | 88.3% |
-| 4b2-2 | 3-1 | 4–7 | `U' L2 D' L2 U B2 D2 B2 U' L2 U B2 D'` (13) | `D' F2 U' F2` | nothing (set up first) | 33.3% | 12.61 | 39.6% | 85.6% |
-| 4b2-3 | 3-1 | 5–8 | `R2 U L2 R2 D L2 U' B2 F2 R2 D' R2 D2` (13) | `U' L2 U' F2 U2` | nothing (set up first) | 33.3% | 12.76 | 33.1% | 80.7% |
-| 4b2-4 | 2-2, pairs sharing one column | 6–9 | `B2 D2 L2 D R2 F2 D' L2 B2 F2 D' U' L2` (13) | `D F2 U R2 U2 F2` | nothing (set up first) | 16.7% | 12.85 | 29.6% | 77.5% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---|---:|---:|---:|---:|
+| 4b2-1 | 2-2, pairs sharing one column | 3–6 | `U' L2 D' L2 U' F2 U L2 U2 R2 D' R2 U'` (13) | `U R2 U'` | 4a1 |  | 16.7% | 12.50 | 43.9% | 88.3% |
+| 4b2-2 | 3-1 | 4–7 | `U' L2 D' L2 U B2 D2 B2 U' L2 U B2 D'` (13) | `D' F2 U' F2` | nothing (set up first) | looks the same as the 3-1 case with L 5–8. Only the corner solution separates them: L = 4 is this one | 33.3% | 12.61 | 39.6% | 85.6% |
+| 4b2-3 | 3-1 | 5–8 | `R2 U L2 R2 D L2 U' B2 F2 R2 D' R2 D2` (13) | `U' L2 U' F2 U2` | nothing (set up first) | looks the same as the 3-1 case with L 4–7. Only the corner solution separates them: L = 8 is this one | 33.3% | 12.76 | 33.1% | 80.7% |
+| 4b2-4 | 2-2, pairs sharing one column | 6–9 | `B2 D2 L2 D R2 F2 D' L2 B2 F2 D' U' L2` (13) | `D F2 U R2 U2 F2` | nothing (set up first) |  | 16.7% | 12.85 | 29.6% | 77.5% |
 
 4b2, corner case on both sides (normal and inverse, either order):
 
@@ -1363,10 +1367,10 @@ In the both-sides tables the two columns are the case on normal and on inverse, 
 
 **0c3**
 
-| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---|---:|---:|---:|---:|
-| 0c3-1 | none bad | 9–12 | `R2 U F2 U2 L2 D' L2 U B2 U2 L2 U' F2 U'` (14) | `D' R2 D2 F2 U F2 U2 R2 U` | 4a2 | 33.3% | 14.29 | 4.0% | 17.8% |
-| 0c3-2 | none bad | 10–12 | `L2 B2 D L2 F2 U2 F2 D L2 U2 B2 U' L2 B2 U2` (15) | `U L2 D2 F2 U F2 U2 R2 U R2` | nothing (set up first) | 66.7% | 14.54 | 1.9% | 11.1% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---|---:|---:|---:|---:|
+| 0c3-1 | none bad | 9–12 | `R2 U F2 U2 L2 D' L2 U B2 U2 L2 U' F2 U'` (14) | `D' R2 D2 F2 U F2 U2 R2 U` | 4a2 |  | 33.3% | 14.29 | 4.0% | 17.8% |
+| 0c3-2 | none bad | 10–12 | `L2 B2 D L2 F2 U2 F2 D L2 U2 B2 U' L2 B2 U2` (15) | `U L2 D2 F2 U F2 U2 R2 U R2` | nothing (set up first) |  | 66.7% | 14.54 | 1.9% | 11.1% |
 
 0c3, corner case on both sides (normal and inverse, either order):
 
@@ -1378,11 +1382,11 @@ In the both-sides tables the two columns are the case on normal and on inverse, 
 
 **2c3**
 
-| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---|---:|---:|---:|---:|
-| 2c3-1 | 1 up 1 down, stacked | 5–8 | `R2 D' F2 D' R2 D2 F2 R2 U F2 D' L2 U'` (13) | `D' F2 D' L2 U'` | 4b2 | 25.0% | 12.68 | 36.9% | 83.4% |
-| 2c3-2 | 1 up 1 down, opposite | 5–8 | `L2 D2 B2 D R2 D' B2 L2 D R2 U B2 U'` (13) | `U' R2 U' R2 U` | 4b2 | 25.0% | 12.87 | 29.2% | 75.3% |
-| 2c3-3 | both on one layer, adjacent | 6–9 | `L2 B2 F2 D' R2 F2 D' F2 D2 U' F2 L2 D2` (13) | `U R2 U' F2 U F2` | nothing (set up first) | 50.0% | 13.08 | 22.3% | 66.1% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---|---:|---:|---:|---:|
+| 2c3-1 | 1 up 1 down, stacked | 5–8 | `R2 D' F2 D' R2 D2 F2 R2 U F2 D' L2 U'` (13) | `D' F2 D' L2 U'` | 4b2 |  | 25.0% | 12.68 | 36.9% | 83.4% |
+| 2c3-2 | 1 up 1 down, opposite | 5–8 | `L2 D2 B2 D R2 D' B2 L2 D R2 U B2 U'` (13) | `U' R2 U' R2 U` | 4b2 |  | 25.0% | 12.87 | 29.2% | 75.3% |
+| 2c3-3 | both on one layer, adjacent | 6–9 | `L2 B2 F2 D' R2 F2 D' F2 D2 U' F2 L2 D2` (13) | `U R2 U' F2 U F2` | nothing (set up first) |  | 50.0% | 13.08 | 22.3% | 66.1% |
 
 2c3, corner case on both sides (normal and inverse, either order):
 
@@ -1397,17 +1401,17 @@ In the both-sides tables the two columns are the case on normal and on inverse, 
 
 **4c3**
 
-| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---|---:|---:|---:|---:|
-| 4c3-1 | 2-2, pairs on opposite sides | 7–9 | `D R2 D' F2 D' B2 R2 B2 U L2 D2 U' R2` (13) | `D B2 U F2 U2 R2 U` | 4b2 | 8.3% | 13.06 | 21.6% | 68.1% |
-| 4c3-2 | 2-2, pairs stacked | 7–9 | `R2 U' F2 U R2 B2 D L2 U2 R2 U' R2 U'` (13) | `D' R2 D' B2 U2 R2 U` | 4b2 | 8.3% | 13.21 | 17.6% | 59.6% |
-| 4c3-3 | 4-0 | 8–9 | `D2 B2 D' B2 U' B2 D2 L2 U' L2 U' F2 U'` (13) | `D' R2 U B2 U2 R2 U R2` | nothing (set up first) | 4.2% | 13.27 | 15.2% | 57.0% |
-| 4c3-4 | 2-2, pairs sharing one column | 7–10 | `R2 D2 R2 U L2 U' B2 R2 B2 U L2 D F2 U'` (14) | `D' B2 U2 R2 U F2 U` | 4a2 | 16.7% | 13.45 | 13.5% | 47.2% |
-| 4c3-5 | 3-1 | 8–11 | `R2 F2 U' B2 D' B2 R2 D' R2 D R2 U2 L2 U'` (14) | `D B2 D2 R2 U F2 U' R2` | nothing (set up first) | 33.3% | 13.51 | 11.4% | 45.1% |
-| 4c3-6 | 2-2, diagonal over diagonal | 8–10 | `B2 F2 U' F2 L2 U R2 U2 L2 R2 B2 D' F2 L2` (14) | `U' F2 U' R2 U2 F2 U F2` | nothing (set up first) | 8.3% | 13.52 | 10.3% | 43.0% |
-| 4c3-7 | 2-2, pairs stacked | 8–10 | `D' L2 U' F2 D' F2 L2 D' L2 U B2 U2 R2 U2` (14) | `U' L2 U' R2 U2 F2 U F2` | nothing (set up first) | 8.3% | 13.59 | 9.4% | 39.8% |
-| 4c3-8 | 4-0 | 9–10 | `D' F2 U L2 D' L2 R2 U' B2 U R2 D F2 U'` (14) | `U' F2 D R2 U2 F2 U R2 U2` | nothing (set up first) | 4.2% | 13.83 | 5.1% | 28.5% |
-| 4c3-9 | 2-2, pairs on opposite sides | 9–11 | `D' L2 U F2 D' B2 L2 U' R2 U L2 D F2 U'` (14) | `D' B2 U' F2 U2 R2 U F2 U2` | nothing (set up first) | 8.3% | 14.00 | 3.6% | 21.5% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---|---:|---:|---:|---:|
+| 4c3-1 | 2-2, pairs on opposite sides | 7–9 | `D R2 D' F2 D' B2 R2 B2 U L2 D2 U' R2` (13) | `D B2 U F2 U2 R2 U` | 4b2 |  | 8.3% | 13.06 | 21.6% | 68.1% |
+| 4c3-2 | 2-2, pairs stacked | 7–9 | `R2 U' F2 U R2 B2 D L2 U2 R2 U' R2 U'` (13) | `D' R2 D' B2 U2 R2 U` | 4b2 |  | 8.3% | 13.21 | 17.6% | 59.6% |
+| 4c3-3 | 4-0 | 8–9 | `D2 B2 D' B2 U' B2 D2 L2 U' L2 U' F2 U'` (13) | `D' R2 U B2 U2 R2 U R2` | nothing (set up first) | looks the same as the 4-0 case with L 9–10. Only the corner solution separates them: L = 8 is this one | 4.2% | 13.27 | 15.2% | 57.0% |
+| 4c3-4 | 2-2, pairs sharing one column | 7–10 | `R2 D2 R2 U L2 U' B2 R2 B2 U L2 D F2 U'` (14) | `D' B2 U2 R2 U F2 U` | 4a2 |  | 16.7% | 13.45 | 13.5% | 47.2% |
+| 4c3-5 | 3-1 | 8–11 | `R2 F2 U' B2 D' B2 R2 D' R2 D R2 U2 L2 U'` (14) | `D B2 D2 R2 U F2 U' R2` | nothing (set up first) |  | 33.3% | 13.51 | 11.4% | 45.1% |
+| 4c3-6 | 2-2, diagonal over diagonal | 8–10 | `B2 F2 U' F2 L2 U R2 U2 L2 R2 B2 D' F2 L2` (14) | `U' F2 U' R2 U2 F2 U F2` | nothing (set up first) |  | 8.3% | 13.52 | 10.3% | 43.0% |
+| 4c3-7 | 2-2, pairs stacked | 8–10 | `D' L2 U' F2 D' F2 L2 D' L2 U B2 U2 R2 U2` (14) | `U' L2 U' R2 U2 F2 U F2` | nothing (set up first) |  | 8.3% | 13.59 | 9.4% | 39.8% |
+| 4c3-8 | 4-0 | 9–10 | `D' F2 U L2 D' L2 R2 U' B2 U R2 D F2 U'` (14) | `U' F2 D R2 U2 F2 U R2 U2` | nothing (set up first) | looks the same as the 4-0 case with L 8–9. Only the corner solution separates them: L = 10 is this one | 4.2% | 13.83 | 5.1% | 28.5% |
+| 4c3-9 | 2-2, pairs on opposite sides | 9–11 | `D' L2 U F2 D' B2 L2 U' R2 U L2 D F2 U'` (14) | `D' B2 U' F2 U2 R2 U F2 U2` | nothing (set up first) |  | 8.3% | 14.00 | 3.6% | 21.5% |
 
 4c3, corner case on both sides (normal and inverse, either order):
 
@@ -1430,21 +1434,23 @@ In the both-sides tables the two columns are the case on normal and on inverse, 
 
 **0c4**
 
-| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---|---:|---:|---:|---:|
-| 0c4-1 | none bad | 9–10 | `B2 U R2 B2 U' L2 B2 D2 B2 U B2 R2 D2 U'` (14) | `U' F2 D L2 U2 F2 U F2 U'` | 4a3 | 100.0% | 13.67 | 6.7% | 35.8% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---|---:|---:|---:|---:|
+| 0c4-1 | none bad | 9–10 | `B2 U R2 B2 U' L2 B2 D2 B2 U B2 R2 D2 U'` (14) | `U' F2 D L2 U2 F2 U F2 U'` | 4a3 |  | 100.0% | 13.67 | 6.7% | 35.8% |
 
 **2c4**
 
-| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---|---:|---:|---:|---:|
-| 2c4-1 | both on one layer, adjacent | 7–10 | `R2 D' B2 F2 L2 D' B2 U B2 D' B2 F2 U2` (13) | `U F2 U L2 U' F2 U'` | 2c3 | 16.7% | 13.27 | 16.2% | 56.7% |
-| 2c4-2 | 1 up 1 down, opposite | 8–10 | `R2 B2 F2 U' L2 D2 B2 U' F2 L2 U' L2 U'` (13) | `U' F2 U' L2 U R2 U F2` | 4b3 | 8.3% | 13.39 | 13.2% | 50.9% |
-| 2c4-3 | both on one layer, adjacent | 7–10 | `F2 U' B2 D' L2 D' L2 U B2 R2 U L2 F2 U'` (14) | `D F2 U' F2 U R2 U'` | 2c3 | 16.7% | 13.45 | 12.5% | 47.3% |
-| 2c4-4 | both on one layer, adjacent | 8–11 | `B2 D2 R2 U F2 U L2 U' R2 D2 R2 F2 U' R2` (14) | `U' R2 U' R2 U F2 U' F2` | nothing (set up first) | 16.7% | 13.77 | 7.0% | 32.5% |
-| 2c4-5 | 1 up 1 down, stacked | 9–11 | `B2 U B2 U2 B2 F2 R2 D B2 L2 U' B2 R2 U'` (14) | `D F2 U2 R2 U F2 U' F2 U` | 4b3 | 8.3% | 13.77 | 7.0% | 33.1% |
-| 2c4-6 | 1 up 1 down, opposite | 8–11 | `U' L2 D B2 U2 B2 L2 F2 U' L2 B2 D2 U' R2` (14) | `U' R2 U F2 U' R2 U R2` | nothing (set up first) | 16.7% | 13.80 | 6.4% | 30.8% |
-| 2c4-7 | 1 up 1 down, stacked | 9–12 | `U F2 U' L2 F2 D B2 R2 F2 D2 B2 U' F2 U2` (14) | `U F2 D' L2 U F2 U' F2 U2` | nothing (set up first) | 16.7% | 14.01 | 4.1% | 22.9% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---|---:|---:|---:|---:|
+| 2c4-1 | both on one layer, adjacent | 7–10 | `R2 D' B2 F2 L2 D' B2 U B2 D' B2 F2 U2` (13) | `U F2 U L2 U' F2 U'` | 2c3 | the two diagonals of the back face agree (see the note under the table) | 16.7% | 13.27 | 16.2% | 56.7% |
+| 2c4-2 | 1 up 1 down, opposite | 8–10 | `R2 B2 F2 U' L2 D2 B2 U' F2 L2 U' L2 U'` (13) | `U' F2 U' L2 U R2 U F2` | 4b3 |  | 8.3% | 13.39 | 13.2% | 50.9% |
+| 2c4-3 | both on one layer, adjacent | 7–10 | `F2 U' B2 D' L2 D' L2 U B2 R2 U L2 F2 U'` (14) | `D F2 U' F2 U R2 U'` | 2c3 | the two diagonals of the back face differ (see the note under the table) | 16.7% | 13.45 | 12.5% | 47.3% |
+| 2c4-4 | both on one layer, adjacent | 8–11 | `B2 D2 R2 U F2 U L2 U' R2 D2 R2 F2 U' R2` (14) | `U' R2 U' R2 U F2 U' F2` | nothing (set up first) |  | 16.7% | 13.77 | 7.0% | 32.5% |
+| 2c4-5 | 1 up 1 down, stacked | 9–11 | `B2 U B2 U2 B2 F2 R2 D B2 L2 U' B2 R2 U'` (14) | `D F2 U2 R2 U F2 U' F2 U` | 4b3 |  | 8.3% | 13.77 | 7.0% | 33.1% |
+| 2c4-6 | 1 up 1 down, opposite | 8–11 | `U' L2 D B2 U2 B2 L2 F2 U' L2 B2 D2 U' R2` (14) | `U' R2 U F2 U' R2 U R2` | nothing (set up first) |  | 16.7% | 13.80 | 6.4% | 30.8% |
+| 2c4-7 | 1 up 1 down, stacked | 9–12 | `U F2 U' L2 F2 D B2 R2 F2 D2 B2 U' F2 U2` (14) | `U F2 D' L2 U F2 U' F2 U2` | nothing (set up first) |  | 16.7% | 14.01 | 4.1% | 22.9% |
+
+**Telling the two look-alike 2c4 cases apart.** Hold the cube so the two bad corners are on the front edge of one layer (if you see six bad corners, turn both layers, U D', and you will see two). The four corners of the back face are then all good. Take each diagonal of the back face. Its two corners share exactly one colour: their sticker on the back face, their U/D sticker, or their sticker on the side. If both diagonals share the same kind of sticker, the diagonals agree; otherwise they differ.
 
 2c4, corner case on both sides (normal and inverse, either order):
 
@@ -1481,14 +1487,14 @@ In the both-sides tables the two columns are the case on normal and on inverse, 
 
 **4c4**
 
-| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---|---:|---:|---:|---:|
-| 4c4-1 | 2-2, diagonal over diagonal | 9–10 | `L2 B2 D2 B2 D' L2 B2 D B2 U2 R2 U' R2 U'` (14) | `U' R2 U' R2 U2 F2 U R2 U` | 4a3 | 8.3% | 13.97 | 4.3% | 23.4% |
-| 4c4-2 | 2-2, pairs sharing one column | 9–11 | `F2 U B2 R2 U' R2 D2 F2 D' B2 R2 U2 R2 U'` (14) | `U' R2 U' F2 U2 R2 U R2 U` | 4a3 | 16.7% | 14.25 | 2.5% | 15.0% |
-| 4c4-3 | 2-2, pairs stacked | 10–11 | `B2 L2 F2 U' R2 U F2 U' L2 D L2 U L2 D` (14) | `U L2 D' B2 U2 R2 U F2 U' R2` | nothing (set up first) | 16.7% | 14.27 | 1.9% | 13.1% |
-| 4c4-4 | 3-1 | 10–12 | `U' F2 D' L2 B2 D2 F2 U F2 R2 U2 R2 U F2 R2` (15) | `D' R2 D' B2 U2 R2 U R2 U' R2` | nothing (set up first) | 33.3% | 14.48 | 1.2% | 9.3% |
-| 4c4-5 | 2-2, pairs on opposite sides | 11–12 | `R2 B2 D R2 U' B2 U' F2 D F2 U' F2 U L2 U2` (15) | `D B2 U' L2 U2 F2 U R2 U' R2 U2` | nothing (set up first) | 16.7% | 14.60 | 0.6% | 6.0% |
-| 4c4-6 | 4-0 | 11–12 | `B2 U R2 F2 D2 F2 D' F2 R2 D2 R2 D' F2 R2 U'` (15) | `D F2 U2 R2 U F2 U2 R2 U F2 U` | 0c3 | 8.3% | 14.71 | 0.6% | 5.6% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---|---:|---:|---:|---:|
+| 4c4-1 | 2-2, diagonal over diagonal | 9–10 | `L2 B2 D2 B2 D' L2 B2 D B2 U2 R2 U' R2 U'` (14) | `U' R2 U' R2 U2 F2 U R2 U` | 4a3 |  | 8.3% | 13.97 | 4.3% | 23.4% |
+| 4c4-2 | 2-2, pairs sharing one column | 9–11 | `F2 U B2 R2 U' R2 D2 F2 D' B2 R2 U2 R2 U'` (14) | `U' R2 U' F2 U2 R2 U R2 U` | 4a3 |  | 16.7% | 14.25 | 2.5% | 15.0% |
+| 4c4-3 | 2-2, pairs stacked | 10–11 | `B2 L2 F2 U' R2 U F2 U' L2 D L2 U L2 D` (14) | `U L2 D' B2 U2 R2 U F2 U' R2` | nothing (set up first) |  | 16.7% | 14.27 | 1.9% | 13.1% |
+| 4c4-4 | 3-1 | 10–12 | `U' F2 D' L2 B2 D2 F2 U F2 R2 U2 R2 U F2 R2` (15) | `D' R2 D' B2 U2 R2 U R2 U' R2` | nothing (set up first) |  | 33.3% | 14.48 | 1.2% | 9.3% |
+| 4c4-5 | 2-2, pairs on opposite sides | 11–12 | `R2 B2 D R2 U' B2 U' F2 D F2 U' F2 U L2 U2` (15) | `D B2 U' L2 U2 F2 U R2 U' R2 U2` | nothing (set up first) |  | 16.7% | 14.60 | 0.6% | 6.0% |
+| 4c4-6 | 4-0 | 11–12 | `B2 U R2 F2 D2 F2 D' F2 R2 D2 R2 D' F2 R2 U'` (15) | `D F2 U2 R2 U F2 U2 R2 U F2 U` | 0c3 |  | 8.3% | 14.71 | 0.6% | 5.6% |
 
 4c4, corner case on both sides (normal and inverse, either order):
 
@@ -1505,11 +1511,11 @@ In the both-sides tables the two columns are the case on normal and on inverse, 
 
 **2c5**
 
-| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---|---:|---:|---:|---:|
-| 2c5-1 | both on one layer, adjacent | 9–12 | `D' R2 D R2 U2 L2 D' F2 U' R2 U F2 L2 U2` (14) | `U R2 U F2 U' F2 U R2 U` | 2c4 | 50.0% | 14.12 | 3.4% | 19.4% |
-| 2c5-2 | 1 up 1 down, opposite | 10–13 | `B2 D U2 F2 U L2 U R2 U2 L2 U' F2 U' R2` (14) | `D B2 U' R2 U F2 U' R2 U R2` | 4b4 | 25.0% | 14.34 | 1.9% | 12.9% |
-| 2c5-3 | 1 up 1 down, stacked | 11–13 | `B2 D' B2 D' B2 R2 D2 L2 U' F2 D F2 L2 U R2` (15) | `D F2 U' F2 U F2 U' F2 U R2 U2` | 4b4 | 25.0% | 14.72 | 0.6% | 6.0% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---|---:|---:|---:|---:|
+| 2c5-1 | both on one layer, adjacent | 9–12 | `D' R2 D R2 U2 L2 D' F2 U' R2 U F2 L2 U2` (14) | `U R2 U F2 U' F2 U R2 U` | 2c4 |  | 50.0% | 14.12 | 3.4% | 19.4% |
+| 2c5-2 | 1 up 1 down, opposite | 10–13 | `B2 D U2 F2 U L2 U R2 U2 L2 U' F2 U' R2` (14) | `D B2 U' R2 U F2 U' R2 U R2` | 4b4 |  | 25.0% | 14.34 | 1.9% | 12.9% |
+| 2c5-3 | 1 up 1 down, stacked | 11–13 | `B2 D' B2 D' B2 R2 D2 L2 U' F2 D F2 L2 U R2` (15) | `D F2 U' F2 U F2 U' F2 U R2 U2` | 4b4 |  | 25.0% | 14.72 | 0.6% | 6.0% |
 
 2c5, corner case on both sides (normal and inverse, either order):
 
@@ -1524,10 +1530,10 @@ In the both-sides tables the two columns are the case on normal and on inverse, 
 
 **4b5**
 
-| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |
-|---|---|---|---|---|---|---:|---:|---:|---:|
-| 4b5-1 | 3-1 | 9–12 | `D' L2 F2 U' B2 D B2 L2 D B2 F2 R2 D' U2` (14) | `U' L2 D F2 U' R2 U F2 U` | 2c4 | 66.7% | 14.23 | 2.2% | 15.1% |
-| 4b5-2 | 2-2, pairs sharing one column | 10–12 | `R2 D' L2 U L2 U' B2 U L2 F2 U' L2 B2 D2` (14) | `D F2 U R2 U' R2 U R2 U F2` | 4a4 | 33.3% | 14.37 | 1.3% | 10.7% |
+| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | ≤ 12 | ≤ 13 |
+|---|---|---|---|---|---|---|---:|---:|---:|---:|
+| 4b5-1 | 3-1 | 9–12 | `D' L2 F2 U' B2 D B2 L2 D B2 F2 R2 D' U2` (14) | `U' L2 D F2 U' R2 U F2 U` | 2c4 |  | 66.7% | 14.23 | 2.2% | 15.1% |
+| 4b5-2 | 2-2, pairs sharing one column | 10–12 | `R2 D' L2 U L2 U' B2 U L2 F2 U' L2 B2 D2` (14) | `D F2 U R2 U' R2 U R2 U F2` | 4a4 |  | 33.3% | 14.37 | 1.3% | 10.7% |
 
 4b5, corner case on both sides (normal and inverse, either order):
 

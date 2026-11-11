@@ -6,17 +6,19 @@ How to read the tables:
 - L is the range of optimal corner solution lengths the case can have.
 - The last column is a typical DR of the case: a state whose optimal is the median for that case, with that optimal in brackets.
 
-**2c4** (wen's stacks). Seven cases:
+**2c4** (wen's stacks). Seven cases. Two of them have the same bad corners and are told apart by the back face, as explained under the table:
 
 | Bad corners | L | A qt takes it straight to | Share | In 12 | In 13 | A typical DR (its optimal) |
 |---|---|---|---:|---:|---:|---|
-| both on one layer, adjacent | 7–10 | 2c3 | 17% | 16.2% | 57% | `R2 D' B2 F2 L2 D' B2 U B2 D' B2 F2 U2` (13) |
+| both on one layer, adjacent; back-face diagonals agree | 7–10 | 2c3 | 17% | 16.2% | 57% | `R2 D' B2 F2 L2 D' B2 U B2 D' B2 F2 U2` (13) |
 | 1 up 1 down, opposite | 8–10 | 4b3 | 8% | 13.2% | 51% | `R2 B2 F2 U' L2 D2 B2 U' F2 L2 U' L2 U'` (13) |
-| both on one layer, adjacent | 7–10 | 2c3 | 17% | 12.5% | 47% | `F2 U' B2 D' L2 D' L2 U B2 R2 U L2 F2 U'` (14) |
+| both on one layer, adjacent; back-face diagonals differ | 7–10 | 2c3 | 17% | 12.5% | 47% | `F2 U' B2 D' L2 D' L2 U B2 R2 U L2 F2 U'` (14) |
 | both on one layer, adjacent | 8–11 | nothing, needs a setup | 17% | 7.0% | 33% | `B2 D2 R2 U F2 U L2 U' R2 D2 R2 F2 U' R2` (14) |
 | 1 up 1 down, stacked | 9–11 | 4b3 | 8% | 7.0% | 33% | `B2 U B2 U2 B2 F2 R2 D B2 L2 U' B2 R2 U'` (14) |
 | 1 up 1 down, opposite | 8–11 | nothing, needs a setup | 17% | 6.4% | 31% | `U' L2 D B2 U2 B2 L2 F2 U' L2 B2 D2 U' R2` (14) |
 | 1 up 1 down, stacked | 9–12 | nothing, needs a setup | 17% | 4.1% | 23% | `U F2 U' L2 F2 D B2 R2 F2 D2 B2 U' F2 U2` (14) |
+
+**Telling the two look-alike 2c4 cases apart.** Hold the cube so the two bad corners are on the front edge of one layer (if you see six bad corners, turn both layers, U D', and you will see two). The four corners of the back face are then all good. Take each diagonal of the back face. Its two corners share exactly one colour: their sticker on the back face, their U/D sticker, or their sticker on the side. If both diagonals share the same kind of sticker, the diagonals agree; otherwise they differ.
 
 Both sides together:
 
@@ -54,19 +56,20 @@ The last two rows are 19% of all 2c5, and you can drop them on sight: a 2c5 that
 
     U2 F2 U' R2 U F2 D' L2 U B2 U' L2 U2   // the fastest any double-stacked 2c5 finishes: 13
 
-**4c3** (JTuu's question). Nine cases, seven of them 4a3 and two 4b3:
+**4c3** (JTuu's question). Nine cases, seven of them 4a3 and two 4b3. Eight rows, because two of the 4a3 cases look the same:
 
 | Bad corners | Subset | L | A qt takes it straight to | Share | In 12 | In 13 | A typical DR (its optimal) |
 |---|---|---|---|---:|---:|---:|---|
 | 2-2, pairs on opposite sides | 4a3 | 7–9 | 4b2 | 8% | 21.6% | 68% | `D R2 D' F2 D' B2 R2 B2 U L2 D2 U' R2` (13) |
 | 2-2, pairs stacked | 4a3 | 7–9 | 4b2 | 8% | 17.6% | 60% | `R2 U' F2 U R2 B2 D L2 U2 R2 U' R2 U'` (13) |
-| 4-0 | 4a3 | 8–9 | nothing, needs a setup | 4% | 15.2% | 57% | `D2 B2 D' B2 U' B2 D2 L2 U' L2 U' F2 U'` (13) |
 | 2-2, pairs sharing one column | 4b3 | 7–10 | 4a2 | 17% | 13.5% | 47% | `R2 D2 R2 U L2 U' B2 R2 B2 U L2 D F2 U'` (14) |
 | 3-1 | 4b3 | 8–11 | nothing, needs a setup | 33% | 11.4% | 45% | `R2 F2 U' B2 D' B2 R2 D' R2 D R2 U2 L2 U'` (14) |
 | 2-2, diagonal over diagonal | 4a3 | 8–10 | nothing, needs a setup | 8% | 10.3% | 43% | `B2 F2 U' F2 L2 U R2 U2 L2 R2 B2 D' F2 L2` (14) |
+| 4-0 (two cases that look the same) | 4a3 | 8–10 | nothing, needs a setup | 8% | 10.2% | 43% | `D2 B2 D' B2 U' B2 D2 L2 U' L2 U' F2 U'` (13) or `D' F2 U L2 D' L2 R2 U' B2 U R2 D F2 U'` (14) |
 | 2-2, pairs stacked | 4a3 | 8–10 | nothing, needs a setup | 8% | 9.4% | 40% | `D' L2 U' F2 D' F2 L2 D' L2 U B2 U2 R2 U2` (14) |
-| 4-0 | 4a3 | 9–10 | nothing, needs a setup | 4% | 5.1% | 28% | `D' F2 U L2 D' L2 R2 U' B2 U R2 D F2 U'` (14) |
 | 2-2, pairs on opposite sides | 4a3 | 9–11 | nothing, needs a setup | 8% | 3.6% | 22% | `D' L2 U F2 D' B2 L2 U' R2 U L2 D F2 U'` (14) |
+
+The row marked "two cases that look the same" is two corner cases with the same bad corners and no quarter turn that lowers the count. I have not found a visible test that separates them, so the row gives their odds together. Apart, they are 15% in 12 (57% in 13) and 5% in 12 (28% in 13), and only the optimal corner solution tells you which: 8 moves is the better one, 10 the worse one, and with 9 it can be either.
 
 Both sides together:
 
@@ -75,14 +78,15 @@ Both sides together:
 | the best pair of cases | 5.6% | 23.1% | 67.8% |
 | the worst pair of cases | 11.1% | 3.0% | 20.3% |
 
-**4b2** (Daichi's four). They are exactly his list, 2-2 and 3-1 with good and bad parity:
+**4b2** (Daichi's four: 2-2 and 3-1, each with good and bad parity). Three rows, because the two 3-1 cases look the same:
 
 | Bad corners | L | A qt takes it straight to | Share | In 12 | In 13 | A typical DR (its optimal) |
 |---|---|---|---:|---:|---:|---|
 | 2-2, pairs sharing one column | 3–6 | 4a1 | 17% | 43.9% | 88% | `U' L2 D' L2 U' F2 U L2 U2 R2 D' R2 U'` (13) |
-| 3-1 | 4–7 | nothing, needs a setup | 33% | 39.6% | 86% | `U' L2 D' L2 U B2 D2 B2 U' L2 U B2 D'` (13) |
-| 3-1 | 5–8 | nothing, needs a setup | 33% | 33.1% | 81% | `R2 U L2 R2 D L2 U' B2 F2 R2 D' R2 D2` (13) |
+| 3-1 (two cases that look the same) | 4–8 | nothing, needs a setup | 67% | 36.4% | 83% | `U' L2 D' L2 U B2 D2 B2 U' L2 U B2 D'` (13) or `R2 U L2 R2 D L2 U' B2 F2 R2 D' R2 D2` (13) |
 | 2-2, pairs sharing one column | 6–9 | nothing, needs a setup | 17% | 29.6% | 78% | `B2 D2 L2 D R2 F2 D' L2 B2 F2 D' U' L2` (13) |
+
+The 3-1 row is two corner cases that look the same (Daichi's "3-1 good parity" and "3-1 bad parity"). I have not found a visible test that separates them, so the row gives their odds together. Apart, they are 40% in 12 and 33% in 12, and only the optimal corner solution tells you which: 4 moves is the better one, 8 the worse one, and with 5 to 7 it can be either.
 
 Both sides together:
 

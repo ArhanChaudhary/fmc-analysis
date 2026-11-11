@@ -5,13 +5,25 @@ import sys, collections
 sys.path.insert(0, '/data/fmc/judging-a-dr/research/src')
 import hand_corner_tables as H          # also rewrites report/data/corner_cases.md
 
+MERGE = [('25', '21'), ('11', '13')]     # look-alike cases with no visible test: one pooled row
 def single(cs, named=False):
     tot = sum(sum(h) for h in H.one[cs].values())
+    pooled = {}
+    for a, b in MERGE:
+        if a in H.one[cs] and b in H.one[cs]:
+            pooled[a] = (b, [x + y for x, y in zip(H.one[cs][a], H.one[cs][b])])
     head = '| Bad corners |' + (' Subset |' if named else '') + ' L | A qt takes it straight to | Share | In 12 | In 13 | A typical DR (its optimal) |'
     out = [head, '|---|' + ('---|' if named else '') + '---|---|---:|---:|---:|---|']
-    for k, h in sorted(H.one[cs].items(), key=lambda kv: H.st(kv[1])[1]):
+    items = [(k, pooled[k][1] if k in pooled else h) for k, h in H.one[cs].items() if k not in {b for b, _ in pooled.values()}]
+    for k, h in sorted(items, key=lambda kv: H.st(kv[1])[1]):
         c = H.cc[k]
-        out.append(f"| {H.layout(int(c[2]))} |" + (f" {c[1]} |" if named else '') + f" {c[5]}–{c[6]} | {c[10] or 'nothing, needs a setup'} | {100*sum(h)/tot:.0f}% | {H.P(h,12):.1f}% | {H.P(h,13):.0f}% | `{H.TYP[k][0]}` ({H.TYP[k][1]}) |")
+        if k in pooled:
+            o = H.cc[pooled[k][0]]
+            lo, hi = min(int(c[5]), int(o[5])), max(int(c[6]), int(o[6]))
+            out.append(f"| {H.layout(int(c[2]))} (two cases that look the same) |" + (f" {c[1]} |" if named else '') + f" {lo}–{hi} | {c[10] or 'nothing, needs a setup'} | {100*sum(h)/tot:.0f}% | {H.P(h,12):.1f}% | {H.P(h,13):.0f}% | `{H.TYP[k][0]}` ({H.TYP[k][1]}) or `{H.TYP[pooled[k][0]][0]}` ({H.TYP[pooled[k][0]][1]}) |")
+            continue
+        tell = {'8': '; back-face diagonals agree', '7': '; back-face diagonals differ'}.get(k, '')
+        out.append(f"| {H.layout(int(c[2]))}{tell} |" + (f" {c[1]} |" if named else '') + f" {c[5]}–{c[6]} | {c[10] or 'nothing, needs a setup'} | {100*sum(h)/tot:.0f}% | {H.P(h,12):.1f}% | {H.P(h,13):.0f}% | `{H.TYP[k][0]}` ({H.TYP[k][1]}) |")
     return '\n'.join(out)
 
 def both(cs, rows):
@@ -46,9 +58,11 @@ How to read the tables:
 - L is the range of optimal corner solution lengths the case can have.
 - The last column is a typical DR of the case: a state whose optimal is the median for that case, with that optimal in brackets.
 
-**2c4** (wen's stacks). Seven cases:
+**2c4** (wen's stacks). Seven cases. Two of them have the same bad corners and are told apart by the back face, as explained under the table:
 
 {single('2c4')}
+
+{H.BACK_FACE_NOTE}
 
 Both sides together:
 
@@ -78,17 +92,21 @@ The last two rows are 19% of all 2c5, and you can drop them on sight: a 2c5 that
 
     U2 F2 U' R2 U F2 D' L2 U B2 U' L2 U2   // the fastest any double-stacked 2c5 finishes: 13
 
-**4c3** (JTuu's question). Nine cases, seven of them 4a3 and two 4b3:
+**4c3** (JTuu's question). Nine cases, seven of them 4a3 and two 4b3. Eight rows, because two of the 4a3 cases look the same:
 
 {single('4c3', named=True)}
+
+The row marked "two cases that look the same" is two corner cases with the same bad corners and no quarter turn that lowers the count. I have not found a visible test that separates them, so the row gives their odds together. Apart, they are 15% in 12 (57% in 13) and 5% in 12 (28% in 13), and only the optimal corner solution tells you which: 8 moves is the better one, 10 the worse one, and with 9 it can be either.
 
 Both sides together:
 
 {extremes('4c3')}
 
-**4b2** (Daichi's four). They are exactly his list, 2-2 and 3-1 with good and bad parity:
+**4b2** (Daichi's four: 2-2 and 3-1, each with good and bad parity). Three rows, because the two 3-1 cases look the same:
 
 {single('4b2')}
+
+The 3-1 row is two corner cases that look the same (Daichi's "3-1 good parity" and "3-1 bad parity"). I have not found a visible test that separates them, so the row gives their odds together. Apart, they are 40% in 12 and 33% in 12, and only the optimal corner solution tells you which: 4 moves is the better one, 8 the worse one, and with 5 to 7 it can be either.
 
 Both sides together:
 
@@ -107,4 +125,4 @@ Both sides together:
 Appendix E lists all 46 cases with a typical DR and the shortest setup for each, the L range (which is what Evan asked for), and the full both-sides tables.
 """
 open('/data/fmc/judging-a-dr/research/src/report_build/corner_section.md', 'w').write(txt)
-print(txt[1100:2600])
+print(len(txt))

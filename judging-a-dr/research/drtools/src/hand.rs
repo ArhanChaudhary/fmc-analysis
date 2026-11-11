@@ -672,7 +672,7 @@ pub fn run_hcensus2(bfsdir: &Path, outdir: &Path) -> io::Result<i32> {
             moves.join(" ")
         };
         let mut out = BufWriter::new(File::create(outdir.join("corner_cases.csv"))?);
-        writeln!(out, "corner_case,corner_subset,bad_corner_mask,qt_corners,corner_states,L_min,L_max,L_mean,cosets,example_scramble,one_qt_reaches")?;
+        writeln!(out, "corner_case,corner_subset,bad_corner_mask,qt_corners,corner_states,L_min,L_max,L_mean,cosets,example_scramble,one_qt_reaches,qt_down_counts,qt_down_cases,qt_down_same_layer")?;
         for x in 0..ncc {
             let a = reps[x];
             let cp: [u8; 8] = unrank_perm(example[x].1);
@@ -687,9 +687,43 @@ pub fn run_hcensus2(bfsdir: &Path, outdir: &Path) -> io::Result<i32> {
                 .collect();
             next.sort();
             next.dedup();
+            // which of the four quarter turns lower the count: how many per coset, the cases they lead to,
+            // and whether the turned layer is the one holding more bad corners ("more"), fewer ("fewer")
+            // or the same number ("equal")
+            let mut counts: Vec<usize> = Vec::new();
+            let mut to: Vec<usize> = Vec::new();
+            let mut layer: Vec<&str> = Vec::new();
+            for y in (0..NCCOS).filter(|&y| corbit[y] == a) {
+                let cp: [u8; 8] = unrank_perm(cls.ccos_rep[y]);
+                let mask = bad_corner_mask(&cp);
+                let (bu, bd) = ((mask & 0x0F).count_ones(), (mask >> 4).count_ones());
+                let mut n = 0;
+                for m in (0..NMOVES).filter(|&m| MOVE_IS_QT[m]) {
+                    let z = cls.ccos_mv[y][m];
+                    if cls.cc_qt[z] + 1 == cls.cc_qt[y] {
+                        n += 1;
+                        to.push(ccase[z]);
+                        let (mine, other) = if m < 3 { (bu, bd) } else { (bd, bu) };
+                        layer.push(if mine > other {
+                            "more"
+                        } else if mine < other {
+                            "fewer"
+                        } else {
+                            "equal"
+                        });
+                    }
+                }
+                counts.push(n);
+            }
+            counts.sort();
+            counts.dedup();
+            to.sort();
+            to.dedup();
+            layer.sort();
+            layer.dedup();
             writeln!(
                 out,
-                "{},{},{},{},{},{},{},{:.2},{},{},{}",
+                "{},{},{},{},{},{},{},{:.2},{},{},{},{},{},{}",
                 x,
                 crate::class::SUBSET_NAME[cls.cc_subset[a] as usize],
                 bad_corner_mask(&cp),
@@ -700,12 +734,33 @@ pub fn run_hcensus2(bfsdir: &Path, outdir: &Path) -> io::Result<i32> {
                 mean,
                 corbit.iter().filter(|&&o| o == a).count(),
                 scramble(example[x].1),
-                next.join(" ")
+                next.join(" "),
+                counts
+                    .iter()
+                    .map(|n| n.to_string())
+                    .collect::<Vec<_>>()
+                    .join("/"),
+                to.iter()
+                    .map(|n| n.to_string())
+                    .collect::<Vec<_>>()
+                    .join("/"),
+                layer.join("/")
             )?;
         }
         out.flush()?;
     }
 
+    {
+        // every corner permutation with its corner case (for working out how to tell look-alike cases apart)
+        let mut out = BufWriter::new(File::create(outdir.join("corner_perm_cases.csv"))?);
+        writeln!(out, "perm,corner_case")?;
+        for c in 0..NC {
+            let cp: [u8; 8] = unrank_perm(c);
+            let text: String = cp.iter().map(|x| x.to_string()).collect();
+            writeln!(out, "{},{}", text, ccase[cls.ccos[c] as usize])?;
+        }
+        out.flush()?;
+    }
     const NTP: usize = 6; // true pairs capped at 5
     const NTB: usize = 9; // true pairs capped at 8
     const NLE: usize = 16;
