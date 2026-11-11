@@ -5,11 +5,15 @@
 /tools/
 /venv/
 /tmp/
-/lean/FMC/
-# Build outputs and large generated tables (README: how to regenerate them).
+/judging-a-dr/lean/FMC/
+# Links kept on the build machine for the old locations of the first study.
+/report
+/research
+/lean
+# Build outputs and large generated tables (each study's README: how to regenerate them).
 .lake/
-/research/data/
-/research/drtools/target/
+/judging-a-dr/research/data/
+/judging-a-dr/research/drtools/target/
 __pycache__/
 *.pyc
 /_site/

@@ -1,0 +1,99 @@
+#!/usr/bin/env python3
+"""drread — what you can read off a DR by hand, what the exact tables say about it, and the truth.
+
+  drread --dr "<DR-move scramble>"                 a position given by DR moves on U/D
+  drread "<scramble>" "<moves to DR, NISS in brackets>"
+
+For each read (subset, true pairs, corner case on both sides, HTR length on both sides, corner length with
+E-parity, all together) it prints the share of DRs with the same read that finish in 12 / in 13 and their
+average optimal, from the exact counts over all DR states; then the optimal finish of this DR."""
+import sys, os, csv, subprocess, argparse, collections
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import fmccube as fc
+R = '/data/fmc/judging-a-dr/research/'
+READ = [R + 'drtools/target/release/drtools', 'read', R + 'data/drbfs', R + 'data/ls_depth.u8']
+H = R + 'out/hand/'
+
+def rows(name):
+    with open(H + name) as f:
+        r = csv.reader(f); next(r); return list(r)
+def stats(h):
+    n = sum(h)
+    return None if n == 0 else (100 * sum(h[:13]) / n, 100 * sum(h[:14]) / n, sum(d * c for d, c in enumerate(h)) / n, n)
+def hist(rs, key, want, di, ci):
+    h = [0] * 19
+    for r in rs:
+        if key(r) == want: h[int(r[di])] += int(r[ci])
+    return h
+
+def corner_names():
+    """Case numbers as in the write-up's Appendix E: per corner subset, ordered by average optimal."""
+    g = collections.defaultdict(lambda: collections.defaultdict(lambda: [0] * 19))
+    for s, a, b, d, c in rows('k1_corner_cases.csv'):
+        g[s.split()[0]][a][int(d)] += int(c)
+    name = {}
+    for cs, cases in g.items():
+        for i, (k, h) in enumerate(sorted(cases.items(), key=lambda kv: stats(kv[1])[2])):
+            name[k] = f'{cs}-{i + 1}'
+    return name
+
+def read_states(lines):
+    out = subprocess.run(READ, input='\n'.join(lines) + '\n', capture_output=True, text=True).stdout
+    res = []
+    for block in out.strip().split('\n\n'):
+        res.append(dict(l.split(': ', 1) if ': ' in l else (l.rstrip(':'), '') for l in block.split('\n')))
+    return res
+
+def report(kv, tables, label=''):
+    k1, h2, h3, h5, k2, names = tables
+    sub = kv['subset']; cs = sub.split()[0]
+    ccn, cci = kv['corner_case'].split()
+    tp = int(kv['true_pairs'].split()[0]); hn, hi = map(int, kv['htr'].split())
+    L, le, lo = map(int, kv['corner_length'].split()); par = int(kv['e_parity'])
+    lp = lo if par else le; hmin, hmax = min(hn, hi), max(hn, hi)
+    print(f"{label}subset {sub}; E-slice {'odd' if par else 'even'}")
+    bc = kv['bad_corners'].split(' | '); be = kv['bad_edges'].split(' | ')
+    print(f"  bad corners {bc[0]} (normal), {bc[1]} (inverse); bad edges {be[0]} (normal), {be[1]} (inverse)")
+    print(f"  true pairs: {kv['true_pairs']}")
+    print(f"  corner case: {names[ccn]} on normal, {names[cci]} on inverse")
+    print(f"  shortest HTR: {hn} on normal ({kv['htr_normal']}), {hi} on inverse ({kv['htr_inverse']})")
+    print(f"  corner solutions: L = {L}; even number of side turns {le} ({kv['corner_solution_even']}), odd {lo} ({kv['corner_solution_odd']})")
+    print(f"  so no finish under {lp} (corner solution of the right parity) or under {hmax} (longer HTR)")
+    def line(what, h):
+        s = stats(h)
+        print(f"  {what:<46} {s[0]:5.1f}% in 12  {s[1]:5.1f}% in 13   average {s[2]:.2f}   ({100 * s[3] / 19508428800:.3f}% of all DRs)" if s else f"  {what:<46} no such state")
+    print('  what the tables say for DRs with the same read:')
+    line('subset', hist(h3, lambda r: r[0], sub, 1, 3))
+    line(f'+ {min(tp, 6)}{"+" if tp >= 6 else ""} true pairs', hist(h5, lambda r: (r[0], min(int(r[1]), 6)), (sub, min(tp, 6)), 5, 6))
+    line(f'+ corners {names[ccn]} / {names[cci]} (all {cs})', hist(k1, lambda r: (r[0].split()[0], tuple(sorted((r[1], r[2])))), (cs, tuple(sorted((ccn, cci)))), 3, 4))
+    line(f'+ HTR {hmin} / {hmax}', hist(h2, lambda r: (r[0], int(r[1]), int(r[2])), (sub, hmin, hmax), 6, 7))
+    line(f'+ L {L}, right parity costs +{lp - L}', hist(h2, lambda r: (r[0], int(r[3]), int(r[4])), (sub, L, min(lp - L, 6)), 6, 7))
+    line('all of pairs, HTR, L, parity', hist(k2, lambda r: (r[0], int(r[1]), int(r[2]), int(r[3]), int(r[4]), int(r[5])), (sub, hmin, hmax, L, int(lp > L), min(tp, 5)), 6, 7))
+    print(f"  truth: optimal finish {kv['optimal']} ({kv['optimal_finish']}); leave slice {kv['leave_slice']}; optimal first moves: {kv['optimal_first_moves']}")
+    print(f"  after a side half turn (the other choice for the last DR move): {kv['after_side_half_turn']}")
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument('scramble', nargs='?'); ap.add_argument('solution', nargs='?', default=''); ap.add_argument('--dr', action='append')
+    a = ap.parse_args()
+    tables = (rows('k1_corner_cases.csv'), rows('h2_lengths.csv'), rows('h3_leaveslice.csv'), rows('h5_pairs.csv'), rows('k2_combined.csv'), corner_names())
+    if a.dr:
+        for kv, d in zip(read_states(a.dr), a.dr):
+            print(f'DR state: {d}'); report(kv, tables); print()
+        return
+    if not a.scramble: ap.error('give a scramble')
+    n, i = fc.split_niss(a.solution)
+    variants = [('as written', n, i)]
+    for side, seq in (('normal', n), ('inverse', i)):
+        if seq and seq[-1][1] in (1, 3):
+            alt = seq[:-1] + [(seq[-1][0], 4 - seq[-1][1])]
+            variants.append((f'last {side} move turned the other way', alt if side == 'normal' else n, alt if side == 'inverse' else i))
+    for name, nn, ii in variants:
+        st = fc.apply(fc.apply(fc.apply(fc.solved(), fc.invert(ii)), fc.parse(a.scramble)), nn)
+        axis, arrs = fc.find_dr(st)
+        if not arrs: sys.exit('not a DR')
+        kv = read_states([' '.join(map(str, arrs[0] + arrs[1] + arrs[2]))])[0]
+        print(f'DR on the {axis} axis, {name} (move sequences below are for the cube turned so that axis is U/D)'); report(kv, tables); print()
+
+if __name__ == '__main__':
+    main()

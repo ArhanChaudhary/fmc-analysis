@@ -1,0 +1,739 @@
+0c0 0e longest :: U2 L2 F2 R2 U2 F2 U2 B2 L2 F2 U2 R2 U2
+    subset 0c0 0e | optimal 13 (U2 R2 U2 F2 L2 B2 U2 F2 U2 R2 F2 L2 U2) | leave slice 11 | HTR 0 / 0 | L 1 | qt 0 | setup 0 / 0 | setup+HTR bound 0
+    HTR normal:  | HTR inverse: ()
+0c0 0e shortest :: 
+    subset 0c0 0e | optimal 0 () | leave slice 0 | HTR 0 / 0 | L 0 | qt 0 | setup 0 / 0 | setup+HTR bound 0
+    HTR normal:  | HTR inverse: ()
+0c0 0e optimal equal to the longer HTR :: D U'
+    subset 0c0 0e | optimal 2 (U D') | leave slice 2 | HTR 2 / 2 | L 2 | qt 2 | setup 0 / 0 | setup+HTR bound 2
+    HTR normal: U D | HTR inverse: (U D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c0 0e optimal below the setup+HTR bound :: none
+0c0 2e longest :: L2 D F2 R2 B2 D L2 U F2 U2 R2 B2 D2 L2 U'
+    subset 0c0 2e | optimal 15 (U L2 D2 B2 R2 U2 F2 U' L2 D' B2 R2 F2 D' L2) | leave slice 13 | HTR 6 / 6 | L 0 | qt 2 | setup 1 / 1 | setup+HTR bound 7
+    HTR normal: R2 U' F2 R2 F2 U | HTR inverse: (L2 U' F2 R2 B2 D)
+    shortest way to a qt that lowers the count, normal: R2 U | inverse: (L2 U)
+0c0 2e shortest :: D F2 R2 F2 D
+    subset 0c0 2e | optimal 5 (D' F2 R2 F2 D') | leave slice 5 | HTR 5 / 5 | L 3 | qt 2 | setup 0 / 0 | setup+HTR bound 5
+    HTR normal: U' R2 F2 L2 D | HTR inverse: (U R2 F2 R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c0 2e optimal equal to the longer HTR :: L2 D' B2 L2 B2 D
+    subset 0c0 2e | optimal 6 (D' B2 L2 B2 D L2) | leave slice 6 | HTR 5 / 6 | L 3 | qt 2 | setup 0 / 1 | setup+HTR bound 6
+    HTR normal: U' R2 F2 R2 U | HTR inverse: (L2 U' R2 F2 R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (L2 U)
+0c0 2e optimal below the setup+HTR bound :: none
+0c0 4e longest :: R2 U' F2 D2 F2 L2 B2 L2 U2 L2 U L2 R2 F2 D U'
+    subset 0c0 4e | optimal 16 (U D' F2 R2 L2 U' L2 U2 L2 B2 L2 F2 D2 F2 U R2) | leave slice 14 | HTR 7 / 7 | L 5 | qt 2 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: F2 U2 L2 U R2 L2 U | HTR inverse: (F2 U2 R2 U R2 L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c0 4e shortest :: U B2 F2 U'
+    subset 0c0 4e | optimal 4 (U F2 B2 U') | leave slice 4 | HTR 4 / 4 | L 4 | qt 2 | setup 0 / 0 | setup+HTR bound 4
+    HTR normal: U F2 B2 U | HTR inverse: (U F2 B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c0 4e optimal equal to the longer HTR :: D' B2 F2 U F2 L2 D2
+    subset 0c0 4e | optimal 7 (D2 L2 F2 U' F2 B2 D) | leave slice 7 | HTR 7 / 4 | L 3 | qt 2 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: U2 R2 B2 U F2 B2 D | HTR inverse: (U R2 L2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c0 4e optimal below the setup+HTR bound :: none
+0c0 6e longest :: B2 U F2 R2 B2 L2 R2 D' L2 R2 B2 D' U' R2 D' U'
+    subset 0c0 6e | optimal 16 (U D R2 U D B2 R2 L2 D R2 L2 B2 R2 F2 U' B2) | leave slice 14 | HTR 8 / 8 | L 5 | qt 2 | setup 1 / 1 | setup+HTR bound 9
+    HTR normal: L2 U R2 F2 R2 F2 B2 U | HTR inverse: (R2 U' R2 F2 R2 F2 B2 U)
+    shortest way to a qt that lowers the count, normal: L2 U | inverse: (R2 U)
+0c0 6e shortest :: D' B2 F2 R2 F2 L2 D'
+    subset 0c0 6e | optimal 7 (D L2 F2 R2 F2 B2 D) | leave slice 7 | HTR 7 / 7 | L 3 | qt 2 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: U R2 L2 F2 R2 F2 D | HTR inverse: (U' R2 L2 F2 R2 B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c0 6e optimal equal to the longer HTR :: L2 D B2 F2 R2 F2 L2 D'
+    subset 0c0 6e | optimal 8 (D L2 F2 R2 F2 B2 D' L2) | leave slice 8 | HTR 7 / 8 | L 3 | qt 2 | setup 0 / 1 | setup+HTR bound 8
+    HTR normal: U R2 L2 F2 R2 F2 D | HTR inverse: (L2 U R2 L2 F2 R2 F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (L2 U)
+0c0 6e optimal below the setup+HTR bound :: none
+0c0 8e longest :: F2 L2 U B2 F2 R2 B2 F2 R2 U F2 R2 D U F2 R2 D' U'
+    subset 0c0 8e | optimal 18 (U D R2 F2 U' D' R2 F2 U' R2 F2 B2 R2 F2 B2 U' L2 F2) | leave slice 16 | HTR 6 / 6 | L 5 | qt 2 | setup 0 / 0 | setup+HTR bound 6
+    HTR normal: U R2 L2 F2 B2 D | HTR inverse: (U R2 L2 F2 B2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c0 8e shortest :: U' B2 F2 L2 R2 U'
+    subset 0c0 8e | optimal 6 (U R2 L2 F2 B2 U) | leave slice 6 | HTR 6 / 6 | L 1 | qt 2 | setup 0 / 0 | setup+HTR bound 6
+    HTR normal: U R2 L2 F2 B2 U | HTR inverse: (U R2 L2 F2 B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c0 8e optimal equal to the longer HTR :: U' B2 F2 L2 R2 U'
+    subset 0c0 8e | optimal 6 (U R2 L2 F2 B2 U) | leave slice 6 | HTR 6 / 6 | L 1 | qt 2 | setup 0 / 0 | setup+HTR bound 6
+    HTR normal: U R2 L2 F2 B2 U | HTR inverse: (U R2 L2 F2 B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c0 8e optimal below the setup+HTR bound :: none
+2c5 0e longest :: U2 L2 D B2 U' B2 U' L2 D B2 R2 U R2 U R2 U2 R2 U'
+    subset 2c5 0e | optimal 18 (U R2 U2 R2 U' R2 U' R2 B2 D' L2 U B2 U B2 D' L2 U2) | leave slice 18 | HTR 11 / 11 | L 13 | qt 5 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: U F2 U' R2 U R2 U2 B2 U' L2 D | HTR inverse: (U F2 U' R2 U R2 U2 B2 U' L2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 0e shortest :: D R2 U F2 D' F2 R2 U' B2 D'
+    subset 2c5 0e | optimal 10 (D B2 U R2 F2 D F2 U' R2 D') | leave slice 10 | HTR 10 / 10 | L 10 | qt 5 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U R2 U R2 U' R2 F2 U' F2 U | HTR inverse: (U F2 U L2 U' F2 R2 U' B2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 0e optimal equal to the longer HTR :: U F2 U' R2 B2 U' L2 U B2 U' R2
+    subset 2c5 0e | optimal 11 (R2 U B2 U' L2 U B2 R2 U F2 U') | leave slice 11 | HTR 11 / 10 | L 11 | qt 5 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: U F2 U L2 U B2 U2 L2 U' R2 U | HTR inverse: (U F2 U L2 B2 U R2 U' B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 0e optimal below the setup+HTR bound :: none
+2c5 2e longest :: F2 L2 U2 L2 D' F2 U' L2 U2 B2 L2 R2 U B2 U' R2 U'
+    subset 2c5 2e | optimal 17 (U R2 U B2 U' R2 L2 B2 U2 L2 U F2 D L2 U2 L2 F2) | leave slice 16 | HTR 11 / 11 | L 11 | qt 5 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: U' F2 U' F2 U L2 U2 B2 U' R2 U | HTR inverse: (U R2 U F2 U R2 U2 F2 U' L2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 2e shortest :: D' F2 U' F2 U L2 U' L2 U'
+    subset 2c5 2e | optimal 9 (U L2 U L2 U' F2 U F2 D) | leave slice 9 | HTR 9 / 9 | L 9 | qt 5 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U L2 U L2 U' F2 U F2 D | HTR inverse: (U L2 U R2 U' R2 U R2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 2e optimal equal to the longer HTR :: D B2 D R2 U2 B2 D' R2 U B2 D' R2
+    subset 2c5 2e | optimal 12 (R2 D B2 U' R2 D B2 U2 R2 D' B2 D') | leave slice 12 | HTR 12 / 10 | L 11 | qt 5 | setup 0 / 0 | setup+HTR bound 12
+    HTR normal: U R2 U' B2 U R2 U2 L2 F2 U B2 D | HTR inverse: (U R2 U' F2 U F2 R2 U F2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 2e optimal below the setup+HTR bound :: none
+2c5 4e longest :: R2 F2 L2 D' F2 D' B2 F2 R2 U2 F2 D' B2 U2 L2 U' R2 U'
+    subset 2c5 4e | optimal 18 (U R2 U L2 U2 B2 D F2 U2 R2 F2 B2 D F2 D L2 F2 R2) | leave slice 18 | HTR 12 / 12 | L 13 | qt 5 | setup 0 / 0 | setup+HTR bound 12
+    HTR normal: U F2 R2 U B2 U B2 U2 L2 U' F2 D | HTR inverse: (U F2 R2 U B2 U B2 U2 L2 U' F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 4e shortest :: D' F2 U' B2 U F2 D' B2 D'
+    subset 2c5 4e | optimal 9 (D B2 D F2 U' B2 U F2 D) | leave slice 9 | HTR 9 / 9 | L 9 | qt 5 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U R2 U B2 U' F2 U B2 D | HTR inverse: (U R2 U' B2 U L2 U' L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 4e optimal equal to the longer HTR :: D' F2 U' R2 D B2 D' F2 D L2 D2 B2
+    subset 2c5 4e | optimal 12 (B2 D2 L2 D' F2 D B2 D' R2 U F2 D) | leave slice 12 | HTR 12 / 9 | L 11 | qt 5 | setup 0 / 0 | setup+HTR bound 12
+    HTR normal: U L2 U' R2 U R2 U2 R2 F2 U R2 D | HTR inverse: (U R2 U B2 U' R2 U R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 4e optimal below the setup+HTR bound :: none
+2c5 6e longest :: B2 U' L2 D F2 U' L2 U2 B2 F2 U' F2 R2 D2 L2 R2 U'
+    subset 2c5 6e | optimal 17 (U R2 L2 D2 R2 F2 U F2 B2 U2 L2 U F2 D' L2 U B2) | leave slice 16 | HTR 10 / 10 | L 11 | qt 5 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U F2 U' L2 F2 U' R2 U B2 D | HTR inverse: (U F2 U R2 F2 U L2 U' B2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 6e shortest :: D' F2 U' B2 U B2 U' F2 D'
+    subset 2c5 6e | optimal 9 (D F2 U B2 U' B2 U F2 D) | leave slice 9 | HTR 9 / 9 | L 9 | qt 5 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U L2 U R2 U' R2 U L2 U | HTR inverse: (U' R2 U L2 U' L2 U R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 6e optimal equal to the longer HTR :: D B2 D' F2 D F2 D' B2 U' L2 D2 L2
+    subset 2c5 6e | optimal 12 (L2 D2 L2 U B2 D F2 D' F2 D B2 D') | leave slice 12 | HTR 12 / 9 | L 11 | qt 5 | setup 0 / 0 | setup+HTR bound 12
+    HTR normal: U L2 U' R2 U' R2 B2 U2 F2 U' R2 U | HTR inverse: (U R2 U B2 U' L2 U F2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 6e optimal below the setup+HTR bound :: none
+2c5 8e longest :: U' B2 D' L2 B2 D R2 D2 F2 D' R2 D B2 R2 U2 R2 U2
+    subset 2c5 8e | optimal 17 (U2 R2 U2 R2 B2 D' R2 D F2 D2 R2 D' B2 L2 D B2 U) | leave slice 17 | HTR 11 / 11 | L 11 | qt 5 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: R2 U B2 U L2 B2 U L2 U' L2 D | HTR inverse: (R2 U B2 U L2 B2 U L2 U' L2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 8e shortest :: D' L2 U' B2 L2 U' B2 D L2 D
+    subset 2c5 8e | optimal 10 (D' L2 D' B2 U L2 B2 U L2 D) | leave slice 10 | HTR 10 / 10 | L 10 | qt 5 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U F2 U R2 F2 U R2 U' R2 D | HTR inverse: (U F2 U R2 F2 U R2 U' R2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 8e optimal equal to the longer HTR :: U B2 U' L2 D B2 L2 D B2 D' L2 D2
+    subset 2c5 8e | optimal 12 (D2 L2 D B2 D' L2 B2 D' L2 U B2 U') | leave slice 12 | HTR 12 / 10 | L 12 | qt 5 | setup 0 / 0 | setup+HTR bound 12
+    HTR normal: U R2 U' R2 U' L2 U2 L2 F2 U' L2 U | HTR inverse: (U B2 U R2 U' L2 B2 U' F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c5 8e optimal below the setup+HTR bound :: none
+2c4 0e longest :: U2 L2 D' R2 B2 D F2 D' B2 R2 U F2 L2 R2 D' U'
+    subset 2c4 0e | optimal 16 (U D R2 L2 F2 U' R2 B2 D F2 D' B2 R2 D L2 U2) | leave slice 15 | HTR 9 / 9 | L 11 | qt 4 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U2 R2 U F2 U R2 U' F2 U | HTR inverse: (U2 R2 U F2 U R2 U' F2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c4 0e shortest :: D F2 U' B2 U F2 D'
+    subset 2c4 0e | optimal 7 (D F2 U' B2 U F2 D') | leave slice 7 | HTR 7 / 7 | L 7 | qt 4 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: U L2 U' R2 U L2 U | HTR inverse: (U L2 U' R2 U L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c4 0e optimal equal to the longer HTR :: D2 B2 U F2 U' B2 U F2 U'
+    subset 2c4 0e | optimal 9 (U F2 U' B2 U F2 U' B2 D2) | leave slice 9 | HTR 7 / 9 | L 9 | qt 4 | setup 0 / 1 | setup+HTR bound 9
+    HTR normal: U F2 U' B2 U F2 U | HTR inverse: (U2 F2 U B2 U' F2 U B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (F2 U)
+2c4 0e optimal below the setup+HTR bound :: none
+2c4 2e longest :: D R2 U' R2 U L2 D' L2 B2 U R2 F2 U F2 U' R2 U'
+    subset 2c4 2e | optimal 17 (U R2 U F2 U' F2 R2 U' B2 L2 D L2 U' R2 U R2 D') | leave slice 17 | HTR 10 / 10 | L 12 | qt 4 | setup 1 / 1 | setup+HTR bound 11
+    HTR normal: U2 F2 U' F2 R2 U' R2 U L2 U | HTR inverse: (U2 B2 U R2 B2 U R2 U' F2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (F2 U)
+2c4 2e shortest :: D B2 D' B2 D B2 D'
+    subset 2c4 2e | optimal 7 (D B2 D' B2 D B2 D') | leave slice 7 | HTR 7 / 7 | L 7 | qt 4 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: U R2 U' B2 U R2 U | HTR inverse: (U R2 U' B2 U R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c4 2e optimal equal to the longer HTR :: D B2 D L2 R2 D2 F2 U R2 U'
+    subset 2c4 2e | optimal 10 (U R2 U' F2 D2 R2 L2 D' B2 D') | leave slice 10 | HTR 10 / 10 | L 7 | qt 4 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U R2 U R2 L2 U2 F2 U R2 U | HTR inverse: (U R2 U R2 L2 U2 F2 U R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c4 2e optimal below the setup+HTR bound :: none
+2c4 4e longest :: B2 D B2 R2 D B2 R2 D2 R2 U F2 D' F2 D' F2 U'
+    subset 2c4 4e | optimal 16 (U F2 D F2 D F2 U' R2 D2 R2 B2 D' R2 B2 D' B2) | leave slice 15 | HTR 9 / 9 | L 10 | qt 4 | setup 1 / 1 | setup+HTR bound 10
+    HTR normal: F2 L2 U' F2 U B2 U' L2 D | HTR inverse: (R2 F2 U B2 U' L2 U F2 D)
+    shortest way to a qt that lowers the count, normal: R2 U | inverse: (F2 U)
+2c4 4e shortest :: D F2 U' F2 D B2 D'
+    subset 2c4 4e | optimal 7 (D B2 D' F2 U F2 D') | leave slice 7 | HTR 7 / 7 | L 7 | qt 4 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: U R2 U' F2 U F2 D | HTR inverse: (U R2 U' F2 U B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c4 4e optimal equal to the longer HTR :: D2 R2 D F2 D' L2 U F2 U2 R2 D'
+    subset 2c4 4e | optimal 11 (D R2 U2 F2 U' L2 D F2 D' R2 D2) | leave slice 11 | HTR 7 / 11 | L 8 | qt 4 | setup 0 / 1 | setup+HTR bound 11
+    HTR normal: U' L2 U R2 U' R2 D | HTR inverse: (U2 L2 U R2 U' R2 U B2 U2 L2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (R2 U)
+2c4 4e optimal below the setup+HTR bound :: none
+2c4 6e longest :: L2 D B2 D' R2 U B2 U F2 U R2 U' R2 U B2 R2 U'
+    subset 2c4 6e | optimal 17 (U R2 B2 U' R2 U R2 U' F2 U' B2 U' R2 D B2 D' L2) | leave slice 17 | HTR 10 / 10 | L 12 | qt 4 | setup 1 / 1 | setup+HTR bound 11
+    HTR normal: U2 B2 U B2 U' R2 B2 U' F2 U | HTR inverse: (U2 F2 U' R2 U L2 F2 U R2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (F2 U)
+2c4 6e shortest :: D' B2 R2 U' L2 U R2 D'
+    subset 2c4 6e | optimal 8 (D R2 U' L2 U R2 B2 D) | leave slice 8 | HTR 8 / 8 | L 8 | qt 4 | setup 0 / 0 | setup+HTR bound 8
+    HTR normal: U F2 U' B2 U F2 R2 U | HTR inverse: (U' L2 B2 U' F2 U B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c4 6e optimal equal to the longer HTR :: L2 U' F2 D L2 F2 D L2 F2 U
+    subset 2c4 6e | optimal 10 (U' F2 L2 D' F2 L2 D' F2 U L2) | leave slice 10 | HTR 8 / 10 | L 8 | qt 4 | setup 0 / 1 | setup+HTR bound 10
+    HTR normal: U L2 U' R2 B2 U' R2 D | HTR inverse: (R2 U R2 U' F2 B2 R2 U F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (R2 U)
+2c4 6e optimal below the setup+HTR bound :: none
+2c4 8e longest :: R2 D L2 D' L2 U' F2 U2 R2 U B2 R2 U L2 F2 R2 U'
+    subset 2c4 8e | optimal 17 (U R2 F2 L2 U' R2 B2 U' R2 U2 F2 U L2 D L2 D' R2) | leave slice 16 | HTR 11 / 11 | L 11 | qt 4 | setup 1 / 1 | setup+HTR bound 12
+    HTR normal: U2 F2 U R2 U' F2 U L2 F2 B2 D | HTR inverse: (U2 R2 U R2 L2 F2 U' R2 U B2 D)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (R2 U)
+2c4 8e shortest :: D F2 U' B2 D L2 B2 F2 U'
+    subset 2c4 8e | optimal 9 (U F2 B2 L2 D' B2 U F2 D') | leave slice 9 | HTR 9 / 9 | L 7 | qt 4 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U L2 U' R2 U R2 F2 B2 U | HTR inverse: (U L2 U' R2 U R2 F2 B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c4 8e optimal equal to the longer HTR :: D2 B2 D B2 F2 R2 U' R2 D F2 U'
+    subset 2c4 8e | optimal 11 (U F2 D' R2 U R2 F2 B2 D' B2 D2) | leave slice 11 | HTR 9 / 11 | L 9 | qt 4 | setup 0 / 1 | setup+HTR bound 11
+    HTR normal: U R2 L2 F2 U' F2 U B2 U | HTR inverse: (U2 F2 U R2 L2 B2 U' B2 U F2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (F2 U)
+2c4 8e optimal below the setup+HTR bound :: none
+0c3 0e longest :: R2 D2 R2 D' L2 D L2 D' L2 B2 U' R2 U F2 U' R2 U'
+    subset 0c3 0e | optimal 17 (U R2 U F2 U' R2 U B2 L2 D L2 D' L2 D R2 D2 R2) | leave slice 17 | HTR 11 / 11 | L 12 | qt 3 | setup 1 / 1 | setup+HTR bound 12
+    HTR normal: F2 U R2 U2 F2 U' R2 U2 R2 F2 U | HTR inverse: (R2 U R2 U2 F2 U' R2 U2 R2 F2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (R2 U)
+0c3 0e shortest :: D' L2 B2 U2 B2 D L2 D2 B2 U'
+    subset 0c3 0e | optimal 10 (U B2 D2 L2 D' B2 U2 B2 L2 D) | leave slice 10 | HTR 10 / 10 | L 9 | qt 3 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U R2 U2 F2 U' R2 U2 R2 F2 U | HTR inverse: (U R2 U2 F2 U' R2 U2 R2 F2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c3 0e optimal equal to the longer HTR :: R2 D B2 R2 D2 R2 U' B2 U2 R2 U'
+    subset 0c3 0e | optimal 11 (U R2 U2 B2 U R2 D2 R2 B2 D' R2) | leave slice 11 | HTR 10 / 11 | L 10 | qt 3 | setup 0 / 1 | setup+HTR bound 11
+    HTR normal: U R2 U2 F2 U' R2 U2 R2 F2 U | HTR inverse: (R2 U R2 U2 F2 U' R2 U2 R2 F2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (R2 U)
+0c3 0e optimal below the setup+HTR bound :: none
+0c3 2e longest :: B2 F2 L2 U' B2 D' B2 D2 F2 R2 D' F2 D' L2 U2 B2 U'
+    subset 0c3 2e | optimal 17 (U B2 U2 L2 D F2 D R2 F2 D2 B2 D B2 U L2 F2 B2) | leave slice 16 | HTR 10 / 10 | L 11 | qt 3 | setup 1 / 1 | setup+HTR bound 11
+    HTR normal: L2 U F2 U2 R2 U R2 U2 F2 U | HTR inverse: (R2 U F2 U2 R2 U F2 U2 L2 D)
+    shortest way to a qt that lowers the count, normal: R2 U | inverse: (R2 U)
+0c3 2e shortest :: D' L2 U2 B2 U' B2 U2 L2 D'
+    subset 0c3 2e | optimal 9 (D L2 U2 B2 U B2 U2 L2 D) | leave slice 9 | HTR 9 / 9 | L 9 | qt 3 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U F2 U2 R2 U F2 U2 R2 U | HTR inverse: (U R2 U2 F2 U F2 U2 R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c3 2e optimal equal to the longer HTR :: B2 F2 U' F2 U2 R2 D R2 U2 B2 D'
+    subset 0c3 2e | optimal 11 (D B2 U2 R2 D' R2 U2 F2 U F2 B2) | leave slice 11 | HTR 9 / 11 | L 9 | qt 3 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: U R2 U2 F2 U F2 U2 R2 U | HTR inverse: (R2 L2 U R2 U2 F2 U F2 U2 R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c3 2e optimal below the setup+HTR bound :: none
+0c3 4e longest :: F2 D' F2 D' F2 R2 U2 R2 U' B2 R2 B2 L2 U B2 U2 R2 U'
+    subset 0c3 4e | optimal 18 (U R2 U2 B2 U' L2 B2 R2 B2 U R2 U2 R2 F2 D F2 D F2) | leave slice 18 | HTR 13 / 13 | L 12 | qt 3 | setup 1 / 1 | setup+HTR bound 14
+    HTR normal: U R2 U L2 U' F2 U R2 U' R2 U L2 U | HTR inverse: (U R2 U2 F2 U' L2 U F2 U2 R2 U' F2 D)
+    shortest way to a qt that lowers the count, normal: R2 U | inverse: (F2 U)
+0c3 4e shortest :: U L2 F2 U2 F2 U' L2 D2 B2 U'
+    subset 0c3 4e | optimal 10 (U B2 D2 L2 U F2 U2 F2 L2 U') | leave slice 10 | HTR 10 / 10 | L 9 | qt 3 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U F2 U2 R2 U L2 U2 R2 B2 U | HTR inverse: (U R2 U2 F2 U' R2 U2 R2 B2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c3 4e optimal equal to the longer HTR :: U' F2 U F2 U' R2 D L2 U' L2 U R2 U
+    subset 0c3 4e | optimal 13 (U' R2 U' L2 U L2 D' R2 U F2 U' F2 U) | leave slice 13 | HTR 12 / 13 | L 12 | qt 3 | setup 1 / 1 | setup+HTR bound 14
+    HTR normal: R2 F2 U R2 U2 F2 U' L2 U2 R2 B2 U | HTR inverse: (U R2 U2 F2 U L2 U R2 U2 B2 U' B2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (F2 U)
+0c3 4e optimal below the setup+HTR bound :: U' F2 U F2 U' R2 D L2 U' L2 U R2 U
+    subset 0c3 4e | optimal 13 (U' R2 U' L2 U L2 D' R2 U F2 U' F2 U) | leave slice 13 | HTR 12 / 13 | L 12 | qt 3 | setup 1 / 1 | setup+HTR bound 14
+    HTR normal: R2 F2 U R2 U2 F2 U' L2 U2 R2 B2 U | HTR inverse: (U R2 U2 F2 U L2 U R2 U2 B2 U' B2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (F2 U)
+0c3 6e longest :: R2 D B2 U L2 F2 U' L2 U F2 D' B2 U F2 U2 L2 U'
+    subset 0c3 6e | optimal 17 (U L2 U2 F2 U' B2 D F2 U' L2 U F2 L2 U' B2 D' R2) | leave slice 16 | HTR 10 / 10 | L 12 | qt 3 | setup 1 / 1 | setup+HTR bound 11
+    HTR normal: B2 U R2 U2 F2 U F2 U2 L2 D | HTR inverse: (F2 U F2 U2 R2 U L2 U2 B2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (F2 U)
+0c3 6e shortest :: U R2 D2 B2 U B2 U2 R2 D'
+    subset 0c3 6e | optimal 9 (D R2 U2 B2 U' B2 D2 R2 U') | leave slice 9 | HTR 9 / 9 | L 9 | qt 3 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U F2 U2 R2 U B2 U2 R2 D | HTR inverse: (U R2 U2 F2 U F2 U2 L2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c3 6e optimal equal to the longer HTR :: B2 F2 U' R2 U2 F2 U B2 U2 L2 U
+    subset 0c3 6e | optimal 11 (U' L2 U2 B2 U' F2 U2 R2 U F2 B2) | leave slice 11 | HTR 9 / 11 | L 9 | qt 3 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: U F2 U2 R2 U L2 U2 F2 D | HTR inverse: (R2 L2 U F2 U2 R2 U L2 U2 F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c3 6e optimal below the setup+HTR bound :: none
+0c3 8e longest :: B2 L2 F2 L2 D R2 F2 U2 F2 D' B2 R2 U2 R2 U' R2 U2
+    subset 0c3 8e | optimal 17 (U2 R2 U R2 U2 R2 B2 D F2 U2 F2 R2 D' L2 F2 L2 B2) | leave slice 17 | HTR 11 / 11 | L 12 | qt 3 | setup 1 / 1 | setup+HTR bound 12
+    HTR normal: F2 U R2 U2 F2 U' L2 U2 R2 F2 D | HTR inverse: (F2 U R2 U2 F2 U' L2 U2 R2 F2 D)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (F2 U)
+0c3 8e shortest :: U' F2 D2 L2 D R2 U2 L2 F2 U'
+    subset 0c3 8e | optimal 10 (U F2 L2 U2 R2 D' L2 D2 F2 U) | leave slice 10 | HTR 10 / 10 | L 9 | qt 3 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U R2 U2 F2 U' L2 U2 R2 F2 D | HTR inverse: (U R2 U2 F2 U' L2 U2 R2 F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c3 8e optimal equal to the longer HTR :: L2 U' B2 R2 D2 R2 D' L2 U2 B2 U'
+    subset 0c3 8e | optimal 11 (U B2 U2 L2 D R2 D2 R2 B2 U L2) | leave slice 11 | HTR 10 / 11 | L 10 | qt 3 | setup 0 / 1 | setup+HTR bound 11
+    HTR normal: U R2 U2 F2 U' L2 U2 R2 F2 D | HTR inverse: (R2 U R2 U2 F2 U' L2 U2 R2 F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (R2 U)
+0c3 8e optimal below the setup+HTR bound :: none
+4a2 0e longest :: B2 D2 L2 B2 F2 D F2 D2 L2 U' R2 B2 U' B2 F2 U' R2
+    subset 4a2 0e | optimal 17 (R2 U F2 B2 U B2 R2 U L2 D2 F2 D' F2 B2 L2 D2 B2) | leave slice 17 | HTR 12 / 12 | L 11 | qt 2 | setup 3 / 3 | setup+HTR bound 15
+    HTR normal: R2 U R2 U2 F2 U' F2 U B2 U2 L2 D | HTR inverse: (R2 U R2 U2 F2 U' F2 U B2 U2 L2 D)
+    shortest way to a qt that lowers the count, normal: R2 U2 F2 U | inverse: (R2 U2 F2 U)
+4a2 0e shortest :: U' R2 D' R2 B2 R2 D R2 U
+    subset 4a2 0e | optimal 9 (U' R2 D' R2 B2 R2 D R2 U) | leave slice 9 | HTR 9 / 9 | L 5 | qt 2 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U R2 U L2 B2 L2 U' R2 U | HTR inverse: (U R2 U L2 B2 L2 U' R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4a2 0e optimal equal to the longer HTR :: D' B2 U2 R2 U' B2 D B2 D2 R2 U' B2
+    subset 4a2 0e | optimal 12 (B2 U R2 D2 B2 D' B2 U R2 U2 B2 D) | leave slice 12 | HTR 12 / 10 | L 9 | qt 2 | setup 3 / 1 | setup+HTR bound 13
+    HTR normal: R2 U R2 U2 F2 U' F2 U B2 U2 L2 D | HTR inverse: (R2 U R2 U R2 B2 R2 U' R2 U)
+    shortest way to a qt that lowers the count, normal: R2 U2 F2 U | inverse: (R2 U)
+4a2 0e optimal below the setup+HTR bound :: D' F2 D2 L2 U F2 D' B2 U2 R2 U
+    subset 4a2 0e | optimal 11 (U' R2 U2 B2 D F2 U' L2 D2 F2 D) | leave slice 11 | HTR 11 / 11 | L 9 | qt 2 | setup 2 / 2 | setup+HTR bound 13
+    HTR normal: U R2 U2 F2 U' R2 U F2 U2 R2 U | HTR inverse: (U R2 U2 F2 U' R2 U F2 U2 R2 U)
+    shortest way to a qt that lowers the count, normal: U2 R2 U | inverse: (U2 R2 U)
+4a2 2e longest :: D' F2 D' R2 U L2 U' B2 L2 D L2 F2 U L2 U' R2 U'
+    subset 4a2 2e | optimal 17 (U R2 U L2 U' F2 L2 D' L2 B2 U L2 U' R2 D F2 D) | leave slice 17 | HTR 11 / 11 | L 11 | qt 2 | setup 3 / 3 | setup+HTR bound 14
+    HTR normal: R2 U2 F2 U F2 R2 F2 R2 U2 B2 U | HTR inverse: (R2 U R2 L2 U R2 U B2 U2 R2 D)
+    shortest way to a qt that lowers the count, normal: R2 U2 F2 U | inverse: (R2 U2 F2 U)
+4a2 2e shortest :: U F2 D2 L2 F2 L2 F2 U'
+    subset 4a2 2e | optimal 8 (U F2 L2 F2 L2 D2 F2 U') | leave slice 8 | HTR 8 / 8 | L 5 | qt 2 | setup 0 / 0 | setup+HTR bound 8
+    HTR normal: U F2 R2 F2 L2 U2 F2 D | HTR inverse: (U F2 U2 R2 F2 R2 F2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4a2 2e optimal equal to the longer HTR :: D' L2 B2 L2 F2 U2 R2 U F2 D2 L2
+    subset 4a2 2e | optimal 11 (L2 D2 F2 U' R2 U2 F2 L2 B2 L2 D) | leave slice 11 | HTR 11 / 8 | L 8 | qt 2 | setup 3 / 0 | setup+HTR bound 11
+    HTR normal: R2 U F2 B2 U R2 U B2 U2 R2 U | HTR inverse: (U F2 U2 R2 F2 R2 F2 U)
+    shortest way to a qt that lowers the count, normal: R2 U2 F2 U | inverse: (U)
+4a2 2e optimal below the setup+HTR bound :: D' L2 D' B2 F2 U' F2 D'
+    subset 4a2 2e | optimal 8 (D F2 U F2 B2 D L2 D) | leave slice 8 | HTR 8 / 8 | L 5 | qt 2 | setup 2 / 2 | setup+HTR bound 10
+    HTR normal: U L2 U R2 L2 U R2 D | HTR inverse: (U L2 U R2 L2 U R2 D)
+    shortest way to a qt that lowers the count, normal: R2 L2 U | inverse: (R2 L2 U)
+4a2 4e longest :: B2 R2 B2 R2 D2 B2 U' B2 L2 D2 L2 U R2 U2 F2 U2
+    subset 4a2 4e | optimal 16 (U2 F2 U2 R2 U' L2 D2 L2 B2 U B2 D2 R2 B2 R2 B2) | leave slice 15 | HTR 9 / 10 | L 11 | qt 2 | setup 3 / 4 | setup+HTR bound 13
+    HTR normal: R2 U2 F2 U L2 U2 R2 F2 U | HTR inverse: (R2 U2 R2 F2 U' L2 U2 R2 B2 D)
+    shortest way to a qt that lowers the count, normal: R2 U2 F2 U | inverse: (R2 U2 R2 F2 U)
+4a2 4e shortest :: D' L2 D2 B2 D'
+    subset 4a2 4e | optimal 5 (D B2 D2 L2 D) | leave slice 5 | HTR 5 / 5 | L 5 | qt 2 | setup 0 / 0 | setup+HTR bound 5
+    HTR normal: U R2 U2 F2 U | HTR inverse: (U R2 U2 F2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4a2 4e optimal equal to the longer HTR :: D B2 D L2 D F2 U F2 U' L2 U
+    subset 4a2 4e | optimal 11 (U' L2 U F2 U' F2 D' L2 D' B2 D') | leave slice 11 | HTR 11 / 9 | L 6 | qt 2 | setup 2 / 4 | setup+HTR bound 15
+    HTR normal: U R2 U R2 U' B2 U' L2 U' F2 U | HTR inverse: (R2 U R2 U' F2 B2 U' L2 U)
+    shortest way to a qt that lowers the count, normal: R2 L2 U | inverse: (R2 F2 R2 F2 U)
+4a2 4e optimal below the setup+HTR bound :: D B2 D L2 D F2 U F2 U' L2 U
+    subset 4a2 4e | optimal 11 (U' L2 U F2 U' F2 D' L2 D' B2 D') | leave slice 11 | HTR 11 / 9 | L 6 | qt 2 | setup 2 / 4 | setup+HTR bound 15
+    HTR normal: U R2 U R2 U' B2 U' L2 U' F2 U | HTR inverse: (R2 U R2 U' F2 B2 U' L2 U)
+    shortest way to a qt that lowers the count, normal: R2 L2 U | inverse: (R2 F2 R2 F2 U)
+4a1 0e longest :: R2 F2 U F2 U2 L2 U2 R2 U2 F2 U L2 R2 F2 R2 U'
+    subset 4a1 0e | optimal 16 (U R2 F2 R2 L2 U' F2 U2 R2 U2 L2 U2 F2 U' F2 R2) | leave slice 15 | HTR 7 / 7 | L 4 | qt 3 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: U R2 L2 U R2 L2 U | HTR inverse: (U R2 L2 U R2 L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4a1 0e shortest :: U L2 R2 U L2 R2 U'
+    subset 4a1 0e | optimal 7 (U R2 L2 U' R2 L2 U') | leave slice 7 | HTR 7 / 7 | L 1 | qt 3 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: U R2 L2 U R2 L2 U | HTR inverse: (U R2 L2 U R2 L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4a1 0e optimal equal to the longer HTR :: D F2 D' F2 U' R2 D' R2 D B2
+    subset 4a1 0e | optimal 10 (B2 D' R2 D R2 U F2 D F2 D') | leave slice 10 | HTR 10 / 9 | L 6 | qt 3 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: R2 U R2 U' B2 U' L2 U' F2 U | HTR inverse: (U R2 L2 U R2 F2 R2 B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4a1 0e optimal below the setup+HTR bound :: none
+4a1 2e longest :: L2 B2 F2 D F2 R2 F2 D' R2 D' F2 L2 D2 R2 D' U'
+    subset 4a1 2e | optimal 16 (U D R2 D2 L2 F2 D R2 D F2 R2 F2 D' F2 B2 L2) | leave slice 15 | HTR 7 / 7 | L 7 | qt 3 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: R2 U' F2 B2 U' R2 U | HTR inverse: (R2 U R2 L2 U L2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4a1 2e shortest :: D F2 U' B2 F2 D'
+    subset 4a1 2e | optimal 6 (D F2 B2 U F2 D') | leave slice 6 | HTR 6 / 6 | L 3 | qt 3 | setup 0 / 0 | setup+HTR bound 6
+    HTR normal: U R2 L2 U L2 U | HTR inverse: (U L2 U R2 L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4a1 2e optimal equal to the longer HTR :: D R2 B2 D' R2 B2 R2 D
+    subset 4a1 2e | optimal 8 (D' R2 B2 R2 D B2 R2 D') | leave slice 8 | HTR 8 / 7 | L 3 | qt 3 | setup 0 / 0 | setup+HTR bound 8
+    HTR normal: U2 B2 U' B2 U R2 L2 D | HTR inverse: (U R2 U' R2 F2 L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4a1 2e optimal below the setup+HTR bound :: none
+4a1 4e longest :: R2 U2 B2 L2 F2 L2 D2 F2 R2 U' B2 F2 L2 R2 U' R2 D'
+    subset 4a1 4e | optimal 17 (D R2 U R2 L2 F2 B2 U R2 F2 D2 L2 F2 L2 B2 U2 R2) | leave slice 15 | HTR 5 / 5 | L 4 | qt 1 | setup 4 / 4 | setup+HTR bound 9
+    HTR normal: R2 L2 F2 B2 D | HTR inverse: (R2 L2 F2 B2 D)
+    shortest way to a qt that lowers the count, normal: R2 L2 F2 B2 D | inverse: (R2 L2 F2 B2 D)
+4a1 4e shortest :: D
+    subset 4a1 4e | optimal 1 (D') | leave slice 1 | HTR 1 / 1 | L 1 | qt 1 | setup 0 / 0 | setup+HTR bound 1
+    HTR normal: D | HTR inverse: (D)
+    shortest way to a qt that lowers the count, normal: D | inverse: (D)
+4a1 4e optimal equal to the longer HTR :: D2 F2 L2 B2 L2 F2 R2 D'
+    subset 4a1 4e | optimal 8 (D R2 F2 L2 B2 L2 F2 D2) | leave slice 8 | HTR 1 / 8 | L 1 | qt 1 | setup 0 / 7 | setup+HTR bound 8
+    HTR normal: D | HTR inverse: (U R2 U2 F2 U F2 B2 U)
+    shortest way to a qt that lowers the count, normal: D | inverse: (U2 R2 F2 R2 F2 R2 B2 U)
+4a1 4e optimal below the setup+HTR bound :: D' F2 R2 U' B2 F2 D
+    subset 4a1 4e | optimal 7 (D' F2 B2 U R2 F2 D) | leave slice 7 | HTR 7 / 7 | L 3 | qt 1 | setup 8 / 6 | setup+HTR bound 15
+    HTR normal: U' R2 L2 U F2 L2 D | HTR inverse: (U' R2 B2 U R2 L2 U)
+    shortest way to a qt that lowers the count, normal: U2 R2 F2 U2 L2 F2 R2 B2 U | inverse: (F2 U2 R2 F2 U2 R2 D)
+2c3 0e longest :: U' B2 U L2 U F2 L2 D' R2 D' L2 U2 B2 U' R2 U'
+    subset 2c3 0e | optimal 16 (U R2 U B2 U2 L2 D R2 D L2 F2 U' L2 U' B2 U) | leave slice 15 | HTR 10 / 9 | L 6 | qt 3 | setup 1 / 0 | setup+HTR bound 10
+    HTR normal: U R2 U R2 B2 U' L2 U L2 U | HTR inverse: (U B2 R2 U' F2 R2 U2 B2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (U)
+2c3 0e shortest :: D B2 D2 R2 B2 D' B2 R2 D'
+    subset 2c3 0e | optimal 9 (D R2 B2 D B2 R2 D2 B2 D') | leave slice 9 | HTR 9 / 9 | L 5 | qt 3 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U F2 R2 U F2 L2 U2 B2 D | HTR inverse: (U R2 U2 B2 R2 U' R2 B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c3 0e optimal equal to the longer HTR :: D L2 F2 D' L2 B2 D2 R2 U' B2
+    subset 2c3 0e | optimal 10 (B2 U R2 D2 B2 L2 D F2 L2 D') | leave slice 10 | HTR 10 / 9 | L 6 | qt 3 | setup 1 / 0 | setup+HTR bound 10
+    HTR normal: U R2 U R2 B2 U' L2 U L2 U | HTR inverse: (U B2 R2 U' F2 R2 U2 B2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (U)
+2c3 0e optimal below the setup+HTR bound :: none
+2c3 2e longest :: B2 U2 R2 D F2 D2 B2 L2 D L2 D' R2 D' B2 U'
+    subset 2c3 2e | optimal 15 (U B2 D R2 D L2 D' L2 B2 D2 F2 D' R2 U2 B2) | leave slice 14 | HTR 7 / 7 | L 8 | qt 3 | setup 1 / 1 | setup+HTR bound 8
+    HTR normal: R2 F2 U B2 U' B2 U | HTR inverse: (R2 U' L2 U F2 L2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (R2 U)
+2c3 2e shortest :: D' B2 D' B2 D'
+    subset 2c3 2e | optimal 5 (D B2 D B2 D) | leave slice 5 | HTR 5 / 5 | L 5 | qt 3 | setup 0 / 0 | setup+HTR bound 5
+    HTR normal: U R2 U F2 D | HTR inverse: (U' L2 U' F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c3 2e optimal equal to the longer HTR :: D' F2 U' F2 D2 B2 D' B2
+    subset 2c3 2e | optimal 8 (B2 D B2 D2 F2 U F2 D) | leave slice 8 | HTR 8 / 5 | L 6 | qt 3 | setup 0 / 0 | setup+HTR bound 8
+    HTR normal: U2 R2 L2 U' F2 U L2 D | HTR inverse: (U' R2 U R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c3 2e optimal below the setup+HTR bound :: none
+2c3 4e longest :: R2 U L2 D F2 L2 B2 D2 B2 U' B2 U' R2 F2 R2 U'
+    subset 2c3 4e | optimal 16 (U R2 F2 R2 U B2 U B2 D2 B2 L2 F2 D' L2 U' R2) | leave slice 14 | HTR 9 / 9 | L 7 | qt 3 | setup 1 / 1 | setup+HTR bound 10
+    HTR normal: U2 R2 U F2 U' F2 R2 L2 U | HTR inverse: (U2 R2 U' L2 U B2 R2 L2 D)
+    shortest way to a qt that lowers the count, normal: R2 U | inverse: (R2 U)
+2c3 4e shortest :: D' B2 D' L2 D'
+    subset 2c3 4e | optimal 5 (D L2 D B2 D) | leave slice 5 | HTR 5 / 5 | L 5 | qt 3 | setup 0 / 0 | setup+HTR bound 5
+    HTR normal: U B2 U F2 D | HTR inverse: (U' L2 U' R2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c3 4e optimal equal to the longer HTR :: D B2 D' F2 U' B2 F2 D2 B2
+    subset 2c3 4e | optimal 9 (B2 D2 F2 B2 U F2 D B2 D') | leave slice 9 | HTR 9 / 5 | L 6 | qt 3 | setup 1 / 0 | setup+HTR bound 9
+    HTR normal: F2 U F2 U2 R2 B2 U L2 U | HTR inverse: (U R2 U' F2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (U)
+2c3 4e optimal below the setup+HTR bound :: none
+2c3 6e longest :: L2 U L2 F2 U' R2 B2 U2 L2 U' L2 R2 B2 D R2 U'
+    subset 2c3 6e | optimal 16 (U R2 D' B2 R2 L2 U L2 U2 B2 R2 U F2 L2 U' L2) | leave slice 15 | HTR 8 / 8 | L 8 | qt 3 | setup 1 / 1 | setup+HTR bound 9
+    HTR normal: F2 U' R2 U B2 R2 L2 D | HTR inverse: (R2 U' R2 U B2 R2 L2 D)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (R2 U)
+2c3 6e shortest :: D' L2 F2 D L2 F2 U'
+    subset 2c3 6e | optimal 7 (U F2 L2 D' F2 L2 D) | leave slice 7 | HTR 7 / 7 | L 5 | qt 3 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: U F2 L2 U' R2 F2 U | HTR inverse: (U' F2 R2 U R2 B2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c3 6e optimal equal to the longer HTR :: D F2 D' R2 D2 B2 F2 U' B2
+    subset 2c3 6e | optimal 9 (B2 U F2 B2 D2 R2 D F2 D') | leave slice 9 | HTR 9 / 7 | L 6 | qt 3 | setup 1 / 0 | setup+HTR bound 9
+    HTR normal: R2 B2 U F2 U' L2 F2 B2 D | HTR inverse: (U L2 U' R2 F2 B2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (U)
+2c3 6e optimal below the setup+HTR bound :: none
+2c3 8e longest :: R2 U R2 D' L2 F2 D B2 L2 U2 B2 U' B2 F2 R2 U'
+    subset 2c3 8e | optimal 16 (U R2 F2 B2 U B2 U2 L2 B2 D' F2 L2 D R2 U' R2) | leave slice 15 | HTR 10 / 10 | L 8 | qt 3 | setup 1 / 1 | setup+HTR bound 11
+    HTR normal: U R2 U R2 U R2 F2 U R2 D | HTR inverse: (U R2 L2 U F2 U F2 U' B2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (R2 U)
+2c3 8e shortest :: D F2 D2 L2 F2 D' L2 F2 U'
+    subset 2c3 8e | optimal 9 (U F2 L2 D F2 L2 D2 F2 D') | leave slice 9 | HTR 9 / 9 | L 5 | qt 3 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U F2 R2 U F2 R2 U2 F2 D | HTR inverse: (U L2 U2 F2 R2 U' R2 B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c3 8e optimal equal to the longer HTR :: D F2 U' B2 U B2 D B2 F2 U'
+    subset 2c3 8e | optimal 10 (U F2 B2 D' B2 U' B2 U F2 D') | leave slice 10 | HTR 10 / 9 | L 6 | qt 3 | setup 1 / 0 | setup+HTR bound 10
+    HTR normal: U L2 U L2 U L2 B2 U L2 D | HTR inverse: (U B2 R2 U' F2 L2 U2 F2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (U)
+2c3 8e optimal below the setup+HTR bound :: none
+0c4 0e longest :: F2 L2 B2 L2 D' B2 R2 D' L2 U2 F2 U' F2 R2 D2 U'
+    subset 0c4 0e | optimal 16 (U D2 R2 F2 U F2 U2 L2 D R2 B2 D L2 B2 L2 F2) | leave slice 15 | HTR 9 / 9 | L 10 | qt 4 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U' R2 U R2 U2 B2 U B2 U | HTR inverse: (U' R2 U R2 U2 B2 U B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 0e shortest :: U' L2 U L2 D2 B2 U B2 U'
+    subset 0c4 0e | optimal 9 (U B2 U' B2 D2 L2 U' L2 U) | leave slice 9 | HTR 9 / 9 | L 9 | qt 4 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U R2 U R2 U2 B2 U B2 U | HTR inverse: (U' R2 U R2 U2 B2 U B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 0e optimal equal to the longer HTR :: U' L2 U L2 D2 B2 U B2 U'
+    subset 0c4 0e | optimal 9 (U B2 U' B2 D2 L2 U' L2 U) | leave slice 9 | HTR 9 / 9 | L 9 | qt 4 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U R2 U R2 U2 B2 U B2 U | HTR inverse: (U' R2 U R2 U2 B2 U B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 0e optimal below the setup+HTR bound :: none
+0c4 2e longest :: R2 B2 R2 F2 R2 U B2 D R2 U2 L2 B2 D' F2 D2 U'
+    subset 0c4 2e | optimal 16 (U D2 F2 D B2 L2 U2 R2 D' B2 U' R2 F2 R2 B2 R2) | leave slice 15 | HTR 9 / 10 | L 10 | qt 4 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U' R2 U R2 U2 F2 U R2 U | HTR inverse: (U' F2 U L2 U2 R2 B2 U' L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 2e shortest :: D' R2 U F2 U2 L2 U R2 D'
+    subset 0c4 2e | optimal 9 (D R2 U' L2 U2 F2 U' R2 D) | leave slice 9 | HTR 9 / 9 | L 9 | qt 4 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U L2 U R2 U2 F2 U L2 U | HTR inverse: (U' R2 U L2 U2 B2 U R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 2e optimal equal to the longer HTR :: B2 D L2 D' L2 D2 B2 D' L2 D
+    subset 0c4 2e | optimal 10 (D' L2 D B2 D2 L2 D L2 D' B2) | leave slice 10 | HTR 9 / 10 | L 10 | qt 4 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U' R2 U F2 U2 L2 U R2 U | HTR inverse: (U' R2 U R2 U2 B2 U R2 F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 2e optimal below the setup+HTR bound :: none
+0c4 4e longest :: L2 R2 B2 L2 R2 D F2 U R2 D2 B2 D F2 L2 D2 U'
+    subset 0c4 4e | optimal 16 (U D2 L2 F2 D' B2 D2 R2 U' F2 D' R2 L2 B2 R2 L2) | leave slice 15 | HTR 9 / 9 | L 10 | qt 4 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U' L2 U F2 U2 L2 U R2 D | HTR inverse: (U' L2 U F2 U2 L2 U R2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 4e shortest :: D' R2 D' F2 D2 R2 U' L2 D'
+    subset 0c4 4e | optimal 9 (D L2 U R2 D2 F2 D R2 D) | leave slice 9 | HTR 9 / 9 | L 9 | qt 4 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U F2 U R2 U2 B2 U R2 D | HTR inverse: (U' R2 U B2 U2 L2 U F2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 4e optimal equal to the longer HTR :: D' R2 U B2 D2 L2 U R2 U' F2
+    subset 0c4 4e | optimal 10 (F2 U R2 U' L2 D2 B2 U' R2 D) | leave slice 10 | HTR 10 / 9 | L 10 | qt 4 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U' F2 U' R2 B2 U2 B2 U B2 D | HTR inverse: (U' B2 U L2 U2 B2 U F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 4e optimal below the setup+HTR bound :: none
+0c4 6e longest :: F2 D B2 D L2 U2 L2 F2 L2 R2 U' B2 L2 R2 D2 U'
+    subset 0c4 6e | optimal 16 (U D2 R2 L2 B2 U R2 L2 F2 L2 U2 L2 D' B2 D' F2) | leave slice 15 | HTR 10 / 10 | L 10 | qt 4 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U' L2 U' R2 U2 R2 F2 U R2 D | HTR inverse: (U' L2 U' R2 U2 R2 F2 U R2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 6e shortest :: D' R2 U' R2 F2 U2 F2 U B2 U'
+    subset 0c4 6e | optimal 10 (U B2 U' F2 U2 F2 R2 U R2 D) | leave slice 10 | HTR 10 / 10 | L 9 | qt 4 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U F2 U R2 U2 L2 F2 U' R2 D | HTR inverse: (U' L2 U L2 F2 U2 F2 U' B2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 6e optimal equal to the longer HTR :: D' R2 U' R2 F2 U2 F2 U B2 U'
+    subset 0c4 6e | optimal 10 (U B2 U' F2 U2 F2 R2 U R2 D) | leave slice 10 | HTR 10 / 10 | L 9 | qt 4 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U F2 U R2 U2 L2 F2 U' R2 D | HTR inverse: (U' L2 U L2 F2 U2 F2 U' B2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 6e optimal below the setup+HTR bound :: none
+0c4 8e longest :: F2 U F2 R2 D' F2 U2 R2 U B2 F2 L2 U2 F2 L2 U'
+    subset 0c4 8e | optimal 16 (U L2 F2 U2 L2 F2 B2 U' R2 U2 F2 D R2 F2 U' F2) | leave slice 15 | HTR 11 / 11 | L 10 | qt 4 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: U' R2 U R2 U2 B2 U F2 R2 L2 U | HTR inverse: (U' R2 U R2 U2 B2 U F2 R2 L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 8e shortest :: U' R2 D F2 L2 U2 F2 R2 U B2 U'
+    subset 0c4 8e | optimal 11 (U B2 U' R2 F2 U2 L2 F2 D' R2 U) | leave slice 11 | HTR 11 / 11 | L 9 | qt 4 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: U R2 U R2 U2 B2 U F2 R2 L2 U | HTR inverse: (U' R2 U R2 U2 B2 U F2 R2 L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 8e optimal equal to the longer HTR :: U' R2 D F2 L2 U2 F2 R2 U B2 U'
+    subset 0c4 8e | optimal 11 (U B2 U' R2 F2 U2 L2 F2 D' R2 U) | leave slice 11 | HTR 11 / 11 | L 9 | qt 4 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: U R2 U R2 U2 B2 U F2 R2 L2 U | HTR inverse: (U' R2 U R2 U2 B2 U F2 R2 L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+0c4 8e optimal below the setup+HTR bound :: none
+4c3 0e longest :: R2 F2 L2 R2 D' B2 U L2 D' B2 U R2 B2 D2 L2 U'
+    subset 4c3 0e | optimal 16 (U L2 D2 B2 R2 U' B2 D L2 U' B2 D R2 L2 F2 R2) | leave slice 15 | HTR 9 / 9 | L 9 | qt 3 | setup 1 / 1 | setup+HTR bound 10
+    HTR normal: U' L2 U L2 U F2 U' F2 U | HTR inverse: (F2 U R2 U2 B2 U' R2 B2 U)
+    shortest way to a qt that lowers the count, normal: R2 U | inverse: (F2 U)
+4c3 0e shortest :: D' F2 R2 U R2 U2 F2 D'
+    subset 4c3 0e | optimal 8 (D F2 U2 R2 U' R2 F2 D) | leave slice 8 | HTR 8 / 8 | L 7 | qt 3 | setup 0 / 0 | setup+HTR bound 8
+    HTR normal: U L2 U2 F2 U' F2 L2 U | HTR inverse: (U' R2 F2 U R2 U2 F2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4c3 0e optimal equal to the longer HTR :: D2 L2 D' F2 U2 R2 D' F2 L2 U'
+    subset 4c3 0e | optimal 10 (U L2 F2 D R2 U2 F2 D L2 D2) | leave slice 10 | HTR 8 / 10 | L 9 | qt 3 | setup 0 / 2 | setup+HTR bound 10
+    HTR normal: U R2 F2 U L2 U2 B2 D | HTR inverse: (U2 R2 U L2 U2 B2 U F2 R2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U2 R2 U)
+4c3 0e optimal below the setup+HTR bound :: none
+4c3 2e longest :: B2 U R2 B2 D' L2 D2 L2 F2 D L2 F2 L2 B2 D' U'
+    subset 4c3 2e | optimal 16 (U D B2 L2 F2 L2 D' F2 L2 D2 L2 D B2 R2 U' B2) | leave slice 15 | HTR 10 / 9 | L 10 | qt 3 | setup 2 / 1 | setup+HTR bound 11
+    HTR normal: U2 R2 U R2 B2 U2 B2 U' F2 U | HTR inverse: (B2 U F2 U R2 U2 R2 B2 U)
+    shortest way to a qt that lowers the count, normal: U2 R2 U | inverse: (F2 U)
+4c3 2e shortest :: D' L2 D' L2 D2 B2 D
+    subset 4c3 2e | optimal 7 (D' B2 D2 L2 D L2 D) | leave slice 7 | HTR 7 / 7 | L 7 | qt 3 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: U B2 U2 L2 U' R2 D | HTR inverse: (U' F2 U B2 U2 R2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4c3 2e optimal equal to the longer HTR :: D' R2 D2 B2 D B2 D R2 D2 B2
+    subset 4c3 2e | optimal 10 (B2 D2 R2 D' B2 D' B2 D2 R2 D) | leave slice 10 | HTR 10 / 7 | L 9 | qt 3 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U B2 U R2 U2 B2 R2 F2 L2 U | HTR inverse: (U R2 U2 B2 U' F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4c3 2e optimal below the setup+HTR bound :: D' B2 D' L2 D' L2 U B2 U'
+    subset 4c3 2e | optimal 9 (U B2 U' L2 D L2 D B2 D) | leave slice 9 | HTR 9 / 9 | L 8 | qt 3 | setup 0 / 1 | setup+HTR bound 10
+    HTR normal: U F2 U' B2 U B2 U L2 D | HTR inverse: (U' L2 U R2 U R2 U' B2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (R2 U)
+4c3 4e longest :: L2 D2 U' R2 U B2 L2 B2 R2 U2 B2 U' B2 U R2 U'
+    subset 4c3 4e | optimal 16 (U R2 U' B2 U B2 U2 R2 B2 L2 B2 U' R2 U D2 L2) | leave slice 15 | HTR 10 / 10 | L 10 | qt 3 | setup 2 / 1 | setup+HTR bound 12
+    HTR normal: U2 F2 U R2 U2 B2 U F2 R2 U | HTR inverse: (U' R2 U F2 U L2 F2 U R2 U)
+    shortest way to a qt that lowers the count, normal: U2 R2 U | inverse: (F2 U)
+4c3 4e shortest :: D' R2 U' R2 D2 B2 D
+    subset 4c3 4e | optimal 7 (D' B2 D2 R2 U R2 D) | leave slice 7 | HTR 7 / 7 | L 7 | qt 3 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: U L2 U2 B2 U' B2 U | HTR inverse: (U' F2 U L2 U2 F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4c3 4e optimal equal to the longer HTR :: D' R2 D' F2 U' F2 U R2 U L2 U2
+    subset 4c3 4e | optimal 11 (U2 L2 U' R2 U' F2 U F2 D R2 D) | leave slice 11 | HTR 11 / 9 | L 10 | qt 3 | setup 2 / 1 | setup+HTR bound 12
+    HTR normal: U R2 U' F2 U L2 U2 B2 U B2 U | HTR inverse: (U' F2 U' R2 U' L2 U F2 D)
+    shortest way to a qt that lowers the count, normal: U2 R2 U | inverse: (F2 U)
+4c3 4e optimal below the setup+HTR bound :: U' L2 D' B2 U' B2 U L2 D
+    subset 4c3 4e | optimal 9 (D' L2 U' B2 U B2 D L2 U) | leave slice 9 | HTR 9 / 9 | L 8 | qt 3 | setup 0 / 1 | setup+HTR bound 10
+    HTR normal: U' F2 U' L2 U L2 U L2 U | HTR inverse: (U' R2 U' F2 U' R2 U L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (R2 U)
+4c4 0e longest :: F2 U' B2 L2 D2 R2 U' B2 U' B2 F2 U' F2 U B2 R2 U'
+    subset 4c4 0e | optimal 17 (U R2 B2 U' F2 U F2 B2 U B2 U R2 D2 L2 B2 U F2) | leave slice 16 | HTR 13 / 11 | L 12 | qt 4 | setup 0 / 1 | setup+HTR bound 14
+    HTR normal: U R2 F2 U F2 U2 R2 U' L2 U2 R2 F2 U | HTR inverse: (F2 U F2 U L2 U2 R2 F2 U L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (F2 U)
+4c4 0e shortest :: U' R2 U B2 L2 D2 R2 D F2 D
+    subset 4c4 0e | optimal 10 (D' F2 D' R2 D2 L2 B2 U' R2 U) | leave slice 10 | HTR 10 / 10 | L 9 | qt 4 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: U R2 U' R2 F2 U2 F2 U' F2 U | HTR inverse: (U' R2 U R2 U2 R2 B2 U B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4c4 0e optimal equal to the longer HTR :: B2 U2 L2 U B2 D' B2 L2 U2 R2 D' R2 U'
+    subset 4c4 0e | optimal 13 (U R2 D R2 U2 L2 B2 D B2 U' L2 U2 B2) | leave slice 13 | HTR 10 / 13 | L 11 | qt 4 | setup 0 / 0 | setup+HTR bound 13
+    HTR normal: U R2 U L2 B2 U2 F2 U R2 U | HTR inverse: (U F2 R2 U F2 U2 R2 U' L2 U2 R2 F2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4c4 0e optimal below the setup+HTR bound :: U F2 U' F2 U R2 U' F2 U F2 R2 U'
+    subset 4c4 0e | optimal 12 (U R2 F2 U' F2 U R2 U' F2 U F2 U') | leave slice 12 | HTR 11 / 12 | L 12 | qt 4 | setup 1 / 1 | setup+HTR bound 13
+    HTR normal: F2 U' R2 U R2 U2 R2 B2 U B2 U | HTR inverse: (U R2 U' L2 B2 U R2 U' B2 U R2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (F2 U)
+4c4 2e longest :: U B2 D' F2 D L2 U' R2 F2 D' B2 U B2 L2 U R2 U'
+    subset 4c4 2e | optimal 17 (U R2 U' L2 B2 U' B2 D F2 R2 U L2 D' F2 D B2 U') | leave slice 16 | HTR 12 / 11 | L 12 | qt 4 | setup 0 / 1 | setup+HTR bound 13
+    HTR normal: U F2 U R2 U2 F2 U L2 U2 R2 B2 D | HTR inverse: (F2 U B2 U R2 U2 L2 F2 U B2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (F2 U)
+4c4 2e shortest :: D' B2 U B2 U2 R2 U' R2 U
+    subset 4c4 2e | optimal 9 (U' R2 U R2 U2 B2 U' B2 D) | leave slice 9 | HTR 9 / 9 | L 9 | qt 4 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U L2 U L2 U2 F2 U' F2 D | HTR inverse: (U' R2 U L2 U2 B2 U' B2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4c4 2e optimal equal to the longer HTR :: U' R2 U' L2 D B2 U' B2 D R2 U' L2
+    subset 4c4 2e | optimal 12 (L2 U R2 D' B2 U B2 D' L2 U R2 U) | leave slice 12 | HTR 12 / 10 | L 12 | qt 4 | setup 0 / 1 | setup+HTR bound 13
+    HTR normal: U L2 U R2 U2 F2 U L2 U2 R2 B2 D | HTR inverse: (F2 U F2 U R2 U2 B2 U' B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (F2 U)
+4c4 2e optimal below the setup+HTR bound :: D B2 D R2 U' R2 D L2 D B2 D'
+    subset 4c4 2e | optimal 11 (D B2 D' L2 D' R2 U R2 D' B2 D') | leave slice 11 | HTR 11 / 11 | L 11 | qt 4 | setup 1 / 0 | setup+HTR bound 12
+    HTR normal: U R2 U' L2 U B2 U' B2 U F2 D | HTR inverse: (U R2 U R2 U' R2 U B2 U F2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (U)
+4c4 4e longest :: B2 D' F2 U B2 U' R2 D B2 D F2 R2 D L2 U R2 U'
+    subset 4c4 4e | optimal 17 (U R2 U' L2 D' R2 F2 D' B2 D' R2 U B2 U' F2 D B2) | leave slice 17 | HTR 12 / 11 | L 12 | qt 4 | setup 0 / 1 | setup+HTR bound 13
+    HTR normal: U F2 U R2 U2 F2 U' L2 U2 R2 F2 U | HTR inverse: (R2 F2 U' L2 U B2 U2 L2 U' R2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (F2 U)
+4c4 4e shortest :: D' B2 U B2 U2 L2 D' L2 U
+    subset 4c4 4e | optimal 9 (U' L2 D L2 U2 B2 U' B2 D) | leave slice 9 | HTR 9 / 9 | L 9 | qt 4 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U' L2 U L2 U2 B2 U' L2 U | HTR inverse: (U' L2 U L2 U2 F2 U' R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4c4 4e optimal equal to the longer HTR :: D' R2 D R2 U' B2 D R2 U' R2 U B2
+    subset 4c4 4e | optimal 12 (B2 U' R2 U R2 D' B2 U R2 D' R2 D) | leave slice 12 | HTR 12 / 10 | L 12 | qt 4 | setup 0 / 1 | setup+HTR bound 13
+    HTR normal: R2 U F2 U' R2 U R2 U' B2 U L2 D | HTR inverse: (F2 U B2 U R2 U2 B2 U' F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (F2 U)
+4c4 4e optimal below the setup+HTR bound :: D B2 D' F2 D F2 D' F2 U F2 U'
+    subset 4c4 4e | optimal 11 (U F2 U' F2 D F2 D' F2 D B2 D') | leave slice 11 | HTR 11 / 11 | L 11 | qt 4 | setup 1 / 1 | setup+HTR bound 12
+    HTR normal: U F2 U' F2 U L2 U' F2 U R2 U | HTR inverse: (U R2 U' F2 U L2 U' F2 U F2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (F2 U)
+4b2 0e longest :: F2 U2 R2 D F2 R2 D B2 U2 L2 D' R2 B2 F2 R2 U'
+    subset 4b2 0e | optimal 16 (U R2 F2 B2 R2 D L2 U2 B2 D' R2 F2 D' R2 U2 F2) | leave slice 15 | HTR 9 / 9 | L 9 | qt 2 | setup 3 / 3 | setup+HTR bound 12
+    HTR normal: U' F2 U B2 U2 L2 U F2 D | HTR inverse: (U' F2 U B2 U2 L2 U F2 D)
+    shortest way to a qt that lowers the count, normal: R2 U2 F2 U | inverse: (R2 U2 F2 U)
+4b2 0e shortest :: D' L2 B2 L2 B2 D'
+    subset 4b2 0e | optimal 6 (D B2 L2 B2 L2 D) | leave slice 6 | HTR 6 / 6 | L 4 | qt 2 | setup 0 / 0 | setup+HTR bound 6
+    HTR normal: U R2 F2 R2 F2 U | HTR inverse: (U' F2 R2 F2 R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4b2 0e optimal equal to the longer HTR :: D' R2 U' F2 U2 L2 U' R2 D
+    subset 4b2 0e | optimal 9 (D' R2 U L2 U2 F2 U R2 D) | leave slice 9 | HTR 9 / 9 | L 9 | qt 2 | setup 3 / 3 | setup+HTR bound 12
+    HTR normal: U' F2 U R2 U2 B2 U F2 U | HTR inverse: (U' F2 U R2 U2 B2 U F2 U)
+    shortest way to a qt that lowers the count, normal: R2 U2 F2 U | inverse: (R2 U2 F2 U)
+4b2 0e optimal below the setup+HTR bound :: D' R2 U' F2 U2 L2 U' R2 D
+    subset 4b2 0e | optimal 9 (D' R2 U L2 U2 F2 U R2 D) | leave slice 9 | HTR 9 / 9 | L 9 | qt 2 | setup 3 / 3 | setup+HTR bound 12
+    HTR normal: U' F2 U R2 U2 B2 U F2 U | HTR inverse: (U' F2 U R2 U2 B2 U F2 U)
+    shortest way to a qt that lowers the count, normal: R2 U2 F2 U | inverse: (R2 U2 F2 U)
+4b2 2e longest :: U2 L2 D F2 U2 L2 F2 U B2 U' L2 B2 U' L2 D' U'
+    subset 4b2 2e | optimal 16 (U D L2 U B2 L2 U B2 U' F2 L2 U2 F2 D' L2 U2) | leave slice 15 | HTR 8 / 8 | L 9 | qt 2 | setup 3 / 3 | setup+HTR bound 11
+    HTR normal: R2 B2 U2 R2 F2 U' L2 U | HTR inverse: (R2 U2 B2 U F2 R2 L2 D)
+    shortest way to a qt that lowers the count, normal: R2 U2 F2 U | inverse: (R2 U2 B2 U)
+4b2 2e shortest :: D B2 D'
+    subset 4b2 2e | optimal 3 (D B2 D') | leave slice 3 | HTR 3 / 3 | L 3 | qt 2 | setup 0 / 0 | setup+HTR bound 3
+    HTR normal: U R2 U | HTR inverse: (U R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4b2 2e optimal equal to the longer HTR :: D F2 U F2 D2 B2 L2 D2
+    subset 4b2 2e | optimal 8 (D2 L2 B2 D2 F2 U' F2 D') | leave slice 8 | HTR 8 / 3 | L 6 | qt 2 | setup 3 / 0 | setup+HTR bound 8
+    HTR normal: U2 R2 F2 U2 F2 U' F2 D | HTR inverse: (U L2 D)
+    shortest way to a qt that lowers the count, normal: R2 U2 B2 U | inverse: (U)
+4b2 2e optimal below the setup+HTR bound :: D' F2 U B2 U F2 D'
+    subset 4b2 2e | optimal 7 (D F2 U' B2 U' F2 D) | leave slice 7 | HTR 6 / 6 | L 7 | qt 2 | setup 2 / 2 | setup+HTR bound 8
+    HTR normal: U2 L2 F2 U' F2 U | HTR inverse: (U2 R2 F2 U F2 U)
+    shortest way to a qt that lowers the count, normal: U2 B2 U | inverse: (U2 B2 U)
+4b2 4e longest :: F2 D2 B2 R2 U' F2 R2 B2 R2 U' F2 L2 D2 R2 D U'
+    subset 4b2 4e | optimal 16 (U D' R2 D2 L2 F2 U R2 B2 R2 F2 U R2 B2 D2 F2) | leave slice 14 | HTR 8 / 8 | L 9 | qt 2 | setup 4 / 4 | setup+HTR bound 12
+    HTR normal: R2 U' F2 U B2 U L2 U | HTR inverse: (R2 U B2 U' F2 U' L2 D)
+    shortest way to a qt that lowers the count, normal: R2 U2 R2 F2 U | inverse: (R2 U2 R2 B2 U)
+4b2 4e shortest :: D' B2 L2 D'
+    subset 4b2 4e | optimal 4 (D L2 B2 D) | leave slice 4 | HTR 4 / 4 | L 4 | qt 2 | setup 0 / 0 | setup+HTR bound 4
+    HTR normal: U F2 L2 D | HTR inverse: (U' R2 B2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4b2 4e optimal equal to the longer HTR :: L2 U' B2 D B2 U F2 L2 D
+    subset 4b2 4e | optimal 9 (D' L2 F2 U' B2 D' B2 U L2) | leave slice 9 | HTR 7 / 9 | L 8 | qt 2 | setup 2 / 4 | setup+HTR bound 11
+    HTR normal: L2 U2 R2 U R2 F2 U | HTR inverse: (U R2 U R2 U2 L2 U F2 D)
+    shortest way to a qt that lowers the count, normal: U2 R2 U | inverse: (F2 R2 U2 F2 U)
+4b2 4e optimal below the setup+HTR bound :: D L2 U' R2 U' L2 F2 U'
+    subset 4b2 4e | optimal 8 (U F2 L2 U R2 U L2 D') | leave slice 8 | HTR 8 / 8 | L 8 | qt 2 | setup 2 / 4 | setup+HTR bound 12
+    HTR normal: U R2 F2 U R2 U L2 D | HTR inverse: (U B2 U' F2 U' F2 R2 U)
+    shortest way to a qt that lowers the count, normal: U2 F2 U | inverse: (R2 F2 U2 R2 U)
+4b5 0e longest :: U B2 U' R2 U2 B2 R2 B2 U B2 L2 U' F2 U R2 D' U'
+    subset 4b5 0e | optimal 17 (U D R2 U' F2 U L2 B2 U' B2 R2 B2 U2 R2 U B2 U') | leave slice 16 | HTR 9 / 9 | L 11 | qt 5 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U' R2 U' R2 U L2 U' L2 U | HTR inverse: (U B2 U R2 U' F2 U L2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4b5 0e shortest :: U' R2 D R2 U' F2 D F2 U
+    subset 4b5 0e | optimal 9 (U' F2 D' F2 U R2 D' R2 U) | leave slice 9 | HTR 9 / 9 | L 9 | qt 5 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U' F2 U' R2 U B2 U' L2 U | HTR inverse: (U' R2 U F2 U' L2 U B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4b5 0e optimal equal to the longer HTR :: D F2 D F2 U' L2 D L2 D B2
+    subset 4b5 0e | optimal 10 (B2 D' L2 D' L2 U F2 D' F2 D') | leave slice 10 | HTR 10 / 9 | L 10 | qt 5 | setup 0 / 0 | setup+HTR bound 10
+    HTR normal: R2 U' B2 U R2 U' F2 U L2 U | HTR inverse: (U L2 U B2 U' R2 U F2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4b5 0e optimal below the setup+HTR bound :: none
+4b5 2e longest :: D' L2 R2 B2 U B2 D' L2 B2 F2 U B2 L2 R2 D2 U'
+    subset 4b5 2e | optimal 16 (U D2 R2 L2 B2 U' F2 B2 L2 D B2 U' B2 R2 L2 D) | leave slice 15 | HTR 9 / 9 | L 9 | qt 5 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U' B2 U F2 U' R2 U B2 U | HTR inverse: (U' L2 U' R2 U B2 U' B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4b5 2e shortest :: U' R2 D L2 U' L2 U R2 D
+    subset 4b5 2e | optimal 9 (D' R2 U' L2 U L2 D' R2 U) | leave slice 9 | HTR 9 / 9 | L 9 | qt 5 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U' B2 U' F2 U F2 U' L2 U | HTR inverse: (U' R2 U B2 U' B2 U F2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4b5 2e optimal equal to the longer HTR :: D F2 U' L2 U B2 U' F2 D' R2 B2
+    subset 4b5 2e | optimal 11 (B2 R2 D F2 U B2 U' L2 U F2 D') | leave slice 11 | HTR 11 / 9 | L 10 | qt 5 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: U F2 U' R2 U B2 U2 L2 U' F2 D | HTR inverse: (U L2 U' F2 U B2 U' R2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4b5 2e optimal below the setup+HTR bound :: none
+4b5 4e longest :: R2 F2 U' L2 U L2 B2 F2 U2 B2 D' F2 R2 D F2 R2 U'
+    subset 4b5 4e | optimal 17 (U R2 F2 D' R2 F2 D B2 U2 F2 B2 L2 U' L2 U F2 R2) | leave slice 16 | HTR 11 / 11 | L 11 | qt 5 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: U F2 U B2 U F2 U2 R2 U' L2 D | HTR inverse: (U' R2 U' L2 U F2 U2 R2 U' B2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4b5 4e shortest :: U' L2 U R2 U' L2 U R2 D
+    subset 4b5 4e | optimal 9 (D' R2 U' L2 U R2 U' L2 U) | leave slice 9 | HTR 9 / 9 | L 9 | qt 5 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U' F2 U R2 U' F2 U R2 D | HTR inverse: (U' R2 U F2 U' L2 U F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4b5 4e optimal equal to the longer HTR :: D' L2 B2 D' F2 D R2 D' F2 L2 U
+    subset 4b5 4e | optimal 11 (U' L2 F2 D R2 D' F2 D B2 L2 D) | leave slice 11 | HTR 9 / 11 | L 9 | qt 5 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: U' F2 U L2 U' L2 U L2 D | HTR inverse: (U L2 U2 F2 U R2 U R2 U' L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4b5 4e optimal below the setup+HTR bound :: none
+13 to HTR on normal :: U' R2 D' B2 U B2 U' R2 U F2 U' F2 U
+    subset 0c3 4e | optimal 13 (U' F2 U F2 U' R2 U B2 U' B2 D R2 U) | leave slice 13 | HTR 13 / 12 | L 12 | qt 3 | setup 1 / 1 | setup+HTR bound 14
+    HTR normal: U R2 U2 F2 U L2 U R2 U2 B2 U' B2 U | HTR inverse: (R2 F2 U R2 U2 F2 U' L2 U2 R2 B2 U)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (F2 U)
+13 to HTR on both sides :: D B2 D' B2 D L2 U L2 U' F2 D B2 U' F2
+    subset 0c3 4e | optimal 14 (F2 U B2 D' F2 U L2 U' L2 D' B2 D B2 D') | leave slice 14 | HTR 13 / 13 | L 12 | qt 3 | setup 1 / 1 | setup+HTR bound 14
+    HTR normal: U R2 U2 F2 U L2 U R2 U2 B2 U' B2 U | HTR inverse: (U R2 U R2 U' B2 U L2 U' L2 U R2 D)
+    shortest way to a qt that lowers the count, normal: F2 U | inverse: (F2 U)
+leave slice 18 :: U2 L2 D B2 U' B2 U' L2 D B2 R2 U R2 U R2 U2 R2 U'
+    subset 2c5 0e | optimal 18 (U R2 U2 R2 U' R2 U' R2 B2 D' L2 U B2 U B2 D' L2 U2) | leave slice 18 | HTR 11 / 11 | L 13 | qt 5 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: U F2 U' R2 U R2 U2 B2 U' L2 D | HTR inverse: (U F2 U' R2 U R2 U2 B2 U' L2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4a1 4e whose shortest HTR needs three quarter turns on both sides :: U L2 R2 U R2 B2 U L2
+    subset 4a1 4e | optimal 8 (L2 U' B2 R2 U' R2 L2 U') | leave slice 8 | HTR 7 / 7 | L 5 | qt 1 | setup 7 / 7 | setup+HTR bound 14
+    HTR normal: U L2 F2 L2 U B2 U | HTR inverse: (U R2 L2 U R2 B2 U)
+    shortest way to a qt that lowers the count, normal: R2 F2 U2 R2 F2 U2 L2 D | inverse: (F2 R2 U2 F2 R2 F2 R2 D)
+4c3 4e with 9+ to HTR on both sides, shortest finish :: U' L2 D' B2 U' B2 U L2 D
+    subset 4c3 4e | optimal 9 (D' L2 U' B2 U B2 D L2 U) | leave slice 9 | HTR 9 / 9 | L 8 | qt 3 | setup 0 / 1 | setup+HTR bound 10
+    HTR normal: U' F2 U' L2 U L2 U L2 U | HTR inverse: (U' R2 U' F2 U' R2 U L2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (R2 U)
+2c5 stacked on both sides, shortest finish :: U2 F2 U' R2 U F2 D' L2 U B2 U' L2 U2
+    subset 2c5 2e | optimal 13 (U2 L2 U B2 U' L2 D F2 U' R2 U F2 U2) | leave slice 13 | HTR 11 / 11 | L 13 | qt 5 | setup 0 / 0 | setup+HTR bound 11
+    HTR normal: U F2 U' R2 U L2 U2 B2 U' B2 D | HTR inverse: (U F2 U' R2 U L2 U2 B2 U' B2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+2c4 stacked on both sides, shortest finish :: U2 L2 D' F2 U' R2 U F2 D L2 U2
+    subset 2c4 2e | optimal 11 (U2 L2 D' F2 U' R2 U F2 D L2 U2) | leave slice 11 | HTR 9 / 9 | L 11 | qt 4 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U2 L2 U R2 U R2 U' B2 U | HTR inverse: (U2 L2 U R2 U R2 U' B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+1qt corners with the shortest possible HTR on both sides :: D
+    subset 4a1 4e | optimal 1 (D') | leave slice 1 | HTR 1 / 1 | L 1 | qt 1 | setup 0 / 0 | setup+HTR bound 1
+    HTR normal: D | HTR inverse: (D)
+    shortest way to a qt that lowers the count, normal: D | inverse: (D)
+2qt corners with the shortest possible HTR on both sides :: D B2 D'
+    subset 4b2 2e | optimal 3 (D B2 D') | leave slice 3 | HTR 3 / 3 | L 3 | qt 2 | setup 0 / 0 | setup+HTR bound 3
+    HTR normal: U R2 U | HTR inverse: (U R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+3qt corners with the shortest possible HTR on both sides :: D' B2 D' B2 D'
+    subset 2c3 2e | optimal 5 (D B2 D B2 D) | leave slice 5 | HTR 5 / 5 | L 5 | qt 3 | setup 0 / 0 | setup+HTR bound 5
+    HTR normal: U R2 U F2 D | HTR inverse: (U' L2 U' F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+4qt corners with the shortest possible HTR on both sides :: D B2 D' B2 D B2 D'
+    subset 2c4 2e | optimal 7 (D B2 D' B2 D B2 D') | leave slice 7 | HTR 7 / 7 | L 7 | qt 4 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: U R2 U' B2 U R2 U | HTR inverse: (U R2 U' B2 U R2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+5qt corners with the shortest possible HTR on both sides :: U' L2 U R2 U' L2 U R2 D
+    subset 4b5 4e | optimal 9 (D' R2 U' L2 U R2 U' L2 U) | leave slice 9 | HTR 9 / 9 | L 9 | qt 5 | setup 0 / 0 | setup+HTR bound 9
+    HTR normal: U' F2 U R2 U' F2 U R2 D | HTR inverse: (U' R2 U F2 U' L2 U F2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+slice costs one move, shortest finish :: D' U2 F2 U2
+    subset 4a1 4e | optimal 4 (U2 F2 U2 D) | leave slice 3 | HTR 3 / 1 | L 3 | qt 1 | setup 2 / 0 | setup+HTR bound 3
+    HTR normal: U2 F2 D | HTR inverse: (D)
+    shortest way to a qt that lowers the count, normal: U2 F2 D | inverse: (D)
+slice costs two moves, shortest finish :: U R2 D U'
+    subset 4a1 4e | optimal 4 (U D' R2 U') | leave slice 2 | HTR 2 / 1 | L 2 | qt 1 | setup 1 / 0 | setup+HTR bound 2
+    HTR normal: B2 D | HTR inverse: (D)
+    shortest way to a qt that lowers the count, normal: B2 D | inverse: (D)
+slice costs the most :: B2 F2 D' U L2 R2 D U'
+    subset 0c0 0e | optimal 8 (U D' R2 L2 U' D F2 B2) | leave slice 0 | HTR 0 / 0 | L 0 | qt 0 | setup 0 / 0 | setup+HTR bound 0
+    HTR normal:  | HTR inverse: ()
+same corner cases and HTR lengths, optimal 0 against 13:
+  the short one :: 
+    subset 0c0 0e | optimal 0 () | leave slice 0 | HTR 0 / 0 | L 0 | qt 0 | setup 0 / 0 | setup+HTR bound 0
+    HTR normal:  | HTR inverse: ()
+  the long one :: U2 L2 F2 R2 U2 F2 U2 B2 L2 F2 U2 R2 U2
+    subset 0c0 0e | optimal 13 (U2 R2 U2 F2 L2 B2 U2 F2 U2 R2 F2 L2 U2) | leave slice 11 | HTR 0 / 0 | L 1 | qt 0 | setup 0 / 0 | setup+HTR bound 0
+    HTR normal:  | HTR inverse: ()
+same corner cases and HTR lengths, optimal 7 against 16:
+  the short one :: D F2 U' F2 D B2 D'
+    subset 2c4 4e | optimal 7 (D B2 D' F2 U F2 D') | leave slice 7 | HTR 7 / 7 | L 7 | qt 4 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: U R2 U' F2 U F2 D | HTR inverse: (U R2 U' F2 U B2 U)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+  the long one :: D' R2 B2 U' F2 D B2 U B2 F2 U' F2 U' L2 D' U'
+    subset 2c4 4e | optimal 16 (U D L2 U F2 U F2 B2 U' B2 D' F2 U B2 R2 D) | leave slice 15 | HTR 7 / 7 | L 7 | qt 4 | setup 0 / 0 | setup+HTR bound 7
+    HTR normal: U R2 U' B2 U L2 D | HTR inverse: (U R2 U' B2 U L2 D)
+    shortest way to a qt that lowers the count, normal: U | inverse: (U)
+HTR states 663552 in 216 classes
+216 case R-D - F-V R-V even :: half turns 9 (listing: R2 U2 F2 R2 F2 U2 F2 U2 R2), DR moves 8 :: state L2 B2 D B2 L2 R2 F2 U' :: finish U F2 R2 L2 B2 D' B2 L2
+216 case F-D - F-V R-V even :: half turns 9 (listing: R2 U2 F2 R2 F2 U2 F2 U2 F2), DR moves 8 :: state B2 L2 D L2 B2 F2 R2 U' :: finish U R2 F2 B2 L2 D' L2 B2
