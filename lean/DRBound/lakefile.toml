@@ -1,0 +1,7 @@
+name = "DRBound"
+version = "0.1.0"
+defaultTargets = ["DRBound"]
+
+[[lean_lib]]
+name = "DRBound"
+precompileModules = true
