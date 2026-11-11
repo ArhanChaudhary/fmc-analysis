@@ -34,7 +34,7 @@ This builds on work that is already on the server. The method is tseitsei89's [D
 
 ## 1. The short version
 
-- **A DR-1s costs 2.27 more moves in the finish than a DR.** Over 200,000 random DR-1s states, each finished as well as the method can (setup, slice, DR finish), the average is 15.85 against 13.58 for a DR. By subset it is +2.04 to +2.53, a little more on the good subsets. trangium's nissy averages are 0.1 to 0.4 lower, which is what breaking the form buys.
+- **A DR-1s costs 2.27 more moves in the finish than a DR.** Over 200,000 random DR-1s states, each finished as well as the method can (setup, slice, DR finish), the average is 15.85 against 13.58 for a DR. By subset it is +2.04 to +2.53, a little more on the good subsets. trangium's nissy averages are 0.1 to 0.4 lower; his are true optimals, which may leave the form.
 - **In odds**: a DR-1s finishes in 14 or less 9.0% of the time and in 15 or less 32%. A DR does that 80% and 99% of the time. Line them up and a DR-1s in N sits between a DR in N+2 and a DR in N+3, closer to N+2. The tutorial's "8 between 10 and 11" is right.
 - **The one good kind of DR-1s** is the one where a single slice turn already gives the DR (1.4% of them): it finishes in 14.53 on average, 0.95 over a DR. How the flipped edges split between slices (4-0, 2-2, 3-1) matters less than people say: 15.10 against 15.78 and 16.05.
 - **DR-1s to DR takes 2 to 6 turns, and usually 5 or 6.** Of the 70 ways four flipped edges can sit, 1 needs 2 turns, 2 need 3, 9 need 4, 30 need 5 and 28 need 6. Daichi's "6 moves max" is exact. The distribution is not flat and the typical fix is not 3.
@@ -122,7 +122,7 @@ A DR-1s has exactly four flipped edges, and one slice turn fixes it once those f
 | 0 | 1 | 4: 1 | BL FL BR FR | `F B R L` |
 
 - **Daichi is right** that 6 is the most and 7 does not exist ([15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560145175714472097)). So is Rodney's bound ([15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560294279010717737)): "Worst case requires 2qt, with at most one half-turn before/between each qt, so 4 and then the slice."
-- **The distribution is not flat.** 83% of layouts need 5 or 6 turns, and the average is 5.17. The working assumption in the EO Meta Comparison doc, "1 slice can be fixed in 3 moves", is 2.17 short, and sqAree's "more than 5 moves most of the time" ([23 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1464341592952537128)) is the accurate one. Half of that gap comes back because the slice at the end usually gets sliced out later, which is why the cost that matters is the finish (section 5), not this count.
+- **The distribution is not flat.** 83% of layouts need 5 or 6 turns, and the average is 5.17. The working assumption in the EO Meta Comparison doc, "1 slice can be fixed in 3 moves", is 2.17 short, and sqAree's "more than 5 moves most of the time" ([23 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1464341592952537128)) is the accurate one. That count is not the cost, though. The setup moves are also finish moves and the slice gets moved around in the finish, so the cost that matters is the finish (section 5).
 - **3-1 is not much worse than 2-2 here.** With three of the four already in the slice it is 5 or 6. With two it is anything from 3 to 6. With none it is 4 (`F B R L`).
 - All 70 layouts with a shortest fix each are in Appendix A. This is the list Radek B asked for.
 
@@ -154,7 +154,7 @@ The tutorial's way to finish a DR-1s is: set the four flipped edges up, do the s
 
 read from either side. For a given DR-1s the shortest solution of that form is computed exactly: every setup from both ends, and for the DR that comes out, its optimal finish from the first study's table of all 19,508,428,800 DR states. So "finish" below is the best the method can do, the same way "optimal finish" was for a DR. For a DR-2s 8fe the form is setup, both slices one after the other, DR finish.
 
-The states are drawn uniformly: 200,000 DR-1s and 5,000 DR-2s 8fe. A DR-xs you reach without looking at anything but its DR-xs-ness is uniform over its kind, for the same reason as for a DR.
+The states are drawn uniformly: 200,000 DR-1s and 5,000 DR-2s 8fe. That is the right weighting for a DR-xs reached by a route that was chosen without looking past the DR-xs itself: the part of the cube the route does not look at is still uniformly random. Section 7.5 checks it on real scrambles.
 
 ### 5.2 By subset
 
@@ -236,7 +236,7 @@ By split, on this side and on the other side of the scramble:
 | 3-1 on both sides | 20.9% | 16.05 | 4.9% | 23% |
 | any | 100.0% | 15.85 | 9.0% | 32% |
 
-- **The DR-1s to want is the one a single slice turn fixes**: +0.95, about what a DR-2s 8fe costs. It is 1.4% of them.
+- **The DR-1s to want is the one a single slice turn fixes**: +0.95, a little less than a DR-2s 8fe costs. It is 1.4% of them.
 - **Beyond that, the layout barely matters.** From 4 turns to 6 turns to DR the average finish moves by 0.27. A DR-1s that is 6 from a real DR is not 4 worse than one that is 2 away, because the setup moves are also finish moves.
 - **4-0 is good, but 2-2 against 3-1 is a quarter of a move.** 4-0 on either side is rare (5.6%) and worth about 0.75. This is Rodney's "extra-good" case, and his "just 1-2 moves worse than full DR" for it is right: +1.52.
 
@@ -250,7 +250,7 @@ How often a person finds these finishes is not something I can compute. trangium
 
 The tutorial's cheapest way to a DR-2s 8fe is a normal DR that ends in something like `U R L`: do `D` instead and you are at an 8fe two moves earlier. An 8fe in N is worth a DR in N + 1.19, so the DR in N + 2 that ends that way is worth a DR in about N + 1.2. **The ending is worth 0.8 of a move.** trangium put it at "1 to 1.3 moves better" ([6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469483553963380829)) and count quackula at "one move better" ([6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469483105659392232)); with the best finish of the form it is a little under one.
 
-By subset the 8fe penalty runs from +0.75 (0c0) and +0.95 (4a1) to +1.41 (4c4). Unlike the DR-1s it grows with the qt count, so the trick is worth most on the DRs you wanted anyway.
+By subset the 8fe penalty runs from +0.75 (0c0) and +0.95 (4a1) to +1.41 (4c4). Unlike the DR-1s penalty it grows with the qt count, so the `U R L` ending is worth about a move on the low-qt subsets and about 0.6 on 4c4.
 
 ---
 
