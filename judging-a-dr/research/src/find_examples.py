@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Pick example DRs for EXAMPLES.md: the first random DR state (fixed seed) that has a given read.  The pick never
-looks at the optimal, so the examples are not chosen for their outcome."""
+looks at the optimal, so the examples are not chosen for their outcome.
+
+30 random moves do not mix the DR group fully: states drawn this way finish about half a move shorter on average than
+uniformly random ones (13.09 against 13.58) and low-qt subsets come up too often.  The odds quoted for the examples are
+from the exact tables and do not depend on this; many_examples.py draws with 200 moves, which is uniform."""
 import random, sys, importlib.machinery, importlib.util
 loader = importlib.machinery.SourceFileLoader('drread', '/data/fmc/judging-a-dr/research/tool/drread')
 spec = importlib.util.spec_from_loader('drread', loader); dr = importlib.util.module_from_spec(spec); loader.exec_module(dr)

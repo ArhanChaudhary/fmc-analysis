@@ -7,7 +7,7 @@ finish, and which lower bounds hold. Everything is measured on the exact optimal
 | | |
 |---|---|
 | [`report/WRITEUP.md`](report/WRITEUP.md) | Judging a DR by hand: what the full BFS says. Start with its "Start here" block. |
-| [`report/EXAMPLES.md`](report/EXAMPLES.md) | Eleven DRs read step by step, with the exact odds after each read and the real optimal. |
+| [`report/EXAMPLES.md`](report/EXAMPLES.md) | Eleven DRs read step by step, with the exact odds after each read and the real optimal. Then 300 random DRs in tables, 25 per corner subset, with their reads, odds and optimal. |
 | [`report/BUGS.md`](report/BUGS.md) | Errata for the docs and sheets involved, and claims from the server that the full search settles. |
 
 ## What is in this folder
@@ -45,6 +45,7 @@ The reports are then rebuilt from the counts:
 
     cd ../src && python3 hand_pivots.py && python3 report_tables.py && python3 witness_tables.py
     python3 report_build/corner_section.py && python3 report_build/assemble.py   # writes report/WRITEUP.md
+    python3 many_examples.py                                                      # the 300 random examples in report/EXAMPLES.md
     cd ../../.. && scripts/build-pages.sh OUTPUT_DIRECTORY                         # the site
 
 Each pass needs under 3 GB of memory. `LISTING` is FakeMMAP's list of the 216 NISS@1qt cases with a
