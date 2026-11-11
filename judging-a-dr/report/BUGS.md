@@ -165,8 +165,8 @@ It is a bound for finishes with the minimum number of qts, as he says. Against t
 - 18 as the longest optimal DR finish: now a Lean theorem (nothing needs more, and `U2 L2 D B2 U' B2 U' L2 D B2 R2 U R2 U R2 U2 R2 U'` needs 18).
 - 1,352 states at 18, the number Reid gave (quoted by [Tomas Rokicki, 31 May 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1510792489236430968)).
 - FakeMMAP's 216 HT-only values ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546077758189477989)): same, and now a Lean theorem.
-- "blocky 2c4s are way better than not-so-blocky 2c4s" ([Levi, 28 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1366528885432258592)): yes. 4% finish in 12 with no true pairs, 23% with five. The same ratio holds in every subset.
-- Zagros's "4c3 that is 9+ on both sides I throw away" ([Zagros, 10 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1470865840298655918)): that's half of all 4c3, and it keeps 73% of the finishes in 12 (6.4% of the tossed half finish in 12, 18% of the kept half). One it throws away:
+- "blocky 2c4s are way better than not-so-blocky 2c4s" ([Levi, 28 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1366528885432258592)): yes. In 10 / 11 / 12, 0.03% / 0.43% / 4.2% of 2c4 finish with no true pairs and 1.5% / 6.8% / 26% with five or more. About the same ratio holds in every subset.
+- Zagros's "4c3 that is 9+ on both sides I throw away" ([Zagros, 10 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1470865840298655918)): that's half of all 4c3, and it keeps 92% of the finishes in 10, 83% of those in 11 and 73% of those in 12 (in 10 / 11 / 12: 0.06% / 0.76% / 6.4% of the tossed half, 0.67% / 3.9% / 18% of the kept half). One it throws away:
 
   ```
   U' L2 D' B2 U' B2 U L2 D     // 4c3 4e, 9 to HTR on both sides
@@ -174,7 +174,7 @@ It is a bound for finishes with the minimum number of qts, as he says. Against t
   ```
 
 - "90+% of 4b2 0e cases are 12-14 optimal" ([Daichi, 28 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1487653636786880684)): 92.1%.
-- Daichi's four kinds of 4b2 corners (2-2 and 3-1, good and bad parity, [Daichi, 8 May 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1502289912693522615)): there are exactly four corner cases in 4b2 and they rank as he lists them, 44% / 40% / 33% / 30% finishing in 12.
+- Daichi's four kinds of 4b2 corners (2-2 and 3-1, good and bad parity, [Daichi, 8 May 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1502289912693522615)): there are exactly four corner cases in 4b2 and they rank as he lists them at every target: 14% / 11% / 8.4% / 7.0% finishing in 11, 44% / 40% / 33% / 30% in 12.
 - Rodney's advanced rules as lower bounds on the 216 cases: valid in all 216, even against DR-breaking optimals.
 - Subset sizes, qt class fractions ([Oskar, 10 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1249777335239184405)), and 4a3 ↔ 4b3, 4a4 ↔ 4b4 on inverse (wen's sheet).
 - The two worked examples in Rodney's Advanced DR Bounding doc: both 13-movers are optimal. In the 4a4 one you can prove it from the DR alone, by reading Rodney's NISS@1qt features straight off the 4qt DR state instead of off a 1qt state and looking up the fewest moves that fix them (the write-up calls that NISS@DR). It says 13 on the normal side.

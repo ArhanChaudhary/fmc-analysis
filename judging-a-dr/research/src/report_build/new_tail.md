@@ -1,10 +1,8 @@
-None of this is something you can do at the table, and that's the point of keeping it. Compare with section 3:
+None of this is something you can do at the table, and that's the point of keeping it. Next to what a hand can do (section 3), for the finish you need:
 
-| A 12 is ruled out for… | 4qt DRs | 5qt DRs |
-|---|---:|---:|
-| everything readable, put together (ruled out to within 1%) | 24% | 45% |
-| a table that sees the corners exactly and the colours of the edges (proven) | 81% | 95% |
-| *DRs that really have no 12* | *93%* | *98%* |
+{{PIV_COMPARE}}
+
+"Under 1%" in the first column is not a proof: it means the reads put the DR in a class where at most one in a hundred gets there. The next two columns are proofs.
 
 The difference is not a feature anyone forgot to count. It's the exact relation between the corner state and where each edge sits, the thing you get from picking a skeleton and tracing. So a real hand bound at 4–5qt would have to be a faster way of doing what Rodney's method does per skeleton, across all skeletons at once.
 
@@ -12,37 +10,7 @@ Whether NISS@DR has a description compact enough for that, I don't know. The tab
 
 ---
 
-## 8. What I'd do per subset
-
-This table is the short version of the whole doc, so it's long. Read these first, they apply to every row.
-
-- **"In 12" and "in 13"** mean the share of all DR states of that kind whose optimal finish, in DR moves, is 12 or less, or 13 or less. Whether a 12 is good depends on your DR: your solution is the DR length plus the finish (one less if the first finish move merges with the last DR move).
-- **They are odds, not guarantees.** The only guarantee in the table is the parity bound (no finish shorter than the best corner solution with the right number of side turns) and the few places that say "never".
-- **"Drop" means "spend your time somewhere else first".** It doesn't mean unsolvable, and with a short enough DR or nothing better on the page you come back to it.
-- **No row says a subset is bad to *try*.** The rows say how often each kind finishes short and which reads change that.
-- **HTR numbers are for the true shortest HTR on each side.** If the one you found isn't the shortest, your DR is in a better cell than you think.
-- **L is the optimal corner solution**, not the first corner solution you found.
-- **Pairs** are true pairs: corner and edge next to each other in the U or D layer, both touching stickers matching.
-- **Edge count.** The second column splits every subset by its number of bad edges. In the third column a read is given per edge count wherever the edge count changes it, and the cell says so where it doesn't. *Where* the bad edges sit is not a read in this table: I only measured it through the HTR length.
-- **Corner cases** are named by where the bad corners sit, counted up to turning a layer. "A qt goes straight to X" means some U or D quarter turn lowers the corner qt count right away, with no setup.
-- Shares like "a third of 4c3" are of all DR states of that corner subset.
-
-| Subset | How it finishes | What to read, and what each read changes | When to drop it, and what not to conclude |
-|---|---|---|---|
-| **0c0**<br>0.5% of all DRs<br>average 12.28 | Depends almost only on the bad edges.<br>0e: 99% in 12 (these are HTR states and their U D' turns).<br>2e: 80% in 12, 99% in 13.<br>4e: 53% in 12, 93% in 13.<br>6e: 27% in 12, 75% in 13.<br>8e: 39% in 12, 78% in 13. | **Pairs**, per edge count: with 2e, 67% in 12 with none and 86% with five or more. With 4e, 40% and 74%. With 6e, 19% with none and 35% with two.<br>**HTR length** adds nothing once you know the edge count. With 2e the longer side is always 5 or 6 (82% and 79% in 12). With 4e it's 5, 6 or 7 (59%, 52%, 53%). With 6e it's 7 or 8 (28% and 27%).<br>**Corners**: one case only, nothing to read.<br>**Parity**: L is 0–5, and the wrong E-parity costs +2 or more for three corner states in four, so check it before trusting a short corner solution.<br>For 6e and 8e, go for the setup to a quarter turn first (Rodney's examples in [Rodney, 23 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1563054901871902741)). | Never because of the subset. The weakest is 6e with no pairs: still 19% in 12 and 67% in 13.<br>**Don't conclude** that "0" means no quarter turns: every 0c0 with bad edges needs two. The shortest 0c0 2e is `D F2 R2 F2 D`, solved by `D' F2 R2 F2 D'`. |
-| **4a1**<br>2.9% of all DRs<br>average 12.42 | 4e: 53% in 12, 91% in 13 (average 12.27).<br>2e: 42% in 12, 88% in 13 (average 12.56).<br>0e: 24% in 12, 70% in 13 (average 13.01, and only 3% of 4a1).<br>Only 4e can be finished with one quarter turn. 2e and 0e need three. | **Pairs**: with 4e, 38% in 12 with none and 84% with five or more. With 2e, 27% and 69%.<br>**Longer HTR**: with 4e, 5 gives 81% in 12, 6 gives 67%, 7 gives 47%, 8 gives 32%. With 2e, 6 gives 59%, 7 gives 46%, 8 gives 34%.<br>**Corners**: four cases. With 4e they barely differ (50% to 56% in 12). With 2e they do: 50% for all four on one layer (L 1–4) down to 35% for the L 4–7 case, and 22% with that case on both sides.<br>**Levi's formula (4e only)**: shortest *1qt* HTR on normal + on inverse − 1. It bounds the finishes with one quarter turn. For one case in six the shortest HTR is a 3qt one, and the formula wants the 1qt length. A 3qt finish is shorter than the formula 11.7% of the time (2.5% when the formula says 12 or less). | Rarely. 4a1 0e is the weak one.<br>**Don't conclude** that 4a1 2e or 0e are bad DRs: 2e is one of the better subsets. Levi's formula doesn't apply to them, that's all.<br>**Don't forget** the 3qt finishes on 4e. When a 4a1 4e is very blocky and the formula still says 10+, look for one: `U2 F2 R2 B2 U D2 B2 R2 B2 R2 F2` has formula 10 and a 3qt finish in 7 (`U B2 L2 F2 D F2 D`).<br>2e and 0e really need three quarter turns: `D F2 U' B2 F2 D'` (4a1 2e) is solved by `D F2 B2 U F2 D'`, and `U L2 R2 U L2 R2 U'` (4a1 0e) by `U R2 L2 U' R2 L2 U'`. |
-| **4a2**<br>2.9% of all DRs<br>average 13.35 | 4e: 26% in 12, 64% in 13.<br>2e: 10% in 12, 39% in 13.<br>0e: 6% in 12, 29% in 13.<br>So 4a2 2e and 0e finish like a 2c4, not like a 2qt. | **Corners** carry the most. Best case: 2-2, each layer's pair on a diagonal, L 5–8, a qt goes straight to 4a1. Worst case: all four on one layer, L 8–11. With 4e: 41% in 12 and 81% in 13 for the best, 16% and 47% for the worst, 53% and 89% for the best on both sides, 4% and 24% for the worst on both sides. With 2e: 21% and 64% for the best, 3% and 19% for the worst, 34% and 77% for the best on both sides, and for the worst on both sides no 12 at all and 1% in 13.<br>**Longer HTR**: with 4e, 7 gives 59% in 12, 8 gives 36%, 9 gives 20%, 10 gives 10%, 11 gives 7%. With 2e it is almost always 9 or more: 9 gives 21%, 10 gives 8%, 11 gives 3% (21% in 13).<br>**Pairs**: with 4e, 21% in 12 with none and 37% with five or more. With 2e, 5% and 19%.<br>**Method**: 4a2 4e is where Levi's bounding and Rodney's rules work best. Use them. | 10 or more to HTR on both sides (12% of 4a2): 0.6–2% in 12, 8–17% in 13.<br>The worst corner case on both sides, above all with 2e (no 12, 1% in 13).<br>**Don't conclude** that 2qt means good. On average 4a2 finishes worse than 2c3 and 4b2 (18% in 12 against 28% and 37%). |
-| **4b2**<br>11.4% of all DRs<br>average 12.68 | Flat across edges.<br>2e: 39% in 12, 85% in 13.<br>4e: 34% in 12, 82% in 13.<br>0e: 29% in 12, 74% in 13. | **Pairs** are the best read here: 23% in 12 with none, 65% with five or more (27% and 70% with 2e, 20% and 62% with 4e).<br>**Corners**: four cases. 2-2 with L 3–6 (a qt goes straight to 4a1) 44% in 12. 3-1: 36% (this is two cases that look the same, 40% and 33%; only the optimal corner solution separates them, 4 moves being the better one and 8 the worse). 2-2 with L 6–9 30%. Best on both sides 50%, worst on both sides 21%. A few points higher with 2e than with 4e throughout.<br>**Longer HTR** has to be read with the edge count, because 4e HTRs run a move longer. With 2e: 6 gives 48% in 12, 7 gives 34%, 8 gives 24%. With 4e: 7 gives 49%, 8 gives 33%, 9 gives 22%.<br>**Method**: Rodney's, as written. | There is no dead corner of 4b2. The worst cells (8 and 9 to HTR) are still 15% in 12 and 63% in 13.<br>**Don't conclude** that a short HTR means a short finish. Example 10 in the examples file has a 4-move HTR, sits in an 85%-in-12 cell, and is a 13. |
-| **2c3**<br>15.2% of all DRs<br>average 12.92 | The edge count matters a lot.<br>2e: 42% in 12, 88% in 13.<br>4e: 27% in 12, 73% in 13.<br>6e: 17% in 12, 61% in 13.<br>0e: 12% in 12, 52% in 13.<br>8e: 10% in 12, 45% in 13.<br>(0e and 8e are 1% of 2c3 each.) | **Corners**: three cases. Stacked (one above the other), L 5–8, a qt goes straight to 4b2. Opposite corners of the cube, L 5–8, also straight to 4b2. Next to each other on one layer, L 6–9, needs a setup (half of all 2c3). Share in 12 for stacked / opposite / adjacent: 52% / 44% / 36% with 2e, 36% / 28% / 21% with 4e, 26% / 19% / 12% with 6e. Stacked on both sides: 59%, 44%, 35% with 2e, 4e, 6e. Adjacent on both sides (a quarter of 2c3): 29%, 16%, 8%.<br>**Pairs**, none against five or more: 30% and 63% in 12 with 2e, 16% and 51% with 4e, 11% and 36% with 6e.<br>**Longer HTR**: with 4e, 7 gives 35% in 12, 8 gives 24%, 9 gives 14%. With 6e, 8 gives 19% and 9 gives 14%. With 2e it's 6 (52%) or 7 (40%).<br>**Parity**: for half of all 2c3 corner states the wrong E-parity costs +2, so the corner solution you like may be two moves short of reality.<br>**Method**: Rodney's. | Nothing is dead. Least promising: 6e with adjacent corners on both sides (8% in 12, 41% in 13).<br>**Don't conclude** that stacked corners are bad. At 3qt stacked is the *best* layout. It's at 4qt and 5qt that stacked is the worst. |
-| **4c3**<br>(4a3 and 4b3)<br>11.4% of all DRs<br>average 13.49 | Flat across edges.<br>4e: 12% in 12, 45% in 13.<br>2e: 12% in 12, 46% in 13.<br>0e: 17% in 12, 54% in 13. | **Corners** carry the most, and which 4a3 you have is the big one. 4a3 that is 2-2 with L 7–9 and a qt straight to 4b2 (two such cases): 18–22% in 12, 60–68% in 13. 4b3 (3-1, a third of all 4c3): 11% and 45%. 4a3 with L 9–11: 3.6% and 22%. 4a3 with all four on one layer: 10% and 43% (two cases that look the same; with an optimal corner solution of 8 it is the better one, 15% and 57%, with 10 the worse one, 5% and 28%). Both sides: 23% in 12 for the best pair of cases, 3.0% for the worst (and the worst pair is 11% of all 4c3).<br>**HTR on both sides**: 7 and 8 gives 34% in 12. 8 and 9 gives 16% (56% in 13). 9 and 9 gives 9.4% (43%). 9 and 10 gives 5.0% (31%). 10 and 10 gives 1.9% (17%). The same length is worth a little more with 4e than with 2e (longer side 9: 17% in 12 with 4e, 12% with 2e), because 4e HTRs run about a move longer.<br>**Pairs**: 7% with none, 27% with five or more.<br>Corners and pairs read the same at 2e and 4e. | For a 12: 10 to HTR on both sides, or 9 and 10 with nothing else going for it. For a 13 nothing is dead; 10 and 10 is still 17%.<br>**Zagros's rule** (9+ on both sides, toss) drops half of all 4c3 and keeps 73% of the 12s.<br>**Don't conclude** that the rule is free: 6.4% of what it drops finishes in 12 and 34% in 13. `U' L2 D' B2 U' B2 U L2 D` is 9 to HTR on both sides and finishes in 9. |
-| **0c3**<br>1.4% of all DRs<br>average 14.46 | The worst subset on average, worse than 5qt.<br>4e (half of 0c3): 1.5% in 12, 9% in 13.<br>2e and 6e: 3.7% in 12, 17–18% in 13.<br>0e and 8e: 5.6% in 12, 25% in 13. | **Longer HTR** is the read, and it has to be read with the edge count. With 4e the longer side is 11 (one in seven: 6% in 12, 19% in 13), 12 (most of them: 1% and 8%) or 13 (one in seven: no 12, 1% in 13). With 2e or 6e it is 10 (two thirds: 4% and 19%) or 11 (a third: 1% and 12%). So an 11 is the best case with 4e and the worst with 2e or 6e.<br>**Corners**: two cases, both with no bad corners. If a qt goes straight to 4a2 (a third of 0c3): 5% in 12 and 22% in 13 with 2e or 6e, 2% and 13% with 4e. Otherwise 3% and 15%, or 1% and 7% with 4e.<br>**Pairs** barely move it: with 2e, 1% in 12 with none and 6% with five or more. With 4e, 1% and 2%.<br>**Parity**: the wrong E-parity always costs exactly +1. | By default. 0c3 4e with 12 or 13 on the longer side (six in seven of 0c3 4e) is at most 1% for a 12 and 8% for a 13.<br>**Don't conclude** that no bad corners means good corners. |
-| **2c4**<br>22.9% of all DRs, the most common subset<br>average 13.65 | 2e: 12% in 12, 44% in 13.<br>4e: 9% in 12, 38% in 13.<br>6e: 8% in 12, 35% in 13.<br>0e: 20% in 12, 59% in 13.<br>8e: 4.5% in 12, 24% in 13.<br>(0e and 8e are 1% of 2c4 each.) | **Corners first**, seven cases. Next to each other on one layer with a qt straight to 2c3: two cases with the same bad corners, 16% and 12.5% in 12, told apart by the diagonals of the back face (section 5.3 says how). Opposite corners with a qt straight to 4b3 (L 8–10): 13%. The other two non-stacked cases need a setup: 6–7%. Stacked (one above the other): 7% if a qt goes straight to 4b3, 4% if not. Both sides: 26% in 12 and 75% in 13 for the best layout on both, 15–23% for other straight-to-2c3 or 4b3 pairs, 0.6–2.5% in 12 for a stack on both sides. This holds at every edge count to within a few points: the best layout on both sides is 31% in 12 with 2e, 25% with 4e, 24% with 6e, and a stack on both sides is 1% or less at all three.<br>**Pairs**: 4% with none, 26% with five or more, the same at 2e, 4e and 6e.<br>**HTR on both sides**: 7 and 8 gives 29% in 12. 8 and 8 gives 20%. 8 and 9 gives 12%. 9 and 9 gives 6.1% (32% in 13). 9 and 10 gives 3.1% (22%). 10 and 10 gives 0.9% (11%). Within two or three points of this at 2e, 4e and 6e.<br>**Parity** (if the corner solutions are written down): for 2c4 4e, L = 12 with an odd E-slice has no 12 at all, and L of 11 or more is about 2%. | A stack on both sides (the fastest any of them finishes is 11: `U2 L2 D' F2 U' R2 U F2 D L2 U2`). 10 to HTR on both sides. No pairs and nothing else going for it.<br>**Don't conclude** that 2c4 is bad as a subset. The best layouts are as good as an average 2c3 4e, and 2c4 is where reading pays the most, because the spread inside it is the widest (0.6% to 26%).<br>**Don't conclude** that 6e is a discard on its own: it's 8% in 12 against 9% for 4e. 8e is worse (4.5%). |
-| **0c4**<br>1.0% of all DRs<br>average 13.67 | Finishes like an average 2c4.<br>2e: 9% in 12, 44% in 13.<br>4e: 7% in 12, 37% in 13.<br>6e: 3.6% in 12, 24% in 13. | **Pairs** are the only read with much in it: about 3% in 12 with none and 15–17% with five or more, at 2e and 4e alike. With 6e, 2% with none and 5% with two.<br>**HTR** is always 9 or 10 on each side and tells you nothing beyond the edge count: with 2e, 9 and 10 both give 9% in 12 and 44% in 13, and with 6e it's always 10.<br>**Corners**: one case, L is always 9 or 10, and the wrong E-parity always costs +1. | 6e or 8e, or no pairs.<br>**Don't conclude** anything from the corners here, there's nothing to tell apart. |
-| **4c4**<br>(4a4 and 4b4)<br>11.4% of all DRs<br>average 14.40 | Flat across edges: 1.2–1.8% in 12, 9–12% in 13. | **Corners**: best case (2-2, each layer's pair on a diagonal, L 9–10, a qt straight to 4a3) 4.3% in 12 and 23% in 13. The two worst (L 11–12) 0.6% and 6%. Best pair of cases on both sides 5.6% and 28%. Worst pair 0.2% and 4%.<br>**Longer HTR**: 10 gives 3.5% in 12 and 19% in 13. 11 (two thirds of 4c4) gives 1.2% and 9%. 12 gives 0.3% and 4%.<br>**Pairs**: 0.7% with none, 5.0% in 12 and 25% in 13 with five or more.<br>All of this reads the same at 2e and 4e. | By default. It takes a short DR *and* something going for it (five pairs, or 9 and 10 to HTR, or the best corners), and then it's about 5% for a 12 and 25% for a 13.<br>11 to HTR on both sides: 0.4% in 12, 6% in 13.<br>**Don't conclude** from examples 2 and 9 in the examples file that 4c4 comes good. Those were a 10% and a 3% outcome. |
-| **2c5**<br>7.6% of all DRs<br>average 14.33 | Flat across edges: 1.5–2.6% in 12, 11–16% in 13. | **Corners**: next to each other on one layer (half of 2c5) 3.4% in 12 and 19% in 13. Opposite corners 1.9% and 13%. Stacked 0.6% and 6%. Adjacent on both sides (a quarter of 2c5) 4.7% and 25%. **Stacked on both sides: never a 12, 0.6% in 13** (the fastest is 13: `U2 F2 U' R2 U F2 D' L2 U B2 U' L2 U2`). Stacked on one side and opposite on the other: 0.2% and 4.5%.<br>**Pairs**: 0.7% with none, 9% in 12 and 35% in 13 with five or more.<br>**Longer HTR**: 9 (2% of 2c5) gives 13% in 12 and 47% in 13. 10 gives 4.0% and 23%. 11 gives 1.2% and 10%. 12 gives 0.3% and 4%.<br>**Parity**: this is where the parity bound does the most. It proves "no 12" outright for 13% of 5qt DRs.<br>The reads are about the same at 2e, 4e and 6e, a little lower with 6e. | By default, and at once with a stack on both sides, a stack plus opposite, or 11 to HTR on both sides (0.1% in 12, 3% in 13).<br>Worth a look with a short DR and five pairs, or adjacent corners on both sides with 9 or 10 to HTR.<br>**Don't conclude** that "5qt, skip" loses nothing: one 2c5 in seven finishes in 13. |
-| **4b5**<br>11.4% of all DRs<br>average 14.28 | Flat across edges: 1.8–2.0% in 12, 13–14% in 13. | **Pairs** are the only read that does anything: 0.5% in 12 with none, 8% in 12 and 34% in 13 with five or more.<br>**Corners**: two cases. 3-1 with a qt straight to 2c4 (two thirds) 2.2% and 15%. 2-2 with a qt straight to 4a4 1.3% and 11%.<br>**HTR**: 9, 10 or 11 on each side. 9 and 9 gives 3.5% in 12, 11 and 11 gives 0.4% (7% in 13).<br>The same at 2e and 4e. | By default. Unlike 2c5 there is no layout that kills it or saves it. A short DR with four or five pairs is the only case for it.<br>**Don't conclude** that 4b5 and 2c5 read the same way: 2c5 has the stacked-corner rule, 4b5 has nothing like it. |
-
-On top of any row: an invertible last DR move is worth a third of a move on average, in every subset, so read the DR both ways (example 3 in the examples file). And if a row's reads disagree with each other, that's normal: together they explain about half of what there is to know.
+{{GUIDE}}
 
 ---
 
@@ -78,7 +46,8 @@ For the hand reads in sections 3 to 6:
 
 - **DR moves only.** "Optimal" here is U, D, R2, L2, F2, B2. DR-breaking finishes can be shorter: at the HTR level that's 66 of the 216 cases.
 - **Uniform states.** Every DR state counts once. The DRs you actually reach are spread differently over the subsets, so use the per-subset numbers, not the "all DRs" ones, for a decision.
-- **No hand bound for 4–5qt.** That was the hope and it isn't here. What's here is the measurement that says a feature count won't give one, the reads ranked by what they buy, and the kill rules that do exist.
+- **No hand bound for a 12 at 4–5qt.** That was the hope and it isn't here. What's here is the measurement that says a feature count won't give one, the reads ranked by what they buy at each target, and the kill rules that do exist. For a 10 or an 11 the two proven hand bounds do rule out a good share of 4–5qt DRs (section 3), but those are DRs you were dropping anyway.
+- **Your HTR may not be the shortest.** Every HTR number assumes the shortest HTR on each side. How often a solver finds it, and how fast, is not something a BFS can measure.
 - **Reads I didn't test.** Bigger blocks than pairs, anything you only see after a few moves (moves to FR, the shape after the first qt), and Rodney's NISS@1qt features per skeleton, which is section 7's table rather than a read.
 - **Width is only first moves.** JTuu's real question, how many finishes are within one of optimal, needs a count of solutions per state. Not done.
 - **Not done either**: what share of DRs have an optimal finish that goes through a shortest HTR ([[T10409]]), and how many U2/D2 an optimal has per subset ([[D17576]]).
@@ -88,11 +57,15 @@ For the hand reads in sections 3 to 6:
 
 ## Appendix A: all 48 subsets
 
+Exact over all DR states. Fastest and Longest are the shortest and the longest optimal finish in the subset (the longest is God's number for the subset).
+
 {{APPA}}
 
 ---
 
 ## Appendix B: odds by corner length and E-slice parity
+
+For the big 3–5qt subsets. L = optimal corner solution. "Fastest" is the shortest optimal finish in the row, so `L+1` means no L-move finish exists there.
 
 {{APPB}}
 
@@ -106,7 +79,7 @@ For the hand reads in sections 3 to 6:
 
 ## Appendix D: odds by true pairs, all 48 subsets
 
-Each cell: share finishing in 12 / in 13 (%), for DRs of that subset with that many true pairs (corner + U/D-layer edge, both touching stickers matching, 16 places to look).
+One table per target. Each cell: the share finishing in that many moves or less, for DRs of that subset with that many true pairs (corner + U/D-layer edge, both touching stickers matching, 16 places to look). An empty cell means the subset has no state with that many pairs.
 
 {{PAIRS}}
 
@@ -121,7 +94,7 @@ A corner case is what the corners look like up to rotation, mirror and turning a
 - **A typical DR**: a state of that case whose optimal finish is the median for the case, with that optimal in brackets. This is what the case usually looks like.
 - **Shortest setup**: the shortest scramble that produces those corners, so you can put the layout on a cube quickly. As a DR it is one of the rare best ones of its case (it finishes in as many moves as the scramble is long), so don't judge the case by it.
 - **A qt takes it straight to**: the corner subsets one U or D quarter turn can reach with one qt less.
-- **Share** is of the corner subset, all edge counts together. The odds are for the full finish.
+- **Share** is of the corner subset, all edge counts together. **In 10 … In 13** are the shares whose optimal finish is that long or shorter.
 
 In the both-sides tables the two columns are the case on normal and on inverse, in either order.
 
@@ -131,7 +104,7 @@ In the both-sides tables the two columns are the case on normal and on inverse, 
 
 ## Appendix F: HTR length on both sides, all 48 subsets
 
-Rows: the shorter of the two HTR lengths (normal, inverse). Columns: the longer. Each cell: share of the subset · average optimal · % finishing in 12 · % finishing in 13.
+One table per subset, one row per pair of HTR lengths (the shorter of normal and inverse, then the longer). Fastest is the shortest optimal finish in the row. These are the true shortest HTRs.
 
 {{SQUARES}}
 
@@ -142,6 +115,20 @@ Rows: the shorter of the two HTR lengths (normal, inverse). Columns: the longer.
 For each of the 48 subsets: a state with the longest optimal finish in the subset, and a state that finishes in exactly its longer HTR (so the HTR length is all the bound you get from HTR lengths, in every subset). Do the scramble on a solved cube.
 
 {{WITNESSES}}
+
+---
+
+## Appendix H: every read at every target
+
+For each corner-qt group and each finish you might need, what each read is worth. "How you get it": look (count or see it), recognise (know the corner case on normal and on inverse), solve (find the shortest HTR on both sides, or the optimal corner solutions).
+
+- **Best 10% / 25% / 50% keeps**: rank the group's DRs by the read, keep that share of them, and this is the share of the finishes in T you still have.
+- **Drop, keeping 90% / 95% / 99%**: the share of the group's DRs you can drop while keeping that share of the finishes in T.
+- **In classes under 1%**: the share of the group's DRs that the read puts in a class where at most one in a hundred finishes in T. The last column is the share of the finishes in T those classes hold.
+
+Every number is the best any rule based on that read could do.
+
+{{PIV_FULL}}
 
 ---
 

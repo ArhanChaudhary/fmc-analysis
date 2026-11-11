@@ -6,6 +6,9 @@ from hand_kill import load
 def st(h):
     n = sum(h); return n, sum(d*c for d, c in enumerate(h))/n
 def P(h, T): return 100*sum(h[:T+1])/sum(h)
+import pv
+ODDS_HEAD = 'In 10 | In 11 | In 12 | In 13'
+def odds(h): return pv.cells(h)
 POS = ['UFR', 'UFL', 'UBL', 'UBR', 'DFR', 'DFL', 'DBL', 'DBR']
 ADJ_U = {(0, 1), (1, 2), (2, 3), (0, 3)}
 def layout(mask):
@@ -60,15 +63,15 @@ for s, a, b, d, c in k1:
 out = []
 for cs in ['0c0', '4a1', '4a2', '4b2', '0c3', '2c3', '4c3', '0c4', '2c4', '4c4', '2c5', '4b5']:
     tot = sum(sum(h) for h in one[cs].values())
-    out.append(f'\n**{cs}**\n\n| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | ≤ 12 | ≤ 13 |\n|---|---|---|---|---|---|---|---:|---:|---:|---:|')
+    out.append(f'\n**{cs}**\n\n| Case | Bad corners | L | A typical DR (its optimal) | Shortest setup of these corners | A qt takes it straight to | Told apart from a look-alike by | Share | Avg optimal | {ODDS_HEAD} |\n|---|---|---|---|---|---|---|---:|---:|---:|---:|---:|---:|')
     for i, (k, h) in enumerate(sorted(one[cs].items(), key=lambda kv: st(kv[1])[1])):
         NAME[k] = f'{cs}-{i+1}'
-        out.append(f'| {NAME[k]} | {layout(int(cc[k][2]))} | {cc[k][5]}–{cc[k][6]} | `{TYP[k][0]}` ({TYP[k][1]}) | `{cc[k][9]}` | {cc[k][10] or "nothing (set up first)"} | {TELL.get(k, '')} | {100*sum(h)/tot:.1f}% | {st(h)[1]:.2f} | {P(h,12):.1f}% | {P(h,13):.1f}% |')
+        out.append(f'| {NAME[k]} | {layout(int(cc[k][2]))} | {cc[k][5]}–{cc[k][6]} | `{TYP[k][0]}` ({TYP[k][1]}) | `{cc[k][9]}` | {cc[k][10] or "nothing (set up first)"} | {TELL.get(k, '')} | {100*sum(h)/tot:.1f}% | {st(h)[1]:.2f} | {odds(h)} |')
     if cs == '2c4':
         out.append('\n' + BACK_FACE_NOTE)
     if len(one[cs]) > 1:
-        out.append(f'\n{cs}, corner case on both sides (normal and inverse, either order):\n\n| One side | Other side | Share | Avg optimal | ≤ 12 | ≤ 13 |\n|---|---|---:|---:|---:|---:|')
+        out.append(f'\n{cs}, corner case on both sides (normal and inverse, either order):\n\n| One side | Other side | Share | Avg optimal | {ODDS_HEAD} |\n|---|---|---:|---:|---:|---:|---:|---:|')
         for k, h in sorted(two[cs].items(), key=lambda kv: st(kv[1])[1]):
-            out.append(f'| {NAME[k[0]]} | {NAME[k[1]]} | {100*sum(h)/tot:.1f}% | {st(h)[1]:.2f} | {P(h,12):.1f}% | {P(h,13):.1f}% |')
+            out.append(f'| {NAME[k[0]]} | {NAME[k[1]]} | {100*sum(h)/tot:.1f}% | {st(h)[1]:.2f} | {odds(h)} |')
 open('/data/fmc/judging-a-dr/report/data/corner_cases.md', 'w').write('\n'.join(out) + '\n')
 print(len(out), 'lines')

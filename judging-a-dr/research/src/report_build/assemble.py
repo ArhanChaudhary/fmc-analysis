@@ -11,6 +11,7 @@ def strip_rule(t): return re.sub(r'\n---\s*$', '', t.strip('\n')).strip('\n')
 
 levels = strip_rule(body('## What to look at: seven levels', '## How good is it'))
 howgood = strip_rule(body('## How good is it', '## Examples'))
+howgood = howgood[:howgood.index('### Throwing DRs away')].rstrip('\n')     # the by-target version is throwing.md
 examples = strip_rule(body('## Examples', '## What you can use in an actual solve'))
 c216 = strip_rule(body('## The 216 NISS@1qt cases, three ways', '## The proof, if you don'))
 proof = strip_rule(body('## The proof, if you don', '## How it was computed and checked'))
@@ -22,30 +23,29 @@ docs = old[old.index('## Docs and sheets referred to'):].strip('\n')
 docs = docs[docs.index('\n')+1:].strip('\n')
 zero_row = re.search(r"\| 0c0 \| 0e/2e/4e are short\..*\|", old).group(0)
 
-# Appendix A: add the longest optimal of each subset
-MAXD = dict(x.rsplit(' ',1) for x in '''0c0 0e 13|0c0 2e 15|0c0 4e 16|0c0 6e 16|0c0 8e 18|4a1 0e 16|4a1 2e 16|4a1 4e 17|4a2 0e 17|4a2 2e 17|4a2 4e 16|4b2 0e 16|4b2 2e 16|4b2 4e 16|0c3 0e 17|0c3 2e 17|0c3 4e 18|0c3 6e 17|0c3 8e 17|2c3 0e 16|2c3 2e 15|2c3 4e 16|2c3 6e 16|2c3 8e 16|4c3 0e 16|4c3 2e 16|4c3 4e 16|0c4 0e 16|0c4 2e 16|0c4 4e 16|0c4 6e 16|0c4 8e 16|2c4 0e 16|2c4 2e 17|2c4 4e 16|2c4 6e 17|2c4 8e 17|4c4 0e 17|4c4 2e 17|4c4 4e 17|2c5 0e 18|2c5 2e 17|2c5 4e 18|2c5 6e 17|2c5 8e 17|4b5 0e 17|4b5 2e 16|4b5 4e 17'''.split('|'))
-outA=[]; seen=0
-for line in appA.split('\n'):
-    cells=line.split(' | ')
-    if line.startswith('| Subset |'):
-        cells.insert(4,'Longest'); line=' | '.join(cells)
-    elif line.startswith('|---'):
-        line=line.replace('|---|---:|---:|---:|','|---|---:|---:|---:|---:|',1)
-    elif line.startswith('| ') and cells[0][2:] in MAXD:
-        cells.insert(4, MAXD[cells[0][2:]]); line=' | '.join(cells); seen+=1
-    outA.append(line)
-assert seen==48, seen
-appA='\n'.join(outA)
-
 front=open('/data/fmc/judging-a-dr/research/src/report_build/new_front.md').read().rstrip('\n')
 front=front.replace('{{CORNER_SECTION}}', open('/data/fmc/judging-a-dr/research/src/report_build/corner_section.md').read().rstrip('\n'))
 tail=open('/data/fmc/judging-a-dr/research/src/report_build/new_tail.md').read()
 def data(name): return open(R+'data/'+name).read().strip('\n')
-doc = (front + '\n\n### The seven levels\n\n' + levels + '\n\n' + howgood + '\n\n### Examples\n\n' + examples + '\n\n'
+B='/data/fmc/judging-a-dr/research/src/report_build/'
+doc = (front + '\n\n### The seven levels\n\n' + levels + '\n\n' + howgood + '\n\n' + open(B+'throwing.md').read().rstrip('\n') + '\n\n### Examples\n\n' + examples + '\n\n'
        + tail.replace('{{C216}}', c216).replace('{{PROOF}}', proof).replace('{{HOW}}', how)
-              .replace('{{APPA}}', appA).replace('{{APPB}}', appB).replace('{{APPC}}', appC)
+              .replace('{{APPA}}', data('appendix_a.md')).replace('{{APPB}}', data('appendix_b.md')).replace('{{APPC}}', appC).replace('{{GUIDE}}', open(B+'guide.md').read().rstrip('\n'))
               .replace('{{PAIRS}}', data('odds_by_true_pairs.md')).replace('{{CORNERS}}', data('corner_cases.md'))
               .replace('{{SQUARES}}', data('htr_square_tables.md')).replace('{{WITNESSES}}', data('witnesses_by_subset.md')).replace('{{DOCS}}', docs))
+
+for name, f in (('PIV_BASE', 'pivots_base.md'), ('PIV_RANK', 'pivots_rank.md'), ('PIV_DROP', 'pivots_drop.md'), ('PIV_DEAD', 'pivots_dead.md'), ('PIV_RULES', 'pivots_rules.md'),
+                ('PIV_PAIR_RULES', 'pivots_pair_rules.md'), ('PIV_BOUNDS', 'pivots_bounds.md'), ('PIV_LASTMOVE', 'pivots_lastmove.md'), ('PIV_FULL', 'pivots_full.md'),
+                ('PIV_LADDER_SUBSETS', 'pivots_ladder_subsets.md'), ('PIV_LADDER', 'pivots_ladder.md'), ('PIV_COMPARE', 'pivots_compare.md'),
+                ('PIV_HTR', 'pivots_htr.md'), ('MAIN_PAIRS', 'main_pairs.md'), ('MAIN_SQUARES', 'main_squares.md'), ('MAIN_ZAGROS', 'main_zagros.md')):
+    assert doc.count('{{' + name + '}}') == 1, name
+    doc = doc.replace('{{' + name + '}}', data(f))
+# numbers written as {= expression =} in the sources are computed from the census
+import sys
+sys.path.insert(0, B); sys.path.insert(0, '/data/fmc/judging-a-dr/research/src')
+import fillenv, pv
+doc = pv.fill(doc, fillenv.ENV)
+assert '{=' not in doc
 
 # links
 db=sqlite3.connect('/data/fmc/kb/kb.sqlite')
@@ -68,25 +68,26 @@ assert '[[' not in doc and '(@' not in doc and '{{' not in doc
 
 # ---- "Start here" and the table of contents, built from the headings so they cannot drift
 DESC = {
- 'Introduction': 'The question, and what came out, in seven bullets.',
+ 'Introduction': 'The question, which finish matters, and what came out.',
  'What people asked for': "The gap in the solvers' own words, and the sixteen questions from the server that are answered here.",
- 'The data': 'What was computed, and what "optimal" and "in 12" mean.',
- 'How much can a read tell you?': "The ceiling: every read against the exact finish. Zagros's two hunches.",
+ 'The data': 'What was computed, and what "optimal" and "in 11" mean.',
+ 'How much can a read tell you?': "Every read against the exact finish, for each finish you might need from 9 to 13: ranking, throwing away, plain rules with their price, what is proven. Zagros's two hunches.",
  'The reads, cheapest first': 'What each read is worth, with the tables:',
  'Bounds people use, graded': "Levi's formula, trangium's 2q bound at any qt, HTR length, the parity bound. Which never fail, how often the others do.",
  'Leave slice, the slice, and width': 'What the slice costs, and how many first moves are optimal.',
- 'What a computer can prove from the DR': 'Table lookups that prove "no 12" for most 4–5qt DRs, and why no hand read gets there.',
- "What I'd do per subset": '**The one to read.** For each of the 12 corner subsets: how it finishes, what to read, when to drop it, what not to conclude.',
+ 'What a computer can prove from the DR': 'Table lookups that prove "no 12" for most 4–5qt DRs and "no 11" for nearly all, and why no hand read gets there.',
+ "What I'd do per subset": '**The one to read.** For each of the 12 corner subsets: how often it finishes in 10, 11 and 12, what to read, when to drop it for the finish you need, what not to conclude.',
  'The 216 NISS@1qt cases, three ways': "FakeMMAP's and Rodney's tables checked with half turns, with DR moves and with any move.",
  "The proof, if you don't speak Lean": 'What is proven, how, and what you have to trust.',
  'How it was computed and checked': 'The programs, and what agreed with what.',
  "What this doesn't do": 'Limits, and questions left open.',
- 'Appendix A: all 48 subsets': 'Share, average, shortest and longest optimal, odds for 12 and 13.',
+ 'Appendix A: all 48 subsets': 'Share, average, fastest and longest optimal, odds for 9 to 13, and what is proven per subset.',
  'Appendix B: odds by corner length and E-slice parity': 'For the big high-qt subsets.',
  'Appendix C: the 216 NISS@1qt cases': 'Every case with its optimal for half turns, DR moves and any move.',
- 'Appendix D: odds by true pairs, all 48 subsets': 'Odds for 12 and 13 by number of pairs.',
- 'Appendix E: the 46 corner cases': 'Layout, example scramble, corner solution lengths, odds, and the both-sides tables.',
- 'Appendix F: HTR length on both sides, all 48 subsets': 'The square tables.',
+ 'Appendix D: odds by true pairs, all 48 subsets': 'Odds for 10, 11, 12 and 13 by number of pairs.',
+ 'Appendix E: the 46 corner cases': 'Layout, example scramble, corner solution lengths, odds for 10 to 13, and the both-sides tables.',
+ 'Appendix F: HTR length on both sides, all 48 subsets': 'Odds for 10 to 13 for every pair of HTR lengths.',
+ 'Appendix H: every read at every target': 'Ranking and pruning power of each read, for a finish in 9, 10, 11, 12 or 13.',
  'Appendix G: a scramble for every subset': 'A longest state, and one that finishes in exactly its longer HTR, for each of the 48 subsets.',
  'Docs and sheets referred to': 'Links.',
 }

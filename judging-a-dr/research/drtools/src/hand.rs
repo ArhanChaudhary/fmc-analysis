@@ -889,6 +889,78 @@ pub fn run_hcensus2(bfsdir: &Path, outdir: &Path) -> io::Result<i32> {
 }
 
 // ---------------------------------------------------------------------------------------------------------
+// third feature census: the quick reads together (corner case on both sides, true pairs, HTR on both sides)
+
+pub fn run_hcensus3(bfsdir: &Path, outdir: &Path) -> io::Result<i32> {
+    fs::create_dir_all(outdir)?;
+    let core = Core::new();
+    let cls = Classes::new(&core);
+    let data = ExactData::open(bfsdir);
+    let (_, _, ccase) = corner_case_tables(&core, &cls);
+    // key = subset, corner case normal, corner case inverse, true pairs (capped at 5), hmin, hmax ; value = counts by depth
+    struct Local {
+        h: HashMap<u64, [u64; MAXD]>,
+        row: RowDepths,
+    }
+    let parts = par::for_each_with_local(
+        data.nclass,
+        4,
+        || Local { h: HashMap::new(), row: RowDepths::new() },
+        |local, k| {
+            let dep = local.row.load(&data, k);
+            let c = data.crep[k];
+            let ci = core.cinv[c] as usize;
+            let w = (16 / data.nstab[k]) as u64;
+            let (a, ai) = (cls.ccos[c] as usize, cls.ccos[ci] as usize);
+            let cp: [u8; 8] = unrank_perm(c);
+            // the corner case pair is symmetric in normal/inverse for the statistics: store it ordered
+            let (c1, c2) = (ccase[a].min(ccase[ai]), ccase[a].max(ccase[ai]));
+            for e in 0..NE {
+                let ei = core.einv[e] as usize;
+                let (b, bi) = (cls.epat[e] as usize, cls.epat[ei] as usize);
+                let (hn, hi) = (cls.htr_dist[a][b] as usize, cls.htr_dist[ai][bi] as usize);
+                let sub = cls.sub48[a][b] as usize;
+                let ep: [u8; 8] = unrank_perm(e);
+                let tp = (pair_counts(&cp, &ep)[0] as usize).min(5);
+                let key = ((((((sub * 64 + c1) * 64 + c2) * 8 + tp) * 16 + hn.min(hi)) * 16) + hn.max(hi)) as u64;
+                let entry = local.h.entry(key).or_insert([0; MAXD]);
+                for s12 in 0..12 {
+                    entry[dep[e * 12 + s12] as usize] += w;
+                }
+            }
+        },
+    );
+    let mut h: HashMap<u64, [u64; MAXD]> = HashMap::new();
+    for local in parts {
+        for (key, v) in local.h {
+            let entry = h.entry(key).or_insert([0; MAXD]);
+            for d in 0..MAXD {
+                entry[d] += v[d];
+            }
+        }
+    }
+    let mut keys: Vec<&u64> = h.keys().collect();
+    keys.sort();
+    let mut out = BufWriter::new(File::create(outdir.join("k5_quick_reads.csv"))?);
+    writeln!(out, "subset,corner_case_a,corner_case_b,true_pairs,hmin,hmax,depth,count")?;
+    let mut total = 0u64;
+    for &key in keys {
+        let v = h[&key];
+        let (hmax, hmin, tp, c2, c1, sub) =
+            (key % 16, key / 16 % 16, key / 256 % 8, key / 2048 % 64, key / 131072 % 64, key / 8388608);
+        for d in 0..MAXD {
+            if v[d] != 0 {
+                total += v[d];
+                writeln!(out, "{},{},{},{},{},{},{},{}", cls.sub48_name[sub as usize], c1, c2, tp, hmin, hmax, d, v[d])?;
+            }
+        }
+    }
+    out.flush()?;
+    eprintln!("states counted: {} (expected 19508428800); classes: {}", total, h.len());
+    Ok(if total == 19_508_428_800 { 0 } else { 2 })
+}
+
+// ---------------------------------------------------------------------------------------------------------
 // neighbours: an invertible last move, and the number of optimal first moves
 
 pub fn run_ncensus(bfsdir: &Path, outdir: &Path) -> io::Result<i32> {

@@ -17,7 +17,7 @@ finish, and which lower bounds hold. Everything is measured on the exact optimal
 | `report/` | The three reports and the tables they include (`data/`). |
 | `lean/DRBound/` | Lean 4 proof (no Mathlib): the optimal finish of every DR state, the lower bounds, the 216 half-turn-only values. See its `README.md`. |
 | `research/drtools/` | Rust: the search over the DR group, the bound tables, and the passes that count each hand-readable quantity against the optimal. |
-| `research/src/` | Python analysis of those counts. `report_build/` assembles `report/WRITEUP.md` from its parts. |
+| `research/src/` | Python analysis of those counts. `pv.py` gives the share finishing in any number of moves for any combination of reads, `hand_pivots.py` and `report_tables.py` write the tables in `report/data/`, and `report_build/` assembles `report/WRITEUP.md` from its parts (every number in the per-subset guide is computed at build time). |
 | `research/tool/` | `drread`: the reads and odds for any DR. `drbound`: the computed lower bounds for any DR. |
 | `research/out/` | Result tables (CSV and text), including `out/hand/` (one histogram per read) and `out/witnesses.txt` (an explicit state for every existence claim in the reports). |
 
@@ -36,9 +36,16 @@ elan, Python 3 with numpy, and nissy for the cross-checks.
     ./target/release/drtools lsbfs ../data/ls_depth.u8         # optimal leave slice
     ./target/release/drtools hcensus ../data/drbfs ../data/ls_depth.u8 ../out/hand
     ./target/release/drtools hcensus2 ../data/drbfs ../out/hand
+    ./target/release/drtools hcensus3 ../data/drbfs ../out/hand                  # pairs, corner cases and HTR lengths together
     ./target/release/drtools ncensus ../data/drbfs ../out/hand
     ./target/release/drtools witness ../data/drbfs ../data/ls_depth.u8 LISTING > ../out/witnesses.txt
     cd ../../lean/DRBound && lake build DRBound.CertifiedExactTable && lake build   # the proof, about half an hour
+
+The reports are then rebuilt from the counts:
+
+    cd ../src && python3 hand_pivots.py && python3 report_tables.py && python3 witness_tables.py
+    python3 report_build/corner_section.py && python3 report_build/assemble.py   # writes report/WRITEUP.md
+    cd ../../.. && scripts/build-pages.sh OUTPUT_DIRECTORY                         # the site
 
 Each pass needs under 3 GB of memory. `LISTING` is FakeMMAP's list of the 216 NISS@1qt cases with a
 half-turn scramble each (an attachment on his Discord post, linked from the write-up).

@@ -1,0 +1,223 @@
+#!/usr/bin/env python3
+"""Everything by target: for "a finish in T or less", T = 9..13 (8..14 for the base rates).
+
+  pivots_base.md        how rare each target is, per corner subset and per corner-qt group
+  pivots_rank.md        the finishes in T that sit in the best-looking quarter, by read
+  pivots_drop.md        the DRs you can drop and still keep 95% of the finishes in T, by read
+  pivots_dead.md        the DRs in classes where at most 1% finish in T, and what dropping them loses
+  pivots_rules.md       plain HTR-length rules: what each drops and what it loses
+  pivots_htr.md         share finishing in T by longer HTR, per qt group
+  pivots_bounds.md      what the guaranteed bounds, and the computer tables, prove at each target
+  pivots_lastmove.md    pure DR against a DR whose last move can be turned the other way
+  pivots_full.md        every read, every target, every measure (the appendix)
+
+A "class" is a set of DRs that look the same to the read.  Classes are ranked by their true share of finishes in T,
+so each number is the best any rule based on that read could do."""
+import collections, csv, sys
+sys.path.insert(0, '/data/fmc/judging-a-dr/research/src')
+import pv
+OUT = '/data/fmc/judging-a-dr/report/data/'
+
+def classes(rs, keyf, depth_i, count_i):
+    g = collections.defaultdict(lambda: [0] * 19)
+    for r in rs: g[(r[0],) + tuple(keyf(r))][int(r[depth_i])] += int(r[count_i])
+    return g
+def in_group(key, grp): return grp == 'all' or pv.QT[key[0].split()[0]] == grp
+def measures(g, grp, T, eps=0.01):
+    cl = [(sum(h[:T + 1]), sum(h)) for k, h in g.items() if in_group(k, grp)]
+    N = sum(n for _, n in cl); G = sum(x for x, _ in cl)
+    out = dict(base=100 * G / N)
+    dead = [(x, n) for x, n in cl if x <= eps * n]
+    out['dead'] = 100 * sum(n for _, n in dead) / N
+    out['lost'] = 100 * sum(x for x, _ in dead) / G if G else 0.0
+    cl.sort(key=lambda t: t[0] / t[1], reverse=True)
+    for s in (0.10, 0.25, 0.50):                       # share of the finishes kept by the best-looking share s
+        acc_g = acc_n = 0.0
+        for x, n in cl:
+            if acc_n + n > s * N:
+                acc_g += (s * N - acc_n) / n * x; break
+            acc_g += x; acc_n += n
+        out[f'top{round(100*s)}'] = 100 * acc_g / G if G else float('nan')
+    for rcl in (0.90, 0.95, 0.99):                     # share of DRs dropped while keeping rcl of the finishes
+        acc_g = acc_n = 0.0
+        for x, n in cl:
+            if acc_g + x >= rcl * G:
+                acc_n += (rcl * G - acc_g) / x * n if x else 0; break
+            acc_g += x; acc_n += n
+        out[f'drop{round(100*rcl)}'] = 100 * (1 - acc_n / N) if G else 100.0
+    return out
+
+k5 = pv.rows('k5_quick_reads.csv')      # subset,ca,cb,tp,hmin,hmax,depth,count
+h2 = pv.rows('h2_lengths.csv')          # subset,hmin,hmax,L,dLp,parity,depth,count
+k2 = pv.rows('k2_combined.csv')         # subset,hmin,hmax,L,misfit,tp,depth,count
+READS = [
+    ('subset', 'subset', classes(k5, lambda r: (), 6, 7)),
+    ('pairs', '+ true pairs', classes(k5, lambda r: (r[3],), 6, 7)),
+    ('corners', '+ corner case on both sides', classes(k5, lambda r: (r[1], r[2]), 6, 7)),
+    ('pairs+corners', '+ pairs and corner cases', classes(k5, lambda r: (r[1], r[2], r[3]), 6, 7)),
+    ('htr', '+ HTR length on both sides', classes(k5, lambda r: (r[4], r[5]), 6, 7)),
+    ('Lp', '+ corner length L and E-parity', classes(h2, lambda r: (r[3], r[4]), 6, 7)),
+    ('pairs+htr', '+ pairs and HTR', classes(k5, lambda r: (r[3], r[4], r[5]), 6, 7)),
+    ('quick', '+ pairs, corner cases and HTR', classes(k5, lambda r: tuple(r[1:6]), 6, 7)),
+    ('all', '+ pairs, HTR, L and E-parity', classes(k2, lambda r: tuple(r[1:6]), 6, 7)),
+]
+R = {k: g for k, _, g in READS}
+HEAD = ['subset', 'pairs', 'corners', 'pairs+corners', 'htr', 'quick', 'all']
+HEAD_NAMES = ['No solving: subset alone', 'No solving: + pairs', 'No solving: + corner case on both sides', 'No solving: + pairs and corner cases',
+              'With solving: + HTR on both sides', 'With solving: + pairs, corner cases and HTR', 'With solving: + pairs, HTR, L and E-parity']
+COST = {'subset': 'look', 'pairs': 'look', 'corners': 'recognise', 'pairs+corners': 'recognise', 'htr': 'solve', 'Lp': 'solve', 'pairs+htr': 'solve', 'quick': 'solve', 'all': 'solve'}
+M = {(k, grp, T): measures(g, grp, T) for k, _, g in READS for grp in pv.GROUPS + ['all'] for T in pv.WIDE}
+def n0(x): return f'{x:.0f}%'
+def write(name, lines):
+    open(OUT + name, 'w').write('\n'.join(lines) + '\n'); print(f'--- {name}'); print('\n'.join(lines))
+
+# ---- base rates
+sub = R['subset']
+def hist(pred):
+    h = [0] * 19
+    for k, v in sub.items():
+        if pred(k[0].split()[0]):
+            for d, c in enumerate(v): h[d] += c
+    return h
+L = ['| DRs | Share of all DRs | In 8 | In 9 | In 10 | In 11 | In 12 | In 13 | In 14 |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
+for grp in ['0qt'] + pv.GROUPS:
+    h = hist(lambda cs: pv.QT[cs] == grp)
+    L.append(f'| **{pv.GROUP_NAME[grp]}** | {100*sum(h)/pv.TOT:.1f}% | ' + pv.cells(h, range(8, 15)) + ' |')
+    for cs in pv.CS_ORDER:
+        if pv.QT[cs] == grp and grp != '0qt':
+            h = hist(lambda x: x == cs); L.append(f'| {cs} | {100*sum(h)/pv.TOT:.1f}% | ' + pv.cells(h, range(8, 15)) + ' |')
+h = hist(lambda cs: True); L.append(f'| **all DRs** | 100% | ' + pv.cells(h, range(8, 15)) + ' |')
+write('pivots_base.md', L)
+
+# ---- the three by-read tables: rows = (qt group, target), columns = reads
+def by_read(name, cell, first=None):
+    L = ['| Corner qt | Finish needed | ' + ' | '.join(([first[0]] if first else []) + HEAD_NAMES) + ' |', '|---|---|' + '---:|' * (len(HEAD) + (1 if first else 0))]
+    for grp in pv.GROUPS:
+        for T in pv.WIDE:
+            L.append(f'| {grp.replace("-", "–")} | {T} or less | ' + ' | '.join(([first[1](grp, T)] if first else []) + [cell(M[(k, grp, T)]) for k in HEAD]) + ' |')
+    write(name, L)
+by_read('pivots_rank.md', lambda m: n0(m['top25']), first=('DRs that get there', lambda grp, T: pv.num(M[('subset', grp, T)]['base'])))
+by_read('pivots_drop.md', lambda m: n0(m['drop95']))
+by_read('pivots_dead.md', lambda m: f"{n0(m['dead'])} ({n0(m['lost'])})")
+
+# ---- plain HTR rules
+g_h = collections.defaultdict(lambda: [0] * 19)       # (group, hmin, hmax) -> hist
+for r in h2: g_h[(pv.QT[r[0].split()[0]], int(r[1]), int(r[2]))][int(r[6])] += int(r[7])
+def rule(grp, T, pred):
+    n = good = dn = dg = 0
+    for (q, lo, hi), h in g_h.items():
+        if q != grp: continue
+        a = sum(h); b = sum(h[:T + 1]); n += a; good += b
+        if pred(lo, hi): dn += a; dg += b
+    return 100 * dn / n, (100 * dg / good if good else 0.0)
+def rc(x, proven=False):
+    d, l = x
+    if d == 0: return '–'
+    return pv.num(d) if proven else f'{pv.num(d)} ({pv.num(l)})'
+L = ['| Corner qt | Finish needed, T | Longer side more than T (proven, loses nothing) | Both sides T or more | Longer side T or more | Both sides T−1 or more | Longer side T−1 or more | Both sides T−2 or more |', '|---|---|---:|---:|---:|---:|---:|---:|']
+for grp in pv.GROUPS:
+    for T in pv.WIDE:
+        L.append(f'| {grp.replace("-", "–")} | {T} | ' + rc(rule(grp, T, lambda lo, hi: hi > T), True) + ' | ' + ' | '.join(rc(rule(grp, T, f)) for f in (
+            lambda lo, hi: lo >= T, lambda lo, hi: hi >= T, lambda lo, hi: lo >= T - 1, lambda lo, hi: hi >= T - 1, lambda lo, hi: lo >= T - 2)) + ' |')
+write('pivots_rules.md', L)
+
+# ---- plain pair rules (no solving)
+g_p = collections.defaultdict(lambda: [0] * 19)
+for r in k5: g_p[(pv.QT[r[0].split()[0]], int(r[3]))][int(r[6])] += int(r[7])
+def prule(grp, T, k):
+    n = good = dn = dg = 0
+    for (q, tp), h in g_p.items():
+        if q != grp: continue
+        a = sum(h); b = sum(h[:T + 1]); n += a; good += b
+        if tp <= k: dn += a; dg += b
+    return 100 * dn / n, (100 * dg / good if good else 0.0)
+L = ['| Corner qt | Finish needed | No pairs | One pair or none | Two pairs or fewer |', '|---|---|---:|---:|---:|']
+for grp in pv.GROUPS:
+    for T in pv.WIDE:
+        L.append(f'| {grp.replace("-", "–")} | {T} or less | ' + ' | '.join(rc(prule(grp, T, k)) for k in (0, 1, 2)) + ' |')
+write('pivots_pair_rules.md', L)
+
+# ---- share finishing in T by longer HTR
+L = ['| Corner qt | Longer HTR | Share of the group | In 9 | In 10 | In 11 | In 12 | In 13 |', '|---|---:|---:|---:|---:|---:|---:|---:|']
+for grp in pv.GROUPS:
+    tot = sum(sum(h) for (q, lo, hi), h in g_h.items() if q == grp)
+    for hi in range(1, 14):
+        h = [0] * 19
+        for (q, lo, x), v in g_h.items():
+            if q == grp and x == hi:
+                for d, c in enumerate(v): h[d] += c
+        if sum(h) / tot < 0.001: continue
+        L.append(f'| {grp.replace("-", "–")} | {hi} | {pv.num(100*sum(h)/tot)} | ' + pv.cells(h, pv.WIDE) + ' |')
+write('pivots_htr.md', L)
+
+# ---- what is proven at each target
+lat = collections.defaultdict(lambda: collections.Counter())      # (spec, group) -> {(bound, depth): count}, both sides
+with open('/data/fmc/judging-a-dr/research/out/lattice.csv') as f:
+    for r in csv.DictReader(f):
+        if r['sides'] == '2': lat[(r['spec'], pv.QT[r['subset'].split()[0]])][(int(r['bound']), int(r['depth']))] += int(r['count'])
+def proves(spec, grp, T):
+    c = lat[(spec, grp)]; return 100 * sum(n for (b, d), n in c.items() if b > T) / sum(c.values())
+hb = collections.defaultdict(lambda: [0, 0, 0, 0, 0])     # (group, T) -> n, truth, htr, Lp, either
+for r in h2:
+    grp = pv.QT[r[0].split()[0]]; hi = int(r[2]); lp = int(r[3]) + int(r[4]); d = int(r[6]); c = int(r[7])
+    for T in pv.WIDE:
+        o = hb[(grp, T)]; o[0] += c; o[1] += c * (d > T); o[2] += c * (hi > T); o[3] += c * (lp > T); o[4] += c * (max(hi, lp) > T)
+L = ['| Corner qt | Finish needed | DRs with no such finish | Longer HTR proves it | Corner length with parity proves it | Either one | NISS@DR table | Everything visible |', '|---|---|---:|---:|---:|---:|---:|---:|']
+for grp in pv.GROUPS:
+    for T in pv.WIDE:
+        o = hb[(grp, T)]
+        assert abs(100 * o[2] / o[0] - proves('htr', grp, T)) < 1e-9 and abs(100 * o[3] / o[0] - proves('c+p', grp, T)) < 1e-9
+        L.append(f'| {grp.replace("-", "–")} | {T} or less | {pv.num(100*o[1]/o[0])} | ' + ' | '.join(pv.num(100 * o[i] / o[0]) for i in (2, 3, 4)) + f" | {pv.num(proves('KF', grp, T))} | {pv.num(proves('c+2520+F', grp, T))} |")
+write('pivots_bounds.md', L)
+
+# ---- the last DR move
+lm = collections.defaultdict(lambda: [[0] * 19, [0] * 19])
+for s, d, d2, c in pv.rows('h8_last_move.csv'):
+    grp = pv.QT[s.split()[0]]; lm[grp][0][int(d)] += int(c); lm[grp][1][min(int(d), int(d2))] += int(c)
+L = ['| Corner qt | | In 9 | In 10 | In 11 | In 12 | In 13 |', '|---|---|---:|---:|---:|---:|---:|']
+for grp in pv.GROUPS:
+    L.append(f'| {grp.replace("-", "–")} | pure DR | ' + pv.cells(lm[grp][0], pv.WIDE) + ' |')
+    L.append(f'| {grp.replace("-", "–")} | last move can go either way | ' + pv.cells(lm[grp][1], pv.WIDE) + ' |')
+write('pivots_lastmove.md', L)
+
+# ---- the appendix: every read, every target, every measure
+L = []
+for grp in pv.GROUPS:
+    L += ['', f'**{pv.GROUP_NAME[grp]}**', '', '| Finish needed | What you know | How you get it | Best 10% keeps | Best 25% keeps | Best 50% keeps | Drop, keeping 90% | Drop, keeping 95% | Drop, keeping 99% | In classes under 1% | Finishes lost by dropping those |',
+          '|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|']
+    for T in pv.WIDE:
+        b = M[('subset', grp, T)]['base']
+        L.append(f'| **{T} or less** ({pv.num(b)} get there) | nothing | | 10% | 25% | 50% | 10% | 5% | 1% | {"100%" if b <= 1 else "0%"} | {"100%" if b <= 1 else "0%"} |')
+        for k, name, _ in READS:
+            m = M[(k, grp, T)]
+            L.append(f'| {T} or less | {name} | {COST[k]} | ' + ' | '.join(n0(m[x]) for x in ('top10', 'top25', 'top50', 'drop90', 'drop95', 'drop99', 'dead', 'lost')) + ' |')
+write('pivots_full.md', L[1:])
+
+# ---- the computer ladder at each target (section "What a computer can prove")
+LEVELS = [('htr', 'HTR'), ('c+p', 'L+parity'), ('c+bad+p', 'L+S+T'), ('KF', 'NISS@DR'), ('K0+F', '+H-perm'), ('c+2520+F', 'Everything')]
+lat_all = collections.defaultdict(lambda: collections.Counter())
+with open('/data/fmc/judging-a-dr/research/out/lattice.csv') as f:
+    for r in csv.DictReader(f):
+        if r['sides'] == '2':
+            lat_all[(r['spec'], pv.QT[r['subset'].split()[0]])][(int(r['bound']), int(r['depth']))] += int(r['count'])
+            lat_all[(r['spec'], r['subset'])][(int(r['bound']), int(r['depth']))] += int(r['count'])
+def pr(spec, key, T):
+    c = lat_all[(spec, key)]; return pv.num(100 * sum(n for (b, d), n in c.items() if b > T) / sum(c.values()))
+def truth(key, T):
+    c = lat_all[('htr', key)]; return pv.num(100 * sum(n for (b, d), n in c.items() if d > T) / sum(c.values()))
+L = ['| Corner qt | Finish needed | DRs with no such finish | ' + ' | '.join(n for _, n in LEVELS) + ' |', '|---|---|---:|' + '---:|' * len(LEVELS)]
+for grp in pv.GROUPS:
+    for T in (10, 11, 12, 13):
+        L.append(f'| {pv.GROUP_NAME[grp]} | {T} or less | {truth(grp, T)} | ' + ' | '.join(pr(sp, grp, T) for sp, _ in LEVELS) + ' |')
+write('pivots_ladder.md', L)
+L = ['| Subset | Share of all DRs | Avg optimal | In 11 | In 12 | NISS@DR proves no 11 | Everything proves no 11 | NISS@DR proves no 12 | Everything proves no 12 |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
+for s in ['4b2 4e', '2c3 4e', '4c3 4e', '2c4 4e', '0c3 4e', '4c4 4e', '2c5 4e', '4b5 4e']:
+    h = sub[(s,)]
+    L.append(f'| {s} | {100*sum(h)/pv.TOT:.2f}% | {pv.avg(h):.2f} | {pv.pct(h, 11)} | {pv.pct(h, 12)} | ' + ' | '.join(pr(sp, s, T) for T in (11, 12) for sp in ('KF', 'c+2520+F')) + ' |')
+write('pivots_ladder_subsets.md', L)
+L = ['| Corner qt | Finish needed | Everything readable puts it under 1% | The two hand bounds prove it | A table that sees the corners exactly and the colours of the edges proves it | DRs that really have no such finish |', '|---|---|---:|---:|---:|---:|']
+for grp in ('3qt', '4qt', '5qt'):
+    for T in (10, 11, 12):
+        o = hb[(grp, T)]
+        L.append(f"| {grp} | {T} or less | {n0(M[('all', grp, T)]['dead'])} | {pv.num(100*o[4]/o[0])} | {pr('c+2520+F', grp, T)} | {truth(grp, T)} |")
+write('pivots_compare.md', L)
