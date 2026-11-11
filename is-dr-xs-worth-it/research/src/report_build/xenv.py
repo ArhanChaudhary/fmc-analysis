@@ -96,6 +96,10 @@ def _eo():
 def EO(col, f='avg'):
     v = [int(r[col]) for r in _eo()]
     return f'{sum(v) / len(v):,.1f}' if f == 'avg' else num(100 * sum(x > 0 for x in v) / len(v))
+def EOP(key, i, what='result'):
+    v = REAL[key]['policies'][i][what]; return f'{v:.2f}' if what == 'result' else f'{v:,.0f}'
+def EOD(key, i, j): return f"{REAL[key]['policies'][i]['result'] - REAL[key]['policies'][j]['result']:.2f}"
+def EOV(k, f='{:,.0f}'): return f.format(REAL['eo'][k])
 def REAL_HEADLINE(): return open(os.path.dirname(os.path.abspath(__file__)) + '/real_headline.md').read().strip() if os.path.exists(os.path.dirname(os.path.abspath(__file__)) + '/real_headline.md') else '(pending)'
 def REAL_VERDICT(): return open(os.path.dirname(os.path.abspath(__file__)) + '/real_verdict.md').read().strip() if os.path.exists(os.path.dirname(os.path.abspath(__file__)) + '/real_verdict.md') else '(pending)'
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}

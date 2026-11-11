@@ -27,7 +27,7 @@ Everything starts from one sticker-level model of the cube built from geometry (
 | From a slice-EO skip to the nearest DR-1s / 8fe / DR | `seo_hist.py` | `out/seo_hist.json` |
 | Finish of random DR-1s and DR-2s 8fe states | `xstools sample1s`, `sample8fe` | `out/sample1s.tsv`, `out/sample1s_labels.tsv`, `out/sample8fe.tsv` |
 | Shortest DR / DR-1s / 8fe / any DR-xs of random scrambles | `xstools nearest` | `out/nearest.tsv` |
-| Every DR-1s and DR-2s 8fe on 500 scrambles, with solutions | `xstools attempts`, `verify_attempts.py` | `out/attempts.tsv` |
+| Every DR-1s and DR-2s 8fe on 500 scrambles, with solutions | `xstools attempts`, `verify_attempts.py` | `out/attempts_1s.tsv`, `out/attempts_8fe.tsv` |
 | The server's worked examples against the classification | `check_examples.py` | printed |
 | Example scrambles for the claims | `witness.py` | `out/witness.json` |
 | The normal route by EO length on the 500 scrambles | `xeo.py` | `out/eo_run.tsv` |

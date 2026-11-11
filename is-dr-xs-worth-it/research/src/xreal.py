@@ -44,13 +44,13 @@ R['shortest_1s'] = {k: v for k, v in sorted(sh.items())}
 # ---- what it finishes in: the 491 scrambles that have a normal DR of 10 or less
 H = [s for s in S if nclassic(base[s], 10) > 0]
 pol = [('every normal DR of 10 or less', lambda s: (nclassic(base[s], 10), classic(base[s], 10))),
-       ('those, and every DR-1s of 7 or less', lambda s: (nclassic(base[s], 10) + count(one[s], 7), min(classic(base[s], 10), best(one[s], 7)))),
-       ('those, and every DR-1s of 8 or less', lambda s: (nclassic(base[s], 10) + count(one[s], 8), min(classic(base[s], 10), best(one[s], 8)))),
-       ('those, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (nclassic(base[s], 10) + count(one[s], 8) + count(eight[s], 9), min(classic(base[s], 10), best(one[s], 8), best(eight[s], 9)))),
+       ('normal DRs of 10 or less, and every DR-1s of 7 or less', lambda s: (nclassic(base[s], 10) + count(one[s], 7), min(classic(base[s], 10), best(one[s], 7)))),
+       ('normal DRs of 10 or less, and every DR-1s of 8 or less', lambda s: (nclassic(base[s], 10) + count(one[s], 8), min(classic(base[s], 10), best(one[s], 8)))),
+       ('normal DRs of 10 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (nclassic(base[s], 10) + count(one[s], 8) + count(eight[s], 9), min(classic(base[s], 10), best(one[s], 8), best(eight[s], 9)))),
        ('every normal DR of 11 or less', lambda s: (nclassic(base[s], 11), classic(base[s], 11))),
-       ('every normal DR of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (nclassic(base[s], 11) + count(one[s], 8) + count(eight[s], 9), min(classic(base[s], 11), best(one[s], 8), best(eight[s], 9)))),
+       ('normal DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (nclassic(base[s], 11) + count(one[s], 8) + count(eight[s], 9), min(classic(base[s], 11), best(one[s], 8), best(eight[s], 9)))),
        ('every normal DR of 12 or less', lambda s: (nclassic(base[s], 12), classic(base[s], 12))),
-       ('every normal DR of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (nclassic(base[s], 12) + count(one[s], 8) + count(eight[s], 9), min(classic(base[s], 12), best(one[s], 8), best(eight[s], 9))))]
+       ('normal DRs of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (nclassic(base[s], 12) + count(one[s], 8) + count(eight[s], 9), min(classic(base[s], 12), best(one[s], 8), best(eight[s], 9))))]
 L = ['| You finish | To finish, per scramble | Result, average | 20 or less | 19 or less |', '|---|---:|---:|---:|---:|']
 for nm, f in pol:
     v = [f(s) for s in H]
@@ -96,3 +96,24 @@ R['n1s'] = len(allr); R['n8'] = len(alle)
 R['by_start_1s'] = dict(collections.Counter(r['start'] for r in allr)); R['by_start_8'] = dict(collections.Counter(r['start'] for r in alle))
 json.dump(R, open(O + 'real.json', 'w'), indent=1)
 for k, v in R.items(): print(k, v)
+
+# ---- against 5-move EOs: the normal route by EO length (out/eo_run.tsv, xeo.py)
+import os
+if os.path.exists(O + 'eo_run.tsv'):
+    eo = {int(r['scramble']): {k: int(v) for k, v in r.items()} for r in csv.DictReader(open(O + 'eo_run.tsv'), delimiter='\t')}
+    R['eo'] = dict(eos4=avg(eo[s]['eos4'] for s in S), eos5=avg(eo[s]['eos5'] for s in S), none4=sum(eo[s]['eos4'] == 0 for s in S),
+                   drs10_4=avg(eo[s]['drs10_eo4'] for s in S), drs10_5=avg(eo[s]['drs10_eo5'] for s in S), drs11_4=avg(eo[s]['drs11_eo4'] for s in S), drs11_5=avg(eo[s]['drs11_eo5'] for s in S))
+    for cap, key in ((10, 'eo10'), (11, 'eo11')):
+        Hs = [s for s in S if eo[s][f'best{cap}_eo4'] < 99]
+        pol = [(f'EOs of 4 or less: every DR of {cap} or less', lambda s: (eo[s][f'drs{cap}_eo4'], eo[s][f'best{cap}_eo4'])),
+               (f'EOs of 4 or less: DRs of {cap} or less, and every DR-1s of 7 or less from a slice EO', lambda s: (eo[s][f'drs{cap}_eo4'] + count(one[s], 7), min(eo[s][f'best{cap}_eo4'], best(one[s], 7)))),
+               (f'EOs of 4 or less: DRs of {cap} or less, and every DR-1s of 8 or less from a slice EO', lambda s: (eo[s][f'drs{cap}_eo4'] + count(one[s], 8), min(eo[s][f'best{cap}_eo4'], best(one[s], 8)))),
+               (f'EOs of 4 or less: DRs of {cap} or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (eo[s][f'drs{cap}_eo4'] + count(one[s], 8) + count(eight[s], 9), min(eo[s][f'best{cap}_eo4'], best(one[s], 8), best(eight[s], 9)))),
+               (f'EOs of 5 or less: every DR of {cap} or less', lambda s: (eo[s][f'drs{cap}_eo5'], eo[s][f'best{cap}_eo5'])),
+               (f'EOs of 5 or less: DRs of {cap} or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (eo[s][f'drs{cap}_eo5'] + count(one[s], 8) + count(eight[s], 9), min(eo[s][f'best{cap}_eo5'], best(one[s], 8), best(eight[s], 9))))]
+        L = ['| You check and finish | EOs to check, per scramble | To finish, per scramble | Result, average |', '|---|---:|---:|---:|']; P = []
+        for i, (nm, f) in enumerate(pol):
+            v = [f(s) for s in Hs]; ne = avg(eo[s]['eos4' if i < 4 else 'eos5'] for s in Hs)
+            L.append(f'| {nm} | {ne:,.0f} | {avg(c for c, _ in v):,.0f} | {avg(b for _, b in v):.2f} |'); P.append(dict(name=nm, eos=ne, n=avg(c for c, _ in v), result=avg(b for _, b in v)))
+        write('real_' + key, L); R[key] = dict(H=len(Hs), policies=P)
+    json.dump(R, open(O + 'real.json', 'w'), indent=1)

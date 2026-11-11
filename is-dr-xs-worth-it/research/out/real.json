@@ -72,17 +72,17 @@
    "result": 20.519348268839103
   },
   {
-   "name": "those, and every DR-1s of 7 or less",
+   "name": "normal DRs of 10 or less, and every DR-1s of 7 or less",
    "n": 79.73523421588595,
    "result": 20.431771894093686
   },
   {
-   "name": "those, and every DR-1s of 8 or less",
+   "name": "normal DRs of 10 or less, and every DR-1s of 8 or less",
    "n": 157.88798370672097,
    "result": 20.338085539714868
   },
   {
-   "name": "those, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
+   "name": "normal DRs of 10 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
    "n": 181.0692464358452,
    "result": 20.313645621181262
   },
@@ -92,7 +92,7 @@
    "result": 19.95926680244399
   },
   {
-   "name": "every normal DR of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
+   "name": "normal DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
    "n": 778.4480651731161,
    "result": 19.883910386965375
   },
@@ -102,20 +102,20 @@
    "result": 19.564154786150713
   },
   {
-   "name": "every normal DR of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
+   "name": "normal DRs of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
    "n": 6343.114052953157,
    "result": 19.527494908350306
   }
  ],
- "those, and every DR-1s of 7 or less": {
+ "normal DRs of 10 or less, and every DR-1s of 7 or less": {
   "n": 79.73523421588595,
   "result": 20.431771894093686
  },
- "those, and every DR-1s of 8 or less": {
+ "normal DRs of 10 or less, and every DR-1s of 8 or less": {
   "n": 157.88798370672097,
   "result": 20.338085539714868
  },
- "those, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less": {
+ "normal DRs of 10 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less": {
   "n": 181.0692464358452,
   "result": 20.313645621181262
  },
@@ -123,7 +123,7 @@
   "n": 668.1384928716905,
   "result": 19.95926680244399
  },
- "every normal DR of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less": {
+ "normal DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less": {
   "n": 778.4480651731161,
   "result": 19.883910386965375
  },
@@ -131,7 +131,7 @@
   "n": 6232.804480651731,
   "result": 19.564154786150713
  },
- "every normal DR of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less": {
+ "normal DRs of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less": {
   "n": 6343.114052953157,
   "result": 19.527494908350306
  },
@@ -164,5 +164,96 @@
   "4": 2433,
   "0": 7875,
   "1": 1106
+ },
+ "eo": {
+  "eos4": 16.842,
+  "eos5": 243.654,
+  "none4": 20,
+  "drs10_4": 43.64,
+  "drs10_5": 69.486,
+  "drs11_4": 409.816,
+  "drs11_5": 657.13
+ },
+ "eo10": {
+  "H": 426,
+  "policies": [
+   {
+    "name": "EOs of 4 or less: every DR of 10 or less",
+    "eos": 19.166666666666668,
+    "n": 51.220657276995304,
+    "result": 21.009389671361504
+   },
+   {
+    "name": "EOs of 4 or less: DRs of 10 or less, and every DR-1s of 7 or less from a slice EO",
+    "eos": 19.166666666666668,
+    "n": 61.274647887323944,
+    "result": 20.8075117370892
+   },
+   {
+    "name": "EOs of 4 or less: DRs of 10 or less, and every DR-1s of 8 or less from a slice EO",
+    "eos": 19.166666666666668,
+    "n": 147.41549295774647,
+    "result": 20.631455399061032
+   },
+   {
+    "name": "EOs of 4 or less: DRs of 10 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
+    "eos": 19.166666666666668,
+    "n": 173.74413145539907,
+    "result": 20.603286384976524
+   },
+   {
+    "name": "EOs of 5 or less: every DR of 10 or less",
+    "eos": 267.5892018779343,
+    "n": 80.40845070422536,
+    "result": 20.356807511737088
+   },
+   {
+    "name": "EOs of 5 or less: DRs of 10 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
+    "eos": 267.5892018779343,
+    "n": 202.93192488262912,
+    "result": 20.173708920187792
+   }
+  ]
+ },
+ "eo11": {
+  "H": 475,
+  "policies": [
+   {
+    "name": "EOs of 4 or less: every DR of 11 or less",
+    "eos": 17.713684210526317,
+    "n": 431.3852631578947,
+    "result": 20.574736842105263
+   },
+   {
+    "name": "EOs of 4 or less: DRs of 11 or less, and every DR-1s of 7 or less from a slice EO",
+    "eos": 17.713684210526317,
+    "n": 440.5957894736842,
+    "result": 20.469473684210527
+   },
+   {
+    "name": "EOs of 4 or less: DRs of 11 or less, and every DR-1s of 8 or less from a slice EO",
+    "eos": 17.713684210526317,
+    "n": 521.0063157894737,
+    "result": 20.36842105263158
+   },
+   {
+    "name": "EOs of 4 or less: DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
+    "eos": 17.713684210526317,
+    "n": 544.9768421052631,
+    "result": 20.35578947368421
+   },
+   {
+    "name": "EOs of 5 or less: every DR of 11 or less",
+    "eos": 252.59578947368422,
+    "n": 688.4884210526316,
+    "result": 19.928421052631577
+   },
+   {
+    "name": "EOs of 5 or less: DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
+    "eos": 252.59578947368422,
+    "n": 802.08,
+    "result": 19.850526315789473
+   }
+  ]
  }
 }

@@ -45,6 +45,7 @@ This builds on work that is already on the server. The method is tseitsei89's [D
 - **On 500 real scrambles**, 90% have a DR-1s of 8 or less from a skip or a one-move slice EO, and 53% have one of 7 or less. Finishing all of them on top of every normal DR of 10 or less takes the average result from 20.52 to 20.34. Every 11-move DR instead takes it to 19.96, with 6.9 times as many to finish.
 - **What each one is worth**, by how often it reaches the best normal-DR solution of its scramble: a DR-1s of 7 one time in 44, close to a normal DR of 9 or less (one in 34); a DR-1s of 8 one in 243, between a 10-move DR (one in 154) and an 11 (one in 733); a DR-2s 8fe of 9 one in 123.
 - **So is it worth it?** A DR-1s of 7 or less: yes, before your 10-move DRs. One is there on about half of scrambles. A DR-1s of 8: it goes after the 10s and before the 11s, about 3.0 eleven-movers each. A DR-2s 8fe of 9 is as good as a 10-move DR. Nothing here beats a normal DR of 9 or less, and once the 11-movers are done DR-xs adds 0.08 to the average. It is a way to get the same result from fewer and shorter things, not a way to a better one.
+- **Against 5-move EOs**: starting from the EOs of 4 or less and their DRs of 10 or less, the DR-1s of 8 or less from slice EOs improve the average result by 0.38, and every 5-move EO (about 248 more EOs) by 0.65. tseitsei89's order, sub-5 EOs, then slice-EO skips, then 5-movers, is what the numbers support.
 
 ---
 
@@ -405,13 +406,13 @@ Over the 491 scrambles that have a normal DR of 10 or less (the first study's ba
 | You finish | To finish, per scramble | Result, average | 20 or less | 19 or less |
 |---|---:|---:|---:|---:|
 | every normal DR of 10 or less | 71 | 20.52 | 47% | 18% |
-| those, and every DR-1s of 7 or less | 80 | 20.43 | 51% | 19% |
-| those, and every DR-1s of 8 or less | 158 | 20.34 | 55% | 20% |
-| those, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 181 | 20.31 | 56% | 20% |
+| normal DRs of 10 or less, and every DR-1s of 7 or less | 80 | 20.43 | 51% | 19% |
+| normal DRs of 10 or less, and every DR-1s of 8 or less | 158 | 20.34 | 55% | 20% |
+| normal DRs of 10 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 181 | 20.31 | 56% | 20% |
 | every normal DR of 11 or less | 668 | 19.96 | 67% | 30% |
-| every normal DR of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 778 | 19.88 | 72% | 31% |
+| normal DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 778 | 19.88 | 72% | 31% |
 | every normal DR of 12 or less | 6,233 | 19.56 | 85% | 44% |
-| every normal DR of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 6,343 | 19.53 | 87% | 45% |
+| normal DRs of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 6,343 | 19.53 | 87% | 45% |
 
 - On top of every normal DR of 10 or less, the DR-1s of 7 or less are 9 more things to finish per scramble and take the average from 20.52 to 20.43. Those of 8 are 78 more for another 0.09. The 11-move DRs are 597 more for 0.56.
 - Once every 11-mover is finished, DR-xs adds 0.08; once every 12-mover is, 0.04. DR-xs does not find a different class of solution. It finds the same quality with fewer and shorter things to look at.
@@ -424,7 +425,39 @@ Scramble by scramble, over all 500:
 | 11 moves or less | 6.6% | 17% | 76% |
 | 12 moves or less | 3.6% | 11% | 85% |
 
-### 7.4 Do real DR-xs finish like random ones?
+### 7.4 Against 5-move EOs
+
+The standing question is tseitsei89's ([4 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1534105529683542047)): after the EOs of 4 or less, are slice EOs a better use of the time than "just spamming more 5 movers"? Counting EOs the way cubelib-cli does (every way to write one, with NISS), a scramble has 17 EOs of 4 moves or less and 244 of 5 or less; 20 of the 500 have none of 4 or less. The DRs of 10 or less that come from EOs of 4 or less are 44 per scramble; the 5-move EOs bring that to 69.
+
+Over the 426 scrambles that have a DR of 10 or less from an EO of 4 or less:
+
+| You check and finish | EOs to check, per scramble | To finish, per scramble | Result, average |
+|---|---:|---:|---:|
+| EOs of 4 or less: every DR of 10 or less | 19 | 51 | 21.01 |
+| EOs of 4 or less: DRs of 10 or less, and every DR-1s of 7 or less from a slice EO | 19 | 61 | 20.81 |
+| EOs of 4 or less: DRs of 10 or less, and every DR-1s of 8 or less from a slice EO | 19 | 147 | 20.63 |
+| EOs of 4 or less: DRs of 10 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 19 | 174 | 20.60 |
+| EOs of 5 or less: every DR of 10 or less | 268 | 80 | 20.36 |
+| EOs of 5 or less: DRs of 10 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 268 | 203 | 20.17 |
+
+And with the DRs of 11 as well (475 scrambles):
+
+| You check and finish | EOs to check, per scramble | To finish, per scramble | Result, average |
+|---|---:|---:|---:|
+| EOs of 4 or less: every DR of 11 or less | 18 | 431 | 20.57 |
+| EOs of 4 or less: DRs of 11 or less, and every DR-1s of 7 or less from a slice EO | 18 | 441 | 20.47 |
+| EOs of 4 or less: DRs of 11 or less, and every DR-1s of 8 or less from a slice EO | 18 | 521 | 20.37 |
+| EOs of 4 or less: DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 18 | 545 | 20.36 |
+| EOs of 5 or less: every DR of 11 or less | 253 | 688 | 19.93 |
+| EOs of 5 or less: DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 253 | 802 | 19.85 |
+
+- **The 5-move EOs are worth 0.65** on the average result at this budget, and they are about 248 more EOs to go through.
+- **The slice-EO routes are worth 0.38** from the DR-1s of 8 or less (0.20 from those of 7 or less alone), and what you go through to get them is the skips and one-move slice EOs: a couple per scramble.
+- **They add up**: both together give 20.17. Neither replaces the other.
+
+So tseitsei89's order holds up: sub-5 EOs first, then the slice-EO skips, then the 5-movers ([3 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1468181849300795445)). The skips do not match what all the 5-move EOs give, but they give more than half of it for a small part of the looking, as long as you can find the DR-1s from a skip about as well as you find a DR from an EO. Whether you can is the open part, and it is the part zakimoshi and JTuu doubted ([26 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1476697849600409620), [4 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1534117582104166441)).
+
+### 7.5 Do real DR-xs finish like random ones?
 
 | Kind and length | On the 500 scrambles | Average finish | Uniform sample |
 |---|---:|---:|---:|
@@ -437,7 +470,7 @@ Scramble by scramble, over all 500:
 
 Close to it. The ones reached in few moves finish slightly worse than a random one, by a tenth of a move or two. The 8fe column on the scrambles is the 3-move setup search, so it reads a little high.
 
-### 7.5 Time
+### 7.6 Time
 
 What these checks cost in an attempt is not something the tables can say. What people wrote: orienting on the four slice edges "takes like 2 seconds" (tseitsei89, [4 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1468714083174973603)); there are 18 slices to look at, 9 per side; "finding all the non-EO dr-fe's in like 5-10 mins" (trangium, [19 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1462954196755153113)); a normal EO "takes 15 to 30 seconds" to check (Dunni, [25 Feb 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1476165481873408121)). A slice-EO skip is seen directly, but a DR-1s from it still has to be found the way a DR is found from an EO, and then finished with a method fewer people have practised.
 

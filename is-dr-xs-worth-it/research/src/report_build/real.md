@@ -35,12 +35,30 @@ Scramble by scramble, over all 500:
 
 {{real_head}}
 
-### 7.4 Do real DR-xs finish like random ones?
+### 7.4 Against 5-move EOs
+
+The standing question is tseitsei89's ([[D19521]]): after the EOs of 4 or less, are slice EOs a better use of the time than "just spamming more 5 movers"? Counting EOs the way cubelib-cli does (every way to write one, with NISS), a scramble has {= EOV('eos4') =} EOs of 4 moves or less and {= EOV('eos5') =} of 5 or less; {= EOV('none4') =} of the 500 have none of 4 or less. The DRs of 10 or less that come from EOs of 4 or less are {= EOV('drs10_4') =} per scramble; the 5-move EOs bring that to {= EOV('drs10_5') =}.
+
+Over the {= RL('eo10', 'H') =} scrambles that have a DR of 10 or less from an EO of 4 or less:
+
+{{real_eo10}}
+
+And with the DRs of 11 as well ({= RL('eo11', 'H') =} scrambles):
+
+{{real_eo11}}
+
+- **The 5-move EOs are worth {= EOD('eo10', 0, 4) =}** on the average result at this budget, and they are about {= f'{REAL["eo10"]["policies"][4]["eos"] - REAL["eo10"]["policies"][0]["eos"]:,.0f}' =} more EOs to go through.
+- **The slice-EO routes are worth {= EOD('eo10', 0, 2) =}** from the DR-1s of 8 or less ({= EOD('eo10', 0, 1) =} from those of 7 or less alone), and what you go through to get them is the skips and one-move slice EOs: a couple per scramble.
+- **They add up**: both together give {= EOP('eo10', 5) =}. Neither replaces the other.
+
+So tseitsei89's order holds up: sub-5 EOs first, then the slice-EO skips, then the 5-movers ([[T11014]]). The skips do not match what all the 5-move EOs give, but they give more than half of it for a small part of the looking, as long as you can find the DR-1s from a skip about as well as you find a DR from an EO. Whether you can is the open part, and it is the part zakimoshi and JTuu doubted ([[T11306]], [[D19528]]).
+
+### 7.5 Do real DR-xs finish like random ones?
 
 {{real_candidates}}
 
 Close to it. The ones reached in few moves finish slightly worse than a random one, by a tenth of a move or two. The 8fe column on the scrambles is the 3-move setup search, so it reads a little high.
 
-### 7.5 Time
+### 7.6 Time
 
 What these checks cost in an attempt is not something the tables can say. What people wrote: orienting on the four slice edges "takes like 2 seconds" (tseitsei89, [[T11045]]); there are 18 slices to look at, 9 per side; "finding all the non-EO dr-fe's in like 5-10 mins" (trangium, [[T10541]]); a normal EO "takes 15 to 30 seconds" to check (Dunni, [[D16760]]). A slice-EO skip is seen directly, but a DR-1s from it still has to be found the way a DR is found from an EO, and then finished with a method fewer people have practised.
