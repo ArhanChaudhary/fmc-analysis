@@ -1,6 +1,6 @@
 # fmc-analysis
 
-**Read the : https://fmc.arhan.sh/**
+**Read the case studies: https://fmc.arhan.sh/**
 
 fmc-analysis is a collection of AI-assisted case studies of various Rubik's Cube FMC (fewest move challenge) concepts, with an emphasis on formal verification. The goal of this project is to produce useful research that can be communicated to professional FMC solvers. This project was only made possible under the following few conditions:
 
