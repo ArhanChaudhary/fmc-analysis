@@ -283,12 +283,12 @@ A bound is only a bound if it never exceeds the optimal. Graded on all states:
 |---|---|---:|---:|
 | longer HTR, normal or inverse (all DRs) | never (proven) | 9.22 | 13.58 |
 | best corner solution with the right E-parity (all DRs) | never (proven) | 9.44 | 13.58 |
-| Levi's 1qt formula (4a1 4e) | never for a finish with one quarter turn. A finish with three is shorter for 11.7% of 4a1 4e | 10.85 | 12.27 |
+| Levi's 1qt formula, HTR normal + HTR inverse − 1 (4a1 4e) | never for a finish with one quarter turn. A finish with three is shorter for 11.7% of 4a1 4e | 10.85 | 12.27 |
 | setup + HTR, any qt (below) | never for a finish with the minimum number of quarter turns. A finish with more is shorter for 2.6% at 1–2qt and 0.002% above | see below | |
 
-**Levi's formula.** As Levi writes it: (shortest path to the trigger on normal) + (shortest path to the trigger on inverse) + 1 for the quarter turn. The two paths are half turns only. If you count HTR lengths instead, each side's HTR includes that quarter turn, so the same number is (HTR normal) + (HTR inverse) − 1. It bounds the finishes with one quarter turn, which is what Levi's doc uses it for. A 1qt state can also be solved with three quarter turns, and the number worth having is how often that is shorter. Over all 286,654,464 states of 4a1 4e, the optimal is below the formula for 11.7% (by 1 in 8.4%, by 2 in 2.7%, by 3+ in 0.6%), equal for 18.0%, above for 70.3%. If the formula says ≤ 12, a 3qt finish beats it 2.5% of the time. Example:
+**Levi's formula.** (HTR normal) + (HTR inverse) − 1 bounds the finishes with one quarter turn, which is what Levi's doc uses it for. (His doc writes it as the path to the trigger on normal + on inverse + 1. An HTR is that path plus the quarter turn, so it's the same number.) A 1qt state can also be solved with three quarter turns, and the number worth having is how often that is shorter. Over all 286,654,464 states of 4a1 4e, the optimal is below the formula for 11.7% (by 1 in 8.4%, by 2 in 2.7%, by 3+ in 0.6%), equal for 18.0%, above for 70.3%. If the formula says ≤ 12, a 3qt finish beats it 2.5% of the time. Example:
 
-    U2 F2 R2 B2 U D2 B2 R2 B2 R2 F2   // 4a1 4e. 5 to the trigger on normal, 4 on inverse: 5 + 4 + 1 = 10
+    U2 F2 R2 B2 U D2 B2 R2 B2 R2 F2   // 4a1 4e. HTR is 6 on normal, 5 on inverse, formula says 10
     U B2 L2 F2 D F2 D                  // 7
 
 (Both lines are proven in Lean.) For 4a1 2e optimal is below the formula 44% of the time and for 4a1 0e 95%, so the formula is only for 4c4e, like Levi says. (4a1 2e and 0e are fine DRs to solve. It's the formula that doesn't apply to them, because they can't be finished with one quarter turn.)

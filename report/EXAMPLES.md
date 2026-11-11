@@ -319,7 +319,7 @@ The optimal here takes six moves to get to HTR and seven half turns after it. No
     F2 R2 F2 R2 F2 U     // HTR, normal (6)
     (U2 F2 R2 B2 U)      // HTR, inverse (5)
 
-**Levi's formula.** Path to the trigger on normal + on inverse + 1. The HTRs above end in the quarter turn, so the paths are 5 and 4: 5 + 4 + 1 = 10. So the best finish with one quarter turn is 10 moves.
+**Levi's formula.** 6 + 5 − 1 = 10. So the best finish with one quarter turn is 10 moves.
 
 **Truth.** 7.
 
