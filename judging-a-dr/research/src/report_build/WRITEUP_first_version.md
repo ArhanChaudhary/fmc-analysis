@@ -265,7 +265,13 @@ Here are all three (the full table is Appendix C):
 
 DR-move values never go above 10, so anything shorter is ≤ 9 moves and a search that's complete to 10 can't miss it. Against that:
 
-The two that get shorter with quarter turns, explicitly. `L2 B2 D B2 L2 R2 F2 U'` is a state of "R-D − F-V R-V even", and `U F2 R2 L2 B2 D' B2 L2` solves it in 8. `B2 L2 D L2 B2 F2 R2 U'` is a state of "F-D − F-V R-V even", and `U R2 F2 B2 L2 D' L2 B2` solves it in 8. With half turns alone both cases need 9.
+The two that get shorter with quarter turns, explicitly (with half turns alone both cases need 9):
+
+    L2 B2 D B2 L2 R2 F2 U'      // a state of "R-D − F-V R-V even"
+    U F2 R2 L2 B2 D' B2 L2      // solves it in 8
+
+    B2 L2 D L2 B2 F2 R2 U'      // a state of "F-D − F-V R-V even"
+    U R2 F2 B2 L2 D' L2 B2      // solves it in 8
 
 - **FakeMMAP's HTR-breaking table ([FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)) is right in 211 of 216 cells and one too high in 5.** Two of those were labelled 7 and are 6-movers, so "7 or less is proven optimal" doesn't hold for them.
 

@@ -38,6 +38,7 @@ assert seen==48, seen
 appA='\n'.join(outA)
 
 front=open('/data/fmc/judging-a-dr/research/src/report_build/new_front.md').read().rstrip('\n')
+front=front.replace('{{CORNER_SECTION}}', open('/data/fmc/judging-a-dr/research/src/report_build/corner_section.md').read().rstrip('\n'))
 tail=open('/data/fmc/judging-a-dr/research/src/report_build/new_tail.md').read()
 def data(name): return open(R+'data/'+name).read().strip('\n')
 doc = (front + '\n\n### The seven levels\n\n' + levels + '\n\n' + howgood + '\n\n### Examples\n\n' + examples + '\n\n'

@@ -1,4 +1,14 @@
-None of this is something you can do at the table, and that's the point of keeping it. Compare with section 3: everything readable put together rules out 24% of 4qt and 45% of 5qt DRs for a 12. A table that sees the corners exactly and the colours of the edges proves it for 81% and 95%. The difference is not a feature anyone forgot to count. It's the exact relation between the corner state and where each edge sits, the thing you get from picking a skeleton and tracing. So a real hand bound at 4–5qt would have to be a faster way of doing what Rodney's method does per skeleton, across all skeletons at once. Whether NISS@DR has a description compact enough for that, I don't know. The tables to test a guess against exist now.
+None of this is something you can do at the table, and that's the point of keeping it. Compare with section 3:
+
+| A 12 is ruled out for… | 4qt DRs | 5qt DRs |
+|---|---:|---:|
+| everything readable, put together (ruled out to within 1%) | 24% | 45% |
+| a table that sees the corners exactly and the colours of the edges (proven) | 81% | 95% |
+| *DRs that really have no 12* | *93%* | *98%* |
+
+The difference is not a feature anyone forgot to count. It's the exact relation between the corner state and where each edge sits, the thing you get from picking a skeleton and tracing. So a real hand bound at 4–5qt would have to be a faster way of doing what Rodney's method does per skeleton, across all skeletons at once.
+
+Whether NISS@DR has a description compact enough for that, I don't know. The tables to test a guess against exist now.
 
 ---
 
@@ -104,7 +114,14 @@ Each cell: share finishing in 12 / in 13 (%), for DRs of that subset with that m
 
 ## Appendix E: the 46 corner cases
 
-A corner case is what the corners look like up to rotation, mirror and turning a layer. "Bad corners" says where the bad ones sit for the example (fewest bad corners, shortest corner solution). L is the range of optimal corner solution lengths the case can have. Each case has two scrambles. "A typical DR" is a state of that case whose optimal finish is the median for the case, with that optimal in brackets: this is what the case usually looks like. "Shortest setup" is the shortest scramble that produces those corners, there so you can put the layout on a cube quickly. As a DR it is one of the rare best ones of its case (it finishes in as many moves as the scramble is long), so don't judge the case by it. "A qt takes it straight to" lists the corner subsets one U or D quarter turn can reach with one qt less. Shares are of the corner subset, all edge counts together; odds are for the full finish.
+A corner case is what the corners look like up to rotation, mirror and turning a layer. The columns:
+
+- **Bad corners**: where the bad ones sit in the shortest setup (fewest bad corners).
+- **L**: the range of optimal corner solution lengths the case can have.
+- **A typical DR**: a state of that case whose optimal finish is the median for the case, with that optimal in brackets. This is what the case usually looks like.
+- **Shortest setup**: the shortest scramble that produces those corners, so you can put the layout on a cube quickly. As a DR it is one of the rare best ones of its case (it finishes in as many moves as the scramble is long), so don't judge the case by it.
+- **A qt takes it straight to**: the corner subsets one U or D quarter turn can reach with one qt less.
+- **Share** is of the corner subset, all edge counts together. The odds are for the full finish.
 
 In the both-sides tables the two columns are the case on normal and on inverse, in either order.
 
