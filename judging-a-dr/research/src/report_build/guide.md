@@ -14,6 +14,22 @@ This table is the short version of the whole doc, so it's long. Read these first
 - **Corner cases** are named by where the bad corners sit, counted up to turning a layer. "A qt goes straight to X" means some U or D quarter turn lowers the corner qt count right away, with no setup.
 - Shares like "a third of 4c3" are of all DR states of that corner subset.
 
+**The short version for an 11-move DR**, which needs a 10 or an 11. This is the last column of the table boiled down to what you can see without solving anything:
+
+- **2c5, 4b5, 4c4, 0c3, 0c4**: drop it, unless it has five or more pairs.
+- **2c4**: keep it only if on both sides the bad corners are not stacked and a quarter turn takes them straight to 2c3 or 4b3, or if it has four or more pairs.
+- **4c3**: keep it only if its 4a3 side is 2-2 with a quarter turn straight to 4b2, or if it has four or more pairs.
+- **4a2**: drop it if either side has all four bad corners on one layer. With 2e or 0e, keep it only if one side has each layer's pair on a diagonal (a quarter turn straight to 4a1).
+- **4a1, 4b2, 2c3, 0c0**: keep.
+
+What that does, counted over all DR states:
+
+{= PRUNE_TABLE() =}
+
+So the list throws away {= PRUNE('drop') =} of all DR states and keeps {= PRUNE('keep',11) =} of the finishes in 11 and {= PRUNE('keep',10) =} of those in 10. What it keeps finishes in 11 about twice as often as a DR picked blind. Nearly all of what it drops is 4qt and 5qt, and there it does cost: a third of the 4qt finishes in 11 are in DRs it drops. If you have the HTR lengths, do the 4c3 line as "9+ on both sides, toss" instead: it drops about as many and loses {= LOSS('4c3', lambda e, a, b, tp, lo, hi: lo >= 9) =} of the 4c3 finishes in 11 instead of {= LOSS('4c3', 'list') =}.
+
+The table, subset by subset:
+
 | Subset | How it finishes: in 10 / 11 / 12 | What to read, and what each read changes | When to drop it, and what not to conclude |
 |---|---|---|---|
 | **0c0**<br>0.5% of all DRs<br>average 12.28 | Depends almost only on the bad edges.<br>0e: {= E('0c0',0) =} (these are HTR states and their U D' turns).<br>2e: {= E('0c0',2) =}.<br>4e: {= E('0c0',4) =}.<br>6e: {= E('0c0',6) =}.<br>8e: {= E('0c0',8) =}. | **Pairs**, none against five or more.<br>2e: {= PR('0c0',0,2) =} against {= PR('0c0',5,2) =}.<br>4e: {= PR('0c0',0,4) =} against {= PR('0c0',5,4) =}.<br>6e: {= PR('0c0',0,6) =} with none, {= PR('0c0',2,6) =} with two.<br>**Longer HTR** adds little once you know the edge count.<br>2e, always 5 or 6: {= HX('0c0',5,2) =} and {= HX('0c0',6,2) =}.<br>4e, 5, 6 or 7: {= HX('0c0',5,4) =}, {= HX('0c0',6,4) =}, {= HX('0c0',7,4) =}.<br>6e, 7 or 8: {= HX('0c0',7,6) =} and {= HX('0c0',8,6) =}.<br>**Corners**: one case only, nothing to read.<br>**Parity**: L is 0–5, and the wrong E-parity costs +2 or more for three corner states in four, so check it before trusting a short corner solution.<br>For 6e and 8e, go for the setup to a quarter turn first (Rodney's examples in [Rodney, 23 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1563054901871902741)). | **Needing a 10 or an 11**: 6e is the weak one, {= E('0c0',6) =}, and with no pairs {= PR('0c0',0,6) =}. 2e is worth it at any length.<br>**Needing a 12**: never because of the subset. 6e with no pairs is still {= pct(q(cs='0c0',e=6,pairs=0),12) =}.<br>**Don't conclude** that "0" means no quarter turns: every 0c0 with bad edges needs two. The shortest 0c0 2e is `D F2 R2 F2 D`, solved by `D' F2 R2 F2 D'`. |
