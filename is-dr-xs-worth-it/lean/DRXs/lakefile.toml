@@ -1,0 +1,7 @@
+name = "DRXs"
+version = "0.1.0"
+defaultTargets = ["DRXs"]
+
+[[lean_lib]]
+name = "DRXs"
+precompileModules = true

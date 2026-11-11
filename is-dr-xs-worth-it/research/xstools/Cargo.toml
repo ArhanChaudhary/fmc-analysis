@@ -1,0 +1,13 @@
+[package]
+name = "xstools"
+version = "0.1.0"
+edition = "2021"
+description = "Searches on the DR coset space (corner orientation x edge orientation x E-slice places) for the DR-xs study"
+
+[dependencies]
+rayon = "1.10"
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+lto = true

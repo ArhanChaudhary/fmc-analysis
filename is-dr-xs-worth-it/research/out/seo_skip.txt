@@ -1,0 +1,92 @@
+configurations 70963200
+each single slice EO (slice, axis, flavour, side): share of states
+   E UD oriented normal 4435200/70963200 = 0.062500
+   E UD misoriented normal 4435200/70963200 = 0.062500
+   E RL oriented normal 4435200/70963200 = 0.062500
+   E RL misoriented normal 4435200/70963200 = 0.062500
+   E FB oriented normal 4435200/70963200 = 0.062500
+   E FB misoriented normal 4435200/70963200 = 0.062500
+   M UD oriented normal 4435200/70963200 = 0.062500
+   M UD misoriented normal 4435200/70963200 = 0.062500
+   M RL oriented normal 4435200/70963200 = 0.062500
+   M RL misoriented normal 4435200/70963200 = 0.062500
+   M FB oriented normal 4435200/70963200 = 0.062500
+   M FB misoriented normal 4435200/70963200 = 0.062500
+   S UD oriented normal 4435200/70963200 = 0.062500
+   S UD misoriented normal 4435200/70963200 = 0.062500
+   S RL oriented normal 4435200/70963200 = 0.062500
+   S RL misoriented normal 4435200/70963200 = 0.062500
+   S FB oriented normal 4435200/70963200 = 0.062500
+   S FB misoriented normal 4435200/70963200 = 0.062500
+   E UD oriented inverse 4435200/70963200 = 0.062500
+   E UD misoriented inverse 4435200/70963200 = 0.062500
+   E RL oriented inverse 4435200/70963200 = 0.062500
+   E RL misoriented inverse 4435200/70963200 = 0.062500
+   E FB oriented inverse 4435200/70963200 = 0.062500
+   E FB misoriented inverse 4435200/70963200 = 0.062500
+   M UD oriented inverse 4435200/70963200 = 0.062500
+   M UD misoriented inverse 4435200/70963200 = 0.062500
+   M RL oriented inverse 4435200/70963200 = 0.062500
+   M RL misoriented inverse 4435200/70963200 = 0.062500
+   M FB oriented inverse 4435200/70963200 = 0.062500
+   M FB misoriented inverse 4435200/70963200 = 0.062500
+   S UD oriented inverse 4435200/70963200 = 0.062500
+   S UD misoriented inverse 4435200/70963200 = 0.062500
+   S RL oriented inverse 4435200/70963200 = 0.062500
+   S RL misoriented inverse 4435200/70963200 = 0.062500
+   S FB oriented inverse 4435200/70963200 = 0.062500
+   S FB misoriented inverse 4435200/70963200 = 0.062500
+number of slice-EO skips, normal:
+   0: 22143888 = 31.2047%
+   1: 26110080 = 36.7938%
+   2: 16123104 = 22.7204%
+   3: 5186256 = 7.3084%
+   4: 1106784 = 1.5597%
+   5: 272160 = 0.3835%
+   6: 15984 = 0.0225%
+   7: 4896 = 0.0069%
+   9: 48 = 0.0001%
+   at least one: 68.7953%   mean 1.1250
+number of slice-EO skips, both:
+   0: 14678928 = 20.6853%
+   1: 13374720 = 18.8474%
+   2: 14827968 = 20.8953%
+   3: 10153728 = 14.3084%
+   4: 9929520 = 13.9925%
+   5: 4174848 = 5.8831%
+   6: 2439312 = 3.4374%
+   7: 580608 = 0.8182%
+   8: 511632 = 0.7210%
+   9: 165888 = 0.2338%
+   10: 110448 = 0.1556%
+   12: 13104 = 0.0185%
+   14: 2448 = 0.0034%
+   18: 48 = 0.0001%
+   at least one: 79.3147%   mean 2.2500
+number of slice-EO skips, normal oriented:
+   0: 40604515 = 57.2191%
+   1: 22300284 = 31.4251%
+   2: 6751641 = 9.5143%
+   3: 1136195 = 1.6011%
+   4: 149271 = 0.2103%
+   5: 20409 = 0.0288%
+   6: 677 = 0.0010%
+   7: 207 = 0.0003%
+   9: 1 = 0.0000%
+   at least one: 42.7809%   mean 0.5625
+number of slice-EO skips, both oriented:
+   0: 31552219 = 44.4628%
+   1: 16926096 = 23.8519%
+   2: 12183324 = 17.1685%
+   3: 5319216 = 7.4957%
+   4: 3319377 = 4.6776%
+   5: 992352 = 1.3984%
+   6: 485507 = 0.6842%
+   7: 92448 = 0.1303%
+   8: 63783 = 0.0899%
+   9: 17472 = 0.0246%
+   10: 10521 = 0.0148%
+   12: 677 = 0.0010%
+   14: 207 = 0.0003%
+   18: 1 = 0.0000%
+   at least one: 55.5372%   mean 1.1250

@@ -1,0 +1,168 @@
+{
+ "there": {
+  "a normal DR of 9 moves or less": [
+   "71%",
+   "7.6"
+  ],
+  "a normal DR of 10 or less": [
+   "98%",
+   "69.5"
+  ],
+  "a normal DR of 11 or less": [
+   "100%",
+   "657.1"
+  ],
+  "a DR-1s of 6 or less from a slice-EO skip": [
+   "10%",
+   "0.8"
+  ],
+  "a DR-1s of 7 or less from a slice-EO skip": [
+   "42%",
+   "7.1"
+  ],
+  "a DR-1s of 8 or less from a slice-EO skip": [
+   "69%",
+   "67.4"
+  ],
+  "a DR-1s of 6 or less from a skip or a one-move slice EO": [
+   "14%",
+   "1.0"
+  ],
+  "a DR-1s of 7 or less from a skip or a one-move slice EO": [
+   "53%",
+   "8.8"
+  ],
+  "a DR-1s of 8 or less from a skip or a one-move slice EO": [
+   "90%",
+   "86.0"
+  ],
+  "a DR-2s 8fe of 7 or less (from a slice EO or an EO of 4 or less)": [
+   "3.2%",
+   "0.4"
+  ],
+  "a DR-2s 8fe of 8 or less (from a slice EO or an EO of 4 or less)": [
+   "15%",
+   "2.9"
+  ],
+  "a DR-2s 8fe of 9 or less (from a slice EO or an EO of 4 or less)": [
+   "59%",
+   "22.8"
+  ]
+ },
+ "share_1s8": "90%",
+ "share_1s7": "53%",
+ "n_1s8": "86",
+ "shortest_1s": {
+  "3": 1,
+  "4": 2,
+  "5": 12,
+  "6": 57,
+  "7": 195,
+  "8": 181,
+  "99": 52
+ },
+ "every normal DR of 10 or less": {
+  "n": 70.75967413441956,
+  "result": 20.519348268839103
+ },
+ "policies": [
+  {
+   "name": "every normal DR of 10 or less",
+   "n": 70.75967413441956,
+   "result": 20.519348268839103
+  },
+  {
+   "name": "those, and every DR-1s of 7 or less",
+   "n": 79.73523421588595,
+   "result": 20.431771894093686
+  },
+  {
+   "name": "those, and every DR-1s of 8 or less",
+   "n": 157.88798370672097,
+   "result": 20.338085539714868
+  },
+  {
+   "name": "those, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
+   "n": 181.0692464358452,
+   "result": 20.313645621181262
+  },
+  {
+   "name": "every normal DR of 11 or less",
+   "n": 668.1384928716905,
+   "result": 19.95926680244399
+  },
+  {
+   "name": "every normal DR of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
+   "n": 778.4480651731161,
+   "result": 19.883910386965375
+  },
+  {
+   "name": "every normal DR of 12 or less",
+   "n": 6232.804480651731,
+   "result": 19.564154786150713
+  },
+  {
+   "name": "every normal DR of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
+   "n": 6343.114052953157,
+   "result": 19.527494908350306
+  }
+ ],
+ "those, and every DR-1s of 7 or less": {
+  "n": 79.73523421588595,
+  "result": 20.431771894093686
+ },
+ "those, and every DR-1s of 8 or less": {
+  "n": 157.88798370672097,
+  "result": 20.338085539714868
+ },
+ "those, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less": {
+  "n": 181.0692464358452,
+  "result": 20.313645621181262
+ },
+ "every normal DR of 11 or less": {
+  "n": 668.1384928716905,
+  "result": 19.95926680244399
+ },
+ "every normal DR of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less": {
+  "n": 778.4480651731161,
+  "result": 19.883910386965375
+ },
+ "every normal DR of 12 or less": {
+  "n": 6232.804480651731,
+  "result": 19.564154786150713
+ },
+ "every normal DR of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less": {
+  "n": 6343.114052953157,
+  "result": 19.527494908350306
+ },
+ "H": 491,
+ "win10": "16%",
+ "tie10": "22%",
+ "win11": "6.6%",
+ "tie11": "17%",
+ "win12": "3.6%",
+ "tie12": "11%",
+ "yield": {
+  "dr9": 0.02931937172774869,
+  "dr10": 0.006500016169194451,
+  "dr11": 0.0013647765135916085,
+  "dr12": 0.000285574367838045,
+  "1s6": 0.07115384615384615,
+  "1s7": 0.022616294011822153,
+  "1s8": 0.004119491152162085,
+  "8fe8": 0.022408963585434174,
+  "8fe9": 0.008111355898257561
+ },
+ "cancel_1s": 0.20291573660714285,
+ "n1s": 43008,
+ "n8": 11414,
+ "by_start_1s": {
+  "0": 33700,
+  "1": 9308
+ },
+ "by_start_8": {
+  "4": 2433,
+  "0": 7875,
+  "1": 1106
+ }
+}

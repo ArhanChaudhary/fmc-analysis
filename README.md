@@ -17,6 +17,7 @@ The rest of this document, as well as every case study and the website, was enti
 | Study | Question | Read |
 |---|---|---|
 | [`judging-a-dr/`](judging-a-dr/) | What can you read off a domino reduction (DR) by hand, how much does each read say about the finish, and which lower bounds hold? Measured on the exact optimal finish of all 19,508,428,800 DR states. | [Write-up](https://fmc.arhan.sh/judging-a-dr/) · [Worked examples](https://fmc.arhan.sh/judging-a-dr/examples.html) · [Errata](https://fmc.arhan.sh/judging-a-dr/errata.html) |
+| [`is-dr-xs-worth-it/`](is-dr-xs-worth-it/) | What does it cost to leave slices unsolved at DR (DR-1s, DR-2s 8fe), how often is a slice EO there, and what does it buy on real scrambles? Counted over all 768 kinds of DR-xs state, 2.2 billion cosets, and 500 scrambles. | [Write-up](https://fmc.arhan.sh/is-dr-xs-worth-it/) · [Worked examples](https://fmc.arhan.sh/is-dr-xs-worth-it/examples.html) · [Errata](https://fmc.arhan.sh/is-dr-xs-worth-it/errata.html) |
 
 ## Layout
 

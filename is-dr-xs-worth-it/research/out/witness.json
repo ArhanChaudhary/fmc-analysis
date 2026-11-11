@@ -1,0 +1,519 @@
+{
+ "six": {
+  "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 U2 F2",
+  "fix": "F2 U2 L2 B R L"
+ },
+ "layouts": [
+  {
+   "flipped": "UB UF BR FR",
+   "turns": 6,
+   "fix": "F2 U2 L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 U2 F2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "DF UF BR FR",
+   "turns": 5,
+   "fix": "F2 L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 F2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "DF UB BR FR",
+   "turns": 6,
+   "fix": "U2 F2 L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 F2 U2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "DF UB UF FR",
+   "turns": 5,
+   "fix": "F D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' D2 F'",
+   "other_direction": 5
+  },
+  {
+   "flipped": "DF UB UF BR",
+   "turns": 6,
+   "fix": "R2 F D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' D2 F' R2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "DB UF BR FR",
+   "turns": 6,
+   "fix": "D2 F2 L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 F2 D2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "DB UB BR FR",
+   "turns": 5,
+   "fix": "F2 R2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' R2 F2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "DB UB UF FR",
+   "turns": 6,
+   "fix": "D2 F D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' D2 F' D2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "DB UB UF BR",
+   "turns": 5,
+   "fix": "F' R2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' R2 F",
+   "other_direction": 5
+  },
+  {
+   "flipped": "DB DF BR FR",
+   "turns": 6,
+   "fix": "F2 D2 L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 D2 F2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "DB DF UF FR",
+   "turns": 5,
+   "fix": "F' U2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' U2 F",
+   "other_direction": 6
+  },
+  {
+   "flipped": "DB DF UF BR",
+   "turns": 6,
+   "fix": "R2 F' U2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' U2 F R2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "DB DF UB FR",
+   "turns": 6,
+   "fix": "U2 F' U2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' U2 F U2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "DB DF UB BR",
+   "turns": 5,
+   "fix": "F R2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' R2 F'",
+   "other_direction": 6
+  },
+  {
+   "flipped": "DB DF UB UF",
+   "turns": 2,
+   "fix": "R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L'",
+   "other_direction": 2
+  },
+  {
+   "flipped": "FL UF BR FR",
+   "turns": 5,
+   "fix": "F' L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 F",
+   "other_direction": 6
+  },
+  {
+   "flipped": "FL UB BR FR",
+   "turns": 6,
+   "fix": "U2 F' L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 F U2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "FL UB UF FR",
+   "turns": 5,
+   "fix": "F2 D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' D2 F2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "FL UB UF BR",
+   "turns": 6,
+   "fix": "R2 F2 D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' D2 F2 R2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "FL DF BR FR",
+   "turns": 5,
+   "fix": "F L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 F'",
+   "other_direction": 5
+  },
+  {
+   "flipped": "FL DF UF FR",
+   "turns": 5,
+   "fix": "U2 D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' U2 D2",
+   "other_direction": 4
+  },
+  {
+   "flipped": "FL DF UF BR",
+   "turns": 4,
+   "fix": "L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "FL DF UB FR",
+   "turns": 4,
+   "fix": "D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' D2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "FL DF UB BR",
+   "turns": 5,
+   "fix": "U2 L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 U2",
+   "other_direction": 4
+  },
+  {
+   "flipped": "FL DF UB UF",
+   "turns": 5,
+   "fix": "B' L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 B",
+   "other_direction": 5
+  },
+  {
+   "flipped": "FL DB BR FR",
+   "turns": 6,
+   "fix": "D2 F L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 F' D2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "FL DB UF FR",
+   "turns": 4,
+   "fix": "U2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' U2",
+   "other_direction": 3
+  },
+  {
+   "flipped": "FL DB UF BR",
+   "turns": 5,
+   "fix": "D2 L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 D2",
+   "other_direction": 4
+  },
+  {
+   "flipped": "FL DB UB FR",
+   "turns": 3,
+   "fix": "F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F'",
+   "other_direction": 4
+  },
+  {
+   "flipped": "FL DB UB BR",
+   "turns": 4,
+   "fix": "R2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' R2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "FL DB UB UF",
+   "turns": 6,
+   "fix": "D2 B' L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 B D2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "FL DB DF FR",
+   "turns": 5,
+   "fix": "B2 D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' D2 B2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "FL DB DF BR",
+   "turns": 6,
+   "fix": "B U2 L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 U2 B'",
+   "other_direction": 6
+  },
+  {
+   "flipped": "FL DB DF UF",
+   "turns": 5,
+   "fix": "B L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 B'",
+   "other_direction": 6
+  },
+  {
+   "flipped": "FL DB DF UB",
+   "turns": 6,
+   "fix": "U2 B L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 B' U2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL UF BR FR",
+   "turns": 6,
+   "fix": "L2 F' L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 F L2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL UB BR FR",
+   "turns": 5,
+   "fix": "F U2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' U2 F'",
+   "other_direction": 6
+  },
+  {
+   "flipped": "BL UB UF FR",
+   "turns": 6,
+   "fix": "L2 F2 D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' D2 F2 L2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "BL UB UF BR",
+   "turns": 5,
+   "fix": "F2 U2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' U2 F2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL DF BR FR",
+   "turns": 6,
+   "fix": "L2 F L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 F' L2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "BL DF UF FR",
+   "turns": 4,
+   "fix": "R2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' R2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL DF UF BR",
+   "turns": 3,
+   "fix": "B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B'",
+   "other_direction": 4
+  },
+  {
+   "flipped": "BL DF UB FR",
+   "turns": 5,
+   "fix": "L2 D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' D2 L2",
+   "other_direction": 4
+  },
+  {
+   "flipped": "BL DF UB BR",
+   "turns": 4,
+   "fix": "U2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' U2",
+   "other_direction": 3
+  },
+  {
+   "flipped": "BL DF UB UF",
+   "turns": 6,
+   "fix": "L2 B' L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 B L2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "BL DB BR FR",
+   "turns": 5,
+   "fix": "F' D2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' D2 F",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL DB UF FR",
+   "turns": 5,
+   "fix": "L2 U2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' U2 L2",
+   "other_direction": 4
+  },
+  {
+   "flipped": "BL DB UF BR",
+   "turns": 4,
+   "fix": "D2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' D2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL DB UB FR",
+   "turns": 4,
+   "fix": "L2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' L2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL DB UB BR",
+   "turns": 5,
+   "fix": "R2 L2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' R2 L2",
+   "other_direction": 4
+  },
+  {
+   "flipped": "BL DB UB UF",
+   "turns": 5,
+   "fix": "B D2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' D2 B'",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL DB DF FR",
+   "turns": 6,
+   "fix": "L2 B2 D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' D2 B2 L2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "BL DB DF BR",
+   "turns": 5,
+   "fix": "B2 U2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' U2 B2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL DB DF UF",
+   "turns": 6,
+   "fix": "L2 B L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 B' L2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL DB DF UB",
+   "turns": 5,
+   "fix": "B' U2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' U2 B",
+   "other_direction": 6
+  },
+  {
+   "flipped": "BL FL BR FR",
+   "turns": 4,
+   "fix": "F B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' B'",
+   "other_direction": 4
+  },
+  {
+   "flipped": "BL FL UF FR",
+   "turns": 5,
+   "fix": "B U2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' U2 B'",
+   "other_direction": 6
+  },
+  {
+   "flipped": "BL FL UF BR",
+   "turns": 6,
+   "fix": "R2 B U2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' U2 B' R2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL FL UB FR",
+   "turns": 6,
+   "fix": "U2 B U2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' U2 B' U2",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL FL UB BR",
+   "turns": 5,
+   "fix": "B' R2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' R2 B",
+   "other_direction": 6
+  },
+  {
+   "flipped": "BL FL UB UF",
+   "turns": 6,
+   "fix": "B2 D2 L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 D2 B2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "BL FL DF FR",
+   "turns": 5,
+   "fix": "B' D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' D2 B",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL FL DF BR",
+   "turns": 6,
+   "fix": "R2 B' D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' D2 B R2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "BL FL DF UF",
+   "turns": 5,
+   "fix": "B2 L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 B2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "BL FL DF UB",
+   "turns": 6,
+   "fix": "B' U2 L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 U2 B",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL FL DB FR",
+   "turns": 6,
+   "fix": "D2 B' D2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' D2 B D2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "BL FL DB BR",
+   "turns": 5,
+   "fix": "B R2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' R2 B'",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL FL DB UF",
+   "turns": 6,
+   "fix": "B D2 L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 D2 B'",
+   "other_direction": 5
+  },
+  {
+   "flipped": "BL FL DB UB",
+   "turns": 5,
+   "fix": "B2 R2 F R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' F' R2 B2",
+   "other_direction": 6
+  },
+  {
+   "flipped": "BL FL DB DF",
+   "turns": 6,
+   "fix": "B2 U2 L2 B R L",
+   "scramble": "U R2 F2 D' B2 U2 L2 D R' L' B' L2 U2 B2",
+   "other_direction": 6
+  }
+ ],
+ "simon": [
+  1,
+  4,
+  13,
+  36,
+  16
+ ],
+ "twelve_bad": {
+  "scramble": "B' D2 L2 U2 F2 D2 F L2 F2 D2 R2 F2 U' D' L' F' B' U'",
+  "flipped": 4,
+  "slices": 2,
+  "turns": 6,
+  "fix": "U B F L U D",
+  "dr_finish": 12
+ },
+ "eight_bad_split": {
+  "scramble": "U D2 L2 D B2 L2 B2 D R2 F2 U' R' L F' B'",
+  "split": "3-1",
+  "turns": 4,
+  "fix": "F B R L"
+ }
+}

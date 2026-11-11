@@ -14,6 +14,12 @@
 .lake/
 /judging-a-dr/research/data/
 /judging-a-dr/research/drtools/target/
+/is-dr-xs-worth-it/research/xstools/target/
+/is-dr-xs-worth-it/research/out/bfs/
+/is-dr-xs-worth-it/research/out/xstools_dev*
+/is-dr-xs-worth-it/research/out/*.pkl
+/is-dr-xs-worth-it/research/out/*_test*.tsv
+/is-dr-xs-worth-it/research/out/*.log
 __pycache__/
 *.pyc
 /_site/
