@@ -50,9 +50,13 @@ def _prune(group=None):
         if _dropped(cs, e, a, b, tp, lo, hi): dn[d] += c
     return n, dn
 def PRUNE(what, T=11, group=None):
-    """'drop': share of DRs the list drops.  'lose': share of the finishes in T it loses.  'keep': share it keeps."""
+    """'drop': share of DRs the list drops.  'stay': share of DRs it keeps.  'lose': share of the finishes in T it
+    loses.  'keep': share of them it keeps.  'base' / 'kept': share finishing in T, of all of them / of what it keeps."""
     n, dn = _prune(group)
     if what == 'drop': return f'{100 * sum(dn) / sum(n):.0f}%'
+    if what == 'stay': return f'{100 - 100 * sum(dn) / sum(n):.0f}%'
+    if what == 'base': return pv.pct(n, T)
+    if what == 'kept': return pv.pct([x - y for x, y in zip(n, dn)], T)
     lost = 100 * sum(dn[:T + 1]) / sum(n[:T + 1])
     return pv.num(lost) if what == 'lose' else f'{100 - lost:.0f}%'
 def LOSS(cs, rule, T=11):
@@ -66,6 +70,9 @@ def LOSS(cs, rule, T=11):
 def PRUNE_HIGHQT():
     """Share of the DRs the list drops that are 4qt or 5qt."""
     tot = sum(_prune()[1]); return f"{100 * (sum(_prune('4qt')[1]) + sum(_prune('5qt')[1])) / tot:.0f}%"
+def QTSHARE(*groups):
+    """Share of all DR states in these qt groups."""
+    return pv.num(100 * sum(sum(_prune(g)[0]) for g in groups) / sum(_prune()[0]))
 def PPR(cs, T):
     """What one more pair multiplies the odds of a finish in T by (geometric mean of the steps from 0 to 4 pairs)."""
     return f"{(share(q(cs=cs, pairs=4), T) / share(q(cs=cs, pairs=0), T)) ** 0.25:.1f}"

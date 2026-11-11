@@ -26,7 +26,15 @@ What that does, counted over all DR states:
 
 {= PRUNE_TABLE() =}
 
-So the list throws away {= PRUNE('drop') =} of all DR states and keeps {= PRUNE('keep',11) =} of the finishes in 11 and {= PRUNE('keep',10) =} of those in 10. What it keeps finishes in 11 about twice as often as a DR picked blind. {= PRUNE_HIGHQT() =} of what it drops is 4qt and 5qt, and there it does cost: {= PRUNE('lose',11,'4qt') =} of the 4qt finishes in 11 are in DRs it drops. If you have the HTR lengths, do the 4c3 line as "9+ on both sides, toss" instead: it drops about as many and loses {= LOSS('4c3', lambda e, a, b, tp, lo, hi: lo >= 9) =} of the 4c3 finishes in 11 instead of {= LOSS('4c3', 'list') =}.
+Read it row by row, not from the last row. The last row counts every DR state once, and {= QTSHARE('4qt','5qt') =} of all DR states are 4qt or 5qt, so it mostly says what happens up there: {= PRUNE_HIGHQT() =} of what the list drops is 4qt or 5qt.
+
+- **1–2qt**: drops {= PRUNE('drop',11,'1-2qt') =}, loses {= PRUNE('lose',11,'1-2qt') =} of the finishes in 11. At 1–2qt the list hardly prunes.
+- **3qt**: drops {= PRUNE('drop',11,'3qt') =}, loses {= PRUNE('lose',11,'3qt') =} of the finishes in 11. What it keeps finishes in 11 {= PRUNE('kept',11,'3qt') =} of the time, against {= PRUNE('base',11,'3qt') =} for all of 3qt.
+- **4qt**: drops {= PRUNE('drop',11,'4qt') =}, loses {= PRUNE('lose',11,'4qt') =} of the finishes in 11. If you'd skip 4qt anyway, read that the other way round: the 2c4s the list keeps are {= PRUNE('stay',11,'4qt') =} of 4qt and hold {= PRUNE('keep',11,'4qt') =} of its finishes in 11.
+- **5qt**: all dropped. {= PRUNE('base',11,'5qt') =} of 5qt DRs finish in 11.
+- **All DR states**: {= PRUNE('drop') =} dropped, {= PRUNE('keep',11) =} of the finishes in 11 and {= PRUNE('keep',10) =} of those in 10 kept.
+
+If you have the HTR lengths, do the 4c3 line as "9+ on both sides, toss" instead: it drops about as many and loses {= LOSS('4c3', lambda e, a, b, tp, lo, hi: lo >= 9) =} of the 4c3 finishes in 11 instead of {= LOSS('4c3', 'list') =}.
 
 The table, subset by subset:
 

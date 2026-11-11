@@ -20,7 +20,7 @@ This is long because most of it is reference. You don't have to read it front to
 | Section | What is in it | Size |
 |---|---|---|
 | [Introduction](#introduction) | The question, which finish matters, and what came out. | 950 words |
-| [1. What I'd do per subset](#1-what-id-do-per-subset) | **The one to read.** For each of the 12 corner subsets: how often it finishes in 10, 11 and 12, what to read, when to drop it for the finish you need, what not to conclude. | 4,800 words |
+| [1. What I'd do per subset](#1-what-id-do-per-subset) | **The one to read.** For each of the 12 corner subsets: how often it finishes in 10, 11 and 12, what to read, when to drop it for the finish you need, what not to conclude. | 4,900 words |
 | [2. What people asked for](#2-what-people-asked-for) | The gap in the solvers' own words, and the sixteen questions from the server that are answered here. | 500 words |
 | [3. The data](#3-the-data) | What was computed, and what "optimal" and "in 11" mean. | 200 words |
 | [4. How much can a read tell you?](#4-how-much-can-a-read-tell-you) | Every read against the exact finish, for each finish you might need from 9 to 13: ranking, throwing away, plain rules with their price, what is proven. Zagros's two hunches. | 3,550 words |
@@ -65,7 +65,7 @@ What came out:
 - **For a 10 or an 11, the subset does most of the pruning.** In 11: 10% of 1–2qt DRs, 4.6% of 3qt, 1.1% of 4qt, 0.24% of 5qt. In 10: 2.4%, 0.87%, 0.16%, 0.02%.
 - **The lower the target, the more the reads tell you.** Keep only the best-looking quarter of 4qt DRs, going by pairs and corner case, which need no solving. It holds 65% of the finishes in 12, 77% of those in 11 and 89% of those in 10. At 3qt: 52%, 63%, 74%. HTR length on both sides adds a few points on top, and at 1–2qt it is the best single read.
 - **Still no clean yes/no.** The subset explains 35% of the variance of the optimal, everything readable together 48%, and what's left has an sd of 0.78 moves. Zagros's hunch that corner case + HTR on both sides pins the optimal to ~0.25 moves: it's 0.80.
-- **Plain rules, with their price.** Zagros's "9+ on both sides, toss" turned into a rule against your target T. The safe version drops every DR that is T−1 or more to HTR on both sides: for an 11 that's 10+, and it drops 8% of 3qt and 31% of 4qt DRs for 0.2% and 2.5% of the 11s. The aggressive version, T−2 or more, is his 9+ when you need an 11: it drops 28% and 67% and costs 5% and 20% of them. With no solving: dropping every DR without a pair drops 14% and costs 2–7% of the 11s. And a five-line prune list that needs no solving (section 1) throws away 57% of all DR states and keeps 92% of the finishes in 11.
+- **Plain rules, with their price.** Zagros's "9+ on both sides, toss" turned into a rule against your target T. The safe version drops every DR that is T−1 or more to HTR on both sides: for an 11 that's 10+, and it drops 8% of 3qt and 31% of 4qt DRs for 0.2% and 2.5% of the 11s. The aggressive version, T−2 or more, is his 9+ when you need an 11: it drops 28% and 67% and costs 5% and 20% of them. With no solving: dropping every DR without a pair drops 14% and costs 2–7% of the 11s. And a five-line prune list that needs no solving (section 1) drops 8% of 1–2qt, 28% of 3qt and 81% of 4qt DRs and every 5qt one, for 0.68%, 6.0% and 36% of their finishes in 11.
 - **The two guaranteed hand bounds wake up at low targets.** The longer HTR and the corner solution with the right E-parity prove almost nothing for a 12 (5% of 4qt DRs, 13% of 5qt). For a 10 they rule out half of 4qt and 80% of 5qt DRs.
 - **A few real kill rules.** 2c5 with the bad corners stacked on both sides: no 12 at all. 2c5 stacked on one side and opposite on the other: no 11, 0.24% in 12. 2c4 stacked on both sides: no 10, 0.06% in 11, 1.1% in 12. 4a2 2e with all four bad corners on one layer on both sides: no 12 at all.
 - **Questions from the server, answered exactly**: stats by bad corner position (Daichi, JTuu, wen), by pairs (Rodney, Levi), the normal × inverse HTR table (Zagros), the 4a1 4e bound against the real leave slice (count quackula), the cost of the slice (JTuu), an invertible last move (Zagros), God's number per subset (compLex), optimal lengths of all corner cases (Evan).
@@ -109,7 +109,15 @@ What that does, counted over all DR states:
 | 5qt (2c5, 4b5) | 100% | 100% | 100% | 100% | 0.02% / 0.24% / 2.1% | nothing is kept |
 | **all DR states** | 57% | 3.8% | 7.8% | 14% | 0.74% / 3.6% / 15% | 1.7% / 7.6% / 29% |
 
-So the list throws away 57% of all DR states and keeps 92% of the finishes in 11 and 96% of those in 10. What it keeps finishes in 11 about twice as often as a DR picked blind. 84% of what it drops is 4qt and 5qt, and there it does cost: 36% of the 4qt finishes in 11 are in DRs it drops. If you have the HTR lengths, do the 4c3 line as "9+ on both sides, toss" instead: it drops about as many and loses 17% of the 4c3 finishes in 11 instead of 28%.
+Read it row by row, not from the last row. The last row counts every DR state once, and 54% of all DR states are 4qt or 5qt, so it mostly says what happens up there: 84% of what the list drops is 4qt or 5qt.
+
+- **1–2qt**: drops 8%, loses 0.68% of the finishes in 11. At 1–2qt the list hardly prunes.
+- **3qt**: drops 28%, loses 6.0% of the finishes in 11. What it keeps finishes in 11 6.0% of the time, against 4.6% for all of 3qt.
+- **4qt**: drops 81%, loses 36% of the finishes in 11. If you'd skip 4qt anyway, read that the other way round: the 2c4s the list keeps are 19% of 4qt and hold 64% of its finishes in 11.
+- **5qt**: all dropped. 0.24% of 5qt DRs finish in 11.
+- **All DR states**: 57% dropped, 92% of the finishes in 11 and 96% of those in 10 kept.
+
+If you have the HTR lengths, do the 4c3 line as "9+ on both sides, toss" instead: it drops about as many and loses 17% of the 4c3 finishes in 11 instead of 28%.
 
 The table, subset by subset:
 
