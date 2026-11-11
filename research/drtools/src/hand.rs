@@ -968,8 +968,15 @@ const CORNER_POS: [&str; 8] = ["UFR", "UFL", "UBL", "UBR", "DFR", "DFL", "DBL", 
 const EDGE_POS: [&str; 8] = ["UF", "UL", "UB", "UR", "DF", "DL", "DB", "DR"];
 
 fn names(mask: usize, table: &[&str; 8]) -> String {
-    let v: Vec<&str> = (0..8).filter(|&p| mask >> p & 1 == 1).map(|p| table[p]).collect();
-    if v.is_empty() { "-".to_string() } else { v.join(",") }
+    let v: Vec<&str> = (0..8)
+        .filter(|&p| mask >> p & 1 == 1)
+        .map(|p| table[p])
+        .collect();
+    if v.is_empty() {
+        "-".to_string()
+    } else {
+        v.join(",")
+    }
 }
 
 pub fn run_read(bfsdir: &Path, lsfile: &Path) -> io::Result<i32> {
@@ -1001,7 +1008,13 @@ pub fn run_read(bfsdir: &Path, lsfile: &Path) -> io::Result<i32> {
         let (k, e, s) = reduce(g);
         exact_depth(&depth_files, k * ROW + e * 12 + slice.to12[s] as usize).unwrap_or(99)
     };
-    let seq = |moves: &[usize]| moves.iter().map(|&m| MOVE_NAME[m]).collect::<Vec<_>>().join(" ");
+    let seq = |moves: &[usize]| {
+        moves
+            .iter()
+            .map(|&m| MOVE_NAME[m])
+            .collect::<Vec<_>>()
+            .join(" ")
+    };
 
     let mut out = io::stdout().lock();
     for line in io::stdin().lock().lines() {
@@ -1011,7 +1024,10 @@ pub fn run_read(bfsdir: &Path, lsfile: &Path) -> io::Result<i32> {
             continue;
         }
         let g = if text.as_bytes()[0].is_ascii_digit() {
-            let nums: Vec<u8> = text.split_whitespace().filter_map(|t| t.parse().ok()).collect();
+            let nums: Vec<u8> = text
+                .split_whitespace()
+                .filter_map(|t| t.parse().ok())
+                .collect();
             if nums.len() != 20 {
                 writeln!(out, "error: need 20 numbers\n")?;
                 continue;
@@ -1071,7 +1087,9 @@ pub fn run_read(bfsdir: &Path, lsfile: &Path) -> io::Result<i32> {
             let mut moves = Vec::new();
             while cls.htr_dist[a][b] != 0 {
                 let m = (0..NMOVES)
-                    .find(|&m| cls.htr_dist[cls.ccos_mv[a][m]][cls.epat_mv[b][m]] + 1 == cls.htr_dist[a][b])
+                    .find(|&m| {
+                        cls.htr_dist[cls.ccos_mv[a][m]][cls.epat_mv[b][m]] + 1 == cls.htr_dist[a][b]
+                    })
                     .unwrap();
                 moves.push(m);
                 (a, b) = (cls.ccos_mv[a][m], cls.epat_mv[b][m]);
@@ -1081,11 +1099,22 @@ pub fn run_read(bfsdir: &Path, lsfile: &Path) -> io::Result<i32> {
         writeln!(out, "htr: {} {}", cls.htr_dist[a][b], cls.htr_dist[ai][bi])?;
         writeln!(out, "htr_normal: {}", seq(&htr_path(a, b)))?;
         writeln!(out, "htr_inverse: {}", seq(&htr_path(ai, bi)))?;
-        writeln!(out, "setup: {} {}", setup[a * NEPAT + b], setup[ai * NEPAT + bi])?;
+        writeln!(
+            out,
+            "setup: {} {}",
+            setup[a * NEPAT + b],
+            setup[ai * NEPAT + bi]
+        )?;
         writeln!(out, "qt: {} {}", cls.cc_qt[a], cls.qt_full[a][b])?;
         // corner solutions: optimal, and optimal for each parity of the number of side half turns
         writeln!(out, "e_parity: {}", par)?;
-        writeln!(out, "corner_length: {} {} {}", clen[c], lpar[c * 2], lpar[c * 2 + 1])?;
+        writeln!(
+            out,
+            "corner_length: {} {} {}",
+            clen[c],
+            lpar[c * 2],
+            lpar[c * 2 + 1]
+        )?;
         for p0 in 0..2 {
             let (mut y, mut r) = (c, p0);
             let mut moves = Vec::new();
@@ -1100,24 +1129,34 @@ pub fn run_read(bfsdir: &Path, lsfile: &Path) -> io::Result<i32> {
                 y = core.cmove[m][y] as usize;
                 r ^= (m >= FIRST_SIDE) as usize;
             }
-            writeln!(out, "corner_solution_{}: {}", if p0 == 0 { "even" } else { "odd" }, seq(&moves))?;
+            writeln!(
+                out,
+                "corner_solution_{}: {}",
+                if p0 == 0 { "even" } else { "odd" },
+                seq(&moves)
+            )?;
         }
         // the truth
         let d = depth(&g);
         let (k, e2, _) = reduce(&g);
         writeln!(out, "leave_slice: {}", lsd[k * NE + e2])?;
         writeln!(out, "optimal: {}", d)?;
-        let after: Vec<String> =
-            (FIRST_SIDE..NMOVES).map(|m| format!("{}:{}", MOVE_NAME[m], depth(&g.apply_move(m)))).collect();
+        let after: Vec<String> = (FIRST_SIDE..NMOVES)
+            .map(|m| format!("{}:{}", MOVE_NAME[m], depth(&g.apply_move(m))))
+            .collect();
         writeln!(out, "after_side_half_turn: {}", after.join(" "))?;
-        let first: Vec<&str> =
-            (0..NMOVES).filter(|&m| depth(&g.apply_move(m)) + 1 == d).map(|m| MOVE_NAME[m]).collect();
+        let first: Vec<&str> = (0..NMOVES)
+            .filter(|&m| depth(&g.apply_move(m)) + 1 == d)
+            .map(|m| MOVE_NAME[m])
+            .collect();
         writeln!(out, "optimal_first_moves: {}", first.join(" "))?;
         let mut moves = Vec::new();
         let mut x = g;
         while depth(&x) != 0 {
             let dx = depth(&x);
-            let m = (0..NMOVES).find(|&m| depth(&x.apply_move(m)) + 1 == dx).unwrap();
+            let m = (0..NMOVES)
+                .find(|&m| depth(&x.apply_move(m)) + 1 == dx)
+                .unwrap();
             moves.push(m);
             x = x.apply_move(m);
         }
@@ -1148,7 +1187,10 @@ struct Best {
     score: i64,
     at: (usize, usize, usize),
 }
-const NONE: Best = Best { score: i64::MIN, at: (0, 0, 0) };
+const NONE: Best = Best {
+    score: i64::MIN,
+    at: (0, 0, 0),
+};
 fn keep(slot: &mut Best, score: i64, at: (usize, usize, usize)) {
     // deterministic whatever the thread schedule: higher score, then the smaller state
     if score > slot.score || (score == slot.score && at < slot.at) {
@@ -1194,7 +1236,12 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
     let parts = par::for_each_with_local(
         data.nclass,
         4,
-        || Local { per: vec![NONE; nsub * PER], single: vec![NONE; NSINGLE], cl: HashMap::new(), row: RowDepths::new() },
+        || Local {
+            per: vec![NONE; nsub * PER],
+            single: vec![NONE; NSINGLE],
+            cl: HashMap::new(),
+            row: RowDepths::new(),
+        },
         |local, k| {
             let dep = local.row.load(&data, k);
             let c = data.crep[k];
@@ -1202,15 +1249,23 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
             let w = (16 / data.nstab[k]) as u64;
             let (a, ai) = (cls.ccos[c] as usize, cls.ccos[ci] as usize);
             let (cp, cpi): ([u8; 8], [u8; 8]) = (unrank_perm(c), unrank_perm(ci));
-            let both_stacked = stacked_pair(bad_corner_mask(&cp)) && stacked_pair(bad_corner_mask(&cpi));
+            let both_stacked =
+                stacked_pair(bad_corner_mask(&cp)) && stacked_pair(bad_corner_mask(&cpi));
             for e in 0..NE {
                 let ei = core.einv[e] as usize;
                 let (b, bi) = (cls.epat[e] as usize, cls.epat[ei] as usize);
                 let (hn, hi) = (cls.htr_dist[a][b] as usize, cls.htr_dist[ai][bi] as usize);
                 let sub = cls.sub48[a][b] as usize;
                 let name = &cls.sub48_name[sub];
-                let (sn, si) = (setup[a * NEPAT + b] as usize, setup[ai * NEPAT + bi] as usize);
-                let g = if cls.qt_full[a][b] == 0 { 0 } else { (hn + si).max(hi + sn) };
+                let (sn, si) = (
+                    setup[a * NEPAT + b] as usize,
+                    setup[ai * NEPAT + bi] as usize,
+                );
+                let g = if cls.qt_full[a][b] == 0 {
+                    0
+                } else {
+                    (hn + si).max(hi + sn)
+                };
                 let ls = lsd[k * NE + e];
                 let q = cls.cc_qt[a] as usize;
                 let key = (((sub * 64 + ccase[a]) * 64 + ccase[ai]) * 16 + hn) * 16 + hi;
@@ -1251,7 +1306,10 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
                     if (1..=5).contains(&q) && hn == FLOOR[q] && hi == FLOOR[q] {
                         keep(&mut local.single[FLOORQ + q - 1], -di, at);
                     }
-                    let entry = local.cl.entry(key as u32).or_insert((d as u8, at, d as u8, at, 0));
+                    let entry = local
+                        .cl
+                        .entry(key as u32)
+                        .or_insert((d as u8, at, d as u8, at, 0));
                     if (d as u8, at) < (entry.0, entry.1) {
                         (entry.0, entry.1) = (d as u8, at);
                     }
@@ -1268,9 +1326,14 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
     );
     let mut per = vec![NONE; nsub * PER];
     let mut single = vec![NONE; NSINGLE];
-    let mut cl: HashMap<u32, (u8, (usize, usize, usize), u8, (usize, usize, usize), u64)> = HashMap::new();
+    let mut cl: HashMap<u32, (u8, (usize, usize, usize), u8, (usize, usize, usize), u64)> =
+        HashMap::new();
     for local in parts {
-        for (t, x) in per.iter_mut().zip(&local.per).chain(single.iter_mut().zip(&local.single)) {
+        for (t, x) in per
+            .iter_mut()
+            .zip(&local.per)
+            .chain(single.iter_mut().zip(&local.single))
+        {
             if x.score != i64::MIN {
                 keep(t, x.score, x.at);
             }
@@ -1291,19 +1354,31 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
     let reduce = |g: &St| -> (usize, usize, usize) {
         let c = rank_perm(&g.c);
         let sym = classes.csymto[c] as usize;
-        (classes.cclass[c] as usize, core.esym[sym][rank_perm(&g.e)] as usize, core.ssym[sym][rank_perm(&g.s)] as usize)
+        (
+            classes.cclass[c] as usize,
+            core.esym[sym][rank_perm(&g.e)] as usize,
+            core.ssym[sym][rank_perm(&g.s)] as usize,
+        )
     };
     let depth = |g: &St| -> usize {
         let (k, e, s) = reduce(g);
         exact_depth(&depth_files, k * ROW + e * 12 + slice.to12[s] as usize).unwrap_or(99)
     };
-    let seq = |moves: &[usize]| moves.iter().map(|&m| MOVE_NAME[m]).collect::<Vec<_>>().join(" ");
+    let seq = |moves: &[usize]| {
+        moves
+            .iter()
+            .map(|&m| MOVE_NAME[m])
+            .collect::<Vec<_>>()
+            .join(" ")
+    };
     let finish = |g: &St| -> Vec<usize> {
         let mut moves = Vec::new();
         let mut x = *g;
         while depth(&x) != 0 {
             let dx = depth(&x);
-            let m = (0..NMOVES).find(|&m| depth(&x.apply_move(m)) + 1 == dx).unwrap();
+            let m = (0..NMOVES)
+                .find(|&m| depth(&x.apply_move(m)) + 1 == dx)
+                .unwrap();
             moves.push(m);
             x = x.apply_move(m);
         }
@@ -1319,7 +1394,9 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
         let mut moves = Vec::new();
         while cls.htr_dist[a][b] != 0 {
             let m = (0..NMOVES)
-                .find(|&m| cls.htr_dist[cls.ccos_mv[a][m]][cls.epat_mv[b][m]] + 1 == cls.htr_dist[a][b])
+                .find(|&m| {
+                    cls.htr_dist[cls.ccos_mv[a][m]][cls.epat_mv[b][m]] + 1 == cls.htr_dist[a][b]
+                })
                 .unwrap();
             moves.push(m);
             (a, b) = (cls.ccos_mv[a][m], cls.epat_mv[b][m]);
@@ -1337,9 +1414,9 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
             let y = queue[head];
             head += 1;
             let (a, b) = (y / NEPAT, y % NEPAT);
-            if let Some(m) = (0..NMOVES)
-                .find(|&m| MOVE_IS_QT[m] && cls.qt_full[cls.ccos_mv[a][m]][cls.epat_mv[b][m]] + 1 == q)
-            {
+            if let Some(m) = (0..NMOVES).find(|&m| {
+                MOVE_IS_QT[m] && cls.qt_full[cls.ccos_mv[a][m]][cls.epat_mv[b][m]] + 1 == q
+            }) {
                 let mut moves = vec![m];
                 let mut z = y;
                 while z != start {
@@ -1360,16 +1437,27 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
         }
     };
     let mut out = io::stdout().lock();
-    let show = |out: &mut io::StdoutLock, label: &str, at: (usize, usize, usize)| -> io::Result<()> {
+    let show = |out: &mut io::StdoutLock,
+                label: &str,
+                at: (usize, usize, usize)|
+     -> io::Result<()> {
         let g = state(at);
         let gi = g.inv();
         let (c, e) = (rank_perm(&g.c), rank_perm(&g.e));
         let (ci, ei) = (rank_perm(&gi.c), rank_perm(&gi.e));
-        let (a, b, ai, bi) = (cls.ccos[c] as usize, cls.epat[e] as usize, cls.ccos[ci] as usize, cls.epat[ei] as usize);
+        let (a, b, ai, bi) = (
+            cls.ccos[c] as usize,
+            cls.epat[e] as usize,
+            cls.ccos[ci] as usize,
+            cls.epat[ei] as usize,
+        );
         let fin = finish(&g);
         let scr: Vec<usize> = fin.iter().rev().map(|&m| MOVE_INV[m]).collect();
         let (hn, hi) = (cls.htr_dist[a][b] as usize, cls.htr_dist[ai][bi] as usize);
-        let (sn, si) = (setup[a * NEPAT + b] as usize, setup[ai * NEPAT + bi] as usize);
+        let (sn, si) = (
+            setup[a * NEPAT + b] as usize,
+            setup[ai * NEPAT + bi] as usize,
+        );
         let (k, e2, _) = reduce(&g);
         writeln!(out, "{} :: {}", label, seq(&scr))?;
         writeln!(
@@ -1387,7 +1475,12 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
             si,
             if cls.qt_full[a][b] == 0 { 0 } else { (hn + si).max(hi + sn) }
         )?;
-        writeln!(out, "    HTR normal: {} | HTR inverse: ({})", seq(&htr_path(a, b)), seq(&htr_path(ai, bi)))?;
+        writeln!(
+            out,
+            "    HTR normal: {} | HTR inverse: ({})",
+            seq(&htr_path(a, b)),
+            seq(&htr_path(ai, bi))
+        )?;
         if cls.qt_full[a][b] != 0 {
             writeln!(
                 out,
@@ -1400,7 +1493,15 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
     };
     for sub in 0..nsub {
         let name = &cls.sub48_name[sub];
-        for (j, what) in ["longest", "shortest", "optimal equal to the longer HTR", "optimal below the setup+HTR bound"].iter().enumerate() {
+        for (j, what) in [
+            "longest",
+            "shortest",
+            "optimal equal to the longer HTR",
+            "optimal below the setup+HTR bound",
+        ]
+        .iter()
+        .enumerate()
+        {
             let x = per[sub * PER + j];
             if x.score != i64::MIN {
                 show(&mut out, &format!("{} {}", name, what), x.at)?;
@@ -1433,11 +1534,22 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
     // same subset, same corner case on both sides, same HTR on both sides, optimal furthest apart
     let mut best: Vec<(u32, u8, u8)> = cl.iter().map(|(&key, v)| (key, v.0, v.2)).collect();
     best.sort_by_key(|&(key, lo, hi)| (std::cmp::Reverse(hi - lo), key));
-    for &(key, lo, hi) in best.iter().filter(|x| ((x.0 >> 20) as usize) < nsub).take(1).chain(
-        best.iter().filter(|x| cls.sub48_name[(x.0 >> 20) as usize] == "2c4 4e").take(1),
-    ) {
+    for &(key, lo, hi) in best
+        .iter()
+        .filter(|x| ((x.0 >> 20) as usize) < nsub)
+        .take(1)
+        .chain(
+            best.iter()
+                .filter(|x| cls.sub48_name[(x.0 >> 20) as usize] == "2c4 4e")
+                .take(1),
+        )
+    {
         let v = cl[&key];
-        writeln!(out, "same corner cases and HTR lengths, optimal {} against {}:", lo, hi)?;
+        writeln!(
+            out,
+            "same corner cases and HTR lengths, optimal {} against {}:",
+            lo, hi
+        )?;
         show(&mut out, "  the short one", v.1)?;
         show(&mut out, "  the long one", v.3)?;
     }
@@ -1447,7 +1559,11 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
     let qf = Quot::new(&core, &cls, &e630, true);
     let class_of = |g: &St| -> usize {
         let (c, e) = (rank_perm(&g.c), rank_perm(&g.e));
-        Quot::idx(qf.corners.ccls[c] as usize, e630.cls[e] as usize, (core.cpar[c] ^ core.epar[e]) as usize)
+        Quot::idx(
+            qf.corners.ccls[c] as usize,
+            e630.cls[e] as usize,
+            (core.cpar[c] ^ core.epar[e]) as usize,
+        )
     };
     let mut ht: HashMap<(usize, usize, usize), u8> = HashMap::new();
     let mut queue = vec![St::ID];
@@ -1477,12 +1593,21 @@ pub fn run_witness(bfsdir: &Path, lsfile: &Path, listing: &Path) -> io::Result<i
             (entry.1, entry.2) = (ddr, *x);
         }
     }
-    writeln!(out, "HTR states {} in {} classes", queue.len(), by_class.len())?;
+    writeln!(
+        out,
+        "HTR states {} in {} classes",
+        queue.len(),
+        by_class.len()
+    )?;
     let text = fs::read_to_string(listing)?;
     for line in text.lines() {
-        let Some((label, scramble)) = line.split_once("Example scramble:") else { continue };
+        let Some((label, scramble)) = line.split_once("Example scramble:") else {
+            continue;
+        };
         let label = label.split("E-parity").next().unwrap().trim();
-        let Some(moves) = parse_moves(scramble.trim().as_bytes(), 60) else { continue };
+        let Some(moves) = parse_moves(scramble.trim().as_bytes(), 60) else {
+            continue;
+        };
         let g = moves.iter().fold(St::ID, |g, &m| g.apply_move(m));
         if let Some(&(dht, ddr, x)) = by_class.get(&class_of(&g)) {
             if (ddr as u8) < dht {
