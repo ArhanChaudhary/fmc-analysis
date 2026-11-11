@@ -1,0 +1,98 @@
+#!/data/fmc/venv/bin/python
+"""drbound — certified lower bounds (and the exact optimum) for a domino reduction.
+
+  drbound "<scramble>" "<moves to DR, NISS in brackets>" [--target N]
+  drbound --dr "<DR-move scramble>"                       (a position given directly by DR moves on U/D)
+
+Prints the HTR subset, the shortest HTR on both sides, each rung of the bounding ladder (normal/inverse side),
+and the exact optimal DR finish from the full table.  All bounds are for finishes that use DR moves only.
+"""
+import sys, os, re, subprocess, argparse
+HERE = os.path.dirname(os.path.abspath(__file__))
+R = os.path.join(HERE, '..')
+QUERY = [os.path.join(R, 'drtools', 'target', 'release', 'drtools'), 'query', os.path.join(R, 'data', 'drbfs'), os.path.join(R, 'data', 'tables')]
+sys.path.insert(0, HERE)
+import fmccube as fc
+
+RUNGS = [('htr', 'HTR length'),
+         ('c', 'corner length L'),
+         ('c+p', 'L with the right E-slice parity'),
+         ('c+bad+p', 'L+S+T (shortest HTR that also solves corners)'),
+         ('KF', 'NISS@DR (Advanced DR Bounding features, read off the DR)'),
+         ('K0+F', 'NISS@DR + H-perm parity, no free U2'),
+         ('c+2520+F', 'everything visible')]
+
+
+def lookup(st):
+    """-> (axis, dict of fields) for a facelet state, or (None, None) if it is not a DR."""
+    axis, arrs = fc.find_dr(st)
+    if not arrs:
+        return None, None
+    line = ' '.join(map(str, arrs[0] + arrs[1] + arrs[2]))
+    out = subprocess.run(QUERY, input=line + '\n', capture_output=True, text=True).stdout.strip()
+    if out.startswith('error') or 'exact=' not in out:
+        sys.exit('lookup failed: ' + out)
+    kv = dict(tok.split('=', 1) for tok in out.split(' ') if '=' in tok)
+    kv['subset'] = re.search(r'subset=(\S+ \S+)', out).group(1)
+    return axis, kv
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument('scramble', nargs='?')
+    ap.add_argument('solution', nargs='?', default='')
+    ap.add_argument('--dr')
+    ap.add_argument('--target', type=int)
+    a = ap.parse_args()
+    n = i = []
+    if a.dr:
+        st, used = fc.state_after(a.dr), 0
+    elif a.scramble:
+        n, i = fc.split_niss(a.solution)
+        st = fc.apply(fc.apply(fc.apply(fc.solved(), fc.invert(i)), fc.parse(a.scramble)), n)
+        used = len(n) + len(i)
+    else:
+        ap.error('give a scramble')
+    axis, kv = lookup(st)
+    if not kv:
+        sys.exit('This position is not a domino reduction on any axis.')
+    sub = kv['subset']
+    print(f"DR on the {axis} axis" + (f" after {used} moves." if used else "."))
+    print(f"  subset {sub}   corners {kv['corners_normal']} (normal) / {kv['corners_inverse']} (inverse), "
+          f"E-slice parity {kv['E_parity']}, at least {kv['qt_min']} quarter turns")
+    print(f"  {'bound from':<60} normal inverse")
+    best = 0
+    for key, desc in RUNGS:
+        bn, bi = kv[key].split('/')
+        best = max(best, int(bn), int(bi))
+        print(f"  {desc:<60} {bn:>4}   {bi:>4}")
+    ex = int(kv['exact'])
+    print(f"  best proven bound for the finish: {best}       optimal DR finish: {ex}")
+    if used:
+        print(f"  so the whole solution needs at least {used + best} moves; the true optimum through this DR is {used + ex}")
+        # the same DR with its last move turned the other way costs the same number of moves and may finish shorter
+        for side, seq in (('normal', n), ('inverse', i)):
+            if seq and seq[-1][1] in (1, 3):
+                alt = seq[:-1] + [(seq[-1][0], 4 - seq[-1][1])]
+                n2, i2 = (alt, i) if side == 'normal' else (n, alt)
+                st2 = fc.apply(fc.apply(fc.apply(fc.solved(), fc.invert(i2)), fc.parse(a.scramble)), n2)
+                ax2, kv2 = lookup(st2)
+                if kv2:
+                    b2 = max(int(x) for key, _ in RUNGS for x in kv2[key].split('/'))
+                    print(f"  with the last {side}-side move inverted ({kv2['subset']}): bound {b2}, optimal {kv2['exact']}"
+                          f" -> total at least {used + b2}, optimum {used + int(kv2['exact'])}")
+                    ex = min(ex, int(kv2['exact'])); best = min(best, b2)
+    if a.target is not None:
+        # best and ex now cover both directions of the last DR move
+        need = a.target - used
+        if best > need:
+            verdict = 'skip it (proven: no finish this short)'
+        elif ex <= need:
+            verdict = 'possible'
+        else:
+            verdict = 'the bounds do not rule it out, but the optimal says no'
+        print(f"  target {a.target}: the finish must be <= {need} moves -> {verdict}")
+
+
+if __name__ == '__main__':
+    main()

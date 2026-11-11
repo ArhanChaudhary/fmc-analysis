@@ -1,0 +1,217 @@
+corners,F_edges,R_edges,E_parity,half_turn_only,DR_moves,all_moves,FakeMMAP_HTR_breaking,shortest_sequence_producing_a_state_of_the_class
+H-H +,F-H,R-H,even,0,0,0,0, 
+R-D +,F-H,R-D,odd,1,1,1,1, L2
+F-D +,F-D,R-H,odd,1,1,1,1, B2
+R-V +,F-H,R-V,odd,2,2,2,2, L2 D2
+R-D -,F-D,R-D,even,2,2,2,2, L2 B2
+F-V +,F-V,R-H,odd,2,2,2,2, B2 D2
+F-D -,F-D,R-D,even,2,2,2,2, B2 L2
+R-V +,F-H,R-V,even,3,3,3,3, L2 D2 L2
+D-D +,F-D,R-V,even,3,3,3,3, L2 D2 B2
+R-V -,F-V,R-V,even,3,3,3,3, L2 B2 D2
+H-H -,F-D,R-H,odd,3,3,3,3, L2 B2 L2
+D-D -,F-V,R-D,even,3,3,3,3, B2 D2 L2
+F-V +,F-V,R-H,even,3,3,3,3, B2 D2 B2
+F-V -,F-V,R-V,even,3,3,3,3, B2 L2 D2
+H-H -,F-H,R-D,odd,3,3,3,3, F2 R2 F2
+R-D +,F-H,R-D,even,4,4,4,4, L2 D2 L2 D2
+D-D +,F-D,R-V,odd,4,4,4,4, L2 D2 L2 B2
+F-V -,F-D,R-V,odd,4,4,4,4, L2 D2 B2 L2
+R-V -,F-V,R-V,odd,4,4,4,4, L2 B2 D2 L2
+D-D -,F-V,R-V,odd,4,4,4,4, L2 F2 U2 F2
+H-H -,F-V,R-H,odd,4,4,4,4, L2 B2 L2 D2
+F-D -,F-H,R-H,even,4,4,4,4, L2 B2 L2 B2
+R-V -,F-V,R-D,odd,4,4,4,4, F2 U2 R2 F2
+F-D +,F-D,R-H,even,4,4,4,4, B2 D2 B2 D2
+D-D -,F-V,R-D,odd,4,4,4,4, F2 U2 F2 L2
+D-D +,F-V,R-V,odd,4,4,4,4, B2 L2 D2 L2
+F-V -,F-V,R-V,odd,4,4,4,4, B2 L2 D2 B2
+H-H -,F-H,R-V,odd,4,4,4,4, F2 R2 F2 D2
+R-D -,F-H,R-H,even,4,4,4,4, B2 L2 B2 L2
+H-H +,F-H,R-H,odd,5,5,5,5, R2 U2 L2 U2 R2
+R-D -,F-D,R-D,odd,5,5,5,5, L2 D2 L2 D2 B2
+F-V -,F-D,R-V,even,5,5,5,5, R2 D2 L2 B2 R2
+F-D -,F-V,R-D,odd,5,5,5,5, L2 D2 B2 L2 D2
+F-V -,F-H,R-V,even,5,5,5,5, L2 D2 F2 R2 F2
+D-D -,F-V,R-V,even,5,5,5,5, L2 F2 U2 R2 F2
+D-D +,F-D,R-D,odd,5,5,5,5, L2 F2 U2 F2 D2
+F-V +,F-V,R-V,even,5,5,5,5, R2 B2 D2 B2 R2
+R-D -,F-V,R-D,even,5,5,5,5, R2 B2 L2 D2 R2
+F-D -,F-V,R-H,even,5,5,5,5, L2 B2 L2 D2 B2
+F-V -,F-H,R-H,even,5,5,5,5, L2 B2 L2 B2 D2
+F-D +,F-H,R-D,odd,5,5,5,5, R2 B2 R2 B2 R2
+R-D -,F-D,R-V,odd,5,5,5,5, F2 U2 R2 F2 D2
+R-V -,F-V,R-H,even,5,5,5,5, B2 D2 L2 B2 L2
+F-D -,F-D,R-D,odd,5,5,5,5, B2 D2 B2 D2 L2
+R-V -,F-V,R-D,even,5,5,5,5, B2 D2 F2 R2 F2
+D-D -,F-D,R-D,odd,5,5,5,5, B2 L2 D2 L2 D2
+R-V +,F-V,R-V,even,5,5,5,5, F2 R2 U2 R2 F2
+D-D +,F-V,R-V,even,5,5,5,5, F2 R2 U2 F2 L2
+R-D -,F-H,R-V,even,5,5,5,5, F2 R2 F2 D2 L2
+F-D -,F-D,R-V,even,5,5,5,5, F2 R2 F2 D2 B2
+R-V -,F-H,R-H,even,5,5,5,5, B2 L2 B2 L2 D2
+R-D +,F-D,R-H,odd,5,5,5,5, F2 R2 B2 R2 F2
+H-H -,F-D,R-H,even,6,6,6,6,L2 B2 D2 L2 D2 L2
+F-D -,F-V,R-D,even,6,6,6,6,R2 U2 R2 F2 L2 U2
+F-V -,F-H,R-V,odd,6,6,6,6,R2 D2 L2 F2 L2 F2
+F-D +,F-V,R-H,even,6,6,6,6,R2 U2 F2 L2 U2 R2
+H-H -,F-V,R-D,even,6,6,6,6,L2 D2 F2 R2 U2 F2
+F-D -,F-H,R-D,even,6,6,5,5, R L' D2 R' L'
+D-D +,F-H,R-V,odd,6,6,6,6,F2 R' L' F2 R L
+D-D +,F-D,R-D,even,6,6,6,6,L2 F2 U2 R2 F2 D2
+F-V +,F-V,R-V,odd,6,6,6,6,F' B R2 F B D2
+F-V -,F-D,R-H,even,6,6,6,6,L2 B2 D2 B2 D2 L2
+R-V +,F-H,R-D,even,6,6,6,6,L2 B2 D2 F2 U2 F2
+F-D +,F-D,R-D,even,6,6,6,6,R2 B2 D2 B2 R2 D2
+R-V -,F-D,R-V,even,6,6,6,6,R2 B2 L2 D2 R2 D2
+R-D +,F-V,R-D,odd,6,6,6,6,R2 F2 R2 U2 L2 F2
+F-D +,F-V,R-D,odd,6,6,6,6,R2 B2 R2 D2 B2 R2
+D-D +,F-H,R-D,odd,6,6,6,6,R2 F2 R2 F2 D2 R2
+F-V -,F-D,R-H,odd,6,6,6,6,L2 B2 L2 B2 D2 B2
+F-V +,F-H,R-V,odd,6,6,6,6,R2 B2 R2 B2 R2 D2
+H-H +,F-D,R-D,even,6,6,6,6,R2 F2 L2 B2 L2 F2
+H-H -,F-D,R-V,even,6,6,6,6,F2 U2 R2 F2 D2 L2
+R-D +,F-H,R-V,even,6,6,6,6,F2 U2 R2 F2 D2 B2
+R-D -,F-D,R-H,even,6,6,5,5, F' B D2 F B
+D-D -,F-V,R-H,odd,6,6,6,6,L2 F B L2 F' B'
+H-H -,F-H,R-D,even,6,6,6,6,F2 U2 B2 U2 R2 F2
+R-D -,F-D,R-V,even,6,6,6,6,F' B R2 D2 F B
+R-V -,F-V,R-H,odd,6,6,6,6,B2 D2 B2 L2 B2 L2
+F-V +,F-D,R-H,even,6,6,6,6,B2 R2 U2 L2 U2 R2
+R-V -,F-H,R-D,even,6,6,6,6,F2 R2 U2 R2 U2 F2
+R-D +,F-D,R-D,even,6,6,6,6,F2 R2 U2 R2 F2 D2
+R-V +,F-V,R-V,odd,6,6,6,6,R' L B2 R L D2
+D-D -,F-D,R-D,even,6,6,6,6,R' L D2 B2 R' L'
+R-D +,F-D,R-V,odd,6,6,6,6,F2 R2 F2 D2 L2 B2
+F-V -,F-V,R-D,even,6,6,6,6,F' B' D2 R2 F B'
+F-D +,F-D,R-V,odd,6,6,6,6,B2 R2 B2 D2 B2 R2
+R-V -,F-H,R-D,odd,6,6,6,6,F2 L2 F2 L2 D2 R2
+D-D -,F-D,R-H,odd,6,6,6,6,B2 L2 B2 L2 D2 B2
+R-V +,F-V,R-H,odd,6,6,6,6,F2 R2 B2 R2 F2 D2
+H-H -,F-V,R-H,even,7,7,7,7,L2 B2 U2 R2 D2 R2 U2
+F-D -,F-H,R-H,odd,7,7,7,7,L2 B2 D2 L2 D2 L2 B2
+F-D +,F-V,R-H,odd,7,7,6,7,R L' B2 D2 R L'
+H-H -,F-V,R-D,odd,7,7,6,6,B2 R L D2 R' L
+F-D -,F-H,R-D,odd,7,7,7,7,R2 D2 L2 F2 L2 F2 D2
+D-D +,F-H,R-V,even,7,7,6,6,R' L' F2 R' L F2
+H-H +,F-V,R-H,odd,7,7,7,7,R2 U2 B2 R2 D2 L2 F2
+R-D -,F-V,R-H,odd,7,7,7,7,L2 D2 B2 L2 D2 B2 L2
+F-D +,F-H,R-H,odd,7,7,5,5, R L' D2 R' L
+H-H -,F-D,R-D,odd,7,7,6,6,R L' D2 R' L' B2
+D-D -,F-H,R-D,odd,7,7,7,7,R' L' F2 R L F2 D2
+R-V +,F-D,R-V,even,7,7,5,5, R' L' B2 R L
+R-V +,F-H,R-D,odd,7,7,6,6,F' B D2 R2 F B'
+F-D +,F-D,R-D,odd,7,7,5,5, F' B R2 F B
+F-V -,F-H,R-H,odd,7,7,7,7,L2 B2 D2 B2 D2 L2 B2
+R-V +,F-H,R-H,odd,7,7,6,6,L2 F B' L2 F' B
+F-D -,F-D,R-H,odd,7,7,7,7,R2 F2 U2 F2 R2 D2 L2
+H-H +,F-H,R-D,odd,7,7,6,6,L B2 U2 D2 F2 R'
+R-V -,F-D,R-V,odd,7,7,6,6,R' L' D2 B2 R' L'
+D-D -,F-H,R-V,odd,7,7,7,7,R2 F2 R2 F2 D2 R2 D2
+R-V +,F-D,R-V,odd,7,7,5,5, R' L' B2 R L'
+H-H +,F-V,R-H,even,7,7,6,6,B2 R L' D2 R' L
+F-V +,F-D,R-V,odd,7,7,7,7,L2 F2 R2 U2 F2 L2 D2
+H-H +,F-V,R-D,even,7,7,7,7,R2 F2 L2 U2 B2 L2 F2
+R-V +,F-D,R-D,even,7,7,7,7,R2 F2 R2 F2 D2 R2 B2
+F-D -,F-V,R-H,odd,7,7,7,7,L2 B2 L2 B2 D2 B2 D2
+D-D -,F-H,R-V,even,7,7,7,7,R2 F2 R2 F2 R2 D2 R2
+F-V +,F-D,R-V,even,7,7,7,7,L2 F2 R2 F2 L2 D2 B2
+H-H +,F-V,R-V,even,7,7,7,7,F2 R2 F2 L2 B2 L2 D2
+F-D -,F-H,R-V,odd,7,7,7,7,F2 U2 R2 F2 D2 L2 B2
+H-H +,F-H,R-V,odd,7,7,7,7,F2 U2 L2 B2 U2 F2 R2
+R-D +,F-H,R-H,odd,7,7,5,5, F' B D2 F B'
+D-D +,F-D,R-H,odd,7,7,7,7,L2 F B' L2 U2 F' B'
+F-V +,F-V,R-D,even,7,7,5,5, F' B' R2 F B
+H-H -,F-H,R-V,even,7,7,7,7,F2 U2 B2 U2 R2 F2 D2
+R-D -,F-H,R-H,odd,7,7,7,7,B2 L2 D2 B2 D2 B2 L2
+H-H -,F-D,R-V,odd,7,7,6,6,L2 F B U2 F' B
+R-D +,F-H,R-V,odd,7,7,6,7,F' B R2 D2 F B'
+R-D -,F-D,R-H,odd,7,7,7,7,B2 D2 B2 L2 B2 L2 D2
+D-D -,F-V,R-H,even,7,7,6,6,F B L2 F' B L2
+F-V +,F-H,R-H,odd,7,7,6,6,B2 R' L B2 R L'
+R-V -,F-H,R-H,odd,7,7,7,7,B2 L2 D2 L2 D2 B2 L2
+H-H +,F-D,R-H,odd,7,7,6,6,F L2 U2 D2 R2 B'
+R-D -,F-H,R-D,odd,7,7,7,7,F2 R2 U2 R2 B2 U2 F2
+R-D +,F-D,R-D,odd,7,7,5,5, R' L B2 R L
+F-V +,F-D,R-H,odd,7,7,6,6,R' L D2 B2 R' L
+R-V +,F-V,R-D,odd,7,7,7,7,F2 R2 F2 D2 L2 B2 D2
+H-H +,F-D,R-V,even,7,7,7,7,F2 R2 F2 D2 L2 B2 L2
+D-D +,F-V,R-H,odd,7,7,7,7,F B U2 L2 B F' L2
+F-V -,F-V,R-D,odd,7,7,6,6,F' B' D2 R2 F B
+F-V +,F-V,R-D,odd,7,7,5,5, F' B' R2 F B'
+H-H +,F-H,R-V,even,7,7,6,6,R2 F B' D2 F' B
+R-D -,F-H,R-V,odd,7,7,7,7,F2 L2 F2 L2 U2 L2 U2
+F-V +,F-D,R-D,even,7,7,7,7,B2 R2 B2 R2 D2 B2 R2
+R-V +,F-V,R-D,even,7,7,7,7,B2 R2 F2 R2 F2 D2 R2
+D-D +,F-V,R-H,even,7,7,7,7,F2 R2 B2 R2 F2 D2 B2
+R-D -,F-V,R-D,odd,8,8,7,7,R' L' F2 R L U2 F2
+F-D +,F-H,R-D,even,8,8,8,8,L2 F2 U2 R2 U2 R2 F2 L2
+R-D -,F-V,R-H,even,8,8,6,6,B2 R L D2 R' L'
+F-D +,F-H,R-H,even,8,8,6,6,F L2 U2 D2 R2 B
+H-H -,F-D,R-D,even,8,8,8,8,F2 U2 B2 R2 F2 L2 D2 L2
+D-D -,F-H,R-D,even,8,8,6,6,F2 R L' F2 R L
+R-D +,F-V,R-D,even,8,8,6,6,R' L' B2 R L D2
+R-V -,F-D,R-H,odd,8,8,8,8,B2 D2 B2 R L D2 R' L'
+R-D +,F-V,R-H,even,8,8,8,8,L2 D2 F2 R2 U2 B2 R2 F2
+H-H +,F-D,R-H,even,8,8,5,5, R' L B2 R L'
+H-H -,F-V,R-V,odd,8,8,7,7,F2 R' L' U2 F2 R' L
+F-V +,F-H,R-H,even,8,8,7,7,F2 R' L F2 D2 R L'
+R-V -,F-D,R-D,even,8,8,8,8,R' L' F2 R L F2 D2 B2
+R-V +,F-H,R-H,even,8,8,7,7,L2 F B' L2 U2 F' B
+F-D -,F-D,R-H,even,8,8,5,5, F' B' D2 F B'
+H-H +,F-H,R-D,even,8,8,5,5, F' B R2 F B'
+D-D +,F-H,R-D,even,8,8,8,8,R2 F2 R2 F2 R2 U2 L2 U2
+D-D +,F-D,R-H,even,8,8,6,6,L2 F B' L2 F' B'
+F-V -,F-V,R-H,odd,8,8,7,7,F2 R2 F B' R2 F B
+H-H -,F-H,R-H,even,8,8,8,8,R2 F2 U2 B2 L2 U2 R2 F2
+R-D +,F-H,R-H,even,8,8,6,6,R B2 U2 D2 F2 L
+F-V +,F-H,R-V,even,8,8,8,8,L2 F2 R' L F2 D2 R L
+D-D -,F-D,R-V,even,8,8,8,8,L2 B2 U2 R L U2 R' L
+R-D +,F-V,R-H,odd,8,8,7,7,F2 R L U2 R' L' F2
+R-D +,F-V,R-V,even,8,8,8,8,R2 F2 R2 F2 D2 R2 B2 D2
+R-V +,F-D,R-H,odd,8,8,8,8,L2 F2 R2 B2 U2 R2 F2 L2
+F-D +,F-V,R-D,even,8,8,8,8,L2 F2 R2 F2 L2 D2 B2 D2
+D-D -,F-D,R-V,odd,8,8,7,7,R L D2 R' L D2 B2
+R-D +,F-V,R-V,odd,8,8,8,8,R2 F2 R2 F2 R2 B2 D2 R2
+F-D +,F-V,R-V,odd,8,8,8,8,L2 F2 R2 F2 L2 B2 D2 B2
+F-V -,F-H,R-D,odd,8,8,8,8,F2 U2 R2 F2 D2 L2 B2 D2
+F-D +,F-H,R-V,even,8,8,8,8,B2 D2 R2 B2 D2 R2 B2 R2
+F-D +,F-D,R-V,even,8,8,6,6,F' B' R2 F B D2
+F-V -,F-D,R-D,even,8,8,8,8,R2 F' B R2 D2 F B R2
+F-D -,F-D,R-V,odd,8,8,7,7,F' B' D2 R2 B F D2
+R-D +,F-D,R-H,even,8,8,8,8,F2 R2 U2 B2 U2 B2 R2 F2
+F-D -,F-H,R-V,even,8,8,6,6,L2 F B U2 F' B'
+D-D -,F-D,R-H,even,8,8,8,8,F2 R2 B2 R2 F2 D2 B2 D2
+R-V -,F-H,R-V,odd,8,8,7,7,L2 F2 R L' F2 R L
+R-D -,F-H,R-D,even,8,8,5,5, R L D2 R' L
+R-V +,F-V,R-H,even,8,8,8,8,F2 R2 F B' R2 D2 F B
+D-D +,F-V,R-D,even,8,8,8,8,F2 R2 F2 D2 L2 B2 D2 B2
+F-D +,F-H,R-V,odd,8,8,7,7,R2 F B D2 F' B' R2
+R-D +,F-D,R-V,even,8,8,8,8,B2 R2 F2 R2 F2 D2 R2 D2
+F-D +,F-V,R-V,even,8,8,8,8,B2 L2 F2 R2 U2 F2 L2 D2
+F-V +,F-H,R-D,odd,8,8,8,8,B2 R2 F2 L2 U2 B2 L2 F2
+D-D +,F-V,R-D,odd,8,8,7,7,F' B' D2 F B' D2 L2
+H-H +,F-D,R-D,odd,9,9,8,9,R D2 F2 B2 R' L F2 R'
+R-V -,F-D,R-H,even,9,9,7,7,B2 D2 R L D2 R' L'
+H-H -,F-V,R-V,even,9,9,9,9,F2 U2 B2 R2 F2 L2 D2 L2 D2
+R-V -,F-D,R-D,odd,9,9,7,7,F2 R L' F2 R L B2
+D-D -,F-H,R-H,even,9,9,9,9,R2 D2 F2 R2 D2 F2 R2 D2 F2
+R-V +,F-D,R-H,even,9,9,9,9,L2 D2 F2 R2 D2 F2 L2 B2 U2
+H-H +,F-V,R-D,odd,9,9,8,9,L' F2 R L' F2 B2 D2 L
+R-D -,F-V,R-V,even,9,8,7,7,F2 R' L' U2 F2 R' L'
+F-D -,F-V,R-V,even,9,8,7,7,L2 F B U2 L2 F' B'
+F-V -,F-V,R-H,even,9,9,6,6,F' B' D2 F B' D2
+H-H -,F-H,R-H,odd,9,9,5,5, F' B' D2 F B
+R-V +,F-D,R-D,odd,9,9,9,9,L2 F2 R2 U2 B2 U2 F2 L2 B2
+F-V -,F-D,R-D,odd,9,9,7,7,L2 F' B R2 F B L2
+H-H +,F-V,R-V,odd,9,9,9,9,L2 F2 R2 F2 D2 L2 B2 D2 L2
+R-D -,F-V,R-V,odd,9,9,8,8,F2 R L' F2 L R B2 D2
+D-D +,F-H,R-H,even,9,9,9,9,F2 D2 R2 F2 D2 R2 F2 D2 R2
+R-V -,F-H,R-V,even,9,9,6,6,R L D2 R' L D2
+F-V +,F-D,R-D,odd,9,9,9,9,B2 L2 F2 R2 F2 L2 D2 B2 D2
+F-V +,F-H,R-D,even,9,9,9,9,B2 D2 L2 F2 D2 L2 B2 R2 U2
+H-H +,F-D,R-V,odd,9,9,8,9,F L2 F B' R2 L2 D2 F'
+F-V -,F-H,R-D,even,9,9,7,7,L2 D2 F B U2 F' B'
+F-D -,F-V,R-V,odd,9,9,8,8,L2 U2 F B U2 F B' U2
+D-D -,F-H,R-H,odd,10,10,8,8,B2 D2 R L D2 R' L' B2
+D-D +,F-H,R-H,odd,10,10,8,8,L2 D2 F' B' D2 F B L2

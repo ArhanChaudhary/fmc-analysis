@@ -1,0 +1,12 @@
+  sheet differs: ['F-D', 'F-V', 'R-H', 'R2 U2 R2 F2 R2 U2 R2', '6.0'] cs/fr 0.0 0.0 sheet 7.0 ours 6 alg HTM 7
+  sheet differs: ['F-V', 'F-D', 'R-H', "M R2 U2 M'", '4.0'] cs/fr 0.0 0.0 sheet 6.0 ours 5 alg HTM 6
+  sheet differs: ['H-H', 'F-D', 'R-D', 'R2 U2 R2 U2 F2 R2 F2 R2 F2', '9.0'] cs/fr 0.0 1.0 sheet 9.0 ours 8 alg HTM 9
+  sheet differs: ['H-H', 'F-D', 'R-V', 'F2 U2 R2 F2 U2 R2 F2 R2 F2', '9.0'] cs/fr 0.0 1.0 sheet 9.0 ours 8 alg HTM 9
+  sheet differs: ['H-H', 'F-V', 'R-D', 'R2 U2 F2 R2 U2 F2 R2 F2 R2', '9.0'] cs/fr 0.0 1.0 sheet 9.0 ours 8 alg HTM 9
+  sheet differs: ['R-D', 'F-H', 'R-V', 'F2 U2 F2 R2 F2 U2 F2', '6.0'] cs/fr 0.0 0.0 sheet 7.0 ours 6 alg HTM 7
+  165  length of listed alg (HTM) - our all-move optimum = +0
+   32  length of listed alg (HTM) - our all-move optimum = +1
+   19  length of listed alg (HTM) - our all-move optimum = +2
+  216  rows
+  210  sheet optimum - our all-move optimum = +0
+    6  sheet optimum - our all-move optimum = +1

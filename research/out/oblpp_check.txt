@@ -1,0 +1,6 @@
+HTR states: 663552
+classes: 216 sizes: {3072}
+D-D - F-H R-H even: 3072 states in the class; nissy found a solution of <= 8 face turns for 0 of them
+R-V + F-D R-H even: 3072 states in the class; nissy found a solution of <= 8 face turns for 0 of them
+R-V + F-D R-D odd: 3072 states in the class; nissy found a solution of <= 8 face turns for 0 of them
+D-D + F-H R-H even: 3072 states in the class; nissy found a solution of <= 8 face turns for 0 of them

@@ -1,0 +1,21 @@
+corner symmetry classes: 2768 ; reduced states: 1339269120 ; bitset 167.4 MB
+depth  0: 1 states (1 reduced) total 1
+depth  1: 10 states (3 reduced) total 11
+depth  2: 67 states (10 reduced) total 78
+depth  3: 456 states (58 reduced) total 534
+depth  4: 3079 states (373 reduced) total 3613
+depth  5: 19948 states (2186 reduced) total 23561
+depth  6: 123074 states (11970 reduced) total 146635
+depth  7: 736850 states (67153 reduced) total 883485
+depth  8: 4185118 states (359102 reduced) total 5068603
+depth  9: 22630733 states (1836842 reduced) total 27699336
+depth 10: 116767872 states (8991553 reduced) total 144467208
+depth 11: 552538680 states (40669940 reduced) total 697005888
+depth 12: 2176344160 states (154311865 reduced) total 2873350048
+depth 13: 5627785188 states (385288699 reduced) total 8501135236
+depth 14: 7172925794 states (482367128 reduced) total 15674061030
+depth 15: 3608731814 states (246135848 reduced) total 19282792844
+depth 16: 224058996 states (18986334 reduced) total 19506851840
+depth 17: 1575608 states (239871 reduced) total 19508427448
+depth 18: 1352 states (184 reduced) total 19508428800
+total 19508428800 (expected 19508428800)

@@ -1,0 +1,21 @@
+labels 216, FakeMMAP DS_2e cells parsed 216
+ 150  DR-move - all-move = 0
+  37  DR-move - all-move = 1
+  22  DR-move - all-move = 2
+   6  DR-move - all-move = 3
+   1  DR-move - all-move = 4
+ 211  FakeMMAP(HTR-breaking table) - all-move = 0
+   5  FakeMMAP(HTR-breaking table) - all-move = 1
+ 214  half-turn - DR-move = 0
+   2  half-turn - DR-move = 1
+
+classes where quarter turns (DR moves) beat half turns:
+   R-D - F-V R-V even half-turn 9 DR-move 8 all-move 7
+   F-D - F-V R-V even half-turn 9 DR-move 8 all-move 7
+
+classes where FakeMMAP's HTR-breaking table differs from the all-move optimum:
+   F-D + F-V R-H odd half-turn 7 DR-move 7 all-move 6 FakeMMAP 7 | a state of this class is produced by: R L' B2 D2 R L'
+   R-D + F-H R-V odd half-turn 7 DR-move 7 all-move 6 FakeMMAP 7 | a state of this class is produced by: F' B R2 D2 F B'
+   H-H + F-D R-D odd half-turn 9 DR-move 9 all-move 8 FakeMMAP 9 | a state of this class is produced by: R D2 F2 B2 R' L F2 R'
+   H-H + F-V R-D odd half-turn 9 DR-move 9 all-move 8 FakeMMAP 9 | a state of this class is produced by: L' F2 R L' F2 B2 D2 L
+   H-H + F-D R-V odd half-turn 9 DR-move 9 all-move 8 FakeMMAP 9 | a state of this class is produced by: F L2 F B' R2 L2 D2 F'

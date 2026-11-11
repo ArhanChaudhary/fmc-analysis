@@ -1,0 +1,7 @@
+htr       classes met: 29400 ; best case of class == table value: 29400 ; differ: 0
+c         classes met: 2768 ; best case of class == table value: 2768 ; differ: 0
+c+p       classes met: 5536 ; best case of class == table value: 5536 ; differ: 0
+c+bad+p   classes met: 387520 ; best case of class == table value: 387520 ; differ: 0
+KF        classes met: 6350400 ; best case of class == table value: 6350400 ; differ: 0
+K0+F      classes met: 25401600 ; best case of class == table value: 25401600 ; differ: 0
+c+2520+F  classes met: 27901440 ; best case of class == table value: 27901440 ; differ: 0

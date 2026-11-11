@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+"""Corner-case tables (markdown): finish by corner case on the normal side, and on both sides."""
+import csv, collections, math, sys
+sys.path.insert(0, '/data/fmc/research/src')
+from hand_kill import load
+def st(h):
+    n = sum(h); return n, sum(d*c for d, c in enumerate(h))/n
+def P(h, T): return 100*sum(h[:T+1])/sum(h)
+POS = ['UFR', 'UFL', 'UBL', 'UBR', 'DFR', 'DFL', 'DBL', 'DBR']
+ADJ_U = {(0, 1), (1, 2), (2, 3), (0, 3)}
+def layout(mask):
+    bad = [p for p in range(8) if mask >> p & 1]
+    u = [p for p in bad if p < 4]; d = [p - 4 for p in bad if p >= 4]
+    def shape(x):
+        if len(x) == 2: return 'adjacent' if tuple(sorted(x)) in ADJ_U else 'diagonal'
+        return ''
+    if not bad: return 'none bad'
+    if len(bad) == 2:
+        if len(u) == 1: return '1 up 1 down, stacked' if u[0] == d[0] else ('1 up 1 down, across a face' if (min(u[0], d[0]), max(u[0], d[0])) in ADJ_U else '1 up 1 down, opposite')
+        return 'both on one layer, ' + shape(u or d)
+    if len(bad) == 4:
+        if len(u) in (0, 4): return '4-0'
+        if len(u) in (1, 3): return '3-1'
+        su, sd = shape(u), shape(d)
+        if su == sd == 'adjacent':
+            return '2-2, pairs stacked' if set(u) == set(d) else ('2-2, pairs on opposite sides' if not set(u) & set(d) else '2-2, pairs sharing one column')
+        return f'2-2, {su} over {sd}'
+    return f'{len(bad)} bad'
+cc = {r[0]: r for r in load('corner_cases.csv')[1]}   # id -> row
+NAME = {}
+def label(k):
+    r = cc[k]; return f'{NAME[k]} ({layout(int(r[2]))}, L {r[5]}–{r[6]})'
+k1 = load('k1_corner_cases.csv')[1]
+one = collections.defaultdict(lambda: collections.defaultdict(lambda: [0]*19))
+two = collections.defaultdict(lambda: collections.defaultdict(lambda: [0]*19))
+for s, a, b, d, c in k1:
+    cs = cc[a][1][:1] + ('c' if cc[a][1][1] in 'ab' and cc[a][1][2] in '345' else cc[a][1][1]) + cc[a][1][2]   # 4a3/4b3 -> 4c3 etc.
+    one[s.split()[0]][a][int(d)] += int(c); two[s.split()[0]][tuple(sorted((a, b), key=int))][int(d)] += int(c)
+out = []
+for cs in ['0c0', '4a1', '4a2', '4b2', '0c3', '2c3', '4c3', '0c4', '2c4', '4c4', '2c5', '4b5']:
+    tot = sum(sum(h) for h in one[cs].values())
+    out.append(f'\n**{cs}**\n\n| Case | Bad corners | L | Example (scramble) | A qt takes it straight to | Share | Avg optimal | ≤ 12 | ≤ 13 |\n|---|---|---|---|---|---:|---:|---:|---:|')
+    for i, (k, h) in enumerate(sorted(one[cs].items(), key=lambda kv: st(kv[1])[1])):
+        NAME[k] = f'{cs}-{i+1}'
+        out.append(f'| {NAME[k]} | {layout(int(cc[k][2]))} | {cc[k][5]}–{cc[k][6]} | `{cc[k][9]}` | {cc[k][10] or "nothing (set up first)"} | {100*sum(h)/tot:.1f}% | {st(h)[1]:.2f} | {P(h,12):.1f}% | {P(h,13):.1f}% |')
+    if len(one[cs]) > 1:
+        out.append(f'\n{cs}, corner case on both sides (normal and inverse, either order):\n\n| One side | Other side | Share | Avg optimal | ≤ 12 | ≤ 13 |\n|---|---|---:|---:|---:|---:|')
+        for k, h in sorted(two[cs].items(), key=lambda kv: st(kv[1])[1]):
+            out.append(f'| {NAME[k[0]]} | {NAME[k[1]]} | {100*sum(h)/tot:.1f}% | {st(h)[1]:.2f} | {P(h,12):.1f}% | {P(h,13):.1f}% |')
+open('/data/fmc/report/data/corner_cases.md', 'w').write('\n'.join(out) + '\n')
+print(len(out), 'lines')
