@@ -1,0 +1,47 @@
+# Deploy the reports as a website to GitHub Pages on every push to the default branch.
+# The custom domain (fmc.arhan.sh) is set in the repository's Pages settings; Pages source:
+# GitHub Actions.
+name: GitHub Pages
+
+# Only pushes to main: a run from another branch would join the github-pages concurrency group
+# and replace a deploy waiting there, even though its build job is then skipped.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v5
+      - name: Install pandoc
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+      - name: Build the site
+        run: scripts/build-pages.sh "${RUNNER_TEMP}/fmc-pages"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ runner.temp }}/fmc-pages
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

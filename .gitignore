@@ -1,0 +1,15 @@
+# Not published: the Discord export, the knowledge base built from it, and other people's attachments and docs.
+/assets/
+/kb/
+# Local tools and scratch space.
+/tools/
+/venv/
+/tmp/
+/lean/FMC/
+# Build outputs and large generated tables (README: how to regenerate them).
+.lake/
+/research/data/
+/research/drtools/target/
+__pycache__/
+*.pyc
+/_site/

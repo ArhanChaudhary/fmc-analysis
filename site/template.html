@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>$pagetitle$</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./">Judging a DR by hand</a>
+  <nav>
+    <a href="./"$if(is-writeup)$ class="here"$endif$>Write-up</a>
+    <a href="examples.html"$if(is-examples)$ class="here"$endif$>Examples</a>
+    <a href="errata.html"$if(is-errata)$ class="here"$endif$>Errata</a>
+    <a href="https://github.com/ArhanChaudhary/fmc-analysis">Source</a>
+  </nav>
+</header>
+<div class="layout">
+  <aside class="toc">
+    <details open>
+      <summary>On this page</summary>
+      $toc$
+    </details>
+  </aside>
+  <main>
+    <h1 class="title">$title$</h1>
+$body$
+  </main>
+</div>
+</body>
+</html>
