@@ -46,13 +46,10 @@ It is a DR-2s, not a DR-1s: four flipped edges, all of one slice, with the cente
 trangium said he could not get that line to work ([[T11234]]) and proposed "FB-colored misoriented, others oriented" instead: that one is right, it gives a DR-1s whose four flipped edges belong to one slice. count quackula's 12-bad notes say the same for green/blue: "This is a DR-2s 4fe." The other five lines of Rodney's list are right.
 
 **B2. "I would guess the distribution is basically flat", and 3 moves as the median** for DR-1s to DR (Rodney, [[T12409]], [[T12410]]).
-Of the 70 layouts, {= FIX70(2) =} needs 2 turns, {= FIX70(3) =} need 3, {= FIX70(4) =} need 4, {= FIX70(5) =} need 5 and {= FIX70(6) =} need 6. The median is 5. A 6: after `{= W6() =}` the shortest fix is 6 turns (`{= WIT['six']['fix'] =}`). Right after a trigger, with the slice free to merge into its last move, the best case is 0 extra turns but most layouts still need 5.
+Of the 70 layouts, {= FIX70(2) =} needs 2 turns, {= FIX70(3) =} need 3, {= FIX70(4) =} need 4, {= FIX70(5) =} need 5 and {= FIX70(6) =} need 6. His 3 is one half turn, one quarter turn and the slice with one of its two turns cancelling; counted that way the median layout is 4, and 5 from scratch. A 6: after `{= W6() =}` the shortest fix is 6 turns (`{= WIT['six']['fix'] =}`). Right after a trigger, with the slice free to merge into its last move, the best case is 0 extra turns but most layouts still need 5.
 
-**B3. "closer to 3"** for the moves to fix the flipped edges (Rodney, [[T10688]], answering trangium's "~6").
-From a DR-1s it is {= FIXAVG(1) =} on average and from a DR-2s {= FIXAVG(2) =}. trangium's 6 was nearer, and so was sqAree's "more than 5 moves most of the time" ([[T10672]]): {= FIXSHARE(1, (5, 6)) =} of DR-1s layouts need 5 or 6.
-
-**B4. "If you have 8 bad edges, where all the good edges belong to the same slice, then you can orient the corners that correspond to the good edges along any axis and you are guaranteed an extra-good dr-xs"** (Rodney, [[T11255]]).
-True for two of the three pairs of faces. With the corners on the faces of the EO axis itself it is a DR-1s, but how its four flipped edges split between slices is not fixed: 2-2 about half the time, 3-1 nearly half, 4-0 rarely. `{= WIT['eight_bad_split']['scramble'] =}` has 8 bad edges on F/B with the four good ones the E-slice edges, white/yellow corners oriented on F and B, and a 3-1 split.
+**B3. "If you have 8 bad edges, where all the good edges belong to the same slice, then you can orient the corners that correspond to the good edges along any axis and you are guaranteed an extra-good dr-xs"** (Rodney, [[T11255]]).
+Take the EO axis as F/B and the four good edges as the E-slice edges, so the corners in question are the white/yellow ones. On U/D they give a DR-2s with all eight edges flipped and the centers right, and on R/L a DR-2s with no edge flipped: in both there is no flipped edge to place, which is his extra-good. On F/B, the faces of the EO axis itself, they give a DR-1s, but how its four flipped edges split between slices is not fixed: 2-2 about half the time, 3-1 nearly half, 4-0 rarely. So "any axis" holds for two of the three. `{= WIT['eight_bad_split']['scramble'] =}` has 8 bad edges on F/B with the four good ones the E-slice edges, white/yellow corners oriented on F and B, and a 3-1 split.
 
 ---
 
@@ -62,15 +59,15 @@ True for two of the three pairs of faces. With the corners on the faces of the E
 - **"dr-1s to dr is like 6 moves max?"**, "i don't think 7 optimal exists" (Daichi, [[T12406]], [[T12408]]): exactly right.
 - **"DR-2s needs at most 2 moves to reach DR-1s"** (Rodney, [[T12409]]): right, counting the setup before the slice.
 - **From DR-3s, DR-2s in 0 moves** with a slice that cancels with the last DR move (the tutorial): right for every DR-3s.
-- **trangium's averages** in the tutorial: DR-1s +2.2 to +2.4 over a DR, DR-2s 8fe +0.85 to +1.14. Mine, with the best finish of the method's form: +{= D1() =} and +{= D8() =} overall.
+- **trangium's averages** in the tutorial (true optimals): DR-1s +1.8 to +2.4 over a DR by subset, DR-2s 8fe +0.85 to +1.14. Mine, with the best finish of the method's form, are 0.1 to 0.4 above his by subset: +{= D1() =} and +{= D8() =} overall.
 - **"8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR"** (the tutorial): right, in odds too.
-- **4-0 great, 2-2 good, 3-1 bad** (Rodney [[T10832]], tseitsei89): the order is right; the gap from 2-2 to 3-1 is a quarter of a move.
-- **Slice EO "is never more than 2 moves away"**, "No matter which slice you pick" (FakeMMAP, [[T10773]], [[T10774]]); "partial EO in <=2 is guaranteed" (EO Meta Comparison): exact.
+- **4-0 great, 2-2 good, 3-1 bad** (Rodney [[T10832]], tseitsei89 [[T10822]]): the order is right. The gap from 2-2 to 3-1 is a quarter of a move, and 4-0 is only better when the slice the four belong to is the one that fixes.
+- **Slice EO "is never more than 2 moves away"**, "No matter which slice you pick" (FakeMMAP, [[T10773]], [[T10774]]); "partial EO in <=2 is guaranteed" (EO Meta Comparison): exact, counting all-misoriented as a slice EO.
 - **One in 2^3 for a slice and an axis** (tseitsei89 [[D19427]], count quackula [[D19423]]): right. At least one skip on a scramble: {= SKIP4('normal') =} on normal, {= SKIP4('both') =} with inverse.
-- **A misoriented slice EO needs an axis with 8 bad edges** to give a DR-1s (tseitsei89 [[T11009]], trangium [[T11357]]): right, and misoriented on the slice's own axis never does.
+- **A misoriented slice EO needs an axis with 8 bad edges** to give a DR-1s (tseitsei89 [[T11009]], trangium [[T11357]]): right for routes that keep that axis's EO, and misoriented on the slice's own axis never does.
 - **"The chance of getting 4 flipped edges in general is 55%"** (Rodney, [[T11566]]): 70 in 128.
 - **The optimal linear dr-fe distribution** 1, 4, 50, 586, 6800, 72894, 659610, 3479477, 4193028, 247986, 84 (trangium, [[T11332]]): reproduced exactly.
-- **count quackula's 12-bad notes and guaranteed-fix list**: every case is the kind the pattern table gives.
+- **count quackula's 12-bad notes and guaranteed-fix list**: every case is the kind that Appendix B of the write-up gives.
 - **The tutorial's first example** (FMCL S9W3A2): its skips, its DR-2s, its 4a2-1s and its 19 all come out the same, and 19 is the best its DR-1s allows in that form.
 
 ---

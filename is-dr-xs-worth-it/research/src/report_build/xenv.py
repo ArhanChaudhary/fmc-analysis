@@ -51,7 +51,7 @@ def SKIP(key, k='some'):
     if k == 'avg': return f2(sum(a * b for a, b in h.items()) / tot)
     return num(100 * h.get(k, 0) / tot)
 def SKIP4(key): h = _skip(key); return f'{100 * (sum(h.values()) - h[0]) / sum(h.values()):.4f}%'
-def SD(name, k): h = SDIST[name]; return num(100 * h.get(str(k), 0) / 7920)
+def SD(name, k): h = SDIST[name]; v = 100 * h.get(str(k), 0) / 7920; return '0' if v == 0 else f'{v:.1f}%'
 def _h(key): return {int(k): v for k, v in J[key].items()}
 def SH(key, t): h = _h(key); return num(100 * sum(c for d, c in h.items() if d <= t) / sum(h.values()))
 def SHR(key): h = _h(key); return num(100 * (1 - h.get(255, 0) / sum(h.values())), 1)
@@ -79,10 +79,10 @@ def W12():
 REAL = json.load(open(O + 'real.json')) if os.path.exists(O + 'real.json') else {}
 def RL(key, sub=None, f='{:.2f}'):
     v = REAL[key] if sub is None else REAL[key][sub]
-    return f.format(v) if isinstance(v, float) else str(v)
+    return f.format(v) if isinstance(v, (int, float)) else str(v)
 def POL(i, what='result'):
     v = REAL['policies'][i][what]; return f'{v:.2f}' if what == 'result' else f'{v:,.0f}'
-def POLD(i, j): return f"{REAL['policies'][i]['result'] - REAL['policies'][j]['result']:.2f}"
+def POLD(i, j): return f"{round(REAL['policies'][i]['result'], 2) - round(REAL['policies'][j]['result'], 2):.2f}"
 def POLN(i, j): return f"{REAL['policies'][i]['n'] - REAL['policies'][j]['n']:,.0f}"
 def TH(name, k=0): return REAL['there'][name][k]
 def YLD(key): return num(100 * REAL['yield'][key])
@@ -98,8 +98,37 @@ def EO(col, f='avg'):
     return f'{sum(v) / len(v):,.1f}' if f == 'avg' else num(100 * sum(x > 0 for x in v) / len(v))
 def EOP(key, i, what='result'):
     v = REAL[key]['policies'][i][what]; return f'{v:.2f}' if what == 'result' else f'{v:,.0f}'
-def EOD(key, i, j): return f"{REAL[key]['policies'][i]['result'] - REAL[key]['policies'][j]['result']:.2f}"
+def EOD(key, i, j): return f"{round(REAL[key]['policies'][i]['result'], 2) - round(REAL[key]['policies'][j]['result'], 2):.2f}"
 def EOV(k, f='{:,.0f}'): return f.format(REAL['eo'][k])
+def YX2(a, b): return f"{REAL['yield'][a] / REAL['yield'][b]:.2f}"
+def _better(k):
+    a = xv._rows('sample1s.tsv'); b = xv._rows('sample1s_labels.tsv')
+    return [int(x['finish']) for x, y in zip(a, b) if min(int(y['turns_to_dr']), int(y['turns_to_dr_inverse'])) == k]
+def BETTER(k, what='avg'):
+    v = _better(k); n = len(xv._rows('sample1s.tsv'))
+    if what == 'share': return num(100 * len(v) / n)
+    if what == 'avg': return f2(sum(v) / len(v))
+    if what == 'diff': return f2(sum(v) / len(v) - avg(xv.dr()))
+    return num(100 * sum(x <= what for x in v) / len(v))
+def OTHER4(what='avg'):
+    """DR-1s whose four flipped edges all sit in the slice that does not fix (4 turns: F B R L)."""
+    a = xv._rows('sample1s.tsv'); b = xv._rows('sample1s_labels.tsv')
+    v = [int(x['finish']) for x, y in zip(a, b) if y['turns_to_dr'] == '4' and y['split_inverse'] == '4-0']
+    return f2(sum(v) / len(v)) if what == 'avg' else f2(sum(v) / len(v) - avg(xv.dr()))
+def EXCH():
+    """The DR-1s against the DR at equal odds: for finishes of 13 to 16, how many moves earlier a DR has the same chance (odds interpolated on a log scale)."""
+    import math
+    d, h = xv.dr(), xv.one_s(); out = []
+    cd = lambda t: sum(d[:t + 1]) / sum(d)
+    for t in (13, 14, 15, 16):
+        p = sum(h[:t + 1]) / sum(h)
+        x = next(u for u in range(1, 19) if cd(u) >= p)
+        frac = (math.log(p) - math.log(cd(x - 1))) / (math.log(cd(x)) - math.log(cd(x - 1)))
+        out.append(t - (x - 1 + frac))
+    return f1(sum(out) / len(out))
+def SE1(): return f'{xv.se(xv.one_s()):.3f}'
+def SE8(): return f'{xv.se(xv.eight()):.2f}'
+def A8C(): r = xv._rows('sample8fe.tsv'); return f2(sum(int(x['finish_setup3']) for x in r) / len(r))
 def REAL_HEADLINE(): return open(os.path.dirname(os.path.abspath(__file__)) + '/real_headline.md').read().strip() if os.path.exists(os.path.dirname(os.path.abspath(__file__)) + '/real_headline.md') else '(pending)'
 def REAL_VERDICT(): return open(os.path.dirname(os.path.abspath(__file__)) + '/real_verdict.md').read().strip() if os.path.exists(os.path.dirname(os.path.abspath(__file__)) + '/real_verdict.md') else '(pending)'
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}

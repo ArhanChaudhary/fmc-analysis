@@ -1,4 +1,4 @@
-| The skip | A route exists | In 5 or less | In 6 or less | In 7 or less | In 8 or less | In 9 or less | Average when there is one |
+| The skip | A route exists | In 5 or less (of all such skips) | In 6 or less | In 7 or less | In 8 or less | In 9 or less | Average when there is one |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | another axis than the slice's own, all oriented, strict | always | 1.0% | 7.1% | 36% | 88% | 99.9% | 7.68 |
 | another axis than the slice's own, all oriented, quarter turns allowed when they miss the slice pieces | always | 1.1% | 8.0% | 41% | 91% | 99.9% | 7.59 |

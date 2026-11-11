@@ -231,7 +231,8 @@ fn sample1s(a: &[String]) {
                 assert!(p + q == 4);
                 format!("{}-{}", p.max(q), p.min(q))
             };
-            let splits = format!("{}\t{}", sp(&x), sp(&x.inverse()));
+            let tinv = fin.views(&x.inverse()).into_iter().find(|(_, _, kk)| kk.slices == 1).unwrap().2.turns;
+            let splits = format!("{}\t{}\t{}", sp(&x), sp(&x.inverse()), tinv);
             if a.get(5).map(|v| v.as_str()) == Some("labels") {
                 return format!("{sub}\t{}\t{splits}", k.turns);
             }
@@ -248,9 +249,9 @@ fn sample1s(a: &[String]) {
         })
         .collect();
     if labels {
-        println!("subset\tturns_to_dr\tsplit\tsplit_inverse");
+        println!("subset\tturns_to_dr\tsplit\tsplit_inverse\tturns_to_dr_inverse");
     } else {
-        println!("subset\tturns_to_dr\tfinish\tfinish_setup4\tsetup\tdr_finish\tfound_on_inverse\tsplit\tsplit_inverse{}", if dump { "\tfinish_setup3\tstate" } else { "" });
+        println!("subset\tturns_to_dr\tfinish\tfinish_setup4\tsetup\tdr_finish\tfound_on_inverse\tsplit\tsplit_inverse\tturns_to_dr_inverse{}", if dump { "\tfinish_setup3\tstate" } else { "" });
     }
     for r in rows {
         println!("{r}");

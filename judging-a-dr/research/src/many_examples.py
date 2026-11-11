@@ -400,7 +400,7 @@ def build(rerun):
     out = [START, '', '## 100 scrambles: which DRs would you finish?', '',
            f"A hundred random-state scrambles, written the way FMC scrambles are, and for each one some of the DRs you could have on your page. "
            "What you can read off each DR without solving is in the table. The answers are folded away under it: pick the DRs you'd finish, then open them.", '',
-           f"**Where the DRs come from.** cubelib-cli (the solver behind Mallard) lists every DR that goes EO first, with NISS, and then DR on normal or on inverse without breaking the EO, on all three axes. "
+           f"**Where the DRs come from.** cubelib-cli (the solver behind Mallard) lists every DR that goes EO first (EOs of up to 5 moves, it lists no longer ones), with NISS, and then DR on normal or on inverse without breaking the EO, on all three axes. "
            f"A scramble has far more of those than anyone writes down: {per11:,.0f} up to 11 moves on average over the {N_RUN} scrambles of the tally at the end. "
            f"Each scramble shows at most {SHOWN} of them: up to {SHOWN // 2} of 10 moves or less, shortest first, then 11-movers, drawn at random where there are more. Nothing was picked by how it finishes.", '',
            "**What is being tried out.** A DR of 10 moves or less you finish whatever it looks like. The 11-movers are where you need a quick way to say no, and that is what the short list in the write-up's guide is for. It needs no solving:", '']

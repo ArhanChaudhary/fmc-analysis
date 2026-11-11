@@ -69,13 +69,13 @@ for ln in (10, 11, 12):
 write('real_head', L)
 # ---- per candidate: how they finish against the uniform samples, and how often one reaches the best normal-DR solution
 allr = [r for s in S for r in one[s]]; alle = [r for s in S for r in eight[s]]
-L = ['| Kind and length | On the 500 scrambles | Average finish | Uniform sample |', '|---|---:|---:|---:|']
+L = ['| Kind and length | Number on the 500 scrambles | Their average finish | Average finish of the uniform sample |', '|---|---:|---:|---:|']
 for ln in (6, 7, 8):
     rs = [r for r in allr if int(r['length']) == ln]
     L.append(f"| DR-1s in {ln} | {len(rs):,} | {avg(int(r['finish']) for r in rs):.2f} | {xv.avg(xv.one_s()):.2f} |")
 for ln in (7, 8, 9):
     rs = [r for r in alle if int(r['length']) == ln]
-    L.append(f"| DR-2s 8fe in {ln} | {len(rs):,} | {avg(int(r['finish']) for r in rs):.2f} | {(format(xv.avg(xv.eight()), '.2f') if sum(xv.eight()) else '')} |")
+    L.append(f"| DR-2s 8fe in {ln} | {len(rs):,} | {avg(int(r['finish']) for r in rs):.2f} | {avg(int(x['finish_setup3']) for x in xv._rows('sample8fe.tsv')):.2f} (same 3-move setup search) |")
 write('real_candidates', L)
 L = ['| What you finish | Of them per scramble | Share that reach the best normal-DR solution of the scramble | One in |', '|---|---:|---:|---:|']
 Y = {}
@@ -111,7 +111,7 @@ if os.path.exists(O + 'eo_run.tsv'):
                (f'EOs of 4 or less: DRs of {cap} or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (eo[s][f'drs{cap}_eo4'] + count(one[s], 8) + count(eight[s], 9), min(eo[s][f'best{cap}_eo4'], best(one[s], 8), best(eight[s], 9)))),
                (f'EOs of 5 or less: every DR of {cap} or less', lambda s: (eo[s][f'drs{cap}_eo5'], eo[s][f'best{cap}_eo5'])),
                (f'EOs of 5 or less: DRs of {cap} or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (eo[s][f'drs{cap}_eo5'] + count(one[s], 8) + count(eight[s], 9), min(eo[s][f'best{cap}_eo5'], best(one[s], 8), best(eight[s], 9))))]
-        L = ['| You check and finish | EOs to check, per scramble | To finish, per scramble | Result, average |', '|---|---:|---:|---:|']; P = []
+        L = ['| You check and finish | Normal EOs to check, per scramble | To finish, per scramble | Result, average |', '|---|---:|---:|---:|']; P = []
         for i, (nm, f) in enumerate(pol):
             v = [f(s) for s in Hs]; ne = avg(eo[s]['eos4' if i < 4 else 'eos5'] for s in Hs)
             L.append(f'| {nm} | {ne:,.0f} | {avg(c for c, _ in v):,.0f} | {avg(b for _, b in v):.2f} |'); P.append(dict(name=nm, eos=ne, n=avg(c for c, _ in v), result=avg(b for _, b in v)))

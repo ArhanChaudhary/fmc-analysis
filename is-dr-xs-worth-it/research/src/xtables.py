@@ -25,7 +25,7 @@ def t_fix():
     K = kinds(); L = ['| Slices needed | Kinds | ' + ' | '.join(f'{t} turns' for t in range(2, 11)) + ' | Average |', '|---:|---:|' + '---:|' * 10]
     for s in (1, 2, 3):
         rows = [int(r['turns_to_dr']) for r in K if int(r['slices']) == s]; c = collections.Counter(rows)
-        L.append(f"| {s} | {len(rows)} | " + ' | '.join(str(c[t]) if c[t] else '' for t in range(2, 11)) + f' | {sum(rows) / len(rows):.2f} |')
+        L.append(f"| {s} | {len(rows)} | " + ' | '.join(str(c[t]) for t in range(2, 11)) + f' | {sum(rows) / len(rows):.2f} |')
     write('fix_turns', L)
     # DR-1s by where the four flipped edges sit, for corners on F/B (the fixing slice is R L)
     import fe
@@ -36,10 +36,10 @@ def t_fix():
         if r['slices'] != '1' or r['faces'] != 'FB': continue
         inside = sum(1 for p, b in zip(pl, r['flip_places']) if b == '1' and p[0] == 0)
         g[inside].append((int(r['turns_to_dr']), ' '.join(name(p) for p, b in zip(pl, r['flip_places']) if b == '1'), r['fix']))
-    L = ['| Flipped edges already in the slice that fixes | Layouts | Turns to DR | Shortest example: flipped at | Fix |', '|---:|---:|---|---|---|']
+    L = ['| Flipped edges already in the slice that fixes | Layouts | Turns to DR (number of layouts) | Shortest example: flipped at | Its fix |', '|---:|---:|---|---|---|']
     for k in (4, 3, 2, 1, 0):
         c = collections.Counter(t for t, _, _ in g[k]); ex = min(g[k])
-        L.append(f"| {k} | {len(g[k])} | {', '.join(f'{t}: {n}' for t, n in sorted(c.items()))} | {ex[1]} | `{ex[2]}` |")
+        L.append(f"| {k} | {len(g[k])} | {', '.join(f'{t} turns ({n})' for t, n in sorted(c.items()))} | {ex[1]} | `{ex[2]}` |")
     write('dr1s_layouts', L)
 
 def t_finish():
@@ -49,38 +49,35 @@ def t_finish():
     L = ['| Corner subset | Share of states | DR: average finish | DR-1s: average finish | DR-1s against DR | trangium\'s DR-1s (nissy optimal) | DR-2s 8fe: average finish | 8fe against DR | trangium\'s 8fe (nissy optimal) |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
     for cs in CS_ORDER + [None]:
         d, h = xv.dr(cs), xv.one_s(cs); e = xv.eight(cs) if have8 else None
-        L.append(f"| {cs or '**all**'} | {100 * sum(d) / sum(xv.dr()):.1f}% | {avg(d):.2f} | {avg(h):.2f} | +{avg(h) - avg(d):.2f} | {TR1.get(cs, '')} | " +
+        L.append(f"| {cs or '**all**'} | {num(100 * sum(d) / sum(xv.dr())) if cs else '100%'} | {avg(d):.2f} | {avg(h):.2f} | +{avg(h) - avg(d):.2f} | {TR1.get(cs, '')} | " +
                  (f"{avg(e):.2f} | +{avg(e) - avg(d):.2f}" if e and sum(e) else ' | ') + f" | {TR8.get(cs, '')} |")
     write('finish_subset', L)
     T = range(10, 19)
     L = ['| Finish in | ' + ' | '.join(f'{t} or less' for t in T) + ' | Average |', '|---|' + '---:|' * (len(T) + 1)]
     rows = [('a DR', xv.dr()), ('a DR-1s', xv.one_s()), ('a DR-1s that one slice turn fixes', xv.one_s(turns=(2,))), ('a DR-1s that needs 5 or 6 turns to DR', xv.one_s(turns=(5, 6)))]
     if have8: rows.insert(1, ('a DR-2s 8fe', xv.eight()))
-    for nm, h in rows: L.append(f'| {nm} | ' + ' | '.join(pct(h, t) for t in T) + f' | {avg(h):.2f} |')
+    def spct(h, t, sampled=False):
+        v = pct(h, t); return f'0 of {sum(h):,}' if v == '0' and sampled else v
+    for nm, h in rows: L.append(f'| {nm} | ' + ' | '.join(spct(h, t, nm != 'a DR') for t in T) + f' | {avg(h):.2f} |')
     write('finish_odds', L)
     # solution length: route length + finish
     N = range(18, 25)
     L = ['| You have | ' + ' | '.join(f'{n} or less' for n in N) + ' |', '|---|' + '---:|' * len(N)]
-    def row(nm, h, length): L.append(f'| {nm} | ' + ' | '.join(pct(h, n - length) for n in N) + ' |')
+    def row(nm, h, length): L.append(f'| {nm} | ' + ' | '.join(spct(h, n - length, 'DR in' not in nm or '1s' in nm or '8fe' in nm) for n in N) + ' |')
     for ln in (9, 10, 11, 12): row(f'a DR in {ln}', xv.dr(), ln)
     for ln in (6, 7, 8, 9): row(f'a DR-1s in {ln}', xv.one_s(), ln)
     if have8:
         for ln in (7, 8, 9, 10): row(f'a DR-2s 8fe in {ln}', xv.eight(), ln)
     write('solution_odds', L)
-    # split
+    # by the fewest turns to DR, taking the better of the two sides of the scramble
     a = xv._rows('sample1s.tsv'); b = xv._rows('sample1s_labels.tsv')
-    L = ['| Flipped edges by the slice they belong to | Share of DR-1s | Average finish | In 14 or less | In 15 or less |', '|---|---:|---:|---:|---:|']
-    def srow(nm, p):
+    L = ['| Fewest turns to a real DR, from the better side | Share of DR-1s | Average finish | Against a DR | In 14 or less | In 15 or less |', '|---:|---:|---:|---:|---:|---:|']
+    for k in (2, 3, 4, 5, 6):
         h = [0] * 30
         for x, y in zip(a, b):
-            if p(y): h[int(x['finish'])] += 1
-        L.append(f'| {nm} | {100 * sum(h) / len(a):.1f}% | {avg(h):.2f} | {pct(h, 14)} | {pct(h, 15)} |')
-    srow('4-0 on at least one side', lambda y: '4-0' in (y['split'], y['split_inverse']))
-    srow('2-2 on both sides', lambda y: y['split'] == y['split_inverse'] == '2-2')
-    srow('2-2 on one side, 3-1 on the other', lambda y: {y['split'], y['split_inverse']} == {'2-2', '3-1'})
-    srow('3-1 on both sides', lambda y: y['split'] == y['split_inverse'] == '3-1')
-    srow('any', lambda y: True)
-    write('split', L)
+            if min(int(y['turns_to_dr']), int(y['turns_to_dr_inverse'])) == k: h[int(x['finish'])] += 1
+        L.append(f'| {k} | {num(100 * sum(h) / len(a))} | {avg(h):.2f} | +{avg(h) - avg(xv.dr()):.2f} | {pct(h, 14)} | {pct(h, 15)} |')
+    write('better', L)
 
 def t_skip():
     txt = open(O + 'seo_skip.txt').read()
@@ -106,7 +103,7 @@ def t_skip():
         mean = sum(d * c for d, c in h.items() if d != 255) / reach if reach else 0
         cum = lambda t: sum(c for d, c in h.items() if d <= t)
         return f'| {nm} | {fmt(reach, tot) if reach < tot else "always"} | ' + ' | '.join(fmt(cum(t), tot) if reach else '' for t in (5, 6, 7, 8, 9)) + f' | {mean:.2f} |' if reach else f'| {nm} | never | | | | | | |'
-    head = ['| The skip | A route exists | In 5 or less | In 6 or less | In 7 or less | In 8 or less | In 9 or less | Average when there is one |', '|---|---:|---:|---:|---:|---:|---:|---:|']
+    head = ['| The skip | A route exists | In 5 or less (of all such skips) | In 6 or less | In 7 or less | In 8 or less | In 9 or less | Average when there is one |', '|---|---:|---:|---:|---:|---:|---:|---:|']
     fam = [('another axis than the slice\'s own, all oriented', 'eo-fb', 'A oriented'), ('another axis, all misoriented', 'eo-fb', 'A misoriented'),
            ('the slice\'s own axis, all oriented', 'eo-ud', 'B oriented'), ('the slice\'s own axis, all misoriented', 'eo-ud', 'B misoriented')]
     for cls, title in (('1s', 'skip_to_1s'), ('2s8fe', 'skip_to_8fe'), ('dr', 'skip_to_dr')):
@@ -147,7 +144,7 @@ def t_appendix():
         parts = []
         for s_, cc in sorted(by.items()):
             nm = 'DR' if s_ == 0 else f'DR-{s_}s'
-            parts.append(f'{nm}, {flips(cc)}' if len(by) == 1 else f'{nm} ({100 * sum(cc.values()) / n:.0f}%), {flips(cc)}')
+            parts.append(f'{nm}, {flips(cc)}' if len(by) == 1 else f'{nm} ({num(100 * sum(cc.values()) / n)}), {flips(cc)}')
         return '; '.join(parts)
     L = ['The frame: the corners\' colour is white/yellow (U/D), so the slice edges of the DR-xs are the E-slice edges; "M" and "S" are the edges belonging to the M and S slices. The orientation is for the axis in the first column, and the route keeps it (no quarter turns of that axis\'s faces). Each class of edges is all good or all bad. A percentage means it depends on where the pieces end up; without one it is guaranteed. Any other colour or axis is this table with the cube turned.', '',
          '| EO axis | Bad edges | Corners on U/D (their own faces) | Corners on R/L | Corners on F/B |', '|---|---|---|---|---|']

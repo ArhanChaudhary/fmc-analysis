@@ -10,11 +10,11 @@ The frame: the corners' colour is white/yellow (U/D), so the slice edges of the 
 | F/B (not the slice's own) | E and S | DR-3s, 4 flipped, split 4-0 | DR-1s, 4 flipped, split 4-0 | DR-2s, 0 to 8 flipped |
 | F/B (not the slice's own) | M and S | DR-2s, 8 flipped, centers right (6 turns to DR; not the 8fe case) | DR-2s, 0 flipped (6 turns to DR) | DR-1s, 4 flipped, any split |
 | F/B (not the slice's own) | all twelve | DR-3s, 8 flipped | DR-3s, 0 flipped | DR-2s, 4 flipped, any split |
-| U/D (the slice's own) | none | DR (1%), 0 flipped; DR-2s (99%), 2 to 8 flipped | DR-1s, 4 flipped, split 4-0 | DR-1s, 4 flipped, split 4-0 |
+| U/D (the slice's own) | none | DR (1.4%), 0 flipped; DR-2s (99%), 2 to 8 flipped | DR-1s, 4 flipped, split 4-0 | DR-1s, 4 flipped, split 4-0 |
 | U/D (the slice's own) | E | DR-3s, 0 to 8 flipped | DR-2s, 4 flipped, split 4-0 | DR-2s, 4 flipped, split 4-0 |
 | U/D (the slice's own) | M | DR-2s, 4 flipped, any split | DR-3s, 8 flipped | DR-3s, 0 flipped |
 | U/D (the slice's own) | S | DR-2s, 4 flipped, any split | DR-3s, 0 flipped | DR-3s, 8 flipped |
 | U/D (the slice's own) | E and M | DR-3s, 4 flipped, any split | DR-2s 8fe | DR-2s, 0 flipped (6 turns to DR) |
 | U/D (the slice's own) | E and S | DR-3s, 4 flipped, any split | DR-2s, 0 flipped (6 turns to DR) | DR-2s 8fe |
-| U/D (the slice's own) | M and S | DR (1%), 0 flipped; DR-2s (99%), 2 to 8 flipped | DR-1s, 4 flipped, split 4-0 | DR-1s, 4 flipped, split 4-0 |
+| U/D (the slice's own) | M and S | DR (1.4%), 0 flipped; DR-2s (99%), 2 to 8 flipped | DR-1s, 4 flipped, split 4-0 | DR-1s, 4 flipped, split 4-0 |
 | U/D (the slice's own) | all twelve | DR-3s, 0 to 8 flipped | DR-2s, 4 flipped, split 4-0 | DR-2s, 4 flipped, split 4-0 |

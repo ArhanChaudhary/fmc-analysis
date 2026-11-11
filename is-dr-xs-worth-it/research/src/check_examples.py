@@ -34,7 +34,7 @@ def main():
             m = re.search(r'-\s?([123])s\b', lab) or re.search(r'DR-([123])s', lab, re.I)
             want8 = '8fe' in lab or '8 fe' in lab
             if not m and not want8: continue
-            if re.search(r'rzp|htr|HTR|setup|->|to dr|optimal|opt', lab): continue          # labels about a later or earlier state
+            if re.search(r'rzp|htr|HTR|setup|->|to dr|optimal|opt|solve|\ds\dd', lab): continue          # a later or earlier state, a full solve, or the EO-XsYd notation          # labels about a later or earlier state
             s = cube.do(cube.do(cube.do(cube.SOLVED, cube.inv_seq(I)), S), N)
             ks = kinds(s)
             ok = bool(ks) and (m is None or any(k[0] == int(m.group(1)) for k in ks)) and (not want8 or any(k[1] == 8 for k in ks))

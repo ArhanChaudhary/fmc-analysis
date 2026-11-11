@@ -2,13 +2,15 @@
 
 **Kinds and move counts (sections 3 and 4).** A kind is read off the stickers. All kinds reachable from a DR with DR-xs moves are walked (768 per colour), and a shortest-path search over them with the cancelling rule gives the slices and turns. Exhaustive.
 
-**Searches over cosets (section 6).** For one colour, a cube's distance from a DR depends only on the corner twists, the edge orientations and where the E-slice pieces are: 2,217,093,120 cosets. For each target (real DR, DR-1s, DR-2s 8fe, any DR-xs) and each move rule (any turn; no quarter turns of one axis; quarter turns of that axis only when they miss the slice pieces) a breadth-first search gives the distance from every coset. The numbers by kind of skip are counts over all cosets with that skip. Exhaustive.
+**Searches over cosets (6.2, 6.3).** For one colour, a cube's distance from a DR depends only on the corner twists, the edge orientations and where the E-slice pieces are: 2,217,093,120 cosets. For each target (real DR, DR-1s, DR-2s 8fe, any DR-xs) and each move rule (any turn; no quarter turns of one axis; quarter turns of that axis only when they miss the slice pieces) a breadth-first search gives the distance from every coset. The numbers by kind of skip are counts over all cosets with that skip. Exhaustive.
 
 **Slice-EO skips (6.1).** A count over all 70,963,200 arrangements of edge kinds and orientations. Exhaustive.
 
-**Finishes (section 5).** Random states, uniform over DR-1s (200,000) and over DR-2s 8fe (20,000). For each, the shortest solution of the method's form is found exactly, by trying every setup from both ends and looking up the optimal finish of the DR that results in the first study's table. The averages carry a sampling error of about 0.002 (DR-1s) and 0.01 (8fe); the search per state is exact.
+**Shortest routes on random scrambles (6.4).** A sample of {= NEARN() =} uniformly random cube states, each looked up in the coset tables for three colours and both sides.
 
-**Real scrambles (section 7).** The first study's 500 random-state scrambles. Normal DRs: every EO-first DR up to 12 moves, from cubelib-cli, each finished optimally (first study). DR-xs: every DR-1s up to 8 moves and DR-2s 8fe up to 9 that starts from a slice-EO skip or a one-move slice EO and then keeps the EO of that axis, plus every DR-2s 8fe after an EO of at most 4 moves, each finished as in section 5 and written out as a solution.
+**Finishes (section 5).** Random states, uniform over DR-1s ({= N1() =}) and over DR-2s 8fe ({= N8() =}). For each, the shortest solution of the method's form is found exactly, by trying every setup from both ends and looking up the optimal finish of the DR that results in the first study's table. The averages carry a standard error of {= SE1() =} (DR-1s) and {= SE8() =} (8fe); the search per state is exact for its form.
+
+**Real scrambles (section 7).** The first study's 500 random-state scrambles. Normal DRs: every DR up to 12 moves through an EO of 5 moves or less, from cubelib-cli (it lists no longer EOs), each finished optimally (first study). For 7.4 the same lists restricted to EOs of 4 or less. DR-xs: every DR-1s up to 8 moves and DR-2s 8fe up to 9 that starts from a slice-EO skip or a one-move slice EO and then keeps the EO of that axis, plus every DR-2s 8fe after an EO of at most 4 moves, each finished as in section 5 (the 8fe with setups of at most 3 moves from either end) and written out as a solution.
 
 **What checks what.**
 
