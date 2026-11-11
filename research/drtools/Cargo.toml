@@ -1,0 +1,17 @@
+[package]
+name = "drtools"
+version = "0.1.0"
+edition = "2021"
+description = "Exhaustive computations on the Rubik's cube domino-reduction group (Rust port of research/src/*.c)"
+
+[[bin]]
+name = "drtools"
+path = "src/main.rs"
+
+[dependencies]
+rayon = "1.10"
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+lto = true
