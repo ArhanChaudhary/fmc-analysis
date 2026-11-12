@@ -2,7 +2,9 @@
 
 What a 3c, a 5c, a 2c2c, a 3c1t or a pair of twisted corners adds to a skeleton, by how long the skeleton is and how long an alg you allow yourself. Every skeleton is searched exactly: every position, every alg up to the cap.
 
-This builds on what people had already worked out:
+November 2026. A date in brackets is a link to that message on the FMC solvers Discord (#non-dr-discussion, #fmc-discussion or #fmc-theory). Docs are listed with links at the end.
+
+**This builds on** what people had already worked out:
 
 - **Sebastiano Tronto's table.** Section 2.4.10 of the [Fewest Moves Tutorial](https://fmcsolves.cubing.net/fmc_tutorial_ENG.pdf), "Move count (an estimate)", is the chart everyone points to: 3c 5/6, 3e 7, two twisted corners 8, three twisted corners 9, 2c2c 9/10, 3c1t 10, 5c 10/11, 2c2e 10. The tutorial says what it is: "It is a heuristic estimate, not a mathematically proved one", and its footnote says where the numbers came from: "Mostly taken from here, slightly adjusted to match my personal opinion", with a link to a post in the speedsolving FMC thread.
 - **The estimates people posted.** Phuwish: 2tc "~8.0 I guess", 3tc "mid to high 8 from my experience", 5c "~high 10", and "yeah" ([[N4540]]) to tave_789's "And isnt 3c1t and 2c2c close to 9.5?" ([[N4539]]). cpaul: 9 for a pure 2c2c, 9.5 with a twist, 10 for a 3c1t. Baiqiang: 5-6 for a 3c, 8-9 for a 3c1t, "6-8 for good 2c2c, 8-9 for bad 2c2c".
@@ -10,7 +12,7 @@ This builds on what people had already worked out:
 - **Which leftovers take how many comms**: the lists in Yurii Riabov's guide and in the tutorial. **Exhaustive alg results**: notkevin on the 10-move 2c2e algs, torchlight on the shortest alg that twists a corner. **Where insertions fall**: DougCube keeps stats on it.
 - **Insertion Finder** ([333.fm/if](https://333.fm/if)), which gives the best insertions for one skeleton you type in. Baiqiang ([[D3803]]): "i make the website 333.fm. the core is written by Yan Xuan".
 
-What this adds is the measured version:
+**What this adds** is the measured version:
 
 - **Odds, not one number per type**: the chance of +4, +5, +6 and so on, for each leftover, at skeleton lengths from 10 to 30, under a stated cap on the alg length.
 - **What the alg list is worth**: the same skeletons with algs of at most 8, 10 and 12 moves.
@@ -19,10 +21,15 @@ What this adds is the measured version:
 - **The counts behind it**: which leftovers two comms can solve and which need three (proved in Lean), and the shortest alg for every case that has one of 12 moves or fewer.
 - **Real skeletons**: {= RL('covered') =} worked examples ({= RL('skeletons') =} distinct skeletons) from the server and from Cyprian Kalbarczyk's example solves, searched the same way, and the Insertion Finder pages people posted.
 - **The claims**: each concrete statement people made about insertions that a computer can settle, checked.
-
-How the estimates come out: every corner row of the tutorial's table, and cpaul's 9 and 10, are within about half a move of what 8-movers give on a random 20-move skeleton. Phuwish's figures are close too, except the 3tc. Baiqiang's are lower, and Baiqiang said they are not averages.
+- **How the estimates come out**: every corner row of the tutorial's table, and cpaul's 9 and 10, are within about half a move of what 8-movers give on a random 20-move skeleton. Phuwish's figures are close too, except the 3tc. Baiqiang's are lower, and Baiqiang said they are not averages.
 
 **Terms**, as the server uses them. A *skeleton* is a solution that leaves a few pieces: *3c* is three corners in a cycle, *5c* five corners in one cycle, *2c2c* two swaps of corners, *3c1t* a twisted 3-cycle plus one corner twisted in place, *2tc* and *3tc* two and three corners twisted in place, and the same with *e* for edges (*2fe* is two flipped edges). An *insertion* is an alg put somewhere inside the skeleton that solves those pieces and leaves the rest alone. A *comm* here is any alg for a 3-cycle, commutator or not, and an *8-mover* is one of 8 moves. `(8-2/24)` is the usual note: an 8-move alg, 2 moves cancel, 24 moves so far; I write +6 for what that insertion added. A *nested* insertion is one put inside another. Moves are counted in HTM.
+
+**How to read it.**
+
+- **Start with [section 1](#1-the-short-version)**, the short version: what is new, then what it confirms, one line each.
+- **The [worked examples](examples.html)** go with it: the examples from the tutorial and the server redone with the search, then 200 skeletons to play along with, answers folded away. **The [errata](errata.html)** list what the numbers show is wrong in things said on the server, each with an example.
+- **The appendices are reference**: the full cost tables, every class of corner and edge 3-cycle with a shortest alg, and how it was computed and checked.
 
 ---
 

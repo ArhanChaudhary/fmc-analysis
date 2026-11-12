@@ -36,7 +36,7 @@ The "Penalty" column is the optimal with HTR-breaking finishes allowed. The comp
 
 Separately, the row labelled F-V / F-D / R-H (0/0) lists `M R2 U2 M'`. That alg gives R-V + F-D R-V odd, not the labelled case. `M F2 U2 M'` gives the labelled case in the 6 moves the sheet says, so R2 is a typo for F2 and the value is fine. (I graded the sheet by the case each alg actually produces, not by its label, which is how this row showed up.)
 
-The rule values ("Heuristic" column) aren't affected: they stay at or below the real optimal in all 216 cases, against the corrected numbers too (write-up, section 9).
+The rule values ("Heuristic" column) aren't affected: they stay at or below the real optimal in all 216 cases, against the corrected numbers too (write-up, section 10).
 
 **A3. FakeMMAP's HTR-breaking table (`RK_OBL_table_DS_2e.csv`, attached to [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)): five cells one too high, two of them labelled 7.**
 About the first version (`RK_OBL_table_HTR_breaking.csv`, the day before) FakeMMAP said ≤ 7 was proven optimal and 8, 9, 10 "might actually be solvable in as little as 7" ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606)). For the 7 Sep file: 211 of 216 cells are right, and the two 7s below are 6 in both files.

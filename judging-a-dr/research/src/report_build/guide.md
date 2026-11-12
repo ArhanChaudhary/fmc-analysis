@@ -1,6 +1,6 @@
 ## 8. What I'd do per subset
 
-This table is the short version of the whole doc, so it's long. Read these first, they apply to every row.
+This table is the per-subset reference, so it's long. Read these first, they apply to every row.
 
 - **Three numbers, like {= E('2c4',4) =}**, are the shares of all DR states of that kind whose optimal finish, in DR moves, is 10 or less / 11 or less / 12 or less. Which one is yours depends on the DR: your solution is the DR length plus the finish (one less if the first finish move merges with the last DR move). A 9- or 10-move DR gets a look whatever it is, so the numbers that decide something are the first two: an 11-move DR needs a 10 or an 11.
 - **0 means no state at all** finishes that fast. "<0.01%" means a few do.

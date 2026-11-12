@@ -6,7 +6,7 @@ finish, and which lower bounds hold. Everything is measured on the exact optimal
 
 | | |
 |---|---|
-| [`report/WRITEUP.md`](report/WRITEUP.md) | Judging a DR by hand: what the full BFS says. Start with its "Start here" block. |
+| [`report/WRITEUP.md`](report/WRITEUP.md) | Judging a DR by hand: what the full BFS says. Start with its section 1, the short version. |
 | [`report/EXAMPLES.md`](report/EXAMPLES.md) | Eleven DRs read step by step, with the exact odds after each read and the real optimal. Then 100 random-state scrambles with the DRs you could have on the page: reads, what the prune list says, and the answers folded away. |
 | [`report/BUGS.md`](report/BUGS.md) | Errata: what the full search shows is wrong in the docs and sheets involved and in things said on the server. |
 

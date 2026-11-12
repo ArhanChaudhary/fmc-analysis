@@ -1,14 +1,34 @@
 # Judging a DR by hand: what the full BFS says
 
-*What you can read off a DR, how much it tells you about the finish, and which bounds hold. Every number is an exact count over all DR states.*
+What you can read off a DR, how much each read says about the finish, and which lower bounds hold, measured on the whole DR group: I BFSed all 19,508,428,800 states, so nothing below is sampled.
 
 November 2026. A name with a date is a link to that message on the FMC solvers Discord (#fmc-theory or #fmc-discussion). Docs and sheets are listed with links at the end.
 
----
+**This builds on** the bounding docs and tables people already use:
 
-## Introduction
+- **Levi Gibson's [DR Bounding](https://docs.google.com/document/d/1q7rig4GEo26GunBMtuagZdGyzyjCGlduH84CHLpGLSA)** and **Rodney Kinney's [Advanced DR Bounding [Beta]](https://docs.google.com/document/d/13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0)**: DR bounding by hand, which this study set out to push to 3qt, 4qt and 5qt (**How this started**, section 1). Levi's formula and the worked examples of both docs are checked here, and Rodney's NISS@1qt features are the basis of section 7.
+- **Rodney Kinney's sheet [Adv DR Bounding](https://docs.google.com/spreadsheets/d/1jRvikzLlm3yHlDQmQ0DLyj3Aw6uinL3Oa-U9_U7R5mY)**: the bounding rules against the 216 computed cases, checked in section 9.
+- **FakeMMAP's 216-case tables**: the half-turn-only values ([[T12061]]), the HTR-breaking table ([[T12175]]) and the sheet [OBL++](https://docs.google.com/spreadsheets/d/1kax7evfA85p_4ArXKO7si3FrCpj7PEeFwoz4GY5wRAE), all checked in section 9; and FakeMMAP's corner counts per qt.
+- **Joba's optimal distribution for all 48 subsets** ([[T9115]]), matched here in every cell, and **Mallard** ([cubelib](https://github.com/Jobarion/cubelib)), whose table is built from the same 48 subsets.
+- **wen's sheet [HTR better smh (v2)](https://docs.google.com/spreadsheets/d/1ZhulzHeNgv2Hiy4x9R1MzsMRlPlI-E8DRiHFJlPlboM)**: the corner subsets, with 4a3 and 4b3 swapping on inverse.
+- **trangium's "true 2q bound"** ([[T11428]]), taken to any qt in section 5.
+- **Levi Gibson's sheet [Corner Solution Length x DR Finish length](https://docs.google.com/spreadsheets/d/14rZI1Nf84Og1jS8dN1MfT0sYhvdIWu9gPXkHDs1iVU4)**: sampled; Appendix B is the exact version.
 
-What you can read off a DR, how much each read says about the finish, and which lower bounds hold, measured on the whole DR group: I BFSed all 19,508,428,800 states, so nothing below is sampled. "Optimal" is the shortest finish in DR moves (U, D, R2, L2, F2, B2), and "in 11" means an optimal finish of 11 or less. The finishes that matter are 10 and 11, which is what an 11- or 12-move DR needs (why is under **Which finish** below).
+**What this adds**: the exact numbers for the reads a solver can make by hand.
+
+- **A guide per subset**: for each of the 12 corner subsets, how often it finishes in 10, 11 and 12, what to read, when to drop it for the finish you need, what not to conclude.
+- **Every read against the exact finish**, for each finish you might need from 9 to 13: ranking, throwing away, plain rules with their price, what is proven.
+- **What each read is worth**: subset, pairs, corner case on both sides, HTR length on both sides, corner length and E-slice parity, the last DR move.
+- **The bounds people use, graded**: Levi's formula, trangium's 2q bound at any qt, HTR length, the parity bound. Which never fail, how often the others do.
+- **What a computer can prove from the DR**: table lookups that prove "no 12" for most 4–5qt DRs and "no 11" for nearly all, and why no hand read gets there.
+- **The 216 NISS@1qt cases, three ways**: FakeMMAP's and Rodney's tables checked with half turns, with DR moves and with any move.
+- **A Lean proof** of the optimal finish of every DR state, so every stat here is a count over proven optimals.
+
+**Terms**, as the server uses them. "Optimal" is the shortest finish in DR moves (U, D, R2, L2, F2, B2), and "in 11" means an optimal finish of 11 or less. Bad corners and edges are counted the way the server counts them, up to turning a layer: the Q in 2c**4** is the corner qt count, the 4e in 2c4 4e the number of bad edges, and 4c3 = 4a3 and 4b3 together (they swap on inverse), same for 4c4. *Pairs* are true pairs: corner and edge next to each other in the U or D layer, both touching stickers matching. Every count treats each DR state as equally likely.
+
+## 0. The short version
+
+The finishes that matter are 10 and 11, which is what an 11- or 12-move DR needs (why is under **Which finish** in section 1).
 
 What is new here, in one line each:
 
@@ -42,6 +62,10 @@ What it confirms or corrects in the docs and sheets people use:
 - **Checked and matching**: Joba's optimal distribution for all 48 subsets, in every cell; FakeMMAP's corner counts per qt; the 1,352 states at 18 that Reid gave (section 11).
 - The errata page that goes with this doc has the rest: typos in Rodney's doc, and claims from the channels about the longest DR→HTR, which subsets reach 18 and where 16+ optimals live, each with a scramble.
 
+---
+
+## 1. What people asked for
+
 **How this started.** The question I started from: can Levi's and Rodney's DR bounding be pushed to 3qt, 4qt and 5qt DRs, so you can toss a DR because its bound is high instead of wasting time on it?
 
 With a computer, yes. Look at part of the DR, tabulate the fewest moves that solve that part, and you have a lower bound at any qt with no skeleton. With the right table it proves "no finish in 12" for 59% of 5qt DRs and "no finish in 11" for 94%. That was the first version of this doc and it is now section 7. The trouble is the tables have millions of cases, so nobody can use them in an attempt, and the bar on the server is clear:
@@ -51,12 +75,6 @@ With a computer, yes. Look at part of the DR, tabulate the fewest moves that sol
 > "I don't expect anyone to use the decision trees directly. I'm just hoping to use them to find the most important 2-3 features … then make some simple rules out of just those features" ([[T8337]])
 
 So this version asks the human question. Take what you can actually read off a DR (subset, pairs, corner case, HTR length on both sides, corner solution length, E-slice parity) and measure exactly what each one tells you about the finish.
-
-**Which finish.** A 9- or 10-move DR gets checked whatever it looks like. The DRs worth pruning are the 11- and 12-movers, and what they need is a finish in 10 or 11 (one more if the first finish move merges with the last DR move). So every table gives the share finishing in 10, 11, 12 and 13 or less, and the pruning is measured at each target from 9 to 13.
-
----
-
-## 1. What people asked for
 
 The gap, in the words of the people who bound in real solves:
 
@@ -85,6 +103,8 @@ And the specific questions, each with a section below:
 | "how does the optimal change from a pure DR vs. a DR in a solve where you have one move you can invert?" | [[T11467]] | §4.6 |
 | The "width" of a DR | [[T11473]] | §6 |
 | "are god's numbers known for htr subsets?" | [[T9096]] | Appendix A |
+
+**Which finish.** A 9- or 10-move DR gets checked whatever it looks like. The DRs worth pruning are the 11- and 12-movers, and what they need is a finish in 10 or 11 (one more if the first finish move merges with the last DR move). So every table gives the share finishing in 10, 11, 12 and 13 or less, and the pruning is measured at each target from 9 to 13.
 
 ---
 

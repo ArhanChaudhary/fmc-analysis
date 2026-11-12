@@ -66,17 +66,17 @@ doc=re.sub(r'\[\[([TD]\d+)\]\]', full, doc)
 doc=re.sub(r'\(@([TD]\d+)\)', custom, doc)
 assert '[[' not in doc and '(@' not in doc and '{{' not in doc
 
-# ---- "Start here" and the table of contents, built from the headings so they cannot drift
+# ---- "How to read it" and the table of contents, built from the headings so they cannot drift
 DESC = {
- 'Introduction': 'The question, which finish matters, and what came out.',
- 'What people asked for': "The gap in the solvers' own words, and the sixteen questions from the server that are answered here.",
+ 'The short version': 'What is new, then what it confirms or corrects, one line each.',
+ 'What people asked for': "How this started, the gap in the solvers' own words, the sixteen questions from the server that are answered here, and which finish matters.",
  'The data': 'What was computed, and what "optimal" and "in 11" mean.',
  'How much can a read tell you?': "Every read against the exact finish, for each finish you might need from 9 to 13: ranking, throwing away, plain rules with their price, what is proven. Zagros's two hunches.",
  'The reads, cheapest first': 'What each read is worth, with the tables:',
  'Bounds people use, graded': "Levi's formula, trangium's 2q bound at any qt, HTR length, the parity bound. Which never fail, how often the others do.",
  'Leave slice, the slice, and width': 'What the slice costs, and how many first moves are optimal.',
  'What a computer can prove from the DR': 'Table lookups that prove "no 12" for most 4–5qt DRs and "no 11" for nearly all, and why no hand read gets there.',
- "What I'd do per subset": '**The one to read.** For each of the 12 corner subsets: how often it finishes in 10, 11 and 12, what to read, when to drop it for the finish you need, what not to conclude.',
+ "What I'd do per subset": '**The reference to keep open.** For each of the 12 corner subsets: how often it finishes in 10, 11 and 12, what to read, when to drop it for the finish you need, what not to conclude.',
  'The 216 NISS@1qt cases, three ways': "FakeMMAP's and Rodney's tables checked with half turns, with DR moves and with any move.",
  "The proof, if you don't speak Lean": 'What is proven, how, and what you have to trust.',
  'How it was computed and checked': 'The programs, and what agreed with what.',
@@ -93,16 +93,13 @@ DESC = {
 }
 def anchor(h):
     return re.sub(r'[^\w\- ]', '', h.lower()).replace(' ', '-')
-def words(t):
-    t = re.sub(r'\]\(https?://[^)]*\)', ']', t)
-    return len(re.findall(r"[A-Za-z0-9%'’.–-]+", t))
 parts = re.split(r'(?m)^(?=## )', doc)
 head, secs = parts[0], parts[1:]
 # the per-subset guide is the section most readers want: it goes first, and everything is renumbered
 guide = [x for x in secs if re.match(r"## \d+\. What I'd do per subset", x)]
 assert len(guide) == 1
 secs.remove(guide[0])
-secs.insert([i for i, x in enumerate(secs) if x.startswith('## Introduction')][0] + 1, guide[0])
+secs.insert([i for i, x in enumerate(secs) if x.startswith('## 0. The short version')][0] + 1, guide[0])
 remap = {}
 for x in secs:
     m = re.match(r'## (\d+)\. ', x)
@@ -115,22 +112,18 @@ def renumber(t):
     t = re.sub(r'\b([Ss]ection) (\d+)\b', lambda m: f'{m.group(1)} {remap.get(m.group(2), m.group(2))}', t)
     return re.sub(r'\(#(\d+)-', lambda m: '(#' + remap.get(m.group(1), m.group(1)) + '-', t)
 secs = [renumber(x) for x in secs]
-rows = ['| Section | What is in it | Size |', '|---|---|---|']
+rows = ['| Section | What is in it |', '|---|---|']
 for sec in secs:
     title = sec.split('\n', 1)[0][3:].strip()
     key = re.sub(r'^\d+\. ', '', title)
     assert key in DESC, title
-    n = words(sec)
-    size = 'tables' if title.startswith('Appendix') else 'links' if title.startswith('Docs') else f'{max(50, round(n / 50) * 50):,} words'
     desc = DESC[key]
     if key == 'The reads, cheapest first':
         subs = re.findall(r'(?m)^### (\d+\.\d+ .*)$', sec)
         desc += ' ' + ', '.join(f'[{x}](#{anchor(x)})' for x in subs) + '.'
-    rows.append(f'| [{title}](#{anchor(title)}) | {desc} | {size} |')
-main = sum(words(s) for s in secs if re.match(r'## (Introduction|[1-8]\. )', s))
+    rows.append(f'| [{title}](#{anchor(title)}) | {desc} |')
 start = renumber(open('/data/fmc/judging-a-dr/research/src/report_build/start_here.md').read())
-note = f'\nSections 1 to 8 are the main text, about {round(main / 500) * 500:,} words with their tables. The rest is reference.\n\n---\n\n'
-assert head.rstrip().endswith('---')
-doc = head + start + '\n'.join(rows) + '\n' + note + ''.join(secs)
+assert not head.rstrip().endswith('---')
+doc = renumber(head).rstrip('\n') + '\n\n' + start.strip('\n') + '\n\n---\n\n' + '\n'.join(rows) + '\n\n---\n\n' + ''.join(secs)
 open(R+'WRITEUP.md','w').write(doc+'\n')
 print(len(doc.split('\n')),'lines',len(doc),'bytes; links filled:',len(used))

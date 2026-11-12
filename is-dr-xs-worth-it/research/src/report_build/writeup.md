@@ -1,8 +1,17 @@
 # Is DR-xs worth it?
 
-What it costs to leave slices unsolved at DR, how often the chance is there, and what it buys on real scrambles. Everything that can be counted exactly is counted exactly.
+What it costs to leave slices unsolved at DR, how often the chance is there, and what it buys on real scrambles. Everything that can be counted exactly is counted exactly: all 768 kinds of DR-xs state and all 2,217,093,120 cosets of the DR group. The finishes are sampled ({= N1() =} random DR-1s states, {= N8() =} DR-2s 8fe), the shortest DR-xs of a scramble on {= NEARN() =} random scrambles, and every DR-1s and DR-2s 8fe is found and finished on 500 real scrambles.
 
-This builds on work that is already on the server. The method is tseitsei89's [DR-Xs tutorial](https://docs.google.com/document/d/1_uLVLB5xqDm40NugXE5rjc8LgEtuHQCLz0odKY6mboE) (with Jay, Rodney, trangium, count quackula, KrzychXyz and others behind it), and the numbers in it are trangium's: on optimal a DR-1s finishes about 2.2 to 2.4 moves longer than a DR of the same subset (1.8 for 2c4), and a DR-2s 8fe about 1 move longer. tseitsei89's conclusion from them is "8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR". Those hold up. What was missing, and what people kept asking for, is here:
+November 2026. A date in brackets is a link to that message on the FMC solvers Discord (#fmc-theory or #fmc-discussion). Docs are listed with links at the end.
+
+**This builds on** work that is already on the server:
+
+- **tseitsei89's [DR-Xs tutorial](https://docs.google.com/document/d/1_uLVLB5xqDm40NugXE5rjc8LgEtuHQCLz0odKY6mboE)** (with Jay, Rodney, trangium, count quackula, KrzychXyz and others behind it): the method.
+- **trangium's numbers in the [tutorial](https://docs.google.com/document/d/1_uLVLB5xqDm40NugXE5rjc8LgEtuHQCLz0odKY6mboE)**: on optimal a DR-1s finishes about 2.2 to 2.4 moves longer than a DR of the same subset (1.8 for 2c4), and a DR-2s 8fe about 1 move longer. tseitsei89's conclusion from them is "8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR". Those hold up.
+- **trangium's [dr-fe examples](https://docs.google.com/document/d/11Xu6BpEBLu-v8hVbFzneSqeMjHb83q_zurWb_V0DXDY)**: the rule for the number of slices.
+- **The first study of this site, [Judging a DR by hand](../judging-a-dr/)**: the exact optimal finish of every DR state, used here for every finish.
+
+**What this adds** is what was missing, and what people kept asking for:
 
 - **Odds, not just averages**: the chance of a finish in N from a DR-1s or a DR-2s 8fe, by subset, next to the same for a DR.
 - **The move counts** from DR-3s to DR-2s to DR-1s to DR, for every layout of flipped edges.
@@ -11,6 +20,12 @@ This builds on work that is already on the server. The method is tseitsei89's [D
 - **The claims**: each concrete statement people made about DR-xs, checked.
 
 **Terms**, as the tutorial uses them. A *slice EO* (sEO) is the four edges belonging to one slice all oriented, or all misoriented, for one axis. A *DR-xs* is a cube that looks like a DR if you ignore the centers and let some of the eight non-slice edges be flipped. It is a *DR-1s*, *DR-2s* or *DR-3s* by the number of slice moves needed to fix centers and flipped edges. *DR-2s 8fe* is the DR-2s with all eight edges flipped and the centers off, which is how it comes up in the tutorial (eight flipped edges with the centers right is a different, worse DR-2s). Turns are counted in HTM, and a slice move counts as the two outer turns it is written with (`R L'`).
+
+**How to read it.**
+
+- **Start with [section 1](#1-the-short-version)**, the short version: what is new, what it confirms or corrects, and the verdict, one line each.
+- **The [worked examples](examples.html)** go with it: the tutorial's example with the numbers, then 100 scrambles with their slice-EO skips and the DR-xs routes on them, answers folded away. **The [errata](errata.html)** list what the numbers show is wrong in the docs involved and in things said on the server, each with an example.
+- **The appendices are reference**: every DR-1s layout with a shortest fix and a scramble, what each edge-orientation pattern leads to, and how it was computed and checked.
 
 ---
 

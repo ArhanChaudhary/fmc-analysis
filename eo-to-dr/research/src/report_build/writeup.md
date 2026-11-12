@@ -2,7 +2,9 @@
 
 How far a random scramble is from DR: on one axis, on the best of three, with the inverse, with NISS, and through the short EOs a solver actually writes down. How many EOs a scramble has and how short. And what an EO leaves: how far DR is with the other DR axis, the inverse, the EO's last turn the other way and EO-breaking turns, case by case. Every distance is exact (from full distance tables). Where a number is a sample it says so: {= n(X('n')) =} uniformly random scrambles for the scramble-level questions, {= NSAMP('b') =} random states for the shortest EOs, and {= NSAMP('c') =} EO-solved states for the EO to DR options that need the inverse.
 
-This builds on what the server already had:
+November 2026. A date in brackets is a link to that message on the FMC solvers Discord (#fmc-theory, #fmc-discussion or #non-dr-discussion). Docs and sheets are listed with links at the end.
+
+**This builds on** what the server already had:
 
 - **Cale's [*DR setup stats*](https://docs.google.com/spreadsheets/d/11bTZ4Y7_6qKlIWo4a4TLW45M2ZkctQZAVxgQqEtlUs0)** (posted by Aneurin, [[D348]]: "This has a bunch of useful stats for dr"), the per-case EO to DR table everyone uses: every EO-solved state on one DR axis, "I used the moveset <U, D, R, L, F2, B2>, so sequences that break EO like F R B2 R' F' aren't considered", average {= f2(CT('plain', 'mean')) =}, with a tab per case. Cale's second sheet does the same "if you can change the direction of the last move(s) of EO" ([*DR setup stats (switching last move of EO)*](https://docs.google.com/spreadsheets/d/1_2PmFv1KyBX335SjSb4oweS0sx804fIhbuP50D-gBj4), made at Tom Nelson's request, [[D1534]], [[D1549]]).
 - **Louis's [*DRM/ARM average optimals*](https://docs.google.com/spreadsheets/d/13fSwUROzP0hZQV1Cn96GndWbPy4UrsHiYTaWFSeWtJs)**: "I've generated every possible EO->DR case of increasing lengths" and sorted them by DRM and ARM ([[T4327]]); its last tab is the EO to DR distribution. **Rodney Kinney**'s *DRM corner variant+pair stats* is built on it ([[T8104]]: "and I did some work on the DRM/ARM stats and came up with something cool."). Separately: **KrzychXyz**'s sheet of every case sorted by DRM ("all DR cases (from EO) grouped by subsets, sorted by optimal", [[D5802]]), **Evan**'s [*arm/pairs*](https://docs.google.com/spreadsheets/d/1YZYyokxYXwDdBTgN7ojpPAFHKKz48hCyNO2l6-iwmVk) tables ("this stat is in my arm/pairs sheet", [[D13434]]), and the *arm/pairs NEW!!!* sheet deven posted ([[D16271]]).
@@ -14,7 +16,7 @@ This builds on what the server already had:
 - **Tools**: DR Finder 2 (sanya.sweetduet.info), which Daichi pointed to for DRs from a scramble ([[D20016]]), and nissy.
 - **My own DR-xs study**, section 6.4: the best of six linear DR (3 axes, normal or inverse) on {= PRIOR('best of 6 (normal or inverse)', 'prior_n') =} scrambles. The numbers here agree with it (appendix B).
 
-What this adds:
+**What this adds**:
 
 - **Scramble to DR over all axes, with NISS and through short EOs**, with the odds of 8, 9, 10 and 11, and the scrambles that have no sub-10 DR at all. One fixed axis (DougCube, Louis) and the best of six (my DR-xs study) were known; the best of three on each side, NISS, and the scrambles without a sub-10 DR were not (wen asked, [[D20015]]).
 - **How the optimal DR relates to the EOs people write**: the shortest EO inside the optimal DR, and the best DR through an EO of at most 3, 4, 5 or 6 turns, normal, inverse and NISS, as odds of a DR in 8 to 12.
@@ -24,6 +26,12 @@ What this adds:
 - **The claims, checked**, and **a finding about nissy 2.0.8's `scramble`**: a modulo bias in its edge permutation, which makes DRs on the inverse of its scrambles shorter (appendix B).
 
 **Terms**, as the server uses them. *EO* on an axis: all edges good for that axis. *DR*: corners oriented and the slice edges in their slice for one axis. *Normal* means turns after the scramble, *inverse* turns after the inverse scramble (written in brackets), *NISS* turns on both sides, the length being the sum. A *linear* DR or EO is on one side only. *Best of six*: the shortest DR over the three axes on normal and on inverse. An EO of length L is a sequence that solves EO for the first time at its last turn (nissy's `-a` convention; both directions of the last turn count). A *route through an EO*: the EO, then turns that keep it (no quarter turns of its axis) to DR on one of the two other axes. A case like *4c4e*: bad corners, then edges out of place for DR on that axis (slice edges outside the slice and as many other edges inside it); Cale's sheet writes it edges first (4e4c), and Louis's ARM tables use the same counts. *In 10* means in 10 turns or fewer. Turns are face turns (HTM).
+
+**How to read it.**
+
+- **Start with [section 1](#1-the-short-version)**, the short version: what is new, then what it confirms or corrects, one line each.
+- **The [worked examples](examples.html)** go with it: 150 scrambles with their shortest DRs and their best DRs through EOs of at most 4 and 5, then 60 EO-solved states by case, answers folded away. **The [errata](errata.html)** list what the numbers show is wrong in things said on the server, each with an example.
+- **The appendices are reference**: every case, normal against inverse by case, every bad-edge triple, and how it was computed and checked (with nissy's scrambler).
 
 ---
 

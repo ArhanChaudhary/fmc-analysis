@@ -8,7 +8,7 @@ Each study takes one question from Rubik's cube fewest-moves solving, answers it
 
 What a solver can read off a domino reduction before solving it, how much each read says about the finish, and which lower bounds hold. Measured on the exact optimal finish of all 19,508,428,800 DR states.
 
-- [Write-up](judging-a-dr/): what the full BFS says. It opens with a guide per subset.
+- [Write-up](judging-a-dr/): what the full BFS says. It opens with the short version, then a guide per subset.
 - [Worked examples](judging-a-dr/examples.html): eleven DRs read step by step, then 100 scrambles with the DRs on the page and the answers folded away.
 - [Errata](judging-a-dr/errata.html): what the full search shows is wrong in the docs and sheets involved and in things said on the server, each with an example.
 
