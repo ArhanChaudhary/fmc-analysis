@@ -209,11 +209,22 @@ Letting quarter turns of the EO axis in when they miss the slice pieces (the tut
 
 {{skip_to_1s_rules}}
 
-### 6.3 From a skip, or from an EO, to a DR-2s 8fe
+### 6.3 To a DR-2s 8fe: the same problem as a DR
+
+**Getting to a DR-2s 8fe is getting to a DR with the pieces renamed.** An 8fe has its corners and slice edges placed as in a DR on one pair of faces, in the colours of another pair. Move every piece a quarter turn around the third axis, leave the centres where they are, and flip every edge in its place: the 8fe becomes a real DR. Do that to any position, and rename the faces of a move sequence by the same quarter turn, and reaching the 8fe becomes reaching the DR. Edges that are good for the third axis stay good, so an EO on that axis carries over as well. Counted over every position with a full EO, with moves that keep it:
+
+{{eo_to_8fe}}
+
+- **From an EO, the 8fe is exactly as far as the DR**: the same distribution, {= E8AVG() =} on average. This is the tutorial's route 3, do the normal EO and then solve the wrong-coloured DR. Each of the EO's two DR axes has one, so an EO has four targets where it had two, and the two extra ones cost {= D8() =} more in the finish.
+- **With any moves it is the same, target by target.** A scramble has twelve 8fe (two for each colour, on normal and on inverse) against six DRs, and each is as far away as a DR is. That is why the shortest 8fe of a scramble comes {= f2(float(NEARAVG('dr')) - float(NEARAVG('2s8fe'))) =} of a move before its shortest DR in 6.4: there are twice as many, and none of them is closer. (Checked on {= E8CHK() =} random positions: the distance to the 8fe is the distance of the renamed position to the DR every time.)
+- **What does not carry over is the finish.** The renaming does not take the solved cube to the solved cube, and making up the difference is what the two slice turns are for: +{= D8() =} (section 5).
+
+**So a slice-EO skip is not what gets you an 8fe.** By the kind of skip, keeping that axis's EO:
 
 {{skip_to_8fe}}
 
-An oriented skip gets to an 8fe without breaking EO only when the whole axis is oriented, which is the tutorial's route 3: do the normal EO, then solve the wrong-coloured DR. From there the 8fe is as far as a real DR is ({= SHM('eo-fb_2s8fe | A oriented') =} on average), so it is one more DR target per EO, at +{= D8() =} in the finish.
+- **An oriented skip** leads to an 8fe only when the rest of the axis is oriented as well ({= SHR('eo-fb_2s8fe | A oriented') =} of such skips, 1 in 128), and that is a normal EO. The skip adds nothing to it.
+- **A misoriented skip on an axis with 8 bad edges** (the four slice edges and four of the other eight, {= SHR('eo-fb_2s8fe | A misoriented') =} of misoriented skips) is the one separate way in. From there an 8fe is {= SHM('eo-fb_2s8fe | A misoriented') =} moves away on average, against {= E8AVG() =} from an EO, with no moves spent on an EO first. It is 8 or less for {= SH('eo-fb_2s8fe | A misoriented', 8) =} of those skips.
 
 ### 6.4 What exists, with any moves
 

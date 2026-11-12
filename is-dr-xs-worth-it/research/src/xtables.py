@@ -154,6 +154,15 @@ def t_appendix():
             L.append(f"| {an} | {bad} | " + ' | '.join(cell(patterns.outcomes(axis, pat, f), f == 'UD') for f in ('UD', 'RL', 'FB')) + ' |')
     write('app_b', L)
 
+def t_eo8():
+    """From a full EO: moves to the real DR and to the DR-2s 8fe on one axis (eo8_hist.py)."""
+    J = json.load(open(O + 'eo8_hist.json')); n = J['positions']
+    L = ['| Moves from a full EO | Positions that far from the real DR | Positions that far from the DR-2s 8fe |', '|---:|---:|---:|']
+    for d, (a, b) in enumerate(zip(J['dr'], J['8fe'])): L.append(f'| {d} | {a:,} | {b:,} |')
+    avg = lambda h: sum(d * c for d, c in enumerate(h)) / sum(h)
+    L.append(f"| all {n:,} positions, average | {avg(J['dr']):.2f} | {avg(J['8fe']):.2f} |")
+    write('eo_to_8fe', L)
+
 if __name__ == '__main__':
-    todo = sys.argv[1:] or ['kinds', 'fix', 'finish', 'skip', 'app']
-    for name in todo: {'kinds': t_kinds, 'fix': t_fix, 'finish': t_finish, 'skip': t_skip, 'app': t_appendix}[name]()
+    todo = sys.argv[1:] or ['kinds', 'fix', 'finish', 'skip', 'eo8', 'app']
+    for name in todo: {'kinds': t_kinds, 'fix': t_fix, 'finish': t_finish, 'skip': t_skip, 'eo8': t_eo8, 'app': t_appendix}[name]()

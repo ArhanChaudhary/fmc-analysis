@@ -21,7 +21,7 @@ This builds on work that is already on the server. The method is tseitsei89's [D
 | [3. What a DR-xs is, and how many slices it needs](#3-what-a-dr-xs-is-and-how-many-slices-it-needs) | The 768 kinds and the rule for the number of slices. |
 | [4. The move counts: DR-3s, DR-2s, DR-1s, DR](#4-the-move-counts-dr-3s-dr-2s-dr-1s-dr) | Every layout of flipped edges and what it takes to fix. |
 | [5. The finish: DR-1s and DR-2s 8fe against a DR](#5-the-finish-dr-1s-and-dr-2s-8fe-against-a-dr) | Averages and odds by subset, which DR-1s are good, what a hand finish loses. |
-| [6. Getting one](#6-getting-one) | Slice-EO skip odds, and how far a DR-1s or an 8fe is from a skip. |
+| [6. Getting one](#6-getting-one) | Slice-EO skip odds, how far a DR-1s is from a skip, and why getting to an 8fe is the same problem as getting to a DR. |
 | [7. On 500 real scrambles](#7-on-500-real-scrambles) | Every DR-1s and DR-2s 8fe against every normal DR on the same scrambles. |
 | [8. The claims, checked](#8-the-claims-checked) | Each checkable statement from the server, with the verdict. |
 | [9. What this does not cover](#9-what-this-does-not-cover) | Limits. |
@@ -306,7 +306,30 @@ Letting quarter turns of the EO axis in when they miss the slice pieces (the tut
 | the slice's own axis, all misoriented, quarter turns allowed when they miss the slice pieces | never | | | | | | |
 | the slice's own axis, all misoriented, any turns | always | 0.26% | 2.8% | 24% | 85% | 99.9% | 7.88 |
 
-### 6.3 From a skip, or from an EO, to a DR-2s 8fe
+### 6.3 To a DR-2s 8fe: the same problem as a DR
+
+**Getting to a DR-2s 8fe is getting to a DR with the pieces renamed.** An 8fe has its corners and slice edges placed as in a DR on one pair of faces, in the colours of another pair. Move every piece a quarter turn around the third axis, leave the centres where they are, and flip every edge in its place: the 8fe becomes a real DR. Do that to any position, and rename the faces of a move sequence by the same quarter turn, and reaching the 8fe becomes reaching the DR. Edges that are good for the third axis stay good, so an EO on that axis carries over as well. Counted over every position with a full EO, with moves that keep it:
+
+| Moves from a full EO | Positions that far from the real DR | Positions that far from the DR-2s 8fe |
+|---:|---:|---:|
+| 0 | 1 | 1 |
+| 1 | 2 | 2 |
+| 2 | 17 | 17 |
+| 3 | 134 | 134 |
+| 4 | 1,065 | 1,065 |
+| 5 | 8,190 | 8,190 |
+| 6 | 54,694 | 54,694 |
+| 7 | 267,576 | 267,576 |
+| 8 | 560,568 | 560,568 |
+| 9 | 187,204 | 187,204 |
+| 10 | 3,114 | 3,114 |
+| all 1,082,565 positions, average | 7.80 | 7.80 |
+
+- **From an EO, the 8fe is exactly as far as the DR**: the same distribution, 7.80 on average. This is the tutorial's route 3, do the normal EO and then solve the wrong-coloured DR. Each of the EO's two DR axes has one, so an EO has four targets where it had two, and the two extra ones cost 1.19 more in the finish.
+- **With any moves it is the same, target by target.** A scramble has twelve 8fe (two for each colour, on normal and on inverse) against six DRs, and each is as far away as a DR is. That is why the shortest 8fe of a scramble comes 0.33 of a move before its shortest DR in 6.4: there are twice as many, and none of them is closer. (Checked on 4,000 random positions: the distance to the 8fe is the distance of the renamed position to the DR every time.)
+- **What does not carry over is the finish.** The renaming does not take the solved cube to the solved cube, and making up the difference is what the two slice turns are for: +1.19 (section 5).
+
+**So a slice-EO skip is not what gets you an 8fe.** By the kind of skip, keeping that axis's EO:
 
 | The skip | A route exists | In 5 or less (of all such skips) | In 6 or less | In 7 or less | In 8 or less | In 9 or less | Average when there is one |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -315,7 +338,8 @@ Letting quarter turns of the EO axis in when they miss the slice pieces (the tut
 | the slice's own axis, all oriented | never | | | | | | |
 | the slice's own axis, all misoriented | 1.6% | 0.01% | 0.09% | 0.48% | 1.3% | 1.6% | 7.80 |
 
-An oriented skip gets to an 8fe without breaking EO only when the whole axis is oriented, which is the tutorial's route 3: do the normal EO, then solve the wrong-coloured DR. From there the 8fe is as far as a real DR is (7.80 on average), so it is one more DR target per EO, at +1.19 in the finish.
+- **An oriented skip** leads to an 8fe only when the rest of the axis is oriented as well (0.78% of such skips, 1 in 128), and that is a normal EO. The skip adds nothing to it.
+- **A misoriented skip on an axis with 8 bad edges** (the four slice edges and four of the other eight, 55% of misoriented skips) is the one separate way in. From there an 8fe is 9.19 moves away on average, against 7.80 from an EO, with no moves spent on an EO first. It is 8 or less for 8.1% of those skips.
 
 ### 6.4 What exists, with any moves
 
@@ -368,6 +392,7 @@ As in the first study, every finish is the answer key, not what you find in an h
 - **Nine scrambles in ten have a DR-1s of 8 or less** from a skip or a one-move slice EO, and there are 86.0 of them on average, more than there are normal DRs of 10 or less.
 - **Half have one of 7 or less** (53%), and a 6 is there on 14%. tseitsei89's "I can usually find some DR-fe in 8 moves. Occasionally 7." ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465952080756871423)) was about what one finds by hand; this is what is there by the plain route.
 - Skips alone carry most of it; one-move slice EOs add about a quarter.
+- **The 8fe rows** are a floor too, and a skip is not needed for one (6.3). Of the 1,428 DR-2s 8fe of 8 moves or fewer on these scrambles, 1,128 start from a misoriented slice-EO skip, 90 from a one-move slice EO and 210 from an EO of 4 moves or less. Each is counted once, under the first of those three that reaches it, and EOs of 5 moves were not taken for the 8fe, so the split leans towards the skips.
 
 ### 7.2 What each one is worth
 

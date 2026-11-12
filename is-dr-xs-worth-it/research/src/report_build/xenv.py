@@ -131,4 +131,10 @@ def SE8(): return f'{xv.se(xv.eight()):.2f}'
 def A8C(): r = xv._rows('sample8fe.tsv'); return f2(sum(int(x['finish_setup3']) for x in r) / len(r))
 def REAL_HEADLINE(): return open(os.path.dirname(os.path.abspath(__file__)) + '/real_headline.md').read().strip() if os.path.exists(os.path.dirname(os.path.abspath(__file__)) + '/real_headline.md') else '(pending)'
 def REAL_VERDICT(): return open(os.path.dirname(os.path.abspath(__file__)) + '/real_verdict.md').read().strip() if os.path.exists(os.path.dirname(os.path.abspath(__file__)) + '/real_verdict.md') else '(pending)'
+EO8 = json.load(open(O + 'eo8_hist.json'))
+def E8AVG(): h = EO8['8fe']; return f2(sum(d * c for d, c in enumerate(h)) / sum(h))
+def E8CHK(): a, b = EO8['renaming_full_eo'], EO8['renaming_any_moves']; assert a[0] == a[1] and b[0] == b[1]; return f'{a[1] + b[1]:,}'
+def E8START(start=None, maxlen=9):
+    """8fe candidates on the 500 scrambles by where they start: '0' slice-EO skip, '1' one-move slice EO, '4' EO of 4 or less."""
+    return f"{sum(1 for r in xv._rows('attempts_8fe.tsv') if int(r['length']) <= maxlen and (start is None or r['start'] == start)):,}"
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}

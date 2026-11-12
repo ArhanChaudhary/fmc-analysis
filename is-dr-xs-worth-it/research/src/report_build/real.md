@@ -13,6 +13,7 @@ As in the first study, every finish is the answer key, not what you find in an h
 - **Nine scrambles in ten have a DR-1s of 8 or less** from a skip or a one-move slice EO, and there are {= TH('a DR-1s of 8 or less from a skip or a one-move slice EO', 1) =} of them on average, more than there are normal DRs of 10 or less.
 - **Half have one of 7 or less** ({= TH('a DR-1s of 7 or less from a skip or a one-move slice EO') =}), and a 6 is there on {= TH('a DR-1s of 6 or less from a skip or a one-move slice EO') =}. tseitsei89's "I can usually find some DR-fe in 8 moves. Occasionally 7." ([[T10809]]) was about what one finds by hand; this is what is there by the plain route.
 - Skips alone carry most of it; one-move slice EOs add about a quarter.
+- **The 8fe rows** are a floor too, and a skip is not needed for one (6.3). Of the {= E8START(None, 8) =} DR-2s 8fe of 8 moves or fewer on these scrambles, {= E8START('0', 8) =} start from a misoriented slice-EO skip, {= E8START('1', 8) =} from a one-move slice EO and {= E8START('4', 8) =} from an EO of 4 moves or less. Each is counted once, under the first of those three that reaches it, and EOs of 5 moves were not taken for the 8fe, so the split leans towards the skips.
 
 ### 7.2 What each one is worth
 

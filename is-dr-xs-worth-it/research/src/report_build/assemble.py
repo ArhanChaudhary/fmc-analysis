@@ -42,7 +42,7 @@ DESC = {
  'What a DR-xs is, and how many slices it needs': 'The 768 kinds and the rule for the number of slices.',
  'The move counts: DR-3s, DR-2s, DR-1s, DR': 'Every layout of flipped edges and what it takes to fix.',
  'The finish: DR-1s and DR-2s 8fe against a DR': 'Averages and odds by subset, which DR-1s are good, what a hand finish loses.',
- 'Getting one': 'Slice-EO skip odds, and how far a DR-1s or an 8fe is from a skip.',
+ 'Getting one': 'Slice-EO skip odds, how far a DR-1s is from a skip, and why getting to an 8fe is the same problem as getting to a DR.',
  'On 500 real scrambles': 'Every DR-1s and DR-2s 8fe against every normal DR on the same scrambles.',
  'The claims, checked': 'Each checkable statement from the server, with the verdict.',
  'What this does not cover': 'Limits.',
