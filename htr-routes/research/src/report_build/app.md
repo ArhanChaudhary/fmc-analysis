@@ -8,7 +8,6 @@
 
 {{checklist_nolimit}}
 
-**The path sheets' top paths.** Per tab, the path with the largest share in *Optimal Niss-HTR Paths* and in *Sub-13 Optimal Niss-HTR Paths*, the sheet's share and mine (same counting rule, section 5):
 
 {{docs_top}}
 
@@ -35,7 +34,6 @@
 
 ## Docs referred to
 
-- [*Sub-13 Optimal Niss-HTR Paths*](https://docs.google.com/spreadsheets/d/1etiCnl6U-OHQAjEZIVIlk9iE64OXK3lrCyy14TLE_wE), forwarded by Daichi; [*Optimal Niss-HTR Paths*](https://docs.google.com/spreadsheets/d/1D4qUhLOsJrwsBEzUVfmnLikuQNNB_eSZiPq-nS8KPN4), posted by deven. The maker of the data is not stated.
 - Levi Gibson, [*allcases*](https://docs.google.com/spreadsheets/d/1Vo6XzCFtJ-HEAuaBmk_pac-sJ3TbxEBb7BKsRJ_2wpA), [*Extra Quarter-Turn Stats (By HTR Subset)*](https://docs.google.com/spreadsheets/d/1fPCjS1ZQlP_Munut9MQkSbsL3CEdtT3LC5h3R8OMHGw), [*DR Bounding*](https://docs.google.com/document/d/1q7rig4GEo26GunBMtuagZdGyzyjCGlduH84CHLpGLSA).
 - Aedan Bryant, [*HTR Subset Stats*](https://docs.google.com/spreadsheets/d/17iChOoeB205t3wHTXMLrjM9si2vtxRgFeYR2z3pn1i0).
 - rodneykinney, [*DR Finish Move Counts*](https://docs.google.com/spreadsheets/d/1tv8rwo2GF9IWuywFTnde_YlikIPBQvHqW9pysNG6BPM) and [*Advanced DR Bounding [Beta]*](https://docs.google.com/document/d/13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0).

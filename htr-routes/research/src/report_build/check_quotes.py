@@ -11,7 +11,7 @@ Prints every quotation that is not found.  usage: check_quotes.py [files]"""
 import re, sys, os, glob
 B = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, B)
 import links
-DOCS = [p for g in ('1etiCnl6U-OHQAjEZIVIlk9iE64OXK3lrCyy14TLE_wE', '1D4qUhLOsJrwsBEzUVfmnLikuQNNB_eSZiPq-nS8KPN4', '1Vo6XzCFtJ-HEAuaBmk_pac-sJ3TbxEBb7BKsRJ_2wpA',
+# (removed)
                          '1fPCjS1ZQlP_Munut9MQkSbsL3CEdtT3LC5h3R8OMHGw', '17iChOoeB205t3wHTXMLrjM9si2vtxRgFeYR2z3pn1i0', '1tv8rwo2GF9IWuywFTnde_YlikIPBQvHqW9pysNG6BPM')
         for p in sorted(glob.glob('/data/fmc/kb/docs/gsheet/' + g + '/*.csv'))] + [
         '/data/fmc/kb/docs/gdoc/' + g + '.md' for g in ('1q7rig4GEo26GunBMtuagZdGyzyjCGlduH84CHLpGLSA', '13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0', '1_NMlyPh2Ifd1E0ivos-15Sp-by-KPxoOsj9JD4pJuHI')]

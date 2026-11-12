@@ -63,7 +63,6 @@ The study's own scrambles pass every test. The {= n(X('s500_n')) =} scrambles th
 - Louis, [*DRM/ARM average optimals*](https://docs.google.com/spreadsheets/d/13fSwUROzP0hZQV1Cn96GndWbPy4UrsHiYTaWFSeWtJs), code at [github.com/LouisSart/DRM-ARM-stats](https://github.com/LouisSart/DRM-ARM-stats).
 - KrzychXyz, [*All EO-> DR cases*](https://docs.google.com/spreadsheets/d/1dNjuqAW0wTbP3qeV5aSfo1KbrVlfvCk0_0DOfsUiJLk).
 - Evan, [*arm/pairs*](https://docs.google.com/spreadsheets/d/1YZYyokxYXwDdBTgN7ojpPAFHKKz48hCyNO2l6-iwmVk).
-- [*arm/pairs NEW!!!*](https://docs.google.com/spreadsheets/d/1bXsgNrD4oy6tzs_BVP0nNqmju6YL_CYAIA-8IWYeAeo), as posted by deven.
 - Rodney Kinney, [*DRM corner variant+pair stats*](https://docs.google.com/spreadsheets/d/174ClwBFl-T2zJAq8MVyK1bKsIIuzxQU0_XmQGv82LPQ); [*Multi-Axis DR*](https://docs.google.com/spreadsheets/d/1fYdYEGlBk3bv5x2WVSA0NtsPWVlNKbtyK-Iq-J6VjDY).
 - DougCube, [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo).
 - Cale, [*Official 5 move EO counts*](https://docs.google.com/spreadsheets/d/1jLDRWYn31ou-Br3ReNVH7EnDYPovMZLIpuCWWZEBCO8) (official scrambles to April 2023).

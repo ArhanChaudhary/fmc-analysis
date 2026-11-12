@@ -2,7 +2,6 @@ The questions, in the words of the people who asked them, with where each is ans
 
 **Which routes, how often (sections 4 and 5)**
 
-- Daichi built the cheat sheet from the sub-13 path sheet "to filter routes to check rather than DRs itself" ([[D18343]]); JTuu asked for the data behind it ("did you post the raw stats somewhere?", [[D18363]]) and got the sheet. deven, posting the full sheet: "note that you can't add percentages because it counts all distinct paths from each state" ([[D19661]]). *Answer*: section 4 gives the routes in an order where the shares do add up (cumulative), section 5 shows what the sheets count.
 - wen ([[D3669]]): "Anyone else feel like for 4q 2c, the optimals are most often reasonably explained with something like a direct HTR, or 1q then switch and 3q, and hardly ever with 2q switch 2q?" *Answer*: on 2c4, with HTRs at most 2 over the shortest, 3 qts then a switch (or 1 then 3) reaches the optimal on {= E['claims']['C48']['evidence'].split('3+(1) | ht ')[1].split(',')[0] =}, a direct HTR on {= E['claims']['C48']['evidence'].split('4 | ht ')[1].split(',')[0] =}, 2 switch 2 on {= E['claims']['C48']['evidence'].split('2+(2) | ht ')[1].split(',')[0] =}. wen's order is right; "hardly ever" is too strong.
 - Yura Riabov, on 4b2 4e ([[D6409]]): "4b2 4e is basically the best 4q subset"; rogo ([[D6422]]): "the first approach apart from R U2 F2 R to check should still be 'reduce to 1qt 4e and niss trace for short htrs' i think?" *Answer*: section 10.
 

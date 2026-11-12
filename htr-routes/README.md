@@ -1,8 +1,6 @@
 # Which HTR routes to try from a DR
 
-The fifth case study of this repository: from a DR to HTR. For each of the 48 subsets (corner subset × bad edges), which routes to HTR find the optimal finish, in what order to try them, and how long their HTRs are; how the existing path sheets were made; linear against NISS HTR and which HTR the optimal uses; DR bounding measured per subset, with the number of reductions; FakeMMAP's reduction-length bound tested; hand checklists graded; and every concrete claim from the FMC solvers Discord on these topics checked against the numbers.
 
-It builds on the two *Optimal Niss-HTR Paths* sheets (forwarded by Daichi, posted by deven) and Daichi's cheat sheet, Levi Gibson's *allcases*, *Extra Quarter-Turn Stats* and *DR Bounding*, Aedan Bryant's *HTR Subset Stats*, Joba's exact optimal distribution, DougCube's HTR-state table, rodneykinney's *DR Finish Move Counts*, normal forms and *Advanced DR Bounding*, FakeMMAP's reduction bound, JTuu's 2c3 2e simulation, and the hand orders of Zagros, Yura Riabov, rogo, Adri, Lewis Isom, Jay and rodneykinney. What it adds: a checklist per subset × edges with the share of DRs each prefix finds (optimal and +1) under an HTR budget; the reconstruction of how the path sheets count; which letter each sheet gives 4b2 and 4a2 (the server had it for *allcases*; the *Extra Quarter-Turn Stats* sheet uses the opposite letters); HTR lengths against the optimal; bounding effectiveness and reduction counts; the test FakeMMAP asked for, with a correction to the multi-qt lower bound.
 
 | Where | What |
 |---|---|

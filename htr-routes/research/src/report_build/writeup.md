@@ -6,8 +6,6 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 **This builds on** what the server already had:
 
-- **The two path sheets.** [*Sub-13 Optimal Niss-HTR Paths*](https://docs.google.com/spreadsheets/d/1etiCnl6U-OHQAjEZIVIlk9iE64OXK3lrCyy14TLE_wE), forwarded by Daichi ([[D18364]]), and [*Optimal Niss-HTR Paths*](https://docs.google.com/spreadsheets/d/1D4qUhLOsJrwsBEzUVfmnLikuQNNB_eSZiPq-nS8KPN4), posted by deven ([[D19660]]): for every subset × edges, the share of states whose optimal goes through each chain of corner subsets, NISS switches in brackets ("note that you can't add percentages because it counts all distinct paths from each state", [[D19661]]). Neither says how it was made. Section 5 reconstructs it.
-- **Daichi's cheat sheet** ([[D18340]]: "to summarize, I think this is meta"), which turns the sub-13 sheet into a route list per subset ("It doesn't capture EVERYTHING, but I decided that checking these will capture a great portion of those", [[D18343]]). It is graded in section 10.
 - **Levi Gibson's sheets and doc** (beef beans on Discord, posted as levitatingmagician): [*allcases*](https://docs.google.com/spreadsheets/d/1Vo6XzCFtJ-HEAuaBmk_pac-sJ3TbxEBb7BKsRJ_2wpA) ("What paths are most common for optimal DR solutions", [[D8290]]), the [*Extra Quarter-Turn Stats (By HTR Subset)*](https://docs.google.com/spreadsheets/d/1fPCjS1ZQlP_Munut9MQkSbsL3CEdtT3LC5h3R8OMHGw) ([[T2844]]), and [*DR Bounding*](https://docs.google.com/document/d/1q7rig4GEo26GunBMtuagZdGyzyjCGlduH84CHLpGLSA) ([[D9018]]), the method section 8 measures.
 - **Aedan Bryant's [*HTR Subset Stats*](https://docs.google.com/spreadsheets/d/17iChOoeB205t3wHTXMLrjM9si2vtxRgFeYR2z3pn1i0)** ([[T621]]): 1,000 states per subset, mean optimal against shortest linear and NISS HTR.
 - **Joba's exact optimal distribution per subset** ([[T9115]]: "This is not sampled, I looked at all 19508428800 DR states"), which the first study and this one reproduce cell for cell, and **DougCube's** [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo) ([[N2397]]) with the finish of all 663,552 HTR states ("the *expected value* is 10.13", [[D14065]]), also reproduced exactly.
@@ -19,7 +17,6 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 **What this adds**:
 
 - **A checklist per subset × edges**: the routes to try in order, each with the share of DRs where the routes so far find the optimal and a finish within +1, with and without a limit on how long the HTR may be.
-- **How the path sheets were made**, worked out by reproducing them, and what that means for reading them (their shares are not *how often this route works*).
 - **HTR lengths against the optimal**: linear against NISS HTR (rodneykinney's question from 2023), how often the optimal uses a shortest HTR, how often it needs 9 moves or more.
 - **DR bounding measured**: per subset, how often checking every reduction to 1q (or 2q) of up to R moves finds the optimal, and how many reductions that is.
 - **FakeMMAP's bound tested**: whether it is ever too short, how much it prunes, rodneykinney's per-subset tables, and a correction to the multi-qt lower bound.

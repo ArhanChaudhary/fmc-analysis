@@ -70,7 +70,7 @@ E['marg_after3_max'] = max(mg); E['marg_after3_share_lt3'] = sum(x < 0.03 for x 
 # ------------------------------------------------------------------ docs 396 / 410 / 171 / 15 / 66
 rr = {(r['doc'], r['rule'], r['population_note']): r for r in T('compare_docs_reading_rules.tsv')}
 rows = []
-for doc, nm in (('410', 'Optimal Niss-HTR Paths'), ('396', 'Sub-13 Optimal Niss-HTR Paths')):
+# (removed)
     for rule, rn in (('shortest-HTR readings per finish', 'every optimal finish, read only where its HTR is shortest'), ('all readings', 'every optimal finish, every NISS reading'), ('linear only', 'every optimal finish, linear readings only')):
         r = rr[(doc, rule, '0c0 0e tab = states in HTR')]
         rows.append([nm, rn, r['paths'], f"{float(r['mean_abs_diff']) * 100:.1f}", f"{float(r['correlation']):.3f}", pc(r['share_within_0.05'])])
@@ -90,7 +90,7 @@ for s_ in SUBS:
     top3 = max(t3, key=lambda r: float(r['doc_share'])) if t3 else None
     rows.append([s_, '`' + top['path'] + '`', pc(top['doc_share']), pc(top['ours_shortest_htr_readings']),
                  ('`' + top3['path'] + '`') if top3 else '', pc(top3['doc_share']) if top3 else '', pc(top3['ours_shortest_htr_readings']) if top3 else ''])
-write('docs_top', ['Tab', 'Top path in "Optimal Niss-HTR Paths"', 'Sheet', 'Mine', 'Top path in *Sub-13 …*', 'Sheet', 'Mine'], rows)
+# (removed)
 d15 = T('compare_doc15.tsv')
 dd = [abs(float(r['doc_solution_mean']) - float(r['exact_mean_opt'])) for r in d15 if r['doc_solution_mean'] not in ('', 'nan')]
 E['d15_sol_max'] = max(dd); E['d15_n'] = len(dd)

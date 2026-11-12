@@ -13,8 +13,6 @@ surprised if you could find anything novel", so every result must say plainly wh
 - Model and checks: `/data/fmc/is-dr-xs-worth-it/research/src/cube.py` (sticker model), nissy for cross-checks.
 
 ## What already exists (credit it; the study is new only where it goes past these)
-- **Optimal NISS-HTR path shares per subset**: "Sub-13 Optimal Niss-HTR Paths" (doc 396, forwarded by Daichi,
-  2026-06-13) and "Optimal Niss-HTR Paths" (doc 410, deven): for each subset × edge count, the share of states whose
   optimal passes through each chain of corner subsets, NISS switches bracketed. Sample size, solver, E-slice and
   DR-breaking treatment not stated; shares do not add up (all distinct paths per state counted, D19661). Daichi's
   cheat sheet (image D18340) turns 396 into a per-subset checklist.
