@@ -1,6 +1,6 @@
 # One line per section of the write-up, for its contents table (assemble.py).
 DESC = {
- 'The short version': 'The numbers, one line each.',
+ 'The short version': 'What is new, then what it confirms, one line each.',
  'What was asked': 'The questions and the standing disagreement, quoted.',
  'What an insertion is here': 'Skeleton, leftover, cost, the cap on alg length, what may be inserted, random and real skeletons.',
  'How many insertions each leftover needs': 'Which leftovers one, two or three comms solve. Exact.',

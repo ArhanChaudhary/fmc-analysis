@@ -8,7 +8,7 @@ It builds on the table in Sebastiano Tronto's tutorial ("Move count (an estimate
 |---|---|
 | [report/WRITEUP.md](report/WRITEUP.md) | the write-up |
 | [report/EXAMPLES.md](report/EXAMPLES.md) | worked examples: examples from the tutorial and the server redone, then 200 skeletons to play along with |
-| [report/BUGS.md](report/BUGS.md) | the tutorial's table line by line, what the numbers go against, what depends on the alg list or the sample, and what checked out |
+| [report/BUGS.md](report/BUGS.md) | errata: what the numbers show is wrong in things said on the server |
 | `research/SPEC.md` | the model: skeleton, leftover, insertion, cost, the cap on alg length, the models `one`, `two`, `direct`, `mixed` |
 | `research/instools/` | the Rust side: all algs up to 12 moves for every leftover, the exact best insertion(s) of a skeleton, samplers |
 | `research/src/` | the Python side: sticker model, leftover types, checks, real skeletons, report tables, examples page |

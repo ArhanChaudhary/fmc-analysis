@@ -10,7 +10,7 @@ What a solver can read off a domino reduction before solving it, how much each r
 
 - [Write-up](judging-a-dr/): what the full BFS says. It opens with a guide per subset.
 - [Worked examples](judging-a-dr/examples.html): eleven DRs read step by step, then 100 scrambles with the DRs on the page and the answers folded away.
-- [Errata](judging-a-dr/errata.html): corrections to the docs and sheets involved, and claims from the server that the full search settles.
+- [Errata](judging-a-dr/errata.html): what the full search shows is wrong in the docs and sheets involved and in things said on the server, each with an example.
 
 ## Is DR-xs worth it?
 
@@ -18,7 +18,7 @@ What it costs to leave slices unsolved at DR (DR-1s, DR-2s 8fe), how often a sli
 
 - [Write-up](is-dr-xs-worth-it/): the costs, the odds and the claims check. It opens with the short version.
 - [Worked examples](is-dr-xs-worth-it/examples.html): the tutorial's example with the numbers, then 100 scrambles with their slice-EO skips and the DR-xs routes on them, answers folded away.
-- [Errata](is-dr-xs-worth-it/errata.html): corrections to the docs involved, and what the numbers settle.
+- [Errata](is-dr-xs-worth-it/errata.html): what the numbers show is wrong in the docs involved and in things said on the server, each with an example.
 
 ## Insertion cost by skeleton type
 
@@ -26,4 +26,4 @@ What a 3c, a 5c, a 2c2c, a 3c1t or a pair of twisted corners adds to a skeleton,
 
 - [Write-up](insertion-cost/): the costs, the odds, the exchange rates between types and the claims check. It opens with the short version.
 - [Worked examples](insertion-cost/examples.html): worked examples from the tutorial and the server redone with the search, then 200 skeletons to play along with, answers folded away.
-- [Errata](insertion-cost/errata.html): the tutorial's table line by line, what the numbers go against, what depends on the alg list, and what checked out.
+- [Errata](insertion-cost/errata.html): what the numbers show is wrong in things said on the server, each with an example.
