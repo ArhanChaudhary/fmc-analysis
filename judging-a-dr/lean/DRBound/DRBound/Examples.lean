@@ -29,9 +29,9 @@ def report (s : String) : List (String × Nat × Nat) :=
       | [a, b] => (name, a, b)
       | _ => (name, 0, 0)
 
--- Rodney Kinney, "Advanced DR Bounding", first random-scramble example (he finds 13 and argues it is optimal)
+-- Rodney Kinney, "Advanced DR Bounding", first random-scramble example (the doc finds 13 and argues it is optimal)
 #eval report "U D L2 D' B2 U R2 F2 B2 D2 L2 D' R2 L2 D2 B2"
--- second example, a 4a4 case (he finds 13)
+-- second example, a 4a4 case (the doc finds 13)
 #eval report "U R2 L2 F2 U' B2 D2 F2 D L2 U B2 R2 U' F2 U"
 -- an 18-move optimal DR state quoted on the server (T3897)
 #eval report "L2 B2 L2 F2 U' L2 U2 F2 U' R2 U B2 F2 U L2 U F2 U2"

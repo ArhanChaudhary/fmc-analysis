@@ -25,7 +25,7 @@ What came out:
 - **For a 10 or an 11, the subset does most of the pruning.** In 11: 10% of 1–2qt DRs, 4.6% of 3qt, 1.1% of 4qt, 0.24% of 5qt. In 10: 2.4%, 0.87%, 0.16%, 0.02%.
 - **The lower the target, the more the reads tell you.** Keep only the best-looking quarter of 4qt DRs, going by pairs and corner case, which need no solving. It holds 65% of the finishes in 12, 77% of those in 11 and 89% of those in 10. At 3qt: 52%, 63%, 74%. HTR length on both sides adds a few points on top, and at 1–2qt it is the best single read.
 - **Still no clean yes/no.** The subset explains 35% of the variance of the optimal, everything readable together 48%, and what's left has an sd of 0.78 moves. Zagros's hunch that corner case + HTR on both sides pins the optimal to ~0.25 moves: it's 0.80.
-- **Plain rules, with their price.** Zagros's "9+ on both sides, toss" turned into a rule against your target T. The safe version drops every DR that is T−1 or more to HTR on both sides: for an 11 that's 10+, and it drops 8% of 3qt and 31% of 4qt DRs for 0.2% and 2.5% of the 11s. The aggressive version, T−2 or more, is his 9+ when you need an 11: it drops 28% and 67% and costs 5% and 20% of them. With no solving: dropping every DR without a pair drops 14% and costs 2–7% of the 11s. And a five-line prune list that needs no solving (section 8) drops {= PRUNE('drop',11,'1-2qt') =} of 1–2qt, {= PRUNE('drop',11,'3qt') =} of 3qt and {= PRUNE('drop',11,'4qt') =} of 4qt DRs and every 5qt one, for {= PRUNE('lose',11,'1-2qt') =}, {= PRUNE('lose',11,'3qt') =} and {= PRUNE('lose',11,'4qt') =} of their finishes in 11.
+- **Plain rules, with their price.** Zagros's "9+ on both sides, toss" turned into a rule against your target T. The safe version drops every DR that is T−1 or more to HTR on both sides: for an 11 that's 10+, and it drops 8% of 3qt and 31% of 4qt DRs for 0.2% and 2.5% of the 11s. The aggressive version, T−2 or more, is Zagros's 9+ when you need an 11: it drops 28% and 67% and costs 5% and 20% of them. With no solving: dropping every DR without a pair drops 14% and costs 2–7% of the 11s. And a five-line prune list that needs no solving (section 8) drops {= PRUNE('drop',11,'1-2qt') =} of 1–2qt, {= PRUNE('drop',11,'3qt') =} of 3qt and {= PRUNE('drop',11,'4qt') =} of 4qt DRs and every 5qt one, for {= PRUNE('lose',11,'1-2qt') =}, {= PRUNE('lose',11,'3qt') =} and {= PRUNE('lose',11,'4qt') =} of their finishes in 11.
 - **The two guaranteed hand bounds wake up at low targets.** The longer HTR and the corner solution with the right E-parity prove almost nothing for a 12 (5% of 4qt DRs, 13% of 5qt). For a 10 they rule out half of 4qt and 80% of 5qt DRs.
 - **A few real kill rules.** 2c5 with the bad corners stacked on both sides: no 12 at all. 2c5 stacked on one side and opposite on the other: no 11, 0.24% in 12. 2c4 stacked on both sides: no 10, 0.06% in 11, 1.1% in 12. 4a2 2e with all four bad corners on one layer on both sides: no 12 at all.
 - **Questions from the server, answered exactly**: stats by bad corner position (Daichi, JTuu, wen), by pairs (Rodney, Levi), the normal × inverse HTR table (Zagros), the 4a1 4e bound against the real leave slice (count quackula), the cost of the slice (JTuu), an invertible last move (Zagros), God's number per subset (compLex), optimal lengths of all corner cases (Evan).
@@ -42,7 +42,7 @@ The gap, in the words of the people who bound in real solves:
 - Jay: bounding "isn't really equipped to handle higher qt stuff which is where optimal usually gets missed" ([[T5687]]).
 - Levi uses it at 2q and 3q. At 4q: "Too many variations unfortunately. It kinda works with 4q, but it is slower than just checking reductions to 2c3" ([[D10081]]). And: "If there are other metrics (i.e blocks, HTR patterns, etc) that you can bound 2q cases with that would be incredible" ([[T7084]]).
 - Rodney: "+3 or lower penalties are really quite rare … That's what makes 4qt cases so intractable currently" ([[T12094]]).
-- tseitsei89: "Being able to quickly tell when a DR has a short finish would be a real holy grail" ([[T10831]]). His test for a good stat: "Optimally you would only have 100% cases and 0% cases" ([[T8208]]).
+- tseitsei89: "Being able to quickly tell when a DR has a short finish would be a real holy grail" ([[T10831]]). tseitsei89's test for a good stat: "Optimally you would only have 100% cases and 0% cases" ([[T8208]]).
 
 And the specific questions, each with a section below:
 
@@ -215,7 +215,7 @@ Each pair is worth about 0.15 moves of average optimal. What that does to the od
 
 Levi is right about blocky 2c4s: for an 11, from {= pct(q(cs='2c4',pairs=0),11) =} with no pairs to {= pct(q(cs='2c4',pairs=5),11) =} with five or more, {= P05('2c4',11) =} times as often. The same step is worth ×{= P05('4a1',11) =} at 4a1, ×{= P05('2c3',11) =} at 2c3 and ×{= P05('2c5',11) =} at 2c5. Appendix D has all 48 subsets, for 10, 11, 12 and 13.
 
-On Rodney's finer split: I also counted pseudo-pairs (both stickers opposite), side semi-pairs and top semi-pairs, defined as in his message. Knowing all four counts instead of just the true pairs moves the sd left from 0.850 to 0.842. Pairs with E-slice edges add even less. So count true pairs and stop.
+On Rodney's finer split: I also counted pseudo-pairs (both stickers opposite), side semi-pairs and top semi-pairs, defined as in Rodney's message. Knowing all four counts instead of just the true pairs moves the sd left from 0.850 to 0.842. Pairs with E-slice edges add even less. So count true pairs and stop.
 
 You don't need to count again on the inverse scramble: a block stays a block, so the number of true pairs is the same on both sides for every DR state.
 
@@ -309,7 +309,7 @@ A bound is only a bound if it never exceeds the optimal. Graded on all states:
 | Levi's 1qt formula, HTR normal + HTR inverse − 1 (4a1 4e) | never for a finish with one quarter turn. A finish with three is shorter for 11.7% of 4a1 4e | 10.85 | 12.27 |
 | setup + HTR, any qt (below) | never for a finish with the minimum number of quarter turns. A finish with more is shorter for 2.6% at 1–2qt and 0.002% above | see below | |
 
-**Levi's formula.** (HTR normal) + (HTR inverse) − 1 bounds the finishes with one quarter turn, which is what Levi's doc uses it for. (His doc writes it as the path to the trigger on normal + on inverse + 1. An HTR is that path plus the quarter turn, so it's the same number.)
+**Levi's formula.** (HTR normal) + (HTR inverse) − 1 bounds the finishes with one quarter turn, which is what Levi's doc uses it for. (The doc writes it as the path to the trigger on normal + on inverse + 1. An HTR is that path plus the quarter turn, so it's the same number.)
 
 A 1qt state can also be solved with three quarter turns, and the number worth having is how often that is shorter. Over all 286,654,464 states of 4a1 4e:
 

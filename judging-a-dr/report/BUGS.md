@@ -39,7 +39,7 @@ Separately, the row labelled F-V / F-D / R-H (0/0) lists `M R2 U2 M'`. That alg 
 The rule values ("Heuristic" column) are *not* affected. They stay at or below the real optimal in all 216 cases, so "the rules give a true lower bound 100% of the time" ([Rodney, 18 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1550363053625708656), [Rodney, 22 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1551960570440319087)) still holds, even against the corrected numbers.
 
 **A3. FakeMMAP's HTR-breaking table (`RK_OBL_table_DS_2e.csv`, attached to [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)): five cells one too high, two of them labelled 7.**
-About the first version (`RK_OBL_table_HTR_breaking.csv`, the day before) he said ≤ 7 was proven optimal and 8, 9, 10 "might actually be solvable in as little as 7" ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606)). For the 7 Sep file: 211 of 216 cells are right, and the two 7s below are 6 in both files.
+About the first version (`RK_OBL_table_HTR_breaking.csv`, the day before) FakeMMAP said ≤ 7 was proven optimal and 8, 9, 10 "might actually be solvable in as little as 7" ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606)). For the 7 Sep file: 211 of 216 cells are right, and the two 7s below are 6 in both files.
 
 | Case | Table | Real | A state of that case (its inverse solves it) |
 |---|---:|---:|---|
@@ -51,10 +51,10 @@ About the first version (`RK_OBL_table_HTR_breaking.csv`, the day before) he sai
 
 In this file nothing is too low and no 8, 9 or 10 drops to 7. (All 216 rows, with HT-only, DR-move and any-move optimals and a sequence for each, are Appendix C of the write-up.)
 
-The later "OBL++" sheet ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733747526598676)), the one he's "not mathematically 100% sure" about ([same day](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)), has a finer grid (F/R parity) and I didn't grade it cell by cell. Collapsed to the 216 labels it matches on 140 of the 144 cases it covers, already has four of the five fixes above, and is one *lower* in four (D-D ± F-H R-H even, R-V + F-D R-H even, R-V + F-D R-D odd: 8 vs 9). nissy finds no solution of 8 or fewer for any of the 3,072 states in each of those four cases, so 9 stands for the cases as labelled here. Whether those cells mean something slightly different is open.
+The later "OBL++" sheet ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733747526598676)), the one FakeMMAP is "not mathematically 100% sure" about ([same day](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)), has a finer grid (F/R parity) and I didn't grade it cell by cell. Collapsed to the 216 labels it matches on 140 of the 144 cases it covers, already has four of the five fixes above, and is one *lower* in four (D-D ± F-H R-H even, R-V + F-D R-H even, R-V + F-D R-D odd: 8 vs 9). nissy finds no solution of 8 or fewer for any of the 3,072 states in each of those four cases, so 9 stands for the cases as labelled here. Whether those cells mean something slightly different is open.
 
 **A4. The HT-only table is not a lower bound once other moves are allowed.**
-FakeMMAP says so himself ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546158311945142375)). In numbers: with U and D qts allowed 2 of the 216 values drop (9 to 8, "R-D − F-V R-V even" and its mirror "F-D − F-V R-V even"; the count of 2 is proven in Lean). With all 18 moves 66 drop (35 by 1, 24 by 2, 6 by 3, 1 by 4, counted from the HT-only values). Rodney's "the lower bound still applies if you allow yourself to use DR-breaking moves" ([Rodney, 29 Aug 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1543273729780490411)) is true of his *rules*, not of the HT-only table they were first compared with. The two that drop with quarter turns:
+FakeMMAP's own post says so ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546158311945142375)). In numbers: with U and D qts allowed 2 of the 216 values drop (9 to 8, "R-D − F-V R-V even" and its mirror "F-D − F-V R-V even"; the count of 2 is proven in Lean). With all 18 moves 66 drop (35 by 1, 24 by 2, 6 by 3, 1 by 4, counted from the HT-only values). Rodney's "the lower bound still applies if you allow yourself to use DR-breaking moves" ([Rodney, 29 Aug 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1543273729780490411)) is true of Rodney's *rules*, not of the HT-only table they were first compared with. The two that drop with quarter turns:
 
     L2 B2 D B2 L2 R2 F2 U'      // a state of "R-D − F-V R-V even"
     U F2 R2 L2 B2 D' B2 L2      // solves it in 8
@@ -82,7 +82,7 @@ It's four of the 48: 0c3 4e (768), 2c5 4e (384), 2c5 0e (192), 0c0 8e (8), 1,352
 
 I can't show a fifth subset because there isn't one: the other 44 top out at 17 or less, and the write-up's Appendix G has a longest state for each.
 
-**B3. FakeMMAP's corner counts per qt** ([FakeMMAP, 26 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1144917908078723112), where he asked someone to check them).
+**B3. FakeMMAP's corner counts per qt** ([FakeMMAP, 26 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1144917908078723112), where FakeMMAP asked someone to check them).
 Confirmed: 24, 144, 720, 1416, 1776, 960 of 5040 for 0–5qt.
 
 **B4. The arithmetic in Levi's example** ([tseitsei89, 28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311628919933501460)).
@@ -120,7 +120,7 @@ The sd left is 0.82 moves over all DRs, between 0.74 (4c4) and 0.97 (0c0) by cor
     R2 U2 B2 L2 F2 L2 D2 F2 R2 U' B2 F2 L2 R2 U' R2 D'  // 4a1 4e, optimal 17
 
 **B11. trangium's "true 2q bound"** ([trangium, 27 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1487207920256024738)): (shortest HTR on one side) + (half turns before the first qt on the other).
-It is a bound for finishes with the minimum number of qts, as he says. Against the real optimal it is too high for 2.6% of 1–2qt DRs (23.8% of 4a1 4e, 2.2% of 4a2 4e, 1.3% of 4a2 0e, 0.9% of 4b2 4e) and for 0.002% of 3–5qt DRs. Daichi's objection that it's weak ([Daichi, 28 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1487653636786880684)) holds: it adds 2 moves to the HTR length at 2qt, about half a move at 3–4qt and nothing at 5qt. Examples where a finish with extra quarter turns gets under it:
+It is a bound for finishes with the minimum number of qts, as trangium says. Against the real optimal it is too high for 2.6% of 1–2qt DRs (23.8% of 4a1 4e, 2.2% of 4a2 4e, 1.3% of 4a2 0e, 0.9% of 4b2 4e) and for 0.002% of 3–5qt DRs. Daichi's objection that it's weak ([Daichi, 28 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1487653636786880684)) holds: it adds 2 moves to the HTR length at 2qt, about half a move at 3–4qt and nothing at 5qt. Examples where a finish with extra quarter turns gets under it:
 
     D L2 U' R2 U' L2 F2 U'       // 4b2 4e, the bound says 12
     U F2 L2 U R2 U L2 D'         // solved in 8
@@ -135,7 +135,7 @@ It is a bound for finishes with the minimum number of qts, as he says. Against t
 
 ## C. What checked out
 
-- Levi's 1qt formula, (HTR normal) + (HTR inverse) − 1, bounds every finish with one quarter turn, which is what his doc uses it for. For reference, a finish with three quarter turns is shorter for 11.7% of 4a1 4e (by 1 in 8.4%, by 2 in 2.7%, by 3+ in 0.6%), and for 2.5% when the formula says 12 or less. One of them, both lines proven in Lean:
+- Levi's 1qt formula, (HTR normal) + (HTR inverse) − 1, bounds every finish with one quarter turn, which is what Levi's doc uses it for. For reference, a finish with three quarter turns is shorter for 11.7% of 4a1 4e (by 1 in 8.4%, by 2 in 2.7%, by 3+ in 0.6%), and for 2.5% when the formula says 12 or less. One of them, both lines proven in Lean:
 
   ```
   U2 F2 R2 B2 U D2 B2 R2 B2 R2 F2   // 4a1 4e, formula 6 + 5 − 1 = 10
@@ -174,7 +174,7 @@ It is a bound for finishes with the minimum number of qts, as he says. Against t
   ```
 
 - "90+% of 4b2 0e cases are 12-14 optimal" ([Daichi, 28 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1487653636786880684)): 92.1%.
-- Daichi's four kinds of 4b2 corners (2-2 and 3-1, good and bad parity, [Daichi, 8 May 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1502289912693522615)): there are exactly four corner cases in 4b2 and they rank as he lists them at every target: 14% / 11% / 8.4% / 7.0% finishing in 11, 44% / 40% / 33% / 30% in 12.
+- Daichi's four kinds of 4b2 corners (2-2 and 3-1, good and bad parity, [Daichi, 8 May 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1502289912693522615)): there are exactly four corner cases in 4b2 and they rank as Daichi lists them at every target: 14% / 11% / 8.4% / 7.0% finishing in 11, 44% / 40% / 33% / 30% in 12.
 - Rodney's advanced rules as lower bounds on the 216 cases: valid in all 216, even against DR-breaking optimals.
 - Subset sizes, qt class fractions ([Oskar, 10 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1249777335239184405)), and 4a3 ↔ 4b3, 4a4 ↔ 4b4 on inverse (wen's sheet).
 - The two worked examples in Rodney's Advanced DR Bounding doc: both 13-movers are optimal. In the 4a4 one you can prove it from the DR alone, by reading Rodney's NISS@1qt features straight off the 4qt DR state instead of off a 1qt state and looking up the fewest moves that fix them (the write-up calls that NISS@DR). It says 13 on the normal side.
@@ -188,5 +188,5 @@ It is a bound for finishes with the minimum number of qts, as he says. Against t
 - Rodney Kinney, sheet "Adv DR Bounding" (rules vs the 216 computed cases): https://docs.google.com/spreadsheets/d/1jRvikzLlm3yHlDQmQ0DLyj3Aw6uinL3Oa-U9_U7R5mY
 - FakeMMAP, sheet "OBL++": https://docs.google.com/spreadsheets/d/1kax7evfA85p_4ArXKO7si3FrCpj7PEeFwoz4GY5wRAE
 - wen, sheet "HTR better smh (v2)" (the corner subsets): https://docs.google.com/spreadsheets/d/1ZhulzHeNgv2Hiy4x9R1MzsMRlPlI-E8DRiHFJlPlboM
-- FakeMMAP's BFS listing, script and tables are attachments on his posts of 6–10 Sep 2026 in #fmc-theory.
+- FakeMMAP's BFS listing, script and tables are attachments on FakeMMAP's posts of 6–10 Sep 2026 in #fmc-theory.
 - Mallard (cubelib) source, for how the 48 subsets are built: https://github.com/Jobarion/cubelib

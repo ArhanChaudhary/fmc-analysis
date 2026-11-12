@@ -65,7 +65,7 @@ What came out:
 - **For a 10 or an 11, the subset does most of the pruning.** In 11: 10% of 1–2qt DRs, 4.6% of 3qt, 1.1% of 4qt, 0.24% of 5qt. In 10: 2.4%, 0.87%, 0.16%, 0.02%.
 - **The lower the target, the more the reads tell you.** Keep only the best-looking quarter of 4qt DRs, going by pairs and corner case, which need no solving. It holds 65% of the finishes in 12, 77% of those in 11 and 89% of those in 10. At 3qt: 52%, 63%, 74%. HTR length on both sides adds a few points on top, and at 1–2qt it is the best single read.
 - **Still no clean yes/no.** The subset explains 35% of the variance of the optimal, everything readable together 48%, and what's left has an sd of 0.78 moves. Zagros's hunch that corner case + HTR on both sides pins the optimal to ~0.25 moves: it's 0.80.
-- **Plain rules, with their price.** Zagros's "9+ on both sides, toss" turned into a rule against your target T. The safe version drops every DR that is T−1 or more to HTR on both sides: for an 11 that's 10+, and it drops 8% of 3qt and 31% of 4qt DRs for 0.2% and 2.5% of the 11s. The aggressive version, T−2 or more, is his 9+ when you need an 11: it drops 28% and 67% and costs 5% and 20% of them. With no solving: dropping every DR without a pair drops 14% and costs 2–7% of the 11s. And a five-line prune list that needs no solving (section 1) drops 8% of 1–2qt, 28% of 3qt and 81% of 4qt DRs and every 5qt one, for 0.68%, 6.0% and 36% of their finishes in 11.
+- **Plain rules, with their price.** Zagros's "9+ on both sides, toss" turned into a rule against your target T. The safe version drops every DR that is T−1 or more to HTR on both sides: for an 11 that's 10+, and it drops 8% of 3qt and 31% of 4qt DRs for 0.2% and 2.5% of the 11s. The aggressive version, T−2 or more, is Zagros's 9+ when you need an 11: it drops 28% and 67% and costs 5% and 20% of them. With no solving: dropping every DR without a pair drops 14% and costs 2–7% of the 11s. And a five-line prune list that needs no solving (section 1) drops 8% of 1–2qt, 28% of 3qt and 81% of 4qt DRs and every 5qt one, for 0.68%, 6.0% and 36% of their finishes in 11.
 - **The two guaranteed hand bounds wake up at low targets.** The longer HTR and the corner solution with the right E-parity prove almost nothing for a 12 (5% of 4qt DRs, 13% of 5qt). For a 10 they rule out half of 4qt and 80% of 5qt DRs.
 - **A few real kill rules.** 2c5 with the bad corners stacked on both sides: no 12 at all. 2c5 stacked on one side and opposite on the other: no 11, 0.24% in 12. 2c4 stacked on both sides: no 10, 0.06% in 11, 1.1% in 12. 4a2 2e with all four bad corners on one layer on both sides: no 12 at all.
 - **Questions from the server, answered exactly**: stats by bad corner position (Daichi, JTuu, wen), by pairs (Rodney, Levi), the normal × inverse HTR table (Zagros), the 4a1 4e bound against the real leave slice (count quackula), the cost of the slice (JTuu), an invertible last move (Zagros), God's number per subset (compLex), optimal lengths of all corner cases (Evan).
@@ -149,7 +149,7 @@ The gap, in the words of the people who bound in real solves:
 - Jay: bounding "isn't really equipped to handle higher qt stuff which is where optimal usually gets missed" ([Jay, 28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1311881154328133673)).
 - Levi uses it at 2q and 3q. At 4q: "Too many variations unfortunately. It kinda works with 4q, but it is slower than just checking reductions to 2c3" ([Levi, 13 Feb 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1339747273902395507)). And: "If there are other metrics (i.e blocks, HTR patterns, etc) that you can bound 2q cases with that would be incredible" ([Levi, 12 May 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1371536829844689010)).
 - Rodney: "+3 or lower penalties are really quite rare … That's what makes 4qt cases so intractable currently" ([Rodney, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546185406075244564)).
-- tseitsei89: "Being able to quickly tell when a DR has a short finish would be a real holy grail" ([tseitsei89, 28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466158543496544494)). His test for a good stat: "Optimally you would only have 100% cases and 0% cases" ([tseitsei89, 21 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1386074648424218745)).
+- tseitsei89: "Being able to quickly tell when a DR has a short finish would be a real holy grail" ([tseitsei89, 28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466158543496544494)). tseitsei89's test for a good stat: "Optimally you would only have 100% cases and 0% cases" ([tseitsei89, 21 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1386074648424218745)).
 
 And the specific questions, each with a section below:
 
@@ -492,7 +492,7 @@ Each pair is worth about 0.15 moves of average optimal. What that does to the od
 
 Levi is right about blocky 2c4s: for an 11, from 0.43% with no pairs to 6.8% with five or more, 16 times as often. The same step is worth ×5 at 4a1, ×8 at 2c3 and ×40 at 2c5. Appendix D has all 48 subsets, for 10, 11, 12 and 13.
 
-On Rodney's finer split: I also counted pseudo-pairs (both stickers opposite), side semi-pairs and top semi-pairs, defined as in his message. Knowing all four counts instead of just the true pairs moves the sd left from 0.850 to 0.842. Pairs with E-slice edges add even less. So count true pairs and stop.
+On Rodney's finer split: I also counted pseudo-pairs (both stickers opposite), side semi-pairs and top semi-pairs, defined as in Rodney's message. Knowing all four counts instead of just the true pairs moves the sd left from 0.850 to 0.842. Pairs with E-slice edges add even less. So count true pairs and stop.
 
 You don't need to count again on the inverse scramble: a block stays a block, so the number of true pairs is the same on both sides for every DR state.
 
@@ -779,7 +779,7 @@ A bound is only a bound if it never exceeds the optimal. Graded on all states:
 | Levi's 1qt formula, HTR normal + HTR inverse − 1 (4a1 4e) | never for a finish with one quarter turn. A finish with three is shorter for 11.7% of 4a1 4e | 10.85 | 12.27 |
 | setup + HTR, any qt (below) | never for a finish with the minimum number of quarter turns. A finish with more is shorter for 2.6% at 1–2qt and 0.002% above | see below | |
 
-**Levi's formula.** (HTR normal) + (HTR inverse) − 1 bounds the finishes with one quarter turn, which is what Levi's doc uses it for. (His doc writes it as the path to the trigger on normal + on inverse + 1. An HTR is that path plus the quarter turn, so it's the same number.)
+**Levi's formula.** (HTR normal) + (HTR inverse) − 1 bounds the finishes with one quarter turn, which is what Levi's doc uses it for. (The doc writes it as the path to the trigger on normal + on inverse + 1. An HTR is that path plus the quarter turn, so it's the same number.)
 
 A 1qt state can also be solved with three quarter turns, and the number worth having is how often that is shorter. Over all 286,654,464 states of 4a1 4e:
 
@@ -914,7 +914,7 @@ The real optimal maxes out at 18 (1,352 states, the number Reid gave, quoted by 
 
 Some notes:
 
-- **NISS@DR on HTR states with half turns only *is* FakeMMAP's table.** His 216 example scrambles are 216 different cases and every value matches (both proven in Lean). So NISS@DR is that table grown from 216 cases to 6.35 million: one for every corner state and edge layout a DR can have.
+- **NISS@DR on HTR states with half turns only *is* FakeMMAP's table.** FakeMMAP's 216 example scrambles are 216 different cases and every value matches (both proven in Lean). So NISS@DR is that table grown from 216 cases to 6.35 million: one for every corner state and edge layout a DR can have.
 - **"Up to swapping white and yellow"** is Rodney's *reflection* ("yellow FH edges with white HH corners", +2). The last level looks at the actual colours, so reflection is built in.
 - **Double-swap parity** is the H-perm thing FakeMMAP and Rodney went back and forth on ([here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546101477334978650) and [here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546232388013785088)): are the four M-slice edges, read in order, an even or odd arrangement, and same for S. On HTR states that's the parity of F2/B2 turns and of R2/L2 turns separately, the F-parity and R-parity of FakeMMAP's "OBL++" sheet. Rodney guessed that knowing it would make the bound basically exact ([Rodney, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546126576247247028)). Below you can see how close it gets.
 - **What the last level still can't see**: which of the two white M-slice edges is which (same for the other three pairs), and the E-slice beyond its parity. So H-perm-style 2e2e's inside a slice and E-slice 3-cycles are the only blind spot.
@@ -982,7 +982,7 @@ I wrote a small lookup tool for this: give it a scramble and the moves to DR (NI
 
     U D L2 D' B2 U R2 F2 B2 D2 L2 D' R2 L2 D2 B2   // 2c3 6e
 
-He goes through three skeletons, kills about a dozen triggers with bounding, finds a 13 and says "to strictly prove it, we'd have to try inserting corner swaps in front of the first qt". From the DR alone:
+Rodney goes through three skeletons, kills about a dozen triggers with bounding, finds a 13 and says "to strictly prove it, we'd have to try inserting corner swaps in front of the first qt". From the DR alone:
 
     HTR length          9 / 7      (normal / inverse)
     corner length L     5 / 5
@@ -995,15 +995,15 @@ He goes through three skeletons, kills about a dozen triggers with bounding, fin
 
 So 13 is optimal, and the last level proves it without picking a skeleton.
 
-**His 4a4 example:**
+**Rodney's 4a4 example:**
 
     U R2 L2 F2 U' B2 D2 F2 D L2 U B2 R2 U' F2 U   // 4a4 on normal, 4b4 on inverse, 4e
 
     HTR 11 / 10,  L 11 / 11,  L+S+T 13 / 11,  NISS@DR 13 / 12,  optimal 13
 
-Here plain NISS@DR on the normal side already says 13. His 13-mover is optimal, read off a 4qt DR.
+Here plain NISS@DR on the normal side already says 13. Rodney's 13-mover is optimal, read off a 4qt DR.
 
-**Levi's example** (from his DR Bounding doc), the 10-move 3qt DR `(D2 B' L' B U' F2 D L U2 R)`: subset 4c3 4e, HTR 9 / 10, NISS@DR 12 / 12, everything 14 / 14, optimal DR finish 15. Levi says "14-move optimal finish, giving a 24". Both are right: the DR ends in R, a finish that ends on that face merges with it, and the same DR with R' instead has optimal 14. The tool prints both.
+**Levi's example** (from the DR Bounding doc), the 10-move 3qt DR `(D2 B' L' B U' F2 D L U2 R)`: subset 4c3 4e, HTR 9 / 10, NISS@DR 12 / 12, everything 14 / 14, optimal DR finish 15. Levi says "14-move optimal finish, giving a 24". Both are right: the DR ends in R, a finish that ends on that face merges with it, and the same DR with R' instead has optimal 14. The tool prints both.
 
 None of this is something you can do at the table, and that's the point of keeping it. Next to what a hand can do (section 4), for the finish you need:
 
@@ -1029,7 +1029,7 @@ Whether NISS@DR has a description compact enough for that, I don't know. The tab
 
 ## 9. The 216 NISS@1qt cases, three ways
 
-FakeMMAP's first table is HT only. He then added HTR-breaking finishes from a list of algs, said ≤ 7 was proven and 8/9/10 might secretly be 7-movers ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606), [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)), and of the newer OBL++ sheet that he's "not mathematically 100% sure" ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)). Rodney's "Adv DR Bounding" sheet uses those optimals.
+FakeMMAP's first table is HT only. FakeMMAP then added HTR-breaking finishes from a list of algs, said ≤ 7 was proven and 8/9/10 might secretly be 7-movers ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606), [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)), and is "not mathematically 100% sure" about the newer OBL++ sheet ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)). Rodney's "Adv DR Bounding" sheet uses those optimals.
 
 Here are all three (the full table is Appendix C):
 
@@ -1051,7 +1051,7 @@ The two that get shorter with quarter turns, explicitly (with half turns alone b
 
 - **FakeMMAP's HTR-breaking table ([FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)) is right in 211 of 216 cells and one too high in 5.** Two of those were labelled 7 and are 6-movers, so "7 or less is proven optimal" doesn't hold for them.
 
-  | Case | His | Real | A state of that case |
+  | Case | Table | Real | A state of that case |
   |---|---:|---:|---|
   | F-D + F-V R-H odd | 7 | 6 | `R L' B2 D2 R L'` |
   | R-D + F-H R-V odd | 7 | 6 | `F' B R2 D2 F B'` |
@@ -1151,7 +1151,7 @@ What agreed with what:
 | Joba's optimal distribution, all 48 subsets ([Joba, 17 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1406633631165714492)) | same in every cell |
 | Subset sizes, qt class sizes ([Oskar, 10 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1249777335239184405), [Joba, 3 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1357402650441945299)), 4a3↔4b3 on inverse (wen's "HTR better smh (v2)" sheet) | same |
 | FakeMMAP's 216 values ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546077758189477989)) | same |
-| FakeMMAP's corner counts per qt, 24 / 144 / 720 / 1416 / 1776 / 960 of 5040 ([FakeMMAP, 26 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1144917908078723112), he asked someone to check them) | confirmed |
+| FakeMMAP's corner counts per qt, 24 / 144 / 720 / 1416 / 1776 / 960 of 5040 ([FakeMMAP, 26 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1144917908078723112), FakeMMAP asked someone to check them) | confirmed |
 | Lean's proven optimal table vs the Rust BFS | same in all 1,339,269,120 entries, and the same depth distribution |
 | Lean vs the Rust program, bound tables | same case counts (96, 420, 70, 5040, 630, 10080), same distribution of the corner and HTR tables, same bounds on the examples |
 | Rust vs the first C version | every output byte-identical |
@@ -1162,7 +1162,7 @@ For the hand reads in sections 4 to 7:
 
 - **Leave slice**: a second BFS over corners and U/D-layer edges only, reduced by the same 16 symmetries (111,605,760 reduced states, five seconds). It reaches all 19,508,428,800 states when each is counted with its 12 E-slice arrangements.
 - **The reads**: three more passes over all DR states. Each computes the read for the state (and for its inverse where that's a different thing) and adds the state's optimal to a histogram. Every pass counts exactly 19,508,428,800 states.
-- **Pairs**: the four kinds are defined by the colours of the two touching sticker pairs, as in Rodney's message. Checked on his example: after `B2 L2 B2 R2` the UF edge has a top semi-pair on one side and a side semi-pair on the other, which is what he says it sets up.
+- **Pairs**: the four kinds are defined by the colours of the two touching sticker pairs, as in Rodney's message. Checked on Rodney's example: after `B2 L2 B2 R2` the UF edge has a top semi-pair on one side and a side semi-pair on the other, which is what Rodney says it sets up.
 - **Corner cases**: classes of the 420 HTR corner cosets under the 16 symmetries and under turning both layers. There are 46.
 - **Setup lengths** for the setup + HTR bound: breadth-first over the 29,400 HTR cosets with half turns only, until some quarter turn lowers the minimum qt count. At 1qt it has to give the shortest 1qt HTR minus one, and it does.
 - **Example scrambles**: every scramble quoted as an example of something was found by a search over all DR states, then re-read from its text alone (subset, HTR lengths, leave slice and optimal recomputed from the moves). The ones that stand against something a person wrote were also solved with nissy.
@@ -1364,7 +1364,7 @@ For the big 3–5qt subsets. L = optimal corner solution. "Fastest" is the short
 
 ## Appendix C: the 216 NISS@1qt cases
 
-Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E-parity). HT = half turns only (his first BFS), DR = DR moves, Any = any of the 18 face turns. The sequence makes a state of the case in "Any" moves, so its inverse is an optimal solution.
+Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E-parity). HT = half turns only (FakeMMAP's first BFS), DR = DR moves, Any = any of the 18 face turns. The sequence makes a state of the case in "Any" moves, so its inverse is an optimal solution.
 
 | Corners | F edges | R edges | E | HT | DR | Any | Sequence |
 |---|---|---|---|---:|---:|---:|---|
@@ -3016,7 +3016,7 @@ Every number is the best any rule based on that read could do.
 - Rodney Kinney, sheet "Adv DR Bounding" (rules vs the 216 computed cases): https://docs.google.com/spreadsheets/d/1jRvikzLlm3yHlDQmQ0DLyj3Aw6uinL3Oa-U9_U7R5mY
 - FakeMMAP, sheet "OBL++": https://docs.google.com/spreadsheets/d/1kax7evfA85p_4ArXKO7si3FrCpj7PEeFwoz4GY5wRAE
 - wen, sheet "HTR better smh (v2)" (the corner subsets): https://docs.google.com/spreadsheets/d/1ZhulzHeNgv2Hiy4x9R1MzsMRlPlI-E8DRiHFJlPlboM
-- FakeMMAP's BFS listing, script and tables are attachments on his posts of 6–10 Sep 2026 in #fmc-theory.
+- FakeMMAP's BFS listing, script and tables are attachments on FakeMMAP's posts of 6–10 Sep 2026 in #fmc-theory.
 - Mallard (cubelib) source, for how the 48 subsets are built: https://github.com/Jobarion/cubelib
 - Rodney Kinney, "HTR Theory" (September 2023): https://docs.google.com/document/d/1HjS92UBCeCasbW44ezE0fjt5vmWQvlfkaC4rA113nmw
 - Levi Gibson, sheet "Corner Solution Length x DR Finish length" (sampled; Appendix B is the exact version): https://docs.google.com/spreadsheets/d/14rZI1Nf84Og1jS8dN1MfT0sYhvdIWu9gPXkHDs1iVU4

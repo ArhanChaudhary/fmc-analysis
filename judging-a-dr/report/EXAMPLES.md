@@ -79,7 +79,7 @@ So nothing under 7 here, and nothing under 9 because of the HTR on normal. For 2
 
     R2 B2 D' B2 R2 U B2 R2 U F2 L2 U2 F2   // 13, optimal
 
-Only one of the ten moves starts an optimal finish (R2). Rodney finds a 13 in his doc after bounding his way through three skeletons, and it is optimal. If this DR's last move could be turned the other way and that amounted to an R2 here, the finish would be 12.
+Only one of the ten moves starts an optimal finish (R2). Rodney's doc finds a 13 after bounding its way through three skeletons, and it is optimal. If this DR's last move could be turned the other way and that amounted to an R2 here, the finish would be 12.
 
 ---
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Read every worked example collected from the server and its docs (kb/reread/drxs_examples.jsonl), follow the
 solution line by line, and compare each line's label (DR-2s, 4a2-1s, 8fe, ...) with what the state is by the rules
-of this study.  Slices from the signature (the rule trangium gives in his dr-fe examples doc):
+of this study.  Slices from the signature (the rule trangium gives in the dr-fe examples doc):
   corners on the colour's own faces:  slice pieces agree with centers: 0 flips -> DR, else 2 slices; disagree -> 3
   corners on other faces:             slice pieces agree: 4 flips -> 1 slice, else 3; disagree -> 2"""
 import json, re, sys, collections

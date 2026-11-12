@@ -31,7 +31,7 @@ What it isn't: a method you can run in your head for the strong versions. The st
 
 - **Levi Gibson's "DR Bounding" doc** (posted [27 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311464464737898589) in #fmc-discussion). At 1qt 4c4e the finish is `[A] U [B]` with A and B all half turns. A can't be shorter than the shortest path to the trigger on normal, B can't be shorter than on inverse. So finish ≥ (HTR normal) + (HTR inverse) − 1.
 - **Rodney Kinney's "Advanced DR Bounding [Beta]" doc** (posted [29 Aug 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1543125354120609832), reworked [8 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1547045595556872202)). Solution = L + S + T + N: corner skeleton, extra moves to set up the trigger, extra moves in the trigger, extra moves after HTR. N gets bounded from what you NISS-trace at 1qt: HH/RD/RV/DD corners, H/D/V edge pairs, cs-parity, fr-parity, bad slices.
-- **FakeMMAP's BFS** ([6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546077655328104509) onwards; the listing, his script and the tables are attached to those posts). 216 cases = 12 corner cases × 3 M-slice patterns × 3 S-slice patterns × E-parity, with the exact HT-only movecount for each. Rodney tuned his rules against it ([Rodney, 18 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1550363053625708656); his "Adv DR Bounding" sheet). FakeMMAP's newer "OBL++" sheet ([10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733747526598676)) splits by F/R parity and adds some HTR-breaking stuff.
+- **FakeMMAP's BFS** ([6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546077655328104509) onwards; the listing, the script and the tables are attached to those posts). 216 cases = 12 corner cases × 3 M-slice patterns × 3 S-slice patterns × E-parity, with the exact HT-only movecount for each. Rodney tuned the rules against it ([Rodney, 18 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1550363053625708656); the "Adv DR Bounding" sheet). FakeMMAP's newer "OBL++" sheet ([10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733747526598676)) splits by F/R parity and adds some HTR-breaking stuff.
 - **Stats we already had**: Joba's optimal DR finish distribution for all 48 subsets over every DR state ([Joba, 17 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1406633631165714492)), the 48 subsets ([Jack Love, 8 Oct 2022](https://discord.com/channels/1007840975726575667/1007841335434285126/1028291202849705984); Mallard builds its subset table from them), wen's corner subset sheet "HTR better smh (v2)".
 - **Earlier shots at higher qt**: trangium's "true 2q bound" ([trangium, 27 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1487207920256024738), only valid if you don't use extra qts), the h-sequence inequalities from compLex and FakeMMAP ([compLex, 12 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1416104938710372434)), Zagros's hunch that corner case + HTR length on both sides predicts optimal ([Zagros, 4 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1490097940641878216)).
 
@@ -95,7 +95,7 @@ The real optimal maxes out at 18 (1,352 states, the number Reid gave, quoted by 
 
 Some notes:
 
-- **NISS@DR on HTR states with half turns only *is* FakeMMAP's table.** His 216 example scrambles are 216 different cases and every value matches (both proven in Lean). So NISS@DR is that table grown from 216 cases to 6.35 million: one for every corner state and edge layout a DR can have.
+- **NISS@DR on HTR states with half turns only *is* FakeMMAP's table.** FakeMMAP's 216 example scrambles are 216 different cases and every value matches (both proven in Lean). So NISS@DR is that table grown from 216 cases to 6.35 million: one for every corner state and edge layout a DR can have.
 - **"Up to swapping white and yellow"** is Rodney's *reflection* ("yellow FH edges with white HH corners", +2). The last level looks at the actual colours, so reflection is built in.
 - **Double-swap parity** is the H-perm thing FakeMMAP and Rodney went back and forth on ([here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546101477334978650) and [here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546232388013785088)): are the four M-slice edges, read in order, an even or odd arrangement, and same for S. On HTR states that's the parity of F2/B2 turns and of R2/L2 turns separately, the F-parity and R-parity of FakeMMAP's "OBL++" sheet. Rodney guessed that knowing it would make the bound basically exact ([Rodney, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546126576247247028)). Below you can see how close it gets.
 - **What the last level still can't see**: which of the two white M-slice edges is which (same for the other three pairs), and the E-slice beyond its parity. So H-perm-style 2e2e's inside a slice and E-slice 3-cycles are the only blind spot.
@@ -157,7 +157,7 @@ I wrote a small lookup tool for this: give it a scramble and the moves to DR (NI
 
     U D L2 D' B2 U R2 F2 B2 D2 L2 D' R2 L2 D2 B2   // 2c3 6e
 
-He goes through three skeletons, kills about a dozen triggers with bounding, finds a 13 and says "to strictly prove it, we'd have to try inserting corner swaps in front of the first qt". From the DR alone:
+Rodney goes through three skeletons, kills about a dozen triggers with bounding, finds a 13 and says "to strictly prove it, we'd have to try inserting corner swaps in front of the first qt". From the DR alone:
 
     HTR length          9 / 7      (normal / inverse)
     corner length L     5 / 5
@@ -170,15 +170,15 @@ He goes through three skeletons, kills about a dozen triggers with bounding, fin
 
 So 13 is optimal, and the last level proves it without picking a skeleton.
 
-**His 4a4 example:**
+**Rodney's 4a4 example:**
 
     U R2 L2 F2 U' B2 D2 F2 D L2 U B2 R2 U' F2 U   // 4a4 on normal, 4b4 on inverse, 4e
 
     HTR 11 / 10,  L 11 / 11,  L+S+T 13 / 11,  NISS@DR 13 / 12,  optimal 13
 
-Here plain NISS@DR on the normal side already says 13. His 13-mover is optimal, read off a 4qt DR.
+Here plain NISS@DR on the normal side already says 13. Rodney's 13-mover is optimal, read off a 4qt DR.
 
-**Levi's example** (from his DR Bounding doc), the 10-move 3qt DR `(D2 B' L' B U' F2 D L U2 R)`: subset 4c3 4e, HTR 9 / 10, NISS@DR 12 / 12, everything 14 / 14, optimal DR finish 15. Levi says "14-move optimal finish, giving a 24". Both are right: the DR ends in R, a finish that ends on that face merges with it, and the same DR with R' instead has optimal 14. The tool prints both.
+**Levi's example** (from the DR Bounding doc), the 10-move 3qt DR `(D2 B' L' B U' F2 D L U2 R)`: subset 4c3 4e, HTR 9 / 10, NISS@DR 12 / 12, everything 14 / 14, optimal DR finish 15. Levi says "14-move optimal finish, giving a 24". Both are right: the DR ends in R, a finish that ends on that face merges with it, and the same DR with R' instead has optimal 14. The tool prints both.
 
 ---
 
@@ -253,7 +253,7 @@ If the formula says ≤ 12, optimal is below it 2.5% of the time. At ≤ 11, 0.6
 
 ## The 216 NISS@1qt cases, three ways
 
-FakeMMAP's first table is HT only. He then added HTR-breaking finishes from a list of algs, said ≤ 7 was proven and 8/9/10 might secretly be 7-movers ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606), [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)), and of the newer OBL++ sheet that he's "not mathematically 100% sure" ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)). Rodney's "Adv DR Bounding" sheet uses those optimals.
+FakeMMAP's first table is HT only. FakeMMAP then added HTR-breaking finishes from a list of algs, said ≤ 7 was proven and 8/9/10 might secretly be 7-movers ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606), [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)), and is "not mathematically 100% sure" about the newer OBL++ sheet ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)). Rodney's "Adv DR Bounding" sheet uses those optimals.
 
 Here are all three (the full table is Appendix C):
 
@@ -275,7 +275,7 @@ The two that get shorter with quarter turns, explicitly (with half turns alone b
 
 - **FakeMMAP's HTR-breaking table ([FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)) is right in 211 of 216 cells and one too high in 5.** Two of those were labelled 7 and are 6-movers, so "7 or less is proven optimal" doesn't hold for them.
 
-  | Case | His | Real | A state of that case |
+  | Case | Table | Real | A state of that case |
   |---|---:|---:|---|
   | F-D + F-V R-H odd | 7 | 6 | `R L' B2 D2 R L'` |
   | R-D + F-H R-V odd | 7 | 6 | `F' B R2 D2 F B'` |
@@ -375,7 +375,7 @@ What agreed with what:
 | Joba's optimal distribution, all 48 subsets ([Joba, 17 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1406633631165714492)) | same in every cell |
 | Subset sizes, qt class sizes ([Oskar, 10 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1249777335239184405), [Joba, 3 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1357402650441945299)), 4a3↔4b3 on inverse (wen's "HTR better smh (v2)" sheet) | same |
 | FakeMMAP's 216 values ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546077758189477989)) | same |
-| FakeMMAP's corner counts per qt, 24 / 144 / 720 / 1416 / 1776 / 960 of 5040 ([FakeMMAP, 26 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1144917908078723112), he asked someone to check them) | confirmed |
+| FakeMMAP's corner counts per qt, 24 / 144 / 720 / 1416 / 1776 / 960 of 5040 ([FakeMMAP, 26 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1144917908078723112), FakeMMAP asked someone to check them) | confirmed |
 | Lean's proven optimal table vs the Rust BFS | same in all 1,339,269,120 entries, and the same depth distribution |
 | Lean vs the Rust program, bound tables | same case counts (96, 420, 70, 5040, 630, 10080), same distribution of the corner and HTR tables, same bounds on the examples |
 | Rust vs the first C version | every output byte-identical |
@@ -519,7 +519,7 @@ For the big 3–5qt subsets. L = optimal corner solution. "Min" is the best case
 
 ## Appendix C: the 216 NISS@1qt cases
 
-Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E-parity). HT = half turns only (his first BFS), DR = DR moves, Any = any of the 18 face turns. The sequence makes a state of the case in "Any" moves, so its inverse is an optimal solution.
+Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E-parity). HT = half turns only (FakeMMAP's first BFS), DR = DR moves, Any = any of the 18 face turns. The sequence makes a state of the case in "Any" moves, so its inverse is an optimal solution.
 
 | Corners | F edges | R edges | E | HT | DR | Any | Sequence |
 |---|---|---|---|---:|---:|---:|---|
@@ -747,5 +747,5 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 - Rodney Kinney, sheet "Adv DR Bounding" (rules vs the 216 computed cases): https://docs.google.com/spreadsheets/d/1jRvikzLlm3yHlDQmQ0DLyj3Aw6uinL3Oa-U9_U7R5mY
 - FakeMMAP, sheet "OBL++": https://docs.google.com/spreadsheets/d/1kax7evfA85p_4ArXKO7si3FrCpj7PEeFwoz4GY5wRAE
 - wen, sheet "HTR better smh (v2)" (the corner subsets): https://docs.google.com/spreadsheets/d/1ZhulzHeNgv2Hiy4x9R1MzsMRlPlI-E8DRiHFJlPlboM
-- FakeMMAP's BFS listing, script and tables are attachments on his posts of 6–10 Sep 2026 in #fmc-theory.
+- FakeMMAP's BFS listing, script and tables are attachments on FakeMMAP's posts of 6–10 Sep 2026 in #fmc-theory.
 - Mallard (cubelib) source, for how the 48 subsets are built: https://github.com/Jobarion/cubelib

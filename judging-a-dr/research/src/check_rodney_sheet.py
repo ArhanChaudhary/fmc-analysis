@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Rodney Kinney's sheet "Adv DR Bounding" (KB doc 418, tab "Optimals (Advanced)"): 216 NISS@1qt cases with a setup alg,
-the computed optimal penalty (HTR-breaking moves allowed) and the penalty predicted by his rules ("Heuristic").
+the computed optimal penalty (HTR-breaking moves allowed) and the penalty predicted by Rodney's rules ("Heuristic").
 Compare with our KF table (DR moves only), evaluated on the HTR state produced by the setup alg."""
 import csv, sys, subprocess, collections
 sys.path.insert(0, '/data/fmc/judging-a-dr/research/tool'); import fmccube as fc

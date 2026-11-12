@@ -34,11 +34,11 @@ This builds on work that is already on the server. The method is tseitsei89's [D
 
 ## 1. The short version
 
-- **A DR-1s costs 2.27 more moves in the finish than a DR.** Over 200,000 random DR-1s states, each finished as well as the method can (setup, slice, DR finish), the average is 15.85 against 13.58 for a DR. By subset it is +2.04 to +2.53, a little more on the low-qt subsets. trangium's nissy averages are 0.1 to 0.4 lower; his are true optimals, which may leave the form.
+- **A DR-1s costs 2.27 more moves in the finish than a DR.** Over 200,000 random DR-1s states, each finished as well as the method can (setup, slice, DR finish), the average is 15.85 against 13.58 for a DR. By subset it is +2.04 to +2.53, a little more on the low-qt subsets. trangium's nissy averages are 0.1 to 0.4 lower; those are true optimals, which may leave the form.
 - **In odds**: a DR-1s finishes in 14 or less 9.0% of the time and in 15 or less 32%. A DR does that 80% and 99% of the time. At equal odds a DR-1s in N is a DR in about N + 2.3. The tutorial's line that an 8-move DR-1s sits between a 10- and an 11-move DR holds.
 - **The one good kind of DR-1s** is the one that a single slice turn fixes, seen from one side of the scramble or the other (2.8% of them): it finishes in 14.52 on average, 0.94 over a DR. Past that the layout matters little: needing 4, 5 or 6 turns to DR from the better side gives 15.74, 15.96 and 16.12.
 - **DR-1s to DR takes 2 to 6 turns, and usually 5 or 6.** Of the 70 ways four flipped edges can sit, 1 needs 2 turns, 2 need 3, 9 need 4, 30 need 5 and 28 need 6. Daichi's "6 moves max" is exact. The distribution is not flat and the typical fix is not 3.
-- **A DR-2s 8fe costs 1.19 more** (5,000 random states), +0.95 (4a1) to +1.41 (4c4) by subset, a tenth or two above trangium's nissy optimals on the subsets he measured. A normal DR that ends in `U R L` is one of these two moves earlier, so that ending is worth a little under a move.
+- **A DR-2s 8fe costs 1.19 more** (5,000 random states), +0.95 (4a1) to +1.41 (4c4) by subset, a tenth or two above trangium's nissy optimals on the subsets trangium measured. A normal DR that ends in `U R L` is one of these two moves earlier, so that ending is worth a little under a move.
 - **A slice-EO skip is there on 69% of scrambles on normal, 79% counting inverse.** That is exact, and it answers wen's question. For one given slice a slice EO is never more than 2 moves away, as FakeMMAP said.
 - **From an oriented skip on an axis that is not the slice's own, a DR-1s is on average 7.68 moves away** without breaking the EO of that axis: within 7 for 36% of skips, within 8 for 88%, within 6 for 7.1%. tseitsei89, by hand ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465952080756871423)): "I can usually find some DR-fe in 8 moves. Occasionally 7."
 - **Which skips can work at all**, as long as you keep that axis's EO, is a clean rule. Oriented, on an axis that is not the slice's own: always. Misoriented on such an axis: only if that axis has exactly 8 bad edges. Oriented on the slice's own axis: 55% of the time. Misoriented on the slice's own axis: never.
@@ -126,7 +126,7 @@ A DR-1s has exactly four flipped edges, and one slice turn fixes it once those f
 - **3-1 is not much worse than 2-2 here.** With three of the four already in the slice it is 5 or 6. With two it is anything from 3 to 6. With none it is 4 (`F B R L`).
 - All 70 layouts with a shortest fix each are in Appendix A. This is the list Radek B asked for.
 
-**Simon's table.** Simon's slice-DR doc has the same count for his step 3, taking the better direction of the last trigger move: "Num Cases out of 70": 1, 4, 9, 40, 16 for 2 to 6 moves. Mine with the same choice is 1, 4, 13, 36, 16. The ends agree, and so does his "~4.9 moves on average". But thirteen layouts have a 4-turn fix, not nine. They are listed at the end of Appendix A, each with its fix.
+**Simon's table.** Simon's slice-DR doc has the same count for its step 3, taking the better direction of the last trigger move: "Num Cases out of 70": 1, 4, 9, 40, 16 for 2 to 6 moves. Mine with the same choice is 1, 4, 13, 36, 16. The ends agree, and so does Simon's "~4.9 moves on average". But thirteen layouts have a 4-turn fix, not nine. They are listed at the end of Appendix A, each with its fix.
 
 ### 4.3 The steps in between
 
@@ -158,7 +158,7 @@ The states are drawn uniformly: 200,000 DR-1s and 5,000 DR-2s 8fe. That is the r
 
 ### 5.2 By subset
 
-The subset of a DR-xs is its corner subset, as in "4a2-1s". trangium's columns are his nissy optimal averages from the tutorial.
+The subset of a DR-xs is its corner subset, as in "4a2-1s". trangium's columns are the nissy optimal averages from the tutorial.
 
 | Corner subset | Share of states | DR: average finish | DR-1s: average finish | DR-1s against DR | trangium's DR-1s (nissy optimal) | DR-2s 8fe: average finish | 8fe against DR | trangium's 8fe (nissy optimal) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -177,8 +177,8 @@ The subset of a DR-xs is its corner subset, as in "4a2-1s". trangium's columns a
 | **all** | 100% | 13.58 | 15.85 | +2.27 |  | 14.77 | +1.19 |  |
 
 - The penalty for a DR-1s is +2.27 overall. It is larger on the low-qt subsets (+2.53 for 4a1) than on the high ones (+2.05 for 4b5), so a DR-1s flattens the difference between subsets a little.
-- My DR-1s numbers are 0.1 to 0.4 above trangium's. His are true optimals, which may leave the form, and he says of them that "lots of optimals are not findable" ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465944533656141878)). The DR column agrees with his to within 0.05.
-- For DR-2s 8fe the penalty is +1.19, and 0.1 to 0.2 above his on each of the five subsets he measured. The 8fe sample is small for the rare subsets: 35 states of 0c0, 45 of 0c4, 50 of 0c3.
+- My DR-1s numbers are 0.1 to 0.4 above trangium's. trangium's are true optimals, which may leave the form, and trangium says of them that "lots of optimals are not findable" ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465944533656141878)). The DR column agrees with trangium's to within 0.05.
+- For DR-2s 8fe the penalty is +1.19, and 0.1 to 0.2 above trangium's on each of the five subsets trangium measured. The 8fe sample is small for the rare subsets: 35 states of 0c0, 45 of 0c4, 50 of 0c3.
 
 ### 5.3 In odds
 
@@ -226,7 +226,7 @@ Two things you can see on a DR-1s were said to matter: how far it is from a DR, 
 
 - **The DR-1s to want is the one a single slice turn fixes, from one side or the other**: +0.94, a little less than a DR-2s 8fe costs. It is 2.8% of them.
 - **Beyond that, the layout matters little.** From 4 turns to 6 the average finish moves by 0.38. A DR-1s that is 6 from a real DR is not 4 worse than one that is 2 away, because the setup moves are also finish moves.
-- **"Extra-good" is two cases.** Rodney's extra-good DR-1s is four flipped edges all belonging to one slice ([19 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474226073247027220)), which he put at "just 1-2 moves worse than full DR". When that slice is the one that fixes, it is the first row. When it is the other slice, the four sit together in the wrong slice (`F B R L` to fix) and the finish is +2.10, no better than an ordinary DR-1s. Averaged over the two it is +1.52.
+- **"Extra-good" is two cases.** Rodney's extra-good DR-1s is four flipped edges all belonging to one slice ([19 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474226073247027220)), which Rodney put at "just 1-2 moves worse than full DR". When that slice is the one that fixes, it is the first row. When it is the other slice, the four sit together in the wrong slice (`F B R L` to fix) and the finish is +2.10, no better than an ordinary DR-1s. Averaged over the two it is +1.52.
 
 ### 5.5 What a hand finish loses
 
@@ -472,12 +472,12 @@ Statements that a computer can settle, with what the numbers say. A scramble is 
 | Claim | Who | Verdict |
 |---|---|---|
 | DR-1s to DR is 6 moves at most, no 7 | Daichi, [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560144143441854566), [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560145175714472097) | **True.** Exactly 2 to 6 turns over the 70 layouts (4.2). A 6: `U R2 F2 D' B2 U2 L2 D R' L' B' L2 U2 F2` gives a DR-1s whose shortest fix is 6 turns. |
-| The DR-1s to DR distribution is "basically flat", 3 moves is the median | Rodney, [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560294279010717737), [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560296978137485322) | **No.** 1, 2, 9, 30, 28 of 70 for 2 to 6 turns. His 3 is one half turn, one quarter turn and the slice with one of its two turns cancelling; counted that way the median layout is 4, and 5 from scratch. |
+| The DR-1s to DR distribution is "basically flat", 3 moves is the median | Rodney, [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560294279010717737), [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560296978137485322) | **No.** 1, 2, 9, 30, 28 of 70 for 2 to 6 turns. Rodney's 3 is one half turn, one quarter turn and the slice with one of its two turns cancelling; counted that way the median layout is 4, and 5 from scratch. |
 | "DR-2s needs at most 2 moves to reach DR-1s" | Rodney, [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560294279010717737) | **True** for the setup: 0, 1 or 2 moves, then the slice (4.3). |
 | From DR-3s you get DR-2s in 0 moves with a slice that cancels with the last DR move | tseitsei89's tutorial | **True** for all 244 kinds of DR-3s. |
 | The rule for the number of slices from centers and flipped edges | trangium's dr-fe examples doc, Rodney [22 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1464027237656563783), the tutorial | **True**, all 768 kinds (section 3). |
 | "1 slice can be fixed in 3 moves, and 2 slices can be fixed in 5 moves" | EO Meta Comparison doc (an assumption, stated as one) | As move counts to a real DR, about 2 short: 5.17 and 6.83 on average from scratch. As finish penalties, 3 is a little high for a DR-1s (+2.27) and 5 much too high for a DR-2s 8fe (+1.19). |
-| A DR-1s finish is about 2.2 to 2.4 longer than a DR's on optimal; a DR-2s 8fe about 1 | trangium, in the tutorial and [28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466202453052494118), [6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469525403927580754) | **Consistent.** His are optimals. With the best finish of the method's form, on 200,000 and 5,000 states: +2.27 and +1.19, 0.1 to 0.4 above his by subset. |
+| A DR-1s finish is about 2.2 to 2.4 longer than a DR's on optimal; a DR-2s 8fe about 1 | trangium, in the tutorial and [28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466202453052494118), [6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469525403927580754) | **Consistent.** trangium's are optimals. With the best finish of the method's form, on 200,000 and 5,000 states: +2.27 and +1.19, 0.1 to 0.4 above trangium's by subset. |
 | "8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR" | the tutorial | **Holds** with these finishes: at +2.27 an 8-move DR-1s is 0.27 behind a 10-move DR and 0.73 ahead of an 11 (5.3). |
 | 3-1 is bad, 2-2 is good, 4-0 is great | Rodney [28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466198780582826057), tseitsei89 [28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466020882320461856) | **Right order, small effect** except for one case: 16.05, 15.78, 15.10 average finish, and the 4-0 is only good when the slice is the one that fixes (5.4). |
 | An extra-good DR-1s is "just 1-2 moves worse than full DR" | Rodney, [19 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474226073247027220) | **On average**, +1.52: +0.94 when the four are in the slice that fixes, +2.10 when they are in the other one. |

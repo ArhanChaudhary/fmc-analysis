@@ -49,4 +49,4 @@ The reports are then rebuilt from the counts:
     cd ../../.. && scripts/build-pages.sh OUTPUT_DIRECTORY                         # the site
 
 Each pass needs under 3 GB of memory. `LISTING` is FakeMMAP's list of the 216 NISS@1qt cases with a
-half-turn scramble each (an attachment on his Discord post, linked from the write-up).
+half-turn scramble each (an attachment on FakeMMAP's Discord post, linked from the write-up).

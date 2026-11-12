@@ -90,8 +90,8 @@ theorem kf_half_bound (g : State) (hg : g.Valid) (w : List Move) (hall : ∀ m �
 /-- FakeMMAP's 216 example scrambles fall into 216 different classes of the KF rung … -/
 theorem fakemmap_classes : rungKF.countClasses fakemmapCases = 216 := by native_decide
 
-/-- … and each value he lists equals our half-turn-only table value for that class.  So his table is this
-quotient distance, and by `kf_half_bound` each of his numbers is a true lower bound for HTR-only finishes. -/
+/-- … and each value listed equals our half-turn-only table value for that class.  So the table is this
+quotient distance, and by `kf_half_bound` each of its numbers is a true lower bound for HTR-only finishes. -/
 theorem fakemmap_values : rungKF.halfBoundsMatch fakemmapCases = true := by native_decide
 
 /-- With quarter turns allowed (still DR moves), exactly 2 of the 216 cases get shorter. -/

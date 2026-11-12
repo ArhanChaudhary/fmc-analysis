@@ -2,7 +2,7 @@
   DRBound.FakeMMAPData — transcription of FakeMMAP's breadth-first-search listing
   (Discord "FMC solvers", #fmc-theory, 2026-09-06, attachment message.txt of message T12061).
 
-  Each entry: an example scramble of half turns, and the number of half turns his search reports for the
+  Each entry: an example scramble of half turns, and the number of half turns the search reports for the
   resulting case.  Case names (corner case, M-slice and S-slice edge patterns, E parity) are kept as comments.
   Generated mechanically from the attachment; do not edit by hand.
 -/
