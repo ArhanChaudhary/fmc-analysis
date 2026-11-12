@@ -6,7 +6,7 @@ All of this section is on {= n(X('n')) =} uniformly random scrambles (appendix B
 
 {{a1}}
 
-*One fixed axis* is DR on one given axis with turns after the scramble only, exact over every coset; it is DougCube's table (doc 218, "Going to DR") and Louis's 6.2% and 43% ([[T5957]], [[T5959]], restated for one axis, linear, in [[T5964]]). *Best of 3 axes, normal*: the fewest turns to DR on any axis, turns after the scramble only. *Inverse*: the same on the inverse scramble. *Best of 6*: the better of those two, the six tries of 3 axes on each side. *NISS*: turns on both sides, counted together, best of 3 axes.
+*One fixed axis* is DR on one given axis with turns after the scramble only, exact over every coset; it is DougCube's table (the "Going to DR" tab of [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo)) and Louis's 6.2% and 43% ([[T5957]], [[T5959]], restated for one axis, linear, in [[T5964]]). *Best of 3 axes, normal*: the fewest turns to DR on any axis, turns after the scramble only. *Inverse*: the same on the inverse scramble. *Best of 6*: the better of those two, the six tries of 3 axes on each side. *NISS*: turns on both sides, counted together, best of 3 axes.
 
 What it says:
 

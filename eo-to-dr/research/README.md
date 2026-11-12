@@ -54,7 +54,7 @@ The numbers behind the fourth case study (questions A1–A3, B4–B5, C6–C7 an
   every optimal DR and both Y. Checked: P(E\* ≤ k) equals P(best route through an EO of ≤ k = optimal) on every
   sample.
 - *Case* xcye: x corners twisted for the DR axis, y misplaced edges for it (E-slice pieces outside the E slice
-  plus as many others inside), as in Cale's "DR setup stats" and doc 6.
+  plus as many others inside), as in Cale's "DR setup stats" sheet.
 - *Last-move inversion* (C6c): the same EO with its last turn (an F or B quarter turn) the other way, i.e. the state
   times F2 (or B2: the two give identical distributions, checked).
 - C's EO-solved states are uniform: for a random scramble and an EO chosen from its edge orientation alone, the
