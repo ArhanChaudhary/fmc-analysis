@@ -19,7 +19,7 @@ The numbers behind the fourth case study (questions A1–A3, B4–B5, C6–C7 an
   `eodrtools extract`).
 - Scrambles: 50,000 uniformly random states (`eodrtools mkscr 50000 2026`: splitmix64 as in is-dr-xs-worth-it,
   each written as the inverse of a shortest path to DR plus an optimal DR finish from judging-a-dr's exact table,
-  about 23 turns; `out/scrambles.txt`), and the 500 scrambles of judging-a-dr (`out/hand/attempt_scrambles.txt`).
+  about 23 turns; `out/scrambles.txt`), and the 500 nissy scrambles judging-a-dr used first (`out/hand/attempt_scrambles_nissy.txt`; that study now uses uniform states).
   nissy 2.0.8's `scramble` was used first and dropped. Its source (`src/commands.c`, lines 505-508) draws
   `eo = rand() % POW2TO11; ep = rand() % FACTORIAL12; co = rand() % POW3TO7; cp = rand() % FACTORIAL8;`: with glibc's
   rand() in [0, 2^31), `rand() % FACTORIAL12` takes the lowest 48.3% of edge-permutation indices 5 times out of 2^31

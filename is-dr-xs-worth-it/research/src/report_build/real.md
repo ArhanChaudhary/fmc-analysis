@@ -10,9 +10,9 @@ As in the first study, every finish is the answer key, not what you find in an h
 
 {{real_there}}
 
-- **Nine scrambles in ten have a DR-1s of 8 or less** from a skip or a one-move slice EO, and there are {= TH('a DR-1s of 8 or less from a skip or a one-move slice EO', 1) =} of them on average, more than there are normal DRs of 10 or less.
-- **Half have one of 7 or less** ({= TH('a DR-1s of 7 or less from a skip or a one-move slice EO') =}), and a 6 is there on {= TH('a DR-1s of 6 or less from a skip or a one-move slice EO') =}. tseitsei89's "I can usually find some DR-fe in 8 moves. Occasionally 7." ([[T10809]]) was about what one finds by hand; this is what is there by the plain route.
-- Skips alone carry most of it; one-move slice EOs add about a quarter.
+- **Nine scrambles in ten have a DR-1s of 8 or less** from a skip or a one-move slice EO, and there are {= TH('a DR-1s of 8 or less from a skip or a one-move slice EO', 1) =} of them on average, nearly as many as there are normal DRs of 10 or less.
+- **Nearly half have one of 7 or less** ({= TH('a DR-1s of 7 or less from a skip or a one-move slice EO') =}), and a 6 is there on {= TH('a DR-1s of 6 or less from a skip or a one-move slice EO') =}. tseitsei89's "I can usually find some DR-fe in 8 moves. Occasionally 7." ([[T10809]]) was about what one finds by hand; this is what is there by the plain route.
+- Skips alone carry most of it; one-move slice EOs add a little under a third.
 - **The 8fe rows** are a floor too, and a skip is not needed for one (6.3). Of the {= E8START(None, 8) =} DR-2s 8fe of 8 moves or fewer on these scrambles, {= E8START('0', 8) =} start from a misoriented slice-EO skip, {= E8START('1', 8) =} from a one-move slice EO and {= E8START('4', 8) =} from an EO of 4 moves or less. Each is counted once, under the first of those three that reaches it, and EOs of 5 moves were not taken for the 8fe, so the split leans towards the skips.
 
 ### 7.2 What each one is worth
@@ -21,7 +21,7 @@ For each kind of thing you could finish: how often its solution is as short as t
 
 {{real_yield}}
 
-The table is sorted by that share. Rows 2 to 4 (a normal DR of 9 or less, a DR-1s of 7, a DR-2s 8fe of 8 or less) are within sampling error of each other. So a DR-1s of 7 is worth about what a normal DR of 9 or less is, a DR-1s of 8 is worth {= YX('1s8', 'dr11') =} eleven-move DRs and {= YX2('1s8', 'dr10') =} of a 10-move DR, and a DR-2s 8fe of 9 comes out a little better than a 10-move DR on these scrambles. That is kinder to DR-xs than the N + {= EXCH() =} of section 5, because on real scrambles the finish often cancels into the last move of the route (by {= RL('cancel_1s') =} moves on average for a DR-1s).
+The table is sorted by that share. Rows 2 to 4 (a DR-2s 8fe of 8 or less, a normal DR of 9 or less, a DR-1s of 7) are within sampling error of each other. So a DR-1s of 7 is worth about what a normal DR of 9 or less is, a DR-1s of 8 is worth {= YX('1s8', 'dr11') =} eleven-move DRs and {= YX2('1s8', 'dr10') =} of a 10-move DR, and a DR-2s 8fe of 9 comes out a little better than a 10-move DR on these scrambles. That is kinder to DR-xs than the N + {= EXCH() =} of section 5, because on real scrambles the finish often cancels into the last move of the route (by {= RL('cancel_1s') =} moves on average for a DR-1s).
 
 ### 7.3 What it does to the result
 
@@ -40,11 +40,11 @@ Scramble by scramble, over all 500:
 
 The standing question is whether, after the EOs of 4 or less, slice EOs are a better use of the time than more 5-move EOs. tseitsei89's belief ([[D19521]]): "For sEO I currently believe skips are better than 5 move EOs but 1 movers might not be." Counting EOs the way cubelib-cli does (every way to write one, with NISS), a scramble has {= EOV('eos4') =} EOs of 4 moves or less and {= EOV('eos5') =} of 5 or less; {= EOV('none4') =} of the 500 have none of 4 or less. The DRs of 10 or less that come from EOs of 4 or less are {= EOV('drs10_4') =} per scramble; the 5-move EOs bring that to {= EOV('drs10_5') =}.
 
-Over the {= RL('eo10', 'H') =} scrambles that have a DR of 10 or less from an EO of 4 or less:
+Over the {= RL('eo10', 'H', f='{:,}') =} scrambles that have a DR of 10 or less from an EO of 4 or less:
 
 {{real_eo10}}
 
-And with the DRs of 11 as well ({= RL('eo11', 'H') =} scrambles):
+And with the DRs of 11 as well ({= RL('eo11', 'H', f='{:,}') =} scrambles):
 
 {{real_eo11}}
 
@@ -53,13 +53,13 @@ And with the DRs of 11 as well ({= RL('eo11', 'H') =} scrambles):
 - **They combine**: both together give {= EOP('eo10', 5) =}, {= EOD('eo10', 0, 5) =} better than the start. That is less than the two gains added, because they often reach the same length. Neither replaces the other.
 - **Per thing finished the 5-movers do better**: their gain comes from {= f'{REAL["eo10"]["policies"][4]["n"] - REAL["eo10"]["policies"][0]["n"]:,.0f}' =} more DRs to finish, the slice-EO gain from {= f'{REAL["eo10"]["policies"][2]["n"] - REAL["eo10"]["policies"][0]["n"]:,.0f}' =} more DR-1s. The slice EOs win on what you have to look through to get there.
 
-This fits tseitsei89's order, sub-5 EOs first, then the slice-EO skips, then the 5-movers ([[T11014]]), on one condition: that a skip and the DR-1s behind it are quick to find. The slice-EO routes give more than half of what all the 5-move EOs give, for far fewer starts. What that costs in minutes is the part these tables cannot say, and it is where the doubts were: zakimoshi's "isn't actually a very cost effective strategy time wise" ([[T11306]]), JTuu's "if it's even close, I feel like 5-move eos win for time management reasons" ([[D19528]]).
+This fits tseitsei89's order, sub-5 EOs first, then the slice-EO skips, then the 5-movers ([[T11014]]), on one condition: that a skip and the DR-1s behind it are quick to find. The slice-EO routes give about half of what all the 5-move EOs give, for far fewer starts. What that costs in minutes is the part these tables cannot say, and it is where the doubts were: zakimoshi's "isn't actually a very cost effective strategy time wise" ([[T11306]]), JTuu's "if it's even close, I feel like 5-move eos win for time management reasons" ([[D19528]]).
 
 ### 7.5 Do real DR-xs finish like random ones?
 
 {{real_candidates}}
 
-Close to it. A DR-1s reached in few moves finishes slightly worse than a random one, by a tenth of a move or two. The 8fe ones finish slightly better than random ones under the same 3-move setup search.
+Close to it. A DR-1s reached in few moves finishes slightly worse than a random one, by a tenth of a move or two. The 8fe ones of 8 and 9 moves finish about like random ones under the same 3-move setup search; the few of 7 moves finish worse.
 
 ### 7.6 Time
 

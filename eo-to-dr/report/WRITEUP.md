@@ -674,7 +674,7 @@ The number of twisted corners per axis is also off on nissy's scrambles (chi² 3
 | judging-a-dr's 500 (500) | FB | bad edges | 1.6 (4) |
 | judging-a-dr's 500 (500) | FB | slice pieces in slice | 2.9 (3) |
 
-The study's own scrambles pass every test. The 500 scrambles of the judging-a-dr study came from nissy's scrambler, and they show the same effect: the inverse best of 3 averages 8.894 ± 0.031 against 9.05 on the uniform sample (z = -4.8), the best of six 8.672 ± 0.030 against 8.76 (z = -3.0), while the normal side is unaffected (9.054 against 9.05).
+The study's own scrambles pass every test. The 500 scrambles the judging-a-dr study first used came from nissy's scrambler (it now uses uniform ones), and they show the same effect: the inverse best of 3 averages 8.894 ± 0.031 against 9.05 on the uniform sample (z = -4.8), the best of six 8.672 ± 0.030 against 8.76 (z = -3.0), while the normal side is unaffected (9.054 against 9.05).
 
 **Per scramble** (`eodrtools scr`): the exact DR distance on each axis, normal and inverse; the NISS DR (pre-turns on one side, stopping where they can no longer win); the number of DR solutions of each length up to 12 on the normal side; the shortest EO inside an optimal DR; every EO of up to 6 turns on each axis, normal, inverse and NISS, each with the exact EO-keeping DR distance on both DR axes; from these the best route through an EO of each length, the (EO, DR axis) counts and the optimal EOs. About 30 minutes on four cores for the 50,000.
 

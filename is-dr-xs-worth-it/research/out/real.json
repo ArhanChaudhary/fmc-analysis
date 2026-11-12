@@ -1,258 +1,257 @@
 {
  "there": {
   "a normal DR of 9 moves or less": [
-   "71%",
-   "7.6"
+   "66%",
+   "6.1"
   ],
   "a normal DR of 10 or less": [
    "98%",
-   "69.5"
+   "69.7"
   ],
   "a normal DR of 11 or less": [
    "100%",
-   "657.1"
+   "720.7"
   ],
   "a DR-1s of 6 or less from a slice-EO skip": [
-   "10%",
-   "0.8"
+   "8.2%",
+   "0.4"
   ],
   "a DR-1s of 7 or less from a slice-EO skip": [
-   "42%",
-   "7.1"
+   "32%",
+   "4.2"
   ],
   "a DR-1s of 8 or less from a slice-EO skip": [
-   "69%",
-   "67.4"
+   "62%",
+   "44.8"
   ],
   "a DR-1s of 6 or less from a skip or a one-move slice EO": [
+   "11%",
+   "0.5"
+  ],
+  "a DR-1s of 7 or less from a skip or a one-move slice EO": [
+   "46%",
+   "6.0"
+  ],
+  "a DR-1s of 8 or less from a skip or a one-move slice EO": [
+   "89%",
+   "63.1"
+  ],
+  "a DR-2s 8fe of 7 or less (from a slice EO or an EO of 4 or less)": [
+   "2.4%",
+   "0.1"
+  ],
+  "a DR-2s 8fe of 8 or less (from a slice EO or an EO of 4 or less)": [
    "14%",
    "1.0"
   ],
-  "a DR-1s of 7 or less from a skip or a one-move slice EO": [
-   "53%",
-   "8.8"
-  ],
-  "a DR-1s of 8 or less from a skip or a one-move slice EO": [
-   "90%",
-   "86.0"
-  ],
-  "a DR-2s 8fe of 7 or less (from a slice EO or an EO of 4 or less)": [
-   "3.2%",
-   "0.4"
-  ],
-  "a DR-2s 8fe of 8 or less (from a slice EO or an EO of 4 or less)": [
-   "15%",
-   "2.9"
-  ],
   "a DR-2s 8fe of 9 or less (from a slice EO or an EO of 4 or less)": [
-   "59%",
-   "22.8"
+   "56%",
+   "11.8"
   ]
  },
- "share_1s8": "90%",
- "share_1s7": "53%",
- "n_1s8": "86",
+ "share_1s8": "89%",
+ "share_1s7": "46%",
+ "n_1s8": "63",
  "shortest_1s": {
-  "3": 1,
   "4": 2,
-  "5": 12,
-  "6": 57,
-  "7": 195,
-  "8": 181,
-  "99": 52
+  "5": 8,
+  "6": 44,
+  "7": 176,
+  "8": 213,
+  "99": 57
  },
  "every normal DR of 10 or less": {
-  "n": 70.75967413441956,
-  "result": 20.519348268839103
+  "n": 70.99389002036659,
+  "result": 20.619144602851325
  },
  "policies": [
   {
    "name": "every normal DR of 10 or less",
-   "n": 70.75967413441956,
-   "result": 20.519348268839103
+   "n": 70.99389002036659,
+   "result": 20.619144602851325
   },
   {
    "name": "normal DRs of 10 or less, and every DR-1s of 7 or less",
-   "n": 79.73523421588595,
-   "result": 20.431771894093686
+   "n": 76.97148676171079,
+   "result": 20.545824847250508
   },
   {
    "name": "normal DRs of 10 or less, and every DR-1s of 8 or less",
-   "n": 157.88798370672097,
-   "result": 20.338085539714868
+   "n": 134.72708757637474,
+   "result": 20.419551934826885
   },
   {
    "name": "normal DRs of 10 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
-   "n": 181.0692464358452,
-   "result": 20.313645621181262
+   "n": 146.69042769857433,
+   "result": 20.40529531568228
   },
   {
    "name": "every normal DR of 11 or less",
-   "n": 668.1384928716905,
-   "result": 19.95926680244399
+   "n": 733.3482688391039,
+   "result": 20.03869653767821
   },
   {
    "name": "normal DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
-   "n": 778.4480651731161,
-   "result": 19.883910386965375
+   "n": 809.0448065173116,
+   "result": 19.94704684317719
   },
   {
    "name": "every normal DR of 12 or less",
-   "n": 6232.804480651731,
-   "result": 19.564154786150713
+   "n": 7243.604887983707,
+   "result": 19.56008146639511
   },
   {
    "name": "normal DRs of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
-   "n": 6343.114052953157,
-   "result": 19.527494908350306
+   "n": 7319.301425661914,
+   "result": 19.523421588594704
   }
  ],
  "normal DRs of 10 or less, and every DR-1s of 7 or less": {
-  "n": 79.73523421588595,
-  "result": 20.431771894093686
+  "n": 76.97148676171079,
+  "result": 20.545824847250508
  },
  "normal DRs of 10 or less, and every DR-1s of 8 or less": {
-  "n": 157.88798370672097,
-  "result": 20.338085539714868
+  "n": 134.72708757637474,
+  "result": 20.419551934826885
  },
  "normal DRs of 10 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less": {
-  "n": 181.0692464358452,
-  "result": 20.313645621181262
+  "n": 146.69042769857433,
+  "result": 20.40529531568228
  },
  "every normal DR of 11 or less": {
-  "n": 668.1384928716905,
-  "result": 19.95926680244399
+  "n": 733.3482688391039,
+  "result": 20.03869653767821
  },
  "normal DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less": {
-  "n": 778.4480651731161,
-  "result": 19.883910386965375
+  "n": 809.0448065173116,
+  "result": 19.94704684317719
  },
  "every normal DR of 12 or less": {
-  "n": 6232.804480651731,
-  "result": 19.564154786150713
+  "n": 7243.604887983707,
+  "result": 19.56008146639511
  },
  "normal DRs of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less": {
-  "n": 6343.114052953157,
-  "result": 19.527494908350306
+  "n": 7319.301425661914,
+  "result": 19.523421588594704
  },
  "H": 491,
  "win10": "16%",
  "tie10": "22%",
- "win11": "6.6%",
- "tie11": "17%",
- "win12": "3.6%",
- "tie12": "11%",
+ "win11": "8.4%",
+ "tie11": "14%",
+ "win12": "3.4%",
+ "tie12": "9.8%",
  "yield": {
-  "dr9": 0.02931937172774869,
-  "dr10": 0.006500016169194451,
-  "dr11": 0.0013647765135916085,
-  "dr12": 0.000285574367838045,
-  "1s6": 0.07115384615384615,
-  "1s7": 0.022616294011822153,
-  "1s8": 0.004119491152162085,
-  "8fe8": 0.022408963585434174,
-  "8fe9": 0.008111355898257561
+  "dr9": 0.024453863710466255,
+  "dr10": 0.004938504608222453,
+  "dr11": 0.0010507719486903756,
+  "dr12": 0.000248099027133097,
+  "1s6": 0.0859375,
+  "1s7": 0.020595807282089002,
+  "1s8": 0.004762905372277089,
+  "8fe8": 0.03734439834024896,
+  "8fe9": 0.006622516556291391
  },
- "cancel_1s": 0.20291573660714285,
- "n1s": 43008,
- "n8": 11414,
+ "cancel_1s": 0.19886453741000348,
+ "n1s": 31529,
+ "n8": 5918,
  "by_start_1s": {
-  "0": 33700,
-  "1": 9308
+  "1": 9138,
+  "0": 22391
  },
  "by_start_8": {
-  "4": 2433,
-  "0": 7875,
-  "1": 1106
+  "4": 1904,
+  "1": 967,
+  "0": 3047
  },
  "eo": {
-  "eos4": 16.842,
-  "eos5": 243.654,
-  "none4": 20,
-  "drs10_4": 43.64,
-  "drs10_5": 69.486,
-  "drs11_4": 409.816,
-  "drs11_5": 657.13
+  "eos4": 17.326,
+  "eos5": 243.966,
+  "none4": 26,
+  "drs10_4": 48.73,
+  "drs10_5": 69.716,
+  "drs11_4": 500.084,
+  "drs11_5": 720.666
  },
  "eo10": {
-  "H": 426,
+  "H": 418,
   "policies": [
    {
     "name": "EOs of 4 or less: every DR of 10 or less",
-    "eos": 19.166666666666668,
-    "n": 51.220657276995304,
-    "result": 21.009389671361504
+    "eos": 20.119617224880383,
+    "n": 58.28947368421053,
+    "result": 21.13157894736842
    },
    {
     "name": "EOs of 4 or less: DRs of 10 or less, and every DR-1s of 7 or less from a slice EO",
-    "eos": 19.166666666666668,
-    "n": 61.274647887323944,
-    "result": 20.8075117370892
+    "eos": 20.119617224880383,
+    "n": 65.13397129186603,
+    "result": 20.95933014354067
    },
    {
     "name": "EOs of 4 or less: DRs of 10 or less, and every DR-1s of 8 or less from a slice EO",
-    "eos": 19.166666666666668,
-    "n": 147.41549295774647,
-    "result": 20.631455399061032
+    "eos": 20.119617224880383,
+    "n": 129.4976076555024,
+    "result": 20.770334928229666
    },
    {
     "name": "EOs of 4 or less: DRs of 10 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
-    "eos": 19.166666666666668,
-    "n": 173.74413145539907,
-    "result": 20.603286384976524
+    "eos": 20.119617224880383,
+    "n": 143.32535885167465,
+    "result": 20.72248803827751
    },
    {
     "name": "EOs of 5 or less: every DR of 10 or less",
-    "eos": 267.5892018779343,
-    "n": 80.40845070422536,
-    "result": 20.356807511737088
+    "eos": 272.811004784689,
+    "n": 82.11004784688996,
+    "result": 20.42105263157895
    },
    {
     "name": "EOs of 5 or less: DRs of 10 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
-    "eos": 267.5892018779343,
-    "n": 202.93192488262912,
-    "result": 20.173708920187792
+    "eos": 272.811004784689,
+    "n": 167.14593301435406,
+    "result": 20.22248803827751
    }
   ]
  },
  "eo11": {
-  "H": 475,
+  "H": 470,
   "policies": [
    {
     "name": "EOs of 4 or less: every DR of 11 or less",
-    "eos": 17.713684210526317,
-    "n": 431.3852631578947,
-    "result": 20.574736842105263
+    "eos": 18.414893617021278,
+    "n": 532.0042553191489,
+    "result": 20.646808510638298
    },
    {
     "name": "EOs of 4 or less: DRs of 11 or less, and every DR-1s of 7 or less from a slice EO",
-    "eos": 17.713684210526317,
-    "n": 440.5957894736842,
-    "result": 20.469473684210527
+    "eos": 18.414893617021278,
+    "n": 538.2148936170213,
+    "result": 20.574468085106382
    },
    {
     "name": "EOs of 4 or less: DRs of 11 or less, and every DR-1s of 8 or less from a slice EO",
-    "eos": 17.713684210526317,
-    "n": 521.0063157894737,
-    "result": 20.36842105263158
+    "eos": 18.414893617021278,
+    "n": 597.6276595744681,
+    "result": 20.46808510638298
    },
    {
     "name": "EOs of 4 or less: DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
-    "eos": 17.713684210526317,
-    "n": 544.9768421052631,
-    "result": 20.35578947368421
+    "eos": 18.414893617021278,
+    "n": 610.1170212765958,
+    "result": 20.442553191489363
    },
    {
     "name": "EOs of 5 or less: every DR of 11 or less",
-    "eos": 252.59578947368422,
-    "n": 688.4884210526316,
-    "result": 19.928421052631577
+    "eos": 255.48510638297873,
+    "n": 762.9851063829788,
+    "result": 20.00212765957447
    },
    {
     "name": "EOs of 5 or less: DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less",
-    "eos": 252.59578947368422,
-    "n": 802.08,
-    "result": 19.850526315789473
+    "eos": 255.48510638297873,
+    "n": 841.0978723404255,
+    "result": 19.902127659574468
    }
   ]
  }

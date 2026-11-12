@@ -10,7 +10,7 @@
 
 **Finishes (section 5).** Random states, uniform over DR-1s ({= N1() =}) and over DR-2s 8fe ({= N8() =}). For each, the shortest solution of the method's form is found exactly, by trying every setup from both ends and looking up the optimal finish of the DR that results in the first study's table. The averages carry a standard error of {= SE1() =} (DR-1s) and {= SE8() =} (8fe); the search per state is exact for its form.
 
-**Real scrambles (section 7).** The first study's 500 random-state scrambles. Normal DRs: every DR up to 12 moves through an EO of 5 moves or less, from cubelib-cli (it lists no longer EOs), each finished optimally (first study). For 7.4 the same lists restricted to EOs of 4 or less. DR-xs: every DR-1s up to 8 moves and DR-2s 8fe up to 9 that starts from a slice-EO skip or a one-move slice EO and then keeps the EO of that axis, plus every DR-2s 8fe after an EO of at most 4 moves, each finished as in section 5 (the 8fe with setups of at most 3 moves from either end) and written out as a solution.
+**Real scrambles (section 7).** The first study's 500 scrambles: uniformly random states drawn with the EO → DR study's generator. An earlier version of this page used nissy's scrambler, which is not uniform ([EO → DR study, appendix B](https://fmc.arhan.sh/eo-to-dr/#appendix-b-how-it-was-computed-and-what-checks-it)). Normal DRs: every DR up to 12 moves through an EO of 5 moves or less, from cubelib-cli (it lists no longer EOs), each finished optimally (first study). For 7.4 the same lists restricted to EOs of 4 or less. DR-xs: every DR-1s up to 8 moves and DR-2s 8fe up to 9 that starts from a slice-EO skip or a one-move slice EO and then keeps the EO of that axis, plus every DR-2s 8fe after an EO of at most 4 moves, each finished as in section 5 (the 8fe with setups of at most 3 moves from either end) and written out as a solution.
 
 **What checks what.**
 
@@ -18,7 +18,7 @@
 - The search to a real DR reproduces the known counts by distance (1, 4, 50, 592, …, 476).
 - The search to any DR-xs on one colour and axis reproduces the distribution trangium posted (1, 4, 50, 586, …, 84).
 - The 43 labelled DR-xs states in the server's worked examples are all classified as labelled.
-- The finisher agrees with a separate sticker-level brute force on test states, and every solution it writes is replayed: 43,008 DR-1s solutions and every 8fe solution of the 500 scrambles solve their scramble in the stated number of moves.
+- The finisher agrees with a separate sticker-level brute force on test states, and every solution it writes is replayed: {= RL('n1s', f='{:,}') =} DR-1s solutions and every 8fe solution of the 500 scrambles solve their scramble in the stated number of moves.
 - The DR finish table is the Lean-certified one of the first study.
 
 **Lean.** `lean/DRXs` in the repository proves, by evaluation of its own definitions (no Mathlib):

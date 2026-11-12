@@ -2,9 +2,12 @@
 """The "100 scrambles" section of EXAMPLES.md: real scrambles, the DRs a solver could have on the page, what can be
 read off each without solving, what the five-line prune list of the write-up says, and (folded away) the answers.
 
-  scrambles   out/hand/attempt_scrambles.txt, drawn once: random states from `nissy scramble`, written the FMC way
-              (R' U' F at both ends) with a two-phase solver (python package kociemba) so that nothing merges
-              with the padding.  The first N_PAGE are printed, all N_RUN are used for the closing tables.
+  scrambles   out/hand/attempt_scrambles.txt, drawn once: uniformly random states from the eo-to-dr study's
+              `eodrtools mkscr N_RUN SCR_SEED` (adjacent turns of one face merged as in its canon.py), written the
+              FMC way (R' U' F at both ends) with a two-phase solver (python package kociemba) so that nothing
+              merges with the padding, and replayed to the same state.  The first N_PAGE are printed, all N_RUN
+              are used for the closing tables.  An earlier version used nissy 2.0.8's `scramble`, which is not
+              uniform (eo-to-dr README); those are kept in out/hand/attempt_scrambles_nissy.txt.
   DRs         cubelib-cli, steps "EO[niss=always] > DR[niss=before]": EO first with NISS anywhere, then DR without
               breaking it on either side, all three axes, every such DR up to CAP moves.  One DR per choice of
               direction of the last move on each side (written clockwise); the state is the one as written.
@@ -19,7 +22,7 @@ there from the page's text alone with the slow sticker simulator and the full `d
 of mismatches; it has to be 0.
 
 usage: source /data/fmc/env.sh; python3 many_examples.py [--rerun] | --verify-only
-       (needs cubelib-cli, drtools built and the BFS tables; nissy and kociemba only to draw new scrambles;
+       (needs cubelib-cli, drtools built and the BFS tables; eodrtools and kociemba only to draw new scrambles;
         --rerun recomputes out/hand/attempt_run.csv, about ten minutes on four cores)"""
 import csv, itertools, multiprocessing, os, random, re, subprocess, sys, importlib.machinery, importlib.util
 R = '/data/fmc/judging-a-dr/research/'
@@ -34,6 +37,8 @@ SCR = R + 'out/hand/attempt_scrambles.txt'
 RUN = R + 'out/hand/attempt_run.csv'
 START, END = '<!-- many-examples:start -->', '<!-- many-examples:end -->'
 N_PAGE, N_RUN, CAP, SHOWN, SEED = 100, 500, 12, 8, 20261112
+SCR_SEED = 20261112                            # eodrtools mkscr seed of the scrambles
+MKSCR = '/data/fmc/eo-to-dr/research/eodrtools/target/release/eodrtools'
 STEPS = f'EO[niss=always;max=8] > DR[niss=before;max={CAP}]'
 QUICK = [R + 'drtools/target/release/drtools', 'read', '--quick', R + 'data/drbfs', R + 'data/ls_depth.u8']
 PAD = "R' U' F"
@@ -229,12 +234,21 @@ def fmc_scramble(state_moves, rots):
     raise RuntimeError('no way to write it')
 def scrambles():
     if not os.path.exists(SCR):
-        raw = subprocess.run(['nissy', 'scramble', '-n', str(N_RUN)], capture_output=True, text=True).stdout.strip().split('\n')
-        assert len(raw) == N_RUN
+        sys.path.insert(0, '/data/fmc/eo-to-dr/research/src'); import canon
+        raw = subprocess.run(['systemd-run', '--user', '--scope', '-q', '-p', 'MemoryMax=5G', MKSCR, 'mkscr', str(N_RUN), str(SCR_SEED)],
+                             capture_output=True, text=True, check=True).stdout.strip().split('\n')
+        assert len(raw) == N_RUN and len(set(raw)) == N_RUN
         rots = rotations()
         with open(SCR, 'w') as f:
-            f.write(f"# {N_RUN} random-state scrambles (nissy 2.0.8 `scramble`), written with R' U' F at both ends; the first {N_PAGE} are on the examples page\n")
-            for s in raw: f.write(fmc_scramble(fc.parse(s), rots) + '\n')
+            f.write(f"# {N_RUN} uniformly random states, drawn by the eo-to-dr study's `eodrtools mkscr {N_RUN} {SCR_SEED}` (adjacent turns of one face merged), "
+                    f"each written with R' U' F at both ends (inner part: two-phase solver, python package kociemba) and replayed to the same state; "
+                    f"the first {N_PAGE} are on the examples page. The earlier nissy 2.0.8 scrambles (not uniform) are in attempt_scrambles_nissy.txt\n")
+            for r in raw:
+                m = canon.simplify(r)
+                assert canon.simplify(m) == m and fc.apply(fc.solved(), fc.parse(m)) == fc.apply(fc.solved(), fc.parse(r))
+                w = fmc_scramble(fc.parse(m), rots)
+                assert canon.simplify(w) == w and fc.apply(fc.solved(), fc.parse(w)) == fc.apply(fc.solved(), fc.parse(r))
+                f.write(w + '\n')
         print(f'drew {N_RUN} scrambles into {SCR}')
     out = [l.strip() for l in open(SCR) if l.strip() and not l.startswith('#')]
     assert len(out) == N_RUN and len(set(out)) == N_RUN

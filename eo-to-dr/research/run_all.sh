@@ -24,7 +24,7 @@ if [ "${NISSY_SCRAMBLES:-0}" = 1 ] || [ ! -s out/nissy_scrambles.txt ]; then
   step "50,000 nissy scrambles, only for the uniformity check (~10 min)"
   $CAP src/gen_scrambles.sh
 fi
-python3 src/check_scrambles.py mkscr=out/scrambles.txt nissy=out/nissy_scrambles.txt judging500=/data/fmc/judging-a-dr/research/out/hand/attempt_scrambles.txt
+python3 src/check_scrambles.py mkscr=out/scrambles.txt nissy=out/nissy_scrambles.txt judging500=/data/fmc/judging-a-dr/research/out/hand/attempt_scrambles_nissy.txt
 printf '%s\n' "U R2 F B R B2 R U2 L B2 R U' D' R2 F R' L B2 U2 F2" > out/superflip.txt
 
 step "EO-solved parts of the two DR tables"
@@ -49,10 +49,10 @@ python3 src/analyze_eodr.py
 
 step "A: scramble -> EO -> DR on 50,000 scrambles (~30 min), the first study's 500, the superflip"
 $CAP $B scr out/scrambles.txt 12 6 > out/big/scr50k.tsv 2> out/big/scr50k.log
-$CAP $B scr /data/fmc/judging-a-dr/research/out/hand/attempt_scrambles.txt 12 6 > out/big/scr500.tsv 2> out/big/scr500.log
+$CAP $B scr /data/fmc/judging-a-dr/research/out/hand/attempt_scrambles_nissy.txt 12 6 > out/big/scr500.tsv 2> out/big/scr500.log
 $CAP $B scr out/superflip.txt 11 6 > out/superflip_scr.tsv 2> /dev/null
 python3 src/verify_scr.py out/big/scr50k.tsv out/scrambles.txt
-python3 src/verify_scr.py out/big/scr500.tsv /data/fmc/judging-a-dr/research/out/hand/attempt_scrambles.txt
+python3 src/verify_scr.py out/big/scr500.tsv /data/fmc/judging-a-dr/research/out/hand/attempt_scrambles_nissy.txt
 $CAP python3 src/check_counts.py out/big/scr50k.tsv 30
 $CAP python3 src/check_niss_dr.py 40
 python3 src/analyze_scr.py out/big/scr50k.tsv a50k

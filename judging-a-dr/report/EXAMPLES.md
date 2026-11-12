@@ -389,7 +389,7 @@ The formula is exact for finishes with one quarter turn, which is what it's for,
 
 A hundred random-state scrambles, written the way FMC scrambles are, and for each one some of the DRs you could have on your page. What you can read off each DR without solving is in the table. The answers are folded away under it: pick the DRs you'd finish, then open them.
 
-**Where the DRs come from.** cubelib-cli (the solver behind Mallard) lists every DR that goes EO first (EOs of up to 5 moves, it lists no longer ones), with NISS, and then DR on normal or on inverse without breaking the EO, on all three axes. A scramble has far more of those than anyone writes down: 657 up to 11 moves on average over the 500 scrambles of the tally at the end. Each scramble shows at most 8 of them: up to 4 of 10 moves or less, shortest first, then 11-movers, drawn at random where there are more. Nothing was picked by how it finishes.
+**Where the DRs come from.** cubelib-cli (the solver behind Mallard) lists every DR that goes EO first (EOs of up to 5 moves, it lists no longer ones), with NISS, and then DR on normal or on inverse without breaking the EO, on all three axes. A scramble has far more of those than anyone writes down: 721 up to 11 moves on average over the 500 scrambles of the tally at the end. Each scramble shows at most 8 of them: up to 4 of 10 moves or less, shortest first, then 11-movers, drawn at random where there are more. Nothing was picked by how it finishes.
 
 **What is being tried out.** A DR of 10 moves or less you finish whatever it looks like. The 11-movers are where you need a quick way to say no, and that is what the short list in the write-up's guide is for. It needs no solving:
 
@@ -471,3501 +471,3501 @@ A hundred random-state scrambles, written the way FMC scrambles are, and for eac
 
 #### Scramble 1
 
-`R' U' F U L' D R L' B2 D2 B' U2 D L U2 B2 D B2 U' R2 B2 U' B2 U R' U' F`
+`R' U' F L2 D' L2 F2 U' L2 D R2 U R2 B' R2 U R F U2 R' F R D' R U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `B R D R U' L2 B' L` | 8 | F/B | 2c5 4e | 2 | 2c5-2 / 2c5-2 | look anyway | 0 / 0.09% / 1.5% |
-| 2 | `B' D (L2 B D' F R' F D2 R)` | 10 | F/B | 0c4 4e | 2 | 0c4-1 / 0c4-1 | look anyway | 0.06% / 0.81% / 6.7% |
-| 3 | `B R D R U' L U2 L B' L` | 10 | F/B | 2c3 4e | 1 | 2c3-1 / 2c3-3 | look anyway | 0.62% / 4.5% / 24% |
-| 4 | `D' R2 F2 U' L (B' L2 R2 D B)` | 10 | U/D | 4a2 4e | 3 | 4a2-2 / 4a2-3 | look anyway | 1.5% / 6.8% / 27% |
-| 5 | `F2 B D R' U' R2 F2 L R2 B' R` | 11 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-1 | keep | 1.0% / 6.4% / 30% |
-| 6 | `B D' R' U L2 F D2 B L' R' F` | 11 | R/L | 4c3 4e | 3 | 4c3-4 / 4c3-9 | drop | 0.13% / 0.87% / 4.9% |
-| 7 | `F2 B D R' U' L R' D2 R' B' R` | 11 | F/B | 2c3 4e | 1 | 2c3-3 / 2c3-2 | keep | 0.38% / 2.8% / 17% |
-| 8 | `(U D' F' L U' F2 D F2 B' L2 D)` | 11 | F/B | 2c4 6e | 2 | 2c4-5 / 2c4-7 | drop | 0 / 0.06% / 1.2% |
+| 1 | `(U' B' U' D' F' R2 F L' R2 B)` | 10 | R/L | 2c4 2e | 3 | 2c4-6 / 2c4-5 | look anyway | 0.02% / 0.85% / 6.3% |
+| 2 | `L2 U2 R' F L' F2 L2 D F B` | 10 | U/D | 4c4 2e | 2 | 4c4-4 / 4c4-3 | look anyway | 0 / 0.05% / 0.96% |
+| 3 | `(F U' R' U L D' B L2 D' F)` | 10 | U/D | 4b5 4e | 2 | 4b5-2 / 4b5-1 | look anyway | 0 / 0.07% / 1.0% |
+| 4 | `L2 U2 R' F L' B2 R2 U F B` | 10 | U/D | 4c4 2e | 2 | 4c4-4 / 4c4-3 | look anyway | 0 / 0.05% / 0.96% |
+| 5 | `L2 R' B2 R2 U D F U (L2 D' L)` | 11 | F/B | 4b5 4e | 0 | 4b5-2 / 4b5-2 | drop | 0 / 0 / 0.11% |
+| 6 | `(F U2 R' U' L' B U D F U2 F)` | 11 | U/D | 4b5 4e | 3 | 4b5-2 / 4b5-2 | drop | 0 / 0.01% / 0.79% |
+| 7 | `L2 U2 R' F L R2 F2 R2 D F B` | 11 | U/D | 4c4 2e | 2 | 4c4-4 / 4c4-3 | drop | 0 / 0.05% / 0.96% |
+| 8 | `(U' B U' D' F L2 U2 F L2 R' B)` | 11 | R/L | 2c4 2e | 2 | 2c4-6 / 2c4-5 | drop | 0 / 0.41% / 4.2% |
 
-Shown: 8 of the 254 DRs up to 11 moves (8 moves: 1 of 1; 10 moves: 3 of 14; 11 moves: 4 of 239).
+Shown: 8 of the 194 DRs up to 11 moves (10 moves: 4 of 13; 11 moves: 4 of 181).
 
 <details>
 <summary>Answers for scramble 1</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 11 | 15 | 22 |
-| 2 | 10 / 9 | 13 | 23 |
-| 3 | 6 / 8 | 12 | 22 |
-| 4 | 9 / 9 | 13 | 22 |
-| 5 | 8 / 7 | 13 | 23 |
-| 6 | 8 / 10 | 14 | 25 |
-| 7 | 7 / 8 | 14 | 25 |
-| 8 | 9 / 10 | 14 | 25 |
+| 1 | 9 / 10 | 15 | 24 |
+| 2 | 11 / 10 | 15 | 24 |
+| 3 | 11 / 10 | 15 | 25 |
+| 4 | 11 / 10 | 14 | 24 |
+| 5 | 10 / 10 | 15 | 26 |
+| 6 | 11 / 11 | 14 | 24 |
+| 7 | 11 / 10 | 15 | 25 |
+| 8 | 9 / 10 | 15 | 25 |
 
-Best on the page: **22 moves**, from DR 1 (DR 3 and 4 tie it): `B R D R U' L2 B' L' F R2 F' D2 U2 F2 U2 L2 F R2 F' D2 F' R2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **24 moves**, from DR 1 (DR 2, 4 and 6 tie it): `R' D2 L' U2 F2 R' U2 L D2 R' F2 D2 L' U2 B R2 L F' R2 F D U B U`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 2
 
-`R' U' F L2 U' R2 D2 B2 D2 B2 U' L2 D2 R U L' F D B2 L2 F' D L D2 R' U' F`
+`R' U' F L2 U L2 F2 D2 R2 B2 F2 D U' L' F2 R' F2 U B' D' L2 D2 F' U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(F' R U D' B R2 U' L' U R)` | 10 | U/D | 4c3 2e | 4 | 4c3-5 / 4c3-6 | look anyway | 0.50% / 3.0% / 14% |
-| 2 | `B' L F' D B (R D L2 R' U)` | 10 | R/L | 2c3 4e | 1 | 2c3-3 / 2c3-2 | look anyway | 0.38% / 2.8% / 17% |
-| 3 | `B' L' F' D B L' D L U' L` | 10 | U/D | 4c4 4e | 1 | 4c4-2 / 4c4-1 | look anyway | 0.12% / 0.66% / 4.3% |
-| 4 | `(F' R U D' B' R' U' L2 D L)` | 10 | U/D | 4c3 2e | 3 | 4c3-2 / 4c3-4 | look anyway | 0.82% / 5.3% / 22% |
-| 5 | `L' D' R (F R F U' F' U' D' B)` | 11 | U/D | 2c3 2e | 4 | 2c3-1 / 2c3-1 | keep | 8.2% / 29% / 70% |
-| 6 | `B' L' F' D B L' D B2 R D' R` | 11 | U/D | 4c4 2e | 1 | 4c4-5 / 4c4-4 | drop | 0 / 0 / 0.09% |
-| 7 | `B' L F' D B (F2 R D L2 R' U)` | 11 | R/L | 4b5 2e | 1 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.08% / 1.2% |
-| 8 | `L (B2 U D' L' B' U F2 D B2 U)` | 11 | F/B | 2c4 4e | 5 | 2c4-1 / 2c4-4 | keep | 2.0% / 8.7% / 32% |
+| 1 | `U L (B' L2 R' D' F B U)` | 9 | F/B | 4c4 4e | 0 | 4c4-4 / 4c4-5 | look anyway | 0 / 0 / 0.06% |
+| 2 | `U L (B' L2 R' D F B U)` | 9 | F/B | 4c4 4e | 2 | 4c4-4 / 4c4-3 | look anyway | 0 / 0.06% / 1.2% |
+| 3 | `U R' D' F L U L2 F2 D2 R` | 10 | U/D | 2c5 4e | 1 | 2c5-3 / 2c5-1 | look anyway | 0 / <0.01% / 0.37% |
+| 4 | `(D2 R2 U' D F' U' L R' U L)` | 10 | U/D | 4c4 2e | 3 | 4c4-6 / 4c4-2 | look anyway | 0 / 0.13% / 1.6% |
+| 5 | `(L' U F2 D B' L' R' D L R2 U)` | 11 | R/L | 4a1 4e | 2 | 4a1-3 / 4a1-2 | keep | 5.5% / 19% / 54% |
+| 6 | `U R' D' F' U2 B2 R U D' F2 L` | 11 | U/D | 2c4 2e | 1 | 2c4-1 / 2c4-3 | keep | 0.14% / 2.0% / 14% |
+| 7 | `U L (B' L2 R' D L2 R2 F B D)` | 11 | F/B | 4c4 4e | 0 | 4c4-4 / 4c4-3 | drop | 0 / 0.02% / 0.67% |
+| 8 | `(L2 D' F2 U2 B U L R U2 B2 U)` | 11 | R/L | 4a2 2e | 1 | 4a2-2 / 4a2-4 | drop | 0 / 0 / 2.0% |
 
-Shown: 8 of the 48 DRs up to 11 moves (10 moves: 4 of 5; 11 moves: 4 of 43).
+Shown: 8 of the 303 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 18; 11 moves: 4 of 283).
 
 <details>
 <summary>Answers for scramble 2</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 8 | 13 | 23 |
-| 2 | 8 / 8 | 14 | 24 |
-| 3 | 10 / 9 | 14 | 24 |
-| 4 | 7 / 9 | 13 | 23 |
-| 5 | 5 / 6 | 13 | 23 |
-| 6 | 11 / 11 | 15 | 26 |
-| 7 | 10 / 10 | 15 | 26 |
-| 8 | 8 / 9 | 12 | 23 |
+| 1 | 11 / 11 | 14 | 23 |
+| 2 | 11 / 11 | 15 | 23 |
+| 3 | 11 / 10 | 15 | 25 |
+| 4 | 12 / 9 | 15 | 25 |
+| 5 | 7 / 6 | 13 | 23 |
+| 6 | 8 / 8 | 13 | 24 |
+| 7 | 11 / 11 | 15 | 24 |
+| 8 | 9 / 11 | 14 | 24 |
 
-Best on the page: **23 moves**, from DR 1 (DR 4, 5 and 8 tie it): `F2 R2 U2 B2 U' R2 U' R2 D2 R2 B2 D' L2 R' U' L U R2 B' D U' R' F`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 1 (DR 2 and 5 tie it): `U L F L2 F R2 D2 F D2 B' U2 L2 F' R2 F2 B' U' B' F' D R L2 B`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 3
 
-`R' U' F R2 B2 R2 U B2 R2 D' U2 F2 U2 B F U' F L2 D B' U2 R' B2 R' U' F`
+`R' U' F L2 D2 L2 U2 R2 B2 R2 D F2 D' R' U' F' U2 L' U' B R U2 L2 U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L U' L' D F U F2 U (R)` | 9 | F/B | 2c3 4e | 2 | 2c3-1 / 2c3-3 | look anyway | 1.0% / 6.4% / 30% |
-| 2 | `L U' L' D F D R2 D (R)` | 9 | F/B | 2c3 4e | 1 | 2c3-1 / 2c3-3 | look anyway | 0.62% / 4.5% / 24% |
-| 3 | `(R B2 U R2 B U R' U R)` | 9 | U/D | 2c4 4e | 0 | 2c4-6 / 2c4-4 | look anyway | 0 / 0.13% / 1.5% |
-| 4 | `D F' D2 L U (F D2 F' R B)` | 10 | R/L | 2c3 6e | 1 | 2c3-2 / 2c3-3 | look anyway | 0.22% / 1.8% / 12% |
-| 5 | `L U' L' D L2 R2 B D B2 D (R)` | 11 | F/B | 2c3 4e | 4 | 2c3-1 / 2c3-3 | keep | 2.9% / 13% / 45% |
-| 6 | `U L U2 L D2 F2 L2 D' B' U (R)` | 11 | F/B | 4b2 4e | 0 | 4b2-4 / 4b2-2 | keep | 0.30% / 2.7% / 18% |
-| 7 | `R2 D (U F' R' F B R F U2 R)` | 11 | F/B | 4c4 4e | 1 | 4c4-3 / 4c4-4 | drop | 0 / 0.02% / 0.78% |
-| 8 | `L' F D' L' U' L' D2 L B' D2 L` | 11 | F/B | 2c4 6e | 1 | 2c4-4 / 2c4-4 | drop | 0.02% / 0.26% / 2.5% |
+| 1 | `F' U B L U2 F R' B` | 8 | R/L | 0c3 6e | 1 | 0c3-1 / 0c3-2 | look anyway | 0.10% / 0.89% / 4.3% |
+| 2 | `F2 D2 F U' R U2 L F B` | 9 | R/L | 2c4 4e | 0 | 2c4-4 / 2c4-3 | look anyway | 0.03% / 0.44% / 3.9% |
+| 3 | `F' U B D2 L U2 F R' B` | 9 | R/L | 2c3 6e | 2 | 2c3-2 / 2c3-1 | look anyway | 1.0% / 6.4% / 30% |
+| 4 | `F' U B L U2 R2 B R' F` | 9 | R/L | 2c5 6e | 1 | 2c5-1 / 2c5-2 | look anyway | 0 / 0.16% / 1.5% |
+| 5 | `F2 D2 F U' L' B2 R2 B2 R F B` | 11 | R/L | 2c4 4e | 2 | 2c4-4 / 2c4-3 | drop | 0.13% / 1.1% / 7.8% |
+| 6 | `F' U (R' F2 B' L R F' U2 B' L)` | 11 | F/B | 4b5 2e | 1 | 4b5-2 / 4b5-1 | drop | 0 / 0.05% / 0.78% |
+| 7 | `F2 D2 F U' L F2 R F2 L2 F B` | 11 | R/L | 2c4 4e | 1 | 2c4-6 / 2c4-3 | drop | 0.06% / 0.65% / 5.1% |
+| 8 | `(R2 U2 D2 B U F' R U2 D2 F2 R)` | 11 | F/B | 2c5 6e | 2 | 2c5-3 / 2c5-2 | drop | 0 / 0 / 0.07% |
 
-Shown: 8 of the 267 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 20; 11 moves: 4 of 244).
+Shown: 8 of the 1255 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 15; 10 moves: 0 of 120; 11 moves: 4 of 1119).
 
 <details>
 <summary>Answers for scramble 3</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 7 / 7 | 13 | 21 |
-| 2 | 8 / 7 | 14 | 22 |
-| 3 | 10 / 10 | 15 | 23 |
-| 4 | 8 / 8 | 14 | 23 |
-| 5 | 6 / 6 | 13 | 23 |
-| 6 | 8 / 7 | 13 | 23 |
-| 7 | 10 / 11 | 13 | 23 |
-| 8 | 9 / 9 | 15 | 25 |
+| 1 | 11 / 10 | 15 | 23 |
+| 2 | 8 / 9 | 13 | 22 |
+| 3 | 8 / 7 | 14 | 22 |
+| 4 | 10 / 11 | 15 | 24 |
+| 5 | 9 / 9 | 15 | 25 |
+| 6 | 10 / 10 | 15 | 25 |
+| 7 | 8 / 9 | 14 | 24 |
+| 8 | 11 / 11 | 15 | 26 |
 
-Best on the page: **21 moves**, from DR 1: `L U' L' D F U F2 U' L2 U2 L2 F L2 F' R2 F B U2 F U2 R'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 2 (DR 3 ties it): `F2 D2 F U' R U2 L F B D2 R2 F2 R' U2 R' B2 D2 L' B2 R2 U2 L`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 4
 
-`R' U' F U' L2 D R2 U2 R2 B2 U F2 U L' U' R2 U2 B D' B2 D F L' U2 R' U' F`
+`R' U' F R2 B2 U2 F2 D U2 B2 D' L2 D' L B D U' L U' B2 F2 R2 F2 U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `F' L' U' L2 D' F' D' L2 F` | 9 | U/D | 4b2 4e | 2 | 4b2-3 / 4b2-3 | look anyway | 0.64% / 5.0% / 27% |
-| 2 | `R2 U L2 B L (D F U2 F)` | 9 | U/D | 2c5 4e | 1 | 2c5-3 / 2c5-1 | look anyway | 0 / <0.01% / 0.37% |
-| 3 | `B' L F' B L (U' B D2 B)` | 9 | U/D | 2c3 4e | 1 | 2c3-1 / 2c3-3 | look anyway | 0.62% / 4.5% / 24% |
-| 4 | `F' L D' F2 D B D' R2 B` | 9 | U/D | 2c4 4e | 1 | 2c4-2 / 2c4-3 | look anyway | 0.14% / 1.5% / 12% |
-| 5 | `F' L (U2 L2 B D2 F U' F L2 F)` | 11 | U/D | 4c4 2e | 2 | 4c4-5 / 4c4-4 | drop | 0 / <0.01% / 0.22% |
-| 6 | `L' F' U' L' U B2 L' R' F2 R2 B` | 11 | R/L | 2c3 4e | 1 | 2c3-1 / 2c3-3 | keep | 0.62% / 4.5% / 24% |
-| 7 | `F' L (U2 B U2 L2 R2 D B L2 B)` | 11 | U/D | 2c5 6e | 0 | 2c5-1 / 2c5-3 | drop | 0 / 0.02% / 0.32% |
-| 8 | `F' L' U' R2 U' B' U' F2 B2 R2 B` | 11 | U/D | 4b2 4e | 2 | 4b2-3 / 4b2-3 | keep | 0.64% / 5.0% / 27% |
+| 1 | `R' U' L' U L (F' U' B U)` | 9 | F/B | 2c3 4e | 2 | 2c3-2 / 2c3-3 | look anyway | 0.66% / 4.2% / 22% |
+| 2 | `U' L' F' U' F D2 L' F R` | 9 | F/B | 4b2 2e | 4 | 4b2-3 / 4b2-2 | look anyway | 5.0% / 19% / 58% |
+| 3 | `U' L D2 L F B D B (R)` | 9 | U/D | 4c4 4e | 1 | 4c4-4 / 4c4-3 | look anyway | 0 / 0.02% / 0.78% |
+| 4 | `U' L' F' U' F' B2 U2 R' F L` | 10 | F/B | 4b2 4e | 4 | 4b2-3 / 4b2-2 | look anyway | 3.5% / 16% / 51% |
+| 5 | `D2 R F U L B2 D2 F B' D2 L` | 11 | F/B | 4b5 4e | 6 | 4b5-1 / 4b5-2 | drop | 0.07% / 1.0% / 6.9% |
+| 6 | `L B2 R' F' D' B2 D2 F L' B2 L` | 11 | F/B | 4c3 4e | 0 | 4c3-2 / 4c3-5 | keep | 0.06% / 1.0% / 8.8% |
+| 7 | `R (D2 L U2 L' D' B U2 D' B U)` | 11 | F/B | 2c4 4e | 1 | 2c4-1 / 2c4-6 | drop | 0.09% / 0.94% / 7.2% |
+| 8 | `D' L' U F2 U' L2 D (B U R2 F)` | 11 | R/L | 2c4 6e | 2 | 2c4-1 / 2c4-6 | drop | 0.10% / 1.4% / 10% |
 
-Shown: 8 of the 2325 DRs up to 11 moves (9 moves: 4 of 15; 10 moves: 0 of 195; 11 moves: 4 of 2115).
+Shown: 8 of the 555 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 44; 11 moves: 4 of 508).
 
 <details>
 <summary>Answers for scramble 4</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 6 / 9 | 12 | 21 |
-| 2 | 11 / 10 | 14 | 23 |
-| 3 | 7 / 6 | 14 | 23 |
-| 4 | 9 / 8 | 12 | 21 |
-| 5 | 11 / 11 | 14 | 25 |
-| 6 | 6 / 8 | 13 | 24 |
-| 7 | 10 / 12 | 15 | 25 |
-| 8 | 8 / 9 | 13 | 24 |
+| 1 | 8 / 8 | 12 | 20 |
+| 2 | 7 / 4 | 13 | 22 |
+| 3 | 11 / 10 | 15 | 23 |
+| 4 | 8 / 8 | 13 | 23 |
+| 5 | 10 / 11 | 14 | 25 |
+| 6 | 9 / 10 | 13 | 24 |
+| 7 | 9 / 9 | 13 | 23 |
+| 8 | 9 / 9 | 14 | 24 |
 
-Best on the page: **21 moves**, from DR 1 (DR 4 ties it): `F' L' U' L2 D' F' D' L2 F U L2 U' R2 U F2 U' D' F2 B2 L2 D'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 1: `R' U' L' U L F' R2 L2 B' L2 B' U2 L2 F L2 F' U B' U F`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 5
 
-`R' U' F R2 D' B2 L2 D' R2 B2 U2 R2 U' F D2 F U R' B' D' R2 F2 L U' R' U' F`
+`R' U' F U' L2 B2 R2 D R2 F2 D2 L2 R2 F' R2 D' F L U B' L' B L2 U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L B' R F' L F B' D' F` | 9 | U/D | 2c4 2e | 3 | 2c4-6 / 2c4-3 | look anyway | 0.19% / 1.8% / 11% |
-| 2 | `F B' R' F L (F B R2 D F)` | 10 | U/D | 2c4 4e | 2 | 2c4-1 / 2c4-7 | look anyway | 0.08% / 0.85% / 7.2% |
-| 3 | `F B R F L U2 F D2 F U` | 10 | F/B | 4c3 4e | 1 | 4c3-9 / 4c3-4 | look anyway | 0.05% / 0.54% / 3.8% |
-| 4 | `B' R F' L (U' F2 U' R2 F' D)` | 10 | F/B | 2c5 4e | 3 | 2c5-1 / 2c5-1 | look anyway | 0.10% / 0.85% / 6.2% |
-| 5 | `U' R' B D2 F' D' R D R D2 L` | 11 | U/D | 4c4 4e | 3 | 4c4-2 / 4c4-5 | drop | 0 / 0.04% / 1.4% |
-| 6 | `B' R F' L (U' D2 R2 U L2 B' D)` | 11 | F/B | 2c3 2e | 2 | 2c3-3 / 2c3-2 | keep | 1.2% / 7.3% / 33% |
-| 7 | `U B' R' F' L (F' D2 R2 U' F B)` | 11 | U/D | 4b2 4e | 4 | 4b2-3 / 4b2-3 | keep | 2.2% / 12% / 44% |
-| 8 | `L2 B R F' L F D' R2 F2 B U` | 11 | F/B | 4b5 4e | 2 | 4b5-2 / 4b5-1 | drop | 0 / 0.07% / 1.0% |
+| 1 | `(U2 D' L B U' R D R U' R)` | 10 | U/D | 4c4 4e | 1 | 4c4-6 / 4c4-2 | look anyway | 0 / 0.07% / 0.97% |
+| 2 | `U R' B (R2 U L' R' U L U)` | 10 | R/L | 2c4 6e | 1 | 2c4-3 / 2c4-6 | look anyway | 0.04% / 0.51% / 4.6% |
+| 3 | `U' L2 D' R F (L R D' B2 L)` | 10 | U/D | 2c5 6e | 2 | 2c5-3 / 2c5-3 | look anyway | 0 / 0 / 0 |
+| 4 | `D R2 D R U (F2 U2 B' D2 R)` | 10 | F/B | 4a1 4e | 3 | 4a1-3 / 4a1-3 | look anyway | 6.1% / 20% / 54% |
+| 5 | `(F2 D F' R2 U' B2 R2 B' D2 L B)` | 11 | R/L | 2c3 4e | 5 | 2c3-1 / 2c3-3 | keep | 5.9% / 21% / 58% |
+| 6 | `R' U B (R U2 F2 L' U D2 F2 U)` | 11 | R/L | 2c4 2e | 0 | 2c4-3 / 2c4-7 | drop | 0 / 0.12% / 2.2% |
+| 7 | `U R' B' L B2 U' R' U' R U' L` | 11 | U/D | 2c5 6e | 1 | 2c5-2 / 2c5-1 | drop | 0 / 0.16% / 1.5% |
+| 8 | `U' R' U2 B' L2 D2 R D L F2 L` | 11 | U/D | 4b2 4e | 5 | 4b2-1 / 4b2-1 | keep | 16% / 39% / 77% |
 
-Shown: 8 of the 178 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 14; 11 moves: 4 of 163).
+Shown: 8 of the 665 DRs up to 11 moves (10 moves: 4 of 44; 11 moves: 4 of 621).
 
 <details>
 <summary>Answers for scramble 5</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 10 | 12 | 21 |
-| 2 | 8 / 10 | 13 | 22 |
-| 3 | 11 / 10 | 15 | 24 |
-| 4 | 10 / 10 | 15 | 25 |
-| 5 | 10 / 11 | 13 | 24 |
-| 6 | 6 / 6 | 13 | 23 |
-| 7 | 8 / 8 | 13 | 24 |
-| 8 | 11 / 10 | 16 | 26 |
+| 1 | 11 / 10 | 14 | 24 |
+| 2 | 9 / 9 | 15 | 24 |
+| 3 | 12 / 12 | 15 | 25 |
+| 4 | 3 / 7 | 10 | 20 |
+| 5 | 7 / 7 | 12 | 23 |
+| 6 | 8 / 10 | 14 | 24 |
+| 7 | 11 / 10 | 15 | 25 |
+| 8 | 8 / 6 | 13 | 24 |
 
-Best on the page: **21 moves**, from DR 1: `L B' R F' L F B' D' F B2 D' L2 U R2 F2 D F2 U' F2 L2 F2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 4: `D R2 D R U B2 L2 F2 B' U2 R2 U2 L2 F2 L2 R' D2 B U2 F2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 6
 
-`R' U' F L2 F2 L2 D B2 D' R2 U2 B2 D L R' D U2 F R2 B D' B U R' U' R' U' F`
+`R' U' F U R D2 L2 F' U R' F L' D2 B' R2 D2 R2 D F2 B2 D R2 U B2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `F' B' L' D' R2 B R2 B U (L)` | 10 | F/B | 4b5 4e | 3 | 4b5-2 / 4b5-1 | look anyway | <0.01% / 0.13% / 1.8% |
-| 2 | `L2 F2 R D2 F (F B U L D)` | 10 | R/L | 4c4 2e | 2 | 4c4-3 / 4c4-4 | look anyway | 0 / 0.05% / 0.96% |
-| 3 | `F' B' L' F' D F' B' D' B2 U (L)` | 11 | F/B | 2c3 6e | 2 | 2c3-3 / 2c3-1 | keep | 0.47% / 3.6% / 22% |
-| 4 | `L2 D2 B2 L' U2 F (F B U L D)` | 11 | R/L | 4c4 2e | 1 | 4c4-1 / 4c4-4 | drop | 0 / 0.14% / 1.8% |
-| 5 | `(F B U L D' L D2 L B' U2 R)` | 11 | F/B | 2c4 4e | 5 | 2c4-4 / 2c4-7 | keep | 0.10% / 1.3% / 9.1% |
-| 6 | `B2 L' U' F D (R2 B' L F L B)` | 11 | R/L | 2c4 2e | 2 | 2c4-4 / 2c4-6 | drop | 0.02% / 0.36% / 3.9% |
-| 7 | `R F' D' B D2 F U (U' R' F L)` | 11 | F/B | 2c3 4e | 1 | 2c3-1 / 2c3-3 | keep | 0.62% / 4.5% / 24% |
-| 8 | `R F' D F D2 B U (U' R' F L)` | 11 | F/B | 2c3 6e | 1 | 2c3-1 / 2c3-2 | keep | 0.58% / 4.1% / 23% |
+| 1 | `(U2 L' R F U' D2 F B2 D)` | 9 | F/B | 4c3 2e | 0 | 4c3-2 / 4c3-4 | look anyway | 0.09% / 1.4% / 10% |
+| 2 | `(L R' U D2 F B2 D B' D)` | 9 | F/B | 2c4 6e | 0 | 2c4-5 / 2c4-3 | look anyway | 0 / 0.44% / 4.8% |
+| 3 | `(L R' U' D2 F B2 D B' D)` | 9 | F/B | 4c4 4e | 0 | 4c4-2 / 4c4-3 | look anyway | 0 / 0.16% / 1.9% |
+| 4 | `U B D F2 L2 U' D' B (L R)` | 10 | U/D | 2c5 6e | 1 | 2c5-2 / 2c5-2 | look anyway | 0 / 0 / 0.83% |
+| 5 | `L2 F' B U' F2 B U' B2 D (L R)` | 11 | F/B | 4c3 4e | 0 | 4c3-6 / 4c3-4 | drop | 0.11% / 1.2% / 8.4% |
+| 6 | `D L2 B D F D L2 B2 U (L R)` | 11 | F/B | 2c5 6e | 1 | 2c5-1 / 2c5-2 | drop | 0 / 0.16% / 1.5% |
+| 7 | `(L R U' B' L2 F2 L2 B2 D2 B D)` | 11 | F/B | 2c3 4e | 1 | 2c3-3 / 2c3-1 | keep | 0.62% / 4.5% / 24% |
+| 8 | `U2 D' F D' B D F2 B2 U (L R)` | 11 | F/B | 2c5 4e | 3 | 2c5-1 / 2c5-1 | drop | 0.10% / 0.85% / 6.2% |
 
-Shown: 8 of the 21 DRs up to 11 moves (10 moves: 2 of 2; 11 moves: 6 of 19).
+Shown: 8 of the 1274 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 95; 11 moves: 4 of 1176).
 
 <details>
 <summary>Answers for scramble 6</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 14 | 23 |
-| 2 | 11 / 10 | 15 | 24 |
-| 3 | 9 / 8 | 14 | 24 |
+| 1 | 7 / 10 | 14 | 23 |
+| 2 | 10 / 9 | 15 | 23 |
+| 3 | 10 / 10 | 14 | 22 |
 | 4 | 11 / 10 | 15 | 24 |
-| 5 | 9 / 10 | 13 | 23 |
-| 6 | 9 / 9 | 14 | 24 |
-| 7 | 6 / 8 | 11 | 22 |
-| 8 | 7 / 8 | 13 | 24 |
+| 5 | 9 / 10 | 12 | 22 |
+| 6 | 9 / 11 | 14 | 25 |
+| 7 | 9 / 6 | 14 | 25 |
+| 8 | 10 / 10 | 15 | 25 |
 
-Best on the page: **22 moves**, from DR 7: `R F' D' B D2 F U R2 F' B2 U2 B2 R2 L2 B' L2 B' D2 L' F' R U`. The list drops 2 of the 6 DRs of 11 moves or more, and keeps the best one.
+Best on the page: **22 moves**, from DR 3 (DR 5 ties it): `D2 F R2 B D2 F L2 D2 F U2 B' L2 B D B D' B2 F' D2 U R L'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 7
 
-`R' U' F R2 F2 R2 U L2 R2 F2 R2 D2 R' B' L2 B2 U2 R' B2 R F2 R2 U2 R' U' F`
+`R' U' F L2 U2 R2 U F2 U' L2 D' F2 D' F' L B' U' B2 L' D R' D F U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `R F B U2 D L' D L` | 8 | U/D | 4a2 4e | 1 | 4a2-3 / 4a2-2 | look anyway | 0.67% / 4.7% / 21% |
-| 2 | `(F2 U L2 D F B2 R' B)` | 8 | R/L | 4b2 4e | 1 | 4b2-3 / 4b2-3 | look anyway | 0.32% / 3.2% / 20% |
-| 3 | `R' F B (D' F2 L R2 D' L)` | 9 | U/D | 4c4 4e | 2 | 4c4-4 / 4c4-1 | look anyway | <0.01% / 0.35% / 3.3% |
-| 4 | `R' F B (F2 R2 U L D' L)` | 9 | U/D | 4c4 2e | 3 | 4c4-3 / 4c4-4 | look anyway | 0 / 0.09% / 1.5% |
-| 5 | `U2 R D2 B2 D2 F2 B' U (B U' R)` | 11 | F/B | 4b5 2e | 1 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.08% / 1.2% |
-| 6 | `R F B D L R F2 L2 R D L` | 11 | U/D | 2c4 4e | 1 | 2c4-2 / 2c4-1 | keep | 0.18% / 2.0% / 15% |
-| 7 | `R F B L2 R2 U R2 D2 L' U L` | 11 | U/D | 2c4 6e | 0 | 2c4-2 / 2c4-1 | keep | 0.05% / 1.2% / 11% |
-| 8 | `R F B' R2 B2 R2 U' L' D' R D` | 11 | R/L | 4b5 0e | 2 | 4b5-1 / 4b5-1 | drop | 0.01% / 0.25% / 2.2% |
+| 1 | `U (B' U L' D F L2 B)` | 8 | R/L | 2c3 2e | 1 | 2c3-3 / 2c3-3 | look anyway | 0.44% / 3.7% / 22% |
+| 2 | `U (B' U L' D B D2 F)` | 8 | R/L | 2c3 2e | 1 | 2c3-3 / 2c3-3 | look anyway | 0.44% / 3.7% / 22% |
+| 3 | `U (B' U L' D F2 B' U2 F)` | 9 | R/L | 2c3 2e | 1 | 2c3-3 / 2c3-3 | look anyway | 0.44% / 3.7% / 22% |
+| 4 | `(R' U B' L' D L' B' D2 L)` | 9 | F/B | 4c4 2e | 3 | 4c4-3 / 4c4-4 | look anyway | 0 / 0.09% / 1.5% |
+| 5 | `U (B' U L' D' F2 B2 U2 F R2 B)` | 11 | R/L | 2c3 2e | 3 | 2c3-3 / 2c3-3 | keep | 1.0% / 6.1% / 29% |
+| 6 | `U (B' U L' D B U2 F2 U2 D2 F)` | 11 | R/L | 2c3 2e | 2 | 2c3-3 / 2c3-2 | keep | 1.2% / 7.3% / 33% |
+| 7 | `U (B' U L' D F' R2 F' B' U2 F)` | 11 | R/L | 2c3 2e | 2 | 2c3-3 / 2c3-2 | keep | 1.2% / 7.3% / 33% |
+| 8 | `(U B' L' D' F D2 R' D2 L B2 R)` | 11 | U/D | 2c4 6e | 4 | 2c4-1 / 2c4-3 | keep | 1.4% / 7.7% / 32% |
 
-Shown: 8 of the 2911 DRs up to 11 moves (8 moves: 2 of 2; 9 moves: 2 of 32; 10 moves: 0 of 299; 11 moves: 4 of 2578).
+Shown: 8 of the 209 DRs up to 11 moves (8 moves: 2 of 2; 9 moves: 2 of 3; 10 moves: 0 of 24; 11 moves: 4 of 180).
 
 <details>
 <summary>Answers for scramble 7</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 6 | 12 | 20 |
-| 2 | 7 / 8 | 14 | 22 |
-| 3 | 10 / 9 | 14 | 22 |
-| 4 | 11 / 10 | 14 | 23 |
-| 5 | 10 / 10 | 13 | 24 |
-| 6 | 8 / 9 | 14 | 24 |
-| 7 | 9 / 8 | 13 | 24 |
-| 8 | 9 / 9 | 15 | 25 |
+| 1 | 7 / 7 | 14 | 21 |
+| 2 | 7 / 7 | 14 | 21 |
+| 3 | 7 / 6 | 14 | 22 |
+| 4 | 10 / 11 | 14 | 22 |
+| 5 | 7 / 6 | 13 | 23 |
+| 6 | 7 / 8 | 12 | 22 |
+| 7 | 7 / 7 | 13 | 24 |
+| 8 | 8 / 8 | 12 | 22 |
 
-Best on the page: **20 moves**, from DR 1: `R F B U2 D L' D L F2 U2 R2 F2 U L2 U2 R2 F2 U' D2 L2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1 (DR 2 ties it): `U' R2 F2 L2 F2 D2 R B2 L U2 R' B2 R2 D2 B' L2 F' D' L U' B`. The list drops 0 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 8
 
-`R' U' F D2 R2 D F2 R2 B2 R2 U L' U2 R2 B R2 U' F' D' L U R U' R' U' F`
+`R' U' F D2 F2 L2 U2 F2 R2 D' F2 U L2 F L2 R' U B R2 F' U' R D2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(U F' L D R' F' D' L2 B)` | 9 | U/D | 2c3 4e | 2 | 2c3-3 / 2c3-3 | look anyway | 0.35% / 2.6% / 15% |
-| 2 | `(U F' L D R F' D' L2 B)` | 9 | U/D | 4c3 2e | 3 | 4c3-4 / 4c3-7 | look anyway | 0.31% / 2.5% / 13% |
-| 3 | `F2 D F R2 F R' F' L (R2 U)` | 10 | F/B | 4c4 4e | 0 | 4c4-4 / 4c4-5 | look anyway | 0 / 0 / 0.06% |
-| 4 | `F2 D B U2 B L' F' R (R2 U)` | 10 | F/B | 4c4 2e | 1 | 4c4-4 / 4c4-5 | look anyway | 0 / 0 / 0.09% |
-| 5 | `R2 U' F (F L2 U L U2 D2 L U)` | 11 | R/L | 4c4 2e | 2 | 4c4-4 / 4c4-6 | drop | 0 / 0 / 0.18% |
-| 6 | `(R' U' L F' R D F D' L2 U2 B)` | 11 | U/D | 2c4 6e | 0 | 2c4-6 / 2c4-4 | drop | <0.01% / 0.06% / 1.0% |
-| 7 | `D' B L R' U (D2 B2 R D2 B R)` | 11 | F/B | 4c3 4e | 0 | 4c3-7 / 4c3-4 | drop | 0.11% / 1.1% / 7.7% |
-| 8 | `F2 D F' L R F L D2 L (R2 U)` | 11 | F/B | 2c5 2e | 0 | 2c5-1 / 2c5-1 | drop | 0 / 0.09% / 1.0% |
+| 1 | `D2 B' U' F U2 B (B2 U)` | 8 | R/L | 4c4 4e | 3 | 4c4-1 / 4c4-2 | look anyway | 0.18% / 1.2% / 6.7% |
+| 2 | `D2 B' U' B L2 F (B2 U)` | 8 | R/L | 4c4 4e | 2 | 4c4-1 / 4c4-2 | look anyway | 0.09% / 0.84% / 5.2% |
+| 3 | `U' R2 U2 B D2 L2 B2 D' L` | 9 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-2 | look anyway | 0.01% / 0.14% / 1.4% |
+| 4 | `U' L2 D2 F U2 L2 F2 U' L` | 9 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-2 | look anyway | 0.01% / 0.14% / 1.4% |
+| 5 | `F' D L (L2 U L2 F' D B' L2 U)` | 11 | F/B | 4a1 2e | 0 | 4a1-1 / 4a1-2 | keep | 0.98% / 6.4% / 31% |
+| 6 | `R2 U F2 B' U L' B2 L' F2 D' R` | 11 | U/D | 0c4 6e | 2 | 0c4-1 / 0c4-1 | drop | 0.09% / 0.66% / 5.1% |
+| 7 | `F' D L (F2 B2 D2 F R2 U D F)` | 11 | U/D | 4c4 4e | 1 | 4c4-1 / 4c4-4 | drop | <0.01% / 0.24% / 2.5% |
+| 8 | `U' R2 U2 B' U' B2 D2 R' U R' U` | 11 | R/L | 4c4 4e | 3 | 4c4-4 / 4c4-3 | drop | 0 / 0.08% / 1.9% |
 
-Shown: 8 of the 79 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 10; 11 moves: 4 of 67).
+Shown: 8 of the 1070 DRs up to 11 moves (8 moves: 2 of 2; 9 moves: 2 of 10; 10 moves: 0 of 98; 11 moves: 4 of 960).
 
 <details>
 <summary>Answers for scramble 8</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 7 / 8 | 14 | 22 |
-| 2 | 10 / 8 | 14 | 23 |
-| 3 | 11 / 11 | 14 | 23 |
-| 4 | 11 / 11 | 14 | 23 |
-| 5 | 11 / 12 | 15 | 25 |
-| 6 | 9 / 9 | 14 | 24 |
-| 7 | 9 / 10 | 14 | 25 |
+| 1 | 9 / 9 | 12 | 20 |
+| 2 | 10 / 9 | 15 | 22 |
+| 3 | 10 / 10 | 15 | 23 |
+| 4 | 10 / 10 | 15 | 24 |
+| 5 | 6 / 7 | 13 | 23 |
+| 6 | 10 / 10 | 13 | 23 |
+| 7 | 9 / 11 | 14 | 25 |
 | 8 | 10 / 10 | 14 | 25 |
 
-Best on the page: **22 moves**, from DR 1: `U D R2 U L2 U' L2 U B2 D' R2 L2 D B L2 D F R D' L' F U'`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 1: `D2 B' U' F U2 B U2 F2 U2 R D2 R U2 L2 F2 L' F2 R U' B2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 9
 
-`R' U' F R2 D' R2 U' B2 D R2 D R2 U2 F' D F R U' B L B' D R B U2 R' U' F`
+`R' U' F D2 B2 R2 F2 U L2 B2 D2 B2 U B R U R2 B' D2 L2 B' F' L' U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L' B' L B' U' F2 B' D (B L)` | 10 | F/B | 4b2 4e | 0 | 4b2-2 / 4b2-4 | look anyway | 0.30% / 2.7% / 18% |
-| 2 | `(U' F2 R' D R' B R2 F D2 L)` | 10 | F/B | 2c4 4e | 3 | 2c4-3 / 2c4-2 | look anyway | 0.72% / 4.5% / 23% |
-| 3 | `(U' F2 R' D R' B D2 L2 B' U2 L)` | 11 | F/B | 2c4 2e | 3 | 2c4-3 / 2c4-1 | keep | 0.84% / 5.5% / 25% |
-| 4 | `(F2 D' F2 L' U' L' U2 L' F' B' L)` | 11 | F/B | 4c3 4e | 2 | 4c3-7 / 4c3-4 | drop | 0.34% / 2.1% / 10% |
-| 5 | `(B2 U' F2 R' D B2 L' R F' L B)` | 11 | R/L | 2c5 4e | 4 | 2c5-1 / 2c5-1 | drop | 0.16% / 1.7% / 11% |
-| 6 | `U2 B L2 D' L F B' D2 R' F (U)` | 11 | R/L | 4a1 0e | 4 | 4a1-2 / 4a1-2 | keep | 1.1% / 7.4% / 31% |
-| 7 | `F' L D' B2 R (U D' R2 F' U2 B)` | 11 | U/D | 2c3 6e | 2 | 2c3-1 / 2c3-1 | keep | 1.6% / 9.1% / 38% |
-| 8 | `(B2 U' F2 R' D' L' R D2 F' L B)` | 11 | R/L | 2c3 4e | 2 | 2c3-1 / 2c3-3 | keep | 1.0% / 6.4% / 30% |
+| 1 | `D2 F' R D2 R (D B L' U)` | 9 | F/B | 4b5 4e | 3 | 4b5-2 / 4b5-1 | look anyway | <0.01% / 0.13% / 1.8% |
+| 2 | `(D B L' U B' L B' R2 B)` | 9 | R/L | 4c4 2e | 4 | 4c4-3 / 4c4-4 | look anyway | 0 / 0.27% / 2.6% |
+| 3 | `D L2 U B (B D F' D' L)` | 9 | U/D | 4b2 4e | 2 | 4b2-3 / 4b2-3 | look anyway | 0.64% / 5.0% / 27% |
+| 4 | `(L' B U L' B2 L2 D2 F' D)` | 9 | F/B | 2c4 2e | 2 | 2c4-3 / 2c4-5 | look anyway | 0.08% / 1.1% / 8.9% |
+| 5 | `(F' B D' L U' F D R2 F B' D)` | 11 | F/B | 4c4 2e | 1 | 4c4-4 / 4c4-5 | drop | 0 / 0 / 0.09% |
+| 6 | `L' D2 F' L2 R2 D B (L' U D' L)` | 11 | U/D | 2c4 2e | 0 | 2c4-6 / 2c4-7 | drop | 0 / 0.08% / 0.95% |
+| 7 | `F B L2 U B D (L2 F U' F2 L)` | 11 | F/B | 2c4 4e | 2 | 2c4-7 / 2c4-1 | drop | 0.08% / 0.85% / 7.2% |
+| 8 | `L2 B L R2 B L (D B D2 L' U)` | 11 | F/B | 2c4 4e | 1 | 2c4-1 / 2c4-4 | drop | 0.10% / 1.0% / 8.2% |
 
-Shown: 8 of the 91 DRs up to 11 moves (10 moves: 2 of 2; 11 moves: 6 of 89).
+Shown: 8 of the 772 DRs up to 11 moves (9 moves: 4 of 16; 10 moves: 0 of 80; 11 moves: 4 of 676).
 
 <details>
 <summary>Answers for scramble 9</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 9 | 13 | 23 |
-| 2 | 7 / 8 | 13 | 23 |
-| 3 | 7 / 7 | 13 | 23 |
-| 4 | 9 / 7 | 13 | 24 |
-| 5 | 10 / 9 | 12 | 23 |
-| 6 | 8 / 8 | 14 | 23 |
-| 7 | 8 / 7 | 12 | 23 |
-| 8 | 7 / 8 | 11 | 22 |
+| 1 | 11 / 9 | 14 | 23 |
+| 2 | 11 / 10 | 12 | 21 |
+| 3 | 8 / 7 | 14 | 22 |
+| 4 | 8 / 10 | 14 | 23 |
+| 5 | 11 / 11 | 15 | 26 |
+| 6 | 8 / 10 | 14 | 25 |
+| 7 | 9 / 8 | 14 | 24 |
+| 8 | 9 / 8 | 14 | 24 |
 
-Best on the page: **22 moves**, from DR 8: `L D2 F2 U2 L2 D2 R2 L' B2 R' U2 B' L' F D2 R' L D R F2 U B2`. The list drops 2 of the 6 DRs of 11 moves or more, and keeps the best one.
+Best on the page: **21 moves**, from DR 2: `B2 R D2 L D2 F2 L2 B2 R F2 L' D2 B' R2 B L' B U' L B' D'`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 10
 
-`R' U' F U L B L U L D F U2 B2 R U' B2 L2 U' F2 U F2 B2 D F2 R' U' F`
+`R' U' F D B2 D L2 D B2 D2 U' F2 R D B R2 U' R D2 U2 B2 R D' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `B R U' L D2 B L` | 7 | F/B | 2c3 4e | 4 | 2c3-3 / 2c3-3 | look anyway | 1.2% / 6.2% / 26% |
-| 2 | `(U2 F2 B U L' F D B D)` | 9 | F/B | 2c4 4e | 3 | 2c4-3 / 2c4-7 | look anyway | 0.13% / 1.2% / 8.1% |
-| 3 | `B' U' L' D' F' U' F2 D L` | 9 | U/D | 2c3 4e | 1 | 2c3-1 / 2c3-1 | look anyway | 1.4% / 8.6% / 37% |
-| 4 | `B R U' L F2 B2 U2 B R` | 9 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-3 | look anyway | 0.35% / 2.6% / 15% |
-| 5 | `B' R B2 U' F U2 F' L D2 B L` | 11 | F/B | 4c3 4e | 4 | 4c3-9 / 4c3-5 | keep | 0.02% / 0.46% / 4.5% |
-| 6 | `D' B L2 U R2 U B2 D (R2 U' F)` | 11 | R/L | 4c4 4e | 3 | 4c4-3 / 4c4-2 | drop | 0.01% / 0.55% / 3.9% |
-| 7 | `L2 U' B D' F U (U' R' D F' R)` | 11 | F/B | 4c3 2e | 4 | 4c3-4 / 4c3-2 | keep | 2.3% / 8.4% / 30% |
-| 8 | `B2 D2 R B' U R2 B' L' B2 R' F` | 11 | R/L | 2c4 4e | 3 | 2c4-4 / 2c4-5 | drop | 0.08% / 0.90% / 6.4% |
+| 1 | `U' F2 D2 R F (R' D2 L)` | 8 | U/D | 4b2 4e | 2 | 4b2-2 / 4b2-2 | look anyway | 1.9% / 10% / 40% |
+| 2 | `U' F2 D2 R F (L' F2 R)` | 8 | U/D | 4b2 4e | 2 | 4b2-2 / 4b2-2 | look anyway | 1.9% / 10% / 40% |
+| 3 | `U (R' D2 L U' F R2 D2 F)` | 9 | R/L | 4c3 4e | 2 | 4c3-5 / 4c3-7 | look anyway | 0.17% / 1.3% / 7.9% |
+| 4 | `U' F2 D2 R F (L R2 B2 R)` | 9 | U/D | 4b2 4e | 2 | 4b2-2 / 4b2-2 | look anyway | 1.9% / 10% / 40% |
+| 5 | `(U' R' D2 B U F2 U' D L' R' D)` | 11 | R/L | 2c4 0e | 2 | 2c4-6 / 2c4-5 | drop | 0 / 0.49% / 6.4% |
+| 6 | `B2 D (R2 B2 U R F R' F R2 F)` | 11 | R/L | 2c4 4e | 1 | 2c4-6 / 2c4-2 | drop | 0.06% / 0.69% / 6.0% |
+| 7 | `U' F2 D2 R F (R U2 L R B2 R)` | 11 | U/D | 4b2 4e | 4 | 4b2-2 / 4b2-2 | keep | 4.9% / 19% / 56% |
+| 8 | `L' U' F2 D2 F' U2 L2 R U2 L' U` | 11 | R/L | 4c3 4e | 3 | 4c3-6 / 4c3-5 | drop | 0.23% / 1.9% / 11% |
 
-Shown: 8 of the 604 DRs up to 11 moves (7 moves: 1 of 1; 9 moves: 3 of 7; 10 moves: 0 of 68; 11 moves: 4 of 528).
+Shown: 8 of the 512 DRs up to 11 moves (8 moves: 2 of 2; 9 moves: 2 of 7; 10 moves: 0 of 40; 11 moves: 4 of 463).
 
 <details>
 <summary>Answers for scramble 10</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 7 / 8 | 12 | 19 |
-| 2 | 9 / 10 | 15 | 23 |
-| 3 | 7 / 7 | 13 | 22 |
-| 4 | 7 / 8 | 13 | 22 |
-| 5 | 10 / 9 | 14 | 25 |
-| 6 | 11 / 9 | 12 | 23 |
-| 7 | 9 / 9 | 13 | 23 |
-| 8 | 9 / 10 | 14 | 25 |
+| 1 | 8 / 8 | 12 | 20 |
+| 2 | 8 / 7 | 14 | 20 |
+| 3 | 9 / 10 | 13 | 21 |
+| 4 | 8 / 7 | 10 | 18 |
+| 5 | 8 / 9 | 14 | 25 |
+| 6 | 8 / 9 | 14 | 24 |
+| 7 | 8 / 7 | 11 | 21 |
+| 8 | 10 / 9 | 14 | 25 |
 
-Best on the page: **19 moves**, from DR 1: `B R U' L D2 B L F2 D2 B' D2 B L2 B D2 R2 U2 B2 R2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 7 moves long, so you'd finish it anyway.
+Best on the page: **18 moves**, from DR 4: `U' F2 D2 R F' B2 L2 U' B2 U' B2 U' B2 U' R' B2 R2 L'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 11
 
-`R' U' F D2 L B D B2 D L' F' U D2 L' U R2 D' L2 R2 D' F2 L2 B2 F2 R' U' F`
+`R' U' F R2 D2 R2 U' B2 F2 D' L2 F2 R2 F' D2 L B2 U R' B' L2 B F U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(R U2 D F2 R' F' L2 U' B)` | 9 | U/D | 4c3 2e | 0 | 4c3-1 / 4c3-5 | look anyway | 0.12% / 1.6% / 12% |
-| 2 | `L D' F U (D' R2 F2 R F)` | 9 | R/L | 4c4 4e | 2 | 4c4-5 / 4c4-2 | look anyway | 0 / 0.07% / 1.1% |
-| 3 | `L D' F U (D' B2 L2 B2 R' F)` | 10 | R/L | 4c4 4e | 2 | 4c4-5 / 4c4-2 | look anyway | 0 / 0.07% / 1.1% |
-| 4 | `R' F L2 F' U L2 D (L U R)` | 10 | F/B | 2c3 4e | 1 | 2c3-3 / 2c3-3 | look anyway | 0.19% / 1.6% / 11% |
-| 5 | `F2 R (U2 L' R' U R2 B2 U2 B U)` | 11 | F/B | 2c3 4e | 1 | 2c3-3 / 2c3-2 | keep | 0.38% / 2.8% / 17% |
-| 6 | `R' D L2 R2 U R2 F U (L U R)` | 11 | F/B | 4b5 2e | 1 | 4b5-1 / 4b5-2 | drop | 0 / 0.05% / 0.78% |
-| 7 | `R F B' U' B R F2 D2 L' B2 D` | 11 | R/L | 4b5 2e | 4 | 4b5-1 / 4b5-1 | drop | 0.11% / 0.72% / 5.4% |
-| 8 | `F (U' B' D2 B' U F2 L R U' R)` | 11 | U/D | 2c4 4e | 1 | 2c4-4 / 2c4-7 | drop | 0 / 0.08% / 1.5% |
+| 1 | `D F U (L' F' L U2 D2 R' F)` | 10 | R/L | 2c4 6e | 0 | 2c4-4 / 2c4-7 | look anyway | 0 / 0.06% / 1.0% |
+| 2 | `D F U (L2 U2 B2 U2 L' F B)` | 10 | R/L | 2c4 4e | 1 | 2c4-4 / 2c4-6 | look anyway | 0.02% / 0.28% / 2.4% |
+| 3 | `(B U2 D F D2 L2 D L B2 R)` | 10 | U/D | 2c4 4e | 3 | 2c4-1 / 2c4-7 | look anyway | 0.13% / 1.4% / 10% |
+| 4 | `D F U (L2 D2 F2 U2 R F B)` | 10 | R/L | 2c4 4e | 1 | 2c4-4 / 2c4-6 | look anyway | 0.02% / 0.28% / 2.4% |
+| 5 | `D F U (L' R2 B' L' U2 D2 R B)` | 11 | R/L | 2c4 6e | 0 | 2c4-4 / 2c4-5 | drop | 0.03% / 0.27% / 2.7% |
+| 6 | `F2 B2 U F D (U2 D2 L2 R F B)` | 11 | R/L | 2c4 4e | 2 | 2c4-4 / 2c4-7 | drop | 0.01% / 0.19% / 2.1% |
+| 7 | `D F U D2 F' L B' R' U2 R2 F` | 11 | R/L | 4b2 4e | 2 | 4b2-3 / 4b2-3 | keep | 0.64% / 5.0% / 27% |
+| 8 | `D F U (L U2 F R' F2 B2 L B)` | 11 | R/L | 2c4 4e | 1 | 2c4-4 / 2c4-1 | drop | 0.10% / 1.0% / 8.2% |
 
-Shown: 8 of the 152 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 8; 11 moves: 4 of 142).
+Shown: 8 of the 276 DRs up to 11 moves (10 moves: 4 of 34; 11 moves: 4 of 242).
 
 <details>
 <summary>Answers for scramble 11</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 9 | 13 | 22 |
-| 2 | 11 / 10 | 14 | 23 |
-| 3 | 11 / 10 | 15 | 24 |
-| 4 | 8 / 8 | 14 | 23 |
-| 5 | 7 / 7 | 13 | 24 |
-| 6 | 10 / 10 | 14 | 25 |
-| 7 | 9 / 9 | 13 | 24 |
-| 8 | 9 / 10 | 14 | 23 |
+| 1 | 9 / 10 | 15 | 24 |
+| 2 | 9 / 8 | 14 | 23 |
+| 3 | 8 / 9 | 13 | 23 |
+| 4 | 9 / 9 | 15 | 23 |
+| 5 | 9 / 10 | 15 | 25 |
+| 6 | 9 / 10 | 14 | 25 |
+| 7 | 9 / 7 | 13 | 24 |
+| 8 | 8 / 9 | 14 | 24 |
 
-Best on the page: **22 moves**, from DR 1: `B2 D R2 F2 D2 B2 U D2 L2 B2 D F2 L2 B' U L2 F R F2 D' U2 R'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 2 (DR 3 and 4 tie it): `D F U R' U2 R F2 R L2 U2 R D2 B2 L D2 L' B' F L U2 B2 U2 L2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 12
 
-`R' U' F U B' U R D' R B' L' F2 L2 R' F2 R2 U' D' L2 D B2 L2 B2 U2 R' U' F`
+`R' U' F R2 U' L2 U L B R' U D B D' L2 D B2 L2 B2 D' B2 D F2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `F' L U' D' F U' L2 D F (R)` | 10 | U/D | 4c3 2e | 1 | 4c3-7 / 4c3-4 | look anyway | 0.20% / 1.4% / 8.5% |
-| 2 | `F' L' U F' D B U2 L2 D (R)` | 10 | F/B | 2c4 4e | 5 | 2c4-7 / 2c4-1 | look anyway | 0.82% / 5.3% / 24% |
-| 3 | `F' L (R' F R2 B' U2 R2 D' B)` | 10 | U/D | 4b5 2e | 0 | 4b5-1 / 4b5-1 | look anyway | 0 / 0.06% / 0.76% |
-| 4 | `F' L (R D2 R2 F' D2 B U F)` | 10 | U/D | 4b5 4e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.1% |
-| 5 | `F' L (R' F R2 U' B' U2 D B U)` | 11 | F/B | 2c3 2e | 3 | 2c3-1 / 2c3-2 | keep | 4.0% / 18% / 57% |
-| 6 | `F' L (R' F D2 L2 F D' L2 D2 B)` | 11 | U/D | 4b5 2e | 1 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.08% / 1.2% |
-| 7 | `F' L (L2 R' U2 R2 B' U2 F D B)` | 11 | U/D | 4b5 4e | 0 | 4b5-1 / 4b5-1 | drop | 0 / 0.03% / 0.58% |
-| 8 | `B2 U' D' F D (D2 R F D2 B' R)` | 11 | F/B | 4c4 4e | 2 | 4c4-6 / 4c4-4 | drop | 0 / 0 / 0.18% |
+| 1 | `U' B U (D' F' L B2 R2 U2 F)` | 10 | R/L | 2c3 2e | 3 | 2c3-3 / 2c3-2 | look anyway | 1.9% / 10% / 40% |
+| 2 | `U' B U (D' F' L F2 L2 D2 F)` | 10 | R/L | 2c3 2e | 2 | 2c3-3 / 2c3-2 | look anyway | 1.2% / 7.3% / 33% |
+| 3 | `U' B U (D' F' L F2 R2 U2 B)` | 10 | R/L | 2c3 2e | 1 | 2c3-3 / 2c3-2 | look anyway | 0.77% / 5.6% / 29% |
+| 4 | `U' B U (D' F' L B2 L2 D2 B)` | 10 | R/L | 2c3 2e | 2 | 2c3-3 / 2c3-2 | look anyway | 1.2% / 7.3% / 33% |
+| 5 | `U' B U (D' F' L' B' L2 B2 D2 B)` | 11 | R/L | 2c4 2e | 2 | 2c4-3 / 2c4-5 | drop | 0.08% / 1.1% / 8.9% |
+| 6 | `U' D2 B U (D' L' D2 F' R2 B' L)` | 11 | F/B | 4c4 2e | 3 | 4c4-4 / 4c4-5 | drop | 0 / 0.02% / 0.45% |
+| 7 | `(D F' D R2 D' B' L R U2 R F)` | 11 | R/L | 2c3 4e | 1 | 2c3-1 / 2c3-1 | keep | 1.4% / 8.6% / 37% |
+| 8 | `L' F L D2 L F L2 U F U B` | 11 | U/D | 4b5 4e | 0 | 4b5-1 / 4b5-2 | drop | 0 / <0.01% / 0.32% |
 
-Shown: 8 of the 205 DRs up to 11 moves (10 moves: 4 of 12; 11 moves: 4 of 193).
+Shown: 8 of the 148 DRs up to 11 moves (10 moves: 4 of 16; 11 moves: 4 of 132).
 
 <details>
 <summary>Answers for scramble 12</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 9 | 13 | 23 |
-| 2 | 9 / 8 | 14 | 24 |
-| 3 | 10 / 10 | 15 | 24 |
-| 4 | 9 / 10 | 15 | 24 |
-| 5 | 6 / 7 | 13 | 23 |
-| 6 | 10 / 10 | 14 | 23 |
-| 7 | 9 / 10 | 14 | 24 |
-| 8 | 12 / 11 | 15 | 25 |
+| 1 | 6 / 6 | 14 | 23 |
+| 2 | 6 / 5 | 12 | 22 |
+| 3 | 6 / 5 | 11 | 21 |
+| 4 | 6 / 6 | 13 | 22 |
+| 5 | 8 / 10 | 12 | 23 |
+| 6 | 10 / 11 | 15 | 24 |
+| 7 | 8 / 5 | 13 | 23 |
+| 8 | 10 / 10 | 15 | 26 |
 
-Best on the page: **23 moves**, from DR 1 (DR 5 and 6 tie it): `F' L U' D' F U' L2 D F B2 U2 L2 U' B2 D' L2 U L2 U F2 D F2 R'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 3: `U' B U L2 U2 L2 B2 D2 U2 R' U2 R B2 L' B' U2 R2 F2 L' F D`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 13
 
-`R' U' F U' D' B R' L' B' U' B2 D' B2 F' R2 U2 B2 L U2 B2 D2 R2 D2 R' U' F`
+`R' U' F R2 D2 F2 U2 B2 L2 D U B2 U F L2 R2 D F' L' D' L U' L D' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `U L U' D' R (D' L' D' R' F)` | 10 | U/D | 4b2 4e | 0 | 4b2-1 / 4b2-4 | look anyway | 0.43% / 4.0% / 22% |
-| 2 | `(D F' L' F U B R' B' U2 L)` | 10 | F/B | 4c3 2e | 1 | 4c3-8 / 4c3-4 | look anyway | 0.02% / 0.54% / 4.7% |
-| 3 | `U D R D F' L' R U' F2 L` | 10 | U/D | 2c3 6e | 1 | 2c3-1 / 2c3-1 | look anyway | 0.90% / 6.1% / 30% |
-| 4 | `F' R' D2 F (R' U2 R' D L2 U)` | 10 | R/L | 4c3 4e | 2 | 4c3-2 / 4c3-4 | look anyway | 0.84% / 4.6% / 19% |
-| 5 | `F (U2 L B' D2 R F2 U D R U)` | 11 | R/L | 4b2 4e | 1 | 4b2-3 / 4b2-3 | keep | 0.32% / 3.2% / 20% |
-| 6 | `B2 R' U2 F (U D' L U2 L' B2 L)` | 11 | U/D | 4b5 2e | 1 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.08% / 1.2% |
-| 7 | `F' R U2 L2 B U2 R2 D R U2 R` | 11 | U/D | 2c4 4e | 1 | 2c4-1 / 2c4-1 | keep | 0.33% / 2.9% / 18% |
-| 8 | `D2 R' F' U2 F2 B R2 B (U B2 D)` | 11 | R/L | 2c4 2e | 2 | 2c4-3 / 2c4-7 | drop | 0.03% / 0.68% / 5.6% |
+| 1 | `R (R2 F' D L' U F' D2 B U)` | 10 | F/B | 2c4 6e | 1 | 2c4-4 / 2c4-7 | look anyway | 0 / 0.05% / 1.3% |
+| 2 | `R D L2 D' R2 F U (D F' L)` | 10 | F/B | 2c4 4e | 2 | 2c4-7 / 2c4-6 | look anyway | 0.01% / 0.28% / 2.3% |
+| 3 | `B' D2 F U' L (L2 D R2 B' D)` | 10 | F/B | 4b5 4e | 3 | 4b5-1 / 4b5-1 | look anyway | 0.02% / 0.27% / 2.9% |
+| 4 | `R' B2 U R (D F' D' L2 D' B)` | 10 | U/D | 4c4 4e | 1 | 4c4-2 / 4c4-3 | look anyway | 0 / 0.21% / 2.2% |
+| 5 | `R' B2 U R' B' U' F' L2 U D2 F` | 11 | U/D | 4c4 2e | 3 | 4c4-4 / 4c4-6 | drop | 0 / 0 / 0.12% |
+| 6 | `R U2 D B2 D L2 B U (D F' L)` | 11 | F/B | 2c4 2e | 4 | 2c4-1 / 2c4-2 | keep | 1.5% / 8.6% / 38% |
+| 7 | `B2 L2 U F2 R B D2 B' D' B U` | 11 | F/B | 2c5 6e | 2 | 2c5-3 / 2c5-3 | drop | 0 / 0 / 0 |
+| 8 | `U' R2 D' B2 R U2 B2 U F R2 B` | 11 | U/D | 2c4 6e | 1 | 2c4-3 / 2c4-7 | drop | 0.01% / 0.44% / 4.0% |
 
-Shown: 8 of the 454 DRs up to 11 moves (10 moves: 4 of 45; 11 moves: 4 of 409).
+Shown: 8 of the 206 DRs up to 11 moves (10 moves: 4 of 17; 11 moves: 4 of 189).
 
 <details>
 <summary>Answers for scramble 13</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 7 | 13 | 22 |
-| 2 | 9 / 8 | 13 | 23 |
-| 3 | 7 / 8 | 14 | 23 |
-| 4 | 9 / 8 | 13 | 23 |
-| 5 | 7 / 9 | 14 | 24 |
-| 6 | 10 / 9 | 14 | 25 |
-| 7 | 8 / 7 | 13 | 24 |
-| 8 | 8 / 10 | 14 | 24 |
+| 1 | 9 / 10 | 14 | 24 |
+| 2 | 10 / 8 | 14 | 24 |
+| 3 | 10 / 10 | 14 | 24 |
+| 4 | 11 / 10 | 15 | 24 |
+| 5 | 11 / 12 | 15 | 26 |
+| 6 | 8 / 9 | 12 | 23 |
+| 7 | 11 / 11 | 15 | 26 |
+| 8 | 9 / 10 | 13 | 24 |
 
-Best on the page: **22 moves**, from DR 1: `U L U' D' R' F2 R2 D F2 D R2 U' B2 L2 B2 U R2 F' R D L D`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 6: `R U2 D B2 D L2 B U R2 D2 R2 F' R2 F' D2 F D2 R2 B' U2 L' F D'`. The list drops 3 of the 4 DRs of 11 moves or more, and keeps the best one.
 
 </details>
 
 #### Scramble 14
 
-`R' U' F R2 B2 L2 U F2 D' R2 D F2 U2 B' L2 R' U2 B2 R' B U2 R' D2 U R' U' F`
+`R' U' F R2 F' R U R2 B' D2 L' F U' R U D' R2 L2 F2 R2 B2 D F2 B2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L' D L2 R F D2 L (L2 U)` | 9 | F/B | 4b5 2e | 1 | 4b5-2 / 4b5-2 | look anyway | 0 / 0.01% / 0.38% |
-| 2 | `D F' B R2 D F B' L B2 R` | 10 | F/B | 4b5 4e | 1 | 4b5-2 / 4b5-1 | look anyway | 0 / 0.03% / 0.64% |
-| 3 | `L' D R D2 R2 B' U2 L (L2 U)` | 10 | F/B | 4b5 4e | 1 | 4b5-1 / 4b5-2 | look anyway | 0 / 0.03% / 0.64% |
-| 4 | `U' B2 L2 B (F' L' D2 B2 D2 R)` | 10 | U/D | 2c4 8e | 0 | 2c4-4 / 2c4-3 | look anyway | 0.04% / 0.61% / 4.5% |
-| 5 | `U' B2 L2 B (F' D2 R' F2 U2 F2 L)` | 11 | U/D | 2c4 8e | 2 | 2c4-4 / 2c4-3 | drop | 0.06% / 0.58% / 5.1% |
-| 6 | `U' D B D R2 U2 F (F' L' B2 R)` | 11 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-2 | drop | 0.01% / 0.14% / 1.4% |
-| 7 | `U' F2 R2 B (F' L R2 D2 F2 D2 R)` | 11 | U/D | 2c4 8e | 2 | 2c4-4 / 2c4-3 | drop | 0.06% / 0.58% / 5.1% |
-| 8 | `B' L B2 D R (B U2 L2 U' F U)` | 11 | F/B | 2c3 6e | 2 | 2c3-3 / 2c3-3 | keep | 0.09% / 1.0% / 8.2% |
+| 1 | `R' U D L (L2 R U' D' F D)` | 10 | F/B | 2c4 2e | 4 | 2c4-7 / 2c4-3 | look anyway | 0.20% / 2.3% / 14% |
+| 2 | `(U R U2 L' D' F2 R' F B R)` | 10 | F/B | 4b5 4e | 3 | 4b5-1 / 4b5-1 | look anyway | 0.02% / 0.27% / 2.9% |
+| 3 | `R U D L (R' U' D' F2 B' D)` | 10 | F/B | 2c4 2e | 2 | 2c4-1 / 2c4-3 | look anyway | 0.37% / 3.1% / 19% |
+| 4 | `R' U D L (R' U' D' F2 B' D)` | 10 | F/B | 2c4 2e | 5 | 2c4-7 / 2c4-3 | look anyway | 0.83% / 5.5% / 22% |
+| 5 | `B D F R' U (B R2 B U2 R2 B)` | 11 | R/L | 4c3 4e | 1 | 4c3-5 / 4c3-8 | drop | <0.01% / 0.29% / 3.1% |
+| 6 | `(U' L' R D L R B R' U2 L' F)` | 11 | R/L | 2c3 4e | 0 | 2c3-3 / 2c3-3 | keep | 0.09% / 1.0% / 8.0% |
+| 7 | `B D F R' U (F D2 F U2 R2 F)` | 11 | R/L | 4c3 4e | 1 | 4c3-5 / 4c3-8 | drop | <0.01% / 0.29% / 3.1% |
+| 8 | `B D F R' U (F U2 F R2 U2 F)` | 11 | R/L | 4c3 4e | 1 | 4c3-5 / 4c3-8 | drop | <0.01% / 0.29% / 3.1% |
 
-Shown: 8 of the 304 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 48; 11 moves: 4 of 255).
+Shown: 8 of the 187 DRs up to 11 moves (10 moves: 4 of 11; 11 moves: 4 of 176).
 
 <details>
 <summary>Answers for scramble 14</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 14 | 23 |
-| 2 | 11 / 11 | 15 | 24 |
-| 3 | 9 / 11 | 14 | 23 |
-| 4 | 10 / 9 | 15 | 24 |
-| 5 | 10 / 9 | 13 | 24 |
-| 6 | 10 / 10 | 14 | 25 |
-| 7 | 10 / 9 | 14 | 25 |
-| 8 | 9 / 8 | 14 | 24 |
+| 1 | 10 / 8 | 14 | 23 |
+| 2 | 10 / 10 | 15 | 25 |
+| 3 | 8 / 8 | 13 | 23 |
+| 4 | 10 / 8 | 14 | 23 |
+| 5 | 8 / 10 | 14 | 24 |
+| 6 | 7 / 9 | 12 | 22 |
+| 7 | 8 / 9 | 14 | 24 |
+| 8 | 8 / 11 | 14 | 24 |
 
-Best on the page: **23 moves**, from DR 1 (DR 3 ties it): `L' D L2 R F D2 L U2 F' D2 L2 B' L2 B2 D2 F D2 L2 F D2 F' U' L2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 6: `B2 L' D2 U2 B2 L B2 L' F2 B2 D2 F L U2 R B' R' L' D' R' L U`. The list drops 3 of the 4 DRs of 11 moves or more, and keeps the best one.
 
 </details>
 
 #### Scramble 15
 
-`R' U' F R2 D F2 U' L2 F2 D' L2 U F2 R' U' L' D' F2 U' B' F' R' F D' R' U' F`
+`R' U' F U' B2 D' B2 U' B2 R2 B2 F2 D L U F' D2 L' D2 U' F' D' B2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `U' L' U (D' B U2 R2 F' L' B)` | 10 | R/L | 2c4 4e | 2 | 2c4-4 / 2c4-1 | look anyway | 0.16% / 1.5% / 11% |
-| 2 | `L D B' R (R2 D B2 R2 B' D)` | 10 | F/B | 2c5 6e | 2 | 2c5-3 / 2c5-2 | look anyway | 0 / 0 / 0.07% |
-| 3 | `L D B' R (F2 U' B' R2 B2 U)` | 10 | F/B | 4c3 4e | 2 | 4c3-7 / 4c3-5 | look anyway | 0.17% / 1.3% / 7.9% |
-| 4 | `R2 F U (B2 D' L' F2 L2 F R)` | 10 | F/B | 2c4 4e | 2 | 2c4-3 / 2c4-2 | look anyway | 0.38% / 2.8% / 17% |
-| 5 | `L D B' R U L2 D L2 R2 B U` | 11 | F/B | 4b2 4e | 0 | 4b2-2 / 4b2-2 | keep | 0.69% / 4.8% / 24% |
-| 6 | `L F' D2 B' U2 D B (L2 U2 B2 L)` | 11 | U/D | 2c4 4e | 1 | 2c4-1 / 2c4-1 | keep | 0.33% / 2.9% / 18% |
-| 7 | `L D B' R U' B2 D' B2 L2 F' U` | 11 | F/B | 4c4 4e | 1 | 4c4-4 / 4c4-3 | drop | 0 / 0.02% / 0.78% |
-| 8 | `L' D B' R U D R2 F B U' F` | 11 | U/D | 2c4 4e | 3 | 2c4-1 / 2c4-7 | drop | 0.13% / 1.4% / 10% |
+| 1 | `B2 D R' F' L (U' D2 B' L2 B)` | 10 | U/D | 4b2 2e | 3 | 4b2-3 / 4b2-1 | look anyway | 4.4% / 17% / 52% |
+| 2 | `B2 R' D (U L' R2 U2 L2 F' R)` | 10 | F/B | 4c3 4e | 1 | 4c3-5 / 4c3-8 | look anyway | <0.01% / 0.29% / 3.1% |
+| 3 | `D R' U2 F D' L2 B2 R' D (F)` | 10 | R/L | 4c4 4e | 4 | 4c4-2 / 4c4-3 | look anyway | 0.11% / 0.91% / 5.0% |
+| 4 | `B2 R' D' F R2 U2 D2 R F (U)` | 10 | R/L | 4c3 2e | 3 | 4c3-2 / 4c3-4 | look anyway | 0.82% / 5.3% / 22% |
+| 5 | `F' L' R' D2 F R' B2 D R B2 U` | 11 | R/L | 2c3 6e | 1 | 2c3-3 / 2c3-1 | keep | 0.33% / 2.7% / 17% |
+| 6 | `F2 U R B2 D (R2 D2 F' L' B R)` | 11 | F/B | 4c4 4e | 1 | 4c4-3 / 4c4-4 | drop | 0 / 0.02% / 0.78% |
+| 7 | `U' D R F2 D (B' U2 B U2 B' R)` | 11 | F/B | 0c3 4e | 4 | 0c3-2 / 0c3-2 | drop | 0 / 0 / 0.75% |
+| 8 | `U B' R D' R2 F2 L D2 F' R B` | 11 | R/L | 4b5 4e | 2 | 4b5-2 / 4b5-2 | drop | 0 / <0.01% / 0.41% |
 
-Shown: 8 of the 121 DRs up to 11 moves (10 moves: 4 of 8; 11 moves: 4 of 113).
+Shown: 8 of the 127 DRs up to 11 moves (10 moves: 4 of 9; 11 moves: 4 of 118).
 
 <details>
 <summary>Answers for scramble 15</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 8 | 13 | 22 |
-| 2 | 11 / 10 | 13 | 23 |
-| 3 | 9 / 8 | 13 | 23 |
-| 4 | 7 / 8 | 13 | 23 |
-| 5 | 8 / 9 | 14 | 25 |
-| 6 | 9 / 8 | 12 | 23 |
-| 7 | 10 / 11 | 14 | 24 |
-| 8 | 8 / 10 | 13 | 24 |
+| 1 | 6 / 6 | 12 | 22 |
+| 2 | 9 / 10 | 14 | 24 |
+| 3 | 9 / 11 | 14 | 23 |
+| 4 | 8 / 10 | 12 | 22 |
+| 5 | 9 / 7 | 14 | 24 |
+| 6 | 10 / 11 | 14 | 25 |
+| 7 | 12 / 12 | 14 | 25 |
+| 8 | 11 / 10 | 14 | 25 |
 
-Best on the page: **22 moves**, from DR 1: `U' L' U' B2 R U2 L' B2 L D2 R' B2 L2 B2 R2 B' L F R2 U2 B' D`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DR 4 ties it): `B2 D R' F' L U' F2 L2 F2 U L2 B2 D L2 B2 U2 D' B' L2 B D2 U`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 16
 
-`R' U' F U' B2 R2 D F2 D2 U' F2 U L2 F R2 B2 F2 U2 L' B D' R' D' U2 R' U' F`
+`R' U' F R2 B' R2 U2 B2 D2 F' L2 D2 R2 D' L2 R F2 L' R F' U F2 U' F2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `B2 R' B (U' R F2 U' B2 R)` | 9 | U/D | 2c4 2e | 2 | 2c4-3 / 2c4-4 | look anyway | 0.12% / 1.2% / 8.7% |
-| 2 | `B2 R' B (U' R' B2 D F2 R)` | 9 | U/D | 2c4 4e | 0 | 2c4-3 / 2c4-3 | look anyway | 0.07% / 1.0% / 6.4% |
-| 3 | `R' U' L' B D R D' F2 L` | 9 | U/D | 4c4 4e | 0 | 4c4-4 / 4c4-6 | look anyway | 0 / 0 / 0.10% |
-| 4 | `(U D2 L D F2 R B R D2 B)` | 10 | R/L | 4b5 2e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.2% |
-| 5 | `D L B D' L U' L' U2 L' D' R` | 11 | U/D | 2c4 4e | 3 | 2c4-3 / 2c4-4 | drop | 0.22% / 1.7% / 10% |
-| 6 | `D L B L' D2 F2 D R D2 F2 R` | 11 | U/D | 2c3 6e | 1 | 2c3-2 / 2c3-1 | keep | 0.58% / 4.1% / 23% |
-| 7 | `U' B' L' D B (F2 D F2 U' R2 U)` | 11 | R/L | 4c4 4e | 1 | 4c4-5 / 4c4-2 | drop | 0 / 0 / 0.47% |
-| 8 | `F2 U' L B' D' B2 R2 B2 L2 D2 B` | 11 | R/L | 2c3 4e | 1 | 2c3-3 / 2c3-3 | keep | 0.19% / 1.6% / 11% |
+| 1 | `U D R U' B (L' D' L)` | 8 | U/D | 4c3 4e | 0 | 4c3-6 / 4c3-5 | look anyway | 0.04% / 0.58% / 5.3% |
+| 2 | `R D B' R' D R2 B2 D' B` | 9 | U/D | 2c4 8e | 2 | 2c4-4 / 2c4-7 | look anyway | 0 / 0 / 0.24% |
+| 3 | `R D B' R B2 D' B2 U' B` | 9 | U/D | 4b2 2e | 4 | 4b2-3 / 4b2-3 | look anyway | 3.2% / 15% / 49% |
+| 4 | `D R2 B (U' F2 D' F2 B2 R)` | 9 | U/D | 2c4 6e | 1 | 2c4-4 / 2c4-3 | look anyway | 0.07% / 0.66% / 5.4% |
+| 5 | `R D B' R B2 U' L2 D R2 U2 F` | 11 | U/D | 4b2 2e | 6 | 4b2-3 / 4b2-3 | keep | 8.7% / 26% / 63% |
+| 6 | `F U' B2 D L F' R2 F U' B' D` | 11 | F/B | 4c4 2e | 6 | 4c4-4 / 4c4-3 | drop | 0 / 0.48% / 4.7% |
+| 7 | `B2 U' F2 U' L2 D' B (B U' D' R)` | 11 | U/D | 4b5 4e | 2 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.13% / 1.9% |
+| 8 | `R2 F2 B2 U' B' R' U' L U' D2 L` | 11 | U/D | 2c4 4e | 3 | 2c4-3 / 2c4-7 | drop | 0.13% / 1.2% / 8.1% |
 
-Shown: 8 of the 613 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 62; 11 moves: 4 of 548).
+Shown: 8 of the 551 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 4; 10 moves: 0 of 37; 11 moves: 4 of 509).
 
 <details>
 <summary>Answers for scramble 16</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 9 | 14 | 22 |
-| 2 | 7 / 10 | 13 | 22 |
-| 3 | 11 / 11 | 15 | 24 |
-| 4 | 10 / 10 | 14 | 24 |
-| 5 | 7 / 9 | 15 | 26 |
-| 6 | 9 / 8 | 13 | 23 |
-| 7 | 11 / 10 | 15 | 25 |
-| 8 | 7 / 8 | 14 | 24 |
+| 1 | 9 / 8 | 13 | 19 |
+| 2 | 10 / 11 | 14 | 22 |
+| 3 | 7 / 5 | 13 | 21 |
+| 4 | 9 / 9 | 15 | 23 |
+| 5 | 6 / 5 | 12 | 23 |
+| 6 | 10 / 10 | 13 | 24 |
+| 7 | 10 / 10 | 14 | 25 |
+| 8 | 8 / 10 | 13 | 24 |
 
-Best on the page: **22 moves**, from DR 1 (DR 2 ties it): `B2 R' B D2 F2 R2 F2 U' F2 U' R2 F2 D' L2 B2 D' R B2 U F2 R' U`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **19 moves**, from DR 1: `U D R U' B' D' L2 D2 B2 U2 D' F2 R2 F2 L2 D' L D L`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 17
 
-`R' U' F R2 F2 R' B' U' B2 L2 D2 R U F' R2 L2 D F2 R2 U' F2 U' F2 D2 R' U' F`
+`R' U' F L2 D2 L2 B2 D' B2 L2 R2 D2 U2 F U2 L' F2 D' F R D' B L' D R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(B' R' U R F U2 D' R' U)` | 9 | R/L | 2c3 4e | 2 | 2c3-1 / 2c3-1 | look anyway | 2.3% / 12% / 43% |
-| 2 | `L' B R (B L R2 B' U' D2 B)` | 10 | U/D | 2c3 4e | 2 | 2c3-3 / 2c3-3 | look anyway | 0.35% / 2.6% / 15% |
-| 3 | `U F (D2 F' D L D R F2 D)` | 10 | R/L | 4c3 2e | 2 | 4c3-6 / 4c3-5 | look anyway | 0.12% / 1.2% / 8.1% |
-| 4 | `R' U F' L' D L2 F2 R' U2 B` | 10 | R/L | 4b2 2e | 3 | 4b2-1 / 4b2-3 | look anyway | 4.4% / 17% / 52% |
-| 5 | `R' U F' L' D L2 F2 L2 R D2 F` | 11 | R/L | 4b2 2e | 2 | 4b2-1 / 4b2-3 | keep | 2.7% / 12% / 42% |
-| 6 | `L U' B U L2 F D (U D F2 R)` | 11 | F/B | 4b2 4e | 1 | 4b2-2 / 4b2-4 | keep | 0.56% / 4.1% / 23% |
-| 7 | `L R U F' D' B D2 L2 R F R` | 11 | F/B | 4c4 4e | 2 | 4c4-2 / 4c4-1 | drop | 0.09% / 0.84% / 5.2% |
-| 8 | `L2 R F' B2 D2 F' D (F2 B' D' L)` | 11 | F/B | 2c4 4e | 1 | 2c4-4 / 2c4-3 | drop | 0.08% / 0.76% / 5.9% |
+| 1 | `L D' L2 R U (B R U' L2 F)` | 10 | R/L | 4b2 2e | 1 | 4b2-2 / 4b2-1 | look anyway | 1.9% / 9.9% / 40% |
+| 2 | `U R' D F2 R (B D R' U B)` | 10 | U/D | 4b5 4e | 2 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.13% / 1.9% |
+| 3 | `L R2 U F D L2 U' F (F2 U' R)` | 11 | U/D | 4a2 2e | 2 | 4a2-4 / 4a2-2 | drop | 0 / 0 / 2.3% |
+| 4 | `B' L F' U2 B' U' D B' U (F2 R)` | 11 | F/B | 2c5 2e | 2 | 2c5-1 / 2c5-2 | drop | 0 / 0.06% / 1.8% |
+| 5 | `D2 L2 D' R F2 L (B L R U' F)` | 11 | U/D | 4b2 0e | 2 | 4b2-4 / 4b2-2 | keep | 0.51% / 5.1% / 27% |
+| 6 | `D' R2 D2 R' U2 L (B' L R2 U F)` | 11 | U/D | 4b5 4e | 1 | 4b5-2 / 4b5-1 | drop | 0 / 0.03% / 0.64% |
+| 7 | `(B' U D2 L B L2 R B2 R2 U' R)` | 11 | U/D | 2c3 4e | 1 | 2c3-1 / 2c3-1 | keep | 1.4% / 8.6% / 37% |
+| 8 | `D' R2 D2 L' B2 R (B' L R2 U F)` | 11 | U/D | 4b5 4e | 1 | 4b5-2 / 4b5-1 | drop | 0 / 0.03% / 0.64% |
 
-Shown: 8 of the 91 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 3; 11 moves: 4 of 87).
+Shown: 8 of the 33 DRs up to 11 moves (10 moves: 2 of 2; 11 moves: 6 of 31).
 
 <details>
 <summary>Answers for scramble 17</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 7 / 6 | 13 | 22 |
-| 2 | 8 / 7 | 12 | 22 |
-| 3 | 8 / 9 | 14 | 24 |
-| 4 | 3 / 6 | 11 | 21 |
-| 5 | 3 / 6 | 12 | 23 |
-| 6 | 6 / 7 | 12 | 22 |
-| 7 | 10 / 9 | 14 | 25 |
-| 8 | 8 / 9 | 14 | 24 |
+| 1 | 6 / 6 | 13 | 22 |
+| 2 | 10 / 10 | 15 | 24 |
+| 3 | 11 / 9 | 14 | 25 |
+| 4 | 10 / 11 | 14 | 25 |
+| 5 | 9 / 7 | 13 | 23 |
+| 6 | 11 / 11 | 14 | 25 |
+| 7 | 7 / 7 | 12 | 23 |
+| 8 | 11 / 11 | 15 | 25 |
 
-Best on the page: **21 moves**, from DR 4: `R' U F' L' D L2 F2 R' U2 B R' D2 R' U2 L2 B2 U2 B2 D2 R2 F2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1: `L D' L2 R U' R B2 D2 B2 R2 L' U2 F2 R U2 F2 R F' L2 U R' B'`. The list drops 4 of the 6 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 18
 
-`R' U' F D' B2 U2 F2 R2 F2 D F2 L2 D' B' R' B2 F' D' R' D2 U2 B2 L' U' R' U' F`
+`R' U' F L2 F2 L U2 B2 R D2 F2 L2 R U' D R' F' D' R2 U D2 F D R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `R2 F R' D B2 L (D2 L2 F)` | 9 | U/D | 2c5 4e | 4 | 2c5-3 / 2c5-3 | look anyway | 0 / 0 / 0 |
-| 2 | `R2 F R' D B2 L (U2 R2 B)` | 9 | U/D | 2c5 4e | 5 | 2c5-3 / 2c5-3 | look anyway | 0 / 0 / 0 |
-| 3 | `R2 F R' U2 D' F2 R (D2 L2 F)` | 10 | U/D | 2c5 4e | 3 | 2c5-3 / 2c5-3 | look anyway | 0 / 0 / 0 |
-| 4 | `R2 F R' U2 D' F2 R (U2 R2 B)` | 10 | U/D | 2c5 4e | 4 | 2c5-3 / 2c5-3 | look anyway | 0 / 0 / 0 |
-| 5 | `(D' R U' B' U' L' F' R2 U2 D2 F)` | 11 | R/L | 4b2 2e | 3 | 4b2-3 / 4b2-4 | keep | 1.4% / 8.1% / 35% |
-| 6 | `U' R U (D R' B L' B2 L' U2 R)` | 11 | F/B | 4c3 4e | 1 | 4c3-4 / 4c3-6 | drop | 0.22% / 1.6% / 9.9% |
-| 7 | `F' U L' U D2 L' B' R' D2 B (D)` | 11 | R/L | 4b5 4e | 5 | 4b5-2 / 4b5-1 | drop | 0.07% / 1.0% / 6.9% |
-| 8 | `R2 F (R2 U2 B' D' L' F2 U' D2 L)` | 11 | U/D | 4b2 4e | 1 | 4b2-2 / 4b2-1 | keep | 1.7% / 9.1% / 36% |
+| 1 | `L2 B L F L U' L D` | 8 | R/L | 2c4 4e | 1 | 2c4-4 / 2c4-5 | look anyway | 0 / 0.27% / 3.0% |
+| 2 | `L2 B L F L' D' L U` | 8 | R/L | 2c4 6e | 1 | 2c4-7 / 2c4-3 | look anyway | 0.01% / 0.44% / 4.0% |
+| 3 | `L2 B L F L R2 U' L D` | 9 | R/L | 2c4 4e | 4 | 2c4-7 / 2c4-3 | look anyway | 0.27% / 2.2% / 13% |
+| 4 | `L2 B L F L' R2 D' L U` | 9 | R/L | 2c4 6e | 4 | 2c4-4 / 2c4-5 | look anyway | 0.35% / 2.3% / 11% |
+| 5 | `F U B' D L' D2 B' D2 B' R B` | 11 | R/L | 4c4 4e | 1 | 4c4-4 / 4c4-6 | drop | 0 / 0 / 0.13% |
+| 6 | `F U' B' D (D2 L' D2 R2 B2 U2 B)` | 11 | R/L | 4c3 4e | 0 | 4c3-5 / 4c3-1 | keep | 0.07% / 1.2% / 10% |
+| 7 | `U2 F L B' R' U2 D L R2 U R` | 11 | U/D | 2c3 2e | 3 | 2c3-1 / 2c3-2 | keep | 4.0% / 18% / 57% |
+| 8 | `F L F2 B' D' R' D L F2 U L` | 11 | U/D | 2c4 4e | 2 | 2c4-2 / 2c4-3 | keep | 0.38% / 2.8% / 17% |
 
-Shown: 8 of the 83 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 2; 11 moves: 4 of 79).
+Shown: 8 of the 624 DRs up to 11 moves (8 moves: 2 of 2; 9 moves: 2 of 5; 10 moves: 0 of 45; 11 moves: 4 of 572).
 
 <details>
 <summary>Answers for scramble 18</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 11 / 11 | 15 | 24 |
-| 2 | 11 / 12 | 15 | 23 |
-| 3 | 11 / 11 | 15 | 24 |
-| 4 | 11 / 12 | 16 | 25 |
-| 5 | 6 / 6 | 12 | 23 |
-| 6 | 10 / 9 | 14 | 25 |
-| 7 | 10 / 10 | 13 | 24 |
-| 8 | 9 / 8 | 12 | 23 |
+| 1 | 9 / 10 | 14 | 22 |
+| 2 | 10 / 9 | 14 | 22 |
+| 3 | 9 / 8 | 13 | 21 |
+| 4 | 9 / 9 | 13 | 22 |
+| 5 | 11 / 11 | 14 | 25 |
+| 6 | 8 / 10 | 14 | 24 |
+| 7 | 8 / 7 | 13 | 23 |
+| 8 | 9 / 10 | 12 | 23 |
 
-Best on the page: **23 moves**, from DR 2 (DR 5 and 8 tie it): `R2 F R' D B2 L U' R2 U R2 D' B2 U2 L2 D B2 D' F2 U2 R2 B R2 U2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 3: `L2 B L F L R2 U' L D' R2 B2 L U2 L' D2 F2 L B2 R2 F2 L'`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 19
 
-`R' U' F D R2 D2 B2 R2 B2 L2 D' F2 U' B L B R2 F' L D2 R2 B' U R2 U' R' U' F`
+`R' U' F D2 F2 L2 F D2 F L2 F2 D2 F L R' B2 D R' D B2 R' B' D' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L2 U2 R' F' U' D2 F' L2 B` | 9 | U/D | 4b2 2e | 3 | 4b2-1 / 4b2-4 | look anyway | 3.5% / 15% / 48% |
-| 2 | `L' D2 R F (B U2 F2 U L)` | 9 | U/D | 4c3 4e | 1 | 4c3-1 / 4c3-5 | look anyway | 0.22% / 2.1% / 14% |
-| 3 | `F2 R' U' L B' L D2 F2 L` | 9 | U/D | 2c3 4e | 2 | 2c3-2 / 2c3-2 | look anyway | 1.0% / 6.3% / 27% |
-| 4 | `F2 R' U' L B' R F2 U2 R` | 9 | U/D | 2c3 4e | 2 | 2c3-2 / 2c3-2 | look anyway | 1.0% / 6.3% / 27% |
-| 5 | `R2 F B2 D R' B L2 F2 B' R F` | 11 | R/L | 4c4 4e | 1 | 4c4-5 / 4c4-2 | drop | 0 / 0 / 0.47% |
-| 6 | `(U2 L' B D L' F2 B R2 B2 L' F)` | 11 | R/L | 2c4 4e | 4 | 2c4-1 / 2c4-4 | keep | 0.75% / 4.3% / 21% |
-| 7 | `(B2 U2 L' U B L U2 R2 U' L D)` | 11 | R/L | 4c4 4e | 1 | 4c4-3 / 4c4-2 | drop | 0 / 0.21% / 2.2% |
-| 8 | `U (L' F' R2 D F' B' D2 L2 B2 L)` | 11 | F/B | 4b2 4e | 1 | 4b2-2 / 4b2-4 | keep | 0.56% / 4.1% / 23% |
+| 1 | `F' B L' R B (F2 U L' D)` | 9 | R/L | 4c3 2e | 2 | 4c3-5 / 4c3-2 | look anyway | 0.38% / 2.6% / 15% |
+| 2 | `(F' L F' U D' F' U2 F R)` | 9 | F/B | 2c3 2e | 3 | 2c3-2 / 2c3-3 | look anyway | 1.9% / 10% / 40% |
+| 3 | `(U' L' D R' F R B' L R2 B)` | 10 | R/L | 4b2 4e | 1 | 4b2-2 / 4b2-3 | look anyway | 0.68% / 5.1% / 26% |
+| 4 | `(F' L F U D' L2 F' U2 F R)` | 10 | F/B | 2c3 4e | 5 | 2c3-2 / 2c3-3 | look anyway | 4.5% / 16% / 49% |
+| 5 | `F (U2 R F2 B U' L' R' U' R2 D)` | 11 | R/L | 2c5 4e | 1 | 2c5-1 / 2c5-1 | drop | <0.01% / 0.23% / 2.7% |
+| 6 | `B2 U (D L2 U B R U2 F' L R)` | 11 | F/B | 4c3 2e | 2 | 4c3-5 / 4c3-8 | drop | 0.03% / 0.40% / 4.3% |
+| 7 | `L2 F' D2 F' L' R B' L (U L' D)` | 11 | F/B | 2c4 6e | 2 | 2c4-4 / 2c4-3 | drop | 0.17% / 1.2% / 8.1% |
+| 8 | `L R' B L F2 R2 D2 R (U' L' D)` | 11 | F/B | 4a1 0e | 1 | 4a1-1 / 4a1-4 | keep | 1.0% / 8.3% / 40% |
 
-Shown: 8 of the 1121 DRs up to 11 moves (9 moves: 4 of 16; 10 moves: 0 of 116; 11 moves: 4 of 989).
+Shown: 8 of the 254 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 13; 11 moves: 4 of 239).
 
 <details>
 <summary>Answers for scramble 19</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 6 / 7 | 12 | 21 |
-| 2 | 9 / 8 | 12 | 21 |
-| 3 | 8 / 7 | 13 | 22 |
-| 4 | 7 / 7 | 13 | 21 |
-| 5 | 11 / 9 | 15 | 25 |
-| 6 | 7 / 9 | 12 | 23 |
-| 7 | 11 / 10 | 14 | 25 |
-| 8 | 7 / 9 | 14 | 23 |
+| 1 | 9 / 9 | 14 | 22 |
+| 2 | 7 / 7 | 13 | 22 |
+| 3 | 8 / 7 | 12 | 22 |
+| 4 | 5 / 6 | 13 | 22 |
+| 5 | 11 / 10 | 13 | 24 |
+| 6 | 9 / 10 | 14 | 24 |
+| 7 | 9 / 8 | 13 | 23 |
+| 8 | 7 / 10 | 13 | 22 |
 
-Best on the page: **21 moves**, from DR 1 (DR 2 and 4 tie it): `L2 U2 R' F' U' D2 F' L2 B F2 D L2 F2 D' F2 R2 D L2 D' R2 D2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DR 2, 3, 4 and 8 tie it): `F' B L' R B' F2 L' U2 F2 R U2 R F2 U2 R D2 R L2 D' L U' F2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 20
 
-`R' U' F D B U' B U' L F' U D B2 L' U2 L2 F2 L2 U2 F2 U R2 U' R' U' F`
+`R' U' F R2 D2 U R2 D2 U' B2 F2 L2 B2 L B2 F2 R B U B D' L F2 U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `F' U D2 F' D2 B (F2 R' D)` | 9 | R/L | 2c4 4e | 3 | 2c4-1 / 2c4-7 | look anyway | 0.13% / 1.4% / 10% |
-| 2 | `F' U D2 B' L2 F (F2 R' D)` | 9 | R/L | 2c4 4e | 2 | 2c4-1 / 2c4-7 | look anyway | 0.08% / 0.85% / 7.2% |
-| 3 | `F' U (F2 R' D' R U2 R F2 L)` | 10 | F/B | 4c3 2e | 3 | 4c3-5 / 4c3-2 | look anyway | 0.54% / 3.9% / 21% |
-| 4 | `F' U B2 L2 B D2 F (F2 R' D)` | 10 | R/L | 2c4 4e | 3 | 2c4-5 / 2c4-7 | look anyway | 0 / 0.09% / 1.7% |
-| 5 | `(D L' F2 D R' U F' U' B D F)` | 11 | U/D | 4b2 4e | 2 | 4b2-4 / 4b2-3 | keep | 0.46% / 3.8% / 23% |
-| 6 | `F2 U (F2 D' F' B' L B' R' D2 F)` | 11 | R/L | 4b2 2e | 2 | 4b2-2 / 4b2-2 | keep | 2.7% / 13% / 44% |
-| 7 | `L F U L U2 D' B L F R F` | 11 | R/L | 4c4 4e | 1 | 4c4-3 / 4c4-4 | drop | 0 / 0.02% / 0.78% |
-| 8 | `(U2 F' D R' U R F2 L2 F2 B' R)` | 11 | F/B | 4c3 4e | 2 | 4c3-5 / 4c3-6 | drop | 0.15% / 1.4% / 8.7% |
+| 1 | `D' B (B' D F U' R' U F2 L)` | 10 | U/D | 2c3 0e | 6 | 2c3-3 / 2c3-3 | look anyway | 0 / 0.97% / 9.2% |
+| 2 | `D B L F (B' U' L' R' D' L)` | 10 | U/D | 4c4 2e | 3 | 4c4-2 / 4c4-5 | look anyway | 0 / 0.06% / 1.3% |
+| 3 | `D B (B L' F L2 U' B2 R F2 L)` | 11 | U/D | 2c4 2e | 5 | 2c4-3 / 2c4-1 | keep | 4.3% / 17% / 51% |
+| 4 | `L' U (F' U D R B' R' U2 D2 B)` | 11 | R/L | 4b5 4e | 1 | 4b5-1 / 4b5-2 | drop | 0 / 0.03% / 0.64% |
+| 5 | `F U L' D2 R' B D F B' D' B` | 11 | U/D | 2c4 4e | 2 | 2c4-3 / 2c4-4 | drop | 0.13% / 1.1% / 7.8% |
+| 6 | `B U D' F2 L' R B U2 R (B' D)` | 11 | F/B | 4b5 4e | 4 | 4b5-2 / 4b5-2 | drop | 0 / 0.04% / 1.3% |
+| 7 | `B' U D' L' B2 L2 B D2 L (B' D)` | 11 | F/B | 2c4 4e | 5 | 2c4-3 / 2c4-5 | keep | 1.6% / 7.0% / 28% |
+| 8 | `L' D F' B U' D2 L' R' D R (B)` | 11 | U/D | 4b2 4e | 5 | 4b2-2 / 4b2-3 | keep | 6.8% / 25% / 64% |
 
-Shown: 8 of the 138 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 12; 11 moves: 4 of 124).
+Shown: 8 of the 18 DRs up to 11 moves (10 moves: 2 of 2; 11 moves: 6 of 16).
 
 <details>
 <summary>Answers for scramble 20</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 7 / 10 | 13 | 21 |
-| 2 | 9 / 10 | 14 | 23 |
-| 3 | 9 / 9 | 13 | 22 |
-| 4 | 9 / 10 | 14 | 23 |
-| 5 | 8 / 7 | 13 | 23 |
-| 6 | 6 / 6 | 13 | 24 |
-| 7 | 11 / 11 | 13 | 24 |
-| 8 | 9 / 8 | 14 | 24 |
+| 1 | 10 / 10 | 13 | 22 |
+| 2 | 11 / 11 | 15 | 25 |
+| 3 | 8 / 8 | 13 | 24 |
+| 4 | 11 / 11 | 14 | 25 |
+| 5 | 8 / 9 | 13 | 24 |
+| 6 | 11 / 11 | 15 | 25 |
+| 7 | 7 / 9 | 13 | 24 |
+| 8 | 5 / 7 | 11 | 21 |
 
-Best on the page: **21 moves**, from DR 1: `F' U D2 F' D2 B R D2 R2 U2 L B2 R F2 L' F2 D2 L2 D R F2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 8: `L' D F' B U' D2 L' R' D R' F2 U L2 F2 R2 L2 D L2 U2 L2 B'`. The list drops 3 of the 6 DRs of 11 moves or more, and keeps the best one.
 
 </details>
 
 #### Scramble 21
 
-`R' U' F D B2 U B2 R2 F2 U B2 D U2 R' B2 R2 D' L' B D' U' F2 U' F2 R' U' F`
+`R' U' F U2 L2 D2 R2 U' L2 D L2 B2 D' L' D L' B' U' F' U L' D L2 U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `U' L' R F D F' L2 F2 U` | 9 | F/B | 4b2 2e | 4 | 4b2-3 / 4b2-1 | look anyway | 7.7% / 25% / 63% |
-| 2 | `U' L R F2 D' F' D F U` | 9 | F/B | 4b5 4e | 5 | 4b5-1 / 4b5-2 | look anyway | 0.07% / 1.0% / 6.9% |
-| 3 | `U' L R' B U B' L2 B2 D` | 9 | F/B | 4b2 2e | 3 | 4b2-3 / 4b2-1 | look anyway | 4.4% / 17% / 52% |
-| 4 | `U' L R' B U B' R2 F2 U` | 9 | F/B | 4b2 2e | 3 | 4b2-3 / 4b2-1 | look anyway | 4.4% / 17% / 52% |
-| 5 | `(R2 U F2 L2 B U' D' L2 R U L)` | 11 | U/D | 4a2 2e | 3 | 4a2-4 / 4a2-3 | drop | 0 / 0 / 0.20% |
-| 6 | `U' F2 U' D B L' D' F2 R F2 U` | 11 | R/L | 4c3 2e | 1 | 4c3-4 / 4c3-2 | keep | 0.23% / 2.2% / 13% |
-| 7 | `D B' D2 L' B U2 B (L' R' U D)` | 11 | R/L | 2c4 2e | 2 | 2c4-3 / 2c4-3 | keep | 0.28% / 2.1% / 13% |
-| 8 | `U L R' D B D B D' B' U D` | 11 | F/B | 4b2 4e | 1 | 4b2-3 / 4b2-1 | keep | 1.1% / 6.6% / 31% |
+| 1 | `R2 B (F D2 F' D L U)` | 8 | R/L | 4c3 4e | 1 | 4c3-4 / 4c3-8 | look anyway | 0.02% / 0.43% / 3.4% |
+| 2 | `R2 B (B R2 B' D L U)` | 8 | R/L | 4c3 4e | 1 | 4c3-4 / 4c3-8 | look anyway | 0.02% / 0.43% / 3.4% |
+| 3 | `L' R U' L' F' D2 F D (L)` | 9 | F/B | 2c3 4e | 1 | 2c3-2 / 2c3-2 | look anyway | 0.49% / 3.9% / 21% |
+| 4 | `R D2 R D' B (U' R2 F2 D2 L)` | 10 | U/D | 4b5 2e | 1 | 4b5-2 / 4b5-2 | look anyway | 0 / 0.01% / 0.38% |
+| 5 | `R2 B (F D2 F' L2 U2 R2 U L D)` | 11 | R/L | 4b5 4e | 2 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.13% / 1.9% |
+| 6 | `L' D (D R U' L' U2 B' L' U2 L)` | 11 | F/B | 4b2 4e | 0 | 4b2-3 / 4b2-3 | keep | 0.15% / 1.8% / 14% |
+| 7 | `B U F U2 L U' R U2 R (U2 B)` | 11 | U/D | 4c3 2e | 3 | 4c3-5 / 4c3-7 | drop | 0.14% / 1.6% / 9.5% |
+| 8 | `R2 B (B R2 B' D L D' R2 U D)` | 11 | R/L | 4c3 4e | 2 | 4c3-4 / 4c3-8 | drop | 0.17% / 1.2% / 6.0% |
 
-Shown: 8 of the 886 DRs up to 11 moves (9 moves: 4 of 6; 10 moves: 0 of 39; 11 moves: 4 of 841).
+Shown: 8 of the 303 DRs up to 11 moves (8 moves: 2 of 2; 9 moves: 1 of 1; 10 moves: 1 of 31; 11 moves: 4 of 269).
 
 <details>
 <summary>Answers for scramble 21</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 6 / 6 | 12 | 20 |
-| 2 | 10 / 10 | 14 | 23 |
-| 3 | 6 / 6 | 12 | 21 |
-| 4 | 6 / 6 | 13 | 21 |
-| 5 | 11 / 10 | 15 | 25 |
-| 6 | 7 / 9 | 14 | 25 |
-| 7 | 8 / 8 | 14 | 24 |
-| 8 | 8 / 7 | 14 | 24 |
+| 1 | 8 / 10 | 14 | 22 |
+| 2 | 8 / 10 | 13 | 21 |
+| 3 | 7 / 8 | 14 | 22 |
+| 4 | 10 / 10 | 15 | 25 |
+| 5 | 10 / 11 | 14 | 25 |
+| 6 | 8 / 7 | 13 | 24 |
+| 7 | 9 / 8 | 14 | 23 |
+| 8 | 8 / 9 | 13 | 24 |
 
-Best on the page: **20 moves**, from DR 1: `U' L' R F D F' L2 F2 U' F2 D2 F U2 L2 U2 B2 L2 F' D2 U2`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 2: `R2 B R F2 U2 L2 B2 L' F2 U2 R2 U2 L' B2 R2 U' L' D' B R2 B'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 22
 
-`R' U' F L2 B2 D2 B2 R2 F2 D L2 B2 R D' U2 L' D2 B' U2 B2 F' U F R' U' F`
+`R' U' F D2 F' R2 D2 B U2 B L2 B' L2 R B U2 L2 B' D' R' U' F U B2 F' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `D F' B2 U' B (U' R B2 D)` | 9 | R/L | 4b5 4e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.1% |
-| 2 | `(B2 U2 D2 L F2 L2 D' F' B U)` | 10 | F/B | 4c3 4e | 2 | 4c3-4 / 4c3-6 | look anyway | 0.38% / 2.2% / 11% |
-| 3 | `D F R D B' U' R' U2 F2 D` | 10 | R/L | 4b2 2e | 2 | 4b2-4 / 4b2-2 | look anyway | 1.7% / 8.7% / 35% |
-| 4 | `D' F2 B' U F (U D F2 R' D)` | 10 | R/L | 4c4 4e | 2 | 4c4-3 / 4c4-2 | look anyway | 0.05% / 0.51% / 2.9% |
-| 5 | `R2 D' F B (B2 U' L F2 U B2 R)` | 11 | U/D | 2c5 4e | 1 | 2c5-1 / 2c5-3 | drop | 0 / <0.01% / 0.37% |
-| 6 | `(D2 B2 U2 L B U D B' D F' D)` | 11 | F/B | 2c4 2e | 3 | 2c4-4 / 2c4-2 | drop | 0.19% / 2.2% / 14% |
-| 7 | `U2 R U R' D L2 D2 B D' F (R)` | 11 | U/D | 2c4 6e | 3 | 2c4-3 / 2c4-2 | keep | 0.87% / 4.7% / 25% |
-| 8 | `U2 F' B U D' R B' R F2 L2 B` | 11 | R/L | 2c4 6e | 2 | 2c4-3 / 2c4-1 | keep | 0.45% / 3.6% / 20% |
+| 1 | `(L' U B' R D R' U2 B L)` | 9 | F/B | 4a1 4e | 0 | 4a1-3 / 4a1-3 | look anyway | 1.6% / 8.5% / 33% |
+| 2 | `L2 F U2 R' F R U' D F2 L` | 10 | U/D | 4c4 2e | 3 | 4c4-1 / 4c4-4 | look anyway | 0.02% / 0.48% / 3.8% |
+| 3 | `L' F' U' D L F' R2 F' D' F` | 10 | U/D | 4b2 2e | 1 | 4b2-2 / 4b2-3 | look anyway | 1.2% / 7.0% / 31% |
+| 4 | `(L' R F2 D' F2 B' L2 D2 R D)` | 10 | R/L | 2c3 2e | 3 | 2c3-3 / 2c3-3 | look anyway | 1.0% / 6.1% / 29% |
+| 5 | `D' L R' B (F2 B' R2 D R' D L)` | 11 | U/D | 4c4 4e | 1 | 4c4-1 / 4c4-4 | drop | <0.01% / 0.24% / 2.5% |
+| 6 | `L (F2 U2 F R' U F' R2 F2 B' U)` | 11 | F/B | 2c4 4e | 1 | 2c4-7 / 2c4-2 | drop | 0 / 0.20% / 2.9% |
+| 7 | `(L' D' R B' L D R' D R' U2 R)` | 11 | U/D | 2c3 4e | 3 | 2c3-3 / 2c3-1 | keep | 1.8% / 9.3% / 37% |
+| 8 | `(R F2 L' D' B U2 F2 L U' F2 L)` | 11 | U/D | 4a2 4e | 1 | 4a2-3 / 4a2-3 | drop | 0.06% / 1.1% / 8.2% |
 
-Shown: 8 of the 509 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 22; 11 moves: 4 of 486).
+Shown: 8 of the 286 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 20; 11 moves: 4 of 265).
 
 <details>
 <summary>Answers for scramble 22</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 16 | 23 |
-| 2 | 8 / 9 | 14 | 23 |
-| 3 | 8 / 7 | 14 | 23 |
-| 4 | 11 / 9 | 14 | 24 |
-| 5 | 10 / 11 | 15 | 25 |
-| 6 | 9 / 8 | 13 | 24 |
-| 7 | 8 / 9 | 11 | 21 |
-| 8 | 8 / 8 | 13 | 24 |
+| 1 | 8 / 5 | 14 | 22 |
+| 2 | 9 / 11 | 14 | 24 |
+| 3 | 5 / 6 | 12 | 22 |
+| 4 | 7 / 7 | 12 | 22 |
+| 5 | 9 / 11 | 14 | 24 |
+| 6 | 10 / 8 | 14 | 24 |
+| 7 | 6 / 7 | 14 | 24 |
+| 8 | 10 / 7 | 15 | 25 |
 
-Best on the page: **21 moves**, from DR 7: `U2 R U R' D L2 D2 B D' F U' R2 L2 B2 L2 U' B2 D B2 U R`. The list drops 2 of the 4 DRs of 11 moves or more, and keeps the best one.
+Best on the page: **22 moves**, from DR 1 (DR 3 and 4 tie it): `F2 L2 D2 U2 F2 R2 U2 L2 B' R2 F2 R2 D2 L B' U2 R D' R' B U' L`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 23
 
-`R' U' F U B L B2 F' U' R' F R' F' D B' D2 R2 D' L2 D B2 U' L2 U2 B2 R' U' F`
+`R' U' F R2 D2 U' B2 U' R2 U' R2 L2 D R L2 D2 B L D' R' U2 F D' B2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L' R F L B' U2 R' F2 U L` | 10 | U/D | 2c4 4e | 6 | 2c4-1 / 2c4-4 | look anyway | 2.0% / 8.7% / 32% |
-| 2 | `L2 R' F' L' B L U F2 D R` | 10 | U/D | 2c4 6e | 5 | 2c4-2 / 2c4-7 | look anyway | 0 / 1.9% / 20% |
-| 3 | `(R F L' D B L' F2 D F2 D)` | 10 | R/L | 2c4 2e | 1 | 2c4-3 / 2c4-3 | look anyway | 0.07% / 1.4% / 9.3% |
-| 4 | `U (U B U F' B L B U2 R)` | 10 | F/B | 4c3 2e | 1 | 4c3-7 / 4c3-5 | look anyway | 0.06% / 0.73% / 5.8% |
-| 5 | `D2 R B' L' F' L' U2 D R2 D' R` | 11 | U/D | 2c4 4e | 7 | 2c4-1 / 2c4-4 | keep | 2.0% / 8.7% / 32% |
-| 6 | `L R B L F (R2 U' B2 U2 R U)` | 11 | R/L | 4b2 4e | 1 | 4b2-2 / 4b2-4 | keep | 0.56% / 4.1% / 23% |
-| 7 | `F B2 D' R' D2 R' B' L2 F' R (D)` | 11 | F/B | 4b2 4e | 2 | 4b2-3 / 4b2-3 | keep | 0.64% / 5.0% / 27% |
-| 8 | `R B L' F (R U R U' D' R' D)` | 11 | R/L | 4a1 4e | 3 | 4a1-3 / 4a1-2 | keep | 8.5% / 26% / 64% |
+| 1 | `L U' F2 B' L U' B D' B` | 9 | U/D | 2c3 2e | 2 | 2c3-3 / 2c3-2 | look anyway | 1.2% / 7.3% / 33% |
+| 2 | `(R' D2 L U B U2 B2 D' L2 U)` | 10 | F/B | 4c3 4e | 0 | 4c3-3 / 4c3-4 | look anyway | 0.21% / 1.6% / 10% |
+| 3 | `L U' F2 B' L U' R2 B D' B` | 10 | U/D | 4c3 4e | 1 | 4c3-8 / 4c3-4 | look anyway | 0.02% / 0.43% / 3.4% |
+| 4 | `L2 F' U F B' L' R2 U F2 U` | 10 | R/L | 4b2 2e | 2 | 4b2-3 / 4b2-2 | look anyway | 2.0% / 9.6% / 38% |
+| 5 | `D L2 F' U (L2 F L' R D2 R2 F)` | 11 | R/L | 2c4 4e | 4 | 2c4-7 / 2c4-2 | keep | 0.06% / 1.0% / 9.1% |
+| 6 | `F2 L (L U2 L U2 L2 F' D L2 U)` | 11 | F/B | 2c5 4e | 1 | 2c5-3 / 2c5-1 | drop | 0 / <0.01% / 0.37% |
+| 7 | `B2 D' R (R' B' D L2 R2 F2 B' U)` | 11 | F/B | 4c4 2e | 1 | 4c4-6 / 4c4-2 | drop | 0 / 0.08% / 1.2% |
+| 8 | `F2 L (L U2 L U' B' U R2 B U)` | 11 | F/B | 2c5 2e | 2 | 2c5-1 / 2c5-2 | drop | 0 / 0.06% / 1.8% |
 
-Shown: 8 of the 432 DRs up to 11 moves (10 moves: 4 of 43; 11 moves: 4 of 389).
+Shown: 8 of the 300 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 21; 11 moves: 4 of 278).
 
 <details>
 <summary>Answers for scramble 23</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 9 | 13 | 23 |
-| 2 | 9 / 10 | 12 | 22 |
-| 3 | 8 / 8 | 13 | 23 |
-| 4 | 8 / 8 | 13 | 22 |
-| 5 | 7 / 8 | 10 | 21 |
-| 6 | 7 / 8 | 14 | 23 |
-| 7 | 8 / 9 | 13 | 24 |
-| 8 | 7 / 3 | 10 | 20 |
+| 1 | 7 / 7 | 13 | 21 |
+| 2 | 8 / 10 | 13 | 23 |
+| 3 | 9 / 9 | 13 | 23 |
+| 4 | 6 / 5 | 13 | 22 |
+| 5 | 9 / 9 | 11 | 22 |
+| 6 | 11 / 10 | 15 | 25 |
+| 7 | 12 / 10 | 15 | 26 |
+| 8 | 10 / 10 | 13 | 24 |
 
-Best on the page: **20 moves**, from DR 8: `R B L' F' R L U2 L2 U2 B2 L' U2 B2 D' R D U R' U' R'`. The list drops 0 of the 4 DRs of 11 moves or more, so the best one stays.
+Best on the page: **21 moves**, from DR 1: `L U' F2 B' L U' B D' B' R2 L2 D2 B2 R2 U B2 R2 U' B2 R2 U'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 24
 
-`R' U' F R2 U R2 D2 U' R2 F2 D' F2 U F' D U F R' B F L' D2 R D2 R' U' F`
+`R' U' F U' B2 U2 F2 U R2 F2 U' B2 U2 F L D' B L U L2 R' B' F' U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(B D' R2 F2 L F D' F2 U B)` | 10 | U/D | 4c4 4e | 1 | 4c4-2 / 4c4-3 | look anyway | 0 / 0.21% / 2.2% |
-| 2 | `(F U F2 D B' R' U L B2 L)` | 10 | U/D | 4c3 2e | 1 | 4c3-2 / 4c3-5 | look anyway | 0.18% / 1.6% / 11% |
-| 3 | `(F U F2 D B' R' U R D2 R)` | 10 | U/D | 4c3 2e | 1 | 4c3-2 / 4c3-5 | look anyway | 0.18% / 1.6% / 11% |
-| 4 | `U F U (F D L' D2 R' B' R)` | 10 | F/B | 4a2 4e | 1 | 4a2-4 / 4a2-2 | look anyway | 0.68% / 4.6% / 21% |
-| 5 | `(F L' U' B' L D' L2 R2 F2 D F)` | 11 | U/D | 2c3 4e | 2 | 2c3-1 / 2c3-2 | keep | 1.6% / 8.8% / 36% |
-| 6 | `(D' F' U D' B U' L U' B2 L D)` | 11 | R/L | 4a1 2e | 1 | 4a1-3 / 4a1-2 | keep | 0.85% / 6.8% / 35% |
-| 7 | `U2 B R' U2 F2 L2 U D2 R (U' F)` | 11 | U/D | 2c3 4e | 2 | 2c3-2 / 2c3-1 | keep | 1.6% / 8.8% / 36% |
-| 8 | `(B R2 F D' L' D' B' D' B2 L2 U)` | 11 | F/B | 4a1 2e | 3 | 4a1-2 / 4a1-1 | keep | 4.3% / 19% / 58% |
+| 1 | `F D2 B L (R2 F2 B' L U)` | 9 | F/B | 4c3 4e | 1 | 4c3-8 / 4c3-4 | look anyway | 0.02% / 0.43% / 3.4% |
+| 2 | `R' F' B' L2 U2 R (F' L' F D)` | 10 | F/B | 4c3 4e | 1 | 4c3-5 / 4c3-3 | look anyway | 0.18% / 1.6% / 10% |
+| 3 | `(U2 L' D F' B' R F L D2 F)` | 10 | R/L | 2c3 6e | 2 | 2c3-3 / 2c3-1 | look anyway | 0.47% / 3.6% / 22% |
+| 4 | `(R' D2 B' D F L' U' R D' R)` | 10 | U/D | 4b2 4e | 2 | 4b2-4 / 4b2-2 | look anyway | 0.97% / 6.2% / 30% |
+| 5 | `(U2 L' D' F L R' F2 B L U2 F)` | 11 | R/L | 4a1 4e | 4 | 4a1-2 / 4a1-4 | keep | 15% / 38% / 73% |
+| 6 | `(L' D' F R2 F B' L' U2 L2 F' R)` | 11 | F/B | 2c3 6e | 2 | 2c3-3 / 2c3-1 | keep | 0.47% / 3.6% / 22% |
+| 7 | `(L' D' R' U2 D2 R F U2 R2 B2 L)` | 11 | F/B | 4b5 2e | 2 | 4b5-1 / 4b5-1 | drop | 0.02% / 0.24% / 2.3% |
+| 8 | `(F D R B' L D L U2 L' U2 R)` | 11 | U/D | 4b2 4e | 3 | 4b2-3 / 4b2-3 | keep | 1.2% / 7.9% / 35% |
 
-Shown: 8 of the 89 DRs up to 11 moves (10 moves: 4 of 6; 11 moves: 4 of 83).
+Shown: 8 of the 296 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 11; 11 moves: 4 of 284).
 
 <details>
 <summary>Answers for scramble 24</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 13 | 23 |
-| 2 | 9 / 9 | 13 | 23 |
-| 3 | 9 / 9 | 13 | 23 |
-| 4 | 10 / 10 | 15 | 24 |
-| 5 | 7 / 8 | 14 | 24 |
-| 6 | 7 / 6 | 12 | 23 |
-| 7 | 8 / 7 | 13 | 23 |
-| 8 | 7 / 7 | 13 | 24 |
+| 1 | 11 / 10 | 14 | 22 |
+| 2 | 10 / 9 | 14 | 23 |
+| 3 | 8 / 7 | 13 | 23 |
+| 4 | 8 / 7 | 14 | 24 |
+| 5 | 2 / 7 | 10 | 21 |
+| 6 | 8 / 7 | 12 | 23 |
+| 7 | 9 / 10 | 14 | 24 |
+| 8 | 9 / 9 | 10 | 21 |
 
-Best on the page: **23 moves**, from DR 1 (DR 2, 3, 6 and 7 tie it): `R2 L2 U' R2 U F2 U2 R2 D' R2 F2 U R2 B' U' F2 D F' L' F2 R2 D B'`. The list drops 0 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 5 (DR 8 ties it): `B2 L U2 F2 U2 R2 F2 R2 B2 U2 F' U2 L' B' F2 R L' F' D L U2`. The list drops 1 of the 4 DRs of 11 moves or more, and keeps the best one.
 
 </details>
 
 #### Scramble 25
 
-`R' U' F D' U2 R2 U L2 B2 R2 U' R2 D B U2 F2 D2 L' R2 F' U2 R2 U' R' U' F`
+`R' U' F L2 U' R D2 F' D2 R' B' L' R F' D' B2 D L2 R2 B2 U B2 L2 D' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(B L' U F B L2 F R)` | 8 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-3 | look anyway | 0.35% / 2.6% / 15% |
-| 2 | `D2 R2 F' L2 F (L' B U)` | 8 | R/L | 4b5 4e | 1 | 4b5-2 / 4b5-1 | look anyway | 0 / 0.03% / 0.64% |
-| 3 | `D2 R2 B' U2 B (L' B U)` | 8 | R/L | 4b5 4e | 2 | 4b5-2 / 4b5-1 | look anyway | 0 / 0.07% / 1.0% |
-| 4 | `U2 L2 B' R2 B R (B L' U)` | 9 | F/B | 4c4 4e | 3 | 4c4-3 / 4c4-4 | look anyway | 0 / 0.08% / 1.9% |
-| 5 | `F2 L2 F2 D2 R2 F R2 F (L' B U)` | 11 | R/L | 4b5 4e | 3 | 4b5-2 / 4b5-1 | drop | <0.01% / 0.13% / 1.8% |
-| 6 | `L D2 B2 U (R D2 F2 L B2 D2 F)` | 11 | R/L | 2c3 4e | 1 | 2c3-3 / 2c3-1 | keep | 0.62% / 4.5% / 24% |
-| 7 | `R2 F2 D' B' U2 B2 L' D2 R' U' R` | 11 | U/D | 4c4 4e | 2 | 4c4-3 / 4c4-4 | drop | 0 / 0.06% / 1.2% |
-| 8 | `(D2 L' B U F2 L D2 B2 R U2 B)` | 11 | R/L | 4b2 2e | 2 | 4b2-3 / 4b2-3 | keep | 1.0% / 6.3% / 30% |
+| 1 | `F R F (B D2 R2 F' D)` | 8 | R/L | 4c4 2e | 4 | 4c4-5 / 4c4-4 | look anyway | 0 / 0.06% / 0.87% |
+| 2 | `L' R F2 U2 D F' R2 U F` | 9 | U/D | 2c4 4e | 2 | 2c4-7 / 2c4-3 | look anyway | 0.07% / 0.72% / 5.7% |
+| 3 | `(F2 U2 F' L R' U' L' R' U)` | 9 | R/L | 2c5 4e | 1 | 2c5-3 / 2c5-1 | look anyway | 0 / <0.01% / 0.37% |
+| 4 | `L R D R2 D F' U' L2 F` | 9 | U/D | 4b5 4e | 2 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.13% / 1.9% |
+| 5 | `F2 L D2 R' U (L' D2 L' U2 F2 R)` | 11 | F/B | 4c4 4e | 1 | 4c4-3 / 4c4-2 | drop | 0 / 0.21% / 2.2% |
+| 6 | `D2 L' R U2 L2 R2 U B' R2 D B` | 11 | U/D | 2c4 4e | 2 | 2c4-7 / 2c4-3 | drop | 0.07% / 0.72% / 5.7% |
+| 7 | `F2 L D2 R' U (R' B2 R' U2 F2 L)` | 11 | F/B | 4c4 4e | 0 | 4c4-3 / 4c4-2 | drop | 0 / 0.16% / 1.9% |
+| 8 | `L' B2 R' D F' B2 L R D B2 D` | 11 | R/L | 0c4 2e | 4 | 0c4-1 / 0c4-1 | drop | 0.15% / 1.2% / 8.6% |
 
-Shown: 8 of the 1620 DRs up to 11 moves (8 moves: 3 of 3; 9 moves: 1 of 20; 10 moves: 0 of 148; 11 moves: 4 of 1449).
+Shown: 8 of the 1591 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 7; 10 moves: 0 of 103; 11 moves: 4 of 1480).
 
 <details>
 <summary>Answers for scramble 25</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 7 / 8 | 14 | 21 |
-| 2 | 11 / 9 | 14 | 21 |
-| 3 | 11 / 9 | 13 | 21 |
-| 4 | 10 / 10 | 13 | 22 |
-| 5 | 10 / 9 | 13 | 24 |
-| 6 | 7 / 8 | 12 | 23 |
-| 7 | 10 / 10 | 12 | 22 |
-| 8 | 6 / 6 | 13 | 24 |
+| 1 | 11 / 10 | 15 | 22 |
+| 2 | 10 / 10 | 14 | 23 |
+| 3 | 11 / 10 | 15 | 23 |
+| 4 | 10 / 10 | 15 | 24 |
+| 5 | 11 / 10 | 15 | 26 |
+| 6 | 9 / 9 | 14 | 25 |
+| 7 | 11 / 9 | 15 | 25 |
+| 8 | 9 / 9 | 14 | 25 |
 
-Best on the page: **21 moves**, from DR 1 (DR 2 and 3 tie it): `D2 B' D2 L2 D2 L2 D2 F U2 B D2 L2 B2 R F' L2 B' F' U' L B'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1: `F R F L2 D2 F2 L' B2 R' B2 R2 U2 L D2 L F2 U2 D F R2 D2 B'`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 26
 
-`R' U' F U R B U2 F D2 R' U' R U2 B D' F2 U2 D2 R2 F2 D' B2 U' R' U' F`
+`R' U' F R' F2 R2 L F2 D2 R' D2 F' U' L' U' B2 U' F2 U' B2 L2 U2 R2 D' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `F B2 U (F' D' L2 D R)` | 8 | F/B | 2c5 4e | 3 | 2c5-1 / 2c5-2 | look anyway | 0.04% / 0.64% / 4.7% |
-| 2 | `F2 L' F L (R F2 R2 B)` | 8 | U/D | 2c4 4e | 1 | 2c4-2 / 2c4-3 | look anyway | 0.14% / 1.5% / 12% |
-| 3 | `F2 L' F L (R' F2 R2 B)` | 8 | U/D | 2c4 4e | 2 | 2c4-2 / 2c4-6 | look anyway | 0.17% / 1.2% / 8.1% |
-| 4 | `F2 L' F L (R B2 L2 B)` | 8 | U/D | 2c4 4e | 3 | 2c4-2 / 2c4-3 | look anyway | 0.72% / 4.5% / 23% |
-| 5 | `F U' R2 U2 L' D' F D' F' U2 F` | 11 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-1 | drop | 0.02% / 0.24% / 2.3% |
-| 6 | `(F' R' U' D2 F R2 U' F2 B' R2 F)` | 11 | U/D | 4b2 2e | 1 | 4b2-2 / 4b2-3 | keep | 1.2% / 7.0% / 31% |
-| 7 | `F L' R F (B R D2 R2 D2 B2 U)` | 11 | R/L | 2c4 4e | 1 | 2c4-4 / 2c4-6 | drop | 0.02% / 0.28% / 2.4% |
-| 8 | `B' D2 L2 R2 F U2 B2 D (L2 F' R)` | 11 | F/B | 4b2 2e | 3 | 4b2-1 / 4b2-4 | keep | 3.5% / 15% / 48% |
+| 1 | `U' F' D F2 U B2 L F` | 8 | R/L | 4c4 2e | 1 | 4c4-1 / 4c4-2 | look anyway | 0.03% / 0.36% / 3.6% |
+| 2 | `L F' D R F D2 F' L2 F` | 9 | R/L | 4c3 4e | 3 | 4c3-2 / 4c3-4 | look anyway | 0.74% / 4.9% / 22% |
+| 3 | `F2 R2 F B U' B (F' B2 R)` | 9 | U/D | 4b2 2e | 1 | 4b2-4 / 4b2-1 | look anyway | 1.4% / 7.6% / 32% |
+| 4 | `B' R2 U' F L B2 U2 F U` | 9 | F/B | 4c4 4e | 2 | 4c4-6 / 4c4-2 | look anyway | 0 / 0.04% / 0.87% |
+| 5 | `L F' D R' B2 L2 B L2 B' R2 F` | 11 | R/L | 4b5 4e | 1 | 4b5-1 / 4b5-2 | drop | 0 / 0.03% / 0.64% |
+| 6 | `F R2 B2 U F' L2 R' F D2 B2 L` | 11 | F/B | 0c0 4e | 3 | 0c0-1 / 0c0-1 | keep | 5.7% / 22% / 61% |
+| 7 | `R F2 L' F (D2 L D' R B2 R U)` | 11 | R/L | 2c4 4e | 1 | 2c4-5 / 2c4-5 | drop | 0 / 0.08% / 1.4% |
+| 8 | `L F' D' R D2 R B R2 B' L2 F` | 11 | R/L | 2c4 4e | 3 | 2c4-7 / 2c4-2 | drop | 0.04% / 0.74% / 6.2% |
 
-Shown: 8 of the 1567 DRs up to 11 moves (8 moves: 4 of 5; 9 moves: 0 of 17; 10 moves: 0 of 130; 11 moves: 4 of 1415).
+Shown: 8 of the 2483 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 18; 10 moves: 0 of 208; 11 moves: 4 of 2256).
 
 <details>
 <summary>Answers for scramble 26</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 10 | 13 | 21 |
-| 2 | 8 / 9 | 14 | 22 |
-| 3 | 8 / 8 | 14 | 21 |
-| 4 | 8 / 9 | 12 | 20 |
-| 5 | 10 / 10 | 14 | 25 |
-| 6 | 6 / 7 | 13 | 24 |
-| 7 | 9 / 10 | 15 | 25 |
-| 8 | 6 / 8 | 11 | 22 |
+| 1 | 9 / 10 | 15 | 23 |
+| 2 | 9 / 10 | 14 | 23 |
+| 3 | 6 / 6 | 11 | 19 |
+| 4 | 12 / 10 | 15 | 24 |
+| 5 | 10 / 11 | 15 | 26 |
+| 6 | 7 / 4 | 12 | 23 |
+| 7 | 10 / 9 | 15 | 25 |
+| 8 | 10 / 8 | 14 | 25 |
 
-Best on the page: **20 moves**, from DR 4: `F2 L' F L U F2 U L2 D B2 D2 L2 U R2 L2 U2 B' L2 B2 R'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **19 moves**, from DR 3: `F2 R2 F B U' B R2 U' R2 L2 U' L2 U' R2 U' L2 R B2 F`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 27
 
-`R' U' F D' B2 U L' U2 D B' R2 U R L D2 R2 L2 U B2 U' L2 U F2 B2 R' U' F`
+`R' U' F D' R2 D L2 U' R2 D' B2 D' U' R U' F2 D2 B' F2 U F2 R' U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(B' L' F U B R' U R' D' L)` | 10 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-1 | look anyway | 0.02% / 0.24% / 2.3% |
-| 2 | `B' L F (D2 B' L' R' F2 D L)` | 10 | U/D | 2c5 2e | 2 | 2c5-1 / 2c5-1 | look anyway | 0.01% / 0.32% / 3.4% |
-| 3 | `(B' L' F U B' R D' R U L)` | 10 | U/D | 4b5 2e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.2% |
-| 4 | `F D L (D R' U F2 U B' L2 U)` | 11 | F/B | 4c4 4e | 1 | 4c4-5 / 4c4-4 | drop | 0 / 0 / 0.08% |
-| 5 | `U' F L' R2 D (B L2 F D2 R B)` | 11 | R/L | 0c3 4e | 2 | 0c3-1 / 0c3-2 | drop | 0 / 0.20% / 1.9% |
-| 6 | `U' F' B' L U B R2 F2 R' F B` | 11 | R/L | 2c4 4e | 3 | 2c4-2 / 2c4-3 | keep | 0.72% / 4.5% / 23% |
-| 7 | `R' D L B' R (D' F B' U' R2 F)` | 11 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-1 | drop | 0.02% / 0.24% / 2.3% |
-| 8 | `(B' L' F U B' R U2 D L U R)` | 11 | U/D | 4b5 0e | 1 | 4b5-1 / 4b5-1 | drop | 0 / 0.15% / 1.9% |
+| 1 | `U' D' L2 D2 B' D (F' R' B' U L)` | 11 | F/B | 2c3 2e | 5 | 2c3-3 / 2c3-1 | keep | 8.2% / 27% / 69% |
+| 2 | `B' U F L (R' D R2 D L2 U F)` | 11 | U/D | 2c3 6e | 0 | 2c3-1 / 2c3-3 | keep | 0.21% / 2.1% / 14% |
+| 3 | `L (B R F' L' F2 B' D F2 B U)` | 11 | F/B | 4c3 4e | 2 | 4c3-1 / 4c3-4 | keep | 0.97% / 5.3% / 22% |
+| 4 | `L (B R F' L' D2 R2 U' F B2 D)` | 11 | F/B | 4b2 2e | 3 | 4b2-4 / 4b2-3 | keep | 1.4% / 8.1% / 35% |
+| 5 | `L R2 D (F D' B' R' U2 F2 R2 F)` | 11 | R/L | 2c3 4e | 0 | 2c3-3 / 2c3-3 | keep | 0.09% / 1.0% / 8.0% |
+| 6 | `(R B' U F L R2 D F D2 F U)` | 11 | F/B | 4b5 4e | 3 | 4b5-2 / 4b5-1 | drop | <0.01% / 0.13% / 1.8% |
+| 7 | `B' U F L (R' D L2 U L2 D B)` | 11 | U/D | 2c3 4e | 2 | 2c3-1 / 2c3-3 | keep | 1.0% / 6.4% / 30% |
+| 8 | `B' U F L (R' U D2 F D' B' D)` | 11 | F/B | 0c4 2e | 2 | 0c4-1 / 0c4-1 | drop | 0.04% / 0.70% / 6.5% |
 
-Shown: 8 of the 51 DRs up to 11 moves (10 moves: 3 of 3; 11 moves: 5 of 48).
+Shown: 8 of the 11 DRs up to 11 moves (11 moves: 8 of 11).
 
 <details>
 <summary>Answers for scramble 27</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 14 | 24 |
-| 2 | 10 / 10 | 14 | 23 |
-| 3 | 10 / 10 | 13 | 23 |
-| 4 | 11 / 10 | 15 | 26 |
-| 5 | 12 / 12 | 16 | 26 |
-| 6 | 9 / 9 | 14 | 24 |
-| 7 | 9 / 10 | 14 | 24 |
-| 8 | 9 / 9 | 14 | 25 |
+| 1 | 6 / 7 | 9 | 20 |
+| 2 | 8 / 8 | 12 | 23 |
+| 3 | 9 / 10 | 14 | 24 |
+| 4 | 6 / 7 | 13 | 22 |
+| 5 | 9 / 8 | 12 | 22 |
+| 6 | 11 / 11 | 15 | 26 |
+| 7 | 6 / 7 | 13 | 23 |
+| 8 | 10 / 10 | 13 | 24 |
 
-Best on the page: **23 moves**, from DR 2 (DR 3 ties it): `B' L F' B2 U L2 B2 D' B2 D F2 D' R2 L2 B2 U L' D' F2 R L B D2`. The list drops 4 of the 5 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 1: `U' D' L2 D2 B' D B' L2 F' D2 F' D2 B U2 B L' U' B R F`. The list drops 2 of the 8 DRs of 11 moves or more, and keeps the best one.
 
 </details>
 
 #### Scramble 28
 
-`R' U' F U' B2 U2 R2 B2 U' F2 U2 B2 R2 F R' F L' D' U2 B2 L2 B U' R' F' R' U' F`
+`R' U' F U2 R2 D2 B2 R2 D' L2 D2 U' R2 B U' B' R F D2 F2 D' F L U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(B2 R2 U' R F' R B2 L B)` | 9 | R/L | 2c5 4e | 5 | 2c5-1 / 2c5-3 | look anyway | 0 / 0.71% / 5.9% |
-| 2 | `(F2 L2 D' L F' L B2 R B)` | 9 | R/L | 2c5 6e | 6 | 2c5-1 / 2c5-3 | look anyway | 0 / 0 / 1.3% |
-| 3 | `R U F B' U' R U2 R2 F' L` | 10 | F/B | 4c3 4e | 3 | 4c3-5 / 4c3-3 | look anyway | 0.35% / 2.9% / 17% |
-| 4 | `(F2 L2 D' B' L F' L2 B' R B)` | 10 | R/L | 4b2 4e | 1 | 4b2-3 / 4b2-2 | look anyway | 0.68% / 5.1% / 26% |
-| 5 | `B L R (B D B' D' B U' R2 F)` | 11 | U/D | 4a1 2e | 1 | 4a1-1 / 4a1-1 | keep | 2.2% / 12% / 44% |
-| 6 | `B' L' R' B2 D F' B' D' L2 U2 F` | 11 | U/D | 2c5 4e | 2 | 2c5-1 / 2c5-2 | drop | 0.02% / 0.23% / 2.4% |
-| 7 | `B L R (F' B' L2 D F B D2 B)` | 11 | U/D | 4c4 4e | 4 | 4c4-1 / 4c4-4 | drop | 0.13% / 1.6% / 8.6% |
-| 8 | `R D2 F B' U (R F D2 L' B R)` | 11 | F/B | 2c4 4e | 1 | 2c4-5 / 2c4-7 | drop | 0 / 0.01% / 0.63% |
+| 1 | `F' D' R F' D B U2 R U2 B` | 10 | R/L | 2c5 6e | 1 | 2c5-2 / 2c5-2 | look anyway | 0 / 0 / 0.83% |
+| 2 | `(F' L' D R F2 D F' U' F2 U)` | 10 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-2 | look anyway | 0.66% / 4.2% / 22% |
+| 3 | `R2 F (L2 F' D B2 D R D L)` | 10 | U/D | 4b2 2e | 3 | 4b2-2 / 4b2-1 | look anyway | 6.0% / 21% / 58% |
+| 4 | `R' B2 L U' L2 B L' B R2 F` | 10 | R/L | 2c4 6e | 3 | 2c4-5 / 2c4-7 | look anyway | 0 / 0 / 2.3% |
+| 5 | `F2 B' L' D L B' U2 F' U2 L F` | 11 | R/L | 4c3 2e | 2 | 4c3-6 / 4c3-5 | drop | 0.12% / 1.2% / 8.1% |
+| 6 | `R F2 L D' L2 F' L U2 R2 B2 R` | 11 | F/B | 2c5 4e | 2 | 2c5-2 / 2c5-1 | drop | 0.02% / 0.23% / 2.4% |
+| 7 | `F2 D B2 L (L U2 D2 F D B' D)` | 11 | F/B | 4b2 4e | 2 | 4b2-3 / 4b2-4 | keep | 0.46% / 3.8% / 23% |
+| 8 | `U D2 R D' L2 F2 R' F2 B L (D)` | 11 | F/B | 4c4 2e | 2 | 4c4-4 / 4c4-1 | drop | 0.04% / 0.38% / 2.8% |
 
-Shown: 8 of the 608 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 43; 11 moves: 4 of 563).
+Shown: 8 of the 508 DRs up to 11 moves (10 moves: 4 of 41; 11 moves: 4 of 467).
 
 <details>
 <summary>Answers for scramble 28</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 11 | 14 | 23 |
-| 2 | 9 / 11 | 13 | 22 |
-| 3 | 10 / 9 | 13 | 23 |
-| 4 | 8 / 7 | 12 | 22 |
-| 5 | 8 / 7 | 12 | 22 |
-| 6 | 10 / 10 | 15 | 25 |
-| 7 | 10 / 10 | 15 | 25 |
-| 8 | 9 / 9 | 14 | 24 |
+| 1 | 11 / 10 | 14 | 23 |
+| 2 | 8 / 8 | 13 | 23 |
+| 3 | 5 / 7 | 13 | 22 |
+| 4 | 10 / 10 | 13 | 23 |
+| 5 | 8 / 8 | 14 | 25 |
+| 6 | 11 / 9 | 14 | 24 |
+| 7 | 6 / 8 | 13 | 24 |
+| 8 | 10 / 11 | 14 | 24 |
 
-Best on the page: **22 moves**, from DR 2 (DR 4 and 5 tie it): `R D2 R D2 R D2 R2 D2 L' F2 R' D2 R2 B' R' B2 L' F L' D L2 F2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 3: `R2 F B2 L2 U L2 D F2 D2 B2 L2 F2 L2 U2 L D' R' D' B2 D' F L2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 29
 
-`R' U' F R2 U2 L D2 F' D2 L2 U' F' D' L B2 D2 B2 U2 L2 U B2 L2 U2 B2 R' U' F`
+`R' U' F U' F2 U2 B2 R2 B2 L2 F2 R2 U R B2 F U' L2 F' U B D' L U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `F U B' D L2 U (U L2 D' L)` | 10 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-2 | look anyway | 0.66% / 4.2% / 22% |
-| 2 | `R2 F2 U' D2 L R2 U' F' R2 D` | 10 | F/B | 4c4 2e | 0 | 4c4-5 / 4c4-2 | look anyway | 0 / 0 / 0.29% |
-| 3 | `(F U L' F2 U' F D' L2 D B)` | 10 | U/D | 2c3 4e | 3 | 2c3-3 / 2c3-2 | look anyway | 1.3% / 6.5% / 29% |
-| 4 | `U' F' R2 U B (R2 D' L' B2 U)` | 10 | R/L | 0c0 2e | 3 | 0c0-1 / 0c0-1 | look anyway | 12% / 38% / 81% |
-| 5 | `U2 R' U R (L' U2 D2 F' D L2 U)` | 11 | F/B | 4b2 2e | 2 | 4b2-4 / 4b2-2 | keep | 1.7% / 8.7% / 35% |
-| 6 | `L2 U2 L2 F U' F2 B' U (L2 D' L)` | 11 | F/B | 4c3 4e | 1 | 4c3-8 / 4c3-4 | drop | 0.02% / 0.43% / 3.4% |
-| 7 | `(L2 D' L U L2 F' U2 F U D B)` | 11 | U/D | 4b5 4e | 0 | 4b5-1 / 4b5-2 | drop | 0 / <0.01% / 0.32% |
-| 8 | `R2 D' B' D' L2 U2 L2 F (F U L)` | 11 | U/D | 2c4 6e | 2 | 2c4-4 / 2c4-7 | drop | 0 / 0.15% / 2.3% |
+| 1 | `(D2 B2 R' U L' F2 L B)` | 8 | R/L | 2c4 6e | 2 | 2c4-2 / 2c4-1 | look anyway | 0.54% / 4.0% / 23% |
+| 2 | `(D' L' B' R' U R' U B2 R D)` | 10 | R/L | 4c4 4e | 2 | 4c4-4 / 4c4-3 | look anyway | 0 / 0.06% / 1.2% |
+| 3 | `(D' L' B U L2 B2 L U L D)` | 10 | R/L | 2c3 4e | 2 | 2c3-3 / 2c3-1 | look anyway | 1.0% / 6.4% / 30% |
+| 4 | `(D2 B2 R' U L2 U2 L U2 L B)` | 10 | R/L | 4b2 4e | 1 | 4b2-1 / 4b2-2 | look anyway | 1.7% / 9.1% / 36% |
+| 5 | `L' B2 R (F' L' D2 B2 R2 F' B U)` | 11 | F/B | 2c4 6e | 2 | 2c4-3 / 2c4-4 | drop | 0.17% / 1.2% / 8.1% |
+| 6 | `F' L R2 D2 B (F2 B2 U' F2 R' U)` | 11 | R/L | 4c3 4e | 5 | 4c3-9 / 4c3-5 | keep | 0.11% / 1.4% / 10% |
+| 7 | `R' U2 L (F' L' U2 L2 F' D2 B2 U)` | 11 | F/B | 4b5 4e | 4 | 4b5-1 / 4b5-2 | drop | 0.01% / 0.31% / 3.2% |
+| 8 | `L' B L B L' D2 F (U2 L F2 U)` | 11 | R/L | 4b5 2e | 5 | 4b5-1 / 4b5-1 | drop | 0.25% / 1.8% / 9.5% |
 
-Shown: 8 of the 294 DRs up to 11 moves (10 moves: 4 of 13; 11 moves: 4 of 281).
+Shown: 8 of the 708 DRs up to 11 moves (8 moves: 1 of 1; 10 moves: 3 of 68; 11 moves: 4 of 639).
 
 <details>
 <summary>Answers for scramble 29</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 7 | 12 | 22 |
-| 2 | 11 / 11 | 15 | 24 |
-| 3 | 7 / 8 | 13 | 23 |
-| 4 | 5 / 6 | 12 | 21 |
-| 5 | 8 / 6 | 14 | 23 |
-| 6 | 9 / 10 | 13 | 23 |
-| 7 | 10 / 11 | 15 | 25 |
-| 8 | 9 / 10 | 14 | 23 |
+| 1 | 9 / 8 | 14 | 21 |
+| 2 | 10 / 11 | 14 | 24 |
+| 3 | 8 / 7 | 15 | 24 |
+| 4 | 8 / 9 | 13 | 23 |
+| 5 | 9 / 9 | 14 | 24 |
+| 6 | 10 / 9 | 14 | 25 |
+| 7 | 11 / 10 | 15 | 25 |
+| 8 | 9 / 10 | 14 | 24 |
 
-Best on the page: **21 moves**, from DR 4: `U' F' R2 U B R' U2 F2 D2 L B2 R2 U2 B2 U2 F2 U B2 L D R2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1: `R' D2 F2 L B2 R F2 L2 F2 U2 R' F2 U2 B L' F2 L U' R B2 D2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 30
 
-`R' U' F U2 L2 R2 D' B2 F2 R2 D' R2 U2 B R U R B D2 B L2 U' R2 U2 R' U' F`
+`R' U' F U2 L2 D' F2 U L2 R2 B2 U L2 F' U2 L' B' F2 D B U F2 U' R' U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(U2 F B U' B U2 F2 B2 R)` | 9 | U/D | 4b2 2e | 2 | 4b2-2 / 4b2-3 | look anyway | 2.0% / 9.6% / 38% |
-| 2 | `B2 D (L2 R D' F' D2 F' R)` | 9 | F/B | 0c3 6e | 0 | 0c3-2 / 0c3-2 | look anyway | 0 / 0.07% / 1.3% |
-| 3 | `D2 F B2 U2 D' F (F' U2 R)` | 9 | U/D | 4c4 2e | 1 | 4c4-4 / 4c4-5 | look anyway | 0 / 0 / 0.09% |
-| 4 | `B2 U2 F' D B U (B2 D' F L)` | 10 | F/B | 2c4 4e | 0 | 2c4-1 / 2c4-1 | look anyway | 0.22% / 2.0% / 15% |
-| 5 | `U F B2 D L' U2 B' L B' D2 L` | 11 | F/B | 4b5 4e | 1 | 4b5-2 / 4b5-2 | drop | 0 / <0.01% / 0.22% |
-| 6 | `U' L2 R2 B U' D2 B R' B L B` | 11 | R/L | 4b5 4e | 1 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.08% / 1.1% |
-| 7 | `(F' U2 R' F2 U B L2 U2 F B' D)` | 11 | F/B | 2c4 8e | 2 | 2c4-3 / 2c4-3 | keep | 0.07% / 1.9% / 10% |
-| 8 | `U' F2 D F U2 L' B2 D L D (F)` | 11 | R/L | 4b5 2e | 3 | 4b5-1 / 4b5-2 | drop | 0.02% / 0.26% / 2.4% |
+| 1 | `F L B2 R U' F' D' B D (R)` | 10 | F/B | 2c5 4e | 1 | 2c5-2 / 2c5-3 | look anyway | 0 / 0 / 0.14% |
+| 2 | `L' D R' B2 U' L2 B' L F2 B' R` | 11 | F/B | 2c4 4e | 1 | 2c4-4 / 2c4-7 | drop | 0 / 0.08% / 1.5% |
+| 3 | `R D R' U' R U2 L (B' U2 L F)` | 11 | U/D | 2c5 2e | 2 | 2c5-3 / 2c5-2 | drop | 0 / 0 / 0.16% |
+| 4 | `(D' R B U L' U2 B D' F2 D' F)` | 11 | U/D | 0c3 4e | 3 | 0c3-2 / 0c3-2 | drop | 0 / 0 / 0.53% |
+| 5 | `F' R D2 L (R' U2 R2 U' B L2 F)` | 11 | U/D | 4c3 2e | 3 | 4c3-5 / 4c3-3 | drop | 0.44% / 3.3% / 19% |
+| 6 | `F R2 F U D2 F (U' D' R' B L)` | 11 | U/D | 4c3 4e | 1 | 4c3-5 / 4c3-9 | drop | 0 / 0.10% / 1.9% |
+| 7 | `D (D R U D' L F L2 B' U2 L)` | 11 | F/B | 2c5 4e | 1 | 2c5-2 / 2c5-1 | drop | 0 / 0.05% / 1.2% |
+| 8 | `(R U F B2 D' L R2 F' D2 B L)` | 11 | F/B | 2c4 4e | 1 | 2c4-6 / 2c4-3 | drop | 0.06% / 0.65% / 5.1% |
 
-Shown: 8 of the 692 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 55; 11 moves: 4 of 634).
+Shown: 8 of the 52 DRs up to 11 moves (10 moves: 1 of 1; 11 moves: 7 of 51).
 
 <details>
 <summary>Answers for scramble 30</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 5 / 6 | 13 | 22 |
-| 2 | 10 / 10 | 14 | 23 |
-| 3 | 10 / 11 | 15 | 23 |
-| 4 | 9 / 9 | 14 | 22 |
-| 5 | 11 / 11 | 14 | 25 |
-| 6 | 11 / 11 | 16 | 26 |
-| 7 | 9 / 9 | 15 | 25 |
-| 8 | 9 / 10 | 14 | 25 |
+| 1 | 10 / 11 | 15 | 25 |
+| 2 | 9 / 9 | 14 | 25 |
+| 3 | 11 / 11 | 15 | 25 |
+| 4 | 11 / 13 | 15 | 25 |
+| 5 | 8 / 8 | 12 | 23 |
+| 6 | 9 / 10 | 14 | 24 |
+| 7 | 11 / 10 | 14 | 25 |
+| 8 | 8 / 9 | 14 | 25 |
 
-Best on the page: **22 moves**, from DR 1 (DR 4 ties it): `D' F2 D2 L2 B2 R2 U' F2 U F2 R2 U F2 R' B2 F2 U2 B' U B' F' U2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 5: `F' R D2 L U2 B2 U' R2 U R2 B2 D2 B2 U' F2 R2 F' L2 B' U R2 U2 R`. The list drops 7 of the 7 DRs of 11 moves or more, the best one among them. What's left gives 25 (DR 1), 2 moves more.
 
 </details>
 
 #### Scramble 31
 
-`R' U' F D2 L2 U B2 U' B2 R2 U F2 D F D' L2 R B' F2 R' D L2 R F R' U' F`
+`R' U' F D' F2 U L2 U L2 B2 R2 U2 R2 B F' D' B' U2 R F D' F2 U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `U2 B2 U2 F R U F B D` | 9 | F/B | 4b2 4e | 2 | 4b2-3 / 4b2-4 | look anyway | 0.46% / 3.8% / 23% |
-| 2 | `(R2 U' B D' B R2 D2 R F)` | 9 | R/L | 2c4 6e | 3 | 2c4-2 / 2c4-1 | look anyway | 0.97% / 6.4% / 31% |
-| 3 | `U2 B2 U2 F R U' F B D` | 9 | F/B | 4b2 4e | 1 | 4b2-3 / 4b2-4 | look anyway | 0.24% / 2.3% / 16% |
-| 4 | `(R2 U' B D' B L2 U2 R B)` | 9 | R/L | 2c4 6e | 2 | 2c4-2 / 2c4-1 | look anyway | 0.54% / 4.0% / 23% |
-| 5 | `(R2 U B D' B' U2 B2 R D2 R F)` | 11 | R/L | 2c3 6e | 1 | 2c3-3 / 2c3-3 | keep | 0.07% / 0.81% / 6.8% |
-| 6 | `D' F' B2 R' U' D B R2 F L2 D` | 11 | F/B | 2c4 6e | 1 | 2c4-3 / 2c4-7 | drop | 0.01% / 0.44% / 4.0% |
-| 7 | `(B R2 D B' U' R' U2 F L D2 L)` | 11 | F/B | 4b2 2e | 4 | 4b2-4 / 4b2-3 | keep | 2.3% / 12% / 43% |
-| 8 | `F' B D' L2 B2 U2 F D2 L (F2 U)` | 11 | F/B | 4b2 2e | 3 | 4b2-1 / 4b2-2 | keep | 6.0% / 21% / 58% |
+| 1 | `(F U' D' R B D' L2 B2 R)` | 9 | U/D | 4b2 4e | 1 | 4b2-1 / 4b2-2 | look anyway | 1.7% / 9.1% / 36% |
+| 2 | `U' D B' R (D2 B2 L2 D B)` | 9 | U/D | 4b5 2e | 2 | 4b5-2 / 4b5-2 | look anyway | 0 / 0.06% / 0.88% |
+| 3 | `(F U' D' R B' R2 F2 U R)` | 9 | U/D | 4b2 4e | 2 | 4b2-1 / 4b2-2 | look anyway | 2.4% / 12% / 43% |
+| 4 | `R F2 D2 F U D (L2 D R)` | 9 | F/B | 2c3 4e | 2 | 2c3-2 / 2c3-2 | look anyway | 1.0% / 6.3% / 27% |
+| 5 | `U' D B' R (D2 B2 U2 D2 R2 D F)` | 11 | U/D | 4b5 2e | 2 | 4b5-2 / 4b5-2 | drop | 0 / 0.06% / 0.88% |
+| 6 | `R (D R' D' F' U R2 F2 D' B D)` | 11 | F/B | 4c4 4e | 3 | 4c4-6 / 4c4-4 | drop | 0 / 0 / 0.10% |
+| 7 | `R D2 F2 D2 F B2 U D (L2 D R)` | 11 | F/B | 2c3 4e | 3 | 2c3-2 / 2c3-2 | keep | 1.9% / 9.7% / 36% |
+| 8 | `L' R2 U B R2 B2 D (U L F' R)` | 11 | F/B | 4b5 2e | 5 | 4b5-1 / 4b5-2 | drop | 0.06% / 0.73% / 5.8% |
 
-Shown: 8 of the 479 DRs up to 11 moves (9 moves: 4 of 4; 10 moves: 0 of 30; 11 moves: 4 of 445).
+Shown: 8 of the 491 DRs up to 11 moves (9 moves: 4 of 9; 10 moves: 0 of 64; 11 moves: 4 of 418).
 
 <details>
 <summary>Answers for scramble 31</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 7 / 9 | 13 | 21 |
-| 2 | 9 / 8 | 13 | 21 |
-| 3 | 8 / 9 | 14 | 23 |
-| 4 | 9 / 8 | 13 | 22 |
-| 5 | 8 / 8 | 13 | 24 |
-| 6 | 9 / 10 | 14 | 25 |
-| 7 | 6 / 6 | 12 | 23 |
-| 8 | 6 / 5 | 13 | 23 |
+| 1 | 7 / 7 | 12 | 21 |
+| 2 | 10 / 10 | 15 | 23 |
+| 3 | 8 / 7 | 11 | 20 |
+| 4 | 7 / 7 | 13 | 21 |
+| 5 | 10 / 10 | 15 | 25 |
+| 6 | 12 / 10 | 15 | 25 |
+| 7 | 8 / 7 | 11 | 22 |
+| 8 | 9 / 10 | 13 | 24 |
 
-Best on the page: **21 moves**, from DR 1 (DR 2 ties it): `U2 B2 U2 F R U F B D' F' B' L2 B R2 D2 B D2 L2 F2 U2 R2`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 3: `U2 F2 R2 B2 U L2 D2 F2 R2 D' B2 R' U' F2 R2 B R' D U F'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 32
 
-`R' U' F R2 D' B2 R B D F2 B2 R' U B U F2 B2 U R2 B2 D F2 B2 D R' U' F`
+`R' U' F U2 R' B' R L2 U2 B L D' B U2 F B2 R2 D2 R2 L2 U L2 D' L2 D R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(R B U2 B' L' U' R U' R)` | 9 | U/D | 2c5 6e | 1 | 2c5-1 / 2c5-1 | look anyway | 0.05% / 0.29% / 2.5% |
-| 2 | `U2 B' U2 L F' B U B2 U` | 9 | F/B | 4b5 2e | 0 | 4b5-1 / 4b5-2 | look anyway | <0.01% / 0.03% / 0.58% |
-| 3 | `R' U2 R B' L F' U B' U` | 9 | F/B | 2c3 4e | 1 | 2c3-1 / 2c3-3 | look anyway | 0.62% / 4.5% / 24% |
-| 4 | `(U F2 L F U R F' R' F)` | 9 | R/L | 4a1 2e | 4 | 4a1-2 / 4a1-3 | look anyway | 4.5% / 20% / 61% |
-| 5 | `(R F U2 F L U' D R2 D' F' U)` | 11 | F/B | 2c4 2e | 2 | 2c4-2 / 2c4-1 | keep | 0.32% / 3.4% / 22% |
-| 6 | `B' L' F2 U' B U' B D2 L2 D' F` | 11 | U/D | 4b5 2e | 0 | 4b5-1 / 4b5-1 | drop | 0 / 0.06% / 0.76% |
-| 7 | `B' L' R2 F2 U2 F2 B' L2 B U' F` | 11 | U/D | 4b5 4e | 0 | 4b5-1 / 4b5-2 | drop | 0 / <0.01% / 0.32% |
-| 8 | `R (F2 R' F L' U2 L2 D2 F' U2 F)` | 11 | U/D | 4c3 2e | 1 | 4c3-1 / 4c3-4 | keep | 0.38% / 3.0% / 17% |
+| 1 | `L U' R F' D R2 F' D2 B` | 9 | R/L | 4b2 4e | 4 | 4b2-2 / 4b2-4 | look anyway | 2.7% / 13% / 46% |
+| 2 | `L U' R F' D R2 B' L2 F` | 9 | R/L | 4b2 4e | 2 | 4b2-2 / 4b2-4 | look anyway | 0.97% / 6.2% / 30% |
+| 3 | `D2 F2 B' U (D' B2 R' B L' F)` | 10 | R/L | 4c4 4e | 0 | 4c4-3 / 4c4-4 | look anyway | 0 / 0.02% / 0.67% |
+| 4 | `(D F B U' F' D2 B' U2 R F)` | 10 | R/L | 4c3 4e | 1 | 4c3-5 / 4c3-8 | look anyway | <0.01% / 0.29% / 3.1% |
+| 5 | `(L B D L' R' D2 R2 U B R2 U)` | 11 | F/B | 4b5 2e | 1 | 4b5-2 / 4b5-2 | drop | 0 / 0.01% / 0.38% |
+| 6 | `F' L (D R' B' U2 L2 B U2 D F)` | 11 | U/D | 4b5 4e | 3 | 4b5-1 / 4b5-2 | drop | <0.01% / 0.13% / 1.8% |
+| 7 | `B' U' B (L B R D' R' U2 L D)` | 11 | R/L | 2c5 2e | 5 | 2c5-1 / 2c5-1 | drop | 0.67% / 3.5% / 16% |
+| 8 | `B2 U (L B D F2 L2 R B U2 B)` | 11 | R/L | 4b2 4e | 1 | 4b2-3 / 4b2-2 | keep | 0.68% / 5.1% / 26% |
 
-Shown: 8 of the 1928 DRs up to 11 moves (9 moves: 4 of 5; 10 moves: 0 of 159; 11 moves: 4 of 1764).
+Shown: 8 of the 180 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 12; 11 moves: 4 of 166).
 
 <details>
 <summary>Answers for scramble 32</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 15 | 23 |
-| 2 | 10 / 10 | 15 | 23 |
-| 3 | 7 / 8 | 13 | 22 |
-| 4 | 7 / 7 | 11 | 20 |
-| 5 | 9 / 8 | 14 | 25 |
+| 1 | 7 / 9 | 13 | 21 |
+| 2 | 7 / 9 | 12 | 21 |
+| 3 | 11 / 10 | 14 | 23 |
+| 4 | 8 / 9 | 14 | 24 |
+| 5 | 10 / 10 | 14 | 25 |
 | 6 | 10 / 10 | 15 | 25 |
-| 7 | 10 / 11 | 14 | 25 |
-| 8 | 8 / 8 | 13 | 24 |
+| 7 | 10 / 9 | 13 | 23 |
+| 8 | 7 / 7 | 13 | 22 |
 
-Best on the page: **20 moves**, from DR 4: `U2 L' F2 R' F2 D2 F2 L' D2 U2 R2 F' R F R' U' F' L' F2 U'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1 (DR 2 ties it): `L U' R F' D R2 F' D2 B' R' F2 D2 L' D2 U2 R U2 L' D2 L2 F2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 33
 
-`R' U' F U2 F2 U F2 D' R2 B2 D2 L2 U L D F' L F2 L B2 U' F2 L' F' R' U' F`
+`R' U' F U2 R2 U' L2 F2 D F2 D' R2 U2 L' F2 R2 F' R B' F2 D R D U2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `U L' D R U' F2 U2 B D` | 9 | F/B | 2c4 2e | 3 | 2c4-1 / 2c4-3 | look anyway | 0.84% / 5.5% / 25% |
-| 2 | `U L' D R U B2 D2 B' D` | 9 | F/B | 2c4 2e | 4 | 2c4-1 / 2c4-3 | look anyway | 1.5% / 8.7% / 35% |
-| 3 | `U L D R (U B' D2 F' D)` | 9 | F/B | 2c5 4e | 3 | 2c5-1 / 2c5-1 | look anyway | 0.10% / 0.85% / 6.2% |
-| 4 | `U L' D R U F2 U2 F2 B D` | 10 | F/B | 2c4 2e | 4 | 2c4-1 / 2c4-3 | look anyway | 1.5% / 8.7% / 35% |
-| 5 | `U' L' D R U F2 D2 B2 D2 B D` | 11 | F/B | 2c4 2e | 1 | 2c4-7 / 2c4-3 | drop | <0.01% / 0.40% / 3.8% |
-| 6 | `R' U' L (R D' F D F2 U D2 F)` | 11 | U/D | 2c4 6e | 3 | 2c4-7 / 2c4-5 | drop | 0 / 0 / 2.3% |
-| 7 | `D2 R B2 U B2 U' L (R U D2 F)` | 11 | U/D | 4c4 4e | 4 | 4c4-6 / 4c4-4 | drop | 0 / 0 / 0.24% |
-| 8 | `R U' L B L2 R2 B D L2 U (R)` | 11 | F/B | 4c3 2e | 1 | 4c3-5 / 4c3-7 | drop | 0.06% / 0.73% / 5.8% |
+| 1 | `F D' B' L D2 R' U2 B' L` | 9 | F/B | 4b5 2e | 2 | 4b5-2 / 4b5-2 | look anyway | 0 / 0.06% / 0.88% |
+| 2 | `F D' B' L' F U2 F L F` | 9 | R/L | 4c4 4e | 2 | 4c4-5 / 4c4-4 | look anyway | 0 / <0.01% / 0.20% |
+| 3 | `F D B' L D2 R' U2 B' L` | 9 | F/B | 2c5 4e | 1 | 2c5-1 / 2c5-1 | look anyway | <0.01% / 0.23% / 2.7% |
+| 4 | `F D B' R F2 L' D2 F' L` | 9 | F/B | 2c5 6e | 2 | 2c5-1 / 2c5-1 | look anyway | 0.02% / 0.38% / 3.8% |
+| 5 | `F D F D2 R B' L' F U2 D2 L` | 11 | F/B | 4c4 2e | 3 | 4c4-5 / 4c4-2 | drop | 0 / 0.06% / 1.3% |
+| 6 | `F D' B R2 B2 L' B' R2 F R B` | 11 | R/L | 2c4 4e | 0 | 2c4-6 / 2c4-1 | drop | 0.05% / 0.55% / 5.2% |
+| 7 | `U2 F D' B' U2 L F R U2 B L` | 11 | F/B | 2c4 4e | 0 | 2c4-7 / 2c4-4 | drop | 0 / 0.02% / 0.95% |
+| 8 | `F D B D2 B' L B' D2 L' B2 R` | 11 | F/B | 0c4 2e | 3 | 0c4-1 / 0c4-1 | drop | 0.11% / 1.0% / 8.5% |
 
-Shown: 8 of the 288 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 15; 11 moves: 4 of 270).
+Shown: 8 of the 860 DRs up to 11 moves (9 moves: 4 of 6; 10 moves: 0 of 72; 11 moves: 4 of 782).
 
 <details>
 <summary>Answers for scramble 33</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 8 | 11 | 20 |
-| 2 | 8 / 8 | 13 | 22 |
-| 3 | 10 / 10 | 14 | 22 |
-| 4 | 8 / 8 | 11 | 21 |
-| 5 | 10 / 10 | 14 | 25 |
-| 6 | 10 / 10 | 13 | 24 |
-| 7 | 12 / 11 | 15 | 25 |
-| 8 | 9 / 9 | 13 | 23 |
+| 1 | 11 / 10 | 14 | 23 |
+| 2 | 11 / 10 | 15 | 24 |
+| 3 | 10 / 9 | 14 | 23 |
+| 4 | 10 / 10 | 14 | 23 |
+| 5 | 11 / 10 | 15 | 25 |
+| 6 | 8 / 9 | 13 | 23 |
+| 7 | 9 / 9 | 15 | 26 |
+| 8 | 10 / 9 | 14 | 25 |
 
-Best on the page: **20 moves**, from DR 1: `U L' D R U' F2 U2 B D F R2 D2 F2 B U2 B D2 B D2 F2`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 1 (DR 3, 4 and 6 tie it): `F D' B' L D2 R' U2 B' L F' U2 B U2 B' U2 R2 F2 U2 R2 F L2 B' R2`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 34
 
-`R' U' F U2 F' U F R2 B U2 D' L U F D' L2 U' L2 D2 B2 D L2 B2 R' U' F`
+`R' U' F U' B D L F D2 B2 L' B' L B' R2 D L2 F2 L2 F2 U2 D' F2 D' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(F U B' D R' F B' L R2 F)` | 10 | R/L | 4c4 2e | 1 | 4c4-4 / 4c4-3 | look anyway | 0 / 0.03% / 0.54% |
-| 2 | `(F B' D B U' L' D2 R' F' L)` | 10 | F/B | 2c4 2e | 5 | 2c4-3 / 2c4-6 | look anyway | 1.4% / 6.1% / 26% |
-| 3 | `(F' B U B D' R' U2 L' F' R)` | 10 | F/B | 2c4 2e | 5 | 2c4-3 / 2c4-6 | look anyway | 1.4% / 6.1% / 26% |
-| 4 | `(R B2 L2 U L F' B' U B D)` | 10 | F/B | 4b5 2e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.2% |
-| 5 | `B D (F' B' D R U2 R' B L F)` | 11 | R/L | 4b5 2e | 0 | 4b5-1 / 4b5-2 | drop | <0.01% / 0.03% / 0.58% |
-| 6 | `D2 F' D' L U L2 R B' L' F R` | 11 | F/B | 2c4 2e | 2 | 2c4-2 / 2c4-7 | drop | 0 / 0.27% / 4.4% |
-| 7 | `R B D' F L (U L2 U' B2 D' B)` | 11 | U/D | 4b2 4e | 2 | 4b2-2 / 4b2-3 | keep | 1.2% / 7.6% / 34% |
-| 8 | `R' B' R (U' R' U R2 F U B' D)` | 11 | F/B | 4c3 4e | 2 | 4c3-5 / 4c3-2 | keep | 0.34% / 2.7% / 16% |
+| 1 | `(D L' B' L R B2 R2 F' U)` | 9 | F/B | 4a1 4e | 3 | 4a1-2 / 4a1-4 | look anyway | 7.3% / 24% / 61% |
+| 2 | `(D L' B' L R F2 L2 F' D)` | 9 | F/B | 4a1 4e | 4 | 4a1-2 / 4a1-4 | look anyway | 15% / 38% / 73% |
+| 3 | `B' R2 U' L' R2 D (U D B)` | 9 | R/L | 2c3 8e | 2 | 2c3-2 / 2c3-3 | look anyway | 0.15% / 1.6% / 11% |
+| 4 | `B2 D (B' D' L2 U2 R' F B2 L)` | 10 | F/B | 4b2 4e | 3 | 4b2-1 / 4b2-3 | look anyway | 3.1% / 13% / 48% |
+| 5 | `R F' R U (D R F' U2 F B2 R)` | 11 | F/B | 4c3 2e | 3 | 4c3-4 / 4c3-9 | drop | 0.11% / 0.92% / 5.5% |
+| 6 | `(D' L F2 R' U F R' B2 D2 L F)` | 11 | R/L | 2c4 2e | 2 | 2c4-7 / 2c4-5 | drop | 0 / 0 / 0.81% |
+| 7 | `F' U2 R F B' R' U2 L' D' L R` | 11 | U/D | 4b5 4e | 2 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.13% / 1.9% |
+| 8 | `F2 U2 F' B' R F (D' L' B' R D)` | 11 | R/L | 4b5 4e | 4 | 4b5-1 / 4b5-2 | drop | 0.01% / 0.31% / 3.2% |
 
-Shown: 8 of the 196 DRs up to 11 moves (10 moves: 4 of 16; 11 moves: 4 of 180).
+Shown: 8 of the 280 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 26; 11 moves: 4 of 251).
 
 <details>
 <summary>Answers for scramble 34</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 11 / 10 | 14 | 24 |
-| 2 | 8 / 9 | 12 | 22 |
-| 3 | 8 / 9 | 13 | 23 |
-| 4 | 9 / 10 | 15 | 24 |
-| 5 | 10 / 10 | 14 | 25 |
-| 6 | 9 / 9 | 13 | 24 |
-| 7 | 8 / 8 | 12 | 23 |
-| 8 | 10 / 8 | 14 | 25 |
+| 1 | 3 / 4 | 12 | 21 |
+| 2 | 3 / 4 | 12 | 20 |
+| 3 | 9 / 10 | 14 | 21 |
+| 4 | 7 / 8 | 13 | 23 |
+| 5 | 10 / 9 | 15 | 25 |
+| 6 | 10 / 9 | 15 | 25 |
+| 7 | 10 / 10 | 15 | 25 |
+| 8 | 10 / 10 | 14 | 25 |
 
-Best on the page: **22 moves**, from DR 2: `F2 R2 F D2 F D2 R2 B L2 F B2 D2 L' F R D2 L U B' D' B F'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 2: `F2 R2 B' R2 L2 F' D2 L2 B L2 F2 D F L2 F2 R' L' B L D'`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 35
 
-`R' U' F U L2 D2 L' B D F D L2 U' D L U' F2 R2 L2 U' F2 R2 U R' U' F`
+`R' U' F U B L2 U' L F2 D2 U' R B L D2 B2 R2 L2 B L2 B R2 D2 F' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(R' F R' B' R F2 D B)` | 8 | U/D | 2c3 6e | 3 | 2c3-3 / 2c3-3 | look anyway | 0.13% / 1.3% / 9.8% |
-| 2 | `D L2 B R2 D (D2 F R B)` | 9 | R/L | 4b2 4e | 0 | 4b2-2 / 4b2-1 | look anyway | 0.81% / 5.4% / 28% |
-| 3 | `(F2 R2 B' R D' R2 F' D' B)` | 9 | U/D | 2c4 4e | 3 | 2c4-1 / 2c4-3 | look anyway | 0.82% / 5.4% / 25% |
-| 4 | `(F' R2 B' R D' L2 F2 B' D)` | 9 | F/B | 4a2 2e | 4 | 4a2-4 / 4a2-2 | look anyway | 0 / 0 / 2.6% |
-| 5 | `U' F R2 B2 U2 B U (L2 U F R)` | 11 | F/B | 4b5 4e | 3 | 4b5-2 / 4b5-2 | drop | 0 / 0.01% / 0.79% |
-| 6 | `(F U F L2 R' F' B U B2 R2 U)` | 11 | F/B | 4a2 4e | 0 | 4a2-2 / 4a2-3 | keep | 0.35% / 3.5% / 19% |
-| 7 | `(B' D' F' R D2 B' R2 B U' D' B)` | 11 | U/D | 2c3 6e | 2 | 2c3-2 / 2c3-1 | keep | 1.0% / 6.4% / 30% |
-| 8 | `F' L F' L' D B2 L F2 L (R F)` | 11 | U/D | 2c3 4e | 5 | 2c3-1 / 2c3-1 | keep | 12% / 35% / 74% |
+| 1 | `D R B L U (F D2 L F)` | 9 | R/L | 2c3 4e | 2 | 2c3-3 / 2c3-3 | look anyway | 0.35% / 2.6% / 15% |
+| 2 | `F' L' F' U' L R' D R (L B)` | 10 | U/D | 2c5 6e | 0 | 2c5-3 / 2c5-1 | look anyway | 0 / 0.02% / 0.32% |
+| 3 | `R2 U2 D R' U (B L2 R' F L)` | 10 | F/B | 4c4 2e | 2 | 4c4-3 / 4c4-2 | look anyway | <0.01% / 0.19% / 2.1% |
+| 4 | `D' L U2 R U B' R B' L2 U2 F` | 11 | R/L | 2c3 8e | 1 | 2c3-1 / 2c3-3 | keep | 0.09% / 1.1% / 10% |
+| 5 | `F' L' F' U' L B2 R' D R (L B)` | 11 | U/D | 2c3 4e | 2 | 2c3-3 / 2c3-2 | keep | 0.66% / 4.2% / 22% |
+| 6 | `U2 R2 U R D B' U2 L U2 R' F` | 11 | R/L | 4c4 2e | 3 | 4c4-2 / 4c4-5 | drop | 0 / 0.06% / 1.3% |
+| 7 | `U2 D R U' R2 U2 F' R F' B' L` | 11 | F/B | 2c3 2e | 0 | 2c3-3 / 2c3-3 | keep | 0.35% / 3.1% / 19% |
+| 8 | `F D L' F' U L2 F2 L' B R F` | 11 | R/L | 2c4 2e | 4 | 2c4-4 / 2c4-7 | keep | 0.02% / 0.48% / 5.3% |
 
-Shown: 8 of the 587 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 3; 10 moves: 0 of 46; 11 moves: 4 of 537).
+Shown: 8 of the 119 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 2 of 2; 11 moves: 5 of 116).
 
 <details>
 <summary>Answers for scramble 35</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 9 | 14 | 22 |
-| 2 | 8 / 9 | 13 | 21 |
-| 3 | 9 / 7 | 13 | 22 |
-| 4 | 11 / 9 | 15 | 24 |
-| 5 | 10 / 11 | 15 | 24 |
-| 6 | 10 / 7 | 13 | 24 |
-| 7 | 8 / 8 | 13 | 24 |
-| 8 | 7 / 7 | 13 | 23 |
+| 1 | 8 / 9 | 13 | 21 |
+| 2 | 12 / 10 | 15 | 24 |
+| 3 | 10 / 9 | 14 | 24 |
+| 4 | 9 / 10 | 14 | 24 |
+| 5 | 8 / 8 | 14 | 23 |
+| 6 | 9 / 11 | 15 | 26 |
+| 7 | 7 / 6 | 13 | 23 |
+| 8 | 9 / 10 | 14 | 25 |
 
-Best on the page: **21 moves**, from DR 2: `D L2 B R2 D B2 L D2 R2 D2 F2 U2 F2 U2 B2 L' F2 B R' F' D2`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1: `D R B L U' F2 D2 U2 R' U2 R' L2 U2 R' B2 D2 B2 F L' D2 F'`. The list drops 1 of the 5 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 36
 
-`R' U' F D' U' F' B R' U F2 L B2 U R2 U2 B R2 F2 R2 U2 R2 B U2 R' U' F`
+`R' U' F D B2 R2 U' L2 B2 U F2 R2 F R' B' F' U L B2 D2 R' B U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L U2 D' L (L2 R U L2 F)` | 9 | U/D | 4a2 2e | 5 | 4a2-3 / 4a2-1 | look anyway | 0.64% / 12% / 42% |
-| 2 | `(L2 R U L2 F U' L' R2 U)` | 9 | R/L | 4a2 2e | 2 | 4a2-1 / 4a2-3 | look anyway | 0.17% / 2.0% / 14% |
-| 3 | `(F2 D' F' R2 B2 D2 L U' R' D)` | 10 | R/L | 2c4 2e | 2 | 2c4-5 / 2c4-2 | look anyway | 0 / 0.86% / 8.3% |
-| 4 | `U' L D' L' U F2 D (R U F)` | 10 | R/L | 4a1 2e | 0 | 4a1-3 / 4a1-3 | look anyway | 0.21% / 2.9% / 21% |
-| 5 | `L U2 F2 U2 B (R D F2 L2 U R)` | 11 | U/D | 4c4 2e | 3 | 4c4-3 / 4c4-4 | drop | 0 / 0.09% / 1.5% |
-| 6 | `F2 U2 D' B2 D2 R' D (U R U F)` | 11 | R/L | 4c3 2e | 5 | 4c3-2 / 4c3-4 | keep | 2.5% / 11% / 36% |
-| 7 | `B' D' L' R2 B L2 R2 B (D2 R' U)` | 11 | R/L | 2c3 2e | 2 | 2c3-3 / 2c3-3 | keep | 0.65% / 4.7% / 25% |
-| 8 | `F L B L2 F L' U2 D' R' U L` | 11 | U/D | 2c3 2e | 1 | 2c3-3 / 2c3-3 | keep | 0.44% / 3.7% / 22% |
+| 1 | `(L R' D2 B' L2 R U R U)` | 9 | R/L | 4c3 4e | 1 | 4c3-9 / 4c3-5 | look anyway | 0 / 0.10% / 1.9% |
+| 2 | `(R' D' F2 L B' D2 L2 R U)` | 9 | R/L | 4b2 2e | 1 | 4b2-4 / 4b2-1 | look anyway | 1.4% / 7.6% / 32% |
+| 3 | `D' L' D R D (L D R' B)` | 9 | R/L | 4b5 2e | 6 | 4b5-1 / 4b5-2 | look anyway | 0.06% / 0.73% / 5.8% |
+| 4 | `R2 B D' B D L F B2 L` | 9 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-2 | look anyway | 0.66% / 4.2% / 22% |
+| 5 | `(R' D2 L2 B2 R B' U2 B' D' F D)` | 11 | F/B | 2c3 6e | 2 | 2c3-3 / 2c3-3 | keep | 0.09% / 1.0% / 8.2% |
+| 6 | `L' F R' D2 R' B L (B' D F' D)` | 11 | F/B | 2c4 4e | 1 | 2c4-5 / 2c4-6 | drop | 0.01% / 0.31% / 2.9% |
+| 7 | `(L D2 R2 B2 L' D2 F U' D2 B U)` | 11 | F/B | 4c4 4e | 2 | 4c4-4 / 4c4-3 | drop | 0 / 0.06% / 1.2% |
+| 8 | `(D F' D' L2 R F' R B2 R2 D2 L)` | 11 | F/B | 0c3 4e | 2 | 0c3-1 / 0c3-1 | drop | 0.19% / 0.83% / 4.3% |
 
-Shown: 8 of the 726 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 68; 11 moves: 4 of 656).
+Shown: 8 of the 1760 DRs up to 11 moves (9 moves: 4 of 11; 10 moves: 0 of 153; 11 moves: 4 of 1596).
 
 <details>
 <summary>Answers for scramble 36</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 8 | 11 | 20 |
-| 2 | 8 / 10 | 14 | 23 |
-| 3 | 10 / 9 | 14 | 24 |
-| 4 | 8 / 8 | 12 | 22 |
-| 5 | 10 / 11 | 15 | 25 |
-| 6 | 7 / 8 | 13 | 23 |
-| 7 | 7 / 7 | 13 | 23 |
-| 8 | 7 / 7 | 13 | 24 |
+| 1 | 10 / 9 | 13 | 22 |
+| 2 | 7 / 6 | 13 | 22 |
+| 3 | 10 / 10 | 14 | 22 |
+| 4 | 8 / 8 | 14 | 22 |
+| 5 | 8 / 8 | 14 | 24 |
+| 6 | 9 / 10 | 14 | 24 |
+| 7 | 10 / 10 | 14 | 25 |
+| 8 | 12 / 12 | 16 | 26 |
 
-Best on the page: **20 moves**, from DR 1: `L U2 D' L F2 U2 F2 U R2 D2 F2 R2 F2 L2 D' F' L2 U' R' L2`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DR 2, 3 and 4 tie it): `F2 R2 F2 D2 R B2 D2 R2 U2 L' F2 L D2 U' R' U' R' L2 B D2 R L'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 37
 
-`R' U' F D2 F2 U' B2 R2 U L2 U' B2 U L U' B' F' L2 U2 B2 D' B2 L U' R' U' F`
+`R' U' F U2 B2 D2 R2 D' L2 D B2 U' L' B' D' U' B' D2 R D R' U2 F' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(B L2 F2 U' F L U F2 D L)` | 10 | U/D | 2c4 4e | 3 | 2c4-4 / 2c4-6 | look anyway | 0.09% / 0.76% / 5.6% |
-| 2 | `(B' D B2 L2 F' L U F2 D L)` | 10 | U/D | 2c4 4e | 3 | 2c4-4 / 2c4-6 | look anyway | 0.09% / 0.76% / 5.6% |
-| 3 | `D2 B L U L2 U2 R' D (L B)` | 10 | R/L | 4c4 2e | 0 | 4c4-2 / 4c4-3 | look anyway | 0 / 0.12% / 1.2% |
-| 4 | `(R B U' L2 D' R F D2 F L)` | 10 | F/B | 4b5 2e | 0 | 4b5-1 / 4b5-1 | look anyway | 0 / 0.06% / 0.76% |
-| 5 | `F (B' L2 D2 F L F2 U' R2 D2 L)` | 11 | U/D | 4c3 2e | 3 | 4c3-8 / 4c3-5 | drop | 0.04% / 0.78% / 6.4% |
-| 6 | `L2 U R U D2 L D (B L' D F)` | 11 | R/L | 4c4 2e | 3 | 4c4-4 / 4c4-3 | drop | 0 / 0.09% / 1.5% |
-| 7 | `F2 U' D L B R2 U D2 F D (L)` | 11 | F/B | 4b5 4e | 4 | 4b5-2 / 4b5-1 | drop | 0.01% / 0.31% / 3.2% |
-| 8 | `F (B' L2 D2 F L U2 B2 U' D R)` | 11 | U/D | 4a2 4e | 1 | 4a2-3 / 4a2-1 | keep | 0.86% / 6.3% / 29% |
+| 1 | `U' L2 B U' B' D2 B' L` | 8 | F/B | 4b2 4e | 2 | 4b2-3 / 4b2-1 | look anyway | 1.6% / 8.8% / 38% |
+| 2 | `L F2 U (U' R2 D2 R2 B)` | 8 | R/L | 2c4 6e | 2 | 2c4-4 / 2c4-3 | look anyway | 0.17% / 1.2% / 8.1% |
+| 3 | `L F2 U (L D2 L' U' B)` | 8 | R/L | 2c4 2e | 2 | 2c4-4 / 2c4-1 | look anyway | 0.19% / 1.7% / 12% |
+| 4 | `L F2 U (U' L2 D2 L2 B)` | 8 | R/L | 2c4 6e | 3 | 2c4-4 / 2c4-3 | look anyway | 0.25% / 1.8% / 10% |
+| 5 | `D2 L B2 U' L (D2 F U' B' U F)` | 11 | U/D | 4b2 2e | 1 | 4b2-2 / 4b2-1 | keep | 1.9% / 9.9% / 40% |
+| 6 | `L F2 U (U R B' R2 F R U2 B)` | 11 | R/L | 4a2 4e | 5 | 4a2-2 / 4a2-1 | keep | 12% / 32% / 68% |
+| 7 | `L F2 U (U' F U2 B' U2 R2 D2 B)` | 11 | R/L | 2c4 6e | 1 | 2c4-4 / 2c4-3 | drop | 0.07% / 0.66% / 5.4% |
+| 8 | `D2 R2 F2 U' L2 D L (B2 U' D2 B)` | 11 | U/D | 4c3 4e | 1 | 4c3-4 / 4c3-9 | drop | 0.05% / 0.54% / 3.8% |
 
-Shown: 8 of the 148 DRs up to 11 moves (10 moves: 4 of 5; 11 moves: 4 of 143).
+Shown: 8 of the 1382 DRs up to 11 moves (8 moves: 4 of 6; 9 moves: 0 of 11; 10 moves: 0 of 134; 11 moves: 4 of 1231).
 
 <details>
 <summary>Answers for scramble 37</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 9 | 13 | 23 |
-| 2 | 8 / 9 | 14 | 24 |
-| 3 | 11 / 11 | 15 | 24 |
-| 4 | 9 / 10 | 14 | 24 |
-| 5 | 9 / 9 | 14 | 24 |
-| 6 | 11 / 10 | 14 | 24 |
-| 7 | 11 / 10 | 13 | 23 |
-| 8 | 8 / 8 | 14 | 25 |
+| 1 | 6 / 7 | 14 | 21 |
+| 2 | 9 / 8 | 15 | 22 |
+| 3 | 9 / 8 | 13 | 20 |
+| 4 | 9 / 8 | 14 | 21 |
+| 5 | 6 / 6 | 13 | 23 |
+| 6 | 7 / 8 | 14 | 24 |
+| 7 | 9 / 8 | 14 | 24 |
+| 8 | 9 / 10 | 14 | 23 |
 
-Best on the page: **23 moves**, from DR 1 (DR 7 ties it): `B2 U R2 U' L2 D F2 D F2 L2 D2 F2 R2 L' D' F2 U' L' F' U F2 L2 B'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 3: `L F2 U' L2 U2 R' D2 L' D2 L B2 U2 B2 U2 L' B' U L D2 L'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 38
 
-`R' U' F U B R' U' F U2 R2 F2 U' R' F' U D L2 D2 R2 B2 U' R2 D F2 R' U' F`
+`R' U' F D B2 D2 L2 U L2 B2 U' L2 D2 F' R D' U2 F B' D' L B2 D2 B' U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(R2 D' B2 R F2 B R B2 U)` | 9 | R/L | 2c5 2e | 4 | 2c5-3 / 2c5-1 | look anyway | 0 / 0.15% / 2.8% |
-| 2 | `(R2 D' B2 R B D F2 R B2 U)` | 10 | R/L | 2c4 2e | 2 | 2c4-7 / 2c4-6 | look anyway | 0 / 0.12% / 2.3% |
-| 3 | `(R2 D' B2 R F2 B L2 R' F2 D)` | 10 | R/L | 2c5 2e | 3 | 2c5-3 / 2c5-1 | look anyway | 0 / 0.04% / 1.1% |
-| 4 | `(L' F' U2 D' F R2 D' R D L)` | 10 | U/D | 4c4 2e | 3 | 4c4-3 / 4c4-4 | look anyway | 0 / 0.09% / 1.5% |
-| 5 | `D2 L' F2 D' B2 L2 B' U (F2 B2 R)` | 11 | F/B | 4b5 4e | 0 | 4b5-1 / 4b5-1 | drop | 0 / 0.03% / 0.58% |
-| 6 | `(L' R' D L2 B' R2 D2 L D2 B2 D)` | 11 | R/L | 2c4 4e | 1 | 2c4-1 / 2c4-5 | drop | 0.05% / 0.84% / 7.6% |
-| 7 | `(R' U' D' F U D2 R B L B' R)` | 11 | F/B | 4c4 2e | 1 | 4c4-4 / 4c4-6 | drop | 0 / 0 / 0.14% |
-| 8 | `L D2 F2 B2 L U (R2 D' B2 R B)` | 11 | R/L | 4c4 4e | 3 | 4c4-5 / 4c4-4 | drop | 0 / <0.01% / 0.44% |
+| 1 | `R' F' R' U' L R2 F2 B R2 U' F` | 11 | U/D | 4c4 4e | 2 | 4c4-2 / 4c4-3 | drop | 0.05% / 0.51% / 2.9% |
+| 2 | `F L' B2 D' L2 R F2 B L2 D' F` | 11 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-1 | drop | 0.02% / 0.24% / 2.3% |
+| 3 | `R' F' R' U' L (F' D F R2 F' U)` | 11 | F/B | 4b2 4e | 1 | 4b2-2 / 4b2-3 | keep | 0.68% / 5.1% / 26% |
+| 4 | `D F' L' B (B' D R2 U D' L D)` | 11 | R/L | 4c4 2e | 5 | 4c4-1 / 4c4-2 | drop | 0.80% / 3.3% / 16% |
+| 5 | `R' F' R' U' L (R2 U' B2 L2 F' U)` | 11 | F/B | 4b2 4e | 3 | 4b2-3 / 4b2-3 | keep | 1.2% / 7.9% / 35% |
+| 6 | `R' F R' U' L (B' D R2 U' F' U)` | 11 | F/B | 4b2 2e | 2 | 4b2-4 / 4b2-2 | keep | 1.7% / 8.7% / 35% |
+| 7 | `F L' B2 D' R (B2 U' R2 U F' D)` | 11 | F/B | 2c4 6e | 1 | 2c4-7 / 2c4-1 | drop | 0.01% / 0.47% / 5.0% |
+| 8 | `L U (F U D F' L F R' F2 R)` | 11 | F/B | 2c4 2e | 3 | 2c4-2 / 2c4-6 | drop | 0.22% / 1.9% / 11% |
 
-Shown: 8 of the 164 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 14; 11 moves: 4 of 149).
+Shown: 8 of the 23 DRs up to 11 moves (11 moves: 8 of 23).
 
 <details>
 <summary>Answers for scramble 38</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 11 / 9 | 13 | 22 |
-| 2 | 10 / 8 | 14 | 23 |
-| 3 | 11 / 9 | 14 | 24 |
-| 4 | 10 / 10 | 13 | 23 |
-| 5 | 11 / 11 | 15 | 25 |
-| 6 | 9 / 9 | 14 | 25 |
-| 7 | 10 / 12 | 16 | 26 |
-| 8 | 11 / 11 | 15 | 25 |
+| 1 | 9 / 11 | 13 | 24 |
+| 2 | 10 / 10 | 15 | 26 |
+| 3 | 7 / 7 | 12 | 22 |
+| 4 | 11 / 9 | 13 | 24 |
+| 5 | 7 / 7 | 11 | 22 |
+| 6 | 7 / 7 | 13 | 23 |
+| 7 | 10 / 8 | 13 | 24 |
+| 8 | 9 / 9 | 13 | 23 |
 
-Best on the page: **22 moves**, from DR 1: `L2 D2 L D2 B2 L F2 L' U2 L F2 R F2 U' B2 R' B' F2 R' B2 D R2`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 3 (DR 5 ties it): `R' F' R' U' L' B' U2 R2 D2 U2 B R2 F2 U2 F2 D2 U' F R2 F' D' F`. The list drops 5 of the 8 DRs of 11 moves or more, and keeps the best one.
 
 </details>
 
 #### Scramble 39
 
-`R' U' F D2 R2 B2 U' B2 D' L2 B2 D' U' F' D' B D2 R' B2 U' R D' U2 R' U' F`
+`R' U' F D2 F2 D F2 U R2 F2 D R2 U2 B' D' L D2 F2 D' F2 U2 R D U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `B' L' R' U' B' D2 L (D)` | 8 | F/B | 2c4 2e | 2 | 2c4-6 / 2c4-3 | look anyway | 0.11% / 1.2% / 8.0% |
-| 2 | `B' L' R' U' F2 B U2 R (D)` | 9 | F/B | 2c4 2e | 1 | 2c4-6 / 2c4-3 | look anyway | 0.06% / 0.69% / 5.8% |
-| 3 | `(D2 F' L' D F2 U2 F' L' B)` | 9 | R/L | 2c3 4e | 6 | 2c3-3 / 2c3-2 | look anyway | 4.5% / 16% / 49% |
-| 4 | `(D2 F' L' D L2 F2 B' R' F)` | 9 | R/L | 2c3 4e | 3 | 2c3-1 / 2c3-2 | look anyway | 2.7% / 12% / 45% |
-| 5 | `(D' B R' F' R2 D' L R' D2 R2 D)` | 11 | R/L | 2c3 4e | 5 | 2c3-3 / 2c3-2 | keep | 4.5% / 16% / 49% |
-| 6 | `U2 F' R' U B L R2 D' R' U2 L` | 11 | U/D | 2c3 4e | 2 | 2c3-1 / 2c3-3 | keep | 1.0% / 6.4% / 30% |
-| 7 | `F' R' F' D2 R2 B (B2 L R B D)` | 11 | R/L | 4c3 2e | 1 | 4c3-9 / 4c3-5 | drop | <0.01% / 0.10% / 1.6% |
-| 8 | `(D2 F' L' D F' B2 R' D2 R2 D2 B)` | 11 | R/L | 4b5 4e | 4 | 4b5-1 / 4b5-1 | drop | 0.06% / 0.66% / 5.8% |
+| 1 | `F B R (L' U F2 D' B' L2 U)` | 10 | F/B | 2c4 6e | 2 | 2c4-5 / 2c4-3 | look anyway | 0.25% / 1.7% / 11% |
+| 2 | `D' B' R U' F2 D2 R B' R' F` | 10 | R/L | 4c4 4e | 1 | 4c4-2 / 4c4-1 | look anyway | 0.12% / 0.66% / 4.3% |
+| 3 | `B' R' F' U2 D2 L (L' D B' U)` | 10 | F/B | 2c4 6e | 2 | 2c4-7 / 2c4-7 | look anyway | 0 / 0.01% / 0.40% |
+| 4 | `F B R (L D R2 U' F R2 U)` | 10 | F/B | 4c4 2e | 2 | 4c4-3 / 4c4-4 | look anyway | 0 / 0.05% / 0.96% |
+| 5 | `D' B' R U' F2 D2 L2 R' F' R' B` | 11 | R/L | 4c4 4e | 1 | 4c4-2 / 4c4-1 | drop | 0.12% / 0.66% / 4.3% |
+| 6 | `L2 B' R' F' U2 D2 L (L' D B' U)` | 11 | F/B | 4c4 2e | 1 | 4c4-4 / 4c4-3 | drop | 0 / 0.03% / 0.54% |
+| 7 | `D' B' R U' R2 B2 U2 R F' R' B` | 11 | R/L | 4c4 2e | 2 | 4c4-2 / 4c4-1 | drop | 0.09% / 0.93% / 5.2% |
+| 8 | `R2 F B R (L D R2 U' F R2 U)` | 11 | F/B | 4c4 2e | 4 | 4c4-3 / 4c4-4 | drop | 0 / 0.27% / 2.6% |
 
-Shown: 8 of the 361 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 4; 10 moves: 0 of 30; 11 moves: 4 of 326).
+Shown: 8 of the 106 DRs up to 11 moves (10 moves: 4 of 4; 11 moves: 4 of 102).
 
 <details>
 <summary>Answers for scramble 39</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 8 | 14 | 21 |
-| 2 | 9 / 8 | 14 | 22 |
-| 3 | 8 / 6 | 11 | 20 |
-| 4 | 7 / 7 | 13 | 22 |
-| 5 | 6 / 6 | 12 | 22 |
-| 6 | 8 / 8 | 14 | 25 |
-| 7 | 10 / 8 | 15 | 25 |
-| 8 | 10 / 9 | 15 | 25 |
+| 1 | 9 / 9 | 14 | 23 |
+| 2 | 10 / 9 | 14 | 24 |
+| 3 | 10 / 10 | 14 | 24 |
+| 4 | 10 / 10 | 15 | 24 |
+| 5 | 9 / 10 | 14 | 25 |
+| 6 | 11 / 10 | 14 | 25 |
+| 7 | 9 / 9 | 15 | 26 |
+| 8 | 11 / 10 | 14 | 24 |
 
-Best on the page: **20 moves**, from DR 3: `R2 U2 F2 R2 F2 L' U2 L F2 U2 R B' L F U2 F2 D' L F D2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 1: `F B R F' R2 B D2 F' D2 F2 R2 F' R2 B2 D2 R2 U L2 B D F2 U' L`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 40
 
-`R' U' F L2 F2 R2 D2 L2 R2 F2 R2 U2 R' D B' U2 F' R U' F2 R' D2 F2 U' R' U' F`
+`R' U' F U2 B2 R2 B2 U R2 U F2 D' U2 R F' U' R' D2 L2 B' U2 B' R' F' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `B' U L R' U (L' B' U' B)` | 9 | R/L | 2c3 2e | 2 | 2c3-1 / 2c3-1 | look anyway | 3.5% / 17% / 55% |
-| 2 | `(U D' F B2 U' L' F' R D2 F)` | 10 | R/L | 4c4 4e | 0 | 4c4-4 / 4c4-3 | look anyway | 0 / 0.02% / 0.67% |
-| 3 | `D2 F B' D (D R' B' L2 F L)` | 10 | F/B | 4c4 2e | 2 | 4c4-4 / 4c4-3 | look anyway | 0 / 0.05% / 0.96% |
-| 4 | `D2 F B' D (D' R2 B' L' B R)` | 10 | F/B | 2c4 4e | 2 | 2c4-3 / 2c4-5 | look anyway | 0.14% / 1.4% / 9.6% |
-| 5 | `B' U R2 D2 L R U (L' B' U' B)` | 11 | R/L | 2c3 2e | 2 | 2c3-3 / 2c3-1 | keep | 1.8% / 11% / 44% |
-| 6 | `R D F B L U2 B' U2 B L2 D` | 11 | F/B | 4c4 2e | 2 | 4c4-4 / 4c4-6 | drop | 0 / 0 / 0.18% |
-| 7 | `R (F B' D' L U2 F U D2 B D)` | 11 | F/B | 4a1 2e | 2 | 4a1-1 / 4a1-4 | keep | 2.8% / 13% / 44% |
-| 8 | `U2 F D (F' D R' U2 R' F R' B)` | 11 | R/L | 2c5 4e | 5 | 2c5-1 / 2c5-3 | drop | 0 / 0.71% / 5.9% |
+| 1 | `B' L D L2 B U F (F2 B2 L)` | 10 | U/D | 2c4 6e | 1 | 2c4-2 / 2c4-2 | look anyway | 0.05% / 1.8% / 13% |
+| 2 | `B R (F2 R' D2 L2 D' B U' F)` | 10 | U/D | 4c4 4e | 2 | 4c4-4 / 4c4-1 | look anyway | <0.01% / 0.35% / 3.3% |
+| 3 | `R' B R U' B R2 D R2 F (R)` | 10 | U/D | 4b5 2e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.2% |
+| 4 | `R' B R U' B' R2 D R2 F (R)` | 10 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-1 | look anyway | 0.02% / 0.24% / 2.3% |
+| 5 | `U' L' U2 R' D R (U' F' L R' B)` | 11 | U/D | 4b5 2e | 0 | 4b5-2 / 4b5-2 | drop | 0 / 0.02% / 0.31% |
+| 6 | `D' L2 B2 L2 B2 U (R U L' F L)` | 11 | F/B | 4b2 4e | 2 | 4b2-2 / 4b2-3 | keep | 1.2% / 7.6% / 34% |
+| 7 | `U' F2 L2 F2 L2 D (R U' L' F L)` | 11 | F/B | 2c4 4e | 4 | 2c4-3 / 2c4-1 | keep | 1.5% / 7.8% / 32% |
+| 8 | `B R (F2 R' D2 L2 U2 D' F U' B)` | 11 | U/D | 4a2 2e | 2 | 4a2-1 / 4a2-1 | keep | 1.7% / 7.9% / 31% |
 
-Shown: 8 of the 189 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 15; 11 moves: 4 of 173).
+Shown: 8 of the 175 DRs up to 11 moves (10 moves: 4 of 10; 11 moves: 4 of 165).
 
 <details>
 <summary>Answers for scramble 40</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 7 / 7 | 12 | 21 |
-| 2 | 11 / 10 | 15 | 24 |
-| 3 | 11 / 10 | 14 | 24 |
-| 4 | 7 / 10 | 13 | 23 |
-| 5 | 6 / 7 | 10 | 20 |
-| 6 | 10 / 12 | 14 | 25 |
-| 7 | 6 / 8 | 13 | 24 |
-| 8 | 10 / 11 | 15 | 25 |
+| 1 | 9 / 9 | 14 | 22 |
+| 2 | 11 / 10 | 13 | 23 |
+| 3 | 10 / 10 | 14 | 24 |
+| 4 | 10 / 9 | 12 | 21 |
+| 5 | 10 / 10 | 15 | 25 |
+| 6 | 8 / 7 | 13 | 23 |
+| 7 | 8 / 7 | 13 | 24 |
+| 8 | 8 / 9 | 12 | 23 |
 
-Best on the page: **20 moves**, from DR 5: `B' U R2 D2 L R U F2 D2 U2 R U2 L' B2 R' D2 B U B L`. The list drops 2 of the 4 DRs of 11 moves or more, and keeps the best one.
+Best on the page: **21 moves**, from DR 4: `R' B R U' B' R2 D R2 F' B2 D' F2 L2 U F2 U' F2 D B2 D' R'`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 41
 
-`R' U' F U R2 D2 U' L2 F2 R2 B2 U2 L2 B' L' U2 L' U2 R2 F' U L B2 R' B' R' U' F`
+`R' U' F D2 R2 U R2 B2 D U2 F2 U L' R2 F' L2 U' R' B U' L2 R' U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `R2 B R' F (U D L R)` | 8 | U/D | 2c5 2e | 1 | 2c5-1 / 2c5-2 | look anyway | 0 / 0 / 1.1% |
-| 2 | `R2 B R' F' L' R' U D` | 8 | R/L | 2c5 2e | 3 | 2c5-1 / 2c5-1 | look anyway | 0.03% / 0.53% / 4.6% |
-| 3 | `F' R' B U2 L D R U` | 8 | R/L | 4b5 4e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.1% |
-| 4 | `R2 B R' F L' R' U D` | 8 | R/L | 2c5 2e | 2 | 2c5-1 / 2c5-1 | look anyway | 0.01% / 0.32% / 3.4% |
-| 5 | `R2 B R' F' U2 D' L' R' F2 U D` | 11 | R/L | 2c4 4e | 2 | 2c4-2 / 2c4-1 | keep | 0.46% / 3.6% / 22% |
-| 6 | `R2 B R' F' D2 L R D2 B2 U D` | 11 | R/L | 2c5 2e | 2 | 2c5-2 / 2c5-1 | drop | 0 / 0.06% / 1.8% |
-| 7 | `F' R' B U L' D' R' F2 L2 B2 D` | 11 | R/L | 4c4 4e | 1 | 4c4-6 / 4c4-2 | drop | 0 / 0.07% / 0.97% |
-| 8 | `R2 B L' U D' F' B L' D2 F B` | 11 | R/L | 2c5 2e | 2 | 2c5-2 / 2c5-1 | drop | 0 / 0.06% / 1.8% |
+| 1 | `L R (U' R F2 R2 B' L2 U)` | 9 | F/B | 2c5 6e | 1 | 2c5-2 / 2c5-1 | look anyway | 0 / 0.16% / 1.5% |
+| 2 | `(B' R D' R' U' D2 R F' U2 B)` | 10 | R/L | 2c3 4e | 4 | 2c3-3 / 2c3-3 | look anyway | 1.2% / 6.2% / 26% |
+| 3 | `(U' D' L' B' D' F R U2 B2 R)` | 10 | F/B | 2c3 0e | 3 | 2c3-1 / 2c3-1 | look anyway | 0.15% / 2.7% / 25% |
+| 4 | `(U2 B' U' R D' L2 B L D2 R)` | 10 | F/B | 2c4 2e | 3 | 2c4-4 / 2c4-5 | look anyway | 0.02% / 0.81% / 7.2% |
+| 5 | `U2 L R (U' R F2 D2 R2 B' L2 U)` | 11 | F/B | 2c5 4e | 1 | 2c5-2 / 2c5-1 | drop | 0 / 0.05% / 1.2% |
+| 6 | `(U' R B D B' R' F2 U2 L U2 F)` | 11 | R/L | 4c3 4e | 4 | 4c3-4 / 4c3-7 | keep | 0.81% / 3.4% / 16% |
+| 7 | `(U' D' L' B' D R' D2 F R F2 L)` | 11 | F/B | 2c4 6e | 2 | 2c4-4 / 2c4-5 | drop | 0.03% / 0.73% / 5.4% |
+| 8 | `L R (U' R' F2 R2 F' D2 F' B D)` | 11 | F/B | 2c5 6e | 5 | 2c5-2 / 2c5-2 | drop | 0 / 0 / 0.65% |
 
-Shown: 8 of the 9143 DRs up to 11 moves (8 moves: 4 of 17; 9 moves: 0 of 133; 10 moves: 0 of 1032; 11 moves: 4 of 7961).
+Shown: 8 of the 186 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 24; 11 moves: 4 of 161).
 
 <details>
 <summary>Answers for scramble 41</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 14 | 21 |
-| 2 | 10 / 10 | 13 | 21 |
-| 3 | 10 / 11 | 14 | 22 |
-| 4 | 10 / 10 | 14 | 20 |
-| 5 | 8 / 7 | 13 | 24 |
-| 6 | 10 / 10 | 15 | 25 |
-| 7 | 11 / 10 | 15 | 26 |
-| 8 | 10 / 10 | 14 | 24 |
+| 1 | 11 / 10 | 14 | 23 |
+| 2 | 7 / 8 | 13 | 23 |
+| 3 | 9 / 9 | 12 | 22 |
+| 4 | 9 / 9 | 14 | 23 |
+| 5 | 11 / 9 | 15 | 24 |
+| 6 | 10 / 10 | 14 | 25 |
+| 7 | 9 / 9 | 15 | 25 |
+| 8 | 11 / 10 | 14 | 25 |
 
-Best on the page: **20 moves**, from DR 4: `R2 B R' F L' R' U' D' L' U2 R' F2 R2 U2 R B2 L' U2 L' F2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 3: `L2 B' D2 B' D2 F D2 F2 U2 F R2 F' R' B2 U2 R' F' D B L D U`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 42
 
-`R' U' F R' B2 R' U2 L' U2 L2 F2 D2 R U' F' B2 U L R' F B L' R' D' R' U' F`
+`R' U' F D2 U' B2 U R2 D' R2 B2 U' R' B2 D2 B2 F' U R2 D' R' B' L' U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `U F B' L' D' B' D' B2 U` | 9 | F/B | 2c4 2e | 2 | 2c4-7 / 2c4-7 | look anyway | 0 / <0.01% / 0.29% |
-| 2 | `U F B' L' D' B' U' L2 D` | 9 | F/B | 2c4 2e | 3 | 2c4-7 / 2c4-7 | look anyway | 0 / 0 / 0.54% |
-| 3 | `F' L2 F2 L' U R2 D (F U2 B)` | 10 | R/L | 4c4 2e | 0 | 4c4-5 / 4c4-4 | look anyway | 0 / 0 / 0.04% |
-| 4 | `U F R2 B' L D' B2 U2 L2 F` | 10 | U/D | 2c4 4e | 0 | 2c4-3 / 2c4-3 | look anyway | 0.07% / 1.0% / 6.4% |
-| 5 | `(B R' F U2 B' R2 U' D L' R2 D)` | 11 | R/L | 2c4 4e | 2 | 2c4-7 / 2c4-1 | drop | 0.08% / 0.85% / 7.2% |
-| 6 | `F L2 F2 L U' D2 L2 D (B L2 F)` | 11 | R/L | 4c4 2e | 3 | 4c4-5 / 4c4-4 | drop | 0 / 0.02% / 0.45% |
-| 7 | `U F B' L' F L2 F' D' B' U D` | 11 | F/B | 2c4 4e | 3 | 2c4-7 / 2c4-7 | drop | 0 / <0.01% / 0.85% |
-| 8 | `L D L2 F' L F U2 F (F B2 D)` | 11 | R/L | 2c4 6e | 1 | 2c4-1 / 2c4-1 | keep | 0.35% / 3.3% / 20% |
+| 1 | `B L' D' F2 D' B L D2 R B` | 10 | R/L | 2c4 2e | 4 | 2c4-7 / 2c4-5 | look anyway | 0 / 0.08% / 2.1% |
+| 2 | `U' R2 U (F2 L2 B' R' U2 D2 B)` | 10 | R/L | 4c3 4e | 0 | 4c3-4 / 4c3-1 | look anyway | 0.31% / 2.3% / 13% |
+| 3 | `U' B2 R2 B2 U (F B2 U2 R' B)` | 10 | R/L | 2c3 2e | 2 | 2c3-2 / 2c3-2 | look anyway | 1.6% / 9.2% / 39% |
+| 4 | `L2 U' R2 U' F' L' F' R' U2 B` | 10 | R/L | 2c3 6e | 1 | 2c3-2 / 2c3-1 | look anyway | 0.58% / 4.1% / 23% |
+| 5 | `B2 U' R2 U R2 B2 R' B2 D2 B' L` | 11 | F/B | 4b5 4e | 4 | 4b5-1 / 4b5-1 | drop | 0.06% / 0.66% / 5.8% |
+| 6 | `(L2 F' D2 L B' U2 R2 B2 D' L' D)` | 11 | R/L | 2c4 4e | 1 | 2c4-5 / 2c4-1 | drop | 0.05% / 0.84% / 7.6% |
+| 7 | `D' F2 D (L2 U2 F B2 R U2 R2 B)` | 11 | R/L | 4b5 4e | 2 | 4b5-1 / 4b5-2 | drop | 0 / 0.07% / 1.0% |
+| 8 | `B' L' D' F2 D' B L' R2 U2 R F` | 11 | R/L | 2c4 4e | 2 | 2c4-7 / 2c4-2 | drop | 0.03% / 0.45% / 4.4% |
 
-Shown: 8 of the 283 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 38; 11 moves: 4 of 243).
+Shown: 8 of the 603 DRs up to 11 moves (10 moves: 4 of 42; 11 moves: 4 of 561).
 
 <details>
 <summary>Answers for scramble 42</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 14 | 23 |
-| 2 | 9 / 10 | 14 | 23 |
-| 3 | 11 / 11 | 15 | 25 |
-| 4 | 8 / 8 | 11 | 21 |
-| 5 | 9 / 8 | 14 | 25 |
-| 6 | 11 / 11 | 15 | 26 |
-| 7 | 10 / 10 | 15 | 25 |
-| 8 | 8 / 8 | 13 | 24 |
+| 1 | 10 / 9 | 14 | 24 |
+| 2 | 10 / 9 | 14 | 23 |
+| 3 | 7 / 7 | 14 | 23 |
+| 4 | 9 / 8 | 12 | 22 |
+| 5 | 10 / 9 | 12 | 23 |
+| 6 | 10 / 9 | 14 | 25 |
+| 7 | 11 / 10 | 14 | 25 |
+| 8 | 9 / 9 | 13 | 24 |
 
-Best on the page: **21 moves**, from DR 4: `U F R2 B' L D' B2 U2 L2 F U R2 B2 U L2 U' F2 R2 D B2 D2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 4: `L2 U' R2 U' F' L' F' R' U2 B R U2 L' B2 R' U2 B2 R F2 R D2 B2`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 43
 
-`R' U' F R2 U B2 L2 B2 R2 F2 D' F2 D' R F' R2 U B' L' D2 R B' U R' U' F`
+`R' U' F U B2 R2 F2 U' L2 D B2 U B2 R D2 F' L F' U2 F' D2 U F' U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `U (F U' B2 D' L' U2 B2 L)` | 9 | F/B | 4b5 0e | 0 | 4b5-1 / 4b5-1 | look anyway | 0 / 0.04% / 0.89% |
-| 2 | `U (F U' B2 D' L' D2 F2 R)` | 9 | F/B | 4b5 0e | 1 | 4b5-1 / 4b5-1 | look anyway | 0 / 0.15% / 1.9% |
-| 3 | `U (F U' B2 D' R' B2 D2 L)` | 9 | F/B | 4b5 0e | 3 | 4b5-1 / 4b5-1 | look anyway | 0 / 0.20% / 2.4% |
-| 4 | `U (F U' B2 D' R' F2 U2 R)` | 9 | F/B | 4b5 0e | 2 | 4b5-1 / 4b5-1 | look anyway | 0.01% / 0.25% / 2.2% |
-| 5 | `D' R2 U F' B U2 R' D2 R B2 L` | 11 | U/D | 2c4 6e | 2 | 2c4-1 / 2c4-4 | drop | 0.18% / 1.5% / 11% |
-| 6 | `B2 D' B' U' F (F2 L' F2 L' B2 D)` | 11 | R/L | 2c4 4e | 0 | 2c4-1 / 2c4-7 | drop | 0 / 0.25% / 3.2% |
-| 7 | `(D' R2 U' L F' D2 F' U2 F D2 B)` | 11 | U/D | 2c4 2e | 2 | 2c4-1 / 2c4-6 | drop | 0.16% / 1.6% / 11% |
-| 8 | `U' B U2 L2 U2 L2 F (F U' B2 D)` | 11 | R/L | 4c3 4e | 4 | 4c3-1 / 4c3-5 | keep | 1.2% / 7.3% / 32% |
+| 1 | `(F U' R D2 F D R2 U' L)` | 9 | U/D | 2c3 6e | 2 | 2c3-1 / 2c3-3 | look anyway | 0.47% / 3.6% / 22% |
+| 2 | `(R' U D L F2 B L2 F' U' F)` | 10 | U/D | 4b2 2e | 3 | 4b2-1 / 4b2-4 | look anyway | 3.5% / 15% / 48% |
+| 3 | `U B R (B2 R U F U R2 F)` | 10 | U/D | 2c4 4e | 1 | 2c4-6 / 2c4-1 | look anyway | 0.09% / 0.94% / 7.2% |
+| 4 | `U F2 B' D L' D' R (U D2 F)` | 10 | U/D | 4b2 4e | 2 | 4b2-4 / 4b2-3 | look anyway | 0.46% / 3.8% / 23% |
+| 5 | `R U' B' D2 F R U L D2 R U` | 11 | R/L | 4b5 2e | 2 | 4b5-1 / 4b5-1 | drop | 0.02% / 0.24% / 2.3% |
+| 6 | `(R U D L' B2 D F D R2 U' F)` | 11 | U/D | 2c3 4e | 0 | 2c3-1 / 2c3-1 | keep | 1.0% / 6.6% / 31% |
+| 7 | `U B U2 R (R D2 L2 U' F2 B D)` | 11 | F/B | 4a1 2e | 2 | 4a1-3 / 4a1-4 | keep | 0.59% / 5.0% / 27% |
+| 8 | `U B U2 R (R' D2 L2 U F2 B D)` | 11 | F/B | 4a1 4e | 3 | 4a1-3 / 4a1-4 | keep | 3.7% / 17% / 51% |
 
-Shown: 8 of the 458 DRs up to 11 moves (9 moves: 4 of 4; 10 moves: 0 of 35; 11 moves: 4 of 419).
+Shown: 8 of the 172 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 18; 11 moves: 4 of 153).
 
 <details>
 <summary>Answers for scramble 43</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 9 | 15 | 24 |
-| 2 | 9 / 9 | 14 | 22 |
-| 3 | 9 / 9 | 15 | 23 |
-| 4 | 9 / 9 | 15 | 24 |
-| 5 | 8 / 9 | 12 | 22 |
-| 6 | 9 / 10 | 14 | 25 |
-| 7 | 8 / 8 | 15 | 25 |
-| 8 | 8 / 8 | 13 | 23 |
+| 1 | 8 / 8 | 12 | 21 |
+| 2 | 6 / 6 | 13 | 22 |
+| 3 | 10 / 8 | 14 | 24 |
+| 4 | 7 / 8 | 13 | 22 |
+| 5 | 10 / 10 | 15 | 25 |
+| 6 | 7 / 8 | 14 | 24 |
+| 7 | 7 / 7 | 12 | 23 |
+| 8 | 7 / 4 | 14 | 24 |
 
-Best on the page: **22 moves**, from DR 2 (DR 5 ties it): `U' L2 F D2 B R2 F' L2 B D2 B' R2 U2 B2 R' F2 D2 L D B2 U F'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1: `D2 F2 B2 D' L2 B2 D' R2 F2 B2 D F2 L' U R2 D' F' D2 R' U F'`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 44
 
-`R' U' F U B' L' B' D' L' B2 D' F2 L' B' U' B2 L2 F2 U F2 U B2 R' U' F`
+`R' U' F D' B2 U B2 D' F2 U2 B2 R' B2 R' B U F L' F' R2 B F' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `B2 U' D2 R (R' F R2 B D F)` | 10 | U/D | 2c3 4e | 5 | 2c3-1 / 2c3-3 | look anyway | 5.9% / 21% / 58% |
-| 2 | `B2 U' D2 R (R' B U2 F D F)` | 10 | U/D | 2c3 4e | 2 | 2c3-1 / 2c3-3 | look anyway | 1.0% / 6.4% / 30% |
-| 3 | `U' B2 D2 R (R' B U' F D F)` | 10 | U/D | 4c4 4e | 1 | 4c4-2 / 4c4-1 | look anyway | 0.12% / 0.66% / 4.3% |
-| 4 | `F' U F L2 F (D' L' R B' L)` | 10 | U/D | 4b5 4e | 1 | 4b5-2 / 4b5-2 | look anyway | 0 / <0.01% / 0.22% |
-| 5 | `R' F B D R2 D' R' D2 L (L' F)` | 11 | U/D | 4c3 2e | 3 | 4c3-2 / 4c3-5 | keep | 0.54% / 3.9% / 21% |
-| 6 | `R F' B D L B2 D R2 U (L' F)` | 11 | R/L | 2c3 4e | 2 | 2c3-3 / 2c3-1 | keep | 1.0% / 6.4% / 30% |
-| 7 | `(R' F B' D F R' B2 U' D2 R' U)` | 11 | R/L | 4b5 2e | 0 | 4b5-1 / 4b5-2 | drop | <0.01% / 0.03% / 0.58% |
-| 8 | `L2 U D' F' D' L F2 L' B U2 F` | 11 | R/L | 2c4 4e | 3 | 2c4-3 / 2c4-4 | drop | 0.22% / 1.7% / 10% |
+| 1 | `U' D' L U2 R' B' L (R U D)` | 10 | F/B | 2c5 4e | 2 | 2c5-1 / 2c5-2 | look anyway | 0.02% / 0.23% / 2.4% |
+| 2 | `R U F' B' D F (D2 L D' L)` | 10 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-2 | look anyway | 0.01% / 0.14% / 1.4% |
+| 3 | `U' D' L U2 R' B' L (R' U D)` | 10 | F/B | 2c5 4e | 2 | 2c5-1 / 2c5-2 | look anyway | 0.02% / 0.23% / 2.4% |
+| 4 | `(B2 L2 B U' D L2 B L B2 R)` | 10 | F/B | 2c4 4e | 1 | 2c4-1 / 2c4-7 | look anyway | 0.02% / 0.48% / 4.7% |
+| 5 | `(B' U' L B D R2 F L2 B' U2 B)` | 11 | R/L | 2c4 2e | 1 | 2c4-3 / 2c4-3 | keep | 0.07% / 1.4% / 9.3% |
+| 6 | `(B U2 D F U' R' U2 F' L2 B' R)` | 11 | F/B | 2c4 2e | 1 | 2c4-1 / 2c4-2 | keep | 0.16% / 2.0% / 16% |
+| 7 | `L R (L U F B' U' D F' D' F)` | 11 | U/D | 0c3 6e | 1 | 0c3-1 / 0c3-2 | drop | 0.10% / 0.89% / 4.3% |
+| 8 | `B2 U' L2 B (B R' D R F2 D R)` | 11 | U/D | 2c4 4e | 0 | 2c4-2 / 2c4-6 | drop | 0.05% / 0.62% / 5.1% |
 
-Shown: 8 of the 183 DRs up to 11 moves (10 moves: 4 of 17; 11 moves: 4 of 166).
+Shown: 8 of the 127 DRs up to 11 moves (10 moves: 4 of 12; 11 moves: 4 of 115).
 
 <details>
 <summary>Answers for scramble 44</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 6 / 7 | 13 | 23 |
-| 2 | 8 / 8 | 12 | 21 |
-| 3 | 10 / 9 | 14 | 24 |
-| 4 | 10 / 10 | 14 | 24 |
-| 5 | 9 / 8 | 12 | 23 |
-| 6 | 8 / 7 | 12 | 23 |
-| 7 | 10 / 10 | 14 | 25 |
-| 8 | 8 / 9 | 13 | 24 |
+| 1 | 10 / 10 | 12 | 22 |
+| 2 | 9 / 10 | 15 | 25 |
+| 3 | 10 / 10 | 14 | 23 |
+| 4 | 9 / 10 | 15 | 25 |
+| 5 | 10 / 8 | 15 | 26 |
+| 6 | 9 / 9 | 14 | 25 |
+| 7 | 11 / 10 | 14 | 24 |
+| 8 | 8 / 8 | 12 | 23 |
 
-Best on the page: **21 moves**, from DR 2: `B2 U' D2 R L2 D R2 F2 B2 U' B2 U2 F2 U R2 F D' F' U2 B' R`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1: `U' D' L U2 R' B' L D2 B' U2 L2 B' D2 F L2 F' U2 F L2 D' U' R'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 45
 
-`R' U' F D2 R2 U' B2 D R2 U L2 D' L R2 D2 F R B D L' F2 R' D2 R' U' F`
+`R' U' F U2 R2 F2 U' B2 D' R2 D' L2 U2 L' U B U B R U2 F' D' U F' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `B' R D L' B U' D B' D` | 9 | F/B | 2c4 4e | 3 | 2c4-7 / 2c4-3 | look anyway | 0.13% / 1.2% / 8.1% |
-| 2 | `B' R D L R2 F U D' F' U` | 10 | F/B | 2c4 4e | 3 | 2c4-7 / 2c4-3 | look anyway | 0.13% / 1.2% / 8.1% |
-| 3 | `B' R D L' B U' L2 D B' D` | 10 | F/B | 2c4 6e | 1 | 2c4-6 / 2c4-3 | look anyway | 0.04% / 0.51% / 4.6% |
-| 4 | `B' R D L' B R2 U D' F D` | 10 | F/B | 2c4 6e | 2 | 2c4-7 / 2c4-3 | look anyway | 0.06% / 0.84% / 6.1% |
-| 5 | `B' R D L' B U2 D F2 U B' D` | 11 | F/B | 2c4 4e | 2 | 2c4-6 / 2c4-3 | drop | 0.13% / 1.2% / 7.6% |
-| 6 | `R' D B L (D' F' U' B' D F' U)` | 11 | F/B | 2c4 4e | 1 | 2c4-2 / 2c4-7 | drop | 0 / 0.20% / 2.9% |
-| 7 | `B' R D L' F' B2 U F B' R2 U` | 11 | F/B | 2c4 4e | 1 | 2c4-7 / 2c4-3 | drop | 0.02% / 0.40% / 3.7% |
-| 8 | `R' D B L' R2 B U' L2 D B D` | 11 | F/B | 2c4 4e | 3 | 2c4-7 / 2c4-2 | drop | 0.04% / 0.74% / 6.2% |
+| 1 | `D' L R2 F D (B' L F R' F)` | 10 | R/L | 4c4 4e | 0 | 4c4-4 / 4c4-3 | look anyway | 0 / 0.02% / 0.67% |
+| 2 | `U2 L' D2 B R' F2 U F2 D' B` | 10 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-2 | look anyway | 0.01% / 0.14% / 1.4% |
+| 3 | `L (B D2 F R F2 B' U D2 B)` | 10 | U/D | 4b2 4e | 1 | 4b2-3 / 4b2-1 | look anyway | 1.1% / 6.6% / 31% |
+| 4 | `B' U' L2 F' D (L R' U' F2 R)` | 10 | F/B | 4b5 2e | 4 | 4b5-1 / 4b5-1 | look anyway | 0.11% / 0.72% / 5.4% |
+| 5 | `U2 F2 D' L2 U' F (L R' F U' R)` | 11 | U/D | 4b5 2e | 1 | 4b5-2 / 4b5-1 | drop | 0 / 0.05% / 0.78% |
+| 6 | `D' B R' B2 L (F D L2 D' B U)` | 11 | F/B | 2c4 4e | 0 | 2c4-7 / 2c4-7 | drop | 0 / 0 / 0.21% |
+| 7 | `F' D F' U2 R B D2 L (U2 F U)` | 11 | F/B | 2c3 6e | 0 | 2c3-2 / 2c3-3 | keep | 0.14% / 1.3% / 9.5% |
+| 8 | `D' L' D' B' U' F2 D' B (U2 B' L)` | 11 | U/D | 2c4 6e | 1 | 2c4-3 / 2c4-4 | drop | 0.07% / 0.66% / 5.4% |
 
-Shown: 8 of the 97 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 8; 11 moves: 4 of 88).
+Shown: 8 of the 85 DRs up to 11 moves (10 moves: 4 of 7; 11 moves: 4 of 78).
 
 <details>
 <summary>Answers for scramble 45</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 8 | 12 | 21 |
-| 2 | 10 / 8 | 13 | 23 |
-| 3 | 9 / 8 | 14 | 24 |
-| 4 | 10 / 8 | 13 | 23 |
-| 5 | 9 / 7 | 15 | 25 |
-| 6 | 9 / 9 | 14 | 24 |
-| 7 | 9 / 9 | 14 | 25 |
-| 8 | 9 / 8 | 14 | 25 |
+| 1 | 11 / 10 | 15 | 25 |
+| 2 | 10 / 11 | 14 | 24 |
+| 3 | 8 / 7 | 12 | 21 |
+| 4 | 10 / 9 | 12 | 22 |
+| 5 | 10 / 9 | 15 | 25 |
+| 6 | 10 / 9 | 15 | 25 |
+| 7 | 7 / 8 | 15 | 25 |
+| 8 | 8 / 9 | 14 | 25 |
 
-Best on the page: **21 moves**, from DR 1: `B' R D L' B U' D B' D F2 R2 F L2 D2 F U2 B R2 F2 L2 B'`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 3: `L' B2 R2 U2 B2 D' F2 B2 R2 B2 D F2 B D2 U' B F2 R' F' D2 B'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 46
 
-`R' U' F R2 U2 F2 L2 F2 R2 D F2 U2 B2 R F D F U2 F' R2 B' U' R' U R' U' F`
+`R' U' F U R L U R2 D2 B U R U2 L F B2 U' B2 D' F2 U' R2 F2 U' B2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `D2 B' D2 F' U (B R2 F)` | 8 | R/L | 4c3 4e | 0 | 4c3-4 / 4c3-7 | look anyway | 0.11% / 1.1% / 7.7% |
-| 2 | `F' B' U' R' F' D2 F' R` | 8 | F/B | 4a1 4e | 1 | 4a1-4 / 4a1-2 | look anyway | 3.4% / 15% / 46% |
-| 3 | `(U2 L' B' U2 D R2 F' R)` | 8 | F/B | 2c3 4e | 1 | 2c3-3 / 2c3-1 | look anyway | 0.62% / 4.5% / 24% |
-| 4 | `D2 B' D2 F' U (F D2 B)` | 8 | R/L | 4c3 4e | 1 | 4c3-4 / 4c3-7 | look anyway | 0.17% / 1.5% / 9.0% |
-| 5 | `F' B' U' R' F' D2 F' L D2 L R` | 11 | F/B | 4a1 4e | 1 | 4a1-3 / 4a1-2 | keep | 3.3% / 14% / 46% |
-| 6 | `F' B' U (L' D2 L' U2 R B' D2 L)` | 11 | F/B | 4c4 4e | 0 | 4c4-4 / 4c4-5 | drop | 0 / 0 / 0.06% |
-| 7 | `F' B' U' R' B' D2 B' L2 F' R B` | 11 | R/L | 2c3 6e | 1 | 2c3-3 / 2c3-2 | keep | 0.22% / 1.8% / 12% |
-| 8 | `B L R2 B2 R' F (F' L' F B' D)` | 11 | R/L | 4c3 2e | 0 | 4c3-5 / 4c3-2 | keep | 0.10% / 1.2% / 9.1% |
+| 1 | `D2 R2 B2 U D2 R B' D2 L` | 9 | F/B | 4b5 4e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.1% |
+| 2 | `U2 L2 F2 U D2 L F' D2 R` | 9 | F/B | 4b5 2e | 0 | 4b5-1 / 4b5-1 | look anyway | 0 / 0.06% / 0.76% |
+| 3 | `D L F' B' L (U2 L' F' U)` | 9 | F/B | 4a1 4e | 1 | 4a1-2 / 4a1-2 | look anyway | 3.6% / 14% / 46% |
+| 4 | `R' U B' L2 U R' D R' D` | 9 | R/L | 2c3 4e | 0 | 2c3-2 / 2c3-1 | look anyway | 0.59% / 4.4% / 24% |
+| 5 | `R2 U2 F2 L2 U (R' F2 L F' D2 R)` | 11 | F/B | 2c4 6e | 1 | 2c4-2 / 2c4-7 | drop | 0 / 0.07% / 2.2% |
+| 6 | `R' U B R' B2 L2 R' D' L2 F2 D` | 11 | R/L | 4b2 2e | 2 | 4b2-3 / 4b2-1 | keep | 2.7% / 12% / 42% |
+| 7 | `R2 D2 B2 R2 U (R' F2 L F' D2 R)` | 11 | F/B | 2c4 6e | 2 | 2c4-2 / 2c4-7 | drop | 0 / 0.24% / 4.5% |
+| 8 | `D2 B2 R2 U B2 L2 R2 B' L' D2 B` | 11 | R/L | 2c5 6e | 1 | 2c5-1 / 2c5-1 | drop | 0.05% / 0.29% / 2.5% |
 
-Shown: 8 of the 1007 DRs up to 11 moves (8 moves: 4 of 4; 9 moves: 0 of 7; 10 moves: 0 of 102; 11 moves: 4 of 894).
+Shown: 8 of the 1013 DRs up to 11 moves (9 moves: 4 of 6; 10 moves: 0 of 77; 11 moves: 4 of 930).
 
 <details>
 <summary>Answers for scramble 46</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 9 | 13 | 21 |
-| 2 | 6 / 5 | 12 | 20 |
-| 3 | 8 / 7 | 13 | 21 |
-| 4 | 10 / 10 | 14 | 21 |
-| 5 | 6 / 5 | 13 | 22 |
-| 6 | 10 / 12 | 15 | 26 |
-| 7 | 9 / 7 | 14 | 24 |
-| 8 | 9 / 9 | 13 | 24 |
+| 1 | 11 / 10 | 14 | 23 |
+| 2 | 10 / 9 | 15 | 23 |
+| 3 | 6 / 6 | 12 | 21 |
+| 4 | 8 / 7 | 13 | 22 |
+| 5 | 9 / 10 | 13 | 24 |
+| 6 | 7 / 6 | 13 | 24 |
+| 7 | 9 / 10 | 14 | 24 |
+| 8 | 10 / 10 | 14 | 25 |
 
-Best on the page: **20 moves**, from DR 2: `F' B' U' R' F' D2 F' R F' B' L2 D2 F2 L2 U2 F' U2 R2 D2 R2`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 3: `D L F' B' L F2 U2 F2 D2 B2 R2 F' L2 U2 R2 B2 D2 U' F L U2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 47
 
-`R' U' F R2 D B2 D2 B' R D2 F' B2 D2 L' U F2 U' D' R2 B2 D2 L2 F2 U2 R' U' F`
+`R' U' F U B2 D R2 U2 R2 B2 R2 F2 D F' R D R2 D L2 B' D' F' B' D2 U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(R' D2 L D2 F' D L)` | 7 | U/D | 2c3 4e | 1 | 2c3-3 / 2c3-3 | look anyway | 0.19% / 1.6% / 11% |
-| 2 | `(L R' F' B2 U R' F2 U R)` | 9 | U/D | 4b5 4e | 1 | 4b5-2 / 4b5-1 | look anyway | 0 / 0.03% / 0.64% |
-| 3 | `(L' F2 L2 R' F' D' F2 D2 L)` | 9 | U/D | 2c3 4e | 1 | 2c3-3 / 2c3-3 | look anyway | 0.19% / 1.6% / 11% |
-| 4 | `U2 F2 D' R F (D2 L B2 D)` | 9 | R/L | 2c3 4e | 2 | 2c3-2 / 2c3-3 | look anyway | 0.66% / 4.2% / 22% |
-| 5 | `(R' D2 L D2 F' D' R2 U2 L2 U2 L)` | 11 | U/D | 2c3 4e | 2 | 2c3-3 / 2c3-2 | keep | 0.66% / 4.2% / 22% |
-| 6 | `(L B2 R' F' D2 L2 B2 U' B2 U' L)` | 11 | U/D | 2c4 6e | 3 | 2c4-1 / 2c4-3 | keep | 1.0% / 6.2% / 27% |
-| 7 | `(L R2 B2 R F' L R2 U2 L U L)` | 11 | U/D | 2c3 4e | 4 | 2c3-3 / 2c3-2 | keep | 2.1% / 9.7% / 36% |
-| 8 | `R2 B2 L' U' L' D2 B R2 F U2 F` | 11 | R/L | 2c4 6e | 0 | 2c4-7 / 2c4-6 | drop | 0 / 0 / 0.70% |
+| 1 | `B' R B L R2 F' B2 D` | 8 | F/B | 4b2 2e | 2 | 4b2-1 / 4b2-1 | look anyway | 5.0% / 20% / 55% |
+| 2 | `L' B' R' D2 F' R2 U' D2 F` | 9 | U/D | 4c4 2e | 1 | 4c4-1 / 4c4-4 | look anyway | 0 / 0.14% / 1.8% |
+| 3 | `L' B' L2 R' U2 B L2 U' F` | 9 | U/D | 4c4 4e | 2 | 4c4-1 / 4c4-4 | look anyway | <0.01% / 0.35% / 3.3% |
+| 4 | `L' B' R (U2 D2 R2 F2 B' D)` | 9 | F/B | 2c3 6e | 0 | 2c3-3 / 2c3-2 | look anyway | 0.14% / 1.3% / 9.5% |
+| 5 | `L' U2 F2 D2 F B' U (B R2 F' L)` | 11 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-3 | keep | 0.35% / 2.6% / 15% |
+| 6 | `B' R' B L (U F' B D L2 R2 B)` | 11 | U/D | 4c3 2e | 2 | 4c3-9 / 4c3-5 | drop | <0.01% / 0.21% / 2.6% |
+| 7 | `B2 R B' L' R2 F' B U' R2 D' F` | 11 | U/D | 4c4 2e | 0 | 4c4-1 / 4c4-4 | drop | 0 / 0.07% / 1.3% |
+| 8 | `L' B' R' F' B2 D B2 U2 L2 U' B` | 11 | U/D | 2c5 4e | 2 | 2c5-2 / 2c5-1 | drop | 0.02% / 0.23% / 2.4% |
 
-Shown: 8 of the 934 DRs up to 11 moves (7 moves: 1 of 1; 9 moves: 3 of 5; 10 moves: 0 of 97; 11 moves: 4 of 831).
+Shown: 8 of the 1074 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 4; 10 moves: 0 of 84; 11 moves: 4 of 985).
 
 <details>
 <summary>Answers for scramble 47</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 7 | 13 | 19 |
-| 2 | 10 / 9 | 14 | 23 |
-| 3 | 8 / 6 | 14 | 23 |
-| 4 | 5 / 7 | 13 | 21 |
-| 5 | 8 / 7 | 12 | 23 |
-| 6 | 8 / 8 | 13 | 24 |
-| 7 | 7 / 7 | 12 | 22 |
-| 8 | 10 / 9 | 15 | 25 |
+| 1 | 7 / 3 | 13 | 21 |
+| 2 | 11 / 11 | 14 | 23 |
+| 3 | 9 / 11 | 15 | 24 |
+| 4 | 8 / 9 | 13 | 22 |
+| 5 | 8 / 8 | 15 | 25 |
+| 6 | 10 / 9 | 13 | 24 |
+| 7 | 9 / 11 | 14 | 25 |
+| 8 | 10 / 10 | 15 | 25 |
 
-Best on the page: **19 moves**, from DR 1: `R2 U F2 R2 U2 F2 B2 R2 F2 D' L2 U' L D' F D2 L' D2 R`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 7 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1: `B' R B L R2 F' B2 D F D2 F2 D2 F U2 B' U2 L2 U2 F' L2 U2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 48
 
-`R' U' F R2 D2 B D2 B' R2 F R2 D2 B U' B' R F2 L' U' B2 D B' U2 D' F' R' U' F`
+`R' U' F U L2 B2 D B2 D F2 D2 B2 R2 F' R' B' D' U R U B2 U L2 F' U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `B U' L' B2 R' B' U` | 7 | F/B | 4b5 4e | 2 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.13% / 1.9% |
-| 2 | `F' R2 U2 L D' L F' B L` | 9 | F/B | 2c4 2e | 1 | 2c4-6 / 2c4-3 | look anyway | 0.06% / 0.69% / 5.8% |
-| 3 | `(F B' L F D R' U' L2 U)` | 9 | R/L | 4b5 2e | 3 | 4b5-2 / 4b5-1 | look anyway | 0.02% / 0.26% / 2.4% |
-| 4 | `(F B' L F D R' D' B2 D)` | 9 | R/L | 4b5 2e | 3 | 4b5-2 / 4b5-1 | look anyway | 0.02% / 0.26% / 2.4% |
-| 5 | `(F B' L F B2 R' D L D' R D)` | 11 | R/L | 4b5 2e | 3 | 4b5-1 / 4b5-1 | drop | 0.04% / 0.38% / 3.3% |
-| 6 | `B U' L' B2 R' F2 B' U' D R2 D` | 11 | F/B | 4b5 4e | 3 | 4b5-1 / 4b5-1 | drop | 0.02% / 0.27% / 2.9% |
-| 7 | `(D' L' F2 D B2 L U2 F L B R)` | 11 | F/B | 2c3 4e | 1 | 2c3-3 / 2c3-3 | keep | 0.19% / 1.6% / 11% |
-| 8 | `B U' L' B2 R' B' D' R2 F2 U D` | 11 | F/B | 4b5 4e | 1 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.08% / 1.1% |
+| 1 | `(B2 U2 L' B2 L B' U' D' F)` | 9 | U/D | 2c5 4e | 1 | 2c5-1 / 2c5-1 | look anyway | <0.01% / 0.23% / 2.7% |
+| 2 | `(B2 U2 L' B2 L B U' D' F)` | 9 | U/D | 2c5 4e | 2 | 2c5-1 / 2c5-2 | look anyway | 0.02% / 0.23% / 2.4% |
+| 3 | `(R B2 R F' U' F B D' F)` | 9 | U/D | 2c3 4e | 1 | 2c3-1 / 2c3-3 | look anyway | 0.62% / 4.5% / 24% |
+| 4 | `(R B2 R U2 B' U' B2 D' F)` | 9 | U/D | 4c3 2e | 1 | 4c3-4 / 4c3-9 | look anyway | 0.06% / 0.56% / 3.7% |
+| 5 | `(L U2 L' B2 L2 D2 F' D' F2 U' B)` | 11 | U/D | 4b5 4e | 0 | 4b5-1 / 4b5-2 | drop | 0 / <0.01% / 0.32% |
+| 6 | `(F' R B2 R' B2 D F2 L2 U' B U)` | 11 | F/B | 2c4 6e | 0 | 2c4-5 / 2c4-4 | drop | 0.03% / 0.27% / 2.7% |
+| 7 | `(R B2 L2 R' U2 F2 B' D' B2 U' F)` | 11 | U/D | 4c3 4e | 1 | 4c3-5 / 4c3-9 | drop | 0 / 0.10% / 1.9% |
+| 8 | `R F' B R' B' R (D' L2 F B' U)` | 11 | F/B | 4c3 4e | 3 | 4c3-2 / 4c3-4 | keep | 0.74% / 4.9% / 22% |
 
-Shown: 8 of the 692 DRs up to 11 moves (7 moves: 1 of 1; 9 moves: 3 of 3; 10 moves: 0 of 50; 11 moves: 4 of 638).
+Shown: 8 of the 958 DRs up to 11 moves (9 moves: 4 of 7; 10 moves: 0 of 97; 11 moves: 4 of 854).
 
 <details>
 <summary>Answers for scramble 48</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 11 / 10 | 14 | 21 |
-| 2 | 9 / 8 | 14 | 22 |
-| 3 | 10 / 9 | 14 | 23 |
-| 4 | 10 / 10 | 14 | 23 |
-| 5 | 10 / 9 | 14 | 25 |
-| 6 | 10 / 10 | 14 | 25 |
-| 7 | 8 / 7 | 13 | 24 |
-| 8 | 10 / 10 | 13 | 24 |
+| 1 | 10 / 10 | 15 | 23 |
+| 2 | 10 / 11 | 13 | 22 |
+| 3 | 8 / 7 | 14 | 22 |
+| 4 | 8 / 10 | 14 | 23 |
+| 5 | 10 / 10 | 15 | 26 |
+| 6 | 10 / 9 | 14 | 25 |
+| 7 | 9 / 10 | 14 | 25 |
+| 8 | 8 / 8 | 13 | 24 |
 
-Best on the page: **21 moves**, from DR 1: `B U' L' B2 R' B' U F D2 L2 B U2 F' D2 F2 R2 U2 L2 F R2 B'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 7 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 2 (DR 3 ties it): `D' L2 U F2 L2 F2 R2 U B2 D' R2 U L2 F' D U B' L' B2 L U2 B2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 49
 
-`R' U' F L U R' D2 L' F R' F U B2 L' U2 R2 F2 U' D L2 B2 D F2 U' R' U' F`
+`R' U' F L' D' R L' U2 L2 F' U2 D' B L' U F2 D' B2 L2 F2 U2 R2 D2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `F U' L (L' R B' U R2 B' U)` | 10 | F/B | 4c4 4e | 0 | 4c4-3 / 4c4-2 | look anyway | 0 / 0.16% / 1.9% |
-| 2 | `D F2 L (F' L U' B' D' F2 L2 F)` | 11 | U/D | 4b5 2e | 3 | 4b5-1 / 4b5-1 | drop | 0.04% / 0.38% / 3.3% |
-| 3 | `(F' R U2 L D F' U2 D' F' U D)` | 11 | F/B | 2c4 0e | 3 | 2c4-4 / 2c4-3 | drop | 0.92% / 4.8% / 20% |
-| 4 | `(F' L2 R' D2 L B' R2 U D F' U)` | 11 | F/B | 2c3 4e | 1 | 2c3-1 / 2c3-1 | keep | 1.4% / 8.6% / 37% |
-| 5 | `U' F' U D B R F' L' R F (U)` | 11 | R/L | 4b2 2e | 3 | 4b2-3 / 4b2-4 | keep | 1.4% / 8.1% / 35% |
-| 6 | `D' F' D B' U (L' R F' L2 U2 L)` | 11 | F/B | 2c4 4e | 0 | 2c4-6 / 2c4-3 | drop | 0.04% / 0.34% / 3.8% |
-| 7 | `L' F' B' U L D' L2 R2 F U2 F` | 11 | U/D | 4c3 4e | 1 | 4c3-5 / 4c3-7 | drop | 0.06% / 0.79% / 6.0% |
-| 8 | `U' B' U L' U R U2 R (D' F B)` | 11 | U/D | 2c5 4e | 4 | 2c5-1 / 2c5-2 | drop | 0.09% / 1.2% / 7.5% |
+| 1 | `U' L2 R' U F' B2 D' F2 L` | 9 | U/D | 4c4 4e | 3 | 4c4-4 / 4c4-5 | look anyway | 0 / <0.01% / 0.44% |
+| 2 | `(U F' L D' L' D' F2 D' L)` | 9 | U/D | 0c0 2e | 3 | 0c0-1 / 0c0-1 | look anyway | 12% / 38% / 81% |
+| 3 | `(U F B2 D L2 U R' F2 L)` | 9 | U/D | 4a2 4e | 1 | 4a2-3 / 4a2-3 | look anyway | 0.06% / 1.1% / 8.2% |
+| 4 | `B' L2 R2 F (D R U D2 L)` | 9 | U/D | 4c4 2e | 1 | 4c4-2 / 4c4-6 | look anyway | 0 / 0.08% / 1.2% |
+| 5 | `U' L2 R' U F' L2 F2 U' D2 F2 R` | 11 | U/D | 4c4 4e | 6 | 4c4-2 / 4c4-5 | drop | 0 / 0.31% / 4.8% |
+| 6 | `(U F D' L' D' R' U F2 B2 D' L)` | 11 | U/D | 4b5 4e | 0 | 4b5-1 / 4b5-2 | drop | 0 / <0.01% / 0.32% |
+| 7 | `B2 D B2 R B2 D (F2 U L D F)` | 11 | R/L | 2c3 6e | 2 | 2c3-2 / 2c3-3 | keep | 0.33% / 2.5% / 15% |
+| 8 | `U' R2 B2 U' R' F2 D (R' F2 D' F)` | 11 | R/L | 2c3 4e | 1 | 2c3-3 / 2c3-3 | keep | 0.19% / 1.6% / 11% |
 
-Shown: 8 of the 69 DRs up to 11 moves (10 moves: 1 of 1; 11 moves: 7 of 68).
+Shown: 8 of the 1843 DRs up to 11 moves (9 moves: 4 of 16; 10 moves: 0 of 163; 11 moves: 4 of 1664).
 
 <details>
 <summary>Answers for scramble 49</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 14 | 23 |
-| 2 | 9 / 9 | 12 | 23 |
-| 3 | 8 / 7 | 13 | 24 |
-| 4 | 6 / 7 | 14 | 25 |
-| 5 | 6 / 6 | 11 | 22 |
-| 6 | 8 / 9 | 14 | 25 |
-| 7 | 8 / 9 | 13 | 23 |
-| 8 | 9 / 10 | 14 | 23 |
+| 1 | 10 / 11 | 14 | 23 |
+| 2 | 6 / 5 | 12 | 20 |
+| 3 | 7 / 8 | 12 | 20 |
+| 4 | 11 / 11 | 13 | 22 |
+| 5 | 9 / 11 | 14 | 25 |
+| 6 | 11 / 10 | 15 | 26 |
+| 7 | 7 / 9 | 13 | 24 |
+| 8 | 8 / 9 | 15 | 25 |
 
-Best on the page: **22 moves**, from DR 5: `U' F' U D B R F' L' R F R B2 L2 F2 B2 R U2 R' F2 R B2 U'`. The list drops 5 of the 7 DRs of 11 moves or more, and keeps the best one.
+Best on the page: **20 moves**, from DR 2 (DR 3 ties it): `F2 U L2 F2 L2 U F2 D2 R2 B2 D2 L D F2 D L D L' F U'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 50
 
-`R' U' F D B2 L D' R2 B D' U2 F' D2 F' D L2 B2 D2 R2 U B2 F2 U2 B2 R' U' F`
+`R' U' F L B' D' B2 R2 B2 R D R2 F' R F2 U' F2 U R2 B2 D' B2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(F' B R' U' L' U' F' D' F)` | 9 | U/D | 2c4 4e | 1 | 2c4-7 / 2c4-4 | look anyway | 0 / 0.08% / 1.5% |
-| 2 | `F2 L2 B2 L' F2 D (B' D F)` | 9 | R/L | 2c4 6e | 1 | 2c4-7 / 2c4-6 | look anyway | 0 / 0.03% / 1.1% |
-| 3 | `B2 D L' R' B' D F2 U' F` | 9 | U/D | 2c4 4e | 1 | 2c4-1 / 2c4-2 | look anyway | 0.18% / 2.0% / 15% |
-| 4 | `B2 R2 F2 L B2 U (B' D F)` | 9 | R/L | 2c4 6e | 1 | 2c4-3 / 2c4-6 | look anyway | 0.04% / 0.51% / 4.6% |
-| 5 | `R D' B2 D' R' D2 B2 D (B' D F)` | 11 | R/L | 2c5 4e | 1 | 2c5-1 / 2c5-1 | drop | <0.01% / 0.23% / 2.7% |
-| 6 | `B2 R2 D F2 L' R2 F2 D (B' D F)` | 11 | R/L | 4b5 4e | 1 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.08% / 1.1% |
-| 7 | `L2 U2 L' R D2 R' F2 D (B' D F)` | 11 | R/L | 2c4 4e | 0 | 2c4-5 / 2c4-6 | drop | 0.01% / 0.21% / 2.4% |
-| 8 | `(F' B R' U' L' U' F2 R2 B U' B)` | 11 | U/D | 2c4 4e | 2 | 2c4-1 / 2c4-4 | drop | 0.16% / 1.5% / 11% |
+| 1 | `U F B L' B2 R (U' D2 F' D)` | 10 | F/B | 4b2 2e | 2 | 4b2-2 / 4b2-3 | look anyway | 2.0% / 9.6% / 38% |
+| 2 | `F U (D' R2 U' F' L F R2 B)` | 10 | R/L | 4c4 4e | 3 | 4c4-2 / 4c4-1 | look anyway | 0.18% / 1.2% / 6.7% |
+| 3 | `(U' L' F' L' D B' R' B2 L' F)` | 10 | R/L | 2c3 4e | 1 | 2c3-2 / 2c3-2 | look anyway | 0.49% / 3.9% / 21% |
+| 4 | `D' F R2 F2 L U R (L F B)` | 10 | U/D | 4b2 4e | 2 | 4b2-3 / 4b2-2 | look anyway | 1.2% / 7.6% / 34% |
+| 5 | `(U' L' F' L' D F2 B L' B2 R' F)` | 11 | R/L | 2c3 4e | 1 | 2c3-2 / 2c3-2 | keep | 0.49% / 3.9% / 21% |
+| 6 | `U' L2 F B' R B2 L (U' D2 F' D)` | 11 | F/B | 4c4 2e | 3 | 4c4-1 / 4c4-4 | drop | 0.02% / 0.48% / 3.8% |
+| 7 | `U' D2 F B L' U2 R (U' D2 F' D)` | 11 | F/B | 4b2 2e | 1 | 4b2-2 / 4b2-3 | keep | 1.2% / 7.0% / 31% |
+| 8 | `U' L2 F B' L U2 R (U' D2 F' D)` | 11 | F/B | 4c4 2e | 5 | 4c4-1 / 4c4-4 | drop | 0.17% / 2.0% / 12% |
 
-Shown: 8 of the 559 DRs up to 11 moves (9 moves: 4 of 4; 10 moves: 0 of 63; 11 moves: 4 of 492).
+Shown: 8 of the 60 DRs up to 11 moves (10 moves: 4 of 9; 11 moves: 4 of 51).
 
 <details>
 <summary>Answers for scramble 50</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 9 | 15 | 23 |
-| 2 | 10 / 9 | 15 | 23 |
-| 3 | 9 / 9 | 12 | 21 |
-| 4 | 8 / 9 | 11 | 20 |
-| 5 | 9 / 9 | 14 | 25 |
-| 6 | 11 / 10 | 14 | 24 |
-| 7 | 10 / 9 | 14 | 25 |
-| 8 | 9 / 10 | 14 | 24 |
+| 1 | 7 / 7 | 14 | 23 |
+| 2 | 10 / 10 | 14 | 23 |
+| 3 | 6 / 7 | 13 | 23 |
+| 4 | 9 / 8 | 14 | 23 |
+| 5 | 8 / 7 | 13 | 23 |
+| 6 | 10 / 11 | 14 | 25 |
+| 7 | 7 / 7 | 14 | 23 |
+| 8 | 11 / 11 | 14 | 25 |
 
-Best on the page: **20 moves**, from DR 4: `B2 R2 F2 L B2 U R' U2 R F2 R' D2 F2 D2 B2 R' D2 F' D' B`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 1 (DR 2, 3, 4, 5 and 7 tie it): `U F B L' B2 R L2 D2 F' L2 U2 F2 L2 F U2 R2 F L2 F' D F D2 U`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 51
 
-`R' U' F U2 F D2 B2 U2 D2 L2 F' U2 L2 R U2 R D' F2 U R D' L B' R2 F' R' U' F`
+`R' U' F U F2 L2 U R2 B2 F2 U' F2 U' R' B' U' B R D2 B L2 F' U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L R' F' R B2 L' F2 U (U2 F)` | 10 | R/L | 4b2 2e | 0 | 4b2-4 / 4b2-2 | look anyway | 0.81% / 5.5% / 26% |
-| 2 | `F' B2 R F U' B2 U2 L' D2 R` | 10 | F/B | 2c5 6e | 4 | 2c5-2 / 2c5-3 | look anyway | 0 / 0 / 0.40% |
-| 3 | `R' F2 L' U2 B U2 D' L' U2 R` | 10 | U/D | 2c3 4e | 2 | 2c3-1 / 2c3-3 | look anyway | 1.0% / 6.4% / 30% |
-| 4 | `F' B2 R F U' B2 U2 R' B2 L` | 10 | F/B | 2c5 6e | 2 | 2c5-2 / 2c5-3 | look anyway | 0 / 0 / 0.07% |
-| 5 | `L2 D (U R U' F D2 L' D2 R2 F)` | 11 | R/L | 2c4 4e | 1 | 2c4-7 / 2c4-2 | drop | 0 / 0.20% / 2.9% |
-| 6 | `D' B2 R2 F L R F (F' L R' U)` | 11 | R/L | 4b2 4e | 1 | 4b2-3 / 4b2-3 | keep | 0.32% / 3.2% / 20% |
-| 7 | `L2 D (U R U' F D2 L' U2 L2 B)` | 11 | R/L | 2c4 4e | 2 | 2c4-7 / 2c4-2 | drop | 0.03% / 0.45% / 4.4% |
-| 8 | `L R' B' D L B2 U' F2 R (U2 B)` | 11 | U/D | 2c3 4e | 3 | 2c3-3 / 2c3-1 | keep | 1.8% / 9.3% / 37% |
+| 1 | `(F2 L U2 D' R U D' B D)` | 9 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-2 | look anyway | 0.66% / 4.2% / 22% |
+| 2 | `B' L2 D B (D B2 L R' D R)` | 10 | U/D | 2c4 4e | 2 | 2c4-6 / 2c4-2 | look anyway | 0.17% / 1.2% / 8.1% |
+| 3 | `B' U L' U R2 D (U' R D' B)` | 10 | R/L | 4c3 2e | 1 | 4c3-1 / 4c3-5 | look anyway | 0.23% / 2.1% / 15% |
+| 4 | `(F2 L U2 D' R' U D' F2 B D)` | 10 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-2 | look anyway | 0.66% / 4.2% / 22% |
+| 5 | `R U' R (B2 L' D B U' D2 F U)` | 11 | F/B | 4b5 2e | 4 | 4b5-1 / 4b5-1 | drop | 0.11% / 0.72% / 5.4% |
+| 6 | `R D' F U2 R' B' U' B U D B` | 11 | U/D | 2c4 2e | 3 | 2c4-1 / 2c4-3 | keep | 0.84% / 5.5% / 25% |
+| 7 | `U2 R2 U' R' B2 U2 R D2 F (L D)` | 11 | R/L | 2c4 8e | 1 | 2c4-2 / 2c4-1 | keep | 0.06% / 1.9% / 14% |
+| 8 | `U2 R' U B' D F R F2 U2 D2 L` | 11 | F/B | 2c3 4e | 1 | 2c3-3 / 2c3-3 | keep | 0.19% / 1.6% / 11% |
 
-Shown: 8 of the 93 DRs up to 11 moves (10 moves: 4 of 6; 11 moves: 4 of 87).
+Shown: 8 of the 301 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 30; 11 moves: 4 of 270).
 
 <details>
 <summary>Answers for scramble 51</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 7 / 6 | 12 | 22 |
-| 2 | 10 / 12 | 15 | 25 |
-| 3 | 7 / 8 | 12 | 22 |
-| 4 | 11 / 12 | 15 | 24 |
-| 5 | 9 / 8 | 12 | 23 |
-| 6 | 6 / 7 | 13 | 24 |
-| 7 | 9 / 8 | 14 | 24 |
-| 8 | 8 / 5 | 13 | 24 |
+| 1 | 6 / 8 | 13 | 21 |
+| 2 | 9 / 8 | 15 | 24 |
+| 3 | 9 / 9 | 13 | 22 |
+| 4 | 7 / 7 | 12 | 22 |
+| 5 | 10 / 9 | 15 | 25 |
+| 6 | 9 / 8 | 12 | 23 |
+| 7 | 10 / 9 | 14 | 24 |
+| 8 | 8 / 7 | 14 | 25 |
 
-Best on the page: **22 moves**, from DR 1 (DR 3 ties it): `L R' F' R B2 L' F2 U F2 B2 D2 R2 F2 L D2 L2 F2 B2 L U2 F' U2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1: `F2 R2 B' L2 B R2 B' R2 B2 R2 U2 B2 D B' D U' R' D U2 L' F2`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 52
 
-`R' U' F U' L2 D L2 D R2 D' R2 F2 D' L' B' F' L' B' D B' U B2 R' F U2 R' U' F`
+`R' U' F R2 D' F2 R2 U2 B2 L2 U2 B2 F2 L F R F' R2 U' L2 F2 R' U2 B2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(L B R U' F D' L' U' B2 D)` | 10 | R/L | 2c4 4e | 1 | 2c4-2 / 2c4-6 | look anyway | 0.06% / 0.69% / 6.0% |
-| 2 | `(L B R U' F D' L' D' R2 U)` | 10 | R/L | 2c4 4e | 2 | 2c4-2 / 2c4-6 | look anyway | 0.17% / 1.2% / 8.1% |
-| 3 | `B2 U (D R' U D2 B' L' B2 R)` | 10 | F/B | 0c4 4e | 4 | 0c4-1 / 0c4-1 | look anyway | 0.27% / 1.7% / 11% |
-| 4 | `B2 U (D R' U D2 B' R' U2 L)` | 10 | F/B | 0c4 4e | 2 | 0c4-1 / 0c4-1 | look anyway | 0.06% / 0.81% / 6.7% |
-| 5 | `B2 R2 F (B L' U2 D R' U' B2 R)` | 11 | U/D | 4c4 4e | 3 | 4c4-3 / 4c4-4 | drop | 0 / 0.08% / 1.9% |
-| 6 | `B2 U (D R' U D2 B' L2 R D2 L)` | 11 | F/B | 0c4 4e | 1 | 0c4-1 / 0c4-1 | drop | 0.02% / 0.46% / 4.7% |
-| 7 | `R2 F' L2 U' L U2 B2 R (B2 L' B)` | 11 | U/D | 2c3 6e | 2 | 2c3-1 / 2c3-3 | keep | 0.47% / 3.6% / 22% |
-| 8 | `R U' R2 U2 L D (B R U' L' F)` | 11 | R/L | 2c4 4e | 1 | 2c4-4 / 2c4-2 | drop | 0.05% / 0.69% / 6.1% |
+| 1 | `(B R D' B U' L' D2 B)` | 8 | R/L | 2c4 4e | 2 | 2c4-1 / 2c4-5 | look anyway | 0.18% / 1.7% / 12% |
+| 2 | `F' D' F (L2 D B2 L2 D2 L)` | 9 | U/D | 4c4 2e | 1 | 4c4-3 / 4c4-4 | look anyway | 0 / 0.03% / 0.54% |
+| 3 | `(B R D' B U' L R2 U2 F)` | 9 | R/L | 2c4 4e | 2 | 2c4-1 / 2c4-5 | look anyway | 0.18% / 1.7% / 12% |
+| 4 | `(R B' U' B L D L' R D)` | 9 | R/L | 2c4 4e | 2 | 2c4-5 / 2c4-6 | look anyway | 0.06% / 0.59% / 4.3% |
+| 5 | `D L' B (B' U2 L2 F2 D2 F2 L D)` | 11 | R/L | 4c3 2e | 4 | 4c3-7 / 4c3-4 | keep | 0.75% / 3.3% / 14% |
+| 6 | `D (D L' R2 D' F2 B2 L' B L B)` | 11 | R/L | 4b5 4e | 3 | 4b5-2 / 4b5-2 | drop | 0 / 0.01% / 0.79% |
+| 7 | `F' B2 D' F' L' U L2 U' F2 R2 U` | 11 | F/B | 2c4 8e | 2 | 2c4-3 / 2c4-6 | drop | 0.07% / 1.3% / 7.1% |
+| 8 | `F' D' F (L2 F2 B2 U B2 L2 D2 R)` | 11 | U/D | 4c4 2e | 1 | 4c4-3 / 4c4-4 | drop | 0 / 0.03% / 0.54% |
 
-Shown: 8 of the 29 DRs up to 11 moves (10 moves: 4 of 4; 11 moves: 4 of 25).
+Shown: 8 of the 748 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 8; 10 moves: 0 of 88; 11 moves: 4 of 651).
 
 <details>
 <summary>Answers for scramble 52</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 10 | 13 | 23 |
-| 2 | 9 / 8 | 13 | 22 |
-| 3 | 9 / 9 | 13 | 23 |
-| 4 | 9 / 9 | 14 | 23 |
-| 5 | 11 / 10 | 15 | 25 |
-| 6 | 9 / 10 | 13 | 24 |
-| 7 | 9 / 8 | 11 | 22 |
-| 8 | 9 / 8 | 14 | 24 |
+| 1 | 7 / 9 | 14 | 21 |
+| 2 | 10 / 11 | 14 | 23 |
+| 3 | 7 / 9 | 13 | 22 |
+| 4 | 10 / 10 | 14 | 22 |
+| 5 | 9 / 10 | 14 | 24 |
+| 6 | 11 / 10 | 14 | 24 |
+| 7 | 9 / 10 | 14 | 25 |
+| 8 | 10 / 11 | 15 | 26 |
 
-Best on the page: **22 moves**, from DR 2 (DR 7 ties it): `U2 R D2 B2 D2 U2 R' B2 D2 R' D2 R U R2 D L D F' U R' B' L'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1: `L B2 R F2 U2 R U2 R B2 D2 L2 B2 D2 B D2 L U B' D R' B'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 53
 
-`R' U' F L2 B2 F2 D2 R2 U' F2 U' L2 D' F L' U B D B' U2 R B2 F R2 U' R' U' F`
+`R' U' F U L2 U B2 R2 U F2 L2 U R' B2 D' U L' F' R2 F' D' B2 F R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(L' D F2 R' B D F2 D F)` | 9 | U/D | 2c3 4e | 2 | 2c3-1 / 2c3-2 | look anyway | 1.6% / 8.8% / 36% |
-| 2 | `(L R B2 D R F2 B' D' L2 U)` | 10 | F/B | 2c5 4e | 1 | 2c5-1 / 2c5-2 | look anyway | 0 / 0.05% / 1.2% |
-| 3 | `(U2 D L' F2 R F' D R2 B D)` | 10 | F/B | 2c3 6e | 1 | 2c3-1 / 2c3-2 | look anyway | 0.58% / 4.1% / 23% |
-| 4 | `(R D R D2 L D2 L2 F B U)` | 10 | F/B | 4c3 2e | 2 | 4c3-8 / 4c3-5 | look anyway | 0.03% / 0.40% / 4.3% |
-| 5 | `(U2 L' F' D R F2 D B2 L2 B U)` | 11 | F/B | 4b5 4e | 1 | 4b5-1 / 4b5-2 | drop | 0 / 0.03% / 0.64% |
-| 6 | `U D' L F2 U L B' L R2 D2 B` | 11 | R/L | 2c4 0e | 1 | 2c4-2 / 2c4-2 | keep | 0 / 1.0% / 23% |
-| 7 | `(R D L B2 R' F' B' L2 D2 L2 U)` | 11 | F/B | 4c3 2e | 3 | 4c3-8 / 4c3-5 | drop | 0.04% / 0.78% / 6.4% |
-| 8 | `F R' F' L' U2 B (B' U D' F' U)` | 11 | R/L | 4b2 4e | 2 | 4b2-2 / 4b2-3 | keep | 1.2% / 7.6% / 34% |
+| 1 | `R (R' D2 L' U2 F B D F)` | 9 | U/D | 4b5 4e | 0 | 4b5-1 / 4b5-1 | look anyway | 0 / 0.03% / 0.58% |
+| 2 | `B D (B2 D F2 B2 R F D2 L)` | 10 | F/B | 4c4 2e | 1 | 4c4-1 / 4c4-2 | look anyway | 0.03% / 0.36% / 3.6% |
+| 3 | `R' B' D' R2 U' F' L' U2 B R` | 10 | F/B | 2c4 4e | 2 | 2c4-4 / 2c4-7 | look anyway | 0.01% / 0.19% / 2.1% |
+| 4 | `R (R' D2 L' F B' R2 B2 D F)` | 10 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-1 | look anyway | 0.02% / 0.24% / 2.3% |
+| 5 | `(L D' F' U2 L' B2 R2 D2 F2 D F)` | 11 | U/D | 2c4 6e | 3 | 2c4-7 / 2c4-4 | drop | 0 / 0.18% / 3.1% |
+| 6 | `R (L R2 B2 R F' U' L2 F R2 F)` | 11 | U/D | 2c5 8e | 0 | 2c5-2 / 2c5-3 | drop | 0 / 0 / 0 |
+| 7 | `F B R (L U' F' U2 D' R2 B' U)` | 11 | F/B | 2c5 2e | 5 | 2c5-1 / 2c5-2 | drop | 0.12% / 1.9% / 10% |
+| 8 | `R F B D F U' L2 D (L' F2 R)` | 11 | F/B | 2c3 2e | 3 | 2c3-1 / 2c3-3 | keep | 2.8% / 14% / 51% |
 
-Shown: 8 of the 238 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 22; 11 moves: 4 of 215).
+Shown: 8 of the 135 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 12; 11 moves: 4 of 122).
 
 <details>
 <summary>Answers for scramble 53</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 7 / 7 | 14 | 22 |
-| 2 | 9 / 11 | 14 | 23 |
-| 3 | 7 / 8 | 14 | 23 |
-| 4 | 9 / 8 | 13 | 23 |
-| 5 | 11 / 10 | 14 | 25 |
-| 6 | 8 / 8 | 13 | 23 |
-| 7 | 9 / 8 | 13 | 24 |
-| 8 | 7 / 7 | 13 | 23 |
+| 1 | 9 / 10 | 14 | 23 |
+| 2 | 9 / 10 | 12 | 22 |
+| 3 | 9 / 9 | 14 | 24 |
+| 4 | 10 / 10 | 13 | 23 |
+| 5 | 10 / 9 | 15 | 25 |
+| 6 | 11 / 12 | 16 | 26 |
+| 7 | 9 / 10 | 13 | 22 |
+| 8 | 8 / 7 | 11 | 21 |
 
-Best on the page: **22 moves**, from DR 1: `F2 U R2 B2 D' F2 L2 U D2 F2 D' L2 D' F D' F2 D' B' R F2 D' L`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 8: `R F B D F U' L2 D' L2 B L2 D2 U2 F R2 F' D2 F2 R' F2 L`. The list drops 3 of the 4 DRs of 11 moves or more, and keeps the best one.
 
 </details>
 
 #### Scramble 54
 
-`R' U' F U2 B2 U2 R2 B2 R2 U L2 B2 F U' B2 R2 D2 L B' D2 R' F' R' U' F`
+`R' U' F U' L2 U2 F2 U' L2 R2 U B2 U R D' L' R B L U2 L2 F U L2 U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(U2 R' U2 D' F' R2 U' R2 U)` | 9 | R/L | 4b2 4e | 1 | 4b2-3 / 4b2-1 | look anyway | 1.1% / 6.6% / 31% |
-| 2 | `R U F2 L2 B (B2 U R U)` | 9 | R/L | 2c3 2e | 1 | 2c3-1 / 2c3-2 | look anyway | 1.6% / 10% / 43% |
-| 3 | `R U B2 R2 B (B2 U R U)` | 9 | R/L | 2c3 2e | 1 | 2c3-1 / 2c3-2 | look anyway | 1.6% / 10% / 43% |
-| 4 | `D F2 D L' F L2 B2 U F` | 9 | U/D | 2c5 2e | 1 | 2c5-2 / 2c5-1 | look anyway | 0 / 0 / 1.1% |
-| 5 | `L U' L2 R' B (L2 U2 L' U2 L D)` | 11 | R/L | 4c4 2e | 2 | 4c4-5 / 4c4-4 | drop | 0 / <0.01% / 0.22% |
-| 6 | `F2 B2 R' D2 R F2 U (D2 L D F)` | 11 | R/L | 2c3 6e | 0 | 2c3-3 / 2c3-3 | keep | 0.04% / 0.53% / 4.9% |
-| 7 | `(U2 R' U2 D' F' R2 U L U2 R2 U)` | 11 | R/L | 2c3 4e | 1 | 2c3-3 / 2c3-3 | keep | 0.19% / 1.6% / 11% |
-| 8 | `(F2 U' F' U2 L2 D R' B2 R F2 U)` | 11 | R/L | 4b5 4e | 2 | 4b5-1 / 4b5-2 | drop | 0 / 0.07% / 1.0% |
+| 1 | `(R2 B R D' F' L2 F2 D2 R)` | 9 | U/D | 4b2 4e | 4 | 4b2-3 / 4b2-3 | look anyway | 2.2% / 12% / 44% |
+| 2 | `(R2 B R D' F' R2 F2 D2 L)` | 9 | U/D | 4b2 4e | 5 | 4b2-3 / 4b2-3 | look anyway | 5.2% / 20% / 57% |
+| 3 | `L2 U2 B U' L F' L' R B` | 9 | R/L | 4b2 4e | 4 | 4b2-1 / 4b2-2 | look anyway | 6.0% / 24% / 62% |
+| 4 | `(R2 B R D' F' R2 B2 U2 R)` | 9 | U/D | 4b2 4e | 5 | 4b2-3 / 4b2-3 | look anyway | 5.2% / 20% / 57% |
+| 5 | `(L D2 F2 U F2 B2 R' U2 F' B R)` | 11 | F/B | 2c5 4e | 1 | 2c5-1 / 2c5-2 | drop | 0 / 0.05% / 1.2% |
+| 6 | `(F' R2 D B' D' B2 L' U2 F2 D R)` | 11 | U/D | 2c4 8e | 0 | 2c4-2 / 2c4-2 | keep | 0 / 0.32% / 4.1% |
+| 7 | `R' F' L2 U L2 D2 F' D2 R2 B2 R` | 11 | F/B | 4c4 2e | 2 | 4c4-4 / 4c4-3 | drop | 0 / 0.05% / 0.96% |
+| 8 | `D' L2 R' U' B2 D2 L (F' R2 D B)` | 11 | U/D | 2c4 6e | 0 | 2c4-4 / 2c4-5 | drop | 0.03% / 0.27% / 2.7% |
 
-Shown: 8 of the 1044 DRs up to 11 moves (9 moves: 4 of 9; 10 moves: 0 of 103; 11 moves: 4 of 932).
+Shown: 8 of the 719 DRs up to 11 moves (9 moves: 4 of 6; 10 moves: 0 of 84; 11 moves: 4 of 629).
 
 <details>
 <summary>Answers for scramble 54</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 7 | 13 | 22 |
-| 2 | 7 / 7 | 13 | 21 |
-| 3 | 6 / 7 | 13 | 21 |
-| 4 | 10 / 10 | 15 | 23 |
-| 5 | 11 / 10 | 14 | 25 |
-| 6 | 8 / 9 | 15 | 25 |
-| 7 | 7 / 8 | 14 | 24 |
-| 8 | 9 / 10 | 14 | 25 |
+| 1 | 8 / 8 | 13 | 22 |
+| 2 | 8 / 9 | 14 | 23 |
+| 3 | 7 / 8 | 11 | 20 |
+| 4 | 8 / 8 | 12 | 21 |
+| 5 | 10 / 10 | 14 | 24 |
+| 6 | 10 / 10 | 14 | 24 |
+| 7 | 10 / 10 | 15 | 25 |
+| 8 | 9 / 9 | 13 | 24 |
 
-Best on the page: **21 moves**, from DR 2 (DR 3 ties it): `R U F2 L2 B U2 L' B2 R' B2 D2 L F2 L2 D2 B2 L2 U R' U' B2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 3: `L2 U2 B U' L F' L' R B R' D2 R F2 U2 B2 R D2 B2 L U2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 55
 
-`R' U' F L2 B2 L2 U L2 D' L2 U' B2 U L B' F L F' R B2 R2 B' R' U' F`
+`R' U' F D' F2 U2 L2 D F2 U F2 B2 U F B2 D B U F R U2 F D' R' U2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(U' F B U2 B R B2 L' D)` | 9 | R/L | 4c4 2e | 3 | 4c4-2 / 4c4-6 | look anyway | 0 / 0.13% / 1.6% |
-| 2 | `L (B2 U D R D R2 D B)` | 9 | U/D | 4c4 4e | 0 | 4c4-2 / 4c4-1 | look anyway | 0 / 0.44% / 3.6% |
-| 3 | `F2 D L2 U' L B U2 B U` | 9 | F/B | 2c5 6e | 0 | 2c5-1 / 2c5-1 | look anyway | 0 / 0.16% / 1.7% |
-| 4 | `B L2 B U' L2 F (B' U' L)` | 9 | U/D | 4c4 4e | 0 | 4c4-4 / 4c4-6 | look anyway | 0 / 0 / 0.10% |
-| 5 | `(B' U' L' D B2 D F2 R2 F L2 U)` | 11 | F/B | 4c4 4e | 2 | 4c4-2 / 4c4-6 | drop | 0 / 0.04% / 0.87% |
-| 6 | `D2 B' D2 F' R2 D' L2 B (B' U' L)` | 11 | U/D | 4c4 4e | 0 | 4c4-4 / 4c4-3 | drop | 0 / 0.02% / 0.67% |
-| 7 | `L2 F B L2 F D R2 F (B' U' L)` | 11 | U/D | 4b5 4e | 1 | 4b5-2 / 4b5-1 | drop | 0 / 0.03% / 0.64% |
-| 8 | `(B' R2 U' L D2 F' B U2 B' L2 U)` | 11 | F/B | 4c4 4e | 4 | 4c4-3 / 4c4-2 | drop | 0.11% / 0.91% / 5.0% |
+| 1 | `L' U L2 D B L' B2 L D` | 9 | R/L | 2c4 2e | 0 | 2c4-2 / 2c4-1 | look anyway | 0.09% / 1.2% / 11% |
+| 2 | `U F2 L' F D2 R D' R (B)` | 9 | U/D | 4c4 2e | 1 | 4c4-4 / 4c4-5 | look anyway | 0 / 0 / 0.09% |
+| 3 | `F' D R' F' U' R' D2 F2 D (B)` | 10 | R/L | 2c5 4e | 1 | 2c5-3 / 2c5-1 | look anyway | 0 / <0.01% / 0.37% |
+| 4 | `B2 U2 L (B' R B2 D2 L2 U B)` | 10 | U/D | 4b2 4e | 2 | 4b2-2 / 4b2-2 | look anyway | 1.9% / 10% / 40% |
+| 5 | `R2 F' U D F (U2 L R' D' F2 L)` | 11 | U/D | 4c3 4e | 0 | 4c3-7 / 4c3-5 | drop | 0.04% / 0.56% / 5.1% |
+| 6 | `R2 U' B2 D2 F' D (U2 R D' B2 L)` | 11 | F/B | 2c3 6e | 0 | 2c3-1 / 2c3-3 | keep | 0.21% / 2.1% / 14% |
+| 7 | `L' D' R2 U2 B2 U F D (L2 U2 R)` | 11 | F/B | 2c5 0e | 3 | 2c5-1 / 2c5-1 | drop | 0 / 0.54% / 3.2% |
+| 8 | `U F2 L' F' D2 F2 D2 R D' R (B)` | 11 | U/D | 2c4 4e | 3 | 2c4-7 / 2c4-4 | drop | <0.01% / 0.35% / 3.5% |
 
-Shown: 8 of the 780 DRs up to 11 moves (9 moves: 4 of 9; 10 moves: 0 of 66; 11 moves: 4 of 705).
+Shown: 8 of the 272 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 25; 11 moves: 4 of 245).
 
 <details>
 <summary>Answers for scramble 55</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 12 | 14 | 23 |
-| 2 | 10 / 9 | 15 | 23 |
-| 3 | 10 / 10 | 14 | 23 |
-| 4 | 11 / 11 | 14 | 23 |
-| 5 | 10 / 11 | 14 | 25 |
-| 6 | 10 / 10 | 14 | 24 |
-| 7 | 11 / 11 | 14 | 24 |
-| 8 | 10 / 10 | 14 | 25 |
+| 1 | 9 / 9 | 13 | 22 |
+| 2 | 11 / 11 | 16 | 24 |
+| 3 | 11 / 10 | 15 | 24 |
+| 4 | 7 / 5 | 12 | 22 |
+| 5 | 9 / 10 | 14 | 24 |
+| 6 | 8 / 9 | 13 | 23 |
+| 7 | 10 / 10 | 14 | 25 |
+| 8 | 10 / 9 | 15 | 25 |
 
-Best on the page: **23 moves**, from DR 1 (DR 2, 3 and 4 tie it): `R F2 R2 U2 B2 U2 F2 R' U2 R2 F2 R' D2 L D' L B2 R' B' U2 B' F' U`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DR 4 ties it): `L' U L2 D B L' B2 L D U2 R' F2 U2 R2 D2 F2 R' F2 U2 L D2 L`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 56
 
-`R' U' F D U F2 L2 D2 F2 U R2 U' F' U2 L R D L B2 D' R2 D2 B' R' U' F`
+`R' U' F L2 R2 B2 D2 U' L2 U F2 U L2 F' L U' B D' R B F L' R' B' U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L U2 D' R U B' R2 U` | 8 | F/B | 4c3 4e | 3 | 4c3-5 / 4c3-2 | look anyway | 0.78% / 4.2% / 22% |
-| 2 | `L U2 D' R U F2 B L2 D` | 9 | F/B | 4c3 4e | 1 | 4c3-5 / 4c3-2 | look anyway | 0.21% / 1.8% / 12% |
-| 3 | `L U2 D' R F2 U B' R2 U` | 9 | F/B | 2c5 4e | 3 | 2c5-1 / 2c5-3 | look anyway | 0 / 0.08% / 1.9% |
-| 4 | `L R2 U2 D' R' U B' R2 U` | 9 | F/B | 4b5 2e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.2% |
-| 5 | `(R U B D2 R' D' B' L2 D' L2 F)` | 11 | U/D | 4a1 4e | 2 | 4a1-2 / 4a1-3 | keep | 5.5% / 19% / 54% |
-| 6 | `L U2 D' R U L2 U2 R2 F L2 U` | 11 | F/B | 4c3 2e | 5 | 4c3-4 / 4c3-2 | keep | 2.5% / 11% / 36% |
-| 7 | `F2 D B2 D' L' U D (L2 B U' F)` | 11 | R/L | 4a1 2e | 4 | 4a1-1 / 4a1-4 | keep | 7.7% / 28% / 69% |
-| 8 | `L U2 D' R' U R2 U' L2 F L2 U` | 11 | F/B | 4b2 2e | 2 | 4b2-3 / 4b2-3 | keep | 1.0% / 6.3% / 30% |
+| 1 | `F' U R' B2 L (R B L' F)` | 9 | U/D | 4a1 2e | 1 | 4a1-2 / 4a1-3 | look anyway | 0.85% / 6.8% / 35% |
+| 2 | `U2 B' L' R B' U' B L2 D` | 9 | F/B | 4a2 2e | 1 | 4a2-2 / 4a2-3 | look anyway | 0 / 0.31% / 4.5% |
+| 3 | `F' U L' D2 R (R B L' F)` | 9 | U/D | 4a1 2e | 2 | 4a1-2 / 4a1-3 | look anyway | 1.4% / 10% / 43% |
+| 4 | `B' D R2 U' F D' R U L D` | 10 | R/L | 4c4 2e | 2 | 4c4-4 / 4c4-3 | look anyway | 0 / 0.05% / 0.96% |
+| 5 | `U D F2 D F' D2 B (D' R U' L)` | 11 | U/D | 4c4 4e | 2 | 4c4-6 / 4c4-2 | drop | 0 / 0.04% / 0.87% |
+| 6 | `F (R' B' L' F U L2 D2 F2 R U)` | 11 | R/L | 4c3 2e | 1 | 4c3-5 / 4c3-9 | drop | <0.01% / 0.10% / 1.6% |
+| 7 | `U2 B' L' R' U' F D2 R2 F U2 F` | 11 | U/D | 2c4 4e | 1 | 2c4-5 / 2c4-1 | drop | 0.05% / 0.84% / 7.6% |
+| 8 | `B' L' D R D2 F2 L2 U R2 D (L)` | 11 | F/B | 2c4 4e | 2 | 2c4-1 / 2c4-1 | keep | 0.52% / 4.3% / 24% |
 
-Shown: 8 of the 411 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 4; 10 moves: 0 of 37; 11 moves: 4 of 369).
+Shown: 8 of the 205 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 14; 11 moves: 4 of 188).
 
 <details>
 <summary>Answers for scramble 56</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 8 | 14 | 21 |
-| 2 | 10 / 8 | 14 | 23 |
-| 3 | 9 / 11 | 13 | 22 |
-| 4 | 10 / 10 | 13 | 22 |
-| 5 | 8 / 5 | 14 | 24 |
-| 6 | 9 / 7 | 14 | 24 |
-| 7 | 6 / 7 | 12 | 22 |
-| 8 | 6 / 6 | 13 | 23 |
+| 1 | 6 / 7 | 12 | 21 |
+| 2 | 9 / 10 | 13 | 21 |
+| 3 | 6 / 7 | 13 | 21 |
+| 4 | 11 / 10 | 14 | 24 |
+| 5 | 12 / 10 | 14 | 25 |
+| 6 | 9 / 10 | 13 | 24 |
+| 7 | 9 / 7 | 13 | 24 |
+| 8 | 8 / 8 | 13 | 23 |
 
-Best on the page: **21 moves**, from DR 1: `L U2 D' R U B' R2 U' R2 L2 F L2 U2 F' R2 F2 D2 B U2 B2 U2`. The list drops 0 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1 (DR 2 and 3 tie it): `F' U R' B2 L U2 B2 U2 R2 F2 D' R2 D' L2 F2 L2 D F' L B' R'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 57
 
-`R' U' F D B2 D L2 U' R2 B2 F2 D2 L2 B' L' F2 L D' F L R2 D B U' R' U' F`
+`R' U' F L2 U' F2 B2 U2 F2 R2 D R2 U2 F' U2 R' F' U2 B D B2 L' U2 R2 U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `B (F2 U D2 B' L D' L D R)` | 10 | U/D | 2c4 6e | 2 | 2c4-7 / 2c4-6 | look anyway | 0 / 0.12% / 2.1% |
-| 2 | `(R' D L' F2 U' F2 R' B' D2 F)` | 10 | R/L | 2c5 4e | 0 | 2c5-3 / 2c5-1 | look anyway | 0 / 0 / 0.11% |
-| 3 | `B' U2 L F' D' B2 U' L2 R2 D` | 10 | R/L | 2c4 6e | 4 | 2c4-1 / 2c4-6 | look anyway | 0.67% / 4.0% / 21% |
-| 4 | `B' U2 L F U F2 B2 U' L2 U` | 10 | R/L | 2c4 6e | 1 | 2c4-1 / 2c4-6 | look anyway | 0.05% / 0.68% / 6.5% |
-| 5 | `B' U' L U2 F (U' L R2 F2 D R)` | 11 | U/D | 4b2 4e | 2 | 4b2-3 / 4b2-2 | keep | 1.2% / 7.6% / 34% |
-| 6 | `U (D' R' B2 D R D2 B' L U2 R)` | 11 | F/B | 4c4 4e | 1 | 4c4-1 / 4c4-4 | drop | <0.01% / 0.24% / 2.5% |
-| 7 | `U F U2 L' F2 B' L' U2 F2 R D` | 11 | R/L | 2c3 2e | 3 | 2c3-3 / 2c3-3 | keep | 1.0% / 6.1% / 29% |
-| 8 | `B L2 B D2 L2 F (L' U B D2 R)` | 11 | U/D | 2c3 6e | 1 | 2c3-3 / 2c3-2 | keep | 0.22% / 1.8% / 12% |
+| 1 | `(F' D' R B2 R B' U R2 B)` | 9 | U/D | 2c4 4e | 2 | 2c4-1 / 2c4-1 | look anyway | 0.52% / 4.3% / 24% |
+| 2 | `L U' F' L' D B D2 R2 U` | 9 | F/B | 2c4 2e | 2 | 2c4-1 / 2c4-7 | look anyway | 0.03% / 0.77% / 7.0% |
+| 3 | `L U' F' L' D B U2 L2 U` | 9 | F/B | 2c4 2e | 3 | 2c4-1 / 2c4-7 | look anyway | 0.09% / 1.3% / 9.9% |
+| 4 | `L U' F' L' D' R2 U2 F' U` | 9 | F/B | 2c4 4e | 1 | 2c4-1 / 2c4-7 | look anyway | 0.02% / 0.48% / 4.7% |
+| 5 | `F' R2 U' F U' D' R2 U (L U2 L)` | 11 | F/B | 4a1 2e | 3 | 4a1-3 / 4a1-2 | keep | 3.2% / 16% / 54% |
+| 6 | `L2 F L B L' U D L2 D F D` | 11 | F/B | 2c4 4e | 3 | 2c4-1 / 2c4-7 | drop | 0.13% / 1.4% / 10% |
+| 7 | `L U' F' L' D B' D2 R2 U2 F2 U` | 11 | F/B | 2c4 2e | 1 | 2c4-1 / 2c4-7 | drop | <0.01% / 0.40% / 4.8% |
+| 8 | `(F2 D2 L U2 L' B' U D L2 R2 B)` | 11 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-2 | drop | 0.01% / 0.14% / 1.4% |
 
-Shown: 8 of the 179 DRs up to 11 moves (10 moves: 4 of 24; 11 moves: 4 of 155).
+Shown: 8 of the 635 DRs up to 11 moves (9 moves: 4 of 5; 10 moves: 0 of 74; 11 moves: 4 of 556).
 
 <details>
 <summary>Answers for scramble 57</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 9 | 15 | 24 |
-| 2 | 11 / 10 | 14 | 24 |
-| 3 | 9 / 10 | 14 | 24 |
-| 4 | 8 / 10 | 14 | 24 |
-| 5 | 7 / 7 | 11 | 22 |
-| 6 | 10 / 11 | 15 | 25 |
-| 7 | 6 / 7 | 13 | 24 |
-| 8 | 8 / 8 | 12 | 22 |
+| 1 | 9 / 9 | 14 | 23 |
+| 2 | 8 / 9 | 14 | 23 |
+| 3 | 8 / 9 | 14 | 23 |
+| 4 | 9 / 10 | 14 | 23 |
+| 5 | 6 / 7 | 12 | 23 |
+| 6 | 7 / 9 | 14 | 25 |
+| 7 | 9 / 9 | 13 | 24 |
+| 8 | 9 / 10 | 15 | 26 |
 
-Best on the page: **22 moves**, from DR 5 (DR 8 ties it): `B' U' L U2 F D F2 B2 L2 D' L2 U' R2 U R2 D2 R' D' F2 R2 L' U`. The list drops 1 of the 4 DRs of 11 moves or more, and keeps the best one.
+Best on the page: **23 moves**, from DR 1 (DR 2, 3, 4 and 5 tie it): `U' R2 U' F2 R2 F2 D F2 R2 U' F2 D' B2 U' B' R2 U' B R' B2 R' D F`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 58
 
-`R' U' F U2 F L D2 R' L2 D B2 R2 D2 R F2 U' L2 B2 U' F2 U B2 L2 U2 R' U' F`
+`R' U' F D2 L2 D B2 U' F2 R2 U' B2 U R' D' L F' U2 F U R2 B' R F2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `R F D' L R B' L2 R2 U` | 9 | F/B | 4a1 4e | 0 | 4a1-2 / 4a1-3 | look anyway | 2.6% / 11% / 40% |
-| 2 | `(L U' B2 L' D' R2 F L F)` | 9 | R/L | 2c3 4e | 4 | 2c3-3 / 2c3-2 | look anyway | 2.1% / 9.7% / 36% |
-| 3 | `U2 L2 D R (L' F' D2 F' L2 U)` | 10 | F/B | 4b2 4e | 1 | 4b2-4 / 4b2-3 | look anyway | 0.24% / 2.3% / 16% |
-| 4 | `(R F' U' F B2 U2 B2 L D2 R)` | 10 | U/D | 2c4 6e | 0 | 2c4-4 / 2c4-5 | look anyway | 0.03% / 0.27% / 2.7% |
-| 5 | `L2 D2 B' U2 B' U D2 L D L2 D` | 11 | R/L | 4c4 4e | 4 | 4c4-1 / 4c4-4 | drop | 0.13% / 1.6% / 8.6% |
-| 6 | `F2 R2 B' D2 B D L R2 U' D2 R` | 11 | U/D | 2c4 4e | 1 | 2c4-4 / 2c4-1 | drop | 0.10% / 1.0% / 8.2% |
-| 7 | `R' F2 D B2 U' R2 U (L' R2 U' R)` | 11 | F/B | 4c3 2e | 1 | 4c3-5 / 4c3-2 | keep | 0.18% / 1.6% / 11% |
-| 8 | `R' D (L' R2 U L D2 L R2 D2 R)` | 11 | F/B | 4b5 2e | 2 | 4b5-1 / 4b5-2 | drop | 0.01% / 0.14% / 1.4% |
+| 1 | `L2 R F2 D B (L' R2 B' R)` | 9 | U/D | 4c4 4e | 0 | 4c4-2 / 4c4-6 | look anyway | 0 / 0 / 0.81% |
+| 2 | `(L' F' D R' B2 D' B U D)` | 9 | F/B | 4c4 4e | 2 | 4c4-4 / 4c4-5 | look anyway | 0 / <0.01% / 0.20% |
+| 3 | `(L' F' D R' B2 D' B' U D)` | 9 | F/B | 4c4 4e | 1 | 4c4-4 / 4c4-5 | look anyway | 0 / 0 / 0.08% |
+| 4 | `(D B2 L' F2 R' F B U F)` | 9 | U/D | 4b5 4e | 3 | 4b5-2 / 4b5-2 | look anyway | 0 / 0.01% / 0.79% |
+| 5 | `(D L' F2 R' F' U2 L2 B' D F U)` | 11 | F/B | 2c4 2e | 4 | 2c4-2 / 2c4-2 | keep | 0.60% / 6.0% / 28% |
+| 6 | `(L' D2 F2 D' R U F R2 B' U D)` | 11 | F/B | 2c4 6e | 3 | 2c4-4 / 2c4-3 | drop | 0.25% / 1.8% / 10% |
+| 7 | `(L' F' D R' U' L2 F U L2 B U)` | 11 | F/B | 4c3 2e | 2 | 4c3-9 / 4c3-5 | drop | <0.01% / 0.21% / 2.6% |
+| 8 | `(L' F' D R' B2 D' B D2 L2 U D)` | 11 | F/B | 4c4 4e | 1 | 4c4-4 / 4c4-1 | drop | <0.01% / 0.24% / 2.5% |
 
-Shown: 8 of the 304 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 22; 11 moves: 4 of 280).
+Shown: 8 of the 202 DRs up to 11 moves (9 moves: 4 of 4; 10 moves: 0 of 15; 11 moves: 4 of 183).
 
 <details>
 <summary>Answers for scramble 58</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 5 / 5 | 10 | 19 |
-| 2 | 7 / 7 | 12 | 21 |
-| 3 | 8 / 8 | 13 | 22 |
-| 4 | 9 / 10 | 14 | 24 |
-| 5 | 9 / 11 | 12 | 23 |
-| 6 | 10 / 7 | 15 | 25 |
-| 7 | 9 / 8 | 13 | 23 |
-| 8 | 10 / 10 | 16 | 25 |
+| 1 | 10 / 11 | 15 | 23 |
+| 2 | 11 / 11 | 14 | 22 |
+| 3 | 11 / 11 | 15 | 23 |
+| 4 | 11 / 11 | 15 | 23 |
+| 5 | 9 / 9 | 13 | 24 |
+| 6 | 9 / 8 | 15 | 24 |
+| 7 | 9 / 8 | 14 | 25 |
+| 8 | 11 / 10 | 14 | 25 |
 
-Best on the page: **19 moves**, from DR 1: `R F D' L R B' L2 R2 U D2 R2 D2 L2 B R2 F2 D2 B2 U2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 2: `R2 F' D2 B' U2 B R2 U2 F R2 F' U2 F D U' B' D B2 R D' F L`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 59
 
-`R' U' F L2 F2 L2 F2 D' L2 B2 D U R2 F U' R' U2 B' R D' B' D R' D' R' U' F`
+`R' U' F L D' F' R B L U F' R2 F2 R D' L2 U L2 D2 R2 L2 U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `R F U L' D F U' R2 U (L)` | 10 | F/B | 2c4 4e | 2 | 2c4-5 / 2c4-4 | look anyway | 0.04% / 0.49% / 4.2% |
-| 2 | `D2 R' U' B (F2 L' U R B2 D)` | 10 | R/L | 4c4 4e | 3 | 4c4-4 / 4c4-5 | look anyway | 0 / <0.01% / 0.44% |
-| 3 | `U R' U2 F2 D (R' U' F2 D' B)` | 10 | R/L | 4b2 4e | 1 | 4b2-3 / 4b2-4 | look anyway | 0.24% / 2.3% / 16% |
-| 4 | `F' L R2 F U2 L' U' R' D (B)` | 10 | R/L | 2c3 6e | 3 | 2c3-1 / 2c3-3 | look anyway | 0.73% / 5.3% / 28% |
-| 5 | `L R2 F' U' B2 R' U2 B2 D R (B)` | 11 | U/D | 4c4 2e | 1 | 4c4-2 / 4c4-6 | drop | 0 / 0.08% / 1.2% |
-| 6 | `(D F2 U2 B D' F2 R U L' D2 R)` | 11 | U/D | 4b2 4e | 1 | 4b2-2 / 4b2-2 | keep | 1.2% / 7.0% / 32% |
-| 7 | `(D2 L' D' B U F' R U2 F2 R2 B)` | 11 | R/L | 2c4 4e | 0 | 2c4-1 / 2c4-4 | drop | 0.05% / 0.65% / 5.9% |
-| 8 | `L U D2 B (D' L' D2 B2 U D2 R)` | 11 | U/D | 2c4 4e | 1 | 2c4-7 / 2c4-5 | drop | 0 / 0.01% / 0.63% |
+| 1 | `L' U2 L2 U' B' D (F U2 D R)` | 10 | F/B | 4c3 2e | 5 | 4c3-2 / 4c3-5 | look anyway | 2.6% / 11% / 36% |
+| 2 | `L U2 L2 U B' D (F U2 D R)` | 10 | F/B | 4c3 4e | 3 | 4c3-2 / 4c3-5 | look anyway | 0.78% / 4.2% / 22% |
+| 3 | `(R B' D' L' U' R' B' U2 F' L)` | 10 | F/B | 4c3 4e | 2 | 4c3-5 / 4c3-6 | look anyway | 0.15% / 1.4% / 8.7% |
+| 4 | `L' B2 D2 R2 D' B' U (F U2 D R)` | 11 | F/B | 2c5 2e | 4 | 2c5-1 / 2c5-1 | drop | 0.05% / 0.82% / 6.4% |
+| 5 | `U' F (U2 B' L2 F2 L' U D B2 L)` | 11 | U/D | 2c3 4e | 2 | 2c3-2 / 2c3-1 | keep | 1.6% / 8.8% / 36% |
+| 6 | `L (F U2 D R' F U' D' R2 D' B)` | 11 | U/D | 2c3 4e | 4 | 2c3-1 / 2c3-3 | keep | 2.9% / 13% / 45% |
+| 7 | `(R B' D' L' U' R' F2 B D2 F' R)` | 11 | F/B | 4c3 4e | 1 | 4c3-5 / 4c3-6 | drop | 0.08% / 0.96% / 7.0% |
+| 8 | `(R B' D' L' U' R' U2 F' L2 B' L)` | 11 | F/B | 4c3 4e | 2 | 4c3-6 / 4c3-5 | drop | 0.15% / 1.4% / 8.7% |
 
-Shown: 8 of the 249 DRs up to 11 moves (10 moves: 4 of 17; 11 moves: 4 of 232).
+Shown: 8 of the 43 DRs up to 11 moves (10 moves: 3 of 3; 11 moves: 5 of 40).
 
 <details>
 <summary>Answers for scramble 59</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 9 | 13 | 22 |
-| 2 | 11 / 11 | 15 | 24 |
-| 3 | 8 / 9 | 13 | 23 |
-| 4 | 8 / 8 | 11 | 21 |
-| 5 | 11 / 12 | 15 | 25 |
-| 6 | 7 / 7 | 12 | 22 |
-| 7 | 9 / 9 | 14 | 24 |
-| 8 | 9 / 10 | 15 | 25 |
+| 1 | 9 / 9 | 13 | 23 |
+| 2 | 8 / 9 | 13 | 23 |
+| 3 | 9 / 9 | 14 | 24 |
+| 4 | 10 / 9 | 15 | 25 |
+| 5 | 7 / 7 | 13 | 24 |
+| 6 | 6 / 6 | 13 | 24 |
+| 7 | 9 / 9 | 15 | 25 |
+| 8 | 9 / 10 | 15 | 26 |
 
-Best on the page: **21 moves**, from DR 4: `F' L R2 F U2 L' U' R' D R' B2 D2 R2 L' D2 F2 B2 L' F2 D2 B'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 1 (DR 2 ties it): `L' U2 L2 U' B' D F2 U2 F U2 B R2 U2 B U2 F R2 D2 F' R' D' U2 F'`. The list drops 3 of the 5 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 60
 
-`R' U' F D' F2 R2 B2 U B2 U' R2 B2 R2 B' U L' F' U' L F L U2 F L' U' R' U' F`
+`R' U' F L2 B2 L2 B2 U2 R2 D F2 D' U2 R U2 B2 D' R' U2 B D' U' F R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `D (L2 U' L U2 D' L2 R' B)` | 9 | R/L | 4b2 4e | 2 | 4b2-2 / 4b2-3 | look anyway | 1.2% / 7.6% / 34% |
-| 2 | `R U' R F2 L (R' B2 L B)` | 9 | U/D | 0c3 4e | 2 | 0c3-2 / 0c3-2 | look anyway | 0 / 0 / 0.37% |
-| 3 | `(R2 F2 D' R' B L' U2 D' R)` | 9 | U/D | 2c4 4e | 1 | 2c4-6 / 2c4-1 | look anyway | 0.09% / 0.94% / 7.2% |
-| 4 | `R U' L D2 R (R' B2 L B)` | 9 | U/D | 0c3 4e | 5 | 0c3-2 / 0c3-2 | look anyway | 0 / 0 / 0.70% |
-| 5 | `B U' F L (L B U2 F B R2 D)` | 11 | F/B | 4c3 2e | 2 | 4c3-9 / 4c3-5 | drop | <0.01% / 0.21% / 2.6% |
-| 6 | `(L2 U L2 R B U D2 R F2 R' U)` | 11 | R/L | 4b5 2e | 2 | 4b5-1 / 4b5-1 | drop | 0.02% / 0.24% / 2.3% |
-| 7 | `(R2 B2 L F2 B' D L U' L' F2 U)` | 11 | R/L | 4b5 4e | 2 | 4b5-1 / 4b5-2 | drop | 0 / 0.07% / 1.0% |
-| 8 | `R' B D' L' B (U' L2 R2 B2 R U)` | 11 | R/L | 4b2 4e | 3 | 4b2-4 / 4b2-3 | keep | 0.87% / 6.0% / 30% |
+| 1 | `B L' U F B2 U L D` | 8 | R/L | 2c4 4e | 1 | 2c4-5 / 2c4-6 | look anyway | 0.01% / 0.31% / 2.9% |
+| 2 | `F L B' D' L U F2 U' F` | 9 | U/D | 4a1 4e | 2 | 4a1-4 / 4a1-2 | look anyway | 6.7% / 21% / 54% |
+| 3 | `B U L' F (D L' U2 L U)` | 9 | R/L | 4a1 4e | 0 | 4a1-2 / 4a1-1 | look anyway | 2.3% / 10% / 36% |
+| 4 | `B L' U F L2 R2 F2 D L U` | 10 | R/L | 2c4 4e | 0 | 2c4-5 / 2c4-6 | look anyway | 0.01% / 0.21% / 2.4% |
+| 5 | `R2 F' U2 F' D2 B' D (R2 D B' L)` | 11 | F/B | 0c4 4e | 3 | 0c4-1 / 0c4-1 | drop | 0.14% / 1.3% / 8.9% |
+| 6 | `(L' B' U2 L' B2 L2 U' F' B' D F)` | 11 | U/D | 4b5 2e | 1 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.08% / 1.2% |
+| 7 | `B U L' F (R2 D2 L' R2 U' L' D)` | 11 | R/L | 2c3 4e | 1 | 2c3-2 / 2c3-2 | keep | 0.49% / 3.9% / 21% |
+| 8 | `(L' B' U2 L R2 D2 F' D' F R2 B)` | 11 | U/D | 2c4 4e | 3 | 2c4-7 / 2c4-4 | drop | <0.01% / 0.35% / 3.5% |
 
-Shown: 8 of the 418 DRs up to 11 moves (9 moves: 4 of 5; 10 moves: 0 of 31; 11 moves: 4 of 382).
+Shown: 8 of the 406 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 2 of 2; 10 moves: 1 of 42; 11 moves: 4 of 361).
 
 <details>
 <summary>Answers for scramble 60</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 6 / 8 | 12 | 21 |
-| 2 | 12 / 12 | 15 | 23 |
-| 3 | 10 / 8 | 14 | 23 |
-| 4 | 11 / 12 | 15 | 23 |
-| 5 | 10 / 9 | 15 | 25 |
-| 6 | 10 / 9 | 13 | 24 |
-| 7 | 11 / 11 | 14 | 25 |
-| 8 | 7 / 7 | 13 | 23 |
+| 1 | 10 / 9 | 15 | 22 |
+| 2 | 4 / 7 | 13 | 22 |
+| 3 | 5 / 3 | 13 | 21 |
+| 4 | 10 / 9 | 15 | 25 |
+| 5 | 9 / 10 | 15 | 25 |
+| 6 | 10 / 10 | 13 | 24 |
+| 7 | 7 / 6 | 13 | 24 |
+| 8 | 9 / 8 | 14 | 25 |
 
-Best on the page: **21 moves**, from DR 1: `D B2 D2 R' B2 R2 U2 B2 R B2 R2 D2 U2 B' R L2 D U2 L' U L2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 3: `B U L' F' D2 F2 R2 B2 D2 R2 D2 R2 B2 L F2 B2 U' L' U2 L D'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 61
 
-`R' U' F L B' U D B2 F' D' R D' B F' U2 R B2 R' F2 U2 L' U2 L U2 R' U' F`
+`R' U' F L2 B2 D' F' R2 U D' L' D2 F L2 D2 B2 D R2 U B2 D L2 D2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(B2 L D B2 L2 R' B' U F)` | 9 | U/D | 2c4 2e | 4 | 2c4-4 / 2c4-5 | look anyway | 0.08% / 1.6% / 11% |
-| 2 | `B2 D F' B' R U2 D L2 D L` | 10 | U/D | 2c5 6e | 2 | 2c5-3 / 2c5-1 | look anyway | 0 / 0.03% / 0.64% |
-| 3 | `D' R2 F U' B D2 L2 U2 R' D` | 10 | R/L | 2c4 6e | 2 | 2c4-7 / 2c4-6 | look anyway | 0 / 0.12% / 2.1% |
-| 4 | `F B' D' F R2 U (D' L' D2 R)` | 10 | F/B | 4b2 4e | 1 | 4b2-2 / 4b2-2 | look anyway | 1.2% / 7.0% / 32% |
-| 5 | `F2 B D' R U' B' R' F' D2 R F` | 11 | R/L | 4c3 4e | 6 | 4c3-1 / 4c3-4 | keep | 3.1% / 14% / 44% |
-| 6 | `D' R2 F U' B U2 D2 R2 D2 R D` | 11 | R/L | 2c4 6e | 0 | 2c4-7 / 2c4-6 | drop | 0 / 0 / 0.70% |
-| 7 | `U B D L' U R' F B' L' F' R` | 11 | F/B | 2c3 2e | 3 | 2c3-3 / 2c3-3 | keep | 1.0% / 6.1% / 29% |
-| 8 | `R' F R' U2 L B U F D B' U` | 11 | F/B | 4c4 4e | 4 | 4c4-4 / 4c4-5 | drop | 0 / 0.02% / 0.76% |
+| 1 | `U2 F D L U R2 U D2 L` | 9 | U/D | 2c3 4e | 1 | 2c3-2 / 2c3-1 | look anyway | 0.88% / 6.1% / 29% |
+| 2 | `R2 F' L F U2 D L' D2 L` | 9 | F/B | 0c3 2e | 4 | 0c3-1 / 0c3-1 | look anyway | 0.83% / 3.0% / 9.1% |
+| 3 | `R2 F' L F U2 D R' B2 R` | 9 | F/B | 0c3 2e | 3 | 0c3-1 / 0c3-1 | look anyway | 0 / 0.37% / 11% |
+| 4 | `U D F' U' F2 D (B2 D' L)` | 9 | F/B | 2c4 4e | 1 | 2c4-7 / 2c4-4 | look anyway | 0 / 0.08% / 1.5% |
+| 5 | `U2 F R F2 B2 U' B2 U2 R B2 U` | 11 | R/L | 0c4 6e | 0 | 0c4-1 / 0c4-1 | drop | 0.01% / 0.11% / 1.9% |
+| 6 | `(R D2 F2 D' F' R F' U2 L R2 F)` | 11 | R/L | 2c4 4e | 4 | 2c4-3 / 2c4-1 | keep | 1.5% / 7.8% / 32% |
+| 7 | `(D2 F2 B' L' D' B' D2 B' R2 B2 L)` | 11 | F/B | 4b5 2e | 1 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.08% / 1.2% |
+| 8 | `U F L2 U' L' D' R2 U B U' B` | 11 | U/D | 2c4 6e | 4 | 2c4-6 / 2c4-1 | keep | 0.67% / 4.0% / 21% |
 
-Shown: 8 of the 133 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 12; 11 moves: 4 of 120).
+Shown: 8 of the 1316 DRs up to 11 moves (9 moves: 4 of 8; 10 moves: 0 of 88; 11 moves: 4 of 1220).
 
 <details>
 <summary>Answers for scramble 61</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 9 | 14 | 23 |
-| 2 | 11 / 10 | 14 | 23 |
-| 3 | 10 / 9 | 14 | 24 |
-| 4 | 7 / 7 | 14 | 23 |
-| 5 | 9 / 10 | 14 | 25 |
-| 6 | 10 / 9 | 14 | 24 |
-| 7 | 6 / 7 | 12 | 22 |
-| 8 | 11 / 11 | 14 | 25 |
+| 1 | 8 / 8 | 9 | 18 |
+| 2 | 11 / 9 | 13 | 22 |
+| 3 | 9 / 9 | 13 | 22 |
+| 4 | 9 / 9 | 14 | 23 |
+| 5 | 10 / 10 | 14 | 25 |
+| 6 | 8 / 8 | 13 | 23 |
+| 7 | 9 / 10 | 14 | 25 |
+| 8 | 9 / 8 | 13 | 23 |
 
-Best on the page: **22 moves**, from DR 7: `U B D L' U R' F B' L' F' R' F U2 F' L2 B' R2 F2 D2 B2 D2 R2`. The list drops 2 of the 4 DRs of 11 moves or more, and keeps the best one.
+Best on the page: **18 moves**, from DR 1: `U2 F D L U R2 U D2 L D' F2 R2 D' R2 B2 L2 F2 U`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 62
 
-`R' U' F U2 D2 L B R L' B' L U' R U2 R2 U2 D' L2 D' B2 D2 F2 U R' U' F`
+`R' U' F U' R2 U2 R2 U' L2 U' F2 R2 U' B' U F R2 F2 U R2 D R' F2 L' U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `F B D2 R (L R' F)` | 7 | U/D | 2c5 4e | 2 | 2c5-2 / 2c5-2 | look anyway | 0 / 0.09% / 1.5% |
-| 2 | `F' B' U2 L (L R' F)` | 7 | U/D | 2c5 4e | 1 | 2c5-2 / 2c5-2 | look anyway | 0 / 0.05% / 0.77% |
-| 3 | `F' B' L R' F2 R (L R' F)` | 9 | U/D | 2c5 4e | 2 | 2c5-2 / 2c5-2 | look anyway | 0 / 0.09% / 1.5% |
-| 4 | `F' B' L2 R2 D2 L (L R' F)` | 9 | U/D | 2c5 4e | 1 | 2c5-2 / 2c5-2 | look anyway | 0 / 0.05% / 0.77% |
-| 5 | `F B U2 L R' F2 B2 L (L R' F)` | 11 | U/D | 2c5 4e | 2 | 2c5-2 / 2c5-2 | drop | 0 / 0.09% / 1.5% |
-| 6 | `B2 U' F L U B2 D2 L2 R2 B' L` | 11 | F/B | 4c3 4e | 1 | 4c3-5 / 4c3-1 | keep | 0.22% / 2.1% / 14% |
-| 7 | `F (B L' D2 B R2 D2 R B2 U' L)` | 11 | U/D | 4a2 2e | 1 | 4a2-3 / 4a2-3 | drop | 0 / 0.01% / 0.84% |
-| 8 | `(B2 R' B' D' L B R2 U F L2 D)` | 11 | F/B | 2c3 4e | 5 | 2c3-3 / 2c3-3 | keep | 2.4% / 10% / 35% |
+| 1 | `L U D2 F' D R2 B' U2 D2 R` | 10 | F/B | 4c4 4e | 3 | 4c4-2 / 4c4-5 | look anyway | 0 / 0.04% / 1.4% |
+| 2 | `U B2 D2 R' D (L F B D' F)` | 10 | R/L | 2c4 4e | 2 | 2c4-6 / 2c4-7 | look anyway | 0.01% / 0.28% / 2.3% |
+| 3 | `D' L' U' B2 U2 R2 F' L (F2 D)` | 10 | F/B | 4c4 2e | 3 | 4c4-3 / 4c4-4 | look anyway | 0 / 0.09% / 1.5% |
+| 4 | `B' U' B' L D (F B L' D2 F)` | 10 | R/L | 2c5 4e | 3 | 2c5-1 / 2c5-1 | look anyway | 0.10% / 0.85% / 6.2% |
+| 5 | `F' L (B' R' B' U2 B' U2 D' B' U)` | 11 | F/B | 2c3 6e | 1 | 2c3-3 / 2c3-2 | keep | 0.22% / 1.8% / 12% |
+| 6 | `L U D2 F' D R2 B' R2 U2 D2 R` | 11 | F/B | 4c4 4e | 1 | 4c4-4 / 4c4-5 | drop | 0 / 0 / 0.08% |
+| 7 | `L U D2 F' D (B R2 U2 D2 F L)` | 11 | F/B | 2c3 2e | 3 | 2c3-3 / 2c3-3 | keep | 1.0% / 6.1% / 29% |
+| 8 | `L U' D F R' F2 D B U2 D' B` | 11 | U/D | 4c3 4e | 2 | 4c3-7 / 4c3-5 | drop | 0.17% / 1.3% / 7.9% |
 
-Shown: 8 of the 579 DRs up to 11 moves (7 moves: 2 of 2; 9 moves: 2 of 7; 10 moves: 0 of 89; 11 moves: 4 of 481).
+Shown: 8 of the 90 DRs up to 11 moves (10 moves: 4 of 6; 11 moves: 4 of 84).
 
 <details>
 <summary>Answers for scramble 62</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 14 | 21 |
-| 2 | 11 / 10 | 14 | 20 |
-| 3 | 10 / 10 | 14 | 22 |
-| 4 | 11 / 10 | 15 | 23 |
-| 5 | 10 / 10 | 14 | 24 |
-| 6 | 8 / 8 | 14 | 25 |
-| 7 | 10 / 10 | 14 | 24 |
-| 8 | 7 / 8 | 14 | 24 |
+| 1 | 10 / 11 | 13 | 23 |
+| 2 | 9 / 9 | 14 | 23 |
+| 3 | 10 / 10 | 15 | 24 |
+| 4 | 9 / 9 | 14 | 23 |
+| 5 | 8 / 8 | 14 | 24 |
+| 6 | 10 / 11 | 16 | 26 |
+| 7 | 6 / 7 | 13 | 23 |
+| 8 | 9 / 9 | 12 | 23 |
 
-Best on the page: **20 moves**, from DR 2: `F' B' U2 L' U F2 L2 U2 D R2 B2 U' B2 D B2 D' L2 F' R L'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 7 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 1 (DR 2, 4, 7 and 8 tie it): `L U D2 F' D R2 B' U2 D2 R F D2 F' R2 D2 B2 U2 F' D2 F R2 D2 B2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 63
 
-`R' U' F D2 L2 U2 B2 R2 U' F2 D' F2 U' F L B2 R2 U L D2 F R' D B2 U' R' U' F`
+`R' U' F D2 B U2 D2 F L2 D2 F R2 F L' F' D L U L' B2 F U' R' U2 F' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(D' R B' D L R2 D' F' U B)` | 10 | U/D | 4c4 4e | 1 | 4c4-1 / 4c4-4 | look anyway | <0.01% / 0.24% / 2.5% |
-| 2 | `F' D' L' U L2 F R' D2 F R` | 10 | F/B | 4c3 4e | 0 | 4c3-4 / 4c3-7 | look anyway | 0.11% / 1.1% / 7.7% |
-| 3 | `F' L' U' L D (R2 B' R2 B' L)` | 10 | F/B | 2c3 4e | 1 | 2c3-2 / 2c3-1 | look anyway | 0.88% / 6.1% / 29% |
-| 4 | `F' D2 R' D2 F (D2 F' R' U D)` | 10 | R/L | 2c4 6e | 2 | 2c4-3 / 2c4-2 | look anyway | 0.47% / 3.0% / 18% |
-| 5 | `L2 U F L' D' R F2 B' D2 L B` | 11 | R/L | 2c3 4e | 0 | 2c3-2 / 2c3-2 | keep | 0.31% / 2.6% / 17% |
-| 6 | `(D' R B' D L B R2 D' F' U B)` | 11 | U/D | 2c3 6e | 1 | 2c3-2 / 2c3-2 | keep | 0.39% / 2.8% / 16% |
-| 7 | `U' L (B2 D' L B2 U' R2 F2 B' D)` | 11 | F/B | 4b2 4e | 1 | 4b2-2 / 4b2-2 | keep | 1.2% / 7.0% / 32% |
-| 8 | `F U2 L' R2 D2 B (D2 F' R U D)` | 11 | R/L | 2c4 6e | 0 | 2c4-4 / 2c4-2 | drop | 0.03% / 0.42% / 4.5% |
+| 1 | `(R2 F' B' R' U L U' L U)` | 9 | R/L | 2c4 6e | 1 | 2c4-4 / 2c4-4 | look anyway | 0.02% / 0.26% / 2.5% |
+| 2 | `R' D F2 R F' U D2 F U` | 9 | F/B | 2c5 4e | 3 | 2c5-2 / 2c5-3 | look anyway | 0 / 0 / 0.33% |
+| 3 | `(F' B R' U B2 L F2 R U' L)` | 10 | U/D | 2c4 2e | 1 | 2c4-2 / 2c4-2 | look anyway | 0.21% / 2.2% / 16% |
+| 4 | `R' F' D R' D2 B' R2 F2 U2 B` | 10 | U/D | 4b2 2e | 5 | 4b2-4 / 4b2-2 | look anyway | 8.7% / 26% / 65% |
+| 5 | `U F (F U' R' U' R' U D F2 L)` | 11 | U/D | 2c4 4e | 0 | 2c4-1 / 2c4-7 | drop | 0 / 0.25% / 3.2% |
+| 6 | `R' D F2 R F' U2 D2 R2 U' F U` | 11 | F/B | 0c3 2e | 2 | 0c3-2 / 0c3-2 | drop | 0 / 0.02% / 0.96% |
+| 7 | `R2 D' L2 R D L2 D' L D (F B)` | 11 | R/L | 2c4 8e | 0 | 2c4-7 / 2c4-4 | drop | 0 / 0 / 0.17% |
+| 8 | `(F' B' L2 D2 B2 L' D' R' D' L' D)` | 11 | R/L | 4c4 2e | 2 | 4c4-4 / 4c4-5 | drop | 0 / <0.01% / 0.22% |
 
-Shown: 8 of the 145 DRs up to 11 moves (10 moves: 4 of 13; 11 moves: 4 of 132).
+Shown: 8 of the 1140 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 57; 11 moves: 4 of 1081).
 
 <details>
 <summary>Answers for scramble 63</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 11 | 14 | 24 |
-| 2 | 10 / 9 | 15 | 24 |
-| 3 | 8 / 5 | 14 | 22 |
-| 4 | 9 / 9 | 13 | 22 |
-| 5 | 8 / 7 | 14 | 25 |
-| 6 | 7 / 9 | 12 | 23 |
-| 7 | 7 / 7 | 12 | 22 |
-| 8 | 9 / 9 | 14 | 24 |
+| 1 | 9 / 9 | 14 | 23 |
+| 2 | 11 / 12 | 15 | 24 |
+| 3 | 9 / 9 | 13 | 22 |
+| 4 | 6 / 7 | 13 | 22 |
+| 5 | 9 / 9 | 14 | 24 |
+| 6 | 10 / 10 | 14 | 25 |
+| 7 | 11 / 10 | 14 | 24 |
+| 8 | 10 / 11 | 14 | 25 |
 
-Best on the page: **22 moves**, from DR 3 (DR 4 and 7 tie it): `F' L' U' L D' R2 B2 U2 B R2 U2 R2 B2 L2 B' L2 F' L B R2 B R2`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 3 (DR 4 ties it): `D L2 U F2 D R2 B2 U2 L2 F2 D B2 L U R' F2 L' B2 U' R B' F`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 64
 
-`R' U' F R B R' L' F U2 F' D' R' D' B U R2 U B2 R2 U2 R2 U' D' R' U' F`
+`R' U' F D B2 R2 B2 R2 D' F2 L2 F2 U2 R D2 B' F2 D U R B U B2 R2 U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `U2 R' B2 D L (U2 R F' L2 B)` | 10 | U/D | 4b2 2e | 2 | 4b2-4 / 4b2-3 | look anyway | 0.77% / 5.2% / 27% |
-| 2 | `R' U F2 L' U2 D2 F (F L2 D)` | 10 | R/L | 4b2 2e | 1 | 4b2-4 / 4b2-3 | look anyway | 0.42% / 3.6% / 20% |
-| 3 | `F R U' F2 D F' R' D2 B R` | 10 | F/B | 2c4 6e | 0 | 2c4-1 / 2c4-3 | look anyway | 0.06% / 1.2% / 9.5% |
-| 4 | `U2 R' B2 D L (U2 R B' U2 F)` | 10 | U/D | 4b2 2e | 3 | 4b2-4 / 4b2-3 | look anyway | 1.4% / 8.1% / 35% |
-| 5 | `R' U F2 L' F2 U2 D2 F (F L2 D)` | 11 | R/L | 4b2 2e | 0 | 4b2-3 / 4b2-3 | keep | 0.30% / 3.1% / 19% |
-| 6 | `(F2 R' D L' R' U' F' R2 B' D' F)` | 11 | U/D | 4b5 4e | 2 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.13% / 1.9% |
-| 7 | `R2 D2 B2 U' R2 F (L D F' U L)` | 11 | U/D | 4c3 4e | 4 | 4c3-1 / 4c3-5 | keep | 1.2% / 7.3% / 32% |
-| 8 | `D B2 L' U D' R (F' L' R' U2 B)` | 11 | U/D | 4a1 2e | 2 | 4a1-1 / 4a1-2 | keep | 4.2% / 18% / 55% |
+| 1 | `U R D B L2 F D' B (L)` | 9 | U/D | 2c4 6e | 1 | 2c4-7 / 2c4-3 | look anyway | 0.01% / 0.44% / 4.0% |
+| 2 | `U2 F U2 F' L2 U (L' F R)` | 9 | F/B | 0c0 4e | 2 | 0c0-1 / 0c0-1 | look anyway | 4.6% / 17% / 52% |
+| 3 | `U R (L' B U D B U' F B)` | 10 | U/D | 4a2 2e | 1 | 4a2-2 / 4a2-3 | look anyway | 0 / 0.31% / 4.5% |
+| 4 | `F D2 B2 D' L2 B2 U (L' F R)` | 10 | F/B | 2c4 4e | 0 | 2c4-6 / 2c4-4 | look anyway | 0 / 0.13% / 1.5% |
+| 5 | `D' B2 D F' U F2 U (F' L' F' R)` | 11 | F/B | 2c3 4e | 1 | 2c3-2 / 2c3-3 | keep | 0.38% / 2.8% / 17% |
+| 6 | `F' B2 R2 D L' F' U2 B' D2 L' B` | 11 | R/L | 2c3 6e | 3 | 2c3-1 / 2c3-1 | keep | 3.0% / 14% / 49% |
+| 7 | `D B D F' U' B U D (L' F R)` | 11 | F/B | 4c3 4e | 4 | 4c3-5 / 4c3-1 | keep | 1.2% / 7.3% / 32% |
+| 8 | `L2 U R (L' B' U2 R2 F' D' B' D)` | 11 | F/B | 4b2 4e | 0 | 4b2-1 / 4b2-2 | keep | 0.81% / 5.4% / 28% |
 
-Shown: 8 of the 40 DRs up to 11 moves (10 moves: 4 of 5; 11 moves: 4 of 35).
+Shown: 8 of the 833 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 67; 11 moves: 4 of 764).
 
 <details>
 <summary>Answers for scramble 64</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 6 / 7 | 13 | 22 |
-| 2 | 8 / 7 | 14 | 22 |
-| 3 | 8 / 9 | 14 | 23 |
-| 4 | 6 / 7 | 13 | 23 |
-| 5 | 6 / 7 | 12 | 22 |
-| 6 | 11 / 10 | 15 | 26 |
-| 7 | 7 / 10 | 13 | 23 |
-| 8 | 6 / 6 | 13 | 23 |
+| 1 | 10 / 8 | 15 | 23 |
+| 2 | 6 / 7 | 12 | 21 |
+| 3 | 9 / 10 | 14 | 23 |
+| 4 | 9 / 10 | 14 | 24 |
+| 5 | 8 / 8 | 13 | 24 |
+| 6 | 8 / 7 | 13 | 24 |
+| 7 | 9 / 9 | 13 | 23 |
+| 8 | 8 / 7 | 12 | 23 |
 
-Best on the page: **22 moves**, from DR 1 (DR 2 and 5 tie it): `U2 R' B2 D L R2 D2 F2 U B2 D' R2 B2 U2 R2 F2 L2 B L2 F R' U2`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 2: `U2 F U2 F' L2 U F2 R2 F2 B D2 U2 B R2 D2 U2 F2 D2 R' F' L`. The list drops 0 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 65
 
-`R' U' F D2 R2 U' B2 D U2 F2 D R2 U R D F2 L2 R2 D2 F D' L U2 F R' U' F`
+`R' U' F U' B2 R2 U' L2 U' F2 U2 B2 F2 R' D2 B2 F' U R B' D R U2 F R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(D F' L B' U' R D2 B)` | 8 | R/L | 2c3 6e | 2 | 2c3-1 / 2c3-2 | look anyway | 1.0% / 6.4% / 30% |
-| 2 | `F B R (U' R2 B' U D)` | 8 | F/B | 2c5 6e | 3 | 2c5-2 / 2c5-2 | look anyway | 0 / 0.08% / 1.4% |
-| 3 | `F B R (U' R2 B U D)` | 8 | F/B | 2c5 6e | 3 | 2c5-2 / 2c5-2 | look anyway | 0 / 0.08% / 1.4% |
-| 4 | `F B R (U D2 L2 F' U D)` | 9 | F/B | 2c5 6e | 2 | 2c5-2 / 2c5-2 | look anyway | 0 / 0.02% / 0.89% |
-| 5 | `F B R (U' F B' D2 F R2 U D)` | 11 | F/B | 2c5 6e | 2 | 2c5-2 / 2c5-2 | drop | 0 / 0.02% / 0.89% |
-| 6 | `F B R (U' F2 L2 F2 R2 B U D)` | 11 | F/B | 2c5 6e | 2 | 2c5-2 / 2c5-2 | drop | 0 / 0.02% / 0.89% |
-| 7 | `F B R (U' R2 F' D' F B' U D)` | 11 | F/B | 2c4 6e | 4 | 2c4-6 / 2c4-6 | keep | 0.27% / 1.3% / 7.2% |
-| 8 | `L2 F B R (U' R2 B' L2 F2 U D)` | 11 | F/B | 2c5 6e | 1 | 2c5-1 / 2c5-2 | drop | 0 / 0.16% / 1.5% |
+| 1 | `U B L' U' B U2 B D (U2 R)` | 10 | F/B | 2c3 4e | 3 | 2c3-1 / 2c3-3 | look anyway | 1.8% / 9.3% / 37% |
+| 2 | `F' D2 R F D2 F D F (F L)` | 10 | U/D | 4b5 2e | 0 | 4b5-1 / 4b5-1 | look anyway | 0 / 0.06% / 0.76% |
+| 3 | `F' D2 R B R2 B U F (F L)` | 10 | U/D | 4b5 0e | 1 | 4b5-1 / 4b5-1 | look anyway | 0 / 0.15% / 1.9% |
+| 4 | `U B L' U D2 F U2 F D (U2 R)` | 11 | F/B | 2c3 6e | 3 | 2c3-1 / 2c3-3 | keep | 0.73% / 5.3% / 28% |
+| 5 | `(L' B L R F' R' U F2 L2 U2 L)` | 11 | U/D | 4b5 4e | 1 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.08% / 1.1% |
+| 6 | `(L' B' L R F L D R2 D2 B2 R)` | 11 | U/D | 4b5 2e | 5 | 4b5-1 / 4b5-1 | drop | 0.25% / 1.8% / 9.5% |
+| 7 | `F' L U2 D' R' U R2 U2 B' U' F` | 11 | U/D | 2c5 4e | 2 | 2c5-1 / 2c5-2 | drop | 0.02% / 0.23% / 2.4% |
+| 8 | `U B L' U' L2 F R2 F U (U2 R)` | 11 | F/B | 2c3 4e | 4 | 2c3-1 / 2c3-1 | keep | 5.9% / 23% / 61% |
 
-Shown: 8 of the 862 DRs up to 11 moves (8 moves: 3 of 3; 9 moves: 1 of 15; 10 moves: 0 of 88; 11 moves: 4 of 756).
+Shown: 8 of the 46 DRs up to 11 moves (10 moves: 3 of 3; 11 moves: 5 of 43).
 
 <details>
 <summary>Answers for scramble 65</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 7 | 13 | 21 |
-| 2 | 11 / 11 | 14 | 20 |
-| 3 | 11 / 10 | 15 | 21 |
-| 4 | 11 / 11 | 14 | 22 |
-| 5 | 11 / 10 | 13 | 23 |
-| 6 | 11 / 11 | 15 | 25 |
-| 7 | 9 / 9 | 14 | 23 |
-| 8 | 10 / 11 | 14 | 24 |
+| 1 | 7 / 7 | 14 | 22 |
+| 2 | 10 / 9 | 14 | 23 |
+| 3 | 9 / 9 | 15 | 24 |
+| 4 | 8 / 9 | 14 | 24 |
+| 5 | 10 / 10 | 13 | 24 |
+| 6 | 10 / 9 | 13 | 24 |
+| 7 | 9 / 10 | 13 | 24 |
+| 8 | 6 / 8 | 12 | 23 |
 
-Best on the page: **20 moves**, from DR 2: `F B R' F' L2 F R2 D2 F' L2 F2 R2 F D2 B' D' U B R2 U`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1: `U B L' U' B U2 B D' B2 D2 F D2 B U2 B D2 B' U2 L2 B' R U2`. The list drops 3 of the 5 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 66
 
-`R' U' F U' D' R F' B' U F2 R' F D' F B2 R2 F2 D2 R2 U F2 B2 R2 D R' U' F`
+`R' U' F U2 R2 B2 U2 B2 R' B2 R' U2 R' F R' U2 R2 D2 F U D2 L R' D2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(R U B L' B2 U2 R' F)` | 8 | R/L | 2c4 4e | 3 | 2c4-6 / 2c4-4 | look anyway | 0.09% / 0.76% / 5.6% |
-| 2 | `(R U' R' F' R U2 L B)` | 8 | R/L | 2c5 4e | 2 | 2c5-1 / 2c5-1 | look anyway | 0.03% / 0.39% / 3.8% |
-| 3 | `(D2 R U B L2 D2 F2 B R)` | 9 | F/B | 2c5 4e | 1 | 2c5-1 / 2c5-2 | look anyway | 0 / 0.05% / 1.2% |
-| 4 | `(R U' F' U2 B' R' B L B)` | 9 | R/L | 4a2 4e | 1 | 4a2-2 / 4a2-2 | look anyway | 2.2% / 10% / 34% |
-| 5 | `(B2 R B2 U' L' F' L' F' D2 L2 F)` | 11 | R/L | 2c5 6e | 2 | 2c5-1 / 2c5-1 | drop | 0.02% / 0.38% / 3.8% |
-| 6 | `(D2 R U' L2 F' L2 D2 R B2 U2 R)` | 11 | F/B | 2c3 4e | 0 | 2c3-2 / 2c3-3 | keep | 0.19% / 1.9% / 13% |
-| 7 | `(R U D2 L' B' U2 D2 R U2 L B)` | 11 | R/L | 2c5 4e | 2 | 2c5-1 / 2c5-1 | drop | 0.03% / 0.39% / 3.8% |
-| 8 | `(R U R F' B' L' D2 L' F' B2 L)` | 11 | F/B | 2c5 4e | 1 | 2c5-1 / 2c5-1 | drop | <0.01% / 0.23% / 2.7% |
+| 1 | `D2 F' U' D2 F L (F2 U)` | 8 | F/B | 4b2 4e | 1 | 4b2-1 / 4b2-2 | look anyway | 1.7% / 9.1% / 36% |
+| 2 | `F' U' F2 L U R2 B2 D B` | 9 | U/D | 2c3 4e | 1 | 2c3-2 / 2c3-2 | look anyway | 0.49% / 3.9% / 21% |
+| 3 | `F' U' F2 L U F2 U' B2 L2 B` | 10 | U/D | 2c3 4e | 4 | 2c3-3 / 2c3-2 | look anyway | 2.1% / 9.7% / 36% |
+| 4 | `D' F' D' F U' B' R' B2 R' B` | 10 | R/L | 2c4 2e | 4 | 2c4-7 / 2c4-3 | look anyway | 0.20% / 2.3% / 14% |
+| 5 | `F U' L B2 L2 B R2 D' B' D B` | 11 | U/D | 0c3 6e | 3 | 0c3-1 / 0c3-2 | drop | 0.34% / 2.3% / 8.8% |
+| 6 | `U' R2 U2 D2 F' D (U2 L2 D B' L)` | 11 | F/B | 4b5 4e | 5 | 4b5-1 / 4b5-1 | drop | 0.27% / 2.0% / 11% |
+| 7 | `(D2 F R2 U2 L R2 U2 B' D' L2 F)` | 11 | U/D | 4b2 2e | 4 | 4b2-3 / 4b2-3 | keep | 3.2% / 15% / 49% |
+| 8 | `(R2 B D2 F' R' F2 B L2 B D F)` | 11 | U/D | 2c4 4e | 1 | 2c4-3 / 2c4-7 | drop | 0.02% / 0.40% / 3.7% |
 
-Shown: 8 of the 1765 DRs up to 11 moves (8 moves: 2 of 2; 9 moves: 2 of 25; 10 moves: 0 of 171; 11 moves: 4 of 1567).
+Shown: 8 of the 562 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 1 of 1; 10 moves: 2 of 52; 11 moves: 4 of 508).
 
 <details>
 <summary>Answers for scramble 66</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 9 | 13 | 21 |
-| 2 | 10 / 10 | 15 | 22 |
-| 3 | 10 / 10 | 14 | 23 |
-| 4 | 6 / 7 | 12 | 21 |
-| 5 | 10 / 10 | 14 | 25 |
-| 6 | 8 / 8 | 11 | 21 |
-| 7 | 10 / 10 | 15 | 25 |
-| 8 | 10 / 10 | 15 | 26 |
+| 1 | 6 / 7 | 12 | 20 |
+| 2 | 6 / 8 | 11 | 20 |
+| 3 | 7 / 6 | 13 | 22 |
+| 4 | 10 / 7 | 13 | 23 |
+| 5 | 9 / 10 | 14 | 25 |
+| 6 | 9 / 10 | 14 | 25 |
+| 7 | 5 / 6 | 11 | 22 |
+| 8 | 9 / 10 | 14 | 25 |
 
-Best on the page: **21 moves**, from DR 1 (DR 4 and 6 tie it): `B2 R L F2 R' B2 R F2 U2 L B2 R' B2 F' R U2 B2 L B' U' R'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 1 (DR 2 ties it): `D2 F' U' D2 F L B' R2 D2 B' U2 F' R2 L2 D2 R2 U2 B' U' F2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 67
 
-`R' U' F D2 B2 R2 F U2 B F R2 F' U' R' D L2 B' U B' F R2 D R' U' F`
+`R' U' F U2 B2 D F2 L2 F2 R2 U' B2 L2 B' U' F' D' L2 B L F2 R F2 U2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(B' R U D' B R F R F R)` | 10 | F/B | 4c4 4e | 3 | 4c4-5 / 4c4-4 | look anyway | 0 / <0.01% / 0.44% |
-| 2 | `F2 D2 F' L' D' L2 B L2 U (R)` | 10 | F/B | 2c4 4e | 2 | 2c4-7 / 2c4-7 | look anyway | 0 / 0.02% / 0.68% |
-| 3 | `L B' U R' D (R' B2 U2 D2 R)` | 10 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-3 | look anyway | 0.35% / 2.6% / 15% |
-| 4 | `L B' U R' D (L' D2 F2 B2 L)` | 10 | F/B | 2c3 4e | 0 | 2c3-3 / 2c3-3 | look anyway | 0.09% / 1.0% / 8.0% |
-| 5 | `(R U' B D B' D2 B R U2 F2 R)` | 11 | F/B | 2c4 4e | 2 | 2c4-2 / 2c4-3 | keep | 0.38% / 2.8% / 17% |
-| 6 | `F2 R2 B (L B' L' D2 R' U' L' D)` | 11 | R/L | 4a2 2e | 1 | 4a2-4 / 4a2-3 | drop | 0 / 0 / 0.09% |
-| 7 | `(B' R' U D' R2 F U2 R F R' B)` | 11 | R/L | 4c3 4e | 2 | 4c3-6 / 4c3-5 | drop | 0.15% / 1.4% / 8.7% |
-| 8 | `(R F2 U' B D' L2 F R2 F U2 L)` | 11 | F/B | 2c3 4e | 4 | 2c3-2 / 2c3-3 | keep | 2.1% / 9.7% / 36% |
+| 1 | `L' B D (B2 U2 R F2 L B)` | 9 | R/L | 2c3 6e | 4 | 2c3-3 / 2c3-3 | look anyway | 0.14% / 1.8% / 13% |
+| 2 | `D' F' D B (L2 R F B2 L)` | 9 | U/D | 4c4 4e | 3 | 4c4-3 / 4c4-2 | look anyway | 0.01% / 0.55% / 3.9% |
+| 3 | `L' B D (B2 D2 L B2 R F)` | 9 | R/L | 2c3 4e | 4 | 2c3-3 / 2c3-3 | look anyway | 1.2% / 6.2% / 26% |
+| 4 | `B2 D2 R F D2 R (R B D)` | 9 | F/B | 4b5 2e | 0 | 4b5-1 / 4b5-1 | look anyway | 0 / 0.06% / 0.76% |
+| 5 | `D2 L' R B L2 U2 B (R2 B R' D)` | 11 | R/L | 4c4 4e | 5 | 4c4-1 / 4c4-4 | drop | 0.26% / 2.6% / 14% |
+| 6 | `F' B R U (D B' D2 L' U2 L2 B)` | 11 | R/L | 4b5 2e | 1 | 4b5-2 / 4b5-1 | drop | 0 / 0.05% / 0.78% |
+| 7 | `(R D2 L' F' U2 D R' B2 R2 F B)` | 11 | R/L | 2c4 4e | 2 | 2c4-6 / 2c4-2 | drop | 0.17% / 1.2% / 8.1% |
+| 8 | `L' B U2 D L' U2 R' D2 L R' F` | 11 | R/L | 2c3 2e | 1 | 2c3-3 / 2c3-3 | keep | 0.44% / 3.7% / 22% |
 
-Shown: 8 of the 156 DRs up to 11 moves (10 moves: 4 of 10; 11 moves: 4 of 146).
+Shown: 8 of the 1074 DRs up to 11 moves (9 moves: 4 of 15; 10 moves: 0 of 116; 11 moves: 4 of 943).
 
 <details>
 <summary>Answers for scramble 67</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 11 / 11 | 15 | 24 |
-| 2 | 10 / 9 | 15 | 25 |
-| 3 | 7 / 7 | 14 | 23 |
-| 4 | 7 / 7 | 13 | 23 |
-| 5 | 8 / 8 | 14 | 25 |
-| 6 | 11 / 10 | 14 | 25 |
-| 7 | 9 / 9 | 13 | 23 |
-| 8 | 7 / 6 | 13 | 24 |
+| 1 | 9 / 9 | 13 | 22 |
+| 2 | 10 / 10 | 14 | 22 |
+| 3 | 7 / 8 | 13 | 21 |
+| 4 | 10 / 10 | 15 | 23 |
+| 5 | 9 / 11 | 14 | 25 |
+| 6 | 10 / 9 | 14 | 25 |
+| 7 | 10 / 8 | 14 | 24 |
+| 8 | 7 / 7 | 11 | 22 |
 
-Best on the page: **23 moves**, from DR 3 (DR 4 and 7 tie it): `L B' U R' D' B2 R2 U2 B U2 B' U2 F' D2 R2 F' D2 F R D2 U2 B2 R`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 3: `L' B D U2 R2 L D2 R F2 D2 R B2 D2 L2 B2 F R' B2 L' D2 B2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 68
 
-`R' U' F D L2 B2 D' B2 R2 D B2 U' B2 R' U B2 U B' R' D2 L' D F R' U' F`
+`R' U' F L2 B2 U L2 B2 U' B2 U L2 D' L U' F' R U' F L D2 F D B' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L2 D' F' R' D L' U L` | 8 | U/D | 2c5 8e | 3 | 2c5-1 / 2c5-1 | look anyway | 0 / 0 / 1.8% |
-| 2 | `L2 D' F' R' D F2 R' D R` | 9 | U/D | 2c5 4e | 4 | 2c5-1 / 2c5-1 | look anyway | 0.16% / 1.7% / 11% |
-| 3 | `F' U2 R' D L U D (L' B)` | 9 | R/L | 4c4 4e | 3 | 4c4-2 / 4c4-1 | look anyway | 0.18% / 1.2% / 6.7% |
-| 4 | `L2 D2 F R (B D' B2 R U)` | 9 | F/B | 2c4 4e | 1 | 2c4-7 / 2c4-3 | look anyway | 0.02% / 0.40% / 3.7% |
-| 5 | `(B' U2 R B U' L2 D2 L R' F2 D)` | 11 | R/L | 2c3 4e | 4 | 2c3-3 / 2c3-2 | keep | 2.1% / 9.7% / 36% |
-| 6 | `R D2 L2 D F' U D (U2 R U R)` | 11 | F/B | 2c4 6e | 2 | 2c4-2 / 2c4-3 | keep | 0.47% / 3.0% / 18% |
-| 7 | `F2 L D' R D' B2 L (B2 U L' B)` | 11 | U/D | 4b2 4e | 0 | 4b2-2 / 4b2-3 | keep | 0.34% / 3.2% / 20% |
-| 8 | `D L2 D2 F' U2 L' R' U B2 U2 L` | 11 | U/D | 2c4 4e | 2 | 2c4-7 / 2c4-5 | drop | 0 / 0.07% / 1.2% |
+| 1 | `F L2 D' L2 U (R2 F R B' L)` | 10 | F/B | 2c3 4e | 4 | 2c3-3 / 2c3-1 | look anyway | 2.9% / 13% / 45% |
+| 2 | `F L2 U' F2 D (R2 F' R B' L)` | 10 | F/B | 4b5 4e | 2 | 4b5-2 / 4b5-1 | look anyway | 0 / 0.07% / 1.0% |
+| 3 | `L B R' D' L (U2 L2 F U D)` | 10 | F/B | 2c4 2e | 6 | 2c4-1 / 2c4-1 | look anyway | 5.2% / 20% / 58% |
+| 4 | `F L2 U' F2 D (R2 F R B' L)` | 10 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-1 | look anyway | 1.0% / 6.4% / 30% |
+| 5 | `F L2 D' L2 U (D2 R2 F' R B' L)` | 11 | F/B | 2c3 4e | 0 | 2c3-3 / 2c3-3 | keep | 0.09% / 1.0% / 8.0% |
+| 6 | `F' D2 B2 D' F2 U (R2 F R B' L)` | 11 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-1 | keep | 1.0% / 6.4% / 30% |
+| 7 | `L B R' D' L (D2 R2 F2 B' U D)` | 11 | F/B | 2c4 2e | 1 | 2c4-1 / 2c4-1 | keep | 0.24% / 2.7% / 19% |
+| 8 | `B R' F U L U2 L2 D R2 F D` | 11 | F/B | 2c4 4e | 2 | 2c4-1 / 2c4-3 | keep | 0.41% / 3.2% / 18% |
 
-Shown: 8 of the 714 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 9; 10 moves: 0 of 49; 11 moves: 4 of 655).
+Shown: 8 of the 135 DRs up to 11 moves (10 moves: 4 of 15; 11 moves: 4 of 120).
 
 <details>
 <summary>Answers for scramble 68</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 15 | 23 |
-| 2 | 10 / 9 | 14 | 23 |
-| 3 | 10 / 10 | 14 | 23 |
-| 4 | 10 / 9 | 13 | 21 |
-| 5 | 7 / 8 | 13 | 24 |
-| 6 | 9 / 9 | 12 | 23 |
-| 7 | 7 / 8 | 14 | 24 |
-| 8 | 10 / 9 | 14 | 24 |
+| 1 | 8 / 7 | 12 | 21 |
+| 2 | 11 / 10 | 15 | 24 |
+| 3 | 8 / 8 | 13 | 21 |
+| 4 | 9 / 7 | 12 | 22 |
+| 5 | 7 / 9 | 14 | 24 |
+| 6 | 8 / 7 | 14 | 24 |
+| 7 | 8 / 8 | 12 | 22 |
+| 8 | 8 / 10 | 12 | 23 |
 
-Best on the page: **21 moves**, from DR 4: `L2 D2 F R' D2 U2 F' R2 B D2 F D2 L2 F2 R2 B U' R' B2 D B'`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1 (DR 3 ties it): `F L2 D' L2 U' L2 F L2 B2 L2 F' U2 L2 B' U2 R2 L' B R' F' R2`. The list drops 0 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 69
 
-`R' U' F L2 D2 U R2 U L2 B2 L2 U B' R2 F2 U2 L' F' D' U2 R B2 L' F R' U' F`
+`R' U' F D L2 D' U2 B2 D2 R2 F2 L2 U F B2 R B' D L' B L2 D' R2 U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L' U' F2 R (U' D R D' B)` | 9 | U/D | 4b2 4e | 3 | 4b2-2 / 4b2-2 | look anyway | 3.1% / 14% / 48% |
-| 2 | `(D2 L2 R' F' U D' F2 R' U)` | 9 | R/L | 4a2 4e | 3 | 4a2-2 / 4a2-1 | look anyway | 4.8% / 19% / 51% |
-| 3 | `F' L D' L2 F (D' R' F2 U L)` | 10 | U/D | 2c4 2e | 3 | 2c4-3 / 2c4-5 | look anyway | 0.28% / 2.1% / 15% |
-| 4 | `R D F L R' U' D' B2 R' D` | 10 | R/L | 2c5 4e | 3 | 2c5-1 / 2c5-2 | look anyway | 0.04% / 0.64% / 4.7% |
-| 5 | `(R U2 B' D' R2 U' D L D B2 R)` | 11 | U/D | 0c4 4e | 2 | 0c4-1 / 0c4-1 | drop | 0.06% / 0.81% / 6.7% |
-| 6 | `(R U2 B' U L F2 L2 R' U' F2 R)` | 11 | U/D | 2c5 4e | 3 | 2c5-1 / 2c5-3 | drop | 0 / 0.08% / 1.9% |
-| 7 | `(D2 L2 R' F' R2 U' D2 F2 D' L' U)` | 11 | R/L | 2c4 4e | 3 | 2c4-1 / 2c4-7 | drop | 0.13% / 1.4% / 10% |
-| 8 | `L F2 L' U F2 B2 U' R (U' R B)` | 11 | U/D | 4b2 2e | 2 | 4b2-1 / 4b2-2 | keep | 3.6% / 15% / 48% |
+| 1 | `U' B (U L B2 U2 D' R' U)` | 9 | R/L | 4c4 4e | 3 | 4c4-2 / 4c4-5 | look anyway | 0 / 0.04% / 1.4% |
+| 2 | `U' B R' U2 R' U B2 R' D` | 9 | R/L | 4b2 4e | 2 | 4b2-3 / 4b2-1 | look anyway | 1.6% / 8.8% / 38% |
+| 3 | `U' B R U' D' R' B2 L' D` | 9 | R/L | 4b5 4e | 3 | 4b5-1 / 4b5-2 | look anyway | <0.01% / 0.13% / 1.8% |
+| 4 | `U D' R U R (B' R2 D' B)` | 9 | U/D | 4c3 4e | 1 | 4c3-6 / 4c3-5 | look anyway | 0.08% / 0.96% / 7.0% |
+| 5 | `F L2 F U' B' L2 R2 F2 U' F2 D` | 11 | R/L | 4b5 2e | 1 | 4b5-1 / 4b5-2 | drop | 0 / 0.05% / 0.78% |
+| 6 | `R2 B L' B L (F' U2 F U B2 D)` | 11 | F/B | 2c5 4e | 1 | 2c5-1 / 2c5-1 | drop | <0.01% / 0.23% / 2.7% |
+| 7 | `(B2 L' U2 L' U' F U2 D F' D F)` | 11 | U/D | 2c5 4e | 1 | 2c5-3 / 2c5-2 | drop | 0 / 0 / 0.14% |
+| 8 | `(R2 U R F2 R U2 F B' D F B)` | 11 | U/D | 2c3 6e | 2 | 2c3-2 / 2c3-3 | keep | 0.33% / 2.5% / 15% |
 
-Shown: 8 of the 419 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 36; 11 moves: 4 of 381).
+Shown: 8 of the 1752 DRs up to 11 moves (9 moves: 4 of 6; 10 moves: 0 of 127; 11 moves: 4 of 1619).
 
 <details>
 <summary>Answers for scramble 69</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 7 | 12 | 20 |
-| 2 | 9 / 8 | 13 | 21 |
-| 3 | 7 / 9 | 13 | 23 |
-| 4 | 10 / 10 | 14 | 23 |
-| 5 | 9 / 9 | 14 | 24 |
-| 6 | 10 / 11 | 14 | 25 |
-| 7 | 8 / 9 | 14 | 25 |
-| 8 | 5 / 6 | 14 | 24 |
+| 1 | 9 / 11 | 15 | 24 |
+| 2 | 9 / 7 | 12 | 20 |
+| 3 | 11 / 11 | 13 | 22 |
+| 4 | 9 / 9 | 14 | 23 |
+| 5 | 9 / 10 | 14 | 25 |
+| 6 | 10 / 9 | 13 | 24 |
+| 7 | 11 / 11 | 15 | 25 |
+| 8 | 8 / 8 | 12 | 22 |
 
-Best on the page: **20 moves**, from DR 1: `L' U' F2 R' L2 B2 L2 U2 D' R2 D L2 D B2 D B' D R' D' U`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 2: `U' B R' U2 R' U B2 R' D' B2 R B2 U2 B2 L' U2 R2 L D2 L`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 70
 
-`R' U' F R L2 D2 B D L F L' F2 R B' L D L2 U' B2 U2 R2 U' B2 U' B2 R' U' F`
+`R' U' F U2 L2 B2 L2 U B2 R2 D' R2 U B' D' L' F R2 F2 L2 R D B' F' U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L R U' F' R F2 U R2 D` | 9 | F/B | 4b2 2e | 3 | 4b2-2 / 4b2-3 | look anyway | 3.3% / 14% / 48% |
-| 2 | `D' F B' L' B (L' U D' L)` | 9 | U/D | 4b2 4e | 0 | 4b2-2 / 4b2-3 | look anyway | 0.34% / 3.2% / 20% |
-| 3 | `L R U' F' R F2 D B2 U` | 9 | F/B | 4b2 2e | 1 | 4b2-2 / 4b2-3 | look anyway | 1.2% / 7.0% / 31% |
-| 4 | `L R U' F' R F2 U' D2 L2 D` | 10 | F/B | 4b2 2e | 1 | 4b2-2 / 4b2-3 | look anyway | 1.2% / 7.0% / 31% |
-| 5 | `F2 B D2 L' F B (R2 B' D L' U)` | 11 | R/L | 2c3 4e | 4 | 2c3-3 / 2c3-3 | keep | 1.2% / 6.2% / 26% |
-| 6 | `B' U2 R' U2 F B (R2 B' D L' U)` | 11 | R/L | 2c3 4e | 6 | 2c3-1 / 2c3-3 | keep | 5.9% / 21% / 58% |
-| 7 | `L R U' F' R D2 B2 L2 U B2 D` | 11 | F/B | 4b2 2e | 1 | 4b2-4 / 4b2-2 | keep | 1.1% / 6.3% / 29% |
-| 8 | `L R U' F' R F2 D L2 R2 F2 D` | 11 | F/B | 4b2 2e | 1 | 4b2-2 / 4b2-3 | keep | 1.2% / 7.0% / 31% |
+| 1 | `U' L' U B R (B' U F D)` | 9 | F/B | 2c3 4e | 4 | 2c3-3 / 2c3-3 | look anyway | 1.2% / 6.2% / 26% |
+| 2 | `B' R U' L' B2 L2 F U B` | 9 | U/D | 2c5 6e | 2 | 2c5-1 / 2c5-2 | look anyway | 0.01% / 0.22% / 2.2% |
+| 3 | `B' U' L' U R U' D' B D F` | 10 | U/D | 2c4 2e | 1 | 2c4-4 / 2c4-6 | look anyway | 0.02% / 0.27% / 2.4% |
+| 4 | `B' R U' L' F' D L2 U2 R2 F` | 10 | U/D | 2c3 4e | 6 | 2c3-1 / 2c3-1 | look anyway | 12% / 35% / 74% |
+| 5 | `B2 R U' B' L' U F D2 F' U' F` | 11 | U/D | 4c3 2e | 1 | 4c3-9 / 4c3-4 | drop | 0.06% / 0.56% / 3.7% |
+| 6 | `B2 U' D2 F D F B (F R U' L)` | 11 | U/D | 2c3 2e | 3 | 2c3-3 / 2c3-1 | keep | 2.8% / 14% / 51% |
+| 7 | `U' D' F2 B' U F U (F R U' L)` | 11 | F/B | 4b2 4e | 2 | 4b2-3 / 4b2-2 | keep | 1.2% / 7.6% / 34% |
+| 8 | `B' U' L U R B' U R2 F D2 B` | 11 | U/D | 2c3 4e | 4 | 2c3-1 / 2c3-1 | keep | 5.9% / 23% / 61% |
 
-Shown: 8 of the 90 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 6; 11 moves: 4 of 81).
+Shown: 8 of the 201 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 18; 11 moves: 4 of 181).
 
 <details>
 <summary>Answers for scramble 70</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 5 / 7 | 13 | 22 |
-| 2 | 7 / 7 | 13 | 21 |
-| 3 | 5 / 7 | 14 | 22 |
-| 4 | 5 / 7 | 14 | 24 |
-| 5 | 7 / 8 | 12 | 22 |
-| 6 | 8 / 8 | 13 | 22 |
-| 7 | 6 / 7 | 14 | 24 |
-| 8 | 5 / 7 | 13 | 24 |
+| 1 | 8 / 7 | 13 | 22 |
+| 2 | 10 / 11 | 13 | 22 |
+| 3 | 9 / 9 | 14 | 23 |
+| 4 | 7 / 5 | 13 | 23 |
+| 5 | 10 / 10 | 14 | 25 |
+| 6 | 6 / 7 | 12 | 22 |
+| 7 | 7 / 8 | 13 | 23 |
+| 8 | 6 / 7 | 12 | 23 |
 
-Best on the page: **21 moves**, from DR 2: `D' F B' L' B F2 L2 B2 R2 U' L2 B2 U' L2 D2 F2 B2 L D U' L`. The list drops 0 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DR 2 and 6 tie it): `U' L' U B R F B2 D2 B D2 L2 F' D2 L2 B' U2 F L2 D' F' U' B`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 71
 
-`R' U' F L2 U' B2 U' R2 D F2 U' F2 U R' F R2 B2 R2 B2 D' B' U' L U' R' U' F`
+`R' U' F U R2 F2 R' B' L F2 L2 D2 R B U' F2 U D L2 F2 R2 B2 U' B2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `U L (U B L F2 U' F)` | 8 | U/D | 2c5 6e | 0 | 2c5-2 / 2c5-3 | look anyway | 0 / 0 / 0.13% |
-| 2 | `U' F L U (F U2 L' D2 R)` | 9 | F/B | 2c3 4e | 1 | 2c3-3 / 2c3-3 | look anyway | 0.19% / 1.6% / 11% |
-| 3 | `U' F L U (F U2 R' B2 L)` | 9 | F/B | 2c3 4e | 1 | 2c3-3 / 2c3-3 | look anyway | 0.19% / 1.6% / 11% |
-| 4 | `L2 F' B2 R D' F2 D2 L B R` | 10 | F/B | 4b2 4e | 2 | 4b2-2 / 4b2-1 | look anyway | 2.4% / 12% / 43% |
-| 5 | `U2 B2 L' F2 B L R2 B2 L D (B)` | 11 | R/L | 2c4 6e | 2 | 2c4-1 / 2c4-4 | drop | 0.18% / 1.5% / 11% |
-| 6 | `F U2 L U (F D2 F L R F' L)` | 11 | F/B | 2c3 6e | 1 | 2c3-3 / 2c3-2 | keep | 0.22% / 1.8% / 12% |
-| 7 | `(F2 B' R' U F' D L' R' F2 R U)` | 11 | R/L | 4b5 2e | 3 | 4b5-1 / 4b5-2 | drop | 0.02% / 0.26% / 2.4% |
-| 8 | `R2 F B' R' U' B' L R' F' D2 R` | 11 | F/B | 4c3 2e | 4 | 4c3-3 / 4c3-5 | keep | 0.59% / 4.2% / 23% |
+| 1 | `F U' L2 B R2 F' U (U' L)` | 9 | F/B | 4b5 2e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.2% |
+| 2 | `(R U' L U R F' L2 B U)` | 9 | F/B | 2c4 2e | 1 | 2c4-7 / 2c4-6 | look anyway | 0 / 0.10% / 1.6% |
+| 3 | `R (U2 F2 L F D' B' D' F)` | 9 | U/D | 2c3 4e | 0 | 2c3-1 / 2c3-2 | look anyway | 0.59% / 4.4% / 24% |
+| 4 | `B U' L2 F' B' D F2 U (U' L)` | 10 | F/B | 2c4 2e | 0 | 2c4-1 / 2c4-2 | look anyway | 0.09% / 1.2% / 11% |
+| 5 | `F U D R (D2 F2 L2 B R2 B' D)` | 11 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-1 | keep | 1.0% / 6.4% / 30% |
+| 6 | `(R2 U' L' U' B' R2 D B' L2 F' D)` | 11 | F/B | 2c4 4e | 3 | 2c4-3 / 2c4-5 | drop | 0.41% / 2.4% / 14% |
+| 7 | `D F L2 B2 U' B D2 L2 B (U' L)` | 11 | U/D | 2c3 2e | 3 | 2c3-1 / 2c3-1 | keep | 5.6% / 22% / 62% |
+| 8 | `L2 B' L2 F2 U F (B U' L2 D L)` | 11 | U/D | 4c3 4e | 0 | 4c3-2 / 4c3-5 | keep | 0.06% / 1.0% / 8.8% |
 
-Shown: 8 of the 265 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 2 of 2; 10 moves: 1 of 21; 11 moves: 4 of 241).
+Shown: 8 of the 889 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 57; 11 moves: 4 of 829).
 
 <details>
 <summary>Answers for scramble 71</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 12 | 15 | 22 |
-| 2 | 7 / 7 | 14 | 22 |
-| 3 | 7 / 8 | 14 | 23 |
-| 4 | 7 / 7 | 11 | 21 |
-| 5 | 8 / 9 | 13 | 24 |
-| 6 | 8 / 7 | 14 | 24 |
-| 7 | 10 / 10 | 14 | 25 |
-| 8 | 8 / 9 | 13 | 23 |
+| 1 | 10 / 9 | 13 | 21 |
+| 2 | 10 / 9 | 15 | 23 |
+| 3 | 6 / 7 | 12 | 20 |
+| 4 | 9 / 9 | 14 | 23 |
+| 5 | 8 / 6 | 13 | 23 |
+| 6 | 9 / 9 | 13 | 24 |
+| 7 | 8 / 7 | 13 | 23 |
+| 8 | 8 / 8 | 14 | 24 |
 
-Best on the page: **21 moves**, from DR 4: `L2 F' B2 R D' F2 D2 L B R B L2 D2 L2 B D2 B' R2 F2 R2 B'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 3: `R F2 L2 D' F2 D' F2 L2 U' B2 R2 D2 F D B D F' L' F2 U2`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 72
 
-`R' U' F D2 R2 B2 F2 D2 U L2 B2 F2 D' L D2 F2 R2 B L' U2 B' R2 U F R' U' F`
+`R' U' F D F2 D' F2 L2 D2 U R2 B2 U2 L B2 F L U2 B2 F2 R2 U B2 F' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L2 U' D' B (U D2 L2 D L' D)` | 10 | R/L | 4c3 2e | 3 | 4c3-9 / 4c3-5 | look anyway | 0 / 0.25% / 3.6% |
-| 2 | `L D R' U F' R' D2 R B2 D` | 10 | R/L | 4b2 2e | 2 | 4b2-1 / 4b2-2 | look anyway | 3.6% / 15% / 48% |
-| 3 | `R2 U' D' F (U D2 L2 D L' D)` | 10 | R/L | 4c3 2e | 1 | 4c3-9 / 4c3-5 | look anyway | <0.01% / 0.10% / 1.6% |
-| 4 | `F2 L R2 F' L2 B2 L2 U R (B)` | 10 | U/D | 4b5 2e | 1 | 4b5-2 / 4b5-1 | look anyway | 0 / 0.05% / 0.78% |
-| 5 | `D2 R2 U' D' F (U D2 L2 D L' D)` | 11 | R/L | 4c3 2e | 1 | 4c3-9 / 4c3-5 | drop | <0.01% / 0.10% / 1.6% |
-| 6 | `U F D2 L2 B' D2 R D F2 L U` | 11 | R/L | 4c3 2e | 0 | 4c3-1 / 4c3-5 | keep | 0.12% / 1.6% / 12% |
-| 7 | `(U L D R' F2 D' B U D' F' D)` | 11 | F/B | 4b2 4e | 2 | 4b2-3 / 4b2-4 | keep | 0.46% / 3.8% / 23% |
-| 8 | `L R2 F' L U2 R U2 L D L (B)` | 11 | U/D | 4c4 2e | 2 | 4c4-5 / 4c4-2 | drop | 0 / 0.03% / 0.77% |
+| 1 | `(D' B D' R U D2 L B R)` | 9 | F/B | 4a2 4e | 4 | 4a2-4 / 4a2-2 | look anyway | 0.87% / 5.2% / 22% |
+| 2 | `D' L' U D (L R' U2 F R B)` | 10 | R/L | 2c5 4e | 0 | 2c5-3 / 2c5-2 | look anyway | 0 / 0 / 0.10% |
+| 3 | `D' L' U D' F B U2 L' F' R` | 10 | F/B | 2c3 4e | 1 | 2c3-1 / 2c3-1 | look anyway | 1.4% / 8.6% / 37% |
+| 4 | `U' F2 B' L' F R D' L D' L` | 10 | U/D | 4c3 2e | 2 | 4c3-9 / 4c3-5 | look anyway | <0.01% / 0.21% / 2.6% |
+| 5 | `L U B R2 F' R' F' L (D F2 D)` | 11 | F/B | 2c3 4e | 4 | 2c3-1 / 2c3-3 | keep | 2.9% / 13% / 45% |
+| 6 | `L U F' U' L2 F2 U (R' U B L)` | 11 | F/B | 2c3 4e | 0 | 2c3-3 / 2c3-3 | keep | 0.09% / 1.0% / 8.0% |
+| 7 | `D' L' U D (B R' F2 L' F2 B L)` | 11 | F/B | 4b5 2e | 2 | 4b5-1 / 4b5-1 | drop | 0.02% / 0.24% / 2.3% |
+| 8 | `L U D2 F' B' R F' L (U L2 U)` | 11 | F/B | 4c3 2e | 1 | 4c3-5 / 4c3-2 | keep | 0.18% / 1.6% / 11% |
 
-Shown: 8 of the 198 DRs up to 11 moves (10 moves: 4 of 11; 11 moves: 4 of 187).
+Shown: 8 of the 303 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 24; 11 moves: 4 of 278).
 
 <details>
 <summary>Answers for scramble 72</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 9 | 14 | 24 |
-| 2 | 6 / 7 | 14 | 23 |
-| 3 | 10 / 9 | 15 | 24 |
-| 4 | 11 / 9 | 15 | 24 |
-| 5 | 9 / 9 | 15 | 25 |
-| 6 | 9 / 9 | 14 | 24 |
-| 7 | 8 / 9 | 13 | 24 |
-| 8 | 11 / 9 | 15 | 25 |
+| 1 | 8 / 7 | 11 | 20 |
+| 2 | 11 / 11 | 15 | 24 |
+| 3 | 7 / 8 | 12 | 21 |
+| 4 | 9 / 8 | 15 | 24 |
+| 5 | 7 / 8 | 13 | 23 |
+| 6 | 8 / 8 | 15 | 24 |
+| 7 | 9 / 10 | 13 | 23 |
+| 8 | 9 / 7 | 14 | 24 |
 
-Best on the page: **23 moves**, from DR 2: `L D R' U F' R' D2 R B2 D' R' B2 D2 R U2 F2 D2 F2 R D2 L2 D2 L`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 1: `L2 F2 R2 U2 F' U2 L2 B2 R2 F' D2 R' B' L' D2 U' R' D B' D`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 73
 
-`R' U' F R2 U' D' L D F' U B2 L F D R2 F2 D' F2 R2 F2 U' R2 F2 R' U' F`
+`R' U' F U2 R2 D' L2 B2 U2 F2 R2 U' R' U L2 B' U B2 D U' R' B' U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `R' B' R' B' U (R2 B' R2 B)` | 9 | R/L | 2c4 4e | 3 | 2c4-1 / 2c4-7 | look anyway | 0.13% / 1.4% / 10% |
-| 2 | `R' B' R' B' U (R2 F' U2 F)` | 9 | R/L | 2c4 4e | 2 | 2c4-1 / 2c4-7 | look anyway | 0.08% / 0.85% / 7.2% |
-| 3 | `(L2 D B L B D L2 D2 L' U)` | 10 | R/L | 2c4 4e | 0 | 2c4-1 / 2c4-6 | look anyway | 0.05% / 0.55% / 5.2% |
-| 4 | `F' R U' L U R (R D2 L' B)` | 10 | U/D | 4b2 4e | 4 | 4b2-2 / 4b2-3 | look anyway | 3.5% / 16% / 51% |
-| 5 | `B' R D R B' R B2 L R2 D L` | 11 | U/D | 2c4 4e | 2 | 2c4-3 / 2c4-3 | keep | 0.31% / 2.3% / 13% |
-| 6 | `(B D B L B U2 R F2 U' F2 R)` | 11 | U/D | 2c3 4e | 2 | 2c3-2 / 2c3-1 | keep | 1.6% / 8.8% / 36% |
-| 7 | `R2 B (D' B' U D R F2 U' L U)` | 11 | R/L | 4a2 2e | 5 | 4a2-4 / 4a2-3 | drop | 0 / 0 / 1.1% |
-| 8 | `R U2 L2 U L U (B' U B R B)` | 11 | R/L | 2c4 4e | 2 | 2c4-4 / 2c4-4 | drop | 0.03% / 0.45% / 3.8% |
+| 1 | `F2 D2 F' L' D' L' U' D2 R` | 9 | U/D | 2c5 6e | 0 | 2c5-3 / 2c5-2 | look anyway | 0 / 0 / 0.13% |
+| 2 | `B2 U2 F' D' L' R2 U' B2 R` | 9 | U/D | 4c4 4e | 1 | 4c4-2 / 4c4-5 | look anyway | 0 / 0 / 0.47% |
+| 3 | `B2 R U R' F (U L2 D B2 R)` | 10 | U/D | 2c4 6e | 2 | 2c4-1 / 2c4-6 | look anyway | 0.10% / 1.4% / 10% |
+| 4 | `F2 D2 F (L2 D B2 R' F2 D L)` | 10 | U/D | 4c4 2e | 2 | 4c4-4 / 4c4-5 | look anyway | 0 / <0.01% / 0.22% |
+| 5 | `F' U' F' D2 F (U B2 L' B2 D R)` | 11 | U/D | 4c3 4e | 1 | 4c3-5 / 4c3-6 | drop | 0.08% / 0.96% / 7.0% |
+| 6 | `F2 D2 F' L D F2 U' R U2 D' L` | 11 | U/D | 2c4 4e | 2 | 2c4-4 / 2c4-4 | drop | 0.03% / 0.45% / 3.8% |
+| 7 | `R2 B' R2 U2 F (U L' R F2 U L)` | 11 | U/D | 2c4 6e | 0 | 2c4-7 / 2c4-4 | drop | 0 / 0.06% / 1.0% |
+| 8 | `U D2 F2 D2 F (U2 R B2 U' L D)` | 11 | R/L | 2c3 4e | 2 | 2c3-3 / 2c3-3 | keep | 0.35% / 2.6% / 15% |
 
-Shown: 8 of the 651 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 80; 11 moves: 4 of 569).
+Shown: 8 of the 482 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 38; 11 moves: 4 of 442).
 
 <details>
 <summary>Answers for scramble 73</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 10 | 14 | 23 |
-| 2 | 9 / 10 | 14 | 22 |
-| 3 | 9 / 8 | 14 | 23 |
-| 4 | 7 / 8 | 13 | 21 |
+| 1 | 11 / 10 | 15 | 24 |
+| 2 | 10 / 11 | 14 | 23 |
+| 3 | 8 / 10 | 13 | 22 |
+| 4 | 11 / 11 | 15 | 24 |
 | 5 | 9 / 9 | 14 | 25 |
-| 6 | 6 / 7 | 11 | 22 |
-| 7 | 11 / 10 | 14 | 24 |
-| 8 | 9 / 10 | 14 | 24 |
+| 6 | 9 / 10 | 15 | 25 |
+| 7 | 10 / 9 | 15 | 25 |
+| 8 | 8 / 8 | 13 | 24 |
 
-Best on the page: **21 moves**, from DR 4: `F' R U' L U R' D' R2 L2 F2 D B2 U R2 F2 R2 D' B L D2 R'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 3: `B2 R U R' F' U D2 F2 L2 B2 R2 U L2 D' B2 D F2 R' B2 D' L2 U'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 74
 
-`R' U' F D2 B R L' B' U' F B2 R' F' L2 B' U2 F' D2 F' L2 U2 B R' U' F`
+`R' U' F L2 U2 F2 L2 D L2 F2 D L2 U2 F' D' U B U R D U2 L F' R2 U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(B R2 U F2 U' L' R' B' D2 F)` | 10 | R/L | 2c5 2e | 4 | 2c5-1 / 2c5-3 | look anyway | 0 / 0.15% / 2.8% |
-| 2 | `B R' F D' B2 L2 F2 U (D' F)` | 10 | R/L | 2c5 6e | 1 | 2c5-1 / 2c5-1 | look anyway | 0.05% / 0.29% / 2.5% |
-| 3 | `(F B' D' F' D' L' R F' R B)` | 10 | R/L | 4c4 4e | 5 | 4c4-5 / 4c4-2 | look anyway | 0 / 0.31% / 4.8% |
-| 4 | `B R' F D' B2 R2 B2 D (D' F)` | 10 | R/L | 2c5 6e | 1 | 2c5-1 / 2c5-1 | look anyway | 0.05% / 0.29% / 2.5% |
-| 5 | `L F L D2 B D2 B' D' B2 D (L)` | 11 | F/B | 4b2 4e | 4 | 4b2-3 / 4b2-3 | keep | 2.2% / 12% / 44% |
-| 6 | `(B' R2 U F2 U' D2 B' R' B' L F)` | 11 | R/L | 4b2 4e | 1 | 4b2-3 / 4b2-2 | keep | 0.68% / 5.1% / 26% |
-| 7 | `(R F D' L D' F2 L' F L F2 R)` | 11 | F/B | 4c3 4e | 7 | 4c3-2 / 4c3-5 | keep | 2.9% / 11% / 40% |
-| 8 | `B R' F' U2 D B2 L2 B2 D (D' F)` | 11 | R/L | 2c5 6e | 0 | 2c5-3 / 2c5-1 | drop | 0 / 0.02% / 0.32% |
+| 1 | `(F R' B' L' F' L2 U' D2 L)` | 9 | U/D | 0c3 4e | 2 | 0c3-2 / 0c3-2 | look anyway | 0 / 0 / 0.37% |
+| 2 | `(R' B L' F B2 L U F2 R)` | 9 | U/D | 2c3 4e | 2 | 2c3-3 / 2c3-3 | look anyway | 0.35% / 2.6% / 15% |
+| 3 | `U L' D L B' R D2 F B2 R` | 10 | F/B | 2c4 4e | 6 | 2c4-3 / 2c4-7 | look anyway | 0.79% / 4.8% / 19% |
+| 4 | `(B' L2 D' F U' L F L2 B' R)` | 10 | F/B | 0c0 0e | 2 | 0c0-1 / 0c0-1 | look anyway | 62% / 90% / 99.5% |
+| 5 | `(F R' B' L' F' U2 R2 U2 L2 U' L)` | 11 | U/D | 0c3 4e | 1 | 0c3-2 / 0c3-2 | drop | 0 / 0 / 0.28% |
+| 6 | `U2 F B R' B' L (B' L2 D F U)` | 11 | F/B | 2c3 2e | 1 | 2c3-3 / 2c3-2 | keep | 0.77% / 5.6% / 29% |
+| 7 | `(B D R' F' U F2 R B U2 R' B)` | 11 | R/L | 4b5 2e | 2 | 4b5-2 / 4b5-1 | drop | 0.01% / 0.14% / 1.4% |
+| 8 | `(F R' B' L' F' L2 D' R2 U' D' L)` | 11 | U/D | 0c3 4e | 6 | 0c3-2 / 0c3-2 | drop | 0 / 0 / 0.70% |
 
-Shown: 8 of the 754 DRs up to 11 moves (10 moves: 4 of 75; 11 moves: 4 of 679).
+Shown: 8 of the 186 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 14; 11 moves: 4 of 170).
 
 <details>
 <summary>Answers for scramble 74</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 11 | 15 | 25 |
-| 2 | 10 / 9 | 15 | 25 |
-| 3 | 11 / 10 | 13 | 23 |
-| 4 | 10 / 9 | 14 | 23 |
-| 5 | 8 / 7 | 12 | 23 |
-| 6 | 8 / 8 | 13 | 24 |
-| 7 | 7 / 9 | 12 | 23 |
-| 8 | 12 / 9 | 14 | 25 |
+| 1 | 12 / 12 | 16 | 24 |
+| 2 | 7 / 9 | 14 | 22 |
+| 3 | 7 / 9 | 14 | 24 |
+| 4 | 2 / 2 | 8 | 18 |
+| 5 | 12 / 12 | 14 | 25 |
+| 6 | 6 / 6 | 13 | 23 |
+| 7 | 10 / 9 | 14 | 25 |
+| 8 | 12 / 12 | 15 | 26 |
 
-Best on the page: **23 moves**, from DR 3 (DR 4, 5 and 7 tie it): `D2 R B2 L' F2 L' B2 D2 R' D2 R D2 L' B' R' F R' L D F D B F'`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **18 moves**, from DR 4: `D2 F2 D2 U2 R2 F' B' U2 R' B L2 F' L' U F' D L2 B`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 75
 
-`R' U' F R D2 R D B2 L U F D' L2 F D' L2 U F2 R2 D2 R2 F2 U2 B2 R' U' F`
+`R' U' F U2 L2 B' D2 B' F' L2 U2 L2 F2 R U L2 B D' B' L' F' L B' U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `F B' U2 L' F (B2 U L' F2 D)` | 10 | R/L | 4b5 2e | 0 | 4b5-2 / 4b5-2 | look anyway | 0 / 0.02% / 0.31% |
-| 2 | `(R2 U D' R' D F2 R2 B U2 L)` | 10 | F/B | 4c4 4e | 2 | 4c4-1 / 4c4-4 | look anyway | <0.01% / 0.35% / 3.3% |
-| 3 | `L F B' L' F' L R' B2 D' L` | 10 | U/D | 2c3 4e | 0 | 2c3-3 / 2c3-2 | look anyway | 0.19% / 1.9% / 13% |
-| 4 | `(R2 U' D' R' D' F2 L F U2 B)` | 10 | R/L | 4b5 4e | 6 | 4b5-1 / 4b5-2 | look anyway | 0.07% / 1.0% / 6.9% |
-| 5 | `U L2 D2 B' U2 R2 F (U B R U)` | 11 | R/L | 2c3 6e | 2 | 2c3-1 / 2c3-1 | keep | 1.6% / 9.1% / 38% |
-| 6 | `(R' U D' R D L F' L R D2 B)` | 11 | R/L | 2c4 2e | 2 | 2c4-4 / 2c4-7 | drop | 0 / 0.09% / 2.2% |
-| 7 | `L F B' L' F L' R U2 F2 U' L` | 11 | U/D | 2c3 4e | 1 | 2c3-3 / 2c3-2 | keep | 0.38% / 2.8% / 17% |
-| 8 | `(R2 U' D' R' D' F2 L F2 B' R2 F)` | 11 | R/L | 4b5 4e | 4 | 4b5-1 / 4b5-2 | drop | 0.01% / 0.31% / 3.2% |
+| 1 | `U' B' U2 L' B R2 F (D' B' U)` | 10 | R/L | 2c3 4e | 0 | 2c3-3 / 2c3-2 | look anyway | 0.19% / 1.9% / 13% |
+| 2 | `U (F2 D B' U' L2 F B L' F)` | 10 | R/L | 4c3 2e | 4 | 4c3-7 / 4c3-5 | look anyway | 0.49% / 2.4% / 13% |
+| 3 | `D R' U2 R U (U F R D F)` | 10 | R/L | 2c4 4e | 3 | 2c4-7 / 2c4-6 | look anyway | <0.01% / 0.30% / 3.1% |
+| 4 | `L' U L' U' F2 B U2 D L' U` | 10 | R/L | 4c3 4e | 3 | 4c3-1 / 4c3-5 | look anyway | 0.89% / 5.0% / 25% |
+| 5 | `U' F2 B D2 R' F U2 B (D' B' U)` | 11 | R/L | 2c3 4e | 0 | 2c3-3 / 2c3-2 | keep | 0.19% / 1.9% / 13% |
+| 6 | `U L' U' B' D2 B' R2 B D (U L)` | 11 | F/B | 4c4 2e | 4 | 4c4-4 / 4c4-6 | drop | 0 / 0 / 0.38% |
+| 7 | `L' U L' U' F2 B' U2 R2 D L' U` | 11 | R/L | 4b5 2e | 0 | 4b5-2 / 4b5-2 | drop | 0 / 0.02% / 0.31% |
+| 8 | `(F' L D' F2 R B U2 F B' L2 U)` | 11 | F/B | 2c3 2e | 3 | 2c3-2 / 2c3-1 | keep | 4.0% / 18% / 57% |
 
-Shown: 8 of the 106 DRs up to 11 moves (10 moves: 4 of 8; 11 moves: 4 of 98).
+Shown: 8 of the 137 DRs up to 11 moves (10 moves: 4 of 11; 11 moves: 4 of 126).
 
 <details>
 <summary>Answers for scramble 75</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 14 | 24 |
-| 2 | 9 / 11 | 15 | 24 |
-| 3 | 8 / 7 | 14 | 24 |
-| 4 | 10 / 11 | 14 | 24 |
-| 5 | 7 / 8 | 12 | 23 |
-| 6 | 9 / 9 | 14 | 25 |
-| 7 | 9 / 8 | 13 | 23 |
-| 8 | 10 / 11 | 15 | 25 |
+| 1 | 8 / 7 | 13 | 22 |
+| 2 | 8 / 9 | 13 | 23 |
+| 3 | 10 / 8 | 15 | 23 |
+| 4 | 8 / 9 | 12 | 22 |
+| 5 | 8 / 7 | 13 | 23 |
+| 6 | 10 / 11 | 15 | 25 |
+| 7 | 10 / 10 | 14 | 25 |
+| 8 | 6 / 7 | 11 | 22 |
 
-Best on the page: **23 moves**, from DR 5 (DR 7 ties it): `U L2 D2 B' U2 R2 F L D2 R2 U2 F2 U2 R2 U2 R B2 L F2 U' R' B' U'`. The list drops 2 of the 4 DRs of 11 moves or more, and keeps the best one.
+Best on the page: **22 moves**, from DR 1 (DR 4 and 8 tie it): `U' B' U2 L' B R2 F' U2 L' D2 B2 R F2 L2 B2 L' B2 D2 B2 U' B D`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 76
 
-`R' U' F D2 B2 D2 B2 R2 D2 L D2 R' F U' B2 D B2 L2 U L B L B' R' U' F`
+`R' U' F U F2 R F2 B2 L U L' B' R F L2 U2 B2 D B2 U F2 B2 R2 U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L' F B' R D L (D' B)` | 8 | U/D | 2c4 4e | 1 | 2c4-5 / 2c4-7 | look anyway | 0 / 0.01% / 0.63% |
-| 2 | `(R' D' L F' B L' R' D R' D)` | 10 | R/L | 2c4 4e | 3 | 2c4-4 / 2c4-4 | look anyway | 0.12% / 0.90% / 6.1% |
-| 3 | `R U (F R' D B2 U2 B2 U2 L)` | 10 | F/B | 4a2 2e | 1 | 4a2-4 / 4a2-3 | look anyway | 0 / 0 / 0.09% |
-| 4 | `L' F B' R2 D2 L' D R (D' B)` | 10 | U/D | 2c4 4e | 2 | 2c4-1 / 2c4-3 | look anyway | 0.41% / 3.2% / 18% |
-| 5 | `L F' B R' D2 F2 B2 R' D (D' B)` | 11 | R/L | 4c4 2e | 3 | 4c4-5 / 4c4-4 | drop | 0 / 0.02% / 0.45% |
-| 6 | `L' F B' R D R' D2 L R (D' B)` | 11 | U/D | 2c4 4e | 2 | 2c4-5 / 2c4-7 | drop | 0 / 0.07% / 1.2% |
-| 7 | `L' F B R D2 L2 R2 U' L (D' B)` | 11 | U/D | 4a2 2e | 2 | 4a2-2 / 4a2-4 | drop | 0 / 0 / 2.3% |
-| 8 | `L' F B U2 D2 F2 L D R (D' B)` | 11 | U/D | 2c4 6e | 1 | 2c4-5 / 2c4-7 | drop | 0 / 0 / 0.37% |
+| 1 | `L' B (L' F' L' U R F2 L)` | 9 | U/D | 4b5 0e | 0 | 4b5-1 / 4b5-2 | look anyway | 0 / 0.06% / 1.1% |
+| 2 | `L' B (L' F' L' U L D2 R)` | 9 | U/D | 4b5 0e | 2 | 4b5-1 / 4b5-2 | look anyway | 0.03% / 0.24% / 1.7% |
+| 3 | `(L' F' D B R U L U' F2 U)` | 10 | R/L | 4c4 4e | 1 | 4c4-2 / 4c4-1 | look anyway | 0.12% / 0.66% / 4.3% |
+| 4 | `F2 R' U (R' D' F2 L B' R' F)` | 10 | R/L | 2c5 4e | 1 | 2c5-3 / 2c5-2 | look anyway | 0 / 0 / 0.14% |
+| 5 | `L' B (L' F' L' U L' D L2 D2 R)` | 11 | U/D | 2c4 4e | 2 | 2c4-6 / 2c4-6 | drop | 0.08% / 0.53% / 3.7% |
+| 6 | `R B2 D' R' B2 L2 D2 B' R F (D)` | 11 | R/L | 4b2 2e | 2 | 4b2-3 / 4b2-4 | keep | 0.77% / 5.2% / 27% |
+| 7 | `B2 R D (B' D' F' L' R' F B L)` | 11 | F/B | 4c3 4e | 3 | 4c3-5 / 4c3-9 | drop | 0.02% / 0.39% / 3.8% |
+| 8 | `L' B (L' F' L' U R U2 D2 B2 R)` | 11 | U/D | 4b5 0e | 1 | 4b5-1 / 4b5-2 | drop | 0 / 0 / 0.47% |
 
-Shown: 8 of the 128 DRs up to 11 moves (8 moves: 1 of 1; 10 moves: 3 of 9; 11 moves: 4 of 118).
+Shown: 8 of the 122 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 13; 11 moves: 4 of 107).
 
 <details>
 <summary>Answers for scramble 76</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 9 | 15 | 22 |
-| 2 | 9 / 10 | 14 | 24 |
-| 3 | 11 / 10 | 15 | 24 |
-| 4 | 7 / 10 | 10 | 19 |
-| 5 | 11 / 10 | 15 | 25 |
-| 6 | 9 / 9 | 14 | 25 |
-| 7 | 9 / 11 | 14 | 25 |
-| 8 | 10 / 10 | 15 | 26 |
+| 1 | 9 / 10 | 15 | 23 |
+| 2 | 9 / 10 | 14 | 22 |
+| 3 | 10 / 9 | 15 | 25 |
+| 4 | 11 / 11 | 15 | 24 |
+| 5 | 8 / 8 | 15 | 25 |
+| 6 | 7 / 8 | 14 | 23 |
+| 7 | 10 / 10 | 14 | 24 |
+| 8 | 9 / 10 | 15 | 26 |
 
-Best on the page: **19 moves**, from DR 4: `L' F B' R2 D2 L' D R D' L2 U' R2 D R2 U' B2 L2 B D`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 2: `L' B U B2 U' L2 U F2 B2 L2 D' F2 D' B2 L2 R D2 L' U' L F L`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 77
 
-`R' U' F U D F B2 L U L2 B' D2 F L' D R2 U F2 U' B2 U' F2 D' R' U' F`
+`R' U' F D2 B2 U2 L2 B2 L2 B2 U F2 U B' L' U2 B D2 U F U2 R' B2 D2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L2 D' F R2 B L' U' D' F2 R` | 10 | U/D | 2c4 6e | 0 | 2c4-1 / 2c4-6 | look anyway | 0.02% / 0.32% / 4.2% |
-| 2 | `L D (B2 L U' F R2 D2 F R)` | 10 | F/B | 2c4 4e | 3 | 2c4-6 / 2c4-7 | look anyway | <0.01% / 0.30% / 3.1% |
-| 3 | `L D B' L2 R2 B' L (B2 L U)` | 10 | F/B | 4c4 2e | 5 | 4c4-2 / 4c4-1 | look anyway | 0.80% / 3.3% / 16% |
-| 4 | `L2 D' F R2 B L' U D B2 L` | 10 | U/D | 2c4 6e | 0 | 2c4-1 / 2c4-6 | look anyway | 0.02% / 0.32% / 4.2% |
-| 5 | `L R' B' R D F2 B2 U B' L2 D` | 11 | F/B | 4b5 4e | 2 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.13% / 1.9% |
-| 6 | `B2 R2 F2 U F L2 B (R' F2 U' L)` | 11 | U/D | 2c5 2e | 1 | 2c5-3 / 2c5-1 | drop | 0 / 0 / 0.14% |
-| 7 | `D B' U' L R' D F2 R D (U2 F)` | 11 | R/L | 2c4 6e | 0 | 2c4-7 / 2c4-4 | drop | 0 / 0.06% / 1.0% |
-| 8 | `B U' R2 F D2 B U (R' F2 U' L)` | 11 | F/B | 2c3 2e | 0 | 2c3-1 / 2c3-3 | keep | 0.96% / 7.3% / 35% |
+| 1 | `(U' R' U' B R U2 B2 L D)` | 9 | R/L | 2c3 6e | 0 | 2c3-1 / 2c3-2 | look anyway | 0.40% / 3.1% / 18% |
+| 2 | `(F2 R' U' B' L' D2 L2 F2 L2 D)` | 10 | R/L | 2c3 2e | 2 | 2c3-3 / 2c3-3 | look anyway | 0.65% / 4.7% / 25% |
+| 3 | `L (B' L' R D' F L2 D F D)` | 10 | F/B | 0c3 2e | 3 | 0c3-1 / 0c3-2 | look anyway | 0.09% / 0.68% / 4.2% |
+| 4 | `(U F2 R' U' B' D2 L B2 R' U)` | 10 | R/L | 4a1 4e | 0 | 4a1-3 / 4a1-2 | look anyway | 2.6% / 11% / 40% |
+| 5 | `(B2 D B U2 R' D' L U R2 D R)` | 11 | U/D | 4c4 2e | 1 | 4c4-4 / 4c4-3 | drop | 0 / 0.03% / 0.54% |
+| 6 | `U (L2 D R D' R2 F' R U2 L2 B)` | 11 | R/L | 4a1 4e | 1 | 4a1-2 / 4a1-3 | keep | 3.3% / 14% / 46% |
+| 7 | `F2 B' U L' R2 B U2 L2 F (L D)` | 11 | R/L | 2c5 6e | 1 | 2c5-3 / 2c5-1 | drop | 0 / 0 / 0.49% |
+| 8 | `R' F B (F' U' R2 D2 R D' L' U)` | 11 | R/L | 2c3 4e | 2 | 2c3-3 / 2c3-2 | keep | 0.66% / 4.2% / 22% |
 
-Shown: 8 of the 69 DRs up to 11 moves (10 moves: 4 of 6; 11 moves: 4 of 63).
+Shown: 8 of the 950 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 65; 11 moves: 4 of 884).
 
 <details>
 <summary>Answers for scramble 77</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 9 | 13 | 23 |
-| 2 | 8 / 9 | 14 | 24 |
-| 3 | 11 / 9 | 14 | 24 |
-| 4 | 9 / 9 | 14 | 24 |
-| 5 | 10 / 10 | 14 | 24 |
-| 6 | 12 / 10 | 15 | 26 |
-| 7 | 10 / 9 | 15 | 26 |
-| 8 | 7 / 7 | 13 | 24 |
+| 1 | 7 / 9 | 13 | 22 |
+| 2 | 7 / 7 | 13 | 23 |
+| 3 | 11 / 10 | 15 | 24 |
+| 4 | 6 / 8 | 13 | 23 |
+| 5 | 10 / 10 | 13 | 24 |
+| 6 | 7 / 7 | 11 | 20 |
+| 7 | 12 / 10 | 15 | 25 |
+| 8 | 9 / 8 | 14 | 24 |
 
-Best on the page: **23 moves**, from DR 1: `L2 D' F R2 B L' U' D' F2 R B2 U B2 D L2 U2 D B2 R2 L2 U F2 R2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 6: `U' L' F2 B2 R U2 B2 R F2 R2 B L2 U2 R' F R2 D R' D' L2`. The list drops 2 of the 4 DRs of 11 moves or more, and keeps the best one.
 
 </details>
 
 #### Scramble 78
 
-`R' U' F D F2 R2 D2 L2 D' F2 U R2 U' B R D B2 D2 U2 F D L U' F' R' U' F`
+`R' U' F R2 D' L2 D' L2 B2 D' F2 L2 U' B R U F2 D B2 U L' U2 R U2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `R D F (B R' F2 R' D)` | 8 | R/L | 2c3 6e | 0 | 2c3-1 / 2c3-3 | look anyway | 0.21% / 2.1% / 14% |
-| 2 | `D R' F2 U (L F2 L2 B R)` | 9 | F/B | 4c4 4e | 1 | 4c4-2 / 4c4-1 | look anyway | 0.12% / 0.66% / 4.3% |
-| 3 | `D R' F2 U (L' B2 R2 B' R)` | 9 | F/B | 4c4 4e | 2 | 4c4-2 / 4c4-1 | look anyway | 0.09% / 0.84% / 5.2% |
-| 4 | `R D F (B L2 R B2 R' U)` | 9 | R/L | 2c3 6e | 1 | 2c3-1 / 2c3-3 | look anyway | 0.33% / 2.7% / 17% |
-| 5 | `D R' F2 U' R' F2 D2 L B' L2 F` | 11 | R/L | 4c3 4e | 0 | 4c3-3 / 4c3-4 | drop | 0.21% / 1.6% / 10% |
-| 6 | `(B' R' U2 L' F' U B2 U R U2 L)` | 11 | U/D | 2c4 4e | 2 | 2c4-4 / 2c4-1 | drop | 0.16% / 1.5% / 11% |
-| 7 | `R D F (B R' F2 U' R2 D R' U)` | 11 | R/L | 4b5 2e | 0 | 4b5-2 / 4b5-2 | drop | 0 / 0.02% / 0.31% |
-| 8 | `(U2 L' R' U' R' F' B2 U2 L2 U2 B)` | 11 | U/D | 4a2 4e | 0 | 4a2-4 / 4a2-3 | drop | 0 / 0.53% / 6.6% |
+| 1 | `B2 U' R (R B2 D' R2 F' D)` | 9 | F/B | 4c3 4e | 1 | 4c3-5 / 4c3-7 | look anyway | 0.06% / 0.79% / 6.0% |
+| 2 | `F2 R' U L B2 R (F B' U' B)` | 10 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-1 | look anyway | 0.02% / 0.24% / 2.3% |
+| 3 | `U (R U F U F U2 F' D2 B)` | 10 | R/L | 2c3 4e | 2 | 2c3-3 / 2c3-3 | look anyway | 0.35% / 2.6% / 15% |
+| 4 | `R F' R2 F (F' L' D R' D2 L)` | 10 | U/D | 4c3 2e | 2 | 4c3-5 / 4c3-6 | look anyway | 0.12% / 1.2% / 8.1% |
+| 5 | `F' R' F D' B2 R2 U D2 R' D (F)` | 11 | R/L | 4b5 2e | 3 | 4b5-1 / 4b5-1 | drop | 0.04% / 0.38% / 3.3% |
+| 6 | `U' B2 R (R' F B2 L2 B2 D' F2 D)` | 11 | F/B | 4c3 2e | 2 | 4c3-5 / 4c3-2 | keep | 0.38% / 2.6% / 15% |
+| 7 | `F' R' F' U' D L' R D2 L D (F)` | 11 | R/L | 2c3 4e | 1 | 2c3-2 / 2c3-1 | keep | 0.88% / 6.1% / 29% |
+| 8 | `B2 U' R (R B2 U' B2 U D' F' D)` | 11 | F/B | 4c3 2e | 2 | 4c3-5 / 4c3-7 | drop | 0.11% / 1.1% / 7.6% |
 
-Shown: 8 of the 311 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 3; 10 moves: 0 of 34; 11 moves: 4 of 273).
+Shown: 8 of the 278 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 21; 11 moves: 4 of 256).
 
 <details>
 <summary>Answers for scramble 78</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 8 | 13 | 20 |
-| 2 | 10 / 9 | 15 | 23 |
-| 3 | 10 / 9 | 15 | 23 |
-| 4 | 9 / 9 | 14 | 21 |
-| 5 | 9 / 10 | 13 | 24 |
-| 6 | 8 / 7 | 12 | 23 |
-| 7 | 10 / 10 | 15 | 26 |
-| 8 | 8 / 10 | 13 | 24 |
+| 1 | 10 / 8 | 13 | 21 |
+| 2 | 10 / 9 | 15 | 24 |
+| 3 | 9 / 9 | 14 | 22 |
+| 4 | 9 / 9 | 14 | 24 |
+| 5 | 10 / 10 | 13 | 23 |
+| 6 | 9 / 9 | 14 | 24 |
+| 7 | 8 / 7 | 12 | 22 |
+| 8 | 9 / 8 | 14 | 25 |
 
-Best on the page: **20 moves**, from DR 1: `R D F' R D2 U2 B2 L2 B2 R U2 R F2 B2 U2 D' R F2 R B'`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1: `B2 U' R' U2 B2 R2 B R2 F L2 F2 R2 U2 F R2 D F R2 D B2 R'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 79
 
-`R' U' F D R2 B2 D' B2 D' B2 U F2 R F2 D L' F U R2 B2 L' U B' R' U' F`
+`R' U' F L2 U B2 L2 B2 D2 U' F2 D' B' U' L U B2 D L' B U' L2 R U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `D B D B' R' U' L2 D` | 8 | R/L | 4b5 4e | 1 | 4b5-2 / 4b5-1 | look anyway | 0 / 0.03% / 0.64% |
-| 2 | `U' D' R B D' B (U2 R)` | 8 | U/D | 4b5 4e | 2 | 4b5-2 / 4b5-1 | look anyway | 0 / 0.07% / 1.0% |
-| 3 | `D B D B' R' D' B2 U` | 8 | R/L | 4b5 4e | 2 | 4b5-2 / 4b5-1 | look anyway | 0 / 0.07% / 1.0% |
-| 4 | `U' D' R' B D' B (U2 R)` | 8 | U/D | 2c3 4e | 1 | 2c3-3 / 2c3-1 | look anyway | 0.62% / 4.5% / 24% |
-| 5 | `D B D B L F2 U L F2 D' L` | 11 | U/D | 2c3 4e | 3 | 2c3-1 / 2c3-3 | keep | 1.8% / 9.3% / 37% |
-| 6 | `B D2 B' D2 R' B2 U' F2 D' F2 D` | 11 | R/L | 4b2 4e | 2 | 4b2-2 / 4b2-4 | keep | 0.97% / 6.2% / 30% |
-| 7 | `B D2 B' L F2 L D B2 L R U` | 11 | R/L | 2c4 4e | 1 | 2c4-6 / 2c4-3 | drop | 0.06% / 0.65% / 5.1% |
-| 8 | `D2 R (R2 F2 L2 R D' B2 L2 B2 U)` | 11 | F/B | 4b2 2e | 1 | 4b2-3 / 4b2-3 | keep | 0.50% / 4.3% / 23% |
+| 1 | `L R F' L R (L B' R' D)` | 9 | F/B | 2c4 4e | 1 | 2c4-4 / 2c4-3 | look anyway | 0.08% / 0.76% / 5.9% |
+| 2 | `L R F L R (L B' R' D)` | 9 | F/B | 2c4 4e | 2 | 2c4-4 / 2c4-3 | look anyway | 0.13% / 1.1% / 7.8% |
+| 3 | `(D L2 F' D B' L' D L R U)` | 10 | R/L | 4c4 2e | 5 | 4c4-3 / 4c4-4 | look anyway | 0 / 0.48% / 4.7% |
+| 4 | `F2 L R F L R (L B' R' D)` | 10 | F/B | 2c4 4e | 2 | 2c4-4 / 2c4-3 | look anyway | 0.13% / 1.1% / 7.8% |
+| 5 | `B (R' F' R B D' F2 L D' L2 U)` | 11 | R/L | 2c4 2e | 3 | 2c4-4 / 2c4-2 | drop | 0.19% / 2.2% / 14% |
+| 6 | `L F2 U' D' L2 R' F D2 L2 B' D` | 11 | F/B | 4b2 4e | 2 | 4b2-4 / 4b2-1 | keep | 1.9% / 8.9% / 35% |
+| 7 | `(D F D B' L U' R' U2 L2 B2 U)` | 11 | R/L | 2c3 4e | 1 | 2c3-3 / 2c3-3 | keep | 0.19% / 1.6% / 11% |
+| 8 | `F2 L R F D2 L R (L B' R' D)` | 11 | F/B | 2c4 4e | 2 | 2c4-7 / 2c4-3 | drop | 0.07% / 0.72% / 5.7% |
 
-Shown: 8 of the 957 DRs up to 11 moves (8 moves: 4 of 4; 9 moves: 0 of 4; 10 moves: 0 of 78; 11 moves: 4 of 871).
+Shown: 8 of the 388 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 39; 11 moves: 4 of 347).
 
 <details>
 <summary>Answers for scramble 79</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 11 / 10 | 15 | 22 |
-| 2 | 10 / 10 | 14 | 22 |
-| 3 | 10 / 10 | 14 | 21 |
-| 4 | 7 / 7 | 13 | 21 |
-| 5 | 6 / 7 | 12 | 22 |
-| 6 | 8 / 8 | 13 | 24 |
-| 7 | 8 / 10 | 13 | 23 |
-| 8 | 7 / 6 | 13 | 23 |
+| 1 | 9 / 10 | 14 | 22 |
+| 2 | 8 / 10 | 14 | 22 |
+| 3 | 10 / 10 | 15 | 25 |
+| 4 | 9 / 10 | 14 | 23 |
+| 5 | 9 / 9 | 14 | 23 |
+| 6 | 9 / 7 | 13 | 24 |
+| 7 | 7 / 7 | 13 | 24 |
+| 8 | 10 / 10 | 14 | 24 |
 
-Best on the page: **21 moves**, from DR 3 (DR 4 ties it): `D B D B' R' D' B2 U' L D2 R2 B2 R' D2 F2 B2 L D2 L' U2 L`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DR 2 ties it): `L R F' L R U2 F D2 F B2 L2 D2 L2 U2 B' D2 F U2 D R B L'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 80
 
-`R' U' F R2 B2 U R2 U L2 U' B2 R2 D' L' R2 D2 F' U2 L F2 R D' F' R' U' F`
+`R' U' F U L D R' U2 F B L2 D' B2 R L2 B L2 D2 B L2 B2 R2 B U2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L D R D2 B U' F' B2 D (L)` | 10 | F/B | 4b2 4e | 5 | 4b2-2 / 4b2-4 | look anyway | 3.8% / 17% / 55% |
-| 2 | `B U L D (F' R2 B L F2 R)` | 10 | F/B | 4b2 2e | 4 | 4b2-3 / 4b2-2 | look anyway | 5.0% / 19% / 58% |
-| 3 | `U2 L D R F' U2 B' D' B (L)` | 10 | U/D | 4c4 2e | 3 | 4c4-4 / 4c4-1 | look anyway | 0.02% / 0.48% / 3.8% |
-| 4 | `L' B' U D' L U2 B' U2 R' B` | 10 | R/L | 4b2 4e | 2 | 4b2-2 / 4b2-3 | look anyway | 1.2% / 7.6% / 34% |
-| 5 | `B U L D' R' U2 L D2 R2 B L` | 11 | F/B | 2c4 4e | 1 | 2c4-7 / 2c4-4 | drop | 0 / 0.08% / 1.5% |
-| 6 | `B U' L D F R' B' U2 R2 D2 R` | 11 | F/B | 2c4 4e | 3 | 2c4-2 / 2c4-5 | drop | 0.14% / 1.6% / 11% |
-| 7 | `L' B' L2 U D R' D2 B U2 R' B` | 11 | R/L | 2c4 6e | 0 | 2c4-7 / 2c4-1 | drop | 0 / 0.18% / 2.7% |
-| 8 | `B U L D' L' B2 R' F' R2 U2 L` | 11 | F/B | 2c4 4e | 3 | 2c4-5 / 2c4-4 | drop | 0.08% / 0.90% / 6.4% |
+| 1 | `B R F (D' R' B2 U R2 U)` | 9 | R/L | 2c4 4e | 1 | 2c4-4 / 2c4-1 | look anyway | 0.10% / 1.0% / 8.2% |
+| 2 | `B R F (D' R' B2 D B2 D)` | 9 | R/L | 2c4 4e | 0 | 2c4-4 / 2c4-1 | look anyway | 0.05% / 0.65% / 5.9% |
+| 3 | `(B' D R' B D F2 R2 U2 R)` | 9 | F/B | 4b5 2e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.2% |
+| 4 | `B D L F R F' B' L B` | 9 | R/L | 4b2 4e | 0 | 4b2-2 / 4b2-3 | look anyway | 0.34% / 3.2% / 20% |
+| 5 | `U2 B D' R2 D2 L2 B R' B2 U2 B` | 11 | R/L | 2c4 2e | 2 | 2c4-6 / 2c4-5 | drop | 0 / 0.41% / 4.2% |
+| 6 | `B D' F2 R' F L R2 F2 D2 F R` | 11 | F/B | 4c4 2e | 2 | 4c4-3 / 4c4-4 | drop | 0 / 0.05% / 0.96% |
+| 7 | `B' R F' U2 F2 U2 B2 D L' F2 R` | 11 | U/D | 4c3 4e | 2 | 4c3-4 / 4c3-3 | drop | 0.65% / 3.5% / 17% |
+| 8 | `U2 L' D2 B' L' B' R (L2 D2 R' D)` | 11 | F/B | 4b2 2e | 5 | 4b2-1 / 4b2-3 | keep | 13% / 35% / 75% |
 
-Shown: 8 of the 182 DRs up to 11 moves (10 moves: 4 of 18; 11 moves: 4 of 164).
+Shown: 8 of the 1690 DRs up to 11 moves (9 moves: 4 of 11; 10 moves: 0 of 161; 11 moves: 4 of 1518).
 
 <details>
 <summary>Answers for scramble 80</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 8 | 13 | 22 |
-| 2 | 6 / 7 | 12 | 21 |
-| 3 | 11 / 11 | 14 | 24 |
-| 4 | 8 / 8 | 13 | 23 |
-| 5 | 10 / 10 | 14 | 25 |
-| 6 | 9 / 9 | 14 | 24 |
-| 7 | 10 / 8 | 13 | 24 |
-| 8 | 9 / 10 | 14 | 25 |
+| 1 | 9 / 8 | 14 | 22 |
+| 2 | 9 / 8 | 14 | 22 |
+| 3 | 9 / 10 | 15 | 23 |
+| 4 | 7 / 7 | 13 | 22 |
+| 5 | 9 / 10 | 14 | 24 |
+| 6 | 10 / 10 | 15 | 25 |
+| 7 | 8 / 10 | 11 | 22 |
+| 8 | 5 / 5 | 12 | 23 |
 
-Best on the page: **21 moves**, from DR 2: `B U L D F R2 B' U2 R2 D2 R2 F D2 F2 B' R F2 L' B' R2 F`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DR 2, 4 and 7 tie it): `B R F' U2 R F2 R' U2 R' L2 F2 L' F2 D2 F2 R2 U' R2 U' B2 R D`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 81
 
-`R' U' F U F2 L D L' U2 B R' L D' F' U2 B2 D2 L2 U' L2 U' F2 D F2 R' U' F`
+`R' U' F D2 R' F2 B2 U F B' U D2 L F D' F2 D' L2 D L2 U B2 D' F2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `R D L R U2 B U' F' D` | 9 | F/B | 2c4 4e | 3 | 2c4-6 / 2c4-4 | look anyway | 0.09% / 0.76% / 5.6% |
-| 2 | `D2 R D L R (L2 D2 B' U D)` | 10 | F/B | 4a1 2e | 3 | 4a1-3 / 4a1-4 | look anyway | 0.88% / 7.7% / 36% |
-| 3 | `D2 R D' L R (L2 D2 B' U D)` | 10 | F/B | 4a1 2e | 4 | 4a1-3 / 4a1-4 | look anyway | 1.9% / 11% / 43% |
-| 4 | `R D L R U2 F2 B' D' F' U` | 10 | F/B | 2c4 4e | 1 | 2c4-6 / 2c4-4 | look anyway | 0.02% / 0.28% / 2.4% |
-| 5 | `L2 B U' L F U' B2 R2 D' F (L)` | 11 | U/D | 4c4 2e | 0 | 4c4-6 / 4c4-4 | drop | 0 / 0 / 0.12% |
-| 6 | `R D' L' R' D2 L2 R2 F U' B' D` | 11 | F/B | 2c4 4e | 2 | 2c4-6 / 2c4-4 | drop | 0.06% / 0.45% / 3.5% |
-| 7 | `U' F2 L U2 L2 F U B' D (L R)` | 11 | F/B | 2c4 6e | 3 | 2c4-2 / 2c4-7 | drop | 0 / 0.58% / 7.4% |
-| 8 | `(L' R2 F2 D L2 R D' B' D' L2 U)` | 11 | F/B | 4c3 4e | 3 | 4c3-5 / 4c3-3 | drop | 0.35% / 2.9% / 17% |
+| 1 | `(F' U B' U F L F2 U R)` | 9 | U/D | 0c4 6e | 0 | 0c4-1 / 0c4-1 | look anyway | 0.01% / 0.11% / 1.9% |
+| 2 | `(L B2 U B' R' U D2 F2 D F)` | 10 | U/D | 4c3 2e | 0 | 4c3-4 / 4c3-2 | look anyway | 0.09% / 1.4% / 10% |
+| 3 | `(B D2 R B2 L' B2 D' B U' B)` | 10 | U/D | 2c3 6e | 0 | 2c3-2 / 2c3-3 | look anyway | 0.14% / 1.3% / 9.5% |
+| 4 | `U' F' U' F (B R U' B2 U L)` | 10 | U/D | 4a1 2e | 4 | 4a1-4 / 4a1-2 | look anyway | 3.7% / 18% / 57% |
+| 5 | `(F' B U' F L R' U D' L' U' L)` | 11 | U/D | 2c5 2e | 2 | 2c5-1 / 2c5-1 | drop | 0.01% / 0.32% / 3.4% |
+| 6 | `R2 D2 R F D (L B' L' D2 L F)` | 11 | R/L | 4c4 4e | 2 | 4c4-5 / 4c4-4 | drop | 0 / <0.01% / 0.20% |
+| 7 | `(B' L2 F D F U2 D2 L' D B2 R)` | 11 | U/D | 2c3 2e | 3 | 2c3-3 / 2c3-1 | keep | 2.8% / 14% / 51% |
+| 8 | `L F (L2 D' B L' R2 B2 D' L R)` | 11 | U/D | 4c4 4e | 1 | 4c4-4 / 4c4-3 | drop | 0 / 0.02% / 0.78% |
 
-Shown: 8 of the 146 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 14; 11 moves: 4 of 131).
+Shown: 8 of the 487 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 41; 11 moves: 4 of 445).
 
 <details>
 <summary>Answers for scramble 81</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 8 | 12 | 20 |
-| 2 | 6 / 7 | 13 | 22 |
-| 3 | 7 / 7 | 12 | 21 |
-| 4 | 9 / 9 | 14 | 23 |
-| 5 | 11 / 11 | 15 | 26 |
-| 6 | 10 / 9 | 14 | 24 |
-| 7 | 9 / 10 | 12 | 23 |
-| 8 | 10 / 9 | 13 | 24 |
+| 1 | 10 / 10 | 15 | 23 |
+| 2 | 9 / 8 | 13 | 22 |
+| 3 | 9 / 8 | 14 | 24 |
+| 4 | 7 / 7 | 13 | 22 |
+| 5 | 10 / 10 | 15 | 25 |
+| 6 | 11 / 11 | 14 | 24 |
+| 7 | 7 / 6 | 13 | 24 |
+| 8 | 10 / 10 | 14 | 24 |
 
-Best on the page: **20 moves**, from DR 1: `R D L R U2 B U' F' D' L2 D2 U2 F L2 F' R2 B L2 B' L2`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 2 (DR 4 ties it): `U2 L2 D B2 U' R2 D' F2 D R2 D' B2 F D' F2 D2 U' R B U' B2 L'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 82
 
-`R' U' F U L2 B2 R2 D2 F U B L B' R2 F L2 D F2 U F2 U2 F2 U' L2 U R' U' F`
+`R' U' F R2 D' U' L2 D L2 R2 U' B2 L2 F U F2 L U2 L2 B F L R2 U2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(R' D' F U D L2 R U)` | 8 | R/L | 2c4 4e | 2 | 2c4-4 / 2c4-3 | look anyway | 0.13% / 1.1% / 7.8% |
-| 2 | `(R' D' F' B2 U D L' U)` | 8 | R/L | 2c4 4e | 0 | 2c4-4 / 2c4-3 | look anyway | 0.03% / 0.44% / 3.9% |
-| 3 | `D (F' L U' D L2 B' R2 B)` | 9 | R/L | 4b2 4e | 0 | 4b2-3 / 4b2-2 | look anyway | 0.34% / 3.2% / 20% |
-| 4 | `D (F' L U' D L2 F' U2 F)` | 9 | R/L | 4b2 4e | 1 | 4b2-3 / 4b2-2 | look anyway | 0.68% / 5.1% / 26% |
-| 5 | `U (B2 R' D' L2 F2 B2 L2 D2 B' L)` | 11 | F/B | 2c4 2e | 3 | 2c4-1 / 2c4-1 | keep | 1.1% / 7.3% / 32% |
-| 6 | `U' B' U (L2 U B' L2 F' L' F B)` | 11 | R/L | 4b2 2e | 1 | 4b2-2 / 4b2-4 | keep | 1.1% / 6.3% / 29% |
-| 7 | `L' U F2 D2 B' R2 U (D2 L F' L)` | 11 | F/B | 4c4 2e | 0 | 4c4-3 / 4c4-2 | drop | 0 / 0.12% / 1.2% |
-| 8 | `F U (D F D' F' U2 F L' D2 B)` | 11 | R/L | 4b2 4e | 1 | 4b2-2 / 4b2-3 | keep | 0.68% / 5.1% / 26% |
+| 1 | `B2 L2 F' D (D' R' B' U' R)` | 9 | F/B | 2c3 2e | 1 | 2c3-3 / 2c3-3 | look anyway | 0.44% / 3.7% / 22% |
+| 2 | `(B' L2 F R' D B2 U F2 L)` | 9 | U/D | 4b2 4e | 5 | 4b2-3 / 4b2-3 | look anyway | 5.2% / 20% / 57% |
+| 3 | `(F' D2 B L' U B2 D F2 R)` | 9 | U/D | 4b2 4e | 5 | 4b2-3 / 4b2-3 | look anyway | 5.2% / 20% / 57% |
+| 4 | `F2 R2 F' U (D' R' B' U' R)` | 9 | F/B | 2c3 2e | 1 | 2c3-3 / 2c3-3 | look anyway | 0.44% / 3.7% / 22% |
+| 5 | `U L2 D2 L (D' F2 D2 F2 B R2 U)` | 11 | F/B | 2c5 2e | 1 | 2c5-1 / 2c5-1 | drop | 0 / 0.16% / 2.2% |
+| 6 | `(F2 B R2 F L' U L B2 D F2 R)` | 11 | U/D | 2c3 6e | 4 | 2c3-2 / 2c3-1 | keep | 2.7% / 13% / 46% |
+| 7 | `(F' D2 B U' L2 B2 D F2 L2 U' R)` | 11 | U/D | 2c4 6e | 2 | 2c4-5 / 2c4-4 | drop | 0.03% / 0.73% / 5.4% |
+| 8 | `L2 D2 L' U' B' D F R2 B2 D2 B` | 11 | U/D | 2c4 6e | 0 | 2c4-4 / 2c4-7 | drop | 0 / 0.06% / 1.0% |
 
-Shown: 8 of the 818 DRs up to 11 moves (8 moves: 2 of 2; 9 moves: 2 of 14; 10 moves: 0 of 78; 11 moves: 4 of 724).
+Shown: 8 of the 856 DRs up to 11 moves (9 moves: 4 of 4; 10 moves: 0 of 66; 11 moves: 4 of 786).
 
 <details>
 <summary>Answers for scramble 82</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 8 | 13 | 21 |
-| 2 | 9 / 8 | 15 | 23 |
-| 3 | 7 / 7 | 14 | 21 |
-| 4 | 7 / 5 | 12 | 21 |
-| 5 | 8 / 8 | 13 | 23 |
-| 6 | 7 / 8 | 13 | 24 |
-| 7 | 11 / 10 | 14 | 25 |
-| 8 | 8 / 9 | 13 | 23 |
+| 1 | 6 / 7 | 14 | 21 |
+| 2 | 8 / 7 | 12 | 21 |
+| 3 | 7 / 7 | 13 | 22 |
+| 4 | 6 / 7 | 14 | 22 |
+| 5 | 10 / 10 | 14 | 25 |
+| 6 | 8 / 8 | 14 | 24 |
+| 7 | 10 / 9 | 15 | 25 |
+| 8 | 9 / 10 | 15 | 25 |
 
-Best on the page: **21 moves**, from DR 1 (DR 3 and 4 tie it): `U2 R U2 F2 R B2 R' U2 L' B2 U2 B2 R2 U' R' L2 D' U' F' D R`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1 (DR 2 ties it): `B2 L2 F' D' R2 F B2 R2 F2 R2 F D2 R2 B' U2 L2 R U B R D`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 83
 
-`R' U' F R2 B2 F2 U2 F2 U' F2 D F2 D F' L2 B L D L2 R2 U' L2 D' R' U' F`
+`R' U' F U R B2 R' F2 D' L U' B' R L2 F2 D B2 U2 F2 R2 U' D' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(F' U B' L2 F' L' D2 F2 D)` | 9 | R/L | 4b5 2e | 0 | 4b5-2 / 4b5-2 | look anyway | 0 / 0.02% / 0.31% |
-| 2 | `B' D' R U (L2 F D2 R F)` | 9 | R/L | 2c4 2e | 3 | 2c4-2 / 2c4-3 | look anyway | 0.58% / 4.5% / 24% |
-| 3 | `(F' U' B' L2 F' L' U2 B2 D)` | 9 | R/L | 0c3 6e | 1 | 0c3-2 / 0c3-2 | look anyway | 0 / 0.13% / 1.9% |
-| 4 | `(F' U B' L2 F' L' U2 B2 D)` | 9 | R/L | 4b5 2e | 0 | 4b5-2 / 4b5-2 | look anyway | 0 / 0.02% / 0.31% |
-| 5 | `D2 L2 U' R' D L2 B D F U2 B` | 11 | U/D | 4c4 4e | 4 | 4c4-1 / 4c4-2 | drop | 0.79% / 2.3% / 9.9% |
-| 6 | `R2 B' U R' D' B L U2 R' F' L` | 11 | F/B | 2c4 4e | 1 | 2c4-4 / 2c4-6 | drop | 0.02% / 0.28% / 2.4% |
-| 7 | `U' D2 R U R2 B' D F D' L2 F` | 11 | U/D | 2c5 6e | 1 | 2c5-1 / 2c5-1 | drop | 0.05% / 0.29% / 2.5% |
-| 8 | `B' D' R U (R2 B' D2 L' F2 D2 B)` | 11 | R/L | 2c4 6e | 1 | 2c4-2 / 2c4-6 | drop | <0.01% / 0.42% / 5.1% |
+| 1 | `(F U' R' B' U D2 L' F2 D)` | 9 | R/L | 4b2 2e | 4 | 4b2-3 / 4b2-3 | look anyway | 3.2% / 15% / 49% |
+| 2 | `L2 U' F (R F' R D F2 B2 L)` | 10 | U/D | 2c4 4e | 0 | 2c4-1 / 2c4-6 | look anyway | 0.05% / 0.55% / 5.2% |
+| 3 | `B D' L' D2 R F2 L2 D R2 D` | 10 | F/B | 4c3 2e | 1 | 4c3-5 / 4c3-9 | look anyway | <0.01% / 0.10% / 1.6% |
+| 4 | `(F U' R' B R2 B2 U' R' B2 D)` | 10 | R/L | 4c4 2e | 3 | 4c4-3 / 4c4-4 | look anyway | 0 / 0.09% / 1.5% |
+| 5 | `R' F' R (U2 R F' U' D' F2 B' U)` | 11 | F/B | 4c4 4e | 0 | 4c4-4 / 4c4-5 | drop | 0 / 0 / 0.06% |
+| 6 | `B (B U2 F R' D2 F2 D R' D2 R)` | 11 | U/D | 2c4 4e | 1 | 2c4-6 / 2c4-7 | drop | 0 / 0.07% / 1.5% |
+| 7 | `(F U' R' B D' R2 B2 U' R F2 U)` | 11 | R/L | 2c3 2e | 3 | 2c3-1 / 2c3-2 | keep | 4.0% / 18% / 57% |
+| 8 | `B D' L' D2 R' B2 R2 F2 D R2 D` | 11 | F/B | 4c3 2e | 2 | 4c3-5 / 4c3-9 | drop | <0.01% / 0.21% / 2.6% |
 
-Shown: 8 of the 603 DRs up to 11 moves (9 moves: 4 of 8; 10 moves: 0 of 87; 11 moves: 4 of 508).
+Shown: 8 of the 180 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 13; 11 moves: 4 of 166).
 
 <details>
 <summary>Answers for scramble 83</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 14 | 23 |
-| 2 | 9 / 8 | 12 | 20 |
-| 3 | 10 / 10 | 14 | 23 |
-| 4 | 10 / 10 | 15 | 24 |
-| 5 | 9 / 9 | 14 | 25 |
-| 6 | 9 / 9 | 15 | 25 |
-| 7 | 10 / 9 | 13 | 24 |
-| 8 | 9 / 10 | 14 | 24 |
+| 1 | 6 / 6 | 13 | 22 |
+| 2 | 8 / 8 | 14 | 24 |
+| 3 | 9 / 10 | 14 | 23 |
+| 4 | 10 / 11 | 14 | 24 |
+| 5 | 11 / 11 | 14 | 24 |
+| 6 | 8 / 9 | 11 | 21 |
+| 7 | 6 / 6 | 12 | 23 |
+| 8 | 9 / 10 | 15 | 25 |
 
-Best on the page: **20 moves**, from DR 2: `B' D' R U' F2 R' U2 R' B2 R F2 U2 F2 U2 R F' R' D2 F' L2`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 6: `B' U' R2 D R2 D' B2 D' F2 D2 F2 R' D2 R D' F2 D2 R F' U2 B'`. The list drops 3 of the 4 DRs of 11 moves or more, the best one among them. What's left gives 22 (DR 1), 1 move more.
 
 </details>
 
 #### Scramble 84
 
-`R' U' F D R2 U B2 U' B2 D' F2 U L' F2 D2 B R' U L' R' B R2 F' U' R' U' F`
+`R' U' F U L D' L2 B2 D2 B D F2 B2 R' D F2 B2 U' F2 U D2 B2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(D' F U' D L2 F2 R' D2 F)` | 9 | R/L | 4b2 2e | 3 | 4b2-3 / 4b2-2 | look anyway | 3.3% / 14% / 48% |
-| 2 | `B R (B2 U F' R2 U' L2 D)` | 9 | F/B | 2c4 4e | 4 | 2c4-4 / 2c4-4 | look anyway | 0.05% / 0.82% / 7.0% |
-| 3 | `(D' F B2 U D B2 L U2 F)` | 9 | R/L | 4b2 2e | 4 | 4b2-3 / 4b2-2 | look anyway | 5.0% / 19% / 58% |
-| 4 | `(D' F B2 U D' B2 L U2 F)` | 9 | R/L | 4b2 2e | 2 | 4b2-3 / 4b2-2 | look anyway | 2.0% / 9.6% / 38% |
-| 5 | `B R F2 B D' B2 R2 D2 B2 L2 B` | 11 | U/D | 4b5 2e | 4 | 4b5-1 / 4b5-2 | drop | 0.03% / 0.48% / 3.4% |
-| 6 | `B R (R2 D' B R2 D B' U' F B)` | 11 | U/D | 4b5 2e | 3 | 4b5-1 / 4b5-1 | drop | 0.04% / 0.38% / 3.3% |
-| 7 | `(D' F R2 U D L' D2 R2 D2 L2 F)` | 11 | R/L | 4b2 4e | 2 | 4b2-3 / 4b2-2 | keep | 1.2% / 7.6% / 34% |
-| 8 | `B2 L2 B' R F D' B2 D2 F' U B` | 11 | U/D | 2c3 4e | 0 | 2c3-3 / 2c3-3 | keep | 0.09% / 1.0% / 8.0% |
+| 1 | `L (U2 F' U R B U2 F)` | 8 | U/D | 4c3 4e | 1 | 4c3-5 / 4c3-1 | look anyway | 0.22% / 2.1% / 14% |
+| 2 | `L (U2 F' U R F R2 B)` | 8 | U/D | 4c3 4e | 2 | 4c3-5 / 4c3-1 | look anyway | 0.41% / 3.3% / 19% |
+| 3 | `L (U2 F' U R F2 B' D2 F)` | 9 | U/D | 4c3 4e | 3 | 4c3-5 / 4c3-1 | look anyway | 0.89% / 5.0% / 25% |
+| 4 | `L (U2 F' U R F' B2 L2 B)` | 9 | U/D | 4c3 4e | 3 | 4c3-5 / 4c3-1 | look anyway | 0.89% / 5.0% / 25% |
+| 5 | `L (U2 F' U R U2 F2 R2 B' R2 F)` | 11 | U/D | 4b5 4e | 2 | 4b5-1 / 4b5-2 | drop | 0 / 0.07% / 1.0% |
+| 6 | `L (U2 F' U R F R2 F R2 F B)` | 11 | U/D | 4c3 4e | 3 | 4c3-5 / 4c3-7 | drop | 0.24% / 1.8% / 11% |
+| 7 | `R (D R' U2 L' D F' U2 D' R2 U)` | 11 | F/B | 2c5 4e | 4 | 2c5-2 / 2c5-3 | drop | 0 / 0 / 0.69% |
+| 8 | `L (U2 F' U R F R2 F' R2 F B)` | 11 | U/D | 4c3 4e | 2 | 4c3-5 / 4c3-9 | drop | 0.02% / 0.31% / 2.7% |
 
-Shown: 8 of the 1277 DRs up to 11 moves (9 moves: 4 of 10; 10 moves: 0 of 118; 11 moves: 4 of 1149).
+Shown: 8 of the 245 DRs up to 11 moves (8 moves: 2 of 2; 9 moves: 2 of 3; 10 moves: 0 of 26; 11 moves: 4 of 214).
 
 <details>
 <summary>Answers for scramble 84</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 6 / 6 | 13 | 22 |
-| 2 | 10 / 10 | 14 | 23 |
-| 3 | 6 / 5 | 12 | 21 |
-| 4 | 5 / 7 | 13 | 22 |
-| 5 | 9 / 10 | 14 | 25 |
-| 6 | 10 / 9 | 14 | 24 |
-| 7 | 8 / 8 | 13 | 24 |
-| 8 | 7 / 9 | 14 | 24 |
+| 1 | 9 / 8 | 13 | 21 |
+| 2 | 9 / 8 | 12 | 20 |
+| 3 | 9 / 8 | 13 | 22 |
+| 4 | 9 / 8 | 13 | 22 |
+| 5 | 10 / 10 | 14 | 25 |
+| 6 | 9 / 9 | 14 | 24 |
+| 7 | 10 / 11 | 15 | 25 |
+| 8 | 9 / 9 | 13 | 24 |
 
-Best on the page: **21 moves**, from DR 3: `R' L' D2 R F2 D2 R' F2 L' F2 B2 L F' U2 L' B2 D' U' B2 F' D`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 2: `L U2 B2 R2 D R2 D L2 B2 D2 B2 D' R2 B' R2 F' R' U' F U2`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 85
 
-`R' U' F U2 F2 L2 U' R2 D B2 U' L2 U R B' U F L U' F2 D2 B' F U' R' U' F`
+`R' U' F D L2 R2 U B2 L2 B2 L2 R2 U L' D R D L2 F B U2 L' R B' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L F L2 F U (L2 F2 U' R)` | 9 | F/B | 2c5 4e | 0 | 2c5-2 / 2c5-3 | look anyway | 0 / 0 / 0.10% |
-| 2 | `U (F' U B' R' F B' R F)` | 9 | R/L | 2c4 4e | 2 | 2c4-2 / 2c4-3 | look anyway | 0.38% / 2.8% / 17% |
-| 3 | `(U F2 B' R U' F U2 R U2 B)` | 10 | R/L | 2c4 6e | 2 | 2c4-3 / 2c4-7 | look anyway | 0.06% / 0.84% / 6.1% |
-| 4 | `B L F U (U' L2 R2 D2 B R)` | 10 | F/B | 2c4 2e | 0 | 2c4-1 / 2c4-3 | look anyway | 0.10% / 1.4% / 12% |
-| 5 | `B U L' U' L2 U D F' D (U R)` | 11 | F/B | 2c3 2e | 2 | 2c3-1 / 2c3-1 | keep | 3.5% / 17% / 55% |
-| 6 | `U (F' U' B2 R2 F R' F' B R B)` | 11 | R/L | 2c4 2e | 2 | 2c4-6 / 2c4-6 | drop | 0.05% / 0.42% / 3.6% |
-| 7 | `(D' L D F U' F' L F' L2 U2 R)` | 11 | F/B | 4b2 4e | 0 | 4b2-3 / 4b2-2 | keep | 0.34% / 3.2% / 20% |
-| 8 | `U' F' R' D2 F2 U2 B R' B (F' U)` | 11 | R/L | 4b5 4e | 1 | 4b5-1 / 4b5-1 | drop | <0.01% / 0.08% / 1.1% |
+| 1 | `(U R2 B' U' R2 F2 B2 R' B)` | 9 | R/L | 2c3 2e | 1 | 2c3-2 / 2c3-1 | look anyway | 1.6% / 10% / 43% |
+| 2 | `D B' D L' U' D2 L U (B)` | 9 | R/L | 4c4 2e | 1 | 4c4-1 / 4c4-4 | look anyway | 0 / 0.14% / 1.8% |
+| 3 | `B D B2 L2 D (R2 F2 B2 L' B)` | 10 | R/L | 4c3 2e | 1 | 4c3-4 / 4c3-9 | look anyway | 0.06% / 0.56% / 3.7% |
+| 4 | `(B' R2 F' U F L' B R' B2 R)` | 10 | F/B | 4c4 4e | 2 | 4c4-4 / 4c4-3 | look anyway | 0 / 0.06% / 1.2% |
+| 5 | `D B' L2 D2 R D' R U' D2 L (B)` | 11 | U/D | 4c4 2e | 2 | 4c4-1 / 4c4-4 | drop | 0.04% / 0.38% / 2.8% |
+| 6 | `B (B2 L' B' U2 L' D L2 U' R2 U)` | 11 | R/L | 2c5 2e | 2 | 2c5-2 / 2c5-2 | drop | 0 / 0.05% / 0.90% |
+| 7 | `R' F2 U F2 L' U2 F2 D2 F' L (U)` | 11 | F/B | 4b2 4e | 3 | 4b2-3 / 4b2-1 | keep | 3.1% / 13% / 48% |
+| 8 | `D B' U2 R' D F2 D L R D (B)` | 11 | R/L | 2c3 2e | 1 | 2c3-1 / 2c3-1 | keep | 2.5% / 14% / 50% |
 
-Shown: 8 of the 322 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 36; 11 moves: 4 of 284).
+Shown: 8 of the 575 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 59; 11 moves: 4 of 514).
 
 <details>
 <summary>Answers for scramble 85</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 11 / 11 | 15 | 24 |
-| 2 | 9 / 8 | 14 | 22 |
-| 3 | 8 / 10 | 14 | 24 |
-| 4 | 8 / 10 | 14 | 23 |
-| 5 | 5 / 7 | 13 | 24 |
-| 6 | 9 / 9 | 15 | 24 |
-| 7 | 7 / 8 | 14 | 24 |
-| 8 | 11 / 10 | 14 | 25 |
+| 1 | 6 / 6 | 13 | 22 |
+| 2 | 9 / 11 | 14 | 23 |
+| 3 | 9 / 10 | 14 | 23 |
+| 4 | 11 / 10 | 14 | 24 |
+| 5 | 11 / 10 | 14 | 25 |
+| 6 | 10 / 10 | 15 | 25 |
+| 7 | 7 / 7 | 12 | 22 |
+| 8 | 6 / 6 | 13 | 23 |
 
-Best on the page: **22 moves**, from DR 2: `U' R' D2 F2 L D2 U2 B2 R2 L U2 R B2 D2 F R' B F' R B U' F`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DR 7 ties it): `R2 D2 F2 L2 U2 F2 U2 R D2 R' U2 B2 L B' R B2 F2 R2 U B R2 U'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 86
 
-`R' U' F U L2 D2 B' L' F2 U R' U2 R F' B D R2 F2 D2 B2 D' L2 B2 D' R' U' F`
+`R' U' F R2 D' R2 U B2 D U2 B2 L2 U' L B' L D2 F2 R' U L2 B D R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `F (B' D F' U' R' D2 L U)` | 9 | R/L | 2c3 6e | 1 | 2c3-3 / 2c3-2 | look anyway | 0.22% / 1.8% / 12% |
-| 2 | `F (B D F' U' R' D2 L U)` | 9 | R/L | 4c3 4e | 3 | 4c3-9 / 4c3-5 | look anyway | 0.02% / 0.39% / 3.8% |
-| 3 | `U' L (U B' R' D' B R2 D2 B)` | 10 | U/D | 2c3 4e | 0 | 2c3-3 / 2c3-3 | look anyway | 0.09% / 1.0% / 8.0% |
-| 4 | `F' D2 L' R U2 L D (B' D F)` | 10 | R/L | 2c3 2e | 6 | 2c3-3 / 2c3-3 | look anyway | 3.9% / 16% / 49% |
-| 5 | `(B' U R2 D' B' U D' L' R' D' L)` | 11 | U/D | 4c3 2e | 1 | 4c3-5 / 4c3-1 | keep | 0.23% / 2.1% / 15% |
-| 6 | `F (B D F' U' L' F2 R' B2 R2 D)` | 11 | R/L | 4c3 4e | 2 | 4c3-9 / 4c3-5 | drop | 0.02% / 0.31% / 2.7% |
-| 7 | `D2 B' D R' U' R2 F2 D (R' D' B)` | 11 | R/L | 4c3 4e | 1 | 4c3-5 / 4c3-6 | drop | 0.08% / 0.96% / 7.0% |
-| 8 | `L' R B R2 F2 L (D' L F' R' U)` | 11 | F/B | 2c4 2e | 3 | 2c4-7 / 2c4-3 | drop | 0.10% / 1.1% / 8.1% |
+| 1 | `L2 D L' F (B2 R2 D L)` | 8 | U/D | 4c4 2e | 1 | 4c4-4 / 4c4-5 | look anyway | 0 / 0 / 0.09% |
+| 2 | `L' D2 L' U D R' U (L2 F)` | 9 | R/L | 4b2 2e | 3 | 4b2-1 / 4b2-1 | look anyway | 4.4% / 22% / 61% |
+| 3 | `L2 D L' F (L2 U' L2 B2 L)` | 9 | U/D | 4c4 2e | 0 | 4c4-4 / 4c4-6 | look anyway | 0 / 0 / 0.12% |
+| 4 | `L2 D L' F (L2 U' R2 F2 L)` | 9 | U/D | 4c4 2e | 1 | 4c4-4 / 4c4-6 | look anyway | 0 / 0 / 0.14% |
+| 5 | `(L2 F' L2 U' D R' B2 L' U B2 D)` | 11 | R/L | 2c4 6e | 1 | 2c4-7 / 2c4-2 | drop | 0 / 0.07% / 2.2% |
+| 6 | `L' F2 U R2 B2 R' D' L2 U (L2 F)` | 11 | R/L | 2c5 2e | 3 | 2c5-3 / 2c5-2 | drop | 0 / 0 / 0.28% |
+| 7 | `(L2 F L' R D R B2 R' B2 U' L)` | 11 | U/D | 2c5 4e | 1 | 2c5-3 / 2c5-1 | drop | 0 / <0.01% / 0.37% |
+| 8 | `(L2 F' D' L2 R' F2 R2 B2 U L D)` | 11 | R/L | 0c3 6e | 0 | 0c3-1 / 0c3-2 | drop | 0 / 0.28% / 3.0% |
 
-Shown: 8 of the 131 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 15; 11 moves: 4 of 114).
+Shown: 8 of the 1117 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 4; 10 moves: 0 of 83; 11 moves: 4 of 1029).
 
 <details>
 <summary>Answers for scramble 86</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 9 / 7 | 12 | 21 |
-| 2 | 10 / 9 | 14 | 22 |
-| 3 | 8 / 8 | 13 | 23 |
-| 4 | 7 / 7 | 12 | 22 |
-| 5 | 9 / 8 | 14 | 24 |
-| 6 | 10 / 9 | 13 | 23 |
-| 7 | 10 / 9 | 15 | 25 |
-| 8 | 9 / 8 | 13 | 24 |
+| 1 | 11 / 11 | 16 | 23 |
+| 2 | 6 / 6 | 10 | 19 |
+| 3 | 11 / 11 | 15 | 23 |
+| 4 | 11 / 11 | 15 | 23 |
+| 5 | 10 / 10 | 14 | 25 |
+| 6 | 11 / 10 | 14 | 24 |
+| 7 | 12 / 10 | 16 | 26 |
+| 8 | 11 / 10 | 14 | 25 |
 
-Best on the page: **21 moves**, from DR 1: `F D2 L2 B2 L2 U2 R B2 R U2 F2 B2 L' U' L' D2 R U F D' B`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **19 moves**, from DR 2: `L' D2 L' U D R' U L B2 R L2 F2 D2 F2 L B2 L' F' L2`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 87
 
-`R' U' F U2 F2 U' F2 R2 U R2 F2 B D L D' F2 B' R2 B U2 F' R' U' R' U' F`
+`R' U' F R2 U2 F2 D2 U L2 U2 B2 U' L2 F L2 U' F' R' U' B2 F L' B' U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(L F2 U2 D L' U' L2 B D)` | 9 | F/B | 4b5 2e | 3 | 4b5-2 / 4b5-1 | look anyway | 0.02% / 0.26% / 2.4% |
-| 2 | `(L' F B2 D' B' L' F R' F)` | 9 | R/L | 2c3 4e | 1 | 2c3-3 / 2c3-2 | look anyway | 0.38% / 2.8% / 17% |
-| 3 | `B (B2 L2 U2 F' R F2 L D)` | 9 | R/L | 2c4 4e | 0 | 2c4-1 / 2c4-3 | look anyway | 0.14% / 1.4% / 10% |
-| 4 | `B' L B2 D F (L' B2 D R)` | 9 | U/D | 4a2 4e | 0 | 4a2-1 / 4a2-2 | look anyway | 2.5% / 12% / 37% |
-| 5 | `(F2 L B D' R' B D' B2 D2 L2 D)` | 11 | F/B | 4b2 2e | 2 | 4b2-3 / 4b2-3 | keep | 1.0% / 6.3% / 30% |
-| 6 | `(L D B2 D2 R F2 B2 U F D' B)` | 11 | U/D | 4c4 4e | 2 | 4c4-3 / 4c4-4 | drop | 0 / 0.06% / 1.2% |
-| 7 | `B U2 L2 R' D R' U2 R D2 L2 F` | 11 | R/L | 2c3 4e | 2 | 2c3-3 / 2c3-2 | keep | 0.66% / 4.2% / 22% |
-| 8 | `B2 R' B2 L' D2 B' R (F L' B2 D)` | 11 | F/B | 4c4 2e | 1 | 4c4-4 / 4c4-3 | drop | 0 / 0.03% / 0.54% |
+| 1 | `D' F2 L U' D' B' R2 F U2 R` | 10 | F/B | 2c4 2e | 3 | 2c4-6 / 2c4-6 | look anyway | 0.09% / 0.57% / 5.0% |
+| 2 | `R2 D2 B L' F2 B2 D' B2 R (F)` | 10 | U/D | 2c4 4e | 1 | 2c4-7 / 2c4-7 | look anyway | 0 / 0 / 0.22% |
+| 3 | `L2 U2 F L' F2 B2 U' F2 R (F)` | 10 | U/D | 2c4 6e | 2 | 2c4-7 / 2c4-7 | look anyway | 0 / 0.01% / 0.40% |
+| 4 | `L2 U2 F (F R' B2 D R' F2 L)` | 10 | U/D | 0c3 6e | 2 | 0c3-2 / 0c3-2 | look anyway | 0 / 0.34% / 3.4% |
+| 5 | `F2 D' L U D R' F L2 B U2 L` | 11 | F/B | 4c3 4e | 1 | 4c3-3 / 4c3-5 | drop | 0.18% / 1.6% / 10% |
+| 6 | `U' R2 B2 D' L D2 R (F D2 L B)` | 11 | U/D | 2c4 2e | 1 | 2c4-4 / 2c4-1 | drop | 0.11% / 1.1% / 9.4% |
+| 7 | `L2 U2 F' R' D2 R B2 U' F2 R (F)` | 11 | U/D | 2c3 4e | 1 | 2c3-3 / 2c3-3 | keep | 0.19% / 1.6% / 11% |
+| 8 | `D L F2 L U D (D' F D' L B)` | 11 | R/L | 2c3 4e | 3 | 2c3-3 / 2c3-2 | keep | 1.3% / 6.5% / 29% |
 
-Shown: 8 of the 462 DRs up to 11 moves (9 moves: 4 of 6; 10 moves: 0 of 33; 11 moves: 4 of 423).
+Shown: 8 of the 148 DRs up to 11 moves (10 moves: 4 of 7; 11 moves: 4 of 141).
 
 <details>
 <summary>Answers for scramble 87</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 14 | 22 |
-| 2 | 8 / 6 | 13 | 21 |
-| 3 | 7 / 9 | 14 | 23 |
-| 4 | 11 / 7 | 13 | 21 |
-| 5 | 7 / 5 | 13 | 24 |
-| 6 | 10 / 11 | 14 | 25 |
-| 7 | 9 / 6 | 13 | 23 |
-| 8 | 11 / 10 | 14 | 25 |
+| 1 | 8 / 9 | 14 | 23 |
+| 2 | 10 / 9 | 15 | 24 |
+| 3 | 10 / 10 | 13 | 23 |
+| 4 | 10 / 10 | 15 | 24 |
+| 5 | 9 / 9 | 13 | 24 |
+| 6 | 9 / 7 | 14 | 24 |
+| 7 | 8 / 7 | 13 | 22 |
+| 8 | 8 / 6 | 10 | 21 |
 
-Best on the page: **21 moves**, from DR 2 (DR 4 ties it): `B2 U2 L B2 R' F2 D2 R2 L F2 L2 U2 F R F' L B D B2 F' L`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 8: `D L F2 L U D F2 R2 B2 L' F2 L' D2 L' B2 L2 B' L' D F' D`. The list drops 2 of the 4 DRs of 11 moves or more, and keeps the best one.
 
 </details>
 
 #### Scramble 88
 
-`R' U' F D2 F2 U R2 B2 L2 F2 U' R2 U' R' F' U B' R' D' L2 B2 D F U R' U' F`
+`R' U' F D R2 U2 L2 D R2 F2 U' R2 F2 B' R F' B L U' L2 R' B2 U' R' U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `F (U2 L D B L2 D L' D)` | 9 | R/L | 4b5 4e | 0 | 4b5-2 / 4b5-2 | look anyway | 0 / 0 / 0.11% |
-| 2 | `F L D2 L2 F2 B U' D2 B (L)` | 10 | U/D | 2c4 4e | 2 | 2c4-3 / 2c4-7 | look anyway | 0.07% / 0.72% / 5.7% |
-| 3 | `(U F U F' D F' U2 B D2 R)` | 10 | F/B | 2c4 0e | 2 | 2c4-2 / 2c4-3 | look anyway | 0.74% / 8.2% / 32% |
-| 4 | `F (U2 L D B L2 B2 U R' U)` | 10 | R/L | 2c3 2e | 3 | 2c3-3 / 2c3-3 | look anyway | 1.0% / 6.1% / 29% |
-| 5 | `R2 F L U F2 D F2 R2 F U (L)` | 11 | F/B | 4b5 4e | 0 | 4b5-1 / 4b5-1 | drop | 0 / 0.03% / 0.58% |
-| 6 | `D F2 U' L2 F' D2 B L B' U2 B` | 11 | R/L | 4b5 0e | 4 | 4b5-1 / 4b5-2 | drop | 0.05% / 0.25% / 2.9% |
-| 7 | `D R2 F2 R2 U' B2 U2 F' L2 R' B` | 11 | R/L | 4c3 2e | 2 | 4c3-5 / 4c3-6 | drop | 0.12% / 1.2% / 8.1% |
-| 8 | `(U R2 D' F U' B' D2 R F2 U2 L)` | 11 | F/B | 4b5 2e | 5 | 4b5-1 / 4b5-1 | drop | 0.25% / 1.8% / 9.5% |
+| 1 | `(L2 B2 R' U R' F L B)` | 8 | R/L | 0c3 2e | 4 | 0c3-1 / 0c3-1 | look anyway | 0.83% / 3.0% / 9.1% |
+| 2 | `L F U' R U2 F2 B' R' F` | 9 | R/L | 2c4 4e | 0 | 2c4-2 / 2c4-1 | look anyway | 0.10% / 1.5% / 12% |
+| 3 | `F L F U (L' U2 F' R B)` | 9 | R/L | 4b5 4e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.1% |
+| 4 | `R B' L' F' R F2 U2 D L` | 9 | U/D | 2c4 4e | 3 | 2c4-7 / 2c4-6 | look anyway | <0.01% / 0.30% / 3.1% |
+| 5 | `(L2 B2 R' U R' F L F R2 F B)` | 11 | R/L | 0c3 2e | 5 | 0c3-1 / 0c3-2 | drop | 0.23% / 1.8% / 7.0% |
+| 6 | `L F U' R U2 F2 B2 R2 F R' B` | 11 | R/L | 2c4 2e | 2 | 2c4-7 / 2c4-6 | drop | 0 / 0.12% / 2.3% |
+| 7 | `(F2 U2 R' D' F L2 B2 L R B' L)` | 11 | F/B | 4c4 4e | 3 | 4c4-3 / 4c4-4 | drop | 0 / 0.08% / 1.9% |
+| 8 | `(F B L' F2 R D2 L2 B' U2 B' U)` | 11 | F/B | 4c4 4e | 3 | 4c4-4 / 4c4-6 | drop | 0 / 0 / 0.10% |
 
-Shown: 8 of the 334 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 26; 11 moves: 4 of 307).
+Shown: 8 of the 901 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 4; 10 moves: 0 of 81; 11 moves: 4 of 815).
 
 <details>
 <summary>Answers for scramble 88</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 11 / 11 | 14 | 22 |
-| 2 | 8 / 10 | 13 | 23 |
-| 3 | 8 / 7 | 13 | 23 |
-| 4 | 7 / 6 | 14 | 22 |
+| 1 | 9 / 11 | 13 | 21 |
+| 2 | 8 / 9 | 13 | 21 |
+| 3 | 10 / 11 | 15 | 24 |
+| 4 | 10 / 9 | 14 | 23 |
 | 5 | 9 / 10 | 14 | 25 |
-| 6 | 9 / 10 | 14 | 25 |
-| 7 | 8 / 8 | 14 | 24 |
-| 8 | 10 / 10 | 15 | 25 |
+| 6 | 10 / 9 | 14 | 25 |
+| 7 | 10 / 11 | 15 | 26 |
+| 8 | 10 / 11 | 14 | 25 |
 
-Best on the page: **22 moves**, from DR 1 (DR 4 ties it): `F R' D2 F2 R' U2 L' D2 B2 L2 F2 L' D2 R D L D' L2 B' D' L' U2`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1 (DR 2 ties it): `R' D2 B2 U2 B2 D2 R2 U2 L' F2 R2 U2 L B' L' F' R U' R B2 L2`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 89
 
-`R' U' F R2 D2 B2 U' R2 U' F2 U L2 B2 R B' U2 F D U F' R D2 B' L U' R' U' F`
+`R' U' F D' L2 U' B2 U2 B2 U' F2 D' U' R' D2 U F R B' R' B2 R D L2 U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `D F' R D' L B2 U (L B)` | 9 | R/L | 2c5 6e | 1 | 2c5-1 / 2c5-2 | look anyway | 0 / 0.16% / 1.5% |
-| 2 | `D F' R D' L' R2 F2 D (L B)` | 10 | R/L | 2c5 6e | 2 | 2c5-1 / 2c5-2 | look anyway | 0.01% / 0.22% / 2.2% |
-| 3 | `(B2 L' B' D F' R2 U L F2 U)` | 10 | R/L | 2c4 6e | 1 | 2c4-3 / 2c4-6 | look anyway | 0.04% / 0.51% / 4.6% |
-| 4 | `D F B2 L U' R B2 D (L B)` | 10 | R/L | 2c5 4e | 5 | 2c5-1 / 2c5-2 | look anyway | 0.36% / 2.4% / 12% |
-| 5 | `L' B' U' B2 R (D2 F' U' F U2 B)` | 11 | U/D | 4a1 4e | 1 | 4a1-4 / 4a1-3 | keep | 2.0% / 11% / 37% |
-| 6 | `(L' B D F R2 U R2 B2 U2 R D)` | 11 | R/L | 2c4 6e | 2 | 2c4-4 / 2c4-4 | drop | 0.03% / 0.40% / 3.2% |
-| 7 | `D F U' B2 U L R D R (L B)` | 11 | U/D | 4b5 2e | 4 | 4b5-1 / 4b5-2 | drop | 0.03% / 0.48% / 3.4% |
-| 8 | `(B2 L' B' D F' R2 U L' R2 B2 D)` | 11 | R/L | 2c4 6e | 0 | 2c4-3 / 2c4-6 | drop | 0.02% / 0.23% / 2.7% |
+| 1 | `F D' B' U' F' D (U2 B2 U R)` | 10 | F/B | 4b2 4e | 5 | 4b2-3 / 4b2-3 | look anyway | 5.2% / 20% / 57% |
+| 2 | `(R' D' B2 R' B' U L2 B' L2 F)` | 10 | U/D | 2c5 6e | 2 | 2c5-1 / 2c5-1 | look anyway | 0.02% / 0.38% / 3.8% |
+| 3 | `D' F2 R (U B' D' L2 U L2 F)` | 10 | U/D | 4a1 2e | 2 | 4a1-4 / 4a1-2 | look anyway | 1.5% / 9.3% / 40% |
+| 4 | `(R' D' B2 R' B' U L2 F' D2 B)` | 10 | U/D | 2c5 6e | 1 | 2c5-1 / 2c5-1 | look anyway | 0.05% / 0.29% / 2.5% |
+| 5 | `(B' U B2 R D F D' F' U D2 F)` | 11 | U/D | 4c3 2e | 3 | 4c3-5 / 4c3-6 | drop | 0.15% / 1.6% / 11% |
+| 6 | `(B2 U R' D' B L2 U2 R2 D2 B' U)` | 11 | F/B | 4c4 4e | 2 | 4c4-5 / 4c4-2 | drop | 0 / 0.07% / 1.1% |
+| 7 | `D' F2 R (U B' D' F2 R2 D' R2 F)` | 11 | U/D | 4a1 2e | 2 | 4a1-4 / 4a1-2 | keep | 1.5% / 9.3% / 40% |
+| 8 | `F2 D' R (F U B' L2 B D B' U)` | 11 | F/B | 2c3 2e | 3 | 2c3-2 / 2c3-2 | keep | 2.7% / 13% / 48% |
 
-Shown: 8 of the 83 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 4; 11 moves: 4 of 78).
+Shown: 8 of the 371 DRs up to 11 moves (10 moves: 4 of 22; 11 moves: 4 of 349).
 
 <details>
 <summary>Answers for scramble 89</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 15 | 23 |
-| 2 | 10 / 10 | 14 | 24 |
-| 3 | 8 / 9 | 13 | 23 |
-| 4 | 9 / 10 | 14 | 23 |
-| 5 | 4 / 7 | 11 | 22 |
-| 6 | 9 / 9 | 14 | 25 |
-| 7 | 10 / 10 | 15 | 24 |
-| 8 | 8 / 10 | 15 | 25 |
+| 1 | 7 / 8 | 13 | 22 |
+| 2 | 9 / 10 | 14 | 24 |
+| 3 | 8 / 7 | 13 | 22 |
+| 4 | 9 / 10 | 15 | 24 |
+| 5 | 8 / 8 | 14 | 25 |
+| 6 | 11 / 9 | 14 | 24 |
+| 7 | 8 / 7 | 12 | 23 |
+| 8 | 6 / 7 | 13 | 23 |
 
-Best on the page: **22 moves**, from DR 5: `L' B' U' B2 R F2 U2 L2 U L2 B2 D2 L2 F2 U2 L2 B' U2 F' U F D2`. The list drops 3 of the 4 DRs of 11 moves or more, and keeps the best one.
+Best on the page: **22 moves**, from DR 1 (DR 3 ties it): `F D' B' U' F' D B U2 B2 R2 L2 B R2 F' L2 U2 F' D2 R U' B2 U2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 90
 
-`R' U' F U' B' R D R D2 R D' R2 B R2 D' F2 U' D2 F2 L2 U R2 B2 R' U' F`
+`R' U' F U' B2 D' L2 B2 D' B2 U B2 U' L U F2 U L U' B' R' D L U2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `U2 F' R2 D (D' B2 U F2 L)` | 9 | F/B | 4c4 4e | 1 | 4c4-4 / 4c4-6 | look anyway | 0 / 0 / 0.13% |
-| 2 | `(B' U' D2 B' U2 D' L' R2 D)` | 9 | R/L | 4c3 2e | 3 | 4c3-9 / 4c3-4 | look anyway | 0.11% / 0.92% / 5.5% |
-| 3 | `F2 U2 D2 F' R2 B U (U' D R)` | 10 | F/B | 2c5 4e | 2 | 2c5-1 / 2c5-2 | look anyway | 0.02% / 0.23% / 2.4% |
-| 4 | `L2 U D2 L R2 U (B' U' D2 B)` | 10 | R/L | 0c3 4e | 3 | 0c3-2 / 0c3-1 | look anyway | 0 / 0.30% / 2.4% |
-| 5 | `(D' F' U B2 L' B2 D F' B R2 U)` | 11 | F/B | 2c3 4e | 3 | 2c3-3 / 2c3-3 | keep | 0.58% / 3.8% / 19% |
-| 6 | `B2 U B2 U B2 U (U R U2 D R)` | 11 | F/B | 2c4 4e | 2 | 2c4-7 / 2c4-4 | drop | 0.01% / 0.19% / 2.1% |
-| 7 | `(U L2 R2 F' D' R' U2 R2 U D' R)` | 11 | U/D | 4b2 4e | 3 | 4b2-3 / 4b2-3 | keep | 1.2% / 7.9% / 35% |
-| 8 | `R2 D2 F2 U2 F R2 U' D2 R U D` | 11 | R/L | 4c4 4e | 0 | 4c4-4 / 4c4-5 | drop | 0 / 0 / 0.06% |
+| 1 | `F' U L R2 F U2 D L U` | 9 | R/L | 2c3 6e | 2 | 2c3-1 / 2c3-2 | look anyway | 1.0% / 6.4% / 30% |
+| 2 | `(R B' D' B2 L' B R2 U B)` | 9 | U/D | 2c3 4e | 3 | 2c3-2 / 2c3-2 | look anyway | 1.9% / 9.7% / 36% |
+| 3 | `F' D2 R2 D2 F (B' R' B' D' L)` | 10 | U/D | 2c3 4e | 1 | 2c3-2 / 2c3-2 | look anyway | 0.49% / 3.9% / 21% |
+| 4 | `R2 D2 L' D2 F (F2 L2 R2 U R)` | 10 | U/D | 2c4 6e | 0 | 2c4-1 / 2c4-7 | look anyway | 0 / 0.18% / 2.7% |
+| 5 | `U L R2 F B2 L2 U2 D' L' U2 R` | 11 | U/D | 4c4 2e | 2 | 4c4-5 / 4c4-4 | drop | 0 / <0.01% / 0.22% |
+| 6 | `R2 D' F R F L2 F' L (F L' U)` | 11 | F/B | 2c3 4e | 4 | 2c3-1 / 2c3-2 | keep | 4.6% / 18% / 55% |
+| 7 | `F2 U2 L' D2 B' D L' D' L2 B2 D` | 11 | R/L | 2c4 4e | 7 | 2c4-2 / 2c4-4 | keep | 1.2% / 6.5% / 27% |
+| 8 | `(D L2 R B U L' F2 R2 D F2 L)` | 11 | U/D | 2c3 8e | 1 | 2c3-3 / 2c3-1 | keep | 0.09% / 1.1% / 10% |
 
-Shown: 8 of the 565 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 42; 11 moves: 4 of 521).
+Shown: 8 of the 397 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 39; 11 moves: 4 of 356).
 
 <details>
 <summary>Answers for scramble 90</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 12 | 15 | 23 |
-| 2 | 9 / 10 | 14 | 23 |
-| 3 | 9 / 11 | 14 | 24 |
-| 4 | 12 / 11 | 14 | 24 |
-| 5 | 8 / 8 | 13 | 24 |
-| 6 | 10 / 10 | 14 | 25 |
-| 7 | 8 / 6 | 13 | 24 |
-| 8 | 11 / 11 | 15 | 26 |
+| 1 | 7 / 9 | 13 | 22 |
+| 2 | 7 / 8 | 11 | 20 |
+| 3 | 7 / 7 | 13 | 23 |
+| 4 | 8 / 10 | 14 | 23 |
+| 5 | 11 / 11 | 15 | 26 |
+| 6 | 6 / 6 | 13 | 23 |
+| 7 | 8 / 9 | 13 | 23 |
+| 8 | 10 / 9 | 13 | 23 |
 
-Best on the page: **23 moves**, from DR 1 (DR 2 ties it): `U2 F' R2 D' F D2 F' U2 B2 L2 B L2 B' U2 B' D2 U2 F' L F2 U' B2 D`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 2: `U2 R2 B2 U L2 F2 U' B2 U' L2 U2 B' U' R2 B' L B2 D B R'`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 91
 
-`R' U' F U2 F' R2 B L2 B L2 B2 D2 B' L' R' D B' U' B2 D' F' U2 L' D R' U' F`
+`R' U' F R' F R' U B' U2 F D' F2 B L' U D L2 B2 R2 D2 F2 U' R2 B2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `U R U D2 L' U' F' D B` | 9 | U/D | 2c3 6e | 1 | 2c3-2 / 2c3-3 | look anyway | 0.22% / 1.8% / 12% |
-| 2 | `L B' L2 U' B (R' B' U2 L)` | 9 | U/D | 4b2 2e | 2 | 4b2-3 / 4b2-4 | look anyway | 0.77% / 5.2% / 27% |
-| 3 | `U R U D2 L' U F' D B` | 9 | U/D | 4c3 2e | 3 | 4c3-9 / 4c3-5 | look anyway | 0 / 0.25% / 3.6% |
-| 4 | `U L' R' B' L B L (B L D)` | 10 | F/B | 0c3 2e | 0 | 0c3-2 / 0c3-2 | look anyway | 0 / 0.11% / 1.8% |
-| 5 | `R (B D2 F L R2 B D L2 B2 U)` | 11 | F/B | 4c4 4e | 1 | 4c4-3 / 4c4-2 | drop | 0 / 0.21% / 2.2% |
-| 6 | `(D B' L' U' F L D2 L F2 U' L)` | 11 | U/D | 4b2 4e | 5 | 4b2-1 / 4b2-4 | keep | 6.5% / 24% / 63% |
-| 7 | `U (B L D L2 U2 F' L' B' L' B)` | 11 | R/L | 4c4 4e | 1 | 4c4-4 / 4c4-3 | drop | 0 / 0.02% / 0.78% |
-| 8 | `R' B' D2 R' D' B2 U F R2 B (L)` | 11 | U/D | 4b5 2e | 1 | 4b5-1 / 4b5-2 | drop | 0 / 0.05% / 0.78% |
+| 1 | `R' B2 R U' F D2 F L (U)` | 9 | F/B | 4b5 4e | 3 | 4b5-1 / 4b5-1 | look anyway | 0.02% / 0.27% / 2.9% |
+| 2 | `F' L2 U' L (R F R2 B' D)` | 9 | F/B | 2c3 0e | 1 | 2c3-3 / 2c3-1 | look anyway | 0 / 0.23% / 5.1% |
+| 3 | `R' B2 R U' F' B2 U2 F R (U)` | 10 | F/B | 4b5 4e | 4 | 4b5-1 / 4b5-1 | look anyway | 0.06% / 0.66% / 5.8% |
+| 4 | `D L2 U2 R' B2 D' B L2 F (L)` | 10 | U/D | 2c4 4e | 2 | 2c4-7 / 2c4-7 | look anyway | 0 / 0.02% / 0.68% |
+| 5 | `F' D L B L' D' F' D F B2 U` | 11 | F/B | 2c4 4e | 2 | 2c4-6 / 2c4-5 | drop | 0.06% / 0.59% / 4.3% |
+| 6 | `D' R (D F L B2 D F2 U D2 F)` | 11 | U/D | 2c4 6e | 2 | 2c4-6 / 2c4-4 | drop | 0.03% / 0.37% / 3.3% |
+| 7 | `B2 U' F2 L2 B U2 F' R D2 R (U)` | 11 | F/B | 2c4 4e | 3 | 2c4-3 / 2c4-7 | drop | 0.13% / 1.2% / 8.1% |
+| 8 | `D' R U F R' U F2 D B2 U F` | 11 | U/D | 4b5 4e | 2 | 4b5-2 / 4b5-2 | drop | 0 / <0.01% / 0.41% |
 
-Shown: 8 of the 232 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 22; 11 moves: 4 of 207).
+Shown: 8 of the 249 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 14; 11 moves: 4 of 233).
 
 <details>
 <summary>Answers for scramble 91</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 9 | 14 | 23 |
-| 2 | 5 / 8 | 14 | 22 |
-| 3 | 9 / 9 | 13 | 22 |
-| 4 | 10 / 10 | 16 | 24 |
-| 5 | 10 / 10 | 14 | 25 |
-| 6 | 6 / 7 | 12 | 23 |
-| 7 | 11 / 10 | 14 | 24 |
-| 8 | 10 / 10 | 15 | 25 |
+| 1 | 11 / 9 | 15 | 23 |
+| 2 | 10 / 9 | 14 | 22 |
+| 3 | 10 / 9 | 14 | 24 |
+| 4 | 10 / 10 | 14 | 23 |
+| 5 | 8 / 9 | 14 | 25 |
+| 6 | 9 / 9 | 14 | 24 |
+| 7 | 9 / 10 | 13 | 24 |
+| 8 | 10 / 10 | 15 | 26 |
 
-Best on the page: **22 moves**, from DR 2 (DR 3 ties it): `L B' L2 U' B' D' B2 U F2 D' R2 L2 D2 R2 U' L2 F2 U2 L' U2 B R`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 2: `F' L2 U' L' F2 U2 B' L2 U2 F' U2 B2 U2 R2 U2 F' L2 D' B R2 F' R'`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 92
 
-`R' U' F D U2 B2 D L2 R2 U L2 U' F2 L' B2 F D' L' B2 R' D2 U' F' L U' R' U' F`
+`R' U' F D2 L2 R2 D L2 D2 R2 F2 R2 U' F D' R U R' U2 L D U2 B F2 U' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(D' F L2 D' L' F' U L2 B)` | 9 | U/D | 2c4 2e | 4 | 2c4-1 / 2c4-4 | look anyway | 0.54% / 4.1% / 22% |
-| 2 | `(F' U' B2 R D' B' D2 F U)` | 9 | F/B | 2c4 4e | 2 | 2c4-2 / 2c4-3 | look anyway | 0.38% / 2.8% / 17% |
-| 3 | `(D' F L2 D' L' F' U' D2 R2 F)` | 10 | U/D | 2c4 2e | 5 | 2c4-1 / 2c4-4 | look anyway | 2.0% / 9.6% / 34% |
-| 4 | `U' B L' U2 R B2 L' U (D B)` | 10 | R/L | 2c3 6e | 1 | 2c3-3 / 2c3-3 | look anyway | 0.07% / 0.81% / 6.8% |
-| 5 | `U R2 D' F2 D' R (U' B' R D' F)` | 11 | U/D | 0c4 6e | 0 | 0c4-1 / 0c4-1 | drop | 0.01% / 0.11% / 1.9% |
-| 6 | `U' B (D B' L' U2 B2 L' R' B2 U)` | 11 | R/L | 4c3 4e | 2 | 4c3-6 / 4c3-5 | drop | 0.15% / 1.4% / 8.7% |
-| 7 | `D' F' U (F2 U' B2 D2 F' R D2 B)` | 11 | R/L | 4b2 4e | 2 | 4b2-2 / 4b2-2 | keep | 1.9% / 10% / 40% |
-| 8 | `U' B (D B' U R' U' L R2 U' L)` | 11 | U/D | 4c3 4e | 4 | 4c3-5 / 4c3-7 | keep | 0.29% / 2.3% / 12% |
+| 1 | `F L' R2 F' D (U' B' L)` | 8 | F/B | 4c4 4e | 3 | 4c4-2 / 4c4-6 | look anyway | 0 / 0.12% / 1.6% |
+| 2 | `L' R2 F' D (U F' U2 B' L)` | 9 | F/B | 4c4 4e | 4 | 4c4-2 / 4c4-5 | look anyway | 0 / 0.16% / 2.1% |
+| 3 | `U' F (D' B R2 D F2 U' L)` | 9 | U/D | 4c4 4e | 3 | 4c4-2 / 4c4-6 | look anyway | 0 / 0.12% / 1.6% |
+| 4 | `(L B U' L' D2 F' R2 F L2 B)` | 10 | U/D | 4b2 4e | 2 | 4b2-1 / 4b2-4 | look anyway | 1.9% / 8.9% / 35% |
+| 5 | `B R D (L' U' R' B2 R' B' R2 F)` | 11 | R/L | 2c4 6e | 2 | 2c4-1 / 2c4-5 | drop | 0.27% / 2.1% / 13% |
+| 6 | `(L B U' L' U2 B R2 U2 F R2 B)` | 11 | U/D | 4b2 4e | 3 | 4b2-4 / 4b2-2 | keep | 1.6% / 8.9% / 38% |
+| 7 | `(L2 B' D B2 L F2 U B2 L2 D' F)` | 11 | U/D | 4b5 4e | 3 | 4b5-2 / 4b5-1 | drop | <0.01% / 0.13% / 1.8% |
+| 8 | `(F R2 U' F2 L' D L2 R2 D2 F D)` | 11 | F/B | 4b5 2e | 0 | 4b5-1 / 4b5-2 | drop | <0.01% / 0.03% / 0.58% |
 
-Shown: 8 of the 272 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 28; 11 moves: 4 of 242).
+Shown: 8 of the 627 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 2 of 2; 10 moves: 1 of 64; 11 moves: 4 of 560).
 
 <details>
 <summary>Answers for scramble 92</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 8 | 13 | 22 |
-| 2 | 9 / 9 | 14 | 22 |
-| 3 | 8 / 8 | 14 | 23 |
-| 4 | 8 / 8 | 13 | 23 |
-| 5 | 10 / 10 | 13 | 23 |
-| 6 | 9 / 9 | 14 | 24 |
-| 7 | 8 / 8 | 14 | 24 |
-| 8 | 8 / 10 | 14 | 24 |
+| 1 | 10 / 11 | 16 | 23 |
+| 2 | 10 / 11 | 14 | 23 |
+| 3 | 10 / 12 | 15 | 24 |
+| 4 | 6 / 8 | 12 | 22 |
+| 5 | 9 / 10 | 14 | 24 |
+| 6 | 8 / 7 | 13 | 23 |
+| 7 | 11 / 10 | 14 | 25 |
+| 8 | 9 / 10 | 13 | 24 |
 
-Best on the page: **22 moves**, from DR 1 (DR 2 ties it): `D L2 B2 D F2 U2 B2 D' L2 B2 D B2 D2 B' L2 U' F L D L2 F' D`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 4: `U' R2 B2 D2 L2 F2 R2 U' L2 U2 L2 F2 B' L2 F' R2 F D2 L U B' L'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 93
 
-`R' U' F D2 R U D2 F2 U F B2 D L2 B L2 D' R2 B2 U D F2 B2 L2 D' R' U' F`
+`R' U' F L2 F2 L2 U2 B2 D2 B2 D F2 U' L F2 U' B L' B' R2 U' F' R B' U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(L U' B' U F U R' B2 D)` | 9 | R/L | 2c4 6e | 0 | 2c4-7 / 2c4-4 | look anyway | 0 / 0.06% / 1.0% |
-| 2 | `R (L R2 F R' U B' D2 B' D)` | 10 | F/B | 4c4 4e | 2 | 4c4-6 / 4c4-4 | look anyway | 0 / 0 / 0.18% |
-| 3 | `(L U' B' U F U L2 R F2 U)` | 10 | R/L | 2c4 6e | 0 | 2c4-7 / 2c4-4 | look anyway | 0 / 0.06% / 1.0% |
-| 4 | `D' B D (L' U' B2 R U2 R2 F)` | 10 | R/L | 4b5 4e | 3 | 4b5-2 / 4b5-1 | look anyway | <0.01% / 0.13% / 1.8% |
-| 5 | `U2 R' F2 L F2 U (U2 L' B U F)` | 11 | R/L | 2c3 2e | 2 | 2c3-3 / 2c3-1 | keep | 1.8% / 11% / 44% |
-| 6 | `D (U' R' F2 D' B D2 L R B L)` | 11 | F/B | 2c5 4e | 0 | 2c5-1 / 2c5-1 | drop | 0 / 0.11% / 1.4% |
-| 7 | `D' B D (L' U' B2 L' U2 L R' F)` | 11 | R/L | 4b5 4e | 1 | 4b5-2 / 4b5-1 | drop | 0 / 0.03% / 0.64% |
-| 8 | `F (U' B' D F D2 F2 D' L' B2 R)` | 11 | U/D | 2c4 2e | 3 | 2c4-5 / 2c4-3 | drop | 0.28% / 2.1% / 15% |
+| 1 | `U' F' L2 F' R' U F2 B2 R (F)` | 10 | U/D | 4c3 4e | 1 | 4c3-3 / 4c3-4 | look anyway | 0.22% / 1.7% / 12% |
+| 2 | `F R (R' B' R' F D' L2 U B)` | 10 | U/D | 4a1 2e | 2 | 4a1-3 / 4a1-4 | look anyway | 0.59% / 5.0% / 27% |
+| 3 | `R D L' B' U' B2 D' B (F L)` | 10 | U/D | 4c3 4e | 3 | 4c3-2 / 4c3-5 | look anyway | 0.78% / 4.2% / 22% |
+| 4 | `L R F' L' D F2 U R2 B' U` | 10 | F/B | 2c4 2e | 3 | 2c4-2 / 2c4-4 | look anyway | 0.19% / 2.2% / 14% |
+| 5 | `(L' F B L' B R U D L2 B2 L)` | 11 | U/D | 4c3 4e | 1 | 4c3-7 / 4c3-4 | drop | 0.17% / 1.5% / 9.0% |
+| 6 | `L R' F' L' U2 F2 D B' U2 B' U` | 11 | F/B | 2c4 4e | 2 | 2c4-4 / 2c4-1 | drop | 0.16% / 1.5% / 11% |
+| 7 | `B2 D L2 D R2 U (L' F U L R)` | 11 | F/B | 2c4 6e | 0 | 2c4-1 / 2c4-3 | keep | 0.06% / 1.2% / 9.5% |
+| 8 | `R U L' B L (D F' L2 U' B2 D)` | 11 | F/B | 4b5 2e | 1 | 4b5-1 / 4b5-2 | drop | 0 / 0.05% / 0.78% |
 
-Shown: 8 of the 136 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 8; 11 moves: 4 of 127).
+Shown: 8 of the 139 DRs up to 11 moves (10 moves: 4 of 9; 11 moves: 4 of 130).
 
 <details>
 <summary>Answers for scramble 93</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 9 | 12 | 21 |
-| 2 | 11 / 11 | 14 | 24 |
-| 3 | 10 / 9 | 14 | 24 |
-| 4 | 11 / 11 | 15 | 24 |
-| 5 | 7 / 8 | 12 | 23 |
-| 6 | 11 / 10 | 15 | 25 |
-| 7 | 11 / 10 | 15 | 25 |
-| 8 | 10 / 9 | 13 | 23 |
+| 1 | 9 / 10 | 13 | 22 |
+| 2 | 7 / 7 | 13 | 23 |
+| 3 | 9 / 9 | 13 | 22 |
+| 4 | 9 / 8 | 12 | 22 |
+| 5 | 9 / 10 | 14 | 24 |
+| 6 | 10 / 9 | 13 | 24 |
+| 7 | 9 / 8 | 13 | 24 |
+| 8 | 10 / 10 | 15 | 25 |
 
-Best on the page: **21 moves**, from DR 1: `F2 D2 R' U2 L D2 R' B2 L2 D2 L U2 D' B2 R U' F' U' B U L'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DR 3 and 4 tie it): `U' F' L2 F' R' U F2 B2 R' U L2 B2 D2 B2 U D2 B2 L2 B2 L2 U F'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 94
 
-`R' U' F L' B' D B2 D R2 B2 L D2 B' R D B2 U2 B2 R2 D' B2 L2 U2 R' U' F`
+`R' U' F U' B2 D F2 D' L2 D L2 F2 U' B' D2 L B2 U' L' U' B' R' D' R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L2 F B2 R D' L (B' L2 B)` | 9 | U/D | 4b5 4e | 1 | 4b5-1 / 4b5-2 | look anyway | 0 / 0.03% / 0.64% |
-| 2 | `(F' R B' L B D R' F2 D)` | 9 | R/L | 4b5 2e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.2% |
-| 3 | `L2 F B2 R D' L (F' D2 F)` | 9 | U/D | 4b5 4e | 2 | 4b5-1 / 4b5-2 | look anyway | 0 / 0.07% / 1.0% |
-| 4 | `L F' U D2 B L D2 R U` | 9 | R/L | 2c4 4e | 5 | 2c4-3 / 2c4-4 | look anyway | 1.5% / 7.0% / 26% |
-| 5 | `F' R' U2 R2 U' F L2 R' F2 L F` | 11 | R/L | 2c4 4e | 2 | 2c4-7 / 2c4-1 | drop | 0.08% / 0.85% / 7.2% |
-| 6 | `(F R B' L B' D2 L2 U' R B2 U)` | 11 | R/L | 4c3 2e | 1 | 4c3-6 / 4c3-5 | drop | 0.06% / 0.74% / 6.2% |
-| 7 | `F R F L' R' F (L' U' F' R2 U)` | 11 | R/L | 4c3 2e | 0 | 4c3-2 / 4c3-4 | keep | 0.09% / 1.4% / 10% |
-| 8 | `U2 R' U' R2 U2 F2 U (F B' L B)` | 11 | R/L | 2c4 4e | 1 | 2c4-3 / 2c4-7 | drop | 0.02% / 0.40% / 3.7% |
+| 1 | `D (F2 U2 R D F' B2 L F2 L)` | 10 | F/B | 4b5 4e | 2 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.13% / 1.9% |
+| 2 | `L' F' L2 D F2 U' R (B2 L' F)` | 10 | U/D | 4a2 4e | 2 | 4a2-3 / 4a2-2 | look anyway | 1.3% / 6.4% / 24% |
+| 3 | `D' L2 U2 L' F D2 L (R F2 D)` | 10 | F/B | 4c3 2e | 2 | 4c3-5 / 4c3-6 | look anyway | 0.12% / 1.2% / 8.1% |
+| 4 | `D R2 D2 L F D2 L (R F2 D)` | 10 | F/B | 4c3 4e | 1 | 4c3-5 / 4c3-6 | look anyway | 0.08% / 0.96% / 7.0% |
+| 5 | `L' F (L' F' L2 R D2 R' D' F2 R)` | 11 | U/D | 2c3 4e | 2 | 2c3-3 / 2c3-3 | keep | 0.35% / 2.6% / 15% |
+| 6 | `L2 B2 D F D' F (L' D F' D' R)` | 11 | U/D | 2c4 4e | 3 | 2c4-2 / 2c4-1 | keep | 0.91% / 5.7% / 28% |
+| 7 | `L' F (L' F' L' B2 L' U2 D' B2 L)` | 11 | U/D | 2c3 6e | 4 | 2c3-3 / 2c3-1 | keep | 1.1% / 7.6% / 34% |
+| 8 | `F2 D (R D' B' L' F' B' R' F' R)` | 11 | F/B | 2c3 6e | 3 | 2c3-2 / 2c3-3 | keep | 0.51% / 3.6% / 20% |
 
-Shown: 8 of the 491 DRs up to 11 moves (9 moves: 4 of 6; 10 moves: 0 of 44; 11 moves: 4 of 441).
+Shown: 8 of the 196 DRs up to 11 moves (10 moves: 4 of 13; 11 moves: 4 of 183).
 
 <details>
 <summary>Answers for scramble 94</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 11 | 15 | 23 |
-| 2 | 10 / 10 | 15 | 23 |
-| 3 | 10 / 10 | 15 | 23 |
-| 4 | 8 / 8 | 12 | 21 |
-| 5 | 9 / 8 | 14 | 25 |
-| 6 | 9 / 9 | 14 | 25 |
-| 7 | 9 / 10 | 15 | 25 |
-| 8 | 8 / 9 | 15 | 25 |
+| 1 | 11 / 10 | 14 | 23 |
+| 2 | 7 / 10 | 13 | 23 |
+| 3 | 9 / 9 | 14 | 23 |
+| 4 | 9 / 10 | 13 | 22 |
+| 5 | 7 / 8 | 14 | 24 |
+| 6 | 8 / 7 | 12 | 22 |
+| 7 | 8 / 9 | 13 | 24 |
+| 8 | 7 / 9 | 13 | 24 |
 
-Best on the page: **21 moves**, from DR 4: `L F' U D2 B L D2 R U R2 D2 L F2 L D2 R U2 L2 D2 R' F2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 4 (DR 6 ties it): `D R2 D2 L F D2 L D2 R2 F' D2 B U2 L2 B2 D2 L2 B' R2 D F2 R'`. The list drops 0 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 95
 
-`R' U' F D L2 B2 U2 R2 U' L2 F2 U' L2 F D B' L F' R U B2 L' U2 R' U' F`
+`R' U' F R2 U2 R2 B2 U' B2 L2 D R2 U' F D R' D L R F2 U' B' D2 U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `D L D' L2 R2 U' B' U2 F (R)` | 10 | U/D | 4c4 4e | 1 | 4c4-4 / 4c4-5 | look anyway | 0 / 0 / 0.08% |
-| 2 | `F (D2 L' F D R F2 D R U)` | 10 | R/L | 2c3 4e | 0 | 2c3-2 / 2c3-1 | look anyway | 0.59% / 4.4% / 24% |
-| 3 | `B D B2 L (R F2 D B' D2 F)` | 10 | U/D | 4c4 4e | 1 | 4c4-2 / 4c4-5 | look anyway | 0 / 0 / 0.47% |
-| 4 | `D2 L' D F D' R2 F' U (D' R)` | 10 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-1 | look anyway | 1.0% / 6.4% / 30% |
-| 5 | `F (D L' D2 F' D B2 U F2 L' D)` | 11 | R/L | 4c3 4e | 5 | 4c3-5 / 4c3-2 | keep | 2.9% / 11% / 40% |
-| 6 | `D L B D R2 B' L2 B' D2 B (R)` | 11 | U/D | 0c3 4e | 2 | 0c3-2 / 0c3-2 | drop | 0 / 0 / 0.37% |
-| 7 | `D L D' L2 R2 U' F B2 R2 B (R)` | 11 | U/D | 4c4 4e | 1 | 4c4-4 / 4c4-5 | drop | 0 / 0 / 0.08% |
-| 8 | `B D B2 L (R' B2 U F2 B L2 F)` | 11 | U/D | 4b2 2e | 3 | 4b2-4 / 4b2-4 | keep | 0.74% / 5.9% / 28% |
+| 1 | `L B R F (B U B L D)` | 9 | R/L | 4c3 4e | 2 | 4c3-6 / 4c3-5 | look anyway | 0.15% / 1.4% / 8.7% |
+| 2 | `L' R2 F R B (B U B L D)` | 10 | R/L | 4c3 4e | 1 | 4c3-6 / 4c3-5 | look anyway | 0.08% / 0.96% / 7.0% |
+| 3 | `(U L B' D' F' R2 B L' R B)` | 10 | R/L | 4a1 4e | 1 | 4a1-4 / 4a1-3 | look anyway | 2.0% / 11% / 37% |
+| 4 | `D2 L B R F (B U B L D)` | 10 | R/L | 4c3 2e | 1 | 4c3-2 / 4c3-5 | look anyway | 0.18% / 1.6% / 11% |
+| 5 | `(F2 U F' R' B U2 L2 D F2 B2 D)` | 11 | R/L | 2c4 4e | 3 | 2c4-7 / 2c4-5 | drop | 0 / 0.09% / 1.7% |
+| 6 | `L B2 R2 F' R B (B U B L D)` | 11 | R/L | 2c3 2e | 2 | 2c3-3 / 2c3-3 | keep | 0.65% / 4.7% / 25% |
+| 7 | `U2 B2 D (F2 U F2 L2 F' L U2 R)` | 11 | F/B | 2c3 4e | 5 | 2c3-2 / 2c3-2 | keep | 8.1% / 25% / 62% |
+| 8 | `(F2 U F' R' B D2 R2 U L2 R2 U)` | 11 | R/L | 2c4 4e | 1 | 2c4-7 / 2c4-5 | drop | 0 / 0.01% / 0.63% |
 
-Shown: 8 of the 150 DRs up to 11 moves (10 moves: 4 of 16; 11 moves: 4 of 134).
+Shown: 8 of the 119 DRs up to 11 moves (9 moves: 1 of 1; 10 moves: 3 of 9; 11 moves: 4 of 109).
 
 <details>
 <summary>Answers for scramble 95</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 11 | 14 | 24 |
-| 2 | 8 / 7 | 13 | 23 |
-| 3 | 10 / 11 | 13 | 23 |
-| 4 | 7 / 7 | 13 | 21 |
-| 5 | 9 / 9 | 13 | 24 |
-| 6 | 12 / 11 | 15 | 24 |
-| 7 | 11 / 11 | 14 | 24 |
-| 8 | 8 / 7 | 14 | 24 |
+| 1 | 9 / 8 | 14 | 23 |
+| 2 | 8 / 9 | 14 | 24 |
+| 3 | 7 / 7 | 14 | 24 |
+| 4 | 9 / 9 | 13 | 23 |
+| 5 | 10 / 9 | 14 | 25 |
+| 6 | 7 / 7 | 13 | 23 |
+| 7 | 8 / 8 | 12 | 23 |
+| 8 | 10 / 9 | 13 | 24 |
 
-Best on the page: **21 moves**, from DR 4: `D2 L' D F D' R2 F' U' B2 D2 B U2 F' D2 F2 L2 D2 B L2 R D`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 1 (DR 4, 6 and 7 tie it): `L B R F L2 U2 F2 B2 L D2 R' U2 L F2 R B2 D2 L' D' L' B' U' B'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 96
 
-`R' U' F U2 L2 B2 D R2 D F2 U' R2 U L' D2 R' B2 U' F D B' U2 L' U2 R' U' F`
+`R' U' F U2 L2 D B2 F2 R2 D' F2 U F2 L' U2 L2 D' R2 U2 F U2 B' D' F2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `L R' F' L2 F2 D (D' B)` | 8 | R/L | 4b5 2e | 4 | 4b5-1 / 4b5-2 | look anyway | 0.03% / 0.48% / 3.4% |
-| 2 | `L R' F' R2 B2 U (D' B)` | 8 | R/L | 4b5 2e | 4 | 4b5-1 / 4b5-2 | look anyway | 0.03% / 0.48% / 3.4% |
-| 3 | `L R' F B2 R2 F2 U (D' B)` | 9 | R/L | 4b5 2e | 3 | 4b5-1 / 4b5-2 | look anyway | 0.02% / 0.26% / 2.4% |
-| 4 | `L R' F B2 L2 B2 D (D' B)` | 9 | R/L | 4b5 2e | 3 | 4b5-1 / 4b5-2 | look anyway | 0.02% / 0.26% / 2.4% |
-| 5 | `F2 R D' L R (F L2 B D' F' U)` | 11 | F/B | 2c4 6e | 0 | 2c4-4 / 2c4-6 | drop | <0.01% / 0.06% / 1.0% |
-| 6 | `L R' F' R2 U2 F2 D2 F2 U (D' B)` | 11 | R/L | 4b5 2e | 1 | 4b5-2 / 4b5-2 | drop | 0 / 0.01% / 0.38% |
-| 7 | `U' B' R F' U (F' B R' U2 B L)` | 11 | F/B | 4c3 4e | 2 | 4c3-4 / 4c3-6 | drop | 0.38% / 2.2% / 11% |
-| 8 | `L R' F U2 D2 F2 R2 F2 D (D' B)` | 11 | R/L | 4b5 2e | 1 | 4b5-1 / 4b5-2 | drop | 0 / 0.05% / 0.78% |
+| 1 | `B R2 D (B' D' L F' R' F R)` | 10 | F/B | 2c3 4e | 1 | 2c3-3 / 2c3-2 | look anyway | 0.38% / 2.8% / 17% |
+| 2 | `(B D' L' D2 R D2 B L2 U F)` | 10 | U/D | 2c5 4e | 4 | 2c5-1 / 2c5-2 | look anyway | 0.09% / 1.2% / 7.5% |
+| 3 | `R' D' B2 D2 F' L2 U B (B R)` | 10 | U/D | 4c3 4e | 0 | 4c3-7 / 4c3-5 | look anyway | 0.04% / 0.56% / 5.1% |
+| 4 | `L U2 F D2 B' U (D L' F' R)` | 10 | F/B | 4c4 2e | 0 | 4c4-3 / 4c4-4 | look anyway | 0 / 0.02% / 0.48% |
+| 5 | `R' U B' U2 R2 U B D2 F (B R)` | 11 | U/D | 4b2 2e | 3 | 4b2-4 / 4b2-1 | keep | 3.5% / 15% / 48% |
+| 6 | `U F B2 L B (D' F2 D L B2 R)` | 11 | U/D | 4b2 2e | 1 | 4b2-4 / 4b2-1 | keep | 1.4% / 7.6% / 32% |
+| 7 | `R' U B' U2 R2 U F L2 B (B R)` | 11 | U/D | 4b2 2e | 2 | 4b2-4 / 4b2-1 | keep | 2.6% / 11% / 40% |
+| 8 | `R' F L2 F2 B D L2 R2 B (B R)` | 11 | U/D | 4b5 4e | 2 | 4b5-1 / 4b5-2 | drop | 0 / 0.07% / 1.0% |
 
-Shown: 8 of the 190 DRs up to 11 moves (8 moves: 2 of 2; 9 moves: 2 of 2; 10 moves: 0 of 14; 11 moves: 4 of 172).
+Shown: 8 of the 111 DRs up to 11 moves (10 moves: 4 of 6; 11 moves: 4 of 105).
 
 <details>
 <summary>Answers for scramble 96</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 13 | 20 |
-| 2 | 10 / 10 | 15 | 22 |
-| 3 | 10 / 10 | 15 | 23 |
-| 4 | 10 / 10 | 14 | 23 |
-| 5 | 9 / 10 | 15 | 25 |
-| 6 | 10 / 10 | 14 | 25 |
-| 7 | 8 / 10 | 15 | 25 |
-| 8 | 10 / 10 | 13 | 24 |
+| 1 | 8 / 8 | 11 | 21 |
+| 2 | 10 / 11 | 13 | 23 |
+| 3 | 9 / 8 | 12 | 22 |
+| 4 | 10 / 11 | 14 | 23 |
+| 5 | 7 / 6 | 12 | 22 |
+| 6 | 8 / 5 | 14 | 24 |
+| 7 | 7 / 6 | 12 | 23 |
+| 8 | 9 / 11 | 14 | 25 |
 
-Best on the page: **20 moves**, from DR 1: `L R' F' L2 F2 D R' F2 D2 U2 R F2 L' F2 R D2 L' U2 B D`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1: `B R2 D R2 L2 U2 F' U2 L2 F' D2 U2 R2 F R' F' R F L' D B`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 97
 
-`R' U' F U' B2 L2 B2 D' F2 L2 D U' R2 F' L F' U' B F2 L' F L' B U R' U' F`
+`R' U' F R2 U' R' U' L' D F R' F' U2 F U D' F2 U F2 R2 U' R2 B2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(R' F2 R2 U2 B' L' D)` | 7 | R/L | 2c4 2e | 4 | 2c4-7 / 2c4-6 | look anyway | 0 / 0.47% / 5.6% |
-| 2 | `(D' F' R' D' B2 U F U)` | 8 | F/B | 2c3 6e | 1 | 2c3-1 / 2c3-1 | look anyway | 0.90% / 6.1% / 30% |
-| 3 | `U' F2 D L2 U R2 D2 L' B` | 9 | R/L | 2c5 2e | 1 | 2c5-1 / 2c5-2 | look anyway | 0 / 0 / 1.1% |
-| 4 | `U' F2 D L2 U L2 U2 L' F` | 9 | R/L | 2c5 2e | 1 | 2c5-1 / 2c5-2 | look anyway | 0 / 0 / 1.1% |
-| 5 | `F' D B' U2 F D' B (B R2 B' R)` | 11 | U/D | 4b5 2e | 6 | 4b5-1 / 4b5-1 | drop | 0.25% / 1.8% / 9.5% |
-| 6 | `U2 F' D' L2 D2 F' B D (D' F' R)` | 11 | F/B | 4b2 4e | 2 | 4b2-3 / 4b2-2 | keep | 1.2% / 7.6% / 34% |
-| 7 | `B2 D L' U2 R' B D2 F' B2 D2 B` | 11 | R/L | 4c4 2e | 2 | 4c4-2 / 4c4-6 | drop | 0 / 0.04% / 1.3% |
-| 8 | `(R' B2 L' U B2 U2 L B' D2 F L)` | 11 | F/B | 2c3 2e | 4 | 2c3-3 / 2c3-1 | keep | 4.1% / 18% / 58% |
+| 1 | `U' L D2 L2 D (R' F2 B2 R' F)` | 10 | R/L | 4b5 4e | 2 | 4b5-1 / 4b5-2 | look anyway | 0 / 0.07% / 1.0% |
+| 2 | `D2 F2 U' B U' R' U' D2 R' D` | 10 | R/L | 4b2 4e | 4 | 4b2-3 / 4b2-4 | look anyway | 1.6% / 9.8% / 39% |
+| 3 | `L' B2 U R D L R F B2 L` | 10 | F/B | 4b5 2e | 2 | 4b5-2 / 4b5-2 | look anyway | 0 / 0.06% / 0.88% |
+| 4 | `(R2 F2 R F U L F2 D' R' U)` | 10 | R/L | 4b2 2e | 0 | 4b2-3 / 4b2-4 | look anyway | 0.19% / 2.5% / 17% |
+| 5 | `R' D' B2 R U' L D (R' F2 R' F)` | 11 | R/L | 2c4 4e | 1 | 2c4-6 / 2c4-1 | drop | 0.09% / 0.94% / 7.2% |
+| 6 | `(R2 D2 L' D2 F' D F2 L U' L R)` | 11 | U/D | 2c4 4e | 5 | 2c4-6 / 2c4-3 | keep | 1.3% / 5.4% / 22% |
+| 7 | `L R2 U2 L' U' L D (R' F2 R' F)` | 11 | R/L | 2c5 4e | 3 | 2c5-1 / 2c5-1 | drop | 0.10% / 0.85% / 6.2% |
+| 8 | `(R' F2 R' F R2 U2 L R U' R' D)` | 11 | R/L | 2c3 2e | 3 | 2c3-1 / 2c3-1 | keep | 5.6% / 22% / 62% |
 
-Shown: 8 of the 1850 DRs up to 11 moves (7 moves: 1 of 1; 8 moves: 1 of 1; 9 moves: 2 of 16; 10 moves: 0 of 163; 11 moves: 4 of 1669).
+Shown: 8 of the 547 DRs up to 11 moves (10 moves: 4 of 42; 11 moves: 4 of 505).
 
 <details>
 <summary>Answers for scramble 97</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 9 | 14 | 21 |
-| 2 | 8 / 9 | 13 | 20 |
-| 3 | 10 / 10 | 14 | 23 |
-| 4 | 10 / 10 | 15 | 23 |
-| 5 | 10 / 10 | 15 | 25 |
-| 6 | 6 / 7 | 14 | 23 |
-| 7 | 9 / 12 | 14 | 24 |
-| 8 | 7 / 6 | 13 | 23 |
+| 1 | 11 / 10 | 15 | 24 |
+| 2 | 7 / 7 | 13 | 23 |
+| 3 | 10 / 10 | 14 | 24 |
+| 4 | 7 / 8 | 14 | 24 |
+| 5 | 10 / 9 | 14 | 24 |
+| 6 | 9 / 9 | 14 | 25 |
+| 7 | 10 / 9 | 13 | 24 |
+| 8 | 5 / 6 | 12 | 22 |
 
-Best on the page: **20 moves**, from DR 2: `F' D2 F' U2 L2 B L2 F L2 D2 U2 B U F' U' B2 D R F D`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 8: `U2 B2 R' L2 D2 L B2 D2 B2 U2 R' D R U R' L' U2 R2 F' R F2 R`. The list drops 2 of the 4 DRs of 11 moves or more, and keeps the best one.
 
 </details>
 
 #### Scramble 98
 
-`R' U' F R2 F2 D L2 R2 U R2 U B2 R2 B' F' U2 R' U L D R F' L U' R' U' F`
+`R' U' F D2 B2 R2 D' R2 D' L2 D R' B D' F L B2 R2 B2 D R2 D2 U2 R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `U' R' D L (U' D' B' U)` | 8 | F/B | 2c3 6e | 2 | 2c3-3 / 2c3-3 | look anyway | 0.09% / 1.0% / 8.2% |
-| 2 | `B2 U' R' D L (U' D' B' U)` | 9 | F/B | 2c3 6e | 3 | 2c3-3 / 2c3-2 | look anyway | 0.51% / 3.6% / 20% |
-| 3 | `B U' R D L' D2 B' R2 D` | 9 | F/B | 4c4 2e | 3 | 4c4-4 / 4c4-5 | look anyway | 0 / 0.02% / 0.45% |
-| 4 | `B U' R D L D2 B' R2 D` | 9 | F/B | 4c4 2e | 2 | 4c4-4 / 4c4-5 | look anyway | 0 / <0.01% / 0.22% |
-| 5 | `U R' D L' F2 R2 B' U2 F U' F` | 11 | U/D | 4b5 2e | 4 | 4b5-2 / 4b5-2 | drop | 0 / 0.09% / 1.7% |
-| 6 | `B2 U' R' D L (U2 L2 U' D F U)` | 11 | F/B | 2c3 4e | 2 | 2c3-3 / 2c3-2 | keep | 0.66% / 4.2% / 22% |
-| 7 | `L U R' D L F2 B U2 F' U D` | 11 | F/B | 2c4 4e | 2 | 2c4-7 / 2c4-2 | drop | 0.03% / 0.45% / 4.4% |
-| 8 | `U' R' D L (U' D' B' D' B2 U D)` | 11 | F/B | 2c3 6e | 1 | 2c3-3 / 2c3-3 | keep | 0.07% / 0.81% / 6.8% |
+| 1 | `F' L D' R' F' L2 D2 B2 D2 L` | 10 | U/D | 2c3 4e | 1 | 2c3-3 / 2c3-2 | look anyway | 0.38% / 2.8% / 17% |
+| 2 | `F' D (F2 D' R' B2 R U2 R2 F)` | 10 | R/L | 2c3 4e | 3 | 2c3-2 / 2c3-2 | look anyway | 1.9% / 9.7% / 36% |
+| 3 | `R F B U B' U' R U R' D` | 10 | R/L | 2c3 6e | 2 | 2c3-3 / 2c3-2 | look anyway | 0.33% / 2.5% / 15% |
+| 4 | `F' L D' F' L F B2 R' F (D)` | 10 | R/L | 4b2 4e | 1 | 4b2-2 / 4b2-2 | look anyway | 1.2% / 7.0% / 32% |
+| 5 | `F' L D' F' L' B2 U2 B L' B (D)` | 11 | R/L | 4c4 4e | 3 | 4c4-4 / 4c4-6 | drop | 0 / 0 / 0.10% |
+| 6 | `L' R U2 L F' B L (D B' R U)` | 11 | F/B | 2c5 2e | 2 | 2c5-1 / 2c5-3 | drop | 0 / 0.01% / 0.57% |
+| 7 | `U2 R2 F U' D' R2 B L' B' R2 F` | 11 | R/L | 4a2 4e | 6 | 4a2-3 / 4a2-2 | keep | 4.2% / 15% / 40% |
+| 8 | `L' F2 L2 D (D' R' F2 R' B' R2 F)` | 11 | R/L | 2c4 4e | 0 | 2c4-4 / 2c4-3 | drop | 0.03% / 0.44% / 3.9% |
 
-Shown: 8 of the 306 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 3; 10 moves: 0 of 27; 11 moves: 4 of 275).
+Shown: 8 of the 213 DRs up to 11 moves (10 moves: 4 of 31; 11 moves: 4 of 182).
 
 <details>
 <summary>Answers for scramble 98</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 8 | 14 | 21 |
-| 2 | 9 / 8 | 13 | 22 |
-| 3 | 11 / 11 | 15 | 24 |
-| 4 | 10 / 11 | 13 | 22 |
-| 5 | 10 / 10 | 15 | 25 |
-| 6 | 7 / 6 | 13 | 23 |
-| 7 | 10 / 8 | 12 | 23 |
-| 8 | 8 / 8 | 14 | 24 |
+| 1 | 9 / 8 | 14 | 24 |
+| 2 | 8 / 7 | 14 | 23 |
+| 3 | 8 / 7 | 14 | 23 |
+| 4 | 8 / 8 | 13 | 23 |
+| 5 | 11 / 12 | 15 | 26 |
+| 6 | 10 / 11 | 15 | 25 |
+| 7 | 9 / 9 | 13 | 24 |
+| 8 | 9 / 7 | 14 | 24 |
 
-Best on the page: **21 moves**, from DR 1: `U' R' D L D2 R2 F D2 U2 R2 F' D2 F' U2 R2 F2 R2 U B D U`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 8 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 2 (DR 3 and 4 tie it): `F' D R L2 D2 R B2 L D2 R D2 F2 R F2 R2 F R2 U2 R' B2 R D F2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 99
 
-`R' U' F U2 F' U R' D L F L' F2 B L U' L2 F2 U B2 D2 L2 U B2 D R' U' F`
+`R' U' F D2 B' R2 B' R2 U2 D2 B F L2 U' F R2 U2 L' F R' B D' L F R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `(F' D' L B' L2 D2 F' U2 F)` | 9 | U/D | 4b5 4e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.1% |
-| 2 | `(F D' L2 B' L' B2 U' D2 R)` | 9 | U/D | 2c3 4e | 1 | 2c3-3 / 2c3-3 | look anyway | 0.19% / 1.6% / 11% |
-| 3 | `L2 F2 U L' F2 U' L2 B D` | 9 | F/B | 4c4 2e | 2 | 4c4-6 / 4c4-2 | look anyway | 0 / 0.04% / 1.3% |
-| 4 | `(L D F' D2 B' D L' U' L)` | 9 | U/D | 4c3 2e | 0 | 4c3-1 / 4c3-4 | look anyway | 0.13% / 1.9% / 14% |
-| 5 | `D' B (F R2 U D R U2 L2 R' U)` | 11 | R/L | 4a1 4e | 2 | 4a1-1 / 4a1-1 | keep | 4.2% / 17% / 53% |
-| 6 | `D B (D2 F' R U F2 U R D' L)` | 11 | U/D | 4b2 4e | 0 | 4b2-1 / 4b2-1 | keep | 0.97% / 6.7% / 30% |
-| 7 | `(D F' D' L U2 D2 B U F2 U B)` | 11 | U/D | 4b5 2e | 2 | 4b5-1 / 4b5-2 | drop | 0.01% / 0.14% / 1.4% |
-| 8 | `L' B L2 D' R2 U2 B' U (F U L)` | 11 | F/B | 2c5 6e | 1 | 2c5-3 / 2c5-1 | drop | 0 / 0 / 0.49% |
+| 1 | `(D L U B' R' B L2 R2 U)` | 9 | F/B | 2c4 4e | 0 | 2c4-7 / 2c4-4 | look anyway | 0 / 0.02% / 0.95% |
+| 2 | `D' F L' F' R (F' U' L' D)` | 9 | F/B | 2c4 4e | 4 | 2c4-7 / 2c4-7 | look anyway | 0 / 0.18% / 1.5% |
+| 3 | `(D L U B' R' B U2 L2 R2 U)` | 10 | F/B | 2c4 4e | 2 | 2c4-7 / 2c4-6 | look anyway | 0.01% / 0.28% / 2.3% |
+| 4 | `F2 D' L' B2 U (L2 F D' R2 B)` | 10 | R/L | 4b5 2e | 2 | 4b5-1 / 4b5-1 | look anyway | 0.02% / 0.24% / 2.3% |
+| 5 | `F2 R D' L' R' U B D2 R2 D2 F` | 11 | U/D | 2c4 4e | 3 | 2c4-6 / 2c4-2 | drop | 0.22% / 1.8% / 11% |
+| 6 | `(D L U B' R' B U' D' F2 B2 D)` | 11 | F/B | 2c4 4e | 1 | 2c4-7 / 2c4-6 | drop | 0 / 0.07% / 1.5% |
+| 7 | `D' F' R2 B2 R' F' L (F' U' L' D)` | 11 | F/B | 2c4 2e | 3 | 2c4-2 / 2c4-3 | keep | 0.58% / 4.5% / 24% |
+| 8 | `(U' F' B' U B L' D R2 U2 L' U)` | 11 | R/L | 2c4 2e | 2 | 2c4-3 / 2c4-7 | drop | 0.03% / 0.68% / 5.6% |
 
-Shown: 8 of the 1489 DRs up to 11 moves (9 moves: 4 of 14; 10 moves: 0 of 112; 11 moves: 4 of 1363).
+Shown: 8 of the 105 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 8; 11 moves: 4 of 95).
 
 <details>
 <summary>Answers for scramble 99</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 10 / 10 | 15 | 23 |
-| 2 | 8 / 8 | 14 | 23 |
-| 3 | 11 / 10 | 14 | 23 |
-| 4 | 8 / 8 | 12 | 21 |
-| 5 | 1 / 6 | 11 | 21 |
-| 6 | 8 / 7 | 13 | 24 |
-| 7 | 10 / 10 | 15 | 26 |
-| 8 | 12 / 10 | 16 | 26 |
+| 1 | 10 / 9 | 15 | 23 |
+| 2 | 10 / 10 | 14 | 22 |
+| 3 | 10 / 8 | 14 | 24 |
+| 4 | 9 / 10 | 14 | 23 |
+| 5 | 9 / 9 | 13 | 24 |
+| 6 | 10 / 8 | 14 | 25 |
+| 7 | 9 / 8 | 14 | 24 |
+| 8 | 8 / 9 | 14 | 25 |
 
-Best on the page: **21 moves**, from DR 4 (DR 5 ties it): `U B2 L2 D' F2 B2 U' B2 R2 D F2 U L' U L D' B D2 F D' L'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 2: `D' F L' F' R' D2 B2 D2 B' U2 L2 F2 L2 F' D2 B U2 F' D L U F`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
 #### Scramble 100
 
-`R' U' F L2 D F2 L2 D B2 L2 B2 L2 U' F' L B2 R' D U L2 R2 B2 L2 F' U2 R' U' F`
+`R' U' F U R2 B2 L2 D2 F2 D F2 U2 F2 B' L' D L F' R' U B D' R2 U R' U' F`
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
-| 1 | `U (L U' F' D F' U2 F2 R)` | 9 | F/B | 2c4 4e | 2 | 2c4-6 / 2c4-2 | look anyway | 0.17% / 1.2% / 8.1% |
-| 2 | `U (L U' F' D F' D2 B2 L)` | 9 | F/B | 2c4 4e | 2 | 2c4-6 / 2c4-2 | look anyway | 0.17% / 1.2% / 8.1% |
-| 3 | `U' R' D R B U L' R2 U` | 9 | R/L | 4c3 4e | 1 | 4c3-5 / 4c3-9 | look anyway | 0 / 0.10% / 1.9% |
-| 4 | `B U L U' D B' R2 D (U L)` | 10 | F/B | 2c4 6e | 1 | 2c4-4 / 2c4-3 | look anyway | 0.07% / 0.66% / 5.4% |
-| 5 | `U' R' D R B U L' U' D B2 D` | 11 | R/L | 4c3 4e | 2 | 4c3-5 / 4c3-9 | drop | 0.02% / 0.31% / 2.7% |
-| 6 | `L U F L F B' D2 R (U' L' D)` | 11 | F/B | 2c5 6e | 5 | 2c5-3 / 2c5-1 | drop | 0 / 0 / 1.3% |
-| 7 | `B U L D R2 D' F' R2 U (U L)` | 11 | F/B | 2c4 4e | 1 | 2c4-4 / 2c4-6 | drop | 0.02% / 0.28% / 2.4% |
-| 8 | `B U L U' D F2 B L2 U (U L)` | 11 | F/B | 2c4 6e | 1 | 2c4-4 / 2c4-3 | drop | 0.07% / 0.66% / 5.4% |
+| 1 | `B (L' R F U2 R' F2 R U)` | 9 | R/L | 4b5 4e | 1 | 4b5-1 / 4b5-1 | look anyway | <0.01% / 0.08% / 1.1% |
+| 2 | `F L2 F' R (R F D2 R2 F)` | 9 | U/D | 4b2 4e | 3 | 4b2-4 / 4b2-2 | look anyway | 1.6% / 8.9% / 38% |
+| 3 | `D2 F' R D2 R (B2 R' B' D)` | 9 | F/B | 4b2 4e | 1 | 4b2-2 / 4b2-2 | look anyway | 1.2% / 7.0% / 32% |
+| 4 | `L2 U B (F D' L' D B2 R)` | 9 | U/D | 4b5 2e | 2 | 4b5-2 / 4b5-2 | look anyway | 0 / 0.06% / 0.88% |
+| 5 | `R (R' U2 B' U L2 D' B' D2 B U)` | 11 | F/B | 4c4 4e | 1 | 4c4-6 / 4c4-2 | drop | 0 / 0.07% / 0.97% |
+| 6 | `(R' B' D B' L R2 D2 L B U2 B)` | 11 | R/L | 2c4 4e | 0 | 2c4-5 / 2c4-4 | drop | 0 / 0.20% / 2.3% |
+| 7 | `R' F D2 F' U L2 R2 F L2 U (R)` | 11 | F/B | 2c3 4e | 2 | 2c3-2 / 2c3-1 | keep | 1.6% / 8.8% / 36% |
+| 8 | `(R' B' D' F B R' F' U2 R2 F2 L)` | 11 | F/B | 4c4 4e | 3 | 4c4-1 / 4c4-4 | drop | 0.02% / 0.61% / 5.0% |
 
-Shown: 8 of the 99 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 11; 11 moves: 4 of 85).
+Shown: 8 of the 2200 DRs up to 11 moves (9 moves: 4 of 21; 10 moves: 0 of 176; 11 moves: 4 of 2003).
 
 <details>
 <summary>Answers for scramble 100</summary>
 
 | DR | Shortest HTR, normal / inverse | Optimal finish | Solution |
 |---:|---|---:|---:|
-| 1 | 8 / 8 | 12 | 20 |
-| 2 | 8 / 8 | 14 | 21 |
-| 3 | 9 / 11 | 13 | 22 |
-| 4 | 9 / 8 | 14 | 24 |
-| 5 | 9 / 11 | 15 | 25 |
-| 6 | 11 / 10 | 14 | 24 |
-| 7 | 8 / 9 | 14 | 24 |
-| 8 | 9 / 8 | 14 | 24 |
+| 1 | 10 / 10 | 14 | 23 |
+| 2 | 8 / 8 | 13 | 20 |
+| 3 | 8 / 7 | 13 | 22 |
+| 4 | 10 / 10 | 13 | 22 |
+| 5 | 12 / 10 | 15 | 26 |
+| 6 | 9 / 9 | 15 | 26 |
+| 7 | 8 / 7 | 13 | 23 |
+| 8 | 9 / 11 | 14 | 25 |
 
-Best on the page: **20 moves**, from DR 1: `U R2 F' L2 B R2 B' U2 F D2 U2 F2 R F2 U2 F D' F U L'`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **20 moves**, from DR 2: `F L2 F' R' D2 L2 F2 U D2 F2 R2 U' L2 B2 R2 F R2 D2 F' R'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -3977,15 +3977,15 @@ First the rows printed above, with every DR finished optimally:
 |---|---:|
 | Scrambles | 100 |
 | DRs shown | 800 |
-| of 10 moves or less (you'd finish these anyway) | 392 |
-| of 11 moves or more | 408 |
-| of those, dropped by the list | 236 (58%) |
+| of 10 moves or less (you'd finish these anyway) | 382 |
+| of 11 moves or more | 418 |
+| of those, dropped by the list | 268 (64%) |
 | DRs to finish per scramble, without the list | 8.0 |
-| DRs to finish per scramble, with the list | 5.6 |
-| Best solution on the page, average, finishing every DR shown | 21.25 |
-| Best solution on the page, average, finishing what the list leaves | 21.25 |
-| Scrambles where the list drops the page's best solution | 0 of 100 |
-| Moves lost on those, average | none lost |
+| DRs to finish per scramble, with the list | 5.3 |
+| Best solution on the page, average, finishing every DR shown | 21.29 |
+| Best solution on the page, average, finishing what the list leaves | 21.32 |
+| Scrambles where the list drops the page's best solution | 2 of 100 |
+| Moves lost on those, average | 1.50 |
 
 The page shows a handful of DRs per scramble. The same count over every DR up to 12 moves, for 500 scrambles (the 100 above are the first of them), says what there is to find and what the list does to it. Nobody finishes hundreds of DRs in an hour, so read the second column as the size of the haystack. "The best there is" is the shortest solution over all of a scramble's DRs up to 12 moves, each finished optimally; the list is used on DRs of 11 moves and up only.
 
@@ -3993,24 +3993,24 @@ The page shows a handful of DRs per scramble. The same count over every DR up to
 
 | You finish | DRs to finish per scramble | Result, average | Scrambles where that is the best there is |
 |---|---:|---:|---:|
-| every DR of 10 moves or less | 71 | 20.52 | 41% |
-| those, and the 11-movers the list keeps | 337 | 19.98 | 66% |
-| those, and every 11-mover | 668 | 19.96 | 67% |
-| every DR of 10 moves or less, and the 11- and 12-movers the list keeps | 2,786 | 19.57 | 99.4% |
-| every DR up to 12 moves | 6,233 | 19.56 | 100% |
+| every DR of 10 moves or less | 71 | 20.62 | 35% |
+| those, and the 11-movers the list keeps | 353 | 20.05 | 62% |
+| those, and every 11-mover | 733 | 20.04 | 63% |
+| every DR of 10 moves or less, and the 11- and 12-movers the list keeps | 3,137 | 19.57 | 99.4% |
+| every DR up to 12 moves | 7,244 | 19.56 | 100% |
 
-So the list on the 11-movers takes the DRs to finish from 668 to 337 per scramble and the average result from 19.96 to 19.98. On the 12-movers as well it takes 6,233 to 2,786, and 19.56 to 19.57.
+So the list on the 11-movers takes the DRs to finish from 733 to 353 per scramble and the average result from 20.04 to 20.05. On the 12-movers as well it takes 7,244 to 3,137, and 19.56 to 19.57.
 
 And by the length of the DR, over all 500 scrambles. "Reaches the best" means its solution is as short as the best one over all of that scramble's DRs up to 12 moves. The list is meant for 11 moves and up; the first two rows show what it would do if you used it on shorter DRs too.
 
 | DR length | DRs per scramble | Scrambles where one of them reaches the best | The list drops | Kept DRs that reach the best | Dropped DRs that reach the best |
 |---|---:|---:|---:|---:|---:|
-| 9 or less | 7.6 | 17% | 52% | 5.1% | 0.91% |
-| 10 | 61.8 | 29% | 55% | 1.3% | 0.10% |
-| 11 | 587.6 | 49% | 55% | 0.29% | 0.01% |
-| 12 | 5,476.7 | 74% | 56% | 0.06% | <0.01% |
+| 9 or less | 6.1 | 12% | 57% | 4.8% | 0.68% |
+| 10 | 63.6 | 26% | 57% | 1.1% | 0.08% |
+| 11 | 651.0 | 44% | 57% | 0.23% | <0.01% |
+| 12 | 6,400.7 | 74% | 57% | 0.06% | <0.01% |
 
-In counts: of the 401 11-movers that reach their scramble's best solution the list keeps 383, and of the 782 12-movers it keeps 761.
+In counts: of the 342 11-movers that reach their scramble's best solution the list keeps 325, and of the 794 12-movers it keeps 778.
 
 Over all DR states the list drops 57% and loses 7.8% of the finishes in 11 or less (write-up, guide). Every finish here is the optimal one: the answer key, not what you find by hand.
 
