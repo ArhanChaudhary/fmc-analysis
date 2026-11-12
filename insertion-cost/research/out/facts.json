@@ -1,0 +1,188 @@
+{
+ "eight_movers_per_3c": {
+  "0": 480,
+  "1": 192,
+  "2": 336
+ },
+ "oriented_3c": 112,
+ "oriented_3c_with_8": 32,
+ "triangle_3c": 144,
+ "triangle_with_8": 96,
+ "triangle_opt_le10": {
+  ">10": 16,
+  "8": 96,
+  "10": 32
+ },
+ "no8_after_any_move": 16,
+ "no8_after_any_move_all_3c": 112,
+ "no8_after_any_move_optimal": [
+  99
+ ],
+ "triangle_next": {
+  "pairs": 2592,
+  "with_8": 1728,
+  "moves_with_8_per_state": {
+   "0": 16,
+   "12": 32,
+   "14": 96
+  }
+ },
+ "algs": {
+  "tronto_3tc": {
+   "alg": "U' B U' F U2 B2 D' R2 U D F' U' B",
+   "moves": 13,
+   "type": "3tc",
+   "left": "UBL twisted clockwise, UBR twisted clockwise, UFR twisted clockwise",
+   "eight_movers": 0
+  },
+  "doug_3tc": {
+   "alg": "R L U2 R' F2 L2 B L' F L' F L' B'",
+   "moves": 13,
+   "type": "3tc",
+   "left": "UBL twisted clockwise, UBR twisted clockwise, UFR twisted clockwise",
+   "eight_movers": 0
+  },
+  "dipietro_2c2c": {
+   "alg": "R2 U' L2 D B2 R2 D' L2 U F2",
+   "moves": 10,
+   "type": "2c2c-pure",
+   "left": "DFL \u2194 DFR, UBR \u2194 UFR",
+   "eight_movers": null
+  },
+  "triple_sexy": {
+   "alg": "R U R' U' R U R' U' R U R' U'",
+   "moves": 12,
+   "type": "2c2c-pure",
+   "left": "UBL \u2194 UBR, DFR \u2194 UFR",
+   "eight_movers": null
+  },
+  "triple_sledge": {
+   "alg": "R' F R F' R' F R F' R' F R F'",
+   "moves": 12,
+   "type": "2c2c-pure",
+   "left": "UFL \u2194 UBR, DFR \u2194 UFR",
+   "eight_movers": null
+  },
+  "rogo": {
+   "alg": "[U2, R' D R]",
+   "moves": 8,
+   "type": "3c",
+   "left": "DFL \u2192 UFR \u2192 UBL \u2192 DFL",
+   "eight_movers": 1
+  },
+  "jay": {
+   "alg": "R' F' R B2 R' F R B2",
+   "moves": 8,
+   "type": "3c",
+   "left": "DBL \u2192 UBR \u2192 UFR \u2192 DBL",
+   "eight_movers": 2
+  },
+  "tronto_2tc": {
+   "alg": "[F L' D2 L F', U2]",
+   "moves": 12,
+   "type": "2tc",
+   "left": "UBL twisted clockwise, UFR twisted counter-clockwise",
+   "eight_movers": null
+  },
+  "torchlight_2tc": {
+   "alg": "[F' R D2 R' F, U2]",
+   "moves": 12,
+   "type": "2tc",
+   "left": "UFL twisted clockwise, UBR twisted counter-clockwise",
+   "eight_movers": null
+  },
+  "ben_9": {
+   "alg": "R2 D R' U2 R D' R' U2 R'",
+   "moves": 9,
+   "type": "3c",
+   "left": "UFL \u2192 UFR \u2192 UBR \u2192 UFL",
+   "eight_movers": 0
+  },
+  "ben_10": {
+   "alg": "[D R': [F2, R D' R' D]]",
+   "moves": 10,
+   "type": "3c",
+   "left": "DFL \u2192 UFR \u2192 UFL \u2192 DFL",
+   "eight_movers": 0
+  },
+  "sledge_comm": {
+   "alg": "[R' F R F', D2]",
+   "moves": 10,
+   "type": "3c",
+   "left": "DBL \u2192 DFR \u2192 UFR \u2192 DBL",
+   "eight_movers": 2
+  },
+  "niklas": {
+   "alg": "R U' L' U R' U' L U",
+   "moves": 8,
+   "type": "3c",
+   "left": "UBL \u2192 UBR \u2192 UFR \u2192 UBL",
+   "eight_movers": 2
+  },
+  "if_2c2c_10": {
+   "alg": "L2 F2 B2 R2 U R2 F2 B2 L2 D",
+   "moves": 10,
+   "type": "2c2c-pure",
+   "left": "DBL \u2194 DFR, DFL \u2194 DBR",
+   "eight_movers": null
+  },
+  "if_triple": {
+   "alg": "B' U' B U B' U' B U B' U' B U",
+   "moves": 12,
+   "type": "2c2c-pure",
+   "left": "DBL \u2194 UBL, UBR \u2194 UFR",
+   "eight_movers": null
+  },
+  "six_3e": {
+   "alg": "R L' U2 R' L F2",
+   "moves": 6,
+   "type": "3e",
+   "left": "DF \u2192 UB \u2192 UF \u2192 DF",
+   "eight_movers": null
+  },
+  "eight_3e": {
+   "alg": "R2 B2 L2 D L2 B2 R2 U",
+   "moves": 8,
+   "type": "3e",
+   "left": "UL \u2192 UF \u2192 DF \u2192 UL",
+   "eight_movers": null
+  },
+  "parity_10": {
+   "alg": "R' U F2 D' L D F2 U2 R U",
+   "moves": 10,
+   "type": "2 corners and 2 edges",
+   "left": "DBR \u2194 UFR, BL \u2194 BR",
+   "eight_movers": null
+  },
+  "doug_2tc_13": {
+   "alg": "L B2 R' B L B2 R B2 L' B D2 L' D2",
+   "moves": 13,
+   "type": "2tc",
+   "left": "UFL twisted counter-clockwise, DBR twisted clockwise",
+   "eight_movers": null
+  }
+ },
+ "ten_movers_conjugates_written_setup_first": 7776,
+ "ten_movers": 11856,
+ "ten_movers_conjugates": 10368,
+ "ten_wins": 935,
+ "ten_wins_some_conjugate": 96,
+ "ten_wins_only_conjugates": 86,
+ "ten_wins_only_conjugates_all_inside_a_turn": 86,
+ "ten_wins_only_conjugates_some_inside_a_turn": 86,
+ "ten_wins_only_conjugates_gain": {
+  "1": 86
+ },
+ "ten_sample": 20000,
+ "ten_cases": 80,
+ "ten_cases_no8_after_one_move": 48,
+ "ten_cases_8_after_some_move": 32,
+ "ten_cases_moves_with_8": [
+  12
+ ],
+ "ten_cases_8_after_some_two_moves": 80,
+ "ten_cases_two_moves_pairs": [
+  7296,
+  21600
+ ]
+}

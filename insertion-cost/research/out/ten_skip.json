@@ -1,0 +1,58 @@
+{
+ "10": {
+  "ten": 14466,
+  "next": 59,
+  "two": 202,
+  "walks": 6114,
+  "plain_miss": 205,
+  "rule_miss": 239
+ },
+ "14": {
+  "ten": 20761,
+  "next": 91,
+  "two": 340,
+  "walks": 8552,
+  "plain_miss": 266,
+  "rule_miss": 317
+ },
+ "18": {
+  "ten": 27041,
+  "next": 110,
+  "two": 393,
+  "walks": 10820,
+  "plain_miss": 361,
+  "rule_miss": 426
+ },
+ "20": {
+  "ten": 30002,
+  "next": 171,
+  "two": 514,
+  "walks": 11708,
+  "plain_miss": 371,
+  "rule_miss": 462
+ },
+ "22": {
+  "ten": 33149,
+  "next": 171,
+  "two": 494,
+  "walks": 12894,
+  "plain_miss": 426,
+  "rule_miss": 482
+ },
+ "26": {
+  "ten": 39723,
+  "next": 167,
+  "two": 602,
+  "walks": 14710,
+  "plain_miss": 418,
+  "rule_miss": 490
+ },
+ "30": {
+  "ten": 46177,
+  "next": 233,
+  "two": 777,
+  "walks": 16614,
+  "plain_miss": 490,
+  "rule_miss": 567
+ }
+}

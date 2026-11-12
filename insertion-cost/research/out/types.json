@@ -1,0 +1,74 @@
+{
+ "corner": {
+  "three_cycles": 1008,
+  "types": {
+   "3c": {
+    "fewest_3_cycles": 1,
+    "states": 1008
+   },
+   "3c3c": {
+    "fewest_3_cycles": 2,
+    "states": 90720
+   },
+   "3c1t": {
+    "fewest_3_cycles": 2,
+    "states": 10080
+   },
+   "5c": {
+    "fewest_3_cycles": 2,
+    "states": 108864
+   },
+   "2c2c-twisted": {
+    "fewest_3_cycles": 2,
+    "states": 3780
+   },
+   "2c2c-pure": {
+    "fewest_3_cycles": 2,
+    "states": 1890
+   },
+   "2tc": {
+    "fewest_3_cycles": 2,
+    "states": 56
+   },
+   "3tc": {
+    "fewest_3_cycles": 2,
+    "states": 112
+   }
+  },
+  "states_within_two": 216511
+ },
+ "edge": {
+  "three_cycles": 1760,
+  "types": {
+   "3e": {
+    "fewest_3_cycles": 1,
+    "states": 1760
+   },
+   "3e3e": {
+    "fewest_3_cycles": 2,
+    "states": 591360
+   },
+   "5e": {
+    "fewest_3_cycles": 2,
+    "states": 304128
+   },
+   "3e1f": {
+    "fewest_3_cycles": 2,
+    "states": 15840
+   },
+   "2e2e-flipped": {
+    "fewest_3_cycles": 2,
+    "states": 5940
+   },
+   "2e2e": {
+    "fewest_3_cycles": 2,
+    "states": 5940
+   },
+   "2f": {
+    "fewest_3_cycles": 2,
+    "states": 66
+   }
+  },
+  "states_within_two": 925035
+ }
+}

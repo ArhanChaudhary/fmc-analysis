@@ -19,3 +19,11 @@ What it costs to leave slices unsolved at DR (DR-1s, DR-2s 8fe), how often a sli
 - [Write-up](is-dr-xs-worth-it/): the costs, the odds and the claims check. It opens with the short version.
 - [Worked examples](is-dr-xs-worth-it/examples.html): the tutorial's example with the numbers, then 100 scrambles with their slice-EO skips and the DR-xs routes on them, answers folded away.
 - [Errata](is-dr-xs-worth-it/errata.html): corrections to the docs involved, and what the numbers settle.
+
+## Insertion cost by skeleton type
+
+What a 3c, a 5c, a 2c2c, a 3c1t or a pair of twisted corners adds to a skeleton, by skeleton length and by how long an alg you allow. Every skeleton searched exactly: random skeletons by type and length (20,000 each with 8-move comms, fewer with longer algs) and the worked examples people posted from real solves, with the leftover types and the algs of up to 12 moves counted exhaustively.
+
+- [Write-up](insertion-cost/): the costs, the odds, the exchange rates between types and the claims check. It opens with the short version.
+- [Worked examples](insertion-cost/examples.html): worked examples from the tutorial and the server redone with the search, then 200 skeletons to play along with, answers folded away.
+- [Errata](insertion-cost/errata.html): the tutorial's table line by line, what the numbers go against, what depends on the alg list, and what checked out.

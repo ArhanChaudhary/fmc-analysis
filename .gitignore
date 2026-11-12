@@ -20,6 +20,14 @@
 /is-dr-xs-worth-it/research/out/*.pkl
 /is-dr-xs-worth-it/research/out/*_test*.tsv
 /is-dr-xs-worth-it/research/out/*.log
+/insertion-cost/research/instools/target/
+/insertion-cost/research/out/sample_*.tsv
+/insertion-cost/research/out/base_*.tsv
+/insertion-cost/research/out/algs_L*.bin
+/insertion-cost/research/out/onepos_*.tsv
+/insertion-cost/research/out/corpus_real_*
+/insertion-cost/research/out/real_cache.json
+/insertion-cost/research/out/*.log
 __pycache__/
 *.pyc
 /_site/

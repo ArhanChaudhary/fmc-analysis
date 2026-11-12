@@ -1,0 +1,1131 @@
+CASE	1
+scramble: R' U' F D2 U2 F2 L2 U2 B' D2 R2 U2 B' R' U' F U L' D2 R' D2 F' U R' U' F
+skeleton: D' B' R2 U2 R2 U2 L U F2 L U2 L' (12)
+leftover: 5c | DFR>DBL UFL>DFL DBL>UFL+1 UBR>DFR DFL>UBR+2 | 5,3,2,0,4,6,1,7;0,0,0,1,0,0,2,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 direct: no solution within the bound
+L=8 two: cost 12, length 24
+   1. at 7: insert R' U L U' R U L' U' (8), 2 cancel -> D' B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (18)
+   2. at 0: insert B2 D' F2 D B2 D' F2 D (8), 2 cancel -> B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (24)
+SOL	1	8	two	12	24	0	7:R' U L U' R U L' U':2|0:B2 D' F2 D B2 D' F2 D:2	B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L'
+L=8 two-flat: cost 12, length 24
+   1. at 7: insert R' U L U' R U L' U' (8), 2 cancel -> D' B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (18)
+   2. at 0: insert B2 D' F2 D B2 D' F2 D (8), 2 cancel -> B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (24)
+SOL	1	8	two-flat	12	24	0	7:R' U L U' R U L' U':2|0:B2 D' F2 D B2 D' F2 D:2	B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L'
+L=8 two-apart: cost 12, length 24
+   1. at 7: insert R' U L U' R U L' U' (8), 2 cancel -> D' B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (18)
+   2. at 0: insert B2 D' F2 D B2 D' F2 D (8), 2 cancel -> B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (24)
+SOL	1	8	two-apart	12	24	0	7:R' U L U' R U L' U':2|0:B2 D' F2 D B2 D' F2 D:2	B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L'
+L=8 mixed: cost 12, length 24
+   1. at 7: insert R' U L U' R U L' U' (8), 2 cancel -> D' B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (18)
+   2. at 0: insert B2 D' F2 D B2 D' F2 D (8), 2 cancel -> B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (24)
+SOL	1	8	mixed	12	24	0	7:R' U L U' R U L' U':2|0:B2 D' F2 D B2 D' F2 D:2	B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L'
+L=8 best: cost 12, length 24 (two)
+L=10 direct: no solution within the bound
+L=10 two: cost 12, length 24
+   1. at 6: insert R' L U L U' R U L' U' L' (10), 4 cancel -> D' B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (18)
+   2. at 0: insert B2 D' F2 D B2 D' F2 D (8), 2 cancel -> B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (24)
+SOL	1	10	two	12	24	0	6:R' L U L U' R U L' U' L':4|0:B2 D' F2 D B2 D' F2 D:2	B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L'
+L=10 two-flat: cost 12, length 24
+   1. at 6: insert R' L U L U' R U L' U' L' (10), 4 cancel -> D' B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (18)
+   2. at 0: insert B2 D' F2 D B2 D' F2 D (8), 2 cancel -> B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (24)
+SOL	1	10	two-flat	12	24	0	6:R' L U L U' R U L' U' L':4|0:B2 D' F2 D B2 D' F2 D:2	B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L'
+L=10 two-apart: cost 12, length 24
+   1. at 6: insert R' L U L U' R U L' U' L' (10), 4 cancel -> D' B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (18)
+   2. at 0: insert B2 D' F2 D B2 D' F2 D (8), 2 cancel -> B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (24)
+SOL	1	10	two-apart	12	24	0	6:R' L U L U' R U L' U' L':4|0:B2 D' F2 D B2 D' F2 D:2	B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L'
+L=10 mixed: cost 12, length 24
+   1. at 6: insert R' L U L U' R U L' U' L' (10), 4 cancel -> D' B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (18)
+   2. at 0: insert B2 D' F2 D B2 D' F2 D (8), 2 cancel -> B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L' (24)
+SOL	1	10	mixed	12	24	0	6:R' L U L U' R U L' U' L':4|0:B2 D' F2 D B2 D' F2 D:2	B2 D' F2 D B2 D' F2 B' R2 U2 R2 U2 R' L U L U' R U L' F2 L U2 L'
+L=10 best: cost 12, length 24 (two)
+
+CASE	2
+scramble: R' U' F L2 B F R2 B U2 R2 B U2 D' L' F R F' R D2 R2 B L2 R' U' F
+skeleton: R' B' R B2 L B' L D2 B' R2 D R D' F' (14)
+leftover: 3c1t | DBL>DBL+2 UFL>DFL+2 DFL>UBL+2 UBL>UFL | 0,3,1,2,4,5,6,7;2,2,2,0,0,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 direct: no solution within the bound
+L=8 two: cost 9, length 23
+   1. at 7: insert B U2 B' D2 B U2 B' D2 (8), 3 cancel -> R' B' R B2 L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (19)
+   2. at 2: insert B' L' B R B' L B R' (8), 4 cancel -> R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (23)
+SOL	2	8	two	9	23	0	7:B U2 B' D2 B U2 B' D2:3|2:B' L' B R B' L B R':4	R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F'
+L=8 two-flat: cost 9, length 23
+   1. at 7: insert B U2 B' D2 B U2 B' D2 (8), 3 cancel -> R' B' R B2 L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (19)
+   2. at 2: insert B' L' B R B' L B R' (8), 4 cancel -> R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (23)
+SOL	2	8	two-flat	9	23	0	7:B U2 B' D2 B U2 B' D2:3|2:B' L' B R B' L B R':4	R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F'
+L=8 two-apart: cost 9, length 23
+   1. at 7: insert B U2 B' D2 B U2 B' D2 (8), 3 cancel -> R' B' R B2 L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (19)
+   2. at 2: insert B' L' B R B' L B R' (8), 4 cancel -> R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (23)
+SOL	2	8	two-apart	9	23	0	7:B U2 B' D2 B U2 B' D2:3|2:B' L' B R B' L B R':4	R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F'
+L=8 mixed: cost 9, length 23
+   1. at 7: insert B U2 B' D2 B U2 B' D2 (8), 3 cancel -> R' B' R B2 L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (19)
+   2. at 2: insert B' L' B R B' L B R' (8), 4 cancel -> R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (23)
+SOL	2	8	mixed	9	23	0	7:B U2 B' D2 B U2 B' D2:3|2:B' L' B R B' L B R':4	R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F'
+L=8 best: cost 9, length 23 (two)
+L=10 direct: no solution within the bound
+L=10 two: cost 9, length 23
+   1. at 6: insert L B U2 B' D2 B U2 B' D2 L' (10), 5 cancel -> R' B' R B2 L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (19)
+   2. at 1: insert B2 L' B R B' L B R' B (9), 5 cancel -> R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (23)
+SOL	2	10	two	9	23	0	6:L B U2 B' D2 B U2 B' D2 L':5|1:B2 L' B R B' L B R' B:5	R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F'
+L=10 two-flat: cost 9, length 23
+   1. at 6: insert L B U2 B' D2 B U2 B' D2 L' (10), 5 cancel -> R' B' R B2 L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (19)
+   2. at 1: insert B2 L' B R B' L B R' B (9), 5 cancel -> R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (23)
+SOL	2	10	two-flat	9	23	0	6:L B U2 B' D2 B U2 B' D2 L':5|1:B2 L' B R B' L B R' B:5	R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F'
+L=10 two-apart: cost 9, length 23
+   1. at 6: insert L B U2 B' D2 B U2 B' D2 L' (10), 5 cancel -> R' B' R B2 L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (19)
+   2. at 1: insert B2 L' B R B' L B R' B (9), 5 cancel -> R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (23)
+SOL	2	10	two-apart	9	23	0	6:L B U2 B' D2 B U2 B' D2 L':5|1:B2 L' B R B' L B R' B:5	R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F'
+L=10 mixed: cost 9, length 23
+   1. at 6: insert L B U2 B' D2 B U2 B' D2 L' (10), 5 cancel -> R' B' R B2 L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (19)
+   2. at 1: insert B2 L' B R B' L B R' B (9), 5 cancel -> R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F' (23)
+SOL	2	10	mixed	9	23	0	6:L B U2 B' D2 B U2 B' D2 L':5|1:B2 L' B R B' L B R' B:5	R' B2 L' B R B' L B' L B' L B U2 B' D2 B U2 B2 R2 D R D' F'
+L=10 best: cost 9, length 23 (two)
+
+CASE	3
+scramble: R' U' F R2 F D2 U2 B' U2 L2 F' L2 B2 F U2 R' U B U2 L2 R D' F2 L R' U' F
+skeleton: F L' B' R U2 B2 R' B D R U' D2 R' (13) [written reduced]
+leftover: not one of the types | DFR>UBL+1 UBR>UFL+1 UBL>DFR+2 UFL>UBR+2 DF>BL FR>DF+1 BL>FR+1 | 0,1,5,6,4,2,3,7;0,0,1,1,0,2,2,0;0,5,2,3,4,10,6,7,8,9,1,11;0,0,0,0,0,1,0,0,0,0,1,0
+
+CASE	4
+scramble: R' U' F U F B L' B' U' L2 B2 D B' L2 F' B' U2 F' D2 R2 D2 F' R' U' F
+skeleton: L2 B L B' U F U R2 U' F2 R' F' R B L2 F' L' F L' F' B' R U2 (23) [written reduced]
+leftover: 3c | UBL>DFL+1 DBR>UBL+1 DFL>DBR+1 | 0,2,4,3,1,5,6,7;0,1,1,0,1,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 5, length 28
+   1. at 7: insert U' L2 U R' U' L2 U R (8), 3 cancel -> L2 B L B' U F L2 U R' U' L2 U R' U' F2 R' F' R B L2 F' L' F L' F' B' R U2 (28)
+SOL	4	8	one	5	28	0	7:U' L2 U R' U' L2 U R:3	L2 B L B' U F L2 U R' U' L2 U R' U' F2 R' F' R B L2 F' L' F L' F' B' R U2
+L=8 direct: cost 5, length 28
+   1. at 7: insert U' L2 U R' U' L2 U R (8), 3 cancel -> L2 B L B' U F L2 U R' U' L2 U R' U' F2 R' F' R B L2 F' L' F L' F' B' R U2 (28)
+SOL	4	8	direct	5	28	0	7:U' L2 U R' U' L2 U R:3	L2 B L B' U F L2 U R' U' L2 U R' U' F2 R' F' R B L2 F' L' F L' F' B' R U2
+L=8 mixed: cost 5, length 28
+   1. at 6: insert L2 U R2 U' L2 U R2 U' (8), 6 cancel -> L2 B L B' U F L2 U R2 U' L2 F2 R' F' R B L2 F' L' F L' F' B' R U2 (25)
+   2. at 11: insert L2 U R U' L2 U R' U' (8), 5 cancel -> L2 B L B' U F L2 U R' U' L2 U R' U' F2 R' F' R B L2 F' L' F L' F' B' R U2 (28)
+SOL	4	8	mixed	5	28	0	6:L2 U R2 U' L2 U R2 U':6|11:L2 U R U' L2 U R' U':5	L2 B L B' U F L2 U R' U' L2 U R' U' F2 R' F' R B L2 F' L' F L' F' B' R U2
+L=8 best: cost 5, length 28 (direct)
+L=10 one: cost 5, length 28
+   1. at 8: insert R2 U' L2 U R' U' L2 U R' (9), 4 cancel -> L2 B L B' U F L2 U R' U' L2 U R' U' F2 R' F' R B L2 F' L' F L' F' B' R U2 (28)
+SOL	4	10	one	5	28	0	8:R2 U' L2 U R' U' L2 U R':4	L2 B L B' U F L2 U R' U' L2 U R' U' F2 R' F' R B L2 F' L' F L' F' B' R U2
+L=10 direct: cost 5, length 28
+   1. at 8: insert R2 U' L2 U R' U' L2 U R' (9), 4 cancel -> L2 B L B' U F L2 U R' U' L2 U R' U' F2 R' F' R B L2 F' L' F L' F' B' R U2 (28)
+SOL	4	10	direct	5	28	0	8:R2 U' L2 U R' U' L2 U R':4	L2 B L B' U F L2 U R' U' L2 U R' U' F2 R' F' R B L2 F' L' F L' F' B' R U2
+L=10 mixed: cost 5, length 28
+   1. at 6: insert L2 U R' U' L' U R U' L' (9), 0 cancel -> L2 B L B' U F L2 U R' U' L' U R U' L' U R2 U' F2 R' F' R B L2 F' L' F L' F' B' R U2 (32)
+   2. at 16: insert U' L U R' U' L' U R (8), 12 cancel -> L2 B L B' U F L2 U R' U' L2 U R' U' F2 R' F' R B L2 F' L' F L' F' B' R U2 (28)
+SOL	4	10	mixed	5	28	0	6:L2 U R' U' L' U R U' L':0|16:U' L U R' U' L' U R:12	L2 B L B' U F L2 U R' U' L2 U R' U' F2 R' F' R B L2 F' L' F L' F' B' R U2
+L=10 best: cost 5, length 28 (direct)
+
+CASE	5
+scramble: R' U' F R D2 L' F2 L' R' B2 F2 U2 D' L R B' L D' L2 F L' R' U' F
+skeleton: L2 B2 D2 L' F D F' D' L' D2 L2 F L F' L U2 D2 (17) [written reduced]
+leftover: 5c | DBR>DBL+1 UBR>DFL+2 DFR>DBR DFL>DFR DBL>UBR | 4,6,2,3,5,1,0,7;1,2,0,0,0,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 direct: no solution within the bound
+L=8 two: cost 10, length 27 (nested)
+   1. at 5: insert R' D L2 D' R D L2 D' (8), 2 cancel -> L2 B2 D2 L' F R' D L2 D' R D L2 F' D' L' D2 L2 F L F' L U2 D2 (23)
+   2. at 10: insert R' D' L2 D R D' L2 D (8), 4 cancel -> L2 B2 D2 L' F R' D L2 D2 L2 D R D' L2 D2 L2 F' D' L' D2 L2 F L F' L U2 D2 (27)
+SOL	5	8	two	10	27	1	5:R' D L2 D' R D L2 D':2|10:R' D' L2 D R D' L2 D:4	L2 B2 D2 L' F R' D L2 D2 L2 D R D' L2 D2 L2 F' D' L' D2 L2 F L F' L U2 D2
+L=8 two-flat: cost 11, length 28
+   1. at 9: insert R' U2 R D2 R' U2 R D2 (8), 2 cancel -> L2 B2 D2 L' F D F' D' R' L' U2 R D2 R' U2 R L2 F L F' L U2 D2 (23)
+   2. at 4: insert U' F D2 F' U F D2 F' (8), 3 cancel -> L2 B2 D2 L' U' F D2 F' U F D' F' D' R' L' U2 R D2 R' U2 R L2 F L F' L U2 D2 (28)
+SOL	5	8	two-flat	11	28	0	9:R' U2 R D2 R' U2 R D2:2|4:U' F D2 F' U F D2 F':3	L2 B2 D2 L' U' F D2 F' U F D' F' D' R' L' U2 R D2 R' U2 R L2 F L F' L U2 D2
+L=8 two-apart: cost 11, length 28
+   1. at 9: insert R' U2 R D2 R' U2 R D2 (8), 2 cancel -> L2 B2 D2 L' F D F' D' R' L' U2 R D2 R' U2 R L2 F L F' L U2 D2 (23)
+   2. at 4: insert U' F D2 F' U F D2 F' (8), 3 cancel -> L2 B2 D2 L' U' F D2 F' U F D' F' D' R' L' U2 R D2 R' U2 R L2 F L F' L U2 D2 (28)
+SOL	5	8	two-apart	11	28	0	9:R' U2 R D2 R' U2 R D2:2|4:U' F D2 F' U F D2 F':3	L2 B2 D2 L' U' F D2 F' U F D' F' D' R' L' U2 R D2 R' U2 R L2 F L F' L U2 D2
+L=8 mixed: cost 10, length 27 (nested)
+   1. at 5: insert R' D L2 D' R D L2 D' (8), 2 cancel -> L2 B2 D2 L' F R' D L2 D' R D L2 F' D' L' D2 L2 F L F' L U2 D2 (23)
+   2. at 10: insert R' D' L2 D R D' L2 D (8), 4 cancel -> L2 B2 D2 L' F R' D L2 D2 L2 D R D' L2 D2 L2 F' D' L' D2 L2 F L F' L U2 D2 (27)
+SOL	5	8	mixed	10	27	1	5:R' D L2 D' R D L2 D':2|10:R' D' L2 D R D' L2 D:4	L2 B2 D2 L' F R' D L2 D2 L2 D R D' L2 D2 L2 F' D' L' D2 L2 F L F' L U2 D2
+L=8 best: cost 10, length 27 (two)
+L=10 direct: no solution within the bound
+L=10 two: cost 10, length 27 (nested)
+   1. at 4: insert F R' D L2 D' R D L2 D' F' (10), 4 cancel -> L2 B2 D2 L' F R' D L2 D' R D L2 F' D' L' D2 L2 F L F' L U2 D2 (23)
+   2. at 11: insert D' R' D' L2 D R D' L2 D2 (9), 5 cancel -> L2 B2 D2 L' F R' D L2 D2 L2 D R D' L2 D2 L2 F' D' L' D2 L2 F L F' L U2 D2 (27)
+SOL	5	10	two	10	27	1	4:F R' D L2 D' R D L2 D' F':4|11:D' R' D' L2 D R D' L2 D2:5	L2 B2 D2 L' F R' D L2 D2 L2 D R D' L2 D2 L2 F' D' L' D2 L2 F L F' L U2 D2
+L=10 two-flat: cost 11, length 28
+   1. at 8: insert R' L' U2 R D2 R' U2 R D2 L (10), 4 cancel -> L2 B2 D2 L' F D F' D' R' L' U2 R D2 R' U2 R L2 F L F' L U2 D2 (23)
+   2. at 3: insert L' U' F D2 F' U F D2 F' L (10), 5 cancel -> L2 B2 D2 L' U' F D2 F' U F D' F' D' R' L' U2 R D2 R' U2 R L2 F L F' L U2 D2 (28)
+SOL	5	10	two-flat	11	28	0	8:R' L' U2 R D2 R' U2 R D2 L:4|3:L' U' F D2 F' U F D2 F' L:5	L2 B2 D2 L' U' F D2 F' U F D' F' D' R' L' U2 R D2 R' U2 R L2 F L F' L U2 D2
+L=10 two-apart: cost 11, length 28
+   1. at 8: insert R' L' U2 R D2 R' U2 R D2 L (10), 4 cancel -> L2 B2 D2 L' F D F' D' R' L' U2 R D2 R' U2 R L2 F L F' L U2 D2 (23)
+   2. at 3: insert L' U' F D2 F' U F D2 F' L (10), 5 cancel -> L2 B2 D2 L' U' F D2 F' U F D' F' D' R' L' U2 R D2 R' U2 R L2 F L F' L U2 D2 (28)
+SOL	5	10	two-apart	11	28	0	8:R' L' U2 R D2 R' U2 R D2 L:4|3:L' U' F D2 F' U F D2 F' L:5	L2 B2 D2 L' U' F D2 F' U F D' F' D' R' L' U2 R D2 R' U2 R L2 F L F' L U2 D2
+L=10 mixed: cost 10, length 27 (nested)
+   1. at 4: insert F R' D L2 D' R D L2 D' F' (10), 4 cancel -> L2 B2 D2 L' F R' D L2 D' R D L2 F' D' L' D2 L2 F L F' L U2 D2 (23)
+   2. at 11: insert D' R' D' L2 D R D' L2 D2 (9), 5 cancel -> L2 B2 D2 L' F R' D L2 D2 L2 D R D' L2 D2 L2 F' D' L' D2 L2 F L F' L U2 D2 (27)
+SOL	5	10	mixed	10	27	1	4:F R' D L2 D' R D L2 D' F':4|11:D' R' D' L2 D R D' L2 D2:5	L2 B2 D2 L' F R' D L2 D2 L2 D R D' L2 D2 L2 F' D' L' D2 L2 F L F' L U2 D2
+L=10 best: cost 10, length 27 (two)
+
+CASE	6
+scramble: R' U' F R2 B R2 D2 B' L2 B2 D2 B2 R2 U2 L' B L D' L B2 U2 F U2 R' U' F
+skeleton: U B2 R' U F U' F U' F2 U' F2 U F2 U' F' D2 F B' R2 D (20) [written reduced]
+leftover: 3c | UBR>UBL UFR>UBR+1 UBL>UFR+2 | 0,1,6,3,4,5,7,2;0,0,0,0,0,0,1,2;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 6, length 26
+   1. at 15: insert F D F' U F D' F' U' (8), 2 cancel -> U B2 R' U F U' F U' F2 U' F2 U F2 U' D F' U F D' F' U' D2 F B' R2 D (26)
+SOL	6	8	one	6	26	0	15:F D F' U F D' F' U':2	U B2 R' U F U' F U' F2 U' F2 U F2 U' D F' U F D' F' U' D2 F B' R2 D
+L=8 direct: cost 6, length 26
+   1. at 15: insert F D F' U F D' F' U' (8), 2 cancel -> U B2 R' U F U' F U' F2 U' F2 U F2 U' D F' U F D' F' U' D2 F B' R2 D (26)
+SOL	6	8	direct	6	26	0	15:F D F' U F D' F' U':2	U B2 R' U F U' F U' F2 U' F2 U F2 U' D F' U F D' F' U' D2 F B' R2 D
+L=8 mixed: cost 6, length 26
+   1. at 2: insert B' L B R' B' L' B R (8), 3 cancel -> U B L B R' B' L' B U F U' F U' F2 U' F2 U F2 U' F' D2 F B' R2 D (25)
+   2. at 8: insert B' L B R' B' L' B R (8), 7 cancel -> U B L B R2 B' L' B R U F U' F U' F2 U' F2 U F2 U' F' D2 F B' R2 D (26)
+SOL	6	8	mixed	6	26	0	2:B' L B R' B' L' B R:3|8:B' L B R' B' L' B R:7	U B L B R2 B' L' B R U F U' F U' F2 U' F2 U F2 U' F' D2 F B' R2 D
+L=8 best: cost 6, length 26 (direct)
+L=10 one: cost 5, length 25
+   1. at 15: insert F U F' R F U' F' U R' U' (10), 5 cancel -> U B2 R' U F U' F U' F2 U' F2 U F R F U' F' U R' U' D2 F B' R2 D (25)
+SOL	6	10	one	5	25	0	15:F U F' R F U' F' U R' U':5	U B2 R' U F U' F U' F2 U' F2 U F R F U' F' U R' U' D2 F B' R2 D
+L=10 direct: cost 5, length 25
+   1. at 15: insert F U F' R F U' F' U R' U' (10), 5 cancel -> U B2 R' U F U' F U' F2 U' F2 U F R F U' F' U R' U' D2 F B' R2 D (25)
+SOL	6	10	direct	5	25	0	15:F U F' R F U' F' U R' U':5	U B2 R' U F U' F U' F2 U' F2 U F R F U' F' U R' U' D2 F B' R2 D
+L=10 mixed: cost 5, length 25
+   1. at 15: insert R F R' U R U' F' U R' U' (10), 0 cancel -> U B2 R' U F U' F U' F2 U' F2 U F2 U' F' R F R' U R U' F' U R' U' D2 F B' R2 D (30)
+   2. at 13: insert F' R F R' U' R F' R' F U (10), 15 cancel -> U B2 R' U F U' F U' F2 U' F2 U F R F U' F' U R' U' D2 F B' R2 D (25)
+SOL	6	10	mixed	5	25	0	15:R F R' U R U' F' U R' U':0|13:F' R F R' U' R F' R' F U:15	U B2 R' U F U' F U' F2 U' F2 U F R F U' F' U R' U' D2 F B' R2 D
+L=10 best: cost 5, length 25 (direct)
+
+CASE	7
+scramble: R' U' F D2 U2 B2 U2 F2 R2 D2 R' D2 R F2 R' B R2 D' L2 D' F L' B R' U' F
+skeleton: F' R D2 F' R' F D2 R' U2 R' F R B2 U' R2 F' (16)
+leftover: not one of the types | UFL>DBL+1 UBL>DFL+2 DBR>UBL+1 UFR>UFL+2 DFR>DBR DBL>DFR+2 DFL>UFR+1 DB>DL UF>FL+1 DR>DB FL>DF+1 FR>UF+1 DF>DR DL>FR+1 | 3,2,4,7,5,0,6,1;1,2,1,2,0,2,0,1;4,1,7,3,8,2,6,10,5,9,0,11;0,0,1,0,0,1,0,1,0,0,1,0
+
+CASE	8
+scramble: R' U' F U' L U R' L B' U2 L U' F R2 F' L2 B' D2 B' U2 D2 B R2 U2 R' U' F
+skeleton: B D F U L' U2 L2 F' L' F U2 B2 R' B2 L2 F R' F' L' (19)
+leftover: 3c | DFR>UBL+1 UFR>DFR+1 UBL>UFR+1 | 0,1,5,3,4,7,6,2;0,0,1,0,0,1,0,1;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 6, length 25
+   1. at 18: insert F D F' U' F D' F' U (8), 2 cancel -> B D F U L' U2 L2 F' L' F U2 B2 R' B2 L2 F R' D F' U' F D' F' U L' (25)
+SOL	8	8	one	6	25	0	18:F D F' U' F D' F' U:2	B D F U L' U2 L2 F' L' F U2 B2 R' B2 L2 F R' D F' U' F D' F' U L'
+L=8 direct: cost 6, length 25
+   1. at 18: insert F D F' U' F D' F' U (8), 2 cancel -> B D F U L' U2 L2 F' L' F U2 B2 R' B2 L2 F R' D F' U' F D' F' U L' (25)
+SOL	8	8	direct	6	25	0	18:F D F' U' F D' F' U:2	B D F U L' U2 L2 F' L' F U2 B2 R' B2 L2 F R' D F' U' F D' F' U L'
+L=8 mixed: cost 5, length 24
+   1. at 15: insert L' F R' F' L F R F' (8), 9 cancel -> B D F U L' U2 L2 F' L' F U2 B2 R' B2 L F R' F' (18)
+   2. at 18: insert F D F' U' F D' F' U (8), 2 cancel -> B D F U L' U2 L2 F' L' F U2 B2 R' B2 L F R' D F' U' F D' F' U (24)
+SOL	8	8	mixed	5	24	0	15:L' F R' F' L F R F':9|18:F D F' U' F D' F' U:2	B D F U L' U2 L2 F' L' F U2 B2 R' B2 L F R' D F' U' F D' F' U
+L=8 best: cost 5, length 24 (mixed)
+L=10 one: cost 6, length 25
+   1. at 19: insert L F D F' U' F D' F' U L' (10), 4 cancel -> B D F U L' U2 L2 F' L' F U2 B2 R' B2 L2 F R' D F' U' F D' F' U L' (25)
+SOL	8	10	one	6	25	0	19:L F D F' U' F D' F' U L':4	B D F U L' U2 L2 F' L' F U2 B2 R' B2 L2 F R' D F' U' F D' F' U L'
+L=10 direct: cost 6, length 25
+   1. at 19: insert L F D F' U' F D' F' U L' (10), 4 cancel -> B D F U L' U2 L2 F' L' F U2 B2 R' B2 L2 F R' D F' U' F D' F' U L' (25)
+SOL	8	10	direct	6	25	0	19:L F D F' U' F D' F' U L':4	B D F U L' U2 L2 F' L' F U2 B2 R' B2 L2 F R' D F' U' F D' F' U L'
+L=10 mixed: cost 5, length 24
+   1. at 13: insert F B2 R' F' L2 F R F' L2 B2 (10), 11 cancel -> B D F U L' U2 L2 F' L' F U2 B2 R' F B2 R' F' L (18)
+   2. at 18: insert L' F D F' U' F D' F' U L (10), 4 cancel -> B D F U L' U2 L2 F' L' F U2 B2 R' F B2 R' D F' U' F D' F' U L (24)
+SOL	8	10	mixed	5	24	0	13:F B2 R' F' L2 F R F' L2 B2:11|18:L' F D F' U' F D' F' U L:4	B D F U L' U2 L2 F' L' F U2 B2 R' F B2 R' D F' U' F D' F' U L
+L=10 best: cost 5, length 24 (mixed)
+
+CASE	9
+scramble: R' U' F R2 F2 D2 R' B2 L' B2 L D2 B2 D L2 B' D L B F' L U L2 R' U' F
+skeleton: U' F D' L2 B D B2 D L2 B' U2 D2 R2 F L' B' D' (17) [written reduced]
+leftover: not one of the types | DFR>UBL+2 UFR>DFR UBL>UFR+1 DB>BL BL>DB FR>UF+1 UF>FR+1 | 0,1,5,3,4,7,6,2;0,0,2,0,0,0,0,1;0,4,2,3,1,5,6,10,8,9,7,11;0,0,0,0,0,0,0,1,0,0,1,0
+
+CASE	10
+scramble: R' U' F B2 D2 F R2 D2 F L2 R2 U2 F2 R2 F' D' L B' L R' D' L2 U B' R' U' F
+skeleton: L F U' F B' D' F' D R L' F L F' R' L F D' (17) [written reduced]
+leftover: 3c | UBL>DBL+2 DBL>DFL+1 DFL>UBL | 2,0,1,3,4,5,6,7;2,1,0,0,0,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 7, length 24
+   1. at 12: insert R2 F L' F' R2 F L F' (8), 1 cancel -> L F U' F B' D' F' D R L' F R2 L F L' F' R2 F L F2 R' L F D' (24)
+SOL	10	8	one	7	24	0	12:R2 F L' F' R2 F L F':1	L F U' F B' D' F' D R L' F R2 L F L' F' R2 F L F2 R' L F D'
+L=8 direct: cost 7, length 24
+   1. at 12: insert R2 F L' F' R2 F L F' (8), 1 cancel -> L F U' F B' D' F' D R L' F R2 L F L' F' R2 F L F2 R' L F D' (24)
+SOL	10	8	direct	7	24	0	12:R2 F L' F' R2 F L F':1	L F U' F B' D' F' D R L' F R2 L F L' F' R2 F L F2 R' L F D'
+L=8 mixed: cost 7, length 24 (nested)
+   1. at 12: insert R2 F L F' R2 F L' F' (8), 1 cancel -> L F U' F B' D' F' D R L' F R2 L F L F' R2 F L' F2 R' L F D' (24)
+   2. at 18: insert F' R2 F L2 F' R2 F L2 (8), 8 cancel -> L F U' F B' D' F' D R L' F R2 L F L' F' R2 F L F2 R' L F D' (24)
+SOL	10	8	mixed	7	24	1	12:R2 F L F' R2 F L' F':1|18:F' R2 F L2 F' R2 F L2:8	L F U' F B' D' F' D R L' F R2 L F L' F' R2 F L F2 R' L F D'
+L=8 best: cost 7, length 24 (direct)
+L=10 one: cost 7, length 24
+   1. at 13: insert F R2 F L' F' R2 F L F2 (9), 2 cancel -> L F U' F B' D' F' D R L' F R2 L F L' F' R2 F L F2 R' L F D' (24)
+SOL	10	10	one	7	24	0	13:F R2 F L' F' R2 F L F2:2	L F U' F B' D' F' D R L' F R2 L F L' F' R2 F L F2 R' L F D'
+L=10 direct: cost 7, length 24
+   1. at 13: insert F R2 F L' F' R2 F L F2 (9), 2 cancel -> L F U' F B' D' F' D R L' F R2 L F L' F' R2 F L F2 R' L F D' (24)
+SOL	10	10	direct	7	24	0	13:F R2 F L' F' R2 F L F2:2	L F U' F B' D' F' D R L' F R2 L F L' F' R2 F L F2 R' L F D'
+L=10 mixed: cost 7, length 24
+   1. at 12: insert R2 F L' F' R F L F' R (9), 0 cancel -> L F U' F B' D' F' D R L' F R2 L F L' F' R F L F' R F' R' L F D' (26)
+   2. at 22: insert F R' F L' F' R F L F2 (9), 11 cancel -> L F U' F B' D' F' D R L' F R2 L F L' F' R2 F L F2 R' L F D' (24)
+SOL	10	10	mixed	7	24	0	12:R2 F L' F' R F L F' R:0|22:F R' F L' F' R F L F2:11	L F U' F B' D' F' D R L' F R2 L F L' F' R2 F L F2 R' L F D'
+L=10 best: cost 7, length 24 (direct)
+
+CASE	11
+scramble: R' U' F L2 F L2 R2 B R2 U2 B' L2 B D2 B R F' D' B' L' B' F' L' F2 R' U' F
+skeleton: F R' L2 B R L' U' L' U L2 U B' U' F2 B L' (16) [written reduced]
+leftover: 5c | DFR>DBL UFR>DFL DBL>DBR+1 DFL>DFR DBR>UFR+2 | 5,7,2,3,0,1,6,4;0,0,0,0,1,0,0,2;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 direct: no solution within the bound
+L=8 two: cost 8, length 24
+   1. at 13: insert U' F' U B U' F U B' (8), 3 cancel -> F R' L2 B R L' U' L' U L2 U B' U2 F' U B U' F U F2 L' (21)
+   2. at 6: insert R' U' L2 U R U' L2 U (8), 5 cancel -> F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L' (24)
+SOL	11	8	two	8	24	0	13:U' F' U B U' F U B':3|6:R' U' L2 U R U' L2 U:5	F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L'
+L=8 two-flat: cost 8, length 24
+   1. at 13: insert U' F' U B U' F U B' (8), 3 cancel -> F R' L2 B R L' U' L' U L2 U B' U2 F' U B U' F U F2 L' (21)
+   2. at 6: insert R' U' L2 U R U' L2 U (8), 5 cancel -> F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L' (24)
+SOL	11	8	two-flat	8	24	0	13:U' F' U B U' F U B':3|6:R' U' L2 U R U' L2 U:5	F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L'
+L=8 two-apart: cost 8, length 24
+   1. at 13: insert U' F' U B U' F U B' (8), 3 cancel -> F R' L2 B R L' U' L' U L2 U B' U2 F' U B U' F U F2 L' (21)
+   2. at 6: insert R' U' L2 U R U' L2 U (8), 5 cancel -> F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L' (24)
+SOL	11	8	two-apart	8	24	0	13:U' F' U B U' F U B':3|6:R' U' L2 U R U' L2 U:5	F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L'
+L=8 mixed: cost 8, length 24
+   1. at 13: insert U' F' U B U' F U B' (8), 3 cancel -> F R' L2 B R L' U' L' U L2 U B' U2 F' U B U' F U F2 L' (21)
+   2. at 6: insert R' U' L2 U R U' L2 U (8), 5 cancel -> F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L' (24)
+SOL	11	8	mixed	8	24	0	13:U' F' U B U' F U B':3|6:R' U' L2 U R U' L2 U:5	F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L'
+L=8 best: cost 8, length 24 (two)
+L=10 direct: cost 10, length 26
+   1. at 13: insert L' U2 F U2 L U2 L' F' L U2 (10), 0 cancel -> F R' L2 B R L' U' L' U L2 U B' U' L' U2 F U2 L U2 L' F' L U2 F2 B L' (26)
+SOL	11	10	direct	10	26	0	13:L' U2 F U2 L U2 L' F' L U2:0	F R' L2 B R L' U' L' U L2 U B' U' L' U2 F U2 L U2 L' F' L U2 F2 B L'
+L=10 two: cost 8, length 24
+   1. at 12: insert U2 F' U B U' F U B' U (9), 4 cancel -> F R' L2 B R L' U' L' U L2 U B' U2 F' U B U' F U F2 L' (21)
+   2. at 4: insert L' U' L2 U R U' L2 U R' L (10), 7 cancel -> F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L' (24)
+SOL	11	10	two	8	24	0	12:U2 F' U B U' F U B' U:4|4:L' U' L2 U R U' L2 U R' L:7	F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L'
+L=10 two-flat: cost 8, length 24
+   1. at 12: insert U2 F' U B U' F U B' U (9), 4 cancel -> F R' L2 B R L' U' L' U L2 U B' U2 F' U B U' F U F2 L' (21)
+   2. at 4: insert L' U' L2 U R U' L2 U R' L (10), 7 cancel -> F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L' (24)
+SOL	11	10	two-flat	8	24	0	12:U2 F' U B U' F U B' U:4|4:L' U' L2 U R U' L2 U R' L:7	F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L'
+L=10 two-apart: cost 8, length 24
+   1. at 12: insert U2 F' U B U' F U B' U (9), 4 cancel -> F R' L2 B R L' U' L' U L2 U B' U2 F' U B U' F U F2 L' (21)
+   2. at 4: insert L' U' L2 U R U' L2 U R' L (10), 7 cancel -> F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L' (24)
+SOL	11	10	two-apart	8	24	0	12:U2 F' U B U' F U B' U:4|4:L' U' L2 U R U' L2 U R' L:7	F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L'
+L=10 mixed: cost 8, length 24
+   1. at 12: insert U2 F' U B U' F U B' U (9), 4 cancel -> F R' L2 B R L' U' L' U L2 U B' U2 F' U B U' F U F2 L' (21)
+   2. at 4: insert L' U' L2 U R U' L2 U R' L (10), 7 cancel -> F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L' (24)
+SOL	11	10	mixed	8	24	0	12:U2 F' U B U' F U B' U:4|4:L' U' L2 U R U' L2 U R' L:7	F R' L2 B L' U' L2 U R U' L U L2 U B' U2 F' U B U' F U F2 L'
+L=10 best: cost 8, length 24 (two)
+
+CASE	12
+scramble: R' U' F L2 B2 R' D2 L D2 R2 B2 U2 B2 D2 B L2 D' L D2 R' B' D' R' U' F
+skeleton: L U' L' F' L' U F D2 R D2 R' B D2 F' B' D L2 F2 R (19) [written reduced]
+leftover: 3c | DFR>UBL UBL>DBR DBR>DFR | 0,1,5,3,2,4,6,7;0,0,0,0,0,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 6, length 25
+   1. at 9: insert R D' L' D R' D' L D (8), 2 cancel -> L U' L' F' L' U F D2 R2 D' L' D R' D' L D' R' B D2 F' B' D L2 F2 R (25)
+SOL	12	8	one	6	25	0	9:R D' L' D R' D' L D:2	L U' L' F' L' U F D2 R2 D' L' D R' D' L D' R' B D2 F' B' D L2 F2 R
+L=8 direct: cost 6, length 25
+   1. at 9: insert R D' L' D R' D' L D (8), 2 cancel -> L U' L' F' L' U F D2 R2 D' L' D R' D' L D' R' B D2 F' B' D L2 F2 R (25)
+SOL	12	8	direct	6	25	0	9:R D' L' D R' D' L D:2	L U' L' F' L' U F D2 R2 D' L' D R' D' L D' R' B D2 F' B' D L2 F2 R
+L=8 mixed: cost 6, length 25
+   1. at 8: insert R2 D' L' D R2 D' L D (8), 0 cancel -> L U' L' F' L' U F D2 R2 D' L' D R2 D' L D R D2 R' B D2 F' B' D L2 F2 R (27)
+   2. at 17: insert R' D' L' D R D' L D (8), 10 cancel -> L U' L' F' L' U F D2 R2 D' L' D R' D' L D' R' B D2 F' B' D L2 F2 R (25)
+SOL	12	8	mixed	6	25	0	8:R2 D' L' D R2 D' L D:0|17:R' D' L' D R D' L D:10	L U' L' F' L' U F D2 R2 D' L' D R' D' L D' R' B D2 F' B' D L2 F2 R
+L=8 best: cost 6, length 25 (direct)
+L=10 one: cost 6, length 25
+   1. at 10: insert D2 R D' L' D R' D' L D' (9), 3 cancel -> L U' L' F' L' U F D2 R2 D' L' D R' D' L D' R' B D2 F' B' D L2 F2 R (25)
+SOL	12	10	one	6	25	0	10:D2 R D' L' D R' D' L D':3	L U' L' F' L' U F D2 R2 D' L' D R' D' L D' R' B D2 F' B' D L2 F2 R
+L=10 direct: cost 6, length 25
+   1. at 10: insert D2 R D' L' D R' D' L D' (9), 3 cancel -> L U' L' F' L' U F D2 R2 D' L' D R' D' L D' R' B D2 F' B' D L2 F2 R (25)
+SOL	12	10	direct	6	25	0	10:D2 R D' L' D R' D' L D':3	L U' L' F' L' U F D2 R2 D' L' D R' D' L D' R' B D2 F' B' D L2 F2 R
+L=10 mixed: cost 6, length 25
+   1. at 8: insert R2 D' L' D R D' L D R (9), 1 cancel -> L U' L' F' L' U F D2 R2 D' L' D R D' L D R2 D2 R' B D2 F' B' D L2 F2 R (27)
+   2. at 18: insert D2 R2 D' L' D R2 D' L D' (9), 11 cancel -> L U' L' F' L' U F D2 R2 D' L' D R' D' L D' R' B D2 F' B' D L2 F2 R (25)
+SOL	12	10	mixed	6	25	0	8:R2 D' L' D R D' L D R:1|18:D2 R2 D' L' D R2 D' L D':11	L U' L' F' L' U F D2 R2 D' L' D R' D' L D' R' B D2 F' B' D L2 F2 R
+L=10 best: cost 6, length 25 (direct)
+
+CASE	13
+scramble: R' U' F D F2 U' F2 R2 B2 U F2 L2 D' B R' D' B2 U2 L D2 L' B U' R' U' F
+skeleton: U' R D F2 U' R' B' D2 F2 L (10)
+leftover: not one of the types | UBL>UBL+2 UFL>UFL+2 UBR>UBR+2 UR>UF+1 UF>DR+1 DR>UR | 0,1,2,3,4,5,6,7;0,0,2,2,0,0,2,0;0,1,2,3,4,5,6,11,7,9,10,8;0,0,0,0,0,0,0,1,1,0,0,0
+
+CASE	14
+scramble: R' U' F D F' L2 R2 D U2 L2 U' R2 U' B2 L2 D2 B L' D' R' D R' B R' U' F
+skeleton: D B' D' F L' F2 B U F U2 F2 U' F2 B2 D' F' B' U B' (19) [written reduced]
+leftover: 3c | DFR>UBL UBR>DFR+2 UBL>UBR+1 | 0,1,5,3,4,6,2,7;0,0,0,0,0,2,1,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 6, length 25
+   1. at 15: insert R2 B' L B R2 B' L' B (8), 2 cancel -> D B' D' F L' F2 B U F U2 F2 U' F2 B2 D' R2 B' L B R2 B' L' F' U B' (25)
+SOL	14	8	one	6	25	0	15:R2 B' L B R2 B' L' B:2	D B' D' F L' F2 B U F U2 F2 U' F2 B2 D' R2 B' L B R2 B' L' F' U B'
+L=8 direct: cost 6, length 25
+   1. at 15: insert R2 B' L B R2 B' L' B (8), 2 cancel -> D B' D' F L' F2 B U F U2 F2 U' F2 B2 D' R2 B' L B R2 B' L' F' U B' (25)
+SOL	14	8	direct	6	25	0	15:R2 B' L B R2 B' L' B:2	D B' D' F L' F2 B U F U2 F2 U' F2 B2 D' R2 B' L B R2 B' L' F' U B'
+L=8 mixed: cost 6, length 25
+   1. at 3: insert L B L' F L B' L' F' (8), 3 cancel -> D B' D' L B L' F L B' L2 F2 B U F U2 F2 U' F2 B2 D' F' B' U B' (24)
+   2. at 3: insert F2 L B L' F2 L B' L' (8), 7 cancel -> D B' D' F2 L B L' F' L B' L2 F2 B U F U2 F2 U' F2 B2 D' F' B' U B' (25)
+SOL	14	8	mixed	6	25	0	3:L B L' F L B' L' F':3|3:F2 L B L' F2 L B' L':7	D B' D' F2 L B L' F' L B' L2 F2 B U F U2 F2 U' F2 B2 D' F' B' U B'
+L=8 best: cost 6, length 25 (direct)
+L=10 one: cost 6, length 25
+   1. at 17: insert F B R2 B' L B R2 B' L' F' (10), 4 cancel -> D B' D' F L' F2 B U F U2 F2 U' F2 B2 D' R2 B' L B R2 B' L' F' U B' (25)
+SOL	14	10	one	6	25	0	17:F B R2 B' L B R2 B' L' F':4	D B' D' F L' F2 B U F U2 F2 U' F2 B2 D' R2 B' L B R2 B' L' F' U B'
+L=10 direct: cost 6, length 25
+   1. at 17: insert F B R2 B' L B R2 B' L' F' (10), 4 cancel -> D B' D' F L' F2 B U F U2 F2 U' F2 B2 D' R2 B' L B R2 B' L' F' U B' (25)
+SOL	14	10	direct	6	25	0	17:F B R2 B' L B R2 B' L' F':4	D B' D' F L' F2 B U F U2 F2 U' F2 B2 D' R2 B' L B R2 B' L' F' U B'
+L=10 mixed: cost 6, length 25
+   1. at 2: insert D' L B L' F L B' L' F' D (10), 5 cancel -> D B' D' L B L' F L B' L2 F2 B U F U2 F2 U' F2 B2 D' F' B' U B' (24)
+   2. at 2: insert D' F2 L B L' F2 L B' L' D (10), 9 cancel -> D B' D' F2 L B L' F' L B' L2 F2 B U F U2 F2 U' F2 B2 D' F' B' U B' (25)
+SOL	14	10	mixed	6	25	0	2:D' L B L' F L B' L' F' D:5|2:D' F2 L B L' F2 L B' L' D:9	D B' D' F2 L B L' F' L B' L2 F2 B U F U2 F2 U' F2 B2 D' F' B' U B'
+L=10 best: cost 6, length 25 (direct)
+
+CASE	15
+scramble: R' U' F L U B R' U2 D2 R' D F' B2 L2 U2 D2 B2 U2 R F2 D2 R' B2 R' U' F
+skeleton: F2 U' F' U F D' F2 D2 B U2 D2 R' D' F2 U' (15) [written reduced]
+leftover: 3c3c | UFR>DBL+2 DFR>DFL+2 DBL>UFL+2 DFL>DBR+2 DBR>DFR+2 UFL>UFR+2 | 7,5,2,0,1,4,6,3;2,2,0,2,2,2,0,2;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 direct: no solution within the bound
+L=8 two: cost 9, length 24 (nested)
+   1. at 8: insert D F2 D' B D F2 D' B' (8), 4 cancel -> F2 U' F' U F D' F2 D' F2 D' B D F2 U2 D R' D' F2 U' (19)
+   2. at 14: insert U2 F' D2 F U2 F' D2 F (8), 3 cancel -> F2 U' F' U F D' F2 D' F2 D' B D F D2 F U2 F' D2 F D R' D' F2 U' (24)
+SOL	15	8	two	9	24	1	8:D F2 D' B D F2 D' B':4|14:U2 F' D2 F U2 F' D2 F:3	F2 U' F' U F D' F2 D' F2 D' B D F D2 F U2 F' D2 F D R' D' F2 U'
+L=8 two-flat: cost 10, length 25
+   1. at 8: insert D F2 D' B D F2 D' B' (8), 4 cancel -> F2 U' F' U F D' F2 D' F2 D' B D F2 U2 D R' D' F2 U' (19)
+   2. at 4: insert U B2 U' F2 U B2 U' F2 (8), 2 cancel -> F2 U' F' U2 B2 U' F2 U B2 U' F' D' F2 D' F2 D' B D F2 U2 D R' D' F2 U' (25)
+SOL	15	8	two-flat	10	25	0	8:D F2 D' B D F2 D' B':4|4:U B2 U' F2 U B2 U' F2:2	F2 U' F' U2 B2 U' F2 U B2 U' F' D' F2 D' F2 D' B D F2 U2 D R' D' F2 U'
+L=8 two-apart: cost 10, length 25
+   1. at 8: insert D F2 D' B D F2 D' B' (8), 4 cancel -> F2 U' F' U F D' F2 D' F2 D' B D F2 U2 D R' D' F2 U' (19)
+   2. at 4: insert U B2 U' F2 U B2 U' F2 (8), 2 cancel -> F2 U' F' U2 B2 U' F2 U B2 U' F' D' F2 D' F2 D' B D F2 U2 D R' D' F2 U' (25)
+SOL	15	8	two-apart	10	25	0	8:D F2 D' B D F2 D' B':4|4:U B2 U' F2 U B2 U' F2:2	F2 U' F' U2 B2 U' F2 U B2 U' F' D' F2 D' F2 D' B D F2 U2 D R' D' F2 U'
+L=8 mixed: cost 9, length 24 (nested)
+   1. at 8: insert D F2 D' B D F2 D' B' (8), 4 cancel -> F2 U' F' U F D' F2 D' F2 D' B D F2 U2 D R' D' F2 U' (19)
+   2. at 14: insert U2 F' D2 F U2 F' D2 F (8), 3 cancel -> F2 U' F' U F D' F2 D' F2 D' B D F D2 F U2 F' D2 F D R' D' F2 U' (24)
+SOL	15	8	mixed	9	24	1	8:D F2 D' B D F2 D' B':4|14:U2 F' D2 F U2 F' D2 F:3	F2 U' F' U F D' F2 D' F2 D' B D F D2 F U2 F' D2 F D R' D' F2 U'
+L=8 best: cost 9, length 24 (two)
+L=10 direct: no solution within the bound
+L=10 two: cost 9, length 24
+   1. at 7: insert D' F2 D' B D F2 D' B' D2 (9), 5 cancel -> F2 U' F' U F D' F2 D' F2 D' B D F2 U2 D R' D' F2 U' (19)
+   2. at 15: insert U2 D' F' D2 F U2 F' D2 F D (10), 5 cancel -> F2 U' F' U F D' F2 D' F2 D' B D F D2 F U2 F' D2 F D R' D' F2 U' (24)
+SOL	15	10	two	9	24	0	7:D' F2 D' B D F2 D' B' D2:5|15:U2 D' F' D2 F U2 F' D2 F D:5	F2 U' F' U F D' F2 D' F2 D' B D F D2 F U2 F' D2 F D R' D' F2 U'
+L=10 two-flat: cost 9, length 24
+   1. at 7: insert D' F2 D' B D F2 D' B' D2 (9), 5 cancel -> F2 U' F' U F D' F2 D' F2 D' B D F2 U2 D R' D' F2 U' (19)
+   2. at 15: insert U2 D' F' D2 F U2 F' D2 F D (10), 5 cancel -> F2 U' F' U F D' F2 D' F2 D' B D F D2 F U2 F' D2 F D R' D' F2 U' (24)
+SOL	15	10	two-flat	9	24	0	7:D' F2 D' B D F2 D' B' D2:5|15:U2 D' F' D2 F U2 F' D2 F D:5	F2 U' F' U F D' F2 D' F2 D' B D F D2 F U2 F' D2 F D R' D' F2 U'
+L=10 two-apart: cost 10, length 25
+   1. at 7: insert D' F2 D' B D F2 D' B' D2 (9), 5 cancel -> F2 U' F' U F D' F2 D' F2 D' B D F2 U2 D R' D' F2 U' (19)
+   2. at 3: insert U2 B2 U' F2 U B2 U' F2 U' (9), 3 cancel -> F2 U' F' U2 B2 U' F2 U B2 U' F' D' F2 D' F2 D' B D F2 U2 D R' D' F2 U' (25)
+SOL	15	10	two-apart	10	25	0	7:D' F2 D' B D F2 D' B' D2:5|3:U2 B2 U' F2 U B2 U' F2 U':3	F2 U' F' U2 B2 U' F2 U B2 U' F' D' F2 D' F2 D' B D F2 U2 D R' D' F2 U'
+L=10 mixed: cost 9, length 24
+   1. at 7: insert D' F2 D' B D F2 D' B' D2 (9), 5 cancel -> F2 U' F' U F D' F2 D' F2 D' B D F2 U2 D R' D' F2 U' (19)
+   2. at 15: insert U2 D' F' D2 F U2 F' D2 F D (10), 5 cancel -> F2 U' F' U F D' F2 D' F2 D' B D F D2 F U2 F' D2 F D R' D' F2 U' (24)
+SOL	15	10	mixed	9	24	0	7:D' F2 D' B D F2 D' B' D2:5|15:U2 D' F' D2 F U2 F' D2 F D:5	F2 U' F' U F D' F2 D' F2 D' B D F D2 F U2 F' D2 F D R' D' F2 U'
+L=10 best: cost 9, length 24 (two)
+
+CASE	16
+scramble: R' U' F D U2 F2 D F2 R2 D2 B2 L2 U' F' U2 B' U L F' U' B L' D R' U' F
+skeleton: U' R' D2 R U L D2 L' F2 D L2 F2 L' U' D2 R D' F' B2 R2 D L' (22) [written reduced]
+leftover: 3c | DFR>DBL+1 DBL>UBL UBL>DFR+2 | 5,1,0,3,4,2,6,7;1,0,0,0,0,2,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 3, length 25
+   1. at 13: insert L F2 L' B' L F2 L' B (8), 5 cancel -> U' R' D2 R U L D2 L' F2 D L B' L F2 L' B U' D2 R D' F' B2 R2 D L' (25)
+SOL	16	8	one	3	25	0	13:L F2 L' B' L F2 L' B:5	U' R' D2 R U L D2 L' F2 D L B' L F2 L' B U' D2 R D' F' B2 R2 D L'
+L=8 direct: cost 3, length 25
+   1. at 13: insert L F2 L' B' L F2 L' B (8), 5 cancel -> U' R' D2 R U L D2 L' F2 D L B' L F2 L' B U' D2 R D' F' B2 R2 D L' (25)
+SOL	16	8	direct	3	25	0	13:L F2 L' B' L F2 L' B:5	U' R' D2 R U L D2 L' F2 D L B' L F2 L' B U' D2 R D' F' B2 R2 D L'
+L=8 mixed: cost 3, length 25
+   1. at 11: insert L' B' L F L' B L F' (8), 2 cancel -> U' R' D2 R U L D2 L' F2 D L B' L F L' B L F L' U' D2 R D' F' B2 R2 D L' (28)
+   2. at 19: insert L F' L' B' L F L' B (8), 11 cancel -> U' R' D2 R U L D2 L' F2 D L B' L F2 L' B U' D2 R D' F' B2 R2 D L' (25)
+SOL	16	8	mixed	3	25	0	11:L' B' L F L' B L F':2|19:L F' L' B' L F L' B:11	U' R' D2 R U L D2 L' F2 D L B' L F2 L' B U' D2 R D' F' B2 R2 D L'
+L=8 best: cost 3, length 25 (direct)
+L=10 one: cost 3, length 25
+   1. at 14: insert U L F2 L' B' L F2 L' B U' (10), 7 cancel -> U' R' D2 R U L D2 L' F2 D L B' L F2 L' B U' D2 R D' F' B2 R2 D L' (25)
+SOL	16	10	one	3	25	0	14:U L F2 L' B' L F2 L' B U':7	U' R' D2 R U L D2 L' F2 D L B' L F2 L' B U' D2 R D' F' B2 R2 D L'
+L=10 direct: cost 3, length 25
+   1. at 14: insert U L F2 L' B' L F2 L' B U' (10), 7 cancel -> U' R' D2 R U L D2 L' F2 D L B' L F2 L' B U' D2 R D' F' B2 R2 D L' (25)
+SOL	16	10	direct	3	25	0	14:U L F2 L' B' L F2 L' B U':7	U' R' D2 R U L D2 L' F2 D L B' L F2 L' B U' D2 R D' F' B2 R2 D L'
+L=10 mixed: cost 3, length 25
+   1. at 10: insert L B' L F L' B L F' L2 (9), 3 cancel -> U' R' D2 R U L D2 L' F2 D L B' L F L' B L F L' U' D2 R D' F' B2 R2 D L' (28)
+   2. at 19: insert L F' L' B' L F L' B (8), 11 cancel -> U' R' D2 R U L D2 L' F2 D L B' L F2 L' B U' D2 R D' F' B2 R2 D L' (25)
+SOL	16	10	mixed	3	25	0	10:L B' L F L' B L F' L2:3|19:L F' L' B' L F L' B:11	U' R' D2 R U L D2 L' F2 D L B' L F2 L' B U' D2 R D' F' B2 R2 D L'
+L=10 best: cost 3, length 25 (direct)
+
+CASE	17
+scramble: R' U' F B2 R2 U' L2 U R2 B2 U2 B2 F2 L2 F2 R' B R2 F2 R' U F2 D U' R' U' F
+skeleton: U F R B2 L' B2 L B L' B L' U2 F2 U2 D B2 (16) [written reduced]
+leftover: 3c | UFL>DFL+1 DFR>UFL+2 DFL>DFR | 0,3,2,5,4,1,6,7;0,1,0,2,0,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 5, length 21
+   1. at 13: insert F U2 F' D F U2 F' D' (8), 3 cancel -> U F R B2 L' B2 L B L' B L' U2 F' U2 F' D F U2 F' U2 B2 (21)
+SOL	17	8	one	5	21	0	13:F U2 F' D F U2 F' D':3	U F R B2 L' B2 L B L' B L' U2 F' U2 F' D F U2 F' U2 B2
+L=8 direct: cost 5, length 21
+   1. at 13: insert F U2 F' D F U2 F' D' (8), 3 cancel -> U F R B2 L' B2 L B L' B L' U2 F' U2 F' D F U2 F' U2 B2 (21)
+SOL	17	8	direct	5	21	0	13:F U2 F' D F U2 F' D':3	U F R B2 L' B2 L B L' B L' U2 F' U2 F' D F U2 F' U2 B2
+L=8 mixed: cost 5, length 21 (nested)
+   1. at 13: insert F U F' D F U' F' D' (8), 3 cancel -> U F R B2 L' B2 L B L' B L' U2 F' U F' D F U' F' U2 B2 (21)
+   2. at 17: insert F' D' F U F' D F U' (8), 8 cancel -> U F R B2 L' B2 L B L' B L' U2 F' U2 F' D F U2 F' U2 B2 (21)
+SOL	17	8	mixed	5	21	1	13:F U F' D F U' F' D':3|17:F' D' F U F' D F U':8	U F R B2 L' B2 L B L' B L' U2 F' U2 F' D F U2 F' U2 B2
+L=8 best: cost 5, length 21 (direct)
+L=10 one: cost 5, length 21
+   1. at 15: insert U2 D' F U2 F' D F U2 F' U2 (10), 5 cancel -> U F R B2 L' B2 L B L' B L' U2 F' U2 F' D F U2 F' U2 B2 (21)
+SOL	17	10	one	5	21	0	15:U2 D' F U2 F' D F U2 F' U2:5	U F R B2 L' B2 L B L' B L' U2 F' U2 F' D F U2 F' U2 B2
+L=10 direct: cost 5, length 21
+   1. at 15: insert U2 D' F U2 F' D F U2 F' U2 (10), 5 cancel -> U F R B2 L' B2 L B L' B L' U2 F' U2 F' D F U2 F' U2 B2 (21)
+SOL	17	10	direct	5	21	0	15:U2 D' F U2 F' D F U2 F' U2:5	U F R B2 L' B2 L B L' B L' U2 F' U2 F' D F U2 F' U2 B2
+L=10 mixed: cost 5, length 21
+   1. at 13: insert D' F U2 F' D2 F U2 F' D' (9), 2 cancel -> U F R B2 L' B2 L B L' B L' U2 F2 D' F U2 F' D2 F U2 F' U2 B2 (23)
+   2. at 12: insert F' U2 F' D' F U2 F' D F2 (9), 11 cancel -> U F R B2 L' B2 L B L' B L' U2 F' U2 F' D F U2 F' U2 B2 (21)
+SOL	17	10	mixed	5	21	0	13:D' F U2 F' D2 F U2 F' D':2|12:F' U2 F' D' F U2 F' D F2:11	U F R B2 L' B2 L B L' B L' U2 F' U2 F' D F U2 F' U2 B2
+L=10 best: cost 5, length 21 (direct)
+
+CASE	18
+scramble: R' U' F L2 D' F2 U L2 D2 F2 D' L2 D' R2 L U2 B F' U2 L D2 L D' L R' U' F
+skeleton: R F' R F R D2 R D F' R2 F L2 U2 L' U D' F' U2 D F (20) [written reduced]
+leftover: 3c | DBR>DFL+2 DFL>UBL UBL>DBR+1 | 0,4,1,3,2,5,6,7;0,2,0,0,1,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 6, length 26
+   1. at 16: insert D R U' R' D' R U R' (8), 2 cancel -> R F' R F R D2 R D F' R2 F L2 U2 L' U R U' R' D' R U R' F' U2 D F (26)
+SOL	18	8	one	6	26	0	16:D R U' R' D' R U R':2	R F' R F R D2 R D F' R2 F L2 U2 L' U R U' R' D' R U R' F' U2 D F
+L=8 direct: cost 6, length 26
+   1. at 16: insert D R U' R' D' R U R' (8), 2 cancel -> R F' R F R D2 R D F' R2 F L2 U2 L' U R U' R' D' R U R' F' U2 D F (26)
+SOL	18	8	direct	6	26	0	16:D R U' R' D' R U R':2	R F' R F R D2 R D F' R2 F L2 U2 L' U R U' R' D' R U R' F' U2 D F
+L=8 mixed: cost 6, length 26
+   1. at 15: insert F' U2 F D' F' U2 F D (8), 6 cancel -> R F' R F R D2 R D F' R2 F L2 U2 L' U F' U2 F D' F' D F (22)
+   2. at 2: insert F' L F R F' L' F R' (8), 4 cancel -> R F2 L F R F' L' F2 R D2 R D F' R2 F L2 U2 L' U F' U2 F D' F' D F (26)
+SOL	18	8	mixed	6	26	0	15:F' U2 F D' F' U2 F D:6|2:F' L F R F' L' F R':4	R F2 L F R F' L' F2 R D2 R D F' R2 F L2 U2 L' U F' U2 F D' F' D F
+L=8 best: cost 6, length 26 (direct)
+L=10 one: cost 6, length 26
+   1. at 17: insert F D R U' R' D' R U R' F' (10), 4 cancel -> R F' R F R D2 R D F' R2 F L2 U2 L' U R U' R' D' R U R' F' U2 D F (26)
+SOL	18	10	one	6	26	0	17:F D R U' R' D' R U R' F':4	R F' R F R D2 R D F' R2 F L2 U2 L' U R U' R' D' R U R' F' U2 D F
+L=10 direct: cost 6, length 26
+   1. at 17: insert F D R U' R' D' R U R' F' (10), 4 cancel -> R F' R F R D2 R D F' R2 F L2 U2 L' U R U' R' D' R U R' F' U2 D F (26)
+SOL	18	10	direct	6	26	0	17:F D R U' R' D' R U R' F':4	R F' R F R D2 R D F' R2 F L2 U2 L' U R U' R' D' R U R' F' U2 D F
+L=10 mixed: cost 6, length 26
+   1. at 14: insert U F' U2 F D' F' U2 F U' D (10), 8 cancel -> R F' R F R D2 R D F' R2 F L2 U2 L' U F' U2 F D' F' D F (22)
+   2. at 1: insert F2 L F R F' L' F R' F (9), 5 cancel -> R F2 L F R F' L' F2 R D2 R D F' R2 F L2 U2 L' U F' U2 F D' F' D F (26)
+SOL	18	10	mixed	6	26	0	14:U F' U2 F D' F' U2 F U' D:8|1:F2 L F R F' L' F R' F:5	R F2 L F R F' L' F2 R D2 R D F' R2 F L2 U2 L' U F' U2 F D' F' D F
+L=10 best: cost 6, length 26 (direct)
+
+CASE	19
+scramble: R' U' F U' R' U2 D2 B' U2 R2 U' L B' R2 F' L2 B D2 F' R2 L2 F' R' U' F
+skeleton: R U2 F' B R F2 B2 L' F' L2 U2 B' U L2 U2 (15) [written reduced]
+leftover: not one of the types | UBL>DBL+1 UFL>DFL+2 DBL>UBL+2 DFL>UFL+1 UR>UF UF>DR DR>UR | 2,3,0,1,4,5,6,7;1,2,2,1,0,0,0,0;0,1,2,3,4,5,6,11,7,9,10,8;0,0,0,0,0,0,0,0,0,0,0,0
+
+CASE	20
+scramble: R' U' F L' D2 B R2 B L2 R2 F L2 B R2 B U2 D' L B2 U2 F' D B2 F R' U' F
+skeleton: D' F2 D' B' R' F R L2 F2 R F L D L (14) [written reduced]
+leftover: 5c | DFR>DBL+2 UFR>DFL DBL>DBR DFL>DFR+2 DBR>UFR+2 | 5,7,2,3,0,1,6,4;2,0,0,0,0,2,0,2;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 direct: no solution within the bound
+L=8 two: cost 11, length 25
+   1. at 11: insert D R D' L D R' D' L' (8), 4 cancel -> D' F2 D' B' R' F R L2 F2 R F D R D' L D R' L (18)
+   2. at 7: insert R U L' U' R' U L U' (8), 1 cancel -> D' F2 D' B' R' F R2 U L' U' R' U L U' L2 F2 R F D R D' L D R' L (25)
+SOL	20	8	two	11	25	0	11:D R D' L D R' D' L':4|7:R U L' U' R' U L U':1	D' F2 D' B' R' F R2 U L' U' R' U L U' L2 F2 R F D R D' L D R' L
+L=8 two-flat: cost 11, length 25
+   1. at 11: insert D R D' L D R' D' L' (8), 4 cancel -> D' F2 D' B' R' F R L2 F2 R F D R D' L D R' L (18)
+   2. at 7: insert R U L' U' R' U L U' (8), 1 cancel -> D' F2 D' B' R' F R2 U L' U' R' U L U' L2 F2 R F D R D' L D R' L (25)
+SOL	20	8	two-flat	11	25	0	11:D R D' L D R' D' L':4|7:R U L' U' R' U L U':1	D' F2 D' B' R' F R2 U L' U' R' U L U' L2 F2 R F D R D' L D R' L
+L=8 two-apart: cost 11, length 25
+   1. at 11: insert D R D' L D R' D' L' (8), 4 cancel -> D' F2 D' B' R' F R L2 F2 R F D R D' L D R' L (18)
+   2. at 7: insert R U L' U' R' U L U' (8), 1 cancel -> D' F2 D' B' R' F R2 U L' U' R' U L U' L2 F2 R F D R D' L D R' L (25)
+SOL	20	8	two-apart	11	25	0	11:D R D' L D R' D' L':4|7:R U L' U' R' U L U':1	D' F2 D' B' R' F R2 U L' U' R' U L U' L2 F2 R F D R D' L D R' L
+L=8 mixed: cost 11, length 25
+   1. at 11: insert D R D' L D R' D' L' (8), 4 cancel -> D' F2 D' B' R' F R L2 F2 R F D R D' L D R' L (18)
+   2. at 7: insert R U L' U' R' U L U' (8), 1 cancel -> D' F2 D' B' R' F R2 U L' U' R' U L U' L2 F2 R F D R D' L D R' L (25)
+SOL	20	8	mixed	11	25	0	11:D R D' L D R' D' L':4|7:R U L' U' R' U L U':1	D' F2 D' B' R' F R2 U L' U' R' U L U' L2 F2 R F D R D' L D R' L
+L=8 best: cost 11, length 25 (two)
+L=10 direct: cost 10, length 24
+   1. at 1: insert U' B' U L2 U' L2 B L2 U L2 (10), 0 cancel -> U' D' B' U L2 U' L2 B L2 U L2 F2 D' B' R' F R L2 F2 R F L D L (24)
+SOL	20	10	direct	10	24	0	1:U' B' U L2 U' L2 B L2 U L2:0	U' D' B' U L2 U' L2 B L2 U L2 F2 D' B' R' F R L2 F2 R F L D L
+L=10 two: cost 11, length 25
+   1. at 10: insert F D R D' L D R' D' L' F' (10), 6 cancel -> D' F2 D' B' R' F R L2 F2 R F D R D' L D R' L (18)
+   2. at 6: insert L2 D L' D' R' D L D' R L2 (10), 3 cancel -> D' F2 D' B' R' F L2 D L' D' R' D L D' R2 F2 R F D R D' L D R' L (25)
+SOL	20	10	two	11	25	0	10:F D R D' L D R' D' L' F':6|6:L2 D L' D' R' D L D' R L2:3	D' F2 D' B' R' F L2 D L' D' R' D L D' R2 F2 R F D R D' L D R' L
+L=10 two-flat: cost 11, length 25
+   1. at 10: insert F D R D' L D R' D' L' F' (10), 6 cancel -> D' F2 D' B' R' F R L2 F2 R F D R D' L D R' L (18)
+   2. at 6: insert L2 D L' D' R' D L D' R L2 (10), 3 cancel -> D' F2 D' B' R' F L2 D L' D' R' D L D' R2 F2 R F D R D' L D R' L (25)
+SOL	20	10	two-flat	11	25	0	10:F D R D' L D R' D' L' F':6|6:L2 D L' D' R' D L D' R L2:3	D' F2 D' B' R' F L2 D L' D' R' D L D' R2 F2 R F D R D' L D R' L
+L=10 two-apart: cost 11, length 25
+   1. at 10: insert F D R D' L D R' D' L' F' (10), 6 cancel -> D' F2 D' B' R' F R L2 F2 R F D R D' L D R' L (18)
+   2. at 6: insert L2 D L' D' R' D L D' R L2 (10), 3 cancel -> D' F2 D' B' R' F L2 D L' D' R' D L D' R2 F2 R F D R D' L D R' L (25)
+SOL	20	10	two-apart	11	25	0	10:F D R D' L D R' D' L' F':6|6:L2 D L' D' R' D L D' R L2:3	D' F2 D' B' R' F L2 D L' D' R' D L D' R2 F2 R F D R D' L D R' L
+L=10 mixed: cost 10, length 24
+   1. at 1: insert B' L2 B U' B' L2 B L2 U L2 (10), 0 cancel -> D' B' L2 B U' B' L2 B L2 U L2 F2 D' B' R' F R L2 F2 R F L D L (24)
+   2. at 1: insert U' B' U L2 U' B U B' L2 B (10), 10 cancel -> U' D' B' U L2 U' L2 B L2 U L2 F2 D' B' R' F R L2 F2 R F L D L (24)
+SOL	20	10	mixed	10	24	0	1:B' L2 B U' B' L2 B L2 U L2:0|1:U' B' U L2 U' B U B' L2 B:10	U' D' B' U L2 U' L2 B L2 U L2 F2 D' B' R' F R L2 F2 R F L D L
+L=10 best: cost 10, length 24 (direct)
+
+CASE	21
+scramble: R' U' F B R2 D R2 F2 U2 F2 D2 L2 F2 L F D L' R U2 L F2 U R' U' F
+skeleton: D B2 R' L' B R B' R' U2 L F2 R' L F' R L U D2 L2 B (20) [written reduced]
+leftover: 3e | UR>DF DF>BR+1 BR>UR+1 | 0,1,2,3,4,5,6,7;0,0,0,0,0,0,0,0;0,1,2,3,4,11,6,7,8,5,10,9;0,0,0,0,0,0,0,0,0,1,0,1
+L=8 one: cost 1, length 21
+   1. at 18: insert U' D2 R' L B2 R L' U (8), 7 cancel -> D B2 R' L' B R B' R' U2 L F2 R' L F' L2 B2 R L' U L2 B (21)
+SOL	21	8	one	1	21	0	18:U' D2 R' L B2 R L' U:7	D B2 R' L' B R B' R' U2 L F2 R' L F' L2 B2 R L' U L2 B
+L=8 direct: cost 1, length 21
+   1. at 18: insert U' D2 R' L B2 R L' U (8), 7 cancel -> D B2 R' L' B R B' R' U2 L F2 R' L F' L2 B2 R L' U L2 B (21)
+SOL	21	8	direct	1	21	0	18:U' D2 R' L B2 R L' U:7	D B2 R' L' B R B' R' U2 L F2 R' L F' L2 B2 R L' U L2 B
+L=8 mixed: cost 1, length 21
+   1. at 14: insert R2 F2 R' L D2 R' L' (7), 6 cancel -> D B2 R' L' B R B' R' U2 L F2 R' L F' R2 F2 R' L U L2 B (21)
+   2. at 13: insert F' L2 B2 R2 L2 F2 R2 F (8), 8 cancel -> D B2 R' L' B R B' R' U2 L F2 R' L F' L2 B2 R L' U L2 B (21)
+SOL	21	8	mixed	1	21	0	14:R2 F2 R' L D2 R' L':6|13:F' L2 B2 R2 L2 F2 R2 F:8	D B2 R' L' B R B' R' U2 L F2 R' L F' L2 B2 R L' U L2 B
+L=8 best: cost 1, length 21 (direct)
+L=10 one: cost 1, length 21
+   1. at 19: insert L2 U' D2 R' L B2 R L' U L2 (10), 9 cancel -> D B2 R' L' B R B' R' U2 L F2 R' L F' L2 B2 R L' U L2 B (21)
+SOL	21	10	one	1	21	0	19:L2 U' D2 R' L B2 R L' U L2:9	D B2 R' L' B R B' R' U2 L F2 R' L F' L2 B2 R L' U L2 B
+L=10 direct: cost 1, length 21
+   1. at 19: insert L2 U' D2 R' L B2 R L' U L2 (10), 9 cancel -> D B2 R' L' B R B' R' U2 L F2 R' L F' L2 B2 R L' U L2 B (21)
+SOL	21	10	direct	1	21	0	19:L2 U' D2 R' L B2 R L' U L2:9	D B2 R' L' B R B' R' U2 L F2 R' L F' L2 B2 R L' U L2 B
+L=10 mixed: cost 1, length 21
+   1. at 14: insert U B2 R2 F2 D R' L' D2 R' L' (10), 6 cancel -> D B2 R' L' B R B' R' U2 L F2 R' L F' U B2 R2 F2 D R' L' U L2 B (24)
+   2. at 13: insert F' L2 B2 R2 D' F2 R2 B2 U' F (10), 13 cancel -> D B2 R' L' B R B' R' U2 L F2 R' L F' L2 B2 R L' U L2 B (21)
+SOL	21	10	mixed	1	21	0	14:U B2 R2 F2 D R' L' D2 R' L':6|13:F' L2 B2 R2 D' F2 R2 B2 U' F:13	D B2 R' L' B R B' R' U2 L F2 R' L F' L2 B2 R L' U L2 B
+L=10 best: cost 1, length 21 (direct)
+
+CASE	22
+scramble: R' U' F R F' U2 B D2 F R2 B2 R2 U2 B' U2 F2 U' B D' R2 B L F D' R' U' F
+skeleton: R' U D' F2 R' L2 F U2 F U F' U F2 L2 F' R2 L2 (17) [written reduced]
+leftover: 3e | DR>BL+1 BL>UL+1 UL>DR | 0,1,2,3,4,5,6,7;0,0,0,0,0,0,0,0;0,8,2,1,4,5,6,7,3,9,10,11;0,1,0,1,0,0,0,0,0,0,0,0
+L=8 one: cost 5, length 22
+   1. at 12: insert U' R' L F2 R L' U' (7), 2 cancel -> R' U D' F2 R' L2 F U2 F U F' R' L F2 R L' U' F2 L2 F' R2 L2 (22)
+SOL	22	8	one	5	22	0	12:U' R' L F2 R L' U':2	R' U D' F2 R' L2 F U2 F U F' R' L F2 R L' U' F2 L2 F' R2 L2
+L=8 direct: cost 5, length 22
+   1. at 12: insert U' R' L F2 R L' U' (7), 2 cancel -> R' U D' F2 R' L2 F U2 F U F' R' L F2 R L' U' F2 L2 F' R2 L2 (22)
+SOL	22	8	direct	5	22	0	12:U' R' L F2 R L' U':2	R' U D' F2 R' L2 F U2 F U F' R' L F2 R L' U' F2 L2 F' R2 L2
+L=8 mixed: cost 3, length 20
+   1. at 13: insert L2 B' D2 F' B R2 F L2 (8), 6 cancel -> R' U D' F2 R' L2 F U2 F U F' U F2 L2 B' D2 F' B L2 (19)
+   2. at 11: insert L2 B2 R2 D' B2 L2 F2 U' (8), 7 cancel -> R' U D' F2 R' L2 F U2 F U F' L2 B2 R2 D' B D2 F' B L2 (20)
+SOL	22	8	mixed	3	20	0	13:L2 B' D2 F' B R2 F L2:6|11:L2 B2 R2 D' B2 L2 F2 U':7	R' U D' F2 R' L2 F U2 F U F' L2 B2 R2 D' B D2 F' B L2
+L=8 best: cost 3, length 20 (mixed)
+L=10 one: cost 5, length 22
+   1. at 13: insert F2 U' R' L F2 R L' U' F2 (9), 4 cancel -> R' U D' F2 R' L2 F U2 F U F' R' L F2 R L' U' F2 L2 F' R2 L2 (22)
+SOL	22	10	one	5	22	0	13:F2 U' R' L F2 R L' U' F2:4	R' U D' F2 R' L2 F U2 F U F' R' L F2 R L' U' F2 L2 F' R2 L2
+L=10 direct: cost 5, length 22
+   1. at 13: insert F2 U' R' L F2 R L' U' F2 (9), 4 cancel -> R' U D' F2 R' L2 F U2 F U F' R' L F2 R L' U' F2 L2 F' R2 L2 (22)
+SOL	22	10	direct	5	22	0	13:F2 U' R' L F2 R L' U' F2:4	R' U D' F2 R' L2 F U2 F U F' R' L F2 R L' U' F2 L2 F' R2 L2
+L=10 mixed: cost 3, length 20
+   1. at 12: insert F2 L2 B' D2 F' B R2 F L2 F2 (10), 8 cancel -> R' U D' F2 R' L2 F U2 F U F' U F2 L2 B' D2 F' B L2 (19)
+   2. at 10: insert F' L2 B2 R2 D' B2 L2 F2 U' F (10), 9 cancel -> R' U D' F2 R' L2 F U2 F U F' L2 B2 R2 D' B D2 F' B L2 (20)
+SOL	22	10	mixed	3	20	0	12:F2 L2 B' D2 F' B R2 F L2 F2:8|10:F' L2 B2 R2 D' B2 L2 F2 U' F:9	R' U D' F2 R' L2 F U2 F U F' L2 B2 R2 D' B D2 F' B L2
+L=10 best: cost 3, length 20 (mixed)
+
+CASE	23
+scramble: R' U' F R2 U' R2 U2 B2 L2 U' R2 F2 U' R2 U2 L' B' F' L2 R B' F L2 U R' U' F
+skeleton: F2 L' U F' B' R' B' L B2 U' (10)
+leftover: not one of the types | DFL>DBL+1 DBL>DFL UFR>UBR+1 UBR>UFR+1 BR>DB+1 DB>UF+1 UF>BR | 1,0,2,3,4,5,7,6;1,0,0,0,0,0,1,1;0,1,2,3,9,5,6,4,8,7,10,11;0,0,0,0,1,0,0,1,0,0,0,0
+
+CASE	24
+scramble: R' U' F U2 F2 U2 B2 L D2 B2 R' F2 R2 B2 U R' B' R F' L' F' R2 U' R' U' F
+skeleton: B U R' D B D2 B2 R2 F2 D2 L D2 L' B' (14)
+leftover: 3c3c | DFL>DBL+1 UFR>DFL+2 UFL>UBL DFR>UFL UBL>DFR DBL>UFR | 1,7,3,5,4,2,6,0;1,2,0,0,0,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 direct: no solution within the bound
+L=8 two: cost 12, length 26 (nested)
+   1. at 1: insert B2 L F' L' B2 L F L' (8), 1 cancel -> B' L F' L' B2 L F L' U R' D B D2 B2 R2 F2 D2 L D2 L' B' (21)
+   2. at 4: insert L B R2 B' L' B R2 B' (8), 3 cancel -> B' L F' B R2 B' L' B R2 B L F L' U R' D B D2 B2 R2 F2 D2 L D2 L' B' (26)
+SOL	24	8	two	12	26	1	1:B2 L F' L' B2 L F L':1|4:L B R2 B' L' B R2 B':3	B' L F' B R2 B' L' B R2 B L F L' U R' D B D2 B2 R2 F2 D2 L D2 L' B'
+L=8 two-flat: cost 13, length 27
+   1. at 7: insert L U' L' D' L U L' D (8), 0 cancel -> B U R' D B D2 B2 L U' L' D' L U L' D R2 F2 D2 L D2 L' B' (22)
+   2. at 16: insert R2 D L2 D' R2 D L2 D' (8), 3 cancel -> B U R' D B D2 B2 L U' L' D' L U L' D2 L2 D' R2 D L2 D' F2 D2 L D2 L' B' (27)
+SOL	24	8	two-flat	13	27	0	7:L U' L' D' L U L' D:0|16:R2 D L2 D' R2 D L2 D':3	B U R' D B D2 B2 L U' L' D' L U L' D2 L2 D' R2 D L2 D' F2 D2 L D2 L' B'
+L=8 two-apart: cost 14, length 28
+   1. at 8: insert L B L' F L B' L' F' (8), 1 cancel -> B U R' D B D2 B2 R2 L B L' F L B' L' F D2 L D2 L' B' (21)
+   2. at 0: insert D F2 D' B2 D F2 D' B2 (8), 1 cancel -> D F2 D' B2 D F2 D' B' U R' D B D2 B2 R2 L B L' F L B' L' F D2 L D2 L' B' (28)
+SOL	24	8	two-apart	14	28	0	8:L B L' F L B' L' F':1|0:D F2 D' B2 D F2 D' B2:1	D F2 D' B2 D F2 D' B' U R' D B D2 B2 R2 L B L' F L B' L' F D2 L D2 L' B'
+L=8 mixed: cost 12, length 26 (nested)
+   1. at 1: insert B2 L F' L' B2 L F L' (8), 1 cancel -> B' L F' L' B2 L F L' U R' D B D2 B2 R2 F2 D2 L D2 L' B' (21)
+   2. at 4: insert L B R2 B' L' B R2 B' (8), 3 cancel -> B' L F' B R2 B' L' B R2 B L F L' U R' D B D2 B2 R2 F2 D2 L D2 L' B' (26)
+SOL	24	8	mixed	12	26	1	1:B2 L F' L' B2 L F L':1|4:L B R2 B' L' B R2 B':3	B' L F' B R2 B' L' B R2 B L F L' U R' D B D2 B2 R2 F2 D2 L D2 L' B'
+L=8 best: cost 12, length 26 (two)
+L=10 direct: no solution within the bound
+L=10 two: cost 12, length 26
+   1. at 8: insert D L' D' L F L' D L D' F' (10), 1 cancel -> B U R' D B D2 B2 R2 D L' D' L F L' D L D' F D2 L D2 L' B' (23)
+   2. at 6: insert B2 D L2 D' R2 D L2 D' R2 B2 (10), 7 cancel -> B U R' D B D2 B2 D L2 D' R2 D L D' L F L' D L D' F D2 L D2 L' B' (26)
+SOL	24	10	two	12	26	0	8:D L' D' L F L' D L D' F':1|6:B2 D L2 D' R2 D L2 D' R2 B2:7	B U R' D B D2 B2 D L2 D' R2 D L D' L F L' D L D' F D2 L D2 L' B'
+L=10 two-flat: cost 12, length 26
+   1. at 8: insert D L' D' L F L' D L D' F' (10), 1 cancel -> B U R' D B D2 B2 R2 D L' D' L F L' D L D' F D2 L D2 L' B' (23)
+   2. at 6: insert B2 D L2 D' R2 D L2 D' R2 B2 (10), 7 cancel -> B U R' D B D2 B2 D L2 D' R2 D L D' L F L' D L D' F D2 L D2 L' B' (26)
+SOL	24	10	two-flat	12	26	0	8:D L' D' L F L' D L D' F':1|6:B2 D L2 D' R2 D L2 D' R2 B2:7	B U R' D B D2 B2 D L2 D' R2 D L D' L F L' D L D' F D2 L D2 L' B'
+L=10 two-apart: cost 14, length 28
+   1. at 7: insert R2 L B L' F L B' L' F' R2 (10), 3 cancel -> B U R' D B D2 B2 R2 L B L' F L B' L' F D2 L D2 L' B' (21)
+   2. at 2: insert U' B2 L F' L' B2 L F L' U (10), 3 cancel -> B' L F' L' B2 L F L' U R' D B D2 B2 R2 L B L' F L B' L' F D2 L D2 L' B' (28)
+SOL	24	10	two-apart	14	28	0	7:R2 L B L' F L B' L' F' R2:3|2:U' B2 L F' L' B2 L F L' U:3	B' L F' L' B2 L F L' U R' D B D2 B2 R2 L B L' F L B' L' F D2 L D2 L' B'
+L=10 mixed: cost 12, length 26
+   1. at 8: insert D L' D' L F L' D L D' F' (10), 1 cancel -> B U R' D B D2 B2 R2 D L' D' L F L' D L D' F D2 L D2 L' B' (23)
+   2. at 6: insert B2 D L2 D' R2 D L2 D' R2 B2 (10), 7 cancel -> B U R' D B D2 B2 D L2 D' R2 D L D' L F L' D L D' F D2 L D2 L' B' (26)
+SOL	24	10	mixed	12	26	0	8:D L' D' L F L' D L D' F':1|6:B2 D L2 D' R2 D L2 D' R2 B2:7	B U R' D B D2 B2 D L2 D' R2 D L D' L F L' D L D' F D2 L D2 L' B'
+L=10 best: cost 12, length 26 (two)
+
+CASE	25
+scramble: R' U' F D' L' D2 L2 F' U L' U B2 R2 F2 L U2 R D2 L2 B2 D2 U' B' R' U' F
+skeleton: D' L' U2 L' F L' F U2 R D B U F' D' (14)
+leftover: not one of the types | BR>DL DR>BL+1 UR>UL UL>DB FR>DR BL>BR+1 DL>FR DB>UR | 0,1,2,3,4,5,6,7;0,0,0,0,0,0,0,0;9,8,2,11,3,5,6,7,10,1,0,4;0,1,0,0,0,0,0,0,0,1,0,0
+
+CASE	26
+scramble: R' U' F R L2 F' B' U' L2 F' B2 U' F2 B2 R' U2 F2 R F2 L2 B2 L R' U' F
+skeleton: R' F B D' B2 U2 D' R2 U' D R' U L2 F' D2 F' (16)
+leftover: 3c | DBR>DBL+2 DBL>DFL DFL>DBR+1 | 4,0,2,3,1,5,6,7;2,0,0,0,1,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 7, length 23
+   1. at 15: insert D F' D' B' D F D' B (8), 1 cancel -> R' F B D' B2 U2 D' R2 U' D R' U L2 F' D' F' D' B' D F D' F' B (23)
+SOL	26	8	one	7	23	0	15:D F' D' B' D F D' B:1	R' F B D' B2 U2 D' R2 U' D R' U L2 F' D' F' D' B' D F D' F' B
+L=8 direct: cost 7, length 23
+   1. at 15: insert D F' D' B' D F D' B (8), 1 cancel -> R' F B D' B2 U2 D' R2 U' D R' U L2 F' D' F' D' B' D F D' F' B (23)
+SOL	26	8	direct	7	23	0	15:D F' D' B' D F D' B:1	R' F B D' B2 U2 D' R2 U' D R' U L2 F' D' F' D' B' D F D' F' B
+L=8 mixed: cost 7, length 23 (nested)
+   1. at 15: insert D F' D' B D F D' B' (8), 1 cancel -> R' F B D' B2 U2 D' R2 U' D R' U L2 F' D' F' D' B D F D' F' B' (23)
+   2. at 21: insert D F' D' B2 D F D' B2 (8), 8 cancel -> R' F B D' B2 U2 D' R2 U' D R' U L2 F' D' F' D' B' D F D' F' B (23)
+SOL	26	8	mixed	7	23	1	15:D F' D' B D F D' B':1|21:D F' D' B2 D F D' B2:8	R' F B D' B2 U2 D' R2 U' D R' U L2 F' D' F' D' B' D F D' F' B
+L=8 best: cost 7, length 23 (direct)
+L=10 one: cost 7, length 23
+   1. at 16: insert F D F' L' F D' F' D L D' (10), 3 cancel -> R' F B D' B2 U2 D' R2 U' D R' U L2 F' D' F' L' F D' F' D L D' (23)
+SOL	26	10	one	7	23	0	16:F D F' L' F D' F' D L D':3	R' F B D' B2 U2 D' R2 U' D R' U L2 F' D' F' L' F D' F' D L D'
+L=10 direct: cost 7, length 23
+   1. at 16: insert F D F' L' F D' F' D L D' (10), 3 cancel -> R' F B D' B2 U2 D' R2 U' D R' U L2 F' D' F' L' F D' F' D L D' (23)
+SOL	26	10	direct	7	23	0	16:F D F' L' F D' F' D L D':3	R' F B D' B2 U2 D' R2 U' D R' U L2 F' D' F' L' F D' F' D L D'
+L=10 mixed: cost 7, length 23
+   1. at 13: insert U' L D L' U2 L D' L' U' (9), 0 cancel -> R' F B D' B2 U2 D' R2 U' D R' U L2 U' L D L' U2 L D' L' U' F' D2 F' (25)
+   2. at 12: insert L' D L' U' L D' L' U L2 (9), 11 cancel -> R' F B D' B2 U2 D' R2 U' D R' U L' D L' U L D' L' U' F' D2 F' (23)
+SOL	26	10	mixed	7	23	0	13:U' L D L' U2 L D' L' U':0|12:L' D L' U' L D' L' U L2:11	R' F B D' B2 U2 D' R2 U' D R' U L' D L' U L D' L' U' F' D2 F'
+L=10 best: cost 7, length 23 (direct)
+
+CASE	27
+scramble: R' U' F U2 B2 D F2 R2 U' L2 B2 F2 D U' B R' D L' B2 R' B' D2 L' D' R' U' F
+skeleton: B' U D' R2 F2 R U F2 L D' R' F' B' (13) [written reduced]
+leftover: not one of the types | UBL>DFL+2 DBR>UBL DFL>DBR+1 UB>DF FR>UB DF>FR | 0,2,4,3,1,5,6,7;0,2,0,0,1,0,0,0;0,1,2,3,4,6,10,7,8,9,5,11;0,0,0,0,0,0,0,0,0,0,0,0
+
+CASE	28
+scramble: R' U' F U2 R' D2 R U2 R' D2 R2 D2 B F' L D2 F U' L2 D U2 B F R' U' F
+skeleton: D2 B U' L' U2 R U2 R B R L U2 R' L2 (14) [written reduced]
+leftover: not one of the types | UB>BL BL>DF+1 UR>UB+1 FR>DR DR>FR DF>UR | 0,1,2,3,4,5,6,7;0,0,0,0,0,0,0,0;0,6,2,3,4,1,11,7,10,9,8,5;0,0,0,0,0,1,1,0,0,0,0,0
+
+CASE	29
+scramble: R' U' F R' D' U2 F' L2 F' D2 F2 R2 F' L2 F D2 F' D' L D2 U' L B F2 R' U' F
+skeleton: B2 D' L U' F R2 (6)
+leftover: not one of the types | DBR>UFL+2 DFR>DBR+1 UFR>DFR+2 UFL>UBR+1 UBR>UFR FR>BL BL>DR+1 DR>FR+1 | 0,1,2,4,5,7,3,6;0,0,0,2,1,2,1,0;0,10,2,3,4,5,6,7,1,9,8,11;0,0,0,0,0,0,0,0,1,0,1,0
+
+CASE	30
+scramble: R' U' F L' B R' L2 F' B' L2 B D' L' F2 L2 B2 D2 R L2 F2 B2 U2 R' U' F
+skeleton: L F2 R F' R' F2 U L U' R U R' L2 D' R' D2 B L' B D' F' (21)
+leftover: 3c | UBR>UBL+2 UFR>UBR UBL>UFR+1 | 0,1,6,3,4,5,7,2;0,0,2,0,0,0,0,1;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 6, length 27
+   1. at 8: insert L D' L' U2 L D L' U2 (8), 2 cancel -> L F2 R F' R' F2 U L2 D' L' U2 L D L' U R U R' L2 D' R' D2 B L' B D' F' (27)
+SOL	30	8	one	6	27	0	8:L D' L' U2 L D L' U2:2	L F2 R F' R' F2 U L2 D' L' U2 L D L' U R U R' L2 D' R' D2 B L' B D' F'
+L=8 direct: cost 6, length 27
+   1. at 8: insert L D' L' U2 L D L' U2 (8), 2 cancel -> L F2 R F' R' F2 U L2 D' L' U2 L D L' U R U R' L2 D' R' D2 B L' B D' F' (27)
+SOL	30	8	direct	6	27	0	8:L D' L' U2 L D L' U2:2	L F2 R F' R' F2 U L2 D' L' U2 L D L' U R U R' L2 D' R' D2 B L' B D' F'
+L=8 mixed: cost 6, length 27
+   1. at 0: insert L2 F R2 F' L2 F R2 F' (8), 0 cancel -> L2 F R2 F' L2 F R2 F' L F2 R F' R' F2 U L U' R U R' L2 D' R' D2 B L' B D' F' (29)
+   2. at 9: insert L' F R2 F' L F R2 F' (8), 10 cancel -> L2 F R2 F' L' F R2 F R F' R' F2 U L U' R U R' L2 D' R' D2 B L' B D' F' (27)
+SOL	30	8	mixed	6	27	0	0:L2 F R2 F' L2 F R2 F':0|9:L' F R2 F' L F R2 F':10	L2 F R2 F' L' F R2 F R F' R' F2 U L U' R U R' L2 D' R' D2 B L' B D' F'
+L=8 best: cost 6, length 27 (direct)
+L=10 one: cost 6, length 27
+   1. at 9: insert U L D' L' U2 L D L' U (9), 3 cancel -> L F2 R F' R' F2 U L2 D' L' U2 L D L' U R U R' L2 D' R' D2 B L' B D' F' (27)
+SOL	30	10	one	6	27	0	9:U L D' L' U2 L D L' U:3	L F2 R F' R' F2 U L2 D' L' U2 L D L' U R U R' L2 D' R' D2 B L' B D' F'
+L=10 direct: cost 6, length 27
+   1. at 9: insert U L D' L' U2 L D L' U (9), 3 cancel -> L F2 R F' R' F2 U L2 D' L' U2 L D L' U R U R' L2 D' R' D2 B L' B D' F' (27)
+SOL	30	10	direct	6	27	0	9:U L D' L' U2 L D L' U:3	L F2 R F' R' F2 U L2 D' L' U2 L D L' U R U R' L2 D' R' D2 B L' B D' F'
+L=10 mixed: cost 6, length 27
+   1. at 7: insert L2 D' L' U L D L' U' L' (9), 3 cancel -> L F2 R F' R' F2 U L2 D' L' U L D L' U2 R U R' L2 D' R' D2 B L' B D' F' (27)
+   2. at 15: insert U2 L D' L' U L D L' U (9), 9 cancel -> L F2 R F' R' F2 U L2 D' L' U2 L D L' U R U R' L2 D' R' D2 B L' B D' F' (27)
+SOL	30	10	mixed	6	27	0	7:L2 D' L' U L D L' U' L':3|15:U2 L D' L' U L D L' U:9	L F2 R F' R' F2 U L2 D' L' U2 L D L' U R U R' L2 D' R' D2 B L' B D' F'
+L=10 best: cost 6, length 27 (direct)
+
+CASE	31
+scramble: R' U' F R2 B L2 D2 B' F2 D2 F' D2 L2 F R2 L' B' U' B F' L2 U2 R' D' R' U' F
+skeleton: L U B R' U' D R F2 R' D' R2 U2 F2 B2 R2 L2 U F2 (18) [written reduced]
+leftover: 2c2e | DFR>UFL UFL>DFR UR>DL DL>UR | 0,1,2,5,4,3,6,7;0,0,0,0,0,0,0,0;11,1,2,3,4,5,6,7,8,9,10,0;0,0,0,0,0,0,0,0,0,0,0,0
+a parity leftover: the insertion models here do not cover it
+
+CASE	32
+scramble: R' U' F R' B2 L' U2 F2 U2 R D2 B2 R B F R D U' F2 R D' L' R' U' F
+skeleton: D R B2 R L D2 B' L B D2 B R L2 D' F2 (15) [written reduced]
+leftover: 3c | UBL>DFL+2 UFL>UBL+1 DFL>UFL | 0,2,3,1,4,5,6,7;0,2,1,0,0,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 6, length 21
+   1. at 5: insert L' B2 L F L' B2 L F' (8), 2 cancel -> D R B2 R B2 L F L' B2 L F' D2 B' L B D2 B R L2 D' F2 (21)
+SOL	32	8	one	6	21	0	5:L' B2 L F L' B2 L F':2	D R B2 R B2 L F L' B2 L F' D2 B' L B D2 B R L2 D' F2
+L=8 direct: cost 6, length 21
+   1. at 5: insert L' B2 L F L' B2 L F' (8), 2 cancel -> D R B2 R B2 L F L' B2 L F' D2 B' L B D2 B R L2 D' F2 (21)
+SOL	32	8	direct	6	21	0	5:L' B2 L F L' B2 L F':2	D R B2 R B2 L F L' B2 L F' D2 B' L B D2 B R L2 D' F2
+L=8 mixed: cost 6, length 21 (nested)
+   1. at 4: insert B L F L' B' L F' L' (8), 2 cancel -> D R B2 R B L F L' B' L F' D2 B' L B D2 B R L2 D' F2 (21)
+   2. at 8: insert L F' L' B L F L' B' (8), 8 cancel -> D R B2 R B2 L F L' B2 L F' D2 B' L B D2 B R L2 D' F2 (21)
+SOL	32	8	mixed	6	21	1	4:B L F L' B' L F' L':2|8:L F' L' B L F L' B':8	D R B2 R B2 L F L' B2 L F' D2 B' L B D2 B R L2 D' F2
+L=8 best: cost 6, length 21 (direct)
+L=10 one: cost 6, length 21
+   1. at 6: insert D2 L' B2 L F L' B2 L F' D2 (10), 4 cancel -> D R B2 R B2 L F L' B2 L F' D2 B' L B D2 B R L2 D' F2 (21)
+SOL	32	10	one	6	21	0	6:D2 L' B2 L F L' B2 L F' D2:4	D R B2 R B2 L F L' B2 L F' D2 B' L B D2 B R L2 D' F2
+L=10 direct: cost 6, length 21
+   1. at 6: insert D2 L' B2 L F L' B2 L F' D2 (10), 4 cancel -> D R B2 R B2 L F L' B2 L F' D2 B' L B D2 B R L2 D' F2 (21)
+SOL	32	10	direct	6	21	0	6:D2 L' B2 L F L' B2 L F' D2:4	D R B2 R B2 L F L' B2 L F' D2 B' L B D2 B R L2 D' F2
+L=10 mixed: cost 6, length 21
+   1. at 4: insert B2 L F L' B' L F' L' B' (9), 0 cancel -> D R B2 R B2 L F L' B' L F' L' B' L D2 B' L B D2 B R L2 D' F2 (24)
+   2. at 14: insert L' B L F L' B' L F' (8), 11 cancel -> D R B2 R B2 L F L' B2 L F' D2 B' L B D2 B R L2 D' F2 (21)
+SOL	32	10	mixed	6	21	0	4:B2 L F L' B' L F' L' B':0|14:L' B L F L' B' L F':11	D R B2 R B2 L F L' B2 L F' D2 B' L B D2 B R L2 D' F2
+L=10 best: cost 6, length 21 (direct)
+
+CASE	33
+scramble: R' U' F D R2 B' U' R2 F R2 L2 F R' U2 F2 U2 L' F2 L' B2 R' U' F
+skeleton: U L2 F U' B R2 B' U' B' U' F B2 U2 F' R F' R2 (17)
+leftover: 3c | UBR>UBL+2 UBL>DBR+1 DBR>UBR | 0,1,6,3,2,5,4,7;0,0,2,0,1,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 6, length 23
+   1. at 8: insert U R' U' L U R U' L' (8), 2 cancel -> U L2 F U' B R2 B' R' U' L U R U' L' B' U' F B2 U2 F' R F' R2 (23)
+SOL	33	8	one	6	23	0	8:U R' U' L U R U' L':2	U L2 F U' B R2 B' R' U' L U R U' L' B' U' F B2 U2 F' R F' R2
+L=8 direct: cost 6, length 23
+   1. at 8: insert U R' U' L U R U' L' (8), 2 cancel -> U L2 F U' B R2 B' R' U' L U R U' L' B' U' F B2 U2 F' R F' R2 (23)
+SOL	33	8	direct	6	23	0	8:U R' U' L U R U' L':2	U L2 F U' B R2 B' R' U' L U R U' L' B' U' F B2 U2 F' R F' R2
+L=8 mixed: cost 6, length 23 (nested)
+   1. at 7: insert R U' L U R' U' L' U (8), 2 cancel -> U L2 F U' B R2 B' R U' L U R' U' L' B' U' F B2 U2 F' R F' R2 (23)
+   2. at 11: insert U' L' U R2 U' L U R2 (8), 8 cancel -> U L2 F U' B R2 B' R' U' L U R U' L' B' U' F B2 U2 F' R F' R2 (23)
+SOL	33	8	mixed	6	23	1	7:R U' L U R' U' L' U:2|11:U' L' U R2 U' L U R2:8	U L2 F U' B R2 B' R' U' L U R U' L' B' U' F B2 U2 F' R F' R2
+L=8 best: cost 6, length 23 (direct)
+L=10 one: cost 6, length 23
+   1. at 9: insert B U R' U' L U R U' L' B' (10), 4 cancel -> U L2 F U' B R2 B' R' U' L U R U' L' B' U' F B2 U2 F' R F' R2 (23)
+SOL	33	10	one	6	23	0	9:B U R' U' L U R U' L' B':4	U L2 F U' B R2 B' R' U' L U R U' L' B' U' F B2 U2 F' R F' R2
+L=10 direct: cost 6, length 23
+   1. at 9: insert B U R' U' L U R U' L' B' (10), 4 cancel -> U L2 F U' B R2 B' R' U' L U R U' L' B' U' F B2 U2 F' R F' R2 (23)
+SOL	33	10	direct	6	23	0	9:B U R' U' L U R U' L' B':4	U L2 F U' B R2 B' R' U' L U R U' L' B' U' F B2 U2 F' R F' R2
+L=10 mixed: cost 6, length 23
+   1. at 7: insert R U' L U R' U' L' U (8), 2 cancel -> U L2 F U' B R2 B' R U' L U R' U' L' B' U' F B2 U2 F' R F' R2 (23)
+   2. at 7: insert R' U' L U R2 U' L' U R' (9), 9 cancel -> U L2 F U' B R2 B' R' U' L U R U' L' B' U' F B2 U2 F' R F' R2 (23)
+SOL	33	10	mixed	6	23	0	7:R U' L U R' U' L' U:2|7:R' U' L U R2 U' L' U R':9	U L2 F U' B R2 B' R' U' L U R U' L' B' U' F B2 U2 F' R F' R2
+L=10 best: cost 6, length 23 (direct)
+
+CASE	34
+scramble: R' U' F U R' U2 D F2 D2 R2 F L U F2 U2 L2 F2 L2 B2 D B2 L2 D R' U' F
+skeleton: D' B D2 F2 U' L F U F U F' U L2 F U2 F B R' (18) [written reduced]
+leftover: 3c | DFL>DBL DBR>DFL+2 DBL>DBR+1 | 1,4,2,3,0,5,6,7;0,2,0,0,1,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 4, length 22
+   1. at 18: insert R F' R' B R F R' B' (8), 4 cancel -> D' B D2 F2 U' L F U F U F' U L2 F U2 B R' B R F R' B' (22)
+SOL	34	8	one	4	22	0	18:R F' R' B R F R' B':4	D' B D2 F2 U' L F U F U F' U L2 F U2 B R' B R F R' B'
+L=8 direct: cost 4, length 22
+   1. at 18: insert R F' R' B R F R' B' (8), 4 cancel -> D' B D2 F2 U' L F U F U F' U L2 F U2 B R' B R F R' B' (22)
+SOL	34	8	direct	4	22	0	18:R F' R' B R F R' B':4	D' B D2 F2 U' L F U F U F' U L2 F U2 B R' B R F R' B'
+L=8 mixed: cost 4, length 22 (nested)
+   1. at 17: insert F2 R' B R F2 R' B' R (8), 3 cancel -> D' B D2 F2 U' L F U F U F' U L2 F U2 F' B R' B R F2 R' B' (23)
+   2. at 20: insert R' B' R F R' B R F' (8), 9 cancel -> D' B D2 F2 U' L F U F U F' U L2 F U2 B R' B R F R' B' (22)
+SOL	34	8	mixed	4	22	1	17:F2 R' B R F2 R' B' R:3|20:R' B' R F R' B R F':9	D' B D2 F2 U' L F U F U F' U L2 F U2 B R' B R F R' B'
+L=8 best: cost 4, length 22 (direct)
+L=10 one: cost 4, length 22
+   1. at 18: insert R F' R' B R F R' B' (8), 4 cancel -> D' B D2 F2 U' L F U F U F' U L2 F U2 B R' B R F R' B' (22)
+SOL	34	10	one	4	22	0	18:R F' R' B R F R' B':4	D' B D2 F2 U' L F U F U F' U L2 F U2 B R' B R F R' B'
+L=10 direct: cost 4, length 22
+   1. at 18: insert R F' R' B R F R' B' (8), 4 cancel -> D' B D2 F2 U' L F U F U F' U L2 F U2 B R' B R F R' B' (22)
+SOL	34	10	direct	4	22	0	18:R F' R' B R F R' B':4	D' B D2 F2 U' L F U F U F' U L2 F U2 B R' B R F R' B'
+L=10 mixed: cost 4, length 22
+   1. at 18: insert B2 R F' R' B' R F R' B' (9), 0 cancel -> D' B D2 F2 U' L F U F U F' U L2 F U2 F B R' B2 R F' R' B' R F R' B' (27)
+   2. at 15: insert B R' B2 R F R' B2 R F' B' (10), 15 cancel -> D' B D2 F2 U' L F U F U F' U L2 F U2 B R' B R F R' B' (22)
+SOL	34	10	mixed	4	22	0	18:B2 R F' R' B' R F R' B':0|15:B R' B2 R F R' B2 R F' B':15	D' B D2 F2 U' L F U F U F' U L2 F U2 B R' B R F R' B'
+L=10 best: cost 4, length 22 (direct)
+
+CASE	35
+scramble: R' U' F U R' U2 D F2 D2 R2 F L U F2 U2 L2 F2 L2 B2 D B2 L2 D R' U' F
+skeleton: U D' R U' R2 B2 D L2 B' D F U2 B R' (14) [written reduced]
+leftover: 3c | DBR>DBL+1 DBL>UFL UFL>DBR+2 | 4,1,2,0,3,5,6,7;1,0,0,0,2,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 4, length 18
+   1. at 3: insert R' U' R D R' U R D' (8), 4 cancel -> D' R D R' U R U' D' R2 B2 D L2 B' D F U2 B R' (18)
+SOL	35	8	one	4	18	0	3:R' U' R D R' U R D':4	D' R D R' U R U' D' R2 B2 D L2 B' D F U2 B R'
+L=8 direct: cost 4, length 18
+   1. at 3: insert R' U' R D R' U R D' (8), 4 cancel -> D' R D R' U R U' D' R2 B2 D L2 B' D F U2 B R' (18)
+SOL	35	8	direct	4	18	0	3:R' U' R D R' U R D':4	D' R D R' U R U' D' R2 B2 D L2 B' D F U2 B R'
+L=8 mixed: cost 4, length 18 (nested)
+   1. at 2: insert U' R D' R' U R D R' (8), 4 cancel -> D' R D' R' U R U' D R2 B2 D L2 B' D F U2 B R' (18)
+   2. at 6: insert R' U' R D2 R' U R D2 (8), 8 cancel -> D' R D R' U R U' D' R2 B2 D L2 B' D F U2 B R' (18)
+SOL	35	8	mixed	4	18	1	2:U' R D' R' U R D R':4|6:R' U' R D2 R' U R D2:8	D' R D R' U R U' D' R2 B2 D L2 B' D F U2 B R'
+L=8 best: cost 4, length 18 (direct)
+L=10 one: cost 4, length 18
+   1. at 4: insert U R' U' R D R' U R U' D' (10), 6 cancel -> D' R D R' U R U' D' R2 B2 D L2 B' D F U2 B R' (18)
+SOL	35	10	one	4	18	0	4:U R' U' R D R' U R U' D':6	D' R D R' U R U' D' R2 B2 D L2 B' D F U2 B R'
+L=10 direct: cost 4, length 18
+   1. at 4: insert U R' U' R D R' U R U' D' (10), 6 cancel -> D' R D R' U R U' D' R2 B2 D L2 B' D F U2 B R' (18)
+SOL	35	10	direct	4	18	0	4:U R' U' R D R' U R U' D':6	D' R D R' U R U' D' R2 B2 D L2 B' D F U2 B R'
+L=10 mixed: cost 4, length 18
+   1. at 0: insert D' R D R' U' R D' R' U D (10), 3 cancel -> D' R D R' U' R D' R' U2 R U' R2 B2 D L2 B' D F U2 B R' (21)
+   2. at 10: insert R' U2 R D R' U2 R D' (8), 11 cancel -> D' R D R' U R U' D' R2 B2 D L2 B' D F U2 B R' (18)
+SOL	35	10	mixed	4	18	0	0:D' R D R' U' R D' R' U D:3|10:R' U2 R D R' U2 R D':11	D' R D R' U R U' D' R2 B2 D L2 B' D F U2 B R'
+L=10 best: cost 4, length 18 (direct)
+
+CASE	36
+scramble: R' U' F R2 D R2 U2 B2 D' R2 B2 F2 R' F' R F L R2 B L2 D2 F R' U' F
+skeleton: U2 B' D R U L F' L F' D2 F' L' D2 L' B2 L2 (16)
+leftover: 3c1t | DBR>DBL+2 DFL>DFL+1 UFR>DBR+2 DBL>UFR+1 | 4,1,2,3,7,5,6,0;2,1,0,0,2,0,0,1;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 direct: no solution within the bound
+L=8 two: cost 8, length 24 (nested)
+   1. at 6: insert R F' L F R' F' L' F (8), 5 cancel -> U2 B' D R U R L F' L F R' F2 D2 F' L' D2 L' B2 L2 (19)
+   2. at 11: insert R B2 R' F R B2 R' F' (8), 3 cancel -> U2 B' D R U R L F' L F B2 R' F R B2 R' F D2 F' L' D2 L' B2 L2 (24)
+SOL	36	8	two	8	24	1	6:R F' L F R' F' L' F:5|11:R B2 R' F R B2 R' F':3	U2 B' D R U R L F' L F B2 R' F R B2 R' F D2 F' L' D2 L' B2 L2
+L=8 two-flat: cost 10, length 26
+   1. at 6: insert R F' L F R' F' L' F (8), 5 cancel -> U2 B' D R U R L F' L F R' F2 D2 F' L' D2 L' B2 L2 (19)
+   2. at 3: insert U L U' R2 U L' U' R2 (8), 1 cancel -> U2 B' U D L U' R2 U L' U' R' U R L F' L F R' F2 D2 F' L' D2 L' B2 L2 (26)
+SOL	36	8	two-flat	10	26	0	6:R F' L F R' F' L' F:5|3:U L U' R2 U L' U' R2:1	U2 B' U D L U' R2 U L' U' R' U R L F' L F R' F2 D2 F' L' D2 L' B2 L2
+L=8 two-apart: cost 10, length 26
+   1. at 6: insert R F' L F R' F' L' F (8), 5 cancel -> U2 B' D R U R L F' L F R' F2 D2 F' L' D2 L' B2 L2 (19)
+   2. at 3: insert U L U' R2 U L' U' R2 (8), 1 cancel -> U2 B' U D L U' R2 U L' U' R' U R L F' L F R' F2 D2 F' L' D2 L' B2 L2 (26)
+SOL	36	8	two-apart	10	26	0	6:R F' L F R' F' L' F:5|3:U L U' R2 U L' U' R2:1	U2 B' U D L U' R2 U L' U' R' U R L F' L F R' F2 D2 F' L' D2 L' B2 L2
+L=8 mixed: cost 8, length 24 (nested)
+   1. at 6: insert R F' L F R' F' L' F (8), 5 cancel -> U2 B' D R U R L F' L F R' F2 D2 F' L' D2 L' B2 L2 (19)
+   2. at 11: insert R B2 R' F R B2 R' F' (8), 3 cancel -> U2 B' D R U R L F' L F B2 R' F R B2 R' F D2 F' L' D2 L' B2 L2 (24)
+SOL	36	8	mixed	8	24	1	6:R F' L F R' F' L' F:5|11:R B2 R' F R B2 R' F':3	U2 B' D R U R L F' L F B2 R' F R B2 R' F D2 F' L' D2 L' B2 L2
+L=8 best: cost 8, length 24 (two)
+L=10 direct: no solution within the bound
+L=10 two: cost 8, length 24
+   1. at 5: insert R L F' L F R' F' L' F L' (10), 7 cancel -> U2 B' D R U R L F' L F R' F2 D2 F' L' D2 L' B2 L2 (19)
+   2. at 12: insert F2 R B2 R' F R B2 R' F (9), 4 cancel -> U2 B' D R U R L F' L F B2 R' F R B2 R' F D2 F' L' D2 L' B2 L2 (24)
+SOL	36	10	two	8	24	0	5:R L F' L F R' F' L' F L':7|12:F2 R B2 R' F R B2 R' F:4	U2 B' D R U R L F' L F B2 R' F R B2 R' F D2 F' L' D2 L' B2 L2
+L=10 two-flat: cost 8, length 24
+   1. at 5: insert R L F' L F R' F' L' F L' (10), 7 cancel -> U2 B' D R U R L F' L F R' F2 D2 F' L' D2 L' B2 L2 (19)
+   2. at 12: insert F2 R B2 R' F R B2 R' F (9), 4 cancel -> U2 B' D R U R L F' L F B2 R' F R B2 R' F D2 F' L' D2 L' B2 L2 (24)
+SOL	36	10	two-flat	8	24	0	5:R L F' L F R' F' L' F L':7|12:F2 R B2 R' F R B2 R' F:4	U2 B' D R U R L F' L F B2 R' F R B2 R' F D2 F' L' D2 L' B2 L2
+L=10 two-apart: cost 10, length 26
+   1. at 5: insert R L F' L F R' F' L' F L' (10), 7 cancel -> U2 B' D R U R L F' L F R' F2 D2 F' L' D2 L' B2 L2 (19)
+   2. at 2: insert U D L U' R2 U L' U' R2 D' (10), 3 cancel -> U2 B' U D L U' R2 U L' U' R' U R L F' L F R' F2 D2 F' L' D2 L' B2 L2 (26)
+SOL	36	10	two-apart	10	26	0	5:R L F' L F R' F' L' F L':7|2:U D L U' R2 U L' U' R2 D':3	U2 B' U D L U' R2 U L' U' R' U R L F' L F R' F2 D2 F' L' D2 L' B2 L2
+L=10 mixed: cost 8, length 24
+   1. at 5: insert R L F' L F R' F' L' F L' (10), 7 cancel -> U2 B' D R U R L F' L F R' F2 D2 F' L' D2 L' B2 L2 (19)
+   2. at 12: insert F2 R B2 R' F R B2 R' F (9), 4 cancel -> U2 B' D R U R L F' L F B2 R' F R B2 R' F D2 F' L' D2 L' B2 L2 (24)
+SOL	36	10	mixed	8	24	0	5:R L F' L F R' F' L' F L':7|12:F2 R B2 R' F R B2 R' F:4	U2 B' D R U R L F' L F B2 R' F R B2 R' F D2 F' L' D2 L' B2 L2
+L=10 best: cost 8, length 24 (two)
+
+CASE	37
+scramble: R' U' F D' L2 F R2 U2 B R2 F' D2 F' L2 U2 R B U2 F U F2 D R B2 R' U' F
+skeleton: R B U D' B2 D' R2 U' R2 F' D F D2 B2 U2 R' U D' F2 L (20) [written reduced]
+leftover: 3c | UBR>DBR UFR>UBR DBR>UFR | 0,1,2,3,6,5,7,4;0,0,0,0,0,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 6, length 26
+   1. at 8: insert U B2 U' F2 U B2 U' F2 (8), 2 cancel -> R B U D' B2 D' R2 B2 U' F2 U B2 U' F2 R2 F' D F D2 B2 U2 R' U D' F2 L (26)
+SOL	37	8	one	6	26	0	8:U B2 U' F2 U B2 U' F2:2	R B U D' B2 D' R2 B2 U' F2 U B2 U' F2 R2 F' D F D2 B2 U2 R' U D' F2 L
+L=8 direct: cost 6, length 26
+   1. at 8: insert U B2 U' F2 U B2 U' F2 (8), 2 cancel -> R B U D' B2 D' R2 B2 U' F2 U B2 U' F2 R2 F' D F D2 B2 U2 R' U D' F2 L (26)
+SOL	37	8	direct	6	26	0	8:U B2 U' F2 U B2 U' F2:2	R B U D' B2 D' R2 B2 U' F2 U B2 U' F2 R2 F' D F D2 B2 U2 R' U D' F2 L
+L=8 mixed: cost 6, length 26
+   1. at 1: insert R F' R' B R F R' B' (8), 3 cancel -> R2 F' R' B R F R' U D' B2 D' R2 U' R2 F' D F D2 B2 U2 R' U D' F2 L (25)
+   2. at 7: insert R F' R' B R F R' B' (8), 7 cancel -> R2 F' R' B2 R F R' B' U D' B2 D' R2 U' R2 F' D F D2 B2 U2 R' U D' F2 L (26)
+SOL	37	8	mixed	6	26	0	1:R F' R' B R F R' B':3|7:R F' R' B R F R' B':7	R2 F' R' B2 R F R' B' U D' B2 D' R2 U' R2 F' D F D2 B2 U2 R' U D' F2 L
+L=8 best: cost 6, length 26 (direct)
+L=10 one: cost 5, length 25
+   1. at 9: insert R2 U F2 U' F2 R2 D' F2 D F2 (10), 5 cancel -> R B U D' B2 D' R2 F2 U' F2 R2 D' F2 D F D F D2 B2 U2 R' U D' F2 L (25)
+SOL	37	10	one	5	25	0	9:R2 U F2 U' F2 R2 D' F2 D F2:5	R B U D' B2 D' R2 F2 U' F2 R2 D' F2 D F D F D2 B2 U2 R' U D' F2 L
+L=10 direct: cost 5, length 25
+   1. at 9: insert R2 U F2 U' F2 R2 D' F2 D F2 (10), 5 cancel -> R B U D' B2 D' R2 F2 U' F2 R2 D' F2 D F D F D2 B2 U2 R' U D' F2 L (25)
+SOL	37	10	direct	5	25	0	9:R2 U F2 U' F2 R2 D' F2 D F2:5	R B U D' B2 D' R2 F2 U' F2 R2 D' F2 D F D F D2 B2 U2 R' U D' F2 L
+L=10 mixed: cost 6, length 26
+   1. at 7: insert B2 U' F2 U B' U' F2 U B' (9), 0 cancel -> R B U D' B2 D' R2 B2 U' F2 U B' U' F2 U B' U' R2 F' D F D2 B2 U2 R' U D' F2 L (29)
+   2. at 17: insert U B U' F2 U B' U' F2 (8), 11 cancel -> R B U D' B2 D' R2 B2 U' F2 U B2 U' F2 R2 F' D F D2 B2 U2 R' U D' F2 L (26)
+SOL	37	10	mixed	6	26	0	7:B2 U' F2 U B' U' F2 U B':0|17:U B U' F2 U B' U' F2:11	R B U D' B2 D' R2 B2 U' F2 U B2 U' F2 R2 F' D F D2 B2 U2 R' U D' F2 L
+L=10 best: cost 5, length 25 (direct)
+
+CASE	38
+scramble: R' U' F D L U2 D L F L2 D U2 F R2 B R2 U2 B R2 F' L' U2 R' U' F
+skeleton: F2 B D2 F' U2 B2 U2 R D' B' D' B2 U' (13)
+leftover: not one of the types | UFL>DFL+1 DFL>UBL+1 UBL>UFL+1 UF>DB+1 DB>DF DF>UF+1 | 0,3,1,2,4,5,6,7;0,1,1,1,0,0,0,0;0,1,2,3,7,4,6,5,8,9,10,11;0,0,0,0,1,0,0,1,0,0,0,0
+
+CASE	39
+scramble: R' U' F D R2 D2 F2 U' R2 F2 D F2 U2 R' D F' D U R2 B' D' R2 B R' U' F
+skeleton: R' D2 R U L2 U' R' L2 U' L B' L' F R (14) [written reduced]
+leftover: 2c2c-twisted | UBL>DBL+2 DBL>UBL DBR>UFL UFL>DBR+1 | 2,1,0,4,3,5,6,7;2,0,0,0,1,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 direct: no solution within the bound
+L=8 two: cost 8, length 22
+   1. at 8: insert R' U' L2 U R U' L2 U (8), 4 cancel -> R' D2 R U L2 U' R2 L2 U' L2 U R U' L' B' L' F R (18)
+   2. at 5: insert L' D2 L U' L' D2 L U (8), 4 cancel -> R' D2 R U L D2 L U' L' D2 R2 L' U' L2 U R U' L' B' L' F R (22)
+SOL	39	8	two	8	22	0	8:R' U' L2 U R U' L2 U:4|5:L' D2 L U' L' D2 L U:4	R' D2 R U L D2 L U' L' D2 R2 L' U' L2 U R U' L' B' L' F R
+L=8 two-flat: cost 8, length 22
+   1. at 8: insert R' U' L2 U R U' L2 U (8), 4 cancel -> R' D2 R U L2 U' R2 L2 U' L2 U R U' L' B' L' F R (18)
+   2. at 5: insert L' D2 L U' L' D2 L U (8), 4 cancel -> R' D2 R U L D2 L U' L' D2 R2 L' U' L2 U R U' L' B' L' F R (22)
+SOL	39	8	two-flat	8	22	0	8:R' U' L2 U R U' L2 U:4|5:L' D2 L U' L' D2 L U:4	R' D2 R U L D2 L U' L' D2 R2 L' U' L2 U R U' L' B' L' F R
+L=8 two-apart: cost 10, length 24
+   1. at 10: insert L F L' B' L F' L' B (8), 4 cancel -> R' D2 R U L2 U' R' L2 U' L2 F L' B' L F' L2 F R (18)
+   2. at 2: insert B' L B R B' L' B R' (8), 2 cancel -> R' D2 B' L B R B' L' B U L2 U' R' L2 U' L2 F L' B' L F' L2 F R (24)
+SOL	39	8	two-apart	10	24	0	10:L F L' B' L F' L' B:4|2:B' L B R B' L' B R':2	R' D2 B' L B R B' L' B U L2 U' R' L2 U' L2 F L' B' L F' L2 F R
+L=8 mixed: cost 8, length 22
+   1. at 8: insert R' U' L2 U R U' L2 U (8), 4 cancel -> R' D2 R U L2 U' R2 L2 U' L2 U R U' L' B' L' F R (18)
+   2. at 5: insert L' D2 L U' L' D2 L U (8), 4 cancel -> R' D2 R U L D2 L U' L' D2 R2 L' U' L2 U R U' L' B' L' F R (22)
+SOL	39	8	mixed	8	22	0	8:R' U' L2 U R U' L2 U:4|5:L' D2 L U' L' D2 L U:4	R' D2 R U L D2 L U' L' D2 R2 L' U' L2 U R U' L' B' L' F R
+L=8 best: cost 8, length 22 (two)
+L=10 direct: no solution within the bound
+L=10 two: cost 8, length 22
+   1. at 7: insert R' L2 U' L2 U R U' L2 U L2 (10), 6 cancel -> R' D2 R U L2 U' R2 L2 U' L2 U R U' L' B' L' F R (18)
+   2. at 4: insert L D2 L U' L' D2 L U L2 (9), 5 cancel -> R' D2 R U L D2 L U' L' D2 R2 L' U' L2 U R U' L' B' L' F R (22)
+SOL	39	10	two	8	22	0	7:R' L2 U' L2 U R U' L2 U L2:6|4:L D2 L U' L' D2 L U L2:5	R' D2 R U L D2 L U' L' D2 R2 L' U' L2 U R U' L' B' L' F R
+L=10 two-flat: cost 8, length 22
+   1. at 7: insert R' L2 U' L2 U R U' L2 U L2 (10), 6 cancel -> R' D2 R U L2 U' R2 L2 U' L2 U R U' L' B' L' F R (18)
+   2. at 4: insert L D2 L U' L' D2 L U L2 (9), 5 cancel -> R' D2 R U L D2 L U' L' D2 R2 L' U' L2 U R U' L' B' L' F R (22)
+SOL	39	10	two-flat	8	22	0	7:R' L2 U' L2 U R U' L2 U L2:6|4:L D2 L U' L' D2 L U L2:5	R' D2 R U L D2 L U' L' D2 R2 L' U' L2 U R U' L' B' L' F R
+L=10 two-apart: cost 10, length 24
+   1. at 9: insert L2 F L' B' L F' L' B L' (9), 5 cancel -> R' D2 R U L2 U' R' L2 U' L2 F L' B' L F' L2 F R (18)
+   2. at 4: insert U' R' B' L B R B' L' B U (10), 4 cancel -> R' D2 B' L B R B' L' B U L2 U' R' L2 U' L2 F L' B' L F' L2 F R (24)
+SOL	39	10	two-apart	10	24	0	9:L2 F L' B' L F' L' B L':5|4:U' R' B' L B R B' L' B U:4	R' D2 B' L B R B' L' B U L2 U' R' L2 U' L2 F L' B' L F' L2 F R
+L=10 mixed: cost 8, length 22
+   1. at 7: insert R' L2 U' L2 U R U' L2 U L2 (10), 6 cancel -> R' D2 R U L2 U' R2 L2 U' L2 U R U' L' B' L' F R (18)
+   2. at 4: insert L D2 L U' L' D2 L U L2 (9), 5 cancel -> R' D2 R U L D2 L U' L' D2 R2 L' U' L2 U R U' L' B' L' F R (22)
+SOL	39	10	mixed	8	22	0	7:R' L2 U' L2 U R U' L2 U L2:6|4:L D2 L U' L' D2 L U L2:5	R' D2 R U L D2 L U' L' D2 R2 L' U' L2 U R U' L' B' L' F R
+L=10 best: cost 8, length 22 (two)
+
+CASE	40
+scramble: R' U' F D B2 U' F2 D' B2 D L2 D2 F' R F2 U R' D2 F L' B' U2 F2 R' U' F
+skeleton: B R2 U2 B U2 R B' L2 D2 L' D' R2 F' B' U' (15) [written reduced]
+leftover: 3c | UBR>DFL DFL>UFL+2 UFL>UBR+1 | 0,6,2,1,4,5,3,7;0,0,0,2,0,0,1,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 7, length 22
+   1. at 14: insert F2 R B' R' F2 R B R' (8), 1 cancel -> B R2 U2 B U2 R B' L2 D2 L' D' R2 F B' R B' R' F2 R B R' U' (22)
+SOL	40	8	one	7	22	0	14:F2 R B' R' F2 R B R':1	B R2 U2 B U2 R B' L2 D2 L' D' R2 F B' R B' R' F2 R B R' U'
+L=8 direct: cost 7, length 22
+   1. at 14: insert F2 R B' R' F2 R B R' (8), 1 cancel -> B R2 U2 B U2 R B' L2 D2 L' D' R2 F B' R B' R' F2 R B R' U' (22)
+SOL	40	8	direct	7	22	0	14:F2 R B' R' F2 R B R':1	B R2 U2 B U2 R B' L2 D2 L' D' R2 F B' R B' R' F2 R B R' U'
+L=8 mixed: cost 7, length 22
+   1. at 12: insert U B' U' F' U B U' F (8), 2 cancel -> B R2 U2 B U2 R B' L2 D2 L' D' R2 U B' U' F' U B U' B' U' (21)
+   2. at 19: insert U B' U' F' U B U' F (8), 7 cancel -> B R2 U2 B U2 R B' L2 D2 L' D' R2 U B' U' F2 U B U' F B' U' (22)
+SOL	40	8	mixed	7	22	0	12:U B' U' F' U B U' F:2|19:U B' U' F' U B U' F:7	B R2 U2 B U2 R B' L2 D2 L' D' R2 U B' U' F2 U B U' F B' U'
+L=8 best: cost 7, length 22 (direct)
+L=10 one: cost 7, length 22
+   1. at 15: insert U F2 R B' R' F2 R B R' U' (10), 3 cancel -> B R2 U2 B U2 R B' L2 D2 L' D' R2 F B' R B' R' F2 R B R' U' (22)
+SOL	40	10	one	7	22	0	15:U F2 R B' R' F2 R B R' U':3	B R2 U2 B U2 R B' L2 D2 L' D' R2 F B' R B' R' F2 R B R' U'
+L=10 direct: cost 7, length 22
+   1. at 15: insert U F2 R B' R' F2 R B R' U' (10), 3 cancel -> B R2 U2 B U2 R B' L2 D2 L' D' R2 F B' R B' R' F2 R B R' U' (22)
+SOL	40	10	direct	7	22	0	15:U F2 R B' R' F2 R B R' U':3	B R2 U2 B U2 R B' L2 D2 L' D' R2 F B' R B' R' F2 R B R' U'
+L=10 mixed: cost 7, length 22
+   1. at 6: insert U' B D2 B' U' B D2 B' U2 (9), 0 cancel -> B R2 U2 B U2 R U' B D2 B' U' B D2 B' U2 B' L2 D2 L' D' R2 F' B' U' (24)
+   2. at 16: insert B U2 B D2 B' U2 B D2 B2 (9), 11 cancel -> B R2 U2 B U2 R U' B D2 B' U B D2 B2 L2 D2 L' D' R2 F' B' U' (22)
+SOL	40	10	mixed	7	22	0	6:U' B D2 B' U' B D2 B' U2:0|16:B U2 B D2 B' U2 B D2 B2:11	B R2 U2 B U2 R U' B D2 B' U B D2 B2 L2 D2 L' D' R2 F' B' U'
+L=10 best: cost 7, length 22 (direct)
+
+CASE	41
+scramble: R' U' F L' F' U2 R2 F2 L D2 R B2 R U2 F2 R2 U R2 D' U' F' U' F R' U' F
+skeleton: D2 L' F L' U2 L D2 L' U' D2 R2 L' U2 D2 B2 R L2 F2 L (19) [written reduced]
+leftover: 3e | FR>UL UR>FR UL>UR | 0,1,2,3,4,5,6,7;0,0,0,0,0,0,0,0;0,1,2,10,4,5,6,7,8,9,11,3;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 2, length 21
+   1. at 15: insert B2 U D' R2 B2 U' D L2 (8), 6 cancel -> D2 L' F L' U2 L D2 L' U' D2 R2 L' U' D R2 B2 U' D R F2 L (21)
+SOL	41	8	one	2	21	0	15:B2 U D' R2 B2 U' D L2:6	D2 L' F L' U2 L D2 L' U' D2 R2 L' U' D R2 B2 U' D R F2 L
+L=8 direct: cost 2, length 21
+   1. at 15: insert B2 U D' R2 B2 U' D L2 (8), 6 cancel -> D2 L' F L' U2 L D2 L' U' D2 R2 L' U' D R2 B2 U' D R F2 L (21)
+SOL	41	8	direct	2	21	0	15:B2 U D' R2 B2 U' D L2:6	D2 L' F L' U2 L D2 L' U' D2 R2 L' U' D R2 B2 U' D R F2 L
+L=8 mixed: cost 2, length 21
+   1. at 14: insert B2 U D' B2 U' D L2 B2 (8), 4 cancel -> D2 L' F L' U2 L D2 L' U' D2 R2 L' U2 D2 B2 U D' B2 U' D R F2 L (23)
+   2. at 12: insert U' D R2 U' D B2 U2 D2 (8), 10 cancel -> D2 L' F L' U2 L D2 L' U' D2 R2 L' U' D R2 B2 U' D R F2 L (21)
+SOL	41	8	mixed	2	21	0	14:B2 U D' B2 U' D L2 B2:4|12:U' D R2 U' D B2 U2 D2:10	D2 L' F L' U2 L D2 L' U' D2 R2 L' U' D R2 B2 U' D R F2 L
+L=8 best: cost 2, length 21 (direct)
+L=10 one: cost 2, length 21
+   1. at 17: insert R' L2 B2 U D' R2 B2 U' D R (10), 8 cancel -> D2 L' F L' U2 L D2 L' U' D2 R2 L' U' D R2 B2 U' D R F2 L (21)
+SOL	41	10	one	2	21	0	17:R' L2 B2 U D' R2 B2 U' D R:8	D2 L' F L' U2 L D2 L' U' D2 R2 L' U' D R2 B2 U' D R F2 L
+L=10 direct: cost 2, length 21
+   1. at 17: insert R' L2 B2 U D' R2 B2 U' D R (10), 8 cancel -> D2 L' F L' U2 L D2 L' U' D2 R2 L' U' D R2 B2 U' D R F2 L (21)
+SOL	41	10	direct	2	21	0	17:R' L2 B2 U D' R2 B2 U' D R:8	D2 L' F L' U2 L D2 L' U' D2 R2 L' U' D R2 B2 U' D R F2 L
+L=10 mixed: cost 2, length 21
+   1. at 14: insert U D' R2 B2 L2 U' F2 L2 B2 U' (10), 2 cancel -> D2 L' F L' U2 L D2 L' U' D2 R2 L' U' D R2 B2 L2 U' F2 L2 B2 U' B2 R L2 F2 L (27)
+   2. at 23: insert B2 U B2 L2 F2 U L2 U' D L2 (10), 16 cancel -> D2 L' F L' U2 L D2 L' U' D2 R2 L' U' D R2 B2 U' D R F2 L (21)
+SOL	41	10	mixed	2	21	0	14:U D' R2 B2 L2 U' F2 L2 B2 U':2|23:B2 U B2 L2 F2 U L2 U' D L2:16	D2 L' F L' U2 L D2 L' U' D2 R2 L' U' D R2 B2 U' D R F2 L
+L=10 best: cost 2, length 21 (direct)
+
+CASE	42
+scramble: R' U' F B2 R2 B2 U F2 D2 L2 B2 D' F' R U F R2 F D' B' R' D' R' U' F
+skeleton: U' L2 U F2 U' B2 U2 R2 F' B R B2 U' (13)
+leftover: 5e | FL>DL+1 BR>FL DL>UL UL>DR+1 DR>BR | 0,1,2,3,4,5,6,7;0,0,0,0,0,0,0,0;2,1,9,0,4,5,6,7,3,8,10,11;1,0,0,0,0,0,0,0,1,0,0,0
+L=8 direct: no solution within the bound
+L=8 two: cost 11, length 24
+   1. at 3: insert R2 B2 D' R2 F2 L2 U' F2 (8), 3 cancel -> U' L2 U R2 B2 D' R2 F2 L2 U2 B2 U2 R2 F' B R B2 U' (18)
+   2. at 1: insert D2 R2 B' D2 L2 U2 F' L2 (8), 2 cancel -> U' D2 R2 B' D2 L2 U2 F' U R2 B2 D' R2 F2 L2 U2 B2 U2 R2 F' B R B2 U' (24)
+SOL	42	8	two	11	24	0	3:R2 B2 D' R2 F2 L2 U' F2:3|1:D2 R2 B' D2 L2 U2 F' L2:2	U' D2 R2 B' D2 L2 U2 F' U R2 B2 D' R2 F2 L2 U2 B2 U2 R2 F' B R B2 U'
+L=8 two-flat: cost 11, length 24
+   1. at 3: insert R2 B2 D' R2 F2 L2 U' F2 (8), 3 cancel -> U' L2 U R2 B2 D' R2 F2 L2 U2 B2 U2 R2 F' B R B2 U' (18)
+   2. at 1: insert D2 R2 B' D2 L2 U2 F' L2 (8), 2 cancel -> U' D2 R2 B' D2 L2 U2 F' U R2 B2 D' R2 F2 L2 U2 B2 U2 R2 F' B R B2 U' (24)
+SOL	42	8	two-flat	11	24	0	3:R2 B2 D' R2 F2 L2 U' F2:3|1:D2 R2 B' D2 L2 U2 F' L2:2	U' D2 R2 B' D2 L2 U2 F' U R2 B2 D' R2 F2 L2 U2 B2 U2 R2 F' B R B2 U'
+L=8 two-apart: cost 11, length 24
+   1. at 3: insert R2 B2 D' R2 F2 L2 U' F2 (8), 3 cancel -> U' L2 U R2 B2 D' R2 F2 L2 U2 B2 U2 R2 F' B R B2 U' (18)
+   2. at 1: insert D2 R2 B' D2 L2 U2 F' L2 (8), 2 cancel -> U' D2 R2 B' D2 L2 U2 F' U R2 B2 D' R2 F2 L2 U2 B2 U2 R2 F' B R B2 U' (24)
+SOL	42	8	two-apart	11	24	0	3:R2 B2 D' R2 F2 L2 U' F2:3|1:D2 R2 B' D2 L2 U2 F' L2:2	U' D2 R2 B' D2 L2 U2 F' U R2 B2 D' R2 F2 L2 U2 B2 U2 R2 F' B R B2 U'
+L=8 mixed: cost 11, length 24
+   1. at 3: insert R2 B2 D' R2 F2 L2 U' F2 (8), 3 cancel -> U' L2 U R2 B2 D' R2 F2 L2 U2 B2 U2 R2 F' B R B2 U' (18)
+   2. at 1: insert D2 R2 B' D2 L2 U2 F' L2 (8), 2 cancel -> U' D2 R2 B' D2 L2 U2 F' U R2 B2 D' R2 F2 L2 U2 B2 U2 R2 F' B R B2 U' (24)
+SOL	42	8	mixed	11	24	0	3:R2 B2 D' R2 F2 L2 U' F2:3|1:D2 R2 B' D2 L2 U2 F' L2:2	U' D2 R2 B' D2 L2 U2 F' U R2 B2 D' R2 F2 L2 U2 B2 U2 R2 F' B R B2 U'
+L=8 best: cost 11, length 24 (two)
+L=10 direct: no solution within the bound
+L=10 two: cost 8, length 21
+   1. at 3: insert B2 D' B D F2 B2 U' B' U F2 (10), 5 cancel -> U' L2 U B2 D' B D F2 B2 U' B U2 R2 F' B R B2 U' (18)
+   2. at 12: insert U2 R2 F2 L2 D2 L2 F2 R2 (8), 5 cancel -> U' L2 U B2 D' B D F2 B2 U' B R2 F2 L2 D2 L2 F B R B2 U' (21)
+SOL	42	10	two	8	21	0	3:B2 D' B D F2 B2 U' B' U F2:5|12:U2 R2 F2 L2 D2 L2 F2 R2:5	U' L2 U B2 D' B D F2 B2 U' B R2 F2 L2 D2 L2 F B R B2 U'
+L=10 two-flat: cost 8, length 21
+   1. at 3: insert B2 D' B D F2 B2 U' B' U F2 (10), 5 cancel -> U' L2 U B2 D' B D F2 B2 U' B U2 R2 F' B R B2 U' (18)
+   2. at 12: insert U2 R2 F2 L2 D2 L2 F2 R2 (8), 5 cancel -> U' L2 U B2 D' B D F2 B2 U' B R2 F2 L2 D2 L2 F B R B2 U' (21)
+SOL	42	10	two-flat	8	21	0	3:B2 D' B D F2 B2 U' B' U F2:5|12:U2 R2 F2 L2 D2 L2 F2 R2:5	U' L2 U B2 D' B D F2 B2 U' B R2 F2 L2 D2 L2 F B R B2 U'
+L=10 two-apart: cost 9, length 22
+   1. at 6: insert R2 F2 L2 D2 L2 F2 R2 U2 (8), 5 cancel -> U' L2 U F2 U' B2 R2 F2 L2 D2 L2 F B R B2 U' (16)
+   2. at 3: insert U D F U2 R2 U2 F U' D' F2 (10), 4 cancel -> U' L2 U2 D F U2 R2 U2 F U2 D' B2 R2 F2 L2 D2 L2 F B R B2 U' (22)
+SOL	42	10	two-apart	9	22	0	6:R2 F2 L2 D2 L2 F2 R2 U2:5|3:U D F U2 R2 U2 F U' D' F2:4	U' L2 U2 D F U2 R2 U2 F U2 D' B2 R2 F2 L2 D2 L2 F B R B2 U'
+L=10 mixed: cost 8, length 21
+   1. at 3: insert B2 D' B D F2 B2 U' B' U F2 (10), 5 cancel -> U' L2 U B2 D' B D F2 B2 U' B U2 R2 F' B R B2 U' (18)
+   2. at 12: insert U2 R2 F2 L2 D2 L2 F2 R2 (8), 5 cancel -> U' L2 U B2 D' B D F2 B2 U' B R2 F2 L2 D2 L2 F B R B2 U' (21)
+SOL	42	10	mixed	8	21	0	3:B2 D' B D F2 B2 U' B' U F2:5|12:U2 R2 F2 L2 D2 L2 F2 R2:5	U' L2 U B2 D' B D F2 B2 U' B R2 F2 L2 D2 L2 F B R B2 U'
+L=10 best: cost 8, length 21 (two)
+
+CASE	43
+scramble: R' U' F D2 B2 D2 L2 B' D2 F D2 B' D2 U F' U2 R2 D B2 L' F L' R' U' F
+skeleton: D B' R' F' L F' L' D L' F U2 B (12)
+leftover: not one of the types | DFL>DFL+2 UBR>UBL+1 UBL>DFR DFR>UBR BR>DB FR>BR+1 DB>FR+1 | 0,1,6,3,4,2,5,7;0,2,1,0,0,0,0,0;0,1,2,3,9,5,6,7,8,10,4,11;0,0,0,0,0,0,0,0,0,1,1,0
+
+CASE	44
+scramble: R' U' F L F2 D L2 U2 L' B U2 F U2 L F2 D2 B2 R2 D2 L D2 F2 B2 R' U' F
+skeleton: D2 F2 L2 F2 R2 D B2 D B2 D' L' U B2 R F' R2 B2 (17)
+leftover: 3e | FR>DL DL>BR BR>FR | 0,1,2,3,4,5,6,7;0,0,0,0,0,0,0,0;10,1,2,3,4,5,6,7,8,0,9,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 one: cost 7, length 24
+   1. at 17: insert R F B' D2 F' B R (7), 0 cancel -> D2 F2 L2 F2 R2 D B2 D B2 D' L' U B2 R F' R2 B2 R F B' D2 F' B R (24)
+SOL	44	8	one	7	24	0	17:R F B' D2 F' B R:0	D2 F2 L2 F2 R2 D B2 D B2 D' L' U B2 R F' R2 B2 R F B' D2 F' B R
+L=8 direct: cost 7, length 24
+   1. at 17: insert R F B' D2 F' B R (7), 0 cancel -> D2 F2 L2 F2 R2 D B2 D B2 D' L' U B2 R F' R2 B2 R F B' D2 F' B R (24)
+SOL	44	8	direct	7	24	0	17:R F B' D2 F' B R:0	D2 F2 L2 F2 R2 D B2 D B2 D' L' U B2 R F' R2 B2 R F B' D2 F' B R
+L=8 mixed: cost 5, length 22
+   1. at 15: insert U2 F2 D2 L2 F2 U2 B2 R2 (8), 4 cancel -> D2 F2 L2 F2 R2 D B2 D B2 D' L' U B2 R F' U2 F2 D2 L2 F2 U2 (21)
+   2. at 4: insert R2 U R2 U' D B2 D' R2 (8), 7 cancel -> D2 F2 L2 F2 R2 U R2 U' D2 B2 D' L' U B2 R F' U2 F2 D2 L2 F2 U2 (22)
+SOL	44	8	mixed	5	22	0	15:U2 F2 D2 L2 F2 U2 B2 R2:4|4:R2 U R2 U' D B2 D' R2:7	D2 F2 L2 F2 R2 U R2 U' D2 B2 D' L' U B2 R F' U2 F2 D2 L2 F2 U2
+L=8 best: cost 5, length 22 (mixed)
+L=10 one: cost 5, length 22
+   1. at 8: insert D' B2 D L U R B2 R' U' L' (10), 5 cancel -> D2 F2 L2 F2 R2 D2 L U R B2 R' U' L' B2 D' L' U B2 R F' R2 B2 (22)
+SOL	44	10	one	5	22	0	8:D' B2 D L U R B2 R' U' L':5	D2 F2 L2 F2 R2 D2 L U R B2 R' U' L' B2 D' L' U B2 R F' R2 B2
+L=10 direct: cost 5, length 22
+   1. at 8: insert D' B2 D L U R B2 R' U' L' (10), 5 cancel -> D2 F2 L2 F2 R2 D2 L U R B2 R' U' L' B2 D' L' U B2 R F' R2 B2 (22)
+SOL	44	10	direct	5	22	0	8:D' B2 D L U R B2 R' U' L':5	D2 F2 L2 F2 R2 D2 L U R B2 R' U' L' B2 D' L' U B2 R F' R2 B2
+L=10 mixed: cost 5, length 22
+   1. at 14: insert F' U2 F2 D2 L2 F2 U2 B2 R2 F (10), 6 cancel -> D2 F2 L2 F2 R2 D B2 D B2 D' L' U B2 R F' U2 F2 D2 L2 F2 U2 (21)
+   2. at 9: insert B2 D' B2 U D' R2 U' D2 B2 (9), 8 cancel -> D2 F2 L2 F2 R2 U R2 U' D2 B2 D' L' U B2 R F' U2 F2 D2 L2 F2 U2 (22)
+SOL	44	10	mixed	5	22	0	14:F' U2 F2 D2 L2 F2 U2 B2 R2 F:6|9:B2 D' B2 U D' R2 U' D2 B2:8	D2 F2 L2 F2 R2 U R2 U' D2 B2 D' L' U B2 R F' U2 F2 D2 L2 F2 U2
+L=10 best: cost 5, length 22 (direct)
+
+CASE	45
+scramble: R' U' F L U F2 U2 B D2 R' D2 F' U2 F2 B L2 U2 L2 B L2 D2 B2 D F R' U' F
+skeleton: R' U2 L' U L B2 D F2 U' L2 U F' R' L B (15) [written reduced]
+leftover: 5c | DBR>DBL+1 UFL>DFL+2 UBR>UFL+2 DFL>DBR+1 DBL>UBR | 4,3,2,6,1,5,0,7;1,2,0,2,1,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 direct: no solution within the bound
+L=8 two: cost 11, length 26
+   1. at 7: insert D B2 D' F' D B2 D' F (8), 2 cancel -> R' U2 L' U L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (21)
+   2. at 2: insert U L' D' L U' L' D L (8), 3 cancel -> R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (26)
+SOL	45	8	two	11	26	0	7:D B2 D' F' D B2 D' F:2|2:U L' D' L U' L' D L:3	R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B
+L=8 two-flat: cost 11, length 26
+   1. at 7: insert D B2 D' F' D B2 D' F (8), 2 cancel -> R' U2 L' U L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (21)
+   2. at 2: insert U L' D' L U' L' D L (8), 3 cancel -> R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (26)
+SOL	45	8	two-flat	11	26	0	7:D B2 D' F' D B2 D' F:2|2:U L' D' L U' L' D L:3	R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B
+L=8 two-apart: cost 11, length 26
+   1. at 7: insert D B2 D' F' D B2 D' F (8), 2 cancel -> R' U2 L' U L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (21)
+   2. at 2: insert U L' D' L U' L' D L (8), 3 cancel -> R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (26)
+SOL	45	8	two-apart	11	26	0	7:D B2 D' F' D B2 D' F:2|2:U L' D' L U' L' D L:3	R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B
+L=8 mixed: cost 11, length 26
+   1. at 7: insert D B2 D' F' D B2 D' F (8), 2 cancel -> R' U2 L' U L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (21)
+   2. at 2: insert U L' D' L U' L' D L (8), 3 cancel -> R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (26)
+SOL	45	8	mixed	11	26	0	7:D B2 D' F' D B2 D' F:2|2:U L' D' L U' L' D L:3	R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B
+L=8 best: cost 11, length 26 (two)
+L=10 direct: no solution within the bound
+L=10 two: cost 11, length 26
+   1. at 6: insert D2 B2 D' F' D B2 D' F D' (9), 3 cancel -> R' U2 L' U L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (21)
+   2. at 1: insert U' L' D' L U' L' D L U2 (9), 4 cancel -> R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (26)
+SOL	45	10	two	11	26	0	6:D2 B2 D' F' D B2 D' F D':3|1:U' L' D' L U' L' D L U2:4	R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B
+L=10 two-flat: cost 11, length 26
+   1. at 6: insert D2 B2 D' F' D B2 D' F D' (9), 3 cancel -> R' U2 L' U L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (21)
+   2. at 1: insert U' L' D' L U' L' D L U2 (9), 4 cancel -> R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (26)
+SOL	45	10	two-flat	11	26	0	6:D2 B2 D' F' D B2 D' F D':3|1:U' L' D' L U' L' D L U2:4	R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B
+L=10 two-apart: cost 11, length 26
+   1. at 6: insert D2 B2 D' F' D B2 D' F D' (9), 3 cancel -> R' U2 L' U L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (21)
+   2. at 1: insert U' L' D' L U' L' D L U2 (9), 4 cancel -> R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (26)
+SOL	45	10	two-apart	11	26	0	6:D2 B2 D' F' D B2 D' F D':3|1:U' L' D' L U' L' D L U2:4	R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B
+L=10 mixed: cost 11, length 26
+   1. at 6: insert D2 B2 D' F' D B2 D' F D' (9), 3 cancel -> R' U2 L' U L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (21)
+   2. at 1: insert U' L' D' L U' L' D L U2 (9), 4 cancel -> R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B (26)
+SOL	45	10	mixed	11	26	0	6:D2 B2 D' F' D B2 D' F D':3|1:U' L' D' L U' L' D L U2:4	R' U' L' D' L U' L' U D L B2 D2 B2 D' F' D B2 D' F' U' L2 U F' R' L B
+L=10 best: cost 11, length 26 (two)
+
+CASE	46
+scramble: R' U' F U' B' D' F L2 B2 D R2 D2 B2 F2 R2 F L' U2 B U2 R U2 R' U' F
+skeleton: U2 L2 B L F U' D F2 B2 L2 F U' (12) [written reduced]
+leftover: 5c | UFL>DBL+2 DBR>UBL+1 UBL>UFL+1 UBR>DBR+2 DBL>UBR | 3,1,4,2,6,5,0,7;2,0,1,1,2,0,0,0;0,1,2,3,4,5,6,7,8,9,10,11;0,0,0,0,0,0,0,0,0,0,0,0
+L=8 direct: no solution within the bound
+L=8 two: cost 11, length 23
+   1. at 8: insert F' L B2 L' F L B2 L' (8), 1 cancel -> U2 L2 B L F U' D F L B2 L' F L B2 L' B2 L2 F U' (19)
+   2. at 15: insert L B' R' B L' B' R B (8), 4 cancel -> U2 L2 B L F U' D F L B2 L' F L B R' B L' B' R B' L2 F U' (23)
+SOL	46	8	two	11	23	0	8:F' L B2 L' F L B2 L':1|15:L B' R' B L' B' R B:4	U2 L2 B L F U' D F L B2 L' F L B R' B L' B' R B' L2 F U'
+L=8 two-flat: cost 11, length 23
+   1. at 8: insert F' L B2 L' F L B2 L' (8), 1 cancel -> U2 L2 B L F U' D F L B2 L' F L B2 L' B2 L2 F U' (19)
+   2. at 15: insert L B' R' B L' B' R B (8), 4 cancel -> U2 L2 B L F U' D F L B2 L' F L B R' B L' B' R B' L2 F U' (23)
+SOL	46	8	two-flat	11	23	0	8:F' L B2 L' F L B2 L':1|15:L B' R' B L' B' R B:4	U2 L2 B L F U' D F L B2 L' F L B R' B L' B' R B' L2 F U'
+L=8 two-apart: cost 12, length 24
+   1. at 11: insert F D' F' U F D F' U' (8), 2 cancel -> U2 L2 B L F U' D F2 B2 L2 F2 D' F' U F D F' U2 (18)
+   2. at 7: insert D B' D' F D B D' F' (8), 2 cancel -> U2 L2 B L F U' D2 B' D' F D B D' F B2 L2 F2 D' F' U F D F' U2 (24)
+SOL	46	8	two-apart	12	24	0	11:F D' F' U F D F' U':2|7:D B' D' F D B D' F':2	U2 L2 B L F U' D2 B' D' F D B D' F B2 L2 F2 D' F' U F D F' U2
+L=8 mixed: cost 11, length 23
+   1. at 8: insert F' L B2 L' F L B2 L' (8), 1 cancel -> U2 L2 B L F U' D F L B2 L' F L B2 L' B2 L2 F U' (19)
+   2. at 15: insert L B' R' B L' B' R B (8), 4 cancel -> U2 L2 B L F U' D F L B2 L' F L B R' B L' B' R B' L2 F U' (23)
+SOL	46	8	mixed	11	23	0	8:F' L B2 L' F L B2 L':1|15:L B' R' B L' B' R B:4	U2 L2 B L F U' D F L B2 L' F L B R' B L' B' R B' L2 F U'
+L=8 best: cost 11, length 23 (two)
+L=10 direct: cost 10, length 22
+   1. at 3: insert R2 U' R2 U B' U' R2 U R2 B (10), 0 cancel -> U2 L2 B R2 U' R2 U B' U' R2 U R2 B L F U' D F2 B2 L2 F U' (22)
+SOL	46	10	direct	10	22	0	3:R2 U' R2 U B' U' R2 U R2 B:0	U2 L2 B R2 U' R2 U B' U' R2 U R2 B L F U' D F2 B2 L2 F U'
+L=10 two: cost 11, length 23
+   1. at 7: insert F L B2 L' F L B2 L' F2 (9), 2 cancel -> U2 L2 B L F U' D F L B2 L' F L B2 L' B2 L2 F U' (19)
+   2. at 16: insert B2 L B' R' B L' B' R B' (9), 5 cancel -> U2 L2 B L F U' D F L B2 L' F L B R' B L' B' R B' L2 F U' (23)
+SOL	46	10	two	11	23	0	7:F L B2 L' F L B2 L' F2:2|16:B2 L B' R' B L' B' R B':5	U2 L2 B L F U' D F L B2 L' F L B R' B L' B' R B' L2 F U'
+L=10 two-flat: cost 11, length 23
+   1. at 7: insert F L B2 L' F L B2 L' F2 (9), 2 cancel -> U2 L2 B L F U' D F L B2 L' F L B2 L' B2 L2 F U' (19)
+   2. at 16: insert B2 L B' R' B L' B' R B' (9), 5 cancel -> U2 L2 B L F U' D F L B2 L' F L B R' B L' B' R B' L2 F U' (23)
+SOL	46	10	two-flat	11	23	0	7:F L B2 L' F L B2 L' F2:2|16:B2 L B' R' B L' B' R B':5	U2 L2 B L F U' D F L B2 L' F L B R' B L' B' R B' L2 F U'
+L=10 two-apart: cost 12, length 24
+   1. at 10: insert F2 D' F' U F D F' U' F' (9), 3 cancel -> U2 L2 B L F U' D F2 B2 L2 F2 D' F' U F D F' U2 (18)
+   2. at 6: insert D2 B' D' F D B D' F' D' (9), 3 cancel -> U2 L2 B L F U' D2 B' D' F D B D' F B2 L2 F2 D' F' U F D F' U2 (24)
+SOL	46	10	two-apart	12	24	0	10:F2 D' F' U F D F' U' F':3|6:D2 B' D' F D B D' F' D':3	U2 L2 B L F U' D2 B' D' F D B D' F B2 L2 F2 D' F' U F D F' U2
+L=10 mixed: cost 10, length 22 (nested)
+   1. at 1: insert R2 F R2 F' D' F R2 F' R2 D (10), 0 cancel -> U2 R2 F R2 F' D' F R2 F' R2 D L2 B L F U' D F2 B2 L2 F U' (22)
+   2. at 9: insert F R2 F' D F D' R2 D F' D' (10), 10 cancel -> U2 R2 F R2 D' R2 D F' D' R2 D L2 B L F U' D F2 B2 L2 F U' (22)
+SOL	46	10	mixed	10	22	1	1:R2 F R2 F' D' F R2 F' R2 D:0|9:F R2 F' D F D' R2 D F' D':10	U2 R2 F R2 D' R2 D F' D' R2 D L2 B L F U' D F2 B2 L2 F U'
+L=10 best: cost 10, length 22 (direct)
+

@@ -1,0 +1,4 @@
+class	representative	pieces (from>to+twist)	class_size	optimal_length	n1	n2	n3	n4	n5	n6	n7	n8
+1	-	DBL>DBL+2 DFL>DFL+1	24	>8	0	0	0	0	0	0	0	0
+2	-	DFL>DFL+2 UBL>UBL+1	24	>8	0	0	0	0	0	0	0	0
+3	-	UFL>UFL+2 DBR>DBR+1	8	>8	0	0	0	0	0	0	0	0

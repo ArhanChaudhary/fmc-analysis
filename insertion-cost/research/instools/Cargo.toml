@@ -1,0 +1,13 @@
+[package]
+name = "instools"
+version = "0.1.0"
+edition = "2021"
+description = "Insertion cost by skeleton type: all insertion algorithms up to a length bound and exact insertion costs"
+
+[dependencies]
+rayon = "1.10"
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+lto = true

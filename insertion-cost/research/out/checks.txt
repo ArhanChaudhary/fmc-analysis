@@ -1,0 +1,79 @@
+$ instools selftest
+cubie model: 200 test vectors from cube.py ok (states, rotations, inverses, composition, relabelling)
+cancel: 600 test vectors from cube.py ok (cancel, incremental stack, insertion)
+
+$ instools count
+type	expected	by construction	distinct	among all products of two 3-cycles	among all corner states
+3c	1008	1008	1008	1008	1008
+2tc	56	56	56	56	56
+3tc	112	112	112	112	112
+2c2c-pure	1890	1890	1890	1890	1890
+2c2c-twisted	3780	3780	3780	3780	3780
+3c1t	10080	10080	10080	10080	10080
+5c	108864	108864	108864	108864	108864
+3c3c	90720	90720	90720	90720	90720
+3e	1760	1760	1760	1760	-
+2f	66	66	66	66	-
+2e2e	5940	5940	5940	5940	-
+2e2e-flipped	5940	5940	5940	5940	-
+5e	304128	304128	304128	304128	-
+3e1f	15840	15840	15840	15840	-
+3e3e	591360	591360	591360	591360	-
+2c2e	11088	11088	11088	-	-
+2c2c (pure + twisted) = 5670, 2e2e (unflipped + flipped) = 11880
+type sizes: all agree
+
+$ instools bf1 200 1
+bf1: type 3c, n = 6, L = 8: 200 of 200 pairs agree (one insertion, table against direct enumeration); 182 have a solution; 1199 sequences compared; costs [("3", 1), ("4", 4), ("5", 14), ("6", 47), ("7", 65), ("8", 51), ("none", 18)]
+
+$ instools bf1 200 2 --type 3e
+bf1: type 3e, n = 6, L = 8: 200 of 200 pairs agree (one insertion, table against direct enumeration); 52 have a solution; 1739 sequences compared; costs [("4", 3), ("5", 7), ("6", 13), ("7", 26), ("8", 3), ("none", 148)]
+
+$ instools bf2 2tc 12 300 7 8
+bf2: type 2tc, n = 12, L = 8: 300 of 300 agree (two insertions, fast against plain enumeration); 300 have a solution; two-apart is worse in 135; nesting is needed for the best in 26  (4.0s)
+
+$ instools bf2 3tc 12 300 7 8
+bf2: type 3tc, n = 12, L = 8: 300 of 300 agree (two insertions, fast against plain enumeration); 300 have a solution; two-apart is worse in 85; nesting is needed for the best in 15  (0.7s)
+
+$ instools bf2 2c2c-pure 12 300 7 8
+bf2: type 2c2c-pure, n = 12, L = 8: 300 of 300 agree (two insertions, fast against plain enumeration); 300 have a solution; two-apart is worse in 119; nesting is needed for the best in 31  (1.1s)
+
+$ instools bf2 2c2c-twisted 12 300 7 8
+bf2: type 2c2c-twisted, n = 12, L = 8: 300 of 300 agree (two insertions, fast against plain enumeration); 300 have a solution; two-apart is worse in 195; nesting is needed for the best in 101  (1.1s)
+
+$ instools bf2 3c1t 12 300 7 8
+bf2: type 3c1t, n = 12, L = 8: 300 of 300 agree (two insertions, fast against plain enumeration); 300 have a solution; two-apart is worse in 158; nesting is needed for the best in 77  (0.5s)
+
+$ instools bf2 5c 12 300 7 8
+bf2: type 5c, n = 12, L = 8: 300 of 300 agree (two insertions, fast against plain enumeration); 300 have a solution; two-apart is worse in 184; nesting is needed for the best in 118  (0.3s)
+
+$ instools bf2 3c3c 12 300 7 8
+bf2: type 3c3c, n = 12, L = 8: 300 of 300 agree (two insertions, fast against plain enumeration); 300 have a solution; two-apart is worse in 211; nesting is needed for the best in 159  (0.2s)
+
+$ instools bf2 2f 12 300 7 8
+bf2: type 2f, n = 12, L = 8: 300 of 300 agree (two insertions, fast against plain enumeration); 255 have a solution; two-apart is worse in 26; nesting is needed for the best in 0  (4.6s)
+
+$ instools bf2 2e2e 12 300 7 8
+bf2: type 2e2e, n = 12, L = 8: 300 of 300 agree (two insertions, fast against plain enumeration); 267 have a solution; two-apart is worse in 199; nesting is needed for the best in 120  (2.7s)
+
+$ instools bf2 2e2e-flipped 12 300 7 8
+bf2: type 2e2e-flipped, n = 12, L = 8: 300 of 300 agree (two insertions, fast against plain enumeration); 187 have a solution; two-apart is worse in 14; nesting is needed for the best in 3  (1.0s)
+
+$ instools bf2 5e 12 300 7 8
+bf2: type 5e, n = 12, L = 8: 300 of 300 agree (two insertions, fast against plain enumeration); 185 have a solution; two-apart is worse in 129; nesting is needed for the best in 113  (0.7s)
+
+$ instools bf2 3e1f 12 300 7 8
+bf2: type 3e1f, n = 12, L = 8: 300 of 300 agree (two insertions, fast against plain enumeration); 93 have a solution; two-apart is worse in 4; nesting is needed for the best in 1  (0.5s)
+
+$ instools bf2 3e3e 12 300 7 8
+bf2: type 3e3e, n = 12, L = 8: 300 of 300 agree (two insertions, fast against plain enumeration); 112 have a solution; two-apart is worse in 85; nesting is needed for the best in 78  (0.4s)
+
+$ python check_solutions.py sample out/sample_2c2c-pure_n10.tsv out/sample_2c2c-pure_n12.tsv out/sample_2c2c-pure_n14.tsv out/sample_2c2c-pure_n16.tsv out/sample_2c2c-pure_n18.tsv out/sample_2c2c-pure_n20.tsv out/sample_2c2c-pure_n22.tsv out/sample_2c2c-pure_n24.tsv out/sample_2c2c-pure_n26.tsv out/sample_2c2c-pure_n28.tsv out/sample_2c2c-pure_n30.tsv out/sample_2c2c-twisted_n10.tsv out/sample_2c2c-twisted_n12.tsv out/sample_2c2c-twisted_n14.tsv out/sample_2c2c-twisted_n16.tsv out/sample_2c2c-twisted_n18.tsv out/sample_2c2c-twisted_n20.tsv out/sample_2c2c-twisted_n22.tsv out/sample_2c2c-twisted_n24.tsv out/sample_2c2c-twisted_n26.tsv out/sample_2c2c-twisted_n28.tsv out/sample_2c2c-twisted_n30.tsv out/sample_2e2e-flipped_n10.tsv out/sample_2e2e-flipped_n12.tsv out/sample_2e2e-flipped_n14.tsv out/sample_2e2e-flipped_n16.tsv out/sample_2e2e-flipped_n18.tsv out/sample_2e2e-flipped_n20.tsv out/sample_2e2e-flipped_n22.tsv out/sample_2e2e-flipped_n24.tsv out/sample_2e2e-flipped_n26.tsv out/sample_2e2e-flipped_n28.tsv out/sample_2e2e-flipped_n30.tsv out/sample_2e2e_n10.tsv out/sample_2e2e_n12.tsv out/sample_2e2e_n14.tsv out/sample_2e2e_n16.tsv out/sample_2e2e_n18.tsv out/sample_2e2e_n20.tsv out/sample_2e2e_n22.tsv out/sample_2e2e_n24.tsv out/sample_2e2e_n26.tsv out/sample_2e2e_n28.tsv out/sample_2e2e_n30.tsv out/sample_2f_n10.tsv out/sample_2f_n12.tsv out/sample_2f_n14.tsv out/sample_2f_n16.tsv out/sample_2f_n18.tsv out/sample_2f_n20.tsv out/sample_2f_n22.tsv out/sample_2f_n24.tsv out/sample_2f_n26.tsv out/sample_2f_n28.tsv out/sample_2f_n30.tsv out/sample_2tc_n10.tsv out/sample_2tc_n12.tsv out/sample_2tc_n14.tsv out/sample_2tc_n16.tsv out/sample_2tc_n18.tsv out/sample_2tc_n20.tsv out/sample_2tc_n22.tsv out/sample_2tc_n24.tsv out/sample_2tc_n26.tsv out/sample_2tc_n28.tsv out/sample_2tc_n30.tsv out/sample_3c1t_n10.tsv out/sample_3c1t_n12.tsv out/sample_3c1t_n14.tsv out/sample_3c1t_n16.tsv out/sample_3c1t_n18.tsv out/sample_3c1t_n20.tsv out/sample_3c1t_n22.tsv out/sample_3c1t_n24.tsv out/sample_3c1t_n26.tsv out/sample_3c1t_n28.tsv out/sample_3c1t_n30.tsv out/sample_3c3c_n10.tsv out/sample_3c3c_n12.tsv out/sample_3c3c_n14.tsv out/sample_3c3c_n16.tsv out/sample_3c3c_n18.tsv out/sample_3c3c_n20.tsv out/sample_3c3c_n22.tsv out/sample_3c3c_n24.tsv out/sample_3c3c_n26.tsv out/sample_3c3c_n28.tsv out/sample_3c3c_n30.tsv out/sample_3c_n10.tsv out/sample_3c_n12.tsv out/sample_3c_n14.tsv out/sample_3c_n16.tsv out/sample_3c_n18.tsv out/sample_3c_n20.tsv out/sample_3c_n22.tsv out/sample_3c_n24.tsv out/sample_3c_n26.tsv out/sample_3c_n28.tsv out/sample_3c_n30.tsv out/sample_3e1f_n10.tsv out/sample_3e1f_n12.tsv out/sample_3e1f_n14.tsv out/sample_3e1f_n16.tsv out/sample_3e1f_n18.tsv out/sample_3e1f_n20.tsv out/sample_3e1f_n22.tsv out/sample_3e1f_n24.tsv out/sample_3e1f_n26.tsv out/sample_3e1f_n28.tsv out/sample_3e1f_n30.tsv out/sample_3e3e_n10.tsv out/sample_3e3e_n12.tsv out/sample_3e3e_n14.tsv out/sample_3e3e_n16.tsv out/sample_3e3e_n18.tsv out/sample_3e3e_n20.tsv out/sample_3e3e_n22.tsv out/sample_3e3e_n24.tsv out/sample_3e3e_n26.tsv out/sample_3e3e_n28.tsv out/sample_3e3e_n30.tsv out/sample_3e_n10.tsv out/sample_3e_n12.tsv out/sample_3e_n14.tsv out/sample_3e_n16.tsv out/sample_3e_n18.tsv out/sample_3e_n20.tsv out/sample_3e_n22.tsv out/sample_3e_n24.tsv out/sample_3e_n26.tsv out/sample_3e_n28.tsv out/sample_3e_n30.tsv out/sample_3tc_n10.tsv out/sample_3tc_n12.tsv out/sample_3tc_n14.tsv out/sample_3tc_n16.tsv out/sample_3tc_n18.tsv out/sample_3tc_n20.tsv out/sample_3tc_n22.tsv out/sample_3tc_n24.tsv out/sample_3tc_n26.tsv out/sample_3tc_n28.tsv out/sample_3tc_n30.tsv out/sample_5c_n10.tsv out/sample_5c_n12.tsv out/sample_5c_n14.tsv out/sample_5c_n16.tsv out/sample_5c_n18.tsv out/sample_5c_n20.tsv out/sample_5c_n22.tsv out/sample_5c_n24.tsv out/sample_5c_n26.tsv out/sample_5c_n28.tsv out/sample_5c_n30.tsv out/sample_5e_n10.tsv out/sample_5e_n12.tsv out/sample_5e_n14.tsv out/sample_5e_n16.tsv out/sample_5e_n18.tsv out/sample_5e_n20.tsv out/sample_5e_n22.tsv out/sample_5e_n24.tsv out/sample_5e_n26.tsv out/sample_5e_n28.tsv out/sample_5e_n30.tsv
+...
+/data/fmc/insertion-cost/research/out/sample_5e_n28.tsv: 20000 lines, 931 solutions replayed on the sticker model: all solve and have the printed cost
+/data/fmc/insertion-cost/research/out/sample_5e_n30.tsv: 20000 lines, 937 solutions replayed on the sticker model: all solve and have the printed cost
+total solutions replayed: 163683
+
+$ python check_solutions.py best out/real_best.txt out/if_best.txt
+/data/fmc/insertion-cost/research/out/real_best.txt: 2143 printed solutions replayed on the sticker model: all solve their scramble with the printed length
+/data/fmc/insertion-cost/research/out/if_best.txt: 48 printed solutions replayed on the sticker model: all solve their scramble with the printed length
