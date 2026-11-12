@@ -1,0 +1,214 @@
+[
+ {
+  "id": "W1",
+  "question": "A1",
+  "finding": "worst scramble of the sample: no DR shorter than 10 turns even with NISS (best of 6 linear: 10)",
+  "scramble": "F2 R2 U' F2 L2 F2 L2 U F2 D R2 D2 L2 U' R' U2 B D R' B F U B L2 U2",
+  "solution": {
+   "normal": "L F R' D B2 L' B' U F D",
+   "inverse": "-",
+   "dr_axis": "RL",
+   "length": 10
+  },
+  "replayed_on_sticker_model": true,
+  "sample_index": 101,
+  "scrambles_with_this_niss_length": 437
+ },
+ {
+  "id": "W2",
+  "question": "A1",
+  "finding": "no sub-10 DR on any axis, normal or inverse (best of 6 = 10); NISS gives 9",
+  "scramble": "R2 F2 L2 B2 D F2 L2 D2 L2 U F2 D B2 U' L' F' U B L D R B' L2 U'",
+  "solution": {
+   "normal": "F B R' D' L' B",
+   "inverse": "D F2 R",
+   "dr_axis": "UD",
+   "length": 9
+  },
+  "replayed_on_sticker_model": true,
+  "sample_index": 12,
+  "share_of_sample": 0.08462
+ },
+ {
+  "id": "W3",
+  "question": "A1",
+  "finding": "superflip: DR in 10 on each axis (normal), 10 best of 6, 10 with NISS; optimal EO 7 linear, 7 with NISS",
+  "scramble": "U R2 F B R B2 R U2 L B2 R U' D' R2 F R' L B2 U2 F2",
+  "solution": {
+   "optimal_dr": "U D F L R' U2 F2 U F B",
+   "dr_axis": "RL",
+   "niss_dr": {
+    "normal": "U D F L R' U2 F2 U F B",
+    "inverse": "-"
+   }
+  },
+  "replayed_on_sticker_model": true,
+  "d_each_axis_normal": [
+   "10",
+   "10",
+   "10"
+  ],
+  "d_each_axis_inverse": [
+   "10",
+   "10",
+   "10"
+  ],
+  "dr_solutions_normal_by_length": {
+   "8": 0,
+   "9": 0,
+   "10": 9216,
+   "11": 184704
+  }
+ },
+ {
+  "id": "W4",
+  "question": "A2",
+  "finding": "every optimal DR (10 turns, 2 of them) starts with an EO of at least 9 turns",
+  "scramble": "U' L2 B2 U' B2 D F2 U' L2 F2 D' F2 U L2 U' F' D F L B' R2 F U R B2 U'",
+  "solution": {
+   "optimal_dr": "U2 L' B' D U' F D R L' D",
+   "dr_axis": "FB",
+   "eo_part": "U2 L' B' D U' F D R L'",
+   "eo_axis": "RL",
+   "rest": "D"
+  },
+  "replayed_on_sticker_model": true,
+  "sample_index": 226,
+  "scrambles_with_this_estar": 69
+ },
+ {
+  "id": "W5",
+  "question": "A2",
+  "finding": "the best DR through any normal EO of at most 5 turns is 12, the optimal DR 8",
+  "scramble": "D' R2 B2 D B2 L2 B2 R2 U2 F2 U F2 U2 R2 R' B' F D L R' B' F'",
+  "solution": {
+   "best_route_eo_le5": {
+    "eo": "L D F' B R'",
+    "eo_axis": "RL",
+    "dr": "D' F U2 D2 F R2 D",
+    "dr_axis": "FB",
+    "total": 12
+   },
+   "optimal_dr": {
+    "moves": "F B R L' D' F' B R",
+    "dr_axis": "UD",
+    "eo_inside": "FB:7"
+   }
+  },
+  "replayed_on_sticker_model": true,
+  "sample_index": 419,
+  "scrambles_with_this_loss": 67,
+  "scrambles_without_any_normal_eo_le5": 241
+ },
+ {
+  "id": "W6",
+  "question": "A2",
+  "finding": "a 8-turn DR whose shortest EO inside is 7 turns; through EOs of at most 5 the best is 10",
+  "scramble": "D2 R2 F2 L2 U' L2 R2 U' B2 D B2 R2 U2 B' L2 F' R U2 B L2 F L' U'",
+  "solution": {
+   "optimal_dr": "F2 U D L' F' R' B D",
+   "dr_axis": "RL",
+   "eo_inside": "FB:7",
+   "best_route_eo_le5": {
+    "eo": "R F D2 R' L",
+    "eo_axis": "RL",
+    "dr": "U F2 L2 F D",
+    "dr_axis": "FB",
+    "total": 10
+   }
+  },
+  "replayed_on_sticker_model": true,
+  "sample_index": 5
+ },
+ {
+  "id": "W7",
+  "question": "B4",
+  "finding": "fewest EOs of at most 5 turns in the sample: 0 with NISS on all three axes (0 linear normal); 6 such scrambles",
+  "scramble": "U' B2 D2 U F2 D L2 B2 F2 U' B2 L2 D F' U2 R D' B L F R' D U",
+  "solution": {
+   "all_eos_le5_niss (nissy eo -N -a -M 5)": [],
+   "an optimal NISS EO (nissy eo -N)": "U F B (D2 R' F)",
+   "its length": 6
+  },
+  "replayed_on_sticker_model": true,
+  "nissy_count": 0,
+  "ours": 0,
+  "sample_index": 5416
+ },
+ {
+  "id": "W8",
+  "question": "B4",
+  "finding": "more 3-move EOs (4) than 4-move EOs (0) with NISS, all axes (9 of 50000 scrambles; linear: 0)",
+  "scramble": "L2 B2 D L2 U F2 D2 R2 U' F2 L2 U R2 U' F2 R' D' F' D' B' L D2 R F2 U'",
+  "solution": {
+   "three_move_eos (nissy eo -N -a)": [
+    "R (U2 R)",
+    "R (U2 R')",
+    "R' (U2 R)",
+    "R' (U2 R')"
+   ],
+   "four_move_eos": []
+  },
+  "replayed_on_sticker_model": true,
+  "sample_index": 10538
+ },
+ {
+  "id": "W9",
+  "question": "C6c",
+  "finding": "DR-4c4e after the EO: 6 to DR; with the EO's last turn inverted, 5",
+  "scramble": "L2 D2 U' F2 L2 U' L2 B2 U' R2 B2 L2 R' D L F' D F2 D' F2",
+  "solution": {
+   "eo": "R' D2 L' D",
+   "eo_axis": "UD",
+   "dr_axis": "RL",
+   "dr": "D2 R2 B2 F2 L F",
+   "eo_switched": "R' D2 L' D'",
+   "dr_after_switch": "R2 B2 F2 L F"
+  },
+  "replayed_on_sticker_model": true
+ },
+ {
+  "id": "W10",
+  "question": "C6b",
+  "finding": "after the EO, 4c6e: 9 to DR on normal, 5 on the inverse (EO kept)",
+  "scramble": "U R2 D2 R2 U2 F2 L2 R2 U' L2 R2 L' U L R2 B D2 L' U2 R",
+  "solution": {
+   "eo": "D2 L2 B' D",
+   "eo_axis": "UD",
+   "dr_axis": "FB",
+   "dr_normal": "F2 L' B R B' R' B' D2 R",
+   "dr_on_inverse": "U2 F R B2 L",
+   "written_niss": "D2 L2 B' D (U2 F R B2 L)"
+  },
+  "replayed_on_sticker_model": true
+ },
+ {
+  "id": "W11",
+  "question": "C6a",
+  "finding": "one EO, two DR axes: 6c6e on RL is 9 to DR, 6c6e on UD is 5",
+  "scramble": "B2 D' R2 U R2 U R2 B2 U2 L2 U R2 U' R2 U' B' D L2 D' L F L D' L",
+  "solution": {
+   "eo": "F' B' U' F'",
+   "eo_axis": "FB",
+   "RL": "L R F2 R2 U' D' L2 R U",
+   "UD": "L U R' D R"
+  },
+  "replayed_on_sticker_model": true
+ },
+ {
+  "id": "W12",
+  "question": "C6d",
+  "finding": "after the EO, 3c0e: 8 keeping EO, 7 with a turn that breaks it",
+  "scramble": "L2 D2 U' F2 L2 U' L2 B2 U' R2 B2 L2 R' D L F' D F2 D' F2",
+  "solution": {
+   "eo": "D F R L",
+   "eo_axis": "RL",
+   "dr_axis": "UD",
+   "dr_keeping_eo": "U B U D' B' U' D B",
+   "dr_breaking_eo": "R' D' L D' L' D' R"
+  },
+  "replayed_on_sticker_model": true,
+  "eolist_rows_with_any_shorter": 26,
+  "eolist_rows": 4736
+ }
+]

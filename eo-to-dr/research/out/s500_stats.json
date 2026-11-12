@@ -1,0 +1,259 @@
+{
+ "n": 500,
+ "a1": {
+  "fixed axis, exact (all 2,217,093,120 cosets)": {
+   "mean": 9.5245,
+   "p_le8": 0.06231,
+   "p_le9": 0.43289,
+   "p_le10": 0.97375,
+   "max": 12
+  },
+  "fixed axis (U/D), sampled": {
+   "mean": 9.524,
+   "p_le8": 0.07,
+   "p_le9": 0.432,
+   "p_le10": 0.972,
+   "max": 11
+  },
+  "fixed axis, all three axes pooled, sampled": {
+   "mean": 9.5327,
+   "p_le8": 0.062,
+   "p_le9": 0.42,
+   "p_le10": 0.97733,
+   "max": 11
+  },
+  "best of 3 axes, normal (linear)": {
+   "mean": 9.054,
+   "p_le8": 0.162,
+   "p_le9": 0.76,
+   "p_le10": 1.0,
+   "max": 10
+  },
+  "best of 3 axes, inverse (linear)": {
+   "mean": 8.894,
+   "p_le8": 0.232,
+   "p_le9": 0.84,
+   "p_le10": 1.0,
+   "max": 10
+  },
+  "best of 6 (3 axes x normal/inverse, linear)": {
+   "mean": 8.672,
+   "p_le8": 0.33,
+   "p_le9": 0.942,
+   "p_le10": 1.0,
+   "max": 10
+  },
+  "NISS (moves on both sides), best of 3 axes": {
+   "mean": 8.406,
+   "p_le8": 0.514,
+   "p_le9": 0.994,
+   "p_le10": 1.0,
+   "max": 10
+  },
+  "niss_gain_over_6": {
+   "0": 379,
+   "1": 109,
+   "2": 12,
+   "3": 0
+  },
+  "lin_gain_6_over_3": {
+   "0": 338,
+   "1": 135,
+   "2": 25,
+   "3": 2
+  }
+ },
+ "estar_hist": {
+  "0": 0,
+  "1": 1,
+  "2": 14,
+  "3": 36,
+  "4": 58,
+  "5": 100,
+  "6": 96,
+  "7": 118,
+  "8": 77
+ },
+ "estar_mean": 5.774,
+ "a3_gains": {
+  "normal_N9": {
+   "drs_per_eo_le4": 0.03153,
+   "drs_per_5move_eo": 0.00245,
+   "mean_drs_from_le4_eos": 0.48,
+   "mean_drs_from_5move_eos": 0.472,
+   "mean_le4_eos": 15.22,
+   "mean_5move_eos": 192.28
+  },
+  "normal_N10": {
+   "drs_per_eo_le4": 0.16146,
+   "drs_per_5move_eo": 0.01784,
+   "mean_drs_from_le4_eos": 2.458,
+   "mean_drs_from_5move_eos": 3.43,
+   "mean_le4_eos": 15.22,
+   "mean_5move_eos": 192.28
+  },
+  "normal_N11": {
+   "drs_per_eo_le4": 0.6742,
+   "drs_per_5move_eo": 0.11894,
+   "mean_drs_from_le4_eos": 10.264,
+   "mean_drs_from_5move_eos": 22.87,
+   "mean_le4_eos": 15.22,
+   "mean_5move_eos": 192.28
+  },
+  "normal_N12": {
+   "drs_per_eo_le4": 1.66435,
+   "drs_per_5move_eo": 0.61007,
+   "mean_drs_from_le4_eos": 25.338,
+   "mean_drs_from_5move_eos": 117.304,
+   "mean_le4_eos": 15.22,
+   "mean_5move_eos": 192.28
+  },
+  "nix_N9": {
+   "drs_per_eo_le4": 0.03575,
+   "drs_per_5move_eo": 0.00337,
+   "mean_drs_from_le4_eos": 1.53,
+   "mean_drs_from_5move_eos": 2.04,
+   "mean_le4_eos": 42.8,
+   "mean_5move_eos": 605.23
+  },
+  "nix_N10": {
+   "drs_per_eo_le4": 0.19577,
+   "drs_per_5move_eo": 0.02475,
+   "mean_drs_from_le4_eos": 8.378,
+   "mean_drs_from_5move_eos": 14.978,
+   "mean_le4_eos": 42.8,
+   "mean_5move_eos": 605.23
+  },
+  "nix_N11": {
+   "drs_per_eo_le4": 0.79283,
+   "drs_per_5move_eo": 0.15962,
+   "mean_drs_from_le4_eos": 33.93,
+   "mean_drs_from_5move_eos": 96.606,
+   "mean_le4_eos": 42.8,
+   "mean_5move_eos": 605.23
+  },
+  "nix_N12": {
+   "drs_per_eo_le4": 1.74091,
+   "drs_per_5move_eo": 0.76006,
+   "mean_drs_from_le4_eos": 74.504,
+   "mean_drs_from_5move_eos": 460.01,
+   "mean_le4_eos": 42.8,
+   "mean_5move_eos": 605.23
+  },
+  "gain_5_over_4_normal": {
+   "p_no_eo_le4": 0.208,
+   "p_improves_given_eo_le4": 0.37879,
+   "mean_gain_given_eo_le4": 0.4747,
+   "mean_best_le4_given_eo": 10.0859,
+   "mean_best_le5": 9.8133
+  },
+  "gain_5_over_4_normal_inverse": {
+   "p_no_eo_le4": 0.116,
+   "p_improves_given_eo_le4": 0.3733,
+   "mean_gain_given_eo_le4": 0.4887,
+   "mean_best_le4_given_eo": 9.7421,
+   "mean_best_le5": 9.356
+  },
+  "gain_5_over_4_nix": {
+   "p_no_eo_le4": 0.04,
+   "p_improves_given_eo_le4": 0.36875,
+   "mean_gain_given_eo_le4": 0.475,
+   "mean_best_le4_given_eo": 9.5708,
+   "mean_best_le5": 9.132
+  },
+  "gain_other_axes_normal_k4": {
+   "p_fixed_axis_has_eo": 0.396,
+   "mean_fixed_given_eo": 10.3485,
+   "mean_all_axes_same_scrambles": 9.9343,
+   "p_other_axes_better": 0.26263,
+   "mean_all_axes": 10.0859
+  },
+  "gain_other_axes_normal_k5": {
+   "p_fixed_axis_has_eo": 0.868,
+   "mean_fixed_given_eo": 10.5115,
+   "mean_all_axes_same_scrambles": 9.7327,
+   "p_other_axes_better": 0.49078,
+   "mean_all_axes": 9.8133
+  },
+  "gain_other_axes_normal_k6": {
+   "p_fixed_axis_has_eo": 0.99,
+   "mean_fixed_given_eo": 10.1616,
+   "mean_all_axes_same_scrambles": 9.4869,
+   "p_other_axes_better": 0.48889,
+   "mean_all_axes": 9.492
+  },
+  "gain_other_axes_nix_k4": {
+   "p_fixed_axis_has_eo": 0.706,
+   "mean_fixed_given_eo": 10.0963,
+   "mean_all_axes_same_scrambles": 9.4929,
+   "p_other_axes_better": 0.41076,
+   "mean_all_axes": 9.5708
+  },
+  "gain_other_axes_nix_k5": {
+   "p_fixed_axis_has_eo": 0.996,
+   "mean_fixed_given_eo": 9.755,
+   "mean_all_axes_same_scrambles": 9.1305,
+   "p_other_axes_better": 0.43373,
+   "mean_all_axes": 9.132
+  },
+  "gain_other_axes_nix_k6": {
+   "p_fixed_axis_has_eo": 1.0,
+   "mean_fixed_given_eo": 9.304,
+   "mean_all_axes_same_scrambles": 8.76,
+   "p_other_axes_better": 0.412,
+   "mean_all_axes": 8.76
+  }
+ },
+ "eo_optimal": {
+  "fixed_axis_linear_mean": 4.632,
+  "any_axis_linear_mean": 3.868,
+  "any_axis_lin_or_inv_mean": 3.6,
+  "any_axis_niss_mean": 3.476,
+  "any_axis_niss_hist": {
+   "0": 0,
+   "1": 3,
+   "2": 42,
+   "3": 189,
+   "4": 246,
+   "5": 20,
+   "6": 0,
+   "7": 0
+  },
+  "any_axis_linear_hist": {
+   "0": 0,
+   "1": 1,
+   "2": 25,
+   "3": 119,
+   "4": 251,
+   "5": 102,
+   "6": 2,
+   "7": 0
+  },
+  "any_axis_lin_or_inv_hist": {
+   "0": 0,
+   "1": 3,
+   "2": 41,
+   "3": 167,
+   "4": 231,
+   "5": 58,
+   "6": 0,
+   "7": 0
+  }
+ },
+ "gap_linear": {
+  "1_but_no_2": 0.002,
+  "2_but_no_3": 0.004,
+  "3_but_no_4": 0.0,
+  "4_but_no_5": 0.0,
+  "5_but_no_6": 0.0
+ },
+ "more3than4_linear": 0.0,
+ "gap_niss": {
+  "1_but_no_2": 0.002,
+  "2_but_no_3": 0.006,
+  "3_but_no_4": 0.0,
+  "4_but_no_5": 0.0,
+  "5_but_no_6": 0.0
+ },
+ "more3than4_niss": 0.0
+}

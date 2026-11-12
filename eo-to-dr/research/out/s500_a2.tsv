@@ -1,0 +1,29 @@
+eo_kind	reference	k	p_has_eo	mean_best_given_eo	p_equals_optimal	mean_loss_given_eo	p_loss0	p_loss1	p_loss2	p_loss3plus	p_better_than_optimal_ref	p_estar_le_k	p_any_turns_after_eo_equals_optimal	p_needs_eo_breaking	mean_best_any_turns_after_eo
+normal EOs, DR on normal	optimal normal DR	0	0.0		0.0		0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	
+normal EOs, DR on normal	optimal normal DR	1	0.002	8.0	0.002	0.0	0.002	0.0	0.0	0.0	0.0	0.002	0.002	0.0	8.0
+normal EOs, DR on normal	optimal normal DR	2	0.052	9.1923	0.03	0.5385	0.03	0.016	0.006	0.0	0.0	0.03	0.03	0.0	9.1923
+normal EOs, DR on normal	optimal normal DR	3	0.29	9.6759	0.102	0.9034	0.102	0.122	0.058	0.008	0.0	0.102	0.102	0.0	9.6759
+normal EOs, DR on normal	optimal normal DR	4	0.792	10.0859	0.218	1.1187	0.218	0.314	0.212	0.048	0.0	0.218	0.218	0.0	10.0859
+normal EOs, DR on normal	optimal normal DR	5	0.996	9.8133	0.418	0.761	0.418	0.404	0.168	0.006	0.0	0.418	0.418	0.0	9.8133
+normal EOs, DR on normal	optimal normal DR	6	1.0	9.492	0.61	0.438	0.61	0.342	0.048	0.0	0.0	0.61	0.61	0.0	9.492
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	0	0.0		0.0		0.0	0.0	0.0	0.0	0.0				
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	1	0.006	8.0	0.004	0.6667	0.004	0.0	0.002	0.0	0.0				
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	2	0.088	9.1136	0.034	0.8182	0.034	0.038	0.014	0.002	0.0				
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	3	0.422	9.5261	0.118	1.128	0.118	0.172	0.1	0.032	0.0				
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	4	0.884	9.7421	0.252	1.1154	0.252	0.344	0.232	0.056	0.0				
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	5	1.0	9.356	0.458	0.684	0.458	0.406	0.13	0.006	0.0				
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	6	1.0	9.038	0.674	0.366	0.674	0.286	0.04	0.0	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	0	0.0		0.0		0.0	0.0	0.0	0.0	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	1	0.006	8.0	0.0	1.3333	0.0	0.004	0.002	0.0	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	2	0.09	9.1111	0.022	1.1111	0.022	0.04	0.024	0.004	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	3	0.468	9.5043	0.092	1.3504	0.092	0.18	0.146	0.05	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	4	0.96	9.5708	0.228	1.1812	0.228	0.406	0.258	0.068	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	5	1.0	9.132	0.434	0.726	0.434	0.414	0.144	0.008	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	6	1.0	8.76	0.676	0.354	0.676	0.294	0.03	0.0	0.0				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	0	0.0		0.0		0.0	0.0	0.0	0.0	0.0				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	1	0.006	8.0	0.004	0.6667	0.004	0.0	0.002	0.0	0.0				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	2	0.09	9.1111	0.036	0.8	0.036	0.038	0.014	0.002	0.0				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	3	0.468	9.5043	0.14	1.0726	0.14	0.184	0.106	0.034	0.004				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	4	0.96	9.5708	0.324	0.9229	0.324	0.386	0.206	0.032	0.012				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	5	1.0	9.132	0.538	0.46	0.538	0.344	0.078	0.002	0.038				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	6	1.0	8.76	0.71	0.088	0.71	0.172	0.016	0.0	0.102				

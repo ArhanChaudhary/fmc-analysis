@@ -1,0 +1,81 @@
+{
+ "X1": {
+  "scramble": "U2 B2 U' R2 U F2 U2 R2 B2 F2 R2 B2 U2 L' B D' U' L' R' F' L2 F'",
+  "eo_axis": "RL",
+  "eo": "D L' B R",
+  "dr_axis": "FB",
+  "case": "3c8e",
+  "plain": "10",
+  "plain_dr": "F2 U F B' D B L2 F' L2 D",
+  "switched": "10",
+  "switched_eo": "D L' B R'",
+  "switched_dr": "F2 U F B' D B L2 F' L2 D",
+  "inverse": "8",
+  "inverse_dr": "B' D' B' R2 U B R2 U",
+  "any": "10"
+ },
+ "X4": {
+  "scramble": "U B2 R2 U' R2 U B2 D' F2 R2 U L2 F2 L' U' R' F2 D F' R B R U'",
+  "eo_axis": "F/B",
+  "eo": "U B' R F'",
+  "dr_axis": "R/L",
+  "case": "4c6e",
+  "plain": "8",
+  "plain_dr": "F2 D2 L' B2 R' U' R2 D"
+ },
+ "X5": {
+  "scramble": "U R2 F B R B2 R U2 L B2 R U' D' R2 F R' L B2 U2 F2",
+  "normal": "D F U'",
+  "inverse": "L B R U'",
+  "axis": "U/D"
+ },
+ "X2": {
+  "scramble": "R2 L2 F2 B2"
+ },
+ "X3": [
+  {
+   "sample_index": "101",
+   "scramble": "F2 R2 U' F2 L2 F2 L2 U F2 D R2 D2 L2 U' R' U2 B D R' B F U B L2 U2",
+   "best_of_6_dr": "10",
+   "niss_dr": "10",
+   "optimal_length": "18",
+   "optimal_solution": "D' R2 D B' L' U2 L D' F' L' B U' L2 F' D' R2 B' L'"
+  },
+  {
+   "sample_index": "114",
+   "scramble": "L2 F2 R2 U2 L2 F2 U' L2 D B2 R2 U B2 U2 L' F' U2 L U L2 R' U2 B D",
+   "best_of_6_dr": "10",
+   "niss_dr": "10",
+   "optimal_length": "19",
+   "optimal_solution": "U2 D F' B2 D' R2 L' D2 F U B2 L D B L2 R U' L2 B'"
+  },
+  {
+   "sample_index": "358",
+   "scramble": "U' F2 U2 B2 L2 U B2 L2 U2 L2 U' R2 U' L2 F' L' B' F U2 R' U L D' R",
+   "best_of_6_dr": "10",
+   "niss_dr": "10",
+   "optimal_length": "18",
+   "optimal_solution": "U L2 F' L2 B2 U R2 D2 R U2 F' R' U2 B U' L D2 F2"
+  }
+ ],
+ "scr": {
+  "W1": "F2 R2 U' F2 L2 F2 L2 U F2 D R2 D2 L2 U' R' U2 B D R' B F U B L2 U2",
+  "W2": "R2 F2 L2 B2 D F2 L2 D2 L2 U F2 D B2 U' L' F' U B L D R B' L2 U'",
+  "W3": "U R2 F B R B2 R U2 L B2 R U' D' R2 F R' L B2 U2 F2",
+  "W4": "U' L2 B2 U' B2 D F2 U' L2 F2 D' F2 U L2 U' F' D F L B' R2 F U R B2 U'",
+  "W5": "D' R2 B2 D B2 L2 B2 R2 U2 F2 U F2 U2 R B' F D L R' B' F'",
+  "W6": "D2 R2 F2 L2 U' L2 R2 U' B2 D B2 R2 U2 B' L2 F' R U2 B L2 F L' U'",
+  "W7": "U' B2 D2 U F2 D L2 B2 F2 U' B2 L2 D F' U2 R D' B L F R' D U",
+  "W8": "L2 B2 D L2 U F2 D2 R2 U' F2 L2 U R2 U' F2 R' D' F' D' B' L D2 R F2 U'",
+  "W9": "L2 D2 U' F2 L2 U' L2 B2 U' R2 B2 L2 R' D L F' D F2 D' F2",
+  "W10": "U R2 D2 R2 U2 F2 L2 R2 U' L2 R2 L' U L R2 B D2 L' U2 R",
+  "W11": "B2 D' R2 U R2 U R2 B2 U2 L2 U R2 U' R2 U' B' D L2 D' L F L D' L",
+  "W12": "L2 D2 U' F2 L2 U' L2 B2 U' R2 B2 L2 R' D L F' D F2 D' F2",
+  "X1": "U2 B2 U' R2 U F2 U2 R2 B2 F2 R2 B2 U2 L' B D' U' L' R' F' L2 F'",
+  "X4": "U B2 R2 U' R2 U B2 D' F2 R2 U L2 F2 L' U' R' F2 D F' R B R U'",
+  "X3_0": "F2 R2 U' F2 L2 F2 L2 U F2 D R2 D2 L2 U' R' U2 B D R' B F U B L2 U2",
+  "X3_1": "L2 F2 R2 U2 L2 F2 U' L2 D B2 R2 U B2 U2 L' F' U2 L U L2 R' U2 B D",
+  "X3_2": "U' F2 U2 B2 L2 U B2 L2 U2 L2 U' R2 U' L2 F' L' B' F U2 R' U L D' R"
+ },
+ "checks": 47
+}

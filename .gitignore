@@ -20,6 +20,8 @@
 /is-dr-xs-worth-it/research/out/*.pkl
 /is-dr-xs-worth-it/research/out/*_test*.tsv
 /is-dr-xs-worth-it/research/out/*.log
+/eo-to-dr/research/eodrtools/target/
+/eo-to-dr/research/out/big/
 /insertion-cost/research/instools/target/
 /insertion-cost/research/out/sample_*.tsv
 /insertion-cost/research/out/base_*.tsv

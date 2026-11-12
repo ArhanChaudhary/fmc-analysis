@@ -1,0 +1,7 @@
+name = "EODR"
+version = "0.1.0"
+defaultTargets = ["EODR"]
+
+[[lean_lib]]
+name = "EODR"
+precompileModules = true

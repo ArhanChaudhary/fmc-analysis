@@ -1,0 +1,29 @@
+eo_kind	reference	k	p_has_eo	mean_best_given_eo	p_equals_optimal	mean_loss_given_eo	p_loss0	p_loss1	p_loss2	p_loss3plus	p_better_than_optimal_ref	p_estar_le_k	p_any_turns_after_eo_equals_optimal	p_needs_eo_breaking	mean_best_any_turns_after_eo
+normal EOs, DR on normal	optimal normal DR	0	0.00166	7.4096	0.00162	0.0241	0.00162	4e-05	0.0	0.0	0.0	0.00162	0.00164	2e-05	7.3976
+normal EOs, DR on normal	optimal normal DR	1	0.00468	7.8889	0.00424	0.1111	0.00424	0.00038	4e-05	2e-05	0.0	0.00424	0.00426	2e-05	7.8803
+normal EOs, DR on normal	optimal normal DR	2	0.04038	9.0178	0.02396	0.5032	0.02396	0.01282	0.0033	0.0003	0.0	0.02396	0.02404	8e-05	9.0144
+normal EOs, DR on normal	optimal normal DR	3	0.29272	9.7808	0.08922	1.018	0.08922	0.12364	0.0664	0.01346	0.0	0.08922	0.08936	0.00014	9.7788
+normal EOs, DR on normal	optimal normal DR	4	0.78522	10.0545	0.22078	1.0877	0.22078	0.32316	0.19642	0.04486	0.0	0.22078	0.22096	0.00018	10.0538
+normal EOs, DR on normal	optimal normal DR	5	0.99518	9.8272	0.41056	0.7788	0.41056	0.4146	0.151	0.01902	0.0	0.41056	0.41064	8e-05	9.8269
+normal EOs, DR on normal	optimal normal DR	6	1.0	9.4725	0.6278	0.4215	0.6278	0.324	0.04706	0.00114	0.0	0.6278	0.62786	6e-05	9.4724
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	0	0.00166	7.0361	0.00162	0.0241	0.00162	4e-05	0.0	0.0	0.0				
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	1	0.00796	7.8995	0.00662	0.2136	0.00662	0.00104	0.00024	6e-05	0.0				
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	2	0.07566	8.9942	0.03638	0.6965	0.03638	0.02756	0.0102	0.00152	0.0				
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	3	0.43312	9.6307	0.1172	1.0984	0.1172	0.18264	0.10868	0.0246	0.0				
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	4	0.88258	9.7674	0.25984	1.0508	0.25984	0.36662	0.21138	0.04474	0.0				
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	5	0.99906	9.447	0.45558	0.6839	0.45558	0.41452	0.11852	0.01044	0.0				
+normal or inverse EOs, DR on the same side	optimal DR, best of 6	6	1.0	9.1157	0.67772	0.3521	0.67772	0.29292	0.02894	0.00042	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	0	0.00166	7.0361	0.00114	0.3976	0.00114	0.0004	0.0001	2e-05	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	1	0.00796	7.8995	0.00426	0.6608	0.00426	0.00232	0.0012	0.00018	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	2	0.08108	8.981	0.0235	1.0446	0.0235	0.03438	0.0196	0.0036	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	3	0.49618	9.5794	0.09276	1.3219	0.09276	0.19884	0.16046	0.04412	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	4	0.95962	9.5821	0.2324	1.1354	0.2324	0.41788	0.25982	0.04952	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	5	0.99988	9.1615	0.4309	0.6967	0.4309	0.44834	0.1138	0.00684	0.0				
+normal, inverse and NISS EOs, NISS DR side rule	optimal NISS DR	6	1.0	8.8359	0.66128	0.371	0.66128	0.3069	0.03138	0.00044	0.0				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	0	0.00166	7.0361	0.00162	0.0241	0.00162	4e-05	0.0	0.0	0.0				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	1	0.00796	7.8995	0.00662	0.2136	0.00662	0.00104	0.00024	6e-05	0.0				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	2	0.08108	8.981	0.03848	0.6633	0.03848	0.02922	0.01058	0.00154	0.00126				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	3	0.49618	9.5794	0.1418	1.0068	0.1418	0.21012	0.1129	0.02356	0.0078				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	4	0.95962	9.5821	0.33012	0.8362	0.33012	0.4047	0.1735	0.02598	0.02532				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	5	0.99988	9.1615	0.53882	0.398	0.53882	0.34588	0.05456	0.00282	0.0578				
+normal, inverse and NISS EOs, against the best of 6	optimal DR, best of 6	6	1.0	8.8359	0.7006	0.0723	0.7006	0.17762	0.0102	4e-05	0.11154				

@@ -1,0 +1,5 @@
+# no sub-10 DR even with NISS: 437 of 50000 sample scrambles; the optimal solution of the first 3 (nissy solve optimal), replayed
+sample_index	scramble	best_of_6_dr	niss_dr	optimal_length	optimal_solution
+101	F2 R2 U' F2 L2 F2 L2 U F2 D R2 D2 L2 U' R' U2 B D R' B F U B L2 U2	10	10	18	D' R2 D B' L' U2 L D' F' L' B U' L2 F' D' R2 B' L'
+114	L2 F2 R2 U2 L2 F2 U' L2 D B2 R2 U B2 U2 L' F' U2 L U L2 R' U2 B D	10	10	19	U2 D F' B2 D' R2 L' D2 F U B2 L D B L2 R U' L2 B'
+358	U' F2 U2 B2 L2 U B2 L2 U2 L2 U' R2 U' L2 F' L' B' F U2 R' U L D' R	10	10	18	U L2 F' L2 B2 U R2 D2 R U2 F' R' U2 B U' L D2 F2

@@ -27,3 +27,11 @@ What a 3c, a 5c, a 2c2c, a 3c1t or a pair of twisted corners adds to a skeleton,
 - [Write-up](insertion-cost/): the costs, the odds, the exchange rates between types and the claims check. It opens with the short version.
 - [Worked examples](insertion-cost/examples.html): worked examples from the tutorial and the server redone with the search, then 200 skeletons to play along with, answers folded away.
 - [Errata](insertion-cost/errata.html): what the numbers show is wrong in things said on the server, each with an example.
+
+## EO to DR, and scramble to DR
+
+How far a random scramble is from DR on one axis, on the best of three, with the inverse and with NISS, and through the short EOs a solver writes down; how many EOs a scramble has and how short; and what an EO leaves with the other DR axis, the inverse, the last EO turn switched or EO-breaking turns, case by case. Exact distance tables on 50,000 uniformly random scrambles, and every EO-solved state exactly.
+
+- [Write-up](eo-to-dr/): the odds of a DR in 8, 9, 10 and 11, the EO inside the optimal DR, EO counts, EO to DR with every option, and the claims check. It opens with the short version.
+- [Worked examples](eo-to-dr/examples.html): 150 scrambles with their shortest DRs and their best DRs through EOs of at most 4 and 5, then 60 EO-solved states by case, answers folded away.
+- [Errata](eo-to-dr/errata.html): what the numbers show is wrong in things said on the server, each with an example.
