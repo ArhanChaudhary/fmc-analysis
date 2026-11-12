@@ -1,0 +1,13 @@
+import HTRRoutes.Cube
+import HTRRoutes.Pieces
+import HTRRoutes.Search
+import HTRRoutes.Corners
+import HTRRoutes.HtrGroup
+import HTRRoutes.Cosets
+import HTRRoutes.Study
+import HTRRoutes.Parse
+import HTRRoutes.Model
+import HTRRoutes.HtrTheorems
+import HTRRoutes.CornerTheorems
+import HTRRoutes.CosetTheorems
+import HTRRoutes.Audit

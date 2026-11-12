@@ -1,0 +1,1 @@
+redcount2 vs brute force for every length r <= 7 (q = 1 and 2): 40 states, the first 10 of 4 subsets (0c0 0e, 0c0 2e, 0c0 4e, 0c0 6e); 40 identical in every (q, r) cell. The brute-force run was stopped after 6 hours (about 70 hours for all 48 subsets); r = 6 and 7 are not checked on the other 44 subsets.

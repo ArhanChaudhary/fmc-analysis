@@ -1,0 +1,18 @@
+quantity	doc9	ours	note
+P(corner QTs <= 2)	0.171	0.1762	exact over the 40320 corner permutations (every one holds the same number of DR states)
+P(corner QTs = 3)	0.275	0.2810	exact over the 40320 corner permutations (every one holds the same number of DR states)
+P(corner QTs = 4)	0.329	0.3524	exact over the 40320 corner permutations (every one holds the same number of DR states)
+P(corner QTs = 5)	0.225	0.1905	exact over the 40320 corner permutations (every one holds the same number of DR states)
+median optimal, corner QTs <=2	13.3	13	doc 9 medians are interpolated on a 10k sample
+corner QTs 2: additional qts +0	0.3723	0.4637 (fewest-qt optimal) / 0.1954 (most-qt optimal)	doc 9: one optimal per state
+corner QTs 2: additional qts +2	0.573	0.5138 (fewest-qt optimal) / 0.6430 (most-qt optimal)	doc 9: one optimal per state
+corner QTs 2: additional qts +4 or more	0.0546	0.0225 (fewest-qt optimal) / 0.1617 (most-qt optimal)	doc 9: one optimal per state
+median optimal, corner QTs 3	13.7	13	doc 9 medians are interpolated on a 10k sample
+corner QTs 3: additional qts +0	0.6237	0.7815 (fewest-qt optimal) / 0.4267 (most-qt optimal)	doc 9: one optimal per state
+corner QTs 3: additional qts +2	0.3591	0.2138 (fewest-qt optimal) / 0.5302 (most-qt optimal)	doc 9: one optimal per state
+corner QTs 3: additional qts +4 or more	0.0172	0.0047 (fewest-qt optimal) / 0.0431 (most-qt optimal)	doc 9: one optimal per state
+median optimal, corner QTs 4	14.4	14	doc 9 medians are interpolated on a 10k sample
+corner QTs 4: additional qts +0	0.7726	0.8716 (fewest-qt optimal) / 0.5620 (most-qt optimal)	doc 9: one optimal per state
+corner QTs 4: additional qts +2	0.2265	0.1283 (fewest-qt optimal) / 0.4316 (most-qt optimal)	doc 9: one optimal per state
+corner QTs 4: additional qts +4 or more	0.0009	0.0001 (fewest-qt optimal) / 0.0064 (most-qt optimal)	doc 9: one optimal per state
+median optimal, corner QTs 5	14.8	14	doc 9 medians are interpolated on a 10k sample

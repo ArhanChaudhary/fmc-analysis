@@ -35,3 +35,11 @@ How far a random scramble is from DR on one axis, on the best of three, with the
 - [Write-up](eo-to-dr/): the odds of a DR in 8, 9, 10 and 11, the EO inside the optimal DR, EO counts, EO to DR with every option, and the claims check. It opens with the short version.
 - [Worked examples](eo-to-dr/examples.html): 150 scrambles with their shortest DRs and their best DRs through EOs of at most 4 and 5, then 60 EO-solved states by case, answers folded away.
 - [Errata](eo-to-dr/errata.html): what the numbers show is wrong in things said on the server, each with an example.
+
+## Which HTR routes to try from a DR
+
+From a DR to HTR: which routes find the optimal finish on each of the 48 subsets, in what order to try them and how long their HTRs are; how the path sheets were made; linear against NISS HTR; DR bounding measured per subset; FakeMMAP's reduction-length bound tested. 25,000 uniformly random DR states per subset, each with every optimal and +1 finish read in every NISS way, on the exact table of all 19,508,428,800 DR states.
+
+- [Write-up](htr-routes/): the checklists per subset, the path sheets, HTR lengths, bounding, FakeMMAP's bound, hand checklists and the claims check. It opens with the short version.
+- [Worked examples](htr-routes/examples.html): 200 DR states from the 20 most common subsets, with the routes that find each optimal written out and the shortest bounding reduction, answers folded away.
+- [Errata](htr-routes/errata.html): what the numbers show is wrong in things said on the server, each with an example.

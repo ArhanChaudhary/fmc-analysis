@@ -1,0 +1,9 @@
+## 12. What this does not cover
+
+- **Findability and time.** Every number is what exists along a route, not what a solver finds in an attempt. The HTR budget is a stand-in for effort (how much longer than the shortest HTR you are willing to look), not a cost model: it does not count how many HTRs of that length a route has, or how long setups take. A route and a reduction are different amounts of work, so section 8's comparison is only in kind.
+- **Half turns inside a route.** Routes record the corner subsets after each quarter turn, not how many half turns come between. Steps of hand checklists that limit setup moves ("1-2 moves to trigger", "two half turns followed by a quarter turn") are graded as their whole route, which flatters them; Jay's and rodneykinney's setup counts are not graded separately.
+- **Samples.** Route and bounding questions are sampled ({= n(25000) =} states per subset × edges; 4,000 for reduction counts). A share's standard error is at most {= SE(0.5, 25000) =} points per subset × edges; small differences between routes deep in a checklist are within noise. The +1 level uses the same enumeration as the optimum but was not cross-checked by an independent solver.
+- **DR-breaking and HTR-breaking finishes**, and finishes that leave the slice, are not routes here: finishes stay in the DR group, E slice solved. (The leave-slice optimum is used only where a sheet uses it.)
+- **The DR itself.** Uniform DR states. Real DRs come from EOs and triggers and are not uniform within a subset (Kai Cui's and JTuu's generated states show how much that can matter, section 8). Variations of the DR other than its last move are not covered.
+- **Fixed targets** of 10 to 12 in sections 8 and 9 use finishes up to max(optimal + 1, min(optimal + 2, 12)) moves; for DRs whose optimum is 9 or less, a longer target is not covered.
+- **rodneykinney's 4qt "1/6"** (a quarter turn on each side taking 4qt to 2qt) is not computed.

@@ -1,0 +1,2 @@
+redcount2 (coset-table count of reductions to 1q / 2q, r <= 5) vs redcount (brute-force enumeration of every pair), first 100 states of every subset x edges: 4800 states, 4800 identical in every (q, r) cell.
+alpha for 4a3 > 4b2 > 4a1 > HTR = 0,3,1,0 (FakeMMAP T11501: alpha_1 = 3 for 4a3 2e).

@@ -1,0 +1,96 @@
+doc	label	example	our_subset	normal_label	inverse_label
+doc15	0qt 2E	U R2 F2 R2 U	0c0 2e	0c0 2e	0c0 2e
+doc15	0qt 4E	U R2 L2 D	0c0 4e	0c0 4e	0c0 4e
+doc15	0qt 6E	U R2 L2 F2 R2 F2 D	0c0 6e	0c0 6e	0c0 6e
+doc15	0qt 8E	U R2 L2 F2 B2 U	0c0 8e	0c0 8e	0c0 8e
+doc15	1qt 4C	U R2 L2 U F2 B2 D	4a1 0e	4a1 0e	4a1 0e
+doc15	1qt 4C2E	U R2 L2 U R2 U	4a1 2e	4a1 2e	4a1 2e
+doc15	1qt 4C4E	U	4a1 4e	4a1 4e	4a1 4e
+doc15	2qt (a) 4C	U R2 F2 R2 F2 U	4b2 0e	4b2 0e	4b2 0e
+doc15	2qt (a) 4C2E	U R2 U	4b2 2e	4b2 2e	4b2 2e
+doc15	2qt (a) 4C4E	U R2 F2 U	4b2 4e	4b2 4e	4b2 4e
+doc15	2qt (b) 4C	U R2 U R2 B2 R2 U' R2 U	4a2 0e	4a2 0e	4a2 0e
+doc15	2qt (b) 4C2E	D B2 D’ F2 B2 D’ F2 D	4a2 2e	4a2 2e	4a2 2e
+doc15	2qt (b) 4C4E	U R2 U2 F2 U	4a2 4e	4a2 4e	4a2 4e
+doc15	3qt 2C	U F2 U2 R2 B2 U’ L2 B2 D	2c3 0e	2c3 0e	2c3 0e
+doc15	3qt 2C2E	U R2 U R2 U	2c3 2e	2c3 2e	2c3 2e
+doc15	3qt 2C4E	U L2 U F2 U	2c3 4e	2c3 4e	2c3 4e
+doc15	3qt 2C6E	U L2 D R2 F2 B2 U	2c3 6e	2c3 6e	2c3 6e
+doc15	3qt 2C8E	U B2 L2 U B2 L2 U2 B2 D	2c3 8e	2c3 8e	2c3 8e
+doc15	3qt 4C	U R2 F2 U R2 U2 F2 U	4c3 0e	4a3 0e	4b3 0e
+doc15	3qt 4C2E	U B2 U R2 U2 F2 D	4c3 2e	4a3 2e	4b3 2e
+doc15	3qt 4C4E	U B2 U’ L2 U2 B2 D	4c3 4e	4a3 4e	4b3 4e
+doc15	3qt Fake HTR	U R2 U2 F2 U' R2 U2 R2 F2 U	0c3 0e	0c3 0e	0c3 0e
+doc15	3qt 2E	U R2 U2 F2 U R2 U2 F2 U	0c3 2e	0c3 2e	0c3 2e
+doc15	3qt 4E	U R2 U2 F2 U R2 U2 R2 B2 D	0c3 4e	0c3 4e	0c3 4e
+doc15	3qt 6E	U L2 U2 F2 U B2 U2 R2 U	0c3 6e	0c3 6e	0c3 6e
+doc15	3qt 8E	U R2 U2 F2 U' L2 U2 R2 F2 D	0c3 8e	0c3 8e	0c3 8e
+doc15	4qt 2C	U L2 D’ R2 D L2 U	2c4 0e	2c4 0e	2c4 0e
+doc15	4qt 2C2E	U R2 U’ R2 U R2 U	2c4 2e	2c4 2e	2c4 2e
+doc15	4qt 2C4E	U R2 U’ L2 D R2 D	2c4 4e	2c4 4e	2c4 4e
+doc15	4qt 2C6E	U' B2 D’ L2 B2 U’ R2 U	2c4 6e	2c4 6e	2c4 6e
+doc15	4qt 2C8E	U R2 L2 B2 U R2 U' F2 U	2c4 8e	2c4 8e	2c4 8e
+doc15	4qt Fake HTR	U R2 U R2 U2 B2 U B2 U	0c4 0e	0c4 0e	0c4 0e
+doc15	4qt 2E	U L2 U B2 U2 R2 U L2 U	0c4 2e	0c4 2e	0c4 2e
+doc15	4qt 4E	U B2 U F2 U2 R2 U R2 D	0c4 4e	0c4 4e	0c4 4e
+doc15	4qt 6E	U' R2 U L2 U2 L2 B2 U' B2 D	0c4 6e	0c4 6e	0c4 6e
+doc15	4qt 8E	U' R2 U R2 U2 B2 U F2 R2 L2 U	0c4 8e	0c4 8e	0c4 8e
+doc15	4qt 4C	U R2 U B2 U2 R2 F2 B2 U’ B2 U	4c4 0e	4b4 0e	4a4 0e
+doc15	4qt 4C2E	U’ F2 U F2 U2 R2 U’ R2 U	4c4 2e	4b4 2e	4a4 2e
+doc15	4qt 4C4E	U’ B2 U F2 U2 R2 U’ R2 U	4c4 4e	4b4 4e	4a4 4e
+doc15	5qt 2C	U L2 U L2 U' L2 B2 U' B2 U	2c5 0e	2c5 0e	2c5 0e
+doc15	5qt 2C2E	U L2 U R2 U’ R2 U R2 U	2c5 2e	2c5 2e	2c5 2e
+doc15	5qt 2C4E	D R2 U L2 D’ R2 D L2 U	2c5 4e	2c5 4e	2c5 4e
+doc15	5qt 2C6E	U L2 U F2 U' R2 U B2 U	2c5 6e	2c5 6e	2c5 6e
+doc15	5qt 2C8E	U R2 U L2 F2 U B2 U' L2 U	2c5 8e	2c5 8e	2c5 8e
+doc15	5qt 4C	U' L2 U L2 U' R2 U R2 U	4b5 0e	4b5 0e	4b5 0e
+doc15	5qt 4C2E	U’ R2 U F2 U’ F2 U B2 D	4b5 2e	4b5 2e	4b5 2e
+doc15	5qt 4C4E	U’ R2 U F2 U’ F2 U F2 U	4b5 4e	4b5 4e	4b5 4e
+doc66	0qt 0c0e	B2 L2 F2 L2 B2 U2 F2 U2 B2 R2	0c0 0e	0c0 0e	0c0 0e
+doc66	0qt 0c2e	B2 F2 U' R2 B2 U' B2 F2 U F2 U	0c0 2e	0c0 2e	0c0 2e
+doc66	0qt 0c4e	U' B2 F2 U' L2 B2 U2 L2 B2 L2 U2	0c0 4e	0c0 4e	0c0 4e
+doc66	0qt 0c6e	L2 B2 U2 B2 L2 U' L2 B2 R2 B2 F2 U' L2	0c0 6e	0c0 6e	0c0 6e
+doc66	0qt 0c8e	L2 U2 F2 L2 F2 R2 U' L2 R2 B2 F2 U	0c0 8e	0c0 8e	0c0 8e
+doc66	1qt 4c0e	L2 B2 U2 B2 U' L2 R2 U L2 R2 U B2 L2	4a1 0e	4a1 0e	4a1 0e
+doc66	1qt 4c2e	L2 B2 U' B2 F2 U' R2 U B2 F2 R2 B2 U2	4a1 2e	4a1 2e	4a1 2e
+doc66	1qt 4c4e	B2 U2 B2 R2 F2 R2 U F2	4a1 4e	4a1 4e	4a1 4e
+doc66	2qt(b) 4c0e	B2 L2 B2 U' L2 B2 R2 F2 U L2 B2 U2 F2	4b2 0e	4b2 0e	4b2 0e
+doc66	2qt(b) 4c2e	B2 U2 R2 U F2 U' B2 L2 F2 L2 F2	4b2 2e	4b2 2e	4b2 2e
+doc66	2qt(b) 4c4e	U L2 R2 U R2 U B2 U L2 U L2 U'	4b2 4e	4b2 4e	4b2 4e
+doc66	2qt(a) 4c0e	F2 U B2 F2 U' R2 U2 F2 U B2 U2 B2 R2 U'	4a2 0e	4a2 0e	4a2 0e
+doc66	2qt(a) 4c2e	L2 U L2 F2 R2 F2 R2 U2 R2 U F2 U2 R2	4a2 2e	4a2 2e	4a2 2e
+doc66	2qt(a) 4c4e	L2 B2 U2 L2 B2 U R2 U2 L2 F2 U R2 U2 B2	4a2 4e	4a2 4e	4a2 4e
+doc66	3qt 0c0e	B2 U' F2 U2 R2 U F2 U2 B2 L2 U B2 L2	0c3 0e	0c3 0e	0c3 0e
+doc66	3qt 0c2e	L2 R2 U' R2 B2 U2 R2 B2 U B2 U2 B2 R2 U R2	0c3 2e	0c3 2e	0c3 2e
+doc66	3qt 0c4e	U2 F2 U' B2 R2 U2 L2 U F2 R2 U2 R2 U'	0c3 4e	0c3 4e	0c3 4e
+doc66	3qt 0c6e	U' B2 U2 L2 U' B2 U2 R2 U' F2 U2 L2 R2	0c3 6e	0c3 6e	0c3 6e
+doc66	3qt 0c8e	L2 U2 R2 U' B2 L2 U2 R2 U B2 L2 U2 L2 U L2	0c3 8e	0c3 8e	0c3 8e
+doc66	3qt 2c0e	U' L2 U' L2 F2 U' B2 U' B2 F2 U F2 R2	2c3 0e	2c3 0e	2c3 0e
+doc66	3qt 2c2e	U B2 R2 F2 R2 U B2 F2 L2 U' R2	2c3 2e	2c3 2e	2c3 2e
+doc66	3qt 2c4e	B2 U' R2 U' B2 U2 F2 L2 U2 R2 U' F2	2c3 4e	2c3 4e	2c3 4e
+doc66	3qt 2c6e	B2 U B2 F2 R2 B2 U' B2 L2 U' F2 L2 U2	2c3 6e	2c3 6e	2c3 6e
+doc66	3qt 2c8e	L2 U F2 U F2 U B2 U2 L2 F2 U' L2 U	2c3 8e	2c3 8e	2c3 8e
+doc66	3qt 4c0e	B2 L2 U2 R2 U' B2 U2 L2 U' B2 L2 U' R2 B2	4c3 0e	4b3 0e	4a3 0e
+doc66	3qt 4c2e	L2 U2 R2 U' L2 B2 U2 B2 U' L2 U F2 U2 R2	4c3 2e	4b3 2e	4a3 2e
+doc66	3qt 4c4e	L2 B2 F2 L2 U' L2 U' F2 U' R2 U L2 U F2 U2	4c3 4e	4a3 4e	4b3 4e
+doc66	4qt 0c0e	B2 U L2 U' F2 L2 U F2 U' R2 U' F2 U	0c4 0e	0c4 0e	0c4 0e
+doc66	4qt 0c2e	F2 U' R2 U' L2 B2 L2 B2 U2 R2 U F2 U L2	0c4 2e	0c4 2e	0c4 2e
+doc66	4qt 0c4e	U2 R2 U' R2 U F2 U2 B2 L2 U' L2 F2 U B2	0c4 4e	0c4 4e	0c4 4e
+doc66	4qt 0c6e	U R2 U L2 U2 L2 B2 U' B2 U2 L2 F2 R2 U	0c4 6e	0c4 6e	0c4 6e
+doc66	4qt 0c8e	L2 F2 U B2 U' R2 U2 B2 F2 R2 F2 U R2 U'	0c4 8e	0c4 8e	0c4 8e
+doc66	4qt 2c0e	B2 U2 F2 U' R2 U2 L2 U' B2 U' R2 U F2 U2	2c4 0e	2c4 0e	2c4 0e
+doc66	4qt 2c2e	F2 L2 R2 U F2 U R2 U' L2 B2 U' F2	2c4 2e	2c4 2e	2c4 2e
+doc66	4qt 2c4e	U' L2 B2 U L2 U' L2 U2 F2 U L2 R2	2c4 4e	2c4 4e	2c4 4e
+doc66	4qt 2c6e	U2 F2 U' R2 U2 F2 U R2 U L2 U F2	2c4 6e	2c4 6e	2c4 6e
+doc66	4qt 2c8e	U L2 U R2 U' R2 B2 F2 U F2 R2 B2 L2	2c4 8e	2c4 8e	2c4 8e
+doc66	4qt 4c0e	B2 F2 U L2 U L2 U B2 U' F2 L2 U' L2 U' R2	4c4 0e	4a4 0e	4b4 0e
+doc66	4qt 4c2e	U R2 U R2 U' R2 U2 L2 B2 U' F2 U L2 U'	4c4 2e	4a4 2e	4b4 2e
+doc66	4qt 4c4e	U2 L2 R2 U F2 U' L2 U2 F2 U R2 B2 U' R2 F2	4c4 4e	4b4 4e	4a4 4e
+doc66	5qt 2c0e	L2 B2 U R2 U' B2 F2 R2 U R2 B2 U B2 R2 U'	2c5 0e	2c5 0e	2c5 0e
+doc66	5qt 2c2e	F2 L2 U R2 F2 U' F2 U2 L2 U' R2 U2 B2 U B2 U'	2c5 2e	2c5 2e	2c5 2e
+doc66	5qt 2c4e	R2 B2 F2 U' F2 L2 U' B2 L2 U' R2 U R2 U'	2c5 4e	2c5 4e	2c5 4e
+doc66	5qt 2c6e	R2 U R2 U R2 U L2 U2 L2 F2 U F2 U B2 U2	2c5 6e	2c5 6e	2c5 6e
+doc66	5qt 2c8e	U R2 U F2 L2 U F2 L2 F2 R2 U B2 U	2c5 8e	2c5 8e	2c5 8e
+doc66	5qt 4c0e	L2 U L2 U F2 U2 F2 L2 U L2 U L2 F2 U R2	4b5 0e	4b5 0e	4b5 0e
+doc66	5qt 4c2e	L2 U2 L2 F2 R2 U L2 U' F2 U B2 U' L2 U	4b5 2e	4b5 2e	4b5 2e
+doc66	5qt 4c4e	U' L2 U2 R2 F2 U B2 U' R2 U F2 L2 U	4b5 4e	4b5 4e	4b5 4e

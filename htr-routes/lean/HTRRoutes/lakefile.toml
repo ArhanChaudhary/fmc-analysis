@@ -1,0 +1,7 @@
+name = "HTRRoutes"
+version = "0.1.0"
+defaultTargets = ["HTRRoutes"]
+
+[[lean_lib]]
+name = "HTRRoutes"
+precompileModules = true

@@ -1,0 +1,6 @@
+total states 19508428800
+(1a) vs first study census.csv: 473 (subset, depth) cells, 0 differ
+(1b) vs Joba doc 580 (4c5 read as 4b5): 473 cells, 0 differ []
+(2) DougCube HTR Finish: 663552 states, mean 10.13432557; ours half-turn-only: 663552 states, mean 10.13432557; all depth counts equal: True
+    the same 663,552 HTR states with any DR move allowed (HTR-breaking finishes): mean 9.88708, 663552 states; max 13 vs 15
+(3) Joba doc 566 (DR->HTR length per subset, with edges): 48 of 48 subsets agree to 1e-4 %; differ: []

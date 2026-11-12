@@ -1,0 +1,12 @@
+states 1240 (1000 random-move scrambles + 5 per subset from the main sample); readings checked for the first 60 optimal finishes of each state
+finish replayed: 18631
+finish replay ok: 18631
+finish read: 16140
+H key sets equal: 16140
+F key sets equal: 16140
+HTR lengths equal: 16140
+nissy states: 1240
+nissy optimal length equal: 1240
+nissy finish sets equal: 1240
+nissy count == nopt_canon: 1240
+failures: 0

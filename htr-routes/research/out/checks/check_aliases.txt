@@ -1,0 +1,1 @@
+C-level mirror pairs checked over all 48 subsets: 21552; identical state sets: 646.

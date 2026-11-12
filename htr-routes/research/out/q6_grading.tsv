@@ -1,0 +1,76 @@
+checklist	subsets	step	step_description	cumulative_opt	cumulative_p1	cumulative_opt_htr_budget2	cumulative_p1_htr_budget2
+Zagros 4b2 order (D15884)	4b2 0e,4b2 2e,4b2 4e	1	S1+S2 linear 2qt 4b2 > 4a1 > HTR (normal or inverse)	0.4496	0.7477	0.3762	0.6719
+Zagros 4b2 order (D15884)	4b2 0e,4b2 2e,4b2 4e	2	S3 linear 4qt HTR of <= 8 moves	0.5428	0.8304	0.4537	0.7572
+Zagros 4b2 order (D15884)	4b2 0e,4b2 2e,4b2 4e	3	S4 reduce to 4a1, switch (4b2 > 4a1 > (HTR))	0.5428	0.8304	0.5077	0.8080
+Zagros 4b2 order (D15884)	4b2 0e,4b2 2e,4b2 4e	4	S5 regress to 2c3, switch (4b2 > 2c3 > (...))	0.9547	0.9943	0.6421	0.9037
+Zagros 4b2 order (D15884)	4b2 0e,4b2 2e,4b2 4e	5	S8 2+2: any 4qt route switching after the 2nd qt	0.9996	1.0000	0.7126	0.9343
+Zagros 4b2 order (D15884), 4b2 4e only	4b2 4e	1	S1+S2 linear 2qt 4b2 > 4a1 > HTR (normal or inverse)	0.3625	0.6682	0.3028	0.5908
+Zagros 4b2 order (D15884), 4b2 4e only	4b2 4e	2	S3 linear 4qt HTR of <= 8 moves	0.4711	0.7828	0.4082	0.7186
+Zagros 4b2 order (D15884), 4b2 4e only	4b2 4e	3	S4 reduce to 4a1, switch (4b2 > 4a1 > (HTR))	0.4711	0.7828	0.4568	0.7738
+Zagros 4b2 order (D15884), 4b2 4e only	4b2 4e	4	S5 regress to 2c3, switch (4b2 > 2c3 > (...))	0.9512	0.9938	0.6535	0.9151
+Zagros 4b2 order (D15884), 4b2 4e only	4b2 4e	5	S8 2+2: any 4qt route switching after the 2nd qt	0.9995	1.0000	0.7445	0.9535
+Yura 4b2 4e order (D6409-D6416)	4b2 4e	1	~S1 linear 2qt trigger with <= 2 setup moves (HTR <= 6)	0.0862	0.1617	0.0860	0.1614
+Yura 4b2 4e order (D6409-D6416)	4b2 4e	2	S2 regress to 2c3 (2e or 4e), then 2c3 linear or switch (4qt)	0.8216	0.9708	0.6226	0.8841
+Yura 4b2 4e order (D6409-D6416)	4b2 4e	3	S3 reduce to 4a1 and switch	0.9314	0.9900	0.7291	0.9402
+rogo/Adri 4b2 4e order (D6422-D6424)	4b2 4e	1	~S1 linear 2qt trigger with <= 2 setup moves (HTR <= 6)	0.0862	0.1617	0.0860	0.1614
+rogo/Adri 4b2 4e order (D6422-D6424)	4b2 4e	2	S3 reduce to 4a1 and switch	0.3625	0.6682	0.2610	0.4945
+Lewis 4a2 0e/2e list (T6743)	4a2 0e,4a2 2e	1	S1 linear 2qt 4a2 > 4a1 4e > HTR	0.3239	0.6239	0.1331	0.3680
+Lewis 4a2 0e/2e list (T6743)	4a2 0e,4a2 2e	2	S2 reduce to 4a1 4e, switch	0.3239	0.6239	0.3222	0.6217
+Lewis 4a2 0e/2e list (T6743)	4a2 0e,4a2 2e	3	S3 4qt linear through 4a2 4e again (qt, slice, qt)	0.7296	0.9415	0.3771	0.6794
+Lewis 4a2 0e/2e list (T6743)	4a2 0e,4a2 2e	4	S4 regress to 4b3 (2e/4e), switch, 4a3 > 4b2 > 4a1	0.7362	0.9452	0.5273	0.8108
+Lewis 4a2 0e/2e list (T6743)	4a2 0e,4a2 2e	5	S5 regress to 0c3, then 0c3 > 4a2 > 4a1 (linear or NISS)	0.7362	0.9452	0.5344	0.8158
+Jay/rodney 2c3 0e checks (T328-T344)	2c3 0e	1	~2c3 0e: one qt to 4b2 4e, switch, 4a1 > HTR (Jay T328 / rodney T331-T344, prefix not restricted)	0.4690	0.8265	0.4627	0.8183
+Daichi cheat sheet (D18340): 0c0 0e	0c0 0e	1	the listed routes	0.9175	0.9680	0.8453	0.9519
+Daichi cheat sheet (D18340): 0c0 2e	0c0 2e	1	the listed routes	0.9587	0.9987	0.7152	0.9339
+Daichi cheat sheet (D18340): 0c0 4e	0c0 4e	1	the listed routes	0.9444	0.9960	0.6512	0.9081
+Daichi cheat sheet (D18340): 0c0 6e	0c0 6e	1	the listed routes	0.9447	0.9966	0.6124	0.8944
+Daichi cheat sheet (D18340): 0c0 8e	0c0 8e	1	the listed routes	0.7790	0.9544	0.7008	0.9174
+Daichi cheat sheet (D18340): 2c5 0e	2c5 0e	1	the listed routes	1.0000	1.0000	0.8161	0.9655
+Daichi cheat sheet (D18340): 2c5 2e	2c5 2e	1	the listed routes	1.0000	1.0000	0.8609	0.9780
+Daichi cheat sheet (D18340): 2c5 4e	2c5 4e	1	the listed routes	1.0000	1.0000	0.8567	0.9772
+Daichi cheat sheet (D18340): 2c5 6e	2c5 6e	1	the listed routes	1.0000	1.0000	0.8365	0.9715
+Daichi cheat sheet (D18340): 2c5 8e	2c5 8e	1	the listed routes	1.0000	1.0000	0.8296	0.9709
+Daichi cheat sheet (D18340): 2c4 0e	2c4 0e	1	the listed routes	0.9883	0.9982	0.8840	0.9869
+Daichi cheat sheet (D18340): 2c4 2e	2c4 2e	1	the listed routes	0.9857	0.9981	0.8970	0.9882
+Daichi cheat sheet (D18340): 2c4 4e	2c4 4e	1	the listed routes	0.9847	0.9986	0.8727	0.9858
+Daichi cheat sheet (D18340): 2c4 6e	2c4 6e	1	the listed routes	0.9858	0.9985	0.8799	0.9856
+Daichi cheat sheet (D18340): 2c4 8e	2c4 8e	1	the listed routes	0.9810	0.9985	0.8950	0.9933
+Daichi cheat sheet (D18340): 0c3 0e	0c3 0e	1	the listed routes	0.9747	0.9971	0.9264	0.9928
+Daichi cheat sheet (D18340): 0c3 2e	0c3 2e	1	the listed routes	0.9312	0.9964	0.8560	0.9880
+Daichi cheat sheet (D18340): 0c3 4e	0c3 4e	1	the listed routes	0.8434	0.9727	0.7262	0.9523
+Daichi cheat sheet (D18340): 0c3 6e	0c3 6e	1	the listed routes	0.9430	0.9978	0.8794	0.9896
+Daichi cheat sheet (D18340): 0c3 8e	0c3 8e	1	the listed routes	0.9877	0.9980	0.9287	0.9944
+Daichi cheat sheet (D18340): 4a2 0e	4a2 0e	1	the listed routes	0.6934	0.9068	0.3759	0.6485
+Daichi cheat sheet (D18340): 4a2 2e	4a2 2e	1	the listed routes	0.8713	0.9810	0.7682	0.9627
+Daichi cheat sheet (D18340): 4a2 4e	4a2 4e	1	the listed routes	0.6785	0.8886	0.6594	0.8768
+Daichi cheat sheet (D18340): 4a1 0e	4a1 0e	1	the listed routes	0.9570	0.9927	0.7012	0.9213
+Daichi cheat sheet (D18340): 4a1 2e	4a1 2e	1	the listed routes	0.8632	0.9793	0.7647	0.9536
+Daichi cheat sheet (D18340): 4a1 4e	4a1 4e	1	the listed routes	0.8975	0.9852	0.6944	0.9223
+Daichi cheat sheet (D18340): 2c3 0e	2c3 0e	1	the listed routes	0.9989	1.0000	0.8783	0.9876
+Daichi cheat sheet (D18340): 2c3 2e	2c3 2e	1	the listed routes	0.8979	0.9878	0.7964	0.9642
+Daichi cheat sheet (D18340): 2c3 4e	2c3 4e	1	the listed routes	0.8316	0.9752	0.7658	0.9557
+Daichi cheat sheet (D18340): 2c3 6e	2c3 6e	1	the listed routes	0.7810	0.9647	0.7330	0.9474
+Daichi cheat sheet (D18340): 2c3 8e	2c3 8e	1	the listed routes	0.9990	1.0000	0.8585	0.9846
+Daichi cheat sheet (D18340): 0c4 0e	0c4 0e	1	the listed routes	1.0000	1.0000	0.8356	0.9558
+Daichi cheat sheet (D18340): 0c4 2e	0c4 2e	1	the listed routes	1.0000	1.0000	0.8919	0.9796
+Daichi cheat sheet (D18340): 0c4 4e	0c4 4e	1	the listed routes	1.0000	1.0000	0.8449	0.9707
+Daichi cheat sheet (D18340): 0c4 6e	0c4 6e	1	the listed routes	1.0000	1.0000	0.8339	0.9711
+Daichi cheat sheet (D18340): 0c4 8e	0c4 8e	1	the listed routes	1.0000	1.0000	0.8070	0.9628
+Daichi cheat sheet (D18340): 4c3 0e	4c3 0e	1	the listed routes	0.7649	0.9569	0.7483	0.9484
+Daichi cheat sheet (D18340): 4c3 2e	4c3 2e	1	the listed routes	0.7461	0.9508	0.7244	0.9406
+Daichi cheat sheet (D18340): 4c3 4e	4c3 4e	1	the listed routes	0.7066	0.9342	0.6782	0.9202
+Daichi cheat sheet (D18340): 4c4 0e	4c4 0e	1	the listed routes	0.8654	0.9802	0.6693	0.9278
+Daichi cheat sheet (D18340): 4c4 2e	4c4 2e	1	the listed routes	0.9073	0.9872	0.7056	0.9375
+Daichi cheat sheet (D18340): 4c4 4e	4c4 4e	1	the listed routes	0.9139	0.9891	0.7072	0.9371
+Daichi cheat sheet (D18340): 4b2 0e	4b2 0e	1	the listed routes	0.9160	0.9857	0.7488	0.9415
+Daichi cheat sheet (D18340): 4b2 2e	4b2 2e	1	the listed routes	0.9438	0.9923	0.6721	0.9087
+Daichi cheat sheet (D18340): 4b2 4e	4b2 4e	1	the listed routes	0.9314	0.9900	0.7776	0.9549
+Daichi cheat sheet (D18340): 4b5 0e	4b5 0e	1	the listed routes	1.0000	1.0000	0.7464	0.9385
+Daichi cheat sheet (D18340): 4b5 2e	4b5 2e	1	the listed routes	1.0000	1.0000	0.7878	0.9511
+Daichi cheat sheet (D18340): 4b5 4e	4b5 4e	1	the listed routes	1.0000	1.0000	0.7739	0.9430
+Fanti 4b2 4e split (D10034), class alone: 2qt (4b2 > 4a1 > HTR, any switch)	4b2 4e	1	2qt (4b2 > 4a1 > HTR, any switch)	0.3625	0.6682	0.3555	0.6602
+Fanti 4b2 4e split (D10034), class alone: 4qt via 2c3	4b2 4e	1	4qt via 2c3	0.7785	0.9600	0.5535	0.8191
+Fanti 4b2 4e split (D10034), class alone: 4qt via 4a1 > 0c0	4b2 4e	1	4qt via 4a1 > 0c0	0.4886	0.8430	0.1589	0.3760
+Fanti 4b2 4e split (D10034), cumulative	4b2 4e	1	2qt (4b2 > 4a1 > HTR, any switch)	0.3625	0.6682	0.3555	0.6602
+Fanti 4b2 4e split (D10034), cumulative	4b2 4e	2	4qt via 2c3	0.9314	0.9900	0.7776	0.9549
+Fanti 4b2 4e split (D10034), cumulative	4b2 4e	3	4qt via 4a1 > 0c0	0.9758	0.9983	0.8021	0.9633

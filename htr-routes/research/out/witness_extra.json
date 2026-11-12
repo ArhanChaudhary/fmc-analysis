@@ -1,0 +1,29 @@
+{
+ "X1": {
+  "subset": "2c3 2e",
+  "scramble": "R2 B2 D2 B2 D U2 R2 U L2 F2 U' B2",
+  "optimal": 12,
+  "optimal_finish": "B2 U F2 L2 U' R2 U2 D' B2 D2 B2 R2",
+  "n_optimal": 2,
+  "reductions_le4": 168,
+  "best_with_reduction_le4": 14,
+  "shortest_reduction": 5,
+  "normal": "B2 U F2 L2 U'",
+  "inverse": "",
+  "rest": "R2 U2 D' B2 D2 B2 R2",
+  "finish": "B2 U F2 L2 U' R2 U2 D' B2 D2 B2 R2"
+ },
+ "X2": {
+  "subset": "0c3 4e",
+  "scramble": "B2 U B2 R2 D' L2 U B2 D' F2 D' L2 F2 U' R2 U",
+  "optimal": 16,
+  "optimal_finish": "U' R2 U F2 L2 D F2 D B2 U' L2 D R2 B2 U' B2",
+  "nissy_linear": "U R2 U B2 U' B2 U F2 U' R2 U B2 U (13)",
+  "nissy_niss": "U R2 U2 F2 U' F2 R2 U (B2 U L2 U) (12)",
+  "htr_normal": 13,
+  "htr_inverse": 13,
+  "htr_niss": 12
+ },
+ "checks": 9,
+ "failed": []
+}
