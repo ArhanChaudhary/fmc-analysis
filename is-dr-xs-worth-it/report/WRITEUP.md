@@ -1,32 +1,43 @@
 # Is DR-xs worth it?
 
-What it costs to leave slices unsolved at DR, how often the chance is there, and what it buys on real scrambles. Everything that can be counted exactly is counted exactly: all 768 kinds of DR-xs state and all 2,217,093,120 cosets of the DR group. The finishes are sampled (200,000 random DR-1s states, 5,000 DR-2s 8fe), the shortest DR-xs of a scramble on 2,000,000 random scrambles, and every DR-1s and DR-2s 8fe is found and finished on 500 real scrambles.
+What leaving slices unsolved at DR costs you, how often you get the chance, and what it buys on real scrambles. Whatever can be counted exactly, I counted exactly: all 768 kinds of DR-xs state and all 2,217,093,120 cosets of the DR group. The rest is sampled or run on real scrambles:
+
+| What | On what |
+|---|---|
+| Finishes | 200,000 random DR-1s states, 5,000 DR-2s 8fe |
+| The shortest DR-xs of a scramble | 2,000,000 random scrambles |
+| Every DR-1s and DR-2s 8fe, found and finished | 500 real scrambles |
 
 November 2026. A date in brackets is a link to that message on the FMC solvers Discord (#fmc-theory or #fmc-discussion). Docs are listed with links at the end.
 
 **This builds on** work that is already on the server:
 
 - **tseitsei89's [DR-Xs tutorial](https://docs.google.com/document/d/1_uLVLB5xqDm40NugXE5rjc8LgEtuHQCLz0odKY6mboE)** (with Jay, Rodney, trangium, count quackula, KrzychXyz and others behind it): the method.
-- **trangium's numbers in the [tutorial](https://docs.google.com/document/d/1_uLVLB5xqDm40NugXE5rjc8LgEtuHQCLz0odKY6mboE)**: on optimal a DR-1s finishes about 2.2 to 2.4 moves longer than a DR of the same subset (1.8 for 2c4), and a DR-2s 8fe about 1 move longer. tseitsei89's conclusion from them is "8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR". Those hold up.
+- **trangium's numbers in the [tutorial](https://docs.google.com/document/d/1_uLVLB5xqDm40NugXE5rjc8LgEtuHQCLz0odKY6mboE)**: on optimal a DR-1s finishes about 2.2 to 2.4 moves longer than a DR of the same subset (1.8 for 2c4), and a DR-2s 8fe about 1 move longer. tseitsei89's takeaway: "8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR". Those hold up.
 - **trangium's [dr-fe examples](https://docs.google.com/document/d/11Xu6BpEBLu-v8hVbFzneSqeMjHb83q_zurWb_V0DXDY)**: the rule for the number of slices.
-- **The first study of this site, [Judging a DR by hand](../judging-a-dr/)**: the exact optimal finish of every DR state, used here for every finish.
+- **The first study of this site, [Judging a DR by hand](../judging-a-dr/)**: the exact optimal finish of every DR state, which every finish here uses.
 
-**What this adds** is what was missing, and what people kept asking for:
+**What this adds**, all things people kept asking for:
 
 - **Odds, not just averages**: the chance of a finish in N from a DR-1s or a DR-2s 8fe, by subset, next to the same for a DR.
 - **The move counts** from DR-3s to DR-2s to DR-1s to DR, for every layout of flipped edges.
 - **How often you get one**: the chance of a slice-EO skip, and how far a DR-1s is from one.
 - **Real scrambles**: every DR-1s and DR-2s 8fe on 500 scrambles, finished, against every normal DR on the same scrambles.
-- **The claims**: each concrete statement people made about DR-xs, checked.
+- **The claims**: every concrete thing people said about DR-xs, checked.
 
-**Terms**, as the tutorial uses them. A *slice EO* (sEO) is the four edges belonging to one slice all oriented, or all misoriented, for one axis. A *DR-xs* is a cube that looks like a DR if you ignore the centers and let some of the eight non-slice edges be flipped. It is a *DR-1s*, *DR-2s* or *DR-3s* by the number of slice moves needed to fix centers and flipped edges. *DR-2s 8fe* is the DR-2s with all eight edges flipped and the centers off, which is how it comes up in the tutorial (eight flipped edges with the centers right is a different, worse DR-2s). Turns are counted in HTM, and a slice move counts as the two outer turns it is written with (`R L'`).
+**Terms**, as the tutorial uses them. A *slice EO* (sEO) is the four edges of one slice all oriented, or all misoriented, for one axis. A *DR-xs* is a cube that looks like a DR if you ignore the centers and let some of the eight non-slice edges be flipped. It's a *DR-1s*, *DR-2s* or *DR-3s* by the number of slice moves it takes to fix centers and flipped edges. *DR-2s 8fe* is the DR-2s with all eight edges flipped and the centers off, which is how it comes up in the tutorial (eight flipped edges with the centers right is a different, worse DR-2s). Turns are HTM, and a slice move counts as the two outer turns it's written with (`R L'`).
 
 **How to read it.**
 
-- **Start with [section 1](#1-the-short-version)**, the short version: what is new, what it confirms or corrects, and the verdict, one line each.
+- **Start with [section 1](#1-the-short-version)**, the short version: what's new, what it confirms or corrects, and the verdict, one line each.
 - **The [worked examples](examples.html)** go with it: the tutorial's example with the numbers, then 100 scrambles with their slice-EO skips and the DR-xs routes on them, answers folded away. **The [errata](errata.html)** list what the numbers show is wrong in the docs involved and in things said on the server, each with an example.
-- **The appendices are reference**: every DR-1s layout with a shortest fix and a scramble, what each edge-orientation pattern leads to, and how it was computed and checked.
-- **What you can use in an attempt, and what is the answer key.** Every finish here is the best one of the method's form, with the optimal DR finish looked up in a table of every DR state; the shortest DR-xs of a scramble and the distances from a skip are exact searches; section 7 finishes tens of thousands of DR-xs. Those are **computer only**: they say what is there, not what you find in an hour, and each place says so. What carries to an attempt are the rules they give: a DR-1s in N is worth about a DR in N + 2.3, the order to check things in (7.2), which skips can lead to a DR-1s (6.2) and which DR-1s are the good ones (5.4), all things you can see at the table.
+- **The appendices are reference**: every DR-1s layout with a shortest fix and a scramble, what each EO pattern leads to, and how it was computed and checked.
+- **What you can use in an attempt, and what's the answer key.** These are **computer only**, and each place says so: they say what's there, not what you find in an hour.
+  - every finish here is the best one of the method's form, with the optimal DR finish looked up in a table of every DR state;
+  - the shortest DR-xs of a scramble and the distances from a skip are exact searches;
+  - section 7 finishes tens of thousands of DR-xs.
+
+  What carries over to an attempt are the rules they give, all things you can see at the table: a DR-1s in N is worth about a DR in N + 2.3, the order to check things in (7.2), which skips can lead to a DR-1s (6.2) and which DR-1s are the good ones (5.4).
 
 ---
 
@@ -52,39 +63,130 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 First what nobody had before, each line with the sample and the move rule behind it; then what the numbers confirm or correct; then the verdict.
 
-- **A DR-1s of 7 is worth about a normal DR of 9, and a DR-1s of 8 about a normal DR of 10.** On 500 real scrambles, counting how often each one reaches the best solution any normal DR of 12 or less gives on its scramble: a DR-1s of 7 one time in 49, a normal DR of 9 or less one in 41; a DR-1s of 8 one in 210, close to a 10-move DR (one in 202) and well ahead of an 11 (one in 952); a DR-2s 8fe of 9 one in 151; a DR-1s of 6 or less one in 12 (7.2). That is the "how likely various things are to give you, say, sub-11 dr or sub-8 dr-1s" trangium wanted ([23 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1475550291343577168)), less the time per check. The finishes behind these odds are the best of the method's form, **computer only**; the ranking is what to use in an attempt.
-- **Slice EOs against 5-move EOs, the question left open.** On the same scrambles, starting from the EOs of 4 or less and their DRs of 10 or less, every DR-1s of 8 or less from a slice EO improves the average result by 0.36 (0.17 from those of 7 or less alone) with no normal EO added, and every 5-move EO (about 253 more EOs) by 0.71; both together, 0.91. The 5-movers give more and do better per thing finished (24 more DRs against 71 more DR-1s); the slice EOs take far less looking (7.4). Both sides are **computer only** (every DR-xs and every 5-move EO, each finished as well as possible); what carries over is the order: EOs of 4 or less, then the skips, then 5-movers.
-- **A slice-EO skip is there on 68.7953% of scrambles on normal, 79.3147% counting inverse.** Exact, over all 70,963,200 arrangements of edge kinds and orientations, and it answers wen's question, to which tseitsei89 had said ([3 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1533719488564822026)): "I have no idea. But it seems to happen on most scrambles I would say." The skips clump: 2.25 per scramble on average over both sides, yet 21% of scrambles have none (6.1).
-- **Getting to a DR-2s 8fe is getting to a DR with the pieces renamed.** An 8fe is placed like a DR on one pair of faces in the colours of another pair: move every piece a quarter turn around the third axis, leave the centres, flip every edge, and it becomes a real DR. From a full EO, with moves that keep it, the distance to the 8fe has exactly the distribution of the distance to the DR over all 1,082,565 positions, 7.80 on average. With any moves each 8fe is as far as a DR; a scramble has twelve 8fe targets against six DRs, which is why its shortest 8fe comes 0.33 of a move before its shortest DR. Only the finish differs, +1.19. So a skip is not the way to an 8fe: an oriented one leads to it only when the whole axis is oriented (0.78% of them, and that is a normal EO), and a misoriented one on an axis with 8 bad edges is the one separate way in, 9.19 moves on average (6.3).
-- **The whole trade in two numbers.** Over 2,000,000 random scrambles (any moves, linear, three colours, normal and inverse), the shortest DR-1s averages 6.81, 2.0 moves before the shortest real DR (8.76), and a DR-1s costs 2.27 in the finish. On average that is close to even, so it pays when you find the short ones. The shortest DR-xs of a scramble is a search over every route, **computer only**, the answer key. The shortest DR-2s 8fe averages 8.43, any DR-xs 6.46 (6.4).
-- **A DR-1s costs 2.27 more moves in the finish than a DR, and here are the odds.** Over 200,000 uniformly random DR-1s states, each finished as well as the method can (setup from either end, slice, optimal DR finish), the average is 15.85 against 13.58 for a DR, +2.04 to +2.53 by subset, a little more on the low-qt subsets. It finishes in 14 or less 9.0% of the time and in 15 or less 32%; a DR does that 80% and 99% of the time. At equal odds a DR-1s in N is a DR in about N + 2.3. A DR-2s 8fe (5,000 random states) costs 1.19, +0.95 (4a1) to +1.41 (4c4), growing with the qt count (5.2, 5.3). These finishes use the optimal DR finish from a table, **computer only**; a finish you find by hand is longer, so take the N + 2.3 rule from it, not the lengths themselves.
-- **The one good kind of DR-1s** is the one a single slice turn fixes, seen from one side of the scramble or the other (2.8% of them): it finishes in 14.52 on average, 0.94 over a DR. Past that the layout matters little: needing 4, 5 or 6 turns to DR from the better side gives 15.74, 15.96 and 16.12. The 3-1 / 2-2 / 4-0 split of the flipped edges is the same layout seen from the other side: 16.05, 15.78, 15.10 average finish, and the 4-0 is good only when its slice is the one that fixes; four in the other slice finish at +2.10, no better than an ordinary DR-1s (5.4).
-- **Setting up only on the side where you found the DR-1s loses 1.06 moves.** With the setup at most 4 moves on that side and any DR finish after it, the average is 16.91 and only 38% of states keep their best finish, though the best solution has its slice within 4 moves of one end for at least 64%. Try the setup from both sides before judging a DR-1s (5.5). This one is for the attempt.
-- **From an oriented skip on an axis that is not the slice's own, a DR-1s is on average 7.68 moves away** without breaking the EO of that axis (exact, over every coset with such a skip): within 6 for 7.1% of skips, within 7 for 36%, within 8 for 88%. From a full EO the nearest real DR on one axis is 7.80 under the same rule, so in route length such a skip is an EO that cost nothing. tseitsei89, by hand ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465952080756871423)): "I can usually find some DR-fe in 8 moves. Occasionally 7." (6.2) The distances are the nearest DR-1s over every route, **computer only**; tseitsei89's 8, occasionally 7, is the hand version.
-- **On 500 real scrambles, 89% have a DR-1s of 8 or less** from a skip or a one-move slice EO by the plain tutorial route (taken exhaustively, so a floor), 63.1 of them on average, nearly as many as the 69.7 normal DRs of 10 or less. 46% have one of 7 or less, 11% one of 6 or less (7.1). **Computer only**: every route taken, which nobody does in an hour; it says how much is there, not how much you find.
-- **What finishing them does.** On top of every normal DR of 10 or less, every DR-1s of 8 or less takes the average result from 20.62 to 20.42. Every 11-move DR instead takes it to 20.04, with 10.3 times as many to finish (7.3). **Computer only**: every one of them finished as well as possible, the answer key; the hand-usable part is that the DR-1s of 7 or less come before the 10-move DRs, and those of 8 before the 11s.
-- **DR-1s to DR takes 2 to 6 turns, and usually 5 or 6.** Of the 70 ways four flipped edges can sit, 1 needs 2 turns, 2 need 3, 9 need 4, 30 need 5 and 28 need 6: 83% need 5 or 6, 5.17 on average. All 70 with a shortest fix and a scramble each are in Appendix A, the list Radek B asked for. Right after a trigger, DR-2s to DR-1s is free for 209 of the 383 kinds of DR-2s and costs 3 for the rest (4.2, 4.3).
+- **A DR-1s of 7 is worth about a normal DR of 9, and a DR-1s of 8 about a normal DR of 10.** On 500 real scrambles I counted how often each one gets the best solution any normal DR of 12 or less gives on its scramble (7.2):
+
+  | What you finish | Gets the scramble's best, one time in |
+  |---|---:|
+  | a DR-1s of 7 | 49 |
+  | a normal DR of 9 or less | 41 |
+  | a DR-1s of 8 | 210 |
+  | a 10-move DR | 202 |
+  | an 11-move DR | 952 |
+  | a DR-2s 8fe of 9 | 151 |
+  | a DR-1s of 6 or less | 12 |
+
+  That's the "how likely various things are to give you, say, sub-11 dr or sub-8 dr-1s" trangium wanted ([23 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1475550291343577168)), minus the time per check. The finishes behind these odds are the best of the method's form, **computer only**; the ranking is what you use in an attempt.
+- **Slice EOs against 5-move EOs, the question left open.** Same scrambles, starting from the EOs of 4 or less and their DRs of 10 or less. What adding more does to the average result (7.4):
+
+  | Added on top | Average result better by |
+  |---|---:|
+  | every DR-1s of 8 or less from a slice EO, no normal EO added | 0.36 |
+  | only the ones of 7 or less | 0.17 |
+  | every 5-move EO (about 253 more EOs) | 0.71 |
+  | both together | 0.91 |
+
+  The 5-movers give more and do better per thing finished (24 more DRs against 71 more DR-1s); the slice EOs take far less looking. Both sides are **computer only** (every DR-xs and every 5-move EO, each finished as well as possible). What carries over is the order: EOs of 4 or less, then the skips, then 5-movers.
+- **A slice-EO skip is there on 68.7953% of scrambles on normal, 79.3147% counting inverse.** That's exact, over all 70,963,200 arrangements of edge kinds and orientations, and it answers wen's question, where tseitsei89 had said ([3 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1533719488564822026)): "I have no idea. But it seems to happen on most scrambles I would say." The skips clump, though: 2.25 per scramble on average over both sides, yet 21% of scrambles have none (6.1).
+- **Getting to a DR-2s 8fe is getting to a DR with the pieces renamed.** An 8fe is placed like a DR on one pair of faces in the colours of another pair: move every piece a quarter turn around the third axis, leave the centres, flip every edge, and it's a real DR. So (6.3):
+  - from a full EO, with moves that keep it, the distance to the 8fe has exactly the distribution of the distance to the DR over all 1,082,565 positions, 7.80 on average;
+  - with any moves each 8fe is as far as a DR. A scramble has twelve 8fe targets against six DRs, which is why its shortest 8fe comes 0.33 of a move before its shortest DR;
+  - only the finish differs, +1.19.
+
+  So a skip isn't how you get an 8fe. An oriented one leads to it only when the whole axis is oriented (0.78% of them, and that's just a normal EO). A misoriented one on an axis with 8 bad edges is the one separate way in, 9.19 moves on average.
+- **The whole trade in two numbers.** The shortest of each over 2,000,000 random scrambles (any moves, linear, three colours, normal and inverse), 6.4:
+
+  | Shortest on the scramble | Average |
+  |---|---:|
+  | a real DR | 8.76 |
+  | a DR-1s | 6.81 |
+  | a DR-2s 8fe | 8.43 |
+  | any DR-xs | 6.46 |
+
+  So the shortest DR-1s comes 2.0 moves before the shortest real DR, and it costs 2.27 in the finish. On average that's close to even, so it pays when you find the short ones. These are searches over every route, **computer only**, the answer key.
+- **A DR-1s costs 2.27 more moves in the finish than a DR, and here are the odds.** Over 200,000 uniformly random ones, each finished as well as the method can (setup from either end, slice, optimal DR finish):
+
+  | | DR-1s | DR |
+  |---|---:|---:|
+  | average finish | 15.85 | 13.58 |
+  | in 14 or less | 9.0% | 80% |
+  | in 15 or less | 32% | 99% |
+
+  By subset the penalty is +2.04 to +2.53, a bit more on the low-qt subsets. At equal odds a DR-1s in N is a DR in about N + 2.3. A DR-2s 8fe (5,000 random states) costs 1.19, from +0.95 (4a1) to +1.41 (4c4), going up with the qt count (5.2, 5.3). These finishes use the optimal DR finish from a table, **computer only**. A finish you find by hand is longer, so take the N + 2.3 rule from it, not the lengths themselves.
+- **The one good kind of DR-1s** is the one a single slice turn fixes, seen from one side of the scramble or the other (2.8% of them): it finishes in 14.52 on average, 0.94 over a DR. Past that the layout doesn't matter much (5.4):
+
+  | Turns to DR from the better side | 4 | 5 | 6 |
+  |---|---:|---:|---:|
+  | average finish | 15.74 | 15.96 | 16.12 |
+
+  | Split of the flipped edges | 3-1 | 2-2 | 4-0 |
+  |---|---:|---:|---:|
+  | average finish | 16.05 | 15.78 | 15.10 |
+
+  The split is the same layout seen from the other side. The 4-0 is only good when its slice is the one that fixes; four in the other slice finish at +2.10, no better than an ordinary DR-1s.
+- **Setting up only on the side where you found the DR-1s loses 1.06 moves.** With the setup at most 4 moves on that side and any DR finish after it, the average is 16.91 and only 38% of states keep their best finish, even though the best solution has its slice within 4 moves of one end for at least 64%. Try the setup from both sides before you judge a DR-1s (5.5). This one is for the attempt.
+- **From an oriented skip on an axis that isn't the slice's own, a DR-1s is 7.68 moves away on average** without breaking that axis's EO (exact, over every coset with such a skip):
+
+  | Within | 6 | 7 | 8 |
+  |---|---:|---:|---:|
+  | share of skips | 7.1% | 36% | 88% |
+
+  From a full EO the nearest real DR on one axis is 7.80 under the same rule, so in route length a skip like this is an EO that cost nothing. The distances are the nearest DR-1s over every route, **computer only**. The hand version is tseitsei89's 8, occasionally 7 ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465952080756871423)): "I can usually find some DR-fe in 8 moves. Occasionally 7." (6.2)
+- **On 500 real scrambles, here's how many have a DR-1s** from a skip or a one-move slice EO by the plain tutorial route (7.1). I took every route, so it's a floor:
+
+  | From a skip or a one-move slice EO | Scrambles that have one |
+  |---|---:|
+  | of 8 or less | 89% |
+  | of 7 or less | 46% |
+  | of 6 or less | 11% |
+
+  There are 63.1 of them on average, nearly as many as the 69.7 normal DRs of 10 or less. **Computer only**: every route taken, which nobody does in an hour. It says how much is there, not how much you find.
+- **What finishing them does.** On top of every normal DR of 10 or less, every DR-1s of 8 or less takes the average result from 20.62 to 20.42. Every 11-move DR instead takes it to 20.04, with 10.3 times as many to finish (7.3). **Computer only**: every one of them finished as well as possible, the answer key. The part you can use by hand: the DR-1s of 7 or less come before the 10-move DRs, and the ones of 8 before the 11s.
+- **DR-1s to DR takes 2 to 6 turns, usually 5 or 6.** Of the 70 ways four flipped edges can sit:
+
+  | Turns to DR | 2 | 3 | 4 | 5 | 6 |
+  |---|---:|---:|---:|---:|---:|
+  | layouts | 1 | 2 | 9 | 30 | 28 |
+
+  That's 83% needing 5 or 6, 5.17 on average. All 70 with a shortest fix and a scramble each are in Appendix A, the list Radek B asked for. Right after a trigger, DR-2s to DR-1s is free for 209 of the 383 kinds of DR-2s and costs 3 for the rest (4.2, 4.3).
 
 **What it confirms or corrects**, each worked out in the section named:
 
-- **trangium's averages hold.** trangium's nissy averages are 0.1 to 0.4 below the DR-1s numbers here and a tenth or two below the 8fe ones on the subsets trangium measured; those are true optimals, which may leave the form. The tutorial's "8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR" holds, in odds too. Rodney's "+3/+4 penalty for -1/-2 slice" is a bit hard on the DR-1s, and tseitsei89's "in reality around 3 moves worse" is what it becomes without the best finish (5.3).
-- **DR-1s to DR.** Daichi's "6 moves max" is exact. Rodney's "basically flat", with 3 as the median, is not: the distribution is not flat and the typical fix is not 3 (section 8). The EO Meta Comparison doc's "1 slice can be fixed in 3 moves" is 1.17 short on average with one slice turn cancelling, as Rodney counts it, and 2.17 from the state alone (4.2). Simon's slice-DR table is four layouts off: 1, 4, 13, 36, 16, not 1, 4, 9, 40, 16; the thirteen 4-turn layouts are at the end of Appendix A.
-- **Slice EOs.** For one given slice a slice EO is never more than 2 moves away, as FakeMMAP said, counting all-misoriented; all-oriented only, it takes 3 moves 5.9% of the time. The 1 in 8 for a slice and an axis (tseitsei89, count quackula) is right (6.1).
-- **Which skips can give a DR-1s at all**, as long as you keep that axis's EO, is a clean rule. Oriented, on an axis that is not the slice's own: always. Misoriented on such an axis: only if that axis has exactly 8 bad edges, trangium's "MUST have 8 bad", which is 55% of them (70 in 128, Rodney's "55%"). Oriented on the slice's own axis: 55% of the time. Misoriented on the slice's own axis: never (6.2).
-- **The `U R L` ending** (a normal DR that is an 8fe two moves earlier) is worth about 0.8 of a move with the best finish of the form; trangium's "1 to 1.3 moves better" and count quackula's "one move better" stand at about one move (5.6).
+- **trangium's averages hold.** trangium's nissy averages are 0.1 to 0.4 below my DR-1s numbers and a tenth or two below my 8fe ones on the subsets trangium measured; those are true optimals, which can leave the form. The tutorial's "8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR" holds, in odds too. Rodney's "+3/+4 penalty for -1/-2 slice" is a bit hard on the DR-1s, and tseitsei89's "in reality around 3 moves worse" is what it turns into when you don't get the best finish (5.3).
+- **DR-1s to DR.** Daichi's "6 moves max" is exact. Rodney's "basically flat", with 3 as the median, isn't: the distribution isn't flat and the typical fix isn't 3 (section 8). The EO Meta Comparison doc's "1 slice can be fixed in 3 moves" is 1.17 short on average with one slice turn cancelling, the way Rodney counts it, and 2.17 from the state alone (4.2). Simon's slice-DR table is four layouts off: 1, 4, 13, 36, 16, not 1, 4, 9, 40, 16; the thirteen 4-turn layouts are at the end of Appendix A.
+- **Slice EOs.** For one given slice a slice EO is never more than 2 moves away, like FakeMMAP said, if all-misoriented counts; all-oriented only, it takes 3 moves 5.9% of the time. The 1 in 8 for a slice and an axis (tseitsei89, count quackula) is right (6.1).
+- **Which skips can give a DR-1s at all**, as long as you keep that axis's EO, is a clean rule (6.2):
+  - oriented, on an axis that isn't the slice's own: always;
+  - misoriented on such an axis: only if that axis has exactly 8 bad edges, trangium's "MUST have 8 bad", which is 55% of them (70 in 128, Rodney's "55%");
+  - oriented on the slice's own axis: 55% of the time;
+  - misoriented on the slice's own axis: never.
+- **The `U R L` ending** (a normal DR that's an 8fe two moves earlier) is worth about 0.8 of a move with the best finish of the form; trangium's "1 to 1.3 moves better" and count quackula's "one move better" stand at about one move (5.6).
 - **Rodney's extra-good DR-1s**, "just 1-2 moves worse than full DR", is +1.52 on average (5.4). Five of Rodney's six patterns that guarantee one are right; the 12-bad line gives a DR-2s, not a DR-1s, with a scramble in section 8. count quackula's 12-bad notes already had it, and trangium's fix is right.
-- **The groundwork checks out**: trangium's rule for the number of slices holds for all 768 kinds (section 3), trangium's dr-fe distribution comes out number for number from the search over all 2,217,093,120 cosets, all 43 labelled examples from the server are what their labels say, a DR-3s is a DR-2s for free right after the trigger for all 244 kinds as the tutorial says (4.3), and the small exact tables are proved in Lean (Appendix C).
+- **The groundwork checks out**:
+  - trangium's rule for the number of slices holds for all 768 kinds (section 3);
+  - trangium's dr-fe distribution comes out number for number from the search over all 2,217,093,120 cosets;
+  - all 43 labelled examples from the server are what their labels say;
+  - a DR-3s is a DR-2s for free right after the trigger for all 244 kinds, like the tutorial says (4.3);
+  - the small exact tables are proved in Lean (Appendix C).
 
 **The verdict:**
 
-- **So is it worth it?** A DR-1s of 7 or less: yes, before your 10-move DRs. One is there on nearly half of scrambles. A DR-1s of 8: it goes after the 10s and before the 11s, about 4.5 eleven-movers each. A DR-2s 8fe of 9 is about as good as a 10-move DR. Only a DR-1s of 6 or less clearly beats a normal DR of 9 or less, and that is there on 11% of scrambles. Once the 11-movers are done DR-xs adds 0.09 to the average. Mostly it gets the same result from fewer and shorter things; on 3.4% of scrambles it beats everything a normal DR of 12 or less gives.
-- **Against 5-move EOs**: the slice-EO routes give more than half of what all the 5-move EOs give, for far fewer starts, and the two combine. tseitsei89's order, sub-5 EOs, then slice-EO skips, then 5-movers, fits that as long as the skips are quick to check; the tables do not measure time.
+- **So is it worth it?**
+
+  | DR-xs | Where it goes |
+  |---|---|
+  | a DR-1s of 7 or less | yes, before your 10-move DRs. One is there on nearly half of scrambles |
+  | a DR-1s of 8 | after the 10s and before the 11s, about 4.5 eleven-movers each |
+  | a DR-2s 8fe of 9 | about as good as a 10-move DR |
+  | a DR-1s of 6 or less | the only one that clearly beats a normal DR of 9 or less, and it's there on 11% of scrambles |
+
+  Once the 11-movers are done, DR-xs adds 0.09 to the average. Mostly it gets you the same result from fewer and shorter things; on 3.4% of scrambles it beats everything a normal DR of 12 or less gives.
+- **Against 5-move EOs**: the slice-EO routes give more than half of what all the 5-move EOs give, for far fewer starts, and the two stack. tseitsei89's order, sub-5 EOs, then slice-EO skips, then 5-movers, fits that as long as the skips are quick to check; the tables don't measure time.
 
 ---
 
 ## 2. What was asked
 
-The questions this answers, in the words of the people who asked them.
+The questions, in the askers' own words.
 
 - Tom Nelson ([15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560141873975394356)): "do we have movecount distributions for DR-1s > DR and DR-2s > DR? it feels like DR-xs is almost never good (apart from 2s8fe)". The answers were estimates. Daichi ([15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560144143441854566), [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560145175714472097)): "dr-1s to dr is like 6 moves max?", "i don't think 7 optimal exists". Rodney ([15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560294279010717737)): "I would guess the distribution is basically flat."
 - Radek B ([21 Jun 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1518189603662594128)): "is there a list of all cases for dr-1/2s -> dr?" tseitsei89: "I dont think so".
@@ -94,7 +196,12 @@ The questions this answers, in the words of the people who asked them.
 - trangium ([23 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1475550291343577168)): "at some point I want to do an analysis of how likely various things are to give you, say, sub-11 dr or sub-8 dr-1s", then divide by the time it takes to check. tseitsei89 ([23 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1475550510177325216)): "This I think would be EXTREMELY valuable!"
 - tseitsei89 ([4 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1534105529683542047)): "For sEO I currently believe skips are better than 5 move EOs but 1 movers might not be."
 
-And the verdicts never settled. tseitsei89 ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465952080756871423)): "You are better off with classical DR it seems." Rodney ([3 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1468273993105805364)): "You're leaving money on the table if you don't check these, IMO." zakimoshi ([26 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1476697849600409620)): "sEO isn't actually a very cost effective strategy time wise". tseitsei89 again, three months later ([27 Apr 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1498259448454713424)): "most of the time it is not worth it to spend time on but it can occasionally save an otherwise doomed attempt".
+And the verdicts that never got settled:
+
+- tseitsei89 ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465952080756871423)): "You are better off with classical DR it seems."
+- Rodney ([3 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1468273993105805364)): "You're leaving money on the table if you don't check these, IMO."
+- zakimoshi ([26 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1476697849600409620)): "sEO isn't actually a very cost effective strategy time wise".
+- tseitsei89 again, three months later ([27 Apr 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1498259448454713424)): "most of the time it is not worth it to spend time on but it can occasionally save an otherwise doomed attempt".
 
 ---
 
@@ -105,9 +212,9 @@ Take a cube and one colour pair, say white/yellow. It is a DR-xs for that colour
 - every corner has its white or yellow sticker on the same pair of opposite faces (any pair, not necessarily the white and yellow faces),
 - the four edges with no white or yellow are in the slice between those two faces, and they all agree with each other.
 
-The other eight edges can be flipped (white or yellow on the side) in any even number. Centers are ignored. This is the group FakeMMAP wrote down ([25 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1464948138707255550)): "<U, D, F2, B2, R2, L2, M, S>, aka DR-fe."
+The other eight edges can be flipped (white or yellow on the side), any even number of them, and centers don't matter. That's the group FakeMMAP wrote down ([25 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1464948138707255550)): "<U, D, F2, B2, R2, L2, M, S>, aka DR-fe."
 
-How many slices such a state needs is read off two things: where the corners' faces are relative to the centers, and how many edges are flipped. trangium's examples doc gives the rule, and the full enumeration confirms it line for line:
+How many slices it needs comes down to two things: where the corners' faces are relative to the centers, and how many edges are flipped. trangium's examples doc has the rule, and enumerating everything confirms it line for line:
 
 | Slices needed | Corners oriented on | Slice edges against the centers | Flipped edges | Kinds | Turns to a real DR |
 |---:|---|---|---|---:|---|
@@ -119,18 +226,20 @@ How many slices such a state needs is read off two things: where the corners' fa
 | 3 | the faces of their own colour | disagree | 0, 2, 4, 6 or 8 | 128 | 6–10 |
 | | | | | **768** | |
 
-"Slice edges against the centers" is the tutorial's aligned and misaligned: do the four slice edges match the centers of their slice or not. Per colour there are 768 kinds of state, a kind being the faces, the places of the flipped edges and that one bit. Section 4 is an exact computation over these kinds, and section 6 uses them as targets.
+"Slice edges against the centers" is the tutorial's aligned and misaligned: do the four slice edges match the centers of their slice or not. Per colour there are 768 kinds of state, a kind being the faces, where the flipped edges are, and that one bit. Section 4 is an exact computation over these kinds, and section 6 uses them as targets.
 
-Two checks on the definition:
+Two sanity checks on the definition:
 
-- The search for the nearest DR-xs on one colour and one pair of faces, over all cosets, gives 1, 4, 50, 586, 6800, 72894, 659610, 3479477, 4193028, 247986, 84 states at 0 to 10 moves. That is the distribution trangium posted ([2 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1478068304819261513)), number for number.
-- The server's own worked examples carry labels like "DR-2s", "4a2-1s", "2c3 -2s 8fe". I could replay 43 such labelled states from the docs and the two channels, and all 43 are what the label says by the table above.
+- The search for the nearest DR-xs on one colour and one pair of faces, over all cosets, gives this many states at 0 to 10 moves, which is the distribution trangium posted ([2 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1478068304819261513)), number for number:
+
+  1, 4, 50, 586, 6800, 72894, 659610, 3479477, 4193028, 247986, 84
+- The server's own worked examples carry labels like "DR-2s", "4a2-1s", "2c3 -2s 8fe". I replayed 43 such labelled states from the docs and the two channels, and all 43 are what the label says by the table above.
 
 ---
 
 ## 4. The move counts: DR-3s, DR-2s, DR-1s, DR
 
-Counted in face turns with all cancelling done, using only moves that keep the DR-xs: any turn of the two faces the corners are oriented on, half turns of the other four, and slice turns written as two outer turns. `R2` followed by `R L'` is `R' L'`, two turns.
+Face turns with all cancelling done, using only moves that keep the DR-xs: any turn of the two faces the corners are oriented on, half turns of the other four, and slice turns written as two outer turns. So `R2` then `R L'` is `R' L'`, two turns.
 
 ### 4.1 To a real DR
 
@@ -140,11 +249,11 @@ Counted in face turns with all cancelling done, using only moves that keep the D
 | 2 | 383 | 0 | 0 | 2 | 32 | 99 | 172 | 54 | 24 | 0 | 6.83 |
 | 3 | 244 | 0 | 0 | 0 | 0 | 2 | 14 | 118 | 80 | 30 | 8.50 |
 
-This is the count from the state alone, with nothing to cancel against. It is over kinds, and every kind with the same number of slices is equally likely for a DR-xs you did not steer.
+This is the count from the state alone, with nothing to cancel against. It's over kinds, and if you didn't steer the DR-xs, every kind with the same number of slices is equally likely.
 
 ### 4.2 DR-1s to DR: all 70 layouts
 
-A DR-1s has exactly four flipped edges, and one slice turn fixes it once those four are in the slice that the turn moves. The eight places they can be in are four inside that slice and four outside it, so there are 70 layouts. With the corners on F/B, where the slice that fixes is `R L`:
+A DR-1s has exactly four flipped edges, and one slice turn fixes it once those four are in the slice that turn moves. Of the eight places they can be in, four are inside that slice and four outside it, so there are 70 layouts. With the corners on F/B, where the slice that fixes is `R L`:
 
 | Flipped edges already in the slice that fixes | Layouts | Turns to DR (number of layouts) | Shortest example: flipped at | Its fix |
 |---:|---:|---|---|---|
@@ -155,11 +264,15 @@ A DR-1s has exactly four flipped edges, and one slice turn fixes it once those f
 | 0 | 1 | 4 turns (1) | BL FL BR FR | `F B R L` |
 
 - **Daichi is right** that 6 is the most and 7 does not exist ([15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560145175714472097)). So is Rodney's bound ([15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560294279010717737)): "Worst case requires 2qt, with at most one half-turn before/between each qt, so 4 and then the slice."
-- **The distribution is not flat.** 83% of layouts need 5 or 6 turns, and the average is 5.17. The working assumption in the EO Meta Comparison doc, "1 slice can be fixed in 3 moves", is 1.17 short with one slice turn cancelling (Rodney's way of counting, [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560296978137485322)) and 2.17 from the state alone, and sqAree's "more than 5 moves most of the time" ([23 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1464341592952537128)) is the accurate one. That count is not the cost, though. The setup moves are also finish moves and the slice gets moved around in the finish, so the cost that matters is the finish (section 5).
-- **3-1 is not much worse than 2-2 here.** With three of the four already in the slice it is 5 or 6. With two it is anything from 3 to 6. With none it is 4 (`F B R L`).
-- All 70 layouts with a shortest fix each are in Appendix A. This is the list Radek B asked for.
+- **The distribution is not flat.** 83% of layouts need 5 or 6 turns, and the average is 5.17. The EO Meta Comparison doc's working assumption, "1 slice can be fixed in 3 moves", is 1.17 short with one slice turn cancelling (Rodney's way of counting, [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560296978137485322)) and 2.17 from the state alone, and sqAree's "more than 5 moves most of the time" ([23 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1464341592952537128)) is the accurate one. That count isn't the cost, though: the setup moves are also finish moves and the slice gets moved around in the finish, so the cost that matters is the finish (section 5).
+- **3-1 isn't much worse than 2-2 here.** With three of the four already in the slice it's 5 or 6. With two it's anything from 3 to 6. With none it's 4:
 
-**Simon's table.** Simon's slice-DR doc has the same count for its step 3, taking the better direction of the last trigger move: "Num Cases out of 70": 1, 4, 9, 40, 16 for 2 to 6 moves. Mine with the same choice is 1, 4, 13, 36, 16. The ends agree, and so does Simon's "~4.9 moves on average". But thirteen layouts have a 4-turn fix, not nine. They are listed at the end of Appendix A, each with its fix.
+  ```
+  F B R L // none of the four in the slice
+  ```
+- All 70 layouts with a shortest fix each are in Appendix A, the list Radek B asked for.
+
+**Simon's table.** Simon's slice-DR doc has the same count for its step 3, taking the better direction of the last trigger move: "Num Cases out of 70": 1, 4, 9, 40, 16 for 2 to 6 moves. With the same choice I get 1, 4, 13, 36, 16. The ends agree, and so does Simon's "~4.9 moves on average", but thirteen layouts have a 4-turn fix, not nine. They're at the end of Appendix A, each with its fix.
 
 ### 4.3 The steps in between
 
@@ -170,10 +283,10 @@ A DR-1s has exactly four flipped edges, and one slice turn fixes it once those f
 | DR-1s to DR | 140 | 2 (2 kinds), 3 (4 kinds), 4 (18 kinds), 5 (60 kinds), 6 (56 kinds) | 0 (2 kinds), 3 (20 kinds), 4 (14 kinds), 5 (104 kinds) |
 | DR-2s to DR | 383 | 4 (2 kinds), 5 (32 kinds), 6 (99 kinds), 7 (172 kinds), 8 (54 kinds), 9 (24 kinds) | 2 (2 kinds), 3 (32 kinds), 4 (31 kinds), 5 (128 kinds), 6 (112 kinds), 8 (78 kinds) |
 
-The last column is the extra turns when the move just made was a quarter turn of a side face, with the better of the two side axes: a slice about that axis merges with it (`R` then `R' L` is just `L`).
+The last column is the extra turns when your last move was a quarter turn of a side face, on the better of the two side axes: a slice about that axis merges with it (`R` then `R' L` is just `L`).
 
 - **A DR-3s is always a DR-2s for free** right after the trigger, as the tutorial says: "you can always go to DR-2s in 0 moves by inserting a slice move that cancels with your last DR move".
-- **DR-2s to DR-1s** is a slice with 0, 1 or 2 setup moves. Rodney's "DR-2s needs at most 2 moves to reach DR-1s" ([15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560294279010717737)) is right if the slice itself is not counted. Right after the trigger, with its last move on the better of the two side axes, it is free for 209 of the 383 kinds and costs 3 for the rest. On the other side axis it is free for 69.
+- **DR-2s to DR-1s** is a slice with 0, 1 or 2 setup moves. Rodney's "DR-2s needs at most 2 moves to reach DR-1s" ([15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560294279010717737)) is right if you don't count the slice itself. Right after the trigger, with its last move on the better of the two side axes, it is free for 209 of the 383 kinds and costs 3 for the rest. On the other side axis it is free for 69.
 
 ---
 
@@ -181,13 +294,13 @@ The last column is the extra turns when the move just made was a quarter turn of
 
 ### 5.1 How it is measured
 
-The tutorial's way to finish a DR-1s is: set the four flipped edges up, do the slice, HTR from the other side, then leave slice while slicing the `R L'` back out. Every solution it can find has the form
+The tutorial finishes a DR-1s like this: set up the four flipped edges, do the slice, HTR from the other side, then leave slice while slicing the `R L'` back out. Every solution it can find has the form
 
 > (moves that keep the DR-1s) (one slice turn) (a DR finish),
 
-read from either side. For a given DR-1s the shortest solution of that form is computed exactly: every setup from both ends, and for the DR that comes out, its optimal finish from the first study's table of all 19,508,428,800 DR states. So "finish" below is the best the method can do, the same way "optimal finish" was for a DR: **computer only**, the answer key, not what you find in an hour (5.5 has what a hand finish loses). What you use in an attempt is the difference, the penalty against a DR. For a DR-2s 8fe the form is setup, both slices one after the other, DR finish.
+read from either side. For a given DR-1s I compute the shortest solution of that form exactly: every setup from both ends, and for the DR that comes out, its optimal finish from the first study's table of all 19,508,428,800 DR states. So "finish" below is the best the method can do, the same way "optimal finish" was for a DR: **computer only**, the answer key, not what you find in an hour (5.5 has what a hand finish loses). What you take into an attempt is the difference, the penalty against a DR. For a DR-2s 8fe the form is setup, both slices one after the other, DR finish.
 
-The states are drawn uniformly: 200,000 DR-1s and 5,000 DR-2s 8fe. That is the right weighting for a DR-xs reached by a route that was chosen without looking past the DR-xs itself: the part of the cube the route does not look at is still uniformly random. Section 7.5 checks it on real scrambles.
+The states are drawn uniformly: 200,000 DR-1s and 5,000 DR-2s 8fe. That's the right weighting for a DR-xs you reached without looking past the DR-xs itself: the part of the cube the route doesn't look at is still uniformly random. Section 7.5 checks it on real scrambles.
 
 ### 5.2 By subset
 
@@ -209,9 +322,13 @@ The subset of a DR-xs is its corner subset, as in "4a2-1s". trangium's columns a
 | 4b5 | 11% | 14.28 | 16.33 | +2.05 |  | 15.66 | +1.38 |  |
 | **all** | 100% | 13.58 | 15.85 | +2.27 |  | 14.77 | +1.19 |  |
 
-- The penalty for a DR-1s is +2.27 overall. It is larger on the low-qt subsets (+2.53 for 4a1) than on the high ones (+2.05 for 4b5), so a DR-1s flattens the difference between subsets a little.
-- My DR-1s numbers are 0.1 to 0.4 above trangium's. trangium's are true optimals, which may leave the form, and trangium says of them that "lots of optimals are not findable" ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465944533656141878)). The DR column agrees with trangium's to within 0.05.
-- For DR-2s 8fe the penalty is +1.19, and 0.1 to 0.2 above trangium's on each of the five subsets trangium measured. The 8fe sample is small for the rare subsets: 35 states of 0c0, 45 of 0c4, 50 of 0c3.
+- The penalty for a DR-1s is +2.27 overall. It's larger on the low-qt subsets (+2.53 for 4a1) than on the high ones (+2.05 for 4b5), so a DR-1s flattens the difference between subsets a little.
+- My DR-1s numbers are 0.1 to 0.4 above trangium's. trangium's are true optimals, which can leave the form, and trangium says of them that "lots of optimals are not findable" ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465944533656141878)). The DR column agrees with trangium's to within 0.05.
+- For DR-2s 8fe the penalty is +1.19, 0.1 to 0.2 above trangium's on each of the five subsets trangium measured. The 8fe sample is small for the rare subsets:
+
+  | Subset | 0c0 | 0c4 | 0c3 |
+  |---|---:|---:|---:|
+  | states sampled | 35 | 45 | 50 |
 
 ### 5.3 In odds
 
@@ -223,7 +340,7 @@ The subset of a DR-xs is its corner subset, as in "4a2-1s". trangium's columns a
 | a DR-1s that one slice turn fixes | 0.24% | 1.2% | 3.9% | 16% | 46% | 81% | 99% | 100% | 100% | 14.53 |
 | a DR-1s that needs 5 or 6 turns to DR | <0.01% | 0.03% | 0.27% | 1.5% | 7.4% | 29% | 71% | 98% | 100% | 15.92 |
 
-And with the length of what you have added on, the chance of a solution in N or less:
+And adding the length of what you did before, the chance of a solution in N or less:
 
 | You have | 18 or less | 19 or less | 20 or less | 21 or less | 22 or less | 23 or less | 24 or less |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -240,14 +357,22 @@ And with the length of what you have added on, the chance of a solution in N or 
 | a DR-2s 8fe in 9 | 0 of 5,000 | 0.06% | 0.30% | 2.6% | 12% | 39% | 73% |
 | a DR-2s 8fe in 10 | 0 of 5,000 | 0 of 5,000 | 0.06% | 0.30% | 2.6% | 12% | 39% |
 
-Read the second table by finding equal rows. A DR-1s in 7 sits between a DR in 9 and a DR in 10, about midway. A DR-1s in 8 sits between a DR in 10 and a DR in 11. A DR-2s 8fe in 9 is a little behind a DR in 10. So:
+Read the second table by finding equal rows:
 
-- **DR-1s in N is about a DR in N + 2.3**, at equal odds for finishes of 13 to 16 (2.27 on the average). Rodney's "+3/+4 penalty for -1/-2 slice" ([30 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466667769834508476)) is a bit hard on the DR-1s if you finish it well, and tseitsei89's later "in reality around 3 moves worse" ([7 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469596164188930221)) is what it becomes when you don't find the best finish (5.5).
+| This | sits |
+|---|---|
+| a DR-1s in 7 | between a DR in 9 and a DR in 10, about midway |
+| a DR-1s in 8 | between a DR in 10 and a DR in 11 |
+| a DR-2s 8fe in 9 | a little behind a DR in 10 |
+
+So:
+
+- **DR-1s in N is about a DR in N + 2.3**, at equal odds for finishes of 13 to 16 (2.27 on the average). Rodney's "+3/+4 penalty for -1/-2 slice" ([30 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466667769834508476)) is a bit hard on the DR-1s if you finish it well, and tseitsei89's later "in reality around 3 moves worse" ([7 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469596164188930221)) is what it turns into when you don't find the best finish (5.5).
 - **DR-2s 8fe in N is about a DR in N + 1.19.**
 
 ### 5.4 Which DR-1s are the good ones
 
-Two things you can see on a DR-1s were said to matter: how far it is from a DR, and how the four flipped edges split between the two slices they belong to (Rodney, [28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466198780582826057): "3-1 is bad because it requires 2 QT", "2-2 requires 1 QT"). They are the same thing seen from the two sides of the scramble: the four flipped edges all belong to one slice exactly when, on the other side, they all sit in one slice. So one table covers both, the fewest turns to a real DR from whichever side is better:
+People said two things you can see on a DR-1s matter: how far it is from a DR, and how the four flipped edges split between the two slices they belong to (Rodney, [28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466198780582826057): "3-1 is bad because it requires 2 QT", "2-2 requires 1 QT"). Those are the same thing seen from the two sides of the scramble: the four flipped edges all belong to one slice exactly when, on the other side, they all sit in one slice. So one table covers both, the fewest turns to a real DR from whichever side is better:
 
 | Fewest turns to a real DR, from the better side | Share of DR-1s | Average finish | Against a DR | In 14 or less | In 15 or less |
 |---:|---:|---:|---:|---:|---:|
@@ -257,21 +382,25 @@ Two things you can see on a DR-1s were said to matter: how far it is from a DR, 
 | 5 | 53% | 15.96 | +2.38 | 6.1% | 27% |
 | 6 | 16% | 16.12 | +2.54 | 4.1% | 21% |
 
-- **The DR-1s to want is the one a single slice turn fixes, from one side or the other**: +0.94, a little less than a DR-2s 8fe costs. It is 2.8% of them.
-- **Beyond that, the layout matters little.** From 4 turns to 6 the average finish moves by 0.38. A DR-1s that is 6 from a real DR is not 4 worse than one that is 2 away, because the setup moves are also finish moves.
-- **"Extra-good" is two cases.** Rodney's extra-good DR-1s is four flipped edges all belonging to one slice ([19 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474226073247027220)), which Rodney put at "just 1-2 moves worse than full DR". When that slice is the one that fixes, it is the first row. When it is the other slice, the four sit together in the wrong slice (`F B R L` to fix) and the finish is +2.10, no better than an ordinary DR-1s. Averaged over the two it is +1.52.
+- **The DR-1s to want is the one a single slice turn fixes, from one side or the other**: +0.94, a little less than a DR-2s 8fe costs. It's 2.8% of them.
+- **Past that, the layout doesn't matter much.** From 4 turns to 6 the average finish moves by 0.38. A DR-1s that's 6 from a real DR isn't 4 worse than one that's 2 away, because the setup moves are also finish moves.
+- **"Extra-good" is two cases.** Rodney's extra-good DR-1s is four flipped edges all belonging to one slice ([19 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474226073247027220)), which Rodney put at "just 1-2 moves worse than full DR". When that slice is the one that fixes, it's the first row. When it's the other slice, the four sit together in the wrong slice and the finish is +2.10, no better than an ordinary DR-1s. Averaged over the two it's +1.52.
+
+  ```
+  F B R L // the fix when the four sit in the wrong slice
+  ```
 
 ### 5.5 What a hand finish loses
 
-The best solution has its slice within 4 moves of one end for at least 64% of DR-1s states, which is trangium's "pretty high chance that the slice ends up within 4 moves of the start or the end" ([30 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466668019790123167)). But it is not always the end you are on. If the setup has to be at most 4 moves and on the side where you found the DR-1s, with any DR finish after it, the average is 16.91, which is 1.06 more, and only 38% of states keep their best finish. So try the setup from both sides before judging a DR-1s.
+The best solution has its slice within 4 moves of one end for at least 64% of DR-1s states, which is trangium's "pretty high chance that the slice ends up within 4 moves of the start or the end" ([30 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466668019790123167)). But it isn't always the end you're on. If the setup has to be at most 4 moves and on the side where you found the DR-1s, with any DR finish after it, the average is 16.91, 1.06 more, and only 38% of states keep their best finish. So try the setup from both sides before you judge a DR-1s.
 
-How often a person finds these finishes is not something I can compute. trangium's findability tables in the tutorial are the data there is: for 4b2-1s, optimal findable 51% of the time and optimal + 1 another 32%.
+How often a person finds these finishes isn't something I can compute. trangium's findability tables in the tutorial are the data there is: for 4b2-1s, optimal findable 51% of the time and optimal + 1 another 32%.
 
 ### 5.6 DR-2s 8fe and the DR that ends in U R L
 
-The tutorial's cheapest way to a DR-2s 8fe is a normal DR that ends in something like `U R L`: do `D` instead and you are at an 8fe two moves earlier. An 8fe in N is worth a DR in N + 1.19, so the DR in N + 2 that ends that way is worth a DR in about N + 1.2. **The ending is worth about 0.8 of a move** with the best finish of this form, and 0.9 to 1.15 with trangium's optimal averages. trangium put it at "1 to 1.3 moves better" ([6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469483553963380829)) and count quackula at "one move better" ([6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469483105659392232)): about one move stands.
+The tutorial's cheapest way to a DR-2s 8fe is a normal DR that ends in something like `U R L`: do `D` instead and you're at an 8fe two moves earlier. An 8fe in N is worth a DR in N + 1.19, so the DR in N + 2 that ends that way is worth a DR in about N + 1.2. **The ending is worth about 0.8 of a move** with the best finish of this form, and 0.9 to 1.15 with trangium's optimal averages. trangium put it at "1 to 1.3 moves better" ([6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469483553963380829)) and count quackula at "one move better" ([6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469483105659392232)): about one move stands.
 
-By subset the 8fe penalty runs from +0.95 (4a1) to +1.41 (4c4). Unlike the DR-1s penalty it grows with the qt count, so the `U R L` ending is worth about a move on the low-qt subsets and about 0.6 on 4c4.
+By subset the 8fe penalty runs from +0.95 (4a1) to +1.41 (4c4). Unlike the DR-1s penalty it goes up with the qt count, so the `U R L` ending is worth about a move on the low-qt subsets and about 0.6 on 4c4.
 
 ---
 
@@ -279,7 +408,7 @@ By subset the 8fe penalty runs from +0.95 (4a1) to +1.41 (4c4). Unlike the DR-1s
 
 ### 6.1 How often there is a slice-EO skip
 
-There are 9 pairs of a slice and an axis, each in two flavours (all oriented, all misoriented), on normal and on inverse. Whether a scramble has a skip depends only on which kind of edge sits where and on the orientations, which is 70,963,200 equally likely configurations. Counting all of them:
+There are 9 pairs of a slice and an axis, each in two flavours (all oriented, all misoriented), on normal and on inverse. Whether a scramble has a skip only depends on which kind of edge sits where and on the orientations: 70,963,200 equally likely configurations. Counting all of them:
 
 | Slice-EO skips on the scramble | On normal | On normal or inverse | All-oriented only, normal | All-oriented only, normal or inverse |
 |---|---:|---:|---:|---:|
@@ -291,8 +420,8 @@ There are 9 pairs of a slice and an axis, each in two flavours (all oriented, al
 | 4 or more | 2.0% | 25% | 0.24% | 7.0% |
 | average number | 1.12 | 2.25 | 0.56 | 1.12 |
 
-- **68.7953% of scrambles have at least one skip on normal, and 79.3147% have one on normal or inverse.** That is wen's question.
-- Each single skip (one slice, one axis, one flavour, one side) has chance 1/16, so 1/8 for a slice and an axis with either flavour, as tseitsei89 and count quackula worked out ([3 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1533722203646988318), [3 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1533721112813244467)). The skips are far from independent: the average is 2.25 per scramble over both sides, but 21% of scrambles have none.
+- **68.7953% of scrambles have at least one skip on normal, and 79.3147% have one on normal or inverse.** That's wen's question.
+- Each single skip (one slice, one axis, one flavour, one side) has chance 1/16, so 1/8 for a slice and an axis with either flavour, like tseitsei89 and count quackula worked out ([3 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1533722203646988318), [3 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1533721112813244467)). The skips are far from independent: the average is 2.25 per scramble over both sides, but 21% of scrambles have none.
 - The tutorial's "often 1-2 on a scramble" is right.
 
 And for one given slice, the moves to a slice EO on some axis, over all 7,920 ways its four pieces can sit:
@@ -308,7 +437,7 @@ FakeMMAP's "never more than 2 moves away", "No matter which slice you pick" ([25
 
 ### 6.2 From a skip to a DR-1s
 
-After the slice EO the tutorial looks for rzp and DR "like normal", ignoring flipped edges and centers. Normal means without quarter turns of the EO axis's two faces, which keeps every edge's orientation for that axis. Under exactly that rule, the nearest DR-1s from every state with a skip, by the kind of skip. The distances are exact searches, **computer only**; the rule of which skips can give a DR-1s at all is something you check at the table by counting bad edges:
+After the slice EO the tutorial looks for rzp and DR "like normal", ignoring flipped edges and centers. Normal means no quarter turns of the EO axis's two faces, which keeps every edge's orientation for that axis. Under exactly that rule, here's the nearest DR-1s from every state with a skip, by the kind of skip. The distances are exact searches, **computer only**; which skips can give a DR-1s at all is something you check at the table by counting bad edges:
 
 | The skip | A route exists | In 5 or less (of all such skips) | In 6 or less | In 7 or less | In 8 or less | In 9 or less | Average when there is one |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -317,12 +446,12 @@ After the slice EO the tutorial looks for rzp and DR "like normal", ignoring fli
 | the slice's own axis, all oriented | 55% | 0.93% | 6.0% | 26% | 51% | 55% | 7.47 |
 | the slice's own axis, all misoriented | never | | | | | | |
 
-- **Oriented, on an axis that is not the slice's own** (E-slice edges oriented on F/B, say): there is always a route. It is 7 or less for 36% of skips and 8 or less for 88%. For comparison, from a full EO the nearest real DR on one given axis is 7.80 moves away on average under the same rule. So a skip of this kind is, in route length, an EO that cost nothing, and in finish it is a DR-1s. That is the sense of Rodney's "sliceEO in N is as good as regular EO in N+3" ([3 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1468273993105805364)); with the finish penalty at 2.3 the 3 is a little generous to the normal EO, before you count how many of each you get to try.
-- **Misoriented on such an axis**: without breaking that axis's EO a route exists only when exactly four of the other eight edges are bad, so that the axis has 8 bad edges in all. That is 55% of these skips (70 in 128). trangium ([8 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1480310254129516617)): "you MUST have 8 bad on that axis for even a chance at dr-1s". Rodney's "55%" ([1 May 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1499635961015963751)) is this number.
+- **Oriented, on an axis that is not the slice's own** (E-slice edges oriented on F/B, say): there's always a route. It's 7 or less for 36% of skips and 8 or less for 88%. For comparison, from a full EO the nearest real DR on one given axis is 7.80 moves away on average under the same rule. So in route length a skip like this is an EO that cost nothing, and in finish it's a DR-1s. That's the sense of Rodney's "sliceEO in N is as good as regular EO in N+3" ([3 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1468273993105805364)); with the finish penalty at 2.3 the 3 is a little generous to the normal EO, before you count how many of each you get to try.
+- **Misoriented on such an axis**: without breaking that axis's EO a route exists only when exactly four of the other eight edges are bad, so that the axis has 8 bad edges in all. That's 55% of these skips (70 in 128). trangium ([8 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1480310254129516617)): "you MUST have 8 bad on that axis for even a chance at dr-1s". Rodney's "55%" ([1 May 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1499635961015963751)) is this number.
 - **Oriented on the slice's own axis** (E-slice edges oriented on U/D): 55%, when as many M-slice pieces as S-slice pieces are bad. The same states can reach a real DR on that colour without U or D quarter turns, 9.19 moves away on average.
 - **Misoriented on the slice's own axis**: never, with or without the extra quarter turns below. Daichi's "misoriented sEOs are just worse overall" ([10 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1536429112736882828)) is right in both families.
 
-Letting quarter turns of the EO axis in when they miss the slice pieces (the tutorial's tip 2) opens the two half-open kinds of skip fully, misoriented on another axis and oriented on the slice's own, but shortens little. Using any move at all shortens it by a quarter move:
+Allowing quarter turns of the EO axis when they miss the slice pieces (the tutorial's tip 2) fully opens the two half-open kinds of skip, misoriented on another axis and oriented on the slice's own, but doesn't shorten much. Allowing any move shortens it by a quarter move:
 
 | The skip | A route exists | In 5 or less (of all such skips) | In 6 or less | In 7 or less | In 8 or less | In 9 or less | Average when there is one |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -341,7 +470,7 @@ Letting quarter turns of the EO axis in when they miss the slice pieces (the tut
 
 ### 6.3 To a DR-2s 8fe: the same problem as a DR
 
-**Getting to a DR-2s 8fe is getting to a DR with the pieces renamed.** An 8fe has its corners and slice edges placed as in a DR on one pair of faces, in the colours of another pair. Move every piece a quarter turn around the third axis, leave the centres where they are, and flip every edge in its place: the 8fe becomes a real DR. Do that to any position, and rename the faces of a move sequence by the same quarter turn, and reaching the 8fe becomes reaching the DR. Edges that are good for the third axis stay good, so an EO on that axis carries over as well. Counted over every position with a full EO, with moves that keep it:
+**Getting to a DR-2s 8fe is getting to a DR with the pieces renamed.** An 8fe has its corners and slice edges placed like a DR on one pair of faces, in the colours of another pair. Move every piece a quarter turn around the third axis, leave the centres where they are, and flip every edge in its place: the 8fe turns into a real DR. Do that to any position, rename the faces of a move sequence by the same quarter turn, and reaching the 8fe turns into reaching the DR. Edges that are good for the third axis stay good, so an EO on that axis carries over too. Counted over every position with a full EO, with moves that keep it:
 
 | Moves from a full EO | Positions that far from the real DR | Positions that far from the DR-2s 8fe |
 |---:|---:|---:|
@@ -358,11 +487,11 @@ Letting quarter turns of the EO axis in when they miss the slice pieces (the tut
 | 10 | 3,114 | 3,114 |
 | all 1,082,565 positions, average | 7.80 | 7.80 |
 
-- **From an EO, the 8fe is exactly as far as the DR**: the same distribution, 7.80 on average. This is the tutorial's route 3, do the normal EO and then solve the wrong-coloured DR. Each of the EO's two DR axes has one, so an EO has four targets where it had two, and the two extra ones cost 1.19 more in the finish.
-- **With any moves it is the same, target by target.** A scramble has twelve 8fe (two for each colour, on normal and on inverse) against six DRs, and each is as far away as a DR is. That is why the shortest 8fe of a scramble comes 0.33 of a move before its shortest DR in 6.4: there are twice as many, and none of them is closer. (Checked on 4,000 random positions: the distance to the 8fe is the distance of the renamed position to the DR every time.)
-- **What does not carry over is the finish.** The renaming does not take the solved cube to the solved cube, and making up the difference is what the two slice turns are for: +1.19 (section 5).
+- **From an EO, the 8fe is exactly as far as the DR**: the same distribution, 7.80 on average. That's the tutorial's route 3: do the normal EO, then solve the wrong-coloured DR. Each of the EO's two DR axes has one, so an EO has four targets instead of two, and the two extra ones cost 1.19 more in the finish.
+- **With any moves it is the same, target by target.** A scramble has twelve 8fe (two for each colour, on normal and on inverse) against six DRs, and each is as far away as a DR is. That's why the shortest 8fe of a scramble comes 0.33 of a move before its shortest DR in 6.4: there are twice as many, and none of them is closer. (Checked on 4,000 random positions: the distance to the 8fe is the distance of the renamed position to the DR every time.)
+- **What doesn't carry over is the finish.** The renaming doesn't take the solved cube to the solved cube, and the two slice turns are there to make up the difference: +1.19 (section 5).
 
-**So a slice-EO skip is not what gets you an 8fe.** By the kind of skip, keeping that axis's EO:
+**So a slice-EO skip isn't what gets you an 8fe.** By the kind of skip, keeping that axis's EO:
 
 | The skip | A route exists | In 5 or less (of all such skips) | In 6 or less | In 7 or less | In 8 or less | In 9 or less | Average when there is one |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -371,12 +500,12 @@ Letting quarter turns of the EO axis in when they miss the slice pieces (the tut
 | the slice's own axis, all oriented | never | | | | | | |
 | the slice's own axis, all misoriented | 1.6% | 0.01% | 0.09% | 0.48% | 1.3% | 1.6% | 7.80 |
 
-- **An oriented skip** leads to an 8fe only when the rest of the axis is oriented as well (0.78% of such skips, 1 in 128), and that is a normal EO. The skip adds nothing to it.
-- **A misoriented skip on an axis with 8 bad edges** (the four slice edges and four of the other eight, 55% of misoriented skips) is the one separate way in. From there an 8fe is 9.19 moves away on average, against 7.80 from an EO, with no moves spent on an EO first. It is 8 or less for 8.1% of those skips.
+- **An oriented skip** leads to an 8fe only when the rest of the axis is oriented as well (0.78% of such skips, 1 in 128), and that's just a normal EO. The skip adds nothing.
+- **A misoriented skip on an axis with 8 bad edges** (the four slice edges and four of the other eight, 55% of misoriented skips) is the one separate way in. From there an 8fe is 9.19 moves away on average, against 7.80 from an EO, and you spend no moves on an EO first. It's 8 or less for 8.1% of those skips.
 
 ### 6.4 What exists, with any moves
 
-Without any rule on the moves, linear on one side, over a sample of 2,000,000 random scrambles (three colours, normal and inverse). **Computer only**: the shortest of each over every route, the answer key for what exists:
+Any moves, linear on one side, over 2,000,000 random scrambles (three colours, normal and inverse). **Computer only**: the shortest of each over every route, the answer key for what exists:
 
 | Shortest on the scramble | Average | 6 or less | 7 or less | 8 or less | 9 or less |
 |---|---:|---:|---:|---:|---:|
@@ -385,13 +514,15 @@ Without any rule on the moves, linear on one side, over a sample of 2,000,000 ra
 | a DR-1s | 6.81 | 26% | 89% | 99.9% | 100% |
 | any DR-xs | 6.46 | 48% | 98% | 100% | 100% |
 
-- The first row is wen's other question ([9 Sep 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1547198328792420393)), "Is the distribution for scrambled->DR movecount known?": per colour it is the exact 1, 4, 50, 592, 7156, 87236, 1043817, 12070278, 124946368, 821605960, 1199128738, 58202444, 476 over the 2,217,093,120 cosets (0 to 12 moves), and the row is the best of six.
+- The first row is wen's other question ([9 Sep 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1547198328792420393)), "Is the distribution for scrambled->DR movecount known?". The row is the best of six; per colour it's exactly this, over the 2,217,093,120 cosets (0 to 12 moves):
+
+  1, 4, 50, 592, 7156, 87236, 1043817, 12070278, 124946368, 821605960, 1199128738, 58202444, 476
 - The last row is trangium's "almost always a linear 7-mover on some axis and side, around half the time a 6-mover, and pretty much never a 5-mover" ([23 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1464482670200488294)): 98%, 48%, and 7.3% for 5 or less.
-- A DR-1s exists about 2.0 moves earlier than a real DR, and costs 2.27 in the finish. That is the whole trade in two numbers: on average it is close to even, so it pays when you find the short ones.
+- A DR-1s exists about 2.0 moves earlier than a real DR, and costs 2.27 in the finish. That's the whole trade in two numbers: on average it's close to even, so it pays when you find the short ones.
 
 ### 6.5 From an EO pattern to a kind
 
-When the route keeps the EO of an axis, the EO pattern you start from decides what you can land on. Appendix B has the full table: for every pattern that is uniform by slice (each slice's four pieces all good or all bad) and each pair of faces for the corners, what the DR-xs is. Rodney's list of patterns that guarantee an extra-good case ([19 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474226073247027220)) and count quackula's two lists (the 12-bad notes and the guaranteed-fix cases) can be read straight off it. All of them check out except one line, the 12-bad one in Rodney's list (section 8).
+If the route keeps the EO of an axis, the EO pattern you start from decides what you can land on. Appendix B has the full table: for every pattern that is uniform by slice (each slice's four pieces all good or all bad) and each pair of faces for the corners, what the DR-xs is. Rodney's list of patterns that guarantee an extra-good case ([19 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474226073247027220)) and count quackula's two lists (the 12-bad notes and the guaranteed-fix cases) can be read straight off it. All of them check out except one line, the 12-bad one in Rodney's list (section 8).
 
 ---
 
@@ -399,11 +530,11 @@ When the route keeps the EO of an axis, the EO pattern you start from decides wh
 
 The same 500 random-state scrambles as the tally on the first study's examples page.
 
-- **Normal DRs**: every DR of 12 moves or less that goes through an EO of 5 moves or less (cubelib-cli, NISS allowed; it lists no longer EOs), each finished optimally. This is the first study's run.
-- **DR-xs**: every DR-1s of 8 moves or less and every DR-2s 8fe of 9 or less that starts from a slice-EO skip or a one-move slice EO, on normal or on inverse, and then keeps that axis's EO. That is the plain version of the tutorial's route (no EO-changing triggers, no NISS inside the route), taken exhaustively, so the counts are a floor on what is there. Also every DR-2s 8fe of 9 or less after a normal EO of 4 moves or fewer (the wrong-colour DR, and the DR that would end in `U R L`).
-- **Finishes**: as in section 5, the best of the method's form, written out as a full solution and replayed on the scramble: 31,529 DR-1s and 5,918 DR-2s 8fe solutions, all correct. For the 8fe here the setup is searched up to 3 moves from either end, which finds the best for 85% of the random sample and is 0.16 moves off on average.
+- **Normal DRs**: every DR of 12 moves or less that goes through an EO of 5 moves or less (cubelib-cli, NISS allowed; it lists no longer EOs), each finished optimally. Same run as the first study.
+- **DR-xs**: every DR-1s of 8 moves or less and every DR-2s 8fe of 9 or less that starts from a slice-EO skip or a one-move slice EO, on normal or on inverse, and then keeps that axis's EO. That's the plain version of the tutorial's route (no EO-changing triggers, no NISS inside the route), taken exhaustively, so the counts are a floor on what's there. Plus every DR-2s 8fe of 9 or less after a normal EO of 4 moves or fewer (the wrong-colour DR, and the DR that would end in `U R L`).
+- **Finishes**: as in section 5, the best of the method's form, written out as a full solution and replayed on the scramble: 31,529 DR-1s and 5,918 DR-2s 8fe solutions, all correct. For the 8fe here I search setups up to 3 moves from either end, which finds the best for 85% of the random sample and is 0.16 moves off on average.
 
-As in the first study, every finish is the answer key, **computer only**, not what you find in an hour, and nobody finishes this many. Read the counts as the size of the haystack and the last column of 7.2 as how good each straw is.
+Like in the first study, every finish is the answer key, **computer only**, not what you find in an hour, and nobody finishes this many. Read the counts as the size of the haystack and the last column of 7.2 as how good each straw is.
 
 ### 7.1 What is there
 
@@ -423,13 +554,21 @@ As in the first study, every finish is the answer key, **computer only**, not wh
 | a DR-2s 8fe of 9 or less (from a slice EO or an EO of 4 or less) | 56% | 11.8 |
 
 - **Nine scrambles in ten have a DR-1s of 8 or less** from a skip or a one-move slice EO, and there are 63.1 of them on average, nearly as many as there are normal DRs of 10 or less.
-- **Nearly half have one of 7 or less** (46%), and a 6 is there on 11%. tseitsei89's "I can usually find some DR-fe in 8 moves. Occasionally 7." ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465952080756871423)) was about what one finds by hand; this is what is there by the plain route.
+- **Nearly half have one of 7 or less** (46%), and a 6 is there on 11%. tseitsei89's "I can usually find some DR-fe in 8 moves. Occasionally 7." ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465952080756871423)) was about what you find by hand; this is what's there by the plain route.
 - Skips alone carry most of it; one-move slice EOs add a little under a third.
-- **The 8fe rows** are a floor too, and a skip is not needed for one (6.3). Of the 482 DR-2s 8fe of 8 moves or fewer on these scrambles, 238 start from a misoriented slice-EO skip, 70 from a one-move slice EO and 174 from an EO of 4 moves or less. Each is counted once, under the first of those three that reaches it, and EOs of 5 moves were not taken for the 8fe, so the split leans towards the skips.
+- **The 8fe rows** are a floor too, and you don't need a skip for one (6.3). There are 482 DR-2s 8fe of 8 moves or fewer on these scrambles. Where they start:
+
+  | Start | How many |
+  |---|---:|
+  | a misoriented slice-EO skip | 238 |
+  | a one-move slice EO | 70 |
+  | an EO of 4 moves or less | 174 |
+
+  Each is counted once, under the first of those three that reaches it, and I didn't take EOs of 5 moves for the 8fe, so the split leans towards the skips.
 
 ### 7.2 What each one is worth
 
-For each kind of thing you could finish: how often its solution is as short as the best solution any normal DR of 12 or less gives on that scramble.
+For each kind of thing you could finish, how often its solution is as short as the best solution any normal DR of 12 or less gives on that scramble:
 
 | What you finish | Of them per scramble | Share that reach the best normal-DR solution of the scramble | One in |
 |---|---:|---:|---:|
@@ -443,7 +582,13 @@ For each kind of thing you could finish: how often its solution is as short as t
 | a normal DR of 11 | 651.0 | 0.11% | 952 |
 | a normal DR of 12 | 6,400.7 | 0.02% | 4,031 |
 
-The table is sorted by that share. Rows 2 to 4 (a DR-2s 8fe of 8 or less, a normal DR of 9 or less, a DR-1s of 7) are within sampling error of each other. So a DR-1s of 7 is worth about what a normal DR of 9 or less is, a DR-1s of 8 is worth 4.5 eleven-move DRs and 0.96 of a 10-move DR, and a DR-2s 8fe of 9 comes out a little better than a 10-move DR on these scrambles. That is kinder to DR-xs than the N + 2.3 of section 5, because on real scrambles the finish often cancels into the last move of the route (by 0.20 moves on average for a DR-1s).
+The table is sorted by that share. Rows 2 to 4 (a DR-2s 8fe of 8 or less, a normal DR of 9 or less, a DR-1s of 7) are within sampling error of each other. So:
+
+- a DR-1s of 7 is worth about what a normal DR of 9 or less is;
+- a DR-1s of 8 is worth 4.5 eleven-move DRs and 0.96 of a 10-move DR;
+- a DR-2s 8fe of 9 comes out a little better than a 10-move DR on these scrambles.
+
+That's kinder to DR-xs than the N + 2.3 of section 5, because on real scrambles the finish often cancels into the last move of the route (by 0.20 moves on average for a DR-1s).
 
 ### 7.3 What it does to the result
 
@@ -460,8 +605,14 @@ Over the 491.00 scrambles that have a normal DR of 10 or less (the first study's
 | every normal DR of 12 or less | 7,244 | 19.56 | 84% | 45% |
 | normal DRs of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 7,319 | 19.52 | 85% | 47% |
 
-- On top of every normal DR of 10 or less, the DR-1s of 7 or less are 6 more things to finish per scramble and take the average from 20.62 to 20.55. Those of 8 are 58 more for another 0.13. The 11-move DRs are 662 more for 0.58.
-- Once every 11-mover is finished, DR-xs adds 0.09; once every 12-mover is, 0.04. Mostly DR-xs finds the same quality with fewer and shorter things to look at. Now and then it finds better, as the next table shows.
+- On top of every normal DR of 10 or less:
+
+  | Add | More things to finish per scramble | Average result |
+  |---|---:|---|
+  | the DR-1s of 7 or less | 6 | from 20.62 to 20.55 |
+  | those of 8 | 58 | another 0.13 |
+  | the 11-move DRs (instead) | 662 | 0.58 better |
+- Once every 11-mover is finished, DR-xs adds 0.09; once every 12-mover is, 0.04. Mostly DR-xs gets the same quality from fewer and shorter things to look at. Now and then it finds better, as the next table shows.
 
 Scramble by scramble, over all 500:
 
@@ -473,7 +624,12 @@ Scramble by scramble, over all 500:
 
 ### 7.4 Against 5-move EOs
 
-The standing question is whether, after the EOs of 4 or less, slice EOs are a better use of the time than more 5-move EOs. tseitsei89's belief ([4 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1534105529683542047)): "For sEO I currently believe skips are better than 5 move EOs but 1 movers might not be." Counting EOs the way cubelib-cli does (every way to write one, with NISS), a scramble has 17 EOs of 4 moves or less and 244 of 5 or less; 26 of the 500 have none of 4 or less. The DRs of 10 or less that come from EOs of 4 or less are 49 per scramble; the 5-move EOs bring that to 70.
+The open question: once you've done the EOs of 4 or less, are slice EOs a better use of the time than more 5-move EOs? tseitsei89's take ([4 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1534105529683542047)): "For sEO I currently believe skips are better than 5 move EOs but 1 movers might not be."
+
+Counting EOs the way cubelib-cli does (every way to write one, with NISS):
+
+- a scramble has 17 EOs of 4 moves or less and 244 of 5 or less; 26 of the 500 have none of 4 or less;
+- the DRs of 10 or less that come from EOs of 4 or less are 49 per scramble, and the 5-move EOs bring that to 70.
 
 Over the 418 scrambles that have a DR of 10 or less from an EO of 4 or less:
 
@@ -497,12 +653,12 @@ And with the DRs of 11 as well (470 scrambles):
 | EOs of 5 or less: every DR of 11 or less | 255 | 763 | 20.00 |
 | EOs of 5 or less: DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 255 | 841 | 19.90 |
 
-- **The 5-move EOs are worth 0.71** on the average result at this budget, and they are about 253 more EOs to go through.
-- **The slice-EO routes are worth 0.36** from the DR-1s of 8 or less (0.17 from those of 7 or less alone), and what you go through to get them is the slice-EO skips (2.25 per scramble on average over both sides) and the one-move slice EOs. No normal EO is added.
-- **They combine**: both together give 20.22, 0.91 better than the start. That is less than the two gains added, because they often reach the same length. Neither replaces the other.
+- **The 5-move EOs are worth 0.71** on the average result at this budget, and they're about 253 more EOs to go through.
+- **The slice-EO routes are worth 0.36** from the DR-1s of 8 or less (0.17 from those of 7 or less alone), and what you look through to get them is the slice-EO skips (2.25 per scramble on average over both sides) and the one-move slice EOs. No normal EO is added.
+- **They combine**: both together give 20.22, 0.91 better than the start. That's less than the two gains added, because they often get to the same length. Neither replaces the other.
 - **Per thing finished the 5-movers do better**: their gain comes from 24 more DRs to finish, the slice-EO gain from 71 more DR-1s. The slice EOs win on what you have to look through to get there.
 
-This fits tseitsei89's order, sub-5 EOs first, then the slice-EO skips, then the 5-movers ([3 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1468181849300795445)), on one condition: that a skip and the DR-1s behind it are quick to find. The slice-EO routes give about half of what all the 5-move EOs give, for far fewer starts. What that costs in minutes is the part these tables cannot say, and it is where the doubts were: zakimoshi's "isn't actually a very cost effective strategy time wise" ([26 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1476697849600409620)), JTuu's "if it's even close, I feel like 5-move eos win for time management reasons" ([4 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1534117582104166441)).
+This fits tseitsei89's order, sub-5 EOs first, then the slice-EO skips, then the 5-movers ([3 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1468181849300795445)), on one condition: a skip and the DR-1s behind it have to be quick to find. The slice-EO routes give about half of what all the 5-move EOs give, for far fewer starts. What that costs in minutes is the part these tables can't tell you, and it's where the doubts were: zakimoshi's "isn't actually a very cost effective strategy time wise" ([26 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1476697849600409620)), JTuu's "if it's even close, I feel like 5-move eos win for time management reasons" ([4 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1534117582104166441)).
 
 ### 7.5 Do real DR-xs finish like random ones?
 
@@ -515,17 +671,23 @@ This fits tseitsei89's order, sub-5 EOs first, then the slice-EO skips, then the
 | DR-2s 8fe in 8 | 444 | 15.00 | 14.92 (same 3-move setup search) |
 | DR-2s 8fe in 9 | 5,436 | 14.95 | 14.92 (same 3-move setup search) |
 
-Close to it. A DR-1s reached in few moves finishes slightly worse than a random one, by a tenth of a move or two. The 8fe ones of 8 and 9 moves finish about like random ones under the same 3-move setup search; the few of 7 moves finish worse.
+Close to it. A DR-1s you reach in few moves finishes slightly worse than a random one, by a tenth of a move or two. The 8fe ones of 8 and 9 moves finish about like random ones under the same 3-move setup search; the few of 7 moves finish worse.
 
 ### 7.6 Time
 
-What these checks cost in an attempt is not something the tables can say. What people wrote: "Computing orientation for 4 edges" "takes like 2 seconds" (tseitsei89, [4 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1468714183318048799), [4 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1468714083174973603)); there are 9 slice-and-axis pairs to look at per side; "finding all the non-EO dr-fe's in like 5-10 mins" (trangium, [19 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1462954196755153113)); a normal EO "takes 15 to 30 seconds" to check (Dunni, [25 Feb 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1476165481873408121)). A slice-EO skip is seen directly, but a DR-1s from it still has to be found the way a DR is found from an EO, and then finished with a method fewer people have practised.
+What these checks cost in an attempt isn't something the tables can tell you. What people wrote:
+
+- "Computing orientation for 4 edges" "takes like 2 seconds" (tseitsei89, [4 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1468714183318048799), [4 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1468714083174973603)), and there are 9 slice-and-axis pairs to look at per side;
+- "finding all the non-EO dr-fe's in like 5-10 mins" (trangium, [19 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1462954196755153113));
+- a normal EO "takes 15 to 30 seconds" to check (Dunni, [25 Feb 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1476165481873408121)).
+
+You see a slice-EO skip directly, but you still have to find a DR-1s from it the way you find a DR from an EO, and then finish it with a method fewer people have practised.
 
 ---
 
 ## 8. The claims, checked
 
-Statements that a computer can settle, with what the numbers say. A scramble is given wherever something is refuted or a case is claimed to exist.
+Everything said that a computer can settle, and what the numbers say. Wherever something is refuted or a case is claimed to exist, there's a scramble.
 
 | Claim | Who | Verdict |
 |---|---|---|
@@ -555,12 +717,12 @@ Statements that a computer can settle, with what the numbers say. A scramble is 
 ## 9. What this does not cover
 
 - **Findability.** "Finish" is the best solution of the method's form, exact per state. What a person finds in the time is trangium's and tseitsei89's ground, and their tables in the tutorial are the data.
-- **Solutions outside the form.** True optimals from a DR-1s are 0.1 to 0.4 shorter on average (trangium's nissy numbers against mine). For a DR-2s 8fe the form has the two slices together; solutions with moves between them are not searched.
+- **Solutions outside the form.** True optimals from a DR-1s are 0.1 to 0.4 shorter on average (trangium's nissy numbers against mine). For a DR-2s 8fe the form has the two slices together; I didn't search solutions with moves between them.
 - **DR-2s other than 8fe, and DR-3s.** Only their move counts to DR (section 4). trangium's nissy averages for them are +2.7 to +3.0 and +3.0 to +3.5.
-- **NISS inside the route, and EO-changing moves.** A slice EO is taken on normal or on inverse, the route to the DR-xs stays on that side and keeps that axis's EO. The finish uses both sides. So the counts of section 7 are a floor on what is there.
+- **NISS inside the route, and EO-changing moves.** A slice EO is taken on normal or on inverse, and the route to the DR-xs stays on that side and keeps that axis's EO. The finish uses both sides. So the counts of section 7 are a floor on what's there.
 - **Normal DRs through an EO longer than 5 moves.** The normal-DR lists of section 7 come from cubelib-cli, which lists no EO longer than 5.
 - **EO-breaking triggers and the EO-shifting ideas** from the EO-free trigger doc. The route rule here keeps the EO of one axis; 6.2 shows what dropping that rule could gain at most.
-- **Time.** Section 7 counts what there is to find and to finish. How long a check takes is for the people who do them; the stated times I could find are in section 7.
+- **Time.** Section 7 counts what there is to find and to finish. How long a check takes is up to the people who do them; the times people have posted are in section 7.
 
 ---
 
@@ -688,19 +850,19 @@ The frame: the corners' colour is white/yellow (U/D), so the slice edges of the 
 
 ## Appendix C: how it was computed, and what checks it
 
-**The model.** One sticker-level cube with centers, built from geometry, so no permutation is typed by hand. Everything else (the Rust tools' move tables, the Lean model) is generated from it or checked against it.
+**The model.** One sticker-level cube with centers, built from geometry, so no permutation is typed in by hand. Everything else (the Rust tools' move tables, the Lean model) is generated from it or checked against it.
 
-**Kinds and move counts (sections 3 and 4).** A kind is read off the stickers. All kinds reachable from a DR with DR-xs moves are walked (768 per colour), and a shortest-path search over them with the cancelling rule gives the slices and turns. Exhaustive.
+**Kinds and move counts (sections 3 and 4).** A kind is read off the stickers. I walk every kind reachable from a DR with DR-xs moves (768 per colour), and a shortest-path search over them with the cancelling rule gives the slices and turns. Exhaustive.
 
-**Searches over cosets (6.2, 6.3).** For one colour, a cube's distance from a DR depends only on the corner twists, the edge orientations and where the E-slice pieces are: 2,217,093,120 cosets. For each target (real DR, DR-1s, DR-2s 8fe, any DR-xs) and each move rule (any turn; no quarter turns of one axis; quarter turns of that axis only when they miss the slice pieces) a breadth-first search gives the distance from every coset. The numbers by kind of skip are counts over all cosets with that skip. Exhaustive.
+**Searches over cosets (6.2, 6.3).** For one colour, a cube's distance from a DR depends only on the corner twists, the edge orientations and where the E-slice pieces are: 2,217,093,120 cosets. For each target (real DR, DR-1s, DR-2s 8fe, any DR-xs) and each move rule (any turn; no quarter turns of one axis; quarter turns of that axis only when they miss the slice pieces) a BFS gives the distance from every coset. The numbers by kind of skip are counts over all cosets with that skip. Exhaustive.
 
 **Slice-EO skips (6.1).** A count over all 70,963,200 arrangements of edge kinds and orientations. Exhaustive.
 
 **Shortest routes on random scrambles (6.4).** A sample of 2,000,000 uniformly random cube states, each looked up in the coset tables for three colours and both sides.
 
-**Finishes (section 5).** Random states, uniform over DR-1s (200,000) and over DR-2s 8fe (5,000). For each, the shortest solution of the method's form is found exactly, by trying every setup from both ends and looking up the optimal finish of the DR that results in the first study's table. The averages carry a standard error of 0.002 (DR-1s) and 0.02 (8fe); the search per state is exact for its form.
+**Finishes (section 5).** Random states, uniform over DR-1s (200,000) and over DR-2s 8fe (5,000). For each, I find the shortest solution of the method's form exactly, by trying every setup from both ends and looking up the optimal finish of the resulting DR in the first study's table. The averages carry a standard error of 0.002 (DR-1s) and 0.02 (8fe); the search per state is exact for its form.
 
-**Real scrambles (section 7).** The first study's 500 scrambles: uniformly random states drawn with the EO → DR study's generator. An earlier version of this page used nissy's scrambler, which is not uniform ([EO → DR study, appendix B](https://fmc.arhan.sh/eo-to-dr/#appendix-b-how-it-was-computed-and-what-checks-it)). Normal DRs: every DR up to 12 moves through an EO of 5 moves or less, from cubelib-cli (it lists no longer EOs), each finished optimally (first study). For 7.4 the same lists restricted to EOs of 4 or less. DR-xs: every DR-1s up to 8 moves and DR-2s 8fe up to 9 that starts from a slice-EO skip or a one-move slice EO and then keeps the EO of that axis, plus every DR-2s 8fe after an EO of at most 4 moves, each finished as in section 5 (the 8fe with setups of at most 3 moves from either end) and written out as a solution.
+**Real scrambles (section 7).** The first study's 500 scrambles: uniformly random states drawn with the EO → DR study's generator, not nissy's scrambler, which isn't uniform ([EO → DR study, appendix B](https://fmc.arhan.sh/eo-to-dr/#appendix-b-how-it-was-computed-and-what-checks-it)). Normal DRs: every DR up to 12 moves through an EO of 5 moves or less, from cubelib-cli (it lists no longer EOs), each finished optimally (first study). For 7.4 the same lists restricted to EOs of 4 or less. DR-xs: every DR-1s up to 8 moves and DR-2s 8fe up to 9 that starts from a slice-EO skip or a one-move slice EO and then keeps the EO of that axis, plus every DR-2s 8fe after an EO of at most 4 moves, each finished as in section 5 (the 8fe with setups of at most 3 moves from either end) and written out as a solution.
 
 **What checks what.**
 
@@ -713,7 +875,14 @@ The frame: the corners' colour is white/yellow (U/D), so the slice edges of the 
 
 **Lean.** `lean/DRXs` in the repository proves, by evaluation of its own definitions (no Mathlib):
 
-- the model is a cube: every turn is a permutation, the orders of `U`, `R U R' U'` (6), `R U` (105) and `R U2 D' B D'` (1260), and that its moves equal the Python model's;
+- the model is a cube: every turn is a permutation, its moves equal the Python model's, and the orders of `U` and of these come out right:
+
+  ```
+  R U R' U'    // order 6
+  R U          // order 105
+  R U2 D' B D' // order 1260
+  ```
+
 - exactly 768 kinds are reached, 256 per pair of faces, and the kind of a state decides where every move takes it (checked over all reachable corner and edge colourings, not just one state per kind);
 - the slices: 1, 140, 383 and 244 kinds need 0, 1, 2 and 3;
 - the turns to DR: 2, 4, 18, 60, 56 kinds of DR-1s at 2 to 6 turns and none above; the DR-2s and DR-3s rows of 4.1; DR-3s to DR-2s in 2 turns for all 244; DR-2s to DR-1s in 2, 3 or 4 turns for 209, 102 and 72;

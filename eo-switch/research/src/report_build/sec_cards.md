@@ -1,10 +1,10 @@
 ## 4. The switch cards, DRM by DRM
 
-**The cards.** One line per DRM: what to check on the switched case, and how much of the DRM falls into each verdict with its sub-7 rate. Exact over all cases of the DRM. A blank verdict means the card has no such group. *Settled* is the share of the DRM in the switch and discard groups. The last column is the share of the DRM's sub-7 cases that the card switches, and the share it throws away.
+**The cards.** One line per DRM: what to check on the switched case, and how much of the DRM lands in each verdict, with its sub-7 rate. Exact over all cases of the DRM. A blank verdict means the card has no such group. *Settled* is the share of the DRM in the switch and discard groups. The last column is the share of the DRM's sub-7 cases that the card switches, and the share it throws away.
 
 {{rule_cards}}
 
-How the cards were chosen: every cross-table of one, two or three readable features (38 features, section 9) was scored per DRM by how much of the DRM it puts in cells under 10% or over 50%. A card is the best of the ones a solver can trace, kept only if every labelled cell stays in its band on the cases RZPs reach and on the real attempts. Each verdict above is its group's own band (checked when the tables are built). No check here was timed. The only timing on the server is Yura Riabov's for pairs + ARM on 4c4e, "Like 5 seconds", "±2", "That's for 4c4e btw, for 7c8e it's longer" ([[D14244]], [[D14245]], [[D14248]]). The cards ask for no more than that: a pair trace, and for 4c4e one look at the edges.
+How the cards were chosen: every cross-table of one, two or three readable features (38 features, section 9) was scored per DRM by how much of the DRM it puts in cells under 10% or over 50%. A card is the best of the ones a solver can trace, kept only if every labelled cell stays in its band on the cases RZPs reach and on the real attempts. Each verdict above is its group's own band (checked when the tables are built). I timed nothing. The only timing on the server is Yura Riabov's for pairs + ARM on 4c4e, "Like 5 seconds", "±2", "That's for 4c4e btw, for 7c8e it's longer" ([[D14244]], [[D14245]], [[D14248]]). The cards ask for no more than that: a pair trace, and for 4c4e one look at the edges.
 
 **The cards cell by cell, with the RZP length.** The same cells on the real attempts at a total of 5 (EO + RZP), and the share with a DR in 7 (enough after a 4-move RZP) and in 5 (needed after a 6-move RZP):
 
@@ -14,7 +14,7 @@ So after a 4-move RZP, almost every 4c4e case with a paired edge is a switch, an
 
 ### 4.1 4c4e
 
-Trace the pairs on the inverse as usual, but note which bad edges they sit on.
+Trace the pairs on the inverse as usual, but keep track of which bad edges they sit on.
 
 1. **Both bad edges paired: switch** ({= pc(RG('4c4e', 'switch')) =}). With 3 pairs it is {= CELL('c44_bars', '3 pairs on 2 edge(s)', 'Sub-7 (exact)') =}, with 4 pairs {= CELL('c44_bars', '4 pairs on 2 edge(s)', 'Sub-7 (exact)') =}.
 2. **No bad edge paired: discard** ({= CELL('c44_paired_earm', '0 paired, edge ARM 1', 'Sub-7 (exact)') =} at most, whatever the edge ARM).
@@ -30,9 +30,19 @@ Edge ARM 1 is the same thing as *the two bad edges are in different slices*, so 
 
 {{c44_check}}
 
-Read: 4d corners are rare but a near-certain switch (this is Evan's "4d+1 is extremely good for AR-21 (~90% sub-7)", [[D14342]]). ARM 21 with 4b corners is a third. Corner ARM 0 or 4 with 4b corners is a discard. So with one paired edge and edge ARM 1: corner ARM 2 means switch if your cut is 30% or less (4b, 4d) and think again with 4a; corner ARM 0 or 4 means switch only with 4a; corner ARM 1 or 3 is {= CELL('c44_check', 'corner ARM 1 or 3 (4c corners)', 'Sub-7 (exact)') =}.
+So 4d corners are rare but a near-certain switch (this is Evan's "4d+1 is extremely good for AR-21 (~90% sub-7)", [[D14342]]). ARM 21 with 4b corners is a third. Corner ARM 0 or 4 with 4b corners is a discard. So with one paired edge and edge ARM 1: corner ARM 2 means switch if your cut is 30% or less (4b, 4d) and think again with 4a; corner ARM 0 or 4 means switch only with 4a; corner ARM 1 or 3 is {= CELL('c44_check', 'corner ARM 1 or 3 (4c corners)', 'Sub-7 (exact)') =}.
 
-Against the rules in use (section 7): *2+ pairs* switches {= pc(GR('44-2pairs', 'share_switched')) =} of 4c4e at {= pc(GR('44-2pairs', 'precision')) =}, rodneykinney's pairs + corner case {= pc(GR('44-rodney-case', 'share_switched')) =} at {= pc(GR('44-rodney-case', 'precision')) =}. The card's switch group is smaller ({= pc(RG('4c4e', 'switch', 'share')) =}) and better ({= pc(RG('4c4e', 'switch')) =}), and its discard group is half of all 4c4e at {= pc(RG('4c4e', 'discard')) =}, where *fewer than 2 pairs* is {= pc(1 - GR('44-2pairs', 'share_switched')) =} of 4c4e at {= pc(GR('44-2pairs', 'target_states_discarded') / (1 - GR('44-2pairs', 'share_switched'))) =}. The new part is the middle: you know which {= pc(RG('4c4e', 'check', 'share')) =} are worth a thought.
+Against the rules in use (section 7):
+
+| 4c4e group | Share of 4c4e | Sub-7 |
+|---|---|---|
+| *2+ pairs*: switch | {= pc(GR('44-2pairs', 'share_switched')) =} | {= pc(GR('44-2pairs', 'precision')) =} |
+| rodneykinney's pairs + corner case: switch | {= pc(GR('44-rodney-case', 'share_switched')) =} | {= pc(GR('44-rodney-case', 'precision')) =} |
+| the card: switch | {= pc(RG('4c4e', 'switch', 'share')) =} | {= pc(RG('4c4e', 'switch')) =} |
+| *fewer than 2 pairs*: discard | {= pc(1 - GR('44-2pairs', 'share_switched')) =} | {= pc(GR('44-2pairs', 'target_states_discarded') / (1 - GR('44-2pairs', 'share_switched'))) =} |
+| the card: discard | half | {= pc(RG('4c4e', 'discard')) =} |
+
+The card's switch group is smaller and better. The new part is the middle: you know which {= pc(RG('4c4e', 'check', 'share')) =} are worth a thought.
 
 ### 4.2 4c2e
 
@@ -40,13 +50,15 @@ Against the rules in use (section 7): *2+ pairs* switches {= pc(GR('44-2pairs', 
 
 {{c42_cells}}
 
-The your-call group is 1 pair and no side pair ({= CELL('c42_cells', '1 pairs, 0 side pairs', 'Sub-7 (exact)') =}) or 2 side pairs and no pair ({= CELL('c42_cells', '0 pairs, 2 side pairs', 'Sub-7 (exact)') =}). Two pairs without a side pair are {= CELL('c42_cells', '2 pairs, 0 side pairs', 'Sub-7 (exact)') =}, just under the line. Nothing cheap splits the your-call group well. By corner ARM, edge ARM or corner case every part stays between {= min([CELL('c42_check', r, 'Sub-7 (exact)') for r in ['corner ARM 0', 'corner ARM 1', 'corner ARM 2', 'corner ARM 3', 'corner ARM 4', 'edge ARM 0', 'edge ARM 1', '4a corners', '4b corners', '4c corners', '4d corners']], key=lambda x: float(x.rstrip('%'))) =} and {= max([CELL('c42_check', r, 'Sub-7 (exact)') for r in ['corner ARM 0', 'corner ARM 1', 'corner ARM 2', 'corner ARM 3', 'corner ARM 4', 'edge ARM 0', 'edge ARM 1', '4a corners', '4b corners', '4c corners', '4d corners']], key=lambda x: float(x.rstrip('%'))) =}, and the best part is JZP ({= CELL('c42_check', 'JZP', 'Sub-7 (exact)') =}, {= CELL('c42_check', 'JZP', 'Share of the DRM') =} of 4c2e). Table in appendix A.
+The your-call group is 1 pair and no side pair ({= CELL('c42_cells', '1 pairs, 0 side pairs', 'Sub-7 (exact)') =}) or 2 side pairs and no pair ({= CELL('c42_cells', '0 pairs, 2 side pairs', 'Sub-7 (exact)') =}). Two pairs without a side pair are {= CELL('c42_cells', '2 pairs, 0 side pairs', 'Sub-7 (exact)') =}, just under the line.
+
+Nothing cheap splits the your-call group well. By corner ARM, edge ARM or corner case every part stays between {= min([CELL('c42_check', r, 'Sub-7 (exact)') for r in ['corner ARM 0', 'corner ARM 1', 'corner ARM 2', 'corner ARM 3', 'corner ARM 4', 'edge ARM 0', 'edge ARM 1', '4a corners', '4b corners', '4c corners', '4d corners']], key=lambda x: float(x.rstrip('%'))) =} and {= max([CELL('c42_check', r, 'Sub-7 (exact)') for r in ['corner ARM 0', 'corner ARM 1', 'corner ARM 2', 'corner ARM 3', 'corner ARM 4', 'edge ARM 0', 'edge ARM 1', '4a corners', '4b corners', '4c corners', '4d corners']], key=lambda x: float(x.rstrip('%'))) =}, and the best part is JZP ({= CELL('c42_check', 'JZP', 'Sub-7 (exact)') =}, {= CELL('c42_check', 'JZP', 'Share of the DRM') =} of 4c2e). Table in appendix A.
 
 ### 4.3 3c2e and 2c2e
 
 **3c2e: always switch** ({= pc(RULE('3c2e', 'all', 'p6')) =}). With a pair it is {= CELL('c32_pairs', '1 pairs', 'Sub-7 (exact)') =}, without {= CELL('c32_pairs', '0 pairs', 'Sub-7 (exact)') =}. wen's rule (switch on a pair, a fake pair or a split pair, [[D16512]]) switches {= pc(GR('32-wen', 'share_switched')) =} at {= pc(GR('32-wen', 'precision')) =} and never drops a case of 5 or less, as wen said.
 
-**2c2e: switch with a paired edge** ({= pc(RG('2c2e', 'switch')) =}), **your call with no pair but JZP** ({= pc(RG('2c2e', 'check')) =}), otherwise discard ({= pc(RG('2c2e', 'discard')) =}). It's rare: {= pc(VAR('2c2e', 'cosets') / 1082565) =} of EO-solved cases.
+**2c2e: switch with a paired edge** ({= pc(RG('2c2e', 'switch')) =}), **your call with no pair but JZP** ({= pc(RG('2c2e', 'check')) =}), otherwise discard ({= pc(RG('2c2e', 'discard')) =}). It's rare, {= pc(VAR('2c2e', 'cosets') / 1082565) =} of EO-solved cases.
 
 ### 4.4 7c8e
 

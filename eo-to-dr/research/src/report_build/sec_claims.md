@@ -59,22 +59,121 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 
 The examples. Every move sequence here was replayed on the sticker model (appendix B).
 
-**[a] No DR under 10, even with NISS.** Scramble `{= SCR('W1') =}`. The best DR on any axis, normal or inverse, is 10, and with NISS it is still {= WIT('W1', 'solution', 'length') =}: `{= WIT('W1', 'solution', 'normal') =}` (DR on R/L). The scramble is {= WXX('X3', 0, 'optimal_length') =} moves optimal: `{= WXX('X3', 0, 'optimal_solution') =}`. A scramble with no sub-10 DR on its six linear tries that NISS gets under: `{= SCR('W2') =}`, `{= WIT('W2', 'solution', 'normal') =} ({= WIT('W2', 'solution', 'inverse') =})`, {= WIT('W2', 'solution', 'length') =} turns to DR on U/D.
+**[a] No DR under 10, even with NISS.** The best DR on any axis, normal or inverse, is 10, and with NISS it's still {= WIT('W1', 'solution', 'length') =}. The scramble is {= WXX('X3', 0, 'optimal_length') =} moves optimal.
 
-**[b] The superflip.** `{= SCR('W3') =}`. DR in 10 on each axis, normal and inverse, and 10 with NISS, e.g. `{= WIT('W3', 'solution', 'optimal_dr') =}` (R/L). No DR solution of 9 or fewer exists on the normal side; there are {= n(WIT('W3', 'dr_solutions_normal_by_length', '10')) =} of 10. Its shortest EO is 7 turns on every axis, also with NISS (the search of section 4 over every NISS split).
+```
+{= SCR('W1') =}  // scramble
+{= WIT('W1', 'solution', 'normal') =}  // best DR with NISS (DR on R/L)
+{= WXX('X3', 0, 'optimal_solution') =}  // an optimal solution
+```
 
-**[c] The optimal DR needs a long EO.** `{= SCR('W5') =}`: the optimal DR is 8, `{= WIT('W5', 'solution', 'optimal_dr', 'moves') =}` (U/D), and the shortest EO inside any optimal DR is 7 turns on F/B. Through a normal EO of at most 5 the best is {= WIT('W5', 'solution', 'best_route_eo_le5', 'total') =}: `{= WIT('W5', 'solution', 'best_route_eo_le5', 'eo') =}` (EO on R/L), then `{= WIT('W5', 'solution', 'best_route_eo_le5', 'dr') =}` (DR on F/B). And `{= SCR('W4') =}`: both optimal DRs (10 turns) start with an EO of 9, e.g. `{= WIT('W4', 'solution', 'optimal_dr') =}`.
+A scramble with no sub-10 DR on its six linear tries that NISS gets under, {= WIT('W2', 'solution', 'length') =} turns to DR on U/D:
 
-**[d] No EO in 5 at all.** `{= SCR('W7') =}`: no EO of at most 5 turns on any axis, normal, inverse or NISS (nissy `solve eo -N -a -M 5` lists none). An optimal NISS EO is 6: `{= WIT('W7', 'solution', 'an optimal NISS EO (nissy eo -N)') =}`.
+```
+{= SCR('W2') =}  // scramble
+{= WIT('W2', 'solution', 'normal') =} ({= WIT('W2', 'solution', 'inverse') =})  // NISS DR on U/D
+```
 
-**[e] More 3-move EOs than 4-move EOs.** `{= SCR('W8') =}`: four 3-move EOs, `R (U2 R)`, `R (U2 R')`, `R' (U2 R)`, `R' (U2 R')`, and no 4-move EO on any axis, normal, inverse or NISS.
+**[b] The superflip.** DR in 10 on each axis, normal and inverse, and 10 with NISS. No DR solution of 9 or fewer exists on the normal side; there are {= n(WIT('W3', 'dr_solutions_normal_by_length', '10')) =} of 10. Its shortest EO is 7 turns on every axis, also with NISS (the search of section 4 over every NISS split).
 
-**[f] An EO-breaking turn helps, rarely.** `{= SCR('W12') =}`, EO `{= WIT('W12', 'solution', 'eo') =}` (R/L), 3c0e for DR on U/D: 8 keeping the EO, `{= WIT('W12', 'solution', 'dr_keeping_eo') =}`; 7 breaking it, `{= WIT('W12', 'solution', 'dr_breaking_eo') =}`.
+```
+{= SCR('W3') =}  // scramble
+{= WIT('W3', 'solution', 'optimal_dr') =}  // e.g. a DR on R/L
+```
 
-**[g] The other options after an EO.** The inverse: `{= SCR('W10') =}`, EO `{= WIT('W10', 'solution', 'eo') =}` (U/D) leaves 4c6e for DR on F/B, 9 on normal, 5 on the inverse: `{= WIT('W10', 'solution', 'written_niss') =}`. The other axis: `{= SCR('W11') =}`, EO `{= WIT('W11', 'solution', 'eo') =}` (F/B), 9 to DR on R/L but 5 on U/D, `{= WIT('W11', 'solution', 'UD') =}`. The last turn: `{= SCR('W9') =}`, EO `{= WIT('W9', 'solution', 'eo') =}` (U/D) leaves 4c4e for R/L, 6 to DR (`{= WIT('W9', 'solution', 'dr') =}`); with `{= WIT('W9', 'solution', 'eo_switched') =}` instead it is 5, `{= WIT('W9', 'solution', 'dr_after_switch') =}`.
+**[c] The optimal DR needs a long EO.** On the first scramble the optimal DR is 8 (U/D), and the shortest EO inside any optimal DR is 7 turns on F/B. Through a normal EO of at most 5 the best is {= WIT('W5', 'solution', 'best_route_eo_le5', 'total') =}.
 
-**[h] An EO 10 from DR.** `{= SCR('X1') =}`, EO `{= WXX('X1', 'eo') =}` (R/L). It leaves {= WXX('X1', 'case') =} for DR on F/B, and the shortest DR keeping the EO is 10: `{= WXX('X1', 'plain_dr') =}`. Only {= EODR(10) =} of EO-solved states are this far. On the inverse this one is {= WXX('X1', 'inverse') =}: `{= WXX('X1', 'eo') =} ({= WXX('X1', 'inverse_dr') =})`.
+```
+{= SCR('W5') =}  // scramble
+{= WIT('W5', 'solution', 'optimal_dr', 'moves') =}  // optimal DR (U/D)
+{= WIT('W5', 'solution', 'best_route_eo_le5', 'eo') =}  // best route through a short EO: EO on R/L
+{= WIT('W5', 'solution', 'best_route_eo_le5', 'dr') =}  // then DR on F/B
+```
 
-**[i] Why the DR-skip count divides by 4!.** `{= WXX('X2', 'scramble') =}` is in DR on U/D, with the four E-slice edges moved among themselves. Every order of the four slice edges in the slice is the same DR, so the placements count as C(12,4) = {= str(math.comb(12, 4)) =}, not 12!/8! = {= n(math.perm(12, 4)) =}. The cosets of DR on one axis number 2^11 · 3^7 · {= str(math.comb(12, 4)) =} = {= COSETS() =}, the denominator of DougCube's "Going to DR" tab.
+On the second, both optimal DRs (10 turns) start with an EO of 9:
 
-**[j] A 4c6e after an EO.** `{= SCR('X4') =}`, EO `{= WXX('X4', 'eo') =}` ({= WXX('X4', 'eo_axis') =}) leaves 4c6e for DR on {= WXX('X4', 'dr_axis') =}; the shortest DR keeping the EO is {= WXX('X4', 'plain') =}, `{= WXX('X4', 'plain_dr') =}`, the most common length for 4c6e. One case shows nothing about averages: the averages are in the row above and in appendix A ({= C6('4c6e', 'plain_mean') =} for 4c6e against {= C6('4c4e', 'plain_mean') =} for 4c4e).
+```
+{= SCR('W4') =}  // scramble
+{= WIT('W4', 'solution', 'optimal_dr') =}  // one of them
+```
+
+**[d] No EO in 5 at all.** No EO of at most 5 turns on any axis, normal, inverse or NISS (nissy `solve eo -N -a -M 5` lists none). An optimal NISS EO is 6.
+
+```
+{= SCR('W7') =}  // scramble
+{= WIT('W7', 'solution', 'an optimal NISS EO (nissy eo -N)') =}  // optimal NISS EO
+```
+
+**[e] More 3-move EOs than 4-move EOs.** Four 3-move EOs and no 4-move EO on any axis, normal, inverse or NISS.
+
+```
+{= SCR('W8') =}  // scramble
+R (U2 R)
+R (U2 R')
+R' (U2 R)
+R' (U2 R')       // the four short EOs
+```
+
+**[f] An EO-breaking turn helps, rarely.** The EO leaves 3c0e for DR on U/D: 8 keeping the EO, 7 breaking it.
+
+```
+{= SCR('W12') =}  // scramble
+{= WIT('W12', 'solution', 'eo') =}  // EO (R/L)
+{= WIT('W12', 'solution', 'dr_keeping_eo') =}  // DR keeping the EO
+{= WIT('W12', 'solution', 'dr_breaking_eo') =}  // DR breaking it
+```
+
+**[g] The other options after an EO.**
+
+The inverse. The EO (U/D) leaves 4c6e for DR on F/B, 9 on normal, 5 on the inverse:
+
+```
+{= SCR('W10') =}  // scramble
+{= WIT('W10', 'solution', 'eo') =}  // EO
+{= WIT('W10', 'solution', 'written_niss') =}  // EO, then DR on the inverse
+```
+
+The other axis. The EO (F/B) is 9 to DR on R/L but 5 on U/D:
+
+```
+{= SCR('W11') =}  // scramble
+{= WIT('W11', 'solution', 'eo') =}  // EO
+{= WIT('W11', 'solution', 'UD') =}  // DR on U/D
+```
+
+The last turn. The EO (U/D) leaves 4c4e for R/L, 6 to DR; with the last turn switched it's 5:
+
+```
+{= SCR('W9') =}  // scramble
+{= WIT('W9', 'solution', 'eo') =}  // EO
+{= WIT('W9', 'solution', 'dr') =}  // DR
+{= WIT('W9', 'solution', 'eo_switched') =}  // EO, last turn switched
+{= WIT('W9', 'solution', 'dr_after_switch') =}  // DR after it
+```
+
+**[h] An EO 10 from DR.** The EO (R/L) leaves {= WXX('X1', 'case') =} for DR on F/B, and the shortest DR keeping the EO is 10. Only {= EODR(10) =} of EO-solved states are this far. On the inverse this one is {= WXX('X1', 'inverse') =}.
+
+```
+{= SCR('X1') =}  // scramble
+{= WXX('X1', 'eo') =}  // EO
+{= WXX('X1', 'plain_dr') =}  // shortest DR keeping the EO
+{= WXX('X1', 'eo') =} ({= WXX('X1', 'inverse_dr') =})  // EO, then DR on the inverse
+```
+
+**[i] Why the DR-skip count divides by 4!.** This position is in DR on U/D, with the four E-slice edges moved among themselves:
+
+```
+{= WXX('X2', 'scramble') =}  // scramble
+```
+
+Every order of the four slice edges in the slice is the same DR, so the placements count as C(12,4) = {= str(math.comb(12, 4)) =}, not 12!/8! = {= n(math.perm(12, 4)) =}. The cosets of DR on one axis number 2^11 · 3^7 · {= str(math.comb(12, 4)) =} = {= COSETS() =}, the denominator of DougCube's "Going to DR" tab.
+
+**[j] A 4c6e after an EO.** The EO ({= WXX('X4', 'eo_axis') =}) leaves 4c6e for DR on {= WXX('X4', 'dr_axis') =}; the shortest DR keeping the EO is {= WXX('X4', 'plain') =}, the most common length for 4c6e.
+
+```
+{= SCR('X4') =}  // scramble
+{= WXX('X4', 'eo') =}  // EO
+{= WXX('X4', 'plain_dr') =}  // shortest DR keeping the EO
+```
+
+One case shows nothing about averages: the averages are in the row above and in appendix A ({= C6('4c6e', 'plain_mean') =} for 4c6e against {= C6('4c4e', 'plain_mean') =} for 4c4e).

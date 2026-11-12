@@ -1,6 +1,9 @@
-Scramble: `R' U' F U' D R2 F2 U L2 U B2 U2 R2 D' B' D L2 F U R' D' L U2 R D' R' U' F`
+```
+R' U' F U' D R2 F2 U L2 U B2 U2 R2 D' B' D L2 F U R' D' L U2 R D' R' U' F   // scramble
+F D' R' D F' L2 B2 R U F' U2 D' B' R' D2 F L2 U' B2 U                       // skeleton (20)
+```
 
-Skeleton: `F D' R' D F' L2 B2 R U F' U2 D' B' R' D2 F L2 U' B2 U` (20), leaves a corner 3-cycle: UBL → DBR → UFL → UBL
+It leaves a corner 3-cycle: UBL → DBR → UFL → UBL.
 
 **Best with 8-movers**: 26 in all.
 

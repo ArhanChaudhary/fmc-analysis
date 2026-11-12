@@ -1,6 +1,6 @@
 # When to switch an EO
 
-You have an EO and an RZP, and you're deciding whether to switch: go to the inverse, keep the EO, and look for a short DR there. This study puts a number on every switch rule the server uses and looks for better ones a solver can check at the table. The target is the usual one, a DR in 6 or less on the switched side (sub-7), EO kept. Every EO-solved state on one EO axis and one DR axis was solved exactly ({= n(1082565) =} states). The rules were then graded on three populations: those uniform states (what every existing table uses), the states an RZP actually reaches (counted exactly), and {= n(E['attempts_total']) =} real attempts: every EO of up to 6 moves on {= n(6000) =} uniformly random scrambles, with every RZP after it to a total of 4, 5 or 6 moves. The real attempts are a sample, and a share's standard error comes from batches of scrambles. Everything else is exact.
+You have an EO and an RZP, and you're deciding whether to switch: go to the inverse, keep the EO, and look for a short DR there. I put a number on every switch rule the server uses and look for better ones you can check at the table. The target is the usual one: a DR in 6 or less on the switched side (sub-7), EO kept. I solved every EO-solved state for one EO axis and one DR axis exactly ({= n(1082565) =} states) and graded the rules on three populations: those uniform states (what every existing table uses), the states an RZP actually reaches (counted exactly), and {= n(E['attempts_total']) =} real attempts (every EO of up to 6 moves on {= n(6000) =} uniformly random scrambles, with every RZP after it to a total of 4, 5 or 6 moves). The real attempts are a sample, with a share's standard error taken from batches of scrambles; everything else is exact.
 
 November 2026. A date in brackets is a link to that message on the FMC solvers Discord (#fmc-theory, #fmc-discussion or #non-dr-discussion). Docs and sheets are listed with links at the end.
 
@@ -16,14 +16,14 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 **What this adds**:
 
-- **One switch card per DRM**: a rule you can check by tracing, with the sub-7 share of each verdict and how much of the DRM it settles. Each card is the best of the cheap rules the search found, and it holds on the real attempts.
-- **For 4c4e, a better rule than pairs or ARM**: count the paired edges, then look at edge ARM. It settles about twice as many cases as either.
-- **Two readings from the normal side** that the server didn't have, both checked on {= n(TRACE('side pairs', 'uniform')[0]) =} random cubes: side pairs on the inverse, and edge ARM on the inverse without switching axes.
-- **What a real RZP changes**: the RZP bias is gone once you switch, so the uniform tables are exactly right for switched cases. The RZP's last turn is worth nothing after a switch, and the EO's last turn very little.
+- **One switch card per DRM**: a rule you check by tracing, with the sub-7 share of each verdict and how much of the DRM it settles. Each card is the best cheap rule the search found, and it holds up on the real attempts.
+- **For 4c4e, a better rule than pairs or ARM**: count the paired edges, then look at edge ARM. It settles about twice as many cases as either one.
+- **Two new readings from the normal side**, both checked on {= n(TRACE('side pairs', 'uniform')[0]) =} random cubes: side pairs on the inverse, and edge ARM on the inverse without switching axes.
+- **What a real RZP changes**: the RZP bias is gone once you switch, so the uniform tables are exactly right for switched cases. After a switch the RZP's last turn is worth nothing and the EO's last turn very little.
 - **Every existing rule graded** the same way (how much it switches, how often that's a sub-7, how many sub-7s it throws away), on the uniform states and on the real attempts.
 - **The claims checked**, the sheets reproduced cell by cell, and an [errata](errata.html) page with three corrections.
 
-**Terms**, as the server uses them. *Switch* means NISS: after EO + RZP you go to the inverse and keep the EO ("switches means that after you go a certain path, you NISS?", "yeah", [[D18365]], [[D18367]]). *DRM* is the number of bad corners and bad edges, corners first (4c4e = 4e4c), counting all edges out of DR. *ARM* is two digits, corners then edges (21 = AR-2c1e). *Pairs* are top pairs, *side pairs* are E-slice pairs, *4a* to *4d* are rodneykinney's corner cases. *Sub-7* means a DR in at most 6 moves, keeping the EO (U, D, R, L, F2, B2 for an F/B EO). Section 3 defines everything. The rules are read on the switched side, and section 5 says how to see each feature from the normal side before switching.
+**Terms**, as the server uses them. *Switch* means NISS: after EO + RZP you go to the inverse and keep the EO ("switches means that after you go a certain path, you NISS?", "yeah", [[D18365]], [[D18367]]). *DRM* is the number of bad corners and bad edges, corners first (4c4e = 4e4c), counting all edges out of DR. *ARM* is two digits, corners then edges (21 = AR-2c1e). *Pairs* are top pairs, *side pairs* are E-slice pairs, *4a* to *4d* are rodneykinney's corner cases. *Sub-7* means a DR in at most 6 moves, keeping the EO (U, D, R, L, F2, B2 for an F/B EO). Section 3 has the full definitions. The rules are read on the switched side; section 5 says how to see each feature on normal before you switch.
 
 **How to read it.**
 

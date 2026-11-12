@@ -327,7 +327,7 @@ AHEAD = ['| DR | Shortest HTR, normal / inverse | Optimal finish | Solution |', 
 def block(k, scramble, recs, rows, names, solution):
     cnt = {}
     for r in recs: cnt[r['length']] = cnt.get(r['length'], 0) + 1
-    out = [f'#### Scramble {k + 1}', '', f'`{scramble}`', ''] + HEAD
+    out = [f'#### Scramble {k + 1}', '', '```', f'{scramble} // scramble', '```', ''] + HEAD
     for j, r in enumerate(rows):
         out.append(f"| {j + 1} | `{niss(r['n'], r['i'])}` | {r['length']} | {r['axis']} | {r['cs']} {r['e']}e | {r['tp']} | {names[r['a']]} / {names[r['b']]} | {says(r)} | {odds(r)} |")
     cap = max(cnt)
@@ -414,10 +414,10 @@ def build(rerun):
     out = [START, '', '## 100 scrambles: which DRs would you finish?', '',
            f"A hundred random-state scrambles, written the way FMC scrambles are, and for each one some of the DRs you could have on your page. "
            "What you can read off each DR without solving is in the table. The answers are folded away under it: pick the DRs you'd finish, then open them.", '',
-           f"**Where the DRs come from.** cubelib-cli (the solver behind Mallard) lists every DR that goes EO first (EOs of up to 5 moves, it lists no longer ones), with NISS, and then DR on normal or on inverse without breaking the EO, on all three axes. "
+           f"**Where the DRs come from.** cubelib-cli (the solver behind Mallard) lists every DR that goes EO first (EOs of up to 5 moves; it doesn't list longer ones), with NISS, and then DR on normal or on inverse without breaking the EO, on all three axes. "
            f"A scramble has far more of those than anyone writes down: {per11:,.0f} up to 11 moves on average over the {N_RUN} scrambles of the tally at the end. "
            f"Each scramble shows at most {SHOWN} of them: up to {SHOWN // 2} of 10 moves or less, shortest first, then 11-movers, drawn at random where there are more. Nothing was picked by how it finishes.", '',
-           "**What is being tried out.** A DR of 10 moves or less you finish whatever it looks like. The 11-movers are where you need a quick way to say no, and that is what the short list in the write-up's guide is for. It needs no solving:", '']
+           "**What you're testing.** You finish a DR of 10 moves or less whatever it looks like. The 11-movers are where you need a quick way to say no, and that's what the short list in the write-up's guide is for. It needs no solving:", '']
     out += guide_list() + ['',
            '**The answers are the answer key**, not what a person finds in an hour: the true shortest HTR on each side, the optimal finish in DR moves, and the shortest solution through that DR.', '',
            '### How to read the tables', '',
@@ -459,7 +459,7 @@ def verify():
     blocks = re.split(r'^#### Scramble (\d+)$', region, flags=re.M)[1:]
     bad = 0; nrows = 0; nsol = 0; todo = []
     for num, body in zip(blocks[0::2], blocks[1::2]):
-        scramble = re.search(r'^`([^`]+)`$', body, re.M).group(1)
+        scramble = re.search(r'^```\n(.+?) // scramble\n```$', body, re.M).group(1)
         rows = re.findall(r"^\| (\d+) \| `([^`]+)` \| (\d+) \| (\S+) \| (\S+) (\d)e \| (\d+) \| (\S+) / (\S+) \| (look anyway|keep|drop) \| (.+?) \|$", body, re.M)
         ans = re.findall(r'^\| (\d+) \| (\d+) / (\d+) \| (\d+) \| (\d+) \|$', body, re.M)
         best = re.search(r'^Best on the page: \*\*(\d+) moves\*\*, from DR (\d+)(?: \([^)]*\))?: `([^`]+)`\.', body, re.M)

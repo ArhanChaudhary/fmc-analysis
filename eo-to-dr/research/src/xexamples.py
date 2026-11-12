@@ -83,6 +83,16 @@ def niss(n, i):
     return f"`{(n + ' ' if n else '') + ('(' + i + ')' if i else '')}`".replace(' `', '`')
 
 
+def raw(m):
+    return m.strip() if m.strip() and m.strip() != '-' else ''
+
+
+def block(rows):
+    """A code block: one move sequence per line with a // comment, comments aligned."""
+    w = max(len(a) for a, _ in rows)
+    return ['```', *[f'{a:<{w}}  // {c}' if a else f'// {c}: nothing to do' for a, c in rows], '```']
+
+
 def parse_route(t):
     if t == '-':
         return None
@@ -133,41 +143,50 @@ for i in range(1, NSCR + 1):
     s0 = sticker.replay(s)
     for a in AX:
         check(sticker.bad_edges(s0, AX[a]) == int(r[f'bad_{a}']), (i, 'bad edges', a))
-    lines = [f'### Scramble {i}', '', f'`{s}`', '',
-             f"Bad edges on R/L, U/D, F/B: {bad[0]}, {bad[1]}, {bad[2]}. EOs of at most 4 turns (all three axes): "
-             f"{neo_sum(r, 'n', 4)} normal, {neo_sum(r, 'i', 4)} inverse, {neo_sum(r, 'x', 4)} NISS with turns on both sides; "
-             f"of at most 5: {neo_sum(r, 'n', 5)}, {neo_sum(r, 'i', 5)}, {neo_sum(r, 'x', 5)}.", '',
+    lines = [f'### Scramble {i}', '', *block([(s, 'scramble')]), '',
+             f"Bad edges on R/L, U/D, F/B: {bad[0]}, {bad[1]}, {bad[2]}.", '',
+             '| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |', '|---|---:|---:|---:|',
+             f"| At most 4 turns | {neo_sum(r, 'n', 4)} | {neo_sum(r, 'i', 4)} | {neo_sum(r, 'x', 4)} |",
+             f"| At most 5 | {neo_sum(r, 'n', 5)} | {neo_sum(r, 'i', 5)} | {neo_sum(r, 'x', 5)} |", '',
              '<details><summary>Shortest DRs and the best DRs through short EOs</summary>', '']
     opt = r['opt_solution']
     dr_check(s, opt, '', r['opt_axis'], lin, (i, 'opt normal'))
     iopt = q['opt_solution']
     dr_check(s, '', iopt, q['opt_axis'], linv, (i, 'opt inverse'))
     dr_check(s, r['niss_normal'], r['niss_inverse'], r['niss_axis'], dniss, (i, 'niss'))
-    per_axis = ', '.join(f'{NAME[a]} {dn[a]}' for a in AX)
-    per_axis_i = ', '.join(f'{NAME[a]} {di[a]}' for a in AX)
-    lines += [f'- Shortest DR on the normal side: {lin} (per axis: {per_axis}), for example {code(opt)} (DR on {NAME[r["opt_axis"]]}).',
-              f'- On the inverse: {linv} (per axis: {per_axis_i}), for example `({iopt})` (DR on {NAME[q["opt_axis"]]}).',
-              f'- Best of the six: {six}. With NISS: {dniss}, for example {niss(r["niss_normal"], r["niss_inverse"])} (DR on {NAME[r["niss_axis"]]}).']
+    nn, ni = raw(r['niss_normal']), raw(r['niss_inverse'])
+    lines += ['| Shortest DR | Turns | ' + ' | '.join(NAME[a] for a in AX) + ' |', '|---|---:|---:|---:|---:|',
+              f'| Normal side | {lin} | ' + ' | '.join(str(dn[a]) for a in AX) + ' |',
+              f'| Inverse | {linv} | ' + ' | '.join(str(di[a]) for a in AX) + ' |',
+              f'| Best of the six | {six} | | | |', f'| NISS | {dniss} | | | |', '',
+              'For example:', '',
+              *block([(raw(opt), f'normal, DR on {NAME[r["opt_axis"]]}'),
+                      (f'({iopt})' if raw(iopt) else '', f'inverse, DR on {NAME[q["opt_axis"]]}'),
+                      ((nn + ' ' if nn else '') + (f'({ni})' if ni else ''), f'NISS, DR on {NAME[r["niss_axis"]]}')]), '']
     for k, col in ((4, 'route4'), (5, 'route5')):
         rn, ri = parse_route(r[col]), parse_route(q[col])
-        txt = []
+        txt, brows = [], []
         if rn:
             t, y, x, eo, dr = rn
             route_check(s, eo, dr, y, x, t, 'normal', (i, col, 'normal'))
             assert t == best_upto(r, 'n', k)
-            txt.append(f'through a normal EO: {t}, EO `{eo}` on {NAME[y]}, then `{dr}` to DR on {NAME[x]}')
+            txt.append(f'through a normal EO: {t}')
+            brows += [(eo, f'normal EO on {NAME[y]}'), (dr, f'then DR on {NAME[x]}')]
         else:
             txt.append('no normal EO')
         if ri:
             t, y, x, eo, dr = ri
             route_check(s, eo, dr, y, x, t, 'inverse', (i, col, 'inverse'))
             assert t == best_upto(r, 'i', k)
-            txt.append(f'through an inverse EO: {t}, `({eo})` on {NAME[y]}, then `({dr})` to DR on {NAME[x]}')
+            txt.append(f'through an inverse EO: {t}')
+            brows += [(f'({eo})', f'inverse EO on {NAME[y]}'), (f'({dr})', f'then DR on {NAME[x]}')]
         else:
             txt.append('no inverse EO')
         bx = best_upto(r, 'nix', k)
         txt.append(f'with NISS EOs too: {bx}' if bx < 99 else 'no EO at all')
-        lines.append(f'- EOs of at most {k} turns, best DR: ' + '; '.join(txt) + '.')
+        lines += [f'**EOs of at most {k} turns**, best DR: ' + '; '.join(txt) + '.', '']
+        if brows:
+            lines += [*block(brows), '']
     lines += ['', '</details>', '']
     part1.append('\n'.join(lines))
     stats['six'].append(six); stats['niss'].append(dniss)
@@ -228,8 +247,8 @@ for c in order:
             if int(r['any']) < int(r['plain']):
                 tab.append(f"| DR on {NAME[X]}, any turns (breaking the EO) | {r['any']} | `{r['any_dr']}` |")
         part2.append('\n'.join([
-            f'**{c}, example {j}.** Scramble `{s}`, EO `{eo}` on {NAME[y]} ({len(toks(eo))} turns). '
-            f'After it, the case is {a["case"]} for DR on {NAME[x]} and {b["case"]} for DR on {NAME[x2]}.', '',
+            f'**{c}, example {j}.** After the EO the case is {a["case"]} for DR on {NAME[x]} and {b["case"]} for DR on {NAME[x2]}.', '',
+            *block([(s, 'scramble'), (eo, f'EO on {NAME[y]} ({len(toks(eo))} turns)')]), '',
             '<details><summary>Turns to DR each way</summary>', '',
             *tab, '', '</details>', '']))
 
@@ -241,11 +260,16 @@ head = f"""# Worked examples: EO to DR, and scramble to DR
 
 Examples to play along with the write-up ([WRITEUP.md](WRITEUP.md)). Try a scramble, then open the answers.
 
-**Part 1** is {NSCR} uniformly random scrambles, the first {NSCR} of the study's 50,000 (made by the study itself, not by nissy's `scramble`; see the write-up, appendix B). For each one: the bad edges on each axis, how many EOs of at most 4 and at most 5 turns it has, and, folded away, its shortest DR (normal, inverse, best of six, NISS) and the best DR through an EO of at most 4 and of at most 5 turns. **Part 2** is {n2} EO-solved states by case: a scramble and an EO, then how far DR is on each of the two DR axes, on the inverse, and with the EO's last turn the other way.
+**Part 1** is {NSCR} uniformly random scrambles, the first {NSCR} of the study's 50,000 (drawn by the study itself, not by nissy's `scramble`; see the write-up, appendix B). For each one: the bad edges on each axis, how many EOs of at most 4 and at most 5 turns it has, and, folded away, its shortest DR (normal, inverse, best of six, NISS) and the best DR through an EO of at most 4 and of at most 5 turns. **Part 2** is {n2} EO-solved states by case: a scramble and an EO, then how far DR is on each of the two DR axes, on the inverse, and with the EO's last turn the other way.
 
-How to read it. Turns are face turns (HTM). *Normal* means turns after the scramble, *inverse* turns after the inverse scramble, written in brackets as usual for NISS: `R U (F D)` is `R U` on the normal side and `F D` on the inverse. A *route through an EO* is the EO, then turns that keep it (no quarter turns of the EO's axis) to DR on one of the two other axes, on the same side. "EOs of at most 4 turns" counts every move sequence that solves EO for the first time at its last turn, both directions of the last turn counted, as nissy's `-a` lists them (nissy's default listing shows about half of these). A *NISS EO* has turns on both sides. A case like 4c4e names the bad corners and the edges out of place for that DR axis (slice edges outside the slice, and as many other edges inside it), as in Cale's "DR setup stats" sheet.
+How to read it:
 
-Every answer is exact: a shortest DR is the fewest turns there are (from exact distance tables), and a "best DR through an EO" is the best over every EO of that length or shorter. "For example" gives one of the shortest; there are usually several.
+- Turns are face turns (HTM). *Normal* means turns after the scramble, *inverse* turns after the inverse scramble, written in brackets as usual for NISS: `R U (F D)` is `R U` on the normal side and `F D` on the inverse. A *NISS EO* has turns on both sides.
+- A *route through an EO* is the EO, then turns that keep it (no quarter turns of the EO's axis) to DR on one of the two other axes, on the same side.
+- "EOs of at most 4 turns" counts every move sequence that solves EO for the first time at its last turn, both directions of the last turn counted, as nissy's `-a` lists them (nissy's default listing shows about half of these).
+- A case like 4c4e names the bad corners and the edges out of place for that DR axis (slice edges outside the slice, and as many other edges inside it), as in Cale's "DR setup stats" sheet.
+
+Every answer is exact: a shortest DR is the fewest turns there are (from exact distance tables), and a "best DR through an EO" is the best over every EO of that length or shorter. "For example" gives one of the shortest; there are usually several. These are computer only, the answer key: try the scramble the way you would in an attempt, then compare.
 
 **Replay check.** Every move sequence on this page was replayed on the sticker model before the page was written: {{REPLAYED}} checks (each EO is an EO on its axis, each DR is a DR on its axis with the stated number of turns, DR turns after an EO keep it, each case and bad-edge count is read off the stickers), {{MISMATCHES}} mismatches.
 
@@ -254,7 +278,7 @@ In these {NSCR}: best of six {six.mean():.2f} on average, NISS {dn_.mean():.2f} 
 ## Part 1. {NSCR} scrambles
 
 """
-page = head + '\n'.join(part1) + f'\n## Part 2. EO to DR, {n2} states by case\n\nEach is a scramble from the study\'s sample and one of its EOs of at most 4 turns. The cases are in order of how often they come up after an EO (most common first). The summary line under each gives the case on each DR axis; the table gives the turns to DR each way, all with the EO kept unless the row says otherwise.\n\n' + '\n'.join(part2)
+page = head + '\n'.join(part1) + f'\n## Part 2. EO to DR, {n2} states by case\n\nEach is a scramble from the study\'s sample and one of its EOs of at most 4 turns. The cases are in order of how often they come up after an EO, most common first. The line on top gives the case on each DR axis; the table gives the turns to DR each way, all with the EO kept unless the row says otherwise.\n\n' + '\n'.join(part2)
 page = page.replace('{REPLAYED}', f'{REPLAYED[0]:,}').replace('{MISMATCHES}', str(len(MISMATCH)))
 open(PAGE, 'w').write(page)
 print(f'{PAGE}: {NSCR} scrambles, {n2} EO-solved states; {REPLAYED[0]:,} sticker-model checks, {len(MISMATCH)} mismatches')

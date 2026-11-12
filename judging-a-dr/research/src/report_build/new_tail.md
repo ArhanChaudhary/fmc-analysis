@@ -37,17 +37,42 @@ For the hand reads in sections 3 to 6:
 - **Pairs**: the four kinds are defined by the colours of the two touching sticker pairs, as in Rodney's message. Checked on Rodney's example: after `B2 L2 B2 R2` the UF edge has a top semi-pair on one side and a side semi-pair on the other, which is what Rodney says it sets up.
 - **Corner cases**: classes of the 420 HTR corner cosets under the 16 symmetries and under turning both layers. There are 46.
 - **Setup lengths** for the setup + HTR bound: breadth-first over the 29,400 HTR cosets with half turns only, until some quarter turn lowers the minimum qt count. At 1qt it has to give the shortest 1qt HTR minus one, and it does.
-- **The 500 scrambles** (the guide's real-scramble numbers and the tally on the examples page): uniformly random states drawn with the EO → DR study's generator, written with R' U' F at both ends. An earlier version of this page used nissy's scrambler, which is not uniform ([EO → DR study, appendix B](https://fmc.arhan.sh/eo-to-dr/#appendix-b-how-it-was-computed-and-what-checks-it)).
+- **The 500 scrambles** (the guide's real-scramble numbers and the tally on the examples page): uniformly random states drawn with the EO → DR study's generator, written with R' U' F at both ends. Not nissy's scrambler, which isn't uniform ([EO → DR study, appendix B](https://fmc.arhan.sh/eo-to-dr/#appendix-b-how-it-was-computed-and-what-checks-it)).
 - **Example scrambles**: every scramble quoted as an example of something was found by a search over all DR states, then re-read from its text alone (subset, HTR lengths, leave slice and optimal recomputed from the moves). The ones that stand against something a person wrote were also solved with nissy.
-- **What the server has said**: all of #fmc-theory and #fmc-discussion (about 33,000 messages, August 2022 to November 2026) was reread line by line for this version, looking for what people read off a DR, how they discard, and what they asked for. Every quote above was checked against the export.
+- **What the server has said**: I went through all of #fmc-theory and #fmc-discussion (about 33,000 messages, August 2022 to November 2026) line by line for what people read off a DR, how they discard, and what they asked for. Every quote above is checked against the export.
 
 ---
 
 ## 12. What this doesn't do
 
-- **DR moves only.** "Optimal" here is U, D, R2, L2, F2, B2. A finish that breaks DR is shorter for {= '%.1f' % (GAPS()['g2']['uniform']['shorter'] * 100) =}% of DR states (± {= '%.1f' % (GAPS()['g2']['uniform']['se'] * 100) =} points), by one move in {= '%.0f' % GAPS()['by1'] =}% of those, {= '%.3f' % GAPS()['g2']['uniform']['mean_gain'] =} moves on average ({= '{:,}'.format(GAPS()['g2n']) =} uniform states, 1,000 per subset × edges, solved with all 18 face turns by nissy's `solve optimal`; {= '%.1f' % (GAPS()['g2']['dr11']['shorter'] * 100) =}% on real DRs with each DR counted once, {= '%.1f' % (GAPS()['g2']['scr11']['shorter'] * 100) =}% with each scramble once). For a DR whose DR-move optimum is 12 or less it is {= '%.1f' % GAPS()['le12'] =}%; it climbs only on long finishes ({= '%.1f' % GAPS()['at'][15] =}% at 15, {= '%.0f' % GAPS()['at'][16] =}% at 16). Most of it sits in three cells: {= ', '.join('%s %.0f%%' % (c, x) for c, x in GAPS()['worst']) =}. Example: `{= GAPS()['ex']['scramble_reaching_state'] =}` ({= GAPS()['ex']['subset'] =}, DR moves only) has a DR-move optimum of {= GAPS()['ex']['dr_optimum'] =} and `{= GAPS()['ex_sol'] =}` solves it in {= GAPS()['ex']['true_optimum'] =}. At the HTR level that's 66 of the 216 cases. Computed with nissy, not in Lean; every solution quoted was replayed on a sticker model.
-- **Uniform states.** Every DR state counts once. Measured against the DRs you actually reach, that is close to right. The test: {= '{:,}'.format(GAPS()['scr']) =} uniformly random scrambles, every EO-first DR of at most 11 moves cubelib-cli lists for each, as on the examples page ({= '{:,}'.format(GAPS()['dr11']) =} DRs), counted once per DR and once per scramble, standard errors clustered by scramble. Every corner subset's share is within {= '%.1f' % GAPS()['share'] =} points of uniform, its average optimal within {= '%.2f' % GAPS()['mean'] =} moves, and its share finishing in 11 within {= '%.1f' % GAPS()['le11_ex'] =} points ({= '%.1f' % GAPS()['le11'] =} on {= GAPS()['le11_at'] =}). The "all DRs" numbers hold too: the HTR routes study's all-DR headlines move by at most {= '%.1f' % GAPS()['q3all'] =} points. What does shift is the bad-edge mix inside a subset: with each scramble counted once, 0e is up to {= '%.0f' % GAPS()['e0'] =}% rarer than uniform and 6e up to {= '%.0f' % GAPS()['e6'] =}% commoner. Not modelled: CO-first or direct DRs, EOs over 5 moves, the twin of a DR with its last move turned the other way (counted once), and which DRs a solver chooses to keep. Computed, not proven; the full tables are in the [HTR routes study's real-DR section](https://fmc.arhan.sh/htr-routes/#12-real-drs).
-- **No hand bound for a 12 at 4–5qt.** That was the hope and it isn't here. What's here is the measurement that says a feature count won't give one, the reads ranked by what they buy at each target, and the kill rules that do exist. For a 10 or an 11 the two proven hand bounds do rule out a good share of 4–5qt DRs (section 3), but those are DRs you were dropping anyway.
+- **DR moves only.** "Optimal" here is U, D, R2, L2, F2, B2. A finish that breaks DR is shorter for {= '%.1f' % (GAPS()['g2']['uniform']['shorter'] * 100) =}% of DR states (± {= '%.1f' % (GAPS()['g2']['uniform']['se'] * 100) =} points), by one move in {= '%.0f' % GAPS()['by1'] =}% of those, {= '%.3f' % GAPS()['g2']['uniform']['mean_gain'] =} moves on average. That's {= '{:,}'.format(GAPS()['g2n']) =} uniform states, 1,000 per subset × edges, solved with all 18 face turns by nissy's `solve optimal`. On other sets of DRs:
+
+  | Which DRs | DR-breaking finish shorter |
+  |---|---:|
+  | real DRs, each DR counted once | {= '%.1f' % (GAPS()['g2']['dr11']['shorter'] * 100) =}% |
+  | real DRs, each scramble counted once | {= '%.1f' % (GAPS()['g2']['scr11']['shorter'] * 100) =}% |
+  | DR-move optimum 12 or less | {= '%.1f' % GAPS()['le12'] =}% |
+  | DR-move optimum 15 | {= '%.1f' % GAPS()['at'][15] =}% |
+  | DR-move optimum 16 | {= '%.0f' % GAPS()['at'][16] =}% |
+
+  So it only climbs on long finishes. Most of it sits in three cells: {= ', '.join('%s %.0f%%' % (c, x) for c, x in GAPS()['worst']) =}. An example ({= GAPS()['ex']['subset'] =}, DR moves only, DR-move optimum {= GAPS()['ex']['dr_optimum'] =}):
+
+  ```
+  {= GAPS()['ex']['scramble_reaching_state'] =}   // the DR state
+  {= GAPS()['ex_sol'] =}   // solves it in {= GAPS()['ex']['true_optimum'] =}
+  ```
+
+  At the HTR level that's 66 of the 216 cases. Computed with nissy, not in Lean; every solution quoted was replayed on a sticker model.
+- **Uniform states.** Every DR state counts once. Against the DRs you actually reach, that's close to right. The test: {= '{:,}'.format(GAPS()['scr']) =} uniformly random scrambles, every EO-first DR of at most 11 moves cubelib-cli lists for each, as on the examples page ({= '{:,}'.format(GAPS()['dr11']) =} DRs), counted once per DR and once per scramble, standard errors clustered by scramble. Every corner subset comes out close to uniform:
+
+  | Per corner subset | Off from uniform by at most |
+  |---|---|
+  | share of DRs | {= '%.1f' % GAPS()['share'] =} points |
+  | average optimal | {= '%.2f' % GAPS()['mean'] =} moves |
+  | share finishing in 11 | {= '%.1f' % GAPS()['le11_ex'] =} points ({= '%.1f' % GAPS()['le11'] =} on {= GAPS()['le11_at'] =}) |
+
+  The "all DRs" numbers hold too: the HTR routes study's all-DR headlines move by at most {= '%.1f' % GAPS()['q3all'] =} points. What does shift is the bad-edge mix inside a subset. With each scramble counted once, 0e is up to {= '%.0f' % GAPS()['e0'] =}% rarer than uniform and 6e up to {= '%.0f' % GAPS()['e6'] =}% commoner. Not modelled: CO-first or direct DRs, EOs over 5 moves, the twin of a DR with its last move turned the other way (counted once), and which DRs a solver chooses to keep. Computed, not proven; the full tables are in the [HTR routes study's real-DR section](https://fmc.arhan.sh/htr-routes/#12-real-drs).
+- **No hand bound for a 12 at 4–5qt.** There isn't one. What's here is the measurement that says a feature count won't give one, the reads ranked by what they buy at each target, and the kill rules that do exist. For a 10 or an 11 the two proven hand bounds do rule out a good share of 4–5qt DRs (section 3), but those are DRs you were dropping anyway.
 - **Your HTR may not be the shortest.** Every HTR number assumes the shortest HTR on each side. How often a solver finds it, and how fast, is not something a BFS can measure.
 - **Reads I didn't test.** Bigger blocks than pairs, anything you only see after a few moves (moves to FR, the shape after the first qt), and Rodney's NISS@1qt features per skeleton, which is section 7's table rather than a read.
 - **Width is only first moves.** JTuu's real question, how many finishes are within one of optimal, needs a count of solutions per state. Not done.

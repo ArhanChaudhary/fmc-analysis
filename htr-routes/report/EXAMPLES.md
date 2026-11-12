@@ -2,15 +2,29 @@
 
 Examples to play along with the write-up ([WRITEUP.md](WRITEUP.md)). Find the finish yourself, then open the answer.
 
-These are 200 DR states, the first 10 of the study's uniform sample in each of the 20 most common subsets with their edge counts (together 93% of all DR states). Nothing is picked by hand, so they are as hard or as easy as real DRs of that subset. Each scramble is a random DR followed by DR moves to the state, so it doesn't give the finish away.
+These are 200 DR states, the first 10 of the study's uniform sample in each of the 20 most common subsets with their edge counts (together 93% of all DR states). Nothing is hand-picked, so they're as hard or as easy as real DRs of that subset. Each scramble is a random DR followed by DR moves to the state, so it doesn't give the finish away.
 
-**How to read it.** Finishes stay in DR (U, D, R2, L2, F2, B2); optimal means the shortest such finish, E slice solved. A route class like `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` is the corner subset at the start and after each quarter turn until HTR, in the first study's names (4a3 and 4b3 by side: they swap on inverse); the part in brackets is done on the other side after a NISS switch. A class ending in `| qt` has a quarter turn after HTR (an HTR-breaking finish); every other class finishes in half turns from HTR. The checklist of each subset is the one in the write-up (greedy order, HTR budget 2, target optimal), with the share of the subset's 25,000 sampled states it covers after each class. A class *finds an optimal here* if some optimal finish can be read in that class with an HTR at most 2 moves longer than this DR's shortest NISS HTR (first answer), or with any HTR (second). The HTR length counts the moves on both sides until HTR. NISS is written as usual: `R2 U (D F2)` is `R2 U` on normal and `D F2` on the inverse; "normal first" says which side you start on. The finish "as read on normal" is the same finish written linearly.
+**How to read it.** Finishes stay in DR (U, D, R2, L2, F2, B2); optimal means the shortest such finish, E slice solved. A route class like `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` is the corner subset at the start and after each quarter turn until HTR, in the first study's names (4a3 and 4b3 by side: they swap on inverse); the part in brackets is done on the other side after a NISS switch. A class ending in `| qt` has a quarter turn after HTR (an HTR-breaking finish); every other class finishes in half turns from HTR. The checklist of each subset is the one in the write-up (greedy order, HTR budget 2, target optimal), with the share of the subset's 25,000 sampled states it covers after each class. A class *finds an optimal here* if some optimal finish can be read in that class with an HTR at most 2 moves longer than this DR's shortest NISS HTR (first answer), or with any HTR (second). The HTR length counts the moves on both sides until HTR. NISS is written as usual, inverse moves in brackets; "normal first" says which side you start on:
+
+```
+R2 U (D F2)   // R2 U on normal, then D F2 on the inverse
+```
+
+ The finish "as read on normal" is the same finish written linearly.
 
 The bounding lines give the shortest reduction that keeps an optimal finish: moves on normal and (on inverse), each empty or ending in a quarter turn, after which the DR is one quarter turn from HTR (4a1 4e) or two (4a2, 4b2, or a 0c0 with bad edges), and the rest of the optimal finish from there, with exactly that many quarter turns. This is the one-quarter-turn reading of the write-up's bounding section (what JTuu's simulation measured); the method as the bounding docs state it, finishing the reduced state optimally with any number of quarter turns, can occasionally do it with a shorter reduction.
 
 **Replay check.** Every move sequence on this page was replayed on the sticker model before the page was written: 3,829 checks (each scramble gives the state and its labels on both sides, every optimal finish solves it in the stated length, each printed reading has the stated class and HTR length when re-simulated move by move, each reduction leads to a state of the stated kind that the rest solves; the classes found agree with the main run on every state, and the 1q reduction length with the bounding run's one-quarter-turn reading), 0 mismatches.
 
-**In these 200**, the subset's checklist finds an optimal finish (HTR within 2) after its first k classes on: 1: 124 (62%), 2: 155 (78%), 3: 162 (81%), 4: 169 (84%), 5: 171 (86%) states. With any HTR: 1: 151, 2: 182, 3: 189, 4: 192, 5: 192.
+**In these 200**, the subset's checklist finds an optimal finish after its first k classes on this many states:
+
+| k | HTR within 2 | Any HTR |
+|---|---|---|
+| 1 | 124 (62%) | 151 |
+| 2 | 155 (78%) | 182 |
+| 3 | 162 (81%) | 189 |
+| 4 | 169 (84%) | 192 |
+| 5 | 171 (86%) | 192 |
 
 ## 2c5
 

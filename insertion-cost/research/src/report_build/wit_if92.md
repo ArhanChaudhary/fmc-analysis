@@ -1,6 +1,9 @@
-Scramble: `R' U' F U2 L2 F2 D' R2 B2 L2 D' F2 L U' L' F R' F2 R' F L2 U F R' U' F`
+```
+R' U' F U2 L2 F2 D' R2 B2 L2 D' F2 L U' L' F R' F2 R' F L2 U F R' U' F   // scramble
+D B2 D2 R2 D B L' D' R' L B' L F2 B2 L U                                 // skeleton (16)
+```
 
-Skeleton: `D B2 D2 R2 D B L' D' R' L B' L F2 B2 L U` (16), leaves a twisted corner 3-cycle and one twisted corner: UBL → DFR → UBR → UBL, DBR twisted clockwise
+It leaves a twisted corner 3-cycle and one twisted corner: UBL → DFR → UBR → UBL, DBR twisted clockwise.
 
 **A comm plus an alg, each of up to 12 moves**: 24 in all.
 

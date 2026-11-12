@@ -9,16 +9,16 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 - **All 768 kinds of DR-xs state per colour**, with the fewest slices and the fewest face turns to a real DR for each, proved in Lean. Turns are HTM, a slice counts as its two outer turns, and all cancelling is done.
 - **Searches over all 2,217,093,120 cosets of the DR group** for the nearest DR, DR-1s and DR-2s 8fe under each move rule. They reproduce the known DR-length counts and the dr-fe distribution trangium posted.
 - **200,000 random DR-1s states and 5,000 random DR-2s 8fe states**, each finished as well as the method's form allows (setup, slice or slices, DR finish), using the exact optimal finish of every DR state from the first study.
-- **The 500 scrambles** of the first study, with every DR-1s of 8 or less and DR-2s 8fe of 9 or less from a slice EO, each with a written solution that was replayed.
+- **The 500 scrambles** of the first study, with every DR-1s of 8 or less and DR-2s 8fe of 9 or less from a slice EO, each with a written-out solution, replayed on the scramble.
 
-Section A is what's wrong in the docs, B what's wrong in things said in the channels, each with its example. Most of what the docs and the channels say checks out; that is in the write-up's section 8, the claims checked one by one.
+Section A is what's wrong in the docs, B what's wrong in things said in the channels, each with its example. Most of what the docs and the channels say checks out; that's in the write-up's section 8, the claims checked one by one.
 
 ---
 
 ## A. The docs
 
 **A1. EO Meta Comparison (Rodney): the fix costs it assumes.**
-The doc says "we assume 1 slice can be fixed in 3 moves, and 2 slices can be fixed in 5 moves", and its tables are the standard table shifted by those amounts. Counted exactly, from the state alone, and with one turn of the slice cancelling into the move before it, which is how Rodney counts the 3 ("one ht, one qt, and -1 cancellation on the slice", [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560296978137485322)):
+The doc says "we assume 1 slice can be fixed in 3 moves, and 2 slices can be fixed in 5 moves", and its tables are the standard table shifted by those amounts. Here are the exact counts, from the state alone and with one turn of the slice cancelling into the move before it, which is how Rodney counts the 3 ("one ht, one qt, and -1 cancellation on the slice", [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560296978137485322)):
 
 | | Fewest | Most | Average from the state | Average, one slice turn cancelling |
 |---|---:|---:|---:|---:|
@@ -29,7 +29,7 @@ The doc says "we assume 1 slice can be fixed in 3 moves, and 2 slices can be fix
 So in Rodney's own way of counting, the 3 and the 5 are each about a move short (1.17 and 0.83), and about two from the state alone. The median DR-1s layout is 4 with the cancel and 5 without (B2). The 6-turn layout in B2 still takes 5 with the cancel.
 
 **A2. Simon's slice-DR doc: the table for step 3.**
-"Num Cases out of 70" at 2, 3, 4, 5, 6 moves is given as 1, 4, 9, 40, 16, with "~4.9 moves on average". Taking the better direction of the last trigger move as the doc does, I get 1, 4, 13, 36, 16: thirteen layouts have a 4-turn fix, not nine. The average stays 4.9. The thirteen, with the corners on F/B, the fixing slice `R L` and the last trigger move a quarter turn of U or D:
+"Num Cases out of 70" at 2, 3, 4, 5, 6 moves is given as 1, 4, 9, 40, 16, with "~4.9 moves on average". Taking the better direction of the last trigger move like the doc does, I get 1, 4, 13, 36, 16: thirteen layouts have a 4-turn fix, not nine. The average stays 4.9. The thirteen, with the corners on F/B, the fixing slice `R L` and the last trigger move a quarter turn of U or D:
 
 | Flipped edges at | Turns as it is | Turns with the last move the other way | Fix as it is |
 |---|---:|---:|---|
@@ -47,7 +47,7 @@ So in Rodney's own way of counting, the 3 and the 5 are each about a move short 
 | FL DF UB BR | 5 | 4 | `U2 L2 B R L` |
 | FL DF UF FR | 5 | 4 | `U2 D2 F R L` |
 
-Each fix can be checked on a cube: do a DR, do the fix backwards, and the fix brings the DR back.
+You can check each fix on a cube: do a DR, do the fix backwards, and the fix brings the DR back.
 
 ---
 
@@ -58,10 +58,56 @@ It is a DR-2s, not a DR-1s: four flipped edges, all of one slice, with the cente
 trangium said they could not get that line to work ([19 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474238124333858836)) and proposed "FB-colored misoriented, others oriented" instead: that one is right, it gives a DR-1s whose four flipped edges belong to one slice. count quackula's 12-bad notes say the same for green/blue: "This is a DR-2s 4fe." The other five lines of Rodney's list are right.
 
 **B2. "I would guess the distribution is basically flat", and 3 moves as the median** for DR-1s to DR (Rodney, [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560294279010717737), [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560296978137485322)).
-Of the 70 layouts, 1 needs 2 turns, 2 need 3, 9 need 4, 30 need 5 and 28 need 6. Rodney's 3 is one half turn, one quarter turn and the slice with one of its two turns cancelling; counted that way the median layout is 4, and 5 from scratch. A 6: after `U R2 F2 D' B2 U2 L2 D R' L' B' L2 U2 F2` the shortest fix is 6 turns (`F2 U2 L2 B R L`). Right after a trigger, with the slice free to merge into its last move, the best case is 0 extra turns but most layouts still need 5.
+Of the 70 layouts:
+
+| Turns to DR | 2 | 3 | 4 | 5 | 6 |
+|---|---:|---:|---:|---:|---:|
+| layouts | 1 | 2 | 9 | 30 | 28 |
+
+Rodney's 3 is one half turn, one quarter turn and the slice with one of its two turns cancelling; counted that way the median layout is 4, and 5 from scratch. A 6:
+
+```
+U R2 F2 D' B2 U2 L2 D R' L' B' L2 U2 F2 // scramble
+F2 U2 L2 B R L // shortest fix, 6 turns
+```
+
+Right after a trigger, with the slice free to merge into its last move, the best case is 0 extra turns, but most layouts still need 5.
 
 **B3. "If you have 8 bad edges, where all the good edges belong to the same slice, then you can orient the corners that correspond to the good edges along any axis and you are guaranteed an extra-good dr-xs"** (Rodney, [20 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474455821978042472)).
-Take the EO axis as F/B and the four good edges as the E-slice edges, so the corners in question are the white/yellow ones. On U/D they give a DR-2s with all eight edges flipped and the centers right, and on R/L a DR-2s with no edge flipped: in both there is no flipped edge to place, which is Rodney's extra-good. On F/B, the faces of the EO axis itself, they give a DR-1s that is not extra-good. A flipped edge "belongs to" its home slice here, the slice it sits in when solved (as in the write-up, 5.4). By the slice they belong to, the four flipped edges split 2-2 in 36 of the 70 layouts, 3-1 in 32 and 4-0 in 2. By where they sit, they are together in the E-slice places in all 70, which is the write-up's "wrong slice" case: every layout takes `F B R L` (4 turns) to a DR, no better than an ordinary DR-1s. So "any axis" holds for two of the three. `U D2 L2 D B2 L2 B2 D R2 F2 U' R' L F' B'` has 8 bad edges on F/B with the four good ones the E-slice edges, and white/yellow on F or B at every corner. Its flipped edges are DB, DF, UF (M slice) and UR (S slice), a 3-1, sitting at BL, BR, FL, FR. nissy's shortest DR on any axis is `F B R L` (4), and on the inverse `B2 U' B2 U R L` (6), so no single slice turn reaches DR from either side.
+Take the EO axis as F/B and the four good edges as the E-slice edges, so the corners in question are the white/yellow ones.
+
+| Corners on | You get | Extra-good? |
+|---|---|---|
+| U/D | a DR-2s with all eight edges flipped and the centers right | yes: no flipped edge to place |
+| R/L | a DR-2s with no edge flipped | yes: no flipped edge to place |
+| F/B, the faces of the EO axis itself | a DR-1s | no |
+
+So "any axis" holds for two of the three. A flipped edge "belongs to" its home slice here, the slice it sits in when solved (as in the write-up, 5.4). On F/B, by the slice they belong to, the four flipped edges split like this over the 70 layouts:
+
+| Split | 2-2 | 3-1 | 4-0 |
+|---|---:|---:|---:|
+| layouts | 36 | 32 | 2 |
+
+By where they sit, though, they're together in the E-slice places in all 70, which is the write-up's "wrong slice" case: every layout takes this to a DR, no better than an ordinary DR-1s:
+
+```
+F B R L // fix to DR, 4 turns
+```
+
+An example with 8 bad edges on F/B, the four good ones the E-slice edges, and white/yellow on F or B at every corner:
+
+```
+U D2 L2 D B2 L2 B2 D R2 F2 U' R' L F' B' // scramble
+```
+
+Its flipped edges are DB, DF, UF (M slice) and UR (S slice), a 3-1, sitting at BL, BR, FL, FR. nissy's shortest DRs, on any axis:
+
+```
+F B R L // normal (4)
+B2 U' B2 U R L // on the inverse (6)
+```
+
+so no single slice turn reaches DR from either side.
 
 ---
 

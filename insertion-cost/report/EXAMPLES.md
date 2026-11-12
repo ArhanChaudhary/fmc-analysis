@@ -1,8 +1,8 @@
 # Examples: what does this skeleton cost?
 
-Worked examples for the write-up *Insertion cost by skeleton type*. First five worked examples, one from the tutorial and four from the server, redone with the search: what the author inserted, and the best there is with 8-movers, with algs up to 10 moves and up to 12. Then 200 skeletons to play along with, 20 for each of ten kinds of leftover: put the scramble and the skeleton on a cube, look for the insertions, then unfold the answer. Then the tally.
+Worked examples for the write-up *Insertion cost by skeleton type*. First, five worked examples (one from the tutorial, four from the server) redone with the search: what the author inserted, and the best there is with 8-movers, with algs up to 10 moves and up to 12. Then 200 skeletons to play along with, 20 for each of ten kinds of leftover: put the scramble and the skeleton on a cube, look for the insertions, then unfold the answer. Then the tally.
 
-Everything on this page is replayed by the script that writes it: every scramble, skeleton, insertion and solution, on a sticker-level cube.
+The script that writes this page replays everything on it on a sticker-level cube: every scramble, skeleton, insertion and solution.
 
 ## From the tutorial and the server
 
@@ -227,7 +227,7 @@ The 10-9 is the best single alg of up to 12 moves, and a comm plus an alg of up 
 
 ## 200 skeletons to play along with
 
-For each kind of leftover, 20 skeletons of 16 to 22 moves. They are random move sequences, not solves: each move is drawn at random (no two in a row on one face), and what is left is drawn at random among all leftovers of that kind. So there are no blocks to recognise, only the insertion to find. Nothing is picked by how it comes out. The scramble is made to fit: it is a scramble that the skeleton solves up to that leftover.
+For each kind of leftover, 20 skeletons of 16 to 22 moves. They are random move sequences, not solves: each move is drawn at random (no two in a row on one face), and the leftover is drawn at random among all leftovers of that kind. So there are no blocks to spot, only the insertion to find, and none of them is picked by how it comes out. The scramble is made to fit: the skeleton solves it up to that leftover.
 
 ### How to read them
 
@@ -235,7 +235,7 @@ For each kind of leftover, 20 skeletons of 16 to 22 moves. They are random move 
 - **The answer** has two parts. *8 moves or less per insertion* is the best there is with pure 8-move comms (and, for edges, the 6- and 7-movers). *Up to 10 moves per insertion* also allows every 9- and 10-move alg, including one alg that does the whole leftover where such an alg exists. Each is the true minimum over every position and every alg of that length, with two insertions allowed to sit inside each other.
 - **Marks.** `*` is the first insertion and `^` the second. When the second one goes into moves that the first one changed, the skeleton is written out again as it stands after the first, with `^` in it.
 - `// (8-3/22)` is the usual note: an 8-move alg, 3 moves cancel, 22 moves so far.
-- When the answer says "nothing better" for 10 moves, the 8-move answer is still the best.
+- When the answer says "nothing better" for 10 moves, the 8-move answer is still the best one.
 
 ### 3c
 

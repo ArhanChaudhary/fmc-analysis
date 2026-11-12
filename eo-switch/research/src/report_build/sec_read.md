@@ -1,6 +1,6 @@
 ## 5. Reading the switched case from normal
 
-You decide before switching, so every feature of the cards has to be seen on the normal side, after EO + RZP. Each reading below was tested on uniformly random cubes with the EO solved (a random case, then random pieces): read on the normal cube, compared with the feature of its inverse. *Held* means it gave the right count on every cube.
+You decide before switching, so every feature of the cards has to be seen on the normal side, after EO + RZP. I tested each reading below on uniformly random cubes with the EO solved (a random case, then random pieces): read it on the normal cube, compare with the feature of its inverse. *Held* means it gave the right count on every cube.
 
 | Feature on the switched case | What to look at on normal | Source | Held |
 |---|---|---|---|
@@ -18,6 +18,6 @@ The pair tracing is wen's, as the guide puts it: "look at one of the edges in th
 
 **Side pairs.** The 4c2e card needs side pairs on the inverse, and I found no tracing for them on the server. Jay said why they matter: "Side pair stats would be valuable simply because NISS EO's don't destroy them unlike top pairs" ([[D7497]]). The tracing in the table mirrors pair tracing: the E-slice edges that are out of the E slice (in U or D) play the edge, and the corner must carry both of the edge's colours and show its green or blue sticker on U or D. The control, the same count with the red or orange sticker on U or D, gives the right number on only {= n(TRACE('control', 'uniform')[1]) =} of {= n(TRACE('control', 'uniform')[0]) =} cubes, so the colour test is the whole rule.
 
-All three new readings also held on {= n(TRACE('side pairs', '4c2e')[0]) =} cubes drawn from 4c2e and {= n(TRACE('side pairs', '4c4e')[0]) =} from 4c4e. The readings are checked by sampling, not proved.
+All three new readings also held on {= n(TRACE('side pairs', '4c2e')[0]) =} cubes drawn from 4c2e and {= n(TRACE('side pairs', '4c4e')[0]) =} from 4c4e. They're checked by sampling, not proved.
 
 The same-axis version of the ARM swap is wrong, as its author said at the time: Louis wrote "It remains the same on the same axis." ([[T4357]]) and then "Yes you're right it makes total sense" ([[T4361]]). It holds on {= n(NISS('ARM for U/D DR on normal = ARM for U/D DR on inverse, same axis')[1]) =} of {= n(NISS('ARM for U/D DR on normal = ARM for U/D DR on inverse, same axis')[0]) =} cubes.

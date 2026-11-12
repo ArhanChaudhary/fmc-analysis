@@ -1,6 +1,9 @@
-Scramble: `R' U' F R U2 F2 D2 R' U2 F2 R' F2 L2 R F2 R U R F' L2 B U2 F' L F' R' U' F`
+```
+R' U' F R U2 F2 D2 R' U2 F2 R' F2 L2 R F2 R U R F' L2 B U2 F' L F' R' U' F   // scramble
+F2 D2 B2 U' D2 L2 F2 L' D R' B' R2 F U' F' B U2 B' L D                       // skeleton (20)
+```
 
-Skeleton: `F2 D2 B2 U' D2 L2 F2 L' D R' B' R2 F U' F' B U2 B' L D` (20), leaves a corner 3-cycle: DBR → UBR → DFR → DBR
+It leaves a corner 3-cycle: DBR → UBR → DFR → DBR.
 
 **The best 8-mover insertion**: 25 in all, the only 8-3 in the skeleton, after move 16.
 

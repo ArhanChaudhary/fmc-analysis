@@ -1,6 +1,9 @@
-Scramble: `R' U' F L2 B2 U2 B2 F2 D R2 U F2 D' L2 U' L U2 F' L' B2 D B' R2 D' L R' U' F`
+```
+R' U' F L2 B2 U2 B2 F2 D R2 U F2 D' L2 U' L U2 F' L' B2 D B' R2 D' L R' U' F   // scramble
+D2 L D' L2 B' U F' R F2 L' U' D B' L2 F' R2 B' U D' F                          // skeleton (20)
+```
 
-Skeleton: `D2 L D' L2 B' U F' R F2 L' U' D B' L2 F' R2 B' U D' F` (20), leaves a corner 5-cycle: DBL → UBL → UBR → UFL → DFR → DBL
+It leaves a corner 5-cycle: DBL → UBL → UBR → UFL → DFR → DBL.
 
 **Best first comm, then the best second, 8-movers only**: 30 in all, the first comm is an 8-2 (2 first comms tie for the best; this is the one whose second comm is best).
 

@@ -1,18 +1,36 @@
 ## 10. Hand checklists, graded
 
-Each checklist is translated into route classes as closely as the route names allow and graded on the same sample: the share of DRs where its steps so far find an optimal finish, and a finish within +1, with HTRs at most two over the shortest (budget 2), and with no HTR limit. Steps that depend on how many setup moves come before a trigger are graded as their whole route class, which flatters them a little. Sampled, {= n(25000) =} per subset × edges.
+I translate each checklist into route classes as closely as the route names allow and grade it on the same sample: the share of DRs where its steps so far find an optimal finish, and a finish within +1, with HTRs at most two over the shortest (budget 2), and with no HTR limit. Steps that depend on how many setup moves come before a trigger are graded as their whole route class, which flatters them a little. Sampled, {= n(25000) =} per subset × edges.
 
-**Zagros's 4b2 order** ([[D15884]]): "1. check shortest HTR on normal by settings up to triggers and reasonable extensions", "2. check more linear 2qt HTRs by just reducing to 4a1 and doing the HTR even if it's long", and on to "8. if it is seriously my only DR and I have nothing, try 2+2 HTRs". Steps 1 and 2 are graded together, 6 (the inverse) and 7 are inside the others since both sides are always graded:
+**Zagros's 4b2 order** ([[D15884]]): "1. check shortest HTR on normal by settings up to triggers and reasonable extensions", "2. check more linear 2qt HTRs by just reducing to 4a1 and doing the HTR even if it's long", and on to "8. if it is seriously my only DR and I have nothing, try 2+2 HTRs". Steps 1 and 2 are graded together; 6 (the inverse) and 7 are already inside the others, since both sides are always graded:
 
 {{grade_zagros}}
 
-Zagros: "if I simply follow the system I have in my mind for each subset without getting distracted then it just produces optimal in 15 minutes like 80% of the time" ([[D15885]]). Done fully on 4b2 with near-shortest HTRs it finds the optimal on {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_opt_htr_budget2') =} and +1 on {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_p1_htr_budget2') =}; with HTRs of any length every 4b2 is covered. Zagros's 80% is about real attempts, where time is the limit, so it can't be checked here, but nothing in the numbers contradicts it. After the first, the step that adds the most is table step {= BIGSTEP('Zagros 4b2 order (D15884)')[0] =} (Zagros's step 5, the regression to 2c3), {= BIGSTEP('Zagros 4b2 order (D15884)')[1] =} points.
+Zagros: "if I simply follow the system I have in my mind for each subset without getting distracted then it just produces optimal in 15 minutes like 80% of the time" ([[D15885]]). Done fully on 4b2 with near-shortest HTRs, it finds the optimal on {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_opt_htr_budget2') =} and +1 on {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_p1_htr_budget2') =}; with HTRs of any length every 4b2 is covered. Zagros's 80% is about real attempts, where time is the limit, so I can't check it here, but nothing in the numbers contradicts it. After the first, the step that adds the most is table step {= BIGSTEP('Zagros 4b2 order (D15884)')[0] =} (Zagros's step 5, the regression to 2c3), {= BIGSTEP('Zagros 4b2 order (D15884)')[1] =} points.
 
-**4b2 4e: regress to 2c3 first, or reduce to 1q first?** Yura Riabov ([[D6409]], [[D6411]], [[D6412]]): "4b2 4e is basically the best 4q subset", go to 2c3 "if it's not 1-2 moves to trigger", "i also try 2-3 moves to 4a1 and niss trace if i don't forget to do that". rogo asked whether it shouldn't be the other way round ([[D6422]]): "the first approach apart from R U2 F2 R to check should still be 'reduce to 1qt 4e and niss trace for short htrs' i think?"; Adri agreed that the label was the confusing part ([[D6424]]): "I agree that's why calling it the best 4qt subset seems confusing". Jay ([[D6439]]): "if you think of this subset as one where you only try to solve with U R2 F2 U, you're gonna miss optimal the vast majority of the time". Yura Riabov's order (the first step as a trigger with at most two setup moves, the setup limit being Yura's "1-2 moves"):
+**4b2 4e: regress to 2c3 first, or reduce to 1q first?** The thread:
+
+- Yura Riabov ([[D6409]], [[D6411]], [[D6412]]): "4b2 4e is basically the best 4q subset", go to 2c3 "if it's not 1-2 moves to trigger", "i also try 2-3 moves to 4a1 and niss trace if i don't forget to do that".
+- rogo asked whether it shouldn't be the other way round ([[D6422]]): "the first approach apart from R U2 F2 R to check should still be 'reduce to 1qt 4e and niss trace for short htrs' i think?"
+- Adri agreed the label was the confusing part ([[D6424]]): "I agree that's why calling it the best 4qt subset seems confusing".
+- Jay ([[D6439]]): "if you think of this subset as one where you only try to solve with U R2 F2 U, you're gonna miss optimal the vast majority of the time".
+
+Yura Riabov's order, with the first step as a trigger with at most two setup moves (the setup limit is Yura's "1-2 moves"):
 
 {{grade_yura}}
 
-The other start, reducing to 1q and NISS-tracing, is DR bounding: on 4b2 4e every reduction to 1q of at most 3, 4 and 5 moves finds the optimal on {= pc(Q8('4b2 4e', '1', '3', 'found_opt')) =}, {= pc(Q8('4b2 4e', '1', '4', 'found_opt')) =} and {= pc(Q8('4b2 4e', '1', '5', 'found_opt')) =} (4,000 states, section 8), against {= GR('Yura 4b2 4e order (D6409-D6416)', 2, 'cumulative_opt_htr_budget2') =} for Yura Riabov's first two steps with budget-2 HTRs. So the regression to 2c3 beats every reduction up to 4 and is a little behind every reduction up to 5 (about {= n(round(float(Q8('4b2 4e', '1', '5', 'mean_reductions_le_R')))) =} of them); the 4a1 switch adds {= f1(float(GR('Yura 4b2 4e order (D6409-D6416)', 3, 'cumulative_opt_htr_budget2').rstrip('%')) - float(GR('Yura 4b2 4e order (D6409-D6416)', 2, 'cumulative_opt_htr_budget2').rstrip('%'))) =} points after it. Jay is right too: the 2qt trigger alone (with at most two setup moves) finds {= GR('Yura 4b2 4e order (D6409-D6416)', 1, 'cumulative_opt_htr_budget2') =}. On 4b2 4e every optimal uses 4 quarter turns on {= E['claims']['C40']['evidence'].split('4qt ')[1].rstrip('.') =} of states, as Yura Riabov's [*Hitchhiker’s Guide to HTR*](https://docs.google.com/document/d/1_NMlyPh2Ifd1E0ivos-15Sp-by-KPxoOsj9JD4pJuHI) says ("it’s optimal with 4q more than half of the time"). Fanti's split ([[D10034]], probably read off *allcases*, whose cells it matches: "40% of opt 4b2 4e solutions use 2qt, 45% regress to 2c3", "only about 8% go to 0c0 2e/4e"), read as a checklist in that order:
+The other start, reducing to 1q and NISS-tracing, is DR bounding. On 4b2 4e, share finding the optimal (budget-2 HTRs for the routes; bounding on 4,000 states, section 8):
+
+| Start | Optimal found |
+|---|---|
+| Yura Riabov's first two steps | {= GR('Yura 4b2 4e order (D6409-D6416)', 2, 'cumulative_opt_htr_budget2') =} |
+| every reduction to 1q of at most 3 moves | {= pc(Q8('4b2 4e', '1', '3', 'found_opt')) =} |
+| every reduction to 1q of at most 4 moves | {= pc(Q8('4b2 4e', '1', '4', 'found_opt')) =} |
+| every reduction to 1q of at most 5 moves | {= pc(Q8('4b2 4e', '1', '5', 'found_opt')) =} |
+
+So the regression to 2c3 beats every reduction up to 4, and is a little behind every reduction up to 5 (about {= n(round(float(Q8('4b2 4e', '1', '5', 'mean_reductions_le_R')))) =} of them). The 4a1 switch adds {= f1(float(GR('Yura 4b2 4e order (D6409-D6416)', 3, 'cumulative_opt_htr_budget2').rstrip('%')) - float(GR('Yura 4b2 4e order (D6409-D6416)', 2, 'cumulative_opt_htr_budget2').rstrip('%'))) =} points after it. Jay is right too: the 2qt trigger alone (with at most two setup moves) finds {= GR('Yura 4b2 4e order (D6409-D6416)', 1, 'cumulative_opt_htr_budget2') =}. On 4b2 4e every optimal uses 4 quarter turns on {= E['claims']['C40']['evidence'].split('4qt ')[1].rstrip('.') =} of states, as Yura Riabov's [*Hitchhiker’s Guide to HTR*](https://docs.google.com/document/d/1_NMlyPh2Ifd1E0ivos-15Sp-by-KPxoOsj9JD4pJuHI) says ("it’s optimal with 4q more than half of the time").
+
+Fanti's split ([[D10034]]; probably read off *allcases*, since it matches its cells): "40% of opt 4b2 4e solutions use 2qt, 45% regress to 2c3", "only about 8% go to 0c0 2e/4e". Read as a checklist in that order:
 
 {{grade_fanti}}
 
@@ -20,12 +38,20 @@ The other start, reducing to 1q and NISS-tracing, is DR bounding: on 4b2 4e ever
 
 {{grade_lewis}}
 
-Levi Gibson's reply, "you don’t have to try reductions to 4a1 4e because the average optimal solution length for that path is like 17.2 to slice" for 4a2 0e ([[T6744]]), fits: on 4a2 0e one optimal picked at random is a 2qt path on only {= E['claims']['C42']['evidence'].split('is 2qt ')[1].split(' ')[0] =} of states, and steps 1 and 2 together find the optimal on {= GR('Lewis 4a2 0e/2e list (T6743)', 2, 'cumulative_opt_htr_budget2') =} of 4a2 0e and 2e pooled. After the first, the step that adds the most is step {= BIGSTEP('Lewis 4a2 0e/2e list (T6743)')[0] =} ({= BIGSTEP('Lewis 4a2 0e/2e list (T6743)')[2] =}, {= BIGSTEP('Lewis 4a2 0e/2e list (T6743)')[1] =} points), then step 4, the 4b3 regression with the switch, which is the first route of my 4a2 0e and 2e checklists.
+Levi Gibson's reply for 4a2 0e, "you don’t have to try reductions to 4a1 4e because the average optimal solution length for that path is like 17.2 to slice" ([[T6744]]), fits. On 4a2 0e one optimal picked at random is a 2qt path on only {= E['claims']['C42']['evidence'].split('is 2qt ')[1].split(' ')[0] =} of states, and steps 1 and 2 together find the optimal on {= GR('Lewis 4a2 0e/2e list (T6743)', 2, 'cumulative_opt_htr_budget2') =} of 4a2 0e and 2e pooled. After the first, the step that adds the most is step {= BIGSTEP('Lewis 4a2 0e/2e list (T6743)')[0] =} ({= BIGSTEP('Lewis 4a2 0e/2e list (T6743)')[2] =}, {= BIGSTEP('Lewis 4a2 0e/2e list (T6743)')[1] =} points). Next is step 4, the 4b3 regression with the switch, which is the first route of my 4a2 0e and 2e checklists.
 
-**Jay's and rodneykinney's 3qt 2c0e checks.** Jay counted "11 total things" to check for every two half turns followed by a quarter turn ([[T328]]); rodneykinney: "I would count 9 cases" ([[T333]]), and later "You can check just F and R2 F" ([[T337]]). As a route class (one qt to 4b2 4e, switch, then 4a1 and HTR, any setup) it finds the optimal on {= GR('Jay/rodney 2c3 0e checks (T328-T344)', 1, 'cumulative_opt_htr_budget2') =} of 2c3 0e and +1 on {= GR('Jay/rodney 2c3 0e checks (T328-T344)', 1, 'cumulative_p1_htr_budget2') =}; the setup counts themselves are not graded.
+**Jay's and rodneykinney's 3qt 2c0e checks.** Jay counted "11 total things" to check for every two half turns followed by a quarter turn ([[T328]]); rodneykinney: "I would count 9 cases" ([[T333]]), and later "You can check just F and R2 F" ([[T337]]). As a route class (one qt to 4b2 4e, switch, then 4a1 and HTR, any setup) it finds the optimal on {= GR('Jay/rodney 2c3 0e checks (T328-T344)', 1, 'cumulative_opt_htr_budget2') =} of 2c3 0e and +1 on {= GR('Jay/rodney 2c3 0e checks (T328-T344)', 1, 'cumulative_p1_htr_budget2') =}. The setup counts themselves aren't graded.
 
 **Daichi's cheat sheet** ([[D18340]]), every listed route of each subset × edges together, against my checklist:
 
 {{grade_daichi}}
 
-The last two columns are my first three budget-2 routes and how many of my routes it takes to match the sheet. The sheet is ahead of my first three on 4b2, 4a1, 2c3 0e and 8e and 0c0 2e to 6e (where it lists several routes), about level on 2c4 0e to 6e, 4a2 2e and 0c4 2e, and behind on the rest: all of 2c5, 0c3, 4c3, 4c4 and 4b5, 0c4 except 2e, 4a2 0e and 4e, 2c3 2e to 6e, 2c4 8e, 0c0 0e and 8e. Daichi aimed it at sub-13 finishes, so its routes favour the short ones, which is what you want in an attempt.
+The last two columns are my first three budget-2 routes and how many of my routes it takes to match the sheet. The sheet against my first three:
+
+| Sheet is | On |
+|---|---|
+| ahead | 4b2, 4a1, 2c3 0e and 8e, 0c0 2e to 6e (where it lists several routes) |
+| about level | 2c4 0e to 6e, 4a2 2e, 0c4 2e |
+| behind | all of 2c5, 0c3, 4c3, 4c4 and 4b5; 0c4 except 2e; 4a2 0e and 4e; 2c3 2e to 6e; 2c4 8e; 0c0 0e and 8e |
+
+Daichi aimed it at sub-13 finishes, so its routes favour the short ones, which is what you want in an attempt anyway.

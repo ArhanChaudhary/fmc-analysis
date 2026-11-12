@@ -1,6 +1,9 @@
-Scramble: `R' U' F B2 U2 L2 B2 L2 D' L2 D B2 D2 F2 U2 L R2 U' B' D' L B F R2 D R' U' F`
+```
+R' U' F B2 U2 L2 B2 L2 D' L2 D B2 D2 F2 U2 L R2 U' B' D' L B F R2 D R' U' F   // scramble
+U' D2 B' D2 B' D L2 U R2 B' U2 D B L D B' U2 L' D' L'                         // skeleton (20)
+```
 
-Skeleton: `U' D2 B' D2 B' D L2 U R2 B' U2 D B L D B' U2 L' D' L'` (20), leaves two corner swaps, no twist: DFL ↔ DFR, DBR ↔ UFR
+It leaves two corner swaps, no twist: DFL ↔ DFR, DBR ↔ UFR.
 
 **Best with two 8-move comms**: 29 in all.
 

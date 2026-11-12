@@ -1,6 +1,9 @@
-Scramble: `R' U' F B2 L F2 L' D2 R' F2 U2 R2 U2 L F2 R' U' L F R' U2 B' R D2 L U' R' U' F`
+```
+R' U' F B2 L F2 L' D2 R' F2 U2 R2 U2 L F2 R' U' L F R' U2 B' R D2 L U' R' U' F   // scramble
+L' B' D2 R D R' B' R2 U2 F R2 U2 D' L2 F2 U' L' D2 B2 U'                         // skeleton (20)
+```
 
-Skeleton: `L' B' D2 R D R' B' R2 U2 F R2 U2 D' L2 F2 U' L' D2 B2 U'` (20), leaves a twisted corner 3-cycle and one twisted corner: DFL → UFL → UBR → DFL, DBL twisted clockwise
+It leaves a twisted corner 3-cycle and one twisted corner: DFL → UFL → UBR → DFL, DBL twisted clockwise.
 
 **Best with two 8-move comms**: 30 in all.
 

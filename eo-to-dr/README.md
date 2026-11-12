@@ -2,7 +2,14 @@
 
 The fourth case study of this repository: the first half of a DR solve. How far a random scramble is from DR (one axis, best of three, with the inverse, with NISS, and through the short EOs a solver writes down), how many EOs a scramble has and how short, and what an EO leaves: how far DR is with the other DR axis, the inverse, the EO's last turn the other way and EO-breaking turns, overall and case by case. Every concrete claim from the FMC solvers Discord on these topics is checked against the numbers.
 
-It builds on Cale's *DR setup stats* (and its version with the last EO move switched), Louis's *DRM/ARM average optimals* and Rodney Kinney's sheet built on it, KrzychXyz's and Evan's sheets, Shota's EO tables, FakeMMAP's and torchlight's EO to DR tables, DougCube's *Tables of Distinct Positions*, Joba's exact NISS EO table, Tronto's EO-solved scrambles, torchlight's exact bad-edge counts, and the DR-xs study's section 6.4. What it adds: DR from a scramble over all axes, with the inverse and with NISS, with the odds of a DR in 8, 9, 10 and 11; the EO inside the optimal DR and the best DR through EOs of each length; the number of DRs per EO; EO counts and shortest EOs per scramble on all axes; the bad-edge layouts exactly; EO to DR with every option a solver has, including the second DR axis exactly; and a check of nissy 2.0.8's scrambler, which has a modulo bias in its edge permutation that makes DRs on the inverse of its scrambles shorter.
+It builds on Cale's *DR setup stats* (and its version with the last EO move switched), Louis's *DRM/ARM average optimals* and Rodney Kinney's sheet built on it, KrzychXyz's and Evan's sheets, Shota's EO tables, FakeMMAP's and torchlight's EO to DR tables, DougCube's *Tables of Distinct Positions*, Joba's exact NISS EO table, Tronto's EO-solved scrambles, torchlight's exact bad-edge counts, and the DR-xs study's section 6.4. What it adds:
+
+- DR from a scramble over all axes, with the inverse and with NISS, with the odds of a DR in 8, 9, 10 and 11;
+- the EO inside the optimal DR, and the best DR through EOs of each length;
+- the number of DRs per EO;
+- EO counts and shortest EOs per scramble on all axes, and the bad-edge layouts exactly;
+- EO to DR with every option you have, including the second DR axis exactly;
+- a check of nissy 2.0.8's scrambler, which has a modulo bias in its edge permutation that makes DRs on the inverse of its scrambles shorter.
 
 | Where | What |
 |---|---|
@@ -18,7 +25,7 @@ It builds on Cale's *DR setup stats* (and its version with the last EO move swit
 
 ## How the numbers are made
 
-The cube model and the two exact coset tables (fewest turns to DR with any turns, and keeping an EO; 2,217,093,120 cosets each) are the DR-xs study's (`is-dr-xs-worth-it/research/`), read through rotations for the other axes. Each mapping is checked against nissy 2.0.8 on 1,000 or 2,000 positions; every solution printed anywhere is replayed on a sticker model that reads EO and DR off the stickers. The scrambles are 50,000 uniformly random states drawn by the study (`eodrtools mkscr`); nissy's `scramble` was tested and dropped (appendix B of the write-up). `research/run_all.sh` lists the heavy commands in order (about 50 minutes on four cores, peak memory about 3.5 GB).
+The cube model and the two exact coset tables (fewest turns to DR with any turns, and keeping an EO; 2,217,093,120 cosets each) are the DR-xs study's (`is-dr-xs-worth-it/research/`), read through rotations for the other axes. Each mapping is checked against nissy 2.0.8 on 1,000 or 2,000 positions; every solution printed anywhere is replayed on a sticker model that reads EO and DR off the stickers. The scrambles are 50,000 uniformly random states drawn by the study (`eodrtools mkscr`); nissy's `scramble` isn't used, because it's biased (appendix B of the write-up). `research/run_all.sh` lists the heavy commands in order (about 50 minutes on four cores, peak memory about 3.5 GB).
 
 Large outputs (`research/out/big/`, the per-scramble tables) are not in the repository; `run_all.sh` regenerates them. The distance tables come from the DR-xs study (2.2 GB each).
 

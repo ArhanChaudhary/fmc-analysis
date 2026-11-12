@@ -7,8 +7,15 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 **This builds on** what people had already worked out:
 
 - **Sebastiano Tronto's table.** Section 2.4.10 of the [Fewest Moves Tutorial](https://fmcsolves.cubing.net/fmc_tutorial_ENG.pdf), "Move count (an estimate)", is the chart everyone points to: 3c 5/6, 3e 7, two twisted corners 8, three twisted corners 9, 2c2c 9/10, 3c1t 10, 5c 10/11, 2c2e 10. The tutorial says what it is: "It is a heuristic estimate, not a mathematically proved one", and its footnote says where the numbers came from: "Mostly taken from here, slightly adjusted to match my personal opinion", with a link to a post in the speedsolving FMC thread.
-- **The estimates people posted.** Phuwish: 2tc "~8.0 I guess", 3tc "mid to high 8 from my experience", 5c "~high 10", and "yeah" ([[N4540]]) to tave_789's "And isnt 3c1t and 2c2c close to 9.5?" ([[N4539]]). cpaul: 9 for a pure 2c2c, 9.5 with a twist, 10 for a 3c1t. Baiqiang: 5-6 for a 3c, 8-9 for a 3c1t, "6-8 for good 2c2c, 8-9 for bad 2c2c".
-- **Exchange rates and thresholds from experience.** asacuber's "maybe like 5-6" moves between a 5c and a 3c. Gezza Cubing's and oliynykmax's pairs: a 5c in 16-18 against a 3c in 22-24. The tutorial's 4 corners in 18 against 3 corners in 25. Java ([[N332]]), on two comms against three: "you'd need the f2l-2 to be 6 moves shorter than the f2l-1 probably".
+- **The estimates people posted.**
+  - Phuwish: 2tc "~8.0 I guess", 3tc "mid to high 8 from my experience", 5c "~high 10", and "yeah" ([[N4540]]) to tave_789's "And isnt 3c1t and 2c2c close to 9.5?" ([[N4539]]).
+  - cpaul: 9 for a pure 2c2c, 9.5 with a twist, 10 for a 3c1t.
+  - Baiqiang: 5-6 for a 3c, 8-9 for a 3c1t, "6-8 for good 2c2c, 8-9 for bad 2c2c".
+- **Exchange rates and thresholds from experience.**
+  - asacuber's "maybe like 5-6" moves between a 5c and a 3c.
+  - Gezza Cubing's and oliynykmax's pairs: a 5c in 16-18 against a 3c in 22-24.
+  - The tutorial's 4 corners in 18 against 3 corners in 25.
+  - Java ([[N332]]), on two comms against three: "you'd need the f2l-2 to be 6 moves shorter than the f2l-1 probably".
 - **Which leftovers take how many comms**: the lists in Yurii Riabov's guide and in the tutorial. **Exhaustive alg results**: notkevin on the 10-move 2c2e algs, torchlight on the shortest alg that twists a corner. **Where insertions fall**: DougCube keeps stats on it.
 - **Insertion Finder** ([333.fm/if](https://333.fm/if)), which gives the best insertions for one skeleton you type in. Baiqiang ([[D3803]]): "i make the website 333.fm. the core is written by Yan Xuan".
 
@@ -30,7 +37,11 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 - **Start with [section 1](#1-the-short-version)**, the short version: what is new, then what it confirms, one line each.
 - **The [worked examples](examples.html)** go with it: the examples from the tutorial and the server redone with the search, then 200 skeletons to play along with, answers folded away. **The [errata](errata.html)** list what the numbers show is wrong in things said on the server, each with an example.
 - **The appendices are reference**: the full cost tables, every class of corner and edge 3-cycle with a shortest alg, and how it was computed and checked.
-- **What you can do in an attempt, and what is the answer key.** Every cost here is the best insertion over every spot and every alg within the cap. With 8-movers on a 3c that is what you get by checking every spot with the 8-movers you know, so those numbers are a target a solver can reach. Two things are not: **caps 10 and 12** count every sequence of that length, far more than any list a person knows, and **the best pair of comms** for a two-comm leftover means following up every first comm at every spot. Those are **computer only**, Insertion Finder's job: the answer key, not something to do in an attempt, and each place says so. The hand version of the best pair is to take the best first comm, and the ones a move worse when there is time (8.4), which gets within {= f2(max(float(CELL('greedy', r, 'First comms within 1 move')) - float(CELL('greedy', r, 'Best pair of comms')) for r in ('2tc', '3tc', 'pure 2c2c', 'twisted 2c2c', '3c1t', '5c', '3c3c'))) =} of a move of it. The rest is for the attempt: the odds and exchange rates for choosing a skeleton (section 7), the search rules of section 8 (every other move, the ends, opposite-face pairs), and the case facts of sections 4 and 5.
+- **What you can do in an attempt, and what is the answer key.** Every cost here is the best insertion over every spot and every alg within the cap. With 8-movers on a 3c that's what you get by checking every spot with the 8-movers you know, so those numbers are a target you can actually reach. Two things aren't:
+  - **caps 10 and 12** count every sequence of that length, far more than any list a person knows;
+  - **the best pair of comms** for a two-comm leftover means following up every first comm at every spot.
+
+  Those are **computer only**, Insertion Finder's job: the answer key, not something to do in an attempt, and each place says so. The hand version of the best pair is to take the best first comm, and the ones a move worse when there's time (8.4), which gets within {= f2(max(float(CELL('greedy', r, 'First comms within 1 move')) - float(CELL('greedy', r, 'Best pair of comms')) for r in ('2tc', '3tc', 'pure 2c2c', 'twisted 2c2c', '3c1t', '5c', '3c3c'))) =} of a move of it. The rest is for the attempt: the odds and exchange rates for choosing a skeleton (section 7), the search rules of section 8 (every other move, the ends, opposite-face pairs), and the case facts of sections 4 and 5.
 
 ---
 
@@ -100,9 +111,21 @@ Within the cap *every* move sequence that does the job counts, not a list of kno
 
 Unless a table says otherwise, a number for a two-comm leftover is the best of *two comms* and *one alg*. *A comm plus an alg* is kept apart because it is expensive to search and few people insert that way. With long algs it also starts to be something else: two algs wrapped around a stretch of the skeleton can cancel into less than the stretch, which is rewriting the solution more than inserting into it. Read it as the ceiling of what an unlimited alg list could do: **computer only**.
 
-**Random skeletons.** The big tables are over random skeletons: each move is drawn at random (never two in a row on one face), and the leftover is drawn at random among all leftovers of its type. A random skeleton is a move sequence, not a solve. It has no blocks and no EO, and it does not end in a last-layer alg. Section 9 puts {= RL('covered') =} worked examples from real solves ({= RL('skeletons') =} distinct skeletons) next to them. Two things come out of that. The same real move sequences with a random leftover on them cost what random sequences cost (the same for a 3c, within a tenth of a move for a 5c), so the tables are not skewed by how skeletons are written. But the skeletons people post, with their own leftover, come out most of a move cheaper than the tables with 8-movers. Selection is part of that: for a 3c, the skeletons posted with their insertion are {= SUBD('from the server, an insertion written out', '3c') =} from random and the {= SUBN('the last two together', '3c') =} less-picked ones {= SUBD('the last two together', '3c') =}. For edges the posted skeletons are further from the random tables (6.6, 9.2).
+**Random skeletons.** The big tables are over random skeletons: each move is drawn at random (never two in a row on one face), and the leftover is drawn at random among all leftovers of its type. A random skeleton is a move sequence, not a solve. It has no blocks, no EO, and it doesn't end in a last-layer alg. Section 9 puts {= RL('covered') =} worked examples from real solves ({= RL('skeletons') =} distinct skeletons) next to them, and two things come out of that:
 
-**How many.** {= NSK('5c') =} skeletons for each type and each even length from 10 to 30 at cap 8 ({= NSK('2tc') =} for 2tc, 2fe and the two kinds of 2e2e). The corner types of section 7 (3c, 2tc, 3tc, both 2c2c, 3c1t, 5c) have a sample of the same size at every odd length from 11 to 29 as well. At cap 10, {= NSK('3c', L=10) =} for a 3c or a 3e and for one alg, but the two-comm search is slow there, so two comms at cap 10 rests on {= NSK('5c', L=10) =} skeletons per length for 5c and 3c3c, {= NSK('3c1t', L=10) =} for 2c2c, 3c1t and 3tc, and {= NSK('2tc', L=10) =} for 2tc. Cap 12 with two comms was run on {= NSK('5c', L=12, src='two12') =} skeletons of 20 moves for {= CAP12RUN() =}, and not for {= CAP12NOT() =}. A comm plus an alg was run on {= NSK('5c', L=10, model='mixed', src='mixed') =} skeletons of 20 moves at cap 10. Each table says which.
+- The same real move sequences with a random leftover on them cost what random sequences cost (the same for a 3c, within a tenth of a move for a 5c), so the tables aren't skewed by how skeletons are written.
+- The skeletons people post, with their own leftover, come out most of a move cheaper than the tables with 8-movers. Selection is part of that: for a 3c, the skeletons posted with their insertion are {= SUBD('from the server, an insertion written out', '3c') =} from random and the {= SUBN('the last two together', '3c') =} less-picked ones {= SUBD('the last two together', '3c') =}. For edges the posted skeletons are further from the random tables (6.6, 9.2).
+
+**How many.** Sample sizes per skeleton length; each table also says which.
+
+| What was run | Skeletons per length |
+|---|---|
+| cap 8, every type, each even length from 10 to 30 | {= NSK('5c') =} ({= NSK('2tc') =} for 2tc, 2fe and the two kinds of 2e2e) |
+| the same for the corner types of section 7 (3c, 2tc, 3tc, both 2c2c, 3c1t, 5c) at every odd length from 11 to 29 | the same size |
+| cap 10, a 3c or a 3e, and one alg | {= NSK('3c', L=10) =} |
+| cap 10, two comms (the search is slow there) | {= NSK('5c', L=10) =} for 5c and 3c3c, {= NSK('3c1t', L=10) =} for 2c2c, 3c1t and 3tc, {= NSK('2tc', L=10) =} for 2tc |
+| cap 12, two comms, skeletons of 20 moves, for {= CAP12RUN() =} (not for {= CAP12NOT() =}) | {= NSK('5c', L=12, src='two12') =} |
+| cap 10, a comm plus an alg, skeletons of 20 moves | {= NSK('5c', L=10, model='mixed', src='mixed') =} |
 
 {{SEC_TYPES}}
 

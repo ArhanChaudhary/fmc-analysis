@@ -16,7 +16,7 @@
 
 **The model.** The cube is the one of the DR-xs study (`is-dr-xs-worth-it/research/xstools/src/cubie.rs`, whose move tables come from a sticker model built from geometry), used unchanged by the Rust tool of this study (`research/eodrtools`). DR on U/D is a coset of the DR group, indexed by corner orientation (2,187), the F/B edge orientation (2,048) and the places of the four E-slice edges (495): {= COSETS() =} cosets. Two exact distance tables from the DR-xs study are reused: fewest turns of any kind to DR on U/D, and fewest turns without F/B quarter turns (keeping F/B EO). Every other DR axis and EO axis is read through a rotation of the cube, and every such mapping is checked against nissy (below). For EO to DR only the EO-solved part of each table is needed ({= EODRT() =} states each).
 
-**The scrambles.** {= n(X('n')) =} uniformly random states, drawn by the study itself (`eodrtools mkscr`, seed 2026) and written as move sequences of about 23 turns. nissy 2.0.8's `scramble` was used first and dropped. Its source (`src/commands.c`, lines 505 to 508) draws a random state as
+**The scrambles.** {= n(X('n')) =} uniformly random states, drawn by the study itself (`eodrtools mkscr`, seed 2026) and written as move sequences of about 23 turns. nissy 2.0.8's `scramble` isn't used, because it's biased. Its source (`src/commands.c`, lines 505 to 508) draws a random state as
 
     eo = rand() % POW2TO11;
     ep = rand() % FACTORIAL12;
@@ -27,11 +27,25 @@ and prints a solution of it as the scramble. glibc's `rand()` takes 2^31 values,
 
 {{nissy_bias}}
 
-The number of twisted corners per axis is also off on nissy's scrambles (chi² {= CHI('nissy', 'RL', 'twisted corners') =}, {= CHI('nissy', 'UD', 'twisted corners') =}, {= CHI('nissy', 'FB', 'twisted corners') =} on 7 degrees of freedom, p = {= CHIP('nissy', 'RL', 'twisted corners') =}, {= CHIP('nissy', 'UD', 'twisted corners') =}, {= CHIP('nissy', 'FB', 'twisted corners') =}); the cause of that is not identified. The test of every scramble set (twisted corners, bad edges and slice pieces in their slice, on each axis):
+The number of twisted corners per axis is also off on nissy's scrambles, on 7 degrees of freedom; I haven't found the cause:
+
+| Axis | chi² | p |
+|---|---|---|
+| R/L | {= CHI('nissy', 'RL', 'twisted corners') =} | {= CHIP('nissy', 'RL', 'twisted corners') =} |
+| U/D | {= CHI('nissy', 'UD', 'twisted corners') =} | {= CHIP('nissy', 'UD', 'twisted corners') =} |
+| F/B | {= CHI('nissy', 'FB', 'twisted corners') =} | {= CHIP('nissy', 'FB', 'twisted corners') =} |
+
+The test of every scramble set (twisted corners, bad edges and slice pieces in their slice, on each axis):
 
 {{scramble_checks}}
 
-The study's own scrambles pass every test. The {= n(X('s500_n')) =} scrambles the judging-a-dr study first used came from nissy's scrambler (it now uses uniform ones), and they show the same effect: the inverse best of 3 averages {= XN('s500_inv_mean', 3) =} ± {= XN('s500_inv_se', 3) =} against {= A1('inv', 'mean') =} on the uniform sample (z = {= XN('s500_inv_z', 1) =}), the best of six {= XN('s500_six_mean', 3) =} ± {= XN('s500_six_se', 3) =} against {= A1('six', 'mean') =} (z = {= XN('s500_six_z', 1) =}), while the normal side is unaffected ({= XN('s500_lin_mean', 3) =} against {= A1('lin', 'mean') =}).
+The study's own scrambles pass every test. A separate set of {= n(X('s500_n')) =} scrambles from nissy's scrambler shows the same effect:
+
+| Mean to DR | Those scrambles | Uniform sample | z |
+|---|---|---|---|
+| Inverse, best of 3 | {= XN('s500_inv_mean', 3) =} ± {= XN('s500_inv_se', 3) =} | {= A1('inv', 'mean') =} | {= XN('s500_inv_z', 1) =} |
+| Best of six | {= XN('s500_six_mean', 3) =} ± {= XN('s500_six_se', 3) =} | {= A1('six', 'mean') =} | {= XN('s500_six_z', 1) =} |
+| Normal side (unaffected) | {= XN('s500_lin_mean', 3) =} | {= A1('lin', 'mean') =} | |
 
 **Per scramble** (`eodrtools scr`): the exact DR distance on each axis, normal and inverse; the NISS DR (pre-turns on one side, stopping where they can no longer win); the number of DR solutions of each length up to 12 on the normal side; the shortest EO inside an optimal DR; every EO of up to 6 turns on each axis, normal, inverse and NISS, each with the exact EO-keeping DR distance on both DR axes; from these the best route through an EO of each length, the (EO, DR axis) counts and the optimal EOs. About 30 minutes on four cores for the {= n(X('n')) =}.
 

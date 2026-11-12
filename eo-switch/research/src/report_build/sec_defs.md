@@ -2,7 +2,7 @@
 
 Everything is written for an F/B EO and a DR on U/D. Other axes are the same up to a rotation.
 
-**State, switched side.** What matters for the DR is the *case*: which corners are twisted and how, and which places hold the four E-slice edges ({= n(2187) =} × {= n(495) =} = {= n(1082565) =} of them for one EO axis and one DR axis). After EO + RZP you have a case on normal. Switching means solving the DR on the inverse with the EO kept, so the case that matters is the inverse's, the *switched case*. All rules here are read on the switched case. Section 5 is about seeing it from normal.
+**State, switched side.** What matters for the DR is the *case*: which corners are twisted and how, and which places hold the four E-slice edges ({= n(2187) =} × {= n(495) =} = {= n(1082565) =} of them for one EO axis and one DR axis). After EO + RZP you have a case on normal. Switching means solving the DR on the inverse with the EO kept, so the case that matters is the inverse's, the *switched case*. All rules here are read on the switched case. Section 5 is about seeing it on normal.
 
 **Sub-7.** A DR in at most 6 moves with turns that keep the EO (U, D, R, L, F2, B2), linear, on the switched side, the yardstick since "we are normally looking for rzp in 5 or less and dr in 11 or less. So sub-7 from 5 move rzp gives that" (tseitsei89, [[D15188]]). For other RZP lengths the target moves: DR in 7 after a 4-move RZP, DR in 5 after a 6-move RZP. The cards give those columns too.
 

@@ -2,7 +2,24 @@
 
 **Finish.** A sequence of DR moves (U, D, R2, L2, F2, B2) that solves the DR state, E slice included. No DR-breaking or HTR-breaking moves in the HTR part; the post-HTR part may be anything in the DR group, so a finish whose last part has a quarter turn counts (it is rare: marked `| qt` in the files). For each state I list every optimal finish and every finish one move longer, including both orders of moves that commute.
 
-**DR-breaking finishes.** *Optimal* here always means the best finish in DR moves. How much that leaves out was measured with nissy's exact solver (`solve optimal`, all 18 face turns) on {= n(E['gaps']['g2_n']) =} uniform DR states (the first 1,000 of each subset × edges sample): a finish shorter than the DR-move optimum exists on **{= pc(E['gaps']['g2_all']['shorter']) =} ± {= f1(E['gaps']['g2_all']['se'] * 100) =} points of DRs**, by one move in {= p0(E['gaps']['g2_by1_of_shorter']) =} of those and by up to {= E['gaps']['g2_maxgain'] =}; the mean gain is {= f3(E['gaps']['g2_all']['mean_gain']) =} moves. On the real DRs of section 12 ({= n(E['gaps']['g2_real_n']) =} states, 500 per subset × edges) it is {= pc(E['gaps']['g2_real']['dr11']['shorter']) =} ± {= f1(E['gaps']['g2_real']['dr11']['se'] * 100) =} with each DR once and {= pc(E['gaps']['g2_real']['scr11']['shorter']) =} ± {= f1(E['gaps']['g2_real']['scr11']['se'] * 100) =} with each scramble once. It hardly touches the finishes you write: among DRs with a DR-move optimum of 12 or less it is {= pc(E['gaps']['g2_le12']) =}; it climbs only for long finishes ({= pc(E['gaps']['g2_at']['15']) =} at 15, {= pc(E['gaps']['g2_at']['16']) =} at 16). The exceptions are three 0e cells: {= '; '.join(f'{c} {x:.0f}% ({y:.0f}% by 2 or more)' for c, x, y in E['gaps']['g2_worst']) =}. Example: `{= E['gaps']['g2_ex']['scramble_reaching_state'] =}` (on a solved cube, so DR moves only; {= E['gaps']['g2_ex']['subset'] =}) has DR-move optimum {= E['gaps']['g2_ex']['dr_optimum'] =} and is solved by `{= [s['moves'] for s in E['gaps']['g2_ex']['solutions'] if s['moves'].startswith('R L')][0] =}` in {= E['gaps']['g2_ex']['true_optimum'] =}, the slice-like shape these states have. *Computed with nissy, not proved in Lean*; every solution quoted was replayed on a sticker model ({= E['gaps']['g2_ex_nsol'] =} solutions, {= E['gaps']['g2_ex_fail'] =} failures). Per corner subset:
+**DR-breaking finishes.** *Optimal* here always means the best finish in DR moves. To see how much that leaves out I ran nissy's exact solver (`solve optimal`, all 18 face turns) on {= n(E['gaps']['g2_n']) =} uniform DR states (the first 1,000 of each subset × edges sample). A finish shorter than the DR-move optimum exists on **{= pc(E['gaps']['g2_all']['shorter']) =} ± {= f1(E['gaps']['g2_all']['se'] * 100) =} points of DRs**, by one move in {= p0(E['gaps']['g2_by1_of_shorter']) =} of those and by up to {= E['gaps']['g2_maxgain'] =}; the mean gain is {= f3(E['gaps']['g2_all']['mean_gain']) =} moves. The real DRs of section 12 ({= n(E['gaps']['g2_real_n']) =} states, 500 per subset × edges) give about the same, and it hardly touches the finishes you write:
+
+| DRs | Shorter finish outside DR |
+|---|---|
+| real, each DR once | {= pc(E['gaps']['g2_real']['dr11']['shorter']) =} ± {= f1(E['gaps']['g2_real']['dr11']['se'] * 100) =} |
+| real, each scramble once | {= pc(E['gaps']['g2_real']['scr11']['shorter']) =} ± {= f1(E['gaps']['g2_real']['scr11']['se'] * 100) =} |
+| uniform, DR-move optimum 12 or less | {= pc(E['gaps']['g2_le12']) =} |
+| uniform, DR-move optimum 15 | {= pc(E['gaps']['g2_at']['15']) =} |
+| uniform, DR-move optimum 16 | {= pc(E['gaps']['g2_at']['16']) =} |
+
+So it only climbs for long finishes. The exceptions are three 0e cells: {= '; '.join(f'{c} {x:.0f}% ({y:.0f}% by 2 or more)' for c, x, y in E['gaps']['g2_worst']) =}. An example, with the slice-like shape these states have:
+
+```
+{= E['gaps']['g2_ex']['scramble_reaching_state'] =}   // on a solved cube, so DR moves only: {= E['gaps']['g2_ex']['subset'] =}, DR-move optimum {= E['gaps']['g2_ex']['dr_optimum'] =}
+{= [s['moves'] for s in E['gaps']['g2_ex']['solutions'] if s['moves'].startswith('R L')][0] =}   // solves it in {= E['gaps']['g2_ex']['true_optimum'] =}
+```
+
+*Computed with nissy, not proved in Lean*; every solution quoted was replayed on a sticker model ({= E['gaps']['g2_ex_nsol'] =} solutions, {= E['gaps']['g2_ex_fail'] =} failures). Per corner subset:
 
 {{g2_subsets}}
 
@@ -10,7 +27,7 @@ By the DR-move optimum (uniform, weighted by exact subset size):
 
 {{g2_bylen}}
 
-**Corner path, route.** Read a finish move by move and write down the corner subset at the start and after each quarter turn, until the cube is in HTR (corners and edges). `4b2 > 2c3 > 4b2 > 4a1 > 0c0` is a 4b2 that regresses to 2c3, comes back to 4b2, then goes 4a1 and HTR. The moves up to that point are the finish's HTR, the rest its post-HTR part. A *route* (route class) is the chain plus where the NISS switch is: `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` means one qt on the first side to 2c3, then switch, and the rest on the other side, where the subsets are read on that side. That is the notation of Daichi's cheat sheet; this study made the list of routes from the data, not from a list chosen in advance. Edge counts are dropped from route names in the tables (they are in the files).
+**Corner path, route.** Read a finish move by move and write down the corner subset at the start and after each quarter turn, until the cube is in HTR (corners and edges). `4b2 > 2c3 > 4b2 > 4a1 > 0c0` is a 4b2 that regresses to 2c3, comes back to 4b2, then goes 4a1 and HTR. The moves up to that point are the finish's HTR, the rest its post-HTR part. A *route* (route class) is the chain plus where the NISS switch is: `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` means one qt on the first side to 2c3, then switch, and the rest on the other side, where the subsets are read on that side. That's the notation of Daichi's cheat sheet; the list of routes comes from the data, not from a list picked in advance. Edge counts are dropped from route names in the tables (they are in the files).
 
 **NISS readings.** A finish S of a state X can be found as A on normal and then B on inverse whenever S = A·B⁻¹; and the other way, B on inverse first. So every finish of n moves has 2(n + 1) readings, one per split and side. A route *works* on a state if some reading of some optimal finish (or +1 finish, at +1) follows it. Both sides are always available: a linear route on the inverse is a reading too.
 

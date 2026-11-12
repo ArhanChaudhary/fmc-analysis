@@ -1,6 +1,9 @@
-Scramble: `R' U' F B2 L2 B2 U B2 D2 B2 U F2 R2 U' B2 R F U' B' R' U L F' L U' R' U' F`
+```
+R' U' F B2 L2 B2 U B2 D2 B2 U F2 R2 U' B2 R F U' B' R' U L F' L U' R' U' F   // scramble
+F2 U2 L' D' F' R D2 F U B U' F2 R2 L2 D' L F2 U' D' F'                       // skeleton (20)
+```
 
-Skeleton: `F2 U2 L' D' F' R D2 F U B U' F2 R2 L2 D' L F2 U' D' F'` (20), leaves a corner 5-cycle: DFL → UFR → UBL → UFL → UBR → DFL
+It leaves a corner 5-cycle: DFL → UFR → UBL → UFL → UBR → DFL.
 
 **The best first comm, then the best second**: 33 in all, the first is the only 8-2 in the skeleton.
 

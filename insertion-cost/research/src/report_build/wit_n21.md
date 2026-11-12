@@ -1,6 +1,9 @@
-Scramble: `R' U' F L' D2 B2 L2 U2 B2 R' D2 U2 L2 U' F' R F2 D2 L2 D L B' U' R' U' F`
+```
+R' U' F L' D2 B2 L2 U2 B2 R' D2 U2 L2 U' F' R F2 D2 L2 D L B' U' R' U' F   // scramble
+B' D L' U2 L' U2 D2 R D B' U F R2 F B' U B' D' B2 U R2                     // skeleton (21)
+```
 
-Skeleton: `B' D L' U2 L' U2 D2 R D B' U F R2 F B' U B' D' B2 U R2` (21), leaves a corner 3-cycle: DFL → UBR → UBL → DFL
+It leaves a corner 3-cycle: DFL → UBR → UBL → DFL.
 
 **With 8-movers**: nothing: no spot has a case with an 8-move alg.
 

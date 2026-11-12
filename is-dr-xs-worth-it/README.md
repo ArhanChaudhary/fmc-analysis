@@ -1,8 +1,14 @@
 # Is DR-xs worth it?
 
-The second case study of this repository: what the "DR minus slices" techniques (DR-xs, also called DR-fe; slice EO; DR-1s, DR-2s 8fe) cost and how often they are there, computed exactly where the state space allows it, with every concrete claim from the FMC solvers Discord checked against the numbers.
+The second case study of this repository: what the "DR minus slices" techniques (DR-xs, also called DR-fe; slice EO; DR-1s, DR-2s 8fe) cost and how often you get them, computed exactly wherever the state space allows it, with every concrete claim from the FMC solvers Discord checked against the numbers.
 
-It builds on tseitsei89's DR-Xs tutorial and trangium's statistics in it. What it adds: odds instead of averages, the exact move counts between DR-3s, DR-2s, DR-1s and DR, how often a slice EO is there and what it leads to, the same 500 scrambles as the first study with every DR-1s and DR-2s 8fe on them, and the claims check.
+It builds on tseitsei89's DR-Xs tutorial and trangium's stats in it. What it adds:
+
+- odds instead of averages;
+- the exact move counts between DR-3s, DR-2s, DR-1s and DR;
+- how often a slice EO is there and what it leads to;
+- the same 500 scrambles as the first study, with every DR-1s and DR-2s 8fe on them;
+- the claims check.
 
 | Where | What |
 |---|---|
@@ -15,7 +21,7 @@ It builds on tseitsei89's DR-Xs tutorial and trangium's statistics in it. What i
 
 ## How the numbers are made
 
-Everything starts from one sticker-level model of the cube built from geometry (`research/src/cube.py`); no permutation is typed by hand anywhere, the Rust tools read tables exported from it.
+Everything starts from one sticker-level model of the cube built from geometry (`research/src/cube.py`). No permutation is typed in by hand anywhere; the Rust tools read tables exported from it.
 
 | Step | Script | Output |
 |---|---|---|
@@ -34,7 +40,13 @@ Everything starts from one sticker-level model of the cube built from geometry (
 | The normal route by EO length on the 500 scrambles | `xeo.py` | `out/eo_run.tsv` |
 | Report tables, write-up, errata, examples page | `xtables.py`, `xreal.py`, `report_build/assemble.py` (and `--bugs`), `xexamples.py` | `report/` |
 
-Checks built in: the sticker model solves 100 scramble-and-solution pairs of the first study; the full search to a real DR reproduces the known distribution of DR lengths (1, 4, 50, 592, …, 476); the search to "any DR-xs on one axis" reproduces the distribution trangium posted (1, 4, 50, 586, 6800, …, 84); the Rust finisher agrees with a sticker-level brute force (`check_finish.py`); every solution written by `xstools attempts` is replayed on the scramble by `verify_attempts.py`.
+Checks built in:
+
+- the sticker model solves 100 scramble-and-solution pairs of the first study;
+- the full search to a real DR reproduces the known distribution of DR lengths (1, 4, 50, 592, …, 476);
+- the search to "any DR-xs on one axis" reproduces the distribution trangium posted (1, 4, 50, 586, 6800, …, 84);
+- the Rust finisher agrees with a sticker-level brute force (`check_finish.py`);
+- `verify_attempts.py` replays every solution written by `xstools attempts` on its scramble.
 
 The exact DR table (`judging-a-dr/research/data/lean_exact_table.u8`) and the 500 scrambles (`judging-a-dr/research/out/hand/attempt_scrambles.txt`) come from the first study. `xstools` uses that study's `drtools` sources for the DR group and the table index.
 

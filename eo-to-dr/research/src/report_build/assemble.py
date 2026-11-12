@@ -28,6 +28,11 @@ def one(m):
     return v if isinstance(v, str) else str(v)
 doc = re.sub(r'\{=\s*(.+?)\s*=\}', one, doc)
 assert '{=' not in doc
+def align(m):                                 # move sequences with // comments: line the comments up
+    rows = [l.split('  // ', 1) if '  // ' in l else [l] for l in m.group(1).split('\n')]
+    w = max((len(r[0].rstrip()) for r in rows if len(r) == 2), default=0)
+    return '```\n' + '\n'.join(f'{r[0].rstrip():<{w}}  // {r[1]}' if len(r) == 2 else r[0] for r in rows) + '\n```'
+doc = re.sub(r'(?m)^```\n(.*?)\n```$', align, doc, flags=re.S)
 used = []
 doc = links.expand(doc, used)
 # contents

@@ -36,7 +36,15 @@ What each line counts:
 
 Then the truth: the optimal finish in DR moves, from the full table.
 
-**How the examples were picked.** 1, 2 and 3 are the DRs in Rodney's and Levi's docs. 11 is the 1qt case from the write-up where a finish with three quarter turns is shorter than the 1qt bound. 4 to 10 are each "the first DR my random generator produced with this read", from a fixed seed. They were picked by the read, never by the outcome, so some of them go against the odds. That's on purpose. (That generator made each state with 30 random moves, which leans towards states with short finishes, so don't tally the outcomes of these seven. The DRs of the 100 scrambles at the end come from random-state scrambles and are tallied there.)
+**How the examples were picked.**
+
+| Examples | Where they're from |
+|---|---|
+| 1, 2 and 3 | the DRs in Rodney's and Levi's docs |
+| 4 to 10 | each one is "the first DR my random generator produced with this read", from a fixed seed |
+| 11 | the 1qt case from the write-up where a finish with three quarter turns is shorter than the 1qt bound |
+
+They were picked by the read, never by the outcome, so some of them go against the odds. That's on purpose. The generator made each state with 30 random moves, which leans towards states with short finishes, so don't tally the outcomes of these seven. The DRs of the 100 scrambles at the end come from random-state scrambles and are tallied there.
 
 Corner cases are named by where the bad corners are. When it matters which of two look-alike cases it is, I give the range of optimal corner solution lengths the case can have (L 7–10 and so on), which is how they're told apart in the write-up's corner case appendix.
 
@@ -73,7 +81,12 @@ So nothing under 7 here, and nothing under 9 because of the HTR on normal. For 2
 
 **Everything together**: 0 / 2.5% / 15% / 65%.
 
-**Verdict before solving.** At 9 or 10 moves you solve it: good for a 13, and a 12 is somewhere between 15% and 38% depending on which read you believe. At 11 moves it's a pass: an 11 is 2–4% on every line that knows about the six bad edges, and a 10 is half a percent at best. The reads don't agree with each other, and that's normal: this is what "an sd of 0.8 moves is left" looks like on one DR.
+**Verdict before solving.**
+
+- **At 9 or 10 moves** you solve it: good for a 13, and a 12 is somewhere between 15% and 38% depending on which read you believe.
+- **At 11 moves** it's a pass: an 11 is 2–4% on every line that knows about the six bad edges, and a 10 is half a percent at best.
+
+The reads don't agree with each other, and that's normal: this is what "an sd of 0.8 moves is left" looks like on one DR.
 
 **Truth.** 13.
 
@@ -105,7 +118,10 @@ So no finish under 11. With L = 11 and the parity for free: 0 / 0.12% / 0.73% / 
 
 **Everything together**: 0 / 0.02% / 0.29% / 10%.
 
-**Verdict before solving.** Toss it unless the DR was very short. At 11 moves it's gone before you solve anything: no 4c4 4e with one pair and these corners finishes in 11 at all. Even at 10 moves a 12 is about 1% on any single read and under half a percent with them together. What's left is a one-in-ten 13.
+**Verdict before solving.** Toss it unless the DR was very short.
+
+- **At 11 moves** it's gone before you solve anything: no 4c4 4e with one pair and these corners finishes in 11 at all.
+- **At 10 moves** a 12 is about 1% on any single read and under half a percent with them together. What's left is a one-in-ten 13.
 
 **Truth.** 13.
 
@@ -137,9 +153,23 @@ The DR ends in R on inverse. R' gives a DR too, a different state. Read both. Ev
 | everything together | <0.01% / 0.02% / 3.5% / 21% | 0 / 1.0% / 2.9% / 40% |
 | **optimal finish** | **15** | **14** |
 
-**Verdict before solving.** It's a 10-move DR, so it gets solved either way. Both versions are 9+ to HTR on both sides, which is where Zagros throws a 4c3 away, and the corner cases on inverse are the two worst 4a3s. A 13-move finish would need luck (20–40%), a 12 isn't happening (3%), and an 11 is somewhere between 0.02% and 1.6% depending on the line. With R' a 10 is ruled out for certain, because the corner solution of the right parity is 11. One move longer and this DR would have been a toss on sight.
+**Verdict before solving.** It's a 10-move DR, so it gets solved either way. Both versions are 9+ to HTR on both sides, which is where Zagros throws a 4c3 away, and the corner cases on inverse are the two worst 4a3s. So:
 
-**Truth.** 15 as written, 14 with R'. Levi's doc says "14-move optimal finish, giving a 24", and that's the R' one. The reads pointed the same way for 13 (21% against 40%) but not for 12 (3.5% against 2.9%). An invertible last move is worth a third of a move on average. Here it's worth a whole one.
+- a 13-move finish would need luck (20–40%),
+- a 12 isn't happening (3%),
+- an 11 is somewhere between 0.02% and 1.6% depending on the line,
+- with R' a 10 is ruled out for certain, because the corner solution of the right parity is 11.
+
+One move longer and this DR would have been a toss on sight.
+
+**Truth.** 15 as written, 14 with R'. Levi's doc says "14-move optimal finish, giving a 24", and that's the R' one. With everything read, the two versions compare like this:
+
+| Finish in | Ending in R | Ending in R' | Pointed the right way? |
+|---|---:|---:|---|
+| 13 | 21% | 40% | yes |
+| 12 | 3.5% | 2.9% | no |
+
+An invertible last move is worth a third of a move on average. Here it's worth a whole one.
 
 ---
 
@@ -197,7 +227,12 @@ The E-slice is odd, so it's the 9. With L = 8 and +1 for parity: 0.55% / 2.6% / 
 
 **Everything together**: 0.19% / 1.5% / 17% / 52%.
 
-**Verdict before solving.** At 9 or 10 moves, solve it. For a 2c4 this is as good as they come, about a coin flip for 13 and one in five or six for 12, against one in eleven for the subset. At 11 moves it's a long shot even so: the best corners there are take an 11 from 1.6% to 5.6%, the single pair pulls that back to about 3%, and with everything read it's 1.5%. A 10 is under 1% on every line. That's what 4qt looks like at this target.
+**Verdict before solving.**
+
+- **At 9 or 10 moves**, solve it. For a 2c4 this is as good as they come: about a coin flip for 13 and one in five or six for 12, against one in eleven for the subset.
+- **At 11 moves** it's a long shot even so. The best corners there are take an 11 from 1.6% to 5.6%, the single pair pulls that back to about 3%, and with everything read it's 1.5%. A 10 is under 1% on every line.
+
+That's what 4qt looks like at this target.
 
 **Truth.** 12.
 
@@ -251,7 +286,10 @@ Same subset as example 5, same number of bad pieces, roughly the same pairs. One
 
 **Everything together**: 0 / 0.05% / 0.68% / 19%.
 
-**Verdict before solving.** No 12 here. A 13 one time in five. Toss unless the DR is short enough that a 14 helps. At 11 moves there's nothing to think about: the corner solution of the right parity is 11, so a 10 is ruled out for certain, and an 11 is one in 2,000 with everything read.
+**Verdict before solving.** No 12 here, and a 13 one time in five.
+
+- **With a short DR**: toss it unless the DR is short enough that a 14 helps.
+- **At 11 moves** there's nothing to think about: the corner solution of the right parity is 11, so a 10 is ruled out for certain, and an 11 is one in 2,000 with everything read.
 
 **Truth.** 15.
 
@@ -310,7 +348,10 @@ Examples 7 and 8 are the same subset. This is the spread Zagros's rule is cuttin
 
 **Everything together**: 0 / 0.43% / 2.8% / 29%.
 
-**Verdict before solving.** The only read that likes it is the pairs, and pairs take it from a 12% shot at 13 to 28–29%. Worth a look with a short DR, with low hopes for 12. At 11 moves, no: 11 to HTR on normal means no 10 for certain, and even six pairs leave an 11 under 1%.
+**Verdict before solving.** The only read that likes it is the pairs, and pairs take it from a 12% shot at 13 to 28–29%.
+
+- **With a short DR** it's worth a look, with low hopes for 12.
+- **At 11 moves**, no: 11 to HTR on normal means no 10 for certain, and even six pairs leave an 11 under 1%.
 
 **Truth.** 12.
 
@@ -368,17 +409,35 @@ The optimal here takes six moves to get to HTR and seven half turns after it. No
 
     U B2 L2 F2 D F2 D   // 7, three quarter turns
 
-The formula is exact for finishes with one quarter turn, which is what it's for, and says nothing about finishes with three. Over all 4a1 4e, a 3qt finish is shorter than the formula 11.7% of the time. The other reads here: five pairs (15% / 43% / 81% / 99% in 10 / 11 / 12 / 13 for 4a1 4e with five pairs), L = 3 with the parity for free, and 12% / 45% / 90% / 100% with everything together. So when a 4a1 4e is this blocky and the bound still says 10, it's worth a minute on the 3qt finishes before you believe it. On an 11-move DR a bound of 10 reads as "a 21 at best", and here there was an 18 under it.
+The formula is exact for finishes with one quarter turn, which is what it's for, and says nothing about finishes with three. Over all 4a1 4e, a 3qt finish is shorter than the formula 11.7% of the time. The other reads here, as the share finishing in 10 / 11 / 12 / 13:
+
+| Read | What it says |
+|---|---|
+| five pairs (for 4a1 4e with five pairs) | 15% / 43% / 81% / 99% |
+| corner solution | L = 3 with the parity for free |
+| everything together | 12% / 45% / 90% / 100% |
+
+So when a 4a1 4e is this blocky and the bound still says 10, it's worth a minute on the 3qt finishes before you believe it. On an 11-move DR a bound of 10 reads as "a 21 at best", and here there was an 18 under it.
 
 ---
 
 ## What the examples show
 
-- **Corners on both sides are the best quick read at 4–5qt.** Examples 4, 5 and 6 are decided by them in seconds: 0, 26% and 0.63% for a 12, and 0, 5.6% and 0.03% for an 11.
-- **HTR on both sides is the best read once you have it.** Examples 7 and 8: 5.6% against 43% for a 12, 0.51% against 14% for an 11.
+The examples where a single read did the deciding:
+
+| Example | Read | For a 12 | For an 11 |
+|---|---|---:|---:|
+| 4 | corners on both sides | 0 | 0 |
+| 5 | corners on both sides | 26% | 5.6% |
+| 6 | corners on both sides | 0.63% | 0.03% |
+| 7 | HTR on both sides | 5.6% | 0.51% |
+| 8 | HTR on both sides | 43% | 14% |
+
+- **Corners on both sides are the best quick read at 4–5qt.** They settle the first three of those in seconds.
+- **HTR on both sides is the best read once you have it.** The last two are the same subset, and the HTR lengths alone split them, for a 12 and for an 11.
 - **Pairs are free and sometimes the only read that's right** (example 9), and sometimes wrong (example 5 had one pair and a 12).
 - **The target changes the verdict.** Examples 1 and 5 are DRs you solve at 9 or 10 moves and pass on at 11: a 12 is about one in five, an 11 is a few percent. Example 8 is the one you keep at 11 moves.
-- **The parity bound is the only certainty, and it bites more the lower your target.** In examples 4 and 6 it rules out a 12 outright: no finish under 14, no finish under 13. In examples 2, 7 and 9 the corner solution of the right parity is 11, which is no use against a 12 and rules out a 10.
+- **The parity bound is the only certainty, and it bites more the lower your target.** In examples 4 and 6 it rules out a 12 outright: no finish under 14, and no finish under 13. In examples 2, 7 and 9 the corner solution of the right parity is 11. That's no use against a 12, but it rules out a 10.
 - **Odds are odds.** Example 2 was a 10% shot at 13 and came in. Example 10 was a 76% shot at 12 and didn't. Over many DRs the reads roughly double your hit rate for a 12, and do more than that for a 10 or an 11. On one DR they can't promise anything, and for that you still need to bound per skeleton the way Rodney does.
 
 ---
@@ -389,9 +448,9 @@ The formula is exact for finishes with one quarter turn, which is what it's for,
 
 A hundred random-state scrambles, written the way FMC scrambles are, and for each one some of the DRs you could have on your page. What you can read off each DR without solving is in the table. The answers are folded away under it: pick the DRs you'd finish, then open them.
 
-**Where the DRs come from.** cubelib-cli (the solver behind Mallard) lists every DR that goes EO first (EOs of up to 5 moves, it lists no longer ones), with NISS, and then DR on normal or on inverse without breaking the EO, on all three axes. A scramble has far more of those than anyone writes down: 721 up to 11 moves on average over the 500 scrambles of the tally at the end. Each scramble shows at most 8 of them: up to 4 of 10 moves or less, shortest first, then 11-movers, drawn at random where there are more. Nothing was picked by how it finishes.
+**Where the DRs come from.** cubelib-cli (the solver behind Mallard) lists every DR that goes EO first (EOs of up to 5 moves; it doesn't list longer ones), with NISS, and then DR on normal or on inverse without breaking the EO, on all three axes. A scramble has far more of those than anyone writes down: 721 up to 11 moves on average over the 500 scrambles of the tally at the end. Each scramble shows at most 8 of them: up to 4 of 10 moves or less, shortest first, then 11-movers, drawn at random where there are more. Nothing was picked by how it finishes.
 
-**What is being tried out.** A DR of 10 moves or less you finish whatever it looks like. The 11-movers are where you need a quick way to say no, and that is what the short list in the write-up's guide is for. It needs no solving:
+**What you're testing.** You finish a DR of 10 moves or less whatever it looks like. The 11-movers are where you need a quick way to say no, and that's what the short list in the write-up's guide is for. It needs no solving:
 
 - **2c5, 4b5, 4c4, 0c3, 0c4**: drop it.
 - **2c4**: keep it only if on both sides the bad corners are not stacked and a quarter turn takes them straight to 2c3 or 4b3, or if it has four or more pairs.
@@ -471,7 +530,9 @@ A hundred random-state scrambles, written the way FMC scrambles are, and for eac
 
 #### Scramble 1
 
-`R' U' F L2 D' L2 F2 U' L2 D R2 U R2 B' R2 U R F U2 R' F R D' R U R' U' F`
+```
+R' U' F L2 D' L2 F2 U' L2 D R2 U R2 B' R2 U R F U2 R' F R D' R U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -506,7 +567,9 @@ Best on the page: **24 moves**, from DR 1 (DR 2, 4 and 6 tie it): `R' D2 L' U2 F
 
 #### Scramble 2
 
-`R' U' F L2 U L2 F2 D2 R2 B2 F2 D U' L' F2 R' F2 U B' D' L2 D2 F' U R' U' F`
+```
+R' U' F L2 U L2 F2 D2 R2 B2 F2 D U' L' F2 R' F2 U B' D' L2 D2 F' U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -541,7 +604,9 @@ Best on the page: **23 moves**, from DR 1 (DR 2 and 5 tie it): `U L F L2 F R2 D2
 
 #### Scramble 3
 
-`R' U' F L2 D2 L2 U2 R2 B2 R2 D F2 D' R' U' F' U2 L' U' B R U2 L2 U R' U' F`
+```
+R' U' F L2 D2 L2 U2 R2 B2 R2 D F2 D' R' U' F' U2 L' U' B R U2 L2 U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -576,7 +641,9 @@ Best on the page: **22 moves**, from DR 2 (DR 3 ties it): `F2 D2 F U' R U2 L F B
 
 #### Scramble 4
 
-`R' U' F R2 B2 U2 F2 D U2 B2 D' L2 D' L B D U' L U' B2 F2 R2 F2 U' R' U' F`
+```
+R' U' F R2 B2 U2 F2 D U2 B2 D' L2 D' L B D U' L U' B2 F2 R2 F2 U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -611,7 +678,9 @@ Best on the page: **20 moves**, from DR 1: `R' U' L' U L F' R2 L2 B' L2 B' U2 L2
 
 #### Scramble 5
 
-`R' U' F U' L2 B2 R2 D R2 F2 D2 L2 R2 F' R2 D' F L U B' L' B L2 U R' U' F`
+```
+R' U' F U' L2 B2 R2 D R2 F2 D2 L2 R2 F' R2 D' F L U B' L' B L2 U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -646,7 +715,9 @@ Best on the page: **20 moves**, from DR 4: `D R2 D R U B2 L2 F2 B' U2 R2 U2 L2 F
 
 #### Scramble 6
 
-`R' U' F U R D2 L2 F' U R' F L' D2 B' R2 D2 R2 D F2 B2 D R2 U B2 R' U' F`
+```
+R' U' F U R D2 L2 F' U R' F L' D2 B' R2 D2 R2 D F2 B2 D R2 U B2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -681,7 +752,9 @@ Best on the page: **22 moves**, from DR 3 (DR 5 ties it): `D2 F R2 B D2 F L2 D2 
 
 #### Scramble 7
 
-`R' U' F L2 U2 R2 U F2 U' L2 D' F2 D' F' L B' U' B2 L' D R' D F U' R' U' F`
+```
+R' U' F L2 U2 R2 U F2 U' L2 D' F2 D' F' L B' U' B2 L' D R' D F U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -716,7 +789,9 @@ Best on the page: **21 moves**, from DR 1 (DR 2 ties it): `U' R2 F2 L2 F2 D2 R B
 
 #### Scramble 8
 
-`R' U' F D2 F2 L2 U2 F2 R2 D' F2 U L2 F L2 R' U B R2 F' U' R D2 R' U' F`
+```
+R' U' F D2 F2 L2 U2 F2 R2 D' F2 U L2 F L2 R' U B R2 F' U' R D2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -751,7 +826,9 @@ Best on the page: **20 moves**, from DR 1: `D2 B' U' F U2 B U2 F2 U2 R D2 R U2 L
 
 #### Scramble 9
 
-`R' U' F D2 B2 R2 F2 U L2 B2 D2 B2 U B R U R2 B' D2 L2 B' F' L' U R' U' F`
+```
+R' U' F D2 B2 R2 F2 U L2 B2 D2 B2 U B R U R2 B' D2 L2 B' F' L' U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -786,7 +863,9 @@ Best on the page: **21 moves**, from DR 2: `B2 R D2 L D2 F2 L2 B2 R F2 L' D2 B' 
 
 #### Scramble 10
 
-`R' U' F D B2 D L2 D B2 D2 U' F2 R D B R2 U' R D2 U2 B2 R D' R' U' F`
+```
+R' U' F D B2 D L2 D B2 D2 U' F2 R D B R2 U' R D2 U2 B2 R D' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -821,7 +900,9 @@ Best on the page: **18 moves**, from DR 4: `U' F2 D2 R F' B2 L2 U' B2 U' B2 U' B
 
 #### Scramble 11
 
-`R' U' F R2 D2 R2 U' B2 F2 D' L2 F2 R2 F' D2 L B2 U R' B' L2 B F U' R' U' F`
+```
+R' U' F R2 D2 R2 U' B2 F2 D' L2 F2 R2 F' D2 L B2 U R' B' L2 B F U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -856,7 +937,9 @@ Best on the page: **23 moves**, from DR 2 (DR 3 and 4 tie it): `D F U R' U2 R F2
 
 #### Scramble 12
 
-`R' U' F R2 U' L2 U L B R' U D B D' L2 D B2 L2 B2 D' B2 D F2 R' U' F`
+```
+R' U' F R2 U' L2 U L B R' U D B D' L2 D B2 L2 B2 D' B2 D F2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -891,7 +974,9 @@ Best on the page: **21 moves**, from DR 3: `U' B U L2 U2 L2 B2 D2 U2 R' U2 R B2 
 
 #### Scramble 13
 
-`R' U' F R2 D2 F2 U2 B2 L2 D U B2 U F L2 R2 D F' L' D' L U' L D' R' U' F`
+```
+R' U' F R2 D2 F2 U2 B2 L2 D U B2 U F L2 R2 D F' L' D' L U' L D' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -926,7 +1011,9 @@ Best on the page: **23 moves**, from DR 6: `R U2 D B2 D L2 B U R2 D2 R2 F' R2 F'
 
 #### Scramble 14
 
-`R' U' F R2 F' R U R2 B' D2 L' F U' R U D' R2 L2 F2 R2 B2 D F2 B2 R' U' F`
+```
+R' U' F R2 F' R U R2 B' D2 L' F U' R U D' R2 L2 F2 R2 B2 D F2 B2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -961,7 +1048,9 @@ Best on the page: **22 moves**, from DR 6: `B2 L' D2 U2 B2 L B2 L' F2 B2 D2 F L 
 
 #### Scramble 15
 
-`R' U' F U' B2 D' B2 U' B2 R2 B2 F2 D L U F' D2 L' D2 U' F' D' B2 R' U' F`
+```
+R' U' F U' B2 D' B2 U' B2 R2 B2 F2 D L U F' D2 L' D2 U' F' D' B2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -996,7 +1085,9 @@ Best on the page: **22 moves**, from DR 1 (DR 4 ties it): `B2 D R' F' L U' F2 L2
 
 #### Scramble 16
 
-`R' U' F R2 B' R2 U2 B2 D2 F' L2 D2 R2 D' L2 R F2 L' R F' U F2 U' F2 R' U' F`
+```
+R' U' F R2 B' R2 U2 B2 D2 F' L2 D2 R2 D' L2 R F2 L' R F' U F2 U' F2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1031,7 +1122,9 @@ Best on the page: **19 moves**, from DR 1: `U D R U' B' D' L2 D2 B2 U2 D' F2 R2 
 
 #### Scramble 17
 
-`R' U' F L2 D2 L2 B2 D' B2 L2 R2 D2 U2 F U2 L' F2 D' F R D' B L' D R' U' F`
+```
+R' U' F L2 D2 L2 B2 D' B2 L2 R2 D2 U2 F U2 L' F2 D' F R D' B L' D R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1066,7 +1159,9 @@ Best on the page: **22 moves**, from DR 1: `L D' L2 R U' R B2 D2 B2 R2 L' U2 F2 
 
 #### Scramble 18
 
-`R' U' F L2 F2 L U2 B2 R D2 F2 L2 R U' D R' F' D' R2 U D2 F D R' U' F`
+```
+R' U' F L2 F2 L U2 B2 R D2 F2 L2 R U' D R' F' D' R2 U D2 F D R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1101,7 +1196,9 @@ Best on the page: **21 moves**, from DR 3: `L2 B L F L R2 U' L D' R2 B2 L U2 L' 
 
 #### Scramble 19
 
-`R' U' F D2 F2 L2 F D2 F L2 F2 D2 F L R' B2 D R' D B2 R' B' D' R' U' F`
+```
+R' U' F D2 F2 L2 F D2 F L2 F2 D2 F L R' B2 D R' D B2 R' B' D' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1136,7 +1233,9 @@ Best on the page: **22 moves**, from DR 1 (DR 2, 3, 4 and 8 tie it): `F' B L' R 
 
 #### Scramble 20
 
-`R' U' F R2 D2 U R2 D2 U' B2 F2 L2 B2 L B2 F2 R B U B D' L F2 U' R' U' F`
+```
+R' U' F R2 D2 U R2 D2 U' B2 F2 L2 B2 L B2 F2 R B U B D' L F2 U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1171,7 +1270,9 @@ Best on the page: **21 moves**, from DR 8: `L' D F' B U' D2 L' R' D R' F2 U L2 F
 
 #### Scramble 21
 
-`R' U' F U2 L2 D2 R2 U' L2 D L2 B2 D' L' D L' B' U' F' U L' D L2 U R' U' F`
+```
+R' U' F U2 L2 D2 R2 U' L2 D L2 B2 D' L' D L' B' U' F' U L' D L2 U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1206,7 +1307,9 @@ Best on the page: **21 moves**, from DR 2: `R2 B R F2 U2 L2 B2 L' F2 U2 R2 U2 L'
 
 #### Scramble 22
 
-`R' U' F D2 F' R2 D2 B U2 B L2 B' L2 R B U2 L2 B' D' R' U' F U B2 F' R' U' F`
+```
+R' U' F D2 F' R2 D2 B U2 B L2 B' L2 R B U2 L2 B' D' R' U' F U B2 F' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1241,7 +1344,9 @@ Best on the page: **22 moves**, from DR 1 (DR 3 and 4 tie it): `F2 L2 D2 U2 F2 R
 
 #### Scramble 23
 
-`R' U' F R2 D2 U' B2 U' R2 U' R2 L2 D R L2 D2 B L D' R' U2 F D' B2 R' U' F`
+```
+R' U' F R2 D2 U' B2 U' R2 U' R2 L2 D R L2 D2 B L D' R' U2 F D' B2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1276,7 +1381,9 @@ Best on the page: **21 moves**, from DR 1: `L U' F2 B' L U' B D' B' R2 L2 D2 B2 
 
 #### Scramble 24
 
-`R' U' F U' B2 U2 F2 U R2 F2 U' B2 U2 F L D' B L U L2 R' B' F' U R' U' F`
+```
+R' U' F U' B2 U2 F2 U R2 F2 U' B2 U2 F L D' B L U L2 R' B' F' U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1311,7 +1418,9 @@ Best on the page: **21 moves**, from DR 5 (DR 8 ties it): `B2 L U2 F2 U2 R2 F2 R
 
 #### Scramble 25
 
-`R' U' F L2 U' R D2 F' D2 R' B' L' R F' D' B2 D L2 R2 B2 U B2 L2 D' R' U' F`
+```
+R' U' F L2 U' R D2 F' D2 R' B' L' R F' D' B2 D L2 R2 B2 U B2 L2 D' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1346,7 +1455,9 @@ Best on the page: **22 moves**, from DR 1: `F R F L2 D2 F2 L' B2 R' B2 R2 U2 L D
 
 #### Scramble 26
 
-`R' U' F R' F2 R2 L F2 D2 R' D2 F' U' L' U' B2 U' F2 U' B2 L2 U2 R2 D' R' U' F`
+```
+R' U' F R' F2 R2 L F2 D2 R' D2 F' U' L' U' B2 U' F2 U' B2 L2 U2 R2 D' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1381,7 +1492,9 @@ Best on the page: **19 moves**, from DR 3: `F2 R2 F B U' B R2 U' R2 L2 U' L2 U' 
 
 #### Scramble 27
 
-`R' U' F D' R2 D L2 U' R2 D' B2 D' U' R U' F2 D2 B' F2 U F2 R' U' R' U' F`
+```
+R' U' F D' R2 D L2 U' R2 D' B2 D' U' R U' F2 D2 B' F2 U F2 R' U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1416,7 +1529,9 @@ Best on the page: **20 moves**, from DR 1: `U' D' L2 D2 B' D B' L2 F' D2 F' D2 B
 
 #### Scramble 28
 
-`R' U' F U2 R2 D2 B2 R2 D' L2 D2 U' R2 B U' B' R F D2 F2 D' F L U R' U' F`
+```
+R' U' F U2 R2 D2 B2 R2 D' L2 D2 U' R2 B U' B' R F D2 F2 D' F L U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1451,7 +1566,9 @@ Best on the page: **22 moves**, from DR 3: `R2 F B2 L2 U L2 D F2 D2 B2 L2 F2 L2 
 
 #### Scramble 29
 
-`R' U' F U' F2 U2 B2 R2 B2 L2 F2 R2 U R B2 F U' L2 F' U B D' L U' R' U' F`
+```
+R' U' F U' F2 U2 B2 R2 B2 L2 F2 R2 U R B2 F U' L2 F' U B D' L U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1486,7 +1603,9 @@ Best on the page: **21 moves**, from DR 1: `R' D2 F2 L B2 R F2 L2 F2 U2 R' F2 U2
 
 #### Scramble 30
 
-`R' U' F U2 L2 D' F2 U L2 R2 B2 U L2 F' U2 L' B' F2 D B U F2 U' R' U R' U' F`
+```
+R' U' F U2 L2 D' F2 U L2 R2 B2 U L2 F' U2 L' B' F2 D B U F2 U' R' U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1521,7 +1640,9 @@ Best on the page: **23 moves**, from DR 5: `F' R D2 L U2 B2 U' R2 U R2 B2 D2 B2 
 
 #### Scramble 31
 
-`R' U' F D' F2 U L2 U L2 B2 R2 U2 R2 B F' D' B' U2 R F D' F2 U R' U' F`
+```
+R' U' F D' F2 U L2 U L2 B2 R2 U2 R2 B F' D' B' U2 R F D' F2 U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1556,7 +1677,9 @@ Best on the page: **20 moves**, from DR 3: `U2 F2 R2 B2 U L2 D2 F2 R2 D' B2 R' U
 
 #### Scramble 32
 
-`R' U' F U2 R' B' R L2 U2 B L D' B U2 F B2 R2 D2 R2 L2 U L2 D' L2 D R' U' F`
+```
+R' U' F U2 R' B' R L2 U2 B L D' B U2 F B2 R2 D2 R2 L2 U L2 D' L2 D R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1591,7 +1714,9 @@ Best on the page: **21 moves**, from DR 1 (DR 2 ties it): `L U' R F' D R2 F' D2 
 
 #### Scramble 33
 
-`R' U' F U2 R2 U' L2 F2 D F2 D' R2 U2 L' F2 R2 F' R B' F2 D R D U2 R' U' F`
+```
+R' U' F U2 R2 U' L2 F2 D F2 D' R2 U2 L' F2 R2 F' R B' F2 D R D U2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1626,7 +1751,9 @@ Best on the page: **23 moves**, from DR 1 (DR 3, 4 and 6 tie it): `F D' B' L D2 
 
 #### Scramble 34
 
-`R' U' F U' B D L F D2 B2 L' B' L B' R2 D L2 F2 L2 F2 U2 D' F2 D' R' U' F`
+```
+R' U' F U' B D L F D2 B2 L' B' L B' R2 D L2 F2 L2 F2 U2 D' F2 D' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1661,7 +1788,9 @@ Best on the page: **20 moves**, from DR 2: `F2 R2 B' R2 L2 F' D2 L2 B L2 F2 D F 
 
 #### Scramble 35
 
-`R' U' F U B L2 U' L F2 D2 U' R B L D2 B2 R2 L2 B L2 B R2 D2 F' R' U' F`
+```
+R' U' F U B L2 U' L F2 D2 U' R B L D2 B2 R2 L2 B L2 B R2 D2 F' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1696,7 +1825,9 @@ Best on the page: **21 moves**, from DR 1: `D R B L U' F2 D2 U2 R' U2 R' L2 U2 R
 
 #### Scramble 36
 
-`R' U' F D B2 R2 U' L2 B2 U F2 R2 F R' B' F' U L B2 D2 R' B U' R' U' F`
+```
+R' U' F D B2 R2 U' L2 B2 U F2 R2 F R' B' F' U L B2 D2 R' B U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1731,7 +1862,9 @@ Best on the page: **22 moves**, from DR 1 (DR 2, 3 and 4 tie it): `F2 R2 F2 D2 R
 
 #### Scramble 37
 
-`R' U' F U2 B2 D2 R2 D' L2 D B2 U' L' B' D' U' B' D2 R D R' U2 F' R' U' F`
+```
+R' U' F U2 B2 D2 R2 D' L2 D B2 U' L' B' D' U' B' D2 R D R' U2 F' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1766,7 +1899,9 @@ Best on the page: **20 moves**, from DR 3: `L F2 U' L2 U2 R' D2 L' D2 L B2 U2 B2
 
 #### Scramble 38
 
-`R' U' F D B2 D2 L2 U L2 B2 U' L2 D2 F' R D' U2 F B' D' L B2 D2 B' U' R' U' F`
+```
+R' U' F D B2 D2 L2 U L2 B2 U' L2 D2 F' R D' U2 F B' D' L B2 D2 B' U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1801,7 +1936,9 @@ Best on the page: **22 moves**, from DR 3 (DR 5 ties it): `R' F' R' U' L' B' U2 
 
 #### Scramble 39
 
-`R' U' F D2 F2 D F2 U R2 F2 D R2 U2 B' D' L D2 F2 D' F2 U2 R D U' R' U' F`
+```
+R' U' F D2 F2 D F2 U R2 F2 D R2 U2 B' D' L D2 F2 D' F2 U2 R D U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1836,7 +1973,9 @@ Best on the page: **23 moves**, from DR 1: `F B R F' R2 B D2 F' D2 F2 R2 F' R2 B
 
 #### Scramble 40
 
-`R' U' F U2 B2 R2 B2 U R2 U F2 D' U2 R F' U' R' D2 L2 B' U2 B' R' F' R' U' F`
+```
+R' U' F U2 B2 R2 B2 U R2 U F2 D' U2 R F' U' R' D2 L2 B' U2 B' R' F' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1871,7 +2010,9 @@ Best on the page: **21 moves**, from DR 4: `R' B R U' B' R2 D R2 F' B2 D' F2 L2 
 
 #### Scramble 41
 
-`R' U' F D2 R2 U R2 B2 D U2 F2 U L' R2 F' L2 U' R' B U' L2 R' U' R' U' F`
+```
+R' U' F D2 R2 U R2 B2 D U2 F2 U L' R2 F' L2 U' R' B U' L2 R' U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1906,7 +2047,9 @@ Best on the page: **22 moves**, from DR 3: `L2 B' D2 B' D2 F D2 F2 U2 F R2 F' R'
 
 #### Scramble 42
 
-`R' U' F D2 U' B2 U R2 D' R2 B2 U' R' B2 D2 B2 F' U R2 D' R' B' L' U' R' U' F`
+```
+R' U' F D2 U' B2 U R2 D' R2 B2 U' R' B2 D2 B2 F' U R2 D' R' B' L' U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1941,7 +2084,9 @@ Best on the page: **22 moves**, from DR 4: `L2 U' R2 U' F' L' F' R' U2 B R U2 L'
 
 #### Scramble 43
 
-`R' U' F U B2 R2 F2 U' L2 D B2 U B2 R D2 F' L F' U2 F' D2 U F' U R' U' F`
+```
+R' U' F U B2 R2 F2 U' L2 D B2 U B2 R D2 F' L F' U2 F' D2 U F' U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -1976,7 +2121,9 @@ Best on the page: **21 moves**, from DR 1: `D2 F2 B2 D' L2 B2 D' R2 F2 B2 D F2 L
 
 #### Scramble 44
 
-`R' U' F D' B2 U B2 D' F2 U2 B2 R' B2 R' B U F L' F' R2 B F' R' U' F`
+```
+R' U' F D' B2 U B2 D' F2 U2 B2 R' B2 R' B U F L' F' R2 B F' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2011,7 +2158,9 @@ Best on the page: **22 moves**, from DR 1: `U' D' L U2 R' B' L D2 B' U2 L2 B' D2
 
 #### Scramble 45
 
-`R' U' F U2 R2 F2 U' B2 D' R2 D' L2 U2 L' U B U B R U2 F' D' U F' R' U' F`
+```
+R' U' F U2 R2 F2 U' B2 D' R2 D' L2 U2 L' U B U B R U2 F' D' U F' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2046,7 +2195,9 @@ Best on the page: **21 moves**, from DR 3: `L' B2 R2 U2 B2 D' F2 B2 R2 B2 D F2 B
 
 #### Scramble 46
 
-`R' U' F U R L U R2 D2 B U R U2 L F B2 U' B2 D' F2 U' R2 F2 U' B2 R' U' F`
+```
+R' U' F U R L U R2 D2 B U R U2 L F B2 U' B2 D' F2 U' R2 F2 U' B2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2081,7 +2232,9 @@ Best on the page: **21 moves**, from DR 3: `D L F' B' L F2 U2 F2 D2 B2 R2 F' L2 
 
 #### Scramble 47
 
-`R' U' F U B2 D R2 U2 R2 B2 R2 F2 D F' R D R2 D L2 B' D' F' B' D2 U' R' U' F`
+```
+R' U' F U B2 D R2 U2 R2 B2 R2 F2 D F' R D R2 D L2 B' D' F' B' D2 U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2116,7 +2269,9 @@ Best on the page: **21 moves**, from DR 1: `B' R B L R2 F' B2 D F D2 F2 D2 F U2 
 
 #### Scramble 48
 
-`R' U' F U L2 B2 D B2 D F2 D2 B2 R2 F' R' B' D' U R U B2 U L2 F' U' R' U' F`
+```
+R' U' F U L2 B2 D B2 D F2 D2 B2 R2 F' R' B' D' U R U B2 U L2 F' U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2151,7 +2306,9 @@ Best on the page: **22 moves**, from DR 2 (DR 3 ties it): `D' L2 U F2 L2 F2 R2 U
 
 #### Scramble 49
 
-`R' U' F L' D' R L' U2 L2 F' U2 D' B L' U F2 D' B2 L2 F2 U2 R2 D2 R' U' F`
+```
+R' U' F L' D' R L' U2 L2 F' U2 D' B L' U F2 D' B2 L2 F2 U2 R2 D2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2186,7 +2343,9 @@ Best on the page: **20 moves**, from DR 2 (DR 3 ties it): `F2 U L2 F2 L2 U F2 D2
 
 #### Scramble 50
 
-`R' U' F L B' D' B2 R2 B2 R D R2 F' R F2 U' F2 U R2 B2 D' B2 R' U' F`
+```
+R' U' F L B' D' B2 R2 B2 R D R2 F' R F2 U' F2 U R2 B2 D' B2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2221,7 +2380,9 @@ Best on the page: **23 moves**, from DR 1 (DR 2, 3, 4, 5 and 7 tie it): `U F B L
 
 #### Scramble 51
 
-`R' U' F U F2 L2 U R2 B2 F2 U' F2 U' R' B' U' B R D2 B L2 F' U' R' U' F`
+```
+R' U' F U F2 L2 U R2 B2 F2 U' F2 U' R' B' U' B R D2 B L2 F' U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2256,7 +2417,9 @@ Best on the page: **21 moves**, from DR 1: `F2 R2 B' L2 B R2 B' R2 B2 R2 U2 B2 D
 
 #### Scramble 52
 
-`R' U' F R2 D' F2 R2 U2 B2 L2 U2 B2 F2 L F R F' R2 U' L2 F2 R' U2 B2 R' U' F`
+```
+R' U' F R2 D' F2 R2 U2 B2 L2 U2 B2 F2 L F R F' R2 U' L2 F2 R' U2 B2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2291,7 +2454,9 @@ Best on the page: **21 moves**, from DR 1: `L B2 R F2 U2 R U2 R B2 D2 L2 B2 D2 B
 
 #### Scramble 53
 
-`R' U' F U L2 U B2 R2 U F2 L2 U R' B2 D' U L' F' R2 F' D' B2 F R' U' F`
+```
+R' U' F U L2 U B2 R2 U F2 L2 U R' B2 D' U L' F' R2 F' D' B2 F R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2326,7 +2491,9 @@ Best on the page: **21 moves**, from DR 8: `R F B D F U' L2 D' L2 B L2 D2 U2 F R
 
 #### Scramble 54
 
-`R' U' F U' L2 U2 F2 U' L2 R2 U B2 U R D' L' R B L U2 L2 F U L2 U' R' U' F`
+```
+R' U' F U' L2 U2 F2 U' L2 R2 U B2 U R D' L' R B L U2 L2 F U L2 U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2361,7 +2528,9 @@ Best on the page: **20 moves**, from DR 3: `L2 U2 B U' L F' L' R B R' D2 R F2 U2
 
 #### Scramble 55
 
-`R' U' F D' F2 U2 L2 D F2 U F2 B2 U F B2 D B U F R U2 F D' R' U2 R' U' F`
+```
+R' U' F D' F2 U2 L2 D F2 U F2 B2 U F B2 D B U F R U2 F D' R' U2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2396,7 +2565,9 @@ Best on the page: **22 moves**, from DR 1 (DR 4 ties it): `L' U L2 D B L' B2 L D
 
 #### Scramble 56
 
-`R' U' F L2 R2 B2 D2 U' L2 U F2 U L2 F' L U' B D' R B F L' R' B' U R' U' F`
+```
+R' U' F L2 R2 B2 D2 U' L2 U F2 U L2 F' L U' B D' R B F L' R' B' U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2431,7 +2602,9 @@ Best on the page: **21 moves**, from DR 1 (DR 2 and 3 tie it): `F' U R' B2 L U2 
 
 #### Scramble 57
 
-`R' U' F L2 U' F2 B2 U2 F2 R2 D R2 U2 F' U2 R' F' U2 B D B2 L' U2 R2 U' R' U' F`
+```
+R' U' F L2 U' F2 B2 U2 F2 R2 D R2 U2 F' U2 R' F' U2 B D B2 L' U2 R2 U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2466,7 +2639,9 @@ Best on the page: **23 moves**, from DR 1 (DR 2, 3, 4 and 5 tie it): `U' R2 U' F
 
 #### Scramble 58
 
-`R' U' F D2 L2 D B2 U' F2 R2 U' B2 U R' D' L F' U2 F U R2 B' R F2 R' U' F`
+```
+R' U' F D2 L2 D B2 U' F2 R2 U' B2 U R' D' L F' U2 F U R2 B' R F2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2501,7 +2676,9 @@ Best on the page: **22 moves**, from DR 2: `R2 F' D2 B' U2 B R2 U2 F R2 F' U2 F 
 
 #### Scramble 59
 
-`R' U' F L D' F' R B L U F' R2 F2 R D' L2 U L2 D2 R2 L2 U R' U' F`
+```
+R' U' F L D' F' R B L U F' R2 F2 R D' L2 U L2 D2 R2 L2 U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2536,7 +2713,9 @@ Best on the page: **23 moves**, from DR 1 (DR 2 ties it): `L' U2 L2 U' B' D F2 U
 
 #### Scramble 60
 
-`R' U' F L2 B2 L2 B2 U2 R2 D F2 D' U2 R U2 B2 D' R' U2 B D' U' F R' U' F`
+```
+R' U' F L2 B2 L2 B2 U2 R2 D F2 D' U2 R U2 B2 D' R' U2 B D' U' F R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2571,7 +2750,9 @@ Best on the page: **21 moves**, from DR 3: `B U L' F' D2 F2 R2 B2 D2 R2 D2 R2 B2
 
 #### Scramble 61
 
-`R' U' F L2 B2 D' F' R2 U D' L' D2 F L2 D2 B2 D R2 U B2 D L2 D2 R' U' F`
+```
+R' U' F L2 B2 D' F' R2 U D' L' D2 F L2 D2 B2 D R2 U B2 D L2 D2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2606,7 +2787,9 @@ Best on the page: **18 moves**, from DR 1: `U2 F D L U R2 U D2 L D' F2 R2 D' R2 
 
 #### Scramble 62
 
-`R' U' F U' R2 U2 R2 U' L2 U' F2 R2 U' B' U F R2 F2 U R2 D R' F2 L' U' R' U' F`
+```
+R' U' F U' R2 U2 R2 U' L2 U' F2 R2 U' B' U F R2 F2 U R2 D R' F2 L' U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2641,7 +2824,9 @@ Best on the page: **23 moves**, from DR 1 (DR 2, 4, 7 and 8 tie it): `L U D2 F' 
 
 #### Scramble 63
 
-`R' U' F D2 B U2 D2 F L2 D2 F R2 F L' F' D L U L' B2 F U' R' U2 F' R' U' F`
+```
+R' U' F D2 B U2 D2 F L2 D2 F R2 F L' F' D L U L' B2 F U' R' U2 F' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2676,7 +2861,9 @@ Best on the page: **22 moves**, from DR 3 (DR 4 ties it): `D L2 U F2 D R2 B2 U2 
 
 #### Scramble 64
 
-`R' U' F D B2 R2 B2 R2 D' F2 L2 F2 U2 R D2 B' F2 D U R B U B2 R2 U' R' U' F`
+```
+R' U' F D B2 R2 B2 R2 D' F2 L2 F2 U2 R D2 B' F2 D U R B U B2 R2 U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2711,7 +2898,9 @@ Best on the page: **21 moves**, from DR 2: `U2 F U2 F' L2 U F2 R2 F2 B D2 U2 B R
 
 #### Scramble 65
 
-`R' U' F U' B2 R2 U' L2 U' F2 U2 B2 F2 R' D2 B2 F' U R B' D R U2 F R' U' F`
+```
+R' U' F U' B2 R2 U' L2 U' F2 U2 B2 F2 R' D2 B2 F' U R B' D R U2 F R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2746,7 +2935,9 @@ Best on the page: **22 moves**, from DR 1: `U B L' U' B U2 B D' B2 D2 F D2 B U2 
 
 #### Scramble 66
 
-`R' U' F U2 R2 B2 U2 B2 R' B2 R' U2 R' F R' U2 R2 D2 F U D2 L R' D2 R' U' F`
+```
+R' U' F U2 R2 B2 U2 B2 R' B2 R' U2 R' F R' U2 R2 D2 F U D2 L R' D2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2781,7 +2972,9 @@ Best on the page: **20 moves**, from DR 1 (DR 2 ties it): `D2 F' U' D2 F L B' R2
 
 #### Scramble 67
 
-`R' U' F U2 B2 D F2 L2 F2 R2 U' B2 L2 B' U' F' D' L2 B L F2 R F2 U2 R' U' F`
+```
+R' U' F U2 B2 D F2 L2 F2 R2 U' B2 L2 B' U' F' D' L2 B L F2 R F2 U2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2816,7 +3009,9 @@ Best on the page: **21 moves**, from DR 3: `L' B D U2 R2 L D2 R F2 D2 R B2 D2 L2
 
 #### Scramble 68
 
-`R' U' F L2 B2 U L2 B2 U' B2 U L2 D' L U' F' R U' F L D2 F D B' R' U' F`
+```
+R' U' F L2 B2 U L2 B2 U' B2 U L2 D' L U' F' R U' F L D2 F D B' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2851,7 +3046,9 @@ Best on the page: **21 moves**, from DR 1 (DR 3 ties it): `F L2 D' L2 U' L2 F L2
 
 #### Scramble 69
 
-`R' U' F D L2 D' U2 B2 D2 R2 F2 L2 U F B2 R B' D L' B L2 D' R2 U' R' U' F`
+```
+R' U' F D L2 D' U2 B2 D2 R2 F2 L2 U F B2 R B' D L' B L2 D' R2 U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2886,7 +3083,9 @@ Best on the page: **20 moves**, from DR 2: `U' B R' U2 R' U B2 R' D' B2 R B2 U2 
 
 #### Scramble 70
 
-`R' U' F U2 L2 B2 L2 U B2 R2 D' R2 U B' D' L' F R2 F2 L2 R D B' F' U' R' U' F`
+```
+R' U' F U2 L2 B2 L2 U B2 R2 D' R2 U B' D' L' F R2 F2 L2 R D B' F' U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2921,7 +3120,9 @@ Best on the page: **22 moves**, from DR 1 (DR 2 and 6 tie it): `U' L' U B R F B2
 
 #### Scramble 71
 
-`R' U' F U R2 F2 R' B' L F2 L2 D2 R B U' F2 U D L2 F2 R2 B2 U' B2 R' U' F`
+```
+R' U' F U R2 F2 R' B' L F2 L2 D2 R B U' F2 U D L2 F2 R2 B2 U' B2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2956,7 +3157,9 @@ Best on the page: **20 moves**, from DR 3: `R F2 L2 D' F2 D' F2 L2 U' B2 R2 D2 F
 
 #### Scramble 72
 
-`R' U' F D F2 D' F2 L2 D2 U R2 B2 U2 L B2 F L U2 B2 F2 R2 U B2 F' R' U' F`
+```
+R' U' F D F2 D' F2 L2 D2 U R2 B2 U2 L B2 F L U2 B2 F2 R2 U B2 F' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -2991,7 +3194,9 @@ Best on the page: **20 moves**, from DR 1: `L2 F2 R2 U2 F' U2 L2 B2 R2 F' D2 R' 
 
 #### Scramble 73
 
-`R' U' F U2 R2 D' L2 B2 U2 F2 R2 U' R' U L2 B' U B2 D U' R' B' U' R' U' F`
+```
+R' U' F U2 R2 D' L2 B2 U2 F2 R2 U' R' U L2 B' U B2 D U' R' B' U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3026,7 +3231,9 @@ Best on the page: **22 moves**, from DR 3: `B2 R U R' F' U D2 F2 L2 B2 R2 U L2 D
 
 #### Scramble 74
 
-`R' U' F L2 U2 F2 L2 D L2 F2 D L2 U2 F' D' U B U R D U2 L F' R2 U' R' U' F`
+```
+R' U' F L2 U2 F2 L2 D L2 F2 D L2 U2 F' D' U B U R D U2 L F' R2 U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3061,7 +3268,9 @@ Best on the page: **18 moves**, from DR 4: `D2 F2 D2 U2 R2 F' B' U2 R' B L2 F' L
 
 #### Scramble 75
 
-`R' U' F U2 L2 B' D2 B' F' L2 U2 L2 F2 R U L2 B D' B' L' F' L B' U R' U' F`
+```
+R' U' F U2 L2 B' D2 B' F' L2 U2 L2 F2 R U L2 B D' B' L' F' L B' U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3096,7 +3305,9 @@ Best on the page: **22 moves**, from DR 1 (DR 4 and 8 tie it): `U' B' U2 L' B R2
 
 #### Scramble 76
 
-`R' U' F U F2 R F2 B2 L U L' B' R F L2 U2 B2 D B2 U F2 B2 R2 U' R' U' F`
+```
+R' U' F U F2 R F2 B2 L U L' B' R F L2 U2 B2 D B2 U F2 B2 R2 U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3131,7 +3342,9 @@ Best on the page: **22 moves**, from DR 2: `L' B U B2 U' L2 U F2 B2 L2 D' F2 D' 
 
 #### Scramble 77
 
-`R' U' F D2 B2 U2 L2 B2 L2 B2 U F2 U B' L' U2 B D2 U F U2 R' B2 D2 R' U' F`
+```
+R' U' F D2 B2 U2 L2 B2 L2 B2 U F2 U B' L' U2 B D2 U F U2 R' B2 D2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3166,7 +3379,9 @@ Best on the page: **20 moves**, from DR 6: `U' L' F2 B2 R U2 B2 R F2 R2 B L2 U2 
 
 #### Scramble 78
 
-`R' U' F R2 D' L2 D' L2 B2 D' F2 L2 U' B R U F2 D B2 U L' U2 R U2 R' U' F`
+```
+R' U' F R2 D' L2 D' L2 B2 D' F2 L2 U' B R U F2 D B2 U L' U2 R U2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3201,7 +3416,9 @@ Best on the page: **21 moves**, from DR 1: `B2 U' R' U2 B2 R2 B R2 F L2 F2 R2 U2
 
 #### Scramble 79
 
-`R' U' F L2 U B2 L2 B2 D2 U' F2 D' B' U' L U B2 D L' B U' L2 R U' R' U' F`
+```
+R' U' F L2 U B2 L2 B2 D2 U' F2 D' B' U' L U B2 D L' B U' L2 R U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3236,7 +3453,9 @@ Best on the page: **22 moves**, from DR 1 (DR 2 ties it): `L R F' L R U2 F D2 F 
 
 #### Scramble 80
 
-`R' U' F U L D R' U2 F B L2 D' B2 R L2 B L2 D2 B L2 B2 R2 B U2 R' U' F`
+```
+R' U' F U L D R' U2 F B L2 D' B2 R L2 B L2 D2 B L2 B2 R2 B U2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3271,7 +3490,9 @@ Best on the page: **22 moves**, from DR 1 (DR 2, 4 and 7 tie it): `B R F' U2 R F
 
 #### Scramble 81
 
-`R' U' F D2 R' F2 B2 U F B' U D2 L F D' F2 D' L2 D L2 U B2 D' F2 R' U' F`
+```
+R' U' F D2 R' F2 B2 U F B' U D2 L F D' F2 D' L2 D L2 U B2 D' F2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3306,7 +3527,9 @@ Best on the page: **22 moves**, from DR 2 (DR 4 ties it): `U2 L2 D B2 U' R2 D' F
 
 #### Scramble 82
 
-`R' U' F R2 D' U' L2 D L2 R2 U' B2 L2 F U F2 L U2 L2 B F L R2 U2 R' U' F`
+```
+R' U' F R2 D' U' L2 D L2 R2 U' B2 L2 F U F2 L U2 L2 B F L R2 U2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3341,7 +3564,9 @@ Best on the page: **21 moves**, from DR 1 (DR 2 ties it): `B2 L2 F' D' R2 F B2 R
 
 #### Scramble 83
 
-`R' U' F U R B2 R' F2 D' L U' B' R L2 F2 D B2 U2 F2 R2 U' D' R' U' F`
+```
+R' U' F U R B2 R' F2 D' L U' B' R L2 F2 D B2 U2 F2 R2 U' D' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3376,7 +3601,9 @@ Best on the page: **21 moves**, from DR 6: `B' U' R2 D R2 D' B2 D' F2 D2 F2 R' D
 
 #### Scramble 84
 
-`R' U' F U L D' L2 B2 D2 B D F2 B2 R' D F2 B2 U' F2 U D2 B2 R' U' F`
+```
+R' U' F U L D' L2 B2 D2 B D F2 B2 R' D F2 B2 U' F2 U D2 B2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3411,7 +3638,9 @@ Best on the page: **20 moves**, from DR 2: `L U2 B2 R2 D R2 D L2 B2 D2 B2 D' R2 
 
 #### Scramble 85
 
-`R' U' F D L2 R2 U B2 L2 B2 L2 R2 U L' D R D L2 F B U2 L' R B' R' U' F`
+```
+R' U' F D L2 R2 U B2 L2 B2 L2 R2 U L' D R D L2 F B U2 L' R B' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3446,7 +3675,9 @@ Best on the page: **22 moves**, from DR 1 (DR 7 ties it): `R2 D2 F2 L2 U2 F2 U2 
 
 #### Scramble 86
 
-`R' U' F R2 D' R2 U B2 D U2 B2 L2 U' L B' L D2 F2 R' U L2 B D R' U' F`
+```
+R' U' F R2 D' R2 U B2 D U2 B2 L2 U' L B' L D2 F2 R' U L2 B D R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3481,7 +3712,9 @@ Best on the page: **19 moves**, from DR 2: `L' D2 L' U D R' U L B2 R L2 F2 D2 F2
 
 #### Scramble 87
 
-`R' U' F R2 U2 F2 D2 U L2 U2 B2 U' L2 F L2 U' F' R' U' B2 F L' B' U R' U' F`
+```
+R' U' F R2 U2 F2 D2 U L2 U2 B2 U' L2 F L2 U' F' R' U' B2 F L' B' U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3516,7 +3749,9 @@ Best on the page: **21 moves**, from DR 8: `D L F2 L U D F2 R2 B2 L' F2 L' D2 L'
 
 #### Scramble 88
 
-`R' U' F D R2 U2 L2 D R2 F2 U' R2 F2 B' R F' B L U' L2 R' B2 U' R' U R' U' F`
+```
+R' U' F D R2 U2 L2 D R2 F2 U' R2 F2 B' R F' B L U' L2 R' B2 U' R' U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3551,7 +3786,9 @@ Best on the page: **21 moves**, from DR 1 (DR 2 ties it): `R' D2 B2 U2 B2 D2 R2 
 
 #### Scramble 89
 
-`R' U' F D' L2 U' B2 U2 B2 U' F2 D' U' R' D2 U F R B' R' B2 R D L2 U R' U' F`
+```
+R' U' F D' L2 U' B2 U2 B2 U' F2 D' U' R' D2 U F R B' R' B2 R D L2 U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3586,7 +3823,9 @@ Best on the page: **22 moves**, from DR 1 (DR 3 ties it): `F D' B' U' F' D B U2 
 
 #### Scramble 90
 
-`R' U' F U' B2 D' L2 B2 D' B2 U B2 U' L U F2 U L U' B' R' D L U2 R' U' F`
+```
+R' U' F U' B2 D' L2 B2 D' B2 U B2 U' L U F2 U L U' B' R' D L U2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3621,7 +3860,9 @@ Best on the page: **20 moves**, from DR 2: `U2 R2 B2 U L2 F2 U' B2 U' L2 U2 B' U
 
 #### Scramble 91
 
-`R' U' F R' F R' U B' U2 F D' F2 B L' U D L2 B2 R2 D2 F2 U' R2 B2 R' U' F`
+```
+R' U' F R' F R' U B' U2 F D' F2 B L' U D L2 B2 R2 D2 F2 U' R2 B2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3656,7 +3897,9 @@ Best on the page: **22 moves**, from DR 2: `F' L2 U' L' F2 U2 B' L2 U2 F' U2 B2 
 
 #### Scramble 92
 
-`R' U' F D2 L2 R2 D L2 D2 R2 F2 R2 U' F D' R U R' U2 L D U2 B F2 U' R' U' F`
+```
+R' U' F D2 L2 R2 D L2 D2 R2 F2 R2 U' F D' R U R' U2 L D U2 B F2 U' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3691,7 +3934,9 @@ Best on the page: **22 moves**, from DR 4: `U' R2 B2 D2 L2 F2 R2 U' L2 U2 L2 F2 
 
 #### Scramble 93
 
-`R' U' F L2 F2 L2 U2 B2 D2 B2 D F2 U' L F2 U' B L' B' R2 U' F' R B' U R' U' F`
+```
+R' U' F L2 F2 L2 U2 B2 D2 B2 D F2 U' L F2 U' B L' B' R2 U' F' R B' U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3726,7 +3971,9 @@ Best on the page: **22 moves**, from DR 1 (DR 3 and 4 tie it): `U' F' L2 F' R' U
 
 #### Scramble 94
 
-`R' U' F U' B2 D F2 D' L2 D L2 F2 U' B' D2 L B2 U' L' U' B' R' D' R' U' F`
+```
+R' U' F U' B2 D F2 D' L2 D L2 F2 U' B' D2 L B2 U' L' U' B' R' D' R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3761,7 +4008,9 @@ Best on the page: **22 moves**, from DR 4 (DR 6 ties it): `D R2 D2 L F D2 L D2 R
 
 #### Scramble 95
 
-`R' U' F R2 U2 R2 B2 U' B2 L2 D R2 U' F D R' D L R F2 U' B' D2 U R' U' F`
+```
+R' U' F R2 U2 R2 B2 U' B2 L2 D R2 U' F D R' D L R F2 U' B' D2 U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3796,7 +4045,9 @@ Best on the page: **23 moves**, from DR 1 (DR 4, 6 and 7 tie it): `L B R F L2 U2
 
 #### Scramble 96
 
-`R' U' F U2 L2 D B2 F2 R2 D' F2 U F2 L' U2 L2 D' R2 U2 F U2 B' D' F2 R' U' F`
+```
+R' U' F U2 L2 D B2 F2 R2 D' F2 U F2 L' U2 L2 D' R2 U2 F U2 B' D' F2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3831,7 +4082,9 @@ Best on the page: **21 moves**, from DR 1: `B R2 D R2 L2 U2 F' U2 L2 F' D2 U2 R2
 
 #### Scramble 97
 
-`R' U' F R2 U' R' U' L' D F R' F' U2 F U D' F2 U F2 R2 U' R2 B2 R' U' F`
+```
+R' U' F R2 U' R' U' L' D F R' F' U2 F U D' F2 U F2 R2 U' R2 B2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3866,7 +4119,9 @@ Best on the page: **22 moves**, from DR 8: `U2 B2 R' L2 D2 L B2 D2 B2 U2 R' D R 
 
 #### Scramble 98
 
-`R' U' F D2 B2 R2 D' R2 D' L2 D R' B D' F L B2 R2 B2 D R2 D2 U2 R' U' F`
+```
+R' U' F D2 B2 R2 D' R2 D' L2 D R' B D' F L B2 R2 B2 D R2 D2 U2 R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3901,7 +4156,9 @@ Best on the page: **23 moves**, from DR 2 (DR 3 and 4 tie it): `F' D R L2 D2 R B
 
 #### Scramble 99
 
-`R' U' F D2 B' R2 B' R2 U2 D2 B F L2 U' F R2 U2 L' F R' B D' L F R' U' F`
+```
+R' U' F D2 B' R2 B' R2 U2 D2 B F L2 U' F R2 U2 L' F R' B D' L F R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|
@@ -3936,7 +4193,9 @@ Best on the page: **22 moves**, from DR 2: `D' F L' F' R' D2 B2 D2 B' U2 L2 F2 L
 
 #### Scramble 100
 
-`R' U' F U R2 B2 L2 D2 F2 D F2 U2 F2 B' L' D L F' R' U B D' R2 U R' U' F`
+```
+R' U' F U R2 B2 L2 D2 F2 D F2 U2 F2 B' L' D L F' R' U B D' R2 U R' U' F // scramble
+```
 
 | DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |
 |---:|---|---:|---|---|---:|---|---|---|

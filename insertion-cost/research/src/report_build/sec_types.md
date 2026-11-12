@@ -2,7 +2,7 @@
 
 ## 4. How many insertions each leftover needs
 
-This part is exact. Every pair of corner 3-cycles was multiplied out, then every triple, and the same for edge pairs. The counts are proved in Lean (Appendix C).
+This part is exact: every pair of corner 3-cycles was multiplied out, then every triple, and the same for edge pairs. The counts are proved in Lean (Appendix C).
 
 **One or two.** Two corner 3-cycles make exactly {= TWO('corner', 'names') =} kinds of leftover by name, and two edge 3-cycles exactly {= TWO('edge', 'names') =}, and they make every state of each kind. The Lean statement counts the two twist directions apart (three corners twisted clockwise and three twisted counter-clockwise are two types there, and so are the two kinds of 3c1t), which makes the {= TWO('corner', 'names') =} corner kinds {= TWO('corner', 'types') =} types. The last column gives that count for each row:
 
@@ -49,23 +49,63 @@ Read the 3c row as: {= ALGN('3c', 8) =} of the {= STATES('3c') =} corner 3-cycle
 
 **Twists.**
 
-- **2tc**: nothing under 12 moves. {= ALGN('2tc', 12) =} of the {= STATES('2tc') =} cases have a 12-mover, like the tutorial's `[F L' D2 L F', U2]`; they are the pairs of corners that do not share an edge. The {= ALGN('2tc', '>12') =} cases with two neighbouring corners need 13 or more. torchlight ([[N505]]) said more than that: "optimal to twist one corner while preserving all edges is 12 moves", with a pure two-twist and "(R U' R U' R U2)2", which twists two corners the same way and swaps two pairs, as examples. That is right as stated. Of all move sequences of {= str(int(TW('min')) - 1) =} moves or fewer that keep every edge, none leaves a corner twisted in its place, whatever else it does to the corners. At {= TW('min') =} moves {= TW('seq') =} sequences do, reaching {= TW('states') =} states: {= TW('2tc') =} 2tc, {= TW('3c1t') =} 3c1t and {= TW('other') =} of kinds that two comms cannot solve, torchlight's second example among them.
-- **3tc**: no alg of 12 moves or fewer for any of the {= STATES('3tc') =} cases. The tutorial's `U' B U' F U2 B2 D' R2 U D F' U' B` and DougCube's `R L U2 R' F2 L2 B L' F L' F L' B'` ([[N2684]]) are {= ALGLEN('tronto_3tc') =} and {= ALGLEN('doug_3tc') =} moves, so 13 is the shortest for that case.
+- **2tc**: nothing under 12 moves. {= ALGN('2tc', 12) =} of the {= STATES('2tc') =} cases have a 12-mover, like the tutorial's
+
+  ```
+  [F L' D2 L F', U2]   // the tutorial's two-twist
+  ```
+
+  and they're the pairs of corners that don't share an edge. The {= ALGN('2tc', '>12') =} cases with two neighbouring corners need 13 or more.
+- **Twisting one corner in place.** torchlight ([[N505]]) went further: "optimal to twist one corner while preserving all edges is 12 moves", with a pure two-twist and "(R U' R U' R U2)2", which twists two corners the same way and swaps two pairs, as examples. That's right as stated. Of all move sequences of {= str(int(TW('min')) - 1) =} moves or fewer that keep every edge, none leaves a corner twisted in its place, whatever else it does to the corners. At {= TW('min') =} moves {= TW('seq') =} sequences do, reaching {= TW('states') =} states:
+
+  | 2tc | 3c1t | kinds two comms can't solve (torchlight's second example among them) |
+  |---:|---:|---:|
+  | {= TW('2tc') =} | {= TW('3c1t') =} | {= TW('other') =} |
+
+- **3tc**: no alg of 12 moves or fewer for any of the {= STATES('3tc') =} cases. The tutorial's alg and DougCube's ([[N2684]]) are {= ALGLEN('tronto_3tc') =} and {= ALGLEN('doug_3tc') =} moves, so 13 is the shortest for that case:
+
+  ```
+  U' B U' F U2 B2 D' R2 U D F' U' B   // the tutorial's
+  R L U2 R' F2 L2 B L' F L' F L' B'   // DougCube's
+  ```
+
 
 **Double swaps.** The two kinds are told apart the way the tutorial does. A *pure* 2c2c is two swaps that each close on themselves: do it twice and all four corners are back (the tutorial's "double swap"; triple sexy and triple sledge are pure in this sense). A *twisted* 2c2c leaves a twist in each swap: do it twice and you have four twisted corners (the tutorial's "twisted double swap").
 
-- **Pure 2c2c: the shortest alg is 10 moves.** kyh ([[N3525]]): "what's the shortest 2c2c alg". zakk drewji ([[N3526]]): "I think it’s 10?" Yes. {= ALGN('2c2c-pure', 10) =} of the {= STATES('2c2c-pure') =} cases have a 10-mover, for example `R2 U' L2 D B2 R2 D' L2 U F2` from the "DR algs with mnemonics" sheet that Riabov's guide links; {= ALGN('2c2c-pure', 11) =} need 11 and {= ALGN('2c2c-pure', 12) =} need 12.
+- **Pure 2c2c: the shortest alg is 10 moves.** kyh ([[N3525]]): "what's the shortest 2c2c alg". zakk drewji ([[N3526]]): "I think it’s 10?" Yes. {= ALGN('2c2c-pure', 10) =} of the {= STATES('2c2c-pure') =} cases have a 10-mover, {= ALGN('2c2c-pure', 11) =} need 11 and {= ALGN('2c2c-pure', 12) =} need 12. Here's one of the ten-movers, from the "DR algs with mnemonics" sheet that Riabov's guide links:
+
+  ```
+  R2 U' L2 D B2 R2 D' L2 U F2   // from the DR algs sheet
+  ```
+
 - **Twisted 2c2c: 12 moves** at the least, for {= ALGN('2c2c-twisted', 12) =} of {= STATES('2c2c-twisted') =} cases.
 - **3c1t**: 12 at the least, and only for {= ALGN('3c1t', 12) =} of {= STATES('3c1t') =} cases. **5c**: 10 at the least, for {= ALGN('5c', 10) =} of {= STATES('5c') =}.
 
 **Edges.**
 
-- **Only {= EDGE8() =} of the edge 3-cycles have an alg of 8 moves or fewer**: {= ALGN('3e', 6) =} six-movers (`R L' U2 R' L F2` and its relatives), {= ALGN('3e', 7) =} with 7, {= ALGN('3e', 8) =} with 8, out of {= STATES('3e') =}. For corners it is {= CORNER8() =}. The typical edge 3-cycle needs 9 or 10 moves ({= ALGN('3e', 9) =} and {= ALGN('3e', 10) =} states).
+- **Only {= EDGE8() =} of the edge 3-cycles have an alg of 8 moves or fewer** (for corners it's {= CORNER8() =}). Out of {= STATES('3e') =}:
+
+  | 6 moves | 7 | 8 | 9 | 10 |
+  |---:|---:|---:|---:|---:|
+  | {= ALGN('3e', 6) =} | {= ALGN('3e', 7) =} | {= ALGN('3e', 8) =} | {= ALGN('3e', 9) =} | {= ALGN('3e', 10) =} |
+
+  So the typical edge 3-cycle needs 9 or 10 moves. The six-movers are this one and its relatives:
+
+  ```
+  R L' U2 R' L F2   // a six-mover
+  ```
+
 - That is the whole reason edge insertions behave differently, and it is what people describe. FakeMMAP ([[N2876]]): "3e insertions have huge variance in non-DR solves." bpaul ([[N5569]]): "oh yeah the 6 move cases require eo on all axes". Exactly so: the {= EO('six', 3) =} cases with a 6-mover are the {= EO('all', 3) =} 3-cycles whose three edges are oriented on all three axes, and an alg of 8 moves or fewer needs them oriented on at least two (table in 9.2). DougCube ([[N5567]]): "when you have a fairly complete set of 3e insertion algs, then EO doesn't matter anymore". With every alg up to 12, every 3e has one; section 6.6 has what each cap costs.
 
 **Parity.** A 2c2e leftover is not sampled in this study, but its algs were listed:
 
 - There are {= STATES('2c2e') =} such states. argonblue ([[N6626]], [[N6628]]): "there’s only 1848 possible 2c2e states", then "oh wait actually 6x as many cases, because orientations". 1848 times 6 is {= STATES('2c2e') =}.
 - **No 2c2e alg is shorter than 10 moves.** Noah Swor ([[N3120]]): "10 moves is the minimum for any 2E2C without cancellations". Right. {= ALGN('2c2e', 10) =} states have a 10-mover, {= ALGN('2c2e', 11) =} need 11, {= ALGN('2c2e', 12) =} need 12 and {= ALGN('2c2e', '>12') =} need more.
-- **All {= ALGS('2c2e', 10) =} ten-move 2c2e algs are one alg**, up to turning the cube, mirroring, inverting and cyclic shifts, for example `R' U F2 D' L D F2 U2 R U`. notkevin ([[N3142]]): "every 10-move 2e2c is a cyclic shift of this alg or its inverse (up to rotations/mirrors ofc)". Confirmed.
+- **All {= ALGS('2c2e', 10) =} ten-move 2c2e algs are one alg**, up to turning the cube, mirroring, inverting and cyclic shifts, for example
+
+  ```
+  R' U F2 D' L D F2 U2 R U   // one of them
+  ```
+
+  notkevin ([[N3142]]): "every 10-move 2e2c is a cyclic shift of this alg or its inverse (up to rotations/mirrors ofc)". Confirmed.
 - Fanti's question ([[N6624]]), "does someone know what Gods Number for 2e2c states is", stays open: it is more than 12.

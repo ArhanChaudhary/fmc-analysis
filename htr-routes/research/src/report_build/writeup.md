@@ -1,6 +1,8 @@
 # Which HTR routes to try from a DR
 
-Given a DR, which routes to HTR should you try, and in what order, to find the optimal finish? For each of the 48 subsets I sampled {= n(25000) =} uniformly random DR states (subset × bad edges, so {= n(1200000) =} in all) and solved each one exactly: every optimal finish and every finish one move longer, read in every way NISS allows (switch after any move, either side first), and the same for the DR with its last move turned the other way. From that come ordered checklists of routes per subset, how long the HTRs on them are, how DR bounding compares, and whether FakeMMAP's reduction-length bound holds and prunes. Everything a finish length rests on is the first study's exact table of all 19,508,428,800 DR states; where a number is exact over all states it says so, otherwise it is a sample of {= n(25000) =} states per subset × edges (a share's standard error is at most {= SE(0.5, 25000) =} points per subset × edges, {= SE(0.5, 75000) =} per corner subset) unless a smaller sample is named.
+You have a DR: which routes to HTR do you try, and in what order, to find the optimal finish? For each of the 48 subsets I sampled {= n(25000) =} uniformly random DR states (subset × bad edges, so {= n(1200000) =} in all) and solved each one exactly: every optimal finish and every finish one move longer, read in every way NISS allows (switch after any move, either side first), and the same for the DR with its last move turned the other way. From that come ordered checklists of routes per subset, how long the HTRs on them are, how DR bounding compares, and whether FakeMMAP's reduction-length bound holds and prunes.
+
+Every finish length comes from the first study's exact table of all 19,508,428,800 DR states. Where a number is exact over all states it says so; otherwise it's a sample of {= n(25000) =} states per subset × edges (a share's standard error is at most {= SE(0.5, 25000) =} points per subset × edges, {= SE(0.5, 75000) =} per corner subset) unless a smaller sample is named.
 
 November 2026. A date in brackets is a link to that message on the FMC solvers Discord (#fmc-theory, #fmc-discussion or #non-dr-discussion). Docs and sheets are listed with links at the end.
 
@@ -29,7 +31,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 - **Start with [section 1](#1-the-short-version)**, the short version: what is new, then what it confirms or corrects. If you read one thing after it, make it the checklist table in [section 4](#4-the-checklists-subset-by-subset).
 - **The [worked examples](examples.html)** go with it: 200 DRs from the 20 most common subset × edges, each with the checklist routes that find its optimal written out and the reduction bounding would use, answers folded away. **The [errata](errata.html)** list what the numbers show is wrong in things said on the server, each with an example.
-- **Sections 5 to 11** are the details behind each line of section 1; the appendices are tables to look things up in.
+- **Sections 5 to 11** are the details behind each line of section 1; the appendices are lookup tables.
 
 ---
 

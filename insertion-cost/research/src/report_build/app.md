@@ -79,7 +79,7 @@ A block is left out when nothing of that length exists (no alg of 8 or fewer doe
 
 ## Appendix B: the 3c and 3e cases
 
-Every corner 3-cycle and every edge 3-cycle, grouped into classes: two cases are in one class when one is the other seen from another side of the cube (the 24 rotations), or its inverse. For each class a shortest alg, which pieces go where, and how many different algs of each length solve it. A reference to learn from: looking a case up here is **computer only**, nothing to do in an attempt.
+Every corner 3-cycle and every edge 3-cycle, grouped into classes: two cases are in one class when one is the other seen from another side of the cube (the 24 rotations), or its inverse. For each class a shortest alg, which pieces go where, and how many different algs of each length solve it. It's a reference to learn from: looking a case up here is **computer only**, nothing to do in an attempt.
 
 *Pieces* reads `A>B`: the piece from A ends at B. `+1` and `+2` are a clockwise and a counter-clockwise twist of the corner as it arrives (for edges `+1` is a flip).
 
@@ -101,9 +101,17 @@ Every corner 3-cycle and every edge 3-cycle, grouped into classes: two cases are
 
 **Algorithms (section 5, Appendix B).** Every reduced move sequence of 12 moves or fewer that moves corners only or edges only, found by joining all sequences of 6 moves with all sequences of 6 (meet in the middle), then sorted by what it does. *Reduced* means no two moves in a row on one face and a fixed order for two moves on opposite faces, so each alg is counted once. For the 3-cycle families a second, independent depth-first search gives the same lists class by class. The parity (2c2e) lists come from that second search. For torchlight's statement on twisting a corner (section 5) the same join was run over every corner-only sequence of {= TW('checked') =} moves or fewer, whatever it does to the corners.
 
-**One skeleton (everything in sections 6 to 9).** For a skeleton and a leftover, the state an insertion has to produce at each spot is computed, and every alg within the cap for that state is put in and cancelled. For two comms, every first comm at every spot (every 3-cycle that leaves a 3-cycle) is followed by every second comm at every spot of the result. The program skips work only where a bound proves nothing better can come out, so the minimum is exact for its cap.
+**One skeleton (everything in sections 6 to 9).** For a skeleton and a leftover I work out the state an insertion has to produce at each spot, then put in every alg within the cap for that state and cancel. For two comms, every first comm at every spot (every 3-cycle that leaves a 3-cycle) gets followed by every second comm at every spot of the result. The program only skips work where a bound proves nothing better can come out, so the minimum is exact for its cap.
 
-**Samples.** A random skeleton is n moves, each uniform among the moves that do not turn the face just turned (and that keep opposite-face pairs in the fixed order), and a leftover drawn uniformly from its type. The sizes are in section 3 and in each table; the odd lengths of section 7 have samples of their own, made the same way. Two standard errors of a mean: ±{= SE2('5c') =} for a 5c at cap 8 (20,000 skeletons), ±{= SE2('5c', L=10) =} at cap 10 (2,000), ±{= SE2('3c1t', L=10) =} for a 3c1t at cap 10 (500), ±{= SE2('2tc', L=10) =} for a 2tc at cap 10 (200) and ±{= SE2('5c', L=12, src='two12') =} for a 5c at cap 12 (100).
+**Samples.** A random skeleton is n moves, each uniform among the moves that do not turn the face just turned (and that keep opposite-face pairs in the fixed order), and a leftover drawn uniformly from its type. The sizes are in section 3 and in each table; the odd lengths of section 7 have samples of their own, made the same way. Two standard errors of a mean:
+
+| Leftover | Cap | Skeletons | ± |
+|---|---:|---:|---:|
+| 5c | 8 | 20,000 | {= SE2('5c') =} |
+| 5c | 10 | 2,000 | {= SE2('5c', L=10) =} |
+| 3c1t | 10 | 500 | {= SE2('3c1t', L=10) =} |
+| 2tc | 10 | 200 | {= SE2('2tc', L=10) =} |
+| 5c | 12 | 100 | {= SE2('5c', L=12, src='two12') =} |
 
 **Exchange rates (section 7).** The chance of a total of N or less from a skeleton of length n is the share of sampled skeletons of that length whose best insertion adds N − n or less. Every whole length from 10 to 30 is its own sample. The length of equal chance is read off between two whole lengths on the log-odds, and the length of equal expected total between two whole lengths on the mean.
 

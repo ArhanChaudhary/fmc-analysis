@@ -34,7 +34,8 @@ def any_solution(sk, c):
 def block_md(scr, sk, typ, parts):
     """parts: list of (label, sol or None, note)."""
     s = cube.do(cube.SOLVED, scr + sk)
-    L = [f"Scramble: `{' '.join(scr)}`", '', f"Skeleton: `{' '.join(sk)}` ({len(sk)}), leaves {iv.LONG[typ]}: {exlib.left_text(s)}", '']
+    a, b = ' '.join(scr), ' '.join(sk); w = max(len(a), len(b))
+    L = ['```', f"{a.ljust(w)}   // scramble", f"{b.ljust(w)}   // skeleton ({len(sk)})", '```', '', f"It leaves {iv.LONG[typ]}: {exlib.left_text(s)}.", '']
     for label, sol, note in parts:
         if sol is None: L += [f'**{label}**: {note}', '']
         else: L += [f"**{label}**: {sol['length']} in all{(', ' + note) if note else ''}.", '', '```'] + exlib.block(sk, sol) + ['```', '']
@@ -138,7 +139,7 @@ def main():
     sys.path.insert(0, B); import links
     m = re.search(r'got a 22!: ([URFDLB2\' ]+)', links.content('N2057')); hand = cube.parse(m.group(1).strip())
     assert cube.do(cube.SOLVED, scr + hand) == cube.SOLVED and cube.cancel(hand) == hand and len(hand) == 22
-    add_text('n2057', f"The solution 2014chri04 then found by hand, by rewriting a stretch of the finished one: `{' '.join(hand)}` ({len(hand)} moves, solves the scramble).")
+    add_text('n2057', f"The solution 2014chri04 then found by hand, by rewriting a stretch of the finished one ({len(hand)} moves, solves the scramble):\n\n```\n{' '.join(hand)}   // 2014chri04's {len(hand)}, by hand\n```")
     W['n2057']['hand'] = len(hand)
     r = real['doc92']; sk = r['reduced'].split(); scr = cube.parse(r['scramble'])
     save('if92', scr, sk, '3c1t', [('A comm plus an alg, each of up to 12 moves', r['L12msol'], '')], {'l12m': r['L12msol']['length'], 'if': r['author_len']})
@@ -264,7 +265,7 @@ def more(val):
         sk = r['skeleton'].split(); c = state_of(r); scr, b = from_python(sk, c, '8', 8); sol = b['sols'][8]['one']; assert sol['cost'] == b_ and sol['steps'][0][0] == j
         G = cases_at(py3.nums(sk), c); a10 = T10[G[j - 2]][0]; assert len(a10) == 10 and not T8.get(G[j - 2])
         save('tenskip', scr, sk, '3c', [('The best 8-mover insertion', sol, f'the only 8-{8 - b_} in the skeleton, after move {j}')], {'spot': j, 'rule_best': got, 'best': b_, 'visited': sorted(seen)})
-        add_text('tenskip', f"Counting spots from 0. Checking every other spot from the start, spot {j - 2} is the first whose case has no alg shorter than 10 moves (one of them: `{nm(a10)}`). Two spots on, at spot {j}, is the 8-{8 - b_}. Going three on instead lands on spot {j + 1}, and the walk (spots {', '.join(str(i) for i in sorted(seen))}) finds nothing better than an 8-{8 - got}.")
+        add_text('tenskip', f"Counting spots from 0. Checking every other spot from the start, spot {j - 2} is the first whose case has no alg shorter than 10 moves. One of them:\n\n```\n{nm(a10)}   // a 10-mover for spot {j - 2}\n```\n\nTwo spots on, at spot {j}, is the 8-{8 - b_}. Going three on instead lands on spot {j + 1}, and the walk (spots {', '.join(str(i) for i in sorted(seen))}) finds nothing better than an 8-{8 - got}.")
         break
     else: raise SystemExit('no witness for three spots on')
     # e. a 10-mover that is a setup move around an 8-mover and still beats every 8- and 9-mover
@@ -291,7 +292,7 @@ def more(val):
                     if M1 == M or len(M2) != 1: continue
                     if py3.cancel(skel[:k] + [M1] + list(A) + M2 + skel[k + 1:]) == fin and not done:
                         save('setup10', scr, sk, '3c', [('Best with 8-movers', s8, ''), ('Best with algs of up to 10 moves', s10, 'a setup move, an 8-mover and the setup undone')], {'m8': m8, 'm9': m9, 'm10': m10})
-                        add_text('setup10', f"The 10-mover is the 8-mover `{nm(A)}` between `{py3.NAMES[x]}` and `{py3.NAMES[inv(x)]}`. The same solution is that 8-mover put inside move {k + 1} of the skeleton, the `{py3.NAMES[M]}` done in two parts: `{py3.NAMES[M1]}`, the comm, `{py3.NAMES[M2[0]]}`. No spot between two moves gives that with an 8-mover.")
+                        add_text('setup10', f"The 10-mover is this 8-mover between `{py3.NAMES[x]}` and `{py3.NAMES[inv(x)]}`:\n\n```\n{nm(A)}   // the 8-mover inside the 10-mover\n```\n\nThe same solution is that 8-mover put inside move {k + 1} of the skeleton, the `{py3.NAMES[M]}` done in two parts: `{py3.NAMES[M1]}`, the comm, `{py3.NAMES[M2[0]]}`. No spot between two moves gives that with an 8-mover.")
                         done = True
         if done: break
     else: raise SystemExit('no witness for a setup-type 10-mover')
@@ -318,14 +319,15 @@ def verify():
     n = bad = 0
     for p in sorted(glob.glob(B + 'wit_*.md')):
         txt = open(p).read()
-        scr = cube.parse(re.search(r'^Scramble: `([^`]+)`$', txt, flags=re.M).group(1))
-        m = re.search(r'^Skeleton: `([^`]+)` \((\d+)\), leaves ([^:]+): (.+)$', txt, flags=re.M); sk = cube.parse(m.group(1))
+        scr = cube.parse(re.search(r'^(.+?) +// scramble$', txt, flags=re.M).group(1))
+        m = re.search(r'^(.+?) +// skeleton \((\d+)\)$', txt, flags=re.M); sk = cube.parse(m.group(1))
+        lv = re.search(r'^It leaves ([^:]+): (.+)\.$', txt, flags=re.M)
         s = cube.do(cube.SOLVED, scr + sk); typ = exlib.type_of(s)
-        if len(sk) != int(m.group(2)) or iv.LONG[typ] != m.group(3) or exlib.left_text(s) != m.group(4): bad += 1
+        if len(sk) != int(m.group(2)) or iv.LONG[typ] != lv.group(1) or exlib.left_text(s) != lv.group(2): bad += 1
         for total, blk in re.findall(r'^\*\*[^\n]*?(\d+) in all[^\n]*\n\n```\n(.*?)\n```', txt, flags=re.M | re.S):
             b, fin = exlib.check_block(blk.split('\n'), scr, sk); n += 1
             if b or fin != int(total): bad += 1
-        for seq, k in re.findall(r'`([^`]+)` \((\d+) moves, solves the scramble\)', txt):          # a whole solution quoted in a sentence
+        for seq, k in [(s, k) for k, s in re.findall(r'\((\d+) moves, solves the scramble\):\n\n```\n(.+?) +//', txt)]:          # a whole solution quoted in a sentence
             q = cube.parse(seq); n += 1
             if len(q) != int(k) or cube.cancel(q) != q or cube.do(cube.SOLVED, scr + q) != cube.SOLVED: bad += 1
     print(f'witness blocks: {len(glob.glob(B + "wit_*.md"))} files, {n} written solutions replayed on the sticker model; mismatches: {bad}')

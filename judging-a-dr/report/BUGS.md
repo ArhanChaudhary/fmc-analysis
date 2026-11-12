@@ -6,25 +6,48 @@ November 2026. A name with a date is a link to that message on the FMC solvers D
 
 **What everything below is measured against:**
 
-- **A full BFS of the DR group** ⟨U, D, R2, L2, F2, B2⟩: the optimal DR-move finish of all 19,508,428,800 DR states, done in Rust on the group reduced by the 16 symmetries that keep the U/D axis. "Optimal" below means that (same as nissy's `drudfin`) unless it says otherwise. It matches Joba's per-subset distribution in every cell and nissy on 40 random DRs, and it's the same in every entry as the table Lean has proven optimal (last bullet).
-- **The 216 NISS@1qt cases** (FakeMMAP's: 12 corner cases × 3 M-slice patterns × 3 S-slice patterns × E-parity, each case being 3,072 of the 663,552 HTR states), solved three ways: half turns only, DR moves, any of the 18 face turns. The first two are a BFS. The third is a search that's complete to 10 moves: every sequence of ≤ 10 moves is two sequences of ≤ 5 glued together, so I listed all 624,124 of those twice, matched the pairs that can land in HTR and tested each hit. DR-move values never go above 10, so anything shorter is ≤ 9 moves and that search can't miss it.
-- **One pass per question over all DR states**, for the things people read off a DR (pairs, corner case, HTR length on both sides, corner length, E-parity), each counted against the optimal.
-- **A Lean proof** (about 2,500 lines) of the lower bounds in the write-up and of the exact optimal of every DR state: no DR-move finish is shorter than the table says and one of exactly that length exists. The percentages are computed, not proven.
+- **A full BFS of the DR group** ⟨U, D, R2, L2, F2, B2⟩: the optimal finish in DR moves of all 19,508,428,800 DR states. I ran it in Rust, on the group reduced by the 16 symmetries that keep the U/D axis. "Optimal" below means that (same as nissy's `drudfin`) unless I say otherwise. It matches Joba's per-subset distribution in every cell and nissy on 40 random DRs, and it agrees entry for entry with the table Lean proves optimal (last bullet).
+- **The 216 NISS@1qt cases** (FakeMMAP's: 12 corner cases × 3 M-slice patterns × 3 S-slice patterns × E-parity). Each case is 3,072 of the 663,552 HTR states. I solved them three ways, see the table below.
+- **One pass per question over all DR states** for each thing people read off a DR (pairs, corner case, HTR length on both sides, corner length, E-parity), counted against the optimal.
+- **A Lean proof** (about 2,500 lines) of the lower bounds in the write-up and of the exact optimal of every DR state: no DR-move finish is shorter than the table says, and one of exactly that length exists. The percentages are computed, not proven.
+
+| The cases, solved with | How |
+|---|---|
+| half turns only | BFS |
+| DR moves | BFS |
+| any of the 18 face turns | A search that's complete to 10 moves. Every sequence of ≤ 10 moves is two sequences of ≤ 5 glued together, so I listed all 624,124 of those twice, matched the pairs that can land in HTR and tested each hit. DR-move values never go above 10, so anything shorter is ≤ 9 moves and the search can't miss it. |
 
 Case labels like "F-D + F-V R-H odd" are FakeMMAP's: corner case with cs sign, M-slice edges, S-slice edges, E-parity.
 
-Section A is what's wrong in the two bounding docs and their tables, B what's wrong in things said in the channels, each with its example.
+Section A is what's wrong in the two bounding docs and their tables, section B what's wrong in things said in the channels. Each entry has an example.
 
 ---
 
 ## A. The bounding docs and their tables
 
 **A1. Two typos in Rodney's Advanced DR Bounding doc.**
-- First random scramble: "A 3c2,6e case. Traditionally 3c2 is a good corner case" should be 2c3 (`U D L2 D' B2 U R2 F2 B2 D2 L2 D' R2 L2 D2 B2` is 2c3 6e).
-- Strategy section: "note its length, the cr/fr parity" should be cs/fr.
+
+| Where | The doc says | Should be |
+|---|---|---|
+| First random scramble | "A 3c2,6e case. Traditionally 3c2 is a good corner case" | 2c3 |
+| Strategy section | "note its length, the cr/fr parity" | cs/fr |
+
+The first random scramble is 2c3 6e:
+
+```
+U D L2 D' B2 U R2 F2 B2 D2 L2 D' R2 L2 D2 B2   // Rodney's first random scramble
+```
 
 **A2. Rodney's "Adv DR Bounding" sheet: five penalties one too high, and one mislabelled alg.**
-The sheet has no optimal column. Its "Penalty" is the length of the listed alg (HTM, after cancelling) minus the corner case's own setup: 1 move for F-D and R-D corners, 2 for F-V, 0 for H-H. The complete-to-10 search over all 18 moves finds a finish one move shorter than the listed alg for five cases, the same five as in A3. Their penalties should be 5, 5, 8, 8, 8, not 6, 6, 9, 9, 9:
+The sheet has no optimal column. Its "Penalty" is the length of the listed alg (HTM, after cancelling) minus the setup of the corner case itself:
+
+| Corners | Setup taken off |
+|---|---|
+| F-D and R-D | 1 move |
+| F-V | 2 |
+| H-H | 0 |
+
+The complete-to-10 search over all 18 moves finds a finish one move shorter than the listed alg for five cases, the same five as in A3. Their penalties should be 5, 5, 8, 8, 8, not 6, 6, 9, 9, 9:
 
 | Corners / F edges / R edges (cs/fr) | Listed alg | Sheet penalty | Real penalty | A state of the case, and a shorter finish |
 |---|---|---:|---:|---|
@@ -34,12 +57,19 @@ The sheet has no optimal column. Its "Penalty" is the length of the listed alg (
 | H-H / F-D / R-V (0/1) | `F2 U2 R2 F2 U2 R2 F2 R2 F2` (9) | 9 | 8 | `F L2 F B' R2 L2 D2 F'`, solved in 8 by `F D2 L2 R2 B F' L2 F'` |
 | H-H / F-V / R-D (0/1) | `R2 U2 F2 R2 U2 F2 R2 F2 R2` (9) | 9 | 8 | `L' F2 R L' F2 B2 D2 L`, solved in 8 by `L' D2 B2 F2 L R' F2 L` |
 
-Separately, the row labelled F-V / F-D / R-H (0/0) lists `M R2 U2 M'`. That alg gives R-V + F-D R-V odd, not the labelled case. `M F2 U2 M'` gives the labelled case in 6 moves, which is the sheet's penalty of 4 after the 2-move F-V corner setup, so R2 is a typo for F2 and the penalty is fine. (I graded the sheet by the case each alg actually produces, not by its label, which is how this row showed up.)
+Separately, the alg in the row labelled F-V / F-D / R-H (0/0) has R2 where it should have F2. I graded every row by the case its alg actually produces, not by its label:
 
-The rule values ("Heuristic" column, on the same penalty scale) aren't affected: they stay at or below the real penalty in all 216 cases, the corrected ones too (4 against 5 in the first two rows, 5 against 8 in the three H-H rows; write-up, section 10).
+```
+M R2 U2 M'   // listed: gives R-V + F-D R-V odd, not the labelled case
+M F2 U2 M'   // gives the labelled case in 6 moves
+```
+
+That's the sheet's penalty of 4 after the 2-move F-V corner setup, so the penalty is fine.
+
+The rule values ("Heuristic" column, same penalty scale) aren't affected. They stay at or below the real penalty in all 216 cases, the corrected ones too: 4 against 5 in the first two rows, 5 against 8 in the three H-H rows (write-up, section 10).
 
 **A3. FakeMMAP's HTR-breaking table (`RK_OBL_table_DS_2e.csv`, attached to [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)): five cells one too high, two of them labelled 7.**
-About the first version (`RK_OBL_table_HTR_breaking.csv`, the day before) FakeMMAP said ≤ 7 was proven optimal and 8, 9, 10 "might actually be solvable in as little as 7" ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606)). For the 7 Sep file: 211 of 216 cells are right, and the two 7s below are 6 in both files.
+Of the first version (`RK_OBL_table_HTR_breaking.csv`, posted the day before) FakeMMAP said ≤ 7 was proven optimal and 8, 9, 10 "might actually be solvable in as little as 7" ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606)). In the 7 Sep file 211 of 216 cells are right. The two 7s below are 6 in both files.
 
 | Case | Table | Real | A state of that case (its inverse solves it) |
 |---|---:|---:|---|
@@ -51,20 +81,42 @@ About the first version (`RK_OBL_table_HTR_breaking.csv`, the day before) FakeMM
 
 In this file nothing is too low and no 8, 9 or 10 drops to 7. (All 216 rows, with HT-only, DR-move and any-move optimals and a sequence for each, are Appendix C of the write-up.)
 
-The later "OBL++" sheet ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733747526598676)), the one FakeMMAP is "not mathematically 100% sure" about ([same day](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)), has a finer grid (F/R parity) and I didn't grade it cell by cell. Collapsed to the 216 labels it matches on 140 of the 144 cases it covers, already has four of the five fixes above, and is one *lower* in four (D-D ± F-H R-H even, R-V + F-D R-H even, R-V + F-D R-D odd: 8 vs 9). nissy finds no solution of 8 or fewer for any of the 3,072 states in each of those four cases, so 9 stands for the cases as labelled here. Whether those cells mean something slightly different is open.
+The later "OBL++" sheet ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733747526598676)), the one FakeMMAP is "not mathematically 100% sure" about ([same day](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)), has a finer grid (F/R parity), and I didn't grade it cell by cell. Collapsed to the 216 labels it covers 144 cases and matches on 140. It already has four of the five fixes above, and it's one *lower* in four cases, 8 vs 9:
+
+- D-D ± F-H R-H even (two cases)
+- R-V + F-D R-H even
+- R-V + F-D R-D odd
+
+nissy finds no solution of 8 or fewer for any of the 3,072 states in each of those four cases, so 9 stands for the cases as labelled here. Whether those cells mean something slightly different is open.
 
 ---
 
 ## B. Things said in the channels
 
 **B1. "The maximum [DR→HTR] takes is 12 moves linearly, and 11 moves using NISS"** ([Lewis Isom, 23 Jan 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1199490255921877022), from the sampled HTR Subset Stats sheet).
-It's 13. 15,925,248 DR states need 13 on a given side (0c3 4e, and 4c4 0e from its 4a4 side), and 786,432 states, all in 0c3 4e, need 13 on both sides. Matches Joba's table ([Joba, 3 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1357402650441945299): 4c4 has a 13 in 0.24% of its cosets). Two of them, both 0c3 4e (nissy's optimal HTR agrees on both):
+It's 13, which matches Joba's table ([Joba, 3 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1357402650441945299): 4c4 has a 13 in 0.24% of its cosets).
+
+| DR → HTR needs | DR states | Subsets |
+|---|---:|---|
+| 13 on a given side | 15,925,248 | 0c3 4e, and 4c4 0e from its 4a4 side |
+| 13 on both sides | 786,432 | all 0c3 4e |
+
+Two of them, both 0c3 4e (nissy's optimal HTR agrees on both):
 
     U' R2 D' B2 U B2 U' R2 U F2 U' F2 U       // 13 to HTR on normal, 12 on inverse
     D B2 D' B2 D L2 U L2 U' F2 D B2 U' F2     // 13 to HTR on both sides
 
 **B2. "Only five subsets can be 18 optimal"** ([Zagros, 17 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1406635136526581810)), **and "We calculated all the 18 optimals once I remember it being either 5qt or the bad 3qt ons"** ([zakimoshi, 16 Dec 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1185609081629708298)).
-It's four of the 48: 0c3 4e (768), 2c5 4e (384), 2c5 0e (192), 0c0 8e (8), 1,352 in total. So "5qt or bad 3qt" misses the eight 0c0 8e states. (Joba's file, which Zagros was reading, shows the same four.) One of each:
+It's four of the 48, 1,352 states in total:
+
+| Subset | States |
+|---|---:|
+| 0c3 4e | 768 |
+| 2c5 4e | 384 |
+| 2c5 0e | 192 |
+| 0c0 8e | 8 |
+
+So "5qt or bad 3qt" misses the eight 0c0 8e states. Joba's file, which Zagros was reading, shows the same four. One of each:
 
     F2 D' F2 D' F2 R2 U2 R2 U' B2 R2 B2 L2 U B2 U2 R2 U'   // 0c3 4e
     R2 F2 L2 D' F2 D' B2 F2 R2 U2 F2 D' B2 U2 L2 U' R2 U'  // 2c5 4e
@@ -76,13 +128,21 @@ I can't show a fifth subset because there isn't one: the other 44 top out at 17 
 **B3. Arithmetic slip.** [Aneurin, 12 Mar 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1084362354894049340) has 27248 for (4!)⁴/12. It's 27648.
 
 **B4. "I hypothesize that corner case + moves to HTR on normal + moves to HTR on inverse can tell you the optimal solution with a standard deviation of like 0.25 moves"** ([Zagros, 4 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1490097940641878216)).
-Knowing the subset, the corner case on both sides and the HTR length on both sides still leaves an sd of 0.80 moves over all DRs. That feature set also has the bad-edge count, which Zagros didn't list, and knowing more can only lower the sd, so Zagros's own features leave at least 0.80. The subset alone leaves 0.88. Nothing readable gets under 0.78. A pair, both 2c4 4e with the same corner case on normal and on inverse, 7 to HTR on both sides and the same corner length (7):
+It's nowhere near that. The sd of the optimal over all DRs, given what you know:
+
+| Known | sd left |
+|---|---:|
+| the subset alone | 0.88 |
+| subset (with the bad-edge count), corner case on both sides, HTR length on both sides | 0.80 |
+| everything readable | 0.78, nothing gets under it |
+
+Zagros didn't list the bad-edge count, and knowing more can only lower the sd, so Zagros's own features leave at least 0.80. Here's a pair, both 2c4 4e with the same corner case on normal and on inverse, 7 to HTR on both sides and the same corner length (7):
 
     D F2 U' F2 D B2 D'                                 // optimal 7
     D' R2 B2 U' F2 D B2 U B2 F2 U' F2 U' L2 D' U'      // optimal 16
 
 **B5. "they are all(?) 0c3 or 5q"**, about DRs that are 16+ optimal ([wen, 24 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1364979626279174254)).
-41% of the states with a 16+ optimal are in other subsets, and 45 of the 48 subsets contain some (all but 0c0 0e, 0c0 2e and 2c3 2e). They are rare everywhere though: 1.2% of all DR states. Three that are neither:
+41% of the states with a 16+ optimal are in other subsets. 45 of the 48 subsets have some, all but 0c0 0e, 0c0 2e and 2c3 2e. They're rare everywhere though: 1.2% of all DR states. Three that are neither:
 
     F2 D2 B2 R2 U' F2 R2 B2 R2 U' F2 L2 D2 R2 D U'      // 4b2 4e, optimal 16
     R2 U L2 D F2 L2 B2 D2 B2 U' B2 U' R2 F2 R2 U'       // 2c3 4e, optimal 16

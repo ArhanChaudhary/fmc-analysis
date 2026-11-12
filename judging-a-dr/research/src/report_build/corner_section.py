@@ -79,7 +79,13 @@ Both sides together:
               ('a stack on one side only', lambda a, b: stk(a) != stk(b)),
               ('a stack on both sides', lambda a, b: stk(a) and stk(b))])}
 
-So a double stack is as dead as a 5qt at every target ({Q(pair_hist('2c4', lambda a, b: stk(a) and stk(b)))} against {Q(pv.q(group='5qt'))} for all 5qt DRs, in 10 / 11 / 12 / 13), and the best layout on both sides is as good as an average 2c3 4e ({Q(pv.q(cs='2c3', e=4))}).
+So a double stack is as dead as a 5qt at every target, and the best layout on both sides is as good as the last row:
+
+| | In 10 / 11 / 12 / 13 |
+|---|---|
+| a stack on both sides | {Q(pair_hist('2c4', lambda a, b: stk(a) and stk(b)))} |
+| all 5qt DRs | {Q(pv.q(group='5qt'))} |
+| an average 2c3 4e | {Q(pv.q(cs='2c3', e=4))} |
 
     U2 L2 D' F2 U' R2 U F2 D L2 U2   // the fastest any double-stacked 2c4 finishes: 11
 

@@ -79,7 +79,7 @@ It's tempting to say "half turns don't change the HTR subset, so only qts matter
 
 ## What to look at: seven levels
 
-All tables use the ten DR moves. "Cases" = things that look the same.
+All tables use the ten DR moves. "Cases" means positions that look the same at that level.
 
 | Level | What you look at | Cases | Max |
 |---|---|---:|---:|
@@ -93,11 +93,11 @@ All tables use the ten DR moves. "Cases" = things that look the same.
 
 The real optimal maxes out at 18 (1,352 states, the number Reid gave, quoted by [Tomas Rokicki, 31 May 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1510792489236430968)).
 
-Some notes:
+A few notes on the levels:
 
 - **NISS@DR on HTR states with half turns only *is* FakeMMAP's table.** FakeMMAP's 216 example scrambles are 216 different cases and every value matches (both proven in Lean). So NISS@DR is that table grown from 216 cases to 6.35 million: one for every corner state and edge layout a DR can have.
 - **"Up to swapping white and yellow"** is Rodney's *reflection* ("yellow FH edges with white HH corners", +2). The last level looks at the actual colours, so reflection is built in.
-- **Double-swap parity** is the H-perm thing FakeMMAP and Rodney went back and forth on ([here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546101477334978650) and [here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546232388013785088)): are the four M-slice edges, read in order, an even or odd arrangement, and same for S. On HTR states that's the parity of F2/B2 turns and of R2/L2 turns separately, the F-parity and R-parity of FakeMMAP's "OBL++" sheet. Rodney guessed that knowing it would make the bound basically exact ([Rodney, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546126576247247028)). Below you can see how close it gets.
+- **Double-swap parity** is the H-perm thing FakeMMAP and Rodney went back and forth on ([here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546101477334978650) and [here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546232388013785088)): are the four M-slice edges, read in order, an even or odd arrangement, and same for S. On HTR states that's the parity of F2/B2 turns and of R2/L2 turns separately, the F-parity and R-parity of FakeMMAP's "OBL++" sheet. Rodney guessed that knowing it would make the bound basically exact ([Rodney, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546126576247247028)). The next table shows how close it gets.
 - **What the last level still can't see**: which of the two white M-slice edges is which (same for the other three pairs), and the E-slice beyond its parity. So H-perm-style 2e2e's inside a slice and E-slice 3-cycles are the only blind spot.
 
 ---
@@ -132,7 +132,9 @@ How often does a level *prove* the finish is 13+ (so no 12)? Percentages are of 
 | 4qt (0c4, 2c4, 4c4) | 93.2% | 0.2% | 5.0% | 16.5% | 34.0% | 53.5% | 81.3% | 70.3% | 41.3% |
 | 5qt (2c5, 4b5) | 97.9% | 0.0% | 12.9% | 28.4% | 58.6% | 76.1% | 94.8% | 86.1% | 66.2% |
 
-"The longer your HTR, the more useful it is to have a lower bound" ([Rodney, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546184215542898760)). This is that, in numbers: at 1–2qt bounding from the DR does almost nothing and you should bound late like Levi and Rodney do. At 4–5qt it kills most DRs on sight. (Rows go by the Q in the subset name, which is the corner qt count. A few subsets need more actual qts than that: every 0c0 with bad edges needs 2, and 4a1 0e and 4a1 2e need 3.)
+"The longer your HTR, the more useful it is to have a lower bound" ([Rodney, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546184215542898760)). Here's that in numbers. At 1–2qt bounding from the DR does almost nothing, so bound late like Levi and Rodney do. At 4–5qt it kills most DRs on sight.
+
+Rows go by the Q in the subset name, the corner qt count. A few subsets need more actual qts than that: every 0c0 with bad edges needs 2, and 4a1 0e and 4a1 2e need 3.
 
 All 48 subsets are in Appendix A. The big ones:
 
@@ -178,7 +180,15 @@ So 13 is optimal, and the last level proves it without picking a skeleton.
 
 Here plain NISS@DR on the normal side already says 13. Rodney's 13-mover is optimal, read off a 4qt DR.
 
-**Levi's example** (from the DR Bounding doc), the 10-move 3qt DR `(D2 B' L' B U' F2 D L U2 R)`: subset 4c3 4e, HTR 9 / 10, NISS@DR 12 / 12, everything 14 / 14, optimal DR finish 15. Levi says "14-move optimal finish, giving a 24". Both are right: the DR ends in R, a finish that ends on that face merges with it, and the same DR with R' instead has optimal 14. The tool prints both.
+**Levi's example** (from the DR Bounding doc), a 10-move 3qt DR:
+
+```
+(D2 B' L' B U' F2 D L U2 R)   // 4c3 4e
+```
+
+    HTR 9 / 10,  NISS@DR 12 / 12,  everything 14 / 14,  optimal DR finish 15
+
+Levi says "14-move optimal finish, giving a 24". Both are right. The DR ends in R, a finish that starts with a turn of that face merges with it, and the same DR with R' instead has optimal 14. The tool prints both.
 
 ---
 
@@ -253,7 +263,13 @@ If the formula says ≤ 12, optimal is below it 2.5% of the time. At ≤ 11, 0.6
 
 ## The 216 NISS@1qt cases, three ways
 
-FakeMMAP's first table is HT only. FakeMMAP then added HTR-breaking finishes from a list of algs, said ≤ 7 was proven and 8/9/10 might secretly be 7-movers ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606), [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)), and is "not mathematically 100% sure" about the newer OBL++ sheet ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)). Rodney's "Adv DR Bounding" sheet uses those optimals.
+FakeMMAP's tables, in order:
+
+- the first one is HT only;
+- the next adds HTR-breaking finishes from a list of algs: ≤ 7 is proven, and 8/9/10 might secretly be 7-movers ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606), [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075));
+- the newer OBL++ sheet, which FakeMMAP is "not mathematically 100% sure" about ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)).
+
+Rodney's "Adv DR Bounding" sheet uses those optimals.
 
 Here are all three (the full table is Appendix C):
 
@@ -263,7 +279,7 @@ Here are all three (the full table is Appendix C):
 | DR moves | same BFS with U and D qts | 214 the same, 2 shorter: "R-D − F-V R-V even" and its mirror "F-D − F-V R-V even" go from 9 to 8 (the count of 2 is proven in Lean) |
 | Any face turn (HTM) | every sequence of ≤ 10 moves is two sequences of ≤ 5 glued together, so I listed all 624,124 of those twice, matched the pairs that can land in HTR, and tested each hit | vs DR moves: 150 the same, 37 shorter by 1, 22 by 2, 6 by 3, 1 by 4. (vs half turns: 150 / 35 / 24 / 6 / 1.) |
 
-DR-move values never go above 10, so anything shorter is ≤ 9 moves and a search that's complete to 10 can't miss it. Against that:
+DR-move values never go above 10, so anything shorter is ≤ 9 moves and a search that's complete to 10 can't miss it.
 
 The two that get shorter with quarter turns, explicitly (with half turns alone both cases need 9):
 
@@ -284,9 +300,26 @@ The two that get shorter with quarter turns, explicitly (with half turns alone b
   | H-H + F-D R-V odd | 9 | 8 | `F L2 F B' R2 L2 D2 F'` |
 
   (The inverse of each sequence solves it.)
-- **Rodney's sheet** has no optimal column: its Penalty is the finish length minus the corner case's setup (1 move for F-D and R-D corners, 2 for F-V, 0 for H-H). It is built on the same optimals, so the same five are one too high (6, 6, 9, 9, 9 should be 5, 5, 8, 8, 8), and the other 211 agree. One more row, labelled F-V / F-D / R-H, lists `M R2 U2 M'`, which actually gives a different case (R-V + F-D R-V odd). `M F2 U2 M'` gives the labelled case in 6 moves, the sheet's penalty of 4 after the 2-move F-V setup, so the R2 is a typo for F2.
+- **Rodney's sheet** has no optimal column: its Penalty is the finish length minus the corner case's setup (1 move for F-D and R-D corners, 2 for F-V, 0 for H-H). It's built on the same optimals, so the same five are one too high, and the other 211 agree:
+
+  | Case | Sheet penalty | Should be |
+  |---|---:|---:|
+  | F-D + F-V R-H odd | 6 | 5 |
+  | R-D + F-H R-V odd | 6 | 5 |
+  | H-H + F-D R-D odd | 9 | 8 |
+  | H-H + F-V R-D odd | 9 | 8 |
+  | H-H + F-D R-V odd | 9 | 8 |
+
+  One more row, labelled F-V / F-D / R-H, has an alg for a different case. The R2 is a typo for F2:
+
+  ```
+  M R2 U2 M'   // the sheet's alg: gives R-V + F-D R-V odd
+  M F2 U2 M'   // the labelled case in 6 moves, the sheet's penalty of 4 after the 2-move F-V setup
+  ```
 - **Rodney's rules are still a true lower bound in all 216 cases**, even against the shorter optimals. The "100%" survives.
-- **OBL++** has a finer grid and I didn't grade it cell by cell. Collapsed to these 216 labels it matches on 140 of the 144 cases it covers, already has four of the five fixes above, and is one *lower* in four (D-D ± F-H R-H even, R-V + F-D R-H even, R-V + F-D R-D odd: 8 vs my 9). For those four I ran nissy on all 3,072 states of each case and none has a solution of 8 or fewer. So 9 stands for the cases as I label them. Whether those cells are off or just mean something slightly different, I don't know.
+- **OBL++** has a finer grid and I didn't grade it cell by cell. Collapsed to these 216 labels it covers 144 cases, matches on 140 of them and already has four of the five fixes above. It's one *lower* in four (D-D ± F-H R-H even, R-V + F-D R-H even, R-V + F-D R-D odd: 8 vs my 9).
+
+  For those four I ran nissy on all 3,072 states of each case and none has a solution of 8 or fewer, so 9 stands for the cases as I label them. Whether those cells are off or just mean something slightly different, I don't know.
 
 Two sanity checks on my side: listing the HTR group directly gives 663,552 states in 216 cases of exactly 3,072 each, and all 216 sequences in Appendix C land in the case they claim.
 
@@ -296,7 +329,7 @@ This part is a Python script, not Lean. Nothing in either sheet beats its values
 
 ## The proof, if you don't speak Lean
 
-Lean is a proof checker. You write a statement and a proof, and a small trusted program checks every step. The project is about 2,500 lines, no Mathlib, and I can share it.
+Lean is a proof checker. You write a statement and a proof, and a small trusted program checks every step. The project is about 2,500 lines, no Mathlib, and it's in this repo under lean/DRBound.
 
 **What's stated.** A DR state is three lists: the piece in each of the 8 corner positions, the 8 U/D edge positions, the 4 E-slice positions. Each of the ten moves shuffles those lists in a fixed way, written out as tables (that file is 150 lines and it's the one to read if you want to convince yourself it's the cube). A solution is a list of moves that puts all three lists in order.
 
@@ -328,7 +361,18 @@ theorem Rung.bound_attained (ok : R.Checked) : ∀ (d : Nat) (g : State), g.Vali
 3. The table isn't trusted. Lean builds it with its own BFS, but nothing is assumed about that BFS, only the checks are used. A wrong table or a wrong feature would fail a check and the file wouldn't compile.
 4. The inverse side needs one more fact, proven by hand: if w solves g, the inverse of g is exactly what w does to a solved cube. So its table value is at most the length of w.
 
-**The optimal itself.** Same trick, one size up: take the table of *everything*, one entry per DR state, holding its optimal. That's 19.5 billion entries, so it's stored up to the 16 symmetries that keep the U/D axis: 2,768 corner classes × 40,320 edge arrangements × 12 E-slice arrangements = 1,339,269,120 entries, one byte each. Lean builds it with its own BFS and then checks every entry against each of the ten moves for the same three things as before: a move changes the value by at most 1, only the solved cube has 0, and every positive entry has a move that goes down by 1. On top of that it checks that entries the symmetries identify hold the same value, and nine brute-force facts about the bookkeeping: the 16 symmetries map legal states to legal states, turn each move into a move and form a group; every corner arrangement is carried to the representative of its class; moves change the three parities the way they should; and the numbering of edge and E-slice arrangements round-trips. From those:
+**The optimal itself.** Same trick, one size up: take the table of *everything*, one entry per DR state, holding its optimal. That's 19.5 billion entries, so it's stored up to the 16 symmetries that keep the U/D axis, one byte per entry:
+
+| Corner classes | × Edge arrangements | × E-slice arrangements | = Entries |
+|---:|---:|---:|---:|
+| 2,768 | 40,320 | 12 | 1,339,269,120 |
+
+Lean builds it with its own BFS and then checks every entry against each of the ten moves for the same three things as before: a move changes the value by at most 1, only the solved cube has 0, and every positive entry has a move that goes down by 1. On top of that it checks
+
+- that entries the symmetries identify hold the same value,
+- nine brute-force facts about the bookkeeping: the 16 symmetries map legal states to legal states, turn each move into a move and form a group; every corner arrangement is carried to the representative of its class; moves change the three parities the way they should; and the numbering of edge and E-slice arrangements round-trips.
+
+From those:
 
 ```lean
 -- every solution of g has at least exactDist g moves
@@ -345,11 +389,28 @@ theorem exact_needs_18 : ∃ g : State, g.Valid ∧ g.ParityOK ∧ exactDist g =
     ∀ w : List Move, g.apply w = solved → 18 ≤ w.length
 ```
 
-`Valid` says the three lists are permutations, `ParityOK` is the usual parity condition (corner parity + U/D edge parity = E-slice parity). Together that's exactly the states DR moves can reach: Lean proves both directions (anything you can scramble to satisfies them, and anything that satisfies them gets solved by `exact_attained`). `exactDist g` is the table entry of g's symmetry-reduced image. The witness for 18 is `U2 L2 D B2 U' B2 U' L2 D B2 R2 U R2 U R2 U2 R2 U'`.
+`Valid` says the three lists are permutations, `ParityOK` is the usual parity condition (corner parity + U/D edge parity = E-slice parity). Together that's exactly the states DR moves can reach: Lean proves both directions (anything you can scramble to satisfies them, and anything that satisfies them gets solved by `exact_attained`). `exactDist g` is the table entry of g's symmetry-reduced image. The witness:
 
-In the same run Lean counts the table: 1, 10, 67, 456, 3079, 19948, 123074, 736850, 4185118, 22630733, 116767872, 552538680, 2176344160, 5627785188, 7172925794, 3608731814, 224058996, 1575608, 1352 at depths 0 to 18, total 19,508,428,800, where an entry counts 16 / (number of symmetries fixing the representative of its corner class) times. Same numbers as the Rust BFS. The one step that is *not* formalised is that this weighting counts states: that an entry stands for exactly that many of them. It's the standard orbit count, but here it's a paper argument, not a Lean theorem. So "1,352 states at 18" is proven up to that step, and "some state needs 18, none needs more" is proven outright.
+```
+U2 L2 D B2 U' B2 U' L2 D B2 R2 U R2 U R2 U2 R2 U'   // needs 18
+```
 
-**What's proven.** `R.Checked` for all seven levels, so all seven bounds, both sides. Plus the HT-only version of NISS@DR, that it equals FakeMMAP's 216 values, that exactly 2 of them get shorter with qts, the counterexample to Levi's formula, and the exact optimal of every DR state with its maximum of 18. The biggest bound check reads 406,425,600 entries against ten moves each and takes about 4.5 minutes. The exact-optimal check reads 1,339,269,120 and takes 17 minutes and 1.9 GB. Everything builds in under half an hour, in 3 GB of RAM if that last check is run on its own.
+In the same run Lean counts the table, at depths 0 to 18:
+
+1, 10, 67, 456, 3079, 19948, 123074, 736850, 4185118, 22630733, 116767872, 552538680, 2176344160, 5627785188, 7172925794, 3608731814, 224058996, 1575608, 1352
+
+That's 19,508,428,800 in total, where an entry counts 16 / (number of symmetries fixing the representative of its corner class) times. Same numbers as the Rust BFS.
+
+The one step that is *not* formalised is that this weighting counts states: that an entry stands for exactly that many of them. It's the standard orbit count, but here it's a paper argument, not a Lean theorem. So "1,352 states at 18" is proven up to that step, and "some state needs 18, none needs more" is proven outright.
+
+**What's proven.** `R.Checked` for all seven levels, so all seven bounds, both sides. Plus the HT-only version of NISS@DR, that it equals FakeMMAP's 216 values, that exactly 2 of them get shorter with qts, the counterexample to Levi's formula, and the exact optimal of every DR state with its maximum of 18.
+
+| Check | Entries read (against ten moves each) | Time | Memory |
+|---|---:|---|---|
+| biggest bound check | 406,425,600 | about 4.5 minutes | |
+| exact-optimal check | 1,339,269,120 | 17 minutes | 1.9 GB |
+
+Everything builds in under half an hour, in 3 GB of RAM if that last check is run on its own.
 
 **What you have to trust.**
 

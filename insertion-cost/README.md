@@ -2,7 +2,15 @@
 
 The third case study of this repository: what an insertion costs. For every kind of leftover that one or two 3-cycle insertions solve (3c, 5c, 2c2c, 3c1t, twisted corners, and the same for edges), how many moves the best insertion adds, by skeleton length and by how long an inserted alg may be, with every concrete claim from the FMC solvers Discord about insertions checked against the numbers.
 
-It builds on the table in Sebastiano Tronto's tutorial ("Move count (an estimate)"), on the estimates, exchange rates and counts people posted, and it uses Insertion Finder's result pages (333.fm, by Baiqiang Dong, core by Yan Xuan) as a reference. What it adds is the measured version: odds instead of one number per type, the effect of the alg list (8, 10 and 12 moves), exchange rates between types, where the best insertion sits and what shorter searches lose, the exact list of leftovers that two or three comms solve, the shortest alg of every case that has one of 12 moves or fewer, and worked examples from real solves searched the same way.
+It builds on the table in Sebastiano Tronto's tutorial ("Move count (an estimate)"), on the estimates, exchange rates and counts people posted, and it uses Insertion Finder's result pages (333.fm, by Baiqiang Dong, core by Yan Xuan) as a reference. What it adds is the measured version:
+
+- odds instead of one number per type;
+- the effect of the alg list (8, 10 and 12 moves);
+- exchange rates between types;
+- where the best insertion sits and what shorter searches lose;
+- the exact list of leftovers that two or three comms solve;
+- the shortest alg of every case that has one of 12 moves or fewer;
+- worked examples from real solves, searched the same way.
 
 | Where | What |
 |---|---|

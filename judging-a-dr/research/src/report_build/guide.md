@@ -28,13 +28,23 @@ What that does, counted over all DR states:
 
 Read it row by row, not from the last row. The last row counts every DR state once, and {= QTSHARE('4qt','5qt') =} of all DR states are 4qt or 5qt, so it mostly says what happens up there: {= PRUNE_HIGHQT() =} of what the list drops is 4qt or 5qt.
 
-- **1–2qt**: drops {= PRUNE('drop',11,'1-2qt') =}, loses {= PRUNE('lose',11,'1-2qt') =} of the finishes in 11. At 1–2qt the list hardly prunes.
-- **3qt**: drops {= PRUNE('drop',11,'3qt') =}, loses {= PRUNE('lose',11,'3qt') =} of the finishes in 11. What it keeps finishes in 11 {= PRUNE('kept',11,'3qt') =} of the time, against {= PRUNE('base',11,'3qt') =} for all of 3qt.
-- **4qt**: drops {= PRUNE('drop',11,'4qt') =}, loses {= PRUNE('lose',11,'4qt') =} of the finishes in 11. If you'd skip 4qt anyway, read that the other way round: the 2c4s the list keeps are {= PRUNE('stay',11,'4qt') =} of 4qt and hold {= PRUNE('keep',11,'4qt') =} of its finishes in 11.
-- **5qt**: all dropped. {= PRUNE('base',11,'5qt') =} of 5qt DRs finish in 11.
-- **All DR states**: {= PRUNE('drop') =} dropped, {= PRUNE('keep',11) =} of the finishes in 11 and {= PRUNE('keep',10) =} of those in 10 kept.
+| Corner qt | Dropped | Finishes in 11 lost | Note |
+|---|---:|---:|---|
+| 1–2qt | {= PRUNE('drop',11,'1-2qt') =} | {= PRUNE('lose',11,'1-2qt') =} | At 1–2qt the list hardly prunes. |
+| 3qt | {= PRUNE('drop',11,'3qt') =} | {= PRUNE('lose',11,'3qt') =} | What it keeps finishes in 11 {= PRUNE('kept',11,'3qt') =} of the time, against {= PRUNE('base',11,'3qt') =} for all of 3qt. |
+| 4qt | {= PRUNE('drop',11,'4qt') =} | {= PRUNE('lose',11,'4qt') =} | If you'd skip 4qt anyway, read it the other way round: the 2c4s the list keeps are {= PRUNE('stay',11,'4qt') =} of 4qt and hold {= PRUNE('keep',11,'4qt') =} of its finishes in 11. |
+| 5qt | all | all | {= PRUNE('base',11,'5qt') =} of 5qt DRs finish in 11. |
 
-On real scrambles the price is smaller still, because the short DRs carry most of the result. Over the {= ATT('have') =} of {= ATT('n') =} random scrambles that have an EO-first DR of 10 moves or less: finish every DR of 10 or less and every 11-mover, optimally, and the best solution averages {= ATT('res_all') =} ({= ATT('drs_all') =} DRs per scramble). Finish only the 11-movers the list keeps and it averages {= ATT('res_kept') =} ({= ATT('drs_kept') =} DRs). The tally is at the end of the examples page.
+Over all DR states the list drops {= PRUNE('drop') =} and keeps {= PRUNE('keep',11) =} of the finishes in 11 and {= PRUNE('keep',10) =} of those in 10.
+
+On real scrambles the price is smaller still, because the short DRs carry most of the result. Take the {= ATT('have') =} of {= ATT('n') =} random scrambles that have an EO-first DR of 10 moves or less, finish every DR of 10 or less optimally, and then:
+
+| Also finish | Best solution, average | DRs per scramble |
+|---|---:|---:|
+| every 11-mover | {= ATT('res_all') =} | {= ATT('drs_all') =} |
+| only the 11-movers the list keeps | {= ATT('res_kept') =} | {= ATT('drs_kept') =} |
+
+The tally is at the end of the examples page.
 
 If you have the HTR lengths, do the 4c3 line as "9+ on both sides, toss" instead: it drops about as many and loses {= LOSS('4c3', lambda e, a, b, tp, lo, hi: lo >= 9) =} of the 4c3 finishes in 11 instead of {= LOSS('4c3', 'list') =}.
 

@@ -1,6 +1,9 @@
-Scramble: `R' U' F B2 R F2 L' B2 R D2 B2 D2 B2 D2 L2 F' U' R' B' L' D' R2 U' R' U' F`
+```
+R' U' F B2 R F2 L' B2 R D2 B2 D2 B2 D2 L2 F' U' R' B' L' D' R2 U' R' U' F   // scramble
+L' D' R F U' L2 U R2 F U' B D' L D F' D' B D' B2 R2                         // skeleton (20)
+```
 
-Skeleton: `L' D' R F U' L2 U R2 F U' B D' L D F' D' B D' B2 R2` (20), leaves a corner 5-cycle: DBL → UBL → DBR → DFR → UFL → DBL
+It leaves a corner 5-cycle: DBL → UBL → DBR → DFR → UFL → DBL.
 
 **Best with two 8-move comms**: 29 in all, the second inside the first.
 

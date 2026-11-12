@@ -6,7 +6,7 @@ November 2026. A name with a date is a link to that message on the FMC solvers D
 
 **This builds on** the bounding docs and tables people already use:
 
-- **Levi Gibson's [DR Bounding](https://docs.google.com/document/d/1q7rig4GEo26GunBMtuagZdGyzyjCGlduH84CHLpGLSA)** and **Rodney Kinney's [Advanced DR Bounding [Beta]](https://docs.google.com/document/d/13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0)**: DR bounding by hand, which this study set out to push to 3qt, 4qt and 5qt (**How this started**, section 3). Levi's formula and the worked examples of both docs are checked here, and Rodney's NISS@1qt features are the basis of section 9.
+- **Levi Gibson's [DR Bounding](https://docs.google.com/document/d/1q7rig4GEo26GunBMtuagZdGyzyjCGlduH84CHLpGLSA)** and **Rodney Kinney's [Advanced DR Bounding [Beta]](https://docs.google.com/document/d/13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0)**: DR bounding by hand, which this study tries to take to 3qt, 4qt and 5qt (section 3). Levi's formula and the worked examples of both docs are checked here, and Rodney's NISS@1qt features are the basis of section 9.
 - **Rodney Kinney's sheet [Adv DR Bounding](https://docs.google.com/spreadsheets/d/1jRvikzLlm3yHlDQmQ0DLyj3Aw6uinL3Oa-U9_U7R5mY)**: the bounding rules against the 216 computed cases, checked in section 10.
 - **FakeMMAP's 216-case tables**: the half-turn-only values ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546077758189477989)), the HTR-breaking table ([FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)) and the sheet [OBL++](https://docs.google.com/spreadsheets/d/1kax7evfA85p_4ArXKO7si3FrCpj7PEeFwoz4GY5wRAE), all checked in section 10; and FakeMMAP's corner counts per qt.
 - **Joba's optimal distribution for all 48 subsets** ([Joba, 17 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1406633631165714492)), matched here in every cell, and **Mallard** ([cubelib](https://github.com/Jobarion/cubelib)), whose table is built from the same 48 subsets.
@@ -28,7 +28,7 @@ November 2026. A name with a date is a link to that message on the FMC solvers D
 
 **How to read it.** This is long because most of it is reference. You don't have to read it front to back.
 
-- **Start with [section 1](#1-the-short-version)**, the short version: what is new, then what it confirms or corrects, one line each. If you read one thing after it, make it the table in [section 2](#2-what-id-do-per-subset): for each kind of DR it says how often it finishes short, what to look at, when to drop it, and what not to conclude. With five minutes more, [section 5](#5-how-much-can-a-read-tell-you) measures how much any read can tell you for the finish you need (10, 11, 12 or 13).
+- **Start with [section 1](#1-the-short-version)**, the short version: what is new, then what it confirms or corrects. If you read one thing after it, make it the table in [section 2](#2-what-id-do-per-subset): for each kind of DR it says how often it finishes short, what to look at, when to drop it, and what not to conclude. With five minutes more, [section 5](#5-how-much-can-a-read-tell-you) measures how much any read can tell you for the finish you need (10, 11, 12 or 13).
 - **The [worked examples](examples.html)** go with it, to see it on real DRs: eleven DRs read step by step, then 100 scrambles with the DRs on the page and the answers folded away. **The [errata](errata.html)** list what the full search shows is wrong in the docs and sheets involved and in things said on the server, each with an example.
 - **Everything from section 10 on** is checking and reference: the 216 cases, the proof, how it was computed, and eight appendices of tables to look things up in.
 
@@ -36,9 +36,9 @@ November 2026. A name with a date is a link to that message on the FMC solvers D
 
 | Section | What is in it |
 |---|---|
-| [1. The short version](#1-the-short-version) | What is new, then what it confirms or corrects, one line each. |
+| [1. The short version](#1-the-short-version) | What is new, then what it confirms or corrects. |
 | [2. What I'd do per subset](#2-what-id-do-per-subset) | **The reference to keep open.** For each of the 12 corner subsets: how often it finishes in 10, 11 and 12, what to read, when to drop it for the finish you need, what not to conclude. |
-| [3. What people asked for](#3-what-people-asked-for) | How this started, the gap in the solvers' own words, the sixteen questions from the server that are answered here, and which finish matters. |
+| [3. What people asked for](#3-what-people-asked-for) | Bounding at high qt, the gap in the solvers' own words, the seventeen questions answered here, and which finish matters. |
 | [4. The data](#4-the-data) | What was computed, and what "optimal" and "in 11" mean. |
 | [5. How much can a read tell you?](#5-how-much-can-a-read-tell-you) | Every read against the exact finish, for each finish you might need from 9 to 13: ranking, throwing away, plain rules with their price, what is proven. Zagros's two hunches. |
 | [6. The reads, cheapest first](#6-the-reads-cheapest-first) | What each read is worth, with the tables: [6.1 Subset](#61-subset), [6.2 Pairs](#62-pairs), [6.3 Corner case, on both sides](#63-corner-case-on-both-sides), [6.4 HTR length on both sides](#64-htr-length-on-both-sides), [6.5 Corner length and E-slice parity](#65-corner-length-and-e-slice-parity), [6.6 The last DR move](#66-the-last-dr-move). |
@@ -65,23 +65,100 @@ November 2026. A name with a date is a link to that message on the FMC solvers D
 
 The finishes that matter are 10 and 11, which is what an 11- or 12-move DR needs (why is under **Which finish** in section 3).
 
-What is new here, in one line each:
+What is new here:
 
-- **Some DRs are dead on sight, no solving needed.** A 2c5 with the bad corners stacked on both sides never finishes in 12 (the fastest is 13). Stacked on one side and opposite on the other: no 11, 0.24% in 12. Together that's 19% of all 2c5. A 2c4 stacked on both sides: no 10, 0.06% in 11, 1.1% in 12 (the fastest is 11), as dead as a 5qt. A 4a2 2e with all four bad corners on one layer on both sides: no 12 at all. The fastest double-stacked 2c4 and 2c5 are in section 6.3.
-- **A five-line prune list for an 11-move DR that needs no solving** (section 2) drops 8% of 1–2qt, 28% of 3qt and 81% of 4qt DRs and every 5qt one, for 0.68%, 6.0% and 36% of their finishes in 11. Over all DR states it drops 57% and keeps 92% of the 11s and 96% of the 10s. On 491 of 500 random scrambles (those with an EO-first DR of 10 or less), finishing every DR of 10 or less plus only the 11-movers the list keeps averages 20.05 with 353 DRs per scramble; finishing every 11-mover averages 20.04 with 733.
-- **For a 10 or an 11, the subset does most of the pruning.** In 11: 10% of 1–2qt DRs, 4.6% of 3qt, 1.1% of 4qt, 0.24% of 5qt. In 10: 2.4%, 0.87%, 0.16%, 0.02%.
-- **Still no clean yes/no: tseitsei89's "100% cases and 0% cases" don't exist at any target.** The subset explains 35% of the variance of the optimal, everything readable together 48%, and what's left has an sd of 0.78 moves. Zagros's hunch that corner case + HTR on both sides pins the optimal to ~0.25 moves: it's 0.80. Two 2c4 4e with the same corner case on both sides, 7 to HTR on both sides and the same corner length finish in 7 and in 16 (section 5).
-- **The lower the target, the more the reads tell you, and the free reads tell the most.** Keep only the best-looking quarter of 4qt DRs, going by pairs and corner case, which need no solving. It holds 65% of the finishes in 12, 77% of those in 11 and 89% of those in 10. At 3qt: 52%, 63%, 74%. From 3qt up, pairs plus corner cases rank better than the two HTR lengths at every target from 10 up, and the HTR lengths on top add 1 to 7 points. At 1–2qt it's the other way round: HTR length is the best single read.
-- **Plain rules, with their price.** Zagros's "9+ on both sides, toss" turned into a rule against your target T. The safe version drops every DR that is T−1 or more to HTR on both sides: for an 11 that's 10+, and it drops 8% of 3qt and 31% of 4qt DRs for 0.2% and 2.5% of the 11s. The aggressive version, T−2 or more, is Zagros's 9+ when you need an 11: it drops 28% and 67% and costs 5% and 20% of them. With no solving: dropping every DR without a pair drops 14% and costs 2–7% of the 11s.
-- **Count true pairs and stop.** One more pair multiplies the odds of an 11 by 1.4 at 4a1, 1.7 at 2c4 and 1.9 at 2c5. A 2c4 with five or more pairs finishes in 11 sixteen times as often as one with none (6.8% against 0.43%). Adding pseudo-pairs and semi-pairs moves the sd left from 0.850 to 0.842. The pair count is the same on inverse for every DR state, so count once.
-- **Inside a subset the corner case on both sides is a big read.** 2c4 runs from 0.92% / 5.6% / 26% (in 10 / 11 / 12) with the best layout on both sides to 0 / 0.06% / 1.1% with a stack on both. At 3qt stacked is the *best* layout; at 4qt and 5qt it's the worst. Two 2c4 cases with the same bad corners (0.48% / 3.1% / 16% and 0.38% / 2.4% / 13%) are told apart by the diagonals of the back face (section 6.3). In 4b2 (3-1) and 4c3 (4-0) two cases look the same, and only the optimal corner solution separates them.
+- **Some DRs are dead on sight, no solving needed.** By where the bad corners sit on normal and on inverse:
+
+  | Bad corners | Never finishes in | Odds | Fastest |
+  |---|---:|---|---:|
+  | 2c5, stacked on both sides | 12 | | 13 |
+  | the same subset, stacked on one side and opposite on the other | 11 | 0.24% in 12 | |
+  | 2c4, stacked on both sides | 10 | 0.06% in 11, 1.1% in 12 | 11 |
+  | 4a2 2e, all four bad corners on one layer on both sides | 12 | | |
+
+  The first two rows are 19% of all 2c5, and the third is as dead as a 5qt. The fastest double-stacked 2c4 and 2c5 are in section 6.3.
+- **A five-line prune list for an 11-move DR that needs no solving** (section 2):
+
+  | | 1–2qt | 3qt | 4qt | 5qt |
+  |---|---:|---:|---:|---:|
+  | DRs it drops | 8% | 28% | 81% | all |
+  | finishes in 11 it loses | 0.68% | 6.0% | 36% | |
+
+  Over all DR states it drops 57% and keeps 92% of the 11s and 96% of the 10s. On real scrambles, 491 of 500 random ones (those with an EO-first DR of 10 or less):
+
+  | What you finish | Average result | DRs per scramble |
+  |---|---:|---:|
+  | every DR of 10 or less, plus only the 11-movers the list keeps | 20.05 | 353 |
+  | the same, but every 11-mover | 20.04 | 733 |
+- **For a 10 or an 11, the subset does most of the pruning.** Share of DRs that finish:
+
+  | | 1–2qt | 3qt | 4qt | 5qt |
+  |---|---:|---:|---:|---:|
+  | in 11 | 10% | 4.6% | 1.1% | 0.24% |
+  | in 10 | 2.4% | 0.87% | 0.16% | 0.02% |
+- **Still no clean yes/no: tseitsei89's "100% cases and 0% cases" don't exist at any target.** The subset explains 35% of the variance of the optimal, everything readable together 48%, and what's left has an sd of 0.78 moves. Zagros's hunch was that corner case + HTR on both sides pins the optimal to ~0.25 moves; it's 0.80. Two 2c4 4e with the same corner case on both sides, 7 to HTR on both sides and the same corner length finish in 7 and in 16 (section 5).
+- **The lower the target, the more the reads tell you, and the free reads tell the most.** Keep only the best-looking quarter of a qt group, going by pairs and corner case (no solving needed). Share of the finishes you keep:
+
+  | Finishes in | 3qt | 4qt |
+  |---|---:|---:|
+  | 12 | 52% | 65% |
+  | 11 | 63% | 77% |
+  | 10 | 74% | 89% |
+
+  From 3qt up, pairs plus corner cases rank better than the two HTR lengths at every target from 10 up, and the HTR lengths on top add 1 to 7 points. At 1–2qt it's the other way round: HTR length is the best single read.
+- **Plain rules, with their price.** Zagros's "9+ on both sides, toss", turned into a rule against your target T. For an 11:
+
+  | Rule | DRs dropped, 3qt / 4qt | 11s lost, same order |
+  |---|---|---|
+  | safe: T−1 or more to HTR on both sides (10+ for an 11) | 8% / 31% | 0.2% / 2.5% |
+  | aggressive: T−2 or more (Zagros's 9+ when you need an 11) | 28% / 67% | 5% / 20% |
+  | no solving: drop every DR without a pair | 14% at every qt | 2–7% |
+- **Count true pairs and stop.** What one more pair multiplies the odds of an 11 by:
+
+  | 4a1 | 2c4 | 2c5 |
+  |---:|---:|---:|
+  | 1.4 | 1.7 | 1.9 |
+
+  A 2c4 with five or more pairs finishes in 11 sixteen times as often as one with none (6.8% against 0.43%). Adding pseudo-pairs and semi-pairs moves the sd left from 0.850 to 0.842. The pair count is the same on inverse for every DR state, so count once.
+- **Inside a subset the corner case on both sides is a big read.** For 2c4:
+
+  | Corner case on both sides | In 10 / 11 / 12 |
+  |---|---|
+  | the best layout | 0.92% / 5.6% / 26% |
+  | a stack on both | 0 / 0.06% / 1.1% |
+  | one of the two 2c4 cases with the same bad corners | 0.48% / 3.1% / 16% |
+  | the other one | 0.38% / 2.4% / 13% |
+
+  The last two are told apart by the diagonals of the back face (section 6.3). At 3qt stacked is the *best* layout; at 4qt and 5qt it's the worst. In 4b2 (3-1) and 4c3 (4-0) two cases look the same, and only the optimal corner solution separates them.
 - **The two guaranteed hand bounds wake up at low targets.** The longer HTR, and the corner solution with the right E-parity (the number of side turns in any finish has the parity of the E-slice: Rodney's fr-parity used on the whole finish). They prove almost nothing for a 12 (5% of 4qt DRs, 13% of 5qt). For a 10 they rule out half of 4qt and 80% of 5qt DRs.
-- **trangium's 2q bound works at any qt, and from 3qt up it's as good as a true bound.** On each side: fewest half turns before a quarter turn lowers the qt count, plus the shortest HTR of the other side. A finish with extra quarter turns gets under it for 2.6% of 1–2qt DRs and 0.002% from 3qt up (section 7 has a scramble for each of the 13 subsets where it happens). At 3qt it rules out 19% of DRs for a 10 and 6% for an 11, more than the two proven bounds together.
-- **Levi's formula, measured.** It bounds every finish with one quarter turn, as Levi's doc says. A finish with three is shorter for 11.7% of 4a1 4e, and for 2.5% when the formula says 12 or less. For 72 of the 432 cases of 4a1 4e (one in six) the shortest HTR is a 3qt one, and the formula wants the shortest 1qt length. Against the real leave slice (count quackula's question) it's +0.70 on average and too high 19.7% of the time. Examples in section 7.
+- **trangium's 2q bound works at any qt, and from 3qt up it's as good as a true bound.** On each side: fewest half turns before a quarter turn lowers the qt count, plus the shortest HTR of the other side. How often a finish with extra quarter turns gets under it:
+
+  | 1–2qt | 3qt and up |
+  |---:|---:|
+  | 2.6% | 0.002% |
+
+  Section 7 has a scramble for each of the 13 subsets where it happens. At 3qt it rules out 19% of DRs for a 10 and 6% for an 11, more than the two proven bounds together.
+- **Levi's formula, measured.** It bounds every finish with one quarter turn, as Levi's doc says. Examples for the rest are in section 7.
+  - A finish with three quarter turns is shorter for 11.7% of 4a1 4e, and for 2.5% when the formula says 12 or less.
+  - For 72 of the 432 cases of 4a1 4e (one in six) the shortest HTR is a 3qt one, and the formula wants the shortest 1qt length.
+  - Against the real leave slice (count quackula's question) it's +0.70 on average and too high 19.7% of the time.
 - **How far off they all sit.** The guaranteed bounds you can compute by hand are on average four moves under optimal.
 - **A last DR move you can turn the other way is worth 0.33 moves flat**, in every subset (Zagros's question). At 3qt it takes the share finishing in 11 from 4.6% to 7.5%.
-- **Where the information is.** Rodney's NISS@1qt features read straight off the DR state give a bound at any qt with no skeleton: on HTR states with half turns only it *is* FakeMMAP's 216-case table, at the DR it has 6,350,400 cases. With the H-perm parity and the real colours added it's exact 44% of the time and within one 86% (Rodney's guess was about right), and it proves Rodney's 4a4 13-mover optimal from the DR alone. A computer that sees the corners exactly plus the edge colours proves "no 12" for 81% of 4qt and 95% of 5qt DRs, and "no 11" for 97% and 99%. Everything readable put together gets 24% and 45% of them under 1% for a 12. The gap is the corner–edge relation, which is what Rodney's NISS@1qt tracing looks at. No count of visible features replaces it.
-- **Exact numbers that were guesses.** The shortest HTR at 1 to 5 corner qts is 1 / 3 / 5 / 7 / 9 on either side (Joba's safe bound took 1 / 2 / 4 / 6 / 8). Only four subsets ever need 18: 0c0 8e, 0c3 4e, 2c5 0e and 2c5 4e. The slice is free (finish = leave slice) for 73% of DRs, from 56% at 1–2qt to 85% at 5qt. A DR whose optimal is 10 or 11 has exactly one optimal first move three times in four. 0c3 is the worst subset on average (14.46), worse than 5qt, and 4a2 2e and 0e finish like a 2c4.
+- **Where the information is.** Rodney's NISS@1qt features read straight off the DR state give a bound at any qt with no skeleton: on HTR states with half turns only it *is* FakeMMAP's 216-case table, at the DR it has 6,350,400 cases. With the H-perm parity and the real colours added it's exact 44% of the time and within one 86% (Rodney's guess was about right), and it proves Rodney's 4a4 13-mover optimal from the DR alone. What a computer gets against what you can read:
+
+  | | 4qt | 5qt |
+  |---|---:|---:|
+  | corners exactly plus the edge colours: proves "no 12" | 81% | 95% |
+  | the same: proves "no 11" | 97% | 99% |
+  | everything readable put together: under 1% for a 12 | 24% | 45% |
+
+  The gap is the corner–edge relation, which is what Rodney's NISS@1qt tracing looks at. No count of visible features replaces it.
+- **Exact numbers that were guesses.**
+  - The shortest HTR at 1 to 5 corner qts is 1 / 3 / 5 / 7 / 9 on either side (Joba's safe bound took 1 / 2 / 4 / 6 / 8).
+  - Only four subsets ever need 18: 0c0 8e, 0c3 4e, 2c5 0e and 2c5 4e.
+  - The slice is free (finish = leave slice) for 73% of DRs, from 56% at 1–2qt to 85% at 5qt.
+  - A DR whose optimal is 10 or 11 has exactly one optimal first move three times in four.
+  - 0c3 is the worst subset on average (14.46), worse than 5qt, and 4a2 2e and 0e finish like a 2c4.
 - **Questions from the server, answered exactly**: stats by bad corner position (Daichi, JTuu, wen), by pairs (Rodney, Levi), the normal × inverse HTR table (Zagros), the 4a1 4e bound against the real leave slice (count quackula), the cost of the slice and the width of a DR (JTuu), an invertible last move (Zagros), error stats for bounding (compLex), God's number per subset (compLex), optimal lengths of all corner cases (Evan).
 - **Proven in Lean**: the optimal finish of every DR state (so every stat here is a count over proven optimals) and its maximum of 18, the HTR and corner-length-with-parity bounds, the 216 HT-only values, and the counterexample to Levi's formula.
 
@@ -135,13 +212,23 @@ What that does, counted over all DR states:
 
 Read it row by row, not from the last row. The last row counts every DR state once, and 54% of all DR states are 4qt or 5qt, so it mostly says what happens up there: 84% of what the list drops is 4qt or 5qt.
 
-- **1–2qt**: drops 8%, loses 0.68% of the finishes in 11. At 1–2qt the list hardly prunes.
-- **3qt**: drops 28%, loses 6.0% of the finishes in 11. What it keeps finishes in 11 6.0% of the time, against 4.6% for all of 3qt.
-- **4qt**: drops 81%, loses 36% of the finishes in 11. If you'd skip 4qt anyway, read that the other way round: the 2c4s the list keeps are 19% of 4qt and hold 64% of its finishes in 11.
-- **5qt**: all dropped. 0.24% of 5qt DRs finish in 11.
-- **All DR states**: 57% dropped, 92% of the finishes in 11 and 96% of those in 10 kept.
+| Corner qt | Dropped | Finishes in 11 lost | Note |
+|---|---:|---:|---|
+| 1–2qt | 8% | 0.68% | At 1–2qt the list hardly prunes. |
+| 3qt | 28% | 6.0% | What it keeps finishes in 11 6.0% of the time, against 4.6% for all of 3qt. |
+| 4qt | 81% | 36% | If you'd skip 4qt anyway, read it the other way round: the 2c4s the list keeps are 19% of 4qt and hold 64% of its finishes in 11. |
+| 5qt | all | all | 0.24% of 5qt DRs finish in 11. |
 
-On real scrambles the price is smaller still, because the short DRs carry most of the result. Over the 491 of 500 random scrambles that have an EO-first DR of 10 moves or less: finish every DR of 10 or less and every 11-mover, optimally, and the best solution averages 20.04 (733 DRs per scramble). Finish only the 11-movers the list keeps and it averages 20.05 (353 DRs). The tally is at the end of the examples page.
+Over all DR states the list drops 57% and keeps 92% of the finishes in 11 and 96% of those in 10.
+
+On real scrambles the price is smaller still, because the short DRs carry most of the result. Take the 491 of 500 random scrambles that have an EO-first DR of 10 moves or less, finish every DR of 10 or less optimally, and then:
+
+| Also finish | Best solution, average | DRs per scramble |
+|---|---:|---:|
+| every 11-mover | 20.04 | 733 |
+| only the 11-movers the list keeps | 20.05 | 353 |
+
+The tally is at the end of the examples page.
 
 If you have the HTR lengths, do the 4c3 line as "9+ on both sides, toss" instead: it drops about as many and loses 17% of the 4c3 finishes in 11 instead of 28%.
 
@@ -168,15 +255,13 @@ On top of any row: a last DR move that can be turned the other way is worth a th
 
 ## 3. What people asked for
 
-**How this started.** The question I started from: can Levi's and Rodney's DR bounding be pushed to 3qt, 4qt and 5qt DRs, so you can toss a DR because its bound is high instead of wasting time on it?
-
-With a computer, yes. Look at part of the DR, tabulate the fewest moves that solve that part, and you have a lower bound at any qt with no skeleton. With the right table it proves "no finish in 12" for 59% of 5qt DRs and "no finish in 11" for 94%. That was the first version of this doc and it is now section 9. The trouble is the tables have millions of cases, so nobody can use them in an attempt, and the bar on the server is clear:
+**Bounding at high qt.** With a computer, DR bounding works at any qt. Look at part of the DR, tabulate the fewest moves that solve that part, and you have a lower bound at any qt with no skeleton. With the right table it proves "no finish in 12" for 59% of 5qt DRs and "no finish in 11" for 94% (section 9). The catch is that the tables have millions of cases, so nobody can use them in an attempt, and the bar on the server is clear:
 
 > "is the lower bound fast to determine by human methods? If it takes too long to figure out the lower bound, you can just as well try to actually solve the DR" ([tseitsei89, 13 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1416359895761944657))
 
 > "I don't expect anyone to use the decision trees directly. I'm just hoping to use them to find the most important 2-3 features … then make some simple rules out of just those features" ([Rodney, 1 Jul 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1389481110181777478))
 
-So this version asks the human question. Take what you can actually read off a DR (subset, pairs, corner case, HTR length on both sides, corner solution length, E-slice parity) and measure exactly what each one tells you about the finish.
+So the question that matters is the human one. Take what you can actually read off a DR (subset, pairs, corner case, HTR length on both sides, corner solution length, E-slice parity) and measure exactly what each one tells you about the finish.
 
 The gap, in the words of the people who bound in real solves:
 
@@ -189,6 +274,7 @@ And the specific questions, each with a section below:
 
 | Asked | By | Where |
 |---|---|---|
+| Can Levi's and Rodney's DR bounding be pushed to 3qt, 4qt and 5qt DRs, so you can toss a DR because its bound is high instead of wasting time on it? | | §5, §9 |
 | Corner case + HTR on normal + HTR on inverse "can tell you the optimal solution with a standard deviation of like 0.25 moves"? | [Zagros, 4 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1490097940641878216) | §5 |
 | Stats by optimal corner length and longest direct HTR; "predict the opt finish length within ~1 move"? | [Zagros, 25 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1365341555308888114) | §5 |
 | A square table, moves to HTR on both sides. "4c3 that is 9+ on both sides I throw away" | [Zagros, 10 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1470865840298655918) | §6.4 |
@@ -213,9 +299,24 @@ And the specific questions, each with a section below:
 ## 4. The data
 
 - **Optimal finish of every DR state.** BFS of the group ⟨U, D, R2, L2, F2, B2⟩, all 19,508,428,800 states. "Optimal" means the shortest finish with those ten moves, same as nissy's `drudfin` and Joba's table. Average 13.58, max 18.
-- **Optimal leave slice of every DR state.** Same thing ignoring the E-slice: fewest DR moves that solve corners and the eight U/D-layer edges. Average 13.29, and the max is 18 as well. (`U2 L2 D B2 U' B2 U' L2 D B2 R2 U R2 U R2 U2 R2 U'` needs 18 for the leave slice and 18 for the full finish.)
+- **Optimal leave slice of every DR state.** Same thing ignoring the E-slice: fewest DR moves that solve corners and the eight U/D-layer edges. Average 13.29, and the max is 18 as well:
+
+  ```
+  U2 L2 D B2 U' B2 U' L2 D B2 R2 U R2 U R2 U2 R2 U'   // needs 18 for the leave slice and 18 for the full finish
+  ```
 - **Every count treats each DR state as equally likely.** That is also close to how the DRs you reach are spread. On the EO-first DRs of at most 11 moves that cubelib finds on 10,000 random scrambles, every corner subset's share is within 0.4 points of the share here and its average optimal within 0.05 moves. What differs is the bad-edge mix inside a subset (section 13), so the edge-count cells are uniform-state numbers.
-- Bad corners and edges are counted the way the server counts them, up to turning a layer. The Q in 2c**4** is the corner qt count. 4c3 = 4a3 and 4b3 together (they swap on inverse), same for 4c4. That's not how many qts the finish needs: 0c0 0e has states like `U D'` that need two, every 0c0 with bad edges needs two (`D F2 R2 F2 D`, 0c0 2e, solved by `D' F2 R2 F2 D'`), and 4a1 0e and 4a1 2e need three (`D F2 U' B2 F2 D'`, 4a1 2e, solved by `D F2 B2 U F2 D'`; `U L2 R2 U L2 R2 U'`, 4a1 0e, solved by `U R2 L2 U' R2 L2 U'`). Mallard keeps both numbers (`qt_corners` and `qt`). Mallard and Joba's files say `4c5` where wen's "HTR better smh (v2)" sheet and most people say `4b5`: same 48 of 420 cosets.
+- Bad corners and edges are counted the way the server counts them, up to turning a layer. The Q in 2c**4** is the corner qt count. 4c3 = 4a3 and 4b3 together (they swap on inverse), same for 4c4. That's not how many qts the finish needs: 0c0 0e has states like `U D'` that need two, every 0c0 with bad edges needs two, and 4a1 0e and 4a1 2e need three:
+
+  ```
+  D F2 R2 F2 D          // 0c0 2e
+  D' F2 R2 F2 D'        // solved by
+  D F2 U' B2 F2 D'      // 4a1 2e
+  D F2 B2 U F2 D'       // solved by
+  U L2 R2 U L2 R2 U'    // 4a1 0e
+  U R2 L2 U' R2 L2 U'   // solved by
+  ```
+
+  Mallard keeps both numbers (`qt_corners` and `qt`). Mallard and Joba's files say `4c5` where wen's "HTR better smh (v2)" sheet and most people say `4b5`: same 48 of 420 cosets.
 - The 48 subsets are double cosets of ⟨half turns, U D⟩ merged with their inverses, as KrzychXyz said ([KrzychXyz, 28 Mar 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1355272481208008824)), which is how Mallard builds its table (https://github.com/Jobarion/cubelib); the 29,400 one-sided cosets decide HTR length. Built that way, all 48 sizes match Joba's.
 - Daichi's "90+% of 4b2 0e cases are 12-14 optimal" ([Daichi, 28 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1487653636786880684)): 92.1%.
 - "In 11" always means an optimal finish of 11 moves or fewer. A cell that says 0 means no state at all; "<0.01%" means a few.
@@ -281,7 +382,15 @@ Rank the DRs of a qt group by what the read says, keep only the best-looking qua
 | 5qt | 12 or less | 2.1% | 31% | 55% | 44% | 61% | 48% | 63% | 68% |
 | 5qt | 13 or less | 14% | 28% | 43% | 37% | 48% | 40% | 48% | 52% |
 
-- **The lower the target, the more a read tells you.** At 4qt, pairs and corner cases put 65% of the 12s in the best-looking quarter, 77% of the 11s and 89% of the 10s. At 3qt: 52%, 63%, 74%. For a 13 nothing does much.
+- **The lower the target, the more a read tells you.** Share of the finishes that pairs and corner cases put in the best-looking quarter:
+
+  | | 3qt | 4qt |
+  |---|---:|---:|
+  | the 12s | 52% | 65% |
+  | the 11s | 63% | 77% |
+  | the 10s | 74% | 89% |
+
+  For a 13 nothing does much.
 - **Most of it needs no solving.** From 3qt up, pairs plus the corner case on both sides rank better than the two HTR lengths do, at every target from 10 up. Adding the HTR lengths on top is worth 1 to 7 points.
 - **At 1–2qt it's the other way round.** HTR length is the best single read there (72% of the 10s against 64% for pairs and corner cases), and at 1–2qt you find the HTR quickly anyway.
 
@@ -375,7 +484,11 @@ The tables above are ceilings: a rule that reaches them needs a table of thousan
 - **The first column is a proof**: no finish is shorter than the longer HTR. For a 12 it is next to nothing (0.15% of 4qt DRs). For a 10 it rules out a quarter of 4qt and 44% of 5qt.
 - **"Both sides T−1 or more" is the safe rule.** For an 11 that's 10+ on both sides: it drops 31% of 4qt DRs and loses 2.5% of the 11s, and at 3qt it drops 8% and loses 0.2%.
 - **"Both sides T−2 or more" is the aggressive one**, and for an 11 it is exactly 9+ on both sides: it drops 28% of 3qt and 67% of 4qt DRs and loses 5% and 20% of the 11s.
-- A DR that is exactly T to HTR on the longer side can still finish in T. `U' L2 D' B2 U' B2 U L2 D` (4c3 4e) is 9 to HTR on both sides and finishes in 9, and Appendix G has such a state for every subset.
+- A DR that is exactly T to HTR on the longer side can still finish in T. Appendix G has such a state for every subset. This one is 9 to HTR on both sides:
+
+  ```
+  U' L2 D' B2 U' B2 U L2 D   // 4c3 4e, finishes in 9
+  ```
 
 **Pairs against your target** (no solving). Share of the qt group dropped, and in brackets the share of the finishes in T lost:
 
@@ -433,7 +546,14 @@ The corner-case rules are per subset. They are in section 2 and section 6.3.
 
 For a 12 the hand bounds prove next to nothing below 5qt. For a 10 they rule out half of the 4qt DRs and 80% of the 5qt ones, and for an 11 a fifth and 38%. So the lower your target, the more a guaranteed bound is worth working out, on the high-qt DRs where it bites.
 
-The setup + HTR bound of section 7 (trangium's 2q bound taken to any qt) is not a proof, because a finish with extra quarter turns can get under it. From 3qt up that almost never happens: it is wrong about 0.2% of the finishes in T at most. It is the hand bound that does something at 3qt, where it rules out 19% of the DRs for a 10 and 6% for an 11, more than the two proven bounds together. At 1–2qt it rules out a third of the DRs for a 10 and a sixth for an 11, and is wrong about 5–7% of those finishes.
+The setup + HTR bound of section 7 (trangium's 2q bound taken to any qt) is not a proof, because a finish with extra quarter turns can get under it. From 3qt up that almost never happens: it is wrong about 0.2% of the finishes in T at most. Share of DRs it rules out, for a 10 and for an 11:
+
+| | 10 | 11 |
+|---|---:|---:|
+| 1–2qt | a third | a sixth |
+| 3qt | 19% | 6% |
+
+The second row is more than the two proven bounds together, so that's where this hand bound does something. The first row comes at a price: there it is wrong about 5–7% of those finishes.
 
 Appendix H has every read at every target with more cut-offs (best 10%, 25%, 50%; keeping 90%, 95%, 99%).
 
@@ -526,7 +646,15 @@ Share of each corner subset finishing in 10, 11 and 12 or less, by number of tru
 | 4b5 | 12 or less | 0.52% | 0.85% | 1.5% | 2.4% | 4.1% | 7.7% |
 | share of all DRs | | 14% | 27% | 27% | 18% | 9% | 5% |
 
-Each pair is worth about 0.15 moves of average optimal. What that does to the odds depends on how rare the finish is. One more pair multiplies the odds of a 12 by 1.2 at 4a1, 1.4 at 2c4 and 1.6 at 2c5. For an 11 it's 1.4, 1.7 and 1.9, and for a 10 at 4a1 and 2c4, 1.6 and 2.1. So pairs matter more the lower your target and the higher the qt.
+Each pair is worth about 0.15 moves of average optimal. What that does to the odds depends on how rare the finish is. What one more pair multiplies the odds by:
+
+| Odds of | 4a1 | 2c4 | 2c5 |
+|---|---:|---:|---:|
+| a 12 | 1.2 | 1.4 | 1.6 |
+| an 11 | 1.4 | 1.7 | 1.9 |
+| a 10 | 1.6 | 2.1 | |
+
+That last row has numbers for 4a1 and 2c4 only. So pairs matter more the lower your target and the higher the qt.
 
 Levi is right about blocky 2c4s: for an 11, from 0.43% with no pairs to 6.8% with five or more, 16 times as often. The same step is worth ×5 at 4a1, ×8 at 2c3 and ×40 at 2c5. Appendix D has all 48 subsets, for 10, 11, 12 and 13.
 
@@ -567,7 +695,13 @@ Both sides together:
 | a stack on one side only | 37.5% | 0.10% | 0.92% | 6.4% | 32% |
 | a stack on both sides | 6.2% | 0 | 0.06% | 1.1% | 11% |
 
-So a double stack is as dead as a 5qt at every target (0 / 0.06% / 1.1% / 11% against 0.02% / 0.24% / 2.1% / 14% for all 5qt DRs, in 10 / 11 / 12 / 13), and the best layout on both sides is as good as an average 2c3 4e (1.3% / 6.4% / 27% / 73%).
+So a double stack is as dead as a 5qt at every target, and the best layout on both sides is as good as the last row:
+
+| | In 10 / 11 / 12 / 13 |
+|---|---|
+| a stack on both sides | 0 / 0.06% / 1.1% / 11% |
+| all 5qt DRs | 0.02% / 0.24% / 2.1% / 14% |
+| an average 2c3 4e | 1.3% / 6.4% / 27% / 73% |
 
     U2 L2 D' F2 U' R2 U F2 D L2 U2   // the fastest any double-stacked 2c4 finishes: 11
 
@@ -695,7 +829,14 @@ Zagros asked for the square table ([Zagros, 10 Feb 2026](https://discord.com/cha
 | 12 |  |  | 0 / 0 / 0.02% | 0 / 0 / 0 |
 | 13 |  |  |  | 0 / 0 / 0 |
 
-One more move to HTR on both sides costs about half a move of average optimal. From 8 and 8 to 9 and 9 it divides the odds of a 12 by about three, of an 11 by about five and of a 10 by more than ten. The step from 7 and 7 to 8 and 8 is gentler: about two, three and three to five. Appendix F has every subset with share, average, fastest finish, and odds for 10 to 13. Section 5 has the same read as a plain rule against your target.
+One more move to HTR on both sides costs about half a move of average optimal. What it divides the odds by:
+
+| HTR on both sides | Odds of a 12 | Of an 11 | Of a 10 |
+|---|---|---|---|
+| from 7 and 7 to 8 and 8 | about two | about three | three to five |
+| from 8 and 8 to 9 and 9 | about three | about five | more than ten |
+
+Appendix F has every subset with share, average, fastest finish, and odds for 10 to 13. Section 5 has the same read as a plain rule against your target.
 
 **By the longer side alone**, for a whole corner-qt group. This is the table to use when you have one HTR length per side and no time for more (rows under 0.1% of the group are left out):
 
@@ -768,7 +909,15 @@ What the other parity costs, over all corner states of each subset:
 | 4a1 | | 75% | 4% | 21% (+3 to +5) |
 | 0c0 | 25% | | 50% | 25% (+3 to +6) |
 
-This one is a true lower bound, proven in Lean: no finish is shorter than the best corner solution of the right parity. For a 12 it proves "no" for 13% of 5qt DRs and 5% of 4qt. For an 11: 37% and 21%. For a 10: 73% and 48% (the table of what is proven in section 5). It needs the *optimal* corner solutions of both parities, so it's a read for when you've written the skeletons down anyway.
+This one is a true lower bound, proven in Lean: no finish is shorter than the best corner solution of the right parity. Share of DRs it proves "no" for (the table of what is proven in section 5 has more):
+
+| Target | 4qt | 5qt |
+|---|---:|---:|
+| a 12 | 5% | 13% |
+| an 11 | 21% | 37% |
+| a 10 | 48% | 73% |
+
+It needs the *optimal* corner solutions of both parities, so it's a read for when you've written the skeletons down anyway.
 
 Two DRs where it bites:
 
@@ -780,9 +929,24 @@ Two DRs where it bites:
     U' R2 U' R2 U                                   // corners in 5, but two side turns
     U R2 U2 R2 U R2 U                               // best with an odd number: 7
 
-As an odds read, L does about what HTR length does from 3qt up, and less at 1–2qt (Appendix H). Appendix B splits the big high-qt subsets by L and parity. For 2c4 4e, in 10 / 11 / 12: with L = 8, 0.49% / 2.8% / 15%. With L = 11, 0 / 0.20% / 1.9%. With L = 12, 0 / 0 / 1.6% if the E-slice is even and 0 / 0 / 0 if it's odd.
+As an odds read, L does about what HTR length does from 3qt up, and less at 1–2qt (Appendix H). Appendix B splits the big high-qt subsets by L and parity. For 2c4 4e:
 
-The E-slice parity on its own, without L, is a small read but it's free. It mostly decides whether the finish wants to be even or odd in length. At 4qt, 8.1% finish in 12 with an odd E-slice against 5.5% with an even one, and in 11 it's the even one that is ahead, 1.4% against 0.84%. At 5qt, 18% finish in 13 with an odd E-slice against 10% with an even one.
+| Corner length | In 10 / 11 / 12 |
+|---|---|
+| L = 8 | 0.49% / 2.8% / 15% |
+| L = 11 | 0 / 0.20% / 1.9% |
+| L = 12, E-slice even | 0 / 0 / 1.6% |
+| the same, E-slice odd | 0 / 0 / 0 |
+
+The E-slice parity on its own, without L, is a small read but it's free. It mostly decides whether the finish wants to be even or odd in length:
+
+| | Odd E-slice | Even E-slice |
+|---|---:|---:|
+| 4qt, in 12 | 8.1% | 5.5% |
+| the same, in 11 | 0.84% | 1.4% |
+| 5qt, in 13 | 18% | 10% |
+
+Note the flip: the odd E-slice is ahead in the first row, the even one in the second.
 
 ### 6.6 The last DR move
 
@@ -817,7 +981,13 @@ A bound is only a bound if it never exceeds the optimal. Graded on all states:
 | Levi's 1qt formula, HTR normal + HTR inverse − 1 (4a1 4e) | never for a finish with one quarter turn. A finish with three is shorter for 11.7% of 4a1 4e | 10.85 | 12.27 |
 | setup + HTR, any qt (below) | never for a finish with the minimum number of quarter turns. A finish with more is shorter for 2.6% at 1–2qt and 0.002% above | see below | |
 
-**Levi's formula.** (HTR normal) + (HTR inverse) − 1 bounds the finishes with one quarter turn, which is what Levi's doc uses it for. (The doc writes it as the path to the trigger on normal + on inverse + 1. An HTR is that path plus the quarter turn, so it's the same number.) That's the 4 + 6 + 2 + 1 = 13 of Levi's 1qt example after `R2 U' F2 U`: shortest HTR there is 7 on normal and 3 on inverse, each counting the qt, and the formula counts it once ([wen, 28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311629216235913226)).
+**Levi's formula.** (HTR normal) + (HTR inverse) − 1 bounds the finishes with one quarter turn, which is what Levi's doc uses it for. (The doc writes it as the path to the trigger on normal + on inverse + 1. An HTR is that path plus the quarter turn, so it's the same number.) Levi's 1qt example, after this reduction:
+
+```
+R2 U' F2 U   // shortest HTR here is 7 on normal and 3 on inverse, each counting the qt
+```
+
+The formula counts the qt once, which gives Levi's 4 + 6 + 2 + 1 = 13 ([wen, 28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311629216235913226)).
 
 A 1qt state can also be solved with three quarter turns, and the number worth having is how often that is shorter. Over all 286,654,464 states of 4a1 4e:
 
@@ -860,7 +1030,17 @@ Average +0.70. The leave slice is below the formula 19.7% of the time, more ofte
 | 4qt | 0.00% | 0.3% | 2.6% | 13% | 84% | 10.35 | 9.83 | 13.89 |
 | 5qt | 0.00% | 0.1% | 0.8% | 6.3% | 93% | 10.47 | 10.47 | 14.30 |
 
-A finish with extra quarter turns gets under it for 23.8% of 4a1 4e (more than the 11.7% for Levi's formula because this one uses the real setup, see above), 2.2% of 4a2 4e, 1.3% of 4a2 0e, 0.9% of 4b2 4e, and for 0.002% of everything at 3qt and up. So from 3qt it's as good as a true bound. One state for every subset where it happens (there are 13):
+How often a finish with extra quarter turns gets under it:
+
+| | Beaten |
+|---|---:|
+| 4a1 4e | 23.8% |
+| 4a2 4e | 2.2% |
+| 4a2 0e | 1.3% |
+| 4b2 4e | 0.9% |
+| everything at 3qt and up | 0.002% |
+
+The first row is more than the 11.7% for Levi's formula, because this one uses the real setup (see above). So from 3qt it's as good as a true bound. One state for every subset where it happens (there are 13):
 
 | Subset | Scramble | Setup + HTR bound | Optimal finish |
 |---|---|---:|---|
@@ -926,7 +1106,7 @@ Short finishes are narrow: when the optimal is 10 or 11, three times out of four
 
 ## 9. What a computer can prove from the DR
 
-This is the first version of the doc, kept because it shows where the information is and what any hand rule is up against.
+Here the computer does the reading, from the DR alone. It shows where the information is and what any hand rule is up against.
 
 ### You can't finish faster than the part you're looking at
 
@@ -936,7 +1116,7 @@ If you look at exactly what Rodney traces at 1qt (the corners, which slice each 
 
 ### The seven levels
 
-All tables use the ten DR moves. "Cases" = things that look the same.
+All tables use the ten DR moves. "Cases" means positions that look the same at that level.
 
 | Level | What you look at | Cases | Max |
 |---|---|---:|---:|
@@ -950,11 +1130,11 @@ All tables use the ten DR moves. "Cases" = things that look the same.
 
 The real optimal maxes out at 18 (1,352 states, the number Reid gave, quoted by [Tomas Rokicki, 31 May 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1510792489236430968)).
 
-Some notes:
+A few notes on the levels:
 
 - **NISS@DR on HTR states with half turns only *is* FakeMMAP's table.** FakeMMAP's 216 example scrambles are 216 different cases and every value matches (both proven in Lean). So NISS@DR is that table grown from 216 cases to 6.35 million: one for every corner state and edge layout a DR can have.
 - **"Up to swapping white and yellow"** is Rodney's *reflection* ("yellow FH edges with white HH corners", +2). The last level looks at the actual colours, so reflection is built in.
-- **Double-swap parity** is the H-perm thing FakeMMAP and Rodney went back and forth on ([here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546101477334978650) and [here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546232388013785088)): are the four M-slice edges, read in order, an even or odd arrangement, and same for S. On HTR states that's the parity of F2/B2 turns and of R2/L2 turns separately, the F-parity and R-parity of FakeMMAP's "OBL++" sheet. Rodney guessed that knowing it would make the bound basically exact ([Rodney, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546126576247247028)). Below you can see how close it gets.
+- **Double-swap parity** is the H-perm thing FakeMMAP and Rodney went back and forth on ([here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546101477334978650) and [here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546232388013785088)): are the four M-slice edges, read in order, an even or odd arrangement, and same for S. On HTR states that's the parity of F2/B2 turns and of R2/L2 turns separately, the F-parity and R-parity of FakeMMAP's "OBL++" sheet. Rodney guessed that knowing it would make the bound basically exact ([Rodney, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546126576247247028)). The next table shows how close it gets.
 - **What the last level still can't see**: which of the two white M-slice edges is which (same for the other three pairs), and the E-slice beyond its parity. So H-perm-style 2e2e's inside a slice and E-slice 3-cycles are the only blind spot.
 
 Everything here is an exact count over all 19,508,428,800 DR states. "Bound" = the bigger of normal and inverse.
@@ -1041,7 +1221,15 @@ So 13 is optimal, and the last level proves it without picking a skeleton.
 
 Here plain NISS@DR on the normal side already says 13. Rodney's 13-mover is optimal, read off a 4qt DR.
 
-**Levi's example** (from the DR Bounding doc), the 10-move 3qt DR `(D2 B' L' B U' F2 D L U2 R)`: subset 4c3 4e, HTR 9 / 10, NISS@DR 12 / 12, everything 14 / 14, optimal DR finish 15. Levi says "14-move optimal finish, giving a 24". Both are right: the DR ends in R, a finish that ends on that face merges with it, and the same DR with R' instead has optimal 14. The tool prints both.
+**Levi's example** (from the DR Bounding doc), a 10-move 3qt DR:
+
+```
+(D2 B' L' B U' F2 D L U2 R)   // 4c3 4e
+```
+
+    HTR 9 / 10,  NISS@DR 12 / 12,  everything 14 / 14,  optimal DR finish 15
+
+Levi says "14-move optimal finish, giving a 24". Both are right. The DR ends in R, a finish that starts with a turn of that face merges with it, and the same DR with R' instead has optimal 14. The tool prints both.
 
 None of this is something you can do at the table, and that's the point of keeping it. Next to what a hand can do (section 5), for the finish you need:
 
@@ -1067,7 +1255,13 @@ Whether NISS@DR has a description compact enough for that, I don't know. The tab
 
 ## 10. The 216 NISS@1qt cases, three ways
 
-FakeMMAP's first table is HT only. FakeMMAP then added HTR-breaking finishes from a list of algs, said ≤ 7 was proven and 8/9/10 might secretly be 7-movers ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606), [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)), and is "not mathematically 100% sure" about the newer OBL++ sheet ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)). Rodney's "Adv DR Bounding" sheet uses those optimals.
+FakeMMAP's tables, in order:
+
+- the first one is HT only;
+- the next adds HTR-breaking finishes from a list of algs: ≤ 7 is proven, and 8/9/10 might secretly be 7-movers ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606), [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075));
+- the newer OBL++ sheet, which FakeMMAP is "not mathematically 100% sure" about ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)).
+
+Rodney's "Adv DR Bounding" sheet uses those optimals.
 
 Here are all three (the full table is Appendix C):
 
@@ -1077,7 +1271,7 @@ Here are all three (the full table is Appendix C):
 | DR moves | same BFS with U and D qts | 214 the same, 2 shorter: "R-D − F-V R-V even" and its mirror "F-D − F-V R-V even" go from 9 to 8 (the count of 2 is proven in Lean) |
 | Any face turn (HTM) | every sequence of ≤ 10 moves is two sequences of ≤ 5 glued together, so I listed all 624,124 of those twice, matched the pairs that can land in HTR, and tested each hit | vs DR moves: 150 the same, 37 shorter by 1, 22 by 2, 6 by 3, 1 by 4. (vs half turns: 150 / 35 / 24 / 6 / 1.) |
 
-DR-move values never go above 10, so anything shorter is ≤ 9 moves and a search that's complete to 10 can't miss it. Against that:
+DR-move values never go above 10, so anything shorter is ≤ 9 moves and a search that's complete to 10 can't miss it.
 
 The two that get shorter with quarter turns, explicitly (with half turns alone both cases need 9):
 
@@ -1098,9 +1292,26 @@ The two that get shorter with quarter turns, explicitly (with half turns alone b
   | H-H + F-D R-V odd | 9 | 8 | `F L2 F B' R2 L2 D2 F'` |
 
   (The inverse of each sequence solves it.)
-- **Rodney's sheet** has no optimal column: its Penalty is the finish length minus the corner case's setup (1 move for F-D and R-D corners, 2 for F-V, 0 for H-H). It is built on the same optimals, so the same five are one too high (6, 6, 9, 9, 9 should be 5, 5, 8, 8, 8), and the other 211 agree. One more row, labelled F-V / F-D / R-H, lists `M R2 U2 M'`, which actually gives a different case (R-V + F-D R-V odd). `M F2 U2 M'` gives the labelled case in 6 moves, the sheet's penalty of 4 after the 2-move F-V setup, so the R2 is a typo for F2.
+- **Rodney's sheet** has no optimal column: its Penalty is the finish length minus the corner case's setup (1 move for F-D and R-D corners, 2 for F-V, 0 for H-H). It's built on the same optimals, so the same five are one too high, and the other 211 agree:
+
+  | Case | Sheet penalty | Should be |
+  |---|---:|---:|
+  | F-D + F-V R-H odd | 6 | 5 |
+  | R-D + F-H R-V odd | 6 | 5 |
+  | H-H + F-D R-D odd | 9 | 8 |
+  | H-H + F-V R-D odd | 9 | 8 |
+  | H-H + F-D R-V odd | 9 | 8 |
+
+  One more row, labelled F-V / F-D / R-H, has an alg for a different case. The R2 is a typo for F2:
+
+  ```
+  M R2 U2 M'   // the sheet's alg: gives R-V + F-D R-V odd
+  M F2 U2 M'   // the labelled case in 6 moves, the sheet's penalty of 4 after the 2-move F-V setup
+  ```
 - **Rodney's rules are still a true lower bound in all 216 cases**, even against the shorter optimals. The "100%" survives.
-- **OBL++** has a finer grid and I didn't grade it cell by cell. Collapsed to these 216 labels it matches on 140 of the 144 cases it covers, already has four of the five fixes above, and is one *lower* in four (D-D ± F-H R-H even, R-V + F-D R-H even, R-V + F-D R-D odd: 8 vs my 9). For those four I ran nissy on all 3,072 states of each case and none has a solution of 8 or fewer. So 9 stands for the cases as I label them. Whether those cells are off or just mean something slightly different, I don't know.
+- **OBL++** has a finer grid and I didn't grade it cell by cell. Collapsed to these 216 labels it covers 144 cases, matches on 140 of them and already has four of the five fixes above. It's one *lower* in four (D-D ± F-H R-H even, R-V + F-D R-H even, R-V + F-D R-D odd: 8 vs my 9).
+
+  For those four I ran nissy on all 3,072 states of each case and none has a solution of 8 or fewer, so 9 stands for the cases as I label them. Whether those cells are off or just mean something slightly different, I don't know.
 
 Two sanity checks on my side: listing the HTR group directly gives 663,552 states in 216 cases of exactly 3,072 each, and all 216 sequences in Appendix C land in the case they claim.
 
@@ -1110,7 +1321,7 @@ This part is a Python script, not Lean. Nothing in either sheet beats its values
 
 ## 11. The proof, if you don't speak Lean
 
-Lean is a proof checker. You write a statement and a proof, and a small trusted program checks every step. The project is about 2,500 lines, no Mathlib, and I can share it.
+Lean is a proof checker. You write a statement and a proof, and a small trusted program checks every step. The project is about 2,500 lines, no Mathlib, and it's in this repo under lean/DRBound.
 
 **What's stated.** A DR state is three lists: the piece in each of the 8 corner positions, the 8 U/D edge positions, the 4 E-slice positions. Each of the ten moves shuffles those lists in a fixed way, written out as tables (that file is 150 lines and it's the one to read if you want to convince yourself it's the cube). A solution is a list of moves that puts all three lists in order.
 
@@ -1142,7 +1353,18 @@ theorem Rung.bound_attained (ok : R.Checked) : ∀ (d : Nat) (g : State), g.Vali
 3. The table isn't trusted. Lean builds it with its own BFS, but nothing is assumed about that BFS, only the checks are used. A wrong table or a wrong feature would fail a check and the file wouldn't compile.
 4. The inverse side needs one more fact, proven by hand: if w solves g, the inverse of g is exactly what w does to a solved cube. So its table value is at most the length of w.
 
-**The optimal itself.** Same trick, one size up: take the table of *everything*, one entry per DR state, holding its optimal. That's 19.5 billion entries, so it's stored up to the 16 symmetries that keep the U/D axis: 2,768 corner classes × 40,320 edge arrangements × 12 E-slice arrangements = 1,339,269,120 entries, one byte each. Lean builds it with its own BFS and then checks every entry against each of the ten moves for the same three things as before: a move changes the value by at most 1, only the solved cube has 0, and every positive entry has a move that goes down by 1. On top of that it checks that entries the symmetries identify hold the same value, and nine brute-force facts about the bookkeeping: the 16 symmetries map legal states to legal states, turn each move into a move and form a group; every corner arrangement is carried to the representative of its class; moves change the three parities the way they should; and the numbering of edge and E-slice arrangements round-trips. From those:
+**The optimal itself.** Same trick, one size up: take the table of *everything*, one entry per DR state, holding its optimal. That's 19.5 billion entries, so it's stored up to the 16 symmetries that keep the U/D axis, one byte per entry:
+
+| Corner classes | × Edge arrangements | × E-slice arrangements | = Entries |
+|---:|---:|---:|---:|
+| 2,768 | 40,320 | 12 | 1,339,269,120 |
+
+Lean builds it with its own BFS and then checks every entry against each of the ten moves for the same three things as before: a move changes the value by at most 1, only the solved cube has 0, and every positive entry has a move that goes down by 1. On top of that it checks
+
+- that entries the symmetries identify hold the same value,
+- nine brute-force facts about the bookkeeping: the 16 symmetries map legal states to legal states, turn each move into a move and form a group; every corner arrangement is carried to the representative of its class; moves change the three parities the way they should; and the numbering of edge and E-slice arrangements round-trips.
+
+From those:
 
 ```lean
 -- every solution of g has at least exactDist g moves
@@ -1159,11 +1381,28 @@ theorem exact_needs_18 : ∃ g : State, g.Valid ∧ g.ParityOK ∧ exactDist g =
     ∀ w : List Move, g.apply w = solved → 18 ≤ w.length
 ```
 
-`Valid` says the three lists are permutations, `ParityOK` is the usual parity condition (corner parity + U/D edge parity = E-slice parity). Together that's exactly the states DR moves can reach: Lean proves both directions (anything you can scramble to satisfies them, and anything that satisfies them gets solved by `exact_attained`). `exactDist g` is the table entry of g's symmetry-reduced image. The witness for 18 is `U2 L2 D B2 U' B2 U' L2 D B2 R2 U R2 U R2 U2 R2 U'`.
+`Valid` says the three lists are permutations, `ParityOK` is the usual parity condition (corner parity + U/D edge parity = E-slice parity). Together that's exactly the states DR moves can reach: Lean proves both directions (anything you can scramble to satisfies them, and anything that satisfies them gets solved by `exact_attained`). `exactDist g` is the table entry of g's symmetry-reduced image. The witness:
 
-In the same run Lean counts the table: 1, 10, 67, 456, 3079, 19948, 123074, 736850, 4185118, 22630733, 116767872, 552538680, 2176344160, 5627785188, 7172925794, 3608731814, 224058996, 1575608, 1352 at depths 0 to 18, total 19,508,428,800, where an entry counts 16 / (number of symmetries fixing the representative of its corner class) times. Same numbers as the Rust BFS. The one step that is *not* formalised is that this weighting counts states: that an entry stands for exactly that many of them. It's the standard orbit count, but here it's a paper argument, not a Lean theorem. So "1,352 states at 18" is proven up to that step, and "some state needs 18, none needs more" is proven outright.
+```
+U2 L2 D B2 U' B2 U' L2 D B2 R2 U R2 U R2 U2 R2 U'   // needs 18
+```
 
-**What's proven.** `R.Checked` for all seven levels, so all seven bounds, both sides. Plus the HT-only version of NISS@DR, that it equals FakeMMAP's 216 values, that exactly 2 of them get shorter with qts, the counterexample to Levi's formula, and the exact optimal of every DR state with its maximum of 18. The biggest bound check reads 406,425,600 entries against ten moves each and takes about 4.5 minutes. The exact-optimal check reads 1,339,269,120 and takes 17 minutes and 1.9 GB. Everything builds in under half an hour, in 3 GB of RAM if that last check is run on its own.
+In the same run Lean counts the table, at depths 0 to 18:
+
+1, 10, 67, 456, 3079, 19948, 123074, 736850, 4185118, 22630733, 116767872, 552538680, 2176344160, 5627785188, 7172925794, 3608731814, 224058996, 1575608, 1352
+
+That's 19,508,428,800 in total, where an entry counts 16 / (number of symmetries fixing the representative of its corner class) times. Same numbers as the Rust BFS.
+
+The one step that is *not* formalised is that this weighting counts states: that an entry stands for exactly that many of them. It's the standard orbit count, but here it's a paper argument, not a Lean theorem. So "1,352 states at 18" is proven up to that step, and "some state needs 18, none needs more" is proven outright.
+
+**What's proven.** `R.Checked` for all seven levels, so all seven bounds, both sides. Plus the HT-only version of NISS@DR, that it equals FakeMMAP's 216 values, that exactly 2 of them get shorter with qts, the counterexample to Levi's formula, and the exact optimal of every DR state with its maximum of 18.
+
+| Check | Entries read (against ten moves each) | Time | Memory |
+|---|---:|---|---|
+| biggest bound check | 406,425,600 | about 4.5 minutes | |
+| exact-optimal check | 1,339,269,120 | 17 minutes | 1.9 GB |
+
+Everything builds in under half an hour, in 3 GB of RAM if that last check is run on its own.
 
 **What you have to trust.**
 
@@ -1203,17 +1442,42 @@ For the hand reads in sections 5 to 8:
 - **Pairs**: the four kinds are defined by the colours of the two touching sticker pairs, as in Rodney's message. Checked on Rodney's example: after `B2 L2 B2 R2` the UF edge has a top semi-pair on one side and a side semi-pair on the other, which is what Rodney says it sets up.
 - **Corner cases**: classes of the 420 HTR corner cosets under the 16 symmetries and under turning both layers. There are 46.
 - **Setup lengths** for the setup + HTR bound: breadth-first over the 29,400 HTR cosets with half turns only, until some quarter turn lowers the minimum qt count. At 1qt it has to give the shortest 1qt HTR minus one, and it does.
-- **The 500 scrambles** (the guide's real-scramble numbers and the tally on the examples page): uniformly random states drawn with the EO → DR study's generator, written with R' U' F at both ends. An earlier version of this page used nissy's scrambler, which is not uniform ([EO → DR study, appendix B](https://fmc.arhan.sh/eo-to-dr/#appendix-b-how-it-was-computed-and-what-checks-it)).
+- **The 500 scrambles** (the guide's real-scramble numbers and the tally on the examples page): uniformly random states drawn with the EO → DR study's generator, written with R' U' F at both ends. Not nissy's scrambler, which isn't uniform ([EO → DR study, appendix B](https://fmc.arhan.sh/eo-to-dr/#appendix-b-how-it-was-computed-and-what-checks-it)).
 - **Example scrambles**: every scramble quoted as an example of something was found by a search over all DR states, then re-read from its text alone (subset, HTR lengths, leave slice and optimal recomputed from the moves). The ones that stand against something a person wrote were also solved with nissy.
-- **What the server has said**: all of #fmc-theory and #fmc-discussion (about 33,000 messages, August 2022 to November 2026) was reread line by line for this version, looking for what people read off a DR, how they discard, and what they asked for. Every quote above was checked against the export.
+- **What the server has said**: I went through all of #fmc-theory and #fmc-discussion (about 33,000 messages, August 2022 to November 2026) line by line for what people read off a DR, how they discard, and what they asked for. Every quote above is checked against the export.
 
 ---
 
 ## 13. What this doesn't do
 
-- **DR moves only.** "Optimal" here is U, D, R2, L2, F2, B2. A finish that breaks DR is shorter for 4.3% of DR states (± 0.1 points), by one move in 90% of those, 0.048 moves on average (48,000 uniform states, 1,000 per subset × edges, solved with all 18 face turns by nissy's `solve optimal`; 4.2% on real DRs with each DR counted once, 3.9% with each scramble once). For a DR whose DR-move optimum is 12 or less it is 1.1%; it climbs only on long finishes (9.4% at 15, 36% at 16). Most of it sits in three cells: 0c3 0e 36%, 0c4 0e 26%, 0c0 0e 21%. Example: `B2 L2 R2 F2 R2 U2 L2 R2 U2 R2 U2` (0c0 0e, DR moves only) has a DR-move optimum of 11 and `R L F2 B2 R' L' D2` solves it in 7. At the HTR level that's 66 of the 216 cases. Computed with nissy, not in Lean; every solution quoted was replayed on a sticker model.
-- **Uniform states.** Every DR state counts once. Measured against the DRs you actually reach, that is close to right. The test: 10,000 uniformly random scrambles, every EO-first DR of at most 11 moves cubelib-cli lists for each, as on the examples page (6,840,923 DRs), counted once per DR and once per scramble, standard errors clustered by scramble. Every corner subset's share is within 0.4 points of uniform, its average optimal within 0.05 moves, and its share finishing in 11 within 0.5 points (1.3 on 0c0). The "all DRs" numbers hold too: the HTR routes study's all-DR headlines move by at most 0.4 points. What does shift is the bad-edge mix inside a subset: with each scramble counted once, 0e is up to 43% rarer than uniform and 6e up to 17% commoner. Not modelled: CO-first or direct DRs, EOs over 5 moves, the twin of a DR with its last move turned the other way (counted once), and which DRs a solver chooses to keep. Computed, not proven; the full tables are in the [HTR routes study's real-DR section](https://fmc.arhan.sh/htr-routes/#12-real-drs).
-- **No hand bound for a 12 at 4–5qt.** That was the hope and it isn't here. What's here is the measurement that says a feature count won't give one, the reads ranked by what they buy at each target, and the kill rules that do exist. For a 10 or an 11 the two proven hand bounds do rule out a good share of 4–5qt DRs (section 5), but those are DRs you were dropping anyway.
+- **DR moves only.** "Optimal" here is U, D, R2, L2, F2, B2. A finish that breaks DR is shorter for 4.3% of DR states (± 0.1 points), by one move in 90% of those, 0.048 moves on average. That's 48,000 uniform states, 1,000 per subset × edges, solved with all 18 face turns by nissy's `solve optimal`. On other sets of DRs:
+
+  | Which DRs | DR-breaking finish shorter |
+  |---|---:|
+  | real DRs, each DR counted once | 4.2% |
+  | real DRs, each scramble counted once | 3.9% |
+  | DR-move optimum 12 or less | 1.1% |
+  | DR-move optimum 15 | 9.4% |
+  | DR-move optimum 16 | 36% |
+
+  So it only climbs on long finishes. Most of it sits in three cells: 0c3 0e 36%, 0c4 0e 26%, 0c0 0e 21%. An example (0c0 0e, DR moves only, DR-move optimum 11):
+
+  ```
+  B2 L2 R2 F2 R2 U2 L2 R2 U2 R2 U2   // the DR state
+  R L F2 B2 R' L' D2   // solves it in 7
+  ```
+
+  At the HTR level that's 66 of the 216 cases. Computed with nissy, not in Lean; every solution quoted was replayed on a sticker model.
+- **Uniform states.** Every DR state counts once. Against the DRs you actually reach, that's close to right. The test: 10,000 uniformly random scrambles, every EO-first DR of at most 11 moves cubelib-cli lists for each, as on the examples page (6,840,923 DRs), counted once per DR and once per scramble, standard errors clustered by scramble. Every corner subset comes out close to uniform:
+
+  | Per corner subset | Off from uniform by at most |
+  |---|---|
+  | share of DRs | 0.4 points |
+  | average optimal | 0.05 moves |
+  | share finishing in 11 | 0.5 points (1.3 on 0c0) |
+
+  The "all DRs" numbers hold too: the HTR routes study's all-DR headlines move by at most 0.4 points. What does shift is the bad-edge mix inside a subset. With each scramble counted once, 0e is up to 43% rarer than uniform and 6e up to 17% commoner. Not modelled: CO-first or direct DRs, EOs over 5 moves, the twin of a DR with its last move turned the other way (counted once), and which DRs a solver chooses to keep. Computed, not proven; the full tables are in the [HTR routes study's real-DR section](https://fmc.arhan.sh/htr-routes/#12-real-drs).
+- **No hand bound for a 12 at 4–5qt.** There isn't one. What's here is the measurement that says a feature count won't give one, the reads ranked by what they buy at each target, and the kill rules that do exist. For a 10 or an 11 the two proven hand bounds do rule out a good share of 4–5qt DRs (section 5), but those are DRs you were dropping anyway.
 - **Your HTR may not be the shortest.** Every HTR number assumes the shortest HTR on each side. How often a solver finds it, and how fast, is not something a BFS can measure.
 - **Reads I didn't test.** Bigger blocks than pairs, anything you only see after a few moves (moves to FR, the shape after the first qt), and Rodney's NISS@1qt features per skeleton, which is section 9's table rather than a read.
 - **Width is only first moves.** JTuu's real question, how many finishes are within one of optimal, needs a count of solutions per state. Not done.

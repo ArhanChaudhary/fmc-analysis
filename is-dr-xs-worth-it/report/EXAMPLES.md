@@ -1,24 +1,31 @@
 # Examples: is there a DR-xs worth finishing?
 
-Worked examples for the write-up *Is DR-xs worth it?*. First the tutorial's own example with this study's numbers. Then a hundred real scrambles: the slice-EO skips on each, the short DR-1s and DR-2s 8fe they lead to, and, folded away, how each finishes and whether it beats the normal DRs on that scramble. Then the tally over all 500.
+Worked examples for the write-up *Is DR-xs worth it?*. First the tutorial's own example with the numbers. Then a hundred real scrambles: the slice-EO skips on each, the short DR-1s and DR-2s 8fe they lead to, and, folded away, how each one finishes and whether it beats the normal DRs on that scramble. Then the tally over all 500.
 
 ## The tutorial's first example, with the numbers
 
-tseitsei89's DR-Xs tutorial walks through FMCL S9W3A2. Here are its steps with what this study's tables say at each one.
+tseitsei89's DR-Xs tutorial walks through FMCL S9W3A2. Here are its steps, with what the tables say at each one.
 
-`R' U' F U R F B' U2 F' L2 U B2 L' F' R2 D2 F' R2 F B' L2 U' R' U' F`
+```
+R' U' F U R F B' U2 F' L2 U B2 L' F' R2 D2 F' R2 F B' L2 U' R' U' F // scramble
+```
 
 - **Slice-EO skips.** The tutorial lists two on normal and three on inverse. The count here: 2 on normal (E on F/B oriented, S on F/B oriented) and 3 on inverse (E on F/B oriented, M on U/D misoriented, M on F/B oriented).
 - **`(R' D2 L U L)`**, the tutorial's "DR-2s in 5 moves": 2 slices, 2 flipped, 7 turns to DR. Two flipped edges with the centers right is a DR-2s by the table in section 3 of the write-up.
 - **`(L' R)`** on top, which cancels to `(R' D2 L U R)`, the tutorial's "4a2-1s in 5": 1 slices, 4 flipped, 5 turns to DR. The tutorial says "The shortest possible setups for edges are 5 moves", which is the same count.
-- **The finish.** The best finish of the form setup, slice, DR finish from that DR-1s is 15 moves, and its first move cancels with the last move of the route. Written out for the scramble: `F2 U' L2 D' F2 R' L' U2 B D2 B R2 U2 B2 R U' L' D2 R` (19).
+- **The finish.** The best finish of the form setup, slice, DR finish from that DR-1s is 15 moves, and its first move cancels with the last move of the route. Written out for the scramble:
+
+  ```
+  F2 U' L2 D' F2 R' L' U2 B D2 B R2 U2 B2 R U' L' D2 R // (19)
+  ```
+
 - The tutorial's own solution is 19 too. So on this DR-1s the method as taught finds the best there is of its form.
 
 ## 100 scrambles: what a slice EO gives you
 
-The first hundred of the 500 random-state scrambles of the write-up's section 7. They are the same hundred as on the first study's examples page, with the same numbers, so you can put the normal DRs next to these.
+The first hundred of the 500 random-state scrambles of the write-up's section 7. They're the same hundred as on the first study's examples page, with the same numbers, so you can put the normal DRs next to these.
 
-**What is listed.** Every route here starts from a slice-EO skip or a one-move slice EO and then keeps the EO of that axis (the tutorial's route), or, for a DR-2s 8fe, may also start from a normal EO of 4 moves or fewer. Each scramble shows at most six DR-1s of 8 moves or less and at most two DR-2s 8fe of 9 or less, the shortest first, drawn at random among equals. Nothing is picked by how it finishes.
+**What's listed.** Every route here starts from a slice-EO skip or a one-move slice EO and then keeps the EO of that axis (the tutorial's route), or, for a DR-2s 8fe, may also start from a normal EO of 4 moves or fewer. Each scramble shows at most six DR-1s of 8 moves or less and at most two DR-2s 8fe of 9 or less, the shortest first, drawn at random among equals. Nothing is picked by how it finishes.
 
 ### How to read the tables
 
@@ -34,7 +41,9 @@ The first hundred of the 500 random-state scrambles of the write-up's section 7.
 
 #### Scramble 1
 
-`R' U' F L2 D' L2 F2 U' L2 D R2 U R2 B' R2 U R F U2 R' F R D' R U R' U' F`
+```
+R' U' F L2 D' L2 F2 U' L2 D R2 U R2 B' R2 U R F U2 R' F R D' R U R' U' F // scramble
+```
 
 Skips: inverse: S slice on R/L, misoriented.
 
@@ -71,7 +80,9 @@ Best of these: **22**, as short as the best through a normal DR of 10 or less. N
 
 #### Scramble 2
 
-`R' U' F L2 U L2 F2 D2 R2 B2 F2 D U' L' F2 R' F2 U B' D' L2 D2 F' U R' U' F`
+```
+R' U' F L2 U L2 F2 D2 R2 B2 F2 D U' L' F2 R' F2 U B' D' L2 D2 F' U R' U' F // scramble
+```
 
 Skips: normal: M slice on F/B, oriented; inverse: E slice on U/D, misoriented.
 
@@ -108,7 +119,9 @@ Best of these: **21**, as short as the best through a normal DR of 11 or less. N
 
 #### Scramble 3
 
-`R' U' F L2 D2 L2 U2 R2 B2 R2 D F2 D' R' U' F' U2 L' U' B R U2 L2 U R' U' F`
+```
+R' U' F L2 D2 L2 U2 R2 B2 R2 D F2 D' R' U' F' U2 L' U' B R U2 L2 U R' U' F // scramble
+```
 
 Skips: normal: E slice on R/L, oriented; inverse: E slice on F/B, oriented; inverse: S slice on F/B, misoriented.
 
@@ -145,7 +158,9 @@ Best of these: **21**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 4
 
-`R' U' F R2 B2 U2 F2 D U2 B2 D' L2 D' L B D U' L U' B2 F2 R2 F2 U' R' U' F`
+```
+R' U' F R2 B2 U2 F2 D U2 B2 D' L2 D' L B D U' L U' B2 F2 R2 F2 U' R' U' F // scramble
+```
 
 Skips: normal: M slice on U/D, oriented; inverse: M slice on R/L, oriented.
 
@@ -182,7 +197,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 5
 
-`R' U' F U' L2 B2 R2 D R2 F2 D2 L2 R2 F' R2 D' F L U B' L' B L2 U R' U' F`
+```
+R' U' F U' L2 B2 R2 D R2 F2 D2 L2 R2 F' R2 D' F L U B' L' B L2 U R' U' F // scramble
+```
 
 Skips: none.
 
@@ -215,7 +232,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 6
 
-`R' U' F U R D2 L2 F' U R' F L' D2 B' R2 D2 R2 D F2 B2 D R2 U B2 R' U' F`
+```
+R' U' F U R D2 L2 F' U R' F L' D2 B' R2 D2 R2 D F2 B2 D R2 U B2 R' U' F // scramble
+```
 
 Skips: normal: E slice on R/L, misoriented; normal: M slice on R/L, oriented; normal: S slice on R/L, misoriented.
 
@@ -252,7 +271,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 7
 
-`R' U' F L2 U2 R2 U F2 U' L2 D' F2 D' F' L B' U' B2 L' D R' D F U' R' U' F`
+```
+R' U' F L2 U2 R2 U F2 U' L2 D' F2 D' F' L B' U' B2 L' D R' D F U' R' U' F // scramble
+```
 
 Skips: normal: M slice on U/D, misoriented; normal: S slice on F/B, misoriented; inverse: M slice on F/B, misoriented; inverse: S slice on U/D, misoriented.
 
@@ -289,7 +310,9 @@ Best of these: **24**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 8
 
-`R' U' F D2 F2 L2 U2 F2 R2 D' F2 U L2 F L2 R' U B R2 F' U' R D2 R' U' F`
+```
+R' U' F D2 F2 L2 U2 F2 R2 D' F2 U L2 F L2 R' U B R2 F' U' R D2 R' U' F // scramble
+```
 
 Skips: normal: M slice on R/L, oriented; normal: M slice on F/B, oriented.
 
@@ -322,7 +345,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 9
 
-`R' U' F D2 B2 R2 F2 U L2 B2 D2 B2 U B R U R2 B' D2 L2 B' F' L' U R' U' F`
+```
+R' U' F D2 B2 R2 F2 U L2 B2 D2 B2 U B R U R2 B' D2 L2 B' F' L' U R' U' F // scramble
+```
 
 Skips: normal: S slice on F/B, oriented; inverse: M slice on R/L, oriented.
 
@@ -355,7 +380,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 10
 
-`R' U' F D B2 D L2 D B2 D2 U' F2 R D B R2 U' R D2 U2 B2 R D' R' U' F`
+```
+R' U' F D B2 D L2 D B2 D2 U' F2 R D B R2 U' R D2 U2 B2 R D' R' U' F // scramble
+```
 
 Skips: none.
 
@@ -388,7 +415,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 11
 
-`R' U' F R2 D2 R2 U' B2 F2 D' L2 F2 R2 F' D2 L B2 U R' B' L2 B F U' R' U' F`
+```
+R' U' F R2 D2 R2 U' B2 F2 D' L2 F2 R2 F' D2 L B2 U R' B' L2 B F U' R' U' F // scramble
+```
 
 Skips: normal: E slice on U/D, misoriented; inverse: S slice on U/D, misoriented; inverse: S slice on F/B, misoriented.
 
@@ -421,7 +450,9 @@ Best of these: **21**, as short as the best through a normal DR of 11 or less. N
 
 #### Scramble 12
 
-`R' U' F R2 U' L2 U L B R' U D B D' L2 D B2 L2 B2 D' B2 D F2 R' U' F`
+```
+R' U' F R2 U' L2 U L B R' U D B D' L2 D B2 L2 B2 D' B2 D F2 R' U' F // scramble
+```
 
 Skips: none.
 
@@ -454,7 +485,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 13
 
-`R' U' F R2 D2 F2 U2 B2 L2 D U B2 U F L2 R2 D F' L' D' L U' L D' R' U' F`
+```
+R' U' F R2 D2 F2 U2 B2 L2 D U B2 U F L2 R2 D F' L' D' L U' L D' R' U' F // scramble
+```
 
 Skips: none.
 
@@ -462,7 +495,9 @@ No DR-1s of 8 moves or less and no DR-2s 8fe of 9 or less here. The shortest nor
 
 #### Scramble 14
 
-`R' U' F R2 F' R U R2 B' D2 L' F U' R U D' R2 L2 F2 R2 B2 D F2 B2 R' U' F`
+```
+R' U' F R2 F' R U R2 B' D2 L' F U' R U D' R2 L2 F2 R2 B2 D F2 B2 R' U' F // scramble
+```
 
 Skips: normal: M slice on U/D, misoriented.
 
@@ -499,7 +534,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 15
 
-`R' U' F U' B2 D' B2 U' B2 R2 B2 F2 D L U F' D2 L' D2 U' F' D' B2 R' U' F`
+```
+R' U' F U' B2 D' B2 U' B2 R2 B2 F2 D L U F' D2 L' D2 U' F' D' B2 R' U' F // scramble
+```
 
 Skips: none.
 
@@ -524,7 +561,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 16
 
-`R' U' F R2 B' R2 U2 B2 D2 F' L2 D2 R2 D' L2 R F2 L' R F' U F2 U' F2 R' U' F`
+```
+R' U' F R2 B' R2 U2 B2 D2 F' L2 D2 R2 D' L2 R F2 L' R F' U F2 U' F2 R' U' F // scramble
+```
 
 Skips: normal: S slice on R/L, oriented.
 
@@ -549,7 +588,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 17
 
-`R' U' F L2 D2 L2 B2 D' B2 L2 R2 D2 U2 F U2 L' F2 D' F R D' B L' D R' U' F`
+```
+R' U' F L2 D2 L2 B2 D' B2 L2 R2 D2 U2 F U2 L' F2 D' F R D' B L' D R' U' F // scramble
+```
 
 Skips: none.
 
@@ -557,7 +598,9 @@ No DR-1s of 8 moves or less and no DR-2s 8fe of 9 or less here. The shortest nor
 
 #### Scramble 18
 
-`R' U' F L2 F2 L U2 B2 R D2 F2 L2 R U' D R' F' D' R2 U D2 F D R' U' F`
+```
+R' U' F L2 F2 L U2 B2 R D2 F2 L2 R U' D R' F' D' R2 U D2 F D R' U' F // scramble
+```
 
 Skips: normal: M slice on U/D, misoriented; normal: S slice on F/B, misoriented; inverse: M slice on F/B, misoriented; inverse: S slice on U/D, misoriented.
 
@@ -594,7 +637,9 @@ Best of these: **21**, as short as the best through a normal DR of 11 or less. N
 
 #### Scramble 19
 
-`R' U' F D2 F2 L2 F D2 F L2 F2 D2 F L R' B2 D R' D B2 R' B' D' R' U' F`
+```
+R' U' F D2 F2 L2 F D2 F L2 F2 D2 F L R' B2 D R' D B2 R' B' D' R' U' F // scramble
+```
 
 Skips: normal: M slice on U/D, misoriented; normal: S slice on F/B, misoriented; inverse: M slice on F/B, misoriented.
 
@@ -631,7 +676,9 @@ Best of these: **22**, as short as the best through a normal DR of 10 or less. N
 
 #### Scramble 20
 
-`R' U' F R2 D2 U R2 D2 U' B2 F2 L2 B2 L B2 F2 R B U B D' L F2 U' R' U' F`
+```
+R' U' F R2 D2 U R2 D2 U' B2 F2 L2 B2 L B2 F2 R B U B D' L F2 U' R' U' F // scramble
+```
 
 Skips: normal: E slice on U/D, misoriented; normal: E slice on F/B, misoriented; normal: M slice on R/L, misoriented; inverse: E slice on U/D, misoriented; inverse: S slice on F/B, misoriented.
 
@@ -639,7 +686,9 @@ No DR-1s of 8 moves or less and no DR-2s 8fe of 9 or less here. The shortest nor
 
 #### Scramble 21
 
-`R' U' F U2 L2 D2 R2 U' L2 D L2 B2 D' L' D L' B' U' F' U L' D L2 U R' U' F`
+```
+R' U' F U2 L2 D2 R2 U' L2 D L2 B2 D' L' D L' B' U' F' U L' D L2 U R' U' F // scramble
+```
 
 Skips: normal: E slice on R/L, misoriented; normal: S slice on R/L, oriented; inverse: E slice on U/D, misoriented; inverse: S slice on F/B, oriented.
 
@@ -676,7 +725,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 22
 
-`R' U' F D2 F' R2 D2 B U2 B L2 B' L2 R B U2 L2 B' D' R' U' F U B2 F' R' U' F`
+```
+R' U' F D2 F' R2 D2 B U2 B L2 B' L2 R B U2 L2 B' D' R' U' F U B2 F' R' U' F // scramble
+```
 
 Skips: none.
 
@@ -709,7 +760,9 @@ Best of these: **20**, as short as the best through a normal DR of 12 or less. N
 
 #### Scramble 23
 
-`R' U' F R2 D2 U' B2 U' R2 U' R2 L2 D R L2 D2 B L D' R' U2 F D' B2 R' U' F`
+```
+R' U' F R2 D2 U' B2 U' R2 U' R2 L2 D R L2 D2 B L D' R' U2 F D' B2 R' U' F // scramble
+```
 
 Skips: normal: M slice on R/L, oriented.
 
@@ -742,7 +795,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 24
 
-`R' U' F U' B2 U2 F2 U R2 F2 U' B2 U2 F L D' B L U L2 R' B' F' U R' U' F`
+```
+R' U' F U' B2 U2 F2 U R2 F2 U' B2 U2 F L D' B L U L2 R' B' F' U R' U' F // scramble
+```
 
 Skips: inverse: M slice on F/B, misoriented.
 
@@ -775,7 +830,9 @@ Best of these: **22**, as short as the best through a normal DR of 10 or less. N
 
 #### Scramble 25
 
-`R' U' F L2 U' R D2 F' D2 R' B' L' R F' D' B2 D L2 R2 B2 U B2 L2 D' R' U' F`
+```
+R' U' F L2 U' R D2 F' D2 R' B' L' R F' D' B2 D L2 R2 B2 U B2 L2 D' R' U' F // scramble
+```
 
 Skips: normal: S slice on F/B, oriented; inverse: E slice on R/L, misoriented; inverse: M slice on R/L, oriented; inverse: S slice on U/D, oriented; inverse: S slice on R/L, misoriented.
 
@@ -812,7 +869,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 26
 
-`R' U' F R' F2 R2 L F2 D2 R' D2 F' U' L' U' B2 U' F2 U' B2 L2 U2 R2 D' R' U' F`
+```
+R' U' F R' F2 R2 L F2 D2 R' D2 F' U' L' U' B2 U' F2 U' B2 L2 U2 R2 D' R' U' F // scramble
+```
 
 Skips: none.
 
@@ -849,7 +908,9 @@ Best of these: **21**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 27
 
-`R' U' F D' R2 D L2 U' R2 D' B2 D' U' R U' F2 D2 B' F2 U F2 R' U' R' U' F`
+```
+R' U' F D' R2 D L2 U' R2 D' B2 D' U' R U' F2 D2 B' F2 U F2 R' U' R' U' F // scramble
+```
 
 Skips: normal: M slice on F/B, misoriented; inverse: M slice on F/B, misoriented.
 
@@ -857,7 +918,9 @@ No DR-1s of 8 moves or less and no DR-2s 8fe of 9 or less here. The shortest nor
 
 #### Scramble 28
 
-`R' U' F U2 R2 D2 B2 R2 D' L2 D2 U' R2 B U' B' R F D2 F2 D' F L U R' U' F`
+```
+R' U' F U2 R2 D2 B2 R2 D' L2 D2 U' R2 B U' B' R F D2 F2 D' F L U R' U' F // scramble
+```
 
 Skips: normal: S slice on U/D, oriented.
 
@@ -894,7 +957,9 @@ Best of these: **21**, as short as the best through a normal DR of 11 or less. N
 
 #### Scramble 29
 
-`R' U' F U' F2 U2 B2 R2 B2 L2 F2 R2 U R B2 F U' L2 F' U B D' L U' R' U' F`
+```
+R' U' F U' F2 U2 B2 R2 B2 L2 F2 R2 U R B2 F U' L2 F' U B D' L U' R' U' F // scramble
+```
 
 Skips: inverse: S slice on U/D, oriented.
 
@@ -919,7 +984,9 @@ Best of these: **25**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 30
 
-`R' U' F U2 L2 D' F2 U L2 R2 B2 U L2 F' U2 L' B' F2 D B U F2 U' R' U R' U' F`
+```
+R' U' F U2 L2 D' F2 U L2 R2 B2 U L2 F' U2 L' B' F2 D B U F2 U' R' U R' U' F // scramble
+```
 
 Skips: normal: M slice on R/L, misoriented; inverse: S slice on U/D, oriented.
 
@@ -944,7 +1011,9 @@ Best of these: **24**, shorter than every normal DR of 10 or less gives. Normal 
 
 #### Scramble 31
 
-`R' U' F D' F2 U L2 U L2 B2 R2 U2 R2 B F' D' B' U2 R F D' F2 U R' U' F`
+```
+R' U' F D' F2 U L2 U L2 B2 R2 U2 R2 B F' D' B' U2 R F D' F2 U R' U' F // scramble
+```
 
 Skips: normal: S slice on R/L, oriented; inverse: E slice on F/B, misoriented.
 
@@ -977,7 +1046,9 @@ Best of these: **20**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 32
 
-`R' U' F U2 R' B' R L2 U2 B L D' B U2 F B2 R2 D2 R2 L2 U L2 D' L2 D R' U' F`
+```
+R' U' F U2 R' B' R L2 U2 B L D' B U2 F B2 R2 D2 R2 L2 U L2 D' L2 D R' U' F // scramble
+```
 
 Skips: normal: S slice on U/D, misoriented.
 
@@ -1010,7 +1081,9 @@ Best of these: **24**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 33
 
-`R' U' F U2 R2 U' L2 F2 D F2 D' R2 U2 L' F2 R2 F' R B' F2 D R D U2 R' U' F`
+```
+R' U' F U2 R2 U' L2 F2 D F2 D' R2 U2 L' F2 R2 F' R B' F2 D R D U2 R' U' F // scramble
+```
 
 Skips: none.
 
@@ -1047,7 +1120,9 @@ Best of these: **24**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 34
 
-`R' U' F U' B D L F D2 B2 L' B' L B' R2 D L2 F2 L2 F2 U2 D' F2 D' R' U' F`
+```
+R' U' F U' B D L F D2 B2 L' B' L B' R2 D L2 F2 L2 F2 U2 D' F2 D' R' U' F // scramble
+```
 
 Skips: none.
 
@@ -1076,7 +1151,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 35
 
-`R' U' F U B L2 U' L F2 D2 U' R B L D2 B2 R2 L2 B L2 B R2 D2 F' R' U' F`
+```
+R' U' F U B L2 U' L F2 D2 U' R B L D2 B2 R2 L2 B L2 B R2 D2 F' R' U' F // scramble
+```
 
 Skips: inverse: M slice on U/D, misoriented.
 
@@ -1109,7 +1186,9 @@ Best of these: **24**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 36
 
-`R' U' F D B2 R2 U' L2 B2 U F2 R2 F R' B' F' U L B2 D2 R' B U' R' U' F`
+```
+R' U' F D B2 R2 U' L2 B2 U F2 R2 F R' B' F' U L B2 D2 R' B U' R' U' F // scramble
+```
 
 Skips: normal: E slice on F/B, oriented; normal: M slice on U/D, oriented; normal: M slice on R/L, oriented; inverse: E slice on U/D, oriented; inverse: E slice on R/L, oriented.
 
@@ -1146,7 +1225,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 37
 
-`R' U' F U2 B2 D2 R2 D' L2 D B2 U' L' B' D' U' B' D2 R D R' U2 F' R' U' F`
+```
+R' U' F U2 B2 D2 R2 D' L2 D B2 U' L' B' D' U' B' D2 R D R' U2 F' R' U' F // scramble
+```
 
 Skips: normal: E slice on R/L, oriented; inverse: E slice on F/B, oriented.
 
@@ -1183,7 +1264,9 @@ Best of these: **20**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 38
 
-`R' U' F D B2 D2 L2 U L2 B2 U' L2 D2 F' R D' U2 F B' D' L B2 D2 B' U' R' U' F`
+```
+R' U' F D B2 D2 L2 U L2 B2 U' L2 D2 F' R D' U2 F B' D' L B2 D2 B' U' R' U' F // scramble
+```
 
 Skips: normal: E slice on U/D, misoriented; normal: M slice on F/B, misoriented; inverse: E slice on F/B, misoriented; inverse: S slice on F/B, misoriented.
 
@@ -1191,7 +1274,9 @@ No DR-1s of 8 moves or less and no DR-2s 8fe of 9 or less here. The shortest nor
 
 #### Scramble 39
 
-`R' U' F D2 F2 D F2 U R2 F2 D R2 U2 B' D' L D2 F2 D' F2 U2 R D U' R' U' F`
+```
+R' U' F D2 F2 D F2 U R2 F2 D R2 U2 B' D' L D2 F2 D' F2 U2 R D U' R' U' F // scramble
+```
 
 Skips: none.
 
@@ -1216,7 +1301,9 @@ Best of these: **23**, as short as the best through a normal DR of 10 or less. N
 
 #### Scramble 40
 
-`R' U' F U2 B2 R2 B2 U R2 U F2 D' U2 R F' U' R' D2 L2 B' U2 B' R' F' R' U' F`
+```
+R' U' F U2 B2 R2 B2 U R2 U F2 D' U2 R F' U' R' D2 L2 B' U2 B' R' F' R' U' F // scramble
+```
 
 Skips: normal: S slice on U/D, misoriented; normal: S slice on F/B, misoriented; inverse: S slice on U/D, misoriented; inverse: S slice on F/B, misoriented.
 
@@ -1253,7 +1340,9 @@ Best of these: **21**, as short as the best through a normal DR of 12 or less. N
 
 #### Scramble 41
 
-`R' U' F D2 R2 U R2 B2 D U2 F2 U L' R2 F' L2 U' R' B U' L2 R' U' R' U' F`
+```
+R' U' F D2 R2 U R2 B2 D U2 F2 U L' R2 F' L2 U' R' B U' L2 R' U' R' U' F // scramble
+```
 
 Skips: none.
 
@@ -1286,7 +1375,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 42
 
-`R' U' F D2 U' B2 U R2 D' R2 B2 U' R' B2 D2 B2 F' U R2 D' R' B' L' U' R' U' F`
+```
+R' U' F D2 U' B2 U R2 D' R2 B2 U' R' B2 D2 B2 F' U R2 D' R' B' L' U' R' U' F // scramble
+```
 
 Skips: normal: E slice on U/D, oriented; normal: E slice on R/L, oriented; normal: S slice on U/D, oriented; inverse: E slice on U/D, oriented; inverse: E slice on F/B, oriented; inverse: M slice on F/B, misoriented.
 
@@ -1323,7 +1414,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 43
 
-`R' U' F U B2 R2 F2 U' L2 D B2 U B2 R D2 F' L F' U2 F' D2 U F' U R' U' F`
+```
+R' U' F U B2 R2 F2 U' L2 D B2 U B2 R D2 F' L F' U2 F' D2 U F' U R' U' F // scramble
+```
 
 Skips: normal: E slice on U/D, misoriented; normal: E slice on R/L, misoriented.
 
@@ -1360,7 +1453,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 44
 
-`R' U' F D' B2 U B2 D' F2 U2 B2 R' B2 R' B U F L' F' R2 B F' R' U' F`
+```
+R' U' F D' B2 U B2 D' F2 U2 B2 R' B2 R' B U F L' F' R2 B F' R' U' F // scramble
+```
 
 Skips: normal: S slice on U/D, misoriented; inverse: E slice on U/D, misoriented.
 
@@ -1397,7 +1492,9 @@ Best of these: **22**, as short as the best through a normal DR of 10 or less. N
 
 #### Scramble 45
 
-`R' U' F U2 R2 F2 U' B2 D' R2 D' L2 U2 L' U B U B R U2 F' D' U F' R' U' F`
+```
+R' U' F U2 R2 F2 U' B2 D' R2 D' L2 U2 L' U B U B R U2 F' D' U F' R' U' F // scramble
+```
 
 Skips: none.
 
@@ -1405,7 +1502,9 @@ No DR-1s of 8 moves or less and no DR-2s 8fe of 9 or less here. The shortest nor
 
 #### Scramble 46
 
-`R' U' F U R L U R2 D2 B U R U2 L F B2 U' B2 D' F2 U' R2 F2 U' B2 R' U' F`
+```
+R' U' F U R L U R2 D2 B U R U2 L F B2 U' B2 D' F2 U' R2 F2 U' B2 R' U' F // scramble
+```
 
 Skips: normal: S slice on U/D, oriented; inverse: E slice on U/D, oriented.
 
@@ -1442,7 +1541,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 47
 
-`R' U' F U B2 D R2 U2 R2 B2 R2 F2 D F' R D R2 D L2 B' D' F' B' D2 U' R' U' F`
+```
+R' U' F U B2 D R2 U2 R2 B2 R2 F2 D F' R D R2 D L2 B' D' F' B' D2 U' R' U' F // scramble
+```
 
 Skips: normal: S slice on R/L, misoriented; inverse: M slice on U/D, oriented; inverse: S slice on R/L, misoriented; inverse: S slice on F/B, misoriented.
 
@@ -1479,7 +1580,9 @@ Best of these: **21**, as short as the best through a normal DR of 11 or less. N
 
 #### Scramble 48
 
-`R' U' F U L2 B2 D B2 D F2 D2 B2 R2 F' R' B' D' U R U B2 U L2 F' U' R' U' F`
+```
+R' U' F U L2 B2 D B2 D F2 D2 B2 R2 F' R' B' D' U R U B2 U L2 F' U' R' U' F // scramble
+```
 
 Skips: normal: E slice on F/B, misoriented; normal: M slice on R/L, oriented; inverse: E slice on F/B, misoriented; inverse: M slice on R/L, oriented.
 
@@ -1516,7 +1619,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 49
 
-`R' U' F L' D' R L' U2 L2 F' U2 D' B L' U F2 D' B2 L2 F2 U2 R2 D2 R' U' F`
+```
+R' U' F L' D' R L' U2 L2 F' U2 D' B L' U F2 D' B2 L2 F2 U2 R2 D2 R' U' F // scramble
+```
 
 Skips: normal: M slice on U/D, misoriented; inverse: S slice on F/B, oriented.
 
@@ -1553,7 +1658,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 50
 
-`R' U' F L B' D' B2 R2 B2 R D R2 F' R F2 U' F2 U R2 B2 D' B2 R' U' F`
+```
+R' U' F L B' D' B2 R2 B2 R D R2 F' R F2 U' F2 U R2 B2 D' B2 R' U' F // scramble
+```
 
 Skips: normal: E slice on U/D, oriented; normal: M slice on R/L, misoriented; normal: M slice on F/B, misoriented; normal: S slice on U/D, misoriented; normal: S slice on R/L, oriented; normal: S slice on F/B, misoriented; inverse: E slice on U/D, misoriented; inverse: E slice on R/L, oriented; inverse: E slice on F/B, misoriented; inverse: M slice on F/B, misoriented; inverse: S slice on U/D, oriented; inverse: S slice on R/L, misoriented.
 
@@ -1586,7 +1693,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 51
 
-`R' U' F U F2 L2 U R2 B2 F2 U' F2 U' R' B' U' B R D2 B L2 F' U' R' U' F`
+```
+R' U' F U F2 L2 U R2 B2 F2 U' F2 U' R' B' U' B R D2 B L2 F' U' R' U' F // scramble
+```
 
 Skips: none.
 
@@ -1611,7 +1720,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 52
 
-`R' U' F R2 D' F2 R2 U2 B2 L2 U2 B2 F2 L F R F' R2 U' L2 F2 R' U2 B2 R' U' F`
+```
+R' U' F R2 D' F2 R2 U2 B2 L2 U2 B2 F2 L F R F' R2 U' L2 F2 R' U2 B2 R' U' F // scramble
+```
 
 Skips: normal: M slice on F/B, oriented; normal: S slice on R/L, oriented; normal: S slice on F/B, oriented; inverse: M slice on R/L, oriented; inverse: M slice on F/B, oriented.
 
@@ -1644,7 +1755,9 @@ Best of these: **21**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 53
 
-`R' U' F U L2 U B2 R2 U F2 L2 U R' B2 D' U L' F' R2 F' D' B2 F R' U' F`
+```
+R' U' F U L2 U B2 R2 U F2 L2 U R' B2 D' U L' F' R2 F' D' B2 F R' U' F // scramble
+```
 
 Skips: none.
 
@@ -1681,7 +1794,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 54
 
-`R' U' F U' L2 U2 F2 U' L2 R2 U B2 U R D' L' R B L U2 L2 F U L2 U' R' U' F`
+```
+R' U' F U' L2 U2 F2 U' L2 R2 U B2 U R D' L' R B L U2 L2 F U L2 U' R' U' F // scramble
+```
 
 Skips: normal: E slice on R/L, oriented.
 
@@ -1714,7 +1829,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 55
 
-`R' U' F D' F2 U2 L2 D F2 U F2 B2 U F B2 D B U F R U2 F D' R' U2 R' U' F`
+```
+R' U' F D' F2 U2 L2 D F2 U F2 B2 U F B2 D B U F R U2 F D' R' U2 R' U' F // scramble
+```
 
 Skips: normal: E slice on U/D, misoriented; normal: S slice on F/B, oriented; inverse: E slice on R/L, misoriented; inverse: M slice on F/B, oriented.
 
@@ -1722,7 +1839,9 @@ No DR-1s of 8 moves or less and no DR-2s 8fe of 9 or less here. The shortest nor
 
 #### Scramble 56
 
-`R' U' F L2 R2 B2 D2 U' L2 U F2 U L2 F' L U' B D' R B F L' R' B' U R' U' F`
+```
+R' U' F L2 R2 B2 D2 U' L2 U F2 U L2 F' L U' B D' R B F L' R' B' U R' U' F // scramble
+```
 
 Skips: normal: E slice on R/L, misoriented; inverse: S slice on U/D, oriented; inverse: S slice on R/L, misoriented.
 
@@ -1759,7 +1878,9 @@ Best of these: **21**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 57
 
-`R' U' F L2 U' F2 B2 U2 F2 R2 D R2 U2 F' U2 R' F' U2 B D B2 L' U2 R2 U' R' U' F`
+```
+R' U' F L2 U' F2 B2 U2 F2 R2 D R2 U2 F' U2 R' F' U2 B D B2 L' U2 R2 U' R' U' F // scramble
+```
 
 Skips: normal: M slice on R/L, oriented; normal: S slice on U/D, misoriented; inverse: E slice on R/L, oriented; inverse: E slice on F/B, misoriented; inverse: S slice on U/D, misoriented.
 
@@ -1796,7 +1917,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 58
 
-`R' U' F D2 L2 D B2 U' F2 R2 U' B2 U R' D' L F' U2 F U R2 B' R F2 R' U' F`
+```
+R' U' F D2 L2 D B2 U' F2 R2 U' B2 U R' D' L F' U2 F U R2 B' R F2 R' U' F // scramble
+```
 
 Skips: normal: E slice on U/D, misoriented; normal: M slice on U/D, oriented; inverse: M slice on F/B, oriented.
 
@@ -1833,7 +1956,9 @@ Best of these: **22**, as short as the best through a normal DR of 10 or less. N
 
 #### Scramble 59
 
-`R' U' F L D' F' R B L U F' R2 F2 R D' L2 U L2 D2 R2 L2 U R' U' F`
+```
+R' U' F L D' F' R B L U F' R2 F2 R D' L2 U L2 D2 R2 L2 U R' U' F // scramble
+```
 
 Skips: normal: E slice on U/D, misoriented; normal: E slice on F/B, misoriented; inverse: E slice on U/D, misoriented; inverse: E slice on R/L, misoriented.
 
@@ -1862,7 +1987,9 @@ Best of these: **22**, shorter than every normal DR of 10 or less gives. Normal 
 
 #### Scramble 60
 
-`R' U' F L2 B2 L2 B2 U2 R2 D F2 D' U2 R U2 B2 D' R' U2 B D' U' F R' U' F`
+```
+R' U' F L2 B2 L2 B2 U2 R2 D F2 D' U2 R U2 B2 D' R' U2 B D' U' F R' U' F // scramble
+```
 
 Skips: none.
 
@@ -1895,7 +2022,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 61
 
-`R' U' F L2 B2 D' F' R2 U D' L' D2 F L2 D2 B2 D R2 U B2 D L2 D2 R' U' F`
+```
+R' U' F L2 B2 D' F' R2 U D' L' D2 F L2 D2 B2 D R2 U B2 D L2 D2 R' U' F // scramble
+```
 
 Skips: normal: S slice on F/B, oriented; inverse: E slice on U/D, oriented; inverse: S slice on F/B, oriented.
 
@@ -1932,7 +2061,9 @@ Best of these: **21**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 62
 
-`R' U' F U' R2 U2 R2 U' L2 U' F2 R2 U' B' U F R2 F2 U R2 D R' F2 L' U' R' U' F`
+```
+R' U' F U' R2 U2 R2 U' L2 U' F2 R2 U' B' U F R2 F2 U R2 D R' F2 L' U' R' U' F // scramble
+```
 
 Skips: none.
 
@@ -1961,7 +2092,9 @@ Best of these: **24**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 63
 
-`R' U' F D2 B U2 D2 F L2 D2 F R2 F L' F' D L U L' B2 F U' R' U2 F' R' U' F`
+```
+R' U' F D2 B U2 D2 F L2 D2 F R2 F L' F' D L U L' B2 F U' R' U2 F' R' U' F // scramble
+```
 
 Skips: normal: E slice on F/B, misoriented; normal: M slice on F/B, misoriented; normal: S slice on R/L, oriented; normal: S slice on F/B, oriented; inverse: E slice on F/B, misoriented; inverse: S slice on U/D, oriented.
 
@@ -1998,7 +2131,9 @@ Best of these: **21**, as short as the best through a normal DR of 10 or less. N
 
 #### Scramble 64
 
-`R' U' F D B2 R2 B2 R2 D' F2 L2 F2 U2 R D2 B' F2 D U R B U B2 R2 U' R' U' F`
+```
+R' U' F D B2 R2 B2 R2 D' F2 L2 F2 U2 R D2 B' F2 D U R B U B2 R2 U' R' U' F // scramble
+```
 
 Skips: normal: M slice on U/D, oriented; normal: S slice on R/L, misoriented; inverse: S slice on R/L, misoriented.
 
@@ -2035,7 +2170,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 65
 
-`R' U' F U' B2 R2 U' L2 U' F2 U2 B2 F2 R' D2 B2 F' U R B' D R U2 F R' U' F`
+```
+R' U' F U' B2 R2 U' L2 U' F2 U2 B2 F2 R' D2 B2 F' U R B' D R U2 F R' U' F // scramble
+```
 
 Skips: normal: E slice on U/D, misoriented; normal: M slice on U/D, oriented; normal: M slice on F/B, misoriented; inverse: E slice on F/B, misoriented.
 
@@ -2068,7 +2205,9 @@ Best of these: **22**, as short as the best through a normal DR of 12 or less. N
 
 #### Scramble 66
 
-`R' U' F U2 R2 B2 U2 B2 R' B2 R' U2 R' F R' U2 R2 D2 F U D2 L R' D2 R' U' F`
+```
+R' U' F U2 R2 B2 U2 B2 R' B2 R' U2 R' F R' U2 R2 D2 F U D2 L R' D2 R' U' F // scramble
+```
 
 Skips: none.
 
@@ -2105,7 +2244,9 @@ Best of these: **21**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 67
 
-`R' U' F U2 B2 D F2 L2 F2 R2 U' B2 L2 B' U' F' D' L2 B L F2 R F2 U2 R' U' F`
+```
+R' U' F U2 B2 D F2 L2 F2 R2 U' B2 L2 B' U' F' D' L2 B L F2 R F2 U2 R' U' F // scramble
+```
 
 Skips: none.
 
@@ -2142,7 +2283,9 @@ Best of these: **20**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 68
 
-`R' U' F L2 B2 U L2 B2 U' B2 U L2 D' L U' F' R U' F L D2 F D B' R' U' F`
+```
+R' U' F L2 B2 U L2 B2 U' B2 U L2 D' L U' F' R U' F L D2 F D B' R' U' F // scramble
+```
 
 Skips: normal: S slice on R/L, misoriented; inverse: E slice on F/B, oriented; inverse: S slice on F/B, misoriented.
 
@@ -2175,7 +2318,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 69
 
-`R' U' F D L2 D' U2 B2 D2 R2 F2 L2 U F B2 R B' D L' B L2 D' R2 U' R' U' F`
+```
+R' U' F D L2 D' U2 B2 D2 R2 F2 L2 U F B2 R B' D L' B L2 D' R2 U' R' U' F // scramble
+```
 
 Skips: normal: M slice on R/L, oriented; inverse: M slice on R/L, oriented.
 
@@ -2212,7 +2357,9 @@ Best of these: **20**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 70
 
-`R' U' F U2 L2 B2 L2 U B2 R2 D' R2 U B' D' L' F R2 F2 L2 R D B' F' U' R' U' F`
+```
+R' U' F U2 L2 B2 L2 U B2 R2 D' R2 U B' D' L' F R2 F2 L2 R D B' F' U' R' U' F // scramble
+```
 
 Skips: normal: S slice on U/D, misoriented; inverse: S slice on U/D, misoriented; inverse: S slice on F/B, misoriented.
 
@@ -2249,7 +2396,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 71
 
-`R' U' F U R2 F2 R' B' L F2 L2 D2 R B U' F2 U D L2 F2 R2 B2 U' B2 R' U' F`
+```
+R' U' F U R2 F2 R' B' L F2 L2 D2 R B U' F2 U D L2 F2 R2 B2 U' B2 R' U' F // scramble
+```
 
 Skips: normal: E slice on U/D, misoriented; inverse: S slice on R/L, oriented.
 
@@ -2286,7 +2435,9 @@ Best of these: **21**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 72
 
-`R' U' F D F2 D' F2 L2 D2 U R2 B2 U2 L B2 F L U2 B2 F2 R2 U B2 F' R' U' F`
+```
+R' U' F D F2 D' F2 L2 D2 U R2 B2 U2 L B2 F L U2 B2 F2 R2 U B2 F' R' U' F // scramble
+```
 
 Skips: normal: M slice on F/B, misoriented; inverse: M slice on R/L, misoriented.
 
@@ -2323,7 +2474,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 73
 
-`R' U' F U2 R2 D' L2 B2 U2 F2 R2 U' R' U L2 B' U B2 D U' R' B' U' R' U' F`
+```
+R' U' F U2 R2 D' L2 B2 U2 F2 R2 U' R' U L2 B' U B2 D U' R' B' U' R' U' F // scramble
+```
 
 Skips: normal: M slice on U/D, misoriented; normal: M slice on F/B, oriented; inverse: E slice on U/D, misoriented; inverse: E slice on R/L, misoriented; inverse: S slice on F/B, oriented.
 
@@ -2360,7 +2513,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 74
 
-`R' U' F L2 U2 F2 L2 D L2 F2 D L2 U2 F' D' U B U R D U2 L F' R2 U' R' U' F`
+```
+R' U' F L2 U2 F2 L2 D L2 F2 D L2 U2 F' D' U B U R D U2 L F' R2 U' R' U' F // scramble
+```
 
 Skips: normal: M slice on F/B, misoriented; normal: S slice on U/D, misoriented; inverse: M slice on U/D, misoriented; inverse: S slice on R/L, misoriented.
 
@@ -2397,7 +2552,9 @@ Best of these: **18**, as short as the best through a normal DR of 12 or less. N
 
 #### Scramble 75
 
-`R' U' F U2 L2 B' D2 B' F' L2 U2 L2 F2 R U L2 B D' B' L' F' L B' U R' U' F`
+```
+R' U' F U2 L2 B' D2 B' F' L2 U2 L2 F2 R U L2 B D' B' L' F' L B' U R' U' F // scramble
+```
 
 Skips: normal: M slice on U/D, misoriented; normal: M slice on F/B, oriented; inverse: S slice on F/B, oriented.
 
@@ -2434,7 +2591,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 76
 
-`R' U' F U F2 R F2 B2 L U L' B' R F L2 U2 B2 D B2 U F2 B2 R2 U' R' U' F`
+```
+R' U' F U F2 R F2 B2 L U L' B' R F L2 U2 B2 D B2 U F2 B2 R2 U' R' U' F // scramble
+```
 
 Skips: normal: M slice on R/L, misoriented; inverse: M slice on R/L, misoriented.
 
@@ -2467,7 +2626,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 77
 
-`R' U' F D2 B2 U2 L2 B2 L2 B2 U F2 U B' L' U2 B D2 U F U2 R' B2 D2 R' U' F`
+```
+R' U' F D2 B2 U2 L2 B2 L2 B2 U F2 U B' L' U2 B D2 U F U2 R' B2 D2 R' U' F // scramble
+```
 
 Skips: normal: M slice on U/D, misoriented; normal: S slice on U/D, oriented; inverse: S slice on R/L, oriented; inverse: S slice on F/B, oriented.
 
@@ -2500,7 +2661,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 78
 
-`R' U' F R2 D' L2 D' L2 B2 D' F2 L2 U' B R U F2 D B2 U L' U2 R U2 R' U' F`
+```
+R' U' F R2 D' L2 D' L2 B2 D' F2 L2 U' B R U F2 D B2 U L' U2 R U2 R' U' F // scramble
+```
 
 Skips: normal: E slice on U/D, misoriented.
 
@@ -2533,7 +2696,9 @@ Best of these: **24**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 79
 
-`R' U' F L2 U B2 L2 B2 D2 U' F2 D' B' U' L U B2 D L' B U' L2 R U' R' U' F`
+```
+R' U' F L2 U B2 L2 B2 D2 U' F2 D' B' U' L U B2 D L' B U' L2 R U' R' U' F // scramble
+```
 
 Skips: normal: E slice on F/B, misoriented; normal: S slice on U/D, oriented.
 
@@ -2566,7 +2731,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 80
 
-`R' U' F U L D R' U2 F B L2 D' B2 R L2 B L2 D2 B L2 B2 R2 B U2 R' U' F`
+```
+R' U' F U L D R' U2 F B L2 D' B2 R L2 B L2 D2 B L2 B2 R2 B U2 R' U' F // scramble
+```
 
 Skips: inverse: M slice on F/B, misoriented.
 
@@ -2603,7 +2770,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 81
 
-`R' U' F D2 R' F2 B2 U F B' U D2 L F D' F2 D' L2 D L2 U B2 D' F2 R' U' F`
+```
+R' U' F D2 R' F2 B2 U F B' U D2 L F D' F2 D' L2 D L2 U B2 D' F2 R' U' F // scramble
+```
 
 Skips: normal: S slice on U/D, oriented.
 
@@ -2640,7 +2809,9 @@ Best of these: **21**, as short as the best through a normal DR of 10 or less. N
 
 #### Scramble 82
 
-`R' U' F R2 D' U' L2 D L2 R2 U' B2 L2 F U F2 L U2 L2 B F L R2 U2 R' U' F`
+```
+R' U' F R2 D' U' L2 D L2 R2 U' B2 L2 F U F2 L U2 L2 B F L R2 U2 R' U' F // scramble
+```
 
 Skips: normal: S slice on U/D, misoriented; normal: S slice on R/L, oriented; normal: S slice on F/B, oriented; inverse: M slice on U/D, misoriented; inverse: M slice on R/L, oriented; inverse: M slice on F/B, oriented; inverse: S slice on F/B, misoriented.
 
@@ -2677,7 +2848,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 83
 
-`R' U' F U R B2 R' F2 D' L U' B' R L2 F2 D B2 U2 F2 R2 U' D' R' U' F`
+```
+R' U' F U R B2 R' F2 D' L U' B' R L2 F2 D B2 U2 F2 R2 U' D' R' U' F // scramble
+```
 
 Skips: none.
 
@@ -2710,7 +2883,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 84
 
-`R' U' F U L D' L2 B2 D2 B D F2 B2 R' D F2 B2 U' F2 U D2 B2 R' U' F`
+```
+R' U' F U L D' L2 B2 D2 B D F2 B2 R' D F2 B2 U' F2 U D2 B2 R' U' F // scramble
+```
 
 Skips: normal: S slice on U/D, misoriented.
 
@@ -2743,7 +2918,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 85
 
-`R' U' F D L2 R2 U B2 L2 B2 L2 R2 U L' D R D L2 F B U2 L' R B' R' U' F`
+```
+R' U' F D L2 R2 U B2 L2 B2 L2 R2 U L' D R D L2 F B U2 L' R B' R' U' F // scramble
+```
 
 Skips: inverse: M slice on U/D, oriented.
 
@@ -2780,7 +2957,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 86
 
-`R' U' F R2 D' R2 U B2 D U2 B2 L2 U' L B' L D2 F2 R' U L2 B D R' U' F`
+```
+R' U' F R2 D' R2 U B2 D U2 B2 L2 U' L B' L D2 F2 R' U L2 B D R' U' F // scramble
+```
 
 Skips: normal: S slice on F/B, oriented.
 
@@ -2817,7 +2996,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 87
 
-`R' U' F R2 U2 F2 D2 U L2 U2 B2 U' L2 F L2 U' F' R' U' B2 F L' B' U R' U' F`
+```
+R' U' F R2 U2 F2 D2 U L2 U2 B2 U' L2 F L2 U' F' R' U' B2 F L' B' U R' U' F // scramble
+```
 
 Skips: none.
 
@@ -2854,7 +3035,9 @@ Best of these: **22**, shorter than every normal DR of 10 or less gives. Normal 
 
 #### Scramble 88
 
-`R' U' F D R2 U2 L2 D R2 F2 U' R2 F2 B' R F' B L U' L2 R' B2 U' R' U R' U' F`
+```
+R' U' F D R2 U2 L2 D R2 F2 U' R2 F2 B' R F' B L U' L2 R' B2 U' R' U R' U' F // scramble
+```
 
 Skips: normal: E slice on R/L, oriented; inverse: M slice on F/B, misoriented.
 
@@ -2891,7 +3074,9 @@ Best of these: **21**, as short as the best through a normal DR of 10 or less. N
 
 #### Scramble 89
 
-`R' U' F D' L2 U' B2 U2 B2 U' F2 D' U' R' D2 U F R B' R' B2 R D L2 U R' U' F`
+```
+R' U' F D' L2 U' B2 U2 B2 U' F2 D' U' R' D2 U F R B' R' B2 R D L2 U R' U' F // scramble
+```
 
 Skips: normal: E slice on F/B, misoriented; normal: S slice on U/D, misoriented; inverse: E slice on F/B, misoriented; inverse: S slice on U/D, misoriented.
 
@@ -2928,7 +3113,9 @@ Best of these: **21**, as short as the best through a normal DR of 10 or less. N
 
 #### Scramble 90
 
-`R' U' F U' B2 D' L2 B2 D' B2 U B2 U' L U F2 U L U' B' R' D L U2 R' U' F`
+```
+R' U' F U' B2 D' L2 B2 D' B2 U B2 U' L U F2 U L U' B' R' D L U2 R' U' F // scramble
+```
 
 Skips: none.
 
@@ -2961,7 +3148,9 @@ Best of these: **21**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 91
 
-`R' U' F R' F R' U B' U2 F D' F2 B L' U D L2 B2 R2 D2 F2 U' R2 B2 R' U' F`
+```
+R' U' F R' F R' U B' U2 F D' F2 B L' U D L2 B2 R2 D2 F2 U' R2 B2 R' U' F // scramble
+```
 
 Skips: normal: E slice on R/L, oriented; normal: M slice on R/L, oriented; inverse: E slice on R/L, oriented; inverse: S slice on U/D, misoriented; inverse: S slice on R/L, oriented.
 
@@ -2998,7 +3187,9 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 92
 
-`R' U' F D2 L2 R2 D L2 D2 R2 F2 R2 U' F D' R U R' U2 L D U2 B F2 U' R' U' F`
+```
+R' U' F D2 L2 R2 D L2 D2 R2 F2 R2 U' F D' R U R' U2 L D U2 B F2 U' R' U' F // scramble
+```
 
 Skips: inverse: S slice on F/B, oriented.
 
@@ -3031,7 +3222,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 93
 
-`R' U' F L2 F2 L2 U2 B2 D2 B2 D F2 U' L F2 U' B L' B' R2 U' F' R B' U R' U' F`
+```
+R' U' F L2 F2 L2 U2 B2 D2 B2 D F2 U' L F2 U' B L' B' R2 U' F' R B' U R' U' F // scramble
+```
 
 Skips: none.
 
@@ -3064,7 +3257,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 94
 
-`R' U' F U' B2 D F2 D' L2 D L2 F2 U' B' D2 L B2 U' L' U' B' R' D' R' U' F`
+```
+R' U' F U' B2 D F2 D' L2 D L2 F2 U' B' D2 L B2 U' L' U' B' R' D' R' U' F // scramble
+```
 
 Skips: normal: E slice on U/D, misoriented; normal: M slice on R/L, oriented; normal: M slice on F/B, oriented; normal: S slice on R/L, misoriented; inverse: E slice on R/L, misoriented; inverse: M slice on F/B, oriented; inverse: S slice on U/D, misoriented.
 
@@ -3097,7 +3292,9 @@ Best of these: **24**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 95
 
-`R' U' F R2 U2 R2 B2 U' B2 L2 D R2 U' F D R' D L R F2 U' B' D2 U R' U' F`
+```
+R' U' F R2 U2 R2 B2 U' B2 L2 D R2 U' F D R' D L R F2 U' B' D2 U R' U' F // scramble
+```
 
 Skips: inverse: S slice on U/D, misoriented.
 
@@ -3134,7 +3331,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 96
 
-`R' U' F U2 L2 D B2 F2 R2 D' F2 U F2 L' U2 L2 D' R2 U2 F U2 B' D' F2 R' U' F`
+```
+R' U' F U2 L2 D B2 F2 R2 D' F2 U F2 L' U2 L2 D' R2 U2 F U2 B' D' F2 R' U' F // scramble
+```
 
 Skips: normal: S slice on F/B, misoriented; inverse: E slice on U/D, misoriented.
 
@@ -3163,7 +3362,9 @@ Best of these: **23**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 97
 
-`R' U' F R2 U' R' U' L' D F R' F' U2 F U D' F2 U F2 R2 U' R2 B2 R' U' F`
+```
+R' U' F R2 U' R' U' L' D F R' F' U2 F U D' F2 U F2 R2 U' R2 B2 R' U' F // scramble
+```
 
 Skips: inverse: M slice on U/D, misoriented.
 
@@ -3200,7 +3401,9 @@ Best of these: **19**, as short as the best through a normal DR of 12 or less. N
 
 #### Scramble 98
 
-`R' U' F D2 B2 R2 D' R2 D' L2 D R' B D' F L B2 R2 B2 D R2 D2 U2 R' U' F`
+```
+R' U' F D2 B2 R2 D' R2 D' L2 D R' B D' F L B2 R2 B2 D R2 D2 U2 R' U' F // scramble
+```
 
 Skips: inverse: S slice on U/D, misoriented.
 
@@ -3237,7 +3440,9 @@ Best of these: **24**, longer than the best through a normal DR of 10 or less. N
 
 #### Scramble 99
 
-`R' U' F D2 B' R2 B' R2 U2 D2 B F L2 U' F R2 U2 L' F R' B D' L F R' U' F`
+```
+R' U' F D2 B' R2 B' R2 U2 D2 B F L2 U' F R2 U2 L' F R' B D' L F R' U' F // scramble
+```
 
 Skips: none.
 
@@ -3270,7 +3475,9 @@ Best of these: **22**, as short as the best through a normal DR of 10 or less. N
 
 #### Scramble 100
 
-`R' U' F U R2 B2 L2 D2 F2 D F2 U2 F2 B' L' D L F' R' U B D' R2 U R' U' F`
+```
+R' U' F U R2 B2 L2 D2 F2 D F2 U2 F2 B' L' D L F' R' U B D' R2 U R' U' F // scramble
+```
 
 Skips: none.
 

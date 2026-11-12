@@ -11,7 +11,7 @@ DESC = {
  "FakeMMAP's reduction-length bound": 'Sufficient, how much it prunes, rodneykinney\'s tables, the index in the multi-qt lower bound.',
  'Hand checklists, graded': 'Zagros, Yura Riabov against rogo and Adri, Fanti, Lewis Isom, Jay and rodneykinney, Daichi\'s cheat sheet.',
  'The claims, checked': 'Each checkable statement from the server, with the verdict.',
- 'Real DRs': 'The tables rerun on the DRs cubelib finds on random scrambles: subset mix, checklists, headlines.',
+ 'Real DRs': 'The same tables on the DRs cubelib finds on random scrambles: subset mix, checklists, headlines.',
  'What this does not cover': 'Limits.',
  'Appendix A: full tables': 'Every checklist, edge-path checklists, rodneykinney\'s table, late switches.',
  'Appendix B: how it was computed, and what checks it': 'Model, sampling, the sticker model, nissy, Lean.',

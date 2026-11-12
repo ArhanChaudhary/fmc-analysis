@@ -68,8 +68,8 @@ assert '[[' not in doc and '(@' not in doc and '{{' not in doc
 
 # ---- "How to read it" and the table of contents, built from the headings so they cannot drift
 DESC = {
- 'The short version': 'What is new, then what it confirms or corrects, one line each.',
- 'What people asked for': "How this started, the gap in the solvers' own words, the sixteen questions from the server that are answered here, and which finish matters.",
+ 'The short version': 'What is new, then what it confirms or corrects.',
+ 'What people asked for': "Bounding at high qt, the gap in the solvers' own words, the seventeen questions answered here, and which finish matters.",
  'The data': 'What was computed, and what "optimal" and "in 11" mean.',
  'How much can a read tell you?': "Every read against the exact finish, for each finish you might need from 9 to 13: ranking, throwing away, plain rules with their price, what is proven. Zagros's two hunches.",
  'The reads, cheapest first': 'What each read is worth, with the tables:',

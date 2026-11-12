@@ -29,7 +29,13 @@ Both sides together:
 | a stack on one side only | 37.5% | 0.10% | 0.92% | 6.4% | 32% |
 | a stack on both sides | 6.2% | 0 | 0.06% | 1.1% | 11% |
 
-So a double stack is as dead as a 5qt at every target (0 / 0.06% / 1.1% / 11% against 0.02% / 0.24% / 2.1% / 14% for all 5qt DRs, in 10 / 11 / 12 / 13), and the best layout on both sides is as good as an average 2c3 4e (1.3% / 6.4% / 27% / 73%).
+So a double stack is as dead as a 5qt at every target, and the best layout on both sides is as good as the last row:
+
+| | In 10 / 11 / 12 / 13 |
+|---|---|
+| a stack on both sides | 0 / 0.06% / 1.1% / 11% |
+| all 5qt DRs | 0.02% / 0.24% / 2.1% / 14% |
+| an average 2c3 4e | 1.3% / 6.4% / 27% / 73% |
 
     U2 L2 D' F2 U' R2 U F2 D L2 U2   // the fastest any double-stacked 2c4 finishes: 11
 

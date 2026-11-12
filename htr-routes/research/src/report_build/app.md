@@ -8,7 +8,7 @@
 
 {{edge_refined}}
 
-**Checklists with no HTR limit**, first four routes. With no limit the routes overlap so much that these lists say more about which readings exist than what to try:
+**Checklists with no HTR limit**, first four routes. With no limit the routes overlap so much that these lists tell you more about which readings exist than about what to try:
 
 {{checklist_nolimit}}
 
@@ -22,7 +22,14 @@
 
 ## Appendix B: how it was computed, and what checks it
 
-**The model.** The DR group ⟨U, D, R2, L2, F2, B2⟩ with the first study's exact table of the optimal finish of all 19,508,428,800 DR states (proved in Lean there) and of the optimal leave-slice. Subsets are the first study's 48 (corner subset from the bad corners, the quarter turns the corners need and the 4a/4b shape; bad edges counted up to turning a layer). A Rust tool samples states uniformly within each subset × edges and enumerates every finish of the optimal length and one longer (both orders of commuting moves), using the exact table to prune; each finish is read at every split, either side first, and its route, HTR length and quarter-turn counts recorded. Shortest HTRs (normal, inverse, NISS) come from an exact search. Reductions are counted from coset tables. About an hour on four cores, at most 5 GB per job. Fixed targets of 10 to 12 use finishes up to max(optimal + 1, min(optimal + 2, 12)) moves.
+**The model.**
+
+- The DR group ⟨U, D, R2, L2, F2, B2⟩ with the first study's exact table of the optimal finish of all 19,508,428,800 DR states (proved in Lean there) and of the optimal leave-slice.
+- Subsets are the first study's 48 (corner subset from the bad corners, the quarter turns the corners need and the 4a/4b shape; bad edges counted up to turning a layer).
+- A Rust tool samples states uniformly within each subset × edges and enumerates every finish of the optimal length and one longer (both orders of commuting moves), using the exact table to prune. Each finish is read at every split, either side first, and its route, HTR length and quarter-turn counts recorded.
+- Shortest HTRs (normal, inverse, NISS) come from an exact search. Reductions are counted from coset tables.
+- Fixed targets of 10 to 12 use finishes up to max(optimal + 1, min(optimal + 2, 12)) moves.
+- About an hour on four cores, at most 5 GB per job.
 
 **What checks it.**
 
@@ -36,7 +43,11 @@
 **Formally verified.** Two Lean 4 libraries in the study's folder, no Mathlib, no `sorry`. What they prove for this study:
 
 - *HTRRoutes* (lean/HTRRoutes): the small exact tables, as in the bullet above.
-- *FakeBound* (lean/FakeBound/FakeBound), FakeMMAP's bound as arithmetic for every N: each of the five terms is an upper bound on the reduction a finish needs, with term 2 as derived and α_{i+1} (`term1_sound` … `term5_sound`, `cover_sum`, `chain_bound`, Finish.lean); the smallest term is sound (`Rmin_sound`) and so is the largest, the formula as written (`Rmax_sound`, Formula.lean); the multi-qt lower bounds with α_{i+1} (`lower_stupid`, `lower_free`, `lower_A`, `lower_B`, `lower_C`, Finish.lean); the counterexamples to the printed forms (`printed_term2_fails`, `literal_min_fails`, `witness_0c3`, `alpha_i_fails`), that the smallest term is not always the exact worst case (`Rmin_not_tight`) and where C goes (`C_placement`, Counter.lean); on the cube, that half turns keep the subset × bad edges (`half_turns_keep_subset_data`, `labels_keep`), FakeMMAP's C = 5 and 6 (`fake_C_examples`) and α of the two counterexample paths (`counter_alphas`, Subset.lean).
+- *FakeBound* (lean/FakeBound/FakeBound), FakeMMAP's bound as arithmetic for every N:
+  - Finish.lean: each of the five terms is an upper bound on the reduction a finish needs, with term 2 as derived and α_{i+1} (`term1_sound` … `term5_sound`, `cover_sum`, `chain_bound`); the multi-qt lower bounds with α_{i+1} (`lower_stupid`, `lower_free`, `lower_A`, `lower_B`, `lower_C`).
+  - Formula.lean: the smallest term is sound (`Rmin_sound`) and so is the largest, the formula as written (`Rmax_sound`).
+  - Counter.lean: the counterexamples to the printed forms (`printed_term2_fails`, `literal_min_fails`, `witness_0c3`, `alpha_i_fails`), that the smallest term isn't always the exact worst case (`Rmin_not_tight`), and where C goes (`C_placement`).
+  - Subset.lean, on the cube: half turns keep the subset × bad edges (`half_turns_keep_subset_data`, `labels_keep`), FakeMMAP's C = 5 and 6 (`fake_C_examples`), and α of the two counterexample paths (`counter_alphas`).
 - *Corrections* (lean/FakeBound/Corrections/Examples.lean), the errata examples: the optimal finish of every DR state in a, c, d, e and f (`dr_optima_correct`, from the first study's proved table) and the printed finishes of a, d and f (`dr_solutions_valid`); the HTR lengths and printed HTRs of b and c (`htr_4c4`, `htr_13`); the subset names of a, d, e and f (`labels_htr_routes`); f's index example end to end (`index_example`, `index_example_arith`) and the C example (`C_example`). Each errata item says which of its example is Lean-checked.
 
 **Computed, not proved**: every share and mean from the samples ({= n(25000) =} states per subset × edges, 4,000 for bounding), the exact model of section 9 (an enumeration in Python), the shortest NISS HTRs (the Rust tool's search, cross-checked with nissy), which finishes are optimal and how they read (the Rust tool, cross-checked on the sticker model and with nissy), the reduction counts, and the means over the first study's exact table, such as the gain from the last DR move.

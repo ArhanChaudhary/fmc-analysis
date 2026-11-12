@@ -10,9 +10,14 @@ How to read the tables of this section. A row is one skeleton length. *Mean adde
 
 {{cost_3c}}
 
-- **+{= M('3c') =} at 20 moves with 8-movers.** {= CELL('cost_3c', ('8', '20'), '6 or less') =} of skeletons give +6 or better, {= CELL('cost_3c', ('8', '20'), '5 or less') =} give +5 or better, {= CELL('cost_3c', ('8', '20'), '4 or less') =} give +4 or better and {= CELL('cost_3c', ('8', '20'), '3 or less') =} give +3 or better. Everybody's +6 (Aneurin, Jay, Eli Rogers, Baiqiang's 5-6, Tronto's 5/6) is the right number.
-- **Length matters, slowly.** From {= CELL('cost_3c', ('8', '10'), 'Mean added') =} at 10 moves to {= CELL('cost_3c', ('8', '30'), 'Mean added') =} at 30: ten more moves of skeleton take {= PERTEN('3c') =} off the insertion. That is the tutorial's "longer skeletons give more spots where you can insert an algorithm, and so better chance of cancellations", in numbers. The tutorial adds "but you shouldn’t choose a long skeleton instead of a short one because of this!", and the number agrees: ten moves of skeleton buy less than half a move of insertion.
-- **zakk drewji's 24 to 3c**: DougCube's "typically a (8-2/30)" ([[N3243]]) is the most likely single outcome, {= EXACT('3c', 24, 6) =} of skeletons. {= CH('3c', 24, 30) =} get 30 or better and {= CH('3c', 24, 28) =} get 28 or better.
+- **+{= M('3c') =} at 20 moves with 8-movers.** Everybody's +6 (Aneurin, Jay, Eli Rogers, Baiqiang's 5-6, Tronto's 5/6) is the right number. Share of skeletons that give:
+
+  | +6 or better | +5 or better | +4 or better | +3 or better |
+  |---:|---:|---:|---:|
+  | {= CELL('cost_3c', ('8', '20'), '6 or less') =} | {= CELL('cost_3c', ('8', '20'), '5 or less') =} | {= CELL('cost_3c', ('8', '20'), '4 or less') =} | {= CELL('cost_3c', ('8', '20'), '3 or less') =} |
+
+- **Length matters, slowly.** From {= CELL('cost_3c', ('8', '10'), 'Mean added') =} at 10 moves to {= CELL('cost_3c', ('8', '30'), 'Mean added') =} at 30: ten more moves of skeleton take {= PERTEN('3c') =} off the insertion. That's the tutorial's "longer skeletons give more spots where you can insert an algorithm, and so better chance of cancellations", in numbers. The tutorial adds "but you shouldn’t choose a long skeleton instead of a short one because of this!", and the number agrees: ten moves of skeleton buy less than half a move of insertion.
+- **zakk drewji's 24 to 3c**: DougCube's "typically a (8-2/30)" ([[N3243]]) is the single most likely outcome, {= EXACT('3c', 24, 6) =} of skeletons. {= CH('3c', 24, 30) =} get 30 or better and {= CH('3c', 24, 28) =} get 28 or better.
 - **No 8-mover at all** is rare but real: {= CELL('cost_3c', ('8', '20'), 'Nothing fits') =} of 20-move skeletons and {= CELL('cost_3c', ('8', '10'), 'Nothing fits') =} of 10-move ones have no spot where an 8-mover solves the three corners (one is written out below). That is the 19-move skeleton of [[N4549]] ("its not even an 8-0 its an 9-0"). An 8-0 as the best there is: {= CELL('one_cancel', '20', '8-0') =} at 20 moves.
 - **Longer algs give little on a 3c**: {= CELL('cost_3c', ('10', '20'), 'Mean added') =} at cap 10 and {= CELL('cost_3c', ('12', '20'), 'Mean added') =} at cap 12, against {= CELL('cost_3c', ('8', '20'), 'Mean added') =}. Section 8.2 has how often a longer alg is the best.
 
@@ -31,7 +36,11 @@ A 20-move skeleton with no 8-mover at any spot:
 
 ### 6.2 Two comms: 2tc, 2c2c, 3tc, 3c1t, 5c
 
-For these, cap 8 means two 8-move comms, the second allowed inside the first; no alg of 8 moves or fewer does any of them in one go. Each number is the **best pair**, every first comm at every spot followed by the best second: **computer only** as a search. By hand you take the best first comm and then the best second, which costs {= f2(float(CELL('greedy', '5c', 'Best first comm only')) - float(CELL('greedy', '5c', 'Best pair of comms'))) =} more on a 5c; also following the first comms a move worse gets within {= f2(max(float(CELL('greedy', r, 'First comms within 1 move')) - float(CELL('greedy', r, 'Best pair of comms')) for r in ('2tc', '3tc', 'pure 2c2c', 'twisted 2c2c', '3c1t', '5c', '3c3c'))) =} of the best pair on every type (8.4). So read the cap-8 rows as a careful hand search, a few hundredths optimistic. Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for the whole leftover. All on random skeletons; the *Skeletons* column says how many each row rests on, and at cap 10 that is few, so read those rows to the nearest percent or so.
+For these, cap 8 means two 8-move comms, the second allowed inside the first; no alg of 8 moves or fewer does any of them in one go.
+
+Each number is the **best pair**, every first comm at every spot followed by the best second: **computer only** as a search. By hand you take the best first comm and then the best second, which costs {= f2(float(CELL('greedy', '5c', 'Best first comm only')) - float(CELL('greedy', '5c', 'Best pair of comms'))) =} more on a 5c; also following the first comms a move worse gets within {= f2(max(float(CELL('greedy', r, 'First comms within 1 move')) - float(CELL('greedy', r, 'Best pair of comms')) for r in ('2tc', '3tc', 'pure 2c2c', 'twisted 2c2c', '3c1t', '5c', '3c3c'))) =} of the best pair on every type (8.4). So read the cap-8 rows as a careful hand search, a few hundredths optimistic.
+
+Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for the whole leftover. All on random skeletons; the *Skeletons* column says how many each row rests on, and at cap 10 that is few, so read those rows to the nearest percent or so.
 
 **2tc** (two corners twisted in place):
 
@@ -65,19 +74,33 @@ The cap-12 column is on {= NSK('5c', L=12, src='two12') =} skeletons that are no
 
 - **The tutorial's table holds up.** Every corner row is within about half a move of the 20-move, 8-mover column; the 3tc is the one a full half move off (9 against {= M('3tc') =}). Where the table gives a range (double swap 9/10, 5c 10/11) the computed mean sits at the low end, and shorter skeletons, which is what a 4c or 5c skeleton usually is, sit higher. Its 9/10 is the row "4 Corners (double swap)"; the twisted double swap has no row.
 - **cpaul's 9 and 10 are right, and which 2c2c is the cheaper one depends on the alg length.** Pure 2c2c {= M('2c2c-pure') =}, 3c1t {= M('3c1t') =} at 20 moves. With 8-movers alone a twisted 2c2c costs {= M('2c2c-twisted') =}, less than a pure one. With algs of up to 10 moves it is the other way round, pure {= M('2c2c-pure', L=10) =} and twisted {= M('2c2c-twisted', L=10) =} (500 skeletons each), which is the order cpaul gave ("9 for pure 2-2", "9.5 for 2-2 with a twist", reading "with a twist" as the twisted double swap): a pure 2c2c has 10-move algs and a twisted one has none under 12.
-- **Phuwish's numbers are close**: 2tc "~8.0 I guess" ([[N4532]]) against {= M('2tc') =}, 5c "~high 10" ([[N4542]]) against {= M('5c', 16) =} at 16 moves and {= M('5c') =} at 20. tave_789's "close to 9.5?" for a 3c1t and a 2c2c ([[N4539]]), which Phuwish answered "yeah" ([[N4540]]), stands against {= M('3c1t') =} and {= M('2c2c-twisted') =} to {= M('2c2c-pure') =}. The 3tc, "mid to high 8 from my experience" ([[N4537]]), is lower than 8-movers give on random skeletons ({= M('3tc') =}), and "a half to a move worse" than a 2tc is {= DIFF('3tc', '2tc') =} worse here. With algs up to 12 a 3tc comes to {= M('3tc', L=12, src='two12') =} on {= NSK('3tc', L=12, src='two12') =} skeletons, so the figure is reachable; it takes more than pure comms.
-- **Baiqiang's are not averages**, in Baiqiang's own words ([[N4863]]: "this is i expected not avg expected"). Which 2c2c is the good one, kyh asked ([[N4855]]) and nobody answered, so the two figures are not pinned on pure and twisted here. What the numbers give: with every alg of up to 12 moves a pure 2c2c averages {= M('2c2c-pure', L=12, src='two12') =} and a twisted one {= M('2c2c-twisted', L=12, src='two12') =} on {= NSK('2c2c-pure', L=12, src='two12') =} random skeletons of 20 moves each, figures of the size of "6-8" and "8-9" ([[N4853]]). Jay guessed as much in the same exchange ([[N4860]]): "maybe there's some non 3c type insertion method for 2c2c that lowers the movecount that far". The 10-move 2c2c algs are one: with algs of up to 10 moves a pure 2c2c is already at {= M('2c2c-pure', L=10) =} ({= NSK('2c2c-pure', L=10) =} skeletons). A 3c1t averages {= M('3c1t', L=12, src='two12') =} at cap 12, above the 8-9. On the skeletons people posted a 3c1t averages {= POSTEDM('3c1t') =} with 8-movers alone ({= POSTED('3c1t') =} skeletons, section 9), which is inside it.
+- **Phuwish's numbers are close.**
+  - 2tc "~8.0 I guess" ([[N4532]]) against {= M('2tc') =}.
+  - 5c "~high 10" ([[N4542]]) against {= M('5c', 16) =} at 16 moves and {= M('5c') =} at 20.
+  - tave_789's "close to 9.5?" for a 3c1t and a 2c2c ([[N4539]]), which Phuwish answered "yeah" ([[N4540]]), against {= M('3c1t') =} and {= M('2c2c-twisted') =} to {= M('2c2c-pure') =}.
+  - The 3tc, "mid to high 8 from my experience" ([[N4537]]), is lower than 8-movers give on random skeletons ({= M('3tc') =}), and "a half to a move worse" than a 2tc is {= DIFF('3tc', '2tc') =} worse here. With algs up to 12 a 3tc comes to {= M('3tc', L=12, src='two12') =} on {= NSK('3tc', L=12, src='two12') =} skeletons, so the figure is reachable; it just takes more than pure comms.
+- **Baiqiang's are not averages**, in Baiqiang's own words ([[N4863]]: "this is i expected not avg expected"). kyh asked which 2c2c is the good one ([[N4855]]) and nobody answered, so I don't pin the two figures on pure and twisted here.
+
+  What the numbers give: with every alg of up to 12 moves a pure 2c2c averages {= M('2c2c-pure', L=12, src='two12') =} and a twisted one {= M('2c2c-twisted', L=12, src='two12') =} on {= NSK('2c2c-pure', L=12, src='two12') =} random skeletons of 20 moves each, figures of the size of "6-8" and "8-9" ([[N4853]]). Jay guessed as much in the same exchange ([[N4860]]): "maybe there's some non 3c type insertion method for 2c2c that lowers the movecount that far". The 10-move 2c2c algs are one such method: with algs of up to 10 moves a pure 2c2c is already at {= M('2c2c-pure', L=10) =} ({= NSK('2c2c-pure', L=10) =} skeletons). 
+
+  A 3c1t averages {= M('3c1t', L=12, src='two12') =} at cap 12, above the 8-9. On the skeletons people posted a 3c1t averages {= POSTEDM('3c1t') =} with 8-movers alone ({= POSTED('3c1t') =} skeletons, section 9), which is inside it.
 - **The order** at cap 8 is 2tc, twisted 2c2c, pure 2c2c, 3tc, 3c1t, 5c. argonblue's "i think 3c1t > 2c2c > 5c" ([[N6507]]) has the first two the other way round by cost: a 2c2c is {= DIFF('3c1t', '2c2c-pure') =} to {= DIFF('3c1t', '2c2c-twisted') =} cheaper than a 3c1t. jisu101's reply ([[N6508]], [[N6509]]: "you can pick literally any comm with 3 of the 4 corners", "and you can do it in both directions") is the reason, see below. And the difference Jay "didn't notice" between the "2 insertion 4c types" ([[N4860]]) is about a move on average: {= M('2c2c-twisted') =}, {= M('2c2c-pure') =}, {= M('3c1t') =}. The spread from one skeleton to the next is wider than that, so it is hard to notice solve by solve. Section 10 has a typical skeleton of each of the three (example [a]).
 - **"getting +9 from 2tc is as bad as +11,+12 from 5c"** (Phuwish, [[N4535]]) is right in odds: +9 or worse happens on {= WORSE('2tc', 9) =} of 2tc skeletons, +11 or worse on {= WORSE('5c', 11) =} of 5c skeletons and +12 or worse on {= WORSE('5c', 12) =}.
 
-**Why the types differ.** Four minutes after Jay's remark on the "2 insertion 4c types", wen asked ([[N4862]]): "Why is there even a difference if the number of possible first insertions is the same tbh". It can be read as about the two kinds of 2c2c or about a 2c2c against a 3c1t, so here is the count for every type. At one spot of the skeleton the first comm can be any 3-cycle that leaves a 3c behind. How many of those there are, and how many 8-move comms that gives per spot on average:
+**Why the types differ.** Four minutes after Jay's remark on the "2 insertion 4c types", wen asked ([[N4862]]): "Why is there even a difference if the number of possible first insertions is the same tbh". You can read that as about the two kinds of 2c2c or about a 2c2c against a 3c1t, so here's the count for every type. At one spot of the skeleton the first comm can be any 3-cycle that leaves a 3c behind. How many of those there are, and how many 8-move comms that gives per spot on average:
 
 **The first comm of a two-comm leftover: 3-cycles that leave a 3c, per spot, and how many 8-move comms that is on average over the spots of {= GN('2tc') =} random 20-move skeletons per type ({= GN('5c') =} for a 5c).**
 
 {{first_choices}}
 
 - **For the two kinds of 2c2c the number is the same**, {= FC('2c2c-pure') =} each: any three of the four corners, either direction (jisu101's point, [[N6508]], [[N6509]]), with three ways to twist. They still cost {= M('2c2c-twisted') =} and {= M('2c2c-pure') =} with 8-movers, and the {= GAP2C2C('Two comms, nesting allowed') =} between them comes from comms that interact. When the two comms do not touch, a pure and a twisted 2c2c cost the same, {= CELL('nesting', 'pure 2c2c', 'The two not touching') =} and {= CELL('nesting', 'twisted 2c2c', 'The two not touching') =} (6.5). With nesting forbidden the twisted one is {= GAP2C2C('No nesting') =} cheaper ({= CELL('nesting', 'twisted 2c2c', 'No nesting') =} against {= CELL('nesting', 'pure 2c2c', 'No nesting') =}): its second comm cancels into the first more often without sitting inside it. Nesting is the other {= GAP2C2CNEST() =}: the best pair is nested on {= CELL('nesting', 'twisted 2c2c', 'Best needs nesting') =} of twisted 2c2c skeletons and {= CELL('nesting', 'pure 2c2c', 'Best needs nesting') =} of pure ones.
-- **Across types it is not the same**: {= FC('2tc') =} for a 2tc, {= FC('2c2c-pure') =} for a 2c2c, {= FC('3tc') =} for a 3tc, {= FC('3c1t') =} for a 3c1t, {= FC('5c') =} for a 5c, {= FC('3c3c') =} for a 3c3c. More choices for the first comm is better odds of a good one, and the costs come in that order: {= M('2tc') =}, {= M('2c2c-twisted') =} and {= M('2c2c-pure') =}, {= M('3tc') =}, {= M('3c1t') =}, {= M('5c') =}, {= M('3c3c') =}.
+- **Across types it isn't the same.** More choices for the first comm means better odds of a good one, and the costs come in that order:
+
+  | | 2tc | 2c2c | 3tc | 3c1t | 5c | 3c3c |
+  |---|---:|---:|---:|---:|---:|---:|
+  | First comms per spot | {= FC('2tc') =} | {= FC('2c2c-pure') =} | {= FC('3tc') =} | {= FC('3c1t') =} | {= FC('5c') =} | {= FC('3c3c') =} |
+  | Mean added | {= M('2tc') =} | {= M('2c2c-twisted') =} and {= M('2c2c-pure') =} | {= M('3tc') =} | {= M('3c1t') =} | {= M('5c') =} | {= M('3c3c') =} |
+
 
 ### 6.3 What a longer alg list is worth
 
@@ -183,7 +206,12 @@ And by the chance of reaching a target, which is what matters when you need a sp
 {{exchange_cap8}}
 
 - **A 5c has to be about 5 moves shorter than a 3c**: {= EXR('5c') =} depending on the lengths and the target. asacuber's "maybe like 5-6" ([[N1325]]) is right at the 5 end: 5 shorter is break-even, 6 shorter is clearly the better skeleton.
-- **A 3c1t {= EXR('3c1t') =}, a 3tc {= EXR('3tc') =}, a pure 2c2c {= EXR('2c2c-pure') =}, a twisted 2c2c {= EXR('2c2c-twisted') =}, a 2tc {= EXR('2tc') =}.**
+- **The others**, how many moves shorter:
+
+  | 3c1t | 3tc | pure 2c2c | twisted 2c2c | 2tc |
+  |---:|---:|---:|---:|---:|
+  | {= EXR('3c1t') =} | {= EXR('3tc') =} | {= EXR('2c2c-pure') =} | {= EXR('2c2c-twisted') =} | {= EXR('2tc') =} |
+
 - The rates are a little lower when the 3c is unlikely to make the target (bottom rows of each block): when you need luck, the two-comm skeleton has the wider spread.
 - **With algs up to 10** the same table (Appendix A, fewer skeletons) gives a 5c about {= EXR('5c', 10) =} and a pure 2c2c about {= EXR('2c2c-pure', 10) =}: the longer algs help the two-comm types more than the 3c.
 

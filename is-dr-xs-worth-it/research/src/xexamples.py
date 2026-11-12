@@ -60,12 +60,12 @@ def tutorial():
     assert cube.do(cube.do(cube.SOLVED, S), whole) == cube.SOLVED
     sk_n = skips(cube.do(cube.SOLVED, S)); sk_i = skips(cube.do(cube.SOLVED, inv))
     L += ['## The tutorial\'s first example, with the numbers', '',
-          'tseitsei89\'s DR-Xs tutorial walks through FMCL S9W3A2. Here are its steps with what this study\'s tables say at each one.', '',
-          f'`{S}`', '',
+          'tseitsei89\'s DR-Xs tutorial walks through FMCL S9W3A2. Here are its steps, with what the tables say at each one.', '',
+          '```', f'{S} // scramble', '```', '',
           f"- **Slice-EO skips.** The tutorial lists two on normal and three on inverse. The count here: {len(sk_n)} on normal ({', '.join(f'{t} on {ax} {fl}' for t, ax, fl in sk_n)}) and {len(sk_i)} on inverse ({', '.join(f'{t} on {ax} {fl}' for t, ax, fl in sk_i)}).",
           f"- **`(R' D2 L U L)`**, the tutorial's \"DR-2s in 5 moves\": {a[1]}. Two flipped edges with the centers right is a DR-2s by the table in section 3 of the write-up.",
           f"- **`(L' R)`** on top, which cancels to `(R' D2 L U R)`, the tutorial's \"4a2-1s in 5\": {b[1]}. The tutorial says \"The shortest possible setups for edges are 5 moves\", which is the same count.",
-          f"- **The finish.** The best finish of the form setup, slice, DR finish from that DR-1s is {b[2].split()[1]} moves, and its first move cancels with the last move of the route. Written out for the scramble: `{' '.join(whole)}` ({len(whole)}).",
+          f"- **The finish.** The best finish of the form setup, slice, DR finish from that DR-1s is {b[2].split()[1]} moves, and its first move cancels with the last move of the route. Written out for the scramble:", '', '  ```', f"  {' '.join(whole)} // ({len(whole)})", '  ```', '',
           f"- The tutorial's own solution is 19 too. So on this DR-1s the method as taught finds the best there is of its form.", '']
     return L
 def xv_cancel(seq):
@@ -87,11 +87,11 @@ def xv_cancel(seq):
 def build():
     one, eight, B = load('attempts_1s.tsv'), load('attempts_8fe.tsv'), base()
     L = ['# Examples: is there a DR-xs worth finishing?', '',
-         'Worked examples for the write-up *Is DR-xs worth it?*. First the tutorial\'s own example with this study\'s numbers. Then a hundred real scrambles: the slice-EO skips on each, the short DR-1s and DR-2s 8fe they lead to, and, folded away, how each finishes and whether it beats the normal DRs on that scramble. Then the tally over all 500.', '']
+         'Worked examples for the write-up *Is DR-xs worth it?*. First the tutorial\'s own example with the numbers. Then a hundred real scrambles: the slice-EO skips on each, the short DR-1s and DR-2s 8fe they lead to, and, folded away, how each one finishes and whether it beats the normal DRs on that scramble. Then the tally over all 500.', '']
     L += tutorial()
     L += ['## 100 scrambles: what a slice EO gives you', '',
-          'The first hundred of the 500 random-state scrambles of the write-up\'s section 7. They are the same hundred as on the first study\'s examples page, with the same numbers, so you can put the normal DRs next to these.', '',
-          '**What is listed.** Every route here starts from a slice-EO skip or a one-move slice EO and then keeps the EO of that axis (the tutorial\'s route), or, for a DR-2s 8fe, may also start from a normal EO of 4 moves or fewer. Each scramble shows at most six DR-1s of 8 moves or less and at most two DR-2s 8fe of 9 or less, the shortest first, drawn at random among equals. Nothing is picked by how it finishes.', '',
+          'The first hundred of the 500 random-state scrambles of the write-up\'s section 7. They\'re the same hundred as on the first study\'s examples page, with the same numbers, so you can put the normal DRs next to these.', '',
+          '**What\'s listed.** Every route here starts from a slice-EO skip or a one-move slice EO and then keeps the EO of that axis (the tutorial\'s route), or, for a DR-2s 8fe, may also start from a normal EO of 4 moves or fewer. Each scramble shows at most six DR-1s of 8 moves or less and at most two DR-2s 8fe of 9 or less, the shortest first, drawn at random among equals. Nothing is picked by how it finishes.', '',
           '### How to read the tables', '',
           '- **Skips**: the slice-EO skips of the scramble, on normal and on inverse, as slice, axis, and whether the four edges are all oriented or all misoriented.',
           '- **Route**: the moves to the DR-xs. Brackets mean the whole route is on inverse.',
@@ -106,7 +106,7 @@ def build():
         s = cube.do(cube.SOLVED, SCR[k - 1]); b = B[k]
         r1, r8 = pick(one[k], eight[k], 1000 + k); rows = r1 + r8
         sk = [('normal',) + x for x in skips(s)] + [('inverse',) + x for x in skips(cube.inverse(s))]
-        L += [f'#### Scramble {k}', '', f'`{SCR[k - 1]}`', '']
+        L += [f'#### Scramble {k}', '', '```', f'{SCR[k - 1]} // scramble', '```', '']
         L.append('Skips: ' + ('; '.join(f'{side}: {t} slice on {ax}, {fl}' for side, t, ax, fl in sk) if sk else 'none') + '.')
         L.append('')
         if not rows:
@@ -136,7 +136,7 @@ def verify():
     txt = open(PAGE).read(); blocks = re.split(r'^#### Scramble (\d+)$', txt, flags=re.M)[1:]
     n = bad = 0
     for k, body in zip(blocks[0::2], blocks[1::2]):
-        scr = re.search(r'^`([^`]+)`$', body, flags=re.M).group(1); assert scr == SCR[int(k) - 1]
+        scr = re.search(r'^```\n(.+?) // scramble\n```$', body, flags=re.M).group(1); assert scr == SCR[int(k) - 1]
         x = cube.do(cube.SOLVED, scr)
         routes = re.findall(r'^\| (\d+) \| `(\(?)([^`)]*)\)?` \| (\d+) \| (DR-1s|DR-2s 8fe) \|', body, flags=re.M)
         sols = dict(re.findall(r'^\| (\d+) \| \d+ \| `([^`]+)` \(\d+\) \|', body, flags=re.M))
