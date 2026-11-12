@@ -1,0 +1,11 @@
+check	cubes	holds
+ARM axis swap: ARM for U/D DR on normal = ARM for R/L DR on inverse (uniform)	20000	20000
+ARM for U/D DR on normal = ARM for U/D DR on inverse, same axis (Louis T4357, retracted in T4361; not expected) (uniform)	20000	2087
+R/L stickers on U/D faces (normal) = corner ARM on inverse (uniform)	20000	20000
+pair tracing, side stickers match the E-slice bad edge = pairs on inverse (uniform)	20000	20000
+ARM axis swap: ARM for U/D DR on normal = ARM for R/L DR on inverse (4c4e)	20000	20000
+ARM for U/D DR on normal = ARM for U/D DR on inverse, same axis (Louis T4357, retracted in T4361; not expected) (4c4e)	20000	2197
+R/L stickers on U/D faces (normal) = corner ARM on inverse (4c4e)	20000	20000
+doc 320 flow chart (all six colours) = corner case on inverse (4c4e)	20000	20000
+doc 320 flow chart (U D R L colours in the 1-or-3 test) = corner case on inverse (4c4e)	20000	20000
+pair tracing, side stickers match the E-slice bad edge = pairs on inverse (4c4e)	20000	20000

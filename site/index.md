@@ -40,6 +40,14 @@ How far a random scramble is from DR on one axis, on the best of three, with the
 
 From a DR to HTR: which routes find the optimal finish on each of the 48 subsets, in what order to try them and how long their HTRs are; linear against NISS HTR; DR bounding measured per subset; FakeMMAP's reduction-length bound tested. 25,000 uniformly random DR states per subset, each with every optimal and +1 finish read in every NISS way, on the exact table of all 19,508,428,800 DR states.
 
-- [Write-up](htr-routes/): the checklists per subset, HTR lengths, bounding, FakeMMAP's bound, hand checklists and the claims check. It opens with the short version.
+- [Write-up](htr-routes/): the checklists per subset, the existing sheets, HTR lengths, bounding, FakeMMAP's bound, hand checklists and the claims check. It opens with the short version.
 - [Worked examples](htr-routes/examples.html): 200 DR states from the 20 most common subsets, with the routes that find each optimal written out and the shortest bounding reduction, answers folded away.
 - [Errata](htr-routes/errata.html): what the numbers show is wrong in things said on the server, each with an example.
+
+## When to switch an EO
+
+After EO + RZP, when to switch to the inverse and look for a DR there: a switch card per DRM that you check by tracing, with the sub-7 share of each verdict and how much of the DRM it settles; how to read each feature from the normal side; what a real RZP changes; every switch rule from the server graded. Every EO-solved case solved exactly, and 121.5 million real attempts from 6,000 uniformly random scrambles.
+
+- [Write-up](eo-switch/): the switch cards, the tracings, the RZP bias and the last turns, the rules graded, the sheets reproduced and the claims check. It opens with the short version.
+- [Worked examples](eo-switch/examples.html): 200 real attempts, with what to trace before switching, the card's verdict and the optimal DR after the switch, answers folded away.
+- [Errata](eo-switch/errata.html): what the numbers show is wrong in things said on the server, each with an example.

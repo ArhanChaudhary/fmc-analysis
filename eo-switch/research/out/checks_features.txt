@@ -1,0 +1,31 @@
+ok  	A3/F: R from solved	after R	4c4e AR-0c0e pairs 4 fake 0 side 4 d 1 case 4a-0	expected {'drm_c': 4, 'drm_e': 4, 'carm': 0, 'earm': 0, 'pairs': 4, 'bars': 2, 'd': 1}
+ok  	A3/F: R U from solved (D7118-D7119)	after R U	4c4e AR-2c1e pairs 4 fake 0 side 2 d 2 case 4b-2	expected {'drm_c': 4, 'drm_e': 4, 'carm': 2, 'earm': 1}
+ok  	E16/F: U' F2 B2 R2 U2 R is AR 02, 0 pairs, 6 moves	solved_by U' F2 B2 R2 U2 R	4c4e AR-0c2e pairs 0 fake 0 side 2 d 6 case 4a-0	expected {'drm_c': 4, 'drm_e': 4, 'carm': 0, 'earm': 2, 'pairs': 0, 'd': 6}
+ok  	E3: D F2 B2 L2 U2 R, 4e4c AR-0C2E in 6	solved_by D F2 B2 L2 U2 R	4c4e AR-0c2e pairs 0 fake 0 side 2 d 6 case 4a-0	expected {'drm_c': 4, 'drm_e': 4, 'carm': 0, 'earm': 2, 'd': 6}
+ok  	E4: AR-0C0E, 4 optimal (R F2 U2 R)	solved_by R F2 U2 R	4c4e AR-0c0e pairs 3 fake 0 side 3 d 4 case 4b-0	expected {'drm_c': 4, 'drm_e': 4, 'carm': 0, 'earm': 0, 'd': 4}
+ok  	E4: AR-2C1E, 5 optimal (U' R2 D B2 R)	solved_by U' R2 D B2 R	4c4e AR-2c1e pairs 2 fake 0 side 1 d 5 case 4a-2	expected {'drm_c': 4, 'drm_e': 4, 'carm': 2, 'earm': 1, 'd': 5}
+ok  	E4: AR-3C2E/1C0E, 5 optimal (D R' U2 F2 R)	solved_by D R' U2 F2 R	4c4e AR-1c0e pairs 3 fake 0 side 2 d 5 case 4c-1	expected {'drm_c': 4, 'drm_e': 4, 'carm_fold': 1, 'd': 5}
+ok  	E4: AR-4C2E, 6 optimal (U' R2 D R2 D L)	solved_by U' R2 D R2 D L	4c4e AR-4c2e pairs 3 fake 0 side 0 d 6 case 4b-0	expected {'drm_c': 4, 'drm_e': 4, 'carm': 4, 'earm': 2, 'd': 6}
+ok  	E17: 4 pairs, both edges on front (R2 U D' F2 L)	solved_by R2 U D' F2 L	4c4e AR-4c2e pairs 4 fake 0 side 0 d 5 case 4a-4	expected {'drm_c': 4, 'drm_e': 4, 'pairs': 4}
+ok  	E17: AR-2c1e, 3 pairs on one face (R' U2 F2 L2 U R)	solved_by R' U2 F2 L2 U R	4c4e AR-2c1e pairs 3 fake 1 side 1 d 6 case 4a-2	expected {'drm_c': 4, 'drm_e': 4, 'carm': 2, 'earm': 1, 'pairs': 3}
+ok  	E17: same case (R U2 B2 R2 D' R)	solved_by R U2 B2 R2 D' R	4c4e AR-2c1e pairs 3 fake 1 side 1 d 6 case 4a-2	expected {'drm_c': 4, 'drm_e': 4, 'carm': 2, 'earm': 1, 'pairs': 3}
+ok  	E18: 7c8e AR-2c2e, 6 moves (U B2 D2 L D R)	solved_by U B2 D2 L D R	7c8e AR-2c2e pairs 5 fake 3 side 5 d 6	expected {'drm_c': 7, 'drm_e': 8, 'carm': 2, 'earm': 2, 'd': 6}
+ok  	E18: (D L U R2 U' R)	solved_by D L U R2 U' R	7c8e AR-2c2e pairs 5 fake 3 side 5 d 6	expected {'drm_c': 7, 'drm_e': 8, 'carm': 2, 'earm': 2, 'd': 6}
+ok  	E18: (D' L' D L2 D' R)	solved_by D' L' D L2 D' R	7c8e AR-2c2e pairs 6 fake 1 side 5 d 6	expected {'drm_c': 7, 'drm_e': 8, 'carm': 2, 'earm': 2, 'd': 6}
+ok  	A5 (Louis orbit_stats): 4a is R-like	solved_by R	4c4e AR-0c0e pairs 4 fake 0 side 4 d 1 case 4a-0	expected {'corner_case': 0, 'case_suffix': 0}
+ok  	A5: 4b is U' R-like	solved_by U' R	4c4e AR-2c1e pairs 4 fake 0 side 2 d 2 case 4b-2	expected {'corner_case': 1, 'case_suffix': 2}
+ok  	A5: 4c is U' R2 U R-like	solved_by U' R2 U R	4c4e AR-3c1e pairs 3 fake 1 side 1 d 4 case 4c-1	expected {'corner_case': 2, 'case_suffix': 1}
+ok  	A5: 4d is U F2 R-like	solved_by U F2 R	4c4e AR-2c1e pairs 2 fake 0 side 2 d 3 case 4d-2	expected {'corner_case': 3, 'case_suffix': 2}
+ok  	B2 (D14333): D F2 B2 R, 0 pairs, no fake pairs, 4 moves	solved_by D F2 B2 R	4c4e AR-2c1e pairs 0 fake 0 side 2 d 4 case 4b-2	expected {'drm_c': 4, 'drm_e': 4, 'pairs': 0, 'fake': 0, 'd': 4}
+ok  	B2 (T8107/T8123): F2 B2 R type, 0 pairs, no fake pairs, corner case 4a-0	solved_by F2 B2 R	4c4e AR-0c0e pairs 0 fake 0 side 4 d 3 case 4a-0	expected {'drm_c': 4, 'drm_e': 4, 'pairs': 0, 'fake': 0, 'd': 3, 'corner_case': 0, 'case_suffix': 0}
+ok  	A2: R U2 R is 4c2e	solved_by R U2 R	4c2e AR-0c0e pairs 2 fake 0 side 2 d 3 case 4b-0	expected {'drm_c': 4, 'drm_e': 2, 'd': 3}
+ok  	A2: R U R is 3c2e	solved_by R U R	3c2e AR-2c1e pairs 1 fake 0 side 1 d 3	expected {'drm_c': 3, 'drm_e': 2, 'd': 3}
+ok  	B5: R U L is 7c8e	solved_by R U L	7c8e AR-2c1e pairs 6 fake 2 side 5 d 3	expected {'drm_c': 7, 'drm_e': 8, 'd': 3}
+ok  	B5: R L is 8c8e	solved_by R L	8c8e AR-0c0e pairs 8 fake 0 side 8 d 2	expected {'drm_c': 8, 'drm_e': 8, 'd': 2}
+ok  	B5: R U2 L is 4c6e	solved_by R U2 L	4c6e AR-0c0e pairs 4 fake 0 side 4 d 3 case 4b-0	expected {'drm_c': 4, 'drm_e': 6, 'd': 3}
+ok  	B5 (T3767): 8c8e, R L gives JZP	solved_by R L	8c8e AR-0c0e pairs 8 fake 0 side 8 d 2	expected {'rl_to_jzp': 1, 'jzp': 1}
+ok  	E1 (T4262): setup R U D2 L U' R U2 is 4C4E AR-2C1E; L' makes a pair, stays 4C4E; D' F2 R2 U' D L reaches DR		4c4e AR-2c1e pairs 0 fake 2 side 1 d 7 case 4b-2 -> after L': 4c4e AR-2c1e pairs 2 fake 0 side 1 d 6 case 4b-2
+ok  	E14 (WRITEUP): 4c4e, 6 to DR; with the last EO turn inverted 5; the inverted EO = state times B2 (the EO's last turn D is B in our frame)		4c4e AR-2c1e pairs 1 fake 1 side 2 d 6 case 4b-2 / 4c4e AR-2c1e pairs 2 fake 1 side 2 d 5 case 4b-2
+info	E15 (T10704): F B' U R2 U, claimed 4c2e with 2 pairs on normal and 0 pairs on inverse		normal 4c2e AR-0c0e pairs 2 fake 0 side 2 d 3 case 4b-0 / inverse 4c2e AR-4c1e pairs 2 fake 0 side 0 d 5 case 4b-0
+unit tests: 28/28 pass
+Rodney's string code vs geometric features (DRM, ARM, pairs, fake pairs, side pairs, AR pairs): 1082565/1082565 cosets agree

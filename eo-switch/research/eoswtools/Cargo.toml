@@ -1,0 +1,13 @@
+[package]
+name = "eoswtools"
+version = "0.1.0"
+edition = "2021"
+description = "EO switch study (study 6): exact EO-kept DR distances over the 1,082,565 F/B-EO cosets, RZP weights, sampled attempts (reuses is-dr-xs-worth-it's cubie model and eo-to-dr's common.rs)"
+
+[dependencies]
+rayon = "1.10"
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+lto = true

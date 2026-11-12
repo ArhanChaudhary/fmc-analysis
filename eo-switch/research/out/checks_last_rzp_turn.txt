@@ -1,0 +1,1 @@
+114102	114102	pairs of attempts differing only in the direction of the RZP's last quarter turn with the same switched coset

@@ -1,0 +1,6 @@
+quantity	compared	worst	drm	k	ours	eo-to-dr
+plain	123 cells, abs difference (both exact, theirs rounded to 5 significant digits)	4.86e-06	7c6e	6	0.04028	0.04028
+switch_last	123 cells, abs difference (both exact, theirs rounded to 5 significant digits)	5e-06	2c2e	5	0.04688	0.04688
+two_axes	123 cells, abs difference (both exact, theirs rounded to 5 significant digits)	4.87e-06	5c0e	7	0.36431	0.36431
+normal_or_inverse	123 cells, z-score (their sample of 10,000,000)	2.65	3c2e	5	0.34708	0.35401
+mean	41 cells, abs difference (both exact, theirs rounded to 5 significant digits)	4.97e-05	4c4e	0	7.18665	7.18660

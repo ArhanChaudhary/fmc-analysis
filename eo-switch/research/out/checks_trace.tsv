@@ -1,0 +1,13 @@
+check	sample	cubes	holds
+paired edges (bad U/D edges with a pair) on inverse = bad E-slice edges on normal with a corner showing their colours on its side stickers	uniform	20000	20000
+side pairs on inverse = E-slice pieces in U/D on normal x misoriented corners with both their colours showing the F/B colour on the U/D face	uniform	20000	20000
+edge ARM on inverse = U/D pieces in the E slice on normal whose other colour is F/B	uniform	20000	20000
+control (not expected): the same with the R/L colour on the U/D face	uniform	20000	4290
+paired edges (bad U/D edges with a pair) on inverse = bad E-slice edges on normal with a corner showing their colours on its side stickers	4c2e	20000	20000
+side pairs on inverse = E-slice pieces in U/D on normal x misoriented corners with both their colours showing the F/B colour on the U/D face	4c2e	20000	20000
+edge ARM on inverse = U/D pieces in the E slice on normal whose other colour is F/B	4c2e	20000	20000
+control (not expected): the same with the R/L colour on the U/D face	4c2e	20000	5666
+paired edges (bad U/D edges with a pair) on inverse = bad E-slice edges on normal with a corner showing their colours on its side stickers	4c4e	20000	20000
+side pairs on inverse = E-slice pieces in U/D on normal x misoriented corners with both their colours showing the F/B colour on the U/D face	4c4e	20000	20000
+edge ARM on inverse = U/D pieces in the E slice on normal whose other colour is F/B	4c4e	20000	20000
+control (not expected): the same with the R/L colour on the U/D face	4c4e	20000	5004

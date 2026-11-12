@@ -1,0 +1,7 @@
+name = "EOSwitch"
+version = "0.1.0"
+defaultTargets = ["EOSwitch"]
+
+[[lean_lib]]
+name = "EOSwitch"
+precompileModules = true

@@ -1,0 +1,13 @@
+# EO-kept DR distance over the 1082565 cosets (BFS, 14 turns); mean 7.803101
+0	1
+1	2
+2	17
+3	134
+4	1065
+5	8190
+6	54694
+7	267576
+8	560568
+9	187204
+10	3114
+# equal to eo-to-dr's /data/fmc/eo-to-dr/research/out/big/eo-fb_dr_eo0.u8 on 1082565 of 1082565 cosets

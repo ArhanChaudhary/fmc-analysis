@@ -1,0 +1,106 @@
+question	what	answer	size
+Q4	4c4e: ARM	MI 0.0692 bits, strict sep 0.312, pooled sep 0.392, best 25% of states switched: recall 0.460, precision 0.354	70560 states
+Q4	4c4e: pairs	MI 0.1352 bits, strict sep 0.333, pooled sep 0.776, best 25% of states switched: recall 0.606, precision 0.466	70560 states
+Q4	4c4e: corner case + suffix	MI 0.0184 bits, strict sep 0.114, pooled sep 0.114, best 25% of states switched: recall 0.348, precision 0.268	70560 states
+Q4	4c4e: edges with a pair	MI 0.1342 bits, strict sep 0.452, pooled sep 0.452, best 25% of states switched: recall 0.560, precision 0.431	70560 states
+Q4	4c4e: ARM + pairs	MI 0.1850 bits, strict sep 0.496, pooled sep 0.909, best 25% of states switched: recall 0.628, precision 0.483	70560 states
+Q4	4c4e: ARM + corner case	MI 0.0940 bits, strict sep 0.290, pooled sep 0.498, best 25% of states switched: recall 0.495, precision 0.381	70560 states
+Q4	4c4e: pairs + corner case	MI 0.1686 bits, strict sep 0.436, pooled sep 1.000, best 25% of states switched: recall 0.642, precision 0.494	70560 states
+Q4	4c4e: ARM + pairs + corner case	MI 0.2181 bits, strict sep 0.488, pooled sep 1.000, best 25% of states switched: recall 0.665, precision 0.511	70560 states
+Q4	4c4e: pairs + side/2	MI 0.1455 bits, strict sep 0.519, pooled sep 0.719, best 25% of states switched: recall 0.584, precision 0.449	70560 states
+Q4	4c4e: edges with a pair + slice	MI 0.1442 bits, strict sep 0.675, pooled sep 0.675, best 25% of states switched: recall 0.581, precision 0.447	70560 states
+Q4	4c2e: ARM	MI 0.0816 bits, strict sep 0.357, pooled sep 0.543, best 25% of states switched: recall 0.478, precision 0.357	13440 states
+Q4	4c2e: pairs	MI 0.1435 bits, strict sep 0.643, pooled sep 0.643, best 25% of states switched: recall 0.543, precision 0.406	13440 states
+Q4	4c2e: corner case + suffix	MI 0.0253 bits, strict sep 0.029, pooled sep 0.029, best 25% of states switched: recall 0.373, precision 0.279	13440 states
+Q4	4c2e: edges with a pair	MI 0.1304 bits, strict sep 0.571, pooled sep 0.571, best 25% of states switched: recall 0.500, precision 0.374	13440 states
+Q4	4c2e: ARM + pairs	MI 0.1787 bits, strict sep 0.632, pooled sep 0.871, best 25% of states switched: recall 0.617, precision 0.461	13440 states
+Q4	4c2e: ARM + corner case	MI 0.1091 bits, strict sep 0.357, pooled sep 0.714, best 25% of states switched: recall 0.506, precision 0.378	13440 states
+Q4	4c2e: pairs + corner case	MI 0.1774 bits, strict sep 0.646, pooled sep 0.829, best 25% of states switched: recall 0.624, precision 0.466	13440 states
+Q4	4c2e: ARM + pairs + corner case	MI 0.2119 bits, strict sep 0.636, pooled sep 1.000, best 25% of states switched: recall 0.670, precision 0.501	13440 states
+Q4	4c2e: pairs + side/2	MI 0.2071 bits, strict sep 0.754, pooled sep 1.000, best 25% of states switched: recall 0.701, precision 0.524	13440 states
+Q4	4c2e: edges with a pair + slice	MI 0.1304 bits, strict sep 0.571, pooled sep 0.571, best 25% of states switched: recall 0.500, precision 0.374	13440 states
+Q4	4c6e: ARM	MI 0.0309 bits, strict sep 0.994, pooled sep 1.000, best 25% of states switched: recall 0.530, precision 0.098	94080 states
+Q4	4c6e: pairs	MI 0.0550 bits, strict sep 0.881, pooled sep 1.000, best 25% of states switched: recall 0.685, precision 0.126	94080 states
+Q4	4c6e: corner case + suffix	MI 0.0015 bits, strict sep 1.000, pooled sep 1.000, best 25% of states switched: recall 0.277, precision 0.051	94080 states
+Q4	4c6e: edges with a pair	MI 0.0442 bits, strict sep 0.957, pooled sep 1.000, best 25% of states switched: recall 0.612, precision 0.113	94080 states
+Q4	4c6e: ARM + pairs	MI 0.0738 bits, strict sep 0.893, pooled sep 1.000, best 25% of states switched: recall 0.787, precision 0.145	94080 states
+Q4	4c6e: ARM + corner case	MI 0.0359 bits, strict sep 0.994, pooled sep 1.000, best 25% of states switched: recall 0.552, precision 0.102	94080 states
+Q4	4c6e: pairs + corner case	MI 0.0630 bits, strict sep 0.877, pooled sep 1.000, best 25% of states switched: recall 0.698, precision 0.129	94080 states
+Q4	4c6e: ARM + pairs + corner case	MI 0.0811 bits, strict sep 0.872, pooled sep 1.000, best 25% of states switched: recall 0.796, precision 0.147	94080 states
+Q4	4c6e: pairs + side/2	MI 0.0532 bits, strict sep 0.837, pooled sep 1.000, best 25% of states switched: recall 0.713, precision 0.132	94080 states
+Q4	4c6e: edges with a pair + slice	MI 0.0460 bits, strict sep 0.910, pooled sep 1.000, best 25% of states switched: recall 0.632, precision 0.117	94080 states
+D14349 wen	4c4e, switching the best 0.260 of states (the share of 2+ pairs), pairs + ARM	false negatives 0.355 of sub-7 states, precision 0.477	
+D14349 wen	4c4e, switching the best 0.260 of states (the share of 2+ pairs), pairs + corner case	false negatives 0.345 of sub-7 states, precision 0.484	
+D14349 wen	4c4e, switching the best 0.260 of states (the share of 2+ pairs), ARM + corner case	false negatives 0.490 of sub-7 states, precision 0.377	
+D14349 wen	4c4e, switching the best 0.260 of states (the share of 2+ pairs), all three	false negatives 0.320 of sub-7 states, precision 0.503	
+D14349 wen	4c4e, 2+ pairs alone	false negatives 0.372, precision 0.464	
+bars	4c4e: 2 pairs on 1 edge(s) (1 bar(s) max)	0.266	7440 states
+bars	4c4e: 2 pairs on 2 edge(s) (0 bar(s) max)	0.539	8400 states
+bars	4c4e: 3 pairs on 2 edge(s) (1 bar(s) max)	0.790	2400 states
+bars	4c4e: 4 pairs on 2 edge(s) (2 bar(s) max)	0.983	120 states
+bars	7c8e: 2 pairs on 1 edge(s) (1 bar(s) max)	0.000	320 states
+bars	7c8e: 2 pairs on 2 edge(s) (0 bar(s) max)	0.024	3040 states
+bars	7c8e: 3 pairs on 2 edge(s) (1 bar(s) max)	0.043	3680 states
+bars	7c8e: 3 pairs on 3 edge(s) (0 bar(s) max)	0.025	4240 states
+bars	7c8e: 4 pairs on 2 edge(s) (2 bar(s) max)	0.317	480 states
+bars	7c8e: 4 pairs on 3 edge(s) (1 bar(s) max)	0.145	6080 states
+bars	7c8e: 4 pairs on 4 edge(s) (0 bar(s) max)	0.165	1360 states
+bars	4c2e: 2 pairs on 1 edge(s) (1 bar(s) max)	0.600	960 states
+bars	8c8e: 2 pairs on 1 edge(s) (1 bar(s) max)	0.107	112 states
+bars	8c8e: 2 pairs on 2 edge(s) (0 bar(s) max)	0.119	336 states
+bars	8c8e: 3 pairs on 2 edge(s) (1 bar(s) max)	0.036	672 states
+bars	8c8e: 3 pairs on 3 edge(s) (0 bar(s) max)	0.045	704 states
+bars	8c8e: 4 pairs on 2 edge(s) (2 bar(s) max)	0.167	336 states
+bars	8c8e: 4 pairs on 3 edge(s) (1 bar(s) max)	0.104	1536 states
+bars	8c8e: 4 pairs on 4 edge(s) (0 bar(s) max)	0.131	428 states
+bars	4c4e ARM 00, 2 pairs: as a bar / on both edges	0.375 / 0.511	288 / 360 states
+bars	4c4e ARM 10, 2 pairs: as a bar / on both edges	0.181 / 0.463	576 / 864 states
+bars	4c4e ARM 21, 2 pairs: as a bar / on both edges	0.442 / 0.743	960 / 2208 states
+bars	4c4e ARM 32, 2 pairs: as a bar / on both edges	0.208 / 0.472	576 / 864 states
+bars	4c4e ARM 42, 2 pairs: as a bar / on both edges	0.222 / 0.500	288 / 360 states
+bars	4c4e ARM 11, 2 pairs: as a bar / on both edges	0.333 / 0.451	864 / 1152 states
+bars	4c4e ARM 31, 2 pairs: as a bar / on both edges	0.333 / 0.493	864 / 1152 states
+bars	4c4e ARM 20, 2 pairs: as a bar / on both edges	0.160 / 0.472	648 / 720 states
+bars	4c4e ARM 22, 2 pairs: as a bar / on both edges	0.123 / 0.400	648 / 720 states
+T4332 JTuu / T8206 eff	4c4e: entropy of sub-7 0.706 bits; explained by ARM / pairs / both	0.098 / 0.191 / 0.262	p(sub-7) 0.192
+T4332 JTuu / T8206 eff	4c2e: entropy of sub-7 0.695 bits; explained by ARM / pairs / both	0.117 / 0.206 / 0.257	p(sub-7) 0.187
+T4332 JTuu / T8206 eff	3c2e: entropy of sub-7 0.961 bits; explained by ARM / pairs / both	0.103 / 0.155 / 0.217	p(sub-7) 0.616
+T4332 JTuu / T8206 eff	7c8e: entropy of sub-7 0.644 bits; explained by ARM / pairs / both	0.167 / 0.293 / 0.430	p(sub-7) 0.164
+T4332 JTuu / T8206 eff	8c8e: entropy of sub-7 0.597 bits; explained by ARM / pairs / both	0.159 / 0.082 / 0.325	p(sub-7) 0.145
+T4332 JTuu / T8206 eff	4c6e: entropy of sub-7 0.270 bits; explained by ARM / pairs / both	0.115 / 0.204 / 0.273	p(sub-7) 0.046
+T4332 JTuu / T8206 eff	3c4e: entropy of sub-7 0.467 bits; explained by ARM / pairs / both	0.081 / 0.113 / 0.183	p(sub-7) 0.099
+T4332 JTuu / T8206 eff	3c6e: entropy of sub-7 0.280 bits; explained by ARM / pairs / both	0.142 / 0.081 / 0.245	p(sub-7) 0.048
+T4332 JTuu / T8206 eff	5c4e: entropy of sub-7 0.374 bits; explained by ARM / pairs / both	0.071 / 0.092 / 0.148	p(sub-7) 0.072
+T4332 JTuu / T8206 eff	5c6e: entropy of sub-7 0.333 bits; explained by ARM / pairs / both	0.108 / 0.139 / 0.209	p(sub-7) 0.061
+T4332 JTuu / T8206 eff	6c6e: entropy of sub-7 0.311 bits; explained by ARM / pairs / both	0.100 / 0.086 / 0.168	p(sub-7) 0.056
+T4332 JTuu / T8206 eff	2c2e: entropy of sub-7 0.789 bits; explained by ARM / pairs / both	0.171 / 0.186 / 0.294	p(sub-7) 0.237
+T11345 Zagros / rodneykinney	all named DRMs pooled, without the DRM: pairs	MI 0.0214 bits; with the DRM known: 0.0594 added	
+T11345 Zagros / rodneykinney	all named DRMs pooled, without the DRM: unpaired_corners	MI 0.0375 bits; with the DRM known: 0.0594 added	
+T11345 Zagros / rodneykinney	all named DRMs pooled, without the DRM: unpaired_edges	MI 0.0511 bits; with the DRM known: 0.0499 added	
+T11345 Zagros / rodneykinney	all named DRMs pooled, without the DRM: pairs_minus_udbad	MI 0.0529 bits; with the DRM known: 0.0594 added	
+T9334 tseitsei89	4c4e with 1 pair: cells over 50% by corner_case + edges_same_side	hold 0.124 of the sub-7 1-pair states, 0.031 of the 1-pair states	
+T9334 tseitsei89	4c4e with 1 pair: cells over 50% by corner_case + edges_same_slice	hold 0.124 of the sub-7 1-pair states, 0.018 of the 1-pair states	
+T9334 tseitsei89	4c4e with 1 pair: cells over 50% by corner_case + earm	hold 0.124 of the sub-7 1-pair states, 0.018 of the 1-pair states	
+D11050 caycala	4c4e ARM 21, 0 pairs, 0 side pair(s)	0.073	1096 states
+D11050 caycala	4c4e ARM 21, 0 pairs, 1 side pair(s)	0.068	2464 states
+D11050 caycala	4c4e ARM 21, 0 pairs, 2 side pair(s)	0.241	1096 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 00	0.667	36 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 01	0.009	864 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 02	0.003	1296 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 10	0.083	288 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 11	0.019	2592 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 12	0.019	1728 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 20	0.053	1368 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 21	0.110	4656 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 22	0.035	1368 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 30	0.023	1728 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 31	0.015	2592 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 32	0.083	288 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 40	0.003	1296 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 41	0.000	864 states
+D12097 FakeMMAP	4c4e, 0 pairs, ARM 42	0.833	36 states
+D14218 caycala / D14220 Daichi	4c4e (DRM of the U/D axis): P(U/D <= 6), P(R/L <= 6), P(both), independence would give	0.1924, 0.0798, 0.0184, 0.0154; better of two 0.2538 vs 1-(1-a)(1-b) 0.2568	
+D14218 caycala / D14220 Daichi	4c2e (DRM of the U/D axis): P(U/D <= 6), P(R/L <= 6), P(both), independence would give	0.1869, 0.0962, 0.0212, 0.0180; better of two 0.2618 vs 1-(1-a)(1-b) 0.2651	
+D14218 caycala / D14220 Daichi	3c2e (DRM of the U/D axis): P(U/D <= 6), P(R/L <= 6), P(both), independence would give	0.6161, 0.1189, 0.0749, 0.0732; better of two 0.6600 vs 1-(1-a)(1-b) 0.6617	
+D14218 caycala / D14220 Daichi	7c8e (DRM of the U/D axis): P(U/D <= 6), P(R/L <= 6), P(both), independence would give	0.1639, 0.0529, 0.0120, 0.0087; better of two 0.2048 vs 1-(1-a)(1-b) 0.2082	
+D14218 caycala / D14220 Daichi	all states (DRM of the U/D axis): P(U/D <= 6), P(R/L <= 6), P(both), independence would give	0.0592, 0.0592, 0.0051, 0.0035; better of two 0.1133 vs 1-(1-a)(1-b) 0.1149	

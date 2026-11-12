@@ -35,3 +35,5 @@ __pycache__/
 /_site/
 /htr-routes/research/htrtools/target/
 /htr-routes/research/out/big/
+/eo-switch/research/eoswtools/target/
+/eo-switch/research/out/big/

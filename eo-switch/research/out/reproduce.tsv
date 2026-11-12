@@ -1,0 +1,155 @@
+source	quantity	published	ours	states	verdict	note
+C1 Cale (doc 6)	4c4e: 1 in 15.3 EOs	15.3	15.34247	70560	match	
+A1 Rodney (doc 275)	states with a sub-7 solution, "approximately 64,000"	64000	64103	1082565	match (approximate figure)	printed as approximate; 64,103
+A1 / C9 Rodney	N(sub-7) 4c4e	13576	13576	70560	match	
+C9 Rodney DRM_Ranking.csv	4c4e p(sub-7)	0.192	0.19240	70560	match	
+C9 Rodney DRM_Ranking.csv	4c4e N(sub-7)	13576	13576	70560	match	
+C9 Rodney DRM_Ranking.csv	3c2e p(sub-7)	0.616	0.61607	3584	match	
+C9 Rodney DRM_Ranking.csv	3c2e N(sub-7)	2208	2208	3584	match	
+C9 Rodney DRM_Ranking.csv	7c8e p(sub-7)	0.164	0.16395	23520	match	
+C9 Rodney DRM_Ranking.csv	7c8e N(sub-7)	3856	3856	23520	match	
+C9 Rodney DRM_Ranking.csv	5c4e p(sub-7)	0.072	0.07211	94080	match	
+C9 Rodney DRM_Ranking.csv	5c4e N(sub-7)	6784	6784	94080	match	
+C9 Rodney DRM_Ranking.csv	5c6e p(sub-7)	0.061	0.06135	125440	match	
+C9 Rodney DRM_Ranking.csv	5c6e N(sub-7)	7696	7696	125440	match	
+C9 Rodney DRM_Ranking.csv	4c2e p(sub-7)	0.187	0.18690	13440	match	
+C9 Rodney DRM_Ranking.csv	4c2e N(sub-7)	2512	2512	13440	match	
+C9 Rodney DRM_Ranking.csv	6c6e p(sub-7)	0.056	0.05589	137984	match	
+C9 Rodney DRM_Ranking.csv	6c6e N(sub-7)	7712	7712	137984	match	
+C9 Rodney DRM_Ranking.csv	4c6e p(sub-7)	0.046	0.04617	94080	match	
+C9 Rodney DRM_Ranking.csv	4c6e N(sub-7)	4344	4344	94080	match	
+C9 Rodney DRM_Ranking.csv	3c4e p(sub-7)	0.099	0.09949	18816	match	
+C9 Rodney DRM_Ranking.csv	3c4e N(sub-7)	1872	1872	18816	match	
+C9 Rodney DRM_Ranking.csv	8c8e p(sub-7)	0.145	0.14485	6020	match	
+C9 Rodney DRM_Ranking.csv	8c8e N(sub-7)	872	872	6020	match	
+C9 Rodney trees (doc 521)	4c4e n_pairs = 0: cases	21000	21000	70560	match	
+C9 Rodney trees (doc 521)	4c4e n_pairs >= 2: cases	18360	18360	70560	match	
+C9 Rodney trees (doc 521)	4c4e n_pairs >= 3: cases	2520	2520	70560	match	
+A2 WRITEUP 6	six-twist orientations	616	616		match	
+A2 WRITEUP 6	6+0 among them	56	56		match	
+A2 FakeMMAP (T9543-T9549)	4+4 orientations	70	70		match	
+A2 FakeMMAP (T9543-T9549)	7+1 orientations	16	16		match	
+A5 Rodney (T7422)	4a corner ARM values [0, 2, 4]	[0, 2, 4]	[0, 2, 4]		match	as sets
+A5 Rodney (T7422)	4b corner ARM values [0, 2, 4]	[0, 2, 4]	[0, 2, 4]		match	as sets
+A5 Rodney (T7422)	4c corner ARM values [1, 3]	[1, 3]	[1, 3]		match	as sets
+A5 Rodney (T7422)	4d corner ARM values [2]	[2]	[2]		match	as sets
+C6 Louis (T4511-T4512)	6c twist split 3+3 sub-7	0.03694	0.03694	277200	match	
+C6 Louis (T4511-T4512)	6c twist split 6+0 sub-7	0.07186	0.07186	27720	match	
+C6 Louis (T4511-T4512)	8c twist split 4+4 sub-7	0.03097	0.03097	34650	match	
+C6 Louis (T4511-T4512)	8c twist split 7+1 sub-7	0.01616	0.01616	7920	match	
+C7 Louis (T7454-T7455)	4c4e 4a ARM 00 sub-7	0.67	0.66667	432	match	
+C7 Louis (T7454-T7455)	4c4e 4b ARM 00 sub-7	0.38	0.37963	864	match	
+C7 Louis (T7454-T7455)	4c4e 4d ARM 21 sub-7	0.78	0.77778	1152	match	
+C7 Louis (T7454-T7455)	4c4e 4b ARM 21 sub-7	0.36	0.36024	9216	match	
+C7 Louis (T7454-T7455)	4c4e 4a ARM 21 sub-7	0.2	0.19965	4608	match	
+C7 Louis (T7454-T7455)	4c4e 4a ARM 42 sub-7	0.66	0.65741	432	match	
+C7 Louis (T7454-T7455)	4c4e 4b ARM 42 sub-7	0.22	0.22222	864	match	
+C7 Louis (T7455)	4c4e AR-1c0e sub-7 ("0.28 vs 0.29")	0.28	0.28472	3456	match	read as the mirror pair AR-1c0e / AR-3c2e (T7438)
+C7 Louis (T7455)	4c4e AR-3c2e sub-7 ("0.28 vs 0.29")	0.29	0.29167	3456	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-0 0 pairs n	1512	1512		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-0 0 pairs sub-7	0.0463	0.04630	1512	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-0 1 pairs n	1152	1152		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-0 1 pairs sub-7	0.1597	0.15972	1152	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-0 2 pairs n	1296	1296		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-0 2 pairs sub-7	0.5185	0.51852	1296	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-0 3 pairs n	0	0		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-0 4 pairs n	72	72		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-0 4 pairs sub-7	0.9722	0.97222	72	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-2 0 pairs n	2304	2304		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-2 0 pairs sub-7	0.04861	0.04861	2304	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-2 1 pairs n	3744	3744		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-2 1 pairs sub-7	0.1731	0.17308	3744	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-2 2 pairs n	1728	1728		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-2 2 pairs sub-7	0.3681	0.36806	1728	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-2 3 pairs n	288	288		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4a-2 3 pairs sub-7	0.5278	0.52778	288	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-0 0 pairs n	2880	2880		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-0 0 pairs sub-7	0	0.00000	2880	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-0 1 pairs n	2880	2880		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-0 1 pairs sub-7	0.02778	0.02778	2880	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-0 2 pairs n	1728	1728		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-0 2 pairs sub-7	0.1528	0.15278	1728	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-0 3 pairs n	576	576		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-0 3 pairs sub-7	0.6389	0.63889	576	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-2 0 pairs n	4656	4656		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-2 0 pairs sub-7	0.09107	0.09107	4656	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-2 1 pairs n	7296	7296		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-2 1 pairs sub-7	0.1601	0.16009	7296	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-2 2 pairs n	3744	3744		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-2 2 pairs sub-7	0.5192	0.51923	3744	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-2 3 pairs n	384	384		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-2 3 pairs sub-7	0.9167	0.91667	384	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-2 4 pairs n	48	48		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4b-2 4 pairs sub-7	1	1.00000	48	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4c-1 0 pairs n	9216	9216		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4c-1 0 pairs sub-7	0.02257	0.02257	9216	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4c-1 1 pairs n	14976	14976		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4c-1 1 pairs sub-7	0.1036	0.10363	14976	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4c-1 2 pairs n	6912	6912		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4c-1 2 pairs sub-7	0.39	0.39005	6912	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4c-1 3 pairs n	1152	1152		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4c-1 3 pairs sub-7	0.8889	0.88889	1152	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4d-2 0 pairs n	432	432		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4d-2 0 pairs sub-7	0.2222	0.22222	432	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4d-2 1 pairs n	1152	1152		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4d-2 1 pairs sub-7	0.4444	0.44444	1152	match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4d-2 2 pairs n	432	432		match	
+C8 Rodney corner variant+pair (doc 274)	4c4e 4d-2 2 pairs sub-7	0.6852	0.68519	432	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4a-0 0 pairs sub-7	0.017	0.01667	480	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4a-0 1 pairs sub-7	0.083	0.08333	192	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4a-0 2 pairs sub-7	0.25	0.25000	96	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4a-2 0 pairs sub-7	0.056	0.05556	864	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4a-2 1 pairs sub-7	0.417	0.41667	576	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4a-2 2 pairs sub-7	0.833	0.83333	96	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4b-0 0 pairs sub-7	0.083	0.08333	960	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4b-0 1 pairs sub-7	0.604	0.60417	384	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4b-0 2 pairs sub-7	0.792	0.79167	192	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4b-2 0 pairs sub-7	0.028	0.02778	1728	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4b-2 1 pairs sub-7	0.208	0.20833	1152	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4b-2 2 pairs sub-7	0.375	0.37500	192	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4c-1 0 pairs sub-7	0.042	0.04167	3456	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4c-1 1 pairs sub-7	0.326	0.32639	2304	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4c-1 2 pairs sub-7	0.646	0.64583	384	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4d-2 0 pairs sub-7	0.167	0.16667	192	match	
+C8 Rodney corner variant+pair (doc 274)	4c2e 4d-2 1 pairs sub-7	0.5	0.50000	192	match	
+C8 Rodney corner variant+pair (doc 274)	7c8e 1 pairs sub-7	0	0.00000	480	match	
+C8 Rodney corner variant+pair (doc 274)	7c8e 2 pairs sub-7	0.02143	0.02143	3360	match	
+C8 Rodney corner variant+pair (doc 274)	7c8e 3 pairs sub-7	0.03333	0.03333	7920	match	
+C8 Rodney corner variant+pair (doc 274)	7c8e 4 pairs sub-7	0.1586	0.15859	7920	match	
+C8 Rodney corner variant+pair (doc 274)	7c8e 5 pairs sub-7	0.5429	0.54286	3360	match	
+C8 Rodney corner variant+pair (doc 274)	7c8e 6 pairs sub-7	0.9167	0.91667	480	match	
+C15 Radek B (image D7480)	4c4e 0 pairs sub-7 (%)	4.33	0.04333	21000	match	
+C15 Radek B (image D7480)	4c4e 1 pairs sub-7 (%)	13.28	0.13282	31200	match	
+C15 Radek B (image D7480)	4c4e 2 pairs sub-7 (%)	41.09	0.41086	15840	match	
+C15 Radek B (image D7480)	4c4e 3 pairs sub-7 (%)	79	0.79000	2400	match	
+C15 Radek B (image D7480)	4c4e 4 pairs sub-7 (%)	98.33	0.98333	120	match	
+C16 beef beans (doc 209)	4c4e/2c1e p	0.3429	0.34295	14976	within error (z=0.00)	sampled (5994 sub-7 EOs); per-cell sample size not stated, taken as the cell share of 5994
+C16 beef beans (doc 209)	5c4e/2c1e p	0.1515	0.15152	16896	within error (z=0.00)	sampled (5994 sub-7 EOs); per-cell sample size not stated, taken as the cell share of 5994
+C12 Evan subtypes (doc 110)	4c4e AR-0c0e 2/2A sub-7	0.663	0.66667	432	within error (z=0.21)	
+C12 Evan subtypes (doc 110)	4c4e AR-0c0e 2/2B sub-7	0.384	0.37963	864	within error (z=0.25)	
+C12 Evan subtypes (doc 110)	4c4e AR-0c1e 2/2A sub-7	0.187	0.17361	1152	within error (z=1.08)	
+C12 Evan subtypes (doc 110)	4c4e AR-0c1e 2/2B sub-7	0.032	0.03819	2304	within error (z=0.94)	
+C12 Evan subtypes (doc 110)	4c4e AR-0c2e 2/2A sub-7	0.009	0.00926	432	within error (z=0.00)	
+C12 Evan subtypes (doc 110)	4c4e AR-0c2e 2/2B sub-7	0	0.00000	864	within error (z=0.00)	
+C12 Evan subtypes (doc 110)	4c4e AR-2c0e 2/2A sub-7	0.189	0.18056	1728	within error (z=0.65)	
+C12 Evan subtypes (doc 110)	4c4e AR-2c0e 2/2B sub-7	0.106	0.10880	3456	within error (z=0.23)	
+C12 Evan subtypes (doc 110)	4c4e AR-2c0e 4/0 sub-7	0.009	0.00926	432	within error (z=0.00)	
+C12 Evan subtypes (doc 110)	4c4e AR-2c1e 2/2A sub-7	0.203	0.19965	4608	within error (z=0.23)	
+C12 Evan subtypes (doc 110)	4c4e AR-2c1e 2/2B sub-7	0.366	0.36024	9216	within error (z=0.35)	
+C12 Evan subtypes (doc 110)	4c4e AR-2c1e 4/0 sub-7	0.782	0.77778	1152	within error (z=0.28)	
+C12 Evan subtypes (doc 110)	4c4e AR-2c2e 2/2A sub-7	0.179	0.18287	1728	within error (z=0.28)	
+C12 Evan subtypes (doc 110)	4c4e AR-2c2e 2/2B sub-7	0.069	0.06944	3456	within error (z=0.00)	
+C12 Evan subtypes (doc 110)	4c4e AR-2c2e 4/0 sub-7	0.005	0.00926	432	within error (z=1.24)	
+C13 Evan arm/pairs (doc 276)	4c4e ARM 21 sub-7	0.344	0.34295	14976	within error (z=0.58)	
+C13 Evan arm/pairs (doc 276)	4c4e 2 pairs sub-7	0.394	0.41086	15840	outside error (z=17.05)	
+C13 Evan arm/pairs (doc 276)	4c4e 3 pairs sub-7	0.758	0.79000	2400	outside error (z=15.44)	
+C18 WRITEUP 5.1	4c4e <=6 one axis (%)	19.2	0.19240	70560	match	
+C18 WRITEUP 5.1	4c4e <=6 last turn (%)	28.1	0.28058	70560	match	
+C18 WRITEUP 5.1	4c4e <=6 two axes (%)	25.4	0.25380	70560	match	
+C18 WRITEUP 5.1	4c4e <=6 normal or inverse (%)	34.8	0.34779	70560	match	
+C18 WRITEUP 5.1	all states <=6 one axis (%)	5.9	0.05921	1082565	match	
+C18 WRITEUP 5.1	all states <=6 last EO turn either way (%)	9.5	0.09471	1082565	match	
+C18 WRITEUP 5.1	all states <=6 better of two DR axes (%)	11.3	0.11332	1082565	match	
+C18 WRITEUP 5.1	all states <=6 better of normal and inverse (%)	11.2	0.11138	1082565	within error (z=1.24)	sampled there (10,000,000 states, 11.15%), printed 11.2; exact 11.14%
+C2 Cale (doc 40) / D2200 Tom Nelson	4e4c in 6: 1 in 5.2 normally	5.2	5.19741	70560	match	
+C2 Cale (doc 40) / D2200 Tom Nelson	4e4c in 6: 1 in 3.6 with the last move switchable	3.6	3.56400	70560	match	
