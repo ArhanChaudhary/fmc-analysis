@@ -2,6 +2,8 @@
 
 All of this section is on {= n(X('n')) =} uniformly random scrambles (appendix B says how they are drawn and why not with nissy's `scramble`), with exact distance tables for every lookup: each number for one scramble is exact, and the only uncertainty is the sample. On {= n(X('n')) =} scrambles a share has a standard error (one standard deviation of the estimate) of at most 0.2 points, and a mean about {= SE('six') =} turns. Any turns are allowed on the way to DR unless a line says the EO is kept. Turns are face turns (HTM).
 
+**This whole section is computer only, the answer key.** Every number is what exists, from exact search: the optimal DR over every axis and side (3.1), or every EO of a given length with the best DR after it on both DR axes (3.2, 3.3). It says where the short DRs are, not what a solver finds in an hour, and none of it is a check to run in an attempt. The hand-usable versions are elsewhere: count the bad edges for the odds of a short EO (4.2), and read the case each EO leaves on both DR axes for the odds of a short DR (5.2).
+
 ### 3.1 The shortest DR
 
 {{a1}}
@@ -41,11 +43,11 @@ The same as odds of a DR of a given length from the scramble, which is what a so
 
 {{a2_targets}}
 
-In words, DR in 10 or better and in 11 or better: with normal EOs of at most 5 turns, {= XP('route_n5_le10') =} and {= XP('route_n5_le11') =} of scrambles; adding the inverse EOs, {= XP('route_b5_le10') =} and {= XP('route_b5_le11') =}; adding the NISS EOs, {= XP('route_x5_le10') =} and {= XP('route_x5_le11') =}. With EOs of at most 4 of every kind, {= XP('route_x4_le10') =} and {= XP('route_x4_le11') =}. A route through an EO of at most 5 (all kinds) is 9 or better on {= XP('route_x5_le9') =} of scrambles, against {= A1('niss', 'p_le9') =} for the NISS optimum. These are what exists, not what anybody finds: every EO of that length is checked, with both DR axes and the best DR after it.
+In words, DR in 10 or better and in 11 or better: with normal EOs of at most 5 turns, {= XP('route_n5_le10') =} and {= XP('route_n5_le11') =} of scrambles; adding the inverse EOs, {= XP('route_b5_le10') =} and {= XP('route_b5_le11') =}; adding the NISS EOs, {= XP('route_x5_le10') =} and {= XP('route_x5_le11') =}. With EOs of at most 4 of every kind, {= XP('route_x4_le10') =} and {= XP('route_x4_le11') =}. A route through an EO of at most 5 (all kinds) is 9 or better on {= XP('route_x5_le9') =} of scrambles, against {= A1('niss', 'p_le9') =} for the NISS optimum. These are what exists, not what anybody finds: every EO of that length is checked, with both DR axes and the best DR after it. **Computer only**: an answer key for how good the EOs you could write are, not a search to do in an attempt.
 
 ### 3.3 How many DRs
 
-For every EO of at most k turns and each of its two DR axes, is the EO plus the best DR after it (EO kept; for a NISS EO on the better side) at most N turns? A scramble's count is the number of such (EO, DR axis) pairs. Cells: the mean number of pairs per scramble, and in brackets the share of scrambles with none. {= n(X('n')) =} scrambles. EOs counted as in nissy's `-a` listing (both directions of the last turn).
+For every EO of at most k turns and each of its two DR axes, is the EO plus the best DR after it (EO kept; for a NISS EO on the better side) at most N turns? A scramble's count is the number of such (EO, DR axis) pairs. Like 3.2 these are **computer only**: they need the best DR after every EO on both axes, and say how many DRs exist, not how many a solver finds. Cells: the mean number of pairs per scramble, and in brackets the share of scrambles with none. {= n(X('n')) =} scrambles. EOs counted as in nissy's `-a` listing (both directions of the last turn).
 
 {{a3}}
 
@@ -53,7 +55,7 @@ Per EO this is a small number, and it drops fast with the EO's length. Expected 
 
 {{a3_yield}}
 
-The last two columns answer Somebodyidk's "25 4 move eos or 200 5 move eos" ([[D16056]]): on average the 25 short EOs give more DRs of 10 or better, the 200 longer ones more of 11 or 12. EOs on one scramble are correlated, so these are expectations over scrambles, not a guarantee on any one.
+The last two columns answer Somebodyidk's "25 4 move eos or 200 5 move eos" ([[D16056]]): on average the 25 short EOs give more DRs of 10 or better, the 200 longer ones more of 11 or 12. EOs on one scramble are correlated, so these are expectations over scrambles, not a guarantee on any one. The part you can use in an attempt is the ratio: for a DR in 10, one EO of at most 4 is worth about ten 5-movers, so the 4-movers come first.
 
 Two more measurements of what each kind of EO adds, normal EOs:
 

@@ -4,7 +4,7 @@ The same 500 random-state scrambles as the tally on the first study's examples p
 - **DR-xs**: every DR-1s of 8 moves or less and every DR-2s 8fe of 9 or less that starts from a slice-EO skip or a one-move slice EO, on normal or on inverse, and then keeps that axis's EO. That is the plain version of the tutorial's route (no EO-changing triggers, no NISS inside the route), taken exhaustively, so the counts are a floor on what is there. Also every DR-2s 8fe of 9 or less after a normal EO of 4 moves or fewer (the wrong-colour DR, and the DR that would end in `U R L`).
 - **Finishes**: as in section 5, the best of the method's form, written out as a full solution and replayed on the scramble: {= RL('n1s', f='{:,}') =} DR-1s and {= RL('n8', f='{:,}') =} DR-2s 8fe solutions, all correct. For the 8fe here the setup is searched up to 3 moves from either end, which finds the best for {= EIGHT3('same') =} of the random sample and is {= EIGHT3('avg') =} moves off on average.
 
-As in the first study, every finish is the answer key, not what you find in an hour, and nobody finishes this many. Read the counts as the size of the haystack and the last column of 7.2 as how good each straw is.
+As in the first study, every finish is the answer key, **computer only**, not what you find in an hour, and nobody finishes this many. Read the counts as the size of the haystack and the last column of 7.2 as how good each straw is.
 
 ### 7.1 What is there
 

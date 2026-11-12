@@ -2,7 +2,7 @@
 
 ## 8. Finding them
 
-The tables so far say what the best insertion is. This section is about where it is and what a shorter search loses. All of it is for random skeletons unless it says otherwise, and none of it measures time.
+The tables so far say what the best insertion is. This section is about where it is and what a shorter search loses, and it is the part for the attempt: every other move, the ends, opposite-face pairs, how far to follow first comms. All of it is for random skeletons unless it says otherwise, and none of it measures time.
 
 ### 8.1 Where the best insertion sits
 

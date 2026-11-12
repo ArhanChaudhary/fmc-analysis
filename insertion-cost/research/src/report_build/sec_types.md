@@ -30,7 +30,7 @@ Everything below is about the leftovers of the first table. What a three-comm le
 
 ## 5. The algorithms
 
-For every leftover of every type, all move sequences of 12 moves or fewer that solve it were listed. First the shortest alg per state:
+For every leftover of every type, all move sequences of 12 moves or fewer that solve it were listed. The counts are reference: which case has an 8-mover is something you learn to recognise, not look up, and the lists of 10- and 12-movers are **computer only**. First the shortest alg per state:
 
 {{alg_lengths}}
 

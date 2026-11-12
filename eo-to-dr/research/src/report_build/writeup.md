@@ -32,6 +32,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 - **Start with [section 1](#1-the-short-version)**, the short version: what is new, then what it confirms or corrects, one line each.
 - **The [worked examples](examples.html)** go with it: 150 scrambles with their shortest DRs and their best DRs through EOs of at most 4 and 5, then 60 EO-solved states by case, answers folded away. **The [errata](errata.html)** list what the numbers show is wrong in things said on the server, each with an example.
 - **The appendices are reference**: every case, normal against inverse by case, every bad-edge triple, and how it was computed and checked (with nissy's scrambler).
+- **What you can use in an attempt, and what is the answer key.** Most numbers here are what exists, found by exact search: the optimal DR from a scramble, the best DR after every EO of a given length, counts of hundreds of EOs per scramble. Those are **computer only**: they say what is there, not something to do in an attempt, and each place says so. What you can use at the table is what you can see or count: the bad edges on each axis and the odds of a short EO from them (4.2), the case an EO leaves on each DR axis and its odds with each option (5.2), and which options after an EO are worth checking (5.1).
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## 6. What each type costs
 
-How to read the tables of this section. A row is one skeleton length. *Mean added* is the average of what the best insertion adds, over the skeletons where something fits. The columns *k or less* are the share of all skeletons whose best insertion adds k moves or fewer. *Nothing fits* is the share with no alg within the cap at any spot. Everything is for random skeletons (section 3), and the first column is the cap.
+How to read the tables of this section. A row is one skeleton length. *Mean added* is the average of what the best insertion adds, over the skeletons where something fits. The columns *k or less* are the share of all skeletons whose best insertion adds k moves or fewer. *Nothing fits* is the share with no alg within the cap at any spot. Everything is for random skeletons (section 3), and the first column is the cap. The cap-8 rows are what checking every spot with 8-movers gives, a target for the attempt; the cap-10 and cap-12 rows count every alg of that length and are **computer only**, the answer key for a full alg list.
 
 ### 6.1 A 3c
 
@@ -31,7 +31,7 @@ A 20-move skeleton with no 8-mover at any spot:
 
 ### 6.2 Two comms: 2tc, 2c2c, 3tc, 3c1t, 5c
 
-For these, cap 8 means two 8-move comms, the second allowed inside the first; no alg of 8 moves or fewer does any of them in one go. Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for the whole leftover. All on random skeletons; the *Skeletons* column says how many each row rests on, and at cap 10 that is few, so read those rows to the nearest percent or so.
+For these, cap 8 means two 8-move comms, the second allowed inside the first; no alg of 8 moves or fewer does any of them in one go. Each number is the **best pair**, every first comm at every spot followed by the best second: **computer only** as a search. By hand you take the best first comm and then the best second, which costs {= f2(float(CELL('greedy', '5c', 'Best first comm only')) - float(CELL('greedy', '5c', 'Best pair of comms'))) =} more on a 5c; also following the first comms a move worse gets within {= f2(max(float(CELL('greedy', r, 'First comms within 1 move')) - float(CELL('greedy', r, 'Best pair of comms')) for r in ('2tc', '3tc', 'pure 2c2c', 'twisted 2c2c', '3c1t', '5c', '3c3c'))) =} of the best pair on every type (8.4). So read the cap-8 rows as a careful hand search, a few hundredths optimistic. Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for the whole leftover. All on random skeletons; the *Skeletons* column says how many each row rests on, and at cap 10 that is few, so read those rows to the nearest percent or so.
 
 **2tc** (two corners twisted in place):
 
@@ -81,7 +81,7 @@ The cap-12 column is on {= NSK('5c', L=12, src='two12') =} skeletons that are no
 
 ### 6.3 What a longer alg list is worth
 
-At 20 moves, the mean added under each cap. First with each cap on its own sample:
+At 20 moves, the mean added under each cap. Caps 10 and 12 are every alg of that length, **computer only**: read them as what learning more algs could buy at most, not as a search to run in an attempt. First with each cap on its own sample:
 
 **Mean added, random skeletons of 20 moves, by cap. Each *Skeletons* column is the number of skeletons behind the number to its left. At cap 8 the mean is over the skeletons where something fits, and the first column says on how many that is; at caps 10 and 12 something fits on every skeleton. *not run*: cap 12 with two comms was not run for that leftover.**
 
@@ -113,7 +113,7 @@ These are averages over {= PAIRN('5c') =} or {= PAIRN('3c') =} skeletons, compar
 
 ### 6.5 Nesting
 
-The second comm may go inside the first. How much that is worth, with 8-movers on 20-move skeletons:
+The second comm may go inside the first. How much that is worth, with 8-movers on 20-move skeletons (best pairs, a computer search; the hand version is to look for the second comm inside the first as well as outside it):
 
 **Two 8-move comms, random skeletons of 20 moves: mean added with nesting allowed, with the second comm kept outside the moves the first one changed, and with the two comms not touching at all. The means are over the skeletons where all three ways have a solution (third column) out of the sample (second column). For the edge rows the comms are 3e algs of 8 moves or fewer.**
 
@@ -150,7 +150,7 @@ For the next two, cap 8 is the best of two 3e algs of 8 moves or fewer and one a
 
 ### 7.1 The chance of a result
 
-The chance of a final solution of N or less from a skeleton of a given type and length, 8-movers, random skeletons. Every cell is its own sample of {= NSK('5c') =} skeletons ({= NSK('2tc') =} for a 2tc), at the odd lengths too. A cell under 0.05% is fewer than ten skeletons of the {= NSK('5c') =} (for a 2tc, one or two of the {= NSK('2tc') =}), so the smallest cells are rough.
+The chance of a final solution of N or less from a skeleton of a given type and length, 8-movers, random skeletons. Every cell is its own sample of {= NSK('5c') =} skeletons ({= NSK('2tc') =} for a 2tc), at the odd lengths too. A cell under 0.05% is fewer than ten skeletons of the {= NSK('5c') =} (for a 2tc, one or two of the {= NSK('2tc') =}), so the smallest cells are rough. Two-comm types are at their best pair of comms; a hand search that takes only the best first comm comes out a little longer (8.4), so treat their cells as a ceiling.
 
 **28 or less:**
 

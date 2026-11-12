@@ -2,7 +2,7 @@
 
 ## Appendix A: every type and length
 
-The full tables behind section 6: every even skeleton length from 10 to 30, every type, random skeletons. The first column is the cap and what was inserted:
+The full tables behind section 6: every even skeleton length from 10 to 30, every type, random skeletons. The first column is the cap and what was inserted. Rows at caps 10 and 12, and the comm-plus-alg rows, are **computer only** (every alg of that length); the cap-8 rows are best pairs of 8-movers, which a hand search following the first comms a move worse gets close to (8.4):
 
 - *one comm*: one 3-cycle alg (3c and 3e only);
 - *two comms*: two 3-cycle algs, nesting allowed;
@@ -79,7 +79,7 @@ A block is left out when nothing of that length exists (no alg of 8 or fewer doe
 
 ## Appendix B: the 3c and 3e cases
 
-Every corner 3-cycle and every edge 3-cycle, grouped into classes: two cases are in one class when one is the other seen from another side of the cube (the 24 rotations), or its inverse. For each class a shortest alg, which pieces go where, and how many different algs of each length solve it.
+Every corner 3-cycle and every edge 3-cycle, grouped into classes: two cases are in one class when one is the other seen from another side of the cube (the 24 rotations), or its inverse. For each class a shortest alg, which pieces go where, and how many different algs of each length solve it. A reference to learn from: looking a case up here is **computer only**, nothing to do in an attempt.
 
 *Pieces* reads `A>B`: the piece from A ends at B. `+1` and `+2` are a clockwise and a counter-clockwise twist of the corner as it arrives (for edges `+1` is a flip).
 

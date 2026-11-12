@@ -6,7 +6,7 @@ How many EOs a scramble has, on the same {= n(X('n')) =} uniformly random scramb
 
 {{b4}}
 
-The one-axis normal row is also exact over the 2,048 orientations of one axis: at most 5 turns, mean {= B4('linear (normal)', 'one axis (F/B)', 5, 'mean_le') =} in the sample against {= B4X(5, 'mean_le') =} exact.
+The columns up to 4 turns are lists a solver can write; the 5- and 6-turn counts, hundreds to thousands per scramble, are nissy's `-a` listings, **computer only**, there to compare scrambles, not to write out. The one-axis normal row is also exact over the 2,048 orientations of one axis: at most 5 turns, mean {= B4('linear (normal)', 'one axis (F/B)', 5, 'mean_le') =} in the sample against {= B4X(5, 'mean_le') =} exact.
 
 The shortest EO of a scramble, over the three axes:
 
@@ -31,6 +31,8 @@ All 65 are in appendix A. A few facts that come out exactly: on one given axis a
 The chance of a short EO on one axis, by its number of bad edges. The last column, the shortest normal EO of each of the 2,048 states, is Shota's table ([[D7761]]) and agrees with Shota's *Full EO* sheet; what is added is the odds with the inverse and with NISS. (The normal columns are exact over the 2,048 states of one axis; the inverse and NISS columns sampled, 1,000,000 random states times 3 axes, so ±0.1 point or better except the rare 0-, 10- and 12-bad rows, which rest on about 1,400 to 97,000 axes):
 
 {{b5_by_bad}}
+
+This table is for the attempt: the bad edges on each axis are what you see when you look for EO, and the row gives the odds of a short EO on that axis.
 
 What it says:
 

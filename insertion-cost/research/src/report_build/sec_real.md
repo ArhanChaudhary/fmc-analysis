@@ -80,7 +80,7 @@ For the examples that state a final length, the author's added moves against the
 - **On a 3c, the posted insertion is the best 8-mover insertion or better in {= AUWN('author_hand_3c', 'L8', ' cases') =}.** {= DUPS('3c') =} of the {= AU('author_hand_3c', 'L8', 'k') =} are a second solution on a skeleton already in the list. Again these are posted solves, and several say they were checked with Insertion Finder first.
 - **On the corner leftovers that need two comms, {= AUWN('author_hand_two', 'L8') =}** are as good as the best pair of 8-movers or better.
 - ***Author shorter* at cap 8** is someone using an alg longer than 8 moves.
-- **Against algs up to 12**, {= AUL('author_hand', 'L12') =} of the hand solutions leave a move or more on the table. That is the size of what a full alg list adds over what people insert, on skeletons they were happy to post.
+- **Against algs up to 12** (**computer only**, the answer key), {= AUL('author_hand', 'L12') =} of the hand solutions leave a move or more on the table. That is the size of what a full alg list adds over what people insert, on skeletons they were happy to post.
 - **Shorter than anything in the search**: {= SHORTROWS() =}, beat the best at cap 12 with a comm plus an alg. None does it with a better insertion: they add slice insertions, or rewrite a stretch of the finished solution with something shorter.
 
 **The {= str(len(REAL['shorter12'])) =} solutions shorter than the best at cap 12 with a comm plus an alg, and why. *By* says whether the solution was found by hand or is an Insertion Finder result.**
