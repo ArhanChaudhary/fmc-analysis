@@ -37,7 +37,7 @@ def link(m):
 doc = re.sub(r'\[\[([TD]\d+)\]\]', link, doc)
 # contents
 DESC = {
- 'The short version': 'The numbers, one line each.',
+ 'The short version': 'What is new, what it confirms or corrects, and the verdict, one line each.',
  'What was asked': 'The questions and the standing disagreement, quoted.',
  'What a DR-xs is, and how many slices it needs': 'The 768 kinds and the rule for the number of slices.',
  'The move counts: DR-3s, DR-2s, DR-1s, DR': 'Every layout of flipped edges and what it takes to fix.',

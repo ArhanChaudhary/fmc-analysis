@@ -1,4 +1,4 @@
-# DR-xs: corrections, and what the numbers settle
+# DR-xs: corrections
 
 *Goes with the write-up "Is DR-xs worth it?", but reads on its own. The write-up has the measurements and the tables.*
 
@@ -11,7 +11,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 - **200,000 random DR-1s states and 5,000 random DR-2s 8fe states**, each finished as well as the method's form allows (setup, slice or slices, DR finish), using the exact optimal finish of every DR state from the first study.
 - **The 500 scrambles** of the first study, with every DR-1s of 8 or less and DR-2s 8fe of 9 or less from a slice EO, each with a written solution that was replayed.
 
-Section A is the docs. B is things said in the channels that the numbers correct. C is what checked out, which is most of it.
+Section A is what's wrong in the docs, B what's wrong in things said in the channels, each with its example. Most of what the docs and the channels say checks out; that is in the write-up's section 8, the claims checked one by one.
 
 ---
 
@@ -35,8 +35,6 @@ As move counts to a real DR the assumptions are about 2 short. As finish penalti
 
 Each fix can be checked on a cube: do a DR, do the fix backwards, and the fix brings the DR back.
 
-**A3. The DR-Xs tutorial (tseitsei89), and count quackula's two lists.** Nothing to correct. See C.
-
 ---
 
 ## B. Said in the channels
@@ -53,29 +51,8 @@ Take the EO axis as F/B and the four good edges as the E-slice edges, so the cor
 
 ---
 
-## C. What checked out
-
-- **The rule for the number of slices** from centers and flipped edges (trangium's dr-fe examples doc; Rodney [[T10661]]; FakeMMAP [[T10755]]; the tutorial): right for all 768 kinds.
-- **"dr-1s to dr is like 6 moves max?"**, "i don't think 7 optimal exists" (Daichi, [[T12406]], [[T12408]]): exactly right.
-- **"DR-2s needs at most 2 moves to reach DR-1s"** (Rodney, [[T12409]]): right, counting the setup before the slice.
-- **From DR-3s, DR-2s in 0 moves** with a slice that cancels with the last DR move (the tutorial): right for every DR-3s.
-- **trangium's averages** in the tutorial (true optimals): DR-1s +1.8 to +2.4 over a DR by subset, DR-2s 8fe +0.85 to +1.14. Mine, with the best finish of the method's form, are 0.1 to 0.4 above trangium's by subset: +{= D1() =} and +{= D8() =} overall.
-- **"8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR"** (the tutorial): right, in odds too.
-- **4-0 great, 2-2 good, 3-1 bad** (Rodney [[T10832]], tseitsei89 [[T10822]]): the order is right. The gap from 2-2 to 3-1 is a quarter of a move, and 4-0 is only better when the slice the four belong to is the one that fixes.
-- **Slice EO "is never more than 2 moves away"**, "No matter which slice you pick" (FakeMMAP, [[T10773]], [[T10774]]); "partial EO in <=2 is guaranteed" (EO Meta Comparison): exact, counting all-misoriented as a slice EO.
-- **One in 2^3 for a slice and an axis** (tseitsei89 [[D19427]], count quackula [[D19423]]): right. At least one skip on a scramble: {= SKIP4('normal') =} on normal, {= SKIP4('both') =} with inverse.
-- **A misoriented slice EO needs an axis with 8 bad edges** to give a DR-1s (tseitsei89 [[T11009]], trangium [[T11357]]): right for routes that keep that axis's EO, and misoriented on the slice's own axis never does.
-- **"The chance of getting 4 flipped edges in general is 55%"** (Rodney, [[T11566]]): 70 in 128.
-- **The optimal linear dr-fe distribution** 1, 4, 50, 586, 6800, 72894, 659610, 3479477, 4193028, 247986, 84 (trangium, [[T11332]]): reproduced exactly.
-- **count quackula's 12-bad notes and guaranteed-fix list**: every case is the kind that Appendix B of the write-up gives.
-- **The tutorial's first example** (FMCL S9W3A2): its skips, its DR-2s, its 4a2-1s and its 19 all come out the same, and 19 is the best its DR-1s allows in that form.
-
----
-
 ## Docs referred to
 
-- tseitsei89 (Janne Lehtimäki), [DR-Xs](https://docs.google.com/document/d/1_uLVLB5xqDm40NugXE5rjc8LgEtuHQCLz0odKY6mboE), 2 Feb 2026.
 - Rodney Kinney, [EO Meta Comparison](https://docs.google.com/document/d/131VWYrL3Z4t6p0fBGkHZ73w6arF8A7PEqRuNjsIQMGo), Jan 2026.
 - Simon, [Slice DR](https://docs.google.com/document/d/15zDJ9_FQIYVgHLbt1eHdOPtEp10jFOOae_U8DTaH7tk), Jul 2025.
-- trangium, [dr-fe examples](https://docs.google.com/document/d/11Xu6BpEBLu-v8hVbFzneSqeMjHb83q_zurWb_V0DXDY), 19 Jan 2026.
-- count quackula, [12 bad dr-xs notes](https://docs.google.com/document/d/1-anqtLsBGg_oBvzz1TTf_6Mjsypv4jMkFhB9E8cwkQM) and [guaranteed-fix cases](https://docs.google.com/document/d/190aVmEQFLILHGhrtuf1YFai0SYrsu_tWRYAWOe62P6U), Feb 2026.
+- count quackula, [12 bad dr-xs notes](https://docs.google.com/document/d/1-anqtLsBGg_oBvzz1TTf_6Mjsypv4jMkFhB9E8cwkQM), Feb 2026.
