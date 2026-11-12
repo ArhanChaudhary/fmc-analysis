@@ -2,7 +2,7 @@
 """What FakeMMAP asked of the multi-qt lower bounds (T11504): their typical value.  For every sampled state and every
 corner path of its optimal finishes (N >= 2 quarter turns), with R' = the shortest 1q reduction a finish of that path
 needs (so every shorter reduction has failed), the T11503 lower bound on M with alpha_(i+1) in the sum (the corrected
-form; as written it uses alpha_i), next to the trivial bound max(A + alpha_N, B + alpha_0) and the optimum.
+form; as written it uses alpha_i) and C the subset's shortest linear HTR, next to the trivial bound max(A + alpha_N, B + alpha_0) and the optimum.
 Streams out/big/bound2.tsv one row at a time.  Output: out/q9_lb_values.tsv (corner subset, statistic, value)."""
 import csv, collections, math, statistics
 from common import R, OUT, SUBS, SIZE, CORNER, CGROUPS
@@ -31,7 +31,7 @@ for r in csv.DictReader(open(f'{R}/out/big/bound2.tsv'), delimiter='\t'):
         paths.add(c.split(':')[1])
 AL = b2.alphas(paths)
 for r in csv.DictReader(open(f'{R}/out/big/bound2.tsv'), delimiter='\t'):
-    d = int(r['d']); A, B, C = int(r['htrN']), int(r['htrI']), int(r['niss'])
+    d = int(r['d']); A, B, C = int(r['htrN']), int(r['htrI']), b2.C_LIN[r['subset']]
     need = {}
     for c in (r['cells'].split(';') if r['cells'] else []):
         dl, p, r1, r2, sec = c.split(':')

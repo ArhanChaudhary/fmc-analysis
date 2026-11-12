@@ -8,7 +8,7 @@ Route notation: `4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht` = the corner subset at the 
 
 **One fact governs every route question**: a NISS reading of a finish is also a finish read linearly, so "some optimal follows route X" cannot tell linear from NISS routes. What NISS changes is the length of the HTR the solver must find. Checklists below therefore carry an **HTR budget**: a class counts only if its HTR is at most the state's shortest NISS HTR + 2 (budget 2); "no limit" rows are the plain class.
 
-Samples: route questions 25,000 uniform states per subset x edges (seed 20261112); Q8 shares and reduction counts the first 4,000 of them; "one optimal at random" numbers (docs 171 comparison, C01-C06, C41, C42) 5,000 other uniform states per subset x edges (htrtools tie / tiels, seed 7); the docs 396/410 reading-rule comparison 5,000 per subset x edges (htrtools docpaths, seed 11).
+Samples: route questions 25,000 uniform states per subset x edges (seed 20261112); Q8 shares and reduction counts the first 4,000 of them; "one optimal at random" numbers (docs 171 comparison, C01-C06, C41, C42) 5,000 other uniform states per subset x edges (htrtools tie / tiels, seed 7).
 
 ## Checks (all passed before any number was used)
 
@@ -25,9 +25,9 @@ Samples: route questions 25,000 uniform states per subset x edges (seed 20261112
 
 ## Q2. The checklist per subset (main deliverable)
 
-Greedy order of route classes (corner chain + switch), counting a class only with an HTR at most 2 over the shortest NISS HTR. At +1 a class counts if any of its finishes within optimal + 1 has such an HTR (it may be shorter than on the optimal finishes). Ties (classes covering exactly the same states) are broken the same way everywhere: linear first, then the normal-first reading of a mirror pair (a split of a finish read starting on normal or on inverse is the same pair of moves; such mirror pairs of classes are in out/route_aliases_C.tsv and each chosen class's mirror is in q2_checklist_budget.tsv; as classes they do not cover the same states, since each also collects other finishes: C-level mirror pairs checked over all 48 subsets: 21552; identical state sets: 646.), then the name. Cumulative share of states where the classes so far find an optimal finish; last column: the same three classes at optimal + 1. Edge counts pooled by their exact sizes; 25,000 states per subset x edges. Per subset x edges, all budgets (0, 1, 2, none) and up to 8 classes: out/q2_checklist_budget.tsv. Without a budget the first one or two classes reach 90-99% (out/q2_checklist.tsv, out/q2_best.tsv: greedy is within 0.5 points of the best possible set of the same size (k = 1-4, best set searched among the top 25-40 classes) in 2,192 of 2,208 cases, at most 1.8 points off).
+Greedy order of route classes (corner chain + switch), counting a class only with an HTR at most 2 over the shortest NISS HTR. At +1 a class counts if any of its finishes within optimal + 1 has such an HTR (it may be shorter than on the optimal finishes). Ties (classes covering exactly the same states) are broken the same way everywhere: linear first, then the normal-first reading of a mirror pair (a split of a finish read starting on normal or on inverse is the same pair of moves; such mirror pairs of classes are in out/route_aliases_C.tsv and each chosen class's mirror is in q2_checklist_budget.tsv; as classes they do not cover the same states, since each also collects other finishes: C-level mirror pairs checked over all 48 subsets: 21552; identical state sets: 646.), then the name. Cumulative share of states where the classes so far find an optimal finish; last column: the greedy checklist built at optimal + 1, after its own three classes (the same three classes read at +1, as the write-up prints them, are in out/q2_same_classes_p1.tsv; they are up to 1.1 points lower, e.g. 4a2 90.8% against 91.8%). Edge counts pooled by their exact sizes; 25,000 states per subset x edges. Per subset x edges, all budgets (0, 1, 2, none) and up to 8 classes: out/q2_checklist_budget.tsv. Without a budget the first one or two classes reach 90-99% (out/q2_checklist.tsv, out/q2_best.tsv: greedy is within 0.5 points of the best possible set of the same size (k = 1-4, best set searched among the top 25-40 classes) in 2,192 of 2,208 cases, at most 1.8 points off).
 
-| subset | 1st class | 2nd | 3rd | after 1 / 2 / 3 | +1 after 3 |
+| subset | 1st class | 2nd | 3rd | after 1 / 2 / 3 | +1 after 3 (greedy +1 checklist) |
 |---|---|---|---|---|---|
 | 0c0 | `0c0 > 4a1 > 0c0` | `0c0 > 4a1 > (0c0)` | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` | 42.3% / 55.9% / 60.9% | 86.4% |
 | 2c5 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 72.8% / 85.5% / 91.4% | 98.9% |
@@ -44,7 +44,7 @@ Greedy order of route classes (corner chain + switch), counting a class only wit
 
 Per subset x edges (budget 2, optimal; first class and cumulative after 1/2/3):
 
-| subset | first class | 1 / 2 / 3 | +1 after 3 |
+| subset | first class | 1 / 2 / 3 | +1 after 3 (greedy +1 checklist) |
 |---|---|---|---|
 | 0c0 0e | `0c0 > 4a1 > 0c0` | 42.5% / 84.4% / 92.6% | 98.3% |
 | 0c0 2e | `0c0 > 4a1 > 0c0` | 60.5% / 65.7% / 70.2% | 92.3% |
@@ -96,14 +96,13 @@ Per subset x edges (budget 2, optimal; first class and cumulative after 1/2/3):
 | 4b5 4e | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% / 89.6% / 93.9% | 99.6% |
 
 Cheap vs marginal classes: with budget 0 (only shortest HTRs) the best single class finds the optimal in 13-48% of states per corner subset, with budget 2 in 29-84%, with no limit in 51-98% (out/q2_checklist_budget.tsv). After the third class each further class adds at most 8 points, usually under 3: these pay only at the margin. The cost proxy (mean shortest HTR of the class where it works) is in out/q1_routes.tsv and out/q2_checklist.tsv. Striking findings:
-- NEW: on 4c3 the single class `4a3 > 4b2 > (4a1 > 0c0)` (one qt to 4b2 from the a side, switch) finds the optimal in 64.3% of states with a near-shortest HTR; three classes 75.0% (witness W01). KNOWN in spirit: Daichi's sheet "always switch after 4b2 4e"; doc 396 lists this as the top 4c3 path.
+- NEW: on 4c3 the single class `4a3 > 4b2 > (4a1 > 0c0)` (one qt to 4b2 from the a side, switch) finds the optimal in 64.3% of states with a near-shortest HTR; three classes 75.0% (witness W01). KNOWN in spirit: Daichi's sheet "always switch after 4b2 4e".
 - NEW: on 2c4, `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` alone gives 66.0%, three classes 88.4% (witness W02). KNOWN as advice (Daichi D18331).
 - NEW: on 4b2 the linear 2qt route comes first (37.6%) but three classes only reach 62.6%: 4b2 needs the 4qt regressions through 2c3 (witness W03).
 
 ## Q1. How often each route class works
 
-Per subset x edges, share of states where a class finds an optimal / within +1 / with the last DR move inverted: out/q1_routes.tsv (levels C corner chain, H with edges, Q quarter-turn shape, F the full-finish chain of docs 396/410). Cell-by-cell with docs 396/410: out/compare_docs_396_410_cells.tsv.
-- KNOWN + NEW (method found): docs 396/410 are reproduced when each optimal finish is read only with its shortest-HTR NISS readings: doc 410 (7,007 paths) mean |difference| 0.008, correlation 0.965, 97.2% of paths within 5 points; every reading: 0.044; linear only: 0.025. Doc 396 (768 paths, sub-13 states, ~1000 per tab) 0.034. So 396/410 count, per state, every distinct shortest-NISS-HTR path of every optimal finish (D19661). Their 0c0 0e tab holds HTR states only (96% "no quarter turn"), while the 0c0 0e subset is half HTR, half U D' times HTR.
+Per subset x edges, share of states where a class finds an optimal / within +1 / with the last DR move inverted: out/q1_routes.tsv (levels C corner chain, H with edges, Q quarter-turn shape, F the full-finish chain).
 - KNOWN + CORRECTS: doc 171 (allcases) is reproduced by one leave-slice optimal per state with a random tie-break (1895 paths: mean |difference| 0.0029, correlation 0.991; full finish 0.0057 / 0.974), with its tie-break slightly favouring the fewest-qt path (~5 points). Its "2qt(b)" is 4a2: mrauo's "only 1/3 of 2q 4b2e use 2qt" (D9450) read the 4a2 2e row; Zagros's "a and b flipped" (D9451) is right for doc 66 vs doc 171.
 - Doc 15 (1000 states per subset): solution means within 0.06 of exact; its "Linear HTR" is the normal side only (ours 6.156 vs 6.213 for 4b2 2e), its NISS HTR mean matches ours to 0.05 (out/compare_doc15.tsv).
 
@@ -159,7 +158,7 @@ Cumulative share of states where the checklist finds an optimal (budget 2 HTRs; 
 
 ## Q7. Claims
 
-125 claims from the reading notes (out/claims.tsv): NOT CHECKED 66, AGREES 27, ANSWERED 15, CORRECTS 8, PARTLY 7, OPEN 2. Corrections with a witness: C15 (W06), C56 (W07), C51 (W08), C53 (W09). The SPEC's quoted numbers:
+124 claims from the reading notes (out/claims.tsv): NOT CHECKED 65, AGREES 27, ANSWERED 15, CORRECTS 8, PARTLY 7, OPEN 2. Corrections with a witness: C15 (W06), C56 (W07), C51 (W08), C53 (W09). The SPEC's quoted numbers:
 
 - C01 rodneykinney (57%): **PARTLY**. 2qt corner cases (4a2+4b2, all edges, weighted by size): every optimal uses 4+ qt 53.9%; some optimal does 80.7%; one optimal picked at random 69.0% (leave-slice 56.3%). 57% fits only the 'every optimal' reading. 25,000 states per subset.
 - C02 Lichi Fang (>60%): **AGREES**. 4b2 4e: one optimal at random uses 4+ qt 77.6% (leave-slice 66.5%); every optimal 63.7%; some optimal 86.9%.
@@ -223,67 +222,67 @@ Bounding against the route checklist of Q2: smallest R reaching 80% optimal and 
 
 ## Q9. FakeMMAP's reduction-length bound (T11501-T11504), with the section bounds
 
-alpha_i computed per corner path (corners only, over every permutation following the path; 4a3 > 4b2 > 4a1 gives alpha = 0,3,1,0, FakeMMAP's example; out/q9_alpha.tsv). Sum of alpha over i with i and i+1 in S, as written. Per (state, path of a finish of length <= M) the reduction that finish needs against R. 25,000 states per subset; targets optimal, +1 and fixed M = 10, 11, 12 (out/q9_v2.tsv, counterexamples out/q9_v2_counterexamples.tsv).
+alpha_i computed per corner path (corners only, over every permutation following the path; 4a3 > 4b2 > 4a1 gives alpha = 0,3,1,0, FakeMMAP's example; out/q9_alpha.tsv). Model and derivation: notes/fakemmap_C.md. C = the subset x edges' shortest linear HTR (FakeMMAP's definition); it bounds the middle block q_1 ... q_N (L - s_0 - s_N >= C, N > 2). Per (state, path of a finish of length <= M) the reduction that finish needs against R. 25,000 states per subset; targets optimal, +1 and fixed M = 10, 11, 12 (out/q9_v2.tsv, counterexamples out/q9_v2_counterexamples.tsv).
 
-- target opt: insufficient: literal 0.0%, without term 1 0.0%, exact model with C = shortest linear HTR of the subset 0.1%, with C = the state's shortest NISS HTR 0.0%. Mean R: literal 12.14, without term 1 11.14, exact 8.90; needed 6.96.
-- target p1: insufficient: literal 0.0%, without term 1 0.0%, exact model with C = shortest linear HTR of the subset 0.0%, with C = the state's shortest NISS HTR 0.0%. Mean R: literal 13.59, without term 1 12.83, exact 10.37; needed 8.17.
-- Not knowing the path (R = max over the subset's paths, with the state's own A and B): mean R without term 1 12.40, exact 10.57; insufficient 0.0% / 0.0%. Pruning: the longest reduction any optimal needed is 11.2 moves on average over subsets (25,000 states each), so R from the formula (12.4) asks for longer reductions than the empirical maximum and prunes nothing against it; the exact R (10.6) is about the empirical maximum. Against the reductions a solver can actually write (R <= 6-7), neither prunes: every extra move multiplies the reductions by about 7.5 (out/q8_bounding_v2.tsv).
-- CORRECTS T11503 as written: with alpha summed over i with i and i+1 in S, the lower bound is wrong in 923 of 1,914,809 (state, path) cases (0.05%; 0c4, 4c4, 4b2, 4c3; out/q9_t11503_examples.tsv; witness W13). Summing the section shared by windows i and i+1 (alpha_(i+1)) instead makes every lower bound valid and keeps R sufficient (0 violations): that is probably what was meant.
-- T11503 lower bounds as written (after every reduction shorter than the one the optimal needs failed): valid in 99.9%; better than the trivial M >= A + alpha_N, B + alpha_0 in 75.3% (exact model 88.7%); reach the optimum itself in 5.3%.
-- C as "the shortest HTR in the subset" must be the shortest NISS HTR, not linear: a linear C makes the model wrong (W10: 0c0 2e, optimal 7 with a 4-move NISS HTR, below the subset's linear minimum 5).
+- target opt: insufficient: largest term as written 0.0%, without term 1 0.0%, smallest term (derived signs, alpha_(i+1)) 0.0%, smallest term exactly as written 9.2%, exact model 0.0%. Mean R: largest term 12.14, without term 1 11.14, smallest term 8.89, exact 8.89, ; needed 6.96. Smallest term = exact in 100.0%.
+- target p1: insufficient: largest term as written 0.0%, without term 1 0.0%, smallest term (derived signs, alpha_(i+1)) 0.0%, smallest term exactly as written 9.0%, exact model 0.0%. Mean R: largest term 13.59, without term 1 12.83, smallest term 10.37, exact 10.36, ; needed 8.17. Smallest term = exact in 99.8%.
+- Not knowing the path (R = max over the subset's paths, with the state's own A and B): mean R without term 1 12.40, smallest term 10.58, exact 10.57; insufficient 0.0% / 0.0%. The longest reduction any optimal needed is 11.2 moves on average over subsets (25,000 states each). Against the reductions a solver can actually write (R <= 6-7), every extra move multiplies the reductions by about 7.5 (out/q8_bounding_v2.tsv).
+- CORRECTS T11503 as written: with alpha_i summed over i with i and i+1 in S, the lower bound is wrong in 923 of 1,914,809 (state, path) cases at the optimum (out/q9_t11503_examples.tsv; witness W13). With alpha_(i+1), the section windows i and i+1 share: 0 violations.
+- T11503 lower bounds (after every reduction shorter than the one the optimal needs failed): as written valid in 99.9%, with alpha_(i+1) in 100.0%; better than the trivial M >= A + alpha_N, B + alpha_0 in 77.3% (exact model 84.4%); reach the optimum itself in 4.9%.
+- Withdrawn 12 Nov 2026: an earlier version said C must be the shortest NISS HTR. Removing one middle section leaves a NISS HTR of the DR itself, which is not FakeMMAP's C; C bounds the middle block, a linear HTR of a DR with the same label (half turns never change the label, out/checks/check_c_invariance.txt).
 
-rodneykinney's table (T11512), "reduce to 1q in at most R moves", per subset x edges and target M, worst case over the subset's paths with A = B = the subset's shortest linear HTR (nothing read off the DR), formula without term 1 (C = shortest linear HTR, as FakeMMAP defined it) / exact model (C = shortest NISS HTR seen in the subset); then the mean with the DR's own A, B; and what was actually needed (90th percentile / max). Full table: out/q9_rodney_table.tsv. M = 12 rows:
+rodneykinney's table (T11512), "reduce to 1q in at most R moves", per subset x edges and target M, worst case over the subset's paths with A = B = C = the subset's shortest linear HTR (nothing read off the DR): formula without term 1 / smallest term / exact model; then the mean with the DR's own A, B; and what was actually needed (90th percentile / max). Full table: out/q9_rodney_table.tsv. M = 12 rows:
 
-| subset | R (formula) | R (exact) | mean R, own A/B (formula / exact) | needed p90 / max |
-|---|---|---|---|---|
-| 0c0 0e | 13 | 10 | 13.00 / 10.00 | 1 / 8 |
-| 0c0 2e | 11 | 10 | 11.00 / 10.00 | 6 / 9 |
-| 0c0 4e | 11 | 9 | 11.00 / 9.00 | 7 / 9 |
-| 0c0 6e | 10 | 9 | 10.00 / 9.00 | 7 / 9 |
-| 0c0 8e | 11 | 9 | 11.00 / 9.00 | 4 / 7 |
-| 2c5 0e | 10 | 9 | 10.00 / 9.00 | 8 / 8 |
-| 2c5 2e | 10 | 9 | 10.00 / 9.00 | 8 / 8 |
-| 2c5 4e | 10 | 9 | 10.00 / 9.00 | 8 / 8 |
-| 2c5 6e | 10 | 9 | 10.00 / 9.00 | 8 / 8 |
-| 2c5 8e | 10 | 9 | 10.00 / 9.00 | 8 / 8 |
-| 2c4 0e | 10 | 9 | 10.00 / 9.00 | 7 / 9 |
-| 2c4 2e | 10 | 9 | 10.00 / 9.00 | 7 / 9 |
-| 2c4 4e | 10 | 9 | 10.00 / 9.00 | 7 / 9 |
-| 2c4 6e | 10 | 9 | 10.00 / 9.00 | 7 / 9 |
-| 2c4 8e | 10 | 9 | 10.00 / 9.00 | 7 / 8 |
-| 0c3 0e | 10 | 9 | 10.00 / 9.00 | 4 / 4 |
-| 0c3 2e | 10 | 9 | 10.00 / 9.00 | 5 / 7 |
-| 0c3 4e | 10 | 9 | 10.00 / 9.00 | 4 / 7 |
-| 0c3 6e | 10 | 9 | 10.00 / 9.00 | 5 / 7 |
-| 0c3 8e | 10 | 9 | 10.00 / 9.00 | 4 / 4 |
-| 4a2 0e | 10 | 9 | 10.00 / 9.00 | 7 / 8 |
-| 4a2 2e | 10 | 9 | 10.00 / 9.00 | 7 / 9 |
-| 4a2 4e | 11 | 10 | 11.00 / 10.00 | 6 / 9 |
-| 4a1 0e | 11 | 9 | 11.00 / 9.00 | 8 / 9 |
-| 4a1 2e | 11 | 9 | 11.00 / 9.00 | 6 / 8 |
-| 4a1 4e | 13 | 9 | 13.00 / 9.00 | 6 / 8 |
-| 2c3 0e | 10 | 9 | 10.00 / 9.00 | 8 / 8 |
-| 2c3 2e | 11 | 9 | 11.00 / 9.00 | 6 / 8 |
-| 2c3 4e | 11 | 9 | 11.00 / 9.00 | 7 / 8 |
-| 2c3 6e | 11 | 9 | 11.00 / 9.00 | 7 / 8 |
-| 2c3 8e | 10 | 9 | 10.00 / 9.00 | 8 / 8 |
-| 0c4 0e | 10 | 9 | 10.00 / 9.00 | 7 / 9 |
-| 0c4 2e | 10 | 9 | 10.00 / 9.00 | 7 / 9 |
-| 0c4 4e | 10 | 9 | 10.00 / 9.00 | 7 / 9 |
-| 0c4 6e | 10 | 9 | 10.00 / 9.00 | 8 / 9 |
-| 0c4 8e | 9 | 9 | 9.00 / 9.00 | 5 / 8 |
-| 4c3 0e | 10 | 9 | 10.00 / 9.00 | 7 / 8 |
-| 4c3 2e | 11 | 9 | 11.00 / 9.00 | 7 / 8 |
-| 4c3 4e | 11 | 9 | 11.00 / 9.00 | 7 / 8 |
-| 4c4 0e | 10 | 9 | 9.51 / 9.00 | 8 / 8 |
-| 4c4 2e | 10 | 9 | 10.00 / 9.00 | 8 / 9 |
-| 4c4 4e | 10 | 9 | 10.00 / 9.00 | 8 / 9 |
-| 4b2 0e | 11 | 9 | 11.00 / 9.00 | 7 / 9 |
-| 4b2 2e | 12 | 9 | 12.00 / 9.00 | 6 / 9 |
-| 4b2 4e | 11 | 9 | 11.00 / 9.00 | 7 / 9 |
-| 4b5 0e | 10 | 9 | 10.00 / 9.00 | 8 / 8 |
-| 4b5 2e | 10 | 9 | 10.00 / 9.00 | 8 / 8 |
-| 4b5 4e | 10 | 9 | 10.00 / 9.00 | 8 / 8 |
+| subset | R (largest term, no term 1) | R (smallest term) | R (exact) | mean R, own A/B (formula / exact) | needed p90 / max |
+|---|---|---|---|---|---|
+| 0c0 0e | 13 | 10 | 10 | 13.00 / 10.00 | 1 / 8 |
+| 0c0 2e | 11 | 10 | 10 | 11.00 / 10.00 | 6 / 9 |
+| 0c0 4e | 11 | 9 | 9 | 11.00 / 9.00 | 7 / 9 |
+| 0c0 6e | 10 | 9 | 9 | 10.00 / 9.00 | 7 / 9 |
+| 0c0 8e | 11 | 9 | 9 | 11.00 / 9.00 | 4 / 7 |
+| 2c5 0e | 10 | 9 | 9 | 10.00 / 9.00 | 8 / 8 |
+| 2c5 2e | 10 | 9 | 9 | 10.00 / 9.00 | 8 / 8 |
+| 2c5 4e | 10 | 9 | 9 | 10.00 / 9.00 | 8 / 8 |
+| 2c5 6e | 10 | 9 | 9 | 10.00 / 9.00 | 8 / 8 |
+| 2c5 8e | 10 | 9 | 9 | 10.00 / 9.00 | 8 / 8 |
+| 2c4 0e | 10 | 9 | 9 | 10.00 / 9.00 | 7 / 9 |
+| 2c4 2e | 10 | 9 | 9 | 10.00 / 9.00 | 7 / 9 |
+| 2c4 4e | 10 | 9 | 9 | 10.00 / 9.00 | 7 / 9 |
+| 2c4 6e | 10 | 9 | 9 | 10.00 / 9.00 | 7 / 9 |
+| 2c4 8e | 10 | 9 | 9 | 10.00 / 9.00 | 7 / 8 |
+| 0c3 0e | 10 | 9 | 9 | 10.00 / 9.00 | 4 / 4 |
+| 0c3 2e | 10 | 9 | 9 | 10.00 / 9.00 | 5 / 7 |
+| 0c3 4e | 10 | 9 | 9 | 10.00 / 9.00 | 4 / 7 |
+| 0c3 6e | 10 | 9 | 9 | 10.00 / 9.00 | 5 / 7 |
+| 0c3 8e | 10 | 9 | 9 | 10.00 / 9.00 | 4 / 4 |
+| 4a2 0e | 10 | 9 | 9 | 10.00 / 9.00 | 7 / 8 |
+| 4a2 2e | 10 | 9 | 9 | 10.00 / 9.00 | 7 / 9 |
+| 4a2 4e | 11 | 10 | 10 | 11.00 / 10.00 | 6 / 9 |
+| 4a1 0e | 11 | 9 | 9 | 11.00 / 9.00 | 8 / 9 |
+| 4a1 2e | 11 | 9 | 9 | 11.00 / 9.00 | 6 / 8 |
+| 4a1 4e | 13 | 9 | 9 | 13.00 / 9.00 | 6 / 8 |
+| 2c3 0e | 10 | 9 | 9 | 10.00 / 9.00 | 8 / 8 |
+| 2c3 2e | 11 | 9 | 9 | 11.00 / 9.00 | 6 / 8 |
+| 2c3 4e | 11 | 9 | 9 | 11.00 / 9.00 | 7 / 8 |
+| 2c3 6e | 11 | 9 | 9 | 11.00 / 9.00 | 7 / 8 |
+| 2c3 8e | 10 | 9 | 9 | 10.00 / 9.00 | 8 / 8 |
+| 0c4 0e | 10 | 9 | 9 | 10.00 / 9.00 | 7 / 9 |
+| 0c4 2e | 10 | 9 | 9 | 10.00 / 9.00 | 7 / 9 |
+| 0c4 4e | 10 | 9 | 9 | 10.00 / 9.00 | 7 / 9 |
+| 0c4 6e | 10 | 9 | 9 | 10.00 / 9.00 | 8 / 9 |
+| 0c4 8e | 9 | 9 | 9 | 9.00 / 9.00 | 5 / 8 |
+| 4c3 0e | 10 | 9 | 9 | 10.00 / 9.00 | 7 / 8 |
+| 4c3 2e | 11 | 9 | 9 | 11.00 / 9.00 | 7 / 8 |
+| 4c3 4e | 11 | 9 | 9 | 11.00 / 9.00 | 7 / 8 |
+| 4c4 0e | 10 | 9 | 9 | 9.51 / 9.00 | 8 / 8 |
+| 4c4 2e | 10 | 9 | 9 | 10.00 / 9.00 | 8 / 9 |
+| 4c4 4e | 10 | 9 | 9 | 10.00 / 9.00 | 8 / 9 |
+| 4b2 0e | 11 | 9 | 9 | 11.00 / 9.00 | 7 / 9 |
+| 4b2 2e | 12 | 9 | 9 | 12.00 / 9.00 | 6 / 9 |
+| 4b2 4e | 11 | 9 | 9 | 11.00 / 9.00 | 7 / 9 |
+| 4b5 0e | 10 | 9 | 9 | 10.00 / 9.00 | 8 / 8 |
+| 4b5 2e | 10 | 9 | 9 | 10.00 / 9.00 | 8 / 8 |
+| 4b5 4e | 10 | 9 | 9 | 10.00 / 9.00 | 8 / 8 |
 
 ## Half turns between quarter turns (C11, C13)
 
@@ -301,10 +300,10 @@ rodneykinney's table (T11512), "reduce to 1q in at most R moves", per subset x e
 - W07 (4a1 4e): 4a1 4e can need 17 moves (C56 said 15); exact count 32 of 286,654,464 4a1 4e states. Scramble `B2 R2 U B2 F2 R2 B2 F2 R2 U F2 R2 D' U' F2 R2 D'`, optimal 17: `D R2 F2 U D R2 F2 U' R2 F2 B2 R2 F2 B2 U' R2 B2`; replayed ok.
 - W08 (4c4 0e): 4c4 0e has linear HTRs of 10 moves (C51 said the minimum is 11). Scramble `D F2 R2 U2 B2 U' F2 U' F2 U L2 B2 U' R2 U'`, optimal 15: `U R2 U B2 L2 U' F2 U F2 U B2 U2 R2 F2 D'`; replayed ok.
 - W09 (0c3 4e): The longest shortest linear HTR is 13 moves (Daichi T11594 right, Lewis T4100's 12 wrong). Scramble `B2 D L2 B2 U' L2 D F2 D' F2 U' L2 D R2 U`, optimal 15: `U' R2 D' L2 U F2 D F2 D' L2 U B2 L2 D' B2`; replayed ok.
-- W10 (0c0 2e): FakeMMAP's C (shortest HTR in the subset) is not a bound on NISS HTRs: this 0c0 2e state (shortest linear HTR in 0c0 2e: 5) has an optimal 7-move finish whose NISS reading reaches HTR in 4. Scramble `F2 U' B2 R2 B2 U R2`, optimal 7: `R2 U' B2 R2 B2 U F2`; replayed ok.
 - W11 (4b2 0e): 4b2 0e whose optimal goes through 4c3 (C04: 4%; ours 6% with a random optimal). Scramble `U' B2 D2 F2 U' B2 F2 L2 B2 U2 F2 U' L2 U'`, optimal 14: `U L2 U F2 U2 B2 L2 F2 B2 U F2 D2 B2 U`; route reading: `U L2 U F2 U2 B2 L2 F2 B2 U F2 D2 B2 U` (normal first, normal `U`, inverse `U' B2 D2 F2 U' B2 F2 L2 B2 U2 F2 U' L2`, HTR 13); replayed ok.
 - W12 (2c3 2e): C13 corrected: a 2c3 2e whose shortest HTR among all readings of all optimal finishes needs a NISS switch after 4+ moves (28% of DRs need a switch after more than 2 moves for their shortest optimal HTR). Scramble `F2 U' L2 U' F2 R2 F2 L2 U F2 D2 B2`, optimal 12: `B2 D2 F2 U' L2 F2 R2 F2 U L2 U F2`; replayed ok.
 - W13 (0c4 0e): T11503 lower bound as written (alpha_i summed over i with i, i+1 in S) is invalid here: this 0c4 0e has optimal 14 with a finish on 0c4 > 4a3 > 4b2 > 4a1 > HTR, sections 2,1,3,1,3, shortest 1q reduction 9, while the bound with R' = 9 gives M >= 15 (S = {0,2,3} adds alpha_2 = 3); summing the shared section alpha_(i+1) instead gives 14. Scramble `D2 F2 L2 U' B2 U' L2 U2 B2 U' L2 D R2 D2`, optimal 14: `D2 R2 D' L2 U B2 U2 L2 U B2 U L2 F2 D2`; replayed ok.
+- W14 (0c3 2e): T11502 read as the smallest term with term 2 exactly as printed is too short here: this 0c3 2e has optimal 14, every optimal finish on 0c3 > 4a2 > 4a1 > HTR (N = 3, alpha = 0,3,3,0) with shortest 1q reduction 7, while term 2 as printed with S = {0,2} gives (14 - 1)/2 = 6.5; derived (14 + 1)/2 = 7.5. Scramble `F2 D2 R2 D' R2 U2 B2 D' L2 U2 F2 U L2 R2`, optimal 14: `R2 L2 U' F2 U2 L2 D B2 U2 R2 D R2 D2 F2`; replayed ok.
 
 ## Run times and memory
 

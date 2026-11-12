@@ -112,7 +112,7 @@ And the specific questions, each with a section below:
 
 - **Optimal finish of every DR state.** BFS of the group ⟨U, D, R2, L2, F2, B2⟩, all 19,508,428,800 states. "Optimal" means the shortest finish with those ten moves, same as nissy's `drudfin` and Joba's table. Average 13.58, max 18.
 - **Optimal leave slice of every DR state.** Same thing ignoring the E-slice: fewest DR moves that solve corners and the eight U/D-layer edges. Average 13.29, and the max is 18 as well. (`U2 L2 D B2 U' B2 U' L2 D B2 R2 U R2 U R2 U2 R2 U'` needs 18 for the leave slice and 18 for the full finish.)
-- **Every count treats each DR state as equally likely.** Real DRs aren't uniform across subsets, so read everything per subset.
+- **Every count treats each DR state as equally likely.** That is also close to how the DRs you reach are spread. On the EO-first DRs of at most 11 moves that cubelib finds on {= '{:,}'.format(GAPS()['scr']) =} random scrambles, every corner subset's share is within {= '%.1f' % GAPS()['share'] =} points of the share here and its average optimal within {= '%.2f' % GAPS()['mean'] =} moves. What differs is the bad-edge mix inside a subset (section 12), so the edge-count cells are uniform-state numbers.
 - Bad corners and edges are counted the way the server counts them, up to turning a layer. The Q in 2c**4** is the corner qt count. 4c3 = 4a3 and 4b3 together (they swap on inverse), same for 4c4. That's not how many qts the finish needs: 0c0 0e has states like `U D'` that need two, every 0c0 with bad edges needs two (`D F2 R2 F2 D`, 0c0 2e, solved by `D' F2 R2 F2 D'`), and 4a1 0e and 4a1 2e need three (`D F2 U' B2 F2 D'`, 4a1 2e, solved by `D F2 B2 U F2 D'`; `U L2 R2 U L2 R2 U'`, 4a1 0e, solved by `U R2 L2 U' R2 L2 U'`). Mallard keeps both numbers (`qt_corners` and `qt`). Mallard and Joba's files say `4c5` where wen's "HTR better smh (v2)" sheet and most people say `4b5`: same 48 of 420 cosets.
 - The 48 subsets are double cosets of ⟨half turns, U D⟩ merged with their inverses, as KrzychXyz said ([[T6648]]), which is how Mallard builds its table (https://github.com/Jobarion/cubelib); the 29,400 one-sided cosets decide HTR length. Built that way, all 48 sizes match Joba's.
 - Daichi's "90+% of 4b2 0e cases are 12-14 optimal" ([[T11457]]): 92.1%.
@@ -225,7 +225,7 @@ A pair that shows what the first hunch is up against. Both are 2c4 4e, with the 
 
 ### 4.1 Subset
 
-The baseline, and still the biggest single piece of information. Appendix A has all 48 with average, share finishing in 9 to 13, and the fastest and longest optimal in each (God's number per subset, which compLex asked about). The longest: 18 for 0c0 8e, 0c3 4e, 2c5 0e and 2c5 4e, 17 or 16 for most others, 13 for 0c0 0e. One of each 18:
+The baseline, and still the biggest single piece of information. Appendix A has all 48 with average, share finishing in 9 to 13, and the fastest and longest optimal in each (God's number per subset, which compLex asked about). The longest, in DR moves: 18 for 0c0 8e, 0c3 4e, 2c5 0e and 2c5 4e, 17 or 16 for most others, 13 for 0c0 0e. One of each 18:
 
     F2 L2 U B2 F2 R2 B2 F2 R2 U F2 R2 D U F2 R2 D' U'      // 0c0 8e
     F2 D' F2 D' F2 R2 U2 R2 U' B2 R2 B2 L2 U B2 U2 R2 U'   // 0c3 4e

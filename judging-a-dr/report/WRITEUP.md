@@ -214,7 +214,7 @@ And the specific questions, each with a section below:
 
 - **Optimal finish of every DR state.** BFS of the group ⟨U, D, R2, L2, F2, B2⟩, all 19,508,428,800 states. "Optimal" means the shortest finish with those ten moves, same as nissy's `drudfin` and Joba's table. Average 13.58, max 18.
 - **Optimal leave slice of every DR state.** Same thing ignoring the E-slice: fewest DR moves that solve corners and the eight U/D-layer edges. Average 13.29, and the max is 18 as well. (`U2 L2 D B2 U' B2 U' L2 D B2 R2 U R2 U R2 U2 R2 U'` needs 18 for the leave slice and 18 for the full finish.)
-- **Every count treats each DR state as equally likely.** Real DRs aren't uniform across subsets, so read everything per subset.
+- **Every count treats each DR state as equally likely.** That is also close to how the DRs you reach are spread. On the EO-first DRs of at most 11 moves that cubelib finds on 10,000 random scrambles, every corner subset's share is within 0.4 points of the share here and its average optimal within 0.05 moves. What differs is the bad-edge mix inside a subset (section 13), so the edge-count cells are uniform-state numbers.
 - Bad corners and edges are counted the way the server counts them, up to turning a layer. The Q in 2c**4** is the corner qt count. 4c3 = 4a3 and 4b3 together (they swap on inverse), same for 4c4. That's not how many qts the finish needs: 0c0 0e has states like `U D'` that need two, every 0c0 with bad edges needs two (`D F2 R2 F2 D`, 0c0 2e, solved by `D' F2 R2 F2 D'`), and 4a1 0e and 4a1 2e need three (`D F2 U' B2 F2 D'`, 4a1 2e, solved by `D F2 B2 U F2 D'`; `U L2 R2 U L2 R2 U'`, 4a1 0e, solved by `U R2 L2 U' R2 L2 U'`). Mallard keeps both numbers (`qt_corners` and `qt`). Mallard and Joba's files say `4c5` where wen's "HTR better smh (v2)" sheet and most people say `4b5`: same 48 of 420 cosets.
 - The 48 subsets are double cosets of ⟨half turns, U D⟩ merged with their inverses, as KrzychXyz said ([KrzychXyz, 28 Mar 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1355272481208008824)), which is how Mallard builds its table (https://github.com/Jobarion/cubelib); the 29,400 one-sided cosets decide HTR length. Built that way, all 48 sizes match Joba's.
 - Daichi's "90+% of 4b2 0e cases are 12-14 optimal" ([Daichi, 28 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1487653636786880684)): 92.1%.
@@ -471,7 +471,7 @@ A pair that shows what the first hunch is up against. Both are 2c4 4e, with the 
 
 ### 6.1 Subset
 
-The baseline, and still the biggest single piece of information. Appendix A has all 48 with average, share finishing in 9 to 13, and the fastest and longest optimal in each (God's number per subset, which compLex asked about). The longest: 18 for 0c0 8e, 0c3 4e, 2c5 0e and 2c5 4e, 17 or 16 for most others, 13 for 0c0 0e. One of each 18:
+The baseline, and still the biggest single piece of information. Appendix A has all 48 with average, share finishing in 9 to 13, and the fastest and longest optimal in each (God's number per subset, which compLex asked about). The longest, in DR moves: 18 for 0c0 8e, 0c3 4e, 2c5 0e and 2c5 4e, 17 or 16 for most others, 13 for 0c0 0e. One of each 18:
 
     F2 L2 U B2 F2 R2 B2 F2 R2 U F2 R2 D U F2 R2 D' U'      // 0c0 8e
     F2 D' F2 D' F2 R2 U2 R2 U' B2 R2 B2 L2 U B2 U2 R2 U'   // 0c3 4e
@@ -1211,8 +1211,8 @@ For the hand reads in sections 5 to 8:
 
 ## 13. What this doesn't do
 
-- **DR moves only.** "Optimal" here is U, D, R2, L2, F2, B2. DR-breaking finishes can be shorter: at the HTR level that's 66 of the 216 cases.
-- **Uniform states.** Every DR state counts once. The DRs you actually reach are spread differently over the subsets, so use the per-subset numbers, not the "all DRs" ones, for a decision.
+- **DR moves only.** "Optimal" here is U, D, R2, L2, F2, B2. A finish that breaks DR is shorter for 4.3% of DR states (± 0.1 points), by one move in 90% of those, 0.048 moves on average (48,000 uniform states, 1,000 per subset × edges, solved with all 18 face turns by nissy's `solve optimal`; 4.2% on real DRs with each DR counted once, 3.9% with each scramble once). For a DR whose DR-move optimum is 12 or less it is 1.1%; it climbs only on long finishes (9.4% at 15, 36% at 16). Most of it sits in three cells: 0c3 0e 36%, 0c4 0e 26%, 0c0 0e 21%. Example: `B2 L2 R2 F2 R2 U2 L2 R2 U2 R2 U2` (0c0 0e, DR moves only) has a DR-move optimum of 11 and `R L F2 B2 R' L' D2` solves it in 7. At the HTR level that's 66 of the 216 cases. Computed with nissy, not in Lean; every solution quoted was replayed on a sticker model.
+- **Uniform states.** Every DR state counts once. Measured against the DRs you actually reach, that is close to right. The test: 10,000 uniformly random scrambles, every EO-first DR of at most 11 moves cubelib-cli lists for each, as on the examples page (6,840,923 DRs), counted once per DR and once per scramble, standard errors clustered by scramble. Every corner subset's share is within 0.4 points of uniform, its average optimal within 0.05 moves, and its share finishing in 11 within 0.5 points (1.3 on 0c0). The "all DRs" numbers hold too: the HTR routes study's all-DR headlines move by at most 0.4 points. What does shift is the bad-edge mix inside a subset: with each scramble counted once, 0e is up to 43% rarer than uniform and 6e up to 17% commoner. Not modelled: CO-first or direct DRs, EOs over 5 moves, the twin of a DR with its last move turned the other way (counted once), and which DRs a solver chooses to keep. Computed, not proven; the full tables are in the [HTR routes study's real-DR section](https://fmc.arhan.sh/htr-routes/#12-real-drs).
 - **No hand bound for a 12 at 4–5qt.** That was the hope and it isn't here. What's here is the measurement that says a feature count won't give one, the reads ranked by what they buy at each target, and the kill rules that do exist. For a 10 or an 11 the two proven hand bounds do rule out a good share of 4–5qt DRs (section 5), but those are DRs you were dropping anyway.
 - **Your HTR may not be the shortest.** Every HTR number assumes the shortest HTR on each side. How often a solver finds it, and how fast, is not something a BFS can measure.
 - **Reads I didn't test.** Bigger blocks than pairs, anything you only see after a few moves (moves to FR, the shape after the first qt), and Rodney's NISS@1qt features per skeleton, which is section 9's table rather than a read.
@@ -1224,7 +1224,7 @@ For the hand reads in sections 5 to 8:
 
 ## Appendix A: all 48 subsets
 
-Exact over all DR states. Fastest and Longest are the shortest and the longest optimal finish in the subset (the longest is God's number for the subset).
+Exact over all DR states. Fastest and Longest are the shortest and the longest optimal finish in the subset (the longest is God's number for the subset in DR moves). Every column counts DR-move finishes. With all 18 face turns allowed a finish is sometimes shorter (section 13), so for any moves the "In N" shares are lower bounds; it matters on 0c3 0e (shorter on 36% of states), 0c4 0e (shorter on 26% of states), 0c0 0e (shorter on 21% of states). The 18-move states were not solved with all moves.
 
 | Subset | Share of all DRs | Avg optimal | Fastest | Longest | In 9 | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|

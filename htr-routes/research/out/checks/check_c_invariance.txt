@@ -1,0 +1,1 @@
+3000 random DR states x 6 half turns (47 distinct labels seen): label changed by a half turn after the scramble 0 times, before it 0 times

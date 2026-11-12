@@ -1,0 +1,17 @@
+[package]
+name = "htrtools"
+version = "0.1.0"
+edition = "2021"
+description = "Which HTR routes find the optimal DR finish: exact per-state route sets on uniform samples of every HTR subset"
+
+[[bin]]
+name = "htrtools"
+path = "src/main.rs"
+
+[dependencies]
+rayon = "1.10"
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+lto = true

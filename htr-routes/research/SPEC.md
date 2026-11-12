@@ -13,9 +13,7 @@ surprised if you could find anything novel", so every result must say plainly wh
 - Model and checks: `/data/fmc/is-dr-xs-worth-it/research/src/cube.py` (sticker model), nissy for cross-checks.
 
 ## What already exists (credit it; the study is new only where it goes past these)
-  optimal passes through each chain of corner subsets, NISS switches bracketed. Sample size, solver, E-slice and
-  DR-breaking treatment not stated; shares do not add up (all distinct paths per state counted, D19661). Daichi's
-  cheat sheet (image D18340) turns 396 into a per-subset checklist.
+- Daichi's cheat sheet (image D18340): a per-subset route checklist.
 - beef beans' "allcases" (doc 171, linear paths, one optimal per state, ties ignored D8302), extra-QT sheets
   (docs 66, 9), Aedan Bryant's HTR Subset Stats (doc 15, 1000 states per subset: mean optimal vs shortest linear and
   NISS HTR), Joba's exact per-subset finish distribution (doc 580), docs 566/567 (DR→HTR optimal per subset),
@@ -45,7 +43,7 @@ surprised if you could find anything novel", so every result must say plainly wh
   the inverse side visits the states at the end of S in reverse. A NISS route = (path on normal up to the split,
   path on inverse after it). Count a route as *working* on X if some finish of the target length is found that way.
 - *Route class* (what a solver decides to try): the named chain of corner subsets with the side of each step,
-  as in docs 396/410 and Daichi's sheet (e.g. "4b2 → 2c3 → HTR, NISS after 2c3"). Make the list of classes from the
+  as in Daichi's sheet (e.g. "4b2 → 2c3 → HTR, NISS after 2c3"). Make the list of classes from the
   data and from those docs; report how each doc's class maps to ours.
 - *Variations*: the DR's last move turned the other way (when it is a quarter turn of the DR axis that can be
   inverted), as in the first study's "invertible last move"; report routes with and without it.
@@ -53,7 +51,7 @@ surprised if you could find anything novel", so every result must say plainly wh
 ## Questions (exact over all DR states where feasible; otherwise a uniform sample per subset × edge count, at least
 ## 20,000 states each, exact per state)
 1. **Per subset (× bad edges): how often each route class works**, at the optimal and at optimal + 1, counting all
-   optimal finishes and all NISS readings. Compare with docs 396/410/171 and the quoted numbers above, cell by cell.
+   optimal finishes and all NISS readings. Compare with doc 171 and the quoted numbers above, cell by cell.
 2. **The checklist**: per subset, the ordered list of route classes that finds an optimal finish (and one within +1)
    on the most states for the fewest classes tried (greedy cover, report the cumulative share after 1, 2, 3, … classes,
    and how far greedy is from the best possible set of that size). This is the main deliverable: "on 4c3, try these

@@ -11,11 +11,24 @@ Inputs:
                           ending in a quarter turn), counted exactly (checked against brute force on 4,800 states)
   htrtools alpha          FakeMMAP's alpha_i for each corner path: fewest half turns section i must have over every
                           corner permutation following the path (alpha_1 = 3 for 4a3 > 4b2 > 4a1, as in T11501)
-Q9 (T11502 as written, alpha from the path, the alpha sum over i with i and i+1 in S):
-  R_lit (all five terms), R_no1 (without term 1), R_exact (max over integer sections s_i >= alpha_i of the shortest 1q
-  reduction under the same constraints; C as stated = shortest linear HTR of the subset, and C = the state's
-  shortest NISS HTR).  Sufficiency per (state, path, M): the reduction a finish of that path and length <= M needs
-  vs R.  Per state, not knowing the path: R_state = max over the (N, alpha) of the subset's paths.
+Q9 (T11502; derivation in ../notes/fakemmap_C.md).  A finish h_0 q_1 h_1 ... q_N h_N, section lengths s_i >= alpha_i,
+L = N + sum s_i <= M; the 1q reduction around quarter turn q has length L - 1 - s_(q-1) - s_q.  The model's constraints:
+  A: L - s_N >= A        everything but the last section is a linear HTR on normal
+  B: L - s_0 >= B        everything but the first section is a linear HTR on inverse
+  C: L - s_0 - s_N >= C  the middle q_1 h_1 ... q_N is a linear HTR of the state after h_0, which is in the same
+                         subset x edges (half turns never change the label, out/checks/check_c_invariance.txt), so
+                         C = the subset's shortest linear HTR (C_LIN), as FakeMMAP defined it; dropped for N = 2 as
+                         in T11502 term 5
+  R_lit        the largest of T11502's five terms, as written (sum alpha_i over i with i, i+1 in S)
+  R_no1        the same without term 1
+  R_min        the smallest of the five terms, term 2 with the signs of T11503 ((|S|-1)M + (N-|S|) - sum)/|S|,
+               alpha_(i+1): each term is an upper bound of the linear programme, so the bound the derivation gives
+  R_min_wr     the smallest term with term 2 and the alpha index exactly as written (to show the slip matters)
+  R_exact      max over integer sections allowed by A, B, C of the shortest 1q reduction (enumeration)
+  (A variant with our own extra constraints, C also for N = 2 and L - s_j >= the state's shortest NISS HTR for each
+  middle section j, was tried and dropped: valid, but it lowered R in under 1% of cases and the mean by 0.01.)
+Sufficiency per (state, path, M): the reduction a finish of that path and length <= M needs vs R.  Per state, not
+knowing the path: R_state = max over the (N, alpha) of the subset's paths.
 Outputs: out/q8_bounding_v2.tsv, out/q8_vs_checklist.tsv, out/q9_v2.tsv, out/q9_v2_counterexamples.tsv,
 out/q9_rodney_table.tsv, out/q9_alpha.tsv, out/c11_c13.tsv"""
 import csv, collections, functools, itertools, math, subprocess, os, sys
@@ -29,17 +42,29 @@ for r in csv.DictReader(open(f'{R}/out/checks/htr48.tsv'), delimiter='\t'):
     C_LIN[r['subset']] = min(C_LIN.get(r['subset'], 99), int(r['htr_len']))
 TARGETS = ['opt', 'p1', 'M10', 'M11', 'M12']
 
-def load():
-    B = {}
+def parse_row(r):
+    cells = []
+    for c in r['cells'].split(';') if r['cells'] else []:
+        dl, p, r1, r2, sec = c.split(':')
+        cells.append((int(dl), p, int(r1), int(r2), tuple(int(x) for x in sec.split(',') if x)))
+    return dict(r, cells=cells)
+
+def all_paths():
     paths = set()
     for r in csv.DictReader(open(f'{R}/out/big/bound2.tsv'), delimiter='\t'):
-        cells = []
-        for c in r['cells'].split(';') if r['cells'] else []:
-            dl, p, r1, r2, sec = c.split(':')
-            cells.append((int(dl), p, int(r1), int(r2), tuple(int(x) for x in sec.split(',') if x)))
-            paths.add(p)
-        B.setdefault(r['subset'], []).append(dict(r, cells=cells))
-    return B, paths
+        for c in (r['cells'].split(';') if r['cells'] else []):
+            paths.add(c.split(':')[1])
+    return paths
+
+def by_subset():
+    """(subset, rows) one subset at a time (bound2.tsv is written subset by subset), to keep memory small"""
+    cur, rows = None, []
+    for r in csv.DictReader(open(f'{R}/out/big/bound2.tsv'), delimiter='\t'):
+        if r['subset'] != cur:
+            if rows: yield cur, rows
+            cur, rows = r['subset'], []
+        rows.append(parse_row(r))
+    if rows: yield cur, rows
 
 def alphas(paths):
     p = subprocess.run([TOOL, 'alpha'], input='\n'.join(sorted(paths)) + '\n', capture_output=True, text=True, check=True)
@@ -61,20 +86,33 @@ def target_dl(tg, d, budget):
 @functools.lru_cache(maxsize=None)
 def cov(lo, hi):
     return covering_sets(lo, hi, True) if hi >= lo else []
-def esum(S, al):
-    return sum(al[i] for i in S if i + 1 in S)
+def esum(S, al, shared=False):
+    """sum over i with i, i+1 in S of alpha_i (as written) or alpha_(i+1) (the section windows i and i+1 share)"""
+    return sum(al[i + 1] if shared else al[i] for i in S if i + 1 in S)
+
+def terms(M, N, al, A, B, C, term1=True, derived=False):
+    """T11502's five families. derived=False: as written; True: term 2 with the signs of T11503, alpha_(i+1)"""
+    c = []
+    if term1: c += [M - al[i] - al[i + 1] - 1 for i in range(N)]
+    for S in cov(0, N - 1):
+        k = len(S)
+        c.append(((k - 1) * M + (N - k) - esum(S, al, True)) / k if derived else ((k - 1) * M - (N - k) + esum(S, al)) / k)
+    if N >= 2:
+        for S in cov(0, N - 2): c.append(M - (A - (N - len(S)) + esum(S, al, derived)) / len(S))
+        for S in cov(1, N - 1): c.append(M - (B - (N - len(S)) + esum(S, al, derived)) / len(S))
+    if N > 2:
+        for S in cov(1, N - 2): c.append(M - (C - (N - len(S)) + esum(S, al, derived)) / len(S))
+    return c
 
 @functools.lru_cache(maxsize=None)
 def R_fake(M, N, al, A, B, C, term1=True):
-    c = []
-    if term1: c += [M - al[i] - al[i + 1] - 1 for i in range(N)]
-    for S in cov(0, N - 1): c.append(((len(S) - 1) * M - (N - len(S)) + esum(S, al)) / len(S))
-    if N >= 2:
-        for S in cov(0, N - 2): c.append(M - (A - (N - len(S)) + esum(S, al)) / len(S))
-        for S in cov(1, N - 1): c.append(M - (B - (N - len(S)) + esum(S, al)) / len(S))
-    if N > 2:
-        for S in cov(1, N - 2): c.append(M - (C - (N - len(S)) + esum(S, al)) / len(S))
-    return math.floor(max(c) + 1e-9)
+    """as written: the largest term"""
+    return math.floor(max(terms(M, N, al, A, B, C, term1)) + 1e-9)
+
+@functools.lru_cache(maxsize=None)
+def R_min(M, N, al, A, B, C, derived=True):
+    """the smallest term (each term is an upper bound on the shortest reduction)"""
+    return math.floor(min(terms(M, N, al, A, B, C, True, derived)) + 1e-9)
 
 @functools.lru_cache(maxsize=None)
 def comps(T, parts):
@@ -87,15 +125,20 @@ def comps(T, parts):
         r.append(T + parts - 2 - prev); rows.append(r)
     return np.array(rows, int).reshape(-1, parts)
 
+def _feasible(s, L, N, A, B, C):
+    ok = (L - s[:, N] >= A) & (L - s[:, 0] >= B)
+    if N > 2: ok &= L - s[:, 0] - s[:, N] >= C
+    return ok
+
 @functools.lru_cache(maxsize=None)
 def R_exact(M, N, al, A, B, C):
+    """largest shortest-1q-reduction over integer sections allowed by A, B, C (C dropped for N = 2)"""
     best = -1
     al_ = np.array(al)
     for L in range(N + sum(al), M + 1):
         s = comps(L - N - sum(al), N + 1) + al_
         if not len(s): continue
-        ok = (L - s[:, N] >= A) & (L - s[:, 0] >= B)
-        for j in range(1, N): ok &= L - s[:, j] >= C
+        ok = _feasible(s, L, N, A, B, C)
         if not ok.any(): continue
         s = s[ok]
         red = np.min(np.stack([L - 1 - s[:, q - 1] - s[:, q] for q in range(1, N + 1)], 1), 1)
@@ -104,30 +147,30 @@ def R_exact(M, N, al, A, B, C):
 
 @functools.lru_cache(maxsize=None)
 def LB_exact(Rp, N, al, A, B, C, Mmax=22):
+    """shortest L for which the model allows a finish whose every 1q reduction is >= Rp"""
     al_ = np.array(al)
     for L in range(N + sum(al), Mmax + 1):
         s = comps(L - N - sum(al), N + 1) + al_
         if not len(s): continue
-        ok = (L - s[:, N] >= A) & (L - s[:, 0] >= B)
-        for j in range(1, N): ok &= L - s[:, j] >= C
+        ok = _feasible(s, L, N, A, B, C)
         red = np.min(np.stack([L - 1 - s[:, q - 1] - s[:, q] for q in range(1, N + 1)], 1), 1)
         if (ok & (red >= Rp)).any(): return L
     return 99
 
-def LB_fake(Rp, N, al, A, B, C):
+def LB_fake(Rp, N, al, A, B, C, shared=False):
+    """T11503's lower bounds on M (as written: alpha_i; shared=True: alpha_(i+1))"""
     v = [A + al[N], B + al[0]]
     for S in cov(0, N - 1):
-        if len(S) > 1: v.append((len(S) * (Rp + 1) - N + esum(S, al)) / (len(S) - 1))
-    for S in cov(0, N - 2): v.append(1 + Rp + (A - N + esum(S, al)) / len(S))
-    for S in cov(1, N - 1): v.append(1 + Rp + (B - N + esum(S, al)) / len(S))
+        if len(S) > 1: v.append((len(S) * (Rp + 1) - N + esum(S, al, shared)) / (len(S) - 1))
+    for S in cov(0, N - 2): v.append(1 + Rp + (A - N + esum(S, al, shared)) / len(S))
+    for S in cov(1, N - 1): v.append(1 + Rp + (B - N + esum(S, al, shared)) / len(S))
     if N > 2:
-        for S in cov(1, N - 2): v.append(1 + Rp + (C - N + esum(S, al)) / len(S))
+        for S in cov(1, N - 2): v.append(1 + Rp + (C - N + esum(S, al, shared)) / len(S))
     return math.ceil(max(v) - 1e-9)
 
 # ------------------------------------------------------------------ main
 def main():
-    B, paths = load()
-    AL = alphas(paths)
+    AL = alphas(all_paths())
     with open(f'{OUT}/q9_alpha.tsv', 'w') as f:
         f.write('path\tN\talpha_0..alpha_N\n')
         for p in sorted(AL, key=lambda x: (len(x), x)):
@@ -142,24 +185,26 @@ def main():
     q8 = open(f'{OUT}/q8_bounding_v2.tsv', 'w')
     q8.write('group\tq\tR\tn_states\tmean_reductions_le_R\tse_reductions\t' + '\t'.join(f'found_{t}\tse_{t}' for t in TARGETS) + '\n')
     q9 = open(f'{OUT}/q9_v2.tsv', 'w')
-    q9.write('subset\ttarget\tcases_state_path\tinsuff_literal\tinsuff_no_term1\tinsuff_exact_Clin\tinsuff_exact_Cniss\t'
-             'mean_R_literal\tmean_R_no_term1\tmean_R_exact_Cniss\tmean_R_needed\tp50_needed\tp90_needed\tmax_needed\t'
-             'states\tstate_insuff_no_term1\tstate_insuff_exact_Cniss\tmean_Rstate_literal\tmean_Rstate_no_term1\tmean_Rstate_exact_Cniss\t'
-             'R_empirical_max\tskip_vs_empirical_no_term1\tskip_vs_empirical_exact\tLB_valid\tLB_beats_trivial\tLB_exact_beats_trivial\tLB_reaches_opt\n')
+    V = ['literal', 'no_term1', 'min_terms', 'min_terms_as_written', 'exact']
+    q9.write('subset\ttarget\tcases_state_path\t' + '\t'.join(f'insuff_{v}' for v in V) + '\t' + '\t'.join(f'mean_R_{v}' for v in V) +
+             '\tmin_terms_eq_exact\tmean_R_needed\tp50_needed\tp90_needed\tmax_needed\t'
+             'states\tstate_insuff_no_term1\tstate_insuff_exact\tmean_Rstate_literal\tmean_Rstate_no_term1\tmean_Rstate_min_terms\tmean_Rstate_exact\t'
+             'R_empirical_max\tskip_vs_empirical_no_term1\tskip_vs_empirical_exact\t'
+             'LB_valid\tLB_shared_valid\tLB_beats_trivial\tLB_shared_beats_trivial\tLB_exact_beats_trivial\tLB_reaches_opt\n')
     cex = open(f'{OUT}/q9_v2_counterexamples.tsv', 'w')
     cex.write('subset\tidx\tversion\tM\tpath\tN\talpha\tA\tB\tC\tR_bound\tR_needed\tsections\n')
     rod = open(f'{OUT}/q9_rodney_table.tsv', 'w')
-    rod.write('subset\tM_minus_opt_or_M\tR_no_term1_worst_case\tR_exact_worst_case_Cniss\tR_no_term1_mean_with_own_A_B\tR_exact_mean_with_own_A_B\tR_needed_p90\tR_needed_max\tpaths_used\n')
+    rod.write('subset\tM_minus_opt_or_M\tR_no_term1_worst_case\tR_min_terms_worst_case\tR_exact_worst_case\tR_no_term1_mean_with_own_A_B\tR_exact_mean_with_own_A_B\tR_needed_p90\tR_needed_max\tpaths_used\n')
     c11 = open(f'{OUT}/c11_c13.tsv', 'w')
     c11.write('group\tn\tsome_opt_ends_qt_ht_qt\teither_end_qt_ht_qt\trandom_opt_ends_qt_ht_qt\tsome_opt_ends_RU2Rp\teither_end_RU2Rp\trandom_opt_ends_RU2Rp\t'
               'shortest_htr_needs_switch_after_gt2\tshortest_htr_needs_switch_after_gt3\tbudget2_needs_switch_after_gt2\tbudget2_needs_switch_after_gt3\n')
 
     acc8 = collections.defaultdict(lambda: collections.defaultdict(list))
     acc11 = collections.defaultdict(list)
-    for sub in SUBS:
-        rows = B[sub]; w = SIZE[sub] / len(rows)
+    pname = lambda p: ' > '.join(NAMES[int(i)] for i in p.split('-'))
+    for sub, rows in by_subset():
         Cl = C_LIN[sub]
-        Cn_min = min(int(r['niss']) for r in rows)   # shortest NISS HTR seen in the subset's sample
+        ncex = collections.Counter()
         # 11 / 13
         for r in rows:
             acc11[sub].append([int(r['trig_end_normal']), int(r['trig_either_end']), float(r['trig_frac_canon']),
@@ -201,49 +246,54 @@ def main():
                     N = len(p.split('-')) - 1
                     if N < 2: continue
                     al = AL[p]
-                    rl = R_fake(M, N, al, A, Bv, Cl, True); rn = R_fake(M, N, al, A, Bv, Cl, False)
-                    rec = R_exact(M, N, al, A, Bv, Cl) if N <= 8 else 99
-                    ren = R_exact(M, N, al, A, Bv, Cn) if N <= 8 else 99
-                    res.append((nd > rl, nd > rn, nd > rec, nd > ren, rl, rn, ren, nd))
-                    for ver, rb, cc in (('literal', rl, Cl), ('no_term1', rn, Cl), ('exact_C_linear', rec, Cl), ('exact_C_niss', ren, Cn)):
-                        if nd > rb:
-                            cex.write(f"{sub}\t{r['idx']}\t{ver}\t{M}\t{' > '.join(NAMES[int(i)] for i in p.split('-'))}\t{N}\t{','.join(map(str, al))}\t{A}\t{Bv}\t{cc}\t{rb}\t{nd}\t{','.join(map(str, sec))}\n")
+                    rb = [R_fake(M, N, al, A, Bv, Cl, True), R_fake(M, N, al, A, Bv, Cl, False),
+                          R_min(M, N, al, A, Bv, Cl, True), R_min(M, N, al, A, Bv, Cl, False),
+                          R_exact(M, N, al, A, Bv, Cl) if N <= 8 else 99]
+                    res.append(([nd > x for x in rb], rb, nd, rb[2] == rb[4]))
+                    for ver, x in zip(V, rb):
+                        if nd > x and (ver != 'min_terms_as_written' or ncex[ver] < 200):   # that one fails often: keep 200 per subset
+                            ncex[ver] += 1
+                            cex.write(f"{sub}\t{r['idx']}\t{ver}\t{M}\t{pname(p)}\t{N}\t{','.join(map(str, al))}\t{A}\t{Bv}\t{Cl}\t{x}\t{nd}\t{','.join(map(str, sec))}\n")
                     if tg == 'opt' and N <= 8:
-                        lf = LB_fake(nd, N, al, A, Bv, Cl); le = LB_exact(nd, N, al, A, Bv, Cn)
+                        lf = LB_fake(nd, N, al, A, Bv, Cl); lf2 = LB_fake(nd, N, al, A, Bv, Cl, True); le = LB_exact(nd, N, al, A, Bv, Cl)
                         triv = max(A + al[N], Bv + al[0])
-                        lbs.append((lf <= M, lf > triv, le > triv, max(lf, le) >= M))
+                        lbs.append((lf <= M, lf2 <= M, lf > triv, lf2 > triv, le > triv, max(lf2, le) >= M))
                 # per state: the path is unknown
                 rs_l = max([R_fake(M, N, al, A, Bv, Cl, True) for N, al in sigs] or [0])
                 rs_n = max([R_fake(M, N, al, A, Bv, Cl, False) for N, al in sigs] or [0])
-                rs_e = max([R_exact(M, N, al, A, Bv, Cn) for N, al in sigs if N <= 8] or [0])
+                rs_m = max([R_min(M, N, al, A, Bv, Cl, True) for N, al in sigs] or [0])
+                rs_e = max([R_exact(M, N, al, A, Bv, Cl) for N, al in sigs if N <= 8] or [0])
                 skip_n = skip_e = None
                 key = (sub, int(r['idx']))
                 if key in RC:
                     ce = cum(RC[key], 1, emp)
                     if ce > 0:
                         skip_n = 1 - cum(RC[key], 1, rs_n) / ce; skip_e = 1 - cum(RC[key], 1, rs_e) / ce
-                st_res.append((need1 > rs_n, need1 > rs_e, rs_l, rs_n, rs_e, skip_n, skip_e, need1))
+                st_res.append((need1 > rs_n, need1 > rs_e, rs_l, rs_n, rs_e, skip_n, skip_e, need1, rs_m))
             if not res: continue
-            a = np.array([x[:8] for x in res], float); sr = st_res
-            nd = np.array([x[7] for x in res]); nd = nd[nd < 99]
+            ins = np.array([x[0] for x in res], float); rbs = np.array([x[1] for x in res], float); sr = st_res
+            nd = np.array([x[2] for x in res]); nd = nd[nd < 99]
+            def mR(j):
+                v = rbs[:, j]; v = v[v < 99]; return v.mean()
             sk_n = [x[5] for x in sr if x[5] is not None]; sk_e = [x[6] for x in sr if x[6] is not None]
-            lb = np.array(lbs, float) if lbs else np.zeros((1, 4))
-            q9.write(f"{sub}\t{tg}\t{len(res)}\t{a[:, 0].mean():.4f}\t{a[:, 1].mean():.4f}\t{a[:, 2].mean():.4f}\t{a[:, 3].mean():.4f}\t"
-                     f"{a[:, 4].mean():.2f}\t{a[:, 5].mean():.2f}\t{a[:, 6][a[:, 6] < 99].mean():.2f}\t{nd.mean():.2f}\t{np.percentile(nd, 50):.0f}\t{np.percentile(nd, 90):.0f}\t{nd.max()}\t"
-                     f"{len(sr)}\t{np.mean([x[0] for x in sr]):.4f}\t{np.mean([x[1] for x in sr]):.4f}\t{np.mean([x[2] for x in sr]):.2f}\t{np.mean([x[3] for x in sr]):.2f}\t{np.mean([x[4] for x in sr]):.2f}\t"
-                     f"{emp}\t{(np.mean(sk_n) if sk_n else float('nan')):.4f}\t{(np.mean(sk_e) if sk_e else float('nan')):.4f}\t"
-                     f"{lb[:, 0].mean():.4f}\t{lb[:, 1].mean():.4f}\t{lb[:, 2].mean():.4f}\t{lb[:, 3].mean():.4f}\n")
-            # rodneykinney's table: worst case over the subset's paths with no knowledge of A, B (A = B = C)
-            Mtab = per[0][1] if tg.startswith('M') else None
-            need_all = [x[7] for x in sr if x[7] < 99]
+            lb = np.array(lbs, float) if lbs else np.zeros((1, 6))
+            q9.write(f"{sub}\t{tg}\t{len(res)}\t" + '\t'.join(f'{ins[:, j].mean():.4f}' for j in range(5)) + '\t' + '\t'.join(f'{mR(j):.2f}' for j in range(5)) +
+                     f"\t{np.mean([x[3] for x in res]):.4f}"
+                     f"\t{nd.mean():.2f}\t{np.percentile(nd, 50):.0f}\t{np.percentile(nd, 90):.0f}\t{nd.max()}\t"
+                     f"{len(sr)}\t{np.mean([x[0] for x in sr]):.4f}\t{np.mean([x[1] for x in sr]):.4f}\t{np.mean([x[2] for x in sr]):.2f}\t{np.mean([x[3] for x in sr]):.2f}\t"
+                     f"{np.mean([x[8] for x in sr]):.2f}\t{np.mean([x[4] for x in sr]):.2f}\t"
+                     f"{emp}\t{(np.mean(sk_n) if sk_n else float('nan')):.4f}\t{(np.mean(sk_e) if sk_e else float('nan')):.4f}\t" +
+                     '\t'.join(f'{lb[:, j].mean():.4f}' for j in range(6)) + '\n')
+            # rodneykinney's table: worst case over the subset's paths with nothing read off the DR (A = B = C = C_LIN)
             for Mval in ([int(tg[1:])] if tg.startswith('M') else sorted({x[1] for x in per})):
                 if not tg.startswith('M') and Mval not in range(10, 16): continue
                 wc_n = max([R_fake(Mval, N, al, Cl, Cl, Cl, False) for N, al in sigs] or [0])
-                wc_e = max([R_exact(Mval, N, al, Cl, Cl, Cn_min) for N, al in sigs if N <= 8] or [0])
+                wc_m = max([R_min(Mval, N, al, Cl, Cl, Cl, True) for N, al in sigs] or [0])
+                wc_e = max([R_exact(Mval, N, al, Cl, Cl, Cl) for N, al in sigs if N <= 8] or [0])
                 sel = [x for x, pp in zip(sr, per) if pp[1] == Mval]
                 if not sel: continue
                 ne = [x[7] for x in sel if x[7] < 99]
-                rod.write(f"{sub}\t{tg}:M={Mval}\t{wc_n}\t{wc_e}\t{np.mean([x[3] for x in sel]):.2f}\t{np.mean([x[4] for x in sel]):.2f}\t"
+                rod.write(f"{sub}\t{tg}:M={Mval}\t{wc_n}\t{wc_m}\t{wc_e}\t{np.mean([x[3] for x in sel]):.2f}\t{np.mean([x[4] for x in sel]):.2f}\t"
                           f"{(np.percentile(ne, 90) if ne else float('nan')):.0f}\t{(max(ne) if ne else -1)}\t{len(sigs)}\n")
             for f_ in (q9, cex, rod): f_.flush()
         print(sub, flush=True)

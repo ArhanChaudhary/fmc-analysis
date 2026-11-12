@@ -57,8 +57,6 @@ def BYLEN(L, col):
 def GR(name, step, col):
     r = [r for r in E['q6'] if r['checklist'] == name and r['step'] == str(step)][0]
     return pc(r[col])
-def RR(doc, rule, col):
-    return E['rr'][f'{doc}|{rule}'][col]
 def NM(doc, label): return E['names'][f'{doc}|{label}']
 def MINLIN(s): return str(E['minlin'][s])
 def MAXLIN(s): return str(E['maxlin'][s])
@@ -111,7 +109,12 @@ def LB11503(Rp, N, S, al, shared=False):
     """FakeMMAP's first T11503 bound, ceil((|S|(R'+1) - N + sum alpha) / (|S| - 1)); alpha_i (as written) or alpha_(i+1)"""
     sm = sum(al[i + 1] if shared else al[i] for i in S if i + 1 in S)
     return (len(S) * (Rp + 1) - N + sm) / (len(S) - 1)
-ENV = {k: v for k, v in globals().items() if not k.startswith('_')}
+def T2(M, N, S, al, derived=False):
+    """T11502 term 2: as printed ((|S|-1)M - (N-|S|) + sum alpha_i)/|S|, derived ((|S|-1)M + (N-|S|) - sum alpha_(i+1))/|S|"""
+    k = len(S)
+    if derived: return ((k - 1) * M + (N - k) - sum(al[i + 1] for i in S if i + 1 in S)) / k
+    return ((k - 1) * M - (N - k) + sum(al[i] for i in S if i + 1 in S)) / k
+ENV ={k: v for k, v in globals().items() if not k.startswith('_')}
 def EV(cid, before, after=None):
     """a piece of a claims.tsv evidence string: the text after `before` up to `after` (default: the next space)"""
     s = E['claims'][cid]['evidence'].split(before, 1)[1]
@@ -132,4 +135,19 @@ def BIGSTEP(name, col='cumulative_opt_htr_budget2'):
     rows = sorted([r for r in E['q6'] if r['checklist'] == name], key=lambda r: int(r['step']))
     best = max(range(1, len(rows)), key=lambda i: float(rows[i][col]) - float(rows[i - 1][col]))
     return rows[best]['step'], f"{(float(rows[best][col]) - float(rows[best - 1][col])) * 100:.1f}", rows[best]['step_description']
+ENV = {k: v for k, v in globals().items() if not k.startswith('_')}
+# what the edge count is worth (edge_gain.py) and edge counts along the route (edge_steps.py)
+def EGA(tg, k): return f"{E['eg']['all'][tg][str(k)] * 100:.1f}"
+def EGC(g, tg, k): return f"{E['eg']['corner'][g][tg][str(k)] * 100:.1f}"
+def EGR(s, k, which='own', tg='opt'): return pc(E['eg']['rows'][s][tg][f'{which}{k}'])
+def EGG(s, k, tg='opt'): return f"{E['eg']['rows'][s][tg][f'gain{k}'] * 100:.1f}"
+def EGF(s, col='own_first'): return '`' + E['eg']['rows'][s]['opt'][col].replace(' | ht', '') + '`'
+def EGRANK(s): return E['eg']['rows'][s]['opt']['pooled_first_rank']
+def EGMAX(corners, tg='opt'):
+    return f"{max(r[tg][f'gain{k}'] for s, r in E['eg']['rows'].items() if s.split()[0] in corners for k in '1235') * 100:.1f}"
+def ESV(s, via, tg='opt'): return pc(E['es']['via'][f'{s}|{tg}'].get(via, 0))
+def ESR(x, e, tg='opt'): return pc(E['es']['rev'][f'{x}|{tg}'][e])
+def ESA(tg, which, i): return pc(E['es']['all'][tg][which][i])
+def ESM(k, tg='opt'): return str(E['es']['all'][tg]['match1'].get(str(k), 0))
+def ESL(f, tg='opt'): return [k.split('|')[0] for k, v in E['es']['ref'].items() if k.endswith('|' + tg) and f(v)]
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}

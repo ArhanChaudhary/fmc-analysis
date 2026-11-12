@@ -1,0 +1,21 @@
+{
+ "scrambles": 10000,
+ "drs_le11": 6840923,
+ "drs_le10": 704669,
+ "scrambles_with_le10": 9850,
+ "per_scramble_le11_mean": 684.0923,
+ "per_scramble_le11_median": 320.0,
+ "per_scramble_le11_max": 98536,
+ "per_scramble_le10_mean": 70.4669,
+ "side_inverse_share_dr11": 0.5044993197555359,
+ "length_counts": {
+  "4": 1,
+  "5": 5,
+  "6": 71,
+  "7": 682,
+  "8": 6616,
+  "9": 64470,
+  "10": 632824,
+  "11": 6136254
+ }
+}

@@ -4,14 +4,15 @@
 
 {{checklist_full}}
 
+**Edge-path checklists, computer only**: per subset × edges, the budget-2 checklist built over routes read with the bad-edge count at every step (section 4), against the corner-only one: the share after 1, 2, 3 and 5 routes, the first edge path, and how many edge paths it takes to find what the first corner-only route finds. An answer key, not a list to check in an attempt. Sampled, {= n(25000) =} per subset × edges.
+
+{{edge_refined}}
+
 **Checklists with no HTR limit**, first four routes. With no limit the routes overlap so much that these lists say more about which readings exist than what to try:
 
 {{checklist_nolimit}}
 
-
-{{docs_top}}
-
-**rodneykinney's table** for FakeMMAP's bound: per subset × edges and target M, "reduce to 1q in at most R moves" with nothing read off the DR (A and B the subset's shortest linear HTR, worst case over the subset's corner paths): the formula of FakeMMAP's message without its first term (C the subset's shortest linear HTR) / the exact model (C the shortest NISS HTR) / the longest reduction any sampled finish of at most M needed. Sampled, {= n(25000) =} per subset × edges; a blank cell means no sampled finish reaches that M.
+**rodneykinney's table** for FakeMMAP's bound: per subset × edges and target M, "reduce to 1q in at most R moves" with nothing read off the DR (A, B and C the subset's shortest linear HTR, worst case over the subset's corner paths). Each cell gives three numbers: the formula of FakeMMAP's message without its first term, the exact model of section 9 (*computer only*), and the longest reduction any sampled finish of at most M needed. Sampled, {= n(25000) =} per subset × edges; a blank cell means no sampled finish reaches that M.
 
 {{rodney_table}}
 
@@ -31,6 +32,14 @@
 - The leave-slice maximum of 4a1 4e (15) is a count over the first study's exact leave-slice table, every state.
 - A Lean 4 certificate in the study's folder recomputes the small exact tables from its own cube model and proves they equal the study's: the 663,552 HTR states, the corner quarter-turn counts and subsets of all 40,320 corner arrangements, the shortest linear HTR of every subset (all 29,400 HTR cosets), FakeMMAP's α for every corner path used, the *5/6 fake* count, the bare-qt reductions of 3qt and 4qt cases, and the 2qt(a)/(b) labels of Aedan Bryant's and the *Extra Quarter-Turn Stats* sheets from their own example triggers.
 - Every move sequence in this write-up, the errata and the worked examples is replayed on the sticker model (the examples page states its count).
+
+**Formally verified.** Two Lean 4 libraries in the study's folder, no Mathlib, no `sorry`. What they prove for this study:
+
+- *HTRRoutes* (lean/HTRRoutes): the small exact tables, as in the bullet above.
+- *FakeBound* (lean/FakeBound/FakeBound), FakeMMAP's bound as arithmetic for every N: each of the five terms is an upper bound on the reduction a finish needs, with term 2 as derived and α_{i+1} (`term1_sound` … `term5_sound`, `cover_sum`, `chain_bound`, Finish.lean); the smallest term is sound (`Rmin_sound`) and so is the largest, the formula as written (`Rmax_sound`, Formula.lean); the multi-qt lower bounds with α_{i+1} (`lower_stupid`, `lower_free`, `lower_A`, `lower_B`, `lower_C`, Finish.lean); the counterexamples to the printed forms (`printed_term2_fails`, `literal_min_fails`, `witness_0c3`, `alpha_i_fails`), that the smallest term is not always the exact worst case (`Rmin_not_tight`) and where C goes (`C_placement`, Counter.lean); on the cube, that half turns keep the subset × bad edges (`half_turns_keep_subset_data`, `labels_keep`), FakeMMAP's C = 5 and 6 (`fake_C_examples`) and α of the two counterexample paths (`counter_alphas`, Subset.lean).
+- *Corrections* (lean/FakeBound/Corrections/Examples.lean), the errata examples: the optimal finish of every DR state in a, c, d, e and f (`dr_optima_correct`, from the first study's proved table) and the printed finishes of a, d and f (`dr_solutions_valid`); the HTR lengths and printed HTRs of b and c (`htr_4c4`, `htr_13`); the subset names of a, d, e and f (`labels_htr_routes`); f's index example end to end (`index_example`, `index_example_arith`) and the C example (`C_example`). Each errata item says which of its example is Lean-checked.
+
+**Computed, not proved**: every share and mean from the samples ({= n(25000) =} states per subset × edges, 4,000 for bounding), the exact model of section 9 (an enumeration in Python), the shortest NISS HTRs (the Rust tool's search, cross-checked with nissy), which finishes are optimal and how they read (the Rust tool, cross-checked on the sticker model and with nissy), the reduction counts, and the means over the first study's exact table, such as the gain from the last DR move.
 
 ## Docs referred to
 

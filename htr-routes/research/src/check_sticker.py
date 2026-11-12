@@ -3,7 +3,7 @@
 
 For each state (1,000 random DR-move scrambles of length 25-40, plus 5 states of every subset from the main sample):
   1. htrtools trace lists every optimal finish (all orders of commuting moves) and, for the first CAP of them, every
-     NISS reading with its H key (route to HTR), F key (docs 396/410 format) and HTR length;
+     NISS reading with its H key (route to HTR), F key (labels over the whole finish) and HTR length;
   2. every listed finish is replayed on the sticker model (must solve the scrambled cube, length = optimum);
   3. sticker.py re-reads every finish at every split k = 0..n, both sides first, with its own labels and HTR test;
      the set of H keys, of F keys, and the shortest HTR of each H key must equal what htrtools printed;

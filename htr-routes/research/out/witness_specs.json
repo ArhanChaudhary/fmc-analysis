@@ -90,16 +90,6 @@
   "value": 13
  },
  {
-  "id": "W10",
-  "finding": "FakeMMAP's C (shortest HTR in the subset) is not a bound on NISS HTRs: this 0c0 2e state (shortest linear HTR in 0c0 2e: 5) has an optimal 7-move finish whose NISS reading reaches HTR in 4",
-  "subset": "0c0 2e",
-  "state": "#37788,36171,18",
-  "kind": "min_htr_at_most",
-  "route": "",
-  "maxlen": 7,
-  "value": 4
- },
- {
   "id": "W11",
   "finding": "4b2 0e whose optimal goes through 4c3 (C04: 4%; ours 6% with a random optimal)",
   "subset": "4b2 0e",
@@ -124,6 +114,16 @@
   "finding": "T11503 lower bound as written (alpha_i summed over i with i, i+1 in S) is invalid here: this 0c4 0e has optimal 14 with a finish on 0c4 > 4a3 > 4b2 > 4a1 > HTR, sections 2,1,3,1,3, shortest 1q reduction 9, while the bound with R' = 9 gives M >= 15 (S = {0,2,3} adds alpha_2 = 3); summing the shared section alpha_(i+1) instead gives 14",
   "subset": "0c4 0e",
   "state": "#10060,38297,13",
+  "kind": "optimal",
+  "route": "",
+  "maxlen": 14,
+  "value": 14
+ },
+ {
+  "id": "W14",
+  "finding": "T11502 read as the smallest term with term 2 exactly as printed is too short here: this 0c3 2e has optimal 14, every optimal finish on 0c3 > 4a2 > 4a1 > HTR (N = 3, alpha = 0,3,3,0) with shortest 1q reduction 7, while term 2 as printed with S = {0,2} gives (14 - 1)/2 = 6.5; derived (14 + 1)/2 = 7.5",
+  "subset": "0c3 2e",
+  "state": "#23630,15165,12",
   "kind": "optimal",
   "route": "",
   "maxlen": 14,

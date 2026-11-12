@@ -141,26 +141,6 @@
   "replayed_ok": true
  },
  {
-  "id": "W10",
-  "finding": "FakeMMAP's C (shortest HTR in the subset) is not a bound on NISS HTRs: this 0c0 2e state (shortest linear HTR in 0c0 2e: 5) has an optimal 7-move finish whose NISS reading reaches HTR in 4",
-  "subset": "0c0 2e",
-  "kind": "min_htr_at_most",
-  "route": "",
-  "optimal": 7,
-  "n_optimal_finishes": 1,
-  "scramble": "F2 U' B2 R2 B2 U R2",
-  "optimal_finish": "R2 U' B2 R2 B2 U F2",
-  "shortest_htr_in_any_reading_of_any_optimal": 4,
-  "that_reading": {
-   "finish": "R2 U' B2 R2 B2 U F2",
-   "split": 2,
-   "first_side": "normal",
-   "route": "H:0c0 2e > 4a1 4e > (0c0 0e) | ht"
-  },
-  "checked_optimal_finishes": 1,
-  "replayed_ok": true
- },
- {
   "id": "W11",
   "finding": "4b2 0e whose optimal goes through 4c3 (C04: 4%; ours 6% with a random optimal)",
   "subset": "4b2 0e",
@@ -217,6 +197,18 @@
   "n_optimal_finishes": 2,
   "scramble": "D2 F2 L2 U' B2 U' L2 U2 B2 U' L2 D R2 D2",
   "optimal_finish": "D2 R2 D' L2 U B2 U2 L2 U B2 U L2 F2 D2",
+  "replayed_ok": true
+ },
+ {
+  "id": "W14",
+  "finding": "T11502 read as the smallest term with term 2 exactly as printed is too short here: this 0c3 2e has optimal 14, every optimal finish on 0c3 > 4a2 > 4a1 > HTR (N = 3, alpha = 0,3,3,0) with shortest 1q reduction 7, while term 2 as printed with S = {0,2} gives (14 - 1)/2 = 6.5; derived (14 + 1)/2 = 7.5",
+  "subset": "0c3 2e",
+  "kind": "optimal",
+  "route": "",
+  "optimal": 14,
+  "n_optimal_finishes": 4,
+  "scramble": "F2 D2 R2 D' R2 U2 B2 D' L2 U2 F2 U L2 R2",
+  "optimal_finish": "R2 L2 U' F2 U2 L2 D B2 U2 R2 D R2 D2 F2",
   "replayed_ok": true
  }
 ]

@@ -6,6 +6,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 **This builds on** what the server already had:
 
+- **Daichi's cheat sheet** ([[D18340]]: "to summarize, I think this is meta"), a route list per subset ("It doesn't capture EVERYTHING, but I decided that checking these will capture a great portion of those", [[D18343]]). It is graded in section 10.
 - **Levi Gibson's sheets and doc** (beef beans on Discord, posted as levitatingmagician): [*allcases*](https://docs.google.com/spreadsheets/d/1Vo6XzCFtJ-HEAuaBmk_pac-sJ3TbxEBb7BKsRJ_2wpA) ("What paths are most common for optimal DR solutions", [[D8290]]), the [*Extra Quarter-Turn Stats (By HTR Subset)*](https://docs.google.com/spreadsheets/d/1fPCjS1ZQlP_Munut9MQkSbsL3CEdtT3LC5h3R8OMHGw) ([[T2844]]), and [*DR Bounding*](https://docs.google.com/document/d/1q7rig4GEo26GunBMtuagZdGyzyjCGlduH84CHLpGLSA) ([[D9018]]), the method section 8 measures.
 - **Aedan Bryant's [*HTR Subset Stats*](https://docs.google.com/spreadsheets/d/17iChOoeB205t3wHTXMLrjM9si2vtxRgFeYR2z3pn1i0)** ([[T621]]): 1,000 states per subset, mean optimal against shortest linear and NISS HTR.
 - **Joba's exact optimal distribution per subset** ([[T9115]]: "This is not sampled, I looked at all 19508428800 DR states"), which the first study and this one reproduce cell for cell, and **DougCube's** [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo) ([[N2397]]) with the finish of all 663,552 HTR states ("the *expected value* is 10.13", [[D14065]]), also reproduced exactly.
@@ -16,13 +17,13 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 **What this adds**:
 
-- **A checklist per subset × edges**: the routes to try in order, each with the share of DRs where the routes so far find the optimal and a finish within +1, with and without a limit on how long the HTR may be.
+- **A checklist per subset × edges**: the routes to try in order, each with the share of DRs where the routes so far find the optimal and a finish within +1, with and without a limit on how long the HTR may be; how much knowing the edge count changes it, and which edge count the optimal passes on the way (4b2 2e or 4b2 4e).
 - **HTR lengths against the optimal**: linear against NISS HTR (rodneykinney's question from 2023), how often the optimal uses a shortest HTR, how often it needs 9 moves or more.
 - **DR bounding measured**: per subset, how often checking every reduction to 1q (or 2q) of up to R moves finds the optimal, and how many reductions that is.
 - **FakeMMAP's bound tested**: whether it is ever too short, how much it prunes, rodneykinney's per-subset tables, and a correction to the multi-qt lower bound.
 - **Hand checklists graded** (Zagros, Yura Riabov's 4b2 4e order against reducing to 1q first, Lewis Isom, Daichi's cheat sheet), and **the claims checked**.
 
-**Terms**, as the server uses them. Subsets are the first study's (Mallard's): 0c0, 4a1, 4a2, 4b2, 0c3, 2c3, 4c3, 0c4, 2c4, 4c4, 2c5, 4b5, each with its bad-edge count (4b2 4e). 4c3 is 4a3 on one side and 4b3 on the other, 4c4 is 4a4/4b4; routes name the side's own letter. Older names: Jay's qt names in Aedan Bryant's sheet and in *allcases* write 2qt(a) for 4b2 and 2qt(b) for 4a2, the *Extra Quarter-Turn Stats* sheet the other way round (its own example triggers show it), and Joba's file writes 4c5 for 4b5. *Optimal* is the shortest finish in DR moves (U, D, R2, L2, F2, B2), E slice solved; *+1* means a finish one move longer. *qt* is a U or D quarter turn. *Normal* and *inverse* are the two sides, inverse moves in brackets. Section 3 defines finish, route, HTR budget and the rest.
+**Terms**, as the server uses them. Subsets are the first study's (Mallard's): 0c0, 4a1, 4a2, 4b2, 0c3, 2c3, 4c3, 0c4, 2c4, 4c4, 2c5, 4b5, each with its bad-edge count (4b2 4e). 4c3 is 4a3 on one side and 4b3 on the other, 4c4 is 4a4/4b4; routes name the side's own letter. Older names: Jay's qt names in Aedan Bryant's sheet and in *allcases* write 2qt(a) for 4b2 and 2qt(b) for 4a2, the *Extra Quarter-Turn Stats* sheet the other way round (its own example triggers show it), and Joba's file writes 4c5 for 4b5. *Optimal* is the shortest finish in DR moves (U, D, R2, L2, F2, B2), E slice solved (a finish that breaks DR is shorter on {= pc(E['gaps']['g2_all']['shorter']) =} of DRs, section 3); *+1* means a finish one move longer. *qt* is a U or D quarter turn. *Normal* and *inverse* are the two sides, inverse moves in brackets. Section 3 defines finish, route, HTR budget and the rest.
 
 **How to read it.**
 
@@ -77,6 +78,10 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 ---
 
 {{SEC_CLAIMS}}
+
+---
+
+{{SEC_REAL}}
 
 ---
 

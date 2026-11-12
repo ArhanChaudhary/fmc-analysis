@@ -1,0 +1,27 @@
+name = "FakeBound"
+version = "0.1.0"
+defaultTargets = ["FakeBound"]
+
+[[require]]
+name = "HTRRoutes"
+path = "../HTRRoutes"
+
+[[require]]
+name = "DRBound"
+path = "../../../judging-a-dr/lean/DRBound"
+
+[[require]]
+name = "EOSwitch"
+path = "../../../eo-switch/lean/EOSwitch"
+
+[[require]]
+name = "EODR"
+path = "../../../eo-to-dr/lean/EODR"
+
+[[lean_lib]]
+name = "FakeBound"
+precompileModules = true
+
+[[lean_lib]]
+name = "Corrections"
+precompileModules = true

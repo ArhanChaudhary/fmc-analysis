@@ -1,0 +1,96 @@
+0c0 0e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 72854 entries
+0c0 0e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c0 2e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 898832 entries
+0c0 2e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c0 4e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1339758 entries
+0c0 4e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c0 6e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1852102 entries
+0c0 6e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c0 8e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 738535 entries
+0c0 8e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c5 0e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 3180563 entries
+2c5 0e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c5 2e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 4108282 entries
+2c5 2e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c5 4e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 4071314 entries
+2c5 4e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c5 6e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 4197482 entries
+2c5 6e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c5 8e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2986162 entries
+2c5 8e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c4 0e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1655389 entries
+2c4 0e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c4 2e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2775746 entries
+2c4 2e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c4 4e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2822274 entries
+2c4 4e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c4 6e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2937198 entries
+2c4 6e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c4 8e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2448534 entries
+2c4 8e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c3 0e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1610476 entries
+0c3 0e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c3 2e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2644492 entries
+0c3 2e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c3 4e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 3499969 entries
+0c3 4e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c3 6e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2342007 entries
+0c3 6e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c3 8e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1393452 entries
+0c3 8e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4a2 0e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2088760 entries
+4a2 0e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4a2 2e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2625748 entries
+4a2 2e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4a2 4e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1572359 entries
+4a2 4e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4a1 0e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1803801 entries
+4a1 0e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4a1 2e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1873380 entries
+4a1 2e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4a1 4e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1532408 entries
+4a1 4e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c3 0e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2496542 entries
+2c3 0e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c3 2e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1569581 entries
+2c3 2e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c3 4e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2026420 entries
+2c3 4e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c3 6e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2400541 entries
+2c3 6e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+2c3 8e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2443198 entries
+2c3 8e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c4 0e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1076619 entries
+0c4 0e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c4 2e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2007346 entries
+0c4 2e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c4 4e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2160083 entries
+0c4 4e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c4 6e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2367910 entries
+0c4 6e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+0c4 8e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1621614 entries
+0c4 8e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4c3 0e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1990635 entries
+4c3 0e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4c3 2e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2699835 entries
+4c3 2e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4c3 4e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2713467 entries
+4c3 4e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4c4 0e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 4232871 entries
+4c4 0e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4c4 2e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 4503835 entries
+4c4 2e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4c4 4e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 4223347 entries
+4c4 4e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4b2 0e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1541275 entries
+4b2 0e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4b2 2e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1825521 entries
+4b2 2e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4b2 4e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 1970875 entries
+4b2 4e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4b5 0e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 2921957 entries
+4b5 0e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4b5 2e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 3952323 entries
+4b5 2e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv
+4b5 4e	state label edges = group edges: 25000 states	route starts at lab_n or lab_i: 4151250 entries
+4b5 4e	corner-only budget-2 greedy (opt, +1, 8 steps) reproduces q2_checklist_budget.tsv

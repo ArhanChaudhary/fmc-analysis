@@ -1,0 +1,263 @@
+{
+ "failures": 0,
+ "examples": [
+  {
+   "subset": "0c0 0e",
+   "scramble_reaching_state": "B2 L2 R2 F2 R2 U2 L2 R2 U2 R2 U2",
+   "dr_optimum": 11,
+   "leave_slice_optimum": 9,
+   "true_optimum": 7,
+   "dr_optimal_finish": "U2 R2 U2 R2 L2 U2 R2 F2 R2 L2 B2",
+   "dr_finish_replayed_ok": true,
+   "n_optimal_solutions": 8,
+   "solutions": [
+    {
+     "moves": "D2 F' B' R2 L2 F B",
+     "length": 7,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "D2 F B R2 L2 F' B'",
+     "length": 7,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "U2 R' L' F2 B2 R L",
+     "length": 7,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "U2 R L F2 B2 R' L'",
+     "length": 7,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "F B R2 L2 F' B' U2",
+     "length": 7,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "F' B' R2 L2 F B U2",
+     "length": 7,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "R L F2 B2 R' L' D2",
+     "length": 7,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "R' L' F2 B2 R L D2",
+     "length": 7,
+     "replayed_ok": true,
+     "breaks_dr": true
+    }
+   ]
+  },
+  {
+   "subset": "0c0 0e",
+   "scramble_reaching_state": "R2 F2 D' U' B2 R2 F2 L2 F2 D2 U2",
+   "dr_optimum": 11,
+   "leave_slice_optimum": 9,
+   "true_optimum": 10,
+   "dr_optimal_finish": "U2 D2 F2 L2 F2 R2 B2 U D F2 R2",
+   "dr_finish_replayed_ok": true,
+   "n_optimal_solutions": 1,
+   "solutions": [
+    {
+     "moves": "R L' F2 R' L' B2 U D L2 D2",
+     "length": 10,
+     "replayed_ok": true,
+     "breaks_dr": true
+    }
+   ]
+  },
+  {
+   "subset": "0c3 0e",
+   "scramble_reaching_state": "L2 B2 D' F2 D2 B2 R2 D' R2 U2 L2 B2 U' L2 U2",
+   "dr_optimum": 15,
+   "leave_slice_optimum": 15,
+   "true_optimum": 14,
+   "dr_optimal_finish": "U2 L2 U B2 L2 U2 R2 D R2 B2 D2 F2 D B2 L2",
+   "dr_finish_replayed_ok": true,
+   "n_optimal_solutions": 12,
+   "solutions": [
+    {
+     "moves": "L2 U D L B2 U2 R2 U2 L U2 B2 R2 F2 R",
+     "length": 14,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "R D2 F2 R2 D2 B2 R B2 R2 U2 L U D R2",
+     "length": 14,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "R D2 F2 R2 D2 B2 L' B2 L2 U2 R' U D R2",
+     "length": 14,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "L B2 L2 F2 D2 R D2 L2 D2 F2 R U D R2",
+     "length": 14,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "U' D' L' U2 F2 R2 D2 B2 R D2 B2 L2 F2 R'",
+     "length": 14,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "L2 U D R D2 L2 F2 L F2 U2 L2 B2 U2 L",
+     "length": 14,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "L2 U D L' D2 R2 F2 R' F2 U2 L2 B2 U2 L",
+     "length": 14,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "R' B2 L2 F2 D2 L D2 L2 D2 B2 R' U' D' L2",
+     "length": 14,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "U' D' R' F2 L2 B2 U2 L F2 D2 L2 B2 D2 L'",
+     "length": 14,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "R2 U' D' L' F2 U2 R2 U2 R U2 B2 R2 F2 L'",
+     "length": 14,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "R' U2 F2 R2 U2 B2 R D2 F2 R2 B2 L' D' U'",
+     "length": 14,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "L' B2 R2 F2 U2 L F2 U2 L2 B2 D2 R' D' U'",
+     "length": 14,
+     "replayed_ok": true,
+     "breaks_dr": true
+    }
+   ]
+  },
+  {
+   "subset": "0c4 0e",
+   "scramble_reaching_state": "L2 U' R2 D' L2 U' B2 U L2 U F2 U' B2 U2",
+   "dr_optimum": 14,
+   "leave_slice_optimum": 14,
+   "true_optimum": 13,
+   "dr_optimal_finish": "U2 B2 U F2 U' L2 U' B2 U L2 D R2 U L2",
+   "dr_finish_replayed_ok": true,
+   "n_optimal_solutions": 2,
+   "solutions": [
+    {
+     "moves": "B U2 F' U2 L2 B2 L2 B U2 F' U D R2",
+     "length": 13,
+     "replayed_ok": true,
+     "breaks_dr": true
+    },
+    {
+     "moves": "B2 U' D' L D2 R' F2 R2 F2 D2 L D2 R'",
+     "length": 13,
+     "replayed_ok": true,
+     "breaks_dr": true
+    }
+   ]
+  },
+  {
+   "subset": "2c3 0e",
+   "scramble_reaching_state": "D F2 U B2 L2 R2 U L2 B2 D B2 D B2 U2",
+   "dr_optimum": 14,
+   "leave_slice_optimum": 14,
+   "true_optimum": 13,
+   "dr_optimal_finish": "U2 B2 D' B2 D' B2 L2 U' R2 L2 B2 U' F2 D'",
+   "dr_finish_replayed_ok": true,
+   "n_optimal_solutions": 1,
+   "solutions": [
+    {
+     "moves": "F2 U2 B2 R2 B D B' L2 F U' F R2 U",
+     "length": 13,
+     "replayed_ok": true,
+     "breaks_dr": true
+    }
+   ]
+  },
+  {
+   "subset": "2c4 0e",
+   "scramble_reaching_state": "U R2 B2 D B2 D R2 D2 F2 L2 D B2 L2",
+   "dr_optimum": 13,
+   "leave_slice_optimum": 13,
+   "true_optimum": 12,
+   "dr_optimal_finish": "L2 B2 D' L2 F2 D2 R2 D' B2 D' B2 R2 U'",
+   "dr_finish_replayed_ok": true,
+   "n_optimal_solutions": 1,
+   "solutions": [
+    {
+     "moves": "D2 R2 D2 R2 L F' L B2 L' F L' F2",
+     "length": 12,
+     "replayed_ok": true,
+     "breaks_dr": true
+    }
+   ]
+  },
+  {
+   "subset": "2c5 0e",
+   "scramble_reaching_state": "F2 L2 D F2 D' L2 U2 B2 U R2 B2 U F2 L2 U'",
+   "dr_optimum": 15,
+   "leave_slice_optimum": 15,
+   "true_optimum": 14,
+   "dr_optimal_finish": "U L2 F2 U' B2 R2 U' B2 U2 L2 D F2 D' L2 F2",
+   "dr_finish_replayed_ok": true,
+   "n_optimal_solutions": 1,
+   "solutions": [
+    {
+     "moves": "F' U' F R2 B' D F2 B' L2 F2 U' B2 U2 L2",
+     "length": 14,
+     "replayed_ok": true,
+     "breaks_dr": true
+    }
+   ]
+  },
+  {
+   "subset": "4a1 0e",
+   "scramble_reaching_state": "D' F2 R2 U B2 U2 L2 F2 U2 R2 U' B2 U2",
+   "dr_optimum": 13,
+   "leave_slice_optimum": 13,
+   "true_optimum": 12,
+   "dr_optimal_finish": "U2 B2 U R2 U2 F2 L2 U2 B2 U' R2 F2 D",
+   "dr_finish_replayed_ok": true,
+   "n_optimal_solutions": 1,
+   "solutions": [
+    {
+     "moves": "F2 L2 D' F2 B2 D' F B' U2 B' F U'",
+     "length": 12,
+     "replayed_ok": true,
+     "breaks_dr": true
+    }
+   ]
+  }
+ ]
+}

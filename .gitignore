@@ -37,3 +37,9 @@ __pycache__/
 /htr-routes/research/out/big/
 /eo-switch/research/eoswtools/target/
 /eo-switch/research/out/big/
+/gaps/research/big/*
+!/gaps/research/big/g2/
+/gaps/research/big/g2/*
+!/gaps/research/big/g2/uni1000.out
+!/gaps/research/big/g2/real.out
+/gaps/research/src/htrreal/target/

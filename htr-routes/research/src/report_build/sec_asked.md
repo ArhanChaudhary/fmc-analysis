@@ -1,7 +1,8 @@
 The questions, in the words of the people who asked them, with where each is answered. Most got a guess or no answer at the time.
 
-**Which routes, how often (sections 4 and 5)**
+**Which routes, how often (section 4)**
 
+- Daichi built the cheat sheet "to filter routes to check rather than DRs itself" ([[D18343]]); JTuu asked for the data behind it ("did you post the raw stats somewhere?", [[D18363]]). *Answer*: section 4 gives the routes in order, each with the share of DRs where the routes so far find the optimal, so the shares add up (cumulative).
 - wen ([[D3669]]): "Anyone else feel like for 4q 2c, the optimals are most often reasonably explained with something like a direct HTR, or 1q then switch and 3q, and hardly ever with 2q switch 2q?" *Answer*: on 2c4, with HTRs at most 2 over the shortest, 3 qts then a switch (or 1 then 3) reaches the optimal on {= E['claims']['C48']['evidence'].split('3+(1) | ht ')[1].split(',')[0] =}, a direct HTR on {= E['claims']['C48']['evidence'].split('4 | ht ')[1].split(',')[0] =}, 2 switch 2 on {= E['claims']['C48']['evidence'].split('2+(2) | ht ')[1].split(',')[0] =}. wen's order is right; "hardly ever" is too strong.
 - Yura Riabov, on 4b2 4e ([[D6409]]): "4b2 4e is basically the best 4q subset"; rogo ([[D6422]]): "the first approach apart from R U2 F2 R to check should still be 'reduce to 1qt 4e and niss trace for short htrs' i think?" *Answer*: section 10.
 
@@ -24,4 +25,4 @@ The questions, in the words of the people who asked them, with where each is ans
 - A professional solver asked me, through the site's author, how effective DR bounding is per subset (how often it finds the optimal, and how many reductions to 1q or 2q you need to check for that, depending on the threshold), and whether FakeMMAP's linear-programming estimates can prune branches. *Answer*: sections 8 and 9.
 - rodneykinney, on FakeMMAP's bound ([[T11512]]): "This sounds interesting but, I must say, almost impossible to follow. Would it be possible to put together some tables for specific cases?" FakeMMAP ([[T11514]]): "Compute these bounds by HTR subsets." *Answer*: section 9 and appendix A.
 
-What this leaves open is in section 12.
+What this leaves open is in section 13.

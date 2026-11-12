@@ -105,3 +105,55 @@ def PRUNE_TABLE():
         L.append(f"| {pv.GROUP_NAME[g] if g else '**all DR states**'} | {100 * sum(dn) / sum(n):.0f}% | " + ' | '.join(pv.num(100 * sum(dn[:T + 1]) / sum(n[:T + 1])) for T in (10, 11, 12)) + f' | {tri(n)} | {tri(kept) if sum(kept) else "nothing is kept"} |')
     return '\n'.join(L)
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}
+# ---- real DRs and DR-breaking finishes: the gaps study's outputs (/data/fmc/gaps/research/out); computed, not in Lean
+import csv as _csv, json as _json, collections as _col
+_GP = '/data/fmc/gaps/research/'
+def _gt(name): return list(_csv.DictReader(open(_GP + 'out/' + name), delimiter='\t'))
+_CORN = ['0c0', '2c5', '2c4', '0c3', '4a2', '4a1', '2c3', '0c4', '4c3', '4c4', '4b2', '4b5']
+def _gaps():
+    G = {}
+    ov = _json.load(open(_GP + 'out/a_overview.json')); G['scr'] = ov['scrambles']; G['dr11'] = ov['drs_le11']
+    a = {(r['group'], r['pop']): r for r in _gt('a_subsets.tsv')}; P = ('dr11', 'scr11')
+    G['share'] = max(abs(float(a[(c, p)]['share']) - float(a[(c, p)]['uniform_share'])) * 100 for c in _CORN for p in P)
+    G['mean'] = max(abs(float(a[(c, p)]['mean_opt']) - float(a[(c, p)]['uniform_mean'])) for c in _CORN for p in P)
+    G['le11'] = max(abs(float(a[(c, p)]['le11']) - float(a[(c, p)]['uniform_le11'])) * 100 for c in _CORN for p in P)
+    G['le11_at'] = max(((abs(float(a[(c, p)]['le11']) - float(a[(c, p)]['uniform_le11'])) * 100, c) for c in _CORN for p in P))[1]
+    G['le11_ex'] = max(abs(float(a[(c, p)]['le11']) - float(a[(c, p)]['uniform_le11'])) * 100 for c in _CORN if c != G['le11_at'] for p in P)
+    mix = {}
+    for c in _CORN:
+        for k in '02468':
+            s = f'{c} {k}e'
+            if (s, 'scr11') in a:
+                mix[s] = (float(a[(s, 'scr11')]['share']) / float(a[(c, 'scr11')]['share'])) / (float(a[(s, 'scr11')]['uniform_share']) / float(a[(c, 'scr11')]['uniform_share']))
+    G['e0'] = (1 - min(v for s, v in mix.items() if s.endswith(' 0e'))) * 100; G['e6'] = (max(v for s, v in mix.items() if s.endswith(' 6e')) - 1) * 100
+    q = {(r['group'], r['pop'], r['metric']): r for r in _gt('b_q3.tsv')}
+    G['q3all'] = max(abs(float(q[('all', p, m)]['value']) - float(q[('all', 'uniform', m)]['value'])) * 100 for p in P
+                     for m in ('niss_eq_linear', 'niss_shorter_by_1', 'niss_shorter_by_2plus', 'opt_uses_shortest_niss', 'no_opt_through_shortest_niss', 'every_opt_htr_ge9', 'xr2_one_shorter'))
+    g2 = {(r['group'], r['pop']): r for r in _gt('g2.tsv')}
+    G['g2'] = {p: {k: float(g2[('all', p)][k]) for k in ('shorter', 'se', 'mean_gain')} for p in ('uniform',) + P if ('all', p) in g2}
+    G['g2n'] = int(g2[('all', 'uniform')]['n'])
+    cells = sorted([r for r in _gt('g2.tsv') if r['pop'] == 'uniform' and ' ' in r['group']], key=lambda r: -float(r['shorter']))
+    G['worst'] = [(r['group'], float(r['shorter']) * 100) for r in cells[:3]]
+    rows = [l.rstrip('\n').split('\t') for l in open(_GP + 'big/g2/uni1000.out')]; SZ = _SIZE()
+    n = _col.Counter(r[0] for r in rows); W = _col.Counter(); S = _col.Counter(); Gn = _col.Counter()
+    for r in rows:
+        w = SZ[r[0]] / n[r[0]]
+        d = int(r[5]); W[d] += w; Gn[d - int(r[9])] += w
+        if int(r[9]) < d: S[d] += w
+    G['le12'] = sum(S[d] for d in W if d <= 12) / sum(W[d] for d in W if d <= 12) * 100
+    G['at'] = {d: S[d] / W[d] * 100 for d in W}
+    G['by1'] = Gn[1] / sum(v for k, v in Gn.items() if k > 0) * 100
+    ex = _json.load(open(_GP + 'out/g2_examples.json'))
+    G['ex'] = max(ex['examples'], key=lambda e: e['dr_optimum'] - e['true_optimum'])
+    G['ex_sol'] = [s['moves'] for s in G['ex']['solutions'] if s['moves'].startswith('R L')][0]
+    return G
+def _SIZE():
+    """exact subset x edges sizes (htr-routes' dist48 table)"""
+    out = {}
+    for l in open('/data/fmc/htr-routes/research/out/checks/dist48.tsv').read().split('\n')[1:]:
+        if l:
+            f = l.split('\t'); out[f[0]] = out.get(f[0], 0) + int(f[2])
+    return out
+import functools as _ft
+GAPS = _ft.lru_cache(None)(_gaps)
+ENV = {k: v for k, v in globals().items() if not k.startswith('_')}

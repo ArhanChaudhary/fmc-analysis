@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Question 7: verdicts on the checkable claims of the reading notes (out/claims_raw.tsv, 125 rows extracted from
+"""Question 7: verdicts on the checkable claims of the reading notes (out/claims_raw.tsv, 124 rows extracted from
 kb/reread/htr_theory_*.md, htr_discussion_*.md and htr_docs.md Part B, quotes checked against the export).
 
 Each verdict is computed from the study's outputs; rows that need something the study does not measure are marked

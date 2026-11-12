@@ -4,7 +4,7 @@ Inputs (written by `htrtools routes`, see README):
   out/big/run1/states_<subset>.tsv   one row per sampled state (25,000 per subset)
   out/big/run1/routes_<subset>.bin   per state: u32 count, count x u32 entries for X, then the same for X*R2;
                                      entry = route id << 6 | HTR length << 1 | (finish length - optimum)
-  out/big/run1/route_keys.tsv        route id -> key ("H:..." route to HTR, "F:..." docs 396/410 format)
+  out/big/run1/route_keys.tsv        route id -> key ("H:..." route to HTR, "F:..." labels over the whole finish)
   out/checks/dist48.tsv              exact number of DR states per subset (to pool subsets by their true size)
 """
 import os, csv, re, collections

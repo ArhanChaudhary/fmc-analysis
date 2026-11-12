@@ -28,4 +28,4 @@ Levi Gibson's reply, "you don’t have to try reductions to 4a1 4e because the a
 
 {{grade_daichi}}
 
-The last two columns are my first three budget-2 routes and how many of my routes it takes to match the sheet. The sheet is ahead of my first three on 4b2, 4a1, 2c3 0e and 8e and 0c0 2e to 6e (where it lists several routes), about level on 2c4 0e to 6e, 4a2 2e and 0c4 2e, and behind on the rest: all of 2c5, 0c3, 4c3, 4c4 and 4b5, 0c4 except 2e, 4a2 0e and 4e, 2c3 2e to 6e, 2c4 8e, 0c0 0e and 8e. Daichi built it from sub-13 states only, so its routes favour the short finishes, which is what you want in an attempt.
+The last two columns are my first three budget-2 routes and how many of my routes it takes to match the sheet. The sheet is ahead of my first three on 4b2, 4a1, 2c3 0e and 8e and 0c0 2e to 6e (where it lists several routes), about level on 2c4 0e to 6e, 4a2 2e and 0c4 2e, and behind on the rest: all of 2c5, 0c3, 4c3, 4c4 and 4b5, 0c4 except 2e, 4a2 0e and 4e, 2c3 2e to 6e, 2c4 8e, 0c0 0e and 8e. Daichi aimed it at sub-13 finishes, so its routes favour the short ones, which is what you want in an attempt.

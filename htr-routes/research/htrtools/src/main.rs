@@ -38,7 +38,6 @@ usage: htrtools <command> ...
                                                   to 1q / 2q per (length, quarter turns); same states as routes
   redcount <exact.u8> <n> <seed> <rmax> <out.tsv> number of reductions to 1q / 2q of each length a solver writes
   find <exact.u8> <subset> <depth> <seed>         a random state of the subset with that optimal, as #c,e,s
-  docpaths <exact.u8> <n> <seed> <out.tsv>        docs 396/410 chains under three reading rules
   bound2 <exact.u8> <n> <seed> <out.tsv> [subsets] reductions per finish length and corner path; trigger and switch data
   bound3 <exact.u8> <n> <seed> <out.tsv>          bounding as stated: reduction to 1q / 2q + optimal finish of the reduced state
   bound4 <exact.u8> <n> <seed> <out.tsv>          the same by exact search on reductions (targets opt, +1, 10, 11, 12)
@@ -68,7 +67,6 @@ fn main() {
         }
         ["tiels", ex, ls, n, seed, out] => cmds::tie_ls(ex, ls, n.parse().unwrap(), seed.parse().unwrap(), out),
         ["find", ex, sub, d, seed] => cmds::find(ex, sub, d.parse().unwrap(), seed.parse().unwrap()),
-        ["docpaths", ex, n, seed, out] => cmds::docpaths(ex, n.parse().unwrap(), seed.parse().unwrap(), out),
         ["bound2", ex, n, seed, out] => bounding::bound2(ex, n.parse().unwrap(), seed.parse().unwrap(), out, None),
         ["bound2", ex, n, seed, out, subs] => bounding::bound2(ex, n.parse().unwrap(), seed.parse().unwrap(), out, Some(subs)),
         ["bound3", ex, n, seed, out] => bounding::bound3(ex, n.parse().unwrap(), seed.parse().unwrap(), out),
