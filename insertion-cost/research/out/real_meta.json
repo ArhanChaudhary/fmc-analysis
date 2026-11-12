@@ -1,1 +1,6134 @@
-{"cases": [{"id": "N20", "author": "harry", "date": "2023-02-20", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 L' B2 L2 R' F2 R D' B2 R' B R2 B2 U' L F' L2 F2 R' U' F", "skeleton": "L' D L U' F D R L2 U2 D' R D R' D' R D R2 U R2 U' D", "said": "3C", "final": 27, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 27, "steps": [[8, 2]]}, {"id": "N24", "author": "fabio", "date": "2023-02-20", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 L' B2 L2 R' F2 R D' B2 R' B R2 B2 U' L F' L2 F2 R' U' F", "skeleton": "B' U' F' B' R' D2 L2 U' L F L R U R' U' L' F'", "said": "3c", "final": 23, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N165", "author": "Aston 2016CULF01", "date": "2023-05-16", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "B2 U' F2 R2 U B2 F2 R2 D' R2 D2 L2 F' R' U F R U2 B2 L2 D'", "skeleton": "B' U' B D F2 D L2 F2 D' U U B' U' L' B' L' B L2 B' L B L2 U' L2 U L2", "said": "3c", "final": 31, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 31, "steps": [[8, 2]]}, {"id": "N177", "author": "Cale", "date": "2023-05-29", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L' D R F2 L2 F2 L2 U2 B U D R2 D F2 D R2 B2 F' U' R' U' F", "skeleton": "R2 F2 R2 D' R2 L2 U2 L' U B' F' L U' R'", "said": "5c", "final": 24, "inverse": false, "notes": [[8, 4], [8, 2]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 24, "steps": [[8, 4], [8, 2]]}, {"id": "N468", "author": "Noah Swor", "date": "2023-08-21", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 R2 F2 R2 F2 U2 B R2 F U2 L B' L2 B R' U' B2 D L' U2 F2 R' U' F", "skeleton": "F2 R' F D2 U' R2 U D' L U' L2 B2 U R'", "said": "3c", "final": 20, "inverse": false, "notes": [], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N715", "author": "Nico", "date": "2023-11-05", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 B' U2 R2 D2 B' U2 F2 L2 F R2 B' L' D' F' R' F U2 R' D2 R' U' F", "skeleton": "F L' R' B R D R' D2 B2 R2 U2 B2 D' B2 U2", "said": "3C", "final": 21, "inverse": false, "notes": [], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 21, "steps": [[8, 2]]}, {"id": "N1065", "author": "Kai Cui", "date": "2024-05-07", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R D' F2 R' B2 D2 B2 R U2 F2 U2 F D' B' L B L' D2", "skeleton": "L' D2 L F D R' U D F' D F D U'", "said": "5c", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N1071", "author": "kalindumaxxer", "date": "2024-05-26", "source": "IF", "wording_only": true, "if_setting": "", "scramble": "D L2 R2 U L2 U2 R2 U L2 U' B2 U2 F' L' R2 D U2 B' R' D' R2 D2", "skeleton": "B' R' B D F B' D' L D L2 F' L D'", "said": "", "final": 22, "inverse": false, "notes": [[13, 4]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 22, "steps": [[13, 4]]}, {"id": "N1213", "author": "alkamaass", "date": "2024-06-01", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U R' F2 D2 B2 U B2 L2 B2 F2 U2 F' L F D2 L' F2 R U B' R' U' F", "skeleton": "L2 F D2 L D2 F2 U' F U' F' U D F' U' L2", "said": "5c", "final": 23, "inverse": false, "notes": [[8, 4], [8, 4]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 23, "steps": [[8, 4], [8, 4]]}, {"id": "N1440", "author": "tseitsei89", "date": "2024-06-24", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 F D L' B2 L2 B2 L' F2 D2 F2 L B2 F U R2 F' U2 R D2 R' U' F", "skeleton": "F L' F' D' L2 D U L U2 F' U F U2 L' F U D L D2 L' R'", "said": "5c", "final": 32, "inverse": false, "notes": [], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 32, "steps": [[8, 3], [8, 2]]}, {"id": "N1491", "author": "EG-1 grind? (34/40) PR 1.92/2.65", "date": "2024-07-20", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R U' B2 L' R' U2 F L F' D2 L2 B L2 R U' R' D B2 D U'", "skeleton": "B2 U B2 U2 B2 U R' F R2 U2 R' L U' L' U R U' R' L2 U2 L2 U L B2", "said": "3c2t", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N1720", "author": "alkamaass", "date": "2024-08-04", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "D2 R D' R B' L' D F' L U2 B2 U' R2 B2 L2 U F2 D2 F2 L2 U", "skeleton": "R' D R D F D' B R' D2 F' D R'", "said": "2c2c", "final": null, "inverse": false, "notes": [], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 26, "steps": [[15, 1]]}, {"id": "N1623", "author": "alkamaass", "date": "2024-08-02", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "D2 R D' R B' L' D F' L U2 B2 U' R2 B2 L2 U F2 D2 F2 L2 U", "skeleton": "B F R' F' R' D R D' B R' B' R2 B R B' D R B R' B' D' R'", "said": "", "final": 31, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N1732", "author": "Lewis Isom", "date": "2024-08-16", "source": "IF", "wording_only": false, "if_setting": "", "scramble": "R' U' F U F2 U2 L2 B2 L2 U' L2 B2 D R' B2 R F U B2 L2 U2 R' U' F", "skeleton": "D F2 U2 B U' R' F R F R F' U F2 U' R' F'", "said": "4c", "final": 25, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N1734", "author": "alkamaass", "date": "2024-08-17", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U F2 U2 L2 B2 L2 U' L2 B2 D R' B2 R F U B2 L2 U2 R' U' F", "skeleton": "D F2 U2 B F U' F' R' F2 R2 F R' F", "said": "3c1t", "final": 25, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N2057", "author": "2014chri04", "date": "2024-10-16", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 F2 D2 F2 L' B2 L D2 B2 L B2 R U' L' D' B D2 U' L R B' R' U' F", "skeleton": "U' L2 B2 U' L F D' L2 D' F' D F2 B D2 F' B' L' D L D' B D B'", "said": "3C", "final": null, "inverse": false, "notes": [], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 27, "steps": [[8, 4]]}, {"id": "N2335", "author": "Rodrigo Teixeira | 2023TEIX03", "date": "2025-02-05", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U' R' F' B2 U D2 R B2 D' F' L2 D2 L2 B2 U2 F2 B' D' R' U' F", "skeleton": "D' U2 F2 U L F2 L' U' F U D2 B2 U2 L' B' L D F2 B' D B2", "said": "3C", "final": 27, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 27, "steps": [[8, 2]]}, {"id": "N2337", "author": "DougCube", "date": "2025-02-05", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U' R' F' B2 U D2 R B2 D' F' L2 D2 L2 B2 U2 F2 B' D' R' U' F", "skeleton": "U' F D B D2 R L2 B2 L' U L U2 R U R'", "said": "5c", "final": 24, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N2429", "author": "DougCube", "date": "2025-04-10", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R2 U F' B' R F U' R' L2 U L2 U2 R2 B2 D R2 U' R2 B2 U' L'", "skeleton": "D L' U F' R' D R2 U' F U F' L2 F L' F' D F D'", "said": "5e", "final": 24, "inverse": false, "notes": [], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N2519", "author": "DougCube", "date": "2025-05-03", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 F' R2 B2 D2 L2 D2 B' L2 B2 D2 L F' R' D F R' U B U2 B' R' U' F", "skeleton": "D L' U2 L2 U2 L2 F2 D F D' F D' B' R2 D B2 L2", "said": "3e", "final": 21, "inverse": false, "notes": [[8, 4]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 21, "steps": [[8, 4]]}, {"id": "N2563", "author": "V Sundararajan", "date": "2025-05-30", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L2 F2 D R2 U' F2 U2 F2 L2 F2 L2 F' D2 F2 R D U2 F' R B2 R' U' F", "skeleton": "U2 L2 F2 U2 L' U' D F' U' R' D2 R", "said": "4C", "final": 21, "inverse": false, "notes": [[8, 3], [8, 4]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 21, "steps": [[8, 3], [8, 4]]}, {"id": "N2598", "author": "DougCube", "date": "2025-06-09", "source": "IF", "wording_only": false, "if_setting": "", "scramble": "R' U' F U F2 D F2 L2 B2 R2 D' L2 B2 F' R F2 U2 R B D' B' R U R' U' F", "skeleton": "U' D B2 U2 B' L U B L2 B' L2 F L' F2 L F'", "said": "4C", "final": 25, "inverse": false, "notes": [[8, 4], [10, 5]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 25, "steps": [[8, 4], [10, 5]]}, {"id": "N2816", "author": "DougCube", "date": "2025-06-30", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "U' B2 R2 F' U2 B2 D2 F' D2 F' D2 L2 F' D B' L' U' L2 B D2 F'", "skeleton": "L2 F2 L U' L' U2 L U F U2 B' U' R2 F' R2 B D' L2", "said": "mixed 2c2c", "final": 23, "inverse": false, "notes": [[10, 10], [8, 3]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 23, "steps": [[10, 10], [8, 3]]}, {"id": "N2826", "author": "zakk drewji", "date": "2025-07-02", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "U' B2 R2 F' U2 B2 D2 F' D2 F' D2 L2 F' D B' L' U' L2 B D2 F'", "skeleton": "F L2 U2 L U L' U' L U' L' U2 F' U' F' L' F' L U2 D'", "said": "4C", "final": 27, "inverse": false, "notes": [[12, 10], [8, 2]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 27, "steps": [[12, 10], [8, 2]]}, {"id": "N2890", "author": "zakk drewji", "date": "2025-07-04", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L2 R2 B2 R2 B2 U R2 F2 D L2 B2 L B' R D2 L F R2 F2 U' B2 R' U' F", "skeleton": "B2 R U2 F2 U2 D F U' B U2 B' L2 B2 U B' L2", "said": "3C2T", "final": 28, "inverse": false, "notes": [[8, 3], [6, 3], [8, 4]], "n_ins": 3, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N2981", "author": "trig0n", "date": "2025-07-12", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L2 D' F2 D2 F U2 L' U B R D2 R B2 U2 R' U2 F2 D2 R2 D2 R' U' F", "skeleton": "B D' R2 B L' U B' U B U2 L2 R F' L U' F' U R2", "said": "3C", "final": 25, "inverse": false, "notes": [[8, 1]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 25, "steps": [[8, 1]]}, {"id": "N3015", "author": "Ga\u00ebtan Fragni\u00e8re (forwarded by Louis | 2012SART01)", "date": "2025-07-12", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L D2 R2 U' B2 F2 R2 U' R2 U2 L' F' D2 B' L D' L' U2 R' B2 R' U' F", "skeleton": "U B L U B2 L R B2 U2 R' U' R U2 D R' U", "said": "L3C", "final": 20, "inverse": false, "notes": [[8, 4]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 20, "steps": [[8, 4]]}, {"id": "N3059", "author": "Robert (2009YAUR01)", "date": "2025-07-13", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "U2 L' F' L U R2 U' R2 B R2 U2 B2 D2 F R2 B D2 B' L2", "skeleton": "L' B' L B L2 R B U F' U' F2 R' F' R' F2 R F2", "said": "ab3c", "final": 21, "inverse": false, "notes": [[8, 4]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 21, "steps": [[8, 4]]}, {"id": "N3060", "author": "Robert (2009YAUR01)", "date": "2025-07-13", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "U2 L' F' L U R2 U' R2 B R2 U2 B2 D2 F R2 B D2 B' L2", "skeleton": "L' B' L B L2 R B R' F2 D' F' D F' R' F2 R F2", "said": "ab3c", "final": 22, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N3157", "author": "DougCube", "date": "2025-07-16", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 B2 L2 B2 F2 U L2 U2 F2 L2 D2 B' R2 D' F2 U B' L' R U2 F2 R' U' F", "skeleton": "B2 D' F' U2 F' D2 F D R' U B U' B2 L' B2 R B' R D' R' D' B R F' L2", "said": "3c+1tc", "final": 31, "inverse": false, "notes": [[8, 4], [8, 6]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 31, "steps": [[8, 4], [8, 6]]}, {"id": "N3160", "author": "DougCube", "date": "2025-07-16", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 B2 L2 B2 F2 U L2 U2 F2 L2 D2 B' R2 D' F2 U B' L' R U2 F2 R' U' F", "skeleton": "B2 D' F' U2 F' D2 F D L' D L2 B U B' U2 L' U L2 D' L2 B2 L' D2 B R F' L2", "said": "3e", "final": 32, "inverse": false, "notes": [[10, 5]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 32, "steps": [[10, 5]]}, {"id": "N3224", "author": "koplopkolpploklpklop", "date": "2025-07-16", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D F2 U2 F2 R2 U L2 B2 D F2 D2 B2 R2 D2 F' R D2 L F2 L F2 R' U' F", "skeleton": "L2 U2 R' D' R D2 R2 B' D2 B R' B' D R D R'", "said": "5c", "final": 27, "inverse": false, "notes": [[8, 3], [8, 2]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 27, "steps": [[8, 3], [8, 2]]}, {"id": "N3246", "author": "koplopkolpploklpklop", "date": "2025-07-17", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F B D2 B U2 D2 R2 F' L2 F2 B2 L U2 D' R' U2 R F L D' B R' U' F", "skeleton": "U' R D L D2 B' L2 D L' D L B L B L' R' B' R B D2 B2 D2 F2 R' F'", "said": "5c", "final": null, "inverse": false, "notes": [[8, 6], [8, 4]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 31, "steps": [[8, 6], [8, 4]]}, {"id": "N3249", "author": "DougCube", "date": "2025-07-18", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F B D2 B U2 D2 R2 F' L2 F2 B2 L U2 D' R' U2 R F L D' B R' U' F", "skeleton": "B' L2 D' F' L2 B2 R B' R2 D' B L' F2 R F2 L B'", "said": "3c", "final": 23, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 23, "steps": [[8, 2]]}, {"id": "N3283", "author": "Ian IYZ (30/33.33)", "date": "2025-07-22", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R' U2 R2 L' F2 U F2 L B L' F2 R2 U' R2 D F2 U' R' U' F", "skeleton": "U' L' F' U2 D2 L' F2 L B' L' B2 D' B' L D L F' L F L2", "said": "4C", "final": 34, "inverse": false, "notes": [], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 34, "steps": [[14, 0]]}, {"id": "N3329", "author": "DougCube", "date": "2025-07-22", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L2 D' B L2 D2 L2 B2 R2 F2 D2 U' L' D' R U' L' F2 L2 D R' U' F", "skeleton": "D B U R' B' R2 F' L' D F' D' L U2 L2 U' L2 U' L' B' U' B F U F' U' L2 F2", "said": "pure 2e2e", "final": 30, "inverse": false, "notes": [[6, 3]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N3489", "author": "koplopkolpploklpklop", "date": "2025-07-28", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 F2 L2 D2 B U2 B' D2 R2 D2 R2 B2 L' D2 F2 D' L2 B F U B2 R' U' F", "skeleton": "U L2 D2 R D R2 B2 R D2 B' L B L' B' L2 B' U2 L", "said": "5c", "final": null, "inverse": false, "notes": [[8, 1], [8, 3]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 30, "steps": [[8, 1], [8, 3]]}, {"id": "N3492", "author": "zakk drewji", "date": "2025-07-28", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 F2 L2 D2 B U2 B' D2 R2 D2 R2 B2 L' D2 F2 D' L2 B F U B2 R' U' F", "skeleton": "U B' U' B' U' L B' D B L2 D2 L D' L' D L D", "said": "AB5C", "final": 27, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N3500", "author": "DougCube", "date": "2025-07-28", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R' U' B2 F2 U' L2 U F2 L2 U L B U2 R2 D' F D2 R' U' B R' U' F", "skeleton": "F' R' B2 R B' D' F D' F' L' F L D2 L U' F2 B2 R D B", "said": "3c", "final": 25, "inverse": false, "notes": [[8, 3]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 25, "steps": [[8, 3]]}, {"id": "N3501", "author": "DougCube", "date": "2025-07-28", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U' D2 F2 U2 R' F D B F2 D2 R2 L' D2 B2 R' L B' R2 D' R' U' F", "skeleton": "B2 L' B' R' B F2 R2 B F R' F D' B L B'", "said": "2c2c", "final": 22, "inverse": false, "notes": [[8, 6], [8, 3]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 22, "steps": [[8, 6], [8, 3]]}, {"id": "N3513", "author": "DougCube", "date": "2025-07-29", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 F2 L2 R2 D2 L' R2 F2 D' L U F' D2 R' D R U L2 U R' U' F", "skeleton": "R' U' L B L' D' L D' L' D' L' F2 R D2 F2 U' B'", "said": "Z-perm", "final": 21, "inverse": false, "notes": [[8, 4]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 21, "steps": [[8, 4]]}, {"id": "N3515", "author": "DougCube", "date": "2025-07-29", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 F2 L2 R2 D2 L' R2 F2 D' L U F' D2 R' D R U L2 U R' U' F", "skeleton": "F' R2 B' U2 L' F' L' F L U B2 L2 B L2 B U2 B2 U' B L' U' B2 F R", "said": "3c", "final": 28, "inverse": false, "notes": [[8, 4]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 28, "steps": [[8, 4]]}, {"id": "N3578", "author": "DougCube", "date": "2025-08-10", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U' B2 F2 R2 D' R2 F2 R2 U' R2 D F' L' B' L D B' D' U' B R' U' F", "skeleton": "U' R' B' R2 F F2 L' U L L' B2 L U2 R' U R2 L U L' U", "said": "3c", "final": 23, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 23, "steps": [[8, 2]]}, {"id": "N3622a", "author": "DougCube", "date": "2025-08-12", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D U' R2 D' F2 R2 U' L2 U2 F R2 D2 B2 L' U F' U R2 B2 D R' U' F", "skeleton": "B' L' F U R U R' U' B2 L U' L U U L U' L' B L2 B' L' B L' B'", "said": "3c", "final": 25, "inverse": false, "notes": [[8, 6]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 25, "steps": [[8, 6]]}, {"id": "N3622c", "author": "DougCube", "date": "2025-08-12", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 F2 D2 B D2 F L2 D2 B R F L U B' L D R B D' U' R' U' F", "skeleton": "D2 F' B2 L2 D2 D B L' B' D' U B2 U2 L U' L2 U' L U", "said": "3c", "final": 24, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 24, "steps": [[8, 2]]}, {"id": "N3681", "author": "zakk drewji", "date": "2025-08-16", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U R' U B2 F2 L2 D B2 U' F2 R2 B2 D2 R D B2 U' F' D F2 R' U' F", "skeleton": "F' U2 L' F2 U' L' U' L' U2 R' U' R2 U R L D R D' L' U2 B2 L", "said": "3C", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N3708", "author": "DougCube", "date": "2025-08-18", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "U2 F2 U' B' R U' B U2 R2 U2 R2 F2 U' R2 U F2 L2 D R2", "skeleton": "D R' L2 B R' F2 U R' F2 R' D L2 D2 L D", "said": "5c", "final": 21, "inverse": false, "notes": [[8, 3], [8, 7]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 21, "steps": [[8, 3], [8, 7]]}, {"id": "N3859", "author": "zakk drewji", "date": "2025-08-24", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D F' L2 B2 D2 R U2 B2 R D2 L2 B2 R' D2 B' R U' B D' U R' U' F", "skeleton": "R' U B' R F B U2 B' D R U2 R' F U' F' U2 U L U' L' F' L F L'", "said": "L3C", "final": 30, "inverse": false, "notes": [[8, 1]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 30, "steps": [[8, 1]]}, {"id": "N3868", "author": "DougCube", "date": "2025-08-24", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D F' L2 B2 D2 R U2 B2 R D2 L2 B2 R' D2 B' R U' B D' U R' U' F", "skeleton": "R' U B' R F B U2 B' D R U2 R' F U' F' U2 U L U' L' F' L F L'", "said": "L3C", "final": 28, "inverse": false, "notes": [[10, 5]], "n_ins": 1, "origin": "server", "dup_of": "N3859", "replayed": true, "replay_len": 28, "steps": [[10, 5]]}, {"id": "N3914", "author": "zakk drewji", "date": "2025-08-26", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 R' U2 L2 D2 L B2 L D2 B2 R' F2 D F R' B U2 L F L2 D R' U' F", "skeleton": "F' B R' L' F2 L2 F L2 D F' D' U F U2 L' F2 D2", "said": "3c1t", "final": 25, "inverse": false, "notes": [[8, 2], [8, 6]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 25, "steps": [[8, 2], [8, 6]]}, {"id": "N4060", "author": "Phuwish", "date": "2025-08-30", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L' U' R B R' U2 D B2 R B2 R2 D2 L F2 L2 U2 R' U F' R' U' F", "skeleton": "L B2 L2 F' D2 U' R' F R L B L' B' D F' D' L' D F D' U2", "said": "", "final": 23, "inverse": false, "notes": [[8, 6]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N4129", "author": "DougCube", "date": "2025-09-02", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F B L F2 D2 F' L' U' D R' U L2 B2 L2 D R2 B2 U' L2 U2 B2 D' R' U' F", "skeleton": "R' D F2 L F' U B' R2 B D' F2 D L F2 L' F U' F U R2", "said": "3e", "final": 22, "inverse": false, "notes": [[10, 8]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 22, "steps": [[10, 8]]}, {"id": "N4241", "author": "DougCube", "date": "2025-09-12", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L D2 F R2 B' U R' U' R2 F2 R2 L2 U' L2 B2 D' L2 U L' F' D' R' U' F", "skeleton": "D L' U D2 B' F' R' F R F' R2 F R' F2 R' D2 R2 D R' F2", "said": "5c", "final": 29, "inverse": false, "notes": [[10, 3], [8, 6]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 29, "steps": [[10, 3], [8, 6]]}, {"id": "N4264", "author": "zakk drewji", "date": "2025-09-12", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U' B2 R L' F R2 D' R F L F2 L2 B2 U2 L2 U2 F U2 F' D2 B R' U' F", "skeleton": "U B2 L R U' R' B L B' D2 L' B' F L B' F2", "said": "5C", "final": 26, "inverse": false, "notes": [[8, 3], [8, 3]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 26, "steps": [[8, 3], [8, 3]]}, {"id": "N4309", "author": "DougCube", "date": "2025-09-13", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "D F2 D2 L2 U L2 D L2 B' U2 L2 F2 D L' R2 D' F L", "skeleton": "L' D F' L' F U F L2 D' B'", "said": "3c+1tc", "final": 20, "inverse": false, "notes": [[8, 3], [8, 3]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 20, "steps": [[8, 3], [8, 3]]}, {"id": "N4318", "author": "DougCube", "date": "2025-09-15", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R B2 U B' U2 R F' L' F' B' L2 F U2 R2 D2 B L2 B R2 U2 R' U' F", "skeleton": "B2 U2 F U' R2 U B2 R' U' R U' L' U R F2 B'", "said": "2c2c", "final": 22, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 21, "steps": [[8, 3]]}, {"id": "N4338", "author": "Phuwish", "date": "2025-09-15", "source": "IF", "wording_only": true, "if_setting": "", "scramble": "U F' D R' U' R2 B D2 F2 D' B2 D' F2 L2 U2 R2 B2 U' R'", "skeleton": "F R L2 D B U B' F2 U R' U R2 R' U L D F D' L' U2 R U'", "said": "3C", "final": 26, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N4341", "author": "DougCube", "date": "2025-09-15", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "U F' D R' U' R2 B D2 F2 D' B2 D' F2 L2 U2 R2 B2 U' R'", "skeleton": "F D R B R D' L2 U' R' D R' U' R U R' F2 U' R U2 R' U", "said": "3c", "final": 26, "inverse": false, "notes": [[8, 3]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 26, "steps": [[8, 3]]}, {"id": "N4353", "author": "DougCube", "date": "2025-09-17", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R L U' R' D2 F2 L' D2 F B2 R2 U' F2 U L2 D' F2 R2 U' L2 D2 R' U' F", "skeleton": "F2 D F' U' F D' F D' F D B' R B U F' L B2 D R U2 F D2", "said": "U-perm", "final": 26, "inverse": false, "notes": [[10, 6]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 26, "steps": [[10, 6]]}, {"id": "N4385", "author": "DougCube", "date": "2025-09-21", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R' L' D L D' R U D2 B' U R' B U2 B2 U' R' D' B R' U' F", "skeleton": "B' R D2 L' D2 F2 L F' L' D' L D B L2 F L2", "said": "5c", "final": 22, "inverse": false, "notes": [[10, 6], [8, 6]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 22, "steps": [[10, 6], [8, 6]]}, {"id": "N4395", "author": "DougCube", "date": "2025-09-22", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "D B2 L2 B2 D2 R D L D R2 B R D B2 L' F'", "skeleton": "F B' L B2 B' L B L' L B D B' D2 L' D2 B' D B D", "said": "2fe", "final": 19, "inverse": false, "notes": [[10, 10], [8, 4]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 19, "steps": [[10, 10], [8, 4]]}, {"id": "N4409", "author": "kyh", "date": "2025-09-27", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F B2 R2 D' B2 D F2 D' L2 U L2 B' L' F2 D2 U' L' B' F L' B2 F2 R' U' F", "skeleton": "B U2 L F2 R L' U' R' U B2 D L2 B2 L' F' D", "said": "5C", "final": 25, "inverse": false, "notes": [[8, 2], [8, 5]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 25, "steps": [[8, 2], [8, 5]]}, {"id": "N4433", "author": "DougCube", "date": "2025-09-30", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U B' R D' R2 B L2 U2 R D R2 U2 F2 U B' U2 F B2 R' U' F", "skeleton": "D2 F B' L' F' L B L' D2 L2 D' L' D2 R' B2 R D", "said": "5c", "final": 19, "inverse": false, "notes": [[10, 8]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 19, "steps": [[10, 8]]}, {"id": "N4557", "author": "DougCube", "date": "2025-10-07", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 R2 F R2 D2 U2 B R2 B' L U B' F R D' R2 B U2 L2 F R' U' F", "skeleton": "U' B' L D R' B2 B' U2 R U' R' B B' R U' R' U B L D R' F R D' L' U2", "said": "3c", "final": 22, "inverse": false, "notes": [[8, 6]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 22, "steps": [[8, 6]]}, {"id": "N4623", "author": "DougCube", "date": "2025-10-13", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D' F D2 R2 D2 F L2 F U2 F U' B' F' L' F R B D' F' R' U' F", "skeleton": "F R2 U' R U R D2 F2 R' B2 U2 D B2 R2 B' U2 L' U", "said": "A-Perm", "final": 24, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 24, "steps": [[8, 2]]}, {"id": "N4638", "author": "DougCube", "date": "2025-10-14", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "D2 U2 F R2 B' F' D2 B L2 B' D2 R' B U B R U B' U' R'", "skeleton": "U2 L2 U2 R D2 R D R2 D' L' F2 L F2", "said": "3e+1fe", "final": 21, "inverse": false, "notes": [[10, 9], [10, 3]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 21, "steps": [[10, 9], [10, 3]]}, {"id": "N4650", "author": "DougCube", "date": "2025-10-15", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 F2 U2 L U2 R2 L' D2 L2 F' L' B L2 U2 B2 R D' F' D' B R' U' F", "skeleton": "F R' D2 R2 F2 R F' R' D2 R F2 D2 F' D F' D'", "said": "3c", "final": 21, "inverse": false, "notes": [[8, 3]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 21, "steps": [[8, 3]]}, {"id": "N4671", "author": "bennycunha97", "date": "2025-10-17", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R' D L U2 R2 B2 D2 F2 U2 B L2 B2 R2 U L' F2 D' L2 B' U' R' U' F", "skeleton": "U' B' R2 F' L' F L R U F U' F' R' L D F' D' U2 F' B' U B L R2 U2", "said": "5c", "final": 35, "inverse": false, "notes": [[8, 4], [8, 2]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N4673", "author": "zakk drewji", "date": "2025-10-25", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D' B2 R B R F U B U2 F2 B2 U B2 D F2 U B2 U2 F2 U F' R' U' F", "skeleton": "L U' L' U L' F' L' B' L2 B L B2 F2 L R'", "said": "3c3c", "final": 27, "inverse": false, "notes": [[8, 8], [8, 3], [8, 1]], "n_ins": 3, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 27, "steps": [[8, 8], [8, 3], [8, 1]]}, {"id": "N4763a", "author": "DougCube", "date": "2025-11-07", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R' F2 D' R F' R2 B R2 B2 U2 F' D2 U' L' D R' B R' F' R' U' F", "skeleton": "D2 B' F R F' R' F2 D' F2 D' F' D' R2 F' R' U2 L2 U2", "said": "2e2e", "final": 22, "inverse": false, "notes": [[10, 9], [2, 1], [10, 5], [2, 5], [2, 2]], "n_ins": 5, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N4770a", "author": "trangium", "date": "2025-11-07", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "L2 D2 R U2 R' D2 L2", "skeleton": "L2 R U2 R' L2", "said": "", "final": null, "inverse": false, "notes": [[8, 6]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 7, "steps": [[8, 6]]}, {"id": "N4770b", "author": "trangium", "date": "2025-11-07", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "L2 D2 R U2 R' D2 L2", "skeleton": "L2 R U2 R' L2", "said": "", "final": null, "inverse": false, "notes": [[8, 6]], "n_ins": 1, "origin": "server", "dup_of": "N4770a", "replayed": true, "replay_len": 7, "steps": [[8, 6]]}, {"id": "N4770c", "author": "trangium", "date": "2025-11-07", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "L2 D2 R U2 R' D2 L2", "skeleton": "L2 R U2 R' L2", "said": "", "final": null, "inverse": false, "notes": [[8, 6]], "n_ins": 1, "origin": "server", "dup_of": "N4770a", "replayed": true, "replay_len": 7, "steps": [[8, 6]]}, {"id": "N4770d", "author": "trangium", "date": "2025-11-07", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "L2 D2 R U2 R' D2 L2", "skeleton": "L2 R U2 R' L2", "said": "", "final": null, "inverse": false, "notes": [[8, 6]], "n_ins": 1, "origin": "server", "dup_of": "N4770a", "replayed": true, "replay_len": 7, "steps": [[8, 6]]}, {"id": "N4774", "author": "TAVE IS DEFINITELY MY GOAT \ud83d\udc10", "date": "2025-11-09", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U' R' D' F2 B2 R' D' F2 R' B R2 L D2 L2 U2 R D2 R F R' U' F", "skeleton": "L2 F' R B L' F D F' R' F' R' F R' F'", "said": "3c", "final": 20, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 20, "steps": [[8, 2]]}, {"id": "N4777", "author": "kyh", "date": "2025-11-10", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D' L' F2 R2 U' R2 D R2 F2 L2 U' R F D2 F D2 U B F R' U' F", "skeleton": "B' U' R2 L' D2 L' D R2 F2 R' F2 L' D R2 D' R D' B U2 B", "said": "3E", "final": 23, "inverse": false, "notes": [[10, 7]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 23, "steps": [[10, 7]]}, {"id": "N4814", "author": "DougCube", "date": "2025-11-20", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "D2 L2 B2 F2 L U2 L F2 R' B2 F' R B' L' U' B2 L2 U2 R", "skeleton": "F2 R F R' F D' L2 D' B2 L D' B2 L R F' R' B D2", "said": "3e", "final": 23, "inverse": false, "notes": [[10, 5]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 23, "steps": [[10, 5]]}, {"id": "N4832", "author": "DougCube", "date": "2025-11-26", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R L D' B L F' D R F2 L U' L B' L U B' R2 F' R' U' F", "skeleton": "B R' F L' D R2 F' L2 B F2 D D' F' R2 F D R2", "said": "3c", "final": 18, "inverse": false, "notes": [[8, 4]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 18, "steps": [[8, 4]]}, {"id": "N4880", "author": "Brandon is my goat \ud83d\udc10", "date": "2025-11-30", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 L2 F2 L2 R B2 R B2 U2 R F2 U L' U' F' U' R' B' L B2 U2 R' U' F", "skeleton": "U' R2 B F2 D R F2 R' U' R U B2 U' B2 R' D' F2 D' U L U", "said": "3c", "final": 27, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 27, "steps": [[8, 2]]}, {"id": "N4905", "author": "kyh", "date": "2025-12-08", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L' U2 L' D2 L' F2 L' B2 F2 R2 B2 F' U' B' U' F2 L2 U' L' U2 R' U' F", "skeleton": "B' L' U' D2 L2 B U L B' R B R'", "said": "5C", "final": 23, "inverse": false, "notes": [[10, 4], [8, 3]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 23, "steps": [[10, 4], [8, 3]]}, {"id": "N5065", "author": "DougCube", "date": "2025-12-23", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R' U2 F L2 B R' B' D2 R U' D2 B2 U2 R D2 R F2 R B R' U' F", "skeleton": "U2 R L2 F U L2 F R2 U R2 D' F2 D", "said": "5e", "final": 21, "inverse": false, "notes": [[7, 1], [10, 8]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 21, "steps": [[7, 1], [10, 8]]}, {"id": "N5079", "author": "DougCube", "date": "2025-12-29", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 B' U L2 D2 R2 L2 F B' L D' U2 F2 R' B2 R U2 L2 D2 R' U' F", "skeleton": "D2 B2 U' F U' B' D R2 D F2 D' L' D' B2 R", "said": "3c", "final": 22, "inverse": false, "notes": [[8, 1]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 22, "steps": [[8, 1]]}, {"id": "N5190", "author": "DougCube", "date": "2026-01-02", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L U' R2 F' L2 B R B R' D2 R2 F2 U2 F L2 F D2 L F2 R' U' F", "skeleton": "F2 D F D' F' U' D' F D R2 B D' U' R' B2 R' U'", "said": "3c+1tc", "final": 24, "inverse": false, "notes": [[8, 4], [8, 5]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 24, "steps": [[8, 4], [8, 5]]}, {"id": "N5241", "author": "argonblue", "date": "2026-01-06", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 U' L2 B2 U' R2 B2 U2 B2 F' R' D' U' L F U L2 D2 F2 D2 R' U' F", "skeleton": "F' D' F D L D2 R U L2 D R D' R' D2 L' D L R2 D B2", "said": "2ct2ct", "final": 32, "inverse": false, "notes": [[8, 2], [8, 2]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 32, "steps": [[8, 2], [8, 2]]}, {"id": "N5398", "author": "DougCube", "date": "2026-01-14", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "D2 B2 L2 R D2 R' D2 B2 D2 L D' F L2 B2 L2 F2 R", "skeleton": "F' R' F2 L B2 L' D2 R D' F D' F' D' R' D", "said": "3c", "final": 20, "inverse": false, "notes": [[8, 3]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 20, "steps": [[8, 3]]}, {"id": "N5422", "author": "TAVE IS DEFINITELY MY GOAT \ud83d\udc10", "date": "2026-01-17", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 L2 U2 R2 F' R2 B2 L2 F R2 B R2 F' L' D' B' D' R' D B' D' R' U' F", "skeleton": "L F2 R B' L B F' L' F R F' L F D' L' F R'", "said": "3c", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N5493", "author": "DougCube", "date": "2026-01-21", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U F U2 F D2 F U L F U2 R' L' B2 D2 B U B' U' R' U' F", "skeleton": "L F' L2 B2 R' B2 R' B R2 B' R", "said": "3c", "final": 17, "inverse": false, "notes": [[8, 1], [2, 1], [2, 4]], "n_ins": 3, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N5506a", "author": "argonblue", "date": "2026-01-24", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 U2 R2 D2 F2 U2 F' R2 F2 L2 B' U F' D2 B' D' L2 R' D' F' D' R' U' F", "skeleton": "B2 D' R F2 D' F U' F D F B' D2 B F' D2 F U' B D' B' U B' L2", "said": "2c2c", "final": 35, "inverse": false, "notes": [[8, 3], [8, 1]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N5506b", "author": "argonblue", "date": "2026-01-24", "source": "IF", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 U2 R2 D2 F2 U2 F' R2 F2 L2 B' U F' D2 B' D' L2 R' D' F' D' R' U' F", "skeleton": "B2 D' R F2 D' F U' F D F B' D2 B F' D2 F U' B D' B' U B' L2", "said": "2c2c", "final": 32, "inverse": false, "notes": [[8, 3], [8, 4]], "n_ins": 2, "origin": "server", "dup_of": "N5506a", "replayed": true, "replay_len": 32, "steps": [[8, 3], [8, 4]]}, {"id": "N5533", "author": "DougCube", "date": "2026-01-28", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L U2 F L' D2 R D' F' L2 F2 U' F' B D R' D F R' U' F", "skeleton": "D' L' R' F2 B L B' L' B' R' B R D B L D2 L B' D", "said": "3c+1tc", "final": 23, "inverse": false, "notes": [[8, 9], [8, 4]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 23, "steps": [[8, 9], [8, 3]]}, {"id": "N5578", "author": "DougCube", "date": "2026-02-11", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R B2 L2 B2 U2 R2 U' R2 F2 U2 F2 U B L' D' U' F R' D L' D R' U' F", "skeleton": "D L' D2 R B F2 D' F2 U F U2 R' U R' F' R B' R F R' B R'", "said": "3e", "final": 24, "inverse": false, "notes": [[10, 8]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N5606", "author": "DougCube", "date": "2026-02-11", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "L2 R2 U2 R2 B' D2 B D2 F' L2 B U R' B' U2 L D B R D L", "skeleton": "R' U B2 D' B R' B' F2 D2 F' D2 L' F' L U' L B' L D'", "said": "3c", "final": 25, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 25, "steps": [[8, 2]]}, {"id": "N5663", "author": "DougCube", "date": "2026-02-23", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D B2 U R' U2 R2 B U D F R B2 L D' F' D B L F2 R' U' F", "skeleton": "D' B2 U2 L B' U R U R' L' U' L U F' U2", "said": "3c+1tc", "final": 21, "inverse": false, "notes": [[8, 8], [8, 2]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 21, "steps": [[8, 8], [8, 2]]}, {"id": "N5742", "author": "unemployedweeblet", "date": "2026-03-03", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 F D2 U2 F R2 B L2 F2 L2 R F2 U L B2 D' R2 F' R D2 F2 R' U' F", "skeleton": "B D B' D2 F' D' F D2 B D2 B' D B D' B' F D F' B' U L B", "said": "AB3c", "final": 28, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 28, "steps": [[8, 2]]}, {"id": "N5780", "author": "paulduc03 (22/26.67)", "date": "2026-03-18", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D F L2 U2 D L B' D L F2 L' D2 L' F2 B2 U2 R2 U2 R' F2 R' U' F", "skeleton": "D' L F2 D L D2 F' L U2 B' L' B' L2 B2 L B2 L' B", "said": "3C", "final": 21, "inverse": false, "notes": [], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 21, "steps": [[8, 5]]}, {"id": "N5808", "author": "DougCube", "date": "2026-03-26", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "U2 R2 F2 D' R2 F' R F' R2 U L2 D' L2 D F2 D' L2 U D", "skeleton": "B2 L2 D' L2 B2 D' B' L2 B D' L F' D' F L2 D'", "said": "3c", "final": 22, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 22, "steps": [[8, 2]]}, {"id": "N5809", "author": "DougCube", "date": "2026-03-26", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "U2 R2 F2 D' R2 F' R F' R2 U L2 D' L2 D F2 D' L2 U D", "skeleton": "L B2 D L2 B' L2 B2 L' B2 D U F' R' F U' D2 B2", "said": "A-perm", "final": 22, "inverse": false, "notes": [[8, 3]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 22, "steps": [[8, 3]]}, {"id": "N5814", "author": "TAVE IS DEFINITELY MY GOAT \ud83d\udc10", "date": "2026-03-26", "source": "IF", "wording_only": false, "if_setting": "greedy 0 (N5824): 30 with the default algorithm choice ('IF finds 30', 'but theyre all 10-5 8-0'); 29 with pure comms only ('wait if i just do pure comms it finds a 29')", "scramble": "U2 R2 F2 D' R2 F' R F' R2 U L2 D' L2 D F2 D' L2 U D", "skeleton": "D L' D' R2 U' B L B' L2 L' R' U L U' R U L2 R2", "said": "5c", "final": 30, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N5931", "author": "GBC // 19/21.67 PRs", "date": "2026-04-22", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "D F L' U L2 B2 U L B' L' U' L2 B2 L2 D' B2", "skeleton": "D L' U' F' L2 F' D2 F D F' D F", "said": "5c", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N5938", "author": "DougCube", "date": "2026-04-22", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "D F L' U L2 B2 U L B' L' U' L2 B2 L2 D' B2", "skeleton": "D L' U' L2 F' F' D2 F F L' F' L B D2 B' D L' D' L D2", "said": "3e", "final": 19, "inverse": false, "notes": [[10, 9]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 19, "steps": [[10, 9]]}, {"id": "N5944", "author": "DougCube", "date": "2026-04-24", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "U' F2 D2 R2 D F2 R2 F2 R2 F2 U F D U' R' D2 F D' F", "skeleton": "D' F2 U U' F D' F' R U F2 D' F' D2 F2 F D2 F'", "said": "5c", "final": 21, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N5952", "author": "GBC // 19/21.67 PRs", "date": "2026-04-25", "source": "IF", "wording_only": true, "if_setting": "tool not named ('+6 optimal for 20')", "scramble": "B2 U2 D' F' L2 B2 R2 B2 D2 B' L2 D2 F R' D2 F' U R D2 F'", "skeleton": "U' R2 U L' U' R2 U F U' R B' R D2 R'", "said": "3c", "final": 20, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N5959", "author": "GBC // 19/21.67 PRs", "date": "2026-04-25", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 L' F2 U2 L' F2 R' F2 L' U2 B2 D' B' L' F' R' D L' D B' D R' U' F", "skeleton": "R F L F L' F' L2 F L' B' U2 B' R B' R' F L F U' L2 F", "said": "5c", "final": 32, "inverse": false, "notes": [[8, 3], [8, 2]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 32, "steps": [[8, 3], [8, 2]]}, {"id": "N5997", "author": "Brandon is my goat \ud83d\udc10", "date": "2026-05-03", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U' R2 B F2 U R2 F2 R2 D U2 B2 D2 U' F' L B' L' B2 U F2 R' U' F", "skeleton": "R L D F2 R' F R2 F U2 F' D F' F L2 F' D2 F' D' F D2", "said": "3e", "final": 23, "inverse": false, "notes": [[6, 1]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 23, "steps": [[6, 1]]}, {"id": "N6000", "author": "trangium", "date": "2026-05-03", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U' R2 B F2 U R2 F2 R2 D U2 B2 D2 U' F' L B' L' B2 U F2 R' U' F", "skeleton": "R L D F2 R' U2 B D2 B2 F' D2 F2 D L2 D2 F D2 F' D'", "said": "3e", "final": 22, "inverse": false, "notes": [[8, 5]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 22, "steps": [[8, 5]]}, {"id": "N6062", "author": "torchlight", "date": "2026-06-03", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 F2 B2 U2 R F2 B2 R D2 F2 B2 L' B D L2 B2 R2 F' D2 L2 D' R' U' F", "skeleton": "F' L D' B' U D L B L' B' D' U2 B U L F R F' U2 R2", "said": "2c2c", "final": 28, "inverse": false, "notes": [[12, 4]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 28, "steps": [[12, 4]]}, {"id": "N6098", "author": "omyyys", "date": "2026-06-04", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U F' R' B' R2 D B D' B2 U2 R2 B2 R2 U L2 U2 R2 U R B' R' U' F", "skeleton": "U' L' B' L F D' B D2 F' U' F' U R D' R D' R' D2 R B2", "said": "2C2C", "final": 27, "inverse": false, "notes": [[8, 3], [8, 6]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 27, "steps": [[8, 3], [8, 6]]}, {"id": "N6128", "author": "DougCube", "date": "2026-06-10", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 F' U2 L2 D' B2 U B2 U F2 D2 R F' R' B' R' U B2 F' R' U' F", "skeleton": "B2 D' F R2 L' F' L U F U' L' F2 L F'", "said": "2e2e", "final": 22, "inverse": false, "notes": [[10, 10], [10, 2]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N6153", "author": "DougCube", "date": "2026-06-13", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 U' B2 R2 D' L2 F2 U R2 F2 D2 B' L' R2 F2 U L2 U' B R B R' U' F", "skeleton": "U' F U R D' R2 F' R' F R' D R D R' L D L' D2 F R U F'", "said": "2fe", "final": 24, "inverse": false, "notes": [[10, 9], [10, 9]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N6299", "author": "DougCube", "date": "2026-06-27", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L' B' R2 D2 B F2 R2 U2 F2 L D R D' B L2 D R U' L' R' U' F", "skeleton": "R' L' D F R F' L' B R B2 L F L' F' L F2 L F", "said": "3c", "final": 22, "inverse": false, "notes": [[10, 6]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 22, "steps": [[10, 6]]}, {"id": "N6301", "author": "Nicole", "date": "2026-06-27", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L D' L2 B D2 F2 U2 R U' L2 U2 B2 D2 F U2 L2 B L2 B' U2 B' R' U' F", "skeleton": "R B' R' B D R' U' R U2 R' U' R U' R2 U R U' R' U2 R U L' U' L U L' U B' L' B", "said": "ab3c", "final": 33, "inverse": false, "notes": [[8, 5]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 33, "steps": [[8, 5]]}, {"id": "N6434", "author": "DougCube", "date": "2026-07-12", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "F2 R U2 B2 F2 L D2 L2 U2 F2 L' R2 D R F2 D B2 R2 B D2", "skeleton": "R B2 R2 L F D' R2 F2 R B U' F U2 B' F D' F D", "said": "3c", "final": 23, "inverse": false, "notes": [[8, 3]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 23, "steps": [[8, 3]]}, {"id": "N6481", "author": "Renny", "date": "2026-07-31", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R' U' R' B' R2 B' U2 L2 R2 B2 F L F' R U' F2 R2 D' B' R' U' F", "skeleton": "R' F D F D F2 L2 F' D F2 R2 B R2 U' R' F' R'", "said": "3c", "final": 23, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 23, "steps": [[8, 2]]}, {"id": "N6515", "author": "Jihan Lee", "date": "2026-08-04", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F B2 D R2 U2 B2 L2 B2 L2 U F2 R2 D' L D' U' R' B' R2 U L' R' U' F", "skeleton": "D' R L' U L U R U2 R' U D2 R2 D2 L F L' B' U'", "said": "4c", "final": 28, "inverse": false, "notes": [[8, 3], [8, 3]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N6608", "author": "Jihan Lee", "date": "2026-08-08", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 F' R2 F' L2 B2 U2 B R2 F' D2 F R2 D' B L' D2 B' R F' U R' U' F", "skeleton": "R' D' F U2 F2 R2 U L' U L U' R' F2 B' U2", "said": "3c+1tc", "final": 22, "inverse": false, "notes": [[8, 6], [11, 6]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 22, "steps": [[8, 6], [11, 6]]}, {"id": "N6649", "author": "Somebodyidk", "date": "2026-08-23", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "B2 R F' D' L2 B U2 L F2 U R' U2 F' R2 D2 F B2", "skeleton": "F B2 R' L D2 B2 D B2 F' D F D2", "said": "3c", "final": 17, "inverse": false, "notes": [[8, 3]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 17, "steps": [[8, 3]]}, {"id": "N6662", "author": "caycala", "date": "2026-09-13", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "D2 R2 F' R2 B2 D2 B R2 F2 L2 F U' B2 R F' L2 R D U2", "skeleton": "F2 D B D R B R' B R B2 R2 U2 R B U2", "said": "3c", "final": 17, "inverse": false, "notes": [[8, 3]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N6694", "author": "Ben", "date": "2026-09-21", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "U L2 F L' D B2 R2 B' D F2 L2 F' R2 B R2 L2 D2 R2 B2", "skeleton": "B L F L F' D' F D F2 B U L' U' L B", "said": "3c", "final": 21, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N6708", "author": "Renny", "date": "2026-09-24", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 F D2 B' L2 F' D2 L2 B' U2 B L D' F' D U L2 R D' R' U' F", "skeleton": "B2 R F' L F' R F B' R2 B R' B2 D B' D' U' B' U B'", "said": "3c", "final": 20, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N6769", "author": "paulduc03 (22/26.67)", "date": "2026-10-01", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R' U2 L2 D2 L' D2 R2 F2 R' D2 R F' U2 R2 F U' R' U' R' U' B R' U' F", "skeleton": "B' R2 F2 U' L' U' L U2 R' U' R2 F2 L' B2 F U", "said": "3C", "final": 19, "inverse": false, "notes": [[8, 5]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 19, "steps": [[8, 5]]}, {"id": "N6771", "author": "DougCube", "date": "2026-10-01", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R' U2 L2 D2 L' D2 R2 F2 R' D2 R F' U2 R2 F U' R' U' R' U' B R' U' F", "skeleton": "B' R2 U' F2 R U' R' U L' U R' U' L' B2 L F U", "said": "5c", "final": 21, "inverse": false, "notes": [[8, 8], [10, 6]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 21, "steps": [[8, 9], [10, 5]]}, {"id": "N6810", "author": "DougCube", "date": "2026-10-07", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 R' D2 L2 B F2 D2 F2 L B2 F' R D' B L' R D' U R' U' F", "skeleton": "B L2 B' L2 B F' D2 F D' L D2 F2 D' L' D2 F U", "said": "3c", "final": 19, "inverse": false, "notes": [[2, 1], [2, 6], [8, 3]], "n_ins": 3, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "N6816a", "author": "Frederick", "date": "2026-10-12", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L' U' F2 L2 F2 D U2 B D U2 B U R B L R2 U' B2 R' U' F", "skeleton": "U' L' U' L B L' F' L F U' F2 U F2 B D' L U", "said": "3c1t", "final": 25, "inverse": false, "notes": [[8, 4], [10, 6]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 25, "steps": [[8, 4], [10, 6]]}, {"id": "N6816b", "author": "Frederick", "date": "2026-10-12", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L' U' F2 L2 F2 D U2 B D U2 B U R B L R2 U' B2 R' U' F", "skeleton": "U' L' U' F' L F B U' F2 U F2 B D' L U", "said": "5c", "final": 24, "inverse": false, "notes": [[8, 4], [8, 3]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 24, "steps": [[8, 4], [8, 3]]}, {"id": "N6844", "author": "DougCube", "date": "2026-10-25", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 B2 D2 L2 F' B' R2 F' U2 B' D' B L' F' U' L2 B' L2 U' F2 R' U' F", "skeleton": "F' R' B2 R D2 F' R F R2 D' F' D F' R", "said": "3c+1tc", "final": 22, "inverse": false, "notes": [[8, 4], [8, 4]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 22, "steps": [[8, 4], [8, 4]]}, {"id": "doc91", "author": "Insertion Finder page linked by alkamaass in D3793", "date": "2023-12-04", "source": "IF", "wording_only": false, "if_setting": "Greedy: 6; all 15 algorithm sets", "scramble": "R' U' F U2 L2 F2 D' R2 B2 L2 D' F2 L U' L' F R' F2 R' F L2 U F R' U' F", "skeleton": "D B2 D2 R2 D B D' R' D L' D' L B' L F2 B2 L U", "said": "3C1T", "final": 29, "inverse": false, "notes": [[8, 3], [8, 2]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 29, "steps": [[8, 1], [8, 4]]}, {"id": "doc92", "author": "Insertion Finder page linked by alkamaass in D3796", "date": "2023-12-04", "source": "IF", "wording_only": false, "if_setting": "Greedy: 6; all 15 algorithm sets", "scramble": "R' U' F U2 L2 F2 D' R2 B2 L2 D' F2 L U' L' F R' F2 R' F L2 U F R' U' F", "skeleton": "D B2 D2 R2 D B L' D' L R' B' L F2 B2 L U", "said": "3C1T", "final": 25, "inverse": false, "notes": [[8, 5], [10, 4]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 25, "steps": [[8, 5], [10, 4]]}, {"id": "doc122", "author": "Insertion Finder page linked by kalindumaxxer in N1072", "date": "2024-05-26", "source": "IF", "wording_only": false, "if_setting": "algorithm set '3 Corners' only; Greedy blank", "scramble": "D R2 L2 U L2 U2 R2 U L2 U' B2 U2 F' R2 L' U2 D B' R' D' R2 D2", "skeleton": "B' R' B D F B' D' L D L2 F' L D'", "said": "3T", "final": 23, "inverse": false, "notes": [[8, 4], [8, 2]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 23, "steps": [[8, 4], [8, 2]]}, {"id": "doc145", "author": "Insertion Finder page linked by alkamaass in N1451", "date": "2024-06-30", "source": "IF", "wording_only": false, "if_setting": "Greedy: 6; all 15 algorithm sets", "scramble": "D2 F2 B2 R2 U R2 U2 F2 U B' L2 U L' U' B' L' B' U'", "skeleton": "F' R F' U' B' U B2 F' L F' D", "said": "5C", "final": 19, "inverse": false, "notes": [[8, 5], [12, 7]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 19, "steps": [[8, 5], [12, 7]]}, {"id": "D3783", "author": "alkamaass", "date": "2023-12-04", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 L2 F2 D' R2 B2 L2 D' F2 L U' L' F R' F2 R' F L2 U F R' U' F", "skeleton": "D B2 D2 R2 D B D' R' D L' D' L B' L B2 F2 L U", "said": "3C1T", "final": null, "inverse": false, "notes": [], "n_ins": 1, "origin": "server", "dup_of": "doc91", "replayed": false, "replay_len": null, "steps": []}, {"id": "doc14\u00a72.1.5", "author": "Mirek Goljan and Guus Razoux-Schultz (example in Sebastiano Tronto's tutorial)", "date": "2023-08 (tutorial rev. 3.04)", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "D U' F2 U' R' F R2 B D' B R F B' U R' D2 L' R2 F2 B' U' B D B2 F2 U L F U' B2", "skeleton": "L U' F2 D' U2 B R2 B F' U F R U2 R' U2 R2", "said": "All but 3 corners", "final": 19, "inverse": false, "notes": [[8, 5]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 19, "steps": [[8, 5]]}, {"id": "doc14\u00a72.4.1", "author": "Sebastiano Tronto (tutorial example)", "date": "2023-08 (tutorial rev. 3.04)", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "D B2 U' F2 L2 D2 R2 U F2 U2 L2 R' D2 B L' U' R2 F2 R B F2", "skeleton": "B' U' D L' F' D2 L2 D' L U2 R2 U' R' U L' U R' U' L U2 R' L'", "said": "All but 3 corners", "final": null, "inverse": false, "notes": [], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 28, "steps": [[8, 2]]}, {"id": "doc14\u00a72.4.4", "author": "Jo\u00e3o Pedro Batista Ribeiro Costa (former SAR; example in Sebastiano Tronto's tutorial)", "date": "2023-08 (tutorial rev. 3.04)", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "L' U2 D' L' U2 B' D B' L U2 F2 R2 F' R2 L2 F' U2 D2 F", "skeleton": "F D' U2 R D' F' L2 F2 D F2 B' D B F' D' F' L2", "said": "All But 4 Corners", "final": 25, "inverse": false, "notes": [], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 25, "steps": [[8, 5], [8, 3]]}, {"id": "doc14\u00a72.5.3a", "author": "Sebastiano Tronto (tutorial example)", "date": "2023-08 (tutorial rev. 3.04)", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L2 U2 B' L2 F' U2 B L2 B R' B2 L U B L2 B' D' F2 R F R' U' F", "skeleton": "D' R' U' F L R2 U R D F2 D2 B2 U2 L2 D R2 U", "said": "AB5C", "final": 27, "inverse": false, "notes": [[8, 4], [8, 2]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 27, "steps": [[8, 4], [8, 2]]}, {"id": "doc14\u00a72.5.3b", "author": "Sebastiano Tronto (tutorial example)", "date": "2023-08 (tutorial rev. 3.04)", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "F' U R U' F2 R' U2 F' U D' L B' L2 F2 U2 R2 L' U2 B2 U2 R F2 L' F' U R", "skeleton": "F D R2 U' F' R' F2 B2 U2 R2 D U2 B2 D U'", "said": "3e+3e left", "final": 27, "inverse": false, "notes": [[10, 3], [10, 6]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 26, "steps": [[10, 3], [10, 6]]}, {"id": "doc14\u00a73.1", "author": "Tim Reynolds (former NAR; example in Sebastiano Tronto's tutorial)", "date": "2023-08 (tutorial rev. 3.04)", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R F L U2 L U' B' L2 D' F L2 B2 U2 L2 F U2 R2 B' L2 D2", "skeleton": "R' U F' L2 F2 D' B' D2 B R2 F R2 F' R2 F D' F' D", "said": "All but 3 corners", "final": 24, "inverse": false, "notes": [], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 24, "steps": [[8, 2]]}, {"id": "doc14\u00a73.8b", "author": "Sebastiano Tronto (tutorial example)", "date": "2023-08 (tutorial rev. 3.04)", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U R2 D R2 B2 D' B2 L' D2 L2 R D U L2 F' U2 B L' B R' U' F", "skeleton": "U' B' U B' L2 B2 R2 F2 R D' R L' F D2", "said": "5e", "final": 25, "inverse": false, "notes": [], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc14\u00a7D.2.2", "author": "Sebastiano Tronto (tutorial example)", "date": "2023-08 (tutorial rev. 3.04)", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 B2 L D2 B2 L' D2 F2 R' F2 L U' R B F2 L' R2 U' R U B R' U' F", "skeleton": "R' F' B L' D2 F D' B2 D' B' D L2 B2 U' L2 U D F2 D' U", "said": "3e", "final": 24, "inverse": false, "notes": [[8, 4]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 24, "steps": [[8, 4]]}, {"id": "doc444\u00a75.2", "author": "Alexandros Fokianos & Tommaso Raposio (A Domino Reduction Guide, 2019)", "date": "2019", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L2 F2 L2 U F2 D2 L2 D2 U' L2 B' U L' R U2 F D U2 L' B R U' R' U' F", "skeleton": "L' R B U L2 B2 L D2 L' U' L2 D R2 D2 L U2 L", "said": "6e", "final": 24, "inverse": false, "notes": [], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 24, "steps": [[6, 4], [8, 3]]}, {"id": "doc444\u00a75.3", "author": "Cale Schoon (example in A Domino Reduction Guide, 2019)", "date": "2019", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F B' D' F' D F2 L2 F2 U' B2 R2 D' R2 U' L R' B D R B U2 R' U' F", "skeleton": "U2 F D L U' F2 R2 D R2 L U2 L D2 U2 B2 U' B'", "said": "2e2e", "final": 24, "inverse": false, "notes": [[6, 1], [8, 6]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc178-1", "author": "Cyprian Kalbarczyk (Blockbuilding example solves, solve 1)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 U2 F2 L2 U2 B' D2 R2 U2 B' R' U' F U L' D2 R' D2 F' U R' U' F", "skeleton": "D' B' R2 U2 R2 U2 L U F2 L U2 L'", "said": "5C", "final": 24, "inverse": false, "notes": [[8, 2], [8, 2]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 24, "steps": [[8, 2], [8, 2]]}, {"id": "doc178-20", "author": "Cyprian Kalbarczyk (Blockbuilding example solves, solve 20)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L2 F L2 R2 B R2 U2 B' L2 B D2 B R F' D' B' L' B' F' L' F2 R' U' F", "skeleton": "F L2 R' B L' R U' L' U L2 U B' U' B F2 L'", "said": "5C", "final": 24, "inverse": false, "notes": [[8, 5], [8, 3]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 24, "steps": [[8, 5], [8, 3]]}, {"id": "doc178-94", "author": "Cyprian Kalbarczyk (Blockbuilding example solves, solve 94)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 D R2 U2 B2 D' R2 B2 F2 R' F' R F L R2 B L2 D2 F R' U' F", "skeleton": "U2 B' D R U L F' L F' D2 F' L' D2 L' B2 L2", "said": "3C1TC", "final": 24, "inverse": false, "notes": [[8, 5], [8, 3]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 24, "steps": [[8, 5], [8, 3]]}, {"id": "doc492-p1", "author": "speedsolving FMC thread p. 261 (poster not named in the copy)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 R2 F2 L2 B2 D2 F2 D R2 D R' B L B' D' U' F' R F R' U' F", "skeleton": "D F2 R B' R2 L' F D U2 F D' F' U2 L D' L' D F2 U' R", "said": "All but 3 corners", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc492-p2", "author": "speedsolving FMC thread p. 261 (poster not named in the copy)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 L2 D R2 F2 D F2 L2 D B2 R U L F D L' R F2 R' D B2 R' U' F", "skeleton": "B2 F2 U' F2 D2 L D' L' D L D R D2 R2 B' R D' U2 L", "said": "L3C", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc492-p3", "author": "speedsolving FMC thread p. 261 (poster not named in the copy)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 F2 D U L2 B2 F2 U' B2 D' F' U2 R' F2 D' B' U' F' L' D2 U R' U' F", "skeleton": "U B' D F' D' F' B R F R D2 B R' B2 R' B R2 F2 L D2 F", "said": "3c", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc492-p4", "author": "speedsolving FMC thread p. 261 (poster not named in the copy)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 B2 F2 D2 R2 F2 U' R2 B2 R' F' D L R D' U' R D' L2 F' R' U' F", "skeleton": "D2 L2 F2 D L2 B D' U2 R2 U2 D2 B2 R2 L' B2 D' L2", "said": "3c", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc492-p5", "author": "speedsolving FMC thread p. 261 (poster not named in the copy)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L2 F2 R2 D' L2 D' F2 D2 U L' F' L2 B2 U2 B L' B U L' R' U' F", "skeleton": "R B D' U2 L' D B2 D' B D R2 D B D' B2 D' B2 D' B D' B2 U", "said": "3c", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc492-p6", "author": "speedsolving FMC thread p. 261 (poster not named in the copy)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U L2 U R2 U' R2 D' B2 U R D' B2 U' R U2 F R2 U' F' U2 R' U' F", "skeleton": "L D F U' F' R B U R' U' R D B D' R B2 F R' F' R' B'", "said": "3c", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc492-p7", "author": "speedsolving FMC thread p. 261 (poster not named in the copy)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 D' F2 U' L2 U' R2 D' F2 U2 R B F R2 D2 R2 U F D L' D' R' U' F", "skeleton": "D B D' L2 D L2 U B' F2 U2 F' L2 R D B2 L'", "said": "3c", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc492-p8", "author": "speedsolving FMC thread p. 261 (poster not named in the copy)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F B2 L2 R2 D R2 F2 D' B2 F2 D2 L B R D' L' U' B2 U B F' R' U' F", "skeleton": "F' B D' B' D' F U B' U2 F D' F2 B2 D' R F2 D R2", "said": "3c", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc492-p9", "author": "speedsolving FMC thread p. 261 (poster not named in the copy)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 U' L2 U2 B2 L2 D U R2 D' F D L U' R2 B R2 U' B' U' R' U' F", "skeleton": "F R2 F L' F' L' B2 L B2 L D2 F' R' U L U F' L'", "said": "4c", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc492-p10", "author": "speedsolving FMC thread p. 261 (poster not named in the copy)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D L2 D L2 F2 L2 D' R2 U2 B L' R' D L' B D2 U' B' R' U' R' U' F", "skeleton": "U2 L' D B2 D' U' L2 U L D L' D2 F2 R2 F' R L'", "said": "5C", "final": null, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc492-ab4c", "author": "speedsolving FMC thread p. 261 (poster not named in the copy)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F B2 D' F2 D L2 D2 U F2 U B2 R2 B L' B R2 F L2 R D2 B D R' U' F", "skeleton": "L' B2 L F' U B' U' L' B L B' U B2 U' B' U2 B L2 F R2 U' L' D2", "said": "AB4C", "final": 31, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc492-x1", "author": "speedsolving FMC thread p. 261 (second poster, not named in the copy)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U' F L D' L B2 U B R B R2 F' R2 D2 F2 B L U' R' U' F", "skeleton": "D' R F' U L2 U' F' L F L U' L U L2 F' U' R' B L2 B' F2", "said": "AB2C2C1T", "final": null, "inverse": false, "notes": [], "n_ins": 3, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 34, "steps": [[8, 5], [8, 3], [8, 3]]}, {"id": "doc492-x3", "author": "speedsolving FMC thread p. 261 (second poster, not named in the copy)", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 F2 L D' B R' F2 B2 D' U2 R2 L2 B2 L2 U2 B L2 B R2 B2 R' U' F", "skeleton": "F' D R' F2 U B L D2 L' D2 L' D L D' B2 L' B L2 B' L' B L B' L2 U' L' U L' D2 U", "said": "AB5C", "final": null, "inverse": false, "notes": [], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 36, "steps": [[8, 4], [10, 8]]}, {"id": "doc487-A1-Doug", "author": "Doug L (UMichSpeedCubist) = DougCube, Speedsolving weekly 2025-09", "date": "2025", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L F B' D2 F U R' B L2 F2 B2 R F2 L B2 F L' D' R' U' F", "skeleton": "F' R' B R' F' R B' F' R' F' B R B2 R U' R2 F2", "said": "3e+2fe", "final": 24, "inverse": false, "notes": [[8, 5], [6, 2]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 24, "steps": [[8, 5], [6, 2]]}, {"id": "doc487-A1-Titus", "author": "Titus Sutterfield (tsutt099), Speedsolving weekly 2025-09", "date": "2025", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L F B' D2 F U R' B L2 F2 B2 R F2 L B2 F L' D' R' U' F", "skeleton": "U' B' R' B R F' U' F' U R L' U L U2 B' R U' B2", "said": "3c", "final": 25, "inverse": false, "notes": [[8, 1]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 25, "steps": [[8, 1]]}, {"id": "doc487-A2-Doug", "author": "Doug L (UMichSpeedCubist) = DougCube, Speedsolving weekly 2025-09", "date": "2025", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D' R B' U2 F2 L2 U2 F' L2 B' D2 U L R' D B' D2 L' D B R' U' F", "skeleton": "D' B U' L U' L' B' U D2 L' D2 F' L' F2", "said": "3c", "final": 18, "inverse": false, "notes": [[8, 4]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 18, "steps": [[8, 4]]}, {"id": "doc487-A3-Doug", "author": "Doug L (UMichSpeedCubist) = DougCube, Speedsolving weekly 2025-09", "date": "2025", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D R2 D B2 U L2 B2 L2 B U L' F' D U2 F R2 D U' B' R' U' F", "skeleton": "B2 R' L2 B F D2 R2 D F' D F' R F R' F D F R' D R L2", "said": "3e", "final": 23, "inverse": false, "notes": [[10, 8]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 23, "steps": [[10, 8]]}, {"id": "doc130-A1", "author": "alkamaass (Alex Maass FMC 2024 reconstructions)", "date": "2024-06-01", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D R F2 D L F D2 F2 L' U R' L2 D' R2 F2 R2 D L2 U2 R' U' F", "skeleton": "R2 D B' D L2 U L U' B R U D B' U2 B U' L U L' U' D'", "said": "5c", "final": 32, "inverse": false, "notes": [[8, 2], [8, 3]], "n_ins": 2, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 32, "steps": [[8, 2], [8, 3]]}, {"id": "doc303-a", "author": "Ian Yazid Zavala (333.fm profile; Ian IYZ)", "date": "2025", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 D F R F' L' U R F' D B' R2 B2 R2 B' R2 F' D2 F' L2 B' R' U' F", "skeleton": "L B' R U D' R2 U' R U' D' F' U' L U' L' U L U' L' U F R' U' R U' F U R U' R' F'", "said": "3c", "final": 36, "inverse": true, "notes": [], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "doc303-b", "author": "Ian Yazid Zavala (333.fm profile; Ian IYZ)", "date": "2025", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F B2 R2 U2 L2 B L2 B L2 F' L2 B2 D' R B' L B F U2 R F' U2 R' U' F", "skeleton": "L U' L2 F' U L' F' U2 F' U' F2 U F2 U' F U B U L U' L' B' R2 D' R U2 F' U F", "said": "3c", "final": null, "inverse": false, "notes": [], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 36, "steps": [[8, 1]]}, {"id": "doc303-c", "author": "Ian Yazid Zavala (333.fm profile; Ian IYZ)", "date": "2025", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R U' R F' D2 L F' L2 U F R2 U2 F' R2 B' D2 L2 F' L2 F L2 R' U' F", "skeleton": "R B' R' B' U2 R' U R' F R F' R' U R B U2 B' U' F2 U R2 B'", "said": "2C2C", "final": null, "inverse": false, "notes": [], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "D2683", "author": "Noah Swor", "date": "2023-08-29", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 B2 R' B2 L D2 R' U2 B L' B2 L2 D2 L' B D' B2 L' F R' U' F", "skeleton": "L' U L' U2 F2 U2 L2 U' L D R' U' F' R2 F2 B L2", "said": "AB3C", "final": 18, "inverse": false, "notes": [[8, 7]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 18, "steps": [[8, 7]]}, {"id": "D4736", "author": "Bence_2014CSUT01", "date": "2024-04-17", "source": "IF", "wording_only": true, "if_setting": "", "scramble": "F' U' D R2 L D' F2 R' B R U2 R F2 L2 F2 L D2 B2 D2", "skeleton": "F2 D R D R' F U D2 L D' B D' B' L2 R F L F' R' U2", "said": "", "final": 24, "inverse": false, "notes": [[8, 4]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 24, "steps": [[8, 4]]}, {"id": "D4737", "author": "David | 2009BALO03", "date": "2024-04-17", "source": "IF", "wording_only": true, "if_setting": "", "scramble": "F' U' D R2 L D' F2 R' B R U2 R F2 L2 F2 L D2 B2 D2", "skeleton": "F' D2 F' D R D' R' F2 D2 L D' B D' B' L' F' U'", "said": "3C", "final": 20, "inverse": false, "notes": [[8, 5]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 20, "steps": [[8, 5]]}, {"id": "D4875", "author": "Yura Riabov | 2018RIAB01", "date": "2024-04-19", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L F2 U B' D2 B' F L' F2 R2 B' D L U' B' U2 L' D U' R' U' F", "skeleton": "D2 B U2 R2 B' U2 B' F2 D' R2 D B2 U B2", "said": "2E2E", "final": 19, "inverse": false, "notes": [[8, 3]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 19, "steps": [[8, 3]]}, {"id": "D4876", "author": "Yura Riabov | 2018RIAB01", "date": "2024-04-19", "source": "IF", "wording_only": true, "if_setting": "", "scramble": "R' U' F L F2 U B' D2 B' F L' F2 R2 B' D L U' B' U2 L' D U' R' U' F", "skeleton": "D2 B U2 R2 B' U2 B' F2 D' R2 D B2 U B2", "said": "2E2E", "final": 16, "inverse": false, "notes": [[6, 4]], "n_ins": 2, "origin": "server", "dup_of": "D4875", "replayed": false, "replay_len": null, "steps": []}, {"id": "D5618", "author": "Bence_2014CSUT01", "date": "2024-06-02", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 R' F2 R' D2 F2 L' F2 L2 D2 R D2 B' L2 U R D F R2 D2 R' U' F", "skeleton": "U B' U2 R F U' D' R D F2 B2 D R2 L2 U D2 R' U2 F2 U R2 D' B2 L2 U2 B2 L2 B2", "said": "3e slice", "final": 29, "inverse": false, "notes": [], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "D6882", "author": "Yura Riabov | 2018RIAB01", "date": "2024-07-24", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U' F2 R' B L2 B' D2 F R2 D2 R2 B2 F' R U F D' L' D2 F R' U' F", "skeleton": "R' D2 B' R L2 B2 D R' D L2 U R2 D' U2 R2 F2 L2", "said": "2E2E", "final": 18, "inverse": false, "notes": [[6, 5]], "n_ins": 1, "origin": "server", "dup_of": null, "replayed": true, "replay_len": 18, "steps": [[6, 5]]}, {"id": "D6057", "author": "Gezza Cubing", "date": "2024-06-18", "source": "IF", "wording_only": false, "if_setting": "", "scramble": "U R2 F B R B2 R U2 L B2 R U' D' R2 F R' L B2 U2 F2", "skeleton": "R L U D F B R L U D F B", "said": "4 flip", "final": 22, "inverse": false, "notes": [], "n_ins": 0, "origin": "server", "dup_of": null, "replayed": false, "replay_len": null, "steps": []}, {"id": "K1", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D2 U2 F2 L2 U2 B' D2 R2 U2 B' R' U' F U L' D2 R' D2 F' U R' U' F", "skeleton": "D' B' R2 U2 R2 U2 L U F2 L U2 L'", "said": "5c 0e", "final": 24, "inverse": false, "notes": [[8, 2], [8, 2]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": "doc178-1", "replayed": true, "replay_len": 24, "steps": []}, {"id": "K4", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L2 B F R2 B U2 R2 B U2 D' L' F R F' R D2 R2 B L2 R' U' F", "skeleton": "R' B' R B2 L B' L D2 B' R2 D R D' F'", "said": "4c 0e", "final": 23, "inverse": false, "notes": [[8, 4], [8, 3]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 23, "steps": []}, {"id": "K10", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U F B L' B' U' L2 B2 D B' L2 F' B' U2 F' D2 R2 D2 F' R' U' F", "skeleton": "L2 B L B' U F U R2 U' F2 R' F' R B L2 F' L' F L' B' F' R U2", "said": "3c 0e", "final": 28, "inverse": false, "notes": [[8, 3]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 28, "steps": []}, {"id": "K12", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R D2 L' F2 L' R' B2 F2 U2 D' L R B' L D' L2 F L' R' U' F", "skeleton": "L2 B2 D2 L' F D F' D' L' D2 L2 F L F' L D2 U2", "said": "5c 0e", "final": 27, "inverse": false, "notes": [[8, 3], [8, 2]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 27, "steps": []}, {"id": "K13", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 B R2 D2 B' L2 B2 D2 B2 R2 U2 L' B L D' L B2 U2 F U2 R' U' F", "skeleton": "U B2 R' U F U' F U' F2 U' F2 U F2 U' F' D2 B' F R2 D", "said": "3c 0e", "final": 26, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 26, "steps": []}, {"id": "K16", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U' L U R' L B' U2 L U' F R2 F' L2 B' D2 B' U2 D2 B R2 U2 R' U' F", "skeleton": "B D F U L' U2 L2 F' L' F U2 B2 R' B2 L2 F R' F' L'", "said": "3c 0e", "final": 25, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 25, "steps": []}, {"id": "K19", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F B2 D2 F R2 D2 F L2 R2 U2 F2 R2 F' D' L B' L R' D' L2 U B' R' U' F", "skeleton": "L F U' B' F D' F' D R L' F L F' R' L F D'", "said": "3c 0e", "final": 24, "inverse": false, "notes": [[8, 1]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 24, "steps": []}, {"id": "K20", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L2 F L2 R2 B R2 U2 B' L2 B D2 B R F' D' B' L' B' F' L' F2 R' U' F", "skeleton": "F L2 R' B L' R U' L' U L2 U B' U' B F2 L'", "said": "5c 0e", "final": 24, "inverse": false, "notes": [[8, 5], [8, 3]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": "doc178-20", "replayed": true, "replay_len": 24, "steps": []}, {"id": "K22", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L2 B2 R' D2 L D2 R2 B2 U2 B2 D2 B L2 D' L D2 R' B' D' R' U' F", "skeleton": "L U' L' F' L' U F D2 R D2 R' B D2 B' F' D L2 F2 R", "said": "3c 0e", "final": 25, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 25, "steps": []}, {"id": "K24", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D F' L2 R2 D U2 L2 U' R2 U' B2 L2 D2 B L' D' R' D R' B R' U' F", "skeleton": "D B' D' F L' B F2 U F U2 F2 U' F2 B2 D' F' B' U B'", "said": "3c 0e", "final": 25, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 25, "steps": []}, {"id": "K25", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L U B R' U2 D2 R' D F' B2 L2 U2 D2 B2 U2 R F2 D2 R' B2 R' U' F", "skeleton": "F2 U' F' U F D' F2 D2 B D2 U2 R' D' F2 U'", "said": "6c 0e", "final": 24, "inverse": false, "notes": [[8, 4], [8, 3]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 24, "steps": []}, {"id": "K26", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D U2 F2 D F2 R2 D2 B2 L2 U' F' U2 B' U L F' U' B L' D R' U' F", "skeleton": "U' R' D2 R U L D2 L' F2 D L2 F2 L' D2 U' R D' B2 F' R2 D L'", "said": "3c 0e", "final": 25, "inverse": false, "notes": [[8, 5]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 25, "steps": []}, {"id": "K27", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F B2 R2 U' L2 U R2 B2 U2 B2 F2 L2 F2 R' B R2 F2 R' U F2 D U' R' U' F", "skeleton": "U F R B2 L' B2 L B L' B L' U2 F2 D U2 B2", "said": "3c 0e", "final": 20, "inverse": false, "notes": [[8, 3]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 20, "steps": []}, {"id": "K28", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L2 D' F2 U L2 D2 F2 D' L2 D' R2 L U2 B F' U2 L D2 L D' L R' U' F", "skeleton": "R F' R F R D2 R D F' R2 F L2 U2 L' U D' F' D U2 F", "said": "3c 0e", "final": 26, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 26, "steps": []}, {"id": "K40", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L' D2 B R2 B L2 R2 F L2 B R2 B U2 D' L B2 U2 F' D B2 F R' U' F", "skeleton": "D' F2 D' B' R' F L2 R F2 R F L D L", "said": "5c 0e", "final": 25, "inverse": false, "notes": [[8, 4], [8, 1]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 25, "steps": []}, {"id": "K42", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F B R2 D R2 F2 U2 F2 D2 L2 F2 L F D L' R U2 L F2 U R' U' F", "skeleton": "D B2 L' R' B R B' R' U2 L F2 L R' F' R L D2 U L2 B", "said": "0c 3e", "final": 21, "inverse": false, "notes": [[6, 5]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 21, "steps": []}, {"id": "K44", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R F' U2 B D2 F R2 B2 R2 U2 B' U2 F2 U' B D' R2 B L F D' R' U' F", "skeleton": "R' D' U F2 R' L2 F U2 F U F' U F2 L2 F' L2 R2", "said": "0c 3e", "final": 22, "inverse": false, "notes": [[6, 1]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 22, "steps": []}, {"id": "K52", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 F2 U2 B2 L D2 B2 R' F2 R2 B2 U R' B' R F' L' F' R2 U' R' U' F", "skeleton": "B U R' D B D2 B2 R2 F2 D2 L D2 L' B'", "said": "6c 0e", "final": 27, "inverse": false, "notes": [[8, 2], [8, 1]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 27, "steps": []}, {"id": "K56", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R L2 F' B' U' L2 F' B2 U' F2 B2 R' U2 F2 R F2 L2 B2 L R' U' F", "skeleton": "R' F B D' B2 U2 D' R2 U' D R' U L2 F' D2 F'", "said": "3c 0e", "final": 23, "inverse": false, "notes": [[8, 1]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 23, "steps": []}, {"id": "K62", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U2 R' D2 R U2 R' D2 R2 D2 B F' L D2 F U' L2 D U2 B F R' U' F", "skeleton": "D2 B U' L' U2 R U2 R B L R U2 R' L2", "said": "0c 6e", "final": 28, "inverse": false, "notes": [[5, 2], [10, 0]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 28, "steps": []}, {"id": "K78", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L' B R' L2 F' B' L2 B D' L' F2 L2 B2 D2 R L2 F2 B2 U2 R' U' F", "skeleton": "L F2 R F' R' F2 U L U' R U R' L2 D' R' D2 B L' B D' F'", "said": "3c 0e", "final": 27, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 27, "steps": []}, {"id": "K82", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R' B2 L' U2 F2 U2 R D2 B2 R B F R D U' F2 R D' L' R' U' F", "skeleton": "D R B2 R L D2 B' L B D2 B L2 R D' F2", "said": "3c 0e", "final": 20, "inverse": false, "notes": [[8, 2], [8, 3]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 20, "steps": []}, {"id": "K84", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D R2 B' U' R2 F R2 L2 F R' U2 F2 U2 L' F2 L' B2 R' U' F", "skeleton": "U L2 F U' B R2 B' U' B' U' F B2 U2 F' R F' R2", "said": "3c 0e", "final": 23, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 23, "steps": []}, {"id": "K90", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U R' U2 D F2 D2 R2 F L U F2 U2 L2 F2 L2 B2 D B2 L2 D R' U' F", "skeleton": "D' B D2 F2 U' L F U F U F' U L2 F U2 B F R'", "said": "3c 0e", "final": 22, "inverse": false, "notes": [[8, 4]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 22, "steps": []}, {"id": "K90", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U R' U2 D F2 D2 R2 F L U F2 U2 L2 F2 L2 B2 D B2 L2 D R' U' F", "skeleton": "D' U R U' R2 B2 D L2 B' D F U2 B R'", "said": "3c 0e", "final": 18, "inverse": false, "notes": [[8, 4]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 18, "steps": []}, {"id": "K94", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F R2 D R2 U2 B2 D' R2 B2 F2 R' F' R F L R2 B L2 D2 F R' U' F", "skeleton": "U2 B' D R U L F' L F' D2 F' L' D2 L' B2 L2", "said": "4c 0e", "final": 24, "inverse": false, "notes": [[8, 5], [8, 3]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": "doc178-94", "replayed": true, "replay_len": 24, "steps": []}, {"id": "K97", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D' L2 F R2 U2 B R2 F' D2 F' L2 U2 R B U2 F U F2 D R B2 R' U' F", "skeleton": "R B U D' B2 D' R2 U' R2 F' D F D2 B2 U2 R' D' U F2 L", "said": "3c 0e", "final": 24, "inverse": false, "notes": [[8, 2]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 24, "steps": []}, {"id": "K118", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D R2 D2 F2 U' R2 F2 D F2 U2 R' D F' D U R2 B' D' R2 B R' U' F", "skeleton": "R' D2 R U L2 U' L2 R' U' L B' L' F R", "said": "4c 0e", "final": 22, "inverse": false, "notes": [[8, 4], [8, 4]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 22, "steps": []}, {"id": "K127", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F D B2 U' F2 D' B2 D L2 D2 F' R F2 U R' D2 F L' B' U2 F2 R' U' F", "skeleton": "B R2 U2 B U2 R B' L2 D2 L' D' R2 B' F' U'", "said": "3c 0e", "final": 22, "inverse": false, "notes": [[8, 1]], "n_ins": 1, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 22, "steps": []}, {"id": "K133", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L' F' U2 R2 F2 L D2 R B2 R U2 F2 R2 U R2 D' U' F' U' F R' U' F", "skeleton": "D2 L' F L' U2 L D2 L' U' D2 R2 L' D2 U2 B2 L2 R F2 L", "said": "0c 3e", "final": 21, "inverse": false, "notes": [[2, 1], [2, 0], [8, 6]], "n_ins": 3, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 21, "steps": []}, {"id": "K136", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F B2 R2 B2 U F2 D2 L2 B2 D' F' R U F R2 F D' B' R' D' R' U' F", "skeleton": "U' L2 U F2 U' B2 U2 R2 F' B R B2 U'", "said": "0c 5e", "final": 21, "inverse": false, "notes": [[8, 5], [10, 5]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 21, "steps": []}, {"id": "K141", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L F2 D L2 U2 L' B U2 F U2 L F2 D2 B2 R2 D2 L D2 F2 B2 R' U' F", "skeleton": "D2 F2 L2 F2 R2 D B2 D B2 D' L' U B2 R F' R2 B2", "said": "0c 3e", "final": 22, "inverse": false, "notes": [[6, 4], [10, 5]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 22, "steps": []}, {"id": "K143", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F L U F2 U2 B D2 R' D2 F' U2 F2 B L2 U2 L2 B L2 D2 B2 D F R' U' F", "skeleton": "R' U2 L' U L B2 D F2 U' L2 U F' L R' B", "said": "5c 0e", "final": 26, "inverse": false, "notes": [[8, 3], [8, 2]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 26, "steps": []}, {"id": "K146", "author": "Cyprian Kalbarczyk", "date": "", "source": "hand", "wording_only": false, "if_setting": "", "scramble": "R' U' F U' B' D' F L2 B2 D R2 D2 B2 F2 R2 F L' U2 B U2 R U2 R' U' F", "skeleton": "U2 L2 B L F D U' B2 F2 L2 F U'", "said": "5c 0e", "final": 23, "inverse": false, "notes": [[8, 3], [8, 2]], "n_ins": 2, "origin": "kalbarczyk", "dup_of": null, "replayed": true, "replay_len": 23, "steps": []}], "excluded": {"kept": 175, "written with inverse-scramble parts": 147, "corners and edges both left": 46, "skeleton has rotations, slice or wide moves": 5, "scramble and skeleton do not fit": 3, "scramble not in face turns": 4, "more than 6 pieces of one kind left": 5, "parity (2 corners and 2 edges)": 4, "Kalbarczyk: kept": 34, "Kalbarczyk: corners and edges both left": 11, "Kalbarczyk: parity (2 corners and 2 edges)": 1}, "examples_in_file": 389}
+{
+"cases": [
+{
+"id": "N20",
+"author": "harry",
+"date": "2023-02-20",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 L' B2 L2 R' F2 R D' B2 R' B R2 B2 U' L F' L2 F2 R' U' F",
+"skeleton": "L' D L U' F D R L2 U2 D' R D R' D' R D R2 U R2 U' D",
+"said": "3C",
+"final": 27,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 27,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N24",
+"author": "fabio",
+"date": "2023-02-20",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 L' B2 L2 R' F2 R D' B2 R' B R2 B2 U' L F' L2 F2 R' U' F",
+"skeleton": "B' U' F' B' R' D2 L2 U' L F L R U R' U' L' F'",
+"said": "3c",
+"final": 23,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N165",
+"author": "Aston 2016CULF01",
+"date": "2023-05-16",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "B2 U' F2 R2 U B2 F2 R2 D' R2 D2 L2 F' R' U F R U2 B2 L2 D'",
+"skeleton": "B' U' B D F2 D L2 F2 D' U U B' U' L' B' L' B L2 B' L B L2 U' L2 U L2",
+"said": "3c",
+"final": 31,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 31,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N177",
+"author": "Cale",
+"date": "2023-05-29",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L' D R F2 L2 F2 L2 U2 B U D R2 D F2 D R2 B2 F' U' R' U' F",
+"skeleton": "R2 F2 R2 D' R2 L2 U2 L' U B' F' L U' R'",
+"said": "5c",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+8,
+4
+],
+[
+8,
+2
+]
+]
+},
+{
+"id": "N468",
+"author": "Noah Swor",
+"date": "2023-08-21",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 R2 F2 R2 F2 U2 B R2 F U2 L B' L2 B R' U' B2 D L' U2 F2 R' U' F",
+"skeleton": "F2 R' F D2 U' R2 U D' L U' L2 B2 U R'",
+"said": "3c",
+"final": 20,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N715",
+"author": "Nico",
+"date": "2023-11-05",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 B' U2 R2 D2 B' U2 F2 L2 F R2 B' L' D' F' R' F U2 R' D2 R' U' F",
+"skeleton": "F L' R' B R D R' D2 B2 R2 U2 B2 D' B2 U2",
+"said": "3C",
+"final": 21,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N1065",
+"author": "Kai Cui",
+"date": "2024-05-07",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R D' F2 R' B2 D2 B2 R U2 F2 U2 F D' B' L B L' D2",
+"skeleton": "L' D2 L F D R' U D F' D F D U'",
+"said": "5c",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N1071",
+"author": "kalindumaxxer",
+"date": "2024-05-26",
+"source": "IF",
+"wording_only": true,
+"if_setting": "",
+"scramble": "D L2 R2 U L2 U2 R2 U L2 U' B2 U2 F' L' R2 D U2 B' R' D' R2 D2",
+"skeleton": "B' R' B D F B' D' L D L2 F' L D'",
+"said": "",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+13,
+4
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": [
+[
+13,
+4
+]
+]
+},
+{
+"id": "N1213",
+"author": "alkamaass",
+"date": "2024-06-01",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U R' F2 D2 B2 U B2 L2 B2 F2 U2 F' L F D2 L' F2 R U B' R' U' F",
+"skeleton": "L2 F D2 L D2 F2 U' F U' F' U D F' U' L2",
+"said": "5c",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+8,
+4
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+8,
+4
+],
+[
+8,
+4
+]
+]
+},
+{
+"id": "N1440",
+"author": "tseitsei89",
+"date": "2024-06-24",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 F D L' B2 L2 B2 L' F2 D2 F2 L B2 F U R2 F' U2 R D2 R' U' F",
+"skeleton": "F L' F' D' L2 D U L U2 F' U F U2 L' F U D L D2 L' R'",
+"said": "5c",
+"final": 32,
+"inverse": false,
+"notes": [],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 32,
+"steps": [
+[
+8,
+3
+],
+[
+8,
+2
+]
+]
+},
+{
+"id": "N1491",
+"author": "EG-1 grind? (34/40) PR 1.92/2.65",
+"date": "2024-07-20",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R U' B2 L' R' U2 F L F' D2 L2 B L2 R U' R' D B2 D U'",
+"skeleton": "B2 U B2 U2 B2 U R' F R2 U2 R' L U' L' U R U' R' L2 U2 L2 U L B2",
+"said": "3c2t",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N1720",
+"author": "alkamaass",
+"date": "2024-08-04",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "D2 R D' R B' L' D F' L U2 B2 U' R2 B2 L2 U F2 D2 F2 L2 U",
+"skeleton": "R' D R D F D' B R' D2 F' D R'",
+"said": "2c2c",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 26,
+"steps": [
+[
+15,
+1
+]
+]
+},
+{
+"id": "N1623",
+"author": "alkamaass",
+"date": "2024-08-02",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "D2 R D' R B' L' D F' L U2 B2 U' R2 B2 L2 U F2 D2 F2 L2 U",
+"skeleton": "B F R' F' R' D R D' B R' B' R2 B R B' D R B R' B' D' R'",
+"said": "",
+"final": 31,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N1732",
+"author": "Lewis Isom",
+"date": "2024-08-16",
+"source": "IF",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U F2 U2 L2 B2 L2 U' L2 B2 D R' B2 R F U B2 L2 U2 R' U' F",
+"skeleton": "D F2 U2 B U' R' F R F R F' U F2 U' R' F'",
+"said": "4c",
+"final": 25,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N1734",
+"author": "alkamaass",
+"date": "2024-08-17",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U F2 U2 L2 B2 L2 U' L2 B2 D R' B2 R F U B2 L2 U2 R' U' F",
+"skeleton": "D F2 U2 B F U' F' R' F2 R2 F R' F",
+"said": "3c1t",
+"final": 25,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N2057",
+"author": "2014chri04",
+"date": "2024-10-16",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 F2 D2 F2 L' B2 L D2 B2 L B2 R U' L' D' B D2 U' L R B' R' U' F",
+"skeleton": "U' L2 B2 U' L F D' L2 D' F' D F2 B D2 F' B' L' D L D' B D B'",
+"said": "3C",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 27,
+"steps": [
+[
+8,
+4
+]
+]
+},
+{
+"id": "N2335",
+"author": "Rodrigo Teixeira | 2023TEIX03",
+"date": "2025-02-05",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U' R' F' B2 U D2 R B2 D' F' L2 D2 L2 B2 U2 F2 B' D' R' U' F",
+"skeleton": "D' U2 F2 U L F2 L' U' F U D2 B2 U2 L' B' L D F2 B' D B2",
+"said": "3C",
+"final": 27,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 27,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N2337",
+"author": "DougCube",
+"date": "2025-02-05",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U' R' F' B2 U D2 R B2 D' F' L2 D2 L2 B2 U2 F2 B' D' R' U' F",
+"skeleton": "U' F D B D2 R L2 B2 L' U L U2 R U R'",
+"said": "5c",
+"final": 24,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N2429",
+"author": "DougCube",
+"date": "2025-04-10",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R2 U F' B' R F U' R' L2 U L2 U2 R2 B2 D R2 U' R2 B2 U' L'",
+"skeleton": "D L' U F' R' D R2 U' F U F' L2 F L' F' D F D'",
+"said": "5e",
+"final": 24,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N2519",
+"author": "DougCube",
+"date": "2025-05-03",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 F' R2 B2 D2 L2 D2 B' L2 B2 D2 L F' R' D F R' U B U2 B' R' U' F",
+"skeleton": "D L' U2 L2 U2 L2 F2 D F D' F D' B' R2 D B2 L2",
+"said": "3e",
+"final": 21,
+"inverse": false,
+"notes": [
+[
+8,
+4
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": [
+[
+8,
+4
+]
+]
+},
+{
+"id": "N2563",
+"author": "V Sundararajan",
+"date": "2025-05-30",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L2 F2 D R2 U' F2 U2 F2 L2 F2 L2 F' D2 F2 R D U2 F' R B2 R' U' F",
+"skeleton": "U2 L2 F2 U2 L' U' D F' U' R' D2 R",
+"said": "4C",
+"final": 21,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+4
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": [
+[
+8,
+3
+],
+[
+8,
+4
+]
+]
+},
+{
+"id": "N2598",
+"author": "DougCube",
+"date": "2025-06-09",
+"source": "IF",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U F2 D F2 L2 B2 R2 D' L2 B2 F' R F2 U2 R B D' B' R U R' U' F",
+"skeleton": "U' D B2 U2 B' L U B L2 B' L2 F L' F2 L F'",
+"said": "4C",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+10,
+5
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": [
+[
+8,
+4
+],
+[
+10,
+5
+]
+]
+},
+{
+"id": "N2816",
+"author": "DougCube",
+"date": "2025-06-30",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "U' B2 R2 F' U2 B2 D2 F' D2 F' D2 L2 F' D B' L' U' L2 B D2 F'",
+"skeleton": "L2 F2 L U' L' U2 L U F U2 B' U' R2 F' R2 B D' L2",
+"said": "mixed 2c2c",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+10,
+10
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+10,
+10
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "N2826",
+"author": "zakk drewji",
+"date": "2025-07-02",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "U' B2 R2 F' U2 B2 D2 F' D2 F' D2 L2 F' D B' L' U' L2 B D2 F'",
+"skeleton": "F L2 U2 L U L' U' L U' L' U2 F' U' F' L' F' L U2 D'",
+"said": "4C",
+"final": 27,
+"inverse": false,
+"notes": [
+[
+12,
+10
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 27,
+"steps": [
+[
+12,
+10
+],
+[
+8,
+2
+]
+]
+},
+{
+"id": "N2890",
+"author": "zakk drewji",
+"date": "2025-07-04",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L2 R2 B2 R2 B2 U R2 F2 D L2 B2 L B' R D2 L F R2 F2 U' B2 R' U' F",
+"skeleton": "B2 R U2 F2 U2 D F U' B U2 B' L2 B2 U B' L2",
+"said": "3C2T",
+"final": 28,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+6,
+3
+],
+[
+8,
+4
+]
+],
+"n_ins": 3,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N2981",
+"author": "trig0n",
+"date": "2025-07-12",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L2 D' F2 D2 F U2 L' U B R D2 R B2 U2 R' U2 F2 D2 R2 D2 R' U' F",
+"skeleton": "B D' R2 B L' U B' U B U2 L2 R F' L U' F' U R2",
+"said": "3C",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+1
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": [
+[
+8,
+1
+]
+]
+},
+{
+"id": "N3015",
+"author": "Gaëtan Fragnière (forwarded by Louis | 2012SART01)",
+"date": "2025-07-12",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L D2 R2 U' B2 F2 R2 U' R2 U2 L' F' D2 B' L D' L' U2 R' B2 R' U' F",
+"skeleton": "U B L U B2 L R B2 U2 R' U' R U2 D R' U",
+"said": "L3C",
+"final": 20,
+"inverse": false,
+"notes": [
+[
+8,
+4
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 20,
+"steps": [
+[
+8,
+4
+]
+]
+},
+{
+"id": "N3059",
+"author": "Robert (2009YAUR01)",
+"date": "2025-07-13",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "U2 L' F' L U R2 U' R2 B R2 U2 B2 D2 F R2 B D2 B' L2",
+"skeleton": "L' B' L B L2 R B U F' U' F2 R' F' R' F2 R F2",
+"said": "ab3c",
+"final": 21,
+"inverse": false,
+"notes": [
+[
+8,
+4
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": [
+[
+8,
+4
+]
+]
+},
+{
+"id": "N3060",
+"author": "Robert (2009YAUR01)",
+"date": "2025-07-13",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "U2 L' F' L U R2 U' R2 B R2 U2 B2 D2 F R2 B D2 B' L2",
+"skeleton": "L' B' L B L2 R B R' F2 D' F' D F' R' F2 R F2",
+"said": "ab3c",
+"final": 22,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N3157",
+"author": "DougCube",
+"date": "2025-07-16",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 B2 L2 B2 F2 U L2 U2 F2 L2 D2 B' R2 D' F2 U B' L' R U2 F2 R' U' F",
+"skeleton": "B2 D' F' U2 F' D2 F D R' U B U' B2 L' B2 R B' R D' R' D' B R F' L2",
+"said": "3c+1tc",
+"final": 31,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+8,
+6
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 31,
+"steps": [
+[
+8,
+4
+],
+[
+8,
+6
+]
+]
+},
+{
+"id": "N3160",
+"author": "DougCube",
+"date": "2025-07-16",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 B2 L2 B2 F2 U L2 U2 F2 L2 D2 B' R2 D' F2 U B' L' R U2 F2 R' U' F",
+"skeleton": "B2 D' F' U2 F' D2 F D L' D L2 B U B' U2 L' U L2 D' L2 B2 L' D2 B R F' L2",
+"said": "3e",
+"final": 32,
+"inverse": false,
+"notes": [
+[
+10,
+5
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 32,
+"steps": [
+[
+10,
+5
+]
+]
+},
+{
+"id": "N3224",
+"author": "koplopkolpploklpklop",
+"date": "2025-07-16",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D F2 U2 F2 R2 U L2 B2 D F2 D2 B2 R2 D2 F' R D2 L F2 L F2 R' U' F",
+"skeleton": "L2 U2 R' D' R D2 R2 B' D2 B R' B' D R D R'",
+"said": "5c",
+"final": 27,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 27,
+"steps": [
+[
+8,
+3
+],
+[
+8,
+2
+]
+]
+},
+{
+"id": "N3246",
+"author": "koplopkolpploklpklop",
+"date": "2025-07-17",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B D2 B U2 D2 R2 F' L2 F2 B2 L U2 D' R' U2 R F L D' B R' U' F",
+"skeleton": "U' R D L D2 B' L2 D L' D L B L B L' R' B' R B D2 B2 D2 F2 R' F'",
+"said": "5c",
+"final": null,
+"inverse": false,
+"notes": [
+[
+8,
+6
+],
+[
+8,
+4
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 31,
+"steps": [
+[
+8,
+6
+],
+[
+8,
+4
+]
+]
+},
+{
+"id": "N3249",
+"author": "DougCube",
+"date": "2025-07-18",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B D2 B U2 D2 R2 F' L2 F2 B2 L U2 D' R' U2 R F L D' B R' U' F",
+"skeleton": "B' L2 D' F' L2 B2 R B' R2 D' B L' F2 R F2 L B'",
+"said": "3c",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N3283",
+"author": "Ian IYZ (30/33.33)",
+"date": "2025-07-22",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R' U2 R2 L' F2 U F2 L B L' F2 R2 U' R2 D F2 U' R' U' F",
+"skeleton": "U' L' F' U2 D2 L' F2 L B' L' B2 D' B' L D L F' L F L2",
+"said": "4C",
+"final": 34,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 34,
+"steps": [
+[
+14,
+0
+]
+]
+},
+{
+"id": "N3329",
+"author": "DougCube",
+"date": "2025-07-22",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L2 D' B L2 D2 L2 B2 R2 F2 D2 U' L' D' R U' L' F2 L2 D R' U' F",
+"skeleton": "D B U R' B' R2 F' L' D F' D' L U2 L2 U' L2 U' L' B' U' B F U F' U' L2 F2",
+"said": "pure 2e2e",
+"final": 30,
+"inverse": false,
+"notes": [
+[
+6,
+3
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N3489",
+"author": "koplopkolpploklpklop",
+"date": "2025-07-28",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 F2 L2 D2 B U2 B' D2 R2 D2 R2 B2 L' D2 F2 D' L2 B F U B2 R' U' F",
+"skeleton": "U L2 D2 R D R2 B2 R D2 B' L B L' B' L2 B' U2 L",
+"said": "5c",
+"final": null,
+"inverse": false,
+"notes": [
+[
+8,
+1
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 30,
+"steps": [
+[
+8,
+1
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "N3492",
+"author": "zakk drewji",
+"date": "2025-07-28",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 F2 L2 D2 B U2 B' D2 R2 D2 R2 B2 L' D2 F2 D' L2 B F U B2 R' U' F",
+"skeleton": "U B' U' B' U' L B' D B L2 D2 L D' L' D L D",
+"said": "AB5C",
+"final": 27,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N3500",
+"author": "DougCube",
+"date": "2025-07-28",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R' U' B2 F2 U' L2 U F2 L2 U L B U2 R2 D' F D2 R' U' B R' U' F",
+"skeleton": "F' R' B2 R B' D' F D' F' L' F L D2 L U' F2 B2 R D B",
+"said": "3c",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+3
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": [
+[
+8,
+3
+]
+]
+},
+{
+"id": "N3501",
+"author": "DougCube",
+"date": "2025-07-28",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U' D2 F2 U2 R' F D B F2 D2 R2 L' D2 B2 R' L B' R2 D' R' U' F",
+"skeleton": "B2 L' B' R' B F2 R2 B F R' F D' B L B'",
+"said": "2c2c",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+8,
+6
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": [
+[
+8,
+6
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "N3513",
+"author": "DougCube",
+"date": "2025-07-29",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 F2 L2 R2 D2 L' R2 F2 D' L U F' D2 R' D R U L2 U R' U' F",
+"skeleton": "R' U' L B L' D' L D' L' D' L' F2 R D2 F2 U' B'",
+"said": "Z-perm",
+"final": 21,
+"inverse": false,
+"notes": [
+[
+8,
+4
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": [
+[
+8,
+4
+]
+]
+},
+{
+"id": "N3515",
+"author": "DougCube",
+"date": "2025-07-29",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 F2 L2 R2 D2 L' R2 F2 D' L U F' D2 R' D R U L2 U R' U' F",
+"skeleton": "F' R2 B' U2 L' F' L' F L U B2 L2 B L2 B U2 B2 U' B L' U' B2 F R",
+"said": "3c",
+"final": 28,
+"inverse": false,
+"notes": [
+[
+8,
+4
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 28,
+"steps": [
+[
+8,
+4
+]
+]
+},
+{
+"id": "N3578",
+"author": "DougCube",
+"date": "2025-08-10",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U' B2 F2 R2 D' R2 F2 R2 U' R2 D F' L' B' L D B' D' U' B R' U' F",
+"skeleton": "U' R' B' R2 F F2 L' U L L' B2 L U2 R' U R2 L U L' U",
+"said": "3c",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N3622a",
+"author": "DougCube",
+"date": "2025-08-12",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D U' R2 D' F2 R2 U' L2 U2 F R2 D2 B2 L' U F' U R2 B2 D R' U' F",
+"skeleton": "B' L' F U R U R' U' B2 L U' L U U L U' L' B L2 B' L' B L' B'",
+"said": "3c",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+6
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": [
+[
+8,
+6
+]
+]
+},
+{
+"id": "N3622c",
+"author": "DougCube",
+"date": "2025-08-12",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 F2 D2 B D2 F L2 D2 B R F L U B' L D R B D' U' R' U' F",
+"skeleton": "D2 F' B2 L2 D2 D B L' B' D' U B2 U2 L U' L2 U' L U",
+"said": "3c",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N3681",
+"author": "zakk drewji",
+"date": "2025-08-16",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U R' U B2 F2 L2 D B2 U' F2 R2 B2 D2 R D B2 U' F' D F2 R' U' F",
+"skeleton": "F' U2 L' F2 U' L' U' L' U2 R' U' R2 U R L D R D' L' U2 B2 L",
+"said": "3C",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N3708",
+"author": "DougCube",
+"date": "2025-08-18",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "U2 F2 U' B' R U' B U2 R2 U2 R2 F2 U' R2 U F2 L2 D R2",
+"skeleton": "D R' L2 B R' F2 U R' F2 R' D L2 D2 L D",
+"said": "5c",
+"final": 21,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+7
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": [
+[
+8,
+3
+],
+[
+8,
+7
+]
+]
+},
+{
+"id": "N3859",
+"author": "zakk drewji",
+"date": "2025-08-24",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D F' L2 B2 D2 R U2 B2 R D2 L2 B2 R' D2 B' R U' B D' U R' U' F",
+"skeleton": "R' U B' R F B U2 B' D R U2 R' F U' F' U2 U L U' L' F' L F L'",
+"said": "L3C",
+"final": 30,
+"inverse": false,
+"notes": [
+[
+8,
+1
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 30,
+"steps": [
+[
+8,
+1
+]
+]
+},
+{
+"id": "N3868",
+"author": "DougCube",
+"date": "2025-08-24",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D F' L2 B2 D2 R U2 B2 R D2 L2 B2 R' D2 B' R U' B D' U R' U' F",
+"skeleton": "R' U B' R F B U2 B' D R U2 R' F U' F' U2 U L U' L' F' L F L'",
+"said": "L3C",
+"final": 28,
+"inverse": false,
+"notes": [
+[
+10,
+5
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": "N3859",
+"replayed": true,
+"replay_len": 28,
+"steps": [
+[
+10,
+5
+]
+]
+},
+{
+"id": "N3914",
+"author": "zakk drewji",
+"date": "2025-08-26",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 R' U2 L2 D2 L B2 L D2 B2 R' F2 D F R' B U2 L F L2 D R' U' F",
+"skeleton": "F' B R' L' F2 L2 F L2 D F' D' U F U2 L' F2 D2",
+"said": "3c1t",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+2
+],
+[
+8,
+6
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": [
+[
+8,
+2
+],
+[
+8,
+6
+]
+]
+},
+{
+"id": "N4060",
+"author": "Phuwish",
+"date": "2025-08-30",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L' U' R B R' U2 D B2 R B2 R2 D2 L F2 L2 U2 R' U F' R' U' F",
+"skeleton": "L B2 L2 F' D2 U' R' F R L B L' B' D F' D' L' D F D' U2",
+"said": "",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+8,
+6
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N4129",
+"author": "DougCube",
+"date": "2025-09-02",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B L F2 D2 F' L' U' D R' U L2 B2 L2 D R2 B2 U' L2 U2 B2 D' R' U' F",
+"skeleton": "R' D F2 L F' U B' R2 B D' F2 D L F2 L' F U' F U R2",
+"said": "3e",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+10,
+8
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": [
+[
+10,
+8
+]
+]
+},
+{
+"id": "N4241",
+"author": "DougCube",
+"date": "2025-09-12",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L D2 F R2 B' U R' U' R2 F2 R2 L2 U' L2 B2 D' L2 U L' F' D' R' U' F",
+"skeleton": "D L' U D2 B' F' R' F R F' R2 F R' F2 R' D2 R2 D R' F2",
+"said": "5c",
+"final": 29,
+"inverse": false,
+"notes": [
+[
+10,
+3
+],
+[
+8,
+6
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 29,
+"steps": [
+[
+10,
+3
+],
+[
+8,
+6
+]
+]
+},
+{
+"id": "N4264",
+"author": "zakk drewji",
+"date": "2025-09-12",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U' B2 R L' F R2 D' R F L F2 L2 B2 U2 L2 U2 F U2 F' D2 B R' U' F",
+"skeleton": "U B2 L R U' R' B L B' D2 L' B' F L B' F2",
+"said": "5C",
+"final": 26,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 26,
+"steps": [
+[
+8,
+3
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "N4309",
+"author": "DougCube",
+"date": "2025-09-13",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "D F2 D2 L2 U L2 D L2 B' U2 L2 F2 D L' R2 D' F L",
+"skeleton": "L' D F' L' F U F L2 D' B'",
+"said": "3c+1tc",
+"final": 20,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 20,
+"steps": [
+[
+8,
+3
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "N4318",
+"author": "DougCube",
+"date": "2025-09-15",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R B2 U B' U2 R F' L' F' B' L2 F U2 R2 D2 B L2 B R2 U2 R' U' F",
+"skeleton": "B2 U2 F U' R2 U B2 R' U' R U' L' U R F2 B'",
+"said": "2c2c",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": [
+[
+8,
+3
+]
+]
+},
+{
+"id": "N4338",
+"author": "Phuwish",
+"date": "2025-09-15",
+"source": "IF",
+"wording_only": true,
+"if_setting": "",
+"scramble": "U F' D R' U' R2 B D2 F2 D' B2 D' F2 L2 U2 R2 B2 U' R'",
+"skeleton": "F R L2 D B U B' F2 U R' U R2 R' U L D F D' L' U2 R U'",
+"said": "3C",
+"final": 26,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N4341",
+"author": "DougCube",
+"date": "2025-09-15",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "U F' D R' U' R2 B D2 F2 D' B2 D' F2 L2 U2 R2 B2 U' R'",
+"skeleton": "F D R B R D' L2 U' R' D R' U' R U R' F2 U' R U2 R' U",
+"said": "3c",
+"final": 26,
+"inverse": false,
+"notes": [
+[
+8,
+3
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 26,
+"steps": [
+[
+8,
+3
+]
+]
+},
+{
+"id": "N4353",
+"author": "DougCube",
+"date": "2025-09-17",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R L U' R' D2 F2 L' D2 F B2 R2 U' F2 U L2 D' F2 R2 U' L2 D2 R' U' F",
+"skeleton": "F2 D F' U' F D' F D' F D B' R B U F' L B2 D R U2 F D2",
+"said": "U-perm",
+"final": 26,
+"inverse": false,
+"notes": [
+[
+10,
+6
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 26,
+"steps": [
+[
+10,
+6
+]
+]
+},
+{
+"id": "N4385",
+"author": "DougCube",
+"date": "2025-09-21",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R' L' D L D' R U D2 B' U R' B U2 B2 U' R' D' B R' U' F",
+"skeleton": "B' R D2 L' D2 F2 L F' L' D' L D B L2 F L2",
+"said": "5c",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+10,
+6
+],
+[
+8,
+6
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": [
+[
+10,
+6
+],
+[
+8,
+6
+]
+]
+},
+{
+"id": "N4395",
+"author": "DougCube",
+"date": "2025-09-22",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "D B2 L2 B2 D2 R D L D R2 B R D B2 L' F'",
+"skeleton": "F B' L B2 B' L B L' L B D B' D2 L' D2 B' D B D",
+"said": "2fe",
+"final": 19,
+"inverse": false,
+"notes": [
+[
+10,
+10
+],
+[
+8,
+4
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 19,
+"steps": [
+[
+10,
+10
+],
+[
+8,
+4
+]
+]
+},
+{
+"id": "N4409",
+"author": "kyh",
+"date": "2025-09-27",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B2 R2 D' B2 D F2 D' L2 U L2 B' L' F2 D2 U' L' B' F L' B2 F2 R' U' F",
+"skeleton": "B U2 L F2 R L' U' R' U B2 D L2 B2 L' F' D",
+"said": "5C",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+2
+],
+[
+8,
+5
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": [
+[
+8,
+2
+],
+[
+8,
+5
+]
+]
+},
+{
+"id": "N4433",
+"author": "DougCube",
+"date": "2025-09-30",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U B' R D' R2 B L2 U2 R D R2 U2 F2 U B' U2 F B2 R' U' F",
+"skeleton": "D2 F B' L' F' L B L' D2 L2 D' L' D2 R' B2 R D",
+"said": "5c",
+"final": 19,
+"inverse": false,
+"notes": [
+[
+10,
+8
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 19,
+"steps": [
+[
+10,
+8
+]
+]
+},
+{
+"id": "N4557",
+"author": "DougCube",
+"date": "2025-10-07",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 R2 F R2 D2 U2 B R2 B' L U B' F R D' R2 B U2 L2 F R' U' F",
+"skeleton": "U' B' L D R' B2 B' U2 R U' R' B B' R U' R' U B L D R' F R D' L' U2",
+"said": "3c",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+8,
+6
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": [
+[
+8,
+6
+]
+]
+},
+{
+"id": "N4623",
+"author": "DougCube",
+"date": "2025-10-13",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D' F D2 R2 D2 F L2 F U2 F U' B' F' L' F R B D' F' R' U' F",
+"skeleton": "F R2 U' R U R D2 F2 R' B2 U2 D B2 R2 B' U2 L' U",
+"said": "A-Perm",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N4638",
+"author": "DougCube",
+"date": "2025-10-14",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "D2 U2 F R2 B' F' D2 B L2 B' D2 R' B U B R U B' U' R'",
+"skeleton": "U2 L2 U2 R D2 R D R2 D' L' F2 L F2",
+"said": "3e+1fe",
+"final": 21,
+"inverse": false,
+"notes": [
+[
+10,
+9
+],
+[
+10,
+3
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": [
+[
+10,
+9
+],
+[
+10,
+3
+]
+]
+},
+{
+"id": "N4650",
+"author": "DougCube",
+"date": "2025-10-15",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 F2 U2 L U2 R2 L' D2 L2 F' L' B L2 U2 B2 R D' F' D' B R' U' F",
+"skeleton": "F R' D2 R2 F2 R F' R' D2 R F2 D2 F' D F' D'",
+"said": "3c",
+"final": 21,
+"inverse": false,
+"notes": [
+[
+8,
+3
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": [
+[
+8,
+3
+]
+]
+},
+{
+"id": "N4671",
+"author": "bennycunha97",
+"date": "2025-10-17",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R' D L U2 R2 B2 D2 F2 U2 B L2 B2 R2 U L' F2 D' L2 B' U' R' U' F",
+"skeleton": "U' B' R2 F' L' F L R U F U' F' R' L D F' D' U2 F' B' U B L R2 U2",
+"said": "5c",
+"final": 35,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N4673",
+"author": "zakk drewji",
+"date": "2025-10-25",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D' B2 R B R F U B U2 F2 B2 U B2 D F2 U B2 U2 F2 U F' R' U' F",
+"skeleton": "L U' L' U L' F' L' B' L2 B L B2 F2 L R'",
+"said": "3c3c",
+"final": 27,
+"inverse": false,
+"notes": [
+[
+8,
+8
+],
+[
+8,
+3
+],
+[
+8,
+1
+]
+],
+"n_ins": 3,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 27,
+"steps": [
+[
+8,
+8
+],
+[
+8,
+3
+],
+[
+8,
+1
+]
+]
+},
+{
+"id": "N4763a",
+"author": "DougCube",
+"date": "2025-11-07",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R' F2 D' R F' R2 B R2 B2 U2 F' D2 U' L' D R' B R' F' R' U' F",
+"skeleton": "D2 B' F R F' R' F2 D' F2 D' F' D' R2 F' R' U2 L2 U2",
+"said": "2e2e",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+10,
+9
+],
+[
+2,
+1
+],
+[
+10,
+5
+],
+[
+2,
+5
+],
+[
+2,
+2
+]
+],
+"n_ins": 5,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N4770a",
+"author": "trangium",
+"date": "2025-11-07",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "L2 D2 R U2 R' D2 L2",
+"skeleton": "L2 R U2 R' L2",
+"said": "",
+"final": null,
+"inverse": false,
+"notes": [
+[
+8,
+6
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 7,
+"steps": [
+[
+8,
+6
+]
+]
+},
+{
+"id": "N4770b",
+"author": "trangium",
+"date": "2025-11-07",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "L2 D2 R U2 R' D2 L2",
+"skeleton": "L2 R U2 R' L2",
+"said": "",
+"final": null,
+"inverse": false,
+"notes": [
+[
+8,
+6
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": "N4770a",
+"replayed": true,
+"replay_len": 7,
+"steps": [
+[
+8,
+6
+]
+]
+},
+{
+"id": "N4770c",
+"author": "trangium",
+"date": "2025-11-07",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "L2 D2 R U2 R' D2 L2",
+"skeleton": "L2 R U2 R' L2",
+"said": "",
+"final": null,
+"inverse": false,
+"notes": [
+[
+8,
+6
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": "N4770a",
+"replayed": true,
+"replay_len": 7,
+"steps": [
+[
+8,
+6
+]
+]
+},
+{
+"id": "N4770d",
+"author": "trangium",
+"date": "2025-11-07",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "L2 D2 R U2 R' D2 L2",
+"skeleton": "L2 R U2 R' L2",
+"said": "",
+"final": null,
+"inverse": false,
+"notes": [
+[
+8,
+6
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": "N4770a",
+"replayed": true,
+"replay_len": 7,
+"steps": [
+[
+8,
+6
+]
+]
+},
+{
+"id": "N4774",
+"author": "TAVE IS DEFINITELY MY GOAT 🐐",
+"date": "2025-11-09",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U' R' D' F2 B2 R' D' F2 R' B R2 L D2 L2 U2 R D2 R F R' U' F",
+"skeleton": "L2 F' R B L' F D F' R' F' R' F R' F'",
+"said": "3c",
+"final": 20,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 20,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N4777",
+"author": "kyh",
+"date": "2025-11-10",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D' L' F2 R2 U' R2 D R2 F2 L2 U' R F D2 F D2 U B F R' U' F",
+"skeleton": "B' U' R2 L' D2 L' D R2 F2 R' F2 L' D R2 D' R D' B U2 B",
+"said": "3E",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+10,
+7
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+10,
+7
+]
+]
+},
+{
+"id": "N4814",
+"author": "DougCube",
+"date": "2025-11-20",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "D2 L2 B2 F2 L U2 L F2 R' B2 F' R B' L' U' B2 L2 U2 R",
+"skeleton": "F2 R F R' F D' L2 D' B2 L D' B2 L R F' R' B D2",
+"said": "3e",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+10,
+5
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+10,
+5
+]
+]
+},
+{
+"id": "N4832",
+"author": "DougCube",
+"date": "2025-11-26",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R L D' B L F' D R F2 L U' L B' L U B' R2 F' R' U' F",
+"skeleton": "B R' F L' D R2 F' L2 B F2 D D' F' R2 F D R2",
+"said": "3c",
+"final": 18,
+"inverse": false,
+"notes": [
+[
+8,
+4
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 18,
+"steps": [
+[
+8,
+4
+]
+]
+},
+{
+"id": "N4880",
+"author": "Brandon is my goat 🐐",
+"date": "2025-11-30",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 L2 F2 L2 R B2 R B2 U2 R F2 U L' U' F' U' R' B' L B2 U2 R' U' F",
+"skeleton": "U' R2 B F2 D R F2 R' U' R U B2 U' B2 R' D' F2 D' U L U",
+"said": "3c",
+"final": 27,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 27,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N4905",
+"author": "kyh",
+"date": "2025-12-08",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L' U2 L' D2 L' F2 L' B2 F2 R2 B2 F' U' B' U' F2 L2 U' L' U2 R' U' F",
+"skeleton": "B' L' U' D2 L2 B U L B' R B R'",
+"said": "5C",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+10,
+4
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+10,
+4
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "N5065",
+"author": "DougCube",
+"date": "2025-12-23",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R' U2 F L2 B R' B' D2 R U' D2 B2 U2 R D2 R F2 R B R' U' F",
+"skeleton": "U2 R L2 F U L2 F R2 U R2 D' F2 D",
+"said": "5e",
+"final": 21,
+"inverse": false,
+"notes": [
+[
+7,
+1
+],
+[
+10,
+8
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": [
+[
+7,
+1
+],
+[
+10,
+8
+]
+]
+},
+{
+"id": "N5079",
+"author": "DougCube",
+"date": "2025-12-29",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 B' U L2 D2 R2 L2 F B' L D' U2 F2 R' B2 R U2 L2 D2 R' U' F",
+"skeleton": "D2 B2 U' F U' B' D R2 D F2 D' L' D' B2 R",
+"said": "3c",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+8,
+1
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": [
+[
+8,
+1
+]
+]
+},
+{
+"id": "N5190",
+"author": "DougCube",
+"date": "2026-01-02",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L U' R2 F' L2 B R B R' D2 R2 F2 U2 F L2 F D2 L F2 R' U' F",
+"skeleton": "F2 D F D' F' U' D' F D R2 B D' U' R' B2 R' U'",
+"said": "3c+1tc",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+8,
+5
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+8,
+4
+],
+[
+8,
+5
+]
+]
+},
+{
+"id": "N5241",
+"author": "argonblue",
+"date": "2026-01-06",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 U' L2 B2 U' R2 B2 U2 B2 F' R' D' U' L F U L2 D2 F2 D2 R' U' F",
+"skeleton": "F' D' F D L D2 R U L2 D R D' R' D2 L' D L R2 D B2",
+"said": "2ct2ct",
+"final": 32,
+"inverse": false,
+"notes": [
+[
+8,
+2
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 32,
+"steps": [
+[
+8,
+2
+],
+[
+8,
+2
+]
+]
+},
+{
+"id": "N5398",
+"author": "DougCube",
+"date": "2026-01-14",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "D2 B2 L2 R D2 R' D2 B2 D2 L D' F L2 B2 L2 F2 R",
+"skeleton": "F' R' F2 L B2 L' D2 R D' F D' F' D' R' D",
+"said": "3c",
+"final": 20,
+"inverse": false,
+"notes": [
+[
+8,
+3
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 20,
+"steps": [
+[
+8,
+3
+]
+]
+},
+{
+"id": "N5422",
+"author": "TAVE IS DEFINITELY MY GOAT 🐐",
+"date": "2026-01-17",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 L2 U2 R2 F' R2 B2 L2 F R2 B R2 F' L' D' B' D' R' D B' D' R' U' F",
+"skeleton": "L F2 R B' L B F' L' F R F' L F D' L' F R'",
+"said": "3c",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N5493",
+"author": "DougCube",
+"date": "2026-01-21",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U F U2 F D2 F U L F U2 R' L' B2 D2 B U B' U' R' U' F",
+"skeleton": "L F' L2 B2 R' B2 R' B R2 B' R",
+"said": "3c",
+"final": 17,
+"inverse": false,
+"notes": [
+[
+8,
+1
+],
+[
+2,
+1
+],
+[
+2,
+4
+]
+],
+"n_ins": 3,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N5506a",
+"author": "argonblue",
+"date": "2026-01-24",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 U2 R2 D2 F2 U2 F' R2 F2 L2 B' U F' D2 B' D' L2 R' D' F' D' R' U' F",
+"skeleton": "B2 D' R F2 D' F U' F D F B' D2 B F' D2 F U' B D' B' U B' L2",
+"said": "2c2c",
+"final": 35,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+1
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N5506b",
+"author": "argonblue",
+"date": "2026-01-24",
+"source": "IF",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 U2 R2 D2 F2 U2 F' R2 F2 L2 B' U F' D2 B' D' L2 R' D' F' D' R' U' F",
+"skeleton": "B2 D' R F2 D' F U' F D F B' D2 B F' D2 F U' B D' B' U B' L2",
+"said": "2c2c",
+"final": 32,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+4
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": "N5506a",
+"replayed": true,
+"replay_len": 32,
+"steps": [
+[
+8,
+3
+],
+[
+8,
+4
+]
+]
+},
+{
+"id": "N5509",
+"author": "devens",
+"date": "2026-01-25",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B2 D F2 U' B2 D U2 R2 F2 D L2 F' L U B' R' D U2 R' F2 D' R' U' F",
+"skeleton": "U' D' B D R F' D2 U2 R2 U2 R2 U B U' B U2 B' U B U",
+"said": "3C",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+10,
+6
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+10,
+6
+]
+]
+},
+{
+"id": "N5533",
+"author": "DougCube",
+"date": "2026-01-28",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L U2 F L' D2 R D' F' L2 F2 U' F' B D R' D F R' U' F",
+"skeleton": "D' L' R' F2 B L B' L' B' R' B R D B L D2 L B' D",
+"said": "3c+1tc",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+8,
+9
+],
+[
+8,
+4
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+8,
+9
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "N5578",
+"author": "DougCube",
+"date": "2026-02-11",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R B2 L2 B2 U2 R2 U' R2 F2 U2 F2 U B L' D' U' F R' D L' D R' U' F",
+"skeleton": "D L' D2 R B F2 D' F2 U F U2 R' U R' F' R B' R F R' B R'",
+"said": "3e",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+10,
+8
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N5606",
+"author": "DougCube",
+"date": "2026-02-11",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "L2 R2 U2 R2 B' D2 B D2 F' L2 B U R' B' U2 L D B R D L",
+"skeleton": "R' U B2 D' B R' B' F2 D2 F' D2 L' F' L U' L B' L D'",
+"said": "3c",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N5663",
+"author": "DougCube",
+"date": "2026-02-23",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D B2 U R' U2 R2 B U D F R B2 L D' F' D B L F2 R' U' F",
+"skeleton": "D' B2 U2 L B' U R U R' L' U' L U F' U2",
+"said": "3c+1tc",
+"final": 21,
+"inverse": false,
+"notes": [
+[
+8,
+8
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": [
+[
+8,
+8
+],
+[
+8,
+2
+]
+]
+},
+{
+"id": "N5742",
+"author": "unemployedweeblet",
+"date": "2026-03-03",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 F D2 U2 F R2 B L2 F2 L2 R F2 U L B2 D' R2 F' R D2 F2 R' U' F",
+"skeleton": "B D B' D2 F' D' F D2 B D2 B' D B D' B' F D F' B' U L B",
+"said": "AB3c",
+"final": 28,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 28,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N5780",
+"author": "paulduc03 (22/26.67)",
+"date": "2026-03-18",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D F L2 U2 D L B' D L F2 L' D2 L' F2 B2 U2 R2 U2 R' F2 R' U' F",
+"skeleton": "D' L F2 D L D2 F' L U2 B' L' B' L2 B2 L B2 L' B",
+"said": "3C",
+"final": 21,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": [
+[
+8,
+5
+]
+]
+},
+{
+"id": "N5808",
+"author": "DougCube",
+"date": "2026-03-26",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "U2 R2 F2 D' R2 F' R F' R2 U L2 D' L2 D F2 D' L2 U D",
+"skeleton": "B2 L2 D' L2 B2 D' B' L2 B D' L F' D' F L2 D'",
+"said": "3c",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N5809",
+"author": "DougCube",
+"date": "2026-03-26",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "U2 R2 F2 D' R2 F' R F' R2 U L2 D' L2 D F2 D' L2 U D",
+"skeleton": "L B2 D L2 B' L2 B2 L' B2 D U F' R' F U' D2 B2",
+"said": "A-perm",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+8,
+3
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": [
+[
+8,
+3
+]
+]
+},
+{
+"id": "N5814",
+"author": "TAVE IS DEFINITELY MY GOAT 🐐",
+"date": "2026-03-26",
+"source": "IF",
+"wording_only": false,
+"if_setting": "greedy 0 (N5824): 30 with the default algorithm choice ('IF finds 30', 'but theyre all 10-5 8-0'); 29 with pure comms only ('wait if i just do pure comms it finds a 29')",
+"scramble": "U2 R2 F2 D' R2 F' R F' R2 U L2 D' L2 D F2 D' L2 U D",
+"skeleton": "D L' D' R2 U' B L B' L2 L' R' U L U' R U L2 R2",
+"said": "5c",
+"final": 30,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N5931",
+"author": "GBC // 19/21.67 PRs",
+"date": "2026-04-22",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "D F L' U L2 B2 U L B' L' U' L2 B2 L2 D' B2",
+"skeleton": "D L' U' F' L2 F' D2 F D F' D F",
+"said": "5c",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N5938",
+"author": "DougCube",
+"date": "2026-04-22",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "D F L' U L2 B2 U L B' L' U' L2 B2 L2 D' B2",
+"skeleton": "D L' U' L2 F' F' D2 F F L' F' L B D2 B' D L' D' L D2",
+"said": "3e",
+"final": 19,
+"inverse": false,
+"notes": [
+[
+10,
+9
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 19,
+"steps": [
+[
+10,
+9
+]
+]
+},
+{
+"id": "N5944",
+"author": "DougCube",
+"date": "2026-04-24",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "U' F2 D2 R2 D F2 R2 F2 R2 F2 U F D U' R' D2 F D' F",
+"skeleton": "D' F2 U U' F D' F' R U F2 D' F' D2 F2 F D2 F'",
+"said": "5c",
+"final": 21,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N5952",
+"author": "GBC // 19/21.67 PRs",
+"date": "2026-04-25",
+"source": "IF",
+"wording_only": true,
+"if_setting": "tool not named ('+6 optimal for 20')",
+"scramble": "B2 U2 D' F' L2 B2 R2 B2 D2 B' L2 D2 F R' D2 F' U R D2 F'",
+"skeleton": "U' R2 U L' U' R2 U F U' R B' R D2 R'",
+"said": "3c",
+"final": 20,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N5959",
+"author": "GBC // 19/21.67 PRs",
+"date": "2026-04-25",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 L' F2 U2 L' F2 R' F2 L' U2 B2 D' B' L' F' R' D L' D B' D R' U' F",
+"skeleton": "R F L F L' F' L2 F L' B' U2 B' R B' R' F L F U' L2 F",
+"said": "5c",
+"final": 32,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 32,
+"steps": [
+[
+8,
+3
+],
+[
+8,
+2
+]
+]
+},
+{
+"id": "N5997",
+"author": "Brandon is my goat 🐐",
+"date": "2026-05-03",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U' R2 B F2 U R2 F2 R2 D U2 B2 D2 U' F' L B' L' B2 U F2 R' U' F",
+"skeleton": "R L D F2 R' F R2 F U2 F' D F' F L2 F' D2 F' D' F D2",
+"said": "3e",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+6,
+1
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+6,
+1
+]
+]
+},
+{
+"id": "N6000",
+"author": "trangium",
+"date": "2026-05-03",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U' R2 B F2 U R2 F2 R2 D U2 B2 D2 U' F' L B' L' B2 U F2 R' U' F",
+"skeleton": "R L D F2 R' U2 B D2 B2 F' D2 F2 D L2 D2 F D2 F' D'",
+"said": "3e",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+8,
+5
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": [
+[
+8,
+5
+]
+]
+},
+{
+"id": "N6033",
+"author": "devens",
+"date": "2026-05-30",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B2 U' B2 R2 U' F2 D L' F' R2 B2 U' B2 D' L2 F2 U' L2 U2 B2 U2 R' U' F",
+"skeleton": "L D' L2 R' B2 R B' D B2 R D2 R' L' U2 B' L' F2 R'",
+"said": "3C",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+8,
+3
+]
+]
+},
+{
+"id": "N6062",
+"author": "torchlight",
+"date": "2026-06-03",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 F2 B2 U2 R F2 B2 R D2 F2 B2 L' B D L2 B2 R2 F' D2 L2 D' R' U' F",
+"skeleton": "F' L D' B' U D L B L' B' D' U2 B U L F R F' U2 R2",
+"said": "2c2c",
+"final": 28,
+"inverse": false,
+"notes": [
+[
+12,
+4
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 28,
+"steps": [
+[
+12,
+4
+]
+]
+},
+{
+"id": "N6098",
+"author": "omyyys",
+"date": "2026-06-04",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U F' R' B' R2 D B D' B2 U2 R2 B2 R2 U L2 U2 R2 U R B' R' U' F",
+"skeleton": "U' L' B' L F D' B D2 F' U' F' U R D' R D' R' D2 R B2",
+"said": "2C2C",
+"final": 27,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+6
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 27,
+"steps": [
+[
+8,
+3
+],
+[
+8,
+6
+]
+]
+},
+{
+"id": "N6128",
+"author": "DougCube",
+"date": "2026-06-10",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 F' U2 L2 D' B2 U B2 U F2 D2 R F' R' B' R' U B2 F' R' U' F",
+"skeleton": "B2 D' F R2 L' F' L U F U' L' F2 L F'",
+"said": "2e2e",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+10,
+10
+],
+[
+10,
+2
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N6152",
+"author": "devens",
+"date": "2026-06-13",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 U' B2 R2 D' L2 F2 U R2 F2 D2 B' L' R2 F2 U L2 U' B R B R' U' F",
+"skeleton": "U' F U R D' R D2 R' L D L' D2 F R U F'",
+"said": "2c2c",
+"final": 25,
+"inverse": false,
+"notes": [],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": [
+[
+8,
+3
+],
+[
+8,
+4
+]
+]
+},
+{
+"id": "N6153",
+"author": "DougCube",
+"date": "2026-06-13",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 U' B2 R2 D' L2 F2 U R2 F2 D2 B' L' R2 F2 U L2 U' B R B R' U' F",
+"skeleton": "U' F U R D' R2 F' R' F R' D R D R' L D L' D2 F R U F'",
+"said": "2fe",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+10,
+9
+],
+[
+10,
+9
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N6299",
+"author": "DougCube",
+"date": "2026-06-27",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L' B' R2 D2 B F2 R2 U2 F2 L D R D' B L2 D R U' L' R' U' F",
+"skeleton": "R' L' D F R F' L' B R B2 L F L' F' L F2 L F",
+"said": "3c",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+10,
+6
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": [
+[
+10,
+6
+]
+]
+},
+{
+"id": "N6301",
+"author": "Nicole",
+"date": "2026-06-27",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L D' L2 B D2 F2 U2 R U' L2 U2 B2 D2 F U2 L2 B L2 B' U2 B' R' U' F",
+"skeleton": "R B' R' B D R' U' R U2 R' U' R U' R2 U R U' R' U2 R U L' U' L U L' U B' L' B",
+"said": "ab3c",
+"final": 33,
+"inverse": false,
+"notes": [
+[
+8,
+5
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 33,
+"steps": [
+[
+8,
+5
+]
+]
+},
+{
+"id": "N6434",
+"author": "DougCube",
+"date": "2026-07-12",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "F2 R U2 B2 F2 L D2 L2 U2 F2 L' R2 D R F2 D B2 R2 B D2",
+"skeleton": "R B2 R2 L F D' R2 F2 R B U' F U2 B' F D' F D",
+"said": "3c",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+8,
+3
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+8,
+3
+]
+]
+},
+{
+"id": "N6481",
+"author": "Renny",
+"date": "2026-07-31",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R' U' R' B' R2 B' U2 L2 R2 B2 F L F' R U' F2 R2 D' B' R' U' F",
+"skeleton": "R' F D F D F2 L2 F' D F2 R2 B R2 U' R' F' R'",
+"said": "3c",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "N6515",
+"author": "Jihan Lee",
+"date": "2026-08-04",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B2 D R2 U2 B2 L2 B2 L2 U F2 R2 D' L D' U' R' B' R2 U L' R' U' F",
+"skeleton": "D' R L' U L U R U2 R' U D2 R2 D2 L F L' B' U'",
+"said": "4c",
+"final": 28,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N6608",
+"author": "Jihan Lee",
+"date": "2026-08-08",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 F' R2 F' L2 B2 U2 B R2 F' D2 F R2 D' B L' D2 B' R F' U R' U' F",
+"skeleton": "R' D' F U2 F2 R2 U L' U L U' R' F2 B' U2",
+"said": "3c+1tc",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+8,
+6
+],
+[
+11,
+6
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": [
+[
+8,
+6
+],
+[
+11,
+6
+]
+]
+},
+{
+"id": "N6649",
+"author": "Somebodyidk",
+"date": "2026-08-23",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "B2 R F' D' L2 B U2 L F2 U R' U2 F' R2 D2 F B2",
+"skeleton": "F B2 R' L D2 B2 D B2 F' D F D2",
+"said": "3c",
+"final": 17,
+"inverse": false,
+"notes": [
+[
+8,
+3
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 17,
+"steps": [
+[
+8,
+3
+]
+]
+},
+{
+"id": "N6662",
+"author": "caycala",
+"date": "2026-09-13",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "D2 R2 F' R2 B2 D2 B R2 F2 L2 F U' B2 R F' L2 R D U2",
+"skeleton": "F2 D B D R B R' B R B2 R2 U2 R B U2",
+"said": "3c",
+"final": 17,
+"inverse": false,
+"notes": [
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N6694",
+"author": "Ben",
+"date": "2026-09-21",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "U L2 F L' D B2 R2 B' D F2 L2 F' R2 B R2 L2 D2 R2 B2",
+"skeleton": "B L F L F' D' F D F2 B U L' U' L B",
+"said": "3c",
+"final": 21,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N6708",
+"author": "Renny",
+"date": "2026-09-24",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 F D2 B' L2 F' D2 L2 B' U2 B L D' F' D U L2 R D' R' U' F",
+"skeleton": "B2 R F' L F' R F B' R2 B R' B2 D B' D' U' B' U B'",
+"said": "3c",
+"final": 20,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N6769",
+"author": "paulduc03 (22/26.67)",
+"date": "2026-10-01",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R' U2 L2 D2 L' D2 R2 F2 R' D2 R F' U2 R2 F U' R' U' R' U' B R' U' F",
+"skeleton": "B' R2 F2 U' L' U' L U2 R' U' R2 F2 L' B2 F U",
+"said": "3C",
+"final": 19,
+"inverse": false,
+"notes": [
+[
+8,
+5
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 19,
+"steps": [
+[
+8,
+5
+]
+]
+},
+{
+"id": "N6771",
+"author": "DougCube",
+"date": "2026-10-01",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R' U2 L2 D2 L' D2 R2 F2 R' D2 R F' U2 R2 F U' R' U' R' U' B R' U' F",
+"skeleton": "B' R2 U' F2 R U' R' U L' U R' U' L' B2 L F U",
+"said": "5c",
+"final": 21,
+"inverse": false,
+"notes": [
+[
+8,
+8
+],
+[
+10,
+6
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": [
+[
+8,
+9
+],
+[
+10,
+5
+]
+]
+},
+{
+"id": "N6810",
+"author": "DougCube",
+"date": "2026-10-07",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 R' D2 L2 B F2 D2 F2 L B2 F' R D' B L' R D' U R' U' F",
+"skeleton": "B L2 B' L2 B F' D2 F D' L D2 F2 D' L' D2 F U",
+"said": "3c",
+"final": 19,
+"inverse": false,
+"notes": [
+[
+2,
+1
+],
+[
+2,
+6
+],
+[
+8,
+3
+]
+],
+"n_ins": 3,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "N6816a",
+"author": "Frederick",
+"date": "2026-10-12",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L' U' F2 L2 F2 D U2 B D U2 B U R B L R2 U' B2 R' U' F",
+"skeleton": "U' L' U' L B L' F' L F U' F2 U F2 B D' L U",
+"said": "3c1t",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+10,
+6
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": [
+[
+8,
+4
+],
+[
+10,
+6
+]
+]
+},
+{
+"id": "N6816b",
+"author": "Frederick",
+"date": "2026-10-12",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L' U' F2 L2 F2 D U2 B D U2 B U R B L R2 U' B2 R' U' F",
+"skeleton": "U' L' U' F' L F B U' F2 U F2 B D' L U",
+"said": "5c",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+8,
+4
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "N6844",
+"author": "DougCube",
+"date": "2026-10-25",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 B2 D2 L2 F' B' R2 F' U2 B' D' B L' F' U' L2 B' L2 U' F2 R' U' F",
+"skeleton": "F' R' B2 R D2 F' R F R2 D' F' D F' R",
+"said": "3c+1tc",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+8,
+4
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": [
+[
+8,
+4
+],
+[
+8,
+4
+]
+]
+},
+{
+"id": "doc91",
+"author": "Insertion Finder page linked by alkamaass in D3793",
+"date": "2023-12-04",
+"source": "IF",
+"wording_only": false,
+"if_setting": "Greedy: 6; all 15 algorithm sets",
+"scramble": "R' U' F U2 L2 F2 D' R2 B2 L2 D' F2 L U' L' F R' F2 R' F L2 U F R' U' F",
+"skeleton": "D B2 D2 R2 D B D' R' D L' D' L B' L F2 B2 L U",
+"said": "3C1T",
+"final": 29,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 29,
+"steps": [
+[
+8,
+1
+],
+[
+8,
+4
+]
+]
+},
+{
+"id": "doc92",
+"author": "Insertion Finder page linked by alkamaass in D3796",
+"date": "2023-12-04",
+"source": "IF",
+"wording_only": false,
+"if_setting": "Greedy: 6; all 15 algorithm sets",
+"scramble": "R' U' F U2 L2 F2 D' R2 B2 L2 D' F2 L U' L' F R' F2 R' F L2 U F R' U' F",
+"skeleton": "D B2 D2 R2 D B L' D' L R' B' L F2 B2 L U",
+"said": "3C1T",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+5
+],
+[
+10,
+4
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": [
+[
+8,
+5
+],
+[
+10,
+4
+]
+]
+},
+{
+"id": "doc122",
+"author": "Insertion Finder page linked by kalindumaxxer in N1072",
+"date": "2024-05-26",
+"source": "IF",
+"wording_only": false,
+"if_setting": "algorithm set '3 Corners' only; Greedy blank",
+"scramble": "D R2 L2 U L2 U2 R2 U L2 U' B2 U2 F' R2 L' U2 D B' R' D' R2 D2",
+"skeleton": "B' R' B D F B' D' L D L2 F' L D'",
+"said": "3T",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+8,
+4
+],
+[
+8,
+2
+]
+]
+},
+{
+"id": "doc145",
+"author": "Insertion Finder page linked by alkamaass in N1451",
+"date": "2024-06-30",
+"source": "IF",
+"wording_only": false,
+"if_setting": "Greedy: 6; all 15 algorithm sets",
+"scramble": "D2 F2 B2 R2 U R2 U2 F2 U B' L2 U L' U' B' L' B' U'",
+"skeleton": "F' R F' U' B' U B2 F' L F' D",
+"said": "5C",
+"final": 19,
+"inverse": false,
+"notes": [
+[
+8,
+5
+],
+[
+12,
+7
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 19,
+"steps": [
+[
+8,
+5
+],
+[
+12,
+7
+]
+]
+},
+{
+"id": "D3783",
+"author": "alkamaass",
+"date": "2023-12-04",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 L2 F2 D' R2 B2 L2 D' F2 L U' L' F R' F2 R' F L2 U F R' U' F",
+"skeleton": "D B2 D2 R2 D B D' R' D L' D' L B' L B2 F2 L U",
+"said": "3C1T",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": "doc91",
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc14§2.1.5",
+"author": "Mirek Goljan and Guus Razoux-Schultz (example in Sebastiano Tronto's tutorial)",
+"date": "2023-08 (tutorial rev. 3.04)",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "D U' F2 U' R' F R2 B D' B R F B' U R' D2 L' R2 F2 B' U' B D B2 F2 U L F U' B2",
+"skeleton": "L U' F2 D' U2 B R2 B F' U F R U2 R' U2 R2",
+"said": "All but 3 corners",
+"final": 19,
+"inverse": false,
+"notes": [
+[
+8,
+5
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 19,
+"steps": [
+[
+8,
+5
+]
+]
+},
+{
+"id": "doc14§2.4.1",
+"author": "Sebastiano Tronto (tutorial example)",
+"date": "2023-08 (tutorial rev. 3.04)",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "D B2 U' F2 L2 D2 R2 U F2 U2 L2 R' D2 B L' U' R2 F2 R B F2",
+"skeleton": "B' U' D L' F' D2 L2 D' L U2 R2 U' R' U L' U R' U' L U2 R' L'",
+"said": "All but 3 corners",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 28,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "doc14§2.4.4",
+"author": "João Pedro Batista Ribeiro Costa (former SAR; example in Sebastiano Tronto's tutorial)",
+"date": "2023-08 (tutorial rev. 3.04)",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "L' U2 D' L' U2 B' D B' L U2 F2 R2 F' R2 L2 F' U2 D2 F",
+"skeleton": "F D' U2 R D' F' L2 F2 D F2 B' D B F' D' F' L2",
+"said": "All But 4 Corners",
+"final": 25,
+"inverse": false,
+"notes": [],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": [
+[
+8,
+5
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "doc14§2.5.3a",
+"author": "Sebastiano Tronto (tutorial example)",
+"date": "2023-08 (tutorial rev. 3.04)",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L2 U2 B' L2 F' U2 B L2 B R' B2 L U B L2 B' D' F2 R F R' U' F",
+"skeleton": "D' R' U' F L R2 U R D F2 D2 B2 U2 L2 D R2 U",
+"said": "AB5C",
+"final": 27,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 27,
+"steps": [
+[
+8,
+4
+],
+[
+8,
+2
+]
+]
+},
+{
+"id": "doc14§2.5.3b",
+"author": "Sebastiano Tronto (tutorial example)",
+"date": "2023-08 (tutorial rev. 3.04)",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "F' U R U' F2 R' U2 F' U D' L B' L2 F2 U2 R2 L' U2 B2 U2 R F2 L' F' U R",
+"skeleton": "F D R2 U' F' R' F2 B2 U2 R2 D U2 B2 D U'",
+"said": "3e+3e left",
+"final": 27,
+"inverse": false,
+"notes": [
+[
+10,
+3
+],
+[
+10,
+6
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 26,
+"steps": [
+[
+10,
+3
+],
+[
+10,
+6
+]
+]
+},
+{
+"id": "doc14§3.1",
+"author": "Tim Reynolds (former NAR; example in Sebastiano Tronto's tutorial)",
+"date": "2023-08 (tutorial rev. 3.04)",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R F L U2 L U' B' L2 D' F L2 B2 U2 L2 F U2 R2 B' L2 D2",
+"skeleton": "R' U F' L2 F2 D' B' D2 B R2 F R2 F' R2 F D' F' D",
+"said": "All but 3 corners",
+"final": 24,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+8,
+2
+]
+]
+},
+{
+"id": "doc14§3.8b",
+"author": "Sebastiano Tronto (tutorial example)",
+"date": "2023-08 (tutorial rev. 3.04)",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U R2 D R2 B2 D' B2 L' D2 L2 R D U L2 F' U2 B L' B R' U' F",
+"skeleton": "U' B' U B' L2 B2 R2 F2 R D' R L' F D2",
+"said": "5e",
+"final": 25,
+"inverse": false,
+"notes": [],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc14§D.2.2",
+"author": "Sebastiano Tronto (tutorial example)",
+"date": "2023-08 (tutorial rev. 3.04)",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 B2 L D2 B2 L' D2 F2 R' F2 L U' R B F2 L' R2 U' R U B R' U' F",
+"skeleton": "R' F' B L' D2 F D' B2 D' B' D L2 B2 U' L2 U D F2 D' U",
+"said": "3e",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+4
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+8,
+4
+]
+]
+},
+{
+"id": "doc444§5.2",
+"author": "Alexandros Fokianos & Tommaso Raposio (A Domino Reduction Guide, 2019)",
+"date": "2019",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L2 F2 L2 U F2 D2 L2 D2 U' L2 B' U L' R U2 F D U2 L' B R U' R' U' F",
+"skeleton": "L' R B U L2 B2 L D2 L' U' L2 D R2 D2 L U2 L",
+"said": "6e",
+"final": 24,
+"inverse": false,
+"notes": [],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+6,
+4
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "doc444§5.3",
+"author": "Cale Schoon (example in A Domino Reduction Guide, 2019)",
+"date": "2019",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B' D' F' D F2 L2 F2 U' B2 R2 D' R2 U' L R' B D R B U2 R' U' F",
+"skeleton": "U2 F D L U' F2 R2 D R2 L U2 L D2 U2 B2 U' B'",
+"said": "2e2e",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+6,
+1
+],
+[
+8,
+6
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc178-1",
+"author": "Cyprian Kalbarczyk (Blockbuilding example solves, solve 1)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 U2 F2 L2 U2 B' D2 R2 U2 B' R' U' F U L' D2 R' D2 F' U R' U' F",
+"skeleton": "D' B' R2 U2 R2 U2 L U F2 L U2 L'",
+"said": "5C",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+2
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+8,
+2
+],
+[
+8,
+2
+]
+]
+},
+{
+"id": "doc178-20",
+"author": "Cyprian Kalbarczyk (Blockbuilding example solves, solve 20)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L2 F L2 R2 B R2 U2 B' L2 B D2 B R F' D' B' L' B' F' L' F2 R' U' F",
+"skeleton": "F L2 R' B L' R U' L' U L2 U B' U' B F2 L'",
+"said": "5C",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+5
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+8,
+5
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "doc178-94",
+"author": "Cyprian Kalbarczyk (Blockbuilding example solves, solve 94)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 D R2 U2 B2 D' R2 B2 F2 R' F' R F L R2 B L2 D2 F R' U' F",
+"skeleton": "U2 B' D R U L F' L F' D2 F' L' D2 L' B2 L2",
+"said": "3C1TC",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+5
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+8,
+5
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "doc492-p1",
+"author": "speedsolving FMC thread p. 261 (poster not named in the copy)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 R2 F2 L2 B2 D2 F2 D R2 D R' B L B' D' U' F' R F R' U' F",
+"skeleton": "D F2 R B' R2 L' F D U2 F D' F' U2 L D' L' D F2 U' R",
+"said": "All but 3 corners",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc492-p2",
+"author": "speedsolving FMC thread p. 261 (poster not named in the copy)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 L2 D R2 F2 D F2 L2 D B2 R U L F D L' R F2 R' D B2 R' U' F",
+"skeleton": "B2 F2 U' F2 D2 L D' L' D L D R D2 R2 B' R D' U2 L",
+"said": "L3C",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc492-p3",
+"author": "speedsolving FMC thread p. 261 (poster not named in the copy)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 F2 D U L2 B2 F2 U' B2 D' F' U2 R' F2 D' B' U' F' L' D2 U R' U' F",
+"skeleton": "U B' D F' D' F' B R F R D2 B R' B2 R' B R2 F2 L D2 F",
+"said": "3c",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc492-p4",
+"author": "speedsolving FMC thread p. 261 (poster not named in the copy)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 B2 F2 D2 R2 F2 U' R2 B2 R' F' D L R D' U' R D' L2 F' R' U' F",
+"skeleton": "D2 L2 F2 D L2 B D' U2 R2 U2 D2 B2 R2 L' B2 D' L2",
+"said": "3c",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc492-p5",
+"author": "speedsolving FMC thread p. 261 (poster not named in the copy)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L2 F2 R2 D' L2 D' F2 D2 U L' F' L2 B2 U2 B L' B U L' R' U' F",
+"skeleton": "R B D' U2 L' D B2 D' B D R2 D B D' B2 D' B2 D' B D' B2 U",
+"said": "3c",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc492-p6",
+"author": "speedsolving FMC thread p. 261 (poster not named in the copy)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U L2 U R2 U' R2 D' B2 U R D' B2 U' R U2 F R2 U' F' U2 R' U' F",
+"skeleton": "L D F U' F' R B U R' U' R D B D' R B2 F R' F' R' B'",
+"said": "3c",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc492-p7",
+"author": "speedsolving FMC thread p. 261 (poster not named in the copy)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 D' F2 U' L2 U' R2 D' F2 U2 R B F R2 D2 R2 U F D L' D' R' U' F",
+"skeleton": "D B D' L2 D L2 U B' F2 U2 F' L2 R D B2 L'",
+"said": "3c",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc492-p8",
+"author": "speedsolving FMC thread p. 261 (poster not named in the copy)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B2 L2 R2 D R2 F2 D' B2 F2 D2 L B R D' L' U' B2 U B F' R' U' F",
+"skeleton": "F' B D' B' D' F U B' U2 F D' F2 B2 D' R F2 D R2",
+"said": "3c",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc492-p9",
+"author": "speedsolving FMC thread p. 261 (poster not named in the copy)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 U' L2 U2 B2 L2 D U R2 D' F D L U' R2 B R2 U' B' U' R' U' F",
+"skeleton": "F R2 F L' F' L' B2 L B2 L D2 F' R' U L U F' L'",
+"said": "4c",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc492-p10",
+"author": "speedsolving FMC thread p. 261 (poster not named in the copy)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D L2 D L2 F2 L2 D' R2 U2 B L' R' D L' B D2 U' B' R' U' R' U' F",
+"skeleton": "U2 L' D B2 D' U' L2 U L D L' D2 F2 R2 F' R L'",
+"said": "5C",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc492-ab4c",
+"author": "speedsolving FMC thread p. 261 (poster not named in the copy)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B2 D' F2 D L2 D2 U F2 U B2 R2 B L' B R2 F L2 R D2 B D R' U' F",
+"skeleton": "L' B2 L F' U B' U' L' B L B' U B2 U' B' U2 B L2 F R2 U' L' D2",
+"said": "AB4C",
+"final": 31,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc492-x1",
+"author": "speedsolving FMC thread p. 261 (second poster, not named in the copy)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U' F L D' L B2 U B R B R2 F' R2 D2 F2 B L U' R' U' F",
+"skeleton": "D' R F' U L2 U' F' L F L U' L U L2 F' U' R' B L2 B' F2",
+"said": "AB2C2C1T",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 3,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 34,
+"steps": [
+[
+8,
+5
+],
+[
+8,
+3
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "doc492-x3",
+"author": "speedsolving FMC thread p. 261 (second poster, not named in the copy)",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 F2 L D' B R' F2 B2 D' U2 R2 L2 B2 L2 U2 B L2 B R2 B2 R' U' F",
+"skeleton": "F' D R' F2 U B L D2 L' D2 L' D L D' B2 L' B L2 B' L' B L B' L2 U' L' U L' D2 U",
+"said": "AB5C",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 36,
+"steps": [
+[
+8,
+4
+],
+[
+10,
+8
+]
+]
+},
+{
+"id": "doc487-A1-Doug",
+"author": "Doug L (UMichSpeedCubist) = DougCube, Speedsolving weekly 2025-09",
+"date": "2025",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L F B' D2 F U R' B L2 F2 B2 R F2 L B2 F L' D' R' U' F",
+"skeleton": "F' R' B R' F' R B' F' R' F' B R B2 R U' R2 F2",
+"said": "3e+2fe",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+5
+],
+[
+6,
+2
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+8,
+5
+],
+[
+6,
+2
+]
+]
+},
+{
+"id": "doc487-A1-Titus",
+"author": "Titus Sutterfield (tsutt099), Speedsolving weekly 2025-09",
+"date": "2025",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L F B' D2 F U R' B L2 F2 B2 R F2 L B2 F L' D' R' U' F",
+"skeleton": "U' B' R' B R F' U' F' U R L' U L U2 B' R U' B2",
+"said": "3c",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+1
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": [
+[
+8,
+1
+]
+]
+},
+{
+"id": "doc487-A2-Doug",
+"author": "Doug L (UMichSpeedCubist) = DougCube, Speedsolving weekly 2025-09",
+"date": "2025",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D' R B' U2 F2 L2 U2 F' L2 B' D2 U L R' D B' D2 L' D B R' U' F",
+"skeleton": "D' B U' L U' L' B' U D2 L' D2 F' L' F2",
+"said": "3c",
+"final": 18,
+"inverse": false,
+"notes": [
+[
+8,
+4
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 18,
+"steps": [
+[
+8,
+4
+]
+]
+},
+{
+"id": "doc487-A3-Doug",
+"author": "Doug L (UMichSpeedCubist) = DougCube, Speedsolving weekly 2025-09",
+"date": "2025",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D R2 D B2 U L2 B2 L2 B U L' F' D U2 F R2 D U' B' R' U' F",
+"skeleton": "B2 R' L2 B F D2 R2 D F' D F' R F R' F D F R' D R L2",
+"said": "3e",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+10,
+8
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": [
+[
+10,
+8
+]
+]
+},
+{
+"id": "doc130-A1",
+"author": "alkamaass (Alex Maass FMC 2024 reconstructions)",
+"date": "2024-06-01",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D R F2 D L F D2 F2 L' U R' L2 D' R2 F2 R2 D L2 U2 R' U' F",
+"skeleton": "R2 D B' D L2 U L U' B R U D B' U2 B U' L U L' U' D'",
+"said": "5c",
+"final": 32,
+"inverse": false,
+"notes": [
+[
+8,
+2
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 32,
+"steps": [
+[
+8,
+2
+],
+[
+8,
+3
+]
+]
+},
+{
+"id": "doc303-a",
+"author": "Ian Yazid Zavala (333.fm profile; Ian IYZ)",
+"date": "2025",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 D F R F' L' U R F' D B' R2 B2 R2 B' R2 F' D2 F' L2 B' R' U' F",
+"skeleton": "L B' R U D' R2 U' R U' D' F' U' L U' L' U L U' L' U F R' U' R U' F U R U' R' F'",
+"said": "3c",
+"final": 36,
+"inverse": true,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "doc303-b",
+"author": "Ian Yazid Zavala (333.fm profile; Ian IYZ)",
+"date": "2025",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B2 R2 U2 L2 B L2 B L2 F' L2 B2 D' R B' L B F U2 R F' U2 R' U' F",
+"skeleton": "L U' L2 F' U L' F' U2 F' U' F2 U F2 U' F U B U L U' L' B' R2 D' R U2 F' U F",
+"said": "3c",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 36,
+"steps": [
+[
+8,
+1
+]
+]
+},
+{
+"id": "doc303-c",
+"author": "Ian Yazid Zavala (333.fm profile; Ian IYZ)",
+"date": "2025",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R U' R F' D2 L F' L2 U F R2 U2 F' R2 B' D2 L2 F' L2 F L2 R' U' F",
+"skeleton": "R B' R' B' U2 R' U R' F R F' R' U R B U2 B' U' F2 U R2 B'",
+"said": "2C2C",
+"final": null,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "D2683",
+"author": "Noah Swor",
+"date": "2023-08-29",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 B2 R' B2 L D2 R' U2 B L' B2 L2 D2 L' B D' B2 L' F R' U' F",
+"skeleton": "L' U L' U2 F2 U2 L2 U' L D R' U' F' R2 F2 B L2",
+"said": "AB3C",
+"final": 18,
+"inverse": false,
+"notes": [
+[
+8,
+7
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 18,
+"steps": [
+[
+8,
+7
+]
+]
+},
+{
+"id": "D4736",
+"author": "Bence_2014CSUT01",
+"date": "2024-04-17",
+"source": "IF",
+"wording_only": true,
+"if_setting": "",
+"scramble": "F' U' D R2 L D' F2 R' B R U2 R F2 L2 F2 L D2 B2 D2",
+"skeleton": "F2 D R D R' F U D2 L D' B D' B' L2 R F L F' R' U2",
+"said": "",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+4
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": [
+[
+8,
+4
+]
+]
+},
+{
+"id": "D4737",
+"author": "David | 2009BALO03",
+"date": "2024-04-17",
+"source": "IF",
+"wording_only": true,
+"if_setting": "",
+"scramble": "F' U' D R2 L D' F2 R' B R U2 R F2 L2 F2 L D2 B2 D2",
+"skeleton": "F' D2 F' D R D' R' F2 D2 L D' B D' B' L' F' U'",
+"said": "3C",
+"final": 20,
+"inverse": false,
+"notes": [
+[
+8,
+5
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 20,
+"steps": [
+[
+8,
+5
+]
+]
+},
+{
+"id": "D4875",
+"author": "Yura Riabov | 2018RIAB01",
+"date": "2024-04-19",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L F2 U B' D2 B' F L' F2 R2 B' D L U' B' U2 L' D U' R' U' F",
+"skeleton": "D2 B U2 R2 B' U2 B' F2 D' R2 D B2 U B2",
+"said": "2E2E",
+"final": 19,
+"inverse": false,
+"notes": [
+[
+8,
+3
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 19,
+"steps": [
+[
+8,
+3
+]
+]
+},
+{
+"id": "D4876",
+"author": "Yura Riabov | 2018RIAB01",
+"date": "2024-04-19",
+"source": "IF",
+"wording_only": true,
+"if_setting": "",
+"scramble": "R' U' F L F2 U B' D2 B' F L' F2 R2 B' D L U' B' U2 L' D U' R' U' F",
+"skeleton": "D2 B U2 R2 B' U2 B' F2 D' R2 D B2 U B2",
+"said": "2E2E",
+"final": 16,
+"inverse": false,
+"notes": [
+[
+6,
+4
+]
+],
+"n_ins": 2,
+"origin": "server",
+"dup_of": "D4875",
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "D5618",
+"author": "Bence_2014CSUT01",
+"date": "2024-06-02",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 R' F2 R' D2 F2 L' F2 L2 D2 R D2 B' L2 U R D F R2 D2 R' U' F",
+"skeleton": "U B' U2 R F U' D' R D F2 B2 D R2 L2 U D2 R' U2 F2 U R2 D' B2 L2 U2 B2 L2 B2",
+"said": "3e slice",
+"final": 29,
+"inverse": false,
+"notes": [],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "D6882",
+"author": "Yura Riabov | 2018RIAB01",
+"date": "2024-07-24",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U' F2 R' B L2 B' D2 F R2 D2 R2 B2 F' R U F D' L' D2 F R' U' F",
+"skeleton": "R' D2 B' R L2 B2 D R' D L2 U R2 D' U2 R2 F2 L2",
+"said": "2E2E",
+"final": 18,
+"inverse": false,
+"notes": [
+[
+6,
+5
+]
+],
+"n_ins": 1,
+"origin": "server",
+"dup_of": null,
+"replayed": true,
+"replay_len": 18,
+"steps": [
+[
+6,
+5
+]
+]
+},
+{
+"id": "D6057",
+"author": "Gezza Cubing",
+"date": "2024-06-18",
+"source": "IF",
+"wording_only": false,
+"if_setting": "",
+"scramble": "U R2 F B R B2 R U2 L B2 R U' D' R2 F R' L B2 U2 F2",
+"skeleton": "R L U D F B R L U D F B",
+"said": "4 flip",
+"final": 22,
+"inverse": false,
+"notes": [],
+"n_ins": 0,
+"origin": "server",
+"dup_of": null,
+"replayed": false,
+"replay_len": null,
+"steps": []
+},
+{
+"id": "K1",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D2 U2 F2 L2 U2 B' D2 R2 U2 B' R' U' F U L' D2 R' D2 F' U R' U' F",
+"skeleton": "D' B' R2 U2 R2 U2 L U F2 L U2 L'",
+"said": "5c 0e",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+2
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": "doc178-1",
+"replayed": true,
+"replay_len": 24,
+"steps": []
+},
+{
+"id": "K4",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L2 B F R2 B U2 R2 B U2 D' L' F R F' R D2 R2 B L2 R' U' F",
+"skeleton": "R' B' R B2 L B' L D2 B' R2 D R D' F'",
+"said": "4c 0e",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": []
+},
+{
+"id": "K10",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U F B L' B' U' L2 B2 D B' L2 F' B' U2 F' D2 R2 D2 F' R' U' F",
+"skeleton": "L2 B L B' U F U R2 U' F2 R' F' R B L2 F' L' F L' B' F' R U2",
+"said": "3c 0e",
+"final": 28,
+"inverse": false,
+"notes": [
+[
+8,
+3
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 28,
+"steps": []
+},
+{
+"id": "K12",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R D2 L' F2 L' R' B2 F2 U2 D' L R B' L D' L2 F L' R' U' F",
+"skeleton": "L2 B2 D2 L' F D F' D' L' D2 L2 F L F' L D2 U2",
+"said": "5c 0e",
+"final": 27,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 27,
+"steps": []
+},
+{
+"id": "K13",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 B R2 D2 B' L2 B2 D2 B2 R2 U2 L' B L D' L B2 U2 F U2 R' U' F",
+"skeleton": "U B2 R' U F U' F U' F2 U' F2 U F2 U' F' D2 B' F R2 D",
+"said": "3c 0e",
+"final": 26,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 26,
+"steps": []
+},
+{
+"id": "K16",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U' L U R' L B' U2 L U' F R2 F' L2 B' D2 B' U2 D2 B R2 U2 R' U' F",
+"skeleton": "B D F U L' U2 L2 F' L' F U2 B2 R' B2 L2 F R' F' L'",
+"said": "3c 0e",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": []
+},
+{
+"id": "K19",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B2 D2 F R2 D2 F L2 R2 U2 F2 R2 F' D' L B' L R' D' L2 U B' R' U' F",
+"skeleton": "L F U' B' F D' F' D R L' F L F' R' L F D'",
+"said": "3c 0e",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+1
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": []
+},
+{
+"id": "K20",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L2 F L2 R2 B R2 U2 B' L2 B D2 B R F' D' B' L' B' F' L' F2 R' U' F",
+"skeleton": "F L2 R' B L' R U' L' U L2 U B' U' B F2 L'",
+"said": "5c 0e",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+5
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": "doc178-20",
+"replayed": true,
+"replay_len": 24,
+"steps": []
+},
+{
+"id": "K22",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L2 B2 R' D2 L D2 R2 B2 U2 B2 D2 B L2 D' L D2 R' B' D' R' U' F",
+"skeleton": "L U' L' F' L' U F D2 R D2 R' B D2 B' F' D L2 F2 R",
+"said": "3c 0e",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": []
+},
+{
+"id": "K24",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D F' L2 R2 D U2 L2 U' R2 U' B2 L2 D2 B L' D' R' D R' B R' U' F",
+"skeleton": "D B' D' F L' B F2 U F U2 F2 U' F2 B2 D' F' B' U B'",
+"said": "3c 0e",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": []
+},
+{
+"id": "K25",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L U B R' U2 D2 R' D F' B2 L2 U2 D2 B2 U2 R F2 D2 R' B2 R' U' F",
+"skeleton": "F2 U' F' U F D' F2 D2 B D2 U2 R' D' F2 U'",
+"said": "6c 0e",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": []
+},
+{
+"id": "K26",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D U2 F2 D F2 R2 D2 B2 L2 U' F' U2 B' U L F' U' B L' D R' U' F",
+"skeleton": "U' R' D2 R U L D2 L' F2 D L2 F2 L' D2 U' R D' B2 F' R2 D L'",
+"said": "3c 0e",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+5
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": []
+},
+{
+"id": "K27",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B2 R2 U' L2 U R2 B2 U2 B2 F2 L2 F2 R' B R2 F2 R' U F2 D U' R' U' F",
+"skeleton": "U F R B2 L' B2 L B L' B L' U2 F2 D U2 B2",
+"said": "3c 0e",
+"final": 20,
+"inverse": false,
+"notes": [
+[
+8,
+3
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 20,
+"steps": []
+},
+{
+"id": "K28",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L2 D' F2 U L2 D2 F2 D' L2 D' R2 L U2 B F' U2 L D2 L D' L R' U' F",
+"skeleton": "R F' R F R D2 R D F' R2 F L2 U2 L' U D' F' D U2 F",
+"said": "3c 0e",
+"final": 26,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 26,
+"steps": []
+},
+{
+"id": "K40",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L' D2 B R2 B L2 R2 F L2 B R2 B U2 D' L B2 U2 F' D B2 F R' U' F",
+"skeleton": "D' F2 D' B' R' F L2 R F2 R F L D L",
+"said": "5c 0e",
+"final": 25,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+8,
+1
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 25,
+"steps": []
+},
+{
+"id": "K42",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B R2 D R2 F2 U2 F2 D2 L2 F2 L F D L' R U2 L F2 U R' U' F",
+"skeleton": "D B2 L' R' B R B' R' U2 L F2 L R' F' R L D2 U L2 B",
+"said": "0c 3e",
+"final": 21,
+"inverse": false,
+"notes": [
+[
+6,
+5
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": []
+},
+{
+"id": "K44",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R F' U2 B D2 F R2 B2 R2 U2 B' U2 F2 U' B D' R2 B L F D' R' U' F",
+"skeleton": "R' D' U F2 R' L2 F U2 F U F' U F2 L2 F' L2 R2",
+"said": "0c 3e",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+6,
+1
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": []
+},
+{
+"id": "K52",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 F2 U2 B2 L D2 B2 R' F2 R2 B2 U R' B' R F' L' F' R2 U' R' U' F",
+"skeleton": "B U R' D B D2 B2 R2 F2 D2 L D2 L' B'",
+"said": "6c 0e",
+"final": 27,
+"inverse": false,
+"notes": [
+[
+8,
+2
+],
+[
+8,
+1
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 27,
+"steps": []
+},
+{
+"id": "K56",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R L2 F' B' U' L2 F' B2 U' F2 B2 R' U2 F2 R F2 L2 B2 L R' U' F",
+"skeleton": "R' F B D' B2 U2 D' R2 U' D R' U L2 F' D2 F'",
+"said": "3c 0e",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+8,
+1
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": []
+},
+{
+"id": "K62",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U2 R' D2 R U2 R' D2 R2 D2 B F' L D2 F U' L2 D U2 B F R' U' F",
+"skeleton": "D2 B U' L' U2 R U2 R B L R U2 R' L2",
+"said": "0c 6e",
+"final": 28,
+"inverse": false,
+"notes": [
+[
+5,
+2
+],
+[
+10,
+0
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 28,
+"steps": []
+},
+{
+"id": "K78",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L' B R' L2 F' B' L2 B D' L' F2 L2 B2 D2 R L2 F2 B2 U2 R' U' F",
+"skeleton": "L F2 R F' R' F2 U L U' R U R' L2 D' R' D2 B L' B D' F'",
+"said": "3c 0e",
+"final": 27,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 27,
+"steps": []
+},
+{
+"id": "K82",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R' B2 L' U2 F2 U2 R D2 B2 R B F R D U' F2 R D' L' R' U' F",
+"skeleton": "D R B2 R L D2 B' L B D2 B L2 R D' F2",
+"said": "3c 0e",
+"final": 20,
+"inverse": false,
+"notes": [
+[
+8,
+2
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 20,
+"steps": []
+},
+{
+"id": "K84",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D R2 B' U' R2 F R2 L2 F R' U2 F2 U2 L' F2 L' B2 R' U' F",
+"skeleton": "U L2 F U' B R2 B' U' B' U' F B2 U2 F' R F' R2",
+"said": "3c 0e",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": []
+},
+{
+"id": "K90",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U R' U2 D F2 D2 R2 F L U F2 U2 L2 F2 L2 B2 D B2 L2 D R' U' F",
+"skeleton": "D' B D2 F2 U' L F U F U F' U L2 F U2 B F R'",
+"said": "3c 0e",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+8,
+4
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": []
+},
+{
+"id": "K90",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U R' U2 D F2 D2 R2 F L U F2 U2 L2 F2 L2 B2 D B2 L2 D R' U' F",
+"skeleton": "D' U R U' R2 B2 D L2 B' D F U2 B R'",
+"said": "3c 0e",
+"final": 18,
+"inverse": false,
+"notes": [
+[
+8,
+4
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 18,
+"steps": []
+},
+{
+"id": "K94",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F R2 D R2 U2 B2 D' R2 B2 F2 R' F' R F L R2 B L2 D2 F R' U' F",
+"skeleton": "U2 B' D R U L F' L F' D2 F' L' D2 L' B2 L2",
+"said": "4c 0e",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+5
+],
+[
+8,
+3
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": "doc178-94",
+"replayed": true,
+"replay_len": 24,
+"steps": []
+},
+{
+"id": "K97",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D' L2 F R2 U2 B R2 F' D2 F' L2 U2 R B U2 F U F2 D R B2 R' U' F",
+"skeleton": "R B U D' B2 D' R2 U' R2 F' D F D2 B2 U2 R' D' U F2 L",
+"said": "3c 0e",
+"final": 24,
+"inverse": false,
+"notes": [
+[
+8,
+2
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 24,
+"steps": []
+},
+{
+"id": "K118",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D R2 D2 F2 U' R2 F2 D F2 U2 R' D F' D U R2 B' D' R2 B R' U' F",
+"skeleton": "R' D2 R U L2 U' L2 R' U' L B' L' F R",
+"said": "4c 0e",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+8,
+4
+],
+[
+8,
+4
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": []
+},
+{
+"id": "K127",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F D B2 U' F2 D' B2 D L2 D2 F' R F2 U R' D2 F L' B' U2 F2 R' U' F",
+"skeleton": "B R2 U2 B U2 R B' L2 D2 L' D' R2 B' F' U'",
+"said": "3c 0e",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+8,
+1
+]
+],
+"n_ins": 1,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": []
+},
+{
+"id": "K133",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L' F' U2 R2 F2 L D2 R B2 R U2 F2 R2 U R2 D' U' F' U' F R' U' F",
+"skeleton": "D2 L' F L' U2 L D2 L' U' D2 R2 L' D2 U2 B2 L2 R F2 L",
+"said": "0c 3e",
+"final": 21,
+"inverse": false,
+"notes": [
+[
+2,
+1
+],
+[
+2,
+0
+],
+[
+8,
+6
+]
+],
+"n_ins": 3,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": []
+},
+{
+"id": "K136",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F B2 R2 B2 U F2 D2 L2 B2 D' F' R U F R2 F D' B' R' D' R' U' F",
+"skeleton": "U' L2 U F2 U' B2 U2 R2 F' B R B2 U'",
+"said": "0c 5e",
+"final": 21,
+"inverse": false,
+"notes": [
+[
+8,
+5
+],
+[
+10,
+5
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 21,
+"steps": []
+},
+{
+"id": "K141",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L F2 D L2 U2 L' B U2 F U2 L F2 D2 B2 R2 D2 L D2 F2 B2 R' U' F",
+"skeleton": "D2 F2 L2 F2 R2 D B2 D B2 D' L' U B2 R F' R2 B2",
+"said": "0c 3e",
+"final": 22,
+"inverse": false,
+"notes": [
+[
+6,
+4
+],
+[
+10,
+5
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 22,
+"steps": []
+},
+{
+"id": "K143",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F L U F2 U2 B D2 R' D2 F' U2 F2 B L2 U2 L2 B L2 D2 B2 D F R' U' F",
+"skeleton": "R' U2 L' U L B2 D F2 U' L2 U F' L R' B",
+"said": "5c 0e",
+"final": 26,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 26,
+"steps": []
+},
+{
+"id": "K146",
+"author": "Cyprian Kalbarczyk",
+"date": "",
+"source": "hand",
+"wording_only": false,
+"if_setting": "",
+"scramble": "R' U' F U' B' D' F L2 B2 D R2 D2 B2 F2 R2 F L' U2 B U2 R U2 R' U' F",
+"skeleton": "U2 L2 B L F D U' B2 F2 L2 F U'",
+"said": "5c 0e",
+"final": 23,
+"inverse": false,
+"notes": [
+[
+8,
+3
+],
+[
+8,
+2
+]
+],
+"n_ins": 2,
+"origin": "kalbarczyk",
+"dup_of": null,
+"replayed": true,
+"replay_len": 23,
+"steps": []
+}
+],
+"excluded": {
+"kept": 175,
+"written with inverse-scramble parts": 147,
+"corners and edges both left": 46,
+"skeleton has rotations, slice or wide moves": 5,
+"scramble and skeleton do not fit": 3,
+"scramble not in face turns": 4,
+"more than 6 pieces of one kind left": 5,
+"parity (2 corners and 2 edges)": 4,
+"Kalbarczyk: kept": 34,
+"Kalbarczyk: corners and edges both left": 11,
+"Kalbarczyk: parity (2 corners and 2 edges)": 1
+},
+"examples_in_file": 389
+}
