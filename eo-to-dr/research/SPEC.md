@@ -7,7 +7,7 @@ Open questions, Disputed claims; entry ids like S-DR-6 below refer to it), its e
 
 ## What already exists (credit it; do not present it as new)
 - EO→DR for one DR axis, EO-preserving moves, linear: exact for every case (Cale doc 6: 1,082,565 states, mean 7.80,
-  max 10; Louis doc 108 by DRM × ARM; KrzychXyz doc 136; Evan doc 363; Rodney doc 274). With EO-breaking moves:
+  max 10; Louis doc 108 by DRM × ARM; KrzychXyz doc 136; Rodney doc 274). With EO-breaking moves:
   torchlight T2600 (7.797 against 7.803). FakeMMAP T2598 the same distribution.
 - Scramble→DR on one fixed axis, linear: DougCube doc 218 (mean 9.5245, max 12); Kociemba phase 1.
 - Scramble→EO: fixed axis 4.609; best NISS EO over all axes 3.455 (doc 218, Joba T9374).

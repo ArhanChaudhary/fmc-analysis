@@ -284,7 +284,7 @@ The two that get shorter with quarter turns, explicitly (with half turns alone b
   | H-H + F-D R-V odd | 9 | 8 | `F L2 F B' R2 L2 D2 F'` |
 
   (The inverse of each sequence solves it.)
-- **Rodney's sheet** uses the same optimals, so same five, the other 211 agree. One more row, labelled F-V / F-D / R-H, lists `M R2 U2 M'`, which actually gives a different case (R-V + F-D R-V odd). `M F2 U2 M'` gives the labelled case in the 6 moves the sheet says, so the R2 is a typo for F2.
+- **Rodney's sheet** has no optimal column: its Penalty is the finish length minus the corner case's setup (1 move for F-D and R-D corners, 2 for F-V, 0 for H-H). It is built on the same optimals, so the same five are one too high (6, 6, 9, 9, 9 should be 5, 5, 8, 8, 8), and the other 211 agree. One more row, labelled F-V / F-D / R-H, lists `M R2 U2 M'`, which actually gives a different case (R-V + F-D R-V odd). `M F2 U2 M'` gives the labelled case in 6 moves, the sheet's penalty of 4 after the 2-move F-V setup, so the R2 is a typo for F2.
 - **Rodney's rules are still a true lower bound in all 216 cases**, even against the shorter optimals. The "100%" survives.
 - **OBL++** has a finer grid and I didn't grade it cell by cell. Collapsed to these 216 labels it matches on 140 of the 144 cases it covers, already has four of the five fixes above, and is one *lower* in four (D-D ± F-H R-H even, R-V + F-D R-H even, R-V + F-D R-D odd: 8 vs my 9). For those four I ran nissy on all 3,072 states of each case and none has a solution of 8 or fewer. So 9 stands for the cases as I label them. Whether those cells are off or just mean something slightly different, I don't know.
 

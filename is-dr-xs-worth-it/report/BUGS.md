@@ -18,15 +18,15 @@ Section A is what's wrong in the docs, B what's wrong in things said in the chan
 ## A. The docs
 
 **A1. EO Meta Comparison (Rodney): the fix costs it assumes.**
-The doc says "we assume 1 slice can be fixed in 3 moves, and 2 slices can be fixed in 5 moves", and its tables are the standard table shifted by those amounts. Counted exactly, from the state alone:
+The doc says "we assume 1 slice can be fixed in 3 moves, and 2 slices can be fixed in 5 moves", and its tables are the standard table shifted by those amounts. Counted exactly, from the state alone, and with one turn of the slice cancelling into the move before it, which is how Rodney counts the 3 ("one ht, one qt, and -1 cancellation on the slice", [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560296978137485322)):
 
-| | Fewest | Most | Average |
-|---|---:|---:|---:|
-| DR-1s to DR | 2 | 6 | 5.17 |
-| DR-2s to DR | 4 | 9 | 6.83 |
-| DR-3s to DR | 6 | 10 | 8.50 |
+| | Fewest | Most | Average from the state | Average, one slice turn cancelling |
+|---|---:|---:|---:|---:|
+| DR-1s to DR | 2 | 6 | 5.17 | 4.17 |
+| DR-2s to DR | 4 | 9 | 6.83 | 5.83 |
+| DR-3s to DR | 6 | 10 | 8.50 | 7.50 |
 
-As move counts to a real DR the assumptions are about 2 short. As finish penalties they are close for the DR-1s and too hard on the DR-2s 8fe: a DR-1s finishes 2.27 longer than a DR, a DR-2s 8fe 1.19 longer. So the doc's "-1 slice" rows are about right and slightly pessimistic, and its "off-axis" rows (+2) are pessimistic by about a move for the 8-flipped case.
+So in Rodney's own way of counting, the 3 and the 5 are each about a move short (1.17 and 0.83), and about two from the state alone. The median DR-1s layout is 4 with the cancel and 5 without (B2). The 6-turn layout in B2 still takes 5 with the cancel.
 
 **A2. Simon's slice-DR doc: the table for step 3.**
 "Num Cases out of 70" at 2, 3, 4, 5, 6 moves is given as 1, 4, 9, 40, 16, with "~4.9 moves on average". Taking the better direction of the last trigger move as the doc does, I get 1, 4, 13, 36, 16: thirteen layouts have a 4-turn fix, not nine. The average stays 4.9. The thirteen, with the corners on F/B, the fixing slice `R L` and the last trigger move a quarter turn of U or D:
@@ -61,7 +61,7 @@ trangium said they could not get that line to work ([19 Feb 2026](https://discor
 Of the 70 layouts, 1 needs 2 turns, 2 need 3, 9 need 4, 30 need 5 and 28 need 6. Rodney's 3 is one half turn, one quarter turn and the slice with one of its two turns cancelling; counted that way the median layout is 4, and 5 from scratch. A 6: after `U R2 F2 D' B2 U2 L2 D R' L' B' L2 U2 F2` the shortest fix is 6 turns (`F2 U2 L2 B R L`). Right after a trigger, with the slice free to merge into its last move, the best case is 0 extra turns but most layouts still need 5.
 
 **B3. "If you have 8 bad edges, where all the good edges belong to the same slice, then you can orient the corners that correspond to the good edges along any axis and you are guaranteed an extra-good dr-xs"** (Rodney, [20 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474455821978042472)).
-Take the EO axis as F/B and the four good edges as the E-slice edges, so the corners in question are the white/yellow ones. On U/D they give a DR-2s with all eight edges flipped and the centers right, and on R/L a DR-2s with no edge flipped: in both there is no flipped edge to place, which is Rodney's extra-good. On F/B, the faces of the EO axis itself, they give a DR-1s, but how its four flipped edges split between slices is not fixed: 2-2 about half the time, 3-1 nearly half, 4-0 rarely. So "any axis" holds for two of the three. `U D2 L2 D B2 L2 B2 D R2 F2 U' R' L F' B'` has 8 bad edges on F/B with the four good ones the E-slice edges, white/yellow corners oriented on F and B, and a 3-1 split.
+Take the EO axis as F/B and the four good edges as the E-slice edges, so the corners in question are the white/yellow ones. On U/D they give a DR-2s with all eight edges flipped and the centers right, and on R/L a DR-2s with no edge flipped: in both there is no flipped edge to place, which is Rodney's extra-good. On F/B, the faces of the EO axis itself, they give a DR-1s that is not extra-good. A flipped edge "belongs to" its home slice here, the slice it sits in when solved (as in the write-up, 5.4). By the slice they belong to, the four flipped edges split 2-2 in 36 of the 70 layouts, 3-1 in 32 and 4-0 in 2. By where they sit, they are together in the E-slice places in all 70, which is the write-up's "wrong slice" case: every layout takes `F B R L` (4 turns) to a DR, no better than an ordinary DR-1s. So "any axis" holds for two of the three. `U D2 L2 D B2 L2 B2 D R2 F2 U' R' L F' B'` has 8 bad edges on F/B with the four good ones the E-slice edges, and white/yellow on F or B at every corner. Its flipped edges are DB, DF, UF (M slice) and UR (S slice), a 3-1, sitting at BL, BR, FL, FR. nissy's shortest DR on any axis is `F B R L` (4), and on the inverse `B2 U' B2 U R L` (6), so no single slice turn reaches DR from either side.
 
 ---
 

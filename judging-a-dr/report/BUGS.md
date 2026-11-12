@@ -23,20 +23,20 @@ Section A is what's wrong in the two bounding docs and their tables, B what's wr
 - First random scramble: "A 3c2,6e case. Traditionally 3c2 is a good corner case" should be 2c3 (`U D L2 D' B2 U R2 F2 B2 D2 L2 D' R2 L2 D2 B2` is 2c3 6e).
 - Strategy section: "note its length, the cr/fr parity" should be cs/fr.
 
-**A2. Rodney's "Adv DR Bounding" sheet: five optimals one too high, and one mislabelled alg.**
-The "Penalty" column is the optimal with HTR-breaking finishes allowed. The complete-to-10 search over all 18 moves finds a shorter one for five cases, the same five as in A3:
+**A2. Rodney's "Adv DR Bounding" sheet: five penalties one too high, and one mislabelled alg.**
+The sheet has no optimal column. Its "Penalty" is the length of the listed alg (HTM, after cancelling) minus the corner case's own setup: 1 move for F-D and R-D corners, 2 for F-V, 0 for H-H. The complete-to-10 search over all 18 moves finds a finish one move shorter than the listed alg for five cases, the same five as in A3. Their penalties should be 5, 5, 8, 8, 8, not 6, 6, 9, 9, 9:
 
-| Corners / F edges / R edges (cs/fr) | Listed alg | Sheet | Real | A state of the case, and a solution of that length |
+| Corners / F edges / R edges (cs/fr) | Listed alg | Sheet penalty | Real penalty | A state of the case, and a shorter finish |
 |---|---|---:|---:|---|
-| F-D / F-V / R-H (0/0) | `R2 U2 R2 F2 R2 U2 R2` | 7 | 6 | `R L' B2 D2 R L'`, solved by `L R' D2 B2 L R'` |
-| R-D / F-H / R-V (0/0) | `F2 U2 F2 R2 F2 U2 F2` | 7 | 6 | `F' B R2 D2 F B'`, solved by `B F' D2 R2 B' F` |
-| H-H / F-D / R-D (0/1) | `R2 U2 R2 U2 F2 R2 F2 R2 F2` | 9 | 8 | `R D2 F2 B2 R' L F2 R'`, solved by `R F2 L' R B2 F2 D2 R'` |
-| H-H / F-D / R-V (0/1) | `F2 U2 R2 F2 U2 R2 F2 R2 F2` | 9 | 8 | `F L2 F B' R2 L2 D2 F'`, solved by `F D2 L2 R2 B F' L2 F'` |
-| H-H / F-V / R-D (0/1) | `R2 U2 F2 R2 U2 F2 R2 F2 R2` | 9 | 8 | `L' F2 R L' F2 B2 D2 L`, solved by `L' D2 B2 F2 L R' F2 L` |
+| F-D / F-V / R-H (0/0) | `R2 U2 R2 F2 R2 U2 R2` (7) | 6 | 5 | `R L' B2 D2 R L'`, solved in 6 by `L R' D2 B2 L R'` |
+| R-D / F-H / R-V (0/0) | `F2 U2 F2 R2 F2 U2 F2` (7) | 6 | 5 | `F' B R2 D2 F B'`, solved in 6 by `B F' D2 R2 B' F` |
+| H-H / F-D / R-D (0/1) | `R2 U2 R2 U2 F2 R2 F2 R2 F2` (9) | 9 | 8 | `R D2 F2 B2 R' L F2 R'`, solved in 8 by `R F2 L' R B2 F2 D2 R'` |
+| H-H / F-D / R-V (0/1) | `F2 U2 R2 F2 U2 R2 F2 R2 F2` (9) | 9 | 8 | `F L2 F B' R2 L2 D2 F'`, solved in 8 by `F D2 L2 R2 B F' L2 F'` |
+| H-H / F-V / R-D (0/1) | `R2 U2 F2 R2 U2 F2 R2 F2 R2` (9) | 9 | 8 | `L' F2 R L' F2 B2 D2 L`, solved in 8 by `L' D2 B2 F2 L R' F2 L` |
 
-Separately, the row labelled F-V / F-D / R-H (0/0) lists `M R2 U2 M'`. That alg gives R-V + F-D R-V odd, not the labelled case. `M F2 U2 M'` gives the labelled case in the 6 moves the sheet says, so R2 is a typo for F2 and the value is fine. (I graded the sheet by the case each alg actually produces, not by its label, which is how this row showed up.)
+Separately, the row labelled F-V / F-D / R-H (0/0) lists `M R2 U2 M'`. That alg gives R-V + F-D R-V odd, not the labelled case. `M F2 U2 M'` gives the labelled case in 6 moves, which is the sheet's penalty of 4 after the 2-move F-V corner setup, so R2 is a typo for F2 and the penalty is fine. (I graded the sheet by the case each alg actually produces, not by its label, which is how this row showed up.)
 
-The rule values ("Heuristic" column) aren't affected: they stay at or below the real optimal in all 216 cases, against the corrected numbers too (write-up, section 10).
+The rule values ("Heuristic" column, on the same penalty scale) aren't affected: they stay at or below the real penalty in all 216 cases, the corrected ones too (4 against 5 in the first two rows, 5 against 8 in the three H-H rows; write-up, section 10).
 
 **A3. FakeMMAP's HTR-breaking table (`RK_OBL_table_DS_2e.csv`, attached to [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)): five cells one too high, two of them labelled 7.**
 About the first version (`RK_OBL_table_HTR_breaking.csv`, the day before) FakeMMAP said ≤ 7 was proven optimal and 8, 9, 10 "might actually be solvable in as little as 7" ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606)). For the 7 Sep file: 211 of 216 cells are right, and the two 7s below are 6 in both files.
@@ -63,7 +63,7 @@ It's 13. 15,925,248 DR states need 13 on a given side (0c3 4e, and 4c4 0e from i
     U' R2 D' B2 U B2 U' R2 U F2 U' F2 U       // 13 to HTR on normal, 12 on inverse
     D B2 D' B2 D L2 U L2 U' F2 D B2 U' F2     // 13 to HTR on both sides
 
-**B2. "Only five subsets can be 18 optimal"** ([Zagros, 17 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1406635136526581810)), **and "all the 18 optimals … either 5qt or the bad 3qt ones"** ([zakimoshi, 16 Dec 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1185609081629708298)).
+**B2. "Only five subsets can be 18 optimal"** ([Zagros, 17 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1406635136526581810)), **and "We calculated all the 18 optimals once I remember it being either 5qt or the bad 3qt ons"** ([zakimoshi, 16 Dec 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1185609081629708298)).
 It's four of the 48: 0c3 4e (768), 2c5 4e (384), 2c5 0e (192), 0c0 8e (8), 1,352 in total. So "5qt or bad 3qt" misses the eight 0c0 8e states. (Joba's file, which Zagros was reading, shows the same four.) One of each:
 
     F2 D' F2 D' F2 R2 U2 R2 U' B2 R2 B2 L2 U B2 U2 R2 U'   // 0c3 4e
@@ -75,8 +75,8 @@ I can't show a fifth subset because there isn't one: the other 44 top out at 17 
 
 **B3. Arithmetic slip.** [Aneurin, 12 Mar 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1084362354894049340) has 27248 for (4!)⁴/12. It's 27648.
 
-**B4. "Corner case + moves to HTR on normal + moves to HTR on inverse can tell you the optimal solution with a standard deviation of like 0.25 moves"** ([Zagros, 4 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1490097940641878216)).
-The sd left is 0.82 moves over all DRs, between 0.74 (4c4) and 0.97 (0c0) by corner subset. The subset alone leaves 0.88. Nothing readable gets under 0.78. A pair, both 2c4 4e with the same corner case on normal and on inverse, 7 to HTR on both sides and the same corner length (7):
+**B4. "I hypothesize that corner case + moves to HTR on normal + moves to HTR on inverse can tell you the optimal solution with a standard deviation of like 0.25 moves"** ([Zagros, 4 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1490097940641878216)).
+Knowing the subset, the corner case on both sides and the HTR length on both sides still leaves an sd of 0.80 moves over all DRs. That feature set also has the bad-edge count, which Zagros didn't list, and knowing more can only lower the sd, so Zagros's own features leave at least 0.80. The subset alone leaves 0.88. Nothing readable gets under 0.78. A pair, both 2c4 4e with the same corner case on normal and on inverse, 7 to HTR on both sides and the same corner length (7):
 
     D F2 U' F2 D B2 D'                                 // optimal 7
     D' R2 B2 U' F2 D B2 U B2 F2 U' F2 U' L2 D' U'      // optimal 16

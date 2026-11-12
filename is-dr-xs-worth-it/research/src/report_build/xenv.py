@@ -34,6 +34,11 @@ def NK(slices=None, **kw): return str(sum(1 for r in KINDS if (slices is None or
 def FIX(slices, t): return str(sum(1 for r in KINDS if int(r['slices']) == slices and int(r['turns_to_dr']) == t))
 def FIXAVG(slices):
     v = [int(r['turns_to_dr']) for r in KINDS if int(r['slices']) == slices]; return f2(sum(v) / len(v))
+def _fixv(slices): return sorted(int(r['turns_to_dr']) for r in KINDS if int(r['slices']) == slices)
+def FIXMIN(slices): return _fixv(slices)[0]
+def FIXMAX(slices): return _fixv(slices)[-1]
+def FIXMED(slices):
+    v = _fixv(slices); assert v[(len(v) - 1) // 2] == v[len(v) // 2]; return v[len(v) // 2]
 def FIXSHARE(slices, ts):
     v = [int(r['turns_to_dr']) for r in KINDS if int(r['slices']) == slices]; return num(100 * sum(t in ts for t in v) / len(v))
 def STEP(name, which, t=None):
@@ -70,6 +75,7 @@ def _split(kind):
 def SPLIT(kind): v = _split(kind); return f2(sum(v) / len(v))
 def SPLITSHARE(kind): return num(100 * len(_split(kind)) / len(xv._rows('sample1s.tsv')))
 WIT = json.load(open(O + 'witness.json'))
+WS = json.load(open(O + 'witness_split.json'))
 def SIMON(): return ', '.join(map(str, WIT['simon']))
 def W6(): return WIT['six']['scramble']
 def W12():

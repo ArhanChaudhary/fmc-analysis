@@ -52,7 +52,7 @@ What is new here, in one line each:
 
 What it confirms or corrects in the docs and sheets people use:
 
-- **FakeMMAP's HTR-breaking table is right in 211 of 216 cells and one too high in 5.** Two of those are labelled 7 and are 6-movers, so "7 or less is proven optimal" doesn't hold for them. Rodney's "Adv DR Bounding" sheet uses the same optimals, so the same five, plus one alg with R2 for F2. Rodney's rules stay a true lower bound in all 216. A state of each case is in section 9.
+- **FakeMMAP's HTR-breaking table is right in 211 of 216 cells and one too high in 5.** Two of those are labelled 7 and are 6-movers, so "7 or less is proven optimal" doesn't hold for them. Rodney's "Adv DR Bounding" sheet's penalties are built on the same optimals, so the same five are one too high, plus one alg with R2 for F2. Rodney's rules stay a true lower bound in all 216. A state of each case is in section 9.
 - **FakeMMAP's HT-only table is not a bound once other moves are allowed**, as FakeMMAP said: with U and D quarter turns 2 of the 216 values drop from 9 to 8 (the count is proven in Lean), with any face turn 66 drop (section 9).
 - **OBL++**, collapsed to the 216 labels, matches on 140 of the 144 cases it covers and is one lower in four. nissy finds no 8 in any of the 3,072 states of each of those four, so 9 stands for the cases as labelled here.
 - **Zagros's "4c3 that is 9+ on both sides I throw away"** drops half of all 4c3 and keeps 92% of the 10s, 83% of the 11s and 73% of the 12s. It does throw away real finds: one 9 to HTR on both sides finishes in 9 (section 4.4).

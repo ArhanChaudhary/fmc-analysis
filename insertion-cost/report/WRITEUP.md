@@ -1015,7 +1015,7 @@ F2 D2 B2 U' D2 L2 F2 L' D R' B' R2 F U' F' B * U2 B' L D
 Solution: F2 D2 B2 U' D2 L2 F2 L' D R' B' R2 F U' B D F' U F D' F' U B' L D (25)
 ```
 
-Counting spots from 0 (before the first move), the 8-3 is at spot 16. Checking spots 1, 3, 5, 7, 9, 11, 13, 15, 17, 19 and both ends finds nothing better than an 8-1. The spot is right after the pair `F' B`.
+Counting spots from 0 (before the first move), the 8-3 is at spot 16. Checking the odd spots (1, 3, 5, 7, 9, 11, 13, 15, 17, 19) and both ends finds nothing better than an 8-1; the even spots would find it. The spot is right after the pair `F' B`.
 
 And one where every third spot misses it:
 

@@ -1,0 +1,55 @@
+{
+ "layouts": {
+  "2-2|4-0|4|F B R L": 36,
+  "3-1|4-0|4|F B R L": 32,
+  "4-0|4-0|4|F B R L": 2
+ },
+ "home_split": {
+  "2-2": 36,
+  "3-1": 32,
+  "4-0": 2
+ },
+ "place_split": {
+  "2-2": 0,
+  "3-1": 0,
+  "4-0": 70
+ },
+ "turns": {
+  "4": 70
+ },
+ "witness": {
+  "scramble": "U D2 L2 D B2 L2 B2 D R2 F2 U' R' L F' B'",
+  "home_split": "3-1",
+  "place_split": "4-0",
+  "places": [
+   "BL",
+   "BR",
+   "FL",
+   "FR"
+  ],
+  "pieces": [
+   [
+    "DB",
+    "M"
+   ],
+   [
+    "DF",
+    "M"
+   ],
+   [
+    "UF",
+    "M"
+   ],
+   [
+    "UR",
+    "S"
+   ]
+  ],
+  "turns": 4,
+  "fix": "F B R L",
+  "nissy_dr": "F B R L (4)",
+  "nissy_dr_len": 4,
+  "nissy_dr_inverse": "B2 U' B2 U R L (6)",
+  "nissy_dr_inverse_len": 6
+ }
+}
