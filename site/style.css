@@ -64,6 +64,10 @@ main th { background: var(--soft); text-align: left; }
 main td code { white-space: normal; }          /* move sequences break between moves */
 main td.c-num { white-space: nowrap; }
 main th.c-num { min-width: 3.2rem; }
+/* headers wrap: a long header over short numbers must not widen its column (width comes from the data) */
+main th { white-space: normal; overflow-wrap: break-word; hyphens: auto; vertical-align: bottom; }
+main th.c-num { max-width: 7.5rem; }
+main th.c-s { max-width: 12rem; }
 main .c-s { min-width: 9rem; }
 main .c-m { min-width: 14rem; }
 main .c-l { min-width: 20rem; }
