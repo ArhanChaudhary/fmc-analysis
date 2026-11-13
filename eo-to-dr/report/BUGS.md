@@ -27,7 +27,7 @@ F2 U F B' D B L2 F' L2 D                                         // shortest DR 
 ```
 
 **2. "Superflip takes 6 moves to solve EO with NISS"** (Aneurin, [13 Apr 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1095997368069009439)).
-It takes 7 ✓, on every axis, with or without NISS; every NISS split was searched, and Lean proves it: the superflip commutes with every face turn, so a NISS EO of it is a linear EO of the same length, and the linear EO needs 7. Aneurin had it right the first time ([13 Sep 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1019443537940594768), [13 Sep 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1019443653632069642)): "EO is 7 moves", "Even with niss".
+It takes 7 ✓, on every axis, with or without NISS; every NISS split was searched, and there is a short proof: the superflip commutes with every face turn (✓ Lean), so a NISS EO of it is a linear EO of the same length, and the linear EO needs 7 (✓ Lean). Aneurin had it right the first time ([13 Sep 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1019443537940594768), [13 Sep 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1019443653632069642)): "EO is 7 moves", "Even with niss".
 Example: the superflip, with a 7-move NISS EO on it from alkamaass ([17 Jun 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1252389998808928356)); none of 6 exists.
 
 ```

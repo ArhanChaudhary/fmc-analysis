@@ -116,6 +116,16 @@ def SLICE3(group=None):
         if group and pv.QT[sub.split()[0]] != group: continue
         n += int(c); k += int(c) * (int(d) - int(ls) >= 3)
     return pv.num(100 * k / n)
+def SLICE(group=None, k=None):
+    """Cost of the slice (optimal finish minus optimal leave slice) over the DRs of a qt group (None: all):
+    k = 0, 1, 2 the share costing exactly k, k = 3 the share costing 3 or more, k = None the average cost."""
+    n = tot = hit = 0
+    for sub, d, ls, c in pv.rows('h3_leaveslice.csv'):
+        if group and pv.QT[sub.split()[0]] != group: continue
+        cost = int(d) - int(ls)
+        n += int(c); tot += int(c) * cost
+        hit += int(c) * (cost >= 3 if k == 3 else cost == k)
+    return '+%.2f' % (tot / n) if k is None else pv.num(100 * hit / n)
 def LAYH(cs, a, b, e=None):
     """Histogram of the DRs of corner subset cs (e bad edges) whose bad-corner layout contains a on one side and b on the other."""
     L = lambda x: pv.cases(cs, lambda c: x in c['layout'])

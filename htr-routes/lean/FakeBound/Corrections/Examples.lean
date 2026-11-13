@@ -286,7 +286,8 @@ open EODR
 
 /-- **eo-to-dr 2**: the superflip has 12 bad edges on every axis, so by EODR's `eo_by_bad` (12 bad: 7 turns) its
 linear EO needs 7 turns on every axis; the printed 7-move NISS EO `D F U' (L B R U')` gives EO on U/D (axis 1).
-That no NISS EO of 6 exists is not from a Lean table. -/
+That no NISS EO of 6 exists follows from `EODR.superflip_niss_eo` (eo-to-dr/lean/EODR): the superflip commutes
+with every face turn and its linear EO needs 7 on every axis; the last step is the one-line argument in its docstring. -/
 theorem superflip :
     let sf := "U R2 F B R B2 R U2 L B2 R U' D' R2 F R' L B2 U2 F2"
     ((List.range 3).map fun Y => pieces.popcount (pieces.badMask Y (cube.do_ cube.SOLVED sf))) = [12, 12, 12] ∧

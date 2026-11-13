@@ -1813,11 +1813,11 @@ Both measures in this section come from the optimal finish and the optimal leave
 
 | Corner qt | Costs nothing | 1 move | 2 moves | 3 or more | Average, moves |
 |---|---:|---:|---:|---:|---:|
-| 0qt | 44% | 42% | 14% | 0.6% | +0.71 |
-| 1–2qt | 56% | 39% | 5.4% | 0.1% | +0.50 |
+| 0qt | 44% | 42% | 13% | 0.60% | +0.71 |
+| 1–2qt | 55% | 39% | 5.4% | 0.10% | +0.50 |
 | 3qt | 67% | 32% | 1.6% | <0.01% | +0.35 |
-| 4qt | 79% | 20% | 0.5% | <0.01% | +0.21 |
-| 5qt | 85% | 15% | 0.1% | <0.01% | +0.15 |
+| 4qt | 79% | 20% | 0.46% | <0.01% | +0.21 |
+| 5qt | 85% | 15% | 0.10% | <0.01% | +0.15 |
 | all DRs | 73% | 26% | 1.6% | 0.02% | +0.29 |
 
 The longer the finish, the more room to fit the slice for free. (+1 happens because the optimal finish doesn't have to be an optimal leave slice with a slice inserted.) Examples:

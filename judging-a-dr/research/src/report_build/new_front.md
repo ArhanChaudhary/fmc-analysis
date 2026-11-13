@@ -617,12 +617,12 @@ Both measures in this section come from the optimal finish and the optimal leave
 
 | Corner qt | Costs nothing | 1 move | 2 moves | 3 or more | Average, moves |
 |---|---:|---:|---:|---:|---:|
-| 0qt | 44% | 42% | 14% | 0.6% | +0.71 |
-| 1–2qt | 56% | 39% | 5.4% | 0.1% | +0.50 |
-| 3qt | 67% | 32% | 1.6% | {= SLICE3('3qt') =} | +0.35 |
-| 4qt | 79% | 20% | 0.5% | {= SLICE3('4qt') =} | +0.21 |
-| 5qt | 85% | 15% | 0.1% | {= SLICE3('5qt') =} | +0.15 |
-| all DRs | 73% | 26% | 1.6% | {= SLICE3() =} | +0.29 |
+| 0qt | {= SLICE('0qt', 0) =} | {= SLICE('0qt', 1) =} | {= SLICE('0qt', 2) =} | {= SLICE('0qt', 3) =} | {= SLICE('0qt', None) =} |
+| 1–2qt | {= SLICE('1-2qt', 0) =} | {= SLICE('1-2qt', 1) =} | {= SLICE('1-2qt', 2) =} | {= SLICE('1-2qt', 3) =} | {= SLICE('1-2qt', None) =} |
+| 3qt | {= SLICE('3qt', 0) =} | {= SLICE('3qt', 1) =} | {= SLICE('3qt', 2) =} | {= SLICE('3qt', 3) =} | {= SLICE('3qt', None) =} |
+| 4qt | {= SLICE('4qt', 0) =} | {= SLICE('4qt', 1) =} | {= SLICE('4qt', 2) =} | {= SLICE('4qt', 3) =} | {= SLICE('4qt', None) =} |
+| 5qt | {= SLICE('5qt', 0) =} | {= SLICE('5qt', 1) =} | {= SLICE('5qt', 2) =} | {= SLICE('5qt', 3) =} | {= SLICE('5qt', None) =} |
+| all DRs | {= SLICE(None, 0) =} | {= SLICE(None, 1) =} | {= SLICE(None, 2) =} | {= SLICE(None, 3) =} | {= SLICE(None, None) =} |
 
 The longer the finish, the more room to fit the slice for free. (+1 happens because the optimal finish doesn't have to be an optimal leave slice with a slice inserted.) Examples:
 
