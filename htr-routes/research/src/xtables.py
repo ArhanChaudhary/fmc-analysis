@@ -220,15 +220,15 @@ def fn(g, q, R_): return f"{float(V[(g, q, str(R_))]['mean_reductions_le_R']):,.
 GG = lambda g: g if g != 'all' else 'all DRs'
 write('bounding', ['Subset', 'Optimal found, R ≤ 3', 'R ≤ 4', 'R ≤ 5', 'R ≤ 6', 'R ≤ 7'],
       [[GG(g)] + [fo(g, '1', R_) for R_ in (3, 4, 5, 6, 7)] for g in CGROUPS + ['all']])
-write('bounding_counts', ['Subset', 'Reductions on average, R ≤ 3', 'R ≤ 4', 'R ≤ 5', 'R ≤ 6'],
-      [[GG(g)] + [fn(g, '1', R_) for R_ in (3, 4, 5, 6)] for g in CGROUPS + ['all']])
+write('bounding_counts', ['Subset', 'Reductions on average, R ≤ 3', 'R ≤ 4', 'R ≤ 5', 'R ≤ 6', 'R ≤ 7'],
+      [[GG(g)] + [fn(g, '1', R_) for R_ in (3, 4, 5, 6, 7)] for g in CGROUPS + ['all']])
 write('bounding_other', ['Subset', 'Within +1 found, R ≤ 4', '12 or better found, R ≤ 5', 'To 2q, R ≤ 3: optimal found', 'To 2q, R ≤ 3: reductions on average'],
       [[GG(g), pc(V[(g, '1', '4')]['found_p1']), pc(V[(g, '1', '5')]['found_M12']), fo(g, '2', 3), fn(g, '2', 3)] for g in CGROUPS + ['all']])
 rows = []
 for g in CGROUPS:
     rr_ = next((R_ for R_ in range(0, 8) if float(V[(g, '1', str(R_))]['found_opt']) >= 0.8), None)
     if rr_ is None: bR, bN, b7 = 'more than 7', '', pc(V[(g, '1', '7')]['found_opt'])
-    else: bR, bN, b7 = str(rr_), (f"{float(V[(g, '1', str(rr_))]['mean_reductions_le_R']):,.0f}" if rr_ < 7 else 'not reported'), ''
+    else: bR, bN, b7 = str(rr_), f"{float(V[(g, '1', str(rr_))]['mean_reductions_le_R']):,.0f}", ''
     def kfor(b):
         a = lst(g, b); k = next((int(x['step']) for x in a if float(x['cumulative']) >= 0.8), None)
         return (str(k), '') if k else (f"more than {len(a)}", pc(a[-1]['cumulative']))

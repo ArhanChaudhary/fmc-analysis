@@ -1455,23 +1455,23 @@ Each row is a subset; each cell is the share of DRs where some reduction to 1q o
 | 4b5 | 0% | 0% | 0% | 10.3% | 48.1% |
 | all DRs | 14.1% | 24.9% | 40.6% | 59.3% | 78.3% |
 
-How many reductions that is, the mean number of reductions of at most R moves per DR, same rows. Counts for R = 7 aren't reported; for R = 7 the table above gives the share only (that comes from the exact search). The counting table equals a brute-force enumeration of every pair of sequences up to 5 moves on 4,800 states, and up to 7 moves on 520 (40 of 0c0, and 10 of every subset × edges), so the counts up to 6 are checked on every subset.
+How many reductions that is, the mean number of reductions of at most R moves per DR, same rows. The counts come from a counting table, not from writing the reductions out; the table equals a brute-force enumeration of every pair of sequences up to 5 moves on 4,800 states, and up to 7 moves on 520 (40 of 0c0, and 10 of every subset × edges), so every column is checked on every subset.
 
-| Subset | Reductions on average, R ≤ 3 | R ≤ 4 | R ≤ 5 | R ≤ 6 |
-|---|---|---|---|---|
-| 0c0 | 156 | 1,238 | 8,763 | 63,868 |
-| 2c5 | 0 | 0 | 0 | 237 |
-| 2c4 | 0 | 11 | 228 | 2,503 |
-| 0c3 | 5 | 38 | 399 | 3,628 |
-| 4a2 | 26 | 207 | 1,463 | 10,942 |
-| 4a1 | 80 | 623 | 4,901 | 36,474 |
-| 2c3 | 16 | 140 | 1,080 | 9,111 |
-| 0c4 | 0 | 22 | 330 | 3,075 |
-| 4c3 | 8 | 66 | 559 | 4,959 |
-| 4c4 | 0 | 6 | 83 | 800 |
-| 4b2 | 26 | 233 | 1,978 | 16,087 |
-| 4b5 | 0 | 0 | 0 | 229 |
-| all DRs | 10 | 89 | 748 | 6,242 |
+| Subset | Reductions on average, R ≤ 3 | R ≤ 4 | R ≤ 5 | R ≤ 6 | R ≤ 7 |
+|---|---|---|---|---|---|
+| 0c0 | 156 | 1,238 | 8,763 | 63,868 | 473,071 |
+| 2c5 | 0 | 0 | 0 | 237 | 5,067 |
+| 2c4 | 0 | 11 | 228 | 2,503 | 23,241 |
+| 0c3 | 5 | 38 | 399 | 3,628 | 28,080 |
+| 4a2 | 26 | 207 | 1,463 | 10,942 | 85,990 |
+| 4a1 | 80 | 623 | 4,901 | 36,474 | 271,369 |
+| 2c3 | 16 | 140 | 1,080 | 9,111 | 76,975 |
+| 0c4 | 0 | 22 | 330 | 3,075 | 29,270 |
+| 4c3 | 8 | 66 | 559 | 4,959 | 41,944 |
+| 4c4 | 0 | 6 | 83 | 800 | 7,883 |
+| 4b2 | 26 | 233 | 1,978 | 16,087 | 127,536 |
+| 4b5 | 0 | 0 | 0 | 229 | 5,087 |
+| all DRs | 10 | 89 | 748 | 6,242 | 51,422 |
 
 Other targets, same rows: a finish within +1 with reductions of at most 4; a finish of 12 or better with reductions of at most 5 (for DRs that have one); and reductions to 2q of at most 3 moves, with how many there are:
 
@@ -1530,13 +1530,13 @@ With the bounds doing their job you only finish a few of them, but you still wri
 |---|---|---|---|---|---|---|
 | 0c0 | 3 | 156 |  | more than 8 | 69.4% | 2 |
 | 2c5 | more than 7 |  | 45.8% | 2 |  | 1 |
-| 2c4 | 7 | not reported |  | 2 |  | 1 |
+| 2c4 | 7 | 23,241 |  | 2 |  | 1 |
 | 0c3 | 6 | 3,628 |  | 2 |  | 2 |
 | 4a2 | 5 | 1,463 |  | 5 |  | 3 |
 | 4a1 | 5 | 4,901 |  | more than 8 | 74.6% | 2 |
 | 2c3 | 6 | 9,111 |  | 5 |  | 1 |
-| 0c4 | 7 | not reported |  | 1 |  | 1 |
-| 4c3 | 7 | not reported |  | 5 |  | 2 |
+| 0c4 | 7 | 29,270 |  | 1 |  | 1 |
+| 4c3 | 7 | 41,944 |  | 5 |  | 2 |
 | 4c4 | more than 7 |  | 58.2% | 4 |  | 2 |
 | 4b2 | 6 | 16,087 |  | more than 8 | 75.0% | 2 |
 | 4b5 | more than 7 |  | 48.1% | 2 |  | 1 |

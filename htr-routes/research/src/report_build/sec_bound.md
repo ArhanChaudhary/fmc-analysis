@@ -8,7 +8,7 @@ Each row is a subset; each cell is the share of DRs where some reduction to 1q o
 
 {{bounding}}
 
-How many reductions that is, the mean number of reductions of at most R moves per DR, same rows. Counts for R = 7 aren't reported; for R = 7 the table above gives the share only (that comes from the exact search). The counting table equals a brute-force enumeration of every pair of sequences up to 5 moves on 4,800 states, and up to 7 moves on 520 (40 of 0c0, and 10 of every subset × edges), so the counts up to 6 are checked on every subset.
+How many reductions that is, the mean number of reductions of at most R moves per DR, same rows. The counts come from a counting table, not from writing the reductions out; the table equals a brute-force enumeration of every pair of sequences up to 5 moves on 4,800 states, and up to 7 moves on 520 (40 of 0c0, and 10 of every subset × edges), so every column is checked on every subset.
 
 {{bounding_counts}}
 
