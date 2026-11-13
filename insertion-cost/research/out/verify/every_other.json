@@ -1,0 +1,85 @@
+{
+ "algs": {
+  "sequences": 864,
+  "states": 528,
+  "three_cycles": 1008
+ },
+ "runs": {
+  "3c_fixed": {
+   "leftover": "3c",
+   "pair_order": "fixed",
+   "moves": 20,
+   "skeletons": 20000,
+   "seed": 20261113,
+   "pairs": 34782,
+   "joins": 380000,
+   "missed_by_best": {
+    "8-3": 329,
+    "8-4": 11
+   },
+   "no_8_mover": 74,
+   "walks": 39852,
+   "walks_find_best": 35722,
+   "good_walks": 11906,
+   "good_found": 11566,
+   "good_missed": 340,
+   "missed_next_to_pair": 340,
+   "missed_found_once_a_pair_is_swapped": 340
+  },
+  "3c_free": {
+   "leftover": "3c",
+   "pair_order": "free",
+   "moves": 20,
+   "skeletons": 20000,
+   "seed": 20261114,
+   "pairs": 63880,
+   "joins": 380000,
+   "missed_by_best": {
+    "8-3": 717,
+    "8-4": 68
+   },
+   "no_8_mover": 162,
+   "walks": 39676,
+   "walks_find_best": 35100,
+   "good_walks": 12698,
+   "good_found": 11913,
+   "good_missed": 785,
+   "missed_next_to_pair": 785,
+   "missed_found_once_a_pair_is_swapped": 785
+  },
+  "5c_fixed": {
+   "leftover": "5c",
+   "pair_order": "fixed",
+   "moves": 20,
+   "skeletons": 10000,
+   "seed": 20261115,
+   "pairs": 17300,
+   "joins": 190000,
+   "missed_by_best": {
+    "8-3": 233,
+    "8-4": 14
+   },
+   "no_8_mover": 0,
+   "walks": 20000,
+   "walks_find_best": 19658,
+   "good_walks": 16102,
+   "good_found": 15855,
+   "good_missed": 247,
+   "missed_next_to_pair": 247,
+   "missed_found_once_a_pair_is_swapped": 247
+  }
+ },
+ "pairs": {
+  "study_sample_3c_n20": {
+   "skeletons": 20000,
+   "pairs": 34647,
+   "joins": 380000
+  },
+  "posted": {
+   "skeletons": 191,
+   "pairs": 232,
+   "joins": 3240,
+   "pairs_written_U_D_R_L_F_B": 118
+  }
+ }
+}

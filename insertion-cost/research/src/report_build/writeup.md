@@ -72,7 +72,7 @@ And one disagreement that was left standing. compLex ([[N4852]]) asked: "how man
 | Who | 3c | 3c1t | 2c2c |
 |---|---|---|---|
 | Baiqiang ([[N4853]]) | 5-6 | 8-9 | "6-8 for good 2c2c, 8-9 for bad 2c2c" |
-| cpaul ([[N4857]], [[N4858]], [[N4859]]) | | "like 10 for 3c1t" | "more like 9 for pure 2-2", "like 9.5 for 2-2 with a twist" |
+| cpaul ([[N4857]], [[N4858]], [[N4859]]) | | "and like 10 for 3c1t" | "I'd say more like 9 for pure 2-2", "and like 9.5 for 2-2 with a twist" |
 | tave_789, two months earlier ([[N4539]]): "close to 9.5?"; Phuwish ([[N4540]]): "yeah" | | close to 9.5 | close to 9.5 |
 | The tutorial's table | 5/6 | 10 | 9/10 (its row is the double swap; the twisted double swap has no row) |
 

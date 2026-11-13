@@ -39,7 +39,7 @@ Flat. And spot by spot on the 20-move skeletons, with 8-movers:
 
 - **An 8-mover is as good as anything up to 10 moves on {= CELL('one_longer', '20', 'An 8-mover is as good as anything up to 10') =} of 20-move skeletons.**
 - **A 9-mover is the best on {= CELL('one_longer', '20', 'A 9-mover beats every 8-mover and no 10-mover beats it') =}** at 20 moves, and on short skeletons mostly because no 8-mover fits at all. The tutorial: "It happens extremely rarely that the best insertion is given by a 9 move commutator (or longer)". For 9-movers that's right.
-- **A 10-mover beats everything shorter on {= CELL('one_longer', '20', 'A 10-mover beats every 8- and 9-mover') =}**, about one skeleton in {= ONEIN('20', 'A 10-mover beats every 8- and 9-mover') =}, and an 11- or 12-mover beats everything up to 10 on {= CELL('one_longer', '20', 'An 11- or 12-mover beats everything up to 10') =}. That's not extremely rare (example [b] in section 10). notkevin's 15 to 3c ([[N2718]]), "optimal is 10-4 for a 21, 8-1 for a 22 using 8-movers only", is one of these.
+- **A 10-mover beats everything shorter on {= CELL('one_longer', '20', 'A 10-mover beats every 8- and 9-mover') =}**, about one skeleton in {= ONEIN('20', 'A 10-mover beats every 8- and 9-mover') =}, and an 11- or 12-mover beats everything up to 10 on {= CELL('one_longer', '20', 'An 11- or 12-mover beats everything up to 10') =}. So the tutorial's "(or longer)" is rare, not extremely rare (example [b] in section 10). notkevin's 15 to 3c ([[N2718]]), "optimal is 10-4 for a 21, 8-1 for a 22 using 8-movers only", is one of these.
 - **But you don't gain much**: when a 10-mover wins it's by a single move {= CELL('one_longer', '20', 'When a 10-mover beats every 8- and 9-mover: by one move only') =} of the time, so on the skeletons where an 8-mover fits the mean only goes from {= CELL('one_longer', '20', 'Mean added on those skeletons, cap 8') =} to {= CELL('one_longer', '20', 'Same skeletons, cap 10: mean added') =} to {= CELL('one_longer', '20', 'Same skeletons, cap 12: mean added') =}.
 
 **Setups around a regular comm.** Ben ([[N5510]]): "if its a setup to a regular comm then it wont cancel more than just inserting 8 movers". {= FACTN('ten_movers_conjugates') =} of the {= FACTN('ten_movers') =} ten-move algs are a setup move, an 8-mover and the setup undone. When the setup cancels a whole move of the skeleton, that's the same solution as the 8-mover one spot over, like Ben says. On the {= FACT('ten_wins') =} skeletons (of {= FACTN('ten_sample') =}) where a 10-mover beats everything shorter:
@@ -70,20 +70,25 @@ Here's every second spot plus both ends, and every third spot plus both ends, ag
 {{one_skip_good}}
 
 - **Every other move finds the best insertion {= CELL('one_skip', '20', 'Every other move finds the best') =} of the time** at 20 moves, and loses {= CELL('one_skip', '20', 'Every other move: mean loss, moves') =} of a move on average.
-- **When the best is an 8-3 or better it's found {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every other move finds it') =} of the time**, so "guarantees" is a little too strong. alkamaass had already said the rule isn't thorough, with a miss of another kind. This one only joins the move on either side, so it cancels one move at each end (an 8-2, if it's an 8-mover):
+- **When the best is an 8-3 or better it's found {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every other move finds it') =} of the time**, so "guarantees" is a little too strong as it stands. alkamaass had already said the rule isn't thorough, with a miss of another kind, one that notkevin's "at least a -3" leaves out. This one only joins the move on either side, so it cancels one move at each end (an 8-2, if it's an 8-mover):
 
   ```
   R (R blah blah B' ) B'   // alkamaass's example of what every other move can miss
   ```
 
-  The misses of an 8-3 or better are different. Every one of them sits next to two moves on opposite faces (`R L`, `U D'`), {= SKIPNEAR(20) =} at 20 moves: there a full cancel reaches across the pair, and the alg moved over the move it cancels would go between the two moves of the pair, which takes writing the pair the other way round (example [c]). The tutorial's footnote covers it: "when in a skeleton there are two consecutive parallel layers moves try swapping them too see if this gives better insertions". So check every other move, and both sides of a parallel pair. (Of all the misses, the 8-2s and worse included, {= SKIPALL(20) =} are next to such a pair.)
+  The misses of an 8-3 or better are different. Every one of them sits next to two moves on opposite faces (`R L`, `U D'`), {= SKIPNEAR(20) =} at 20 moves: there a full cancel reaches across the pair, and the alg moved over the move it cancels would go between the two moves of the pair, which takes writing the pair the other way round (example [c]). A footnote of the tutorial's 2.4.1 covers it: "when in a skeleton there are two consecutive parallel layers moves try swapping them too see if this gives better insertions". So check every other move, and both sides of a parallel pair. With that the rule is a guarantee for an 8-3 or better. (Of all the misses, the 8-2s and worse included, {= SKIPALL(20) =} are next to such a pair.)
 - **What you miss is small**: when the best is 8-3 or better, the misses are 8-3s and a few 8-4s (fifth and sixth columns). Nothing better than an {= SKIPWORST() =} was missed on any of {= SKIPTOTAL() =} skeletons.
-- notkevin's next line ([[N4773]]) is about two comms, which this table does not test: "(aka, the worst insertions you can miss with this without the second comm nesting is -4, where both comms only partially cancel on both sides)".
+- notkevin's next line ([[N4773]]) is about two comms, which this table does not test: "(aka, the worst insertions you can miss with this without the second comm nesting is -4, where both comms only partially cancel on both sides)". Each of the two comms is a search of this kind, and the first comm alone is in the separate check below.
+- **How many opposite-face pairs there are matters.** The skeletons of these tables write such a pair in one fixed order (`U D`, never `D U`; Appendix C), which puts one at about 1 neighbouring pair of moves in {= PAIR1IN('study_sample_3c_n20') =}. The {= PAIRN1('posted', 'skeletons') =} posted skeletons, as posted, have one at 1 in {= PAIR1IN('posted') =}.
 - **Every third move doesn't work.** With a best of 8-3 or better, every third spot and both ends finds it only {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every third move finds it') =} of the time.
+
+{{EVERY_OTHER_CHECK}}
 
 A skeleton where every other move misses the only 8-3:
 
 {{WIT_SKIP}}
+
+At spot {= SKS('spot') =} itself the same comm with one setup move, `{= SKS('alg') =}`, is a {= SKS('note') =} for the same {= SKS('total') =}. The miss is of 8-movers tried at the spot.
 
 And one where every third spot misses it:
 

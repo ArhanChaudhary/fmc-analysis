@@ -120,6 +120,7 @@ Every corner 3-cycle and every edge 3-cycle, grouped into classes: two cases are
 - The search program's cube and its cancelling agree with the sticker model on random sequences.
 - The sizes of all 15 leftover types come out the same three ways: by construction, among all products of two 3-cycles, and among all corner states.
 - One comm: a separate Python program on the sticker model computes the best 8-mover and the best alg of up to 10 at every spot of every 3c skeleton of the samples. Its minimum equals the search program's on all {= CHECK('onepos') =} skeletons, at both caps.
+- Every other move (8.3): a separate program with its own list of 8-movers, its own skeletons and its own search (`research/verify/every_other.py`) finds a best of 8-3 or better on {= EVP('3c_fixed') =} of {= EV('3c_fixed', 'good_walks') =} walks over {= EV('3c_fixed', 'skeletons') =} skeletons made the same way, against {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every other move finds it') =} in the table. Its other two rows, a pair written either way round and the first comm of a 5c, are measurements of its own.
 - Two comms: the search agrees with a plain enumeration of every pair on small skeletons for every type, and the Python program, following up every first comm, gives the same total on {= CHECK('greedy_full') =} 5c skeletons of 20 moves.
 - {= CHECK('sample_solutions') =} solutions printed in the sample files, every solution for the real skeletons ({= CHECK('real_solutions') =}) and every solution on the examples page were replayed: each solves its scramble with the stated length.
 - On the Insertion Finder pages people posted, the search is never worse than Insertion Finder once its cap covers the algs Insertion Finder used (section 9).
@@ -145,7 +146,7 @@ Every corner 3-cycle and every edge 3-cycle, grouped into classes: two cases are
   - [c]: 25 at spot 16 only, and nothing better than an 8-1 on the odd spots and the ends;
   - [d]: 19;
   - [e]: 29 nested and 31 without nesting;
-  - [g]: 30;
+  - [g]: 30 (the 19-move 5c of 7.3; its theorem is named `A3_example`);
   - [h]: no 8-mover at any spot, 30 with algs up to 10;
   - [i]: 28 with 8-movers, 27 with algs up to 10;
   - [j]: 25 at spot 4 only;

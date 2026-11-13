@@ -54,6 +54,7 @@ python $R/src/checks.py                                   # every check again, w
 python $R/src/xtables.py && python $R/src/witness.py      # report/data/*.md, the example scrambles
 python $R/src/xexamples.py --cases                        # the 200 play-along skeletons (one two-phase solve each)
 python $R/src/tables6.py                                  # the same tables at six decimals (out/data6): differences of two cells are taken from these
+python $R/verify/every_other.py                           # the every-other-move rule again by a separate program (8.3): out/verify/every_other.json
 python $R/src/report_build/assemble.py --final && python $R/src/report_build/assemble.py --bugs --final
 python $R/src/xexamples.py                                # report/EXAMPLES.md, then replays everything on the page
 python $R/src/checks.py --report                          # witness blocks, examples page, quotations

@@ -22,7 +22,7 @@ It builds on the table in Sebastiano Tronto's tutorial ("Move count (an estimate
 | `research/src/` | the Python side: sticker model, leftover types, checks, real skeletons, report tables, examples page |
 | `lean/Insertions/` | Lean certificate: which leftovers one, two or three 3-cycles make, first comms per spot, every alg of 8 moves or fewer (corners: 10 or fewer), and the printed examples replayed with their best insertions |
 | `research/notes/errata_derivations.md` | each correction of the errata re-derived from the person's words, term by term |
-| `research/verify/` | checks that share no code with the tools: `double_rounding.py` (every computed number of the pages against its six-decimal value) |
+| `research/verify/` | checks that share no code with the tools: `double_rounding.py` (every computed number of the pages against its six-decimal value), `every_other.py` (the every-other-move rule of 8.3 again, sharing only the sticker model `cube.py`: its own list of 8-movers, skeletons and search, also with opposite-face pairs written either way round and for the first comm of a 5c; about three minutes; writes `research/out/verify/every_other.json` and `.txt`, which the pages read) |
 
 ## How the numbers are made
 
@@ -44,6 +44,7 @@ Everything starts from one sticker-level model of the cube built from geometry (
 | Real skeletons: the server's worked examples and Kalbarczyk's solves | `corpus_cyprian.py`, `replay.py`, `real_cases.py`, `real_run.py`, `xreal.py` | `real_cases.tsv`, `real_meta.json`, `real_best.txt`, `real.json`, `corpus_real_*.tsv` |
 | Insertion Finder pages | `instools best --file`, `if_table.py` | `if_cases.tsv`, `if_best.txt`, `if_compare.tsv` |
 | Example scrambles for the claims | `exlib.py`, `witness.py` | `witness.json`, `report_build/wit_*.md` |
+| Every other move, by a separate program (8.3, errata A2) | `../verify/every_other.py` | `verify/every_other.json`, `verify/every_other.txt` |
 | Report tables | `xtables.py`, `xgreedy_sum.py`, `xreal.py` | `report/data/*.md` |
 | The same tables at six decimals, for differences of two cells (rounded once) | `tables6.py` | `data6/*.md` |
 | How people are named in the pages | `names.py` | |
@@ -72,6 +73,7 @@ The reading notes and the 389 worked examples come from the Discord export, whic
     python histograms.py && python xone.py 10,12,14,16,18,20,22,24,26,28,30 && python facts.py && python xdr.py
     python real_cases.py && python real_run.py && python xreal.py --corpus && python xreal.py
     ./run_greedy.sh && python xtables.py && python witness.py && python checks.py
+    python ../verify/every_other.py               # out/verify/every_other.json: the separate check of 8.3 (about three minutes)
     python report_build/assemble.py --final       # report/WRITEUP.md (every number is computed; --final fails if one is missing)
     python report_build/assemble.py --bugs        # report/BUGS.md
     python xexamples.py                           # report/EXAMPLES.md, then replays everything on the page

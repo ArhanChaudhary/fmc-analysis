@@ -4,7 +4,7 @@ Nobody searches every pair of comms by hand. You find the best first comm, maybe
 
 {{greedy_first}}
 
-- **The first comm of a 5c is much better than the comm of a 3c**: {= CELL('greedy_first', '20', '5c: best first comm, mean added') =} against {= CELL('greedy_first', '20', '3c: best comm, mean added') =} at 20 moves. You get five cycles to choose from at every spot (Not officially a David, [[N139]]: "for the first 5c insertion you have 5x more options than for the second"; Zagros, [[N3688]]: "there are 5 possible cycles, not 1").
+- **The first comm of a 5c is much better than the comm of a 3c**: {= CELL('greedy_first', '20', '5c: best first comm, mean added') =} against {= CELL('greedy_first', '20', '3c: best comm, mean added') =} at 20 moves. You get five cycles to choose from at every spot (Not officially a David, [[N139]]: "And correct me if I’m wrong but for the first 5c insertion you have 5x more options than for the second"; Zagros, [[N3688]]: "there are 5 possible cycles, not 1").
 - Ben ([[N5538]]): "you'll probably have at least an 8-3 or 8-4 for the first one". The best first comm on 5c skeletons:
 
   | Skeleton | 8-3 or better | 8-4 or better |
@@ -36,7 +36,7 @@ A skeleton where the best first comm is the wrong one to follow:
 
 {{WIT_GREEDY}}
 
-**More algs at greedy 0 can make it worse, but rarely.** bvcuber13 on a 17-move 5c ([[N5819]], [[N5821]]): "IF finds 30 🤮", "wait if i just do pure comms it finds a 29". tave_789 explained it on the spot ([[N5825]]): "if 10-5 is the best first insertion it won’t find the optimals with a worse first insertion". Ben on a 14-move one ([[N6705]], [[N6707]]): "by enabling more corner algorithms on insertion finder with greedy 0 the result turns from 25 to 26", "with more obscure algs you can find a 10-4 for the first alg which doesn't give you the nested 8-4".
+**More algs at greedy 0 can make it worse, but rarely.** bvcuber13 on a 17-move 5c ([[N5819]], [[N5821]]): "IF finds 30 🤮", "wait if i just do pure comms it finds a 29". tave_789 had the reason on the spot ([[N5825]]): "I forget how it works tbh but if 10-5 is the best first insertion it won’t find the optimals with a worse first insertion". Ben on a 14-move one ([[N6705]], [[N6707]]): "by enabling more corner algorithms on insertion finder with greedy 0 the result turns from 25 to 26", "with more obscure algs you can find a 10-4 for the first alg which doesn't give you the nested 8-4".
 
 I see the same thing. I ran {= G10('run') =} random 5c skeletons of 20 moves with every 3c alg of up to 10 moves; on {= G10('n') =} of them the rule (best first comm, then the best second) ends with a solution under both lists. Against 8-movers only, the longer list gives:
 

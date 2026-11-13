@@ -295,4 +295,48 @@ def GV(key):
         return (f"on a 20-move 5c the best first comm followed by the best second misses the best pair of 8-movers on {GLOSS('5c', 0)} of skeletons; also following the first comms that are one move worse, on {GLOSS('5c', 1)}. "
                 f"On average {CELL('greedy', '5c', 'Best first comm only: mean added')}, {CELL('greedy', '5c', 'First comms within 1 move: mean added')} and {CELL('greedy', '5c', 'Best pair of comms: mean added')}. One where the best first comm is the wrong one:")
     raise KeyError(key)
+# ---- the separate check of the every-other-move rule (research/verify/every_other.py -> out/verify/every_other.json)
+EVO = _j('verify/every_other.json')
+def EV(run, key):
+    """A count of the separate check; run is '3c_fixed', '3c_free' or '5c_fixed' (see every_other.py for the keys)."""
+    return f"{EVO['runs'][run][key]:,}"
+def EVP(run, a='good_found', b='good_walks'):
+    """A share of the separate check; by default the walks that find a best of 8-3 or better."""
+    r = EVO['runs'][run]; return fmt(r[a], r[b])
+def EVALL(run, key):
+    """How many of the misses of a run have a property: 'every one' or 'k of n'."""
+    r = EVO['runs'][run]; return 'every one' if r[key] == r['good_missed'] else f"{r[key]:,} of {r['good_missed']:,}"
+def PAIR1IN(which):
+    """Opposite-face pairs among neighbouring pairs of moves, the N of '1 in N': the study's 20-move 3c sample
+    ('study_sample_3c_n20'), the posted skeletons ('posted') or the skeletons of a run of the separate check."""
+    if which == 'study_sample_3c_n20' and which not in EVO['pairs']: which = '3c_fixed'      # the sample file was not there: the check's own skeletons, made by the same rule
+    d = EVO['pairs'].get(which) or EVO['runs'][which]; return f0(d['joins'] / d['pairs'])
+def PAIRN1(which, key): return f"{EVO['pairs'][which][key]:,}"
+def EVTEXT():
+    """What the table of the separate check shows, in words; each statement is checked against the counts first."""
+    R = EVO['runs']; a, b, c = R['3c_fixed'], R['3c_free'], R['5c_fixed']
+    miss = lambda r: r['good_missed'] / r['good_walks']
+    assert abs(100 * a['good_found'] / a['good_walks'] - _pc(CELL('one_skip_good', '20', 'Best is 8-3 or better: every other move finds it'))) < 0.5
+    assert 1.7 < b['pairs'] / a['pairs'] < 2 and 1.8 < miss(b) / miss(a) < 2.3 and 0.4 < miss(c) / miss(a) < 0.6
+    assert all(r['missed_next_to_pair'] == r['good_missed'] == r['missed_found_once_a_pair_is_swapped'] for r in R.values())
+    return ("The first row is the measurement above again and gives the same share. With a pair written either way round there are nearly twice as many pairs, "
+            "and the share of walks that miss about doubles. The first comm of a 5c, the search notkevin was talking about, is missed about half as often as the comm of a 3c. "
+            "In all three, every miss is next to an opposite-face pair, and the same walk finds it once one such pair of the skeleton is written the other way round.")
+@functools.lru_cache(None)
+def _skipsetup():
+    """Example [c] one spot earlier: the same comm with the move between as a setup.  Replayed on the sticker model, and
+    it has to cancel to the printed solution."""
+    import cube
+    w = WIT['skip']; scr = cube.parse(w['scramble']); sk = cube.parse(w['skeleton']); j = w['spot']
+    txt = open(os.path.dirname(os.path.abspath(__file__)) + '/wit_skip.md').read()
+    alg = cube.parse(re.search(r'(?m)^\* = (.+?) //', txt).group(1)); sol = cube.parse(re.search(r'(?m)^Solution: (.+?) \(\d+\)$', txt).group(1))
+    m = sk[j - 1]; setup = [m] + alg + cube.inv_seq([m]); full = sk[:j - 1] + setup + sk[j - 1:]
+    assert cube.do(cube.SOLVED, scr + full) == cube.SOLVED and cube.cancel(full) == sol, 'the setup version of example [c] does not replay'
+    return {'spot': str(j - 1), 'alg': ' '.join(setup), 'note': f'{len(setup)}-{len(full) - len(sol)}', 'total': str(len(sol)), 'move': m}
+def SKS(key):
+    """Example [c] with one setup move: 'spot', 'alg', 'note' (alg length and moves cancelled), 'total', 'move'."""
+    return _skipsetup()[key]
+def GDIFF(a, b, col='Best first comm only: mean added'):
+    """Difference of two rows of the greedy table (rows by their printed names), rounded once."""
+    return f2(X('greedy', a, col) - X('greedy', b, col))
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}
