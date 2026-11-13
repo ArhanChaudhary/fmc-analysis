@@ -4,7 +4,7 @@ How to read the tables:
 
 - "A qt takes it straight to" means some U or D quarter turn lowers the corner qt count right away, with no setup.
 - L is the range of optimal corner solution lengths the case can have.
-- Each subset gets three tables: what the cases look like, how they finish, and a typical DR of each case (a state whose optimal is the median for that case).
+- Each subset gets three tables: what the cases look like, how they finish, and a typical DR of each case (a state whose optimal is the median for that case; ✓ Lean: the optimal of each one, here and in Appendix E).
 - "Both sides together" tables: each row is a combination of the cases on normal and on inverse, with its share of the subset and how it finishes.
 
 **2c4** (wen's stacks). Seven cases. Two of them have the same bad corners and are told apart by the back face, as explained under the tables. One case per row:

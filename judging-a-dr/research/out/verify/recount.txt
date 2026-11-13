@@ -1,0 +1,139 @@
+== dead on sight
+  2c5 stacked/stacked: in10 0.0000% in11 0.0000% in12 0.0000% fastest 13
+  2c5 stacked/opposite: in10 0.0000% in11 0.0000% in12 0.2431% fastest 12
+  2c4 stacked/stacked: in10 0.0000% in11 0.0606% in12 1.1412% fastest 11
+  4a2 2e 4-0/4-0: in10 0.0000% in11 0.0000% in12 0.0000% fastest 13
+  first two rows share of 2c5: 18.750%
+== base rates by qt group (h2)
+  1-2qt: in11 10.1165%  in10 2.3764%
+  3qt: in11 4.6026%  in10 0.8696%
+  4qt: in11 1.1421%  in10 0.1582%
+  5qt: in11 0.2364%  in10 0.0215%
+== variance / sd
+  total sd 1.0863
+  subset (48): classes 48, explains 34.96%, sd left 0.8760
+  subset+cc both(unordered)+HTR both(unordered) [k5, no pairs]: classes 1804, explains 45.67%, sd left 0.8007
+  subset+cc both+HTR both+pairs [k5]: classes 10302, explains 48.51%, sd left 0.7794
+  subset+HTR both+L+Lp+parity [h2]: classes 4150, explains 46.06%, sd left 0.7978
+== B1 / B2 / B5 (h2)
+  hmax=13 states 31,064,064; both 13 786,432; on a given side (hmax13+both)/2 = 15,925,248 rem 0
+  subsets with hmax 13: ['0c3 4e', '4c4 0e']  with both 13: ['0c3 4e']
+  depth 18 by subset: {'0c0 8e': 8, '2c5 0e': 192, '2c5 4e': 384, '0c3 4e': 768} total 1352
+  16+: 225,635,956 = 1.157% of all; outside 0c3/5qt 41.39%; subsets with some 45 of 48; without: ['0c0 0e', '0c0 2e', '2c3 2e']
+  k2 all: pairs,HTR both,L,parity: classes 15486, explains 48.37%, sd left 0.7805
+  k2 HTR both+L+parity: classes 2808, explains 45.51%, sd left 0.8018
+  h5 true pairs: classes 441, explains 38.87%, sd left 0.8493
+  h5 all four pair counts: classes 21898, explains 39.92%, sd left 0.8420
+  h5 true+pseudo: classes 2600, explains 39.12%, sd left 0.8476
+== scatter table rows
+  k5 +pairs (capped): classes 265, explains 38.79%, sd left 0.8499
+  k5 +cc both: classes 390, explains 41.87%, sd left 0.8282
+  k5 +pairs+cc: classes 2249, explains 45.79%, sd left 0.7998
+  k5 +HTR both: classes 396, explains 43.37%, sd left 0.8174
+  k5 +pairs+HTR: classes 2278, explains 45.91%, sd left 0.7989
+  k2 +pairs+HTR: classes 2278, explains 45.91%, sd left 0.7989
+  h2 +L,dLp: classes 583, explains 41.35%, sd left 0.8319
+  h2 +L,parity: classes 484, explains 40.95%, sd left 0.8347
+  h2 +HTR both: classes 396, explains 43.37%, sd left 0.8174
+  leave slice: sd left 0.4313
+== prune list (own implementation from the guide prose)
+  1-2qt: drops 7.765%  loses of 11s 0.682%  of 10s 0.246%
+  3qt: drops 28.327%  loses of 11s 6.035%  of 10s 3.742%
+  4qt: drops 80.928%  loses of 11s 35.922%  of 10s 24.370%
+  5qt: drops 100.000%  loses of 11s 100.000%  of 10s 100.000%
+  all: drops 56.855%  loses of 11s 7.822%  of 10s 3.757%
+== attempts
+  n 500 have 491
+  res_kept 20.0489 res_all 20.0387 drs_kept 353.45 drs_all 733.35
+== pairs
+  4a1: one more pair x1.362  (5+ / 0 = 4.76: 39.204% vs 8.245%)
+  2c4: one more pair x1.666  (5+ / 0 = 15.63: 6.789% vs 0.434%)
+  2c5: one more pair x1.938  (5+ / 0 = 40.14: 1.798% vs 0.045%)
+== 2c4 corner cases
+  case 7 one side: 0.380% / 2.380% / 12.503%
+  case 7 both sides: 0.547% / 3.133% / 15.133%
+  case 8 one side: 0.477% / 3.107% / 16.249%
+  case 8 both sides: 0.922% / 5.619% / 26.348%
+== plain rules (h2)
+  3qt T-1 both (hmin>=10): drops 7.678% loses 0.240%
+  3qt T-2 both (hmin>=9): drops 28.335% loses 4.575%
+  4qt T-1 both (hmin>=10): drops 30.792% loses 2.534%
+  4qt T-2 both (hmin>=9): drops 67.046% loses 20.414%
+  no pair 1-2qt: drops 13.554% loses 6.489%
+  no pair 3qt: drops 13.845% loses 5.412%
+  no pair 4qt: drops 13.911% loses 3.722%
+  no pair 5qt: drops 13.779% loses 1.983%
+== hand bounds (h2): longer HTR or L with parity (L+dLp) proves no T
+  4qt proves no 12: 5.058%
+  4qt proves no 10: 50.683%
+  5qt proves no 12: 12.917%
+  5qt proves no 10: 79.984%
+== best quarter
+  1-2qt T10: pairs+corners 64.44  htr 71.98  quick 78.89  (quick - p+c +14.45)
+  1-2qt T11: pairs+corners 52.16  htr 56.62  quick 62.14  (quick - p+c +9.97)
+  1-2qt T12: pairs+corners 40.36  htr 42.05  quick 44.97  (quick - p+c +4.61)
+  1-2qt T13: pairs+corners 29.92  htr 30.07  quick 30.61  (quick - p+c +0.69)
+  3qt T10: pairs+corners 73.91  htr 72.55  quick 80.63  (quick - p+c +6.72)
+  3qt T11: pairs+corners 63.20  htr 60.89  quick 67.41  (quick - p+c +4.21)
+  3qt T12: pairs+corners 51.63  htr 49.45  quick 53.50  (quick - p+c +1.87)
+  3qt T13: pairs+corners 37.32  htr 36.33  quick 37.66  (quick - p+c +0.34)
+  4qt T10: pairs+corners 88.77  htr 84.65  quick 94.19  (quick - p+c +5.42)
+  4qt T11: pairs+corners 77.02  htr 71.19  quick 80.39  (quick - p+c +3.37)
+  4qt T12: pairs+corners 65.24  htr 59.80  quick 67.35  (quick - p+c +2.12)
+  4qt T13: pairs+corners 50.69  htr 46.91  quick 51.81  (quick - p+c +1.12)
+  5qt T10: pairs+corners 93.16  htr 83.99  quick 99.73  (quick - p+c +6.57)
+  5qt T11: pairs+corners 76.13  htr 61.74  quick 79.66  (quick - p+c +3.53)
+  5qt T12: pairs+corners 61.39  htr 48.41  quick 62.65  (quick - p+c +1.26)
+  5qt T13: pairs+corners 47.70  htr 39.59  quick 48.24  (quick - p+c +0.54)
+== trangium (h7: d < G)
+  1-2qt: beaten 2.5775%  subsets where beaten: 7
+  3qt: beaten 0.0012%  subsets where beaten: 3
+  4qt: beaten 0.0047%  subsets where beaten: 3
+  5qt: beaten 0.0000%  subsets where beaten: 0
+  3qt+: beaten 0.0024%  subsets where beaten: 6
+  subsets beaten anywhere: 13
+== dead classes (<=1% finish in T)
+  4qt T12: quick(k5) 21.83%  all(k2) 24.25%
+  5qt T12: quick(k5) 38.37%  all(k2) 45.48%
+== misc
+  Levi vs leave slice (4a1 4e): mean ls-formula +0.7004; ls below formula 19.700%
+  mean optimal 13.580; mean max(longer HTR, L with parity) 9.840; gap 3.741
+  shortest HTR in 1-2qt: 1
+  shortest HTR in 3qt: 5
+  shortest HTR in 4qt: 7
+  shortest HTR in 5qt: 9
+  shortest HTR at 1qt: 1
+  shortest HTR at 2qt: 3
+  shortest HTR at 3qt: 5
+  shortest HTR at 4qt: 7
+  shortest HTR at 5qt: 9
+  slice free all: 72.670%
+  slice free 1-2qt: 55.459%
+  slice free 3qt: 66.831%
+  slice free 4qt: 79.437%
+  slice free 5qt: 84.979%
+  depth 10/11 with exactly one optimal first move: 74.119%
+    depth 10: 77.701%
+    depth 11: 73.362%
+  averages: {'0c0': 12.278, '4a1': 12.419, '4b2': 12.68, '2c3': 12.925, '4a2': 13.348, '4c3': 13.487, '2c4': 13.647, '0c4': 13.674, '4b5': 14.279, '2c5': 14.327, '4c4': 14.403, '0c3': 14.46}
+  4a2 2e: avg 13.646 in10/11/12 0.256 / 1.789 / 9.952
+  4a2 0e: avg 13.910 in10/11/12 0.091 / 0.857 / 6.076
+  2c4 0e: avg 13.218 in10/11/12 0.901 / 4.704 / 19.961
+  2c4 2e: avg 13.531 in10/11/12 0.307 / 2.092 / 11.470
+  2c4 4e: avg 13.662 in10/11/12 0.226 / 1.569 / 9.054
+  Zagros 4c3 9+ both: drops 50.99%; keeps 92.08% / 83.09% / 73.15%
+    9-and-9 finishing in 9 exists: True; min depth with hmin>=9: 9
+  within 1 of class median: subset+L+hmax 93.34%  subset alone 91.31%
+== last move (h8)
+  states 78033715200; mean min 13.2556; gain 0.3247
+  gain by subset: lowest 0.302 (4c4 0e), highest 0.446 (0c0 0e)
+  other way is: -1: 32.47%, +0: 35.06%, +1: 32.47%
+  3qt in11 pure 4.603% either 7.527%
+== prune table, full (own rule implementation)
+  1-2qt: dropped 7.76%  lost in10 0.246% in11 0.682% in12 1.405%   all: 2.376 / 10.117 / 35.276   kept: 2.570 / 10.893 / 37.708
+  3qt: dropped 28.33%  lost in10 3.742% in11 6.035% in12 9.044%   all: 0.870 / 4.603 / 20.054   kept: 1.168 / 6.034 / 25.450
+  4qt: dropped 80.93%  lost in10 24.370% in11 35.922% in12 47.599%   all: 0.158 / 1.142 / 6.797   kept: 0.627 / 3.837 / 18.675
+  5qt: dropped 100.00%  lost in10 100.000% in11 100.000% in12 100.000%   all: 0.021 / 0.236 / 2.080   kept: -
+  all: dropped 56.85%  lost in10 3.757% in11 7.822% in12 14.467%   all: 0.741 / 3.573 / 14.729   kept: 1.652 / 7.633 / 29.199
+  4qt+5qt share of all DRs 54.29%; of what the list drops, 4-5qt is 83.66%
+  4c3 11s lost: by hmin>=9 rule 16.91%; by the list 27.71%

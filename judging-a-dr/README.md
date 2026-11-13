@@ -17,9 +17,10 @@ One row per folder:
 | Path | What is in it |
 |---|---|
 | `report/` | The three reports and the tables they include (`data/`). |
-| `lean/DRBound/` | Lean 4 proof (no Mathlib): the optimal finish of every DR state, the lower bounds, the 216 half-turn-only values. See its `README.md`. |
+| `lean/DRBound/` | Lean 4 proof (no Mathlib): the optimal finish of every DR state, the lower bounds, the 216 half-turn-only values, and the lengths of the example scrambles printed in the write-up. See its `README.md`. |
 | `research/drtools/` | Rust: the search over the DR group, the bound tables, and the passes that count each hand-readable quantity against the optimal. |
 | `research/src/` | Python analysis of those counts. `pv.py` gives the share finishing in any number of moves for any combination of reads, `hand_pivots.py` and `report_tables.py` write the tables in `report/data/`, and `report_build/` assembles `report/WRITEUP.md` from its parts (every number in the per-subset guide is computed at build time). |
+| `research/src/verify/` | Independent recounts of the numbers on the pages: section 1 and the errata from the census CSVs with their own code (`recount.py`), every odds cell of the guide in exact arithmetic (`guide_check.py`), the tables that used to be typed (`typed_tables.py`), FakeMMAP's two tables against Appendix C (`fakemmap_tables.py`), nissy over all 3,072 states of a case (`nissy_cases.py`), NISS HTR lengths (`niss_htr.py`), pairs from the stickers (`pairs_from_stickers.py`). Their outputs are in `research/out/verify/`. |
 | `research/tool/` | `drread`: the reads and odds for any DR. `drbound`: the computed lower bounds for any DR. |
 | `research/out/` | Result tables (CSV and text), including `out/hand/` (one histogram per read) and `out/witnesses.txt` (an explicit state for every existence claim in the reports). |
 
@@ -39,6 +40,7 @@ elan, Python 3 with numpy, and nissy for the cross-checks.
     ./target/release/drtools hcensus ../data/drbfs ../data/ls_depth.u8 ../out/hand
     ./target/release/drtools hcensus2 ../data/drbfs ../out/hand
     ./target/release/drtools hcensus3 ../data/drbfs ../out/hand                  # pairs, corner cases and HTR lengths together
+    ./target/release/drtools hcensus4 ../data/drbfs ../out/hand                  # every read together, normal and inverse apart (the sd figures)
     ./target/release/drtools ncensus ../data/drbfs ../out/hand
     ./target/release/drtools witness ../data/drbfs ../data/ls_depth.u8 LISTING > ../out/witnesses.txt
     cd ../../lean/DRBound && lake build DRBound.CertifiedExactTable && lake build   # the proof, about half an hour
@@ -48,6 +50,7 @@ The reports are then rebuilt from the counts:
     cd ../src && python3 hand_pivots.py && python3 report_tables.py && python3 witness_tables.py
     python3 report_build/corner_section.py && python3 report_build/assemble.py   # writes report/WRITEUP.md
     python3 many_examples.py                                                      # the 100 scrambles in report/EXAMPLES.md (needs cubelib-cli)
+    python3 gen_page_checks.py                                                    # the write-up's example scrambles as Lean data; then lake build in lean/DRBound
     cd ../../.. && scripts/build-pages.sh OUTPUT_DIRECTORY                         # the site
 
 Each pass needs under 3 GB of memory. `LISTING` is FakeMMAP's list of the 216 NISS@1qt cases with a

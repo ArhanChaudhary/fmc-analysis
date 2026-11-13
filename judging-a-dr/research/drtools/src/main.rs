@@ -56,6 +56,7 @@ usage: drtools <command> [arguments]
   ncensus <bfsdir> <outdir>           invertible last move, number of optimal first moves
   hcensus2 <bfsdir> <outdir>          corner cases and pairs on both sides, edge length, combined reads
   hcensus3 <bfsdir> <outdir>          the quick reads together: corner cases, pairs, HTR on both sides
+  hcensus4 <bfsdir> <outdir>          every read together, normal and inverse kept apart (sums for the sd)
   read <bfsdir> <ls.u8>               everything readable off the DR states given on stdin, and their optimal
   read --quick <bfsdir> <ls.u8>       the same for many states: subset, corner cases, pairs, HTR lengths, optimal
   witness <bfsdir> <ls.u8> <listing>  an explicit DR state for every existence claim made in the report
@@ -86,6 +87,7 @@ fn main() {
         ["ncensus", bfsdir, outdir] => hand::run_ncensus(Path::new(bfsdir), Path::new(outdir)),
         ["hcensus2", bfsdir, outdir] => hand::run_hcensus2(Path::new(bfsdir), Path::new(outdir)),
         ["hcensus3", bfsdir, outdir] => hand::run_hcensus3(Path::new(bfsdir), Path::new(outdir)),
+        ["hcensus4", bfsdir, outdir] => hand::run_hcensus4(Path::new(bfsdir), Path::new(outdir)),
         ["read", bfsdir, lsfile] => hand::run_read(Path::new(bfsdir), Path::new(lsfile), false),
         ["read", "--quick", bfsdir, lsfile] => hand::run_read(Path::new(bfsdir), Path::new(lsfile), true),
         ["witness", bfsdir, lsfile, listing] => {

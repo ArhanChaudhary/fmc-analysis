@@ -433,4 +433,4 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: by default. Unlike 2c5 there is no layout that kills it or saves it. A short DR with four or five pairs is the only case for it.
 - **Don't conclude** that 4b5 and 2c5 read the same way: 2c5 has the stacked-corner rule, 4b5 has nothing like it.
 
-On top of any row: a last DR move that can be turned the other way is worth a third of a move on average, in every subset, so read the DR both ways (example 3 in the examples file). At 3qt it takes the share finishing in 11 from 4.6% to 7.5%. And if a row's reads disagree with each other, that's normal: together they explain about half of what there is to know.
+On top of any row: a last DR move that can be turned the other way is worth about a third of a move ({= LASTMOVE('gain') =} on average, at least {= LASTMOVE('lo').split()[0] =} in every subset), so read the DR both ways (example 3 in the examples file). At 3qt it takes the share finishing in 11 from 4.6% to 7.5%. And if a row's reads disagree with each other, that's normal: together they explain about half of what there is to know.

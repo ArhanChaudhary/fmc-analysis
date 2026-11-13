@@ -185,4 +185,98 @@ def _SIZE():
     return out
 import functools as _ft
 GAPS = _ft.lru_cache(None)(_gaps)
+
+# ---- scatter left over all DR states: every read together (k6, drtools hcensus4: normal and inverse kept apart)
+_K6F = ('sub', 'ccn', 'cci', 'pairs', 'hn', 'hi', 'L', 'dLp', 'par')
+@_ft.lru_cache(None)
+def _k6():
+    with open(pv.H + 'k6_all_reads_ordered.csv') as f:
+        r = _csv.reader(f); next(r)
+        return [tuple(x[:1]) + tuple(int(v) for v in x[1:]) for x in r]
+@_ft.lru_cache(None)
+def _scatter(fields):
+    """(share of the variance of the optimal explained, sd left) when the reads in `fields` (names from _K6F) are known."""
+    from fractions import Fraction as Fr
+    idx = [_K6F.index(f) for f in fields]; g = {}
+    for r in _k6():
+        k = tuple(r[i] for i in idx); a = g.setdefault(k, [0, 0, 0]); a[0] += r[9]; a[1] += r[10]; a[2] += r[11]
+    N = sum(a[0] for a in g.values()); S1 = sum(a[1] for a in g.values()); S2 = sum(a[2] for a in g.values())
+    var = Fr(S2, N) - Fr(S1, N) ** 2; W = sum(Fr(s2) - Fr(s1 * s1, n) for n, s1, s2 in g.values()) / N
+    return float(1 - W / var), float(W) ** 0.5
+def SDLEFT(*fields): return f'{_scatter(fields)[1]:.2f}'
+def VAREXP(*fields): return f'{100 * _scatter(fields)[0]:.0f}%'
+def DEAD(group, T):
+    """Share of a qt group whose reads (every read together, k6) put it in a class where at most 1% finish in T (T = 10, 11, 12)."""
+    col = {10: 12, 11: 13, 12: 14}[T]; g = {}
+    for r in _k6():
+        if pv.QT[r[0].split()[0]] != group: continue
+        a = g.setdefault(r[:9], [0, 0]); a[0] += r[col]; a[1] += r[9]
+    return f'{100 * sum(n for x, n in g.values() if 100 * x <= n) / sum(n for _, n in g.values()):.0f}%'
+ALLREADS = _K6F
+def _sd_h5(nf):
+    """sd left knowing the subset and the first nf pair counts of h5 (true, pseudo, side semi, top semi)."""
+    g = {}
+    for r in pv.rows('h5_pairs.csv'):
+        k = r[:1 + nf]; d, c = int(r[5]), int(r[6]); a = g.setdefault(k, [0, 0, 0]); a[0] += c; a[1] += c * d; a[2] += c * d * d
+    N = sum(a[0] for a in g.values()); return (sum(s2 - s1 * s1 / n for n, s1, s2 in g.values()) / N) ** 0.5
+def SDPAIRS(nf): return f'{_sd_h5(nf):.3f}'
+# ---- plain rules for section 1: both sides k or more to HTR (dropped share of a qt group, share of its finishes in T lost)
+def HRULE(group, k, what, T=11):
+    allh = q2(group=group); dropped = q2(group=group, hmin=lambda h: h >= k)
+    if what == 'drop': return pv.num(100 * sum(dropped) / sum(allh))
+    return pv.num(100 * sum(dropped[:T + 1]) / sum(allh[:T + 1]))
+def NOPAIR(what, T=11):
+    """Dropping every DR without a true pair, per qt group: 'drop' the range of shares dropped, 'lose' of finishes in T lost."""
+    vals = []
+    for g in pv.GROUPS:
+        allh = q(group=g); dropped = q(group=g, pairs=0)
+        vals.append(100 * sum(dropped) / sum(allh) if what == 'drop' else 100 * sum(dropped[:T + 1]) / sum(allh[:T + 1]))
+    return vals
+def RANGE(vals): return f'{pv.num(min(vals)).rstrip("%")}–{pv.num(max(vals))}'
+# ---- the last DR move (h8: each state with each of the four side half turns after it)
+@_ft.lru_cache(None)
+def _h8():
+    out = {}
+    for s, d, d2, c in pv.rows('h8_last_move.csv'):
+        a = out.setdefault(s, [0, 0, 0, 0]); d, d2, c = int(d), int(d2), int(c)
+        a[0] += c; a[1] += c * d; a[2] += c * min(d, d2); a[3] += c * (d2 < d)
+    return out
+def LASTMOVE(what):
+    """'gain': moves saved on average by the better of the two last moves; 'lo'/'hi': smallest/largest over the 48 subsets
+    (with the subset); 'shorter': share where the other way is shorter."""
+    t = _h8()
+    if what == 'gain': n = sum(a[0] for a in t.values()); return f'{sum(a[1] - a[2] for a in t.values()) / n:.2f}'
+    if what == 'shorter': n = sum(a[0] for a in t.values()); return f'{100 * sum(a[3] for a in t.values()) / n:.0f}%'
+    per = sorted(((a[1] - a[2]) / a[0], s) for s, a in t.items()); v, s = per[0] if what == 'lo' else per[-1]
+    return f'{v:.2f} ({s})'
+# ---- Levi's 1qt formula (HTR normal + HTR inverse - 1) on 4a1 4e, against the optimal and against the leave slice
+def _levi():
+    c = _col.Counter()
+    for cs, e, lo, hi, l, dlp, par, d, n in pv._h2():
+        if cs == '4a1' and e == 4: c[d - (lo + hi - 1)] += n
+    return c
+def LEVI(what):
+    """Share of 4a1 4e whose optimal is 'below' the formula, below by exactly -1 or -2, by '-3' or more, 'equal', 'above'."""
+    c = _levi(); N = sum(c.values())
+    k = {'below': lambda x: x < 0, -1: lambda x: x == -1, -2: lambda x: x == -2, '-3': lambda x: x <= -3,
+         'equal': lambda x: x == 0, 'above': lambda x: x > 0}[what]
+    return f'{100 * sum(v for x, v in c.items() if k(x)) / N:.1f}%'
+def LEVILS(k):
+    """Share of 4a1 4e whose optimal leave slice minus the formula is k (-3: that or less, 4: that or more);
+    'mean' the average, 'below' the share under the formula."""
+    c = _col.Counter()
+    for sub, hn, hi, ls, n in pv.rows('h4_htr_leaveslice.csv'):
+        if sub == '4a1 4e': c[int(ls) - (int(hn) + int(hi) - 1)] += int(n)
+    N = sum(c.values())
+    if k == 'mean': return f'{sum(x * v for x, v in c.items()) / N:+.2f}'
+    if k == 'below': return f'{100 * sum(v for x, v in c.items() if x < 0) / N:.1f}%'
+    return f'{100 * sum(v for x, v in c.items() if (x <= k if k == -3 else x >= k if k == 4 else x == k)) / N:.1f}%'
+def SETUPBEAT(sub):
+    """Share of a subset (or of the qt groups from 3qt up, sub = '3qt+') where a finish with extra qts is under setup + HTR."""
+    n = b = 0
+    for s, hmax, g, d, c in pv.rows('h7_setup_bound.csv'):
+        if s == sub or (sub == '3qt+' and pv.QT[s.split()[0]] in ('3qt', '4qt', '5qt')):
+            n += int(c); b += int(c) * (int(d) < int(g))
+    x = 100 * b / n
+    return f'{x:.1f}%' if x >= 0.095 else f'{x:.2f}%' if x >= 0.0095 else f'{x:.3f}%'
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}

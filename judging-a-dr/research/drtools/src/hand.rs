@@ -1890,3 +1890,84 @@ mod tests {
         }
     }
 }
+
+// ---------------------------------------------------------------------------------------------------------
+// fourth feature census: every hand read together, normal and inverse kept apart.
+// key = subset, corner case normal, corner case inverse, true pairs (uncapped), HTR normal, HTR inverse, L, Lp-L, E-parity
+// value = n, sum depth, sum depth^2, n<=10, n<=11, n<=12
+pub fn run_hcensus4(bfsdir: &Path, outdir: &Path) -> io::Result<i32> {
+    fs::create_dir_all(outdir)?;
+    let core = Core::new();
+    let cls = Classes::new(&core);
+    let data = ExactData::open(bfsdir);
+    let clen = corner_only_lengths(&core);
+    let lpar = corner_lengths_by_side_parity(&core);
+    let (_, _, ccase) = corner_case_tables(&core, &cls);
+    struct Local {
+        h: HashMap<u64, [u64; 6]>,
+        row: RowDepths,
+    }
+    let parts = par::for_each_with_local(
+        data.nclass,
+        4,
+        || Local { h: HashMap::new(), row: RowDepths::new() },
+        |local, k| {
+            let dep = local.row.load(&data, k);
+            let c = data.crep[k];
+            let ci = core.cinv[c] as usize;
+            let w = (16 / data.nstab[k]) as u64;
+            let (a, ai) = (cls.ccos[c] as usize, cls.ccos[ci] as usize);
+            let cp: [u8; 8] = unrank_perm(c);
+            let l = clen[c] as u64;
+            for e in 0..NE {
+                let ei = core.einv[e] as usize;
+                let (b, bi) = (cls.epat[e] as usize, cls.epat[ei] as usize);
+                let (hn, hi) = (cls.htr_dist[a][b] as u64, cls.htr_dist[ai][bi] as u64);
+                let sub = cls.sub48[a][b] as u64;
+                let par = (core.cpar[c] ^ core.epar[e]) as usize;
+                let dl = ((lpar[c * 2 + par] as u64) - l).min(15);
+                let ep: [u8; 8] = unrank_perm(e);
+                let tp = pair_counts(&cp, &ep)[0] as u64;
+                let key = ((((((((sub * 64 + ccase[a] as u64) * 64 + ccase[ai] as u64) * 32 + tp) * 16 + hn) * 16 + hi) * 16 + l) * 16 + dl) * 2) + par as u64;
+                let entry = local.h.entry(key).or_insert([0; 6]);
+                for s12 in 0..12 {
+                    let d = dep[e * 12 + s12] as u64;
+                    entry[0] += w;
+                    entry[1] += w * d;
+                    entry[2] += w * d * d;
+                    if d <= 10 { entry[3] += w; }
+                    if d <= 11 { entry[4] += w; }
+                    if d <= 12 { entry[5] += w; }
+                }
+            }
+        },
+    );
+    let mut h: HashMap<u64, [u64; 6]> = HashMap::new();
+    for local in parts {
+        for (key, v) in local.h {
+            let entry = h.entry(key).or_insert([0; 6]);
+            for i in 0..6 { entry[i] += v[i]; }
+        }
+    }
+    let mut keys: Vec<&u64> = h.keys().collect();
+    keys.sort();
+    let mut out = BufWriter::new(File::create(outdir.join("k6_all_reads_ordered.csv"))?);
+    writeln!(out, "subset,cc_normal,cc_inverse,true_pairs,htr_normal,htr_inverse,L,dLp,parity,n,sum_d,sum_d2,le10,le11,le12")?;
+    let mut total = 0u64;
+    for &key in keys {
+        let v = h[&key];
+        let par = key % 2; let r = key / 2;
+        let dl = r % 16; let r = r / 16;
+        let l = r % 16; let r = r / 16;
+        let hi = r % 16; let r = r / 16;
+        let hn = r % 16; let r = r / 16;
+        let tp = r % 32; let r = r / 32;
+        let ci = r % 64; let r = r / 64;
+        let cn = r % 64; let sub = r / 64;
+        total += v[0];
+        writeln!(out, "{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}", cls.sub48_name[sub as usize], cn, ci, tp, hn, hi, l, dl, par, v[0], v[1], v[2], v[3], v[4], v[5])?;
+    }
+    out.flush()?;
+    eprintln!("states counted: {} (expected 19508428800); classes: {}", total, h.len());
+    Ok(if total == 19_508_428_800 { 0 } else { 2 })
+}

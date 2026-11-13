@@ -269,9 +269,19 @@ L += ['', 'The same subsets: the share of each for which NISS@DR, and everything
 for s in BIG:
     L.append(f'| {s} | ' + ' | '.join(pr(sp, s, T) for T in (11, 12) for sp in ('KF', 'c+2520+F')) + ' |')
 write('pivots_ladder_subsets.md', L)
+def every_dead(grp, T):
+    """Everything readable together (k6_all_reads_ordered.csv, drtools hcensus4: subset, corner cases, pairs, HTR on
+    normal and on inverse, L, Lp - L, E-parity): share of the qt group in classes where at most 1% finish in T."""
+    col = {10: 12, 11: 13, 12: 14}[T]; g = collections.defaultdict(lambda: [0, 0])
+    with open(pv.H + 'k6_all_reads_ordered.csv') as f:
+        r = csv.reader(f); next(r)
+        for x in r:
+            if pv.QT[x[0].split()[0]] != grp: continue
+            g[tuple(x[:9])][0] += int(x[col]); g[tuple(x[:9])][1] += int(x[9])
+    return n0(100 * sum(n for k, n in g.values() if 100 * k <= n) / sum(n for _, n in g.values()))
 L = ['| Corner qt | Finish needed | Everything readable puts it under 1% | The two hand bounds prove it | A table that sees the corners exactly and the colours of the edges proves it | DRs that really have no such finish |', '|---|---|---:|---:|---:|---:|']
 for grp in ('3qt', '4qt', '5qt'):
     for T in (10, 11, 12):
         o = hb[(grp, T)]
-        L.append(f"| {grp} | {T} or less | {n0(M[('all', grp, T)]['dead'])} | {pv.num(100*o[4]/o[0])} | {pr('c+2520+F', grp, T)} | {truth(grp, T)} |")
+        L.append(f"| {grp} | {T} or less | {every_dead(grp, T)} | {pv.num(100*o[4]/o[0])} | {pr('c+2520+F', grp, T)} | {truth(grp, T)} |")
 write('pivots_compare.md', L)

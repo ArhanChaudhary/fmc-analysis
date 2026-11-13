@@ -34,7 +34,7 @@ Section A is what's wrong in Rodney's bounding doc and sheet and in FakeMMAP's t
 | First random scramble | "A 3c2,6e case. Traditionally 3c2 is a good corner case" | 2c3 |
 | Strategy section | "note its length, the cr/fr parity" | cs/fr |
 
-The first random scramble is 2c3 6e:
+The first random scramble is 2c3 6e (✓ Lean):
 
 ```
 U D L2 D' B2 U R2 F2 B2 D2 L2 D' R2 L2 D2 B2   // Rodney's first random scramble
@@ -61,7 +61,7 @@ Each row is a case (corners, F edges, R edges, with the sheet's cs and fr labels
 | H-H, F-D, R-V | 0 | 1 | `F2 U2 R2 F2 U2 R2 F2 R2 F2` | 9 | 9 | 8 |
 | H-H, F-V, R-D | 0 | 1 | `R2 U2 F2 R2 U2 F2 R2 F2 R2` | 9 | 9 | 8 |
 
-A state of each case and a shorter finish for it:
+A state of each case and a shorter finish for it (✓ Lean: each finish solves its state in the length given):
 
 | Case | A state of the case | Shorter finish | Its length, moves |
 |---|---|---|---:|
@@ -83,7 +83,7 @@ That's the sheet's penalty of 4 after the 2-move F-V corner setup, so the penalt
 The rule values ("Heuristic" column, same penalty scale) aren't affected. They stay at or below the real penalty in all 216 cases, the corrected ones too: 4 against 5 in the first two rows, 5 against 8 in the three H-H rows (write-up, section 10).
 
 **A3. FakeMMAP's HTR-breaking table (`RK_OBL_table_DS_2e.csv`, attached to [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)): five cells one too high, two of them labelled 7.**
-Of the first version (`RK_OBL_table_HTR_breaking.csv`, posted the day before) FakeMMAP said ≤ 7 was proven optimal and 8, 9, 10 "might actually be solvable in as little as 7" ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606)). In the 7 Sep file 211 of 216 cells are right. The two 7s below are 6 in both files.
+Of the first version (`RK_OBL_table_HTR_breaking.csv`, posted the day before) FakeMMAP said ≤ 7 was proven optimal and 8, 9, 10 "might actually be solvable in as little as 7" ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606)). In the 7 Sep file 211 of 216 cells are right. The two 7s below are 6 in both files. The 6 Sep file has eight cells labelled 7 or less that are off by one: those two 7s, four more one too high (D-D + F-H R-V even and D-D − F-V R-H even say 7, R-D + F-H R-H odd and F-D + F-H R-H odd say 6), and two one too low (R-V + F-H R-H odd and F-V + F-H R-H odd say 5, and both are 6). The 7 Sep file fixes those six. Appendix C of the write-up has a state and an optimal solution for each.
 
 Each row is one of the five cells, with the table's value, the real optimal and a state of the case (its inverse solves it):
 
@@ -110,17 +110,24 @@ nissy finds no solution of 8 or fewer for any of the 3,072 states in each of tho
 ## B. Things said in the channels
 
 **B1. "The maximum [DR→HTR] takes is 12 moves linearly, and 11 moves using NISS"** ([Lewis Isom, 23 Jan 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1199490255921877022), from the sampled HTR Subset Stats sheet).
-It's 13, which matches Joba's table ([Joba, 3 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1357402650441945299): 4c4 has a 13 in 0.24% of its cosets). Each row is how often a DR needs 13 to HTR:
+Linearly it's 13 and no more (✓ Lean), which matches Joba's table ([Joba, 3 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1357402650441945299): 4c4 has a 13 in 0.24% of its cosets). With NISS it's at least 12 (the third state below). Each row is how often a DR needs 13 to HTR linearly:
 
 | DR → HTR needs | DR states | Subsets |
 |---|---:|---|
 | 13 on a given side | 15,925,248 | 0c3 4e, and 4c4 0e from its 4a4 side |
 | 13 on both sides | 786,432 | all 0c3 4e |
 
-Two of them, both 0c3 4e (nissy's optimal HTR agrees on both):
+Two of them, both 0c3 4e (nissy's optimal HTR agrees on both; ✓ Lean):
 
     U' R2 D' B2 U B2 U' R2 U F2 U' F2 U       // 13 to HTR on normal, 12 on inverse
     D B2 D' B2 D L2 U L2 U' F2 D B2 U' F2     // 13 to HTR on both sides
+
+Both of those have a NISS HTR of 11. This 0c3 4e, also 13 on both sides, has none: its shortest with NISS is 12.
+
+    B2 U B2 R2 D' L2 U B2 D' F2 D' L2 F2 U' R2 U
+    U R2 U2 F2 U' F2 R2 U (B2 U L2 U)             // 12 to HTR, the bracket on inverse
+
+✓ Lean for the 12 and for the two 11s, with one step argued by hand: a NISS HTR of 11 or less has five moves or fewer on one of its two sides, and Lean tries every such side.
 
 **B2. "Only five subsets can be 18 optimal"** ([Zagros, 17 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1406635136526581810)), **and "We calculated all the 18 optimals once I remember it being either 5qt or the bad 3qt ons"** ([zakimoshi, 16 Dec 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1185609081629708298)).
 It's four of the 48, 1,352 states in total, one subset per row:
@@ -132,7 +139,7 @@ It's four of the 48, 1,352 states in total, one subset per row:
 | 2c5 0e | 192 |
 | 0c0 8e | 8 |
 
-So "5qt or bad 3qt" misses the eight 0c0 8e states. Joba's file, which Zagros was reading, shows the same four. One of each:
+So "5qt or bad 3qt" misses the eight 0c0 8e states. Joba's file, which Zagros was reading, shows the same four. One of each (✓ Lean: subset and optimal 18):
 
     F2 D' F2 D' F2 R2 U2 R2 U' B2 R2 B2 L2 U B2 U2 R2 U'   // 0c3 4e
     R2 F2 L2 D' F2 D' B2 F2 R2 U2 F2 D' B2 U2 L2 U' R2 U'  // 2c5 4e
@@ -141,7 +148,7 @@ So "5qt or bad 3qt" misses the eight 0c0 8e states. Joba's file, which Zagros wa
 
 I can't show a fifth subset because there isn't one: the other 44 top out at 17 or less, and the write-up's Appendix G has a longest state for each.
 
-**B3. Arithmetic slip.** [Aneurin, 12 Mar 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1084362354894049340) has 27248 for $(4!)^4/12$. It's 27648.
+**B3. Arithmetic slip.** [Aneurin, 12 Mar 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1084362354894049340) has 27248 for $(4!)^4/12$. It's 27648 (✓ Lean).
 
 **B4. "I hypothesize that corner case + moves to HTR on normal + moves to HTR on inverse can tell you the optimal solution with a standard deviation of like 0.25 moves"** ([Zagros, 4 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1490097940641878216)).
 It's nowhere near that. The sd of the optimal over all DRs, given what you know, one set of reads per row (**computer only**, a measure of the reads over every DR state):
@@ -150,17 +157,15 @@ It's nowhere near that. The sd of the optimal over all DRs, given what you know,
 |---|---:|
 | the subset alone | 0.88 |
 | subset (with the bad-edge count), corner case on both sides, HTR length on both sides | 0.80 |
-| everything readable | 0.78 |
+| every read together: subset, pairs, corner case and HTR length on both sides, corner length and E-parity | 0.77 |
 
-Nothing gets under that last one.
-
-Zagros didn't list the bad-edge count, and knowing more can only lower the sd, so Zagros's own features leave at least 0.80. Here's a pair, both 2c4 4e with the same corner case on normal and on inverse, 7 to HTR on both sides and the same corner length (7):
+Zagros didn't list the bad-edge count. Without it, the corner case and HTR length on both sides leave 0.80 as well. Here's a pair, both 2c4 4e with the same corner case on normal and on inverse, 7 to HTR on both sides and the same corner length (7) (✓ Lean, all but the corner case):
 
     D F2 U' F2 D B2 D'                                 // optimal 7
     D' R2 B2 U' F2 D B2 U B2 F2 U' F2 U' L2 D' U'      // optimal 16
 
 **B5. "they are all(?) 0c3 or 5q"**, about DRs that are 16+ optimal ([wen, 24 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1364979626279174254)).
-41% of the states with a 16+ optimal are in other subsets. 45 of the 48 subsets have some, all but 0c0 0e, 0c0 2e and 2c3 2e. They're rare everywhere though: 1.2% of all DR states. Three that are neither:
+41% of the states with a 16+ optimal are in other subsets. 45 of the 48 subsets have some, all but 0c0 0e, 0c0 2e and 2c3 2e. They're rare everywhere though: 1.2% of all DR states. Three that are neither (✓ Lean: subset and optimal):
 
     F2 D2 B2 R2 U' F2 R2 B2 R2 U' F2 L2 D2 R2 D U'      // 4b2 4e, optimal 16
     R2 U L2 D F2 L2 B2 D2 B2 U' B2 U' R2 F2 R2 U'       // 2c3 4e, optimal 16

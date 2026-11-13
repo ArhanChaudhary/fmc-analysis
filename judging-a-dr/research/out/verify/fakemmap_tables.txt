@@ -1,0 +1,12 @@
+cells: 7 Sep 216 6 Sep 216 appendix C 216
+7 Sep table minus any-move optimum: {0: 211, 1: 5}
+   (('H-H +', 'F-V', 'R-D', 'odd'), 9, 8, 9) (6 Sep value 9 )
+   (('H-H +', 'F-D', 'R-V', 'odd'), 9, 8, 9) (6 Sep value 9 )
+   (('H-H +', 'F-D', 'R-D', 'odd'), 9, 8, 9) (6 Sep value 9 )
+   (('R-D +', 'F-H', 'R-V', 'odd'), 7, 6, 7) (6 Sep value 7 )
+   (('F-D +', 'F-V', 'R-H', 'odd'), 7, 6, 7) (6 Sep value 7 )
+7 Sep cells with 8/9/10 whose optimum is 7: []
+6 Sep table minus any-move optimum: {0: 193, 1: 15, 2: 6, -1: 2}
+6 Sep: values <= 7 that are not optimal: [(('D-D +', 'F-H', 'R-V', 'even'), 7, 6), (('D-D -', 'F-V', 'R-H', 'even'), 7, 6), (('R-D +', 'F-H', 'R-H', 'odd'), 6, 5), (('R-D +', 'F-H', 'R-V', 'odd'), 7, 6), (('R-V +', 'F-H', 'R-H', 'odd'), 5, 6), (('F-D +', 'F-H', 'R-H', 'odd'), 6, 5), (('F-D +', 'F-V', 'R-H', 'odd'), 7, 6), (('F-V +', 'F-H', 'R-H', 'odd'), 5, 6)]
+6 Sep: 8/9/10 cells whose optimum is 7 or less: 8
+any move vs DR move vs HT (appendix C): Counter({0: 150, 1: 37, 2: 22, 3: 6, 4: 1}) Counter({0: 150, 1: 35, 2: 24, 3: 6, 4: 1})

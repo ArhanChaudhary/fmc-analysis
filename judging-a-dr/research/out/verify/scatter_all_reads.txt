@@ -1,0 +1,15 @@
+total sd 1.0863
+subset: classes 48, explains 34.96%, sd left 0.8760
+k5-like unordered: sub, {cn,ci}, {hn,hi}: classes 1804, explains 45.67%, sd left 0.8007
+ordered: sub, cn, ci, hn, hi: classes 3907, explains 45.80%, sd left 0.7997
+ordered, no edge count: corner subset, cn, ci, hn, hi: classes 2579, explains 45.28%, sd left 0.8036
+Zagros literal: cn, ci, hn, hi (no subset at all): classes 2579, explains 45.28%, sd left 0.8036
+k5-like + pairs(cap5) unordered: classes 10302, explains 48.51%, sd left 0.7794
+ordered + pairs: classes 29035, explains 48.70%, sd left 0.7780
+k2-like: sub, {h}, L, misfit, pairs(cap5): classes 15486, explains 48.37%, sd left 0.7805
+everything ordered: sub, cn, ci, pairs, hn, hi, L, dLp, par: classes 101076, explains 50.13%, sd left 0.7671
+everything unordered: classes 49572, explains 49.99%, sd left 0.7682
+everything except HTR (no solving but L): sub, cn, ci, pairs: classes 5667, explains 45.88%, sd left 0.7991
+3qt dead for 12: everything ordered 7.79%  unordered 7.53%  k2-like 6.14%
+4qt dead for 12: everything ordered 27.48%  unordered 27.08%  k2-like 24.25%
+5qt dead for 12: everything ordered 47.13%  unordered 47.30%  k2-like 45.48%

@@ -1,0 +1,38 @@
+== other parity cost per corner subset: share of corner states with |L_even - L_odd| = k  (2 x share of DR states with dLp = k)
+  4a2: same 0.00%  +1: 100.00%
+  0c3: same 0.00%  +1: 100.00%
+  0c4: same 0.00%  +1: 100.00%
+  4c3: same 11.11%  +1: 88.89%
+  4c4: same 5.56%  +1: 94.44%
+  2c4: same 0.00%  +1: 75.00%  +2: 25.00%
+  2c5: same 2.08%  +1: 80.21%  +2: 17.71%
+  4b5: same 13.89%  +1: 55.56%  +2: 30.56%
+  4b2: same 2.78%  +1: 72.57%  +2: 24.65%
+  2c3: same 14.58%  +1: 35.42%  +2: 50.00%
+  4a1: same 0.00%  +1: 75.00%  +2: 4.17%  +3: 20.14%  +4: 0.35%  +5: 0.35%
+  0c0: same 25.00%  +2: 50.00%  +3: 11.46%  +4: 11.98%  +5: 1.04%  +6: 0.52%
+== Levi formula on 4a1 4e (optimal minus hmin+hmax-1)
+  states 286654464  below 11.686%  by1 8.416% by2 2.646% by3+ 0.624% equal 18.029% above 70.284%
+  formula <= 11: 57.51% of subset; below formula in 0.604%
+  formula <= 12: 78.02% of subset; below formula in 2.544%
+  formula <= 13: 94.24% of subset; below formula in 7.695%
+  4a1 2e: below 43.91%
+  4a1 0e: below 95.29%
+== leave slice minus formula, 4a1 4e (h4)
+  -3: 1.72%  -2: 5.36%  -1: 12.62%  +0: 26.91%  +1: 25.82%  +2: 15.92%  +3: 7.85%  +4: 3.80%
+== setup + HTR bound (h7): optimal minus bound
+  1-2qt: beaten: 2.5775%  0: 4.0204%  1: 10.7763%  2: 18.4282%  3: 64.1976%   mean bound 9.621 mean hmax 7.655 mean opt 12.748
+  3qt: beaten: 0.0012%  0: 0.2585%  1: 2.2652%  2: 9.4527%  3: 88.0225%   mean bound 9.221 mean hmax 8.596 mean opt 13.231
+  4qt: beaten: 0.0047%  0: 0.2776%  1: 2.5605%  2: 12.8555%  3: 84.3017%   mean bound 10.351 mean hmax 9.830 mean opt 13.893
+  5qt: beaten: 0.0000%  0: 0.0651%  1: 0.8122%  2: 6.3190%  3: 92.8038%   mean bound 10.469 mean hmax 10.469 mean opt 14.298
+  beaten by subset: 4a1 4e 23.806%, 4a2 4e 2.236%, 4a2 0e 1.311%, 4b2 4e 0.891%, 4a2 2e 0.410%, 4c4 0e 0.141%, 4b2 0e 0.076%, 4c4 2e 0.011%, 4c4 4e 0.011%, 0c3 4e 0.008%, 4c3 4e 0.004%, 4b2 2e 0.003%, 4c3 2e 0.000%
+== width (h10): optimal first moves by depth
+  10: avg 1.322  exactly one 77.701%
+  11: avg 1.396  exactly one 73.362%
+  12: avg 1.568  exactly one 64.353%
+  13: avg 2.020  exactly one 47.231%
+  14: avg 2.802  exactly one 29.307%
+  15: avg 4.338  exactly one 7.942%
+  16: avg 7.626  exactly one 0.212%
+  2qt avg optimal first moves 2.599
+  5qt avg optimal first moves 3.075

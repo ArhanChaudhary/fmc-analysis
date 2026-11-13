@@ -79,7 +79,7 @@ It's tempting to say "half turns don't change the HTR subset, so only qts matter
 
 ## What to look at: seven levels
 
-All tables use the ten DR moves. "Cases" means positions that look the same at that level. Each row is a level, from least to most information:
+All tables use the ten DR moves. "Cases" means positions that look the same at that level. Each row is a level, from least to most information (✓ Lean: the largest value of the first six levels, so 13 is the longest DR → HTR):
 
 | Level | What you look at | Cases | Largest value, moves |
 |---|---|---:|---:|
@@ -172,7 +172,7 @@ Rodney goes through three skeletons, kills about a dozen triggers with bounding,
     everything         13 / 13
     optimal            13
 
-So 13 is optimal, and the last level proves it without picking a skeleton.
+So 13 is optimal, and the last level proves it without picking a skeleton. (✓ Lean: every line but "everything".)
 
 **Rodney's 4a4 example:**
 
@@ -180,7 +180,7 @@ So 13 is optimal, and the last level proves it without picking a skeleton.
 
     HTR 11 / 10,  L 11 / 11,  L+S+T 13 / 11,  NISS@DR 13 / 12,  optimal 13
 
-Here plain NISS@DR on the normal side already says 13. Rodney's 13-mover is optimal, read off a 4qt DR.
+Here plain NISS@DR on the normal side already says 13. Rodney's 13-mover is optimal, read off a 4qt DR. (✓ Lean: all five.)
 
 **Levi's example** (from the DR Bounding doc), a 10-move 3qt DR:
 
@@ -412,21 +412,41 @@ The one step that is *not* formalised is that this weighting counts states: that
 
 **What's proven.** `R.Checked` for all seven levels, so all seven bounds, both sides. Plus the HT-only version of NISS@DR, that it equals FakeMMAP's 216 values, that exactly 2 of them get shorter with qts, the counterexample to Levi's formula, and the exact optimal of every DR state with its maximum of 18.
 
+**The examples on this page.** The DR states this write-up prints with an optimal finish or an HTR length are in a list Lean reads back from the page. It has 198 stated optimals, of 167 different states: the typical DR of every corner case (section 4.3 and Appendix E), both columns of Appendix G, the setup + HTR examples of section 5, and the ones in the text. (Not in it: the sequences of Appendix C, which are any-move values, and the corner setups of Appendix E.) Proven for that list:
+
+- each stated optimal is exact (a lookup in the table above, so the same theorem);
+- each of the 20 printed finishes solves its state in the length given;
+- the 55 stated HTR lengths, on normal and on inverse, and the two printed HTRs of section 5;
+- the levels printed for Rodney's two examples in section 7 (all but "everything") and the corner length with parity of the two examples in section 4.5;
+- the largest value of the first six levels: 13, 13, 14, 15, 15, 16. The first is the longest DR → HTR, so 13 and not 12;
+- for the two 2c4 4e of section 3 that finish in 7 and in 16: 7 to HTR and corner length 7 on both sides (not the corner case);
+- with NISS the longest DR → HTR isn't 11 either. This 0c3 4e, 13 on both sides, has no NISS HTR of 11 or less and one of 12:
+
+  ```
+  B2 U B2 R2 D' L2 U B2 D' F2 D' L2 F2 U' R2 U
+  U R2 U2 F2 U' F2 R2 U (B2 U L2 U)                // 12 to HTR, the bracket on inverse
+  ```
+
+  Lean runs through every way to put up to five moves on one side and takes the shortest HTR from there, on normal and on inverse. That covers every NISS HTR of 11 or less, because one of its two sides has five moves or fewer. That last sentence is the one step that's an argument and not a Lean theorem.
+
+The errata's scrambles are proven the same way (subset names included), in the Lean project of the HTR routes study.
+
 The two biggest checks Lean runs, one per row:
 
 | Check | Entries read (against ten moves each) | Time | Memory |
 |---|---:|---|---|
 | biggest bound check | 406,425,600 | about 4.5 minutes | |
 | exact-optimal check | 1,339,269,120 | 17 minutes | 1.9 GB |
+| the examples on this page | the table built once more, then looked up | 16 minutes | 1.9 GB |
 
-Everything builds in under half an hour, in 3 GB of RAM if that last check is run on its own.
+The first two build in under half an hour, in 3 GB of RAM if the exact-optimal check is run on its own. The examples are a separate run.
 
 **What you have to trust.**
 
 - That the move tables are the cube. They're short, and the same tables drive a separate Rust program (and an older C one with byte-identical output) whose results match Joba's per-subset counts and nissy on 40 random DRs.
 - Lean's kernel, and its compiler: the brute-force checks run as compiled code (`native_decide`), which adds one axiom per check on top of the three standard ones. The general lemma itself uses none of them.
 
-**What's not in Lean.** The stats (they're counts over the optimal of every state: the optimal is proven now, the counting isn't), the weights in the depth distribution above, the subset labels, and the DR-breaking search.
+**What's not in Lean.** The stats (they're counts over the optimal of every state: the optimal is proven now, the counting isn't), the weights in the depth distribution above, the subset labels, corner cases and pair counts, the leave slice and the setup lengths, and the DR-breaking search.
 
 ---
 

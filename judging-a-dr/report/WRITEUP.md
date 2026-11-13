@@ -103,7 +103,7 @@ What is new here:
   |---|---:|---:|---:|---:|
   | in 11 | 10% | 4.6% | 1.1% | 0.24% |
   | in 10 | 2.4% | 0.87% | 0.16% | 0.02% |
-- **Still no clean yes/no: tseitsei89's "100% cases and 0% cases" don't exist at any target.** The subset explains 35% of the variance of the optimal, everything readable together 48%, and what's left has an sd of 0.78 moves. Zagros's hunch was that corner case + HTR on both sides pins the optimal to ~0.25 moves; it's 0.80. Two 2c4 4e with the same corner case on both sides, 7 to HTR on both sides and the same corner length finish in 7 and in 16 (section 5). The sd figures are **computer only**: they measure the reads over every DR state, nothing you work out in an attempt. What you use there are the odds each read gives, in the guide per subset.
+- **Still no clean yes/no: tseitsei89's "100% cases and 0% cases" don't exist at any target.** The subset explains 35% of the variance of the optimal, everything readable together (subset, pairs, corner case and HTR length on both sides, L and E-parity) 50%, and what's left has an sd of 0.77 moves. Zagros's hunch was that corner case + HTR on both sides pins the optimal to ~0.25 moves; it's 0.80. Two 2c4 4e with the same corner case on both sides, 7 to HTR on both sides and the same corner length finish in 7 and in 16 (section 5). The sd figures are **computer only**: they measure the reads over every DR state, nothing you work out in an attempt. What you use there are the odds each read gives, in the guide per subset.
 - **The lower the target, the more the reads tell you, and the free reads tell the most.** Keep only the best-looking quarter of a qt group, going by pairs and corner case (no solving needed). Share of the finishes you keep:
 
   | Finishes in | 3qt | 4qt |
@@ -112,22 +112,22 @@ What is new here:
   | 11 | 63% | 77% |
   | 10 | 74% | 89% |
 
-  From 3qt up, pairs plus corner cases rank better than the two HTR lengths at every target from 10 up, and the HTR lengths on top add 1 to 7 points. At 1–2qt it's the other way round: HTR length is the best single read. These shares rank DRs by the exact odds of every combination of reads, a table of thousands of classes, so they're **computer only**: a ceiling for what a rule built on those reads can do. The versions you carry are the prune list above and the plain rules below.
+  From 3qt up, pairs plus corner cases rank better than the two HTR lengths at every target from 10 up, and the HTR lengths on top add 3 to 7 points for a 10 or an 11, 1 to 2 for a 12, and about 1 or less for a 13. At 1–2qt it's the other way round: HTR length is the best single read. These shares rank DRs by the exact odds of every combination of reads, a table of thousands of classes, so they're **computer only**: a ceiling for what a rule built on those reads can do. The versions you carry are the prune list above and the plain rules below.
 - **Plain rules, with their price.** Zagros's "9+ on both sides, toss", turned into a rule against your target T. For an 11, each row is a rule, with the share of 3qt and 4qt DRs it drops and the share of their 11s it loses:
 
   | Rule | DRs dropped, 3qt | DRs dropped, 4qt | 11s lost, 3qt | 11s lost, 4qt |
   |---|---:|---:|---:|---:|
-  | safe: $T-1$ or more to HTR on both sides (10+ for an 11) | 8% | 31% | 0.2% | 2.5% |
-  | aggressive: $T-2$ or more (Zagros's 9+ when you need an 11) | 28% | 67% | 5% | 20% |
+  | safe: $T-1$ or more to HTR on both sides (10+ for an 11) | 7.7% | 31% | 0.24% | 2.5% |
+  | aggressive: $T-2$ or more (Zagros's 9+ when you need an 11) | 28% | 67% | 4.6% | 20% |
 
-  With no solving, dropping every DR without a pair drops 14% at every qt and loses 2–7% of the 11s.
+  With no solving, dropping every DR without a pair drops 14% at every qt and loses 2.0–6.5% of the 11s.
 - **Count true pairs and stop.** What one more pair multiplies the odds of an 11 by, per corner subset:
 
   | 4a1 | 2c4 | 2c5 |
   |---:|---:|---:|
   | 1.4 | 1.7 | 1.9 |
 
-  A 2c4 with five or more pairs finishes in 11 sixteen times as often as one with none (6.8% against 0.43%). Adding pseudo-pairs and semi-pairs moves the sd left from 0.850 to 0.842 (an sd over every DR state, **computer only**). The pair count is the same on inverse for every DR state, so count once.
+  A 2c4 with five or more pairs finishes in 11 sixteen times as often as one with none (6.8% against 0.43%). Adding pseudo-pairs and semi-pairs moves the sd left from 0.849 to 0.842 (an sd over every DR state, **computer only**). The pair count is the same on inverse for every DR state, so count once.
 - **Inside a subset the corner case on both sides is a big read.** For 2c4, each row is a corner case (on both sides for the first two), with the share finishing in 10, 11 and 12 or less:
 
   | Corner case | In 10 | In 11 | In 12 |
@@ -151,14 +151,14 @@ What is new here:
   - For 72 of the 432 cases of 4a1 4e (one in six) the shortest HTR is a 3qt one, and the formula wants the shortest 1qt length.
   - Against the real leave slice (count quackula's question) it's +0.70 on average and too high 19.7% of the time.
 - **How far off they all sit.** The guaranteed bounds you can compute by hand are on average four moves under optimal.
-- **A last DR move you can turn the other way is worth 0.33 moves flat**, in every subset (Zagros's question). At 3qt it takes the share finishing in 11 from 4.6% to 7.5%.
+- **A last DR move you can turn the other way is worth about a third of a move**: 0.32 on average, from 0.30 (4c4 0e) to 0.45 (0c0 0e) by subset (Zagros's question). At 3qt it takes the share finishing in 11 from 4.6% to 7.5%.
 - **Where the information is.** Rodney's NISS@1qt features read straight off the DR state give a bound at any qt with no skeleton: on HTR states with half turns only it *is* FakeMMAP's 216-case table, at the DR it has 6,350,400 cases. With the H-perm parity and the real colours added it's exact 44% of the time and within one 86% (Rodney's guess was about right), and it proves Rodney's 4a4 13-mover optimal from the DR alone. What a computer gets against what you can read, as a share of 4qt and 5qt DRs:
 
   | What it is | 4qt DRs | 5qt DRs |
   |---|---:|---:|
   | corners exactly plus the edge colours: proves "no 12" | 81% | 95% |
   | the same: proves "no 11" | 97% | 99% |
-  | everything readable put together: under 1% for a 12 | 24% | 45% |
+  | everything readable put together: under 1% for a 12 | 27% | 47% |
 
   The gap is the corner–edge relation, which is what Rodney's NISS@1qt tracing looks at. No count of visible features replaces it. All three rows are **computer only**: NISS@DR is a lookup in millions of cases, and "everything readable put together" ranks by the exact odds of every class of reads. They show where the information is. In an attempt the version you have is Rodney's tracing, per skeleton.
 - **Exact numbers that were guesses.**
@@ -168,7 +168,7 @@ What is new here:
   - A DR whose optimal is 10 or 11 has exactly one optimal first move three times in four. **Computer only**, from the optimal finish of every state.
   - 0c3 is the worst subset on average (14.46), worse than 5qt, and 4a2 2e and 0e finish like a 2c4.
 - **Questions from the server, answered exactly**: stats by bad corner position (Daichi, JTuu, wen), by pairs (Rodney, Levi), the normal × inverse HTR table (Zagros), the 4a1 4e bound against the real leave slice (count quackula), the cost of the slice and the width of a DR (JTuu), an invertible last move (Zagros), error stats for bounding (compLex), God's number per subset (compLex), optimal lengths of all corner cases (Evan).
-- **Proven in Lean**: the optimal finish of every DR state (so every stat here is a count over proven optimals) and its maximum of 18, the HTR and corner-length-with-parity bounds, the 216 HT-only values, and the counterexample to Levi's formula.
+- **Proven in Lean**: the optimal finish of every DR state (so every stat here is a count over proven optimals) and its maximum of 18, the HTR and corner-length-with-parity bounds, the 216 HT-only values, the counterexample to Levi's formula, and the stated optimal of the example scrambles in this write-up (section 11 lists which, and what else).
 
 What it confirms or corrects in the docs and sheets people use:
 
@@ -635,7 +635,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: by default. Unlike 2c5 there is no layout that kills it or saves it. A short DR with four or five pairs is the only case for it.
 - **Don't conclude** that 4b5 and 2c5 read the same way: 2c5 has the stacked-corner rule, 4b5 has nothing like it.
 
-On top of any row: a last DR move that can be turned the other way is worth a third of a move on average, in every subset, so read the DR both ways (example 3 in the examples file). At 3qt it takes the share finishing in 11 from 4.6% to 7.5%. And if a row's reads disagree with each other, that's normal: together they explain about half of what there is to know.
+On top of any row: a last DR move that can be turned the other way is worth about a third of a move (0.32 on average, at least 0.30 in every subset), so read the DR both ways (example 3 in the examples file). At 3qt it takes the share finishing in 11 from 4.6% to 7.5%. And if a row's reads disagree with each other, that's normal: together they explain about half of what there is to know.
 
 ---
 
@@ -1156,11 +1156,12 @@ The same thing without a target: how much scatter is left in the optimal once yo
 | + corner length L and E-parity | yes | 0.83 |
 | + pairs, corner cases and HTR | yes | 0.78 |
 | + pairs, HTR, L and E-parity | yes | 0.78 |
+| + all of these together | yes | 0.77 |
 | *the optimal leave slice (for scale, you can't read this)* | | 0.43 |
 
 **Zagros's two hunches.**
 
-- *Corner case + HTR on both sides gives the optimal to ~0.25 moves* ([Zagros, 4 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1490097940641878216)). The sd left is 0.80 over all DRs. Adding pairs makes it 0.78.
+- *Corner case + HTR on both sides gives the optimal to ~0.25 moves* ([Zagros, 4 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1490097940641878216)). The sd left is 0.80 over all DRs. Adding pairs makes it 0.78, and every read together 0.77.
 - *L + longest HTR predicts within ~1 move* ([Zagros, 25 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1365341555308888114)). True, 93.3% of DRs are within one move of the typical value for their (subset, L, longer HTR). But 91.3% are within one move of the typical value for their subset alone. The finish just doesn't vary much inside a subset.
 
 A pair that shows what the first hunch is up against. Both are 2c4 4e, with the same corner case on normal and on inverse, 7 to HTR on both sides, and the same corner length (7):
@@ -1183,7 +1184,7 @@ The baseline, and still the biggest single piece of information. Appendix A has 
 
 Appendix G has a longest one for every subset.
 
-The shortest possible HTR by corner qt, one row per qt count, with a state that has exactly that on both sides:
+The shortest possible HTR by corner qt, one row per qt count, with a state that has exactly that on both sides (✓ Lean: the HTR length of each state, on both sides):
 
 | Corner qt | Shortest HTR | A state with exactly that on both sides |
 |---:|---:|---|
@@ -1241,7 +1242,7 @@ That last row has numbers for 4a1 and 2c4 only. So pairs matter more the lower y
 
 Levi is right about blocky 2c4s: for an 11, from 0.43% with no pairs to 6.8% with five or more, 16 times as often. The same step is worth ×5 at 4a1, ×8 at 2c3 and ×40 at 2c5. Appendix D has all 48 subsets, for 10, 11, 12 and 13.
 
-On Rodney's finer split: I also counted pseudo-pairs (both stickers opposite), side semi-pairs and top semi-pairs, defined as in Rodney's message. Knowing all four counts instead of just the true pairs moves the sd left from 0.850 to 0.842 (an sd over every DR state, **computer only**). Pairs with E-slice edges add even less. So count true pairs and stop.
+On Rodney's finer split: I also counted pseudo-pairs (both stickers opposite), side semi-pairs and top semi-pairs, defined as in Rodney's message. Knowing all four counts instead of just the true pairs moves the sd left from 0.849 to 0.842 (an sd over every DR state, **computer only**). Pairs with E-slice edges add even less. So count true pairs and stop.
 
 You don't need to count again on the inverse scramble: a block stays a block, so the number of true pairs is the same on both sides for every DR state.
 
@@ -1253,7 +1254,7 @@ How to read the tables:
 
 - "A qt takes it straight to" means some U or D quarter turn lowers the corner qt count right away, with no setup.
 - L is the range of optimal corner solution lengths the case can have.
-- Each subset gets three tables: what the cases look like, how they finish, and a typical DR of each case (a state whose optimal is the median for that case).
+- Each subset gets three tables: what the cases look like, how they finish, and a typical DR of each case (a state whose optimal is the median for that case; ✓ Lean: the optimal of each one, here and in Appendix E).
 - "Both sides together" tables: each row is a combination of the cases on normal and on inverse, with its share of the subset and how it finishes.
 
 **2c4** (wen's stacks). Seven cases. Two of them have the same bad corners and are told apart by the back face, as explained under the tables. One case per row:
@@ -1681,7 +1682,7 @@ Zagros asked what one invertible move is worth. If your DR ends in R, then R' is
 | 5qt | one way only (pure DR) | <0.01% | 0.02% | 0.24% | 2.1% | 14% |
 | 5qt | last move can go either way | <0.01% | 0.04% | 0.43% | 3.7% | 23% |
 
-A third of the time the other DR is one shorter, a third the same, a third one longer, in every subset. So it's worth 0.33 moves flat. It multiplies the odds of a 10 or an 11 by 1.6 to 2 and of a 12 by 1.4 to 1.8. (If you could pick any of the four side half turns it would be 0.73.) An example:
+Over all DRs the other DR is one shorter 32% of the time, one longer just as often, and the same otherwise, so it's worth 0.32 moves. By subset that runs from 0.30 (4c4 0e) to 0.45 (0c0 0e); most subsets are within a few hundredths of a third. It multiplies the odds of a 10 or an 11 by 1.5 to 1.9 and of a 12 by 1.4 to 1.8. (If you could pick any of the four side half turns it would be 0.73.) An example:
 
     D' L2 D R2 B2 F2 U2 B2 R2 U L2 U'       // optimal 12
     D' L2 D R2 B2 F2 U2 B2 R2 U L2 U' L2    // the same DR with its last move (an L) turned the other way: optimal 11
@@ -1713,7 +1714,7 @@ A 1qt state can also be solved with three quarter turns, and the number worth ha
 |---|---:|
 | below the formula, so a 3qt finish is shorter | 11.7% |
 | of those, below by 1 | 8.4% |
-| below by 2 | 2.7% |
+| below by 2 | 2.6% |
 | below by 3 or more | 0.6% |
 | equal to the formula | 18.0% |
 | above the formula | 70.3% |
@@ -1744,7 +1745,7 @@ One more thing about 4a1 4e that I haven't seen written down: for 72 of its 432 
 | +0 | 26.9% |
 | +1 | 25.8% |
 | +2 | 15.9% |
-| +3 | 7.9% |
+| +3 | 7.8% |
 | +4 or more | 3.8% |
 
 Average +0.70. The leave slice is below the formula 19.7% of the time, more often than the full finish is, because leaving the slice is easier. (The example above is one: formula 10, leave slice 7.)
@@ -1777,9 +1778,12 @@ How often a finish with extra quarter turns gets under it, by subset:
 | 4a2 4e | 2.2% |
 | 4a2 0e | 1.3% |
 | 4b2 4e | 0.9% |
+| 4a2 2e | 0.4% |
+| 4b2 0e | 0.08% |
+| 4b2 2e | 0.003% |
 | everything at 3qt and up | 0.002% |
 
-The first row is more than the 11.7% for Levi's formula, because this one uses the real setup (see above). So from 3qt it's as good as a true bound. One state for every subset where it happens (there are 13). Each row gives the state, the bound, and the optimal finish that beats it, with its length and its quarter turns against the fewest the subset needs:
+The first row is more than the 11.7% for Levi's formula, because this one uses the real setup (see above). So from 3qt it's as good as a true bound. One state for every subset where it happens (there are 13). Each row gives the state, the bound, and the optimal finish that beats it, with its length and its quarter turns against the fewest the subset needs (✓ Lean: each finish solves its state and is optimal; the bound column is computed):
 
 | Subset | Scramble | Setup + HTR bound | Optimal finish | Its length | Quarter turns in it | Fewest the subset needs |
 |---|---|---:|---|---:|---:|---:|
@@ -1857,7 +1861,7 @@ If you look at exactly what Rodney traces at 1qt (the corners, which slice each 
 
 ### The seven levels
 
-All tables use the ten DR moves. "Cases" means positions that look the same at that level. Each row is a level, from least to most information:
+All tables use the ten DR moves. "Cases" means positions that look the same at that level. Each row is a level, from least to most information (✓ Lean: the largest value of the first six levels, so 13 is the longest DR → HTR):
 
 | Level | What you look at | Cases | Largest value, moves |
 |---|---|---:|---:|
@@ -1988,7 +1992,7 @@ Rodney goes through three skeletons, kills about a dozen triggers with bounding,
     everything         13 / 13
     optimal            13
 
-So 13 is optimal, and the last level proves it without picking a skeleton.
+So 13 is optimal, and the last level proves it without picking a skeleton. (✓ Lean: every line but "everything".)
 
 **Rodney's 4a4 example:**
 
@@ -1996,7 +2000,7 @@ So 13 is optimal, and the last level proves it without picking a skeleton.
 
     HTR 11 / 10,  L 11 / 11,  L+S+T 13 / 11,  NISS@DR 13 / 12,  optimal 13
 
-Here plain NISS@DR on the normal side already says 13. Rodney's 13-mover is optimal, read off a 4qt DR.
+Here plain NISS@DR on the normal side already says 13. Rodney's 13-mover is optimal, read off a 4qt DR. (✓ Lean: all five.)
 
 **Levi's example** (from the DR Bounding doc), a 10-move 3qt DR:
 
@@ -2012,15 +2016,15 @@ None of this is something you can do at the table, and that's the point of keepi
 
 | Corner qt | Finish needed | Everything readable puts it under 1% | The two hand bounds prove it | A table that sees the corners exactly and the colours of the edges proves it | DRs that really have no such finish |
 |---|---|---:|---:|---:|---:|
-| 3qt | 10 or less | 77% | 13% | 97% | 99.1% |
-| 3qt | 11 or less | 30% | 3.6% | 84% | 95% |
-| 3qt | 12 or less | 6% | 1.0% | 49% | 80% |
+| 3qt | 10 or less | 78% | 13% | 97% | 99.1% |
+| 3qt | 11 or less | 33% | 3.6% | 84% | 95% |
+| 3qt | 12 or less | 8% | 1.0% | 49% | 80% |
 | 4qt | 10 or less | 96% | 51% | 99.6% | 99.8% |
-| 4qt | 11 or less | 69% | 22% | 97% | 99% |
-| 4qt | 12 or less | 24% | 5.1% | 81% | 93% |
+| 4qt | 11 or less | 71% | 22% | 97% | 99% |
+| 4qt | 12 or less | 27% | 5.1% | 81% | 93% |
 | 5qt | 10 or less | 100% | 80% | 99.9% | 99.9% |
 | 5qt | 11 or less | 94% | 38% | 99.4% | 99.8% |
-| 5qt | 12 or less | 45% | 13% | 95% | 98% |
+| 5qt | 12 or less | 47% | 13% | 95% | 98% |
 
 "Under 1%" is not a proof: it means the reads put the DR in a class where at most one in a hundred gets there. The next two columns are proofs.
 
@@ -2179,21 +2183,41 @@ The one step that is *not* formalised is that this weighting counts states: that
 
 **What's proven.** `R.Checked` for all seven levels, so all seven bounds, both sides. Plus the HT-only version of NISS@DR, that it equals FakeMMAP's 216 values, that exactly 2 of them get shorter with qts, the counterexample to Levi's formula, and the exact optimal of every DR state with its maximum of 18.
 
+**The examples on this page.** The DR states this write-up prints with an optimal finish or an HTR length are in a list Lean reads back from the page. It has 198 stated optimals, of 167 different states: the typical DR of every corner case (section 6.3 and Appendix E), both columns of Appendix G, the setup + HTR examples of section 7, and the ones in the text. (Not in it: the sequences of Appendix C, which are any-move values, and the corner setups of Appendix E.) Proven for that list:
+
+- each stated optimal is exact (a lookup in the table above, so the same theorem);
+- each of the 20 printed finishes solves its state in the length given;
+- the 55 stated HTR lengths, on normal and on inverse, and the two printed HTRs of section 7;
+- the levels printed for Rodney's two examples in section 9 (all but "everything") and the corner length with parity of the two examples in section 6.5;
+- the largest value of the first six levels: 13, 13, 14, 15, 15, 16. The first is the longest DR → HTR, so 13 and not 12;
+- for the two 2c4 4e of section 5 that finish in 7 and in 16: 7 to HTR and corner length 7 on both sides (not the corner case);
+- with NISS the longest DR → HTR isn't 11 either. This 0c3 4e, 13 on both sides, has no NISS HTR of 11 or less and one of 12:
+
+  ```
+  B2 U B2 R2 D' L2 U B2 D' F2 D' L2 F2 U' R2 U
+  U R2 U2 F2 U' F2 R2 U (B2 U L2 U)                // 12 to HTR, the bracket on inverse
+  ```
+
+  Lean runs through every way to put up to five moves on one side and takes the shortest HTR from there, on normal and on inverse. That covers every NISS HTR of 11 or less, because one of its two sides has five moves or fewer. That last sentence is the one step that's an argument and not a Lean theorem.
+
+The errata's scrambles are proven the same way (subset names included), in the Lean project of the HTR routes study.
+
 The two biggest checks Lean runs, one per row:
 
 | Check | Entries read (against ten moves each) | Time | Memory |
 |---|---:|---|---|
 | biggest bound check | 406,425,600 | about 4.5 minutes | |
 | exact-optimal check | 1,339,269,120 | 17 minutes | 1.9 GB |
+| the examples on this page | the table built once more, then looked up | 16 minutes | 1.9 GB |
 
-Everything builds in under half an hour, in 3 GB of RAM if that last check is run on its own.
+The first two build in under half an hour, in 3 GB of RAM if the exact-optimal check is run on its own. The examples are a separate run.
 
 **What you have to trust.**
 
 - That the move tables are the cube. They're short, and the same tables drive a separate Rust program (and an older C one with byte-identical output) whose results match Joba's per-subset counts and nissy on 40 random DRs.
 - Lean's kernel, and its compiler: the brute-force checks run as compiled code (`native_decide`), which adds one axiom per check on top of the three standard ones. The general lemma itself uses none of them.
 
-**What's not in Lean.** The stats (they're counts over the optimal of every state: the optimal is proven now, the counting isn't), the weights in the depth distribution above, the subset labels, and the DR-breaking search.
+**What's not in Lean.** The stats (they're counts over the optimal of every state: the optimal is proven now, the counting isn't), the weights in the depth distribution above, the subset labels, corner cases and pair counts, the leave slice and the setup lengths, and the DR-breaking search.
 
 ---
 
@@ -2222,7 +2246,7 @@ What agreed with what. Each row is a check (with what it was checked against, wh
 For the hand reads in sections 5 to 8:
 
 - **Leave slice**: a second BFS over corners and U/D-layer edges only, reduced by the same 16 symmetries (111,605,760 reduced states, five seconds). It reaches all 19,508,428,800 states when each is counted with its 12 E-slice arrangements.
-- **The reads**: three more passes over all DR states. Each computes the read for the state (and for its inverse where that's a different thing) and adds the state's optimal to a histogram. Every pass counts exactly 19,508,428,800 states.
+- **The reads**: four more passes over all DR states. Each computes the read for the state (and for its inverse where that's a different thing) and adds the state's optimal to a histogram. The fourth keeps every read together, normal and inverse apart, for the sd figures and "everything readable". Every pass counts exactly 19,508,428,800 states.
 - **Pairs**: the four kinds are defined by the colours of the two touching sticker pairs, as in Rodney's message. Checked on Rodney's example: after `B2 L2 B2 R2` the UF edge has a top semi-pair on one side and a side semi-pair on the other, which is what Rodney says it sets up.
 - **Corner cases**: classes of the 420 HTR corner cosets under the 16 symmetries and under turning both layers. There are 46.
 - **Setup lengths** for the setup + HTR bound: breadth-first over the 29,400 HTR cosets with half turns only, until some quarter turn lowers the minimum qt count. At 1qt it has to give the shortest 1qt HTR minus one, and it does.
@@ -4247,7 +4271,7 @@ One table per subset, one row per pair of HTR lengths (the shorter of normal and
 
 ## Appendix G: a scramble for every subset
 
-For each of the 48 subsets: a state with the longest optimal finish in the subset, and a state that finishes in exactly its longer HTR (so the HTR length is all the bound you get from HTR lengths, in every subset). Do the scramble on a solved cube. Each row is a subset:
+For each of the 48 subsets: a state with the longest optimal finish in the subset, and a state that finishes in exactly its longer HTR (so the HTR length is all the bound you get from HTR lengths, in every subset). Do the scramble on a solved cube. ✓ Lean: every optimal and every HTR length in the table (the subset names are computed). Each row is a subset:
 
 | Subset | A longest one | Its optimal, moves | One that finishes in exactly its longer HTR | Its shortest HTR, normal | Its shortest HTR, inverse | Its optimal, moves |
 |---|---|---:|---|---:|---:|---:|
