@@ -379,12 +379,12 @@ Verdicts; numbers and the example states (setup from solved + optimal DR, replay
 | T604-5 | T604 Radek B | 0 or 1 top and side pairs => at best 5 moves (4c4e) | correct |
 | D12760-02U | D12760-D12763 Evan / caycala | 4c4e AR 02: all corners on one layer is the only sub-7 case, 5.60%; corners on U and edges on D: 33% | correct |
 | D14342-4d1 | D14342 Evan | 4d + 1 pair is ~90% sub-7 for AR-21 and 0% for other AR (4c4e) | correct |
-| D14402-21-1p | D14402-D14403 Evan | 1 pair + AR-21: b corners 29%, d corners 89%, a corners ~34% if stacked, < 5% otherwise | b and d correct; a: "stacked" read as all four bad corners on one side face (0.357, matches), but the other a cases are 0.162, not under 5% |
+| D14402-21-1p | D14402-D14403 Evan | 1 pair + AR-21: b corners 29%, d corners 89%, a corners ~34% if stacked, < 5% otherwise | correct, with stacked = each bad corner directly above or below another (the layouts allF, allR, colU of the sheet Evan linked) |
 | D14348-4a2X | D14348 Evan | 4a corners are basically the same for all AR-2X (4c4e) | correct |
 | T8122-a0b0 | T8122 rodneykinney | 4c4e without pairs: 4a-0 is better than 4a-2, but 4b-0 is worse than 4b-2 | correct |
 | T8123-0p | T8123 rodneykinney (answer to T8107 Nico) | to catch 0-pair F2 B2 R-type DRs, switch 4a-0 and 4d-2 with no fake pairs | incomplete: the F2 B2 R state is 4a-0 with no fake pairs, but one U/D turn earlier (D F2 B2 R, 0 pairs, no fake pairs, 4 moves) it is 4b-2 and the rule discards it |
 | T8149-4b2 | T8149 rodneykinney | 4c2e 4b-2: 6 moves is the absolute minimum; 4a-2 is good | correct |
-| T8147-3qt | T8147 rodneykinney | 4c2e: because it is a three-move trigger, no number of pairs saves 3qt corners (4b-0) | wrong: 4c2e 4b-0 with 2 pairs is above 50% |
+| T8147-3qt | T8147 rodneykinney (4c2e table T8140; T8132, T8149) | 4c2e: because it is a three-move trigger, no number of pairs saves 3qt corners (4a-0: three U/D quarter turns from the corners of R U2 R, which are 4b-0) | depends on the fold: no 4a-0 case is under 6 moves and the row as the sheet folds it (corner ARM 0 or 4) is at most 25% sub-7; with corner ARM 0 alone, 2 pairs are 50% |
 | D16266-4a | D16266 Zagros | 4c2e with 4a corners almost always sucks | correct |
 | D15161-jzp-b | D15161 Daichi | 4c2e 0 pairs: JZP with b corners is way better than with a corners | correct |
 | D12737-41 | D12737 caycala | 4c2e ARM 41 with 0 pairs is 0% sub-7? | correct |

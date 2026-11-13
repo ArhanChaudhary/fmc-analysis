@@ -33,11 +33,11 @@
    "replayed": "DR on U/D reached with F/B EO kept (cube.py)"
   },
   "D14402-21-1p": {
-   "setup": "L' B2 D' L2 D' U2",
-   "dr": "U2 D L2 D B2 L",
-   "length": 6,
-   "state": "4c4e AR-2c1e pairs 1 fake 1 side 0 d 6 case 4a-2",
-   "note": "a sub-7 4a, 1 pair, AR-21 state with the corners not stacked",
+   "setup": "L' D' U2 L2 F2 U2 L'",
+   "dr": "L U2 F2 L2 U2 D L",
+   "length": 7,
+   "state": "4c4e AR-2c1e pairs 1 fake 1 side 1 d 7 case 4a-2",
+   "note": "a 4a, 1 pair, AR-21 state with all four bad corners in one layer (allU, not stacked): the shortest of its layout",
    "replayed": "DR on U/D reached with F/B EO kept (cube.py)"
   },
   "T8123-0p": {
@@ -49,11 +49,11 @@
    "replayed": "DR on U/D reached with F/B EO kept (cube.py)"
   },
   "T8147-3qt": {
-   "setup": "R' D2 R F2 D' U'",
-   "dr": "U D F2 R' D2 R",
+   "setup": "R' F2 R' B2 F2 R'",
+   "dr": "R F2 B2 R F2 R",
    "length": 6,
-   "state": "4c2e AR-4c1e pairs 2 fake 0 side 0 d 6 case 4b-0",
-   "note": "",
+   "state": "4c2e AR-0c0e pairs 2 fake 0 side 1 d 6 case 4a-0",
+   "note": "a 4c2e with 4a-0 corners (corner ARM 0) and 2 pairs: 6 moves, with three R quarter turns",
    "replayed": "DR on U/D reached with F/B EO kept (cube.py)"
   },
   "E7-counter": {

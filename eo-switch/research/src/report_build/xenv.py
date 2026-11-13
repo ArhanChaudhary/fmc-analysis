@@ -59,6 +59,10 @@ def POP(drm, i): return E['pop'][drm][i]
 def OPT(drm, i): return E['opt'][drm][i]
 def VAR(drm, col): return E['var'][drm][col]
 def CL(i, field='numbers'): return E['claims'][i][field]
+def CX(i, k, j=None):
+    """a number of a claims row (out/claims_cells.json, written by claims.py); j picks an item of a list or dict"""
+    v = E['claimx'][i][k]
+    return v if j is None else v[j]
 def EV(i, before, after=None):
     """a piece of a claims.tsv numbers string: the text after `before` up to `after` (default: the next space)"""
     s = E['claims'][i]['numbers'].split(before, 1)[1]

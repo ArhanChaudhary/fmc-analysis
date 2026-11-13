@@ -37,6 +37,29 @@ def claim(cid, tag, text, verdict, numbers, ex=None):
     rows.append((cid, tag, text, verdict, numbers, json.dumps(ex) if ex else ''))
     if ex: EX[cid] = ex
 
+CELLS = {}                                   # numbers the text quotes, one value per key (out/claims_cells.json)
+def cells(cid, **kw): CELLS.setdefault(cid, {}).update(kw)
+def frac(m, k=6): return float((d[m] <= k).sum()) / int(m.sum()) if m.sum() else float('nan')
+def cols_along(axis):
+    """The bad corners form columns along `axis`: every bad corner's mirror image across that axis is bad too."""
+    mir = [next(j for j, q in enumerate(geom.CORNERS) if all(q[k] == (-p[k] if k == axis else p[k]) for k in range(3))) for p in geom.CORNERS]
+    return fx.per_co((fx.bad == fx.bad[:, mir]).all(1))
+def qt_from(co_targets):
+    """Per corner twist pattern: the fewest U/D quarter turns to reach one of the patterns co_targets, half turns free."""
+    H = [m for m in geom.EOK if geom.NAMES[m].endswith('2')]
+    Q = [m for m in geom.EOK if geom.NAMES[m][0] in 'UD' and not geom.NAMES[m].endswith('2')]
+    dist = np.full(geom.N_CO, 99); cur = set(int(c) for c in co_targets); k = 0
+    while cur:
+        stack = list(cur)
+        while stack:
+            c = stack.pop()
+            for m in H:
+                c2 = int(geom.MCO[c, m])
+                if dist[c2] == 99 and c2 not in cur: cur.add(c2); stack.append(c2)
+        for c in cur: dist[c] = k
+        cur = {c2 for c2 in (int(geom.MCO[c, m]) for c in cur for m in Q) if dist[c2] == 99}; k += 1
+    return dist
+
 m44, m42, m32, m78, m88, m46, m36, m54, m56, m66, m34 = [m_(*x) for x in [(4, 4), (4, 2), (3, 2), (7, 8), (8, 8), (4, 6), (3, 6), (5, 4), (5, 6), (6, 6), (3, 4)]]
 claim('A1-64000', 'doc 275 rodneykinney', 'about 64,000 of about 1 million EO-solved states have a sub-7 DR', 'correct', f'{int((d <= 6).sum())} of {geom.N0}')
 claim('C1-15.3', 'doc 6 Cale', '4c4e is 1 in 15.3 EOs', 'correct', f'{geom.N0 / m44.sum():.2f}')
@@ -55,6 +78,8 @@ n6 = sum(1 for x in mins.values() if x <= 5); n5 = sum(1 for x in mins.values() 
 claim('T4256-sets', 'T4256 Jay (vibing)', '10 of the 15 4C4E AR sets can be sub 6 (7 of 15 can be sub 5)', 'correct' if (len(sets), n6, n5) == (15, 10, 7) else f'off by one: {n6} sets can be sub 6 (the sub-5 count, {n5}, is right)',
       f'{len(sets)} ARM sets; {n6} have a state of at most 5, {n5} of at most 4; shortest per set ' + ', '.join(f'{s_:02d}:{mins[s_]}' for s_ in sets),
       example(pick(m44 & arm(4, 1), d == 5), 'a 5-move AR-4c1e (41) state'))
+m41 = m44 & arm(4, 1); louis41 = fx.state_solved_by("D' B2 F2 D R'"); assert m41[louis41] and d[louis41] == 5      # the best 4c4e AR-4c1e solution on Louis's sheet
+cells('T4256-sets', n41=int(m41.sum()), n41_5=int((m41 & (d == 5)).sum()), sub6_41=frac(m41, 5), sets=len(sets), n6=n6, n5=n5)
 mn = {k: int(d[m44 & (F['pairs'] == k)].min()) for k in range(5)}
 mn2 = int(d[m44 & ((F['pairs'] + F['side']) <= 1)].min())
 claim('T597-4movers', 'T597 rodneykinney', 'no 4-move 4c4e DR with 0 or 1 pairs ("any 4 moves from solved leave at least 2 bad pairs")', f'correct if pairs counts top and side pairs (shortest with at most 1: {mn2}); wrong for top pairs alone: F2 B2 R has 0 top pairs (4 side pairs) and is 3 moves',
@@ -70,9 +95,23 @@ claim('D12760-02U', 'D12760-D12763 Evan / caycala', '4c4e AR 02: all corners on 
 r = {a_: p6(m44 & cc('d') & (F['pairs'] == 1) & arm(int(a_[0]), int(a_[1]))) for a_ in ['20', '21', '22']}
 claim('D14342-4d1', 'D14342 Evan', '4d + 1 pair is ~90% sub-7 for AR-21 and 0% for other AR (4c4e)', 'correct', ', '.join(f'4d 1p {k} {x:.3f}' for k, x in r.items()))
 r = {l: p6(m44 & cc(l) & (F['pairs'] == 1) & arm(2, 1)) for l in 'abd'}
-ms = m44 & cc('a') & (F['pairs'] == 1) & arm(2, 1); st = ms & (F['lr_split'] == 4); ns = ms & (F['lr_split'] != 4)
-claim('D14402-21-1p', 'D14402-D14403 Evan', '1 pair + AR-21: b corners 29%, d corners 89%, a corners ~34% if stacked, < 5% otherwise', f'b and d correct; a: "stacked" read as all four bad corners on one side face ({p6(st):.3f}, matches), but the other a cases are {p6(ns):.3f}, not under 5%',
-      ', '.join(f'{l} {x:.3f}' for l, x in r.items()) + f'; a stacked {p6(st):.3f} ({int(st.sum())} states), a not stacked {p6(ns):.3f} ({int(ns.sum())})', example(pick(ns, d <= 6), 'a sub-7 4a, 1 pair, AR-21 state with the corners not stacked'))
+# "stacked" as in the sheet Evan linked in the next message (arm/pairs, tab 44-more: "all-F means all bad corners are on
+# F/B", "col-F means the bad corners make columns orthogonal to F/B"): each bad corner directly above or below another,
+# i.e. the layouts allF, allR and colU; the other three layouts (allU, colF, colR) are the "otherwise"
+ms = m44 & cc('a') & (F['pairs'] == 1) & arm(2, 1)
+allF, allR, allU = F['fb_split'] == 4, F['lr_split'] == 4, F['ud_split'] == 4
+LAY = {'allF': allF, 'allR': allR, 'colU': cols_along(1) & ~allF & ~allR, 'allU': allU, 'colF': cols_along(2) & ~allU & ~allR, 'colR': cols_along(0) & ~allU & ~allF}
+assert (sum(v.astype(int) for v in LAY.values())[ms] == 1).all()
+st = ms & cols_along(1); ns = ms & ~cols_along(1)
+assert (st == (ms & (LAY['allF'] | LAY['allR'] | LAY['colU']))).all()
+lay = {k: (frac(ms & v), int((ms & v).sum())) for k, v in LAY.items()}
+ok = abs(r['b'] - .29) < .006 and abs(r['d'] - .89) < .006 and abs(frac(st) - .34) < .015 and all(lay[k][0] < .05 for k in ('allU', 'colF', 'colR'))
+exU = fx.state_solved_by("L U2 F2 L2 U2 D L"); assert (ms & LAY['allU'])[exU] and d[exU] == d[ms & LAY['allU']].min()
+claim('D14402-21-1p', 'D14402-D14403 Evan', '1 pair + AR-21: b corners 29%, d corners 89%, a corners ~34% if stacked, < 5% otherwise', 'correct, with stacked = each bad corner directly above or below another (the layouts allF, allR, colU of the sheet Evan linked)' if ok else 'wrong',
+      ', '.join(f'{l} {x:.3f}' for l, x in r.items()) + f'; a stacked {frac(st):.3f} ({int(st.sum())} states), a not stacked {frac(ns):.3f} ({int(ns.sum())}); by layout ' + ', '.join(f'{k} {x:.3f} ({n_})' for k, (x, n_) in lay.items()),
+      example(exU, 'a 4a, 1 pair, AR-21 state with all four bad corners in one layer (allU, not stacked): the shortest of its layout'))
+cells('D14402-21-1p', b=frac(m44 & cc('b') & (F['pairs'] == 1) & arm(2, 1)), d=frac(m44 & cc('d') & (F['pairs'] == 1) & arm(2, 1)), a=frac(ms), n_a=int(ms.sum()), stacked=frac(st), n_stacked=int(st.sum()), other=frac(ns), n_other=int(ns.sum()), min_allU=int(d[ms & LAY['allU']].min()),
+      **{k: x for k, (x, n_) in lay.items()}, **{'n_' + k: n_ for k, (x, n_) in lay.items()})
 r = {a_: p6(m44 & cc('a') & arm(2, int(a_))) for a_ in '012'}
 claim('D14348-4a2X', 'D14348 Evan', '4a corners are basically the same for all AR-2X (4c4e)', 'wrong: 4a 20 / 21 / 22 differ by a factor of 1.1-1.8' if max(r.values()) > 1.3 * min(r.values()) else 'correct', ', '.join(f'4a 2c{k}e {x:.3f}' for k, x in r.items()))
 r = {k: p6(m44 & cc(k[0], int(k[1]))) for k in ['a0', 'a2', 'b0', 'b2']}
@@ -82,8 +121,29 @@ claim('T8123-0p', 'T8123 rodneykinney (answer to T8107 Nico)', 'to catch 0-pair 
       f"F2 B2 R state: {fx.describe(F, fbr)}; D F2 B2 R state: {fx.describe(F, dfbr)}; 4c4e 0 pairs, no fake pairs: 4a-0 {p6(m44 & (F['pairs'] == 0) & (F['fake'] == 0) & cc('a', 0)):.3f}, 4d {p6(m44 & (F['pairs'] == 0) & (F['fake'] == 0) & cc('d')):.3f}, 4b-2 {p6(m44 & (F['pairs'] == 0) & (F['fake'] == 0) & cc('b', 2)):.3f}", example(dfbr, 'state solved by D F2 B2 R'))
 mins = {k: int(d[m42 & cc(k[0], int(k[1]))].min()) for k in ['a0', 'a2', 'b0', 'b2', 'c1', 'd2']}
 claim('T8149-4b2', 'T8149 rodneykinney', '4c2e 4b-2: 6 moves is the absolute minimum; 4a-2 is good', 'correct' if mins['b2'] == 6 else 'wrong', 'shortest per case: ' + ', '.join(f'4{k[0]}-{k[1]} {x}' for k, x in mins.items()) + f"; 4a-2 sub-7 {p6(m42 & cc('a', 2)):.3f}, 4b-2 {p6(m42 & cc('b', 2)):.3f}")
-pp = {k: p6(m42 & cc('b', 0) & (F['pairs'] == k)) for k in range(3)}
-claim('T8147-3qt', 'T8147 rodneykinney', '4c2e: because it is a three-move trigger, no number of pairs saves 3qt corners (4b-0)', 'wrong: 4c2e 4b-0 with 2 pairs is above 50%', ', '.join(f'4b-0 {k}p {x:.3f}' for k, x in pp.items()), example(pick(m42 & cc('b', 0) & (F['pairs'] == 2), d <= 6)))
+# rodneykinney T8147: "3qt corners" in 4c2e.  rodneykinney counts quarter turns from the trigger of the DRM in hand
+# (T8132 "0qt from the trigger"; T8149: 4c2e 4b-2 "corners are 2qt"), and the 4c2e table T8140 leaves out 4a at every
+# pair count.  The corners of R U2 R are 4b-0; three U/D quarter turns from them (half turns free) are 4a-0 and 4a-4,
+# which the sheet of the time (DRM corner variant+pair stats) folds into one row, 4a-0.
+trig = fx.state_solved_by('R U2 R'); assert m42[trig] and cc('b', 0)[trig] and F['carm'][trig] == 0
+co_trig = sorted({fx.state_solved_by(' '.join([a_, x_, b_])) // geom.N_SL for f_ in 'RL' for a_ in (f_, f_ + "'") for x_ in ('U2', 'D2') for b_ in (f_, f_ + "'")})
+qd = qt_from(co_trig); nc_co = fx.bad.sum(1); cc_co = fx.corner_case(fx.bad); ca_co = fx.arm_c.sum(1)
+qt = {}
+for c_ in np.flatnonzero(nc_co == 4):
+    qt.setdefault(f"4{'abcd'[cc_co[c_]]}-{int(ca_co[c_])}", set()).add(int(qd[c_]))
+assert all(len(v) == 1 for v in qt.values()); qt = {k: v.pop() for k, v in sorted(qt.items())}
+assert qt['4b-0'] == 0 and qt['4b-2'] == 2 and [k for k, v in qt.items() if v == 3] == ['4a-0', '4a-4']
+fold = m42 & cc('a') & (F['carm'] != 2); a0 = m42 & cc('a', 0); a4 = m42 & cc('a', 4)
+pf = [frac(fold & (F['pairs'] == k)) for k in range(3)]; p0_ = [frac(a0 & (F['pairs'] == k)) for k in range(3)]; p4_ = [frac(a4 & (F['pairs'] == k)) for k in range(3)]
+ex3 = fx.state_solved_by("R F2 B2 R F2 R'"); assert (a0 & (F['pairs'] == 2))[ex3] and d[ex3] == 6
+claim('T8147-3qt', 'T8147 rodneykinney (4c2e table T8140; T8132, T8149)', '4c2e: because it is a three-move trigger, no number of pairs saves 3qt corners (4a-0: three U/D quarter turns from the corners of R U2 R, which are 4b-0)',
+      'depends on the fold: no 4a-0 case is under 6 moves and the row as the sheet folds it (corner ARM 0 or 4) is at most 25% sub-7; with corner ARM 0 alone, 2 pairs are 50%',
+      '4a-0 as the sheet folds it (corner ARM 0 or 4): ' + ', '.join(f'{k}p {x:.3f}' for k, x in enumerate(pf)) + '; corner ARM 0: ' + ', '.join(f'{k}p {x:.3f}' for k, x in enumerate(p0_))
+      + '; corner ARM 4: ' + ', '.join(f'{k}p {x:.3f}' for k, x in enumerate(p4_)) + f'; shortest: corner ARM 0 {int(d[a0].min())}, corner ARM 4 {int(d[a4].min())}'
+      + '; U/D quarter turns (half turns free) from the corners of R U2 R: ' + ', '.join(f'{k} {v}' for k, v in qt.items()),
+      example(ex3, 'a 4c2e with 4a-0 corners (corner ARM 0) and 2 pairs: 6 moves, with three R quarter turns'))
+assert max(p4_) == 0
+cells('T8147-3qt', fold=pf, arm0=p0_, arm4=p4_, min_arm0=int(d[a0].min()), min_arm4=int(d[a4].min()), n_arm0_2p=int((a0 & (F['pairs'] == 2)).sum()), qt=qt)
 claim('D16266-4a', 'D16266 Zagros', '4c2e with 4a corners almost always sucks', 'correct', f"4c2e 4a {p6(m42 & cc('a')):.3f} vs all 4c2e {p6(m42):.3f}")
 claim('D15161-jzp-b', 'D15161 Daichi', '4c2e 0 pairs: JZP with b corners is way better than with a corners', 'correct' if p6(m42 & (F['pairs'] == 0) & (F['jzp'] == 1) & cc('b')) > p6(m42 & (F['pairs'] == 0) & (F['jzp'] == 1) & cc('a')) else 'wrong',
       f"b {p6(m42 & (F['pairs'] == 0) & (F['jzp'] == 1) & cc('b')):.3f}, a {p6(m42 & (F['pairs'] == 0) & (F['jzp'] == 1) & cc('a')):.3f}")
@@ -161,4 +221,5 @@ with open(os.path.join(pop.OUT, 'claims.tsv'), 'w') as f:
     f.write('id\tsource\tclaim\tverdict\tnumbers\texample (setup from solved, optimal DR, replayed on cube.py)\n')
     for r_ in rows: f.write('\t'.join(r_) + '\n')
 json.dump(EX, open(os.path.join(pop.BIG, 'claims_examples.json'), 'w'), indent=1)
+json.dump(CELLS, open(os.path.join(pop.OUT, 'claims_cells.json'), 'w'), indent=1)
 for r_ in rows: print(f'{r_[0]:16s} | {r_[3][:90]:90s} | {r_[4][:150]}')

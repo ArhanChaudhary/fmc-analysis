@@ -18,7 +18,7 @@ It builds on Cale's *DR setup stats*, Louis's *DRM/ARM average optimals*, rodney
 |---|---|
 | [report/WRITEUP.md](report/WRITEUP.md) | the write-up |
 | [report/EXAMPLES.md](report/EXAMPLES.md) | worked examples: 200 real attempts from uniform scrambles, with what to trace, the card's verdict and the optimal DR after the switch, folded away |
-| [report/BUGS.md](report/BUGS.md) | errata: what the numbers show is wrong in things said on the server |
+| [report/BUGS.md](report/BUGS.md) | errata: the one statement from the server that the numbers go against, with an example |
 | `research/SPEC.md` | the questions and the model |
 | `research/eoswtools/` | the Rust side: the BFS over all 1,082,565 EO-solved cases, the second-axis completions, the RZP weights, the sampled attempts |
 | `research/src/` | the Python side: features (sticker model), the two-ring model and its counts (`rings.py`, `xrings.py`, `xtrace_rings.py`), populations, reproduction, grading, rule search, NISS and tracing checks, claims, witnesses, report tables, examples page |

@@ -361,6 +361,7 @@ E['repro_by'] = {k: v for k, v in by.items()}
 E['mismatch'] = [{k: r[k] for k in ('source', 'quantity', 'published', 'ours', 'verdict')} for r in rp if not r['verdict'].startswith(('match', 'within'))]
 # claims
 E['claims'] = {r['id']: r for r in T('claims.tsv')}
+E['claimx'] = json.load(open(OUT + 'claims_cells.json'))        # numbers of the claims rows, one value per key (claims.py)
 E['checks_niss'] = {r['check']: [int(r['cubes']), int(r['holds'])] for r in T('checks_niss.tsv')}
 E['checks_trace'] = {f"{r['check']}|{r['sample']}": [int(r['cubes']), int(r['holds'])] for r in T('checks_trace.tsv')}
 E['checks_variants'] = {r['quantity']: r for r in T('checks_variants.tsv')}

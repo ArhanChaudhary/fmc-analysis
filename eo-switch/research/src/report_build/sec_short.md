@@ -167,15 +167,9 @@ The switched state is exactly uniform again, for every DRM, because the inverse 
 - **Confirmed: Zagros's 8c8e condition**, "8e8c - R L but only if four corners are clockwise and four are ccw (7/1 is possible)" ([[T6505]]): all {= n(RJ['c88']['n44']) =} 8c8e cases with a 4-4 split have a DR with two quarter turns, and none of the {= n(RJ['c88']['n71']) =} with a 7-1 split has (section 13).
 - **Confirmed: the NISS predictors.** The ARM axis swap, R/L stickers on U/D for corner ARM, rodneykinney's corner-case flow chart and wen's pair tracing each held on every one of {= n(NISS('ARM axis swap: ARM for U/D DR on normal = ARM for R/L DR on inverse (uniform)')[0]) =} sampled cubes. Louis's same-axis version, which Louis took back at the time, holds on only {= pc(NISS('ARM for U/D DR on normal = ARM for U/D DR on inverse, same axis')[1] / NISS('ARM for U/D DR on normal = ARM for U/D DR on inverse, same axis')[0]) =} (section 7).
 - **Confirmed: the published tables.** {= n(E['repro']['match']) =} of {= n(E['repro']['n']) =} published numbers reproduce. The two that don't are sampled cells in Evan's *arm/pairs*, low by {= f3(float(REP('4c4e 2 pairs sub-7', 'ours', 'C13')) - float(REP('4c4e 2 pairs sub-7', 'published', 'C13'))) =} and {= f3(float(REP('4c4e 3 pairs sub-7', 'ours', 'C13')) - float(REP('4c4e 3 pairs sub-7', 'published', 'C13'))) =} (section 12).
-- **Corrected** (errata, each with an example). One claim per row:
-
-| Claim | Who | What the numbers say |
-|---|---|---|
-| 10 4c4e ARM sets can be sub-6 after a switch | Jay ([[T4256]]) | 11 ✓: AR-4c1e is missing |
-| "no number of pairs will save 3qt corners" (4c2e) | rodneykinney ([[T8147]]) | 3qt corners (4b-0) with 2 pairs are {= pc(EV('T8147-3qt', '4b-0 2p ')) =} ✓ sub-7 |
-| 1 pair + AR-21 with a corners, "< 5% otherwise" | Evan ([[D14402]]) | {= pc(EV('D14402-21-1p', 'a not stacked ', ' ')) =} ✓ |
-
-- **Depends**: rodneykinney's "there aren't any 4-movers with 0 or 1 pairs" ([[T597]]) holds with side pairs counted, not for top pairs alone (first line below); and the 0-pair catch for that case misses the same case one U/D turn earlier (second line) (section 13).
+- **Confirmed: Evan's stacked corners.** For 4c4e with 1 pair and ARM 21, "a corners - ~34% if corners are stacked, < 5% otherwise" ([[D14402]]): with each bad corner directly above or below another the a corners are {= pc(CX('D14402-21-1p', 'stacked')) =}, and otherwise {= pc(CX('D14402-21-1p', 'other')) =} (section 13).
+- **Corrected** (one statement, in the [errata](errata.html) with an example): Jay's count by hand of the 4c4e ARM sets that can be sub-6 after a switch, "10 total sets that can be sub 6 out of the 15 total sets" ([[T4256]], after "I believe I now know"), is {= CX('T4256-sets', 'n6') =} ✓: AR-4c1e is missing.
+- **Depends**: rodneykinney's "there aren't any 4-movers with 0 or 1 pairs" ([[T597]]) holds with side pairs counted, not for top pairs alone (first line below); and the 0-pair catch for that case misses the same case one U/D turn earlier (second line). rodneykinney's "no number of pairs will save 3qt corners" for 4c2e ([[T8147]]) is about 4a-0 corners, the ones {= CX('T8147-3qt', 'qt', '4a-0') =} U/D quarter turns from the `R U2 R` corners: no such case is under {= CX('T8147-3qt', 'min_arm0') =} moves and with 2 pairs they are {= pc(CX('T8147-3qt', 'fold', 2)) =} as rodneykinney's sheet folds them, but {= pc(CX('T8147-3qt', 'arm0', 2)) =} for the {= n(CX('T8147-3qt', 'n_arm0_2p')) =} with corner ARM 0 (section 13).
 
 ```
 F2 B2 R    // 4c4e with no top pair
