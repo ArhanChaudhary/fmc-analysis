@@ -67,7 +67,7 @@ def q3():
         f.write('group\tn\t' + '\t'.join(c for c, _ in cols) + '\n')
         for g, subs in groups():
             n = sum(len(ST[s]['d']) for s in subs)
-            f.write(f'{g}\t{n}\t' + '\t'.join(f'{mean(subs, fn):.4f}' for _, fn in cols) + '\n')
+            f.write(f'{g}\t{n}\t' + '\t'.join(f'{mean(subs, fn):.9f}' for _, fn in cols) + '\n')
     # "does an L-move HTR give an optimal": among states whose shortest NISS (resp. linear) HTR is L,
     # share where some optimal finish uses an HTR of exactly L moves (resp. a linear one)
     with open(f'{OUT}/q3_htr_by_length.tsv', 'w') as f:
@@ -104,7 +104,7 @@ def q4():
         f.write('group\tn\t' + '\t'.join(c for c, _ in cols) + '\n')
         for g, subs in groups():
             n = sum(len(ST[s]['d']) for s in subs)
-            f.write(f'{g}\t{n}\t' + '\t'.join(f'{mean(subs, fn):.4f}' for _, fn in cols) + '\n')
+            f.write(f'{g}\t{n}\t' + '\t'.join(f'{mean(subs, fn):.9f}' for _, fn in cols) + '\n')
 
 def q5():
     cols = [
@@ -121,7 +121,7 @@ def q5():
         f.write('group\tn\t' + '\t'.join(c for c, _ in cols) + '\n')
         for g, subs in groups():
             n = sum(len(ST[s]['d']) for s in subs)
-            f.write(f'{g}\t{n}\t' + '\t'.join(f'{mean(subs, fn):.4f}' for _, fn in cols) + '\n')
+            f.write(f'{g}\t{n}\t' + '\t'.join(f'{mean(subs, fn):.9f}' for _, fn in cols) + '\n')
 
 def name_map():
     m = {}

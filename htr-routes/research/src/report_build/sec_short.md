@@ -99,7 +99,7 @@ FakeMMAP asked whether "the typical bound is M \geq 11, rather than M \geq 7" ([
 
 That's one or two above the trivial bound, and it reaches the optimum in only {= CELL('lb_shares', '2c3', 'Bound reaches the optimum') =} of 2c3 cases. The per-subset tables rodneykinney asked for ([[T11512]]) are in section 9 and appendix A.
 
-**Hand checklists graded.** Zagros's eight-step 4b2 order finds the optimal on {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_opt_htr_budget2') =} with budget-2 HTRs and a finish within +1 on {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_p1_htr_budget2') =}; with the HTR limits as Zagros stated them (none on step 2, "even if it's long"), {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_opt_stated') =} and {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_p1_stated') =}. On 4b2 4e, the share each approach finds the optimal on:
+**Hand checklists graded.** Zagros's eight-step 4b2 order finds the optimal on {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_opt_htr_budget2') =} with budget-2 HTRs and a finish within +1 on {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_p1_htr_budget2') =}; with the HTR limits as Zagros stated them (none on steps 1 and 2, which are graded together, "even if it's long"), {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_opt_stated') =} and {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_p1_stated') =}. On 4b2 4e, the share each approach finds the optimal on:
 
 | Approach | Optimal found |
 |---|---|
