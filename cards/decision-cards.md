@@ -6,6 +6,8 @@ Six questions that come up mid-attempt, one card each, grouped by stage. Every c
 - EO to DR: [Should I switch this EO?](#should-i-switch-this-eo) · [Should I add some random moves to this EO?](#should-i-add-some-random-moves-to-this-eo)
 - DR to HTR: [Should I continue checking variants of this route?](#should-i-continue-checking-variants-of-this-route) · [Should I NISS in the middle of this route?](#should-i-niss-in-the-middle-of-this-route)
 
+**How I read the questions.** Three of them needed a reading. "Partial EOs" are slice EOs (the DR-1s / DR-2s 8fe approach), and "random moves" are RZP, the way people use both words here. "Variants of this route" I read as other ways through the same route; the card also answers the other likely reading, variations of the DR itself. If you meant something else by any of them, tell me and I'll redo that card.
+
 **How to read these.** *What you check* is the stuff you can see during an attempt. Some numbers count every DR or every finish that exists, which nobody can search by hand. Those are marked **computer only**: treat them as the answer key, and use the comparison, not the move count. Shares are over uniformly random scrambles or states unless I say otherwise. There's no clock in any of this: the cards tell you what the next thing is worth, not how long it'll take you. Routes are written like in the HTR study, the subsets after each qt with the bracket on the other side: `4b2 2c3 (4b2 4a1 0c0)`.
 
 November 2026. A date in brackets links to that message on the FMC solvers Discord.
@@ -164,6 +166,8 @@ The case matters more than the RZP does: a natural 4c4e or 4c2e gets a DR in 6 m
 ### Should I continue checking variants of this route?
 
 **Yes, at least until the HTRs you're getting are 2 moves longer than the shortest one you know for that DR. On every subset, one route checked that far finds optimal more often than three routes where you only look at their shortest HTRs.** By variant I mean another way to follow the same route (different setup, different qt), which usually means a longer HTR.
+
+*How I read the question.* "Variants" on the server usually means variations of moves you already have, so you might have meant variations of the DR itself (the last DR move the other way, a different trigger), not more HTRs on one route. The DR's last move is the one I can answer: turned the other way it gives a finish one move shorter on 32.5% of DRs, never more than one ([section 7](htr-routes/#7-extra-quarter-turns-and-the-last-dr-move)), so that's always worth a look. Other DR variations (other triggers, other DRs off the same RZP) aren't measured here.
 
 *What you check:* the subset (first route per subset is in the table) and how long the HTRs you've found on it are.
 
