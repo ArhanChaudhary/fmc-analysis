@@ -1,4 +1,6 @@
-## 4. The switch cards, DRM by DRM
+## 6. The switch cards, DRM by DRM
+
+These are the best rules if a pair trace is all you do: pairs, side pairs, ARM, JZP, the corner case. The half-turn and side-turn counts of sections 4 and 5 do better where you see the setup, and the two stack (section 5.5).
 
 **The cards.** Exact over all cases of the DRM. Each row is one verdict group of a DRM's card: what to check on the switched case, the share of the DRM that lands in the group, and the group's sub-7 rate. A DRM with no row for a verdict has no such group.
 
@@ -8,7 +10,7 @@ What each card does to the whole DRM, one row per DRM. *Settled* is the share of
 
 {{rule_cards_sum}}
 
-How the cards were chosen: every cross-table of one, two or three readable features (38 features, section 9) was scored per DRM by how much of the DRM it puts in cells under 10% or over 50%. A card is the best of the ones a solver can trace, kept only if every labelled cell stays in its band on the cases RZPs reach and on the real attempts. Each verdict above is its group's own band (checked when the tables are built). I timed nothing. The only timing on the server is Yura Riabov's for pairs + ARM on 4c4e, "Like 5 seconds", "±2", "That's for 4c4e btw, for 7c8e it's longer" ([[D14244]], [[D14245]], [[D14248]]). The cards ask for no more than that: a pair trace, and for 4c4e one look at the edges.
+How the cards were chosen: every cross-table of one, two or three readable features (38 features, section 11) was scored per DRM by how much of the DRM it puts in cells under 10% or over 50%. A card is the best of the ones a solver can trace, kept only if every labelled cell stays in its band on the cases RZPs reach and on the real attempts. Each verdict above is its group's own band (checked when the tables are built). I timed nothing. The only timing on the server is Yura Riabov's for pairs + ARM on 4c4e, "Like 5 seconds", "±2", "That's for 4c4e btw, for 7c8e it's longer" ([[D14244]], [[D14245]], [[D14248]]). The cards ask for no more than that: a pair trace, and for 4c4e one look at the edges.
 
 **The cards cell by cell, with the RZP length.** Each row is one cell of a card, with its size and its exact sub-7 rate:
 
@@ -20,7 +22,7 @@ The same cells on the real attempts at a total of 5 (EO + RZP), and the exact sh
 
 So after a 4-move RZP, almost every 4c4e case with a paired edge is a switch, and after a 6-move RZP almost nothing is. The cut-offs that solvers already use ("i'll add 1 to trigger if it's 3c2e specifically", Jay, [[D239]]) fit this: 3c2e is {= pc(RCELL('3c2e', 0, 'p5')) =} for DR in 5, about what 4c4e with both edges paired is ({= pc(RCELL('4c4e', 0, 'p5')) =}).
 
-### 4.1 4c4e
+### 6.1 4c4e
 
 Trace the pairs on the inverse as usual, but keep track of which bad edges they sit on.
 
@@ -40,7 +42,7 @@ Edge ARM 1 is the same thing as *the two bad edges are in different slices*, so 
 
 So 4d corners are rare but a near-certain switch (this is Evan's "4d+1 is extremely good for AR-21 (~90% sub-7)", [[D14342]]). ARM 21 with 4b corners is a third. Corner ARM 0 or 4 with 4b corners is a discard. So with one paired edge and edge ARM 1: corner ARM 2 means switch if your cut is 30% or less (4b, 4d) and think again with 4a; corner ARM 0 or 4 means switch only with 4a; corner ARM 1 or 3 is {= CELL('c44_check', 'corner ARM 1 or 3 (4c corners)', 'Sub-7 rate, exact') =}.
 
-Against the rules in use (section 7). Each row is a group a rule switches or discards, with its share of 4c4e and its sub-7 rate:
+Against the rules in use (section 9). Each row is a group a rule switches or discards, with its share of 4c4e and its sub-7 rate:
 
 | 4c4e group | Share of 4c4e | Sub-7 rate |
 |---|---|---|
@@ -52,9 +54,9 @@ Against the rules in use (section 7). Each row is a group a rule switches or dis
 
 The card's switch group is smaller and better. The new part is the middle: you know which {= pc(RG('4c4e', 'check', 'share')) =} are worth a thought.
 
-### 4.2 4c2e
+### 6.2 4c2e
 
-**Pairs + side pairs/2: 1.5 or more, switch; exactly 1, your call; 0 or 0.5, discard.** This is rodneykinney's rule ([[T9466]], [[T9468]]), and it switches exactly the same cases as Jay's ([[T8144]]) and tseitsei89's ([[T9321]]). The card adds the discard end ({= pc(RG('4c2e', 'discard', 'share')) =} of 4c2e at {= pc(RG('4c2e', 'discard')) =}) and a way to read side pairs from normal (section 5). One row per count of pairs and side pairs:
+**Pairs + side pairs/2: 1.5 or more, switch; exactly 1, your call; 0 or 0.5, discard.** This is rodneykinney's rule ([[T9466]], [[T9468]]), and it switches exactly the same cases as Jay's ([[T8144]]) and tseitsei89's ([[T9321]]). The card adds the discard end ({= pc(RG('4c2e', 'discard', 'share')) =} of 4c2e at {= pc(RG('4c2e', 'discard')) =}) and a way to read side pairs from normal (section 7). One row per count of pairs and side pairs:
 
 {{c42_cells}}
 
@@ -62,13 +64,13 @@ The your-call group is 1 pair and no side pair ({= CELL('c42_cells', '1 pair, 0 
 
 Nothing cheap splits the your-call group well. By corner ARM, edge ARM or corner case every part stays between {= min([CELL('c42_check', r, 'Sub-7 rate, exact') for r in ['corner ARM 0', 'corner ARM 1', 'corner ARM 2', 'corner ARM 3', 'corner ARM 4', 'edge ARM 0', 'edge ARM 1', '4a corners', '4b corners', '4c corners', '4d corners']], key=lambda x: float(x.rstrip('%'))) =} and {= max([CELL('c42_check', r, 'Sub-7 rate, exact') for r in ['corner ARM 0', 'corner ARM 1', 'corner ARM 2', 'corner ARM 3', 'corner ARM 4', 'edge ARM 0', 'edge ARM 1', '4a corners', '4b corners', '4c corners', '4d corners']], key=lambda x: float(x.rstrip('%'))) =}, and the best part is JZP ({= CELL('c42_check', 'JZP', 'Sub-7 rate, exact') =}, {= CELL('c42_check', 'JZP', 'Share of the DRM') =} of 4c2e). Table in appendix A.
 
-### 4.3 3c2e and 2c2e
+### 6.3 3c2e and 2c2e
 
 **3c2e: always switch** ({= pc(RULE('3c2e', 'all', 'p6')) =}). With a pair it is {= CELL('c32_pairs', '1 pair', 'Sub-7 rate, exact') =}, without {= CELL('c32_pairs', '0 pairs', 'Sub-7 rate, exact') =}. wen's rule (switch on a pair, a fake pair or a split pair, [[D16512]]) switches {= pc(GR('32-wen', 'share_switched')) =} at {= pc(GR('32-wen', 'precision')) =} and never drops a case of 5 or less, as wen said.
 
 **2c2e: switch with a paired edge** ({= pc(RG('2c2e', 'switch')) =}), **your call with no pair but JZP** ({= pc(RG('2c2e', 'check')) =}), otherwise discard ({= pc(RG('2c2e', 'discard')) =}). It's rare, {= pc(VAR('2c2e', 'cosets') / 1082565) =} of EO-solved cases.
 
-### 4.4 7c8e
+### 6.4 7c8e
 
 **5 or 6 pairs: switch** ({= pc(RG('7c8e', 'switch')) =}, rodneykinney's "For 7c8e, it's 5 or 6 pairs", [[T8142]]). **3 or fewer: discard** ({= pc(RG('7c8e', 'discard')) =}). **4 pairs: your call** ({= pc(RG('7c8e', 'check')) =}), and here edge ARM is the split. Each row is 4 pairs with one edge ARM:
 
@@ -78,9 +80,9 @@ So 4 pairs with edge ARM 1 is worth switching at a 30% cut, and 4 pairs otherwis
 
 {{c78_pairs}}
 
-ARM on top of pairs adds little: the full pairs × ARM table settles {= pc(STRICT('7c8e', 'pairs+carm+earm')) =} of 7c8e, against {= pc(STRICT('7c8e', 'pairs')) =} for pairs alone (section 8).
+ARM on top of pairs adds little: the full pairs × ARM table settles {= pc(STRICT('7c8e', 'pairs+carm+earm')) =} of 7c8e, against {= pc(STRICT('7c8e', 'pairs')) =} for pairs alone (section 10).
 
-### 4.5 8c8e
+### 6.5 8c8e
 
 **No group is a switch.** The one cheap discard is corner ARM 2, 3, 5 or 6 ({= pc(RG('8c8e', 'discard', 'share')) =} of 8c8e at {= pc(RG('8c8e', 'discard')) =}). The rest (corner ARM 0, 4 or 8) is {= pc(RG('8c8e', 'check')) =}, your call. One row per corner ARM:
 
@@ -88,7 +90,7 @@ ARM on top of pairs adds little: the full pairs × ARM table settles {= pc(STRIC
 
 Pairs don't help much for 8c8e: the best common pair count, 6, is {= CELL('c88_pairs', '6 pairs', 'Sub-7 rate, exact') =} (appendix A). The best 1-3 feature rule needs {= E['c88_65']['cells'] =} cells (edge ARM × pairs × the orbit case of the out-of-AR corners) to settle {= pc(E['c88_65']['strict_sep_P1']) =}, which is **computer only**. The *correct 8c* check (R L gives JZP, Jay [[T3767]], Yura Riabov [[D16930]]) is always sub-7, but it covers {= pc(GR('88-correct', 'share_switched')) =} of 8c8e.
 
-### 4.6 The low DRMs: 4c6e, 3c4e, 3c6e, 5c4e, 5c6e, 6c6e
+### 6.6 The low DRMs: 4c6e, 3c4e, 3c6e, 5c4e, 5c6e, 6c6e
 
 **Discard**, with these exceptions worth knowing:
 
@@ -100,4 +102,4 @@ By pairs, one row per DRM and pair count (JZP as its own row):
 
 {{low_pairs}}
 
-Together these exceptions catch few of the sub-7 cases: {= pc(RULE('4c6e', 'kept')) =} of 4c6e's in its switch group. No rule of up to three traceable features does much better (section 9).
+Together these exceptions catch few of the sub-7 cases: {= pc(RULE('4c6e', 'kept')) =} of 4c6e's in its switch group. No rule of up to three of those features does much better (section 11). A short setup does (section 5.5).

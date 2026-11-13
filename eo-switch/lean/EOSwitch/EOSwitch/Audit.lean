@@ -5,6 +5,7 @@
 import EOSwitch.Model
 import EOSwitch.Theorems
 import EOSwitch.Recount
+import EOSwitch.RingsThm
 namespace EOSwitch
 -- A
 #print axioms model_size
@@ -52,4 +53,25 @@ namespace EOSwitch
 #print axioms example_labels
 #print axioms coset_of_relabel
 #print axioms rzp_last_turn
+-- F (RingsThm.lean)
+#print axioms ring_places
+#print axioms compact_states
+#print axioms ring_turns
+#print axioms ring_faithful
+#print axioms ring_records
+#print axioms side_turns
+#print axioms side_turns_certain
+#print axioms side_turns_by_drm
+#print axioms profiles_by_drm
+#print axioms cross_by_drm
+#print axioms ring_swaps_checked
+#print axioms half_turns_to_bars
+#print axioms bands_4c4e
+#print axioms swaps_slot_4c4e
+#print axioms pairs_bands_4c4e
+#print axioms card_split_4c4e
+#print axioms inside3_4c4e
+#print axioms pair_change
+#print axioms three_pair_rule
+#print axioms patterns_le2
 end EOSwitch

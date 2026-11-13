@@ -1,9 +1,10 @@
-## 5. Reading the switched case from normal
+## 7. Reading the switched case from normal
 
 You decide before switching, so every feature of the cards has to be seen on the normal side, after EO + RZP. I tested each reading below on uniformly random cubes with the EO solved (a random case, then random pieces): read it on the normal cube, compare with the feature of its inverse. One row per feature; *Held* is on how many of the cubes tested the reading gave the right count.
 
 | Feature on the switched case | What to look at on normal | Source | Held (cubes right of cubes tested) |
 |---|---|---|---|
+| The two rings and the holes | **each U/D edge in the E slice marks its own edge place; each misoriented corner marks its own corner place and points at the edge place of its U/D colour and the side colour that is not showing on the U/D face; each E-slice edge in the U or D layer marks its own slot** | new here (wen's pair tracing, kept for every corner) | {= n(TRR('both rings', 'uniform')[1]) =} of {= n(TRR('both rings', 'uniform')[0]) =} |
 | Corner ARM | R/L stickers on the U/D faces (corners) | rodneykinney, *DR - 4c4e Theory* | {= n(NISS('R/L stickers on U/D faces (normal) = corner ARM on inverse (uniform)')[1]) =} of {= n(NISS('R/L stickers on U/D faces (normal) = corner ARM on inverse (uniform)')[0]) =} |
 | ARM (both digits) | the ARM of the other DR axis on normal (U/D DR on inverse ↔ R/L DR on normal) | Cale [[T4202]], wen [[D7896]] | {= n(NISS('ARM axis swap: ARM for U/D DR on normal = ARM for R/L DR on inverse (uniform)')[1]) =} of {= n(NISS('ARM axis swap: ARM for U/D DR on normal = ARM for R/L DR on inverse (uniform)')[0]) =} |
 | Edge ARM | **the U/D edges sitting in the E slice whose other colour is the EO axis's (green/blue for F/B EO)**: how many | new here | {= n(TRACE('edge ARM', 'uniform')[1]) =} of {= n(TRACE('edge ARM', 'uniform')[0]) =} |
@@ -14,10 +15,24 @@ You decide before switching, so every feature of the cards has to be seen on the
 
 The pair tracing is wen's, as the guide puts it: "look at one of the edges in the E slice that don't belong there, then look at a misoriented corner, if the 2 stickers on the corner that are touching the E slice match with that E slice edge, then that's a pair on inverse". For the 4c4e card, note which E-slice edge each matching corner belongs to: two different edges is *both paired*. The corner-ARM count is rodneykinney's: "It's easy to predict how many corners will be out of AR on inverse: count the number of R/L stickers on the U/D face."
 
+**The two rings.** A piece that is out of place on normal marks its *own* place on the inverse. So the inverse's U ring is your U-coloured pieces and its D ring your D-coloured pieces, and you fill in the rings of section 4.1 by colour: with white on U and green on F, the U ring is white-blue, white-blue-red, white-red, white-red-green, white-green, white-green-orange, white-orange, white-orange-blue.
+
+- A ring edge place is bad if that edge is sitting in the E slice.
+- A ring corner place is bad if that corner is misoriented, wherever it is. To point it, look at which of its two side colours shows on the U or D face: it points at the edge place of its U/D colour and the *other* side colour. That is wen's tracing read the other way round: the corner's two stickers on the side faces are its U/D colour and that other colour.
+- The holes are the E-slice edges sitting in the U or D layer. For the hole number look at what the two of them share: an R/L colour (red or orange) is 0, nothing is 1, an F/B colour (green or blue) is 2.
+
+```
+white-red edge in the E slice                   // UR is bad
+white-red-green corner, green on the U/D face   // UFR points at UR: a pair
+white-blue-red corner, red on the U/D face      // UBR points at UB, away from UR: a fake pair
+```
+
+This gave both rings and the holes of the inverse, place for place, on {= n(TRR('both rings', 'uniform')[1]) =} of {= n(TRR('both rings', 'uniform')[0]) =} uniform cubes and {= n(TRR('both rings', '4c4e')[1]) =} of {= n(TRR('both rings', '4c4e')[0]) =} 4c4e cubes, and the half turns to two bars counted from it matched on all {= n(TRR('half turns', '4c4e')[1]) =} of the 4c4e ones. The control, pointing each corner at the other edge place, was right on {= n(TRR('control', 'uniform')[1]) =} of {= n(TRR('control', 'uniform')[0]) =}.
+
 **Edge ARM without changing axes.** The inverse's bad U/D edges are, piece for piece, the U/D edges sitting in the E slice on normal. One whose other colour is green or blue (F/B EO) belongs in the M slice, so it is an edge in M on the inverse. So for 4c4e, *edge ARM 1* on the switched case means exactly one of the two U/D edges in the E slice has a green/blue sticker. Jay's colour rule reads the same thing through the other axis ("the unsolved belt edges (edges in E that belong in U) with green/blue on RL as being not in AR", [[T4389]]). This version reads it straight off the edges you trace for pairs anyway.
 
 **Side pairs.** The 4c2e card needs side pairs on the inverse, and I found no tracing for them on the server. Jay said why they matter: "Side pair stats would be valuable simply because NISS EO's don't destroy them unlike top pairs" ([[D7497]]). The tracing in the table mirrors pair tracing: the E-slice edges that are out of the E slice (in U or D) play the edge, and the corner must carry both of the edge's colours and show its green or blue sticker on U or D. The control, the same count with the red or orange sticker on U or D, gives the right number on only {= n(TRACE('control', 'uniform')[1]) =} of {= n(TRACE('control', 'uniform')[0]) =} cubes, so the colour test is the whole rule.
 
-All three new readings also held on {= n(TRACE('side pairs', '4c2e')[0]) =} cubes drawn from 4c2e and {= n(TRACE('side pairs', '4c4e')[0]) =} from 4c4e. They're checked by sampling, not proved.
+The side-pair, edge-ARM and paired-edge readings also held on {= n(TRACE('side pairs', '4c2e')[0]) =} cubes drawn from 4c2e and {= n(TRACE('side pairs', '4c4e')[0]) =} from 4c4e. They're checked by sampling, not proved.
 
 The same-axis version of the ARM swap is wrong, as its author said at the time: Louis wrote "It remains the same on the same axis." ([[T4357]]) and then "Yes you're right it makes total sense" ([[T4361]]). It holds on {= n(NISS('ARM for U/D DR on normal = ARM for U/D DR on inverse, same axis')[1]) =} of {= n(NISS('ARM for U/D DR on normal = ARM for U/D DR on inverse, same axis')[0]) =} cubes.

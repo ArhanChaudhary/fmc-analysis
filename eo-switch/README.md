@@ -1,12 +1,15 @@
 # When to switch an EO
 
-The sixth case study of this repository: after EO + RZP, when to switch (go to the inverse, keep the EO and look for a short DR there). It gives a switch card per DRM, a rule a solver can check by tracing, with the sub-7 share of each verdict (switch, your call, discard) and how much of the DRM it settles. It shows how to read every feature of the cards from the normal side, including two new tracings (side pairs and edge ARM on the inverse). It also covers what a real RZP changes (the RZP bias, gone after a switch; the last RZP and EO turns; the second DR axis; RZP length), grades every switch rule from the FMC solvers Discord on the same terms, reproduces the published tables, and checks every concrete claim.
+The sixth case study of this repository: after EO + RZP, when to switch (go to the inverse, keep the EO and look for a short DR there). Its main result is a count: how many turns of the side faces the DR needs when U and D turns are free. A U or D turn never makes or breaks a pair, so a switched case is two rings (the U and D layers up to turning) and the four E-slice places, a half turn swaps a row between the rings, and a quarter turn has a one-line rule. For 4c4e the count is the number of half turns to two bars: 0 or 1 is a certain sub-7, 2 is 72.1%, 3 is 16.0%, 4 or 5 is 1.7%. For every DRM, 2 side turns or fewer is a certain sub-7, and 3 with no extra quarter turn is the switch group. The study also gives a switch card per DRM for a pair trace alone, shows how to read every feature (the rings included) from the normal side, covers what a real RZP changes (the RZP bias, gone after a switch; the last RZP and EO turns; the second DR axis; RZP length), grades every switch rule from the FMC solvers Discord on the same terms, reproduces the published tables, and checks every concrete claim.
 
-It builds on Cale's *DR setup stats*, Louis's *DRM/ARM average optimals*, rodneykinney's corner cases, *DRM corner variant+pair stats*, *DRM Subsets* and its trees, Evan's *arm/pairs* sheets, Fanti's rule sets, Radek B's and Levi Gibson's tables, wen's pair tracing, torchlight's RZP bias, and the hand rules of Yura Riabov, tseitsei89, wen, Jay, Noah Swor, Lewis Isom, caycala, compLex, Daichi and Zagros. What it adds:
+It builds on Cale's *DR setup stats*, Louis's *DRM/ARM average optimals*, rodneykinney's corner cases, *DR - 4c4e Theory* (the two-bar target and the half turns that form pairs), *DRM corner variant+pair stats*, *DRM Subsets* and its trees, Evan's *arm/pairs* sheets, Fanti's rule sets, Radek B's and Levi Gibson's tables, wen's pair tracing, torchlight's RZP bias, and the hand rules of Yura Riabov, tseitsei89, wen, Jay, Noah Swor, Lewis Isom, caycala, compLex, Daichi and Zagros. What it adds:
 
-- For 4c4e, a rule that settles about twice as many cases as pairs or ARM: count the paired edges, then look at edge ARM.
+- The two-ring picture, exact for every case: what U/D turns, half turns and quarter turns do to it.
+- For 4c4e, half turns to two bars: the bands above, the count as the larger of row swaps and a hole number, how to read it from a pair trace (exact rule for 3 and 4 pairs, a one-swap look for 2), and every ring picture with 2 swaps or fewer.
+- For every DRM, side turns: the certain class, quarter turns against half turns, the trigger cases in ring notation, and each card's groups split by them (7c8e with 5-6 pairs: 95.4% against 33.8%).
+- For 4c4e by a pair trace alone, a rule that settles about twice as many cases as pairs or ARM: count the paired edges, then look at edge ARM.
 - The your-call groups split by the corner case.
-- Side pairs and edge ARM read on the normal side.
+- The rings, side pairs and edge ARM read on the normal side.
 - Proof that the uniform tables are exact for switched RZPs.
 - A grade for every rule on exact cases and on 121.5 million real attempts.
 - That Fanti's figures are any-turn numbers.
@@ -18,9 +21,9 @@ It builds on Cale's *DR setup stats*, Louis's *DRM/ARM average optimals*, rodney
 | [report/BUGS.md](report/BUGS.md) | errata: what the numbers show is wrong in things said on the server |
 | `research/SPEC.md` | the questions and the model |
 | `research/eoswtools/` | the Rust side: the BFS over all 1,082,565 EO-solved cases, the second-axis completions, the RZP weights, the sampled attempts |
-| `research/src/` | the Python side: features (sticker model), populations, reproduction, grading, rule search, NISS and tracing checks, claims, witnesses, report tables, examples page |
+| `research/src/` | the Python side: features (sticker model), the two-ring model and its counts (`rings.py`, `xrings.py`, `xtrace_rings.py`), populations, reproduction, grading, rule search, NISS and tracing checks, claims, witnesses, report tables, examples page |
 | `research/out/` | the result tables (`SUMMARY.md` states every answer) |
-| `lean/EOSwitch/` | Lean certificate: its own BFS over all cases, the features from stickers, the distance histogram, the per-DRM counts and every cell of the card tables, and that the printed tables match |
+| `lean/EOSwitch/` | Lean certificate: its own BFS over all cases, the features from stickers, the distance histogram, the per-DRM counts and every cell of the card tables, and that the printed tables match; the two-ring picture and its turn rules on every case, side turns, half turns to two bars as the larger of row swaps and hole number, the band tables, the 3-pair recipe and the list of ring pictures with 2 swaps or fewer |
 
 ## How the numbers are made
 
@@ -33,6 +36,9 @@ Large outputs (`research/out/big/`, per-case data and the attempts) are not in t
     source /data/fmc/env.sh
     cd eo-switch/research/src
     python xtrace.py 20000                         # out/checks_trace.tsv: the tracings of section 5 on random cubes (a few minutes)
+    python rings.py                                # out/big/rings.npz, out/checks_rings.txt: the ring picture checked on every case, side turns, half turns to two bars
+    python xrings.py                               # report/data/ring_*.md, out/rings.json, out/ring_examples.json (every example replayed), out/rings_lean_ref.json
+    python xtrace_rings.py 20000                   # out/checks_trace_rings.tsv: the rings read on normal, on random cubes
     python xtables.py                              # report/data/*.md and out/report_extra.json
     python report_build/assemble.py --final        # report/WRITEUP.md (every number is computed; --final fails if one is missing)
     python report_build/assemble.py --bugs --final # report/BUGS.md

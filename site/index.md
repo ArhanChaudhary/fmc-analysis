@@ -52,8 +52,8 @@ From a DR to HTR: which routes find the optimal finish on each of the 48 subsets
 
 ## When to switch an EO
 
-After EO + RZP, when to switch to the inverse and look for a DR there: a switch card per DRM that you check by tracing, with the sub-7 share of each verdict and how much of the DRM it settles; how to read each feature from the normal side; what a real RZP changes; every switch rule from the server graded. Every EO-solved case solved exactly, and 121.5 million real attempts from 6,000 uniformly random scrambles.
+After EO + RZP, when to switch to the inverse and look for a DR there. Count the turns of the side faces with U and D turns free: for 4c4e the half turns to two bars sort it into certain (0 or 1), 72% (2), 16% (3) and under 2% (4 or 5), and every DRM has its short setups. Also a switch card per DRM for a plain pair trace; how to read it all from the normal side; what a real RZP changes; every switch rule from the server graded. Every EO-solved case solved exactly, and 121.5 million real attempts from 6,000 uniformly random scrambles.
 
-- [Write-up](eo-switch/): the switch cards, the tracings, the RZP bias and the last turns, the rules graded, the sheets reproduced and the claims check. It opens with the short version.
-- [Worked examples](eo-switch/examples.html): 200 real attempts, with what to trace before switching, the card's verdict and the optimal DR after the switch, answers folded away.
+- [Write-up](eo-switch/): the two rings and the half-turn count for 4c4e, side turns for every DRM, the switch cards, the tracings, the RZP bias and the last turns, the rules graded, the sheets reproduced and the claims check. It opens with the short version.
+- [Worked examples](eo-switch/examples.html): 200 real attempts, with what to trace before switching, the rings and the count, the card's verdict and the optimal DR after the switch, answers folded away.
 - [Errata](eo-switch/errata.html): what the numbers show is wrong in things said on the server, each with an example.

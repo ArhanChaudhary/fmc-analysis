@@ -1,4 +1,4 @@
-## 10. The sheets, reproduced
+## 12. The sheets, reproduced
 
 I recomputed every published number I could match to a definition: exact tables to their printed rounding, sampled ones within three standard errors of the exact value. One row per source:
 
@@ -13,6 +13,6 @@ I recomputed every published number I could match to a definition: exact tables 
 
 Its ARM 21 cell does match. None of the definitions I tried explains the gap (optimal with any turns, paired corners, edges with a pair).
 
-**Fanti's figures are any-turn.** Fanti's rule figures in *armpairs_1.txt* ([[D15160]]) match the optimum that allows F and B quarter turns exactly, not the EO-kept one (U, D, R, L, F2, B2) that the other tables use. EO-kept they move by about a point at most (section 11). I use EO-kept throughout: with an EO, you keep the EO.
+**Fanti's figures are any-turn.** Fanti's rule figures in *armpairs_1.txt* ([[D15160]]) match the optimum that allows F and B quarter turns exactly, not the EO-kept one (U, D, R, L, F2, B2) that the other tables use. EO-kept they move by about a point at most (section 13). I use EO-kept throughout: with an EO, you keep the EO.
 
 **What is in a match.** rodneykinney's *DRM corner variant+pair stats* ({= E['repro_by']['C8'][0] =} cells) and the *DRM Subsets* ranking and trees ({= E['repro_by']['C9'][0] =}) match exactly. Louis's corner-case and twist-split figures, Radek B's tables from Louis's data and Cale's two sheets match. Evan's subtype stats and Levi Gibson's simulations are within their sample error. rodneykinney's "findable sub-7" numbers (the *DRM Subsets* trees) are not reproduced: they classify the one optimal solution the generator kept per case, so they depend on search order. Louis's README says so: "optimal sequence is only the first one that is found by the search algorithm, others are discarded".

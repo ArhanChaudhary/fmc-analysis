@@ -8,4 +8,7 @@ import EOSwitch.Model
 import EOSwitch.Theorems
 import EOSwitch.Full
 import EOSwitch.Recount
+import EOSwitch.Rings
+import EOSwitch.RingsRef
+import EOSwitch.RingsThm
 import EOSwitch.Audit

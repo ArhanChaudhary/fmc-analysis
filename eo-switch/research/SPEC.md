@@ -42,3 +42,14 @@ by-hand reading and a rough cost to check.
 Exact distances from a BFS over the 1,082,565 cosets, matched against eo-to-dr's table and nissy on 1,000 states;
 every feature implementation unit-tested on hand-made states from the notes' examples; every printed line replayed on
 `is-dr-xs-worth-it/research/src/cube.py`. Lean certificate for the per-feature tables.
+
+## Addendum (2026-11-13): counts with U and D turns free
+U and D turns keep every pair, so a case reduces to two rings (the U and D layers up to turning: 4 edge places and 4
+corners each, a bad corner pointing at the edge place it would pair with) and the four E-slice places. Definitions,
+turn rules and exhaustive checks: `src/rings.py` (out/big/rings.npz, out/checks_rings.txt).
+- sigma: fewest side turns (R, L quarter or half, F2, B2) of any DR, U/D free; (q, h): quarter and half turns of the
+  side-turn-optimal setups (fewest quarter turns on ties); Q[q][h]: fewest moves of a DR with exactly that make-up.
+- 4c4e: hbar = fewest half turns before one R/L quarter turn finishes = max(row swaps on the ring pair, hole number).
+- Tables, examples (replayed on stickers) and the integer cells the Lean certificate asserts: `src/xrings.py`
+  (report/data/ring_*.md, out/rings.json, out/ring_examples.json, out/rings_lean_ref.json).
+- Reading the rings on the normal side, checked on random cubes: `src/xtrace_rings.py`.

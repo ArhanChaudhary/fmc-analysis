@@ -1,0 +1,11 @@
+16092	16092	U and D turns rotate one ring and change nothing else (twist states + edge sets, 6 turns)
+120000	120000	the same on 20,000 random full cases (edges and corners of the ring turn together)
+10728	10728	R2 L2 F2 B2 exchange the two rows of the face and its two E-slice places (twist states + edge sets, 4 turns)
+10728	10728	R R' L L' follow the quarter-turn rule (twist states + edge sets, 4 turns)
+2197	2197	cases with at most 2 side turns that have a DR in 6 or fewer
+side turns 0..5: 1 32 2164 111488 914232 54648
+1080533	1082565	fewest moves over the (quarter, half) profiles with at most 4 quarter and 6 half turns equals the distance to DR (the rest are at 7 or more: [0, 0, 0, 0, 0, 0, 0, 320, 1568, 144])
+1	1	on side-turn-optimal profiles, plain reachability equals the merge-free search (no optimal solution merges side turns)
+780	780	ring pairs reached by row exchanges from two bars that occur among the 4c4e cases
+70560	70560	4c4e cases where half turns to two bars = max(ring swaps, slot type)
+ring pairs by swaps 0..5: 1 12 95 392 268 12

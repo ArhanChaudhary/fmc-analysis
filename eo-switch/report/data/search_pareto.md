@@ -1,6 +1,6 @@
 | DRM | Features crossed | Cells in the table | Settled (share of the DRM in cells under 10% or over 50%) | Usable |
 |---|---|---|---|---|
-| 4c4e | setup turns to an R/L-quarter-turn finish | 10 | >99.9% | **computer only** |
+| 4c4e | setup turns to an R/L-quarter-turn finish | 10 | >99.9% | its half turns by hand (section 4); with the U/D turns **computer only** |
 | 4c4e | fake pairs + setup turns to an R/L-quarter-turn finish | 30 | >99.9% | **computer only** |
 | 4c2e | pairs + side pairs/2 | 7 | 75.4% | by hand |
 | 4c2e | pairs + side pairs/2 + setup turns to an R h R finish | 35 | 87.0% | **computer only** |

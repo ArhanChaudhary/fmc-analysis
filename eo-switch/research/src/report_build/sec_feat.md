@@ -1,11 +1,27 @@
-## 8. What each feature adds
+## 10. What each feature adds
 
 **How much each settles.** Exact. Each row is a feature (or two) to split by, using every value it takes; each cell is the share of that DRM that lands in cells under 10% or over 50%.
 
 {{decided_by_feature}}
 
-- **Pairs settle more than ARM** in 4c4e, 4c2e and 7c8e. In 8c8e and 2c2e ARM settles more. The corner case alone settles little anywhere: it is a refinement, not a first look. rodneykinney's corner orbit case is only worth reading inside a pair group (4c4e: the your-call group, section 4.1).
-- **For 4c4e, the edges matter more than the count.** Paired edges plus edge ARM ({= pc(STRICT('4c4e', 'edges_paired+earm')) =} with all 9 cells, {= pc(RULE('4c4e', 'decided')) =} once edge ARM 0 and 2 are pooled as on the card) beat pairs + ARM ({= pc(STRICT('4c4e', 'pairs+carm+earm')) =}) and pairs + corner case ({= pc(STRICT('4c4e', 'pairs+corner_case+case_suffix')) =}).
+- **Pairs settle more than ARM** in 4c4e, 4c2e and 7c8e. In 8c8e and 2c2e ARM settles more. The corner case alone settles little anywhere: it is a refinement, not a first look. rodneykinney's corner orbit case is only worth reading inside a pair group (4c4e: the your-call group, section 6.1).
+- **For 4c4e, the edges matter more than the count.** Paired edges plus edge ARM ({= pc(STRICT('4c4e', 'edges_paired+earm')) =} with all 9 cells, {= pcx(RULE('4c4e', 'decided')) =} once edge ARM 0 and 2 are pooled as on the card) beat pairs + ARM ({= pc(STRICT('4c4e', 'pairs+carm+earm')) =}) and pairs + corner case ({= pc(STRICT('4c4e', 'pairs+corner_case+case_suffix')) =}).
+
+**The half-turn count against all of them** (4c4e). By the 10%/50% yardstick the count alone settles {= pcx(RJ['settled']['h']) =}, less than the paired-edge card ({= pcx(RJ['settled']['card']) =}), because its middle row, 3 half turns, is half of 4c4e at {= pcx(RH(3)) =}. Its ends are much further out though: 100% and {= pcx(RHG('ge4')) =}, where the card's are {= pcx(RCARD('switch')) =} and {= pcx(RCARD('discard')) =}. With side pairs inside the 3 (none, one, two or more) it settles {= pcx(RJ['settled']['h+side']) =}. In information terms (section 11), each row is what you know and the share of the uncertainty about sub-7 it removes, **computer only** as a measure:
+
+| What you know (4c4e) | Share of the uncertainty about sub-7 removed |
+|---|---|
+| ARM | {= f3(RJ['info']['arm']) =} |
+| pairs | {= f3(RJ['info']['pairs']) =} |
+| paired edges and edge ARM (the card) | {= f3(RJ['info']['card']) =} |
+| pairs and ARM | {= f3(RJ['info']['pairs+arm']) =} |
+| side turns | {= f3(RJ['info']['sigma']) =} |
+| half turns to two bars | {= f3(RJ['info']['h']) =} |
+| half turns and pairs | {= f3(RJ['info']['h+pairs']) =} |
+| half turns and ARM | {= f3(RJ['info']['h+arm']) =} |
+| half turns, pairs and side pairs | {= f3(RJ['info']['h+pairs+side']) =} |
+
+So the count carries more than pairs and ARM together, and neither adds much to it. What is missing is how the layers line up (section 4.5).
 
 **wen's 2 of 3** ([[D14349]]): switch the best {= pc(GR('44-2pairs', 'share_switched')) =} of 4c4e (as many as "2+ pairs" switches) by each pair of criteria, best cells first, which is a **computer-only** way to use them. Each row is a way to pick them; the column is the share of 4c4e's sub-7 cases you miss:
 

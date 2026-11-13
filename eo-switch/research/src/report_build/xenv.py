@@ -16,6 +16,9 @@ def pc(x, d=None):
     if 99.95 <= x and d is None: return '>99.9%'
     if d is None: d = 1 if x >= 1 else 2 if x >= 0.1 else 3
     return f'{x:.{d}f}%'
+def pcx(x, d=None):
+    """pc, but an exact 100% prints as 100% (pc prints >99.9% for anything from 99.95% up)"""
+    return '100%' if float(x) == 1.0 else pc(x, d)
 def p0(x): return f'{float(x) * 100:.0f}%'
 def f1(x): return f'{float(x):.1f}'
 def f2(x): return f'{float(x):.2f}'
@@ -78,4 +81,39 @@ def _rep(): return list(csv.DictReader(open(O + 'reproduce.tsv'), delimiter='\t'
 def REP(quantity, col='published', source=''):
     hit = [r for r in _rep() if r['quantity'] == quantity and source in r['source']]
     assert len(hit) == 1, (quantity, len(hit)); return hit[0][col]
+ENV = {k: v for k, v in globals().items() if not k.startswith('_')}
+
+# ---- the two-ring sections (xrings.py): out/rings.json and out/ring_examples.json
+RJ = _j('rings.json'); XJ = _j('ring_examples.json')
+def RH(h, k='p6'):
+    """4c4e by half turns to two bars: RH(2) the sub-7 rate; keys n share p5 p6 p7 of_hits q4 q5 q6 a4 a5 a6"""
+    return RJ['h'][str(h)][k]
+def RHG(g, k='p6'): return RJ['hg'][g][k]                    # groups le1 le2 eq2 eq3 ge3 ge4
+def RSS(a, t, k='p6'): return RJ['ss'][f'{a}{t}'][k]          # row swaps x slot type
+def RCARD(g, k='p6'): return RJ['card'][g][k]
+def RCS(g, h, k='p6'): return RJ['card_split'][f'{g}|{h}'][k]
+def RPH(p, h, k='p6'): return RJ['ph'][f'{p}|{h}'][k]
+def RU(name, k='p6'): return RJ[name][k]
+def RIN3(txt, k='p6'): return RJ['in3'][txt][k]
+def RPROF(drm, q, h, k='p6'): return RJ['prof'][drm][f'{q}{h}'][k]
+def RSIG(drm, s, k='p6'): return RJ['sig'][drm][str(s)][k]
+def RSHORT(drm, which='short', k='p6'): return RJ['short'][drm][which][k]
+def RCROSS(drm, txt, lab, k='p6'): return RJ['cross'][f'{drm}|{txt}|{lab}'][k]
+def RTHREE(key, k='p6'): return RJ['three'][key][k]
+def RX(name, k): return XJ[name][k]
+def RXB(name, comment=''):
+    """an example as two code lines: the scramble and its optimal DR"""
+    e = XJ[name]
+    return f"{e['scramble']}   // scramble" + (f", {comment}" if comment else '') + f"\n{e['dr']}   // optimal DR, {e['d']} moves"
+def RXF(name, comment='', note=''):
+    """an example as three code lines: scramble, optimal DR, and its rings and holes"""
+    e = XJ[name]
+    return RXB(name, comment) + f"\n// U ring {e['Un']}, D ring {e['Dn']}, holes {' '.join(e['holes'])}" + (f": {note}" if note else '')
+def RINGS(name):
+    e = XJ[name]
+    return f"`{e['Un']}` and `{e['Dn']}`"
+def TRR(check, sample):
+    import csv as _c
+    hit = [r for r in _c.DictReader(open(O + 'checks_trace_rings.tsv'), delimiter='\t') if r['check'].startswith(check) and r['sample'] == sample]
+    assert len(hit) == 1, (check, sample); return [int(hit[0]['cubes']), int(hit[0]['holds'])]
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}

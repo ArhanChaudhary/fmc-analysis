@@ -13,7 +13,9 @@ import os, sys, csv, random, collections, subprocess, re
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import pop, geom, features as fx
 from geom import cube
-import xtrace, niss_checks
+import xtrace, niss_checks, rings, xtrace_rings, json
+ZR = rings.load(); SIG = ZR['sigma'].astype(int); QSIG = ZR['qsig'].astype(int); HBAR = ZR['hbar'].astype(int)
+RJ = json.load(open(os.path.join(HERE, '..', 'out', 'rings.json')))
 F = pop.feat(); d = F['d'].astype(int)
 OUT = os.path.join(HERE, '..', 'out'); PAGE = os.path.join(HERE, '..', '..', 'report', 'EXAMPLES.md')
 CHECKS = [0]; BAD = []
@@ -116,6 +118,9 @@ for (drm, lab), r in chosen:
           'pairs': niss_checks.traced_pairs(normal, 'side')}
     for k, f in (('paired', 'edges_paired'), ('side', 'side'), ('earm', 'earm'), ('carm', 'carm'), ('pairs', 'pairs')):
         check(tr[k] == int(F[f][ix]), f'traced {k}')
+    rg = xtrace_rings.read(normal)                      # the rings and holes of the switched case, read on normal
+    check(rg == rings.rings_of(ix), 'traced rings')
+    if drm == '4c4e': check(xtrace_rings.hbar_of(*rg) == int(HBAR[ix]), 'half turns from the traced rings')
     dr = ' '.join(geom.path_to_dr(ix, F['d']))
     t = cube.do(sw, dr)
     check(geom.is_dr_ud(t) and geom.eo_fb_ok(t) and len(dr.split()) == d[ix] == int(r['d_switched']), 'DR replayed')
@@ -123,7 +128,7 @@ for (drm, lab), r in chosen:
     # the switched cube as a sequence from solved (for nissy): inverse of (start, eo, rzp)
     swseq = ' '.join(cube.inv_seq(' '.join(x for x in (start, eo, rzp) if x)))
     check(cube.do(cube.SOLVED, swseq) == sw, 'switched sequence')
-    EX.append(dict(drm=drm, lab=lab, txt=card(ix)[2], S=S, side=side, eo=eo, rzp=rzp, ix=ix, tr=tr, dr=dr, n=len(dr.split()), swseq=swseq, rot=rot))
+    EX.append(dict(drm=drm, lab=lab, txt=card(ix)[2], S=S, side=side, eo=eo, rzp=rzp, ix=ix, tr=tr, dr=dr, n=len(dr.split()), swseq=swseq, rot=rot, rg=rg))
 # nissy: the same optimal length
 cmds = ''.join(f"solve drud-eofb {e['swseq']}\n" for e in EX)
 res = subprocess.run(['nissy', '-b'], input=cmds, capture_output=True, text=True, check=True).stdout.splitlines()
@@ -152,18 +157,31 @@ def pl(n, w):
     """'1 pair', '2 pairs'"""
     return f'{n} {w}' + ('' if n == 1 else 's')
 out = ['# Worked examples: when to switch an EO', '',
-       'Examples to play along with [the write-up](index.html). Do the EO and RZP, trace the inverse as the card says, decide, then open the answer.', '',
+       'Examples to play along with [the write-up](index.html). Do the EO and RZP, trace the inverse (pairs for the card, the rings for the half-turn count), decide, then open the answer.', '',
        f'These are {len(EX)} real attempts from the study\'s uniformly random scrambles: an EO and an RZP that reach the DRM at a total of 5 moves, so the target after the switch is a DR in 6 (sub-7). They\'re spread over the cells of the switch cards (more where the cards have more to say, 4c4e most) and picked at random within each cell. Nothing is hand-picked, so within each cell about as many reach a sub-7 as the cell\'s rate says.', '',
        '**How to read it.**', '',
        '- Every attempt is turned so that its EO is on F/B and its DR on U/D, the frame of the write-up: the scramble printed is the generated one with the faces renamed, which is the same scramble held in another orientation.',
        '- An EO and RZP in brackets were found on the inverse scramble; the DR is then done on the other side, as usual with NISS.',
        '- Colours are named by their home face (the *F/B colour* is the EO axis\'s colour, green or blue with green front).',
-       '- *Traced before switching* is what section 5 of the write-up reads on the side where the EO and RZP were done, from the cube after them: how many of the U/D-coloured edges in the E slice find a misoriented corner showing their colours on its side stickers (paired edges on the inverse), how many of them have an F/B-colour sticker (edge ARM on the inverse), the R/L stickers on the U/D faces (corner ARM on the inverse), the pairs and the side pairs.',
-       '- The answer gives the card\'s verdict with the sub-7 rate of that group (exact, every case once), the switched case, and one optimal DR on the inverse with the EO kept.', '',
-       f'**Replay check.** Every move sequence on this page was replayed on the sticker model before the page was written: {CHECKS[0]:,} checks (the turned scramble is the generated one after a rotation; EO + RZP solves the F/B EO and gives the stated DRM; the switched case is the attempt\'s; every value traced on normal equals the feature of the inverse; the DR solves the inverse to DR on U/D with the EO kept, in the table\'s optimal number of moves, and nissy 2.0.8 finds the same length), 0 mismatches.', '']
+       '- *Traced before switching* is what section 7 of the write-up reads on the side where the EO and RZP were done, from the cube after them: how many of the U/D-coloured edges in the E slice find a misoriented corner showing their colours on its side stickers (paired edges on the inverse), how many of them have an F/B-colour sticker (edge ARM on the inverse), the R/L stickers on the U/D faces (corner ARM on the inverse), the pairs and the side pairs.',
+       '- *Rings* are the two rings and the holes of the switched case as section 4.1 of the write-up writes them (clockwise from a corner: `>` and `<` bad corners pointing clockwise and counter-clockwise, `o` a good corner, `E` a bad edge place, `-` a good one), read on normal by colour as in section 7.',
+       '- The answer gives the count of sections 4 and 5 (for 4c4e the half turns to two bars, for the other DRMs the side turns of the shortest setup, U and D turns not counted) with its sub-7 rate, then the card\'s verdict with the sub-7 rate of that group (both exact, every case once), the switched case, and one optimal DR on the inverse with the EO kept.', '',
+       f'**Replay check.** Every move sequence on this page was replayed on the sticker model before the page was written: {CHECKS[0]:,} checks (the turned scramble is the generated one after a rotation; EO + RZP solves the F/B EO and gives the stated DRM; the switched case is the attempt\'s; every value traced on normal equals the feature of the inverse, the two rings and the holes included; the DR solves the inverse to DR on U/D with the EO kept, in the table\'s optimal number of moves, and nissy 2.0.8 finds the same length), 0 mismatches.', '']
 hits = collections.Counter(); tot = collections.Counter()
 for e in EX: tot[e['lab']] += 1; hits[e['lab']] += e['n'] <= 6
 out.append('**In these ' + str(len(EX)) + '**, a DR in 6 or less exists after the switch in ' + ', '.join(f"{hits[k]} of the {tot[k]} *{k}*" for k in ('switch', 'your call')) + f" and {hits['discard']} of the {tot['discard']} *discard*" + ' attempts.')
+def is_short(e): return SIG[e['ix']] <= 3 and QSIG[e['ix']] == (1 if e['drm'] == '4c4e' else 2)
+hs = collections.Counter(); ht = collections.Counter()
+for e in EX:
+    if e['drm'] == '4c4e':
+        k = '2 or fewer' if HBAR[e['ix']] <= 2 else '3' if HBAR[e['ix']] == 3 else '4 or 5'
+        ht[k] += 1; hs[k] += e['n'] <= 6
+out.append('By the half-turn count, the ' + str(sum(ht.values())) + ' 4c4e attempts: ' + ', '.join(f"{hs[k]} of the {ht[k]} with {k} half turns to two bars" for k in ('2 or fewer', '3', '4 or 5')) + ' have a DR in 6 or less.')
+ss = collections.Counter(); st_ = collections.Counter()
+for e in EX:
+    if e['drm'] != '4c4e':
+        k = 'short' if is_short(e) else 'not short'; st_[k] += 1; ss[k] += e['n'] <= 6
+out.append('By side turns, the ' + str(sum(st_.values())) + ' attempts of the other DRMs: ' + ' and '.join(f"{ss[k]} of the {st_[k]} *{k}*" for k in ('short', 'not short')) + ' (short: 3 side turns or fewer, 2 of them quarter turns).')
 out.append('')
 order = ['4c4e', '4c2e', '3c2e', '7c8e', '8c8e', '2c2e', '4c6e', '3c4e', '3c6e', '5c4e', '5c6e', '6c6e']
 for drm in order:
@@ -175,13 +193,21 @@ for drm in order:
         moves = (f"EO `{br(e['eo'])}`, RZP `{br(e['rzp'])}`" if e['rzp'] else f"EO `{br(e['eo'])}`, no RZP needed") + ('' if e['side'] == 0 else ', on the inverse scramble')
         tr = e['tr']
         out += [f"**{drm}, example {k}.** `{e['S']}`", '',
-                f"{moves}: {drm} in 5. Traced before switching: {pl(tr['paired'], 'paired edge')}, edge ARM {tr['earm']}, corner ARM {tr['carm']} (R/L stickers on U/D), {pl(tr['pairs'], 'pair')}, {pl(tr['side'], 'side pair')}.", '',
+                f"{moves}: {drm} in 5. Traced before switching: {pl(tr['paired'], 'paired edge')}, edge ARM {tr['earm']}, corner ARM {tr['carm']} (R/L stickers on U/D), {pl(tr['pairs'], 'pair')}, {pl(tr['side'], 'side pair')}. Rings: U `{rings.nice(e['rg'][0])}`, D `{rings.nice(e['rg'][1])}`, holes {' '.join(nm for nm, x in zip(rings.SLOT_NAME, e['rg'][2]) if x) or 'none'}.", '',
                 '<details><summary>Verdict and the DR after the switch</summary>', '']
         share, rate = RATE[(drm, e['lab'])]
         case = f", corners 4{CASE[f('corner_case')]}-{f('case_suffix')}" if f('drm_c') == 4 else ''
         er = ' '.join(x for x in (e['eo'], e['rzp']) if x)
         full = (f"`{er} ({e['dr']})`" if e['side'] == 0 else f"`({er}) {e['dr']}`")
-        out += [f"Card: **{e['lab']}** ({e['txt']}: {pc(share)} of {drm}, {pc(rate)} sub-7).", '',
+        ix_ = e['ix']
+        if drm == '4c4e':
+            hh = int(HBAR[ix_]); hr = RJ['h'][str(hh)]
+            cnt = f"Half turns to two bars: **{hh}** ({pc(hr['share'])} of 4c4e, {pc(hr['p6']) if hr['p6'] < 1 else '100%'} sub-7)."
+        else:
+            q_, h_ = int(QSIG[ix_]), int(SIG[ix_] - QSIG[ix_]); sh = is_short(e); g = RJ['short'][drm]['short' if sh else 'long']
+            setup = f"{q_} qt" + (f" + {h_} half turn{'s' if h_ != 1 else ''}" if h_ else '')
+            cnt = f"Shortest setup, U/D turns not counted: **{setup}**, {'short' if sh else 'not short'} ({pc(g['share'])} of {drm}, {pc(g['p6']) if g['p6'] < 1 else '100%'} sub-7)."
+        out += [cnt, '', f"Card: **{e['lab']}** ({e['txt']}: {pc(share)} of {drm}, {pc(rate)} sub-7).", '',
                 f"Switched case: {drm}, ARM {f('carm')}{f('earm')}, {pl(f('pairs'), 'pair')} on {pl(f('edges_paired'), 'edge')}, {f('fake')} fake, {pl(f('side'), 'side pair')}{case}{', JZP' if f('jzp') else ''}.", '',
                 f"Optimal DR on the {'inverse' if e['side'] == 0 else 'normal side'}: `{e['dr']}` ({e['n']} moves, {'sub-7' if e['n'] <= 6 else 'not sub-7'}). The whole attempt: {full}, {5 + e['n']} moves to DR.", '',
                 '</details>', '']

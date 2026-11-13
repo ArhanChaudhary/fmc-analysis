@@ -1,0 +1,6 @@
+check	sample	cubes	holds
+both rings and the holes of the switched case, read on normal by colours	uniform	20000	20000
+control (not expected): each corner pointed at the other edge place	uniform	20000	5
+both rings and the holes of the switched case, read on normal by colours	4c4e	20000	20000
+control (not expected): each corner pointed at the other edge place	4c4e	20000	0
+half turns to two bars from the normal-side reading = the table (4c4e)	4c4e	20000	20000

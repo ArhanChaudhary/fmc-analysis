@@ -36,4 +36,8 @@ $CAP $PY src/niss_checks.py 20000
 $PY src/claims.py > /dev/null
 $PY src/witness.py
 $PY src/summary.py
+step "the two-ring model: turn rules on every case, side turns, half turns to two bars, ring swaps; tables; normal-side reading"
+$CAP $PY src/rings.py
+$CAP $PY src/xrings.py
+$CAP $PY src/xtrace_rings.py 20000
 step "done"

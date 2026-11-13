@@ -325,7 +325,9 @@ rows = []
 for r in st:
     if r['pareto'] != 'yes': continue
     comp = any(k.startswith(('fam_', 'corner_dist', 'moves_to', 'udmoves')) for k in r['features'].split('+')) or int(r['cells']) > 12
-    rows.append([r['drm'], ' + '.join(NICE.get(k, k) for k in r['features'].split('+')), r['cells'], pc(r['strict_sep_P1']), '**computer only**' if comp else 'by hand'])
+    usable = '**computer only**' if comp else 'by hand'
+    if r['features'] == 'fam_4c4e': usable = 'its half turns by hand (section 4); with the U/D turns **computer only**'
+    rows.append([r['drm'], ' + '.join(NICE.get(k, k) for k in r['features'].split('+')), r['cells'], pc(r['strict_sep_P1']), usable])
 write('search_pareto', ['DRM', 'Features crossed', 'Cells in the table', 'Settled (share of the DRM in cells under 10% or over 50%)', 'Usable'], rows)
 E['c88_65'] = E['search']['8c8e|earm+pairs+arm_corner_case']
 E['fam44'] = E['search']['4c4e|fam_4c4e']
