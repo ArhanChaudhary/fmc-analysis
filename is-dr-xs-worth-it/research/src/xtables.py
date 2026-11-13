@@ -99,6 +99,14 @@ def t_finish():
             if min(int(y['turns_to_dr']), int(y['turns_to_dr_inverse'])) == k: h[int(x['finish'])] += 1
         L.append(f'| {k} | {num(100 * sum(h) / len(a))} | {hu(avg(h), 2):.2f} | +{hu(avg(h) - avg(xv.dr()), 2):.2f} | {pct(h, 14)} | {pct(h, 15)} |')
     write('better', L)
+    # by how the four flipped edges split between the two slices they belong to, on the side where the DR-1s is
+    L = ['| Flipped edges by the slice they belong to | Share of DR-1s | Average finish, moves | Average finish minus a DR\'s, moves | Finish in 14 or less | Finish in 15 or less |', '|---|---:|---:|---:|---:|---:|']
+    for k in ('4-0', '2-2', '3-1'):
+        h = [0] * 30
+        for x, y in zip(a, b):
+            if y['split'] == k: h[int(x['finish'])] += 1
+        L.append(f'| {k} | {num(100 * sum(h) / len(a))} | {hu(avg(h), 2):.2f} | +{hu(avg(h) - avg(xv.dr()), 2):.2f} | {pct(h, 14)} | {pct(h, 15)} |')
+    write('split', L)
 
 def t_skip():
     txt = open(O + 'seo_skip.txt').read()

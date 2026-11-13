@@ -279,4 +279,37 @@ def SETUPBEAT(sub):
             n += int(c); b += int(c) * (int(d) < int(g))
     x = 100 * b / n
     return f'{hu(x, 1):.1f}%' if x >= 0.095 else f'{hu(x, 2):.2f}%' if x >= 0.0095 else f'{hu(x, 3):.3f}%'
-ENV = {k: v for k, v in globals().items() if not k.startswith('_')}
+# ---- where the longest finishes live (section "Subset"): DR states whose optimal finish is T or more
+_WORST = ('0c3', '2c5', '4b5')
+def TOP(T, what):
+    """DR states with an optimal finish of T or more.  'n': how many.  'onein': one DR state in that many.
+    'share': their share of all DR states.  'worst': the share of them in 0c3 or a 5qt subset (one decimal).
+    '4c4': the share of them in 4c4.  'nsub': how many of the 48 subsets have some.  'without': the subsets with none."""
+    import fractions as _fr
+    by = _col.Counter(); subs = set()
+    for cs, e, lo, hi, l, dlp, par, d, n in pv._h2():
+        subs.add((cs, e))
+        if d >= T: by[(cs, e)] += n
+    N = sum(by.values()); assert N > 0 and len(subs) == 48
+    if what == 'n': return f'{N:,}'
+    if what == 'onein': return f'{hu(_fr.Fraction(pv.TOT, N)):,.0f}'
+    if what == 'share': return pv.fmt(N, pv.TOT)
+    if what == 'worst': return f'{hu(_fr.Fraction(100 * sum(n for (cs, e), n in by.items() if cs in _WORST), N), 1):.1f}%'
+    if what == '4c4': return pv.fmt(sum(n for (cs, e), n in by.items() if cs == '4c4'), N)
+    if what == 'nsub': return str(len(by))
+    names = sorted((f'{cs} {e}e' for cs, e in subs - set(by)), key=pv.sub_order)
+    return ', '.join(names[:-1]) + ' and ' + names[-1]
+def LSTOP(what):
+    """The leave slice at the top end (h3: subset, optimal, leave slice).  'n': DR states that need 18 to leave the
+    slice.  'subsets': the subsets they are in.  '0c0 8e': the leave slice of the 0c0 8e states whose optimal is 18."""
+    top = _col.Counter(); z = set(); most = 0
+    for s, d, ls, c in pv.rows('h3_leaveslice.csv'):
+        most = max(most, int(ls))
+        if int(ls) == 18: top[s] += int(c)
+        if s == '0c0 8e' and int(d) == 18: z.add(int(ls))
+    assert most == 18 and len(z) == 1
+    if what == 'n': return f'{sum(top.values()):,}'
+    if what == 'subsets':
+        names = sorted(top, key=pv.sub_order); return ', '.join(names[:-1]) + ' or ' + names[-1]
+    return str(next(iter(z)))
+ENV ={k: v for k, v in globals().items() if not k.startswith('_')}

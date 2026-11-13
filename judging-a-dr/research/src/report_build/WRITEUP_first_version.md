@@ -97,7 +97,7 @@ A few notes on the levels:
 
 - **NISS@DR on HTR states with half turns only *is* FakeMMAP's table.** FakeMMAP's 216 example scrambles are 216 different cases and every value matches (both proven in Lean). So NISS@DR is that table grown from 216 cases to 6.35 million: one for every corner state and edge layout a DR can have.
 - **"Up to swapping white and yellow"** is Rodney's *reflection* ("yellow FH edges with white HH corners", +2). The last level looks at the actual colours, so reflection is built in.
-- **Double-swap parity** is the H-perm thing FakeMMAP and Rodney went back and forth on ([here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546101477334978650) and [here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546232388013785088)): are the four M-slice edges, read in order, an even or odd arrangement, and same for S. On HTR states that's the parity of F2/B2 turns and of R2/L2 turns separately, the F-parity and R-parity of FakeMMAP's "OBL++" sheet. Rodney guessed that knowing it would make the bound basically exact ([Rodney, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546126576247247028)). The next table shows how close it gets.
+- **Double-swap parity** is the H-perm thing FakeMMAP and Rodney went back and forth on ([here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546101477334978650) and [here](https://discord.com/channels/1007840975726575667/1007841335434285126/1546232388013785088)): are the four M-slice edges, read in order, an even or odd arrangement, and same for S. On HTR states that's the parity of F2/B2 turns and of R2/L2 turns separately, the F-parity and R-parity of FakeMMAP's "OBL++" sheet. Rodney's guess was about the bound at 1qt: "If there's a way to compute this kind of double-swap parity, the bound would basically be exact" ([Rodney, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546126576247247028)). The next table shows what it does at the DR.
 - **What the last level still can't see**: which of the two white M-slice edges is which (same for the other three pairs), and the E-slice beyond its parity. So H-perm-style 2e2e's inside a slice and E-slice 3-cycles are the only blind spot.
 
 ---
@@ -121,7 +121,7 @@ Each row is a level; the columns are its average over all DR states and the shar
 | Everything visible | 12.86 | 43.8% | 85.8% |
 | actual optimal | 13.58 | | |
 
-So Rodney was about right on the H-perm parity: with it and the real colours, the bound is exact 44% of the time and within one 86% of the time.
+Carried to the DR, the H-perm parity takes NISS@DR from exact 7.6% of the time to 17.1%, and from within one 32.8% to 52.1%. It takes the real colours as well to get to 43.8% and 85.8%. How close the parity gets the bound at 1qt, where Rodney's guess was made, isn't measured here.
 
 ### Throwing DRs away
 
@@ -269,7 +269,7 @@ FakeMMAP's tables, in order:
 
 - the first one is HT only;
 - the next adds HTR-breaking finishes from a list of algs: $\le 7$ is proven, and 8/9/10 might secretly be 7-movers ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606), [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075));
-- the newer OBL++ sheet, which FakeMMAP is "not mathematically 100% sure" about ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)).
+- the newer OBL++ sheet. FakeMMAP on what's in it: "They do include some HTR-breaking stuff." ([[T12425]]) "Maybe all." "But I'm not mathematically 100% sure." ([same day](@T12427)).
 
 Rodney's "Adv DR Bounding" sheet uses those optimals.
 
@@ -298,12 +298,17 @@ The two that get shorter with quarter turns, explicitly (with half turns alone b
     B2 L2 D L2 B2 F2 R2 U'      // a state of "F-D − F-V R-V even"
     U R2 F2 B2 L2 D' L2 B2      // solves it in 8
 
-- **FakeMMAP's HTR-breaking table ([FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)) is right in 211 of 216 cells and one too high in 5.** Two of those were labelled 7 and are 6-movers, so "7 or less is proven optimal" doesn't hold for them.
+- **FakeMMAP's HTR-breaking table ([FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)) is right in 211 of 216 cells.** Two cells labelled 7 are 6-movers, which goes against "Anything labeled with 7 or less is proven to be a lower bound, and the lower bound is proven optimal" ([[T12129]]). Each row is one of the two, with the table's value, the real optimal and a state of the case:
 
-  | Case | Table | Real | A state of that case |
+  | Case | Table value, moves | Real optimal, moves | A state of that case |
   |---|---:|---:|---|
   | F-D + F-V R-H odd | 7 | 6 | `R L' B2 D2 R L'` |
   | R-D + F-H R-V odd | 7 | 6 | `F' B R2 D2 F B'` |
+
+  Three of the 9s are 8. Those are inside the caveat FakeMMAP gave for these values: "Again, anything higher than 7 is not proven, those cases could be 7-movers" ([[T12145]]). No 8, 9 or 10 drops to 7. The same columns for the three 9s:
+
+  | Case | Table value, moves | Real optimal, moves | A state of that case |
+  |---|---:|---:|---|
   | H-H + F-D R-D odd | 9 | 8 | `R D2 F2 B2 R' L F2 R'` |
   | H-H + F-V R-D odd | 9 | 8 | `L' F2 R L' F2 B2 D2 L` |
   | H-H + F-D R-V odd | 9 | 8 | `F L2 F B' R2 L2 D2 F'` |
@@ -319,7 +324,7 @@ The two that get shorter with quarter turns, explicitly (with half turns alone b
   | H-H + F-V R-D odd | 9 | 8 |
   | H-H + F-D R-V odd | 9 | 8 |
 
-  One more row, labelled F-V / F-D / R-H, has an alg for a different case. The R2 is a typo for F2:
+  One more row, labelled F-V / F-D / R-H, has an alg for a different case. The R2 is a typo for F2, and the same line is in FakeMMAP's 7 Sep listing, where the sheet's algs come from ([[T12144]]):
 
   ```
   M R2 U2 M'   // the sheet's alg: gives R-V + F-D R-V odd

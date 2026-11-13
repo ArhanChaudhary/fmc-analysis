@@ -31,7 +31,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 **How to read it.**
 
 - **Start with [section 1](#1-the-short-version)**, the short version: what's new, what it confirms or corrects, and the verdict, one line each.
-- **The [worked examples](examples.html)** go with it: the tutorial's example with the numbers, then 100 scrambles with their slice-EO skips and the DR-xs routes on them, answers folded away. **The [errata](errata.html)** list what the numbers show is wrong in the docs involved and in things said on the server, each with an example.
+- **The [worked examples](examples.html)** go with it: the tutorial's example with the numbers, then 100 scrambles with their slice-EO skips and the DR-xs routes on them, answers folded away. **The [errata](errata.html)** list the two things the numbers show to be wrong, one in a doc and one said on the server, each with its example.
 - **The appendices are reference**: every DR-1s layout with a shortest fix and a scramble, what each EO pattern leads to, and how it was computed and checked.
 - **What you can use in an attempt, and what's the answer key.** These are **computer only**, and each place says so: they say what's there, not what you find in an hour.
   - every finish here is the best one of the method's form, with the optimal DR finish looked up in a table of every DR state;
@@ -48,7 +48,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 ## 1. The short version
 
-First what nobody had before, each line with the sample and the move rule behind it; then what the numbers confirm or correct; then the verdict.
+First what's new, each line with the sample and the move rule behind it; then what the numbers confirm or correct; then the verdict.
 
 - **A DR-1s of 7 is worth about a normal DR of 9, and a DR-1s of 8 about a normal DR of 10.** On 500 real scrambles I counted how often each one gets the best solution any normal DR of 12 or less gives on its scramble (7.2). Each row is one kind of thing to finish; the number is how many of them you finish, on average, for one to give the scramble's best:
 
@@ -62,7 +62,7 @@ First what nobody had before, each line with the sample and the move rule behind
   | a DR-2s 8fe of 9 | {= YIN('8fe9') =} |
   | a DR-1s of 6 or less | {= YIN('1s6') =} |
 
-  That's the "how likely various things are to give you, say, sub-11 dr or sub-8 dr-1s" trangium wanted ([[T11296]]), minus the time per check. The finishes behind these odds are the best of the method's form, **computer only**; the ranking is what you use in an attempt.
+  It's the step after what trangium wanted to work out ([[T11296]]): "yeah at some point I want to do an analysis of how likely various things are to give you, say, sub-11 dr or sub-8 dr-1s", then divide that by the time a check takes. How likely a skip is to give a short DR-1s is further down (6.2, 7.1); this table is what one is worth once you have it. The finishes behind these odds are the best of the method's form, **computer only**; the ranking is what you use in an attempt.
 - **Slice EOs against 5-move EOs, the question left open.** Same scrambles, starting from the EOs of 4 or less and their DRs of 10 or less. Each row adds one set of things to finish on top of those, and the number is how much shorter that makes the average best solution (7.4):
 
   | Added on top | Average best solution shorter by, moves |
@@ -105,13 +105,13 @@ First what nobody had before, each line with the sample and the move rule behind
   |---|---:|---:|---:|
   | average finish, moves | {= BETTER(4) =} | {= BETTER(5) =} | {= BETTER(6) =} |
 
-  And by how the four flipped edges split between the two slices they belong to:
+  And by how the four flipped edges split between the two slices they belong to, on the side where you have the DR-1s:
 
   | Split of the flipped edges | 3-1 | 2-2 | 4-0 |
   |---|---:|---:|---:|
-  | average finish, moves | {= SPLIT('3-1') =} | {= SPLIT('2-2') =} | {= SPLIT('4-0') =} |
+  | average finish, moves | {= SPLIT1('3-1') =} | {= SPLIT1('2-2') =} | {= SPLIT1('4-0') =} |
 
-  The split is the same layout seen from the other side. The 4-0 is only good when its slice is the one that fixes; four in the other slice finish at +{= OTHER4('diff') =}, no better than an ordinary DR-1s.
+  From the other side of the scramble the same split is where the four sit. The 4-0 is only good when its slice is the one that fixes; four in the other slice finish at +{= OTHER4('diff') =}, against +{= D1() =} for DR-1s as a whole.
 - **Setting up only on the side where you found the DR-1s loses {= f2(float(A1(col='finish_setup4')) - float(A1())) =} moves.** With the setup at most 4 moves on that side and any DR finish after it, the average is {= A1(col='finish_setup4') =} and only {= OWN4_SAME() =} of states keep their best finish, even though the best solution has its slice within 4 moves of one end for at least {= SETUP_LE(4) =}. Try the setup from both sides before you judge a DR-1s (5.5). This one is for the attempt.
 - **From an oriented skip on an axis that isn't the slice's own, a DR-1s is {= SHM('eo-fb_1s | A oriented') =} moves away on average** without breaking that axis's EO (exact, over every coset with such a skip). The share of these skips with a DR-1s that close:
 
@@ -119,7 +119,7 @@ First what nobody had before, each line with the sample and the move rule behind
   |---|---:|---:|---:|
   | share of skips | {= SH('eo-fb_1s | A oriented', 6) =} | {= SH('eo-fb_1s | A oriented', 7) =} | {= SH('eo-fb_1s | A oriented', 8) =} |
 
-  From a full EO the nearest real DR on one axis is {= SHM('eo-fb_dr | A oriented') =} under the same rule, so in route length a skip like this is an EO that cost nothing. The distances are the nearest DR-1s over every route, **computer only**. The hand version is tseitsei89's 8, occasionally 7 ([[T10809]]): "I can usually find some DR-fe in 8 moves. Occasionally 7." (6.2)
+  From a full EO the nearest real DR on one axis is {= SHM('eo-fb_dr | A oriented') =} under the same rule, so in route length a skip like this is an EO that cost nothing. The distances are the nearest DR-1s over every route, **computer only**. By hand, early on and for a DR-fe of any kind, tseitsei89 ([[T10809]]): "After playing around with this for a little bit I can usually find some DR-fe in 8 moves. Occasionally 7." (6.2)
 - **On 500 real scrambles, here's how many have a DR-1s** from a skip or a one-move slice EO by the plain tutorial route (7.1). I took every route, so it's a floor. Each row is a length; the number is the share of the 500 scrambles that have a DR-1s that short:
 
   | DR-1s from a skip or a one-move slice EO | Share of the 500 scrambles that have one |
@@ -136,20 +136,20 @@ First what nobody had before, each line with the sample and the move rule behind
   |---|---:|---:|---:|---:|---:|
   | layouts | {= FIX70(2) =} | {= FIX70(3) =} | {= FIX70(4) =} | {= FIX70(5) =} | {= FIX70(6) =} |
 
-  That's {= FIXSHARE(1, (5, 6)) =} needing 5 or 6, {= FIXAVG(1) =} on average. All 70 with a shortest fix and a scramble each are in Appendix A, the list Radek B asked for. Right after a trigger, DR-2s to DR-1s is free for {= STEP('DR-2s -> DR-1s (or better)', 'after_quarter_better', 0) =} of the {= STEPS['DR-2s -> DR-1s (or better)']['kinds'] =} kinds of DR-2s and costs 3 for the rest (4.2, 4.3). ✓ Lean
+  That's {= FIXSHARE(1, (5, 6)) =} needing 5 or 6, {= FIXAVG(1) =} on average. The range and the shape were on the server already: tseitsei89 had "The fix from DR-1s to real DR is 2-6 moves iirc" ([[D19426]]), and Simon's slice-DR doc has this count with the last trigger move free to go either way, four layouts off (4.2). What's added is every layout with a shortest fix and a scramble (Appendix A, the list Radek B asked for) and the steps in between: right after a trigger, DR-2s to DR-1s is free for {= STEP('DR-2s -> DR-1s (or better)', 'after_quarter_better', 0) =} of the {= STEPS['DR-2s -> DR-1s (or better)']['kinds'] =} kinds of DR-2s and costs 3 for the rest (4.2, 4.3). ✓ Lean
 
 **What it confirms or corrects**, each worked out in the section named:
 
-- **trangium's averages hold.** trangium's nissy averages are 0.1 to 0.4 below my DR-1s numbers and a tenth or two below my 8fe ones on the subsets trangium measured; those are true optimals, which can leave the form. The tutorial's "8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR" holds, in odds too. Rodney's "+3/+4 penalty for -1/-2 slice" is a bit hard on the DR-1s, and tseitsei89's "in reality around 3 moves worse" is what it turns into when you don't get the best finish (5.3).
-- **DR-1s to DR.** Daichi's "6 moves max" is exact. Rodney's "basically flat", with 3 as the median, isn't: the distribution isn't flat and the typical fix isn't 3 (section 8). The EO Meta Comparison doc's "1 slice can be fixed in 3 moves" is {= f2(float(FIXAVG(1)) - 1 - 3) =} short on average with one slice turn cancelling, the way Rodney counts it, and {= f2(float(FIXAVG(1)) - 3) =} from the state alone (4.2). Simon's slice-DR table is four layouts off: {= SIMON() =}, not 1, 4, 9, 40, 16; the thirteen 4-turn layouts are at the end of Appendix A. ✓ Lean
+- **trangium's averages hold.** trangium's nissy averages are 0.1 to 0.4 below my DR-1s numbers and a tenth or two below my 8fe ones on the subsets trangium measured; those are true optimals, which can leave the form. The tutorial's "8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR" holds, in odds too. Rodney's rule of thumb, "a +3/+4 penalty for -1/-2 slice", and tseitsei89's "my current heuristics is that it is in reality around 3 moves worse" both take trangium's optimals and add what a hand finish loses, so the +{= D1() =} of the best finish contradicts neither (5.3).
+- **DR-1s to DR.** Daichi's "6 moves max" is exact. Rodney's guess ("I would guess the distribution is basically flat"), and the 3 moves that would be its median, don't hold: {= FIXSHARE(1, (5, 6)) =} of layouts need 5 or 6 (section 8). The EO Meta Comparison doc's working assumption ("we assume 1 slice can be fixed in 3 moves") is about a move optimistic: {= f2(float(FIXAVG(1)) - 1 - 3) =} short on average with one slice turn cancelling, the way Rodney counts it, and {= f2(float(FIXAVG(1)) - 3) =} from the state alone (4.2). count quackula and trangium questioned it the day after the doc went up, and Rodney was "less sure" of it too (section 8). Simon's slice-DR table is four layouts off: {= SIMON() =}, not 1, 4, 9, 40, 16; the thirteen 4-turn layouts are at the end of Appendix A. ✓ Lean
 - **Slice EOs.** For one given slice a slice EO is never more than 2 moves away, like FakeMMAP said, if all-misoriented counts; all-oriented only, it takes 3 moves {= SD('any axis, oriented only', 3) =} of the time. The 1 in 8 for a slice and an axis (tseitsei89, count quackula) is right (6.1). ✓ Lean
 - **Which skips can give a DR-1s at all**, as long as you keep that axis's EO, is a clean rule (6.2):
   - oriented, on an axis that isn't the slice's own: always;
   - misoriented on such an axis: only if that axis has exactly 8 bad edges, trangium's "MUST have 8 bad", which is {= SHR('eo-fb_1s | A misoriented') =} of them (70 in 128, Rodney's "55%");
   - oriented on the slice's own axis: {= SHR('eo-ud_1s | B oriented') =} of the time;
   - misoriented on the slice's own axis: never.
-- **The `U R L` ending** (a normal DR that's an 8fe two moves earlier) is worth about {= f1(2 - float(D8())) =} of a move with the best finish of the form; trangium's "1 to 1.3 moves better" and count quackula's "one move better" stand at about one move (5.6).
-- **Rodney's extra-good DR-1s**, "just 1-2 moves worse than full DR", is +{= f2(float(SPLIT('4-0')) - float(AD())) =} on average (5.4). Five of Rodney's six patterns that guarantee one are right; the 12-bad line gives a DR-2s, not a DR-1s, with a scramble in section 8. count quackula's 12-bad notes already had it, and trangium's fix is right.
+- **The `U R L` ending** (a normal DR that's an 8fe two moves earlier) is worth about {= f1(2 - float(D8())) =} of a move with the best finish of the form if you take the 8fe instead of the DR, and at least that with both to finish from, which is what trangium's "1 to 1.3 moves better" is about. That and count quackula's "one move better" stand at about one move (5.6).
+- **Rodney's extra-good cases.** "I think the analysis is suggesting that these extra-good dr-xs cases are just 1-2 moves worse than full DR" holds, roughly: +{= BETTER(2, 'diff') =} with four flipped edges in the slice that fixes, +{= OTHER4('diff') =} with four in the other slice, +{= D8() =} with eight flipped (5.4). Five of the six patterns Rodney lists for them are right. The 12-bad line, one of three given under "As far as I can tell, there are three others", gives a DR-2s, not a DR-1s (scramble in section 8): trangium caught it within the hour, count quackula's 12-bad notes already had it, and Rodney's restatement the next day starts from 8 bad edges. That restatement, "along any axis and you are guaranteed an extra-good dr-xs", holds in eight of its nine cases (section 8).
 - **The groundwork checks out**:
   - trangium's rule for the number of slices holds for all 768 kinds (section 3);
   - trangium's dr-fe distribution comes out number for number from the search over all 2,217,093,120 cosets;
@@ -177,20 +177,20 @@ First what nobody had before, each line with the sample and the move rule behind
 
 The questions, in the askers' own words.
 
-- Tom Nelson ([[T12405]]): "do we have movecount distributions for DR-1s > DR and DR-2s > DR? it feels like DR-xs is almost never good (apart from 2s8fe)". The answers were estimates. Daichi ([[T12406]], [[T12408]]): "dr-1s to dr is like 6 moves max?", "i don't think 7 optimal exists". Rodney ([[T12409]]): "I would guess the distribution is basically flat."
-- Radek B ([[D18613]]): "is there a list of all cases for dr-1/2s -> dr?" tseitsei89: "I dont think so".
+- Tom Nelson ([[T12405]]): "do we have movecount distributions for DR-1s > DR and DR-2s > DR? it feels like DR-xs is almost never good (apart from 2s8fe)". The answers were estimates. Daichi ([[T12406]], [[T12408]]): "i usually don't play with dr-2s, but i think dr-1s to dr is like 6 moves max?", then "nvm there are a couple 6 move cases, but i don't think 7 optimal exists". Rodney ([[T12409]]): "I would guess the distribution is basically flat."
+- Radek B ([[D18613]]): "is there a list of all cases for dr-1/2s -> dr?" tseitsei89 ([[D18614]]): "I dont think so".
 - wen ([[D19420]]): "what is the probability of at least one slice EO skip (fully oriented or vice versa) on a scramble?" tseitsei89 ([[D19421]]): "I have no idea. But it seems to happen on most scrambles I would say."
 - JTuu ([[T10607]]): "what's the length distribution for the slice-eo condition? what about expected moves to dr from there?"
 - tseitsei89 ([[T10813]]), on slice EO in 1 being better than EO in 5: "Do we have some proper stats for that?"
 - trangium ([[T11296]]): "at some point I want to do an analysis of how likely various things are to give you, say, sub-11 dr or sub-8 dr-1s", then divide by the time it takes to check. tseitsei89 ([[T11299]]): "This I think would be EXTREMELY valuable!"
 - tseitsei89 ([[D19521]]): "For sEO I currently believe skips are better than 5 move EOs but 1 movers might not be."
 
-And the verdicts that never got settled:
+And the takes on whether it's worth it, which never got settled:
 
 - tseitsei89 ([[T10809]]): "You are better off with classical DR it seems."
 - Rodney ([[T11020]]): "You're leaving money on the table if you don't check these, IMO."
-- zakimoshi ([[T11306]]): "sEO isn't actually a very cost effective strategy time wise".
-- tseitsei89 again, three months later ([[D17453]]): "most of the time it is not worth it to spend time on but it can occasionally save an otherwise doomed attempt".
+- zakimoshi ([[T11306]]): "I'm getting the feeling sEO isn't actually a very cost effective strategy time wise".
+- tseitsei89 again, three months later ([[D17453]]): "I would say that most of the time it is not worth it to spend time on but it can occasionally save an otherwise doomed attempt".
 
 ---
 
@@ -241,7 +241,7 @@ And the shortest example of each row:
 {{dr1s_examples}}
 
 - **Daichi is right** that 6 is the most and 7 does not exist ([[T12408]]). So is Rodney's bound ([[T12409]]): "Worst case requires 2qt, with at most one half-turn before/between each qt, so 4 and then the slice."
-- **The distribution is not flat.** {= FIXSHARE(1, (5, 6)) =} of layouts need 5 or 6 turns, and the average is {= FIXAVG(1) =}. The EO Meta Comparison doc's working assumption, "1 slice can be fixed in 3 moves", is {= f2(float(FIXAVG(1)) - 1 - 3) =} short with one slice turn cancelling (Rodney's way of counting, [[T12410]]) and {= f2(float(FIXAVG(1)) - 3) =} from the state alone, and sqAree's "more than 5 moves most of the time" ([[T10672]]) is the accurate one. That count isn't the cost, though: the setup moves are also finish moves and the slice gets moved around in the finish, so the cost that matters is the finish (section 5).
+- **The distribution is not flat.** {= FIXSHARE(1, (5, 6)) =} of layouts need 5 or 6 turns, and the average is {= FIXAVG(1) =}. The EO Meta Comparison doc's working assumption, "we assume 1 slice can be fixed in 3 moves", is {= f2(float(FIXAVG(1)) - 1 - 3) =} short with one slice turn cancelling (Rodney's way of counting, [[T12410]]) and {= f2(float(FIXAVG(1)) - 3) =} from the state alone. Before the doc, sqAree ([[T10672]]) had "After DR-fe flipping the bad edges appears to take more than 5 moves most of the time to get to DR" and trangium ([[T10687]]) "the ~6 moves to solve the fe". Both were about any DR-fe, and there it holds: {= FIXOVER(5) =} of the {= NOTDR() =} kinds that aren't a DR need 6 turns or more. Of the DR-1s layouts alone, {= FIXSHARE(1, (6,)) =} do. That count isn't the cost, though: the setup moves are also finish moves and the slice gets moved around in the finish, so the cost that matters is the finish (section 5).
 - **3-1 isn't much worse than 2-2 here.** With three of the four already in the slice it's 5 or 6. With two it's anything from 3 to 6. With none it's 4:
 
   ```
@@ -320,22 +320,31 @@ Read these two tables by finding rows that match. Each row below is one thing yo
 
 So:
 
-- **DR-1s in $N$ is about a DR in $N + {= EXCH() =}$**, at equal odds for finishes of 13 to 16 ({= D1() =} on the average). Rodney's "+3/+4 penalty for -1/-2 slice" ([[T10919]]) is a bit hard on the DR-1s if you finish it well, and tseitsei89's later "in reality around 3 moves worse" ([[T11142]]) is what it turns into when you don't find the best finish (5.5).
+- **DR-1s in $N$ is about a DR in $N + {= EXCH() =}$**, at equal odds for finishes of 13 to 16 ({= D1() =} on the average), with the best finish of the form. Rodney's rule of thumb ([[T10919]]: "I think people will be able to find within 1 of optimal, so I wasn't too far off to guess that -1 slice has a cost of +3. Maybe a little optimistic.", and "So a +3/+4 penalty for -1/-2 slice seems like a good rule of thumb") and tseitsei89's ([[T11142]]: "I added around 0.7 moves to the optimal solution length", so "my current heuristics is that it is in reality around 3 moves worse") both start from trangium's optimals and add what a hand finish loses. The best finish of the form contradicts neither (5.5).
 - **DR-2s 8fe in $N$ is about a DR in $N + {= D8() =}$.**
 
 ### 5.4 Which DR-1s are the good ones
 
-People said two things you can see on a DR-1s matter: how far it is from a DR, and how the four flipped edges split between the two slices they belong to (Rodney, [[T10832]]: "3-1 is bad because it requires 2 QT", "2-2 requires 1 QT"). Those are the same thing seen from the two sides of the scramble: the four flipped edges all belong to one slice exactly when, on the other side, they all sit in one slice. So one table covers both, the fewest turns to a real DR from whichever side is better. Each row is the DR-1s whose better side is that many turns from a real DR; "minus a DR's" is its average finish minus a random DR's:
+People said two things you can see on a DR-1s matter: how far it is from a DR, and how the four flipped edges split between the two slices they belong to. Rodney ([[T10832]]): "I think there's a clue in the flipped edge split. You can classify a flipped-edge case by the number of QT required. 3-1 is bad because it requires 2 QT, e.g. U F2 U M. 2-2 requires 1 QT." Those are the same thing seen from the two sides of the scramble: the four flipped edges all belong to one slice exactly when, on the other side, they all sit in one slice. The first table takes whichever side is better. Each row is the DR-1s whose better side is that many turns from a real DR; "minus a DR's" is its average finish minus a random DR's:
 
 {{better}}
 
+The second is by the split on the side where you have the DR-1s. Each row is one way the four flipped edges split between the two slices they belong to:
+
+{{split}}
+
 - **The DR-1s to want is the one a single slice turn fixes, from one side or the other**: +{= BETTER(2, 'diff') =}, a little less than a DR-2s 8fe costs. It's {= BETTER(2, 'share') =} of them.
 - **Past that, the layout doesn't matter much.** From 4 turns to 6 the average finish moves by {= f2(float(BETTER(6)) - float(BETTER(4))) =}. A DR-1s that's 6 from a real DR isn't 4 worse than one that's 2 away, because the setup moves are also finish moves.
-- **"Extra-good" is two cases.** Rodney's extra-good DR-1s is four flipped edges all belonging to one slice ([[T11232]]), which Rodney put at "just 1-2 moves worse than full DR". When that slice is the one that fixes, it's the first row. When it's the other slice, the four sit together in the wrong slice and the finish is +{= OTHER4('diff') =}, no better than an ordinary DR-1s. Averaged over the two it's +{= f2(float(SPLIT('4-0')) - float(AD())) =}.
+- **The split says what the fix needs, and little about the finish.** With three of the four flipped edges in the slice that fixes, or just one (a 3-1), it takes {= QT(3) =} quarter turns before the slice; with two in it (a 2-2), {= QT(2) =}. That holds for every layout, as Rodney says. In the finish a 3-1 is {= f2(float(SPLIT1('3-1')) - float(SPLIT1('2-2'))) =} behind a 2-2.
+- **"Extra-good" is two cases.** Rodney's extra-good DR-1s is four flipped edges all belonging to one slice ([[T11232]]): "I think the analysis is suggesting that these extra-good dr-xs cases are just 1-2 moves worse than full DR." When that slice is the one that fixes, it's the first row of the first table, +{= BETTER(2, 'diff') =}. When it's the other slice, the four sit together in the wrong slice and the finish is +{= OTHER4('diff') =}, against +{= D1() =} for DR-1s as a whole. Averaged over the two it's +{= SPLIT1('4-0', 'diff') =}. An example of the second case, with 8 bad edges on F/B, the four good ones the E-slice edges, and white/yellow on F or B at every corner:
 
   ```
-  F B R L // the fix when the four sit in the wrong slice
+  {= WS['witness']['scramble'] =} // scramble
+  {= WS['witness']['fix'] =} // the fix when the four sit in the wrong slice, {= WS['witness']['turns'] =} turns
+  {= WS['witness']['nissy_dr_inverse'].rsplit(' (', 1)[0] =} // the shortest DR from the other side, {= WS['witness']['nissy_dr_inverse_len'] =} turns
   ```
+
+  Its flipped edges sit at {= ', '.join(WS['witness']['places']) =}, and the pieces there are {= ', '.join(n for n, k in WS['witness']['pieces']) =}, a {= WS['witness']['home_split'] =} by the slices they belong to. From the other side the same four flipped edges are the E-slice pieces, all of one slice. ✓ Lean: the example, its fix and both lengths (no shorter DR on any axis from either side).
 
 ### 5.5 What a hand finish loses
 
@@ -345,7 +354,7 @@ How often a person finds these finishes isn't something I can compute. trangium'
 
 ### 5.6 DR-2s 8fe and the DR that ends in U R L
 
-The tutorial's cheapest way to a DR-2s 8fe is a normal DR that ends in something like `U R L`: do `D` instead and you're at an 8fe two moves earlier. An 8fe in $N$ is worth a DR in $N + {= D8() =}$, so the DR in $N + 2$ that ends that way is worth a DR in about $N + {= f1(float(D8())) =}$. **The ending is worth about {= f1(2 - float(D8())) =} of a move** with the best finish of this form, and 0.9 to 1.15 with trangium's optimal averages. trangium put it at "1 to 1.3 moves better" ([[T11115]]) and count quackula at "one move better" ([[T11114]]): about one move stands.
+The tutorial's cheapest way to a DR-2s 8fe is a normal DR that ends in something like `U R L`: do `D` instead and you're at an 8fe two moves earlier. An 8fe in $N$ is worth a DR in $N + {= D8() =}$, so the DR in $N + 2$ that ends that way is worth a DR in about $N + {= f1(float(D8())) =}$. **The ending is worth about {= f1(2 - float(D8())) =} of a move** with the best finish of this form, and 0.9 to 1.15 with trangium's optimal averages, if you take the 8fe instead of the DR. trangium's figure is for having both to finish from ([[T11120]]): "the point is now you have two options from the U R L state: either you can go to regular DR, or the DR-2s 8fe." That can only be worth more. trangium put it at "now more like 1 to 1.3 moves better" ([[T11115]]) and "yeah I'd say slightly over 1 move better is reasonable actually" ([[T11122]]). count quackula ([[T11114]]): "This tracks exactly with the fact that we treat U R L drs as one move better". About one move stands.
 
 By subset the 8fe penalty runs from +{= D8('4a1') =} (4a1) to +{= D8('4c4') =} (4c4). Unlike the DR-1s penalty it goes up with the qt count, so the `U R L` ending is worth about a move on the low-qt subsets and about {= f1(2 - float(D8('4c4'))) =} on 4c4.
 
@@ -372,7 +381,7 @@ And for one given slice, the moves to a slice EO on some axis, over all 7,920 wa
 | one given axis, oriented or misoriented | {= SD('F/B only, oriented or misoriented', 0) =} | {= SD('F/B only, oriented or misoriented', 1) =} | {= SD('F/B only, oriented or misoriented', 2) =} | {= SD('F/B only, oriented or misoriented', 3) =} | 0 |
 | one given axis, oriented only | {= SD('F/B only, oriented', 0) =} | {= SD('F/B only, oriented', 1) =} | {= SD('F/B only, oriented', 2) =} | {= SD('F/B only, oriented', 3) =} | {= SD('F/B only, oriented', 4) =} |
 
-FakeMMAP's "never more than 2 moves away", "No matter which slice you pick" ([[T10773]], [[T10774]]) is exact, and so is the EO Meta Comparison doc's "partial EO in <=2 is guaranteed", as long as all-misoriented counts. All-oriented only, it takes 3 moves {= SD('any axis, oriented only', 3) =} of the time.
+FakeMMAP's "Looks like SO (what I've decided to call orienting all edges belonging to a slice) is never more than 2 moves away.", "No matter which slice you pick." ([[T10773]], [[T10774]]) is exact, and so is the EO Meta Comparison doc's "partial EO in <=2 is guaranteed", as long as all-misoriented counts. All-oriented only, it takes 3 moves {= SD('any axis, oriented only', 3) =} of the time.
 
 ### 6.2 From a skip to a DR-1s
 
@@ -384,10 +393,10 @@ And how often the nearest DR-1s is within that many moves, over all skips of the
 
 {{skip_to_1s_dist}}
 
-- **Oriented, on an axis that is not the slice's own** (E-slice edges oriented on F/B, say): there's always a route. It's 7 or less for {= SH('eo-fb_1s | A oriented', 7) =} of skips and 8 or less for {= SH('eo-fb_1s | A oriented', 8) =}. For comparison, from a full EO the nearest real DR on one given axis is {= SHM('eo-fb_dr | A oriented') =} moves away on average under the same rule. So in route length a skip like this is an EO that cost nothing, and in finish it's a DR-1s. That's the sense of Rodney's "sliceEO in N is as good as regular EO in N+3" ([[T11020]]); with the finish penalty at {= EXCH() =} the 3 is a little generous to the normal EO, before you count how many of each you get to try.
+- **Oriented, on an axis that is not the slice's own** (E-slice edges oriented on F/B, say): there's always a route. It's 7 or less for {= SH('eo-fb_1s | A oriented', 7) =} of skips and 8 or less for {= SH('eo-fb_1s | A oriented', 8) =}. For comparison, from a full EO the nearest real DR on one given axis is {= SHM('eo-fb_dr | A oriented') =} moves away on average under the same rule. So in route length a skip like this is an EO that cost nothing, and in finish it's a DR-1s. Rodney's rule of thumb is close to that ([[T11020]]): "There's a lot of evidence to support the rule of thumb that sliceEO in N is as good as regular EO in N+3." tseitsei89 put a skip about a move lower, because not every DR-xs you get from one is a DR-1s ([[T11022]], [[T11023]]): "I dont think that is entirely true. Since some DR-Xs you get will not be -1s and they need +2 moves then.", "I would probably rank sliceEO skip as slightly better or equal to 4 move normal EO but definitely worse than 3 mover." For a skip that does give a DR-1s, with the best finish, the penalty is {= EXCH() =}, so there the 3 is a little generous to the normal EO, before you count how many of each you get to try.
 - **Misoriented on such an axis**: without breaking that axis's EO a route exists only when exactly four of the other eight edges are bad, so that the axis has 8 bad edges in all. That's {= SHR('eo-fb_1s | A misoriented') =} of these skips (70 in 128). trangium ([[T11357]]): "you MUST have 8 bad on that axis for even a chance at dr-1s". Rodney's "55%" ([[T11566]]) is this number.
 - **Oriented on the slice's own axis** (E-slice edges oriented on U/D): {= SHR('eo-ud_1s | B oriented') =}, when as many M-slice pieces as S-slice pieces are bad. The same states can reach a real DR on that colour without U or D quarter turns, {= SHM('eo-ud_dr | B oriented') =} moves away on average.
-- **Misoriented on the slice's own axis**: never, with or without the extra quarter turns below. Daichi's "misoriented sEOs are just worse overall" ([[D19634]]) is right in both families.
+- **Misoriented on the slice's own axis**: never, with or without the extra quarter turns below. Daichi's impression, put as a question ([[D19634]]: "has anyone else thought that misoriented sEOs are just worse overall compared to oriented sEOs?"), is right in both families.
 
 Allowing quarter turns of the EO axis when they miss the slice pieces (the tutorial's tip 2) fully opens the two half-open kinds of skip, misoriented on another axis and oriented on the slice's own, but doesn't shorten much. Allowing any move shortens it by a quarter move. Each row is a kind of skip under one move rule, "strict" being the rule above:
 
@@ -432,12 +441,12 @@ Any moves, linear on one side, over {= NEARN() =} random scrambles (three colour
 - The first row is wen's other question ([[D20015]]), "Is the distribution for scrambled->DR movecount known?". The row is the best of six; per colour it's exactly this, over the 2,217,093,120 cosets (0 to 12 moves):
 
   1, 4, 50, 592, 7156, 87236, 1043817, 12070278, 124946368, 821605960, 1199128738, 58202444, 476
-- The last row is trangium's "almost always a linear 7-mover on some axis and side, around half the time a 6-mover, and pretty much never a 5-mover" ([[T10696]]): {= NEAR('xs', 7) =}, {= NEAR('xs', 6) =}, and {= NEAR('xs', 5) =} for 5 or less.
+- The last row is trangium's ballpark for a dr-fe ([[T10696]]): "Starting from a scrambled cube, I'd ballpark that there's almost always a linear 7-mover on some axis and side, around half the time a 6-mover, and pretty much never a 5-mover." It comes out at {= NEAR('xs', 7) =}, {= NEAR('xs', 6) =}, and {= NEAR('xs', 5) =} for 5 or less.
 - A DR-1s exists about {= f1(float(NEARAVG('dr')) - float(NEARAVG('1s'))) =} moves earlier than a real DR, and costs {= D1() =} in the finish. That's the whole trade in two numbers: on average it's close to even, so it pays when you find the short ones.
 
 ### 6.5 From an EO pattern to a kind
 
-If the route keeps the EO of an axis, the EO pattern you start from decides what you can land on. Appendix B has the full table: for every pattern that is uniform by slice (each slice's four pieces all good or all bad) and each pair of faces for the corners, what the DR-xs is. Rodney's list of patterns that guarantee an extra-good case ([[T11232]]) and count quackula's two lists (the 12-bad notes and the guaranteed-fix cases) can be read straight off it. All of them check out except one line, the 12-bad one in Rodney's list (section 8).
+If the route keeps the EO of an axis, the EO pattern you start from decides what you can land on. Appendix B has the full table: for every pattern that is uniform by slice (each slice's four pieces all good or all bad) and each pair of faces for the corners, what the DR-xs is. Rodney's list of patterns that guarantee an extra-good case ([[T11232]]), the restatement of it the day after ([[T11255]]) and count quackula's two lists (the 12-bad notes and the guaranteed-fix cases) can be read straight off it. All of them check out except two things, both in section 8: the 12-bad line in Rodney's list, and one of the nine cases the restatement covers.
 
 ---
 
@@ -453,24 +462,25 @@ Everything said that a computer can settle, and what the numbers say. Wherever s
 
 | Claim | Who | Verdict |
 |---|---|---|
-| DR-1s to DR is 6 moves at most, no 7 | Daichi, [[T12406]], [[T12408]] | **True.** Exactly 2 to 6 turns over the 70 layouts (4.2). A 6: `{= W6() =}` gives a DR-1s whose shortest fix is 6 turns. ✓ Lean |
-| The DR-1s to DR distribution is "basically flat", 3 moves is the median | Rodney, [[T12409]], [[T12410]] | **No.** 1, 2, 9, 30, 28 of 70 for 2 to 6 turns. Rodney's 3 is one half turn, one quarter turn and the slice with one of its two turns cancelling; counted that way the median layout is 4, and 5 from scratch. ✓ Lean |
+| DR-1s to DR is 6 moves at most, no 7 | Daichi, [[T12406]], [[T12408]] | **True.** Exactly 2 to 6 turns over the 70 layouts (4.2, ✓ Lean). A 6 from either side of the scramble: {= W6B() =}. |
+| "There aren't many cases, so I would guess the distribution is basically flat"; 3 moves "is the median based on the argument above (one ht, one qt, and -1 cancellation on the slice)" | Rodney, [[T12409]], [[T12410]] | **A guess, and it isn't flat.** {= FIX70(2) =}, {= FIX70(3) =}, {= FIX70(4) =}, {= FIX70(5) =}, {= FIX70(6) =} of 70 for 2 to 6 turns. Counted Rodney's way, with one slice turn cancelling, the median layout is {= FIXMED(1) - 1 =}, and {= FIXMED(1) =} from scratch (✓ Lean). Simon's table (last row) already showed it isn't flat, and tseitsei89 had the range ([[D19426]]): "The fix from DR-1s to real DR is 2-6 moves iirc". |
 | "DR-2s needs at most 2 moves to reach DR-1s" | Rodney, [[T12409]] | **True** for the setup: 0, 1 or 2 moves, then the slice (4.3). ✓ Lean |
 | From DR-3s you get DR-2s in 0 moves with a slice that cancels with the last DR move | tseitsei89's tutorial | **True** for all {= NK(3) =} kinds of DR-3s. ✓ Lean |
 | The rule for the number of slices from centers and flipped edges | trangium's dr-fe examples doc, Rodney [[T10661]], the tutorial | **True**, all 768 kinds (section 3). ✓ Lean |
-| "1 slice can be fixed in 3 moves, and 2 slices can be fixed in 5 moves" | EO Meta Comparison doc (an assumption, stated as one) | As move counts to a real DR, about a move short with one slice turn cancelling, as Rodney counts the 3 ({= f2(float(FIXAVG(1)) - 1) =} and {= f2(float(FIXAVG(2)) - 1) =} on average), and about 2 short from the state alone ({= FIXAVG(1) =} and {= FIXAVG(2) =}). As finish penalties, 3 is a little high for a DR-1s (+{= D1() =}) and 5 much too high for a DR-2s 8fe (+{= D8() =}). |
+| "The number of moves needed to correct the slices is variable. For these tables, we assume 1 slice can be fixed in 3 moves, and 2 slices can be fixed in 5 moves." | EO Meta Comparison doc | **An assumption, about a move optimistic.** As turns to a real DR the averages are {= FIXAVG(1) =} and {= FIXAVG(2) =} from the state alone, and {= f2(float(FIXAVG(1)) - 1) =} and {= f2(float(FIXAVG(2)) - 1) =} with one slice turn cancelling, which is how Rodney counts them: the 3 is "one ht, one qt, and -1 cancellation on the slice" ([[T12410]]), and the 5 is that plus 2 for the first slice ([[T10802]]). So the doc's Partial EO tables sit about one row too high. It was questioned the day after the doc went up. count quackula ([[T10796]]): "Is a 2 slice fix averaging +5 accurate? That would mean (R L) F R L or something but that seems rare that it's that good". trangium ([[T10797]]): "yeah I don't think it's normally that good, although the DRs you get are guaranteed to have tons of vars which slightly counteracts that". Rodney ([[T10802]]): "I feel like it's easy to fix the first slice in +2 if you delay the fix for one QT. I'm actually less sure that fixing the last slice in +3 is realistic." As a finish penalty, 3 is a little high for a DR-1s finished as well as the form allows (+{= D1() =}); for the DR-2s this route gives there are only trangium's optimals, +2.7 to +3.0. |
 | "UD colors on the RL faces will result in 8 flipped edges, which can be fixed with U\* D\* R\* L\*, with a guaranteed -2 cancellation", "This effectively adds +2 to the moves to reach DR" | EO Meta Comparison doc, Off-Axis DR | **True** as moves to DR. Counted as finish length the 8-flipped case costs less: a DR-2s 8fe finishes {= D8() =} longer than a DR, so the off-axis table, which charges the full +2, undersells that case by about a move. |
 | A DR-1s finish is about 2.2 to 2.4 longer than a DR's on optimal; a DR-2s 8fe about 1 | trangium, in the tutorial and [[T10847]], [[T11138]] | **Consistent.** trangium's are optimals. With the best finish of the method's form, on {= N1() =} and {= N8() =} states: +{= D1() =} and +{= D8() =}, 0.1 to 0.4 above trangium's by subset. |
 | "8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR" | the tutorial | **Holds** with these finishes: at +{= D1() =} an 8-move DR-1s is {= f2(float(D1()) - 2) =} behind a 10-move DR and {= f2(3 - float(D1())) =} ahead of an 11 (5.3). |
-| 3-1 is bad, 2-2 is good, 4-0 is great | Rodney [[T10832]], tseitsei89 [[T10822]] | **Right order, small effect** except for one case: {= SPLIT('3-1') =}, {= SPLIT('2-2') =}, {= SPLIT('4-0') =} average finish, and the 4-0 is only good when the slice is the one that fixes (5.4). |
-| An extra-good DR-1s is "just 1-2 moves worse than full DR" | Rodney, [[T11232]] | **On average**, +{= f2(float(SPLIT('4-0')) - float(AD())) =}: +{= BETTER(2, 'diff') =} when the four are in the slice that fixes, +{= OTHER4('diff') =} when they are in the other one. |
-| Slice EO for a given slice "is never more than 2 moves away"; "partial EO in <=2 is guaranteed" | FakeMMAP, [[T10773]]; EO Meta Comparison doc | **True**, exactly, counting all-misoriented as a slice EO (6.1). ✓ Lean |
+| 3-1 is bad, 2-2 is good, 4-0 is great | Rodney [[T10821]], [[T10832]], tseitsei89 [[T10822]] | **Right about the fix, small effect on the finish.** They were talking about the fix: a 3-1 needs {= QT(3) =} quarter turns before the slice and a 2-2 {= QT(2) =}, as Rodney says, whatever the layout. In the finish the order holds but the gap is small: {= SPLIT1('3-1') =}, {= SPLIT1('2-2') =} and {= SPLIT1('4-0') =} on average, and the 4-0 is only good when its slice is the one that fixes (5.4). |
+| "I think the analysis is suggesting that these extra-good dr-xs cases are just 1-2 moves worse than full DR" | Rodney, [[T11232]] | **Holds, roughly.** +{= BETTER(2, 'diff') =} when the four flipped edges are in the slice that fixes, +{= OTHER4('diff') =} when they are in the other one, +{= D8() =} with eight flipped. |
+| "Looks like SO (what I've decided to call orienting all edges belonging to a slice) is never more than 2 moves away."; "partial EO in <=2 is guaranteed" | FakeMMAP, [[T10773]]; EO Meta Comparison doc | **True**, exactly, counting all-misoriented as a slice EO (6.1). ✓ Lean |
 | A slice-EO skip for one slice and axis has chance 1 in 8 | tseitsei89, count quackula, [[D19427]] | **True.** And at least one on a scramble: {= SKIP4('normal') =} on normal, {= SKIP4('both') =} with inverse. ✓ Lean |
 | A misoriented slice EO gives a DR-1s only on an axis with 8 bad edges | tseitsei89 [[T11009]], trangium [[T11357]] | **True** for routes that keep the axis's EO, and {= SHR('eo-fb_1s | A misoriented') =} of misoriented skips qualify (6.2). |
 | "The chance of getting 4 flipped edges in general is 55%" | Rodney, [[T11566]] | **True**: 70 in 128. |
 | The optimal linear dr-fe distribution 1, 4, 50, 586, … | trangium, [[T11332]] | **Reproduced exactly.** |
-| "almost always a linear 7-mover on some axis and side, around half the time a 6-mover, and pretty much never a 5-mover" | trangium, [[T10696]] | **Right for 7 and 6**: {= NEAR('xs', 7) =} of scrambles have a 7, {= NEAR('xs', 6) =} a 6. A 5 or shorter is there on {= NEAR('xs', 5) =}, one scramble in {= f'{hu(100 / float(NEAR("xs", 5).rstrip("%"))):.0f}' =} (6.4). |
-| Six edge-orientation patterns that guarantee an extra-good DR-xs | Rodney, [[T11232]] | **Five of six.** "All edges misoriented (12 bad) -> FB on UD will be extra-good -1s" is not a DR-1s: it is a DR-2s with four flipped edges of one slice. {= W12() =} trangium's fix ([[T11234]]), "FB-colored misoriented, others oriented", is right. count quackula's 12-bad notes already had it: "If the CO color is green/blue: This is a DR-2s 4fe." (the 12-bad example ✓ Lean) |
+| "Starting from a scrambled cube, I'd ballpark that there's almost always a linear 7-mover on some axis and side, around half the time a 6-mover, and pretty much never a 5-mover." (of a dr-fe) | trangium, [[T10696]] | **Right for 7 and 6**: {= NEAR('xs', 7) =} of scrambles have a 7, {= NEAR('xs', 6) =} a 6. A 5 or shorter is there on {= NEAR('xs', 5) =}, one scramble in {= f'{hu(100 / float(NEAR("xs", 5).rstrip("%"))):.0f}' =} (6.4). |
+| Six edge-orientation patterns that guarantee an extra-good DR-xs | Rodney, [[T11232]] | **Five of six.** "All edges misoriented (12 bad) -> FB on UD will be extra-good -1s", the first of three lines given under "As far as I can tell, there are three others", is not a DR-1s: it is a DR-2s with four flipped edges of one slice. {= W12() =} trangium caught it within the hour ([[T11234]]): "hmm I can't get the 12 bad one to work, think it should be FB-colored misoriented, others oriented", and that line is right. Rodney's restatement the next day (next row) starts from 8 bad edges only. count quackula's 12-bad notes already had it: "If the CO color is green/blue: This is a DR-2s 4fe." (the 12-bad example ✓ Lean) |
+| "The mixed-EO story is actually much simpler than I was saying above. If you have 8 bad edges, where all the good edges belong to the same slice, then you can orient the corners that correspond to the good edges along any axis and you are guaranteed an extra-good dr-xs" | Rodney, [[T11255]] | **True in eight of the nine cases; the ninth depends on what "any axis" takes in.** Take the EO axis as F/B. With the E-slice edges the good ones, white/yellow on U/D gives eight flipped edges with the centers right, on R/L none flipped, and on F/B a DR-1s whose four flipped edges always sit together in the E-slice places, so from the other side of the scramble they all belong to one slice. That last one is trangium's example of the evening before ([[T11239]]): "(U R2 F2 D2 R' U) // guaranteed extra-good dr-1s". The M-slice edges work the same way. With the S-slice edges the good ones, green/blue on U/D or R/L gives a DR-1s with four flipped edges of one slice, but on F and B themselves nothing is guaranteed: {= W9() =}. How good these are is another matter (5.4): the DR-1s on F/B is the wrong-slice kind, `{= WS['witness']['fix'] =}` to DR and +{= OTHER4('diff') =} in the finish, and so is the one from Rodney's "UD-colored" line and the one from trangium's replacement line. (every case is in Appendix B; computed) |
 | The cases with a fix to DR guaranteed in net +4 or less | count quackula's guaranteed-fix doc and 12-bad notes | **All consistent** with Appendix B, case by case. |
 | Step 3 of the slice-DR method: 1, 4, 9, 40, 16 cases of 70 at 2 to 6 moves | Simon's slice-DR doc | **Four cases off**: {= SIMON() =} (4.2, Appendix A). ✓ Lean |
 

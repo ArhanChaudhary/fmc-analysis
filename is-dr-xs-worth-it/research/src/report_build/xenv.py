@@ -71,12 +71,6 @@ def NEAR(what, t, sides='both'): h = _near(what, sides); return num(100 * sum(c 
 def NEARAVG(what, sides='both'): h = _near(what, sides); return f2(sum(d * c for d, c in h.items()) / sum(h.values()))
 def NEARN(): return f"{sum(_near('dr', 'both').values()):,}"
 def FIX70(t): return str(sum(1 for r in KINDS if r['slices'] == '1' and int(r['turns_to_dr']) == t) // 2)
-def _split(kind):
-    a = xv._rows('sample1s.tsv'); b = xv._rows('sample1s_labels.tsv')
-    p = {'4-0': lambda y: '4-0' in (y['split'], y['split_inverse']), '2-2': lambda y: y['split'] == y['split_inverse'] == '2-2', '3-1': lambda y: y['split'] == y['split_inverse'] == '3-1'}[kind]
-    return [int(x['finish']) for x, y in zip(a, b) if p(y)]
-def SPLIT(kind): v = _split(kind); return f2(sum(v) / len(v))
-def SPLITSHARE(kind): return num(100 * len(_split(kind)) / len(xv._rows('sample1s.tsv')))
 WIT = json.load(open(O + 'witness.json'))
 WS = json.load(open(O + 'witness_split.json'))
 def SIMON(): return ', '.join(map(str, WIT['simon']))
@@ -85,6 +79,32 @@ def W12():
     w = WIT['twelve_bad']
     return (f"`{w['scramble']}` has all twelve edges bad on F/B and green or blue on the U and D face of every corner; it has {w['flipped']} flipped edges, "
             f"needs {w['slices']} slices, and a shortest fix to DR is `{w['fix']}` ({w['turns']} turns).")
+WC = json.load(open(O + 'witness_claims.json'))
+_WORD = {2: 'two', 4: 'four', 6: 'six', 8: 'eight'}
+def W6B():
+    """A DR-1s that is 6 turns from a real DR from the normal side and from the inverse (nissy's shortest DRs, any axis)."""
+    w = WC['six_both']; assert w['normal_len'] == w['inverse_len'] == 6
+    return f"`{w['scramble']}` gives a DR-1s whose shortest DR is `{w['normal']}` on normal and `{w['inverse']}` on the inverse, {w['normal_len']} turns each"
+def W9():
+    """8 bad on F/B, the S-slice edges good, green/blue on F and B at every corner: nothing guaranteed."""
+    w = WC['ninth']; assert w['turns'] == w['nissy_dr_len']
+    return f"`{w['scramble']}` has that pattern and {_WORD[w['flipped']]} flipped edges, a DR-{w['slices']}s {w['turns']} turns from a DR"
+def QT(in_slice):
+    """Quarter turns a DR-1s needs before the slice when in_slice of its four flipped edges already sit in the slice that fixes (the same for every such layout)."""
+    v = WC['quarter_turns'][str(in_slice)]; assert len(v) == 1 and WC['quarter_turns']['3'] == WC['quarter_turns']['1']
+    return _WORD.get(v[0], str(v[0])) if v[0] != 1 else 'one'
+def FIXOVER(t):
+    """Share of the kinds that are not a DR whose shortest fix takes more than t turns."""
+    v = [int(r['turns_to_dr']) for r in KINDS if int(r['slices']) > 0]; return num(100 * sum(x > t for x in v) / len(v))
+def NOTDR(): return str(sum(1 for r in KINDS if int(r['slices']) > 0))
+def _split1(kind):
+    """Finishes of the sampled DR-1s whose four flipped edges split `kind` between the two slices they belong to, on the side where the DR-1s is."""
+    a = xv._rows('sample1s.tsv'); b = xv._rows('sample1s_labels.tsv')
+    return [int(x['finish']) for x, y in zip(a, b) if y['split'] == kind]
+def SPLIT1(kind, what='avg'):
+    v = _split1(kind)
+    if what == 'share': return num(100 * len(v) / len(xv._rows('sample1s.tsv')))
+    return f2(sum(v) / len(v)) if what == 'avg' else f2(sum(v) / len(v) - avg(xv.dr()))
 REAL = json.load(open(O + 'real.json')) if os.path.exists(O + 'real.json') else {}
 def RL(key, sub=None, f='{:.2f}'):
     v = REAL[key] if sub is None else REAL[key][sub]

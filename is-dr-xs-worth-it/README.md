@@ -38,7 +38,8 @@ Everything starts from one sticker-level model of the cube built from geometry (
 | Every DR-1s and DR-2s 8fe on 500 scrambles, with solutions | `xstools attempts`, `verify_attempts.py` | `out/attempts_1s.tsv`, `out/attempts_8fe.tsv` |
 | The server's worked examples against the classification | `check_examples.py` | printed |
 | Example scrambles for the claims | `witness.py` | `out/witness.json` |
-| Errata B3: the 70 F/B layouts by home and by place, and the witness checked with nissy | `witness_split.py` | `out/witness_split.json` |
+| The wrong-slice DR-1s of section 5.4 (8 bad on F/B, the E-slice pieces good, U/D colours on F/B): the 70 layouts by home and by place, and the example checked with nissy | `witness_split.py` | `out/witness_split.json` |
+| Scrambles and pattern checks for section 8: a DR-1s that is 6 turns from a DR from either side, the ninth case of the mixed-EO restatement, trangium's example, which 4-0 patterns are the wrong-slice kind | `witness_claims.py` | `out/witness_claims.json` |
 | The normal route by EO length on the 500 scrambles | `xeo.py` | `out/eo_run.tsv` |
 | Report tables, write-up, errata, examples page | `xtables.py`, `xreal.py`, `report_build/assemble.py` (and `--bugs`), `xexamples.py` | `report/` |
 

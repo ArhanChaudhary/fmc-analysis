@@ -1,0 +1,142 @@
+{
+ "six_both": {
+  "scramble": "B2 D B2 D R L B L2 D2 F'",
+  "normal": "R2 F2 U2 F R L",
+  "normal_len": 6,
+  "inverse": "B2 U R2 U R L",
+  "inverse_len": 6,
+  "places": [
+   "BR",
+   "DB",
+   "DF",
+   "FL"
+  ]
+ },
+ "ninth": {
+  "scramble": "F B U D L F2 L U D'",
+  "flipped": 2,
+  "places": [
+   "DB",
+   "FR"
+  ],
+  "slices": 2,
+  "turns": 7,
+  "nissy_dr": "U D R' D2 R U D",
+  "nissy_dr_len": 7,
+  "flip_counts": [
+   0,
+   2,
+   4,
+   6,
+   8
+  ]
+ },
+ "t11239": {
+  "places": [
+   "BL",
+   "BR",
+   "FL",
+   "FR"
+  ],
+  "pieces": [
+   "DF",
+   "UB",
+   "UF",
+   "UL"
+  ],
+  "piece_slices": "MMMS",
+  "turns": 4,
+  "other_side_pieces": [
+   "BL",
+   "BR",
+   "FL",
+   "FR"
+  ],
+  "solution_len": 19
+ },
+ "patterns": {
+  "all oriented, FB on UD (Rodney, line 2)": {
+   "layouts": 70,
+   "turns_here": {
+    "2": 1,
+    "3": 2,
+    "4": 9,
+    "5": 30,
+    "6": 28
+   },
+   "four_together": {
+    "pieces 4-0": 70
+   },
+   "turns_other_side": 2
+  },
+  "FB-colored misoriented, RL on UD (Rodney, line 5)": {
+   "layouts": 70,
+   "turns_here": {
+    "2": 1,
+    "3": 2,
+    "4": 9,
+    "5": 30,
+    "6": 28
+   },
+   "four_together": {
+    "pieces 4-0": 70
+   },
+   "turns_other_side": 2
+  },
+  "UD-colored misoriented, RL on UD (Rodney, line 6)": {
+   "layouts": 70,
+   "turns_here": {
+    "2": 1,
+    "3": 2,
+    "4": 9,
+    "5": 30,
+    "6": 28
+   },
+   "four_together": {
+    "pieces 4-0": 70
+   },
+   "turns_other_side": 4
+  },
+  "FB-colored misoriented, FB on UD (trangium)": {
+   "layouts": 70,
+   "turns_here": {
+    "2": 1,
+    "3": 2,
+    "4": 9,
+    "5": 30,
+    "6": 28
+   },
+   "four_together": {
+    "pieces 4-0": 70
+   },
+   "turns_other_side": 4
+  },
+  "E-slice pieces good, UD on FB (restatement, third axis)": {
+   "layouts": 70,
+   "turns_here": {
+    "4": 70
+   },
+   "four_together": {
+    "places 4-0": 68,
+    "pieces 4-0": 2
+   }
+  }
+ },
+ "quarter_turns": {
+  "0": [
+   2
+  ],
+  "1": [
+   2
+  ],
+  "2": [
+   1
+  ],
+  "3": [
+   2
+  ],
+  "4": [
+   0
+  ]
+ }
+}

@@ -13,7 +13,7 @@ Each row is a kind of thing to finish and a length; the columns are the share of
 {{real_there}}
 
 - **Nine scrambles in ten have a DR-1s of 8 or less** from a skip or a one-move slice EO, and there are {= TH('a DR-1s of 8 or less from a skip or a one-move slice EO', 1) =} of them on average, nearly as many as there are normal DRs of 10 or less.
-- **Nearly half have one of 7 or less** ({= TH('a DR-1s of 7 or less from a skip or a one-move slice EO') =}), and a 6 is there on {= TH('a DR-1s of 6 or less from a skip or a one-move slice EO') =}. tseitsei89's "I can usually find some DR-fe in 8 moves. Occasionally 7." ([[T10809]]) was about what you find by hand; this is what's there by the plain route.
+- **Nearly half have one of 7 or less** ({= TH('a DR-1s of 7 or less from a skip or a one-move slice EO') =}), and a 6 is there on {= TH('a DR-1s of 6 or less from a skip or a one-move slice EO') =}. tseitsei89's "After playing around with this for a little bit I can usually find some DR-fe in 8 moves. Occasionally 7." ([[T10809]]) was about what you find by hand, early on and for a DR-fe of any kind; this is what's there by the plain route.
 - Skips alone carry most of it; one-move slice EOs add a little under a third.
 - **The 8fe rows** are a floor too, and you don't need a skip for one (6.3). There are {= E8START(None, 8) =} DR-2s 8fe of 8 moves or fewer on these scrambles. By where the route starts:
 
@@ -80,7 +80,7 @@ And with the DRs of 11 as well ({= RL('eo11', 'H', f='{:,}') =} scrambles), same
 - **They combine**: both together give {= EOP('eo10', 5) =}, {= EOD('eo10', 0, 5) =} better than the start. That's less than the two gains added, because they often get to the same length. Neither replaces the other.
 - **Per thing finished the 5-movers do better**: their gain comes from {= f'{hu(REAL["eo10"]["policies"][4]["n"] - REAL["eo10"]["policies"][0]["n"]):,.0f}' =} more DRs to finish, the slice-EO gain from {= f'{hu(REAL["eo10"]["policies"][2]["n"] - REAL["eo10"]["policies"][0]["n"]):,.0f}' =} more DR-1s. The slice EOs win on what you have to look through to get there.
 
-This fits tseitsei89's order, sub-5 EOs first, then the slice-EO skips, then the 5-movers ([[T11014]]), on one condition: a skip and the DR-1s behind it have to be quick to find. The slice-EO routes give about half of what all the 5-move EOs give, for far fewer starts. What that costs in minutes is the part these tables can't tell you, and it's where the doubts were: zakimoshi's "isn't actually a very cost effective strategy time wise" ([[T11306]]), JTuu's "if it's even close, I feel like 5-move eos win for time management reasons" ([[D19528]]).
+This fits tseitsei89's order, sub-5 EOs first, then the slice-EO skips, then the 5-movers ([[T11014]]), on one condition: a skip and the DR-1s behind it have to be quick to find. The slice-EO routes give about half of what all the 5-move EOs give, for far fewer starts. What that costs in minutes is the part these tables can't tell you, and it's where the doubts were: zakimoshi's "I'm getting the feeling sEO isn't actually a very cost effective strategy time wise" ([[T11306]]), JTuu's "if it's even close, I feel like 5-move eos win for time management reasons" ([[D19528]]).
 
 ### 7.5 Do real DR-xs finish like random ones?
 
@@ -95,7 +95,7 @@ Close to it. A DR-1s you reach in few moves finishes slightly worse than a rando
 What these checks cost in an attempt isn't something the tables can tell you. What people wrote:
 
 - "Computing orientation for 4 edges" "takes like 2 seconds" (tseitsei89, [[T11046]], [[T11045]]), and there are 9 slice-and-axis pairs to look at per side;
-- "finding all the non-EO dr-fe's in like 5-10 mins" (trangium, [[T10541]]);
+- "I could see with practice finding all the non-EO dr-fe's in like 5-10 mins" (trangium, early on, [[T10541]]), and KrzychXyz's answer ([[T10543]]): "Yeah, but the real time cost is finding the right fix";
 - a normal EO "takes 15 to 30 seconds" to check (Dunni, [[D16760]]).
 
 You see a slice-EO skip directly, but you still have to find a DR-1s from it the way you find a DR from an EO, and then finish it with a method fewer people have practised.

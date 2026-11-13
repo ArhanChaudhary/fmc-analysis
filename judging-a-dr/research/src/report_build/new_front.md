@@ -63,7 +63,7 @@ What is new here:
   |---|---:|---:|---:|---:|
   | in 11 | {= pv.pct(q(group='1-2qt'), 11) =} | {= pv.pct(q(group='3qt'), 11) =} | {= pv.pct(q(group='4qt'), 11) =} | {= pv.pct(q(group='5qt'), 11) =} |
   | in 10 | {= pv.pct(q(group='1-2qt'), 10) =} | {= pv.pct(q(group='3qt'), 10) =} | {= pv.pct(q(group='4qt'), 10) =} | {= pv.pct(q(group='5qt'), 10) =} |
-- **Still no clean yes/no: tseitsei89's "100% cases and 0% cases" don't exist at any target.** The subset explains {= VAREXP('sub') =} of the variance of the optimal, everything readable together (subset, pairs, corner case and HTR length on both sides, L and E-parity) {= VAREXP(*ALLREADS) =}, and what's left has an sd of {= SDLEFT(*ALLREADS) =} moves. Zagros's hunch was that corner case + HTR on both sides pins the optimal to ~0.25 moves; it's {= SDLEFT('ccn', 'cci', 'hn', 'hi') =}. Two 2c4 4e with the same corner case on both sides, 7 to HTR on both sides and the same corner length finish in 7 and in 16 (section 3). The sd figures are **computer only**: they measure the reads over every DR state, nothing you work out in an attempt. What you use there are the odds each read gives, in the guide per subset.
+- **Still no clean yes/no: tseitsei89's "100% cases and 0% cases" don't exist at any target.** The subset explains {= VAREXP('sub') =} of the variance of the optimal, everything readable together (subset, pairs, corner case and HTR length on both sides, L and E-parity) {= VAREXP(*ALLREADS) =}, and what's left has an sd of {= SDLEFT(*ALLREADS) =} moves. Zagros hypothesized that corner case + HTR on both sides gives the optimal "with a standard deviation of like 0.25 moves" ([[T11482]]); tested, it's {= SDLEFT('ccn', 'cci', 'hn', 'hi') =}. Two 2c4 4e with the same corner case on both sides, 7 to HTR on both sides and the same corner length finish in 7 and in 16 (section 3). The sd figures are **computer only**: they measure the reads over every DR state, nothing you work out in an attempt. What you use there are the odds each read gives, in the guide per subset.
 - **The lower the target, the more the reads tell you, and the free reads tell the most.** Keep only the best-looking quarter of a qt group, going by pairs and corner case (no solving needed). Share of the finishes you keep:
 
   | Finishes in | 3qt | 4qt |
@@ -112,7 +112,7 @@ What is new here:
   - Against the real leave slice (count quackula's question) it's +0.70 on average and too high 19.7% of the time.
 - **How far off they all sit.** The guaranteed bounds you can compute by hand are on average four moves under optimal.
 - **A last DR move you can turn the other way is worth about a third of a move**: {= LASTMOVE('gain') =} on average, from {= LASTMOVE('lo') =} to {= LASTMOVE('hi') =} by subset (Zagros's question). At 3qt it takes the share finishing in 11 from 4.6% to 7.5%.
-- **Where the information is.** Rodney's NISS@1qt features read straight off the DR state give a bound at any qt with no skeleton: on HTR states with half turns only it *is* FakeMMAP's 216-case table, at the DR it has 6,350,400 cases. With the H-perm parity and the real colours added it's exact 44% of the time and within one 86% (Rodney's guess was about right), and it proves Rodney's 4a4 13-mover optimal from the DR alone. What a computer gets against what you can read, as a share of 4qt and 5qt DRs:
+- **Where the information is.** Rodney's NISS@1qt features read straight off the DR state give a bound at any qt with no skeleton: on HTR states with half turns only it *is* FakeMMAP's 216-case table, at the DR it has 6,350,400 cases. With the H-perm parity and the real colours added it's exact 44% of the time and within one 86%, and it proves Rodney's 4a4 13-mover optimal from the DR alone. What a computer gets against what you can read, as a share of 4qt and 5qt DRs:
 
   | What it is | 4qt DRs | 5qt DRs |
   |---|---:|---:|
@@ -122,8 +122,8 @@ What is new here:
 
   The gap is the corner–edge relation, which is what Rodney's NISS@1qt tracing looks at. No count of visible features replaces it. All three rows are **computer only**: NISS@DR is a lookup in millions of cases, and "everything readable put together" ranks by the exact odds of every class of reads. They show where the information is. In an attempt the version you have is Rodney's tracing, per skeleton.
 - **Exact numbers that were guesses.**
-  - The shortest HTR at 1 to 5 corner qts is 1 / 3 / 5 / 7 / 9 on either side (Joba's safe bound took 1 / 2 / 4 / 6 / 8).
-  - Only four subsets ever need 18: 0c0 8e, 0c3 4e, 2c5 0e and 2c5 4e.
+  - The shortest HTR at 1 to 5 corner qts is 1 / 3 / 5 / 7 / 9 on one side. With NISS it gets down to 1 / 2 / 4 / 6 / 8, the lower bound Joba was assuming (section 4.1).
+  - Only four subsets ever need 18: 0c0 8e, 0c3 4e, 2c5 0e and 2c5 4e. To leave the slice it's the last three, which is how zakimoshi remembered the 18s (section 4.1).
   - The slice is free (finish = leave slice) for 73% of DRs, from 56% at 1–2qt to 85% at 5qt. **Computer only**: it needs the optimal finish and the optimal leave slice.
   - A DR whose optimal is 10 or 11 has exactly one optimal first move three times in four. **Computer only**, from the optimal finish of every state.
   - 0c3 is the worst subset on average (14.46), worse than 5qt, and 4a2 2e and 0e finish like a 2c4.
@@ -132,15 +132,16 @@ What is new here:
 
 What it confirms or corrects in the docs and sheets people use:
 
-- **FakeMMAP's HTR-breaking table is right in 211 of 216 cells and one too high in 5.** Two of those are labelled 7 and are 6-movers, so "7 or less is proven optimal" doesn't hold for them. Rodney's "Adv DR Bounding" sheet's penalties are built on the same optimals, so the same five are one too high, plus one alg with R2 for F2. Rodney's rules stay a true lower bound in all 216. A state of each case is in section 9.
+- **FakeMMAP's HTR-breaking table is right in 211 of 216 cells.** Two cells labelled 7 are 6-movers, which goes against "Anything labeled with 7 or less is proven to be a lower bound, and the lower bound is proven optimal" ([[T12129]]). Three of the 9s, which FakeMMAP left unproven, are 8. Rodney's "Adv DR Bounding" sheet's penalties are built on the same optimals, so the same five are one too high, plus one alg with R2 for F2. Rodney's rules stay a true lower bound in all 216. A state of each case is in section 9.
 - **FakeMMAP's HT-only table is not a bound once other moves are allowed**, as FakeMMAP said: with U and D quarter turns 2 of the 216 values drop from 9 to 8 (the count is proven in Lean), with any face turn 66 drop (section 9).
 - **OBL++**, collapsed to the 216 labels, matches on 140 of the 144 cases it covers and is one lower in four. nissy finds no 8 in any of the 3,072 states of each of those four, so 9 stands for the cases as labelled here.
 - **Zagros's "4c3 that is 9+ on both sides I throw away"** drops half of all 4c3 and keeps 92% of the 10s, 83% of the 11s and 73% of the 12s. It does throw away real finds: one 9 to HTR on both sides finishes in 9 (section 4.4).
 - **Zagros's "L + longest HTR predicts within ~1 move"** is true for 93.3% of DRs, but the subset alone does it for 91.3%.
 - **Levi's "blocky 2c4s are way better"**: yes, the ×16 above.
+- **wen's "luckily they are all(?) 0c3 or 5q shit so you realistically will never get them"**, on the DRs with the longest finishes ([[T6881]]): {= TOP(18, 'worst') =} of the states at 18 are 0c3 or 5qt, {= TOP(17, 'worst') =} of those at 17 or more, and {= TOP(16, 'worst') =} of those at 16 or more, where the biggest share is 4c4 (section 4.1).
 - **Rodney's two worked examples** in the Advanced DR Bounding doc are optimal 13s (**computer only**, a table lookup: the answer key), and Levi's example in the DR Bounding doc is right once the last DR move is turned the other way (section 7).
 - **Checked and matching**: Joba's optimal distribution for all 48 subsets, in every cell; FakeMMAP's corner counts per qt; the 1,352 states at 18 that Reid gave (section 11).
-- The errata page that goes with this doc has the rest: typos in Rodney's doc, and claims from the channels about the longest DR→HTR, which subsets reach 18 and where 16+ optimals live, each with a scramble.
+- The errata page that goes with this doc has the rest: two typos in Rodney's doc, the longest DR→HTR (13, not 12) and how many subsets reach 18 (four, not five), each with a scramble.
 
 ---
 
@@ -323,12 +324,12 @@ The same thing without a target: how much scatter is left in the optimal once yo
 | + all of these together | yes | {= SDLEFT(*ALLREADS) =} |
 | *the optimal leave slice (for scale, you can't read this)* | | 0.43 |
 
-**Zagros's two hunches.**
+**Zagros's two hunches, tested.**
 
-- *Corner case + HTR on both sides gives the optimal to ~0.25 moves* ([[T11482]]). The sd left is {= SDLEFT('sub', 'ccn', 'cci', 'hn', 'hi') =} over all DRs. Adding pairs makes it {= SDLEFT('sub', 'ccn', 'cci', 'pairs', 'hn', 'hi') =}, and every read together {= SDLEFT(*ALLREADS) =}.
+- "I hypothesize that corner case + moves to HTR on normal + moves to HTR on inverse can tell you the optimal solution with a standard deviation of like 0.25 moves" ([[T11482]]). The sd left is {= SDLEFT('sub', 'ccn', 'cci', 'hn', 'hi') =} over all DRs ({= SDLEFT('ccn', 'cci', 'hn', 'hi') =} without the bad-edge count, which Zagros didn't list). Adding pairs makes it {= SDLEFT('sub', 'ccn', 'cci', 'pairs', 'hn', 'hi') =}, and every read together {= SDLEFT(*ALLREADS) =}.
 - *L + longest HTR predicts within ~1 move* ([[T6905]]). True, 93.3% of DRs are within one move of the typical value for their (subset, L, longer HTR). But 91.3% are within one move of the typical value for their subset alone. The finish just doesn't vary much inside a subset.
 
-A pair that shows what the first hunch is up against. Both are 2c4 4e, with the same corner case on normal and on inverse, 7 to HTR on both sides, and the same corner length (7):
+A pair that shows what the first one is up against. Both are 2c4 4e, with the same corner case on normal and on inverse, 7 to HTR on both sides, and the same corner length (7) (✓ Lean, all but the corner case):
 
     D F2 U' F2 D B2 D'                                 // optimal 7
     D' R2 B2 U' F2 D B2 U B2 F2 U' F2 U' L2 D' U'      // optimal 16
@@ -348,6 +349,24 @@ The baseline, and still the biggest single piece of information. Appendix A has 
 
 Appendix G has a longest one for every subset.
 
+zakimoshi: "We calculated all the 18 optimals once I remember it being either 5qt or the bad 3qt ons" ([[T3924]], under Levi's table of "every possible DR state (ignoring e slice)", [[T3896]]). For the leave slice that's exact: the {= LSTOP('n') =} states that need 18 to leave the slice are all {= LSTOP('subsets') =}. For the full finish the eight 0c0 8e states join them. They leave the slice in {= LSTOP('0c0 8e') =} and the slice costs 2. For the 0c0 8e above (replayed with nissy):
+
+    U R2 L2 F2 R2 L2 F2 U R2 B2 U2 F2 R2 U2 R2 B2   // leaves the slice in 16: the U and D layers are solved, half a turn off the E layer
+
+wen's "luckily they are all(?) 0c3 or 5q shit so you realistically will never get them" ([[T6881]], in a thread on whether any DR is 16 or more optimal) depends on how far up "they" starts. Each row is a cut-off, with the DR states at or above it, how rare they are, and the share of them that is 0c3 or 5qt:
+
+| Optimal finish, moves | DR states | One DR state in | In 0c3, 2c5 or 4b5 |
+|---|---:|---:|---:|
+| 18 | {= TOP(18, 'n') =} | {= TOP(18, 'onein') =} | {= TOP(18, 'worst') =} |
+| 17 or more | {= TOP(17, 'n') =} | {= TOP(17, 'onein') =} | {= TOP(17, 'worst') =} |
+| 16 or more | {= TOP(16, 'n') =} | {= TOP(16, 'onein') =} | {= TOP(16, 'worst') =} |
+
+At 16 or more the biggest share is 4c4 with {= TOP(16, '4c4') =}, which is where wen says a 16 turns up: "usually this presents itself as like +15 from a 4c4 but with some weird dr breaking nonsense then I know it's a 16 optimal or something lol" ([[T6888]]). {= TOP(16, 'nsub') =} of the 48 subsets have a state at 16 or more, all but {= TOP(16, 'without') =}. The second half, "you realistically will never get them", holds wherever the cut is. Three at 16 or more that are neither 0c3 nor 5qt (✓ Lean: the optimal of each):
+
+    F2 D2 B2 R2 U' F2 R2 B2 R2 U' F2 L2 D2 R2 D U'      // 4b2 4e, optimal 16
+    R2 U L2 D F2 L2 B2 D2 B2 U' B2 U' R2 F2 R2 U'       // 2c3 4e, optimal 16
+    R2 U2 B2 L2 F2 L2 D2 F2 R2 U' B2 F2 L2 R2 U' R2 D'  // 4a1 4e, optimal 17
+
 The shortest possible HTR by corner qt, one row per qt count, with a state that has exactly that on both sides (✓ Lean: the HTR length of each state, on both sides):
 
 | Corner qt | Shortest HTR | A state with exactly that on both sides |
@@ -358,7 +377,14 @@ The shortest possible HTR by corner qt, one row per qt count, with a state that 
 | 4 | 7 | `D B2 D' B2 D B2 D'` |
 | 5 | 9 | `U' L2 U R2 U' L2 U R2 D` |
 
-Joba took 1 / 2 / 4 / 6 / 8 as a safe lower bound ([[T6639]]); the exact floor is one higher from 2qt up, on either side.
+That's the floor on one side. Joba wanted a lower bound for an HTR with NISS: "But that's without niss. I guess I'll assume that the assumption that the lower bound is 2/1/2/4/6/8 moves for 0/1/2/3/4/5 qt cases for now, with the possible exception of 0c3" ([[T6639]]). From 1qt to 5qt those are reached. `D` is one move from HTR either way, and each row below is one of the other four states of the table above with a NISS HTR of that length, the bracket on inverse (replayed with nissy):
+
+| Corner qt | State | A NISS HTR | Its length, moves |
+|---:|---|---|---:|
+| 2 | `D B2 D'` | `D (D')` | 2 |
+| 3 | `D' B2 D' B2 D'` | `D B2 D (D')` | 4 |
+| 4 | `D B2 D' B2 D B2 D'` | `D B2 D' (D B2 D')` | 6 |
+| 5 | `U' L2 U R2 U' L2 U R2 D` | `U (U R2 U' L2 U R2 D)` | 8 |
 
 ### 4.2 Pairs
 
