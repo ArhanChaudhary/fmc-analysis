@@ -235,20 +235,21 @@ And by the chance of reaching a target, which is what matters when you need a sp
 - **The tutorial's pair for sub-30 holds**: 3c in 23 "you will probably get it" is {= CH('3c', 23, 29) =}, and 3c in 25 "you will need some luck" is {= CH('3c', 25, 29) =}.
 - **"a skeleton leaving 4 corner in 18 moves is probably better than one leaving 3 corners in 25"**: by a lot. Expected {= TOTAL('2c2c-twisted', 18) =} to {= TOTAL('3c1t', 18) =} against {= TOTAL('3c', 25) =}.
 - **Gezza Cubing's and oliynykmax's pairs** (3c in 22-24 or 24, 5c in 16-18 or 18) put the 5c six moves under the 3c. At that distance the 5c is the better of the two: a 5c in 18 makes sub-30 {= CH('5c', 18, 29) =} of the time, a 3c in 24 {= CH('3c', 24, 29) =}.
-- **sequesteredcuber's "sub-22 for 3C skeleton", "sub-20 for every other skeleton"** ([[N292]]), the answer to "If I wanna be sub 30 what should I be aiming for" ([[N288]]), holds on average for every type and is uneven in how safe it is.
+- **sequesteredcuber's "sub-22 for 3C skeleton", "sub-20 for every other skeleton"** ([[N292]]), the answer to "If I wanna be sub 30 what should I be aiming for" ([[N288]]), holds on average for every corner type but the 3c3c, and is uneven in how safe it is.
 
   **A skeleton at sequesteredcuber's limit: chance of sub-30 and expected total, one row per leftover. Random skeletons, 8-movers, the best pair of comms for the two-comm types.**
 
   | Skeleton at the limit | Chance of sub-30 | Expected total, moves |
   |---|---:|---:|
   | 3c in 21 | {= CH('3c', 21, 29) =} | {= TOTAL('3c', 21) =} |
+  | 2tc in 19 | {= CH('2tc', 19, 29) =} | {= TOTAL('2tc', 19) =} |
   | twisted 2c2c in 19 | {= CH('2c2c-twisted', 19, 29) =} | {= TOTAL('2c2c-twisted', 19) =} |
   | pure 2c2c in 19 | {= CH('2c2c-pure', 19, 29) =} | {= TOTAL('2c2c-pure', 19) =} |
   | 3tc in 19 | {= CH('3tc', 19, 29) =} | {= TOTAL('3tc', 19) =} |
   | 3c1t in 19 | {= CH('3c1t', 19, 29) =} | {= TOTAL('3c1t', 19) =} |
   | 5c in 19 | {= CH('5c', 19, 29) =} | {= TOTAL('5c', 19) =} |
 
-  Every expected total is under 30. A 3c in 21 is sub-30 wherever an 8-mover fits at all, a 2c2c in 19 most of the time, and a 5c in 19 is a coin flip (one with the usual outcome, 30, is written out below). A 5c is as safe as that 3c only in 16 ({= CH('5c', 16, 29) =}; in 17 it is {= CH('5c', 17, 29) =}). Aneurin's averages in the same exchange ([[N289]], [[N290]]), "Remember a optimal 3c skeleton's insertion is 6 moves on average" and "5c is 10-11 moves.", already put the two types four to five moves apart, which is the rate of 7.2 ({= EXM('5c', 20) =}).
+  Every expected total is under 30. Not so for a 3c3c, two separate 3-cycles: it averages {= TOTAL('3c3c', 18) =} in 18 and {= TOTAL('3c3c', 20) =} in 20 (Appendix A; the odd lengths aren't sampled), and is sub-30 {= CH('3c3c', 18, 29) =} of the time in 18 and {= CH('3c3c', 20, 29) =} in 20. Edge leftovers aren't in the table (6.6). A 3c in 21 is sub-30 wherever an 8-mover fits at all, a 2c2c in 19 most of the time, and a 5c in 19 is a coin flip (one with the usual outcome, 30, is written out below). A 5c is as safe as that 3c only in 16 ({= CH('5c', 16, 29) =}; in 17 it is {= CH('5c', 17, 29) =}). Aneurin's averages in the same exchange ([[N289]], [[N290]]), "Remember a optimal 3c skeleton's insertion is 6 moves on average" and "5c is 10-11 moves.", already put the two types four to five moves apart, which is the rate of 7.2 ({= EXM('5c', 20) =}).
 - **21 to 3c, "thats a guaranteed 29 right?"** ([[N4836]]). kyh ([[N4837]], [[N4838]]): "not strictly guaranteed", "but it's very likely you're getting a 29 or better". {= CH('3c', 21, 29) =} with 8-movers. The rest are the skeletons where no 8-mover fits anywhere; there it takes a 9- or 10-mover, and the result can be 30 or 31 (one is written out below).
 - **zakk drewji's 19 to 5c giving 29, or 24 to 3c with three minutes left** ([[N4183]]). Eli Rogers ([[N4193]]): "3c would need to cancel 4 to beat the 29". An 8-4 or better is there on {= CH('3c', 24, 28) =} of 24-move 3c skeletons. kyh ([[N4186]]): "the chance ur cancelling 4 moves or more is not that high i think". Right, and DougCube's "I would go with the 29" ([[N4187]]) follows.
 

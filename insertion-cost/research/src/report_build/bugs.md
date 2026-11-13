@@ -58,7 +58,7 @@ How often it bites, for one 8-move comm on random 3c skeletons of 20 moves: when
 
 {{EVERY_OTHER_CHECK}}
 
-alkamaass's caveat when recommending the rule ([[N1144]]), "this isn't thorough tho bc it can miss stuff like R (R blah blah B' ) B'", is the other kind of miss: a half cancel at each end, an 8-2 if it's an 8-mover. notkevin's "at least a -3" leaves it out and notkevin's next line allows for it ([[N4773]]): "(aka, the worst insertions you can miss with this without the second comm nesting is -4, where both comms only partially cancel on both sides)".
+alkamaass's caveat when suggesting the rule for when time is short ([[N1144]]), "this isn't thorough tho bc it can miss stuff like R (R blah blah B' ) B'", is the other kind of miss: a half cancel at each end, an 8-2 if it's an 8-mover. notkevin's "at least a -3" leaves it out and notkevin's next line allows for it ([[N4773]]): "(aka, the worst insertions you can miss with this without the second comm nesting is -4, where both comms only partially cancel on both sides)".
 
 A skeleton where every other move misses the only 8-3:
 
