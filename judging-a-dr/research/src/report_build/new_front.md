@@ -123,7 +123,7 @@ What is new here:
   The gap is the corner–edge relation, which is what Rodney's NISS@1qt tracing looks at. No count of visible features replaces it. All three rows are **computer only**: NISS@DR is a lookup in millions of cases, and "everything readable put together" ranks by the exact odds of every class of reads. They show where the information is. In an attempt the version you have is Rodney's tracing, per skeleton.
 - **Exact numbers that were guesses.**
   - The shortest HTR at 1 to 5 corner qts is 1 / 3 / 5 / 7 / 9 on one side. With NISS it gets down to 1 / 2 / 4 / 6 / 8, the lower bound Joba was assuming (section 4.1).
-  - Only four subsets ever need 18: 0c0 8e, 0c3 4e, 2c5 0e and 2c5 4e. To leave the slice it's the last three, which is how zakimoshi remembered the 18s (section 4.1).
+  - Only four subsets ever need 18: 0c0 8e, 0c3 4e, 2c5 0e and 2c5 4e. To leave the slice it's the last three, which is how zakimoshi remembered the 18s, and what FakeMMAP's 2023 leave-slice count found (section 4.1).
   - The slice is free (finish = leave slice) for 73% of DRs, from 56% at 1–2qt to 85% at 5qt. **Computer only**: it needs the optimal finish and the optimal leave slice.
   - A DR whose optimal is 10 or 11 has exactly one optimal first move three times in four. **Computer only**, from the optimal finish of every state.
   - 0c3 is the worst subset on average (14.46), worse than 5qt, and 4a2 2e and 0e finish like a 2c4.
@@ -141,7 +141,7 @@ What it confirms or corrects in the docs and sheets people use:
 - **wen's "luckily they are all(?) 0c3 or 5q shit so you realistically will never get them"**, on the DRs with the longest finishes ([[T6881]]): {= TOP(18, 'worst') =} of the states at 18 are 0c3 or 5qt, {= TOP(17, 'worst') =} of those at 17 or more, and {= TOP(16, 'worst') =} of those at 16 or more, where the biggest share is 4c4 (section 4.1).
 - **Rodney's two worked examples** in the Advanced DR Bounding doc are optimal 13s (**computer only**, a table lookup: the answer key), and Levi's "14-move optimal finish, giving a 24" in the DR Bounding doc holds: the 24 either way, the 14 with the last DR move turned the other way (section 7).
 - **Checked and matching**: Joba's optimal distribution for all 48 subsets, in every cell; FakeMMAP's corner counts per qt; the 1,352 states at 18 that Reid gave (section 11).
-- The errata page that goes with this doc has the rest: two typos in Rodney's doc, the longest DR→HTR (13, not 12) and how many subsets reach 18 (four, not five), each with a scramble.
+- The errata page that goes with this doc has the rest: two typos in Rodney's doc, the longest DR→HTR (13, not 12) and how many subsets reach 18 (four, not five), each with a scramble, and a typo in a count of HTR states (27,648, not 27,248).
 
 ---
 
@@ -177,7 +177,7 @@ And the specific questions, each with a section below:
 | "is there a doc with optimal lengths for all corner cases?" | [[D16938]] | Appendix E |
 | "average difference between a 4a1 4e bound and the actual leave slice? And how likely it is to be +0, +1, +2" | [[D16164]] | §5 |
 | "anybody know if there are publicly available statistics for the errors on bounding? ie, if bounding says >= +8 to slice, what's the distribution of actual optimal solutions for that 1q reduction?" | [[T7177]] | §5 |
-| trangium's "true 2q bound", good "if you don't use extra qts": how good is it? And bpaul: "actually doesn't this work for any number of quarter turns?" | [[T11428]], [[T11454]] | §5 |
+| trangium's "true 2q bound", good "if you don't use extra qts": how good is it? And bpaul: "actually doesn't this work for any number of quarter turns?", withdrawn two minutes later | [[T11428]], [[T11454]] | §5 |
 | "it's prob not that important but do we know probability distribution of +N to solve slice given #qt in the htr section?" | [[D7946]] | §6 |
 | "how does the optimal change from a pure DR vs. a DR in a solve where you have one move you can invert?" | [[T11467]] | §4.6 |
 | The "width" of a DR | [[T11473]] | §6 |
@@ -348,11 +348,11 @@ The baseline, and still the biggest single piece of information. Appendix A has 
 
 Appendix G has a longest one for every subset.
 
-zakimoshi: "We calculated all the 18 optimals once I remember it being either 5qt or the bad 3qt ons" ([[T3924]], under Levi's table of "every possible DR state (ignoring e slice)", [[T3896]]). For the leave slice that's exact: the {= LSTOP('n') =} states that need 18 to leave the slice are all {= LSTOP('subsets') =}. For the full finish the eight 0c0 8e states join them. They leave the slice in {= LSTOP('0c0 8e') =} and the slice costs 2. In the September 2023 thread on the leave slice, zakimoshi had found and linked Tomas Rokicki's list of the distance-18 positions ([[T3092]]), "This is including slice minus symmetries tho" ([[T3093]]). The list has the same four subsets, and its 0c0 8e positions are the ones that leave the slice in 16. For the 0c0 8e above (replayed with nissy):
+zakimoshi: "We calculated all the 18 optimals once I remember it being either 5qt or the bad 3qt ons" ([[T3924]], under Levi's table of "every possible DR state (ignoring e slice)", [[T3896]]). For the leave slice that's exact: the {= LSTOP('n') =} states that need 18 to leave the slice are all {= LSTOP('subsets') =}. For the full finish the eight 0c0 8e states join them. They leave the slice in {= LSTOP('0c0 8e') =} and the slice costs 2. The September 2023 thread on the leave slice had two such calculations. FakeMMAP's DR → leave slice count tops out at 18, reached by 28 of its 406,425,600 positions ([[T3080]]); each position stands for 48 DR states, so that's the {= LSTOP('n') =} here. The other is Tomas Rokicki's list of the distance-18 positions, which zakimoshi found and linked in the same thread ([[T3092]]), "This is including slice minus symmetries tho" ([[T3093]]). It has the same four subsets, and its 0c0 8e positions are the ones that leave the slice in 16. For the 0c0 8e above (replayed with nissy):
 
-    U R2 L2 F2 R2 L2 F2 U R2 B2 U2 F2 R2 U2 R2 B2   // leaves the slice in 16: the U and D layers are solved, half a turn off the E layer
+    R2 U R2 B2 U2 L2 B2 L2 F2 U2 L2 F2 U' R2 L2 F2   // leaves the slice in 16: the U and D layers line up, the E layer is a quarter turn off, and U' D finishes it in 18
 
-wen's "luckily they are all(?) 0c3 or 5q shit so you realistically will never get them" ([[T6881]], in a thread on whether any DR is 16 or more optimal) depends on how far up "they" starts. Joba's per-subset file ([[T9115]]) already has what's needed for the 16-or-more row. Each row is a cut-off, with the DR states at or above it, how rare they are, and the share of them that is 0c3 or 5qt:
+wen's "luckily they are all(?) 0c3 or 5q shit so you realistically will never get them" ([[T6881]], in a thread on whether any DR is 16 or more optimal) depends on how far up "they" starts. Joba's per-subset file ([[T9115]]) already has every number in this table. Each row is a cut-off, with the DR states at or above it, how rare they are, and the share of them that is 0c3 or 5qt:
 
 | Optimal finish, moves | DR states | One DR state in | In 0c3, 2c5 or 4b5 |
 |---|---:|---:|---:|
@@ -360,7 +360,7 @@ wen's "luckily they are all(?) 0c3 or 5q shit so you realistically will never ge
 | 17 or more | {= TOP(17, 'n') =} | {= TOP(17, 'onein') =} | {= TOP(17, 'worst') =} |
 | 16 or more | {= TOP(16, 'n') =} | {= TOP(16, 'onein') =} | {= TOP(16, 'worst') =} |
 
-At 16 or more the biggest share is 4c4 with {= TOP(16, '4c4') =}, which is where wen says a 16 turns up: "usually this presents itself as like +15 from a 4c4 but with some weird dr breaking nonsense then I know it's a 16 optimal or something lol" ([[T6888]]). {= TOP(16, 'nsub') =} of the 48 subsets have a state at 16 or more, all but {= TOP(16, 'without') =}. The second half, "you realistically will never get them", holds wherever the cut is. Three at 16 or more that are neither 0c3 nor 5qt (✓ Lean: the optimal of each):
+At 16 or more the biggest share is 4c4 with {= TOP(16, '4c4') =}, which is where wen says a 16 turns up: "usually this presents itself as like +15 from a 4c4 but with some weird dr breaking nonsense then I know it's a 16 optimal or something lol" ([[T6888]]). {= TOP(16, 'nsub') =} of the 48 subsets have a state at 16 or more, all but {= TOP(16, 'without') =}. The second half, "you realistically will never get them", holds at 17 and 18 (one DR state in {= TOP(17, 'onein') =} and one in {= TOP(18, 'onein') =}). At 16 or more it's one in {= TOP(16, 'onein') =}: rare, which is what Zagros ("15 not that rare but I've never checked optimal on a dr and found it to be 16", [[T6880]]) and Yura Riabov ("i dont remember getting a 16 optimal dr too", [[T6886]]) said in the same thread. Three at 16 or more that are neither 0c3 nor 5qt (✓ Lean: the optimal of each):
 
     F2 D2 B2 R2 U' F2 R2 B2 R2 U' F2 L2 D2 R2 D U'      // 4b2 4e, optimal 16
     R2 U L2 D F2 L2 B2 D2 B2 U' B2 U' R2 F2 R2 U'       // 2c3 4e, optimal 16
@@ -537,7 +537,7 @@ R2 U' F2 U   // shortest HTR here is 7 on normal and 3 on inverse, each counting
 
 The formula counts the qt once, which gives Levi's $4 + 6 + 2 + 1 = 13$ ([wen, 28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311629216235913226)).
 
-A 1qt state can also be solved with three quarter turns, and the number worth having is how often that is shorter. It's the case Jay raised: "one major issue i'm having with the bounding stuff rn is the fact that it isn't really equipped to handle higher qt stuff which is where optimal usually gets missed (basically anything involving 3-5 total qt when the subset needs two less qt optimally)" ([[T5687]]). Levi's answer: "Bounding could theoretically handle cases like this if the extra QTS come before the 1Q case, but I mostly just check bounding + extra QT stuff afterwards for subsets where extra QTS are common" ([[T5689]]). Over all 286,654,464 states of 4a1 4e, each row is where the optimal falls against the formula:
+A 1qt state can also be solved with three quarter turns, and the number worth having is how often that is shorter. It's one of the cases Jay raised: "one major issue i'm having with the bounding stuff rn is the fact that it isn't really equipped to handle higher qt stuff which is where optimal usually gets missed (basically anything involving 3-5 total qt when the subset needs two less qt optimally)" ([[T5687]]). Levi's answer: "Yes. Bounding could theoretically handle cases like this if the extra QTS come before the 1Q case, but I mostly just check bounding + extra QT stuff afterwards for subsets where extra QTS are common" ([[T5689]]). Over all 286,654,464 states of 4a1 4e, each row is where the optimal falls against the formula:
 
 | The optimal is… | Share of 4a1 4e |
 |---|---:|
@@ -579,7 +579,7 @@ One more thing about 4a1 4e that I haven't seen written down: for 72 of its 432 
 
 Average {= LEVILS('mean') =}. The leave slice is below the formula {= LEVILS('below') =} of the time, more often than the full finish is, because leaving the slice is easier. (The example above is one: formula 10, leave slice 7.)
 
-**Setup + HTR at any qt.** trangium ([[T11428]]): "not sure if this has been explored / how useful this is, but you can get a true 2q bound by taking (shortest htr on one side) + (moves to set up to 1qt on the other)", good "if you don't use extra qts". The setup is the fewest half turns before the first qt on the other side. FakeMMAP's point was that a 2q bound is what you use on 3q and 4q DRs: "It's a 2q bound, so this is useful for 3q and 4q." ([[T11448]]). bpaul asked "actually doesn't this work for any number of quarter turns?" and took it back a few minutes later: "oh wait no this is wrong" ([[T11454]], [[T11455]]). A version that does work at any qt: on each side count the fewest half turns you need before some quarter turn lowers the qt count, add the shortest HTR of the other side, take the bigger of the two sums. At 1qt this is Levi's formula. Like Levi's, and with trangium's condition, it's only a bound for finishes that use the minimum number of qts.
+**Setup + HTR at any qt.** trangium ([[T11428]]): "not sure if this has been explored / how useful this is, but you can get a true 2q bound by taking (shortest htr on one side) + (moves to set up to 1qt on the other)", good "if you don't use extra qts". The setup is the fewest half turns before the first qt on the other side. FakeMMAP's point was that a 2q bound is what you use on 3q and 4q DRs: "It's a 2q bound, so this is useful for 3q and 4q." ([[T11448]]). bpaul asked "actually doesn't this work for any number of quarter turns?" and took it back a few minutes later: "oh wait no this is wrong" ([[T11454]], [[T11455]]), and suggested "something like min over all 3q paths(htr len, shortest setup to 2q on inverse corresponding to the htr - 1)" ([[T11456]]). A version that does work at any qt: on each side count the fewest half turns you need before some quarter turn lowers the qt count, add the shortest HTR of the other side, take the bigger of the two sums. At 1qt this is Levi's formula. Like Levi's, and with trangium's condition, it's only a bound for finishes that use the minimum number of qts.
 
 Each row is a qt group; the columns are the share of its DRs where the bound is above the optimal (beaten by a finish with extra qts), equal to it, or under it by 1, 2, or 3 or more moves:
 
