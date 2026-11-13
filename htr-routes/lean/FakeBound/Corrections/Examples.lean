@@ -232,7 +232,7 @@ def rotB (s : String) : String := " ".intercalate ((cube.parse s).map fun t =>
     | "R" => "U" | "L" => "D" | "U" => "L" | "D" => "R" | x => x
   g ++ r.toString)
 
-/-- **eo-switch a, b, c**: features and EO-kept distance to DR of the three examples, and the printed DRs are
+/-- **The three EO-switch examples (once its errata a, b, c)**: features and EO-kept distance to DR of the three examples, and the printed DRs are
 valid (EO-keeping turns, distance 0 afterwards) with the stated lengths.
 a: 4c4e, ARM 41 (carm 4, earm 1), 2 pairs (and 1 fake pair), 5.  b: 4c2e, 2 pairs, 6.  c: 4c4e, ARM 21, 1 pair, 6. -/
 theorem eo_switch_examples :

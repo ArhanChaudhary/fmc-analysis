@@ -2634,7 +2634,7 @@ def PAGE_C6_CASE_FULL_MEAN : String := r#"| Case on the DR axis | Mean turns: on
 | 8c0e | 8.98 | 8.77 | 8.79 | 8.12 | 8.59 | 7.64 |
 | 0c8e | 8.94 | 8.94 | 8.77 | 8.23 | 8.63 | 7.77 |
 | 2c0e | 6.00 | 5.86 | 5.71 | 5.89 | 5.55 | 5.27 |
-| 0c2e | 5.75 | 5.75 | 5.62 | 5.68 | 5.57 | 5.39 |
+| 0c2e | 5.75 | 5.75 | 5.63 | 5.68 | 5.57 | 5.39 |
 "#
 
 /-- report/data/c6_case_full_le6.md (a table of the page), verbatim. -/
