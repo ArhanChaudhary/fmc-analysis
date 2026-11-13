@@ -28,7 +28,7 @@ You can check each fix on a cube: do a DR, do the fix backwards, and the fix bri
 
 **B1. "All edges misoriented (12 bad) -> FB on UD will be extra-good -1s"** (Rodney, [[T11232]], the first of three lines given under "As far as I can tell, there are three others").
 The four flipped edges do all belong to one slice, but the centers are two slices off: it's a DR-2s, not a DR-1s. {= W12() =}
-trangium caught it within the hour ([[T11234]]): "hmm I can't get the 12 bad one to work, think it should be FB-colored misoriented, others oriented". That line is right: it gives a DR-1s whose four flipped edges belong to one slice. Rodney's restatement the next day ([[T11255]]) starts from 8 bad edges only. count quackula's 12-bad notes ([[T10982]]) had it for green/blue: "This is a DR-2s 4fe." The other five lines of Rodney's list are right. ✓ Lean: the example (twelve bad, 4 flipped, 2 slices, the 6-turn fix).
+trangium caught it within the hour ([[T11234]]): "hmm I can't get the 12 bad one to work, think it should be FB-colored misoriented, others oriented". That line is right: it gives a DR-1s whose four flipped edges belong to one slice. Rodney's simpler rule for the mixed-EO lines the next day ([[T11255]]) covers 8 bad edges, not 12. count quackula's 12-bad notes ([[T10982]]) had it for green/blue: "This is a DR-2s 4fe." The other five lines of Rodney's list are right. ✓ Lean: the example (twelve bad, 4 flipped, 2 slices, the 6-turn fix).
 
 ---
 

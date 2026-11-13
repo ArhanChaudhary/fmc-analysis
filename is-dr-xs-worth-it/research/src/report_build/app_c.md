@@ -36,9 +36,9 @@
 - *turns to a slice EO for one slice* (6.1): all four rows of that table, over the 7,920 placements;
 - *6.3 from a full EO*: the renaming turns each face turn into a face turn and an 8fe into a real DR, and over all 1,082,565 positions with a full EO, with moves that keep it, the distance to the 8fe equals the distance of the renamed position to the DR, position by position, so the two columns of the 6.3 table are the same (7.80 on average; the DR column also matches the separate Lean search of [*When to switch an EO*](../eo-switch/));
 - *printed examples*, each with the stated kind, flipped edges, slices and fewest turns, and its printed fix reaching DR in the printed number of turns:
-  - the 12-bad scramble of the errata and of section 8 (theorem `errata_B1`);
-  - the wrong-slice example of 5.4 (theorems `errata_B3` and `errata_B3_nissy`), with the shortest DRs on any axis by brute force, 4 on normal and 6 on the inverse;
-  - the 6-turn layout `UB UF BR FR` of Appendix A, its scramble and its fix (theorem `errata_B2_six`);
-  - Simon's thirteen rows (theorems `simon_count`, `simon13_rows_U`, `simon13_rows_D`).
+  - the 12-bad scramble of the errata and of section 8 (its own theorem);
+  - the wrong-slice example of 5.4 (two theorems), with the shortest DRs on any axis by brute force, 4 on normal and 6 on the inverse;
+  - the 6-turn layout `UB UF BR FR` of Appendix A, its scramble and its fix (its own theorem);
+  - Simon's thirteen rows (three theorems).
 
 *Computed, not proved*: the searches over 2.2 billion cosets (6.2, 6.4, the rest of 6.3, including "with any moves" and the twelve targets), the finish samples (section 5), the 500 real scrambles (section 7), Appendix A's other rows, Appendix B, and two scrambles of section 8 with nissy's shortest DRs: the DR-1s that is 6 turns from a DR from either side, and the one for the ninth case of Rodney's restatement. They rest on the cross-checks above. The proofs use `native_decide`, which trusts the Lean compiler.
