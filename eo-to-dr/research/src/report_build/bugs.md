@@ -28,7 +28,7 @@ For illustration, one of those states. The EO leaves {= WXX('X1', 'case') =} for
 
 **2. "Superflip takes 6 moves to solve EO with NISS"** (Aneurin, [[D1281]]).
 It takes 7 ✓, on every axis, with or without NISS; every NISS split was searched, and there is a short proof: the superflip commutes with every face turn (✓ Lean), so a NISS EO of it is a linear EO of the same length, and the linear EO needs 7 (✓ Lean). Aneurin had it right the first time ([[D174]], [[D175]]): "EO is 7 moves", "Even with niss".
-The thread was about scrambles with 12 bad edges on every axis, and most of those do have a NISS EO shorter than 7: Joba's table has only 1,792 edge states that need 7 ([[T9374]]), against {= EDGESTATES(lambda t: t == (12, 12, 12)) =} with 12 bad on every axis, and torchlight gave one with 6, "(superflip + 3-cycle on M) has 6-move NISS EOs" ([[T9414]]). The superflip itself is not one of them.
+The thread was about scrambles with 12 bad edges on every axis, and most of those do have a NISS EO shorter than 7. There are {= EDGESTATES(lambda t: t == (12, 12, 12)) =} of them, wen's "It should just be (4!)^3" in the same thread ([[D1268]]). Joba's table has only 1,792 edge states that need 7 ([[T9374]]). When Tomas Rokicki asked why those counts aren't multiples of 24^3 ([[T9411]], [[T9412]]), torchlight answered "this doesn't account for solutions that use moves on both normal and inverse" and gave one with 6: "(superflip + 3-cycle on M) has 6-move NISS EOs" ([[T9413]], [[T9414]]). The superflip itself is not one of them.
 Example: the superflip, with a 7-move NISS EO on it from alkamaass ([[D6033]]); none of 6 exists.
 
 ```
@@ -45,7 +45,7 @@ The advice holds. The "in theory" half doesn't: the optimal DR alone already dif
 | 4c4e | {= C6('4c4e', 'plain_p_le6') =} ✓ | {= C6('4c4e', 'plain_mean') =} ✓ |
 | 4c2e | {= C6('4c2e', 'plain_p_le6') =} ✓ | {= C6('4c2e', 'plain_mean') =} ✓ |
 
-These rows are in Cale's *DR setup stats* sheet. Jay said it once more in April 2023 ("I feel like 4C6E in 5 is probably just as good as 4C2E in 5, if not better", one reason being "The average move count when you account for trickier solutions (shifting to other triggers) is around the same as 4C2E", [[T1802]]); Cale answered "even with full moveset sub-7 is 1 in 22" ([[T1805]]), and Jay within the hour: "hm, i guess it's a bit more worse than 4c2e than i thought" ([[T1806]]).
+These rows are in Cale's [*DR setup stats*](https://docs.google.com/spreadsheets/d/11bTZ4Y7_6qKlIWo4a4TLW45M2ZkctQZAVxgQqEtlUs0) sheet, on the server since Aneurin posted it ([[D348]]), two months before Jay's message. Jay said it once more in April 2023 ("I feel like 4C6E in 5 is probably just as good as 4C2E in 5, if not better", one reason being "The average move count when you account for trickier solutions (shifting to other triggers) is around the same as 4C2E", [[T1802]]); Cale answered "even with full moveset sub-7 is 1 in 22" ([[T1805]]), and Jay within the hour: "hm, i guess it's a bit more worse than 4c2e than i thought" ([[T1806]]).
 For illustration, a typical 4c6e. The EO leaves 4c6e for DR on {= WXX('X4', 'dr_axis') =}, and the shortest DR keeping the EO is {= WXX('X4', 'plain') =}, the most common length for that case:
 
 ```
