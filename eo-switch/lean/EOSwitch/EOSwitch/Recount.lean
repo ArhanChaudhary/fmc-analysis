@@ -1,7 +1,9 @@
 /-
   EOSwitch.Recount — part E of README.md (added 2026-11-13): the study's corner-case, ARM, rule-card, strict-
   separation, low-DRM, last-turn and inverse figures, recounted from the checked BFS through the features of
-  `Full.lean`; the errata's labels and errata a's NISS DR on the sticker model; and the RZP's last turn.
+  `Full.lean`; the example labels and errata a's NISS DR on the sticker model; and the RZP's last turn.  Two theorems
+  keep the names of errata items the second read withdrew (`errata_b_3qt`, `errata_c_stacked`): the counts are still
+  right and the pages still use them, but they no longer correct anyone.
 
   Reading aid.  `cell c e p` = [states, DR in ≤ 5, ≤ 6 ("sub-7"), ≤ 7] of the states of DRM `c`c`e`e with property
   p.  Corner case `cc`: 0 a, 1 b, 2 c, 3 d; `suf` the suffix ("4b-0": cc = 1, suf = 0); ARM = (carm, earm).
@@ -37,15 +39,15 @@ theorem corner_case_your_call :
     cell 4 4 (fun f => g f && (f.carm == 0 || f.carm == 4) && f.cc == 1) = [3456, 0, 192, 2208] := by
   native_decide
 
-/-- Errata b: 4c2e with 4b-0 corners ("3qt"), by pairs: 0 → 80/960 = 8.3%, 1 → 232/384 = 60.4%,
+/-- Once errata b, withdrawn (rodneykinney's "3qt corners" are the 4a-0 row in 4c2e, not 4b-0): 4c2e with 4b-0 corners, by pairs: 0 → 80/960 = 8.3%, 1 → 232/384 = 60.4%,
 2 → 152/192 = 79.2%. -/
 theorem errata_b_3qt :
     (List.range 3).map (fun p => cell 4 2 (fun f => f.cc == 1 && f.suf == 0 && f.pairs == p)) =
       [[960, 8, 80, 408], [384, 64, 232, 376], [192, 88, 152, 192]] := by
   native_decide
 
-/-- Errata c: 4c4e, 1 pair, ARM 21, by corners: a 392/2016 = 19.4%, b 1104/3840 = 28.75%, d 512/576 = 88.9%;
-a stacked (all four bad corners on one R/L side) 120/336 = 35.7%, a not stacked 272/1680 = 16.2%. -/
+/-- Once errata c, withdrawn (Evan's "stacked" is the sheet's allF/allR/colU layouts, 34.8% / 2.5% on the page): 4c4e, 1 pair, ARM 21, by corners: a 392/2016 = 19.4%, b 1104/3840 = 28.75%, d 512/576 = 88.9%;
+a with all four bad corners on one R/L side 120/336 = 35.7%, the rest 272/1680 = 16.2% (an earlier reading of "stacked"). -/
 theorem errata_c_stacked :
     let g := fun f : F2 => f.pairs == 1 && armIs 21 f
     [0, 1, 3].map (fun k => cell 4 4 (fun f => g f && f.cc == k)) =
@@ -218,7 +220,7 @@ def grade (c e k : Nat) (p : F2 → Bool) : List Nat :=
 /-- Section 1's "1.5+ pairs" (2·pairs + side pairs ≥ 3) switches exactly the 4c2e states of Jay's "1 pair + 1 side
 pair, or 2 pairs" and tseitsei89's "2 pairs, or 1 pair and a side pair" (no state differs).  And: 4c4e 2+ pairs
 8522/18360 = 46.4%; 3+ pairs 2014/2520 = 79.9% on 3.6%, holding 14.8% of the sub-7s; rodneykinney's T8108
-8770/17784 = 49.3%; caycala's 3+ pairs off one layer 1958/2400 = 81.6%; Daichi's 4-move rule 40856/63960 = 63.9%
+8770/17784 = 49.3%; caycala's 3+ pairs off one layer 1958/2400 = 81.6% (the page grades caycala's rule as stated: 81.8% on 3.4%); Daichi's 4-move rule 40856/63960 = 63.9%
 of DR ≤ 7 on 90.6%; Zagros "always" 41926/70560 = 59.4%. -/
 theorem graded_rules :
     nOf (sumWhere fun f => isDrm 4 2 f &&
@@ -278,7 +280,7 @@ theorem inverse_option :
 
 /-! ## Examples on the sticker model -/
 
-/-- The errata's examples (state after the scramble), as (c, e, carm, earm, pairs, case, suffix, lr, distance):
+/-- The examples (state after the scramble; once errata a, b, c), as (c, e, carm, earm, pairs, case, suffix, lr, distance):
 a `L' U' B2 F2 U'` 4c4e ARM 41, 2 pairs, 4a-4, 5; b `R' D2 R F2 D' U'` 4c2e, 2 pairs, 4b-0, 6; c `L' B2 D' L2 D' U2`
 4c4e ARM 21, 1 pair, 4a, not stacked (lr 2), 6.  Claim T8123 (states solved by the sequence): `F2 B2 R` 4a-0, 0
 pairs, 0 fake, 3; `D F2 B2 R` 4b-2, 0 pairs, 0 fake, 4.  Errata a's NISS DR: the inverse of the setup then L

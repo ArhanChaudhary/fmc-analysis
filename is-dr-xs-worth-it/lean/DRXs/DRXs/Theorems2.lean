@@ -49,7 +49,7 @@ theorem eo_inverse : ∀ u ∈ fe.EDGES, ∀ t ∈ fe.EDGES, ∀ o ∈ [0, 1], �
 /-- seo_skip's place kinds are `kindOf` of the edge places. -/
 theorem kinds_of_places : seo_skip.KIND = fe.EDGES.map kindOf := by native_decide
 
-/-- (b) The average number of slice-EO skips: 1.12 on normal, 2.25 on normal and inverse, exactly 9/8 and 18/8 (exact sums over the
+/-- (b) The average number of slice-EO skips: 1.125 on normal (1.13 on the page), 2.25 on normal and inverse, exactly 9/8 and 18/8 (exact sums over the
 proved histograms: 79,833,600 and 159,667,200 skips over 70,963,200 configurations), and 20.6–20.7 % (printed 21 %) with none on
 either side. -/
 theorem seo_skip_average :
@@ -106,7 +106,7 @@ theorem dr1s_layouts :
     total ((kinds_with_slices 2).map turns_to_dr) = 2614 ∧
     total ((kinds_with_slices 3).map turns_to_dr) = 2074 := by native_decide
 
-/-- **Simon's table (errata A2).**  With the last trigger move turned the other way when that is better, the 70
+/-- **Simon's table (errata A1).**  With the last trigger move turned the other way when that is better, the 70
 layouts need 2 to 6 turns: 1, 4, 13, 36, 16 — for a U trigger (the other way = the group U2) and, with a
 different set of 13, for a D trigger (D2).  The two differ on 36 layouts. -/
 theorem simon_count :
@@ -116,7 +116,7 @@ theorem simon_count :
 
 /-! ## J. The printed examples -/
 
-/-- Errata A2's thirteen rows as printed in BUGS.md (flipped edges, turns as it is, turns with the last move the
+/-- Errata A1's thirteen rows as printed in BUGS.md (flipped edges, turns as it is, turns with the last move the
 other way, fix as it is). -/
 def SIMON13 : List (List String × Nat × Nat × String) :=
   [(["BL", "DB", "UB", "FR"], 4, 5, "L2 F R L"),
@@ -164,7 +164,7 @@ theorem colour2_kinds :
     colours.walk2 invariant.corner_places = (210, 0) ∧ colours.walk2 invariant.edge_places = (53760, 0) := by
   native_decide
 
-/-- **Errata B2 and section 8**: the printed scramble is a DR-1s (corners on F/B) whose fewest turns to a real DR
+/-- **Appendix A's `UB UF BR FR` row** (once errata B2, before the rework): the printed scramble is a DR-1s (corners on F/B) whose fewest turns to a real DR
 are 6, and the printed fix reaches DR in 6. -/
 theorem errata_B2_six :
     let s := do_ SOLVED "U R2 F2 D' B2 U2 L2 D R' L' B' L2 U2 F2"
@@ -173,7 +173,7 @@ theorem errata_B2_six :
      | some g => slices g == 1 && turns_to_dr g == 6) = true ∧
     len "F2 U2 L2 B R L" = 6 ∧ isDRon (do_ s "F2 U2 L2 B R L") 1 = true := by native_decide
 
-/-- **Errata B3**: the printed scramble has 8 edges bad on F/B, the four good ones the E-slice pieces, the U/D
+/-- **Section 5.4's wrong-slice DR-1s** (once errata B3, before the rework): the printed scramble has 8 edges bad on F/B, the four good ones the E-slice pieces, the U/D
 colours on the F/B faces of every corner; it is a DR-1s whose flipped edges sit at BL BR FL FR and are the pieces
 DB DF UF (M slice) and UR (S slice); its fewest turns to DR are 4 and `F B R L` does it. -/
 theorem errata_B3 :
@@ -187,7 +187,7 @@ theorem errata_B3 :
          sameEdges ["DB", "DF", "UF", "UR"] ((flippedAt g).map (pieceAt s))) = true ∧
     isDRon (do_ s "F B R L") 1 = true := by native_decide
 
-/-- **Errata B3, nissy's shortest DRs** (any axis, any face turns): on normal no DR within 3 turns and `F B R L`
+/-- **Section 5.4's wrong-slice DR-1s, nissy's shortest DRs** (any axis, any face turns): on normal no DR within 3 turns and `F B R L`
 is one in 4; on the inverse no DR within 5 turns and `B2 U' B2 U R L` is one in 6. -/
 theorem errata_B3_nissy :
     let scr := "U D2 L2 D B2 L2 B2 D R2 F2 U' R' L F' B'"

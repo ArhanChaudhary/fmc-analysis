@@ -61,8 +61,8 @@ Words, as in the research's `features.py`. A corner is *bad* when it is twisted.
 |---|---|
 | `full_table` | `T` has every reached state; every feature record survives packing; JZP from the tables equals `feat`'s. |
 | `corner_case_your_call` | 4c4e, one paired edge, edge ARM 1, by corners: 4d [576, 128, 512, 576] (88.9%); 4b ARM 21 1488/4512; 4a ARM 21 432/2304; 4a corner ARM 0/4 408/1728; corner ARM 1/3 1560/10368; 4b corner ARM 0/4 192/3456. |
-| `errata_b_3qt` | 4c2e 4b-0 by pairs 0, 1, 2: 80/960, 232/384, 152/192 (8.3%, 60.4%, 79.2%). |
-| `errata_c_stacked` | 4c4e, 1 pair, ARM 21: a 392/2016, b 1104/3840 (28.75%), d 512/576; a stacked 120/336 (35.7%), a not stacked 272/1680 (16.2%). |
+| `errata_b_3qt` | (once errata b, withdrawn by the second read; the counts stand) 4c2e 4b-0 by pairs 0, 1, 2: 80/960, 232/384, 152/192 (8.3%, 60.4%, 79.2%). |
+| `errata_c_stacked` | 4c4e, 1 pair, ARM 21: a 392/2016, b 1104/3840 (28.75%), d 512/576; a with all four bad corners on one side 120/336 (35.7%), the rest 272/1680 (16.2%); once errata c, withdrawn: the page reads Evan's "stacked" as the sheet's layouts. |
 | `corner_case_claims` | Claims T8122 (4a-0, 4a-2, 4b-0, 4b-2), T8123 (0 pairs, 0 fake: 4a-0 28/120, no 4d, 4b-2 112/576), D14342 (4d, 1 pair, ARM 20/21/22: 0, 512/576, 0), D14348 (4a by ARM 2X). |
 | `arm_4c4e` | 4c4e by ARM × paired edges, all 15 ARMs (Appendix A); the "trash" ARMs 02, 12, 30, 40 are all under 4%. |
 | `paired_edge_arm_4c4e` | 4c4e by paired edges × edge ARM (9 cells); on 4c4e, both bad edges in one slice exactly when edge ARM ≠ 1 (all 70,560 states). |
@@ -74,7 +74,7 @@ Words, as in the research's `features.py`. A corner is *bad* when it is twisted.
 | `graded_rules` | 4c2e: "1.5+ pairs", Jay's and tseitsei89's rules switch exactly the same states; 4c4e 2+ pairs, 3+ pairs, T8108, caycala's 3+ off one layer, Daichi's and Zagros's 4-move rules (DR ≤ 7); 7c8e 5-6 pairs; 2c2e 1+ pairs. |
 | `last_turn_4c4e` | 4c4e sub-7: 13,576; with the EO's last turn free 19,798 (+8.8 points); last two free 25,304. |
 | `inverse_option` | Better of normal and inverse, DR ≤ 6, as the class average of the uniformity argument (the argument itself is not proved): 3c6e 1 in 10.57, 4c4e 2.875, 8c8e 3.724, 7c8e 3.322, 4c2e 2.950. |
-| `example_labels` | The errata examples' DRM, ARM, pairs, corner case and suffix, lr and distance (a 4a-4, b 4b-0, c 4a not stacked); T8123's `F2 B2 R` (4a-0, 3) and `D F2 B2 R` (4b-2, 4); errata a's NISS DR: `U F2 B2 U L` then L is DR. |
+| `example_labels` | The examples' (once errata a, b, c) DRM, ARM, pairs, corner case and suffix, lr and distance (a 4a-4, b 4b-0, c 4a, bad corners not all on one side); T8123's `F2 B2 R` (4a-0, 3) and `D F2 B2 R` (4b-2, 4); errata a's NISS DR: `U F2 B2 U L` then L is DR. |
 | `cax_map_eq`, `coset_of_relabel` | Proved by rewriting, for every sticker array: two relabellings that agree on every label's colour axis give the same twists and E-slice places. |
 | `rzp_last_turn` | For every face, X and X' agree on the colour axis of every label; and a premove is a relabelling (checked on every sequence of up to 3 turns). So the RZP's last quarter turn either way gives the same switched case. |
 

@@ -36,7 +36,7 @@ def report (s : String) : List (String × Nat × Nat) :=
 -- an 18-move optimal DR state quoted on the server (T3897)
 #eval report "L2 B2 L2 F2 U' L2 U2 F2 U' R2 U B2 F2 U L2 U F2 U2"
 
-/-! ### Levi's 1qt formula is not always a lower bound
+/-! ### Levi's 1qt formula bounds 1qt finishes, and a 3qt finish can beat it
 
 The state below is 1qt 4c4e (subset 4a1 4e).  Its shortest HTR has 6 moves on the normal scramble and 5 on the inverse,
 so the formula (HTR normal) + (HTR inverse) − 1 gives 10.  It is solved in 7 moves, using three quarter turns. -/

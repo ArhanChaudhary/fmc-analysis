@@ -8,7 +8,8 @@
       split 0 → d, split 1 → c, split 2 → b if some U/D layer or some R/L side holds exactly one bad corner, else a.
       Coded 0 a, 1 b, 2 c, 3 d, 4 = not 4 bad corners.
     * *suffix* (`suffix`, research `case_suffix`): corner ARM for a corners, min(carm, 4 − carm) otherwise ("4b-0").
-    * *stacked* (Evan's reading, research `lr_split == 4`): all bad corners on one R/L side face (`lr` = the larger
+    * *all on one side* (an earlier reading of Evan's "stacked", research `lr_split == 4`; the page now reads "stacked"
+      as the sheet's allF/allR/colU layouts): all bad corners on one R/L side face (`lr` = the larger
       of the bad-corner counts on R and on L).
     * `oneLayer` (research `corners_one_layer`): all bad corners on one U/D layer (and at least one).
     * `n1`: corners with twist 1 (the class of the inverse option swaps the counts of twists 1 and 2).
@@ -58,7 +59,7 @@ def suffix (co : Nat) : Nat :=
   let cc := cornerCase co
   if cc == 4 then 7 else if cc == 0 then carmOf co else min (carmOf co) (4 - carmOf co)
 
-/-- The larger of the numbers of bad corners on R and on L (4 = "stacked" for 4 bad corners). -/
+/-- The larger of the numbers of bad corners on R and on L (4 = all four bad corners on one side). -/
 def lr (co : Nat) : Nat := let b := badList co; let r := b.countP onR; max r (b.length - r)
 def oneLayer (co : Nat) : Bool := let b := badList co; let u := b.countP onU; b.length > 0 && (u == 0 || u == b.length)
 def n1 (co : Nat) : Nat := (List.range 8).countP fun i => twist co i == 1
