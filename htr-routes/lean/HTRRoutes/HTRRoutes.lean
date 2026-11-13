@@ -12,4 +12,6 @@ import HTRRoutes.CornerTheorems
 import HTRRoutes.CosetTheorems
 import HTRRoutes.QtCosets
 import HTRRoutes.QtCosetTheorems
+import HTRRoutes.QtFull
+import HTRRoutes.QtFullTheorems
 import HTRRoutes.Audit

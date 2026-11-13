@@ -7,6 +7,7 @@ import HTRRoutes.HtrTheorems
 import HTRRoutes.CornerTheorems
 import HTRRoutes.CosetTheorems
 import HTRRoutes.QtCosetTheorems
+import HTRRoutes.QtFullTheorems
 namespace HTRRoutes
 -- A
 #print axioms model_size
@@ -42,4 +43,14 @@ namespace HTRRoutes
 -- E
 #print axioms qt1_is_4a1_4e
 #print axioms qt2_cosets
+-- F
+#print axioms qt_full_checked
+#print axioms qf_is_fewest
+#print axioms qf_steps
+#print axioms no_extra_every_qt_lowers
+#print axioms floor_and_rule_one
+#print axioms qf_values
+#print axioms qf_by_row
+#print axioms ready_by_subset
+#print axioms lowering_turns
 end HTRRoutes
