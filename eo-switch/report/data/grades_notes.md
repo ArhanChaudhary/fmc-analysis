@@ -1,6 +1,6 @@
 | Row of the table below | Who | How they put it |
 |---|---|---|
-| 4c4e: anything but ARM 01, 02, 12 | wen | "Things like 0c1e or 0c2e" ([[D7282]]), "1c2e as well" ([[D7283]]): examples of what to reject, with no DRM named; the cut is "I guess sub-10% of 6 move to dr is my cut" ([[D7284]]) |
+| 4c4e: anything but ARM 01, 02, 12 | wen | "Things like 0c1e or 0c2e" ([[D7282]]), "1c2e as well" ([[D7283]]): examples of what to reject, with no DRM named; the cut is "I guess sub-10% of 6 move to dr is my cut" ([[D7284]]), and three minutes after the first: "(0c1e can theoretically be a 5 mover though so I'm not sure how to not miss that other than niss tracing tbh)" ([[D7285]]) |
 | the four ARM lists (4c4e, 4c2e, 7c8e, 8c8e) | Lewis Isom | for an RZP in 5, "the list of good ARM I've memorized", and "this is probably due to me just being slow in general (so surely better people would be able to NISS for more)" ([[D7116]]) |
 | the chart (4c4e and 7c8e) | caycala | "This is what I came up with based on the stats and seems to be working okay for me for now" ([[D11016]]). The chart's 7c8e part opens with “NEVER SWITCH 4 OR 0 except 0,1”, read here as edge ARM 4 or 0, except ARM 10 (1c0e) |
 | 4c4e: 3+ pairs, but not 3 pairs with all bad corners on one layer | caycala | an exception inside 3+ pairs, not a rule of its own: "the only 3+ pairs case i wouldn’t switch for is 3 pairs with all white or all yellow corners" ([[D13393]]) |
@@ -11,6 +11,7 @@
 | 4c2e: "1.5+ pairs" | rodneykinney | a new name offered for the side-pair rule ("Still worth switching by the “2 side pairs = 1 pair” rule", [[T9466]]): "Maybe should change that rule to “1.5+ pairs”" ([[T9468]]) |
 | 3c2e: a pair, a fake pair or a split pair | wen | a proposal: "I wonder if this would make a good enough alternative to fully niss tracing 3c2e" ([[D16512]]) |
 | 7c8e: 4+ pairs, then edge ARM under 2, or edge ARM 3 and corner ARM over 3 | tseitsei89 | a first sketch, "Sonmaybe something like:" ([[T9282]]), after "Just tried to make it more concrete. Mainly for myself" ([[T9281]]); the next day it became 5 pairs, or 4 pairs with edge ARM under 2 ([[T9314]]) |
+| 4c6e: 4 pairs with 4a-2, 4b or 4c corners | rodneykinney | a table posted right after the 4c2e one, "For 4c6e:" ([[T8141]]), read with the sheet's folded corner ARM (4a-2 is corner ARM 2, 4b either suffix); the later *DRM Subsets Meta* says "Never" for 4c6e |
 | 4c6e: 4 pairs or JZP | Radek B | "If the numbers are correct, then it seems to me like tracing pairs is a really good way of deciding whether to switch for 4c6e. Like only if there are 4 pairs (or if it's jzp)" ([[D7471]]) |
 | 3c4e: 2 pairs; 1 pair with ARM 00 or 21 | Fanti | "this is my rough sketch of 34 (maybe not final)" ([[D15179]]) |
 | 3c6e: 3 pairs with ARM 00, or 2 pairs with ARM 21 | Fanti | an aside in the same message: "36 is kind of crap where only 3p AR + 2p 21 are worth" ([[D15179]]) |

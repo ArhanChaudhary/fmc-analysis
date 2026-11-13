@@ -135,7 +135,8 @@ for k, p in [(2, .394), (3, .758)]:
 import json
 _ev = dict(n=1171847, all6=.185, n_arm=1000000, more2=.411, more3=.79, more_n=70560)
 _p = float(sub7[m44].mean()); _ev['uniform6'] = _p
-_ev['z_all'] = (abs(_ev['all6'] - _p) - 0.0005) / math.sqrt(_p * (1 - _p) / _ev['n'])
+_ev['z_all'] = (abs(_ev['all6'] - _p) - 0.0005) / math.sqrt(_p * (1 - _p) / _ev['n'])      # beyond the rounding of 0.185
+_ev['z_plain'] = abs(_ev['all6'] - _p) / math.sqrt(_p * (1 - _p) / _ev['n'])               # from the printed 0.185
 _ev['exact2'] = float(stat(m44 & (F['pairs'] == 2))[2]); _ev['exact3'] = float(stat(m44 & (F['pairs'] == 3))[2])
 assert abs(_ev['exact2'] - _ev['more2']) < 0.0005 and abs(_ev['exact3'] - _ev['more3']) < 0.005 and int(m44.sum()) == _ev['more_n']
 json.dump(dict(evan=_ev), open(os.path.join(pop.OUT, 'sheet_notes.json'), 'w'), indent=1)

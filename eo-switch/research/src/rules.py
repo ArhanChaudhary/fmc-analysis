@@ -86,6 +86,8 @@ R('32-fanti-6', (3, 2), 'doc 583 Fanti (RZP in 6, sub-6 target)', '1p; 0p + ARM 
 R('46-jzp', (4, 6), 'D6915 Yura Riabov / doc 384', 'only JZP', lambda F: F['jzp'] == 1)
 R('46-radek', (4, 6), 'D7471-D7472 Radek B', '4 pairs or JZP', lambda F: (P(F) >= 4) | (F['jzp'] == 1))
 R('46-tseitsei', (4, 6), 'T9321 tseitsei89', 'JZP with b corners', lambda F: (F['jzp'] == 1) & cc(F, 'b'))
+R('46-rodney-table', (4, 6), 'T8141 rodneykinney (image; posted with the 4c2e table T8140)', '4 pairs with 4a-2, 4b or 4c corners (the sheet\'s folded corner ARM: 4a-2 is corner ARM 2, 4b either suffix)',
+  lambda F: (P(F) >= 4) & (cc(F, 'a', 2) | cc(F, 'b') | cc(F, 'c')))
 # ---------------- 8c8e
 R('88-lewis', (8, 8), 'D7116 Lewis Isom', 'ARM 00, 84, 01, 31, 63', lambda F: arm_in(F, ['00', '84', '01', '31', '63']))
 R('88-tree', (8, 8), 'T9558, T9560 rodneykinney (decision tree), read out by tseitsei89 T9568-T9572', '3 or fewer fake pairs and edge ARM not 2', lambda F: (F['fake'] <= 3) & (F['earm'] != 2))

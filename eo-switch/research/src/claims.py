@@ -161,8 +161,9 @@ qi = {nm: float(T6['inv'][m].mean()) for nm, m in [('3c6e', m36), ('4c4e', m44),
 ql = {nm: float(T6['lastF'][m].mean()) for nm, m in [('3c6e', m36), ('4c4e', m44), ('8c8e', m88), ('7c8e', m78), ('4c2e', m42)]}
 # Cale's last-move sheet (doc 40) has 8e8c as the 4,900 cases with a 4-4 twist split (and 8e7c as one of its two mirror halves)
 m88_44 = m88 & (F['tw1'] == 4) & (F['tw2'] == 4); ql88_44 = float(T6['lastF'][m88_44].mean())
-cells('D6979-3c6e', last={k: 1 / x for k, x in ql.items()}, last88_44=1 / ql88_44, n88_44=int(m88_44.sum()), plain6=1 / frac(m36), plain7=1 / frac(m36, 7))
-claim('D6979-3c6e', 'D6979 Noah Swor', '3c6e: 1/7 for 7 moves, against 1/3 for 4e4c, 8c8e, 8e7c, 2e4c', f"direction right, 3c6e worse than stated: the 1/3 is DR in 6 with the EO's last move switchable (Cale's last-move sheet, which has no 3c6e tab); on that count 3c6e is 1 in {1 / ql['3c6e']:.1f}; one side, DR <= 7, it is 1 in {1 / frac(m36, 7):.1f}, so the 1/7 is not reproduced",
+qfb = {nm: float(T6['lastFB'][m].mean()) for nm, m in [('3c6e', m36), ('4c4e', m44), ('8c8e', m88), ('7c8e', m78), ('4c2e', m42)]}
+cells('D6979-3c6e', last={k: 1 / x for k, x in ql.items()}, lastfb={k: 1 / x for k, x in qfb.items()}, last88_44=1 / ql88_44, n88_44=int(m88_44.sum()), plain6=1 / frac(m36), plain7=1 / frac(m36, 7))
+claim('D6979-3c6e', 'D6979 Noah Swor', '3c6e: 1/7 for 7 moves, against 1/3 for 4e4c, 8c8e, 8e7c, 2e4c', f"direction right, but no reading gives both numbers: the 1/3 fits DR in 6 with the EO's last two turns free (Cale's last-move sheet, tab F B), on which 3c6e is 1 in {1 / qfb['3c6e']:.1f}; with the last turn free it is 1 in {1 / ql['3c6e']:.1f}; one side, DR <= 7, it is 1 in {1 / frac(m36, 7):.1f}, so the 1/7 is not reproduced",
       f"EO's last move switchable, DR <= 6 (8c8e with a 4-4 twist split, the sheet's 8e8c tab, 1 in {1 / ql88_44:.2f}): " + ', '.join(f'{k} 1 in {1 / x:.2f}' for k, x in ql.items()) + '; better of normal and inverse, DR <= 6: ' + ', '.join(f'{k} 1 in {1 / x:.2f}' for k, x in qi.items()) + '; one side DR <= 7: ' + ', '.join(f'{k} 1 in {1 / x:.2f}' for k, x in q7.items()))
 mins = {f'{a_}{b_}': int(d[m36 & arm(a_, b_)].min()) for a_ in range(4) for b_ in range(4) if (m36 & arm(a_, b_)).sum()}
 claim('D6982-3c6e', 'D6982 Jay', '3c6e: AR-2C1E is the only subset where +4 to DR is possible', 'correct' if [k for k, x in mins.items() if x <= 4] == ['21'] else 'wrong', 'shortest per ARM: ' + ', '.join(f'{k} {x}' for k, x in mins.items()))
@@ -243,6 +244,13 @@ claim('T9480-rest', 'T9479-T9480 zakimoshi / rodneykinney', 'the DRMs outside th
 with open(os.path.join(pop.OUT, 'claims.tsv'), 'w') as f:
     f.write('id\tsource\tclaim\tverdict\tnumbers\texample (setup from solved, optimal DR, replayed on cube.py)\n')
     for r_ in rows: f.write('\t'.join(r_) + '\n')
+# Jay's leads for the low DRMs (D10593, 23 Mar 2025): switched-case share and sub-7 rate of each named group
+lead = {}
+for key, drm_m, m in [('66_jzp', m66, F['jzp'] == 1), ('66_anti', m66, F['anti_ar'] == 1), ('66_10', m66, arm(1, 0)), ('66_53', m66, arm(5, 3)),
+                      ('54_fake', m54, F['fake_jzp'] == 1), ('56_fake', m56, F['fake_jzp'] == 1), ('56_10', m56, arm(1, 0))]:
+    g = drm_m & m
+    lead[key] = dict(n=int(g.sum()), share=float(g.sum()) / int(drm_m.sum()), p=frac(g), base=frac(drm_m))
+cells('D10593-low', **lead)
 json.dump(EX, open(os.path.join(pop.BIG, 'claims_examples.json'), 'w'), indent=1)
 json.dump(CELLS, open(os.path.join(pop.OUT, 'claims_cells.json'), 'w'), indent=1)
 for r_ in rows: print(f'{r_[0]:16s} | {r_[3][:90]:90s} | {r_[4][:150]}')

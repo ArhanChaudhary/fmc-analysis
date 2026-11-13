@@ -175,6 +175,10 @@ id	drm	source	rule	target	population	base_rate	share_switched	precision	recall	t
 46-tseitsei	4c6e	T9321 tseitsei89	JZP with b corners	DR<=6	P2_5	0.0462	0.0041	0.7917	0.0700	0.0429	0.0032	nan
 46-tseitsei	4c6e	T9321 tseitsei89	JZP with b corners	DR<=6	P3_5	0.0469	0.0039	0.7737	0.0651	0.0439	0.0031	nan
 46-tseitsei	4c6e	T9321 tseitsei89	JZP with b corners	DR<=6	P3_6	0.0465	0.0040	0.7895	0.0686	0.0433	0.0032	nan
+46-rodney-table	4c6e	T8141 rodneykinney (image; posted with the 4c2e table T8140)	4 pairs with 4a-2, 4b or 4c corners (the sheet's folded corner ARM: 4a-2 is corner ARM 2, 4b either suffix)	DR<=6	P1	0.0462	0.0105	0.6129	0.1400	0.0397	0.0065	373
+46-rodney-table	4c6e	T8141 rodneykinney (image; posted with the 4c2e table T8140)	4 pairs with 4a-2, 4b or 4c corners (the sheet's folded corner ARM: 4a-2 is corner ARM 2, 4b either suffix)	DR<=6	P2_5	0.0462	0.0105	0.6129	0.1400	0.0397	0.0065	nan
+46-rodney-table	4c6e	T8141 rodneykinney (image; posted with the 4c2e table T8140)	4 pairs with 4a-2, 4b or 4c corners (the sheet's folded corner ARM: 4a-2 is corner ARM 2, 4b either suffix)	DR<=6	P3_5	0.0469	0.0102	0.6241	0.1354	0.0406	0.0064	nan
+46-rodney-table	4c6e	T8141 rodneykinney (image; posted with the 4c2e table T8140)	4 pairs with 4a-2, 4b or 4c corners (the sheet's folded corner ARM: 4a-2 is corner ARM 2, 4b either suffix)	DR<=6	P3_6	0.0465	0.0104	0.6183	0.1382	0.0400	0.0064	nan
 88-lewis	8c8e	D7116 Lewis Isom	ARM 00, 84, 01, 31, 63	DR<=6	P1	0.1449	0.0668	0.3831	0.1766	0.1193	0.0256	59
 88-lewis	8c8e	D7116 Lewis Isom	ARM 00, 84, 01, 31, 63	DR<=6	P2_5	0.1448	0.0669	0.3831	0.1770	0.1192	0.0256	nan
 88-lewis	8c8e	D7116 Lewis Isom	ARM 00, 84, 01, 31, 63	DR<=6	P3_5	0.1412	0.0669	0.3319	0.1571	0.1190	0.0222	nan

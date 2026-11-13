@@ -57,6 +57,7 @@
 | 4c6e | **JZP** | **this study** (switch) | 0.61% | 61.1% | 8.1% | 4.2% | 58.4% |
 |  | **JZP or 4 pairs** | **this study** (switch + your call) | 1.8% | 52.3% | 20.6% | 3.7% | 52.4% |
 |  | JZP with b corners | tseitsei89 [[T9321]] | 0.41% | 79.2% | 7.0% | 4.3% | 77.4% |
+|  | 4 pairs with 4a-2, 4b or 4c corners | rodneykinney (table) [[T8141]] | 1.1% | 61.3% | 14.0% | 4.0% | 62.4% |
 |  | only JZP | Yura Riabov [[D6915]], *Hitchhiker's Guide to DR* | 0.61% | 61.1% | 8.1% | 4.2% | 58.5% |
 |  | 4 pairs or JZP | Radek B [[D7471]] [[D7472]] | 1.8% | 52.3% | 20.6% | 3.7% | 52.4% |
 | 3c4e | 2+ pairs | rodneykinney, *DRM Subsets Meta* (NISS: Sometimes) | 10.7% | 33.7% | 36.3% | 6.3% | 33.4% |

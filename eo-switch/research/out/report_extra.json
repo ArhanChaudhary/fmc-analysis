@@ -1576,6 +1576,13 @@
    "target_states_discarded": 0.0429,
    "p3": 0.7737
   },
+  "46-rodney-table": {
+   "share_switched": 0.0105,
+   "precision": 0.6129,
+   "recall": 0.14,
+   "target_states_discarded": 0.0397,
+   "p3": 0.6241
+  },
   "46-jzp": {
    "share_switched": 0.0061,
    "precision": 0.6111,
@@ -9056,6 +9063,7 @@
    "more_n": 70560,
    "uniform6": 0.19240362811791384,
    "z_all": 18.958721066918027,
+   "z_plain": 20.331819439476877,
    "exact2": 0.41085858585858587,
    "exact3": 0.79
   }
@@ -9249,7 +9257,7 @@
    "id": "D6979-3c6e",
    "source": "D6979 Noah Swor",
    "claim": "3c6e: 1/7 for 7 moves, against 1/3 for 4e4c, 8c8e, 8e7c, 2e4c",
-   "verdict": "direction right, 3c6e worse than stated: the 1/3 is DR in 6 with the EO's last move switchable (Cale's last-move sheet, which has no 3c6e tab); on that count 3c6e is 1 in 12.8; one side, DR <= 7, it is 1 in 3.7, so the 1/7 is not reproduced",
+   "verdict": "direction right, but no reading gives both numbers: the 1/3 fits DR in 6 with the EO's last two turns free (Cale's last-move sheet, tab F B), on which 3c6e is 1 in 8.7; with the last turn free it is 1 in 12.8; one side, DR <= 7, it is 1 in 3.7, so the 1/7 is not reproduced",
    "numbers": "EO's last move switchable, DR <= 6 (8c8e with a 4-4 twist split, the sheet's 8e8c tab, 1 in 4.08): 3c6e 1 in 12.77, 4c4e 1 in 3.56, 8c8e 1 in 4.26, 7c8e 1 in 4.10, 4c2e 1 in 3.68; better of normal and inverse, DR <= 6: 3c6e 1 in 10.57, 4c4e 1 in 2.88, 8c8e 1 in 3.72, 7c8e 1 in 3.32, 4c2e 1 in 2.95; one side DR <= 7: 3c6e 1 in 3.69, 4c4e 1 in 1.68, 8c8e 1 in 1.59, 7c8e 1 in 1.74, 4c2e 1 in 1.59",
    "example (setup from solved, optimal DR, replayed on cube.py)": ""
   },
@@ -9611,6 +9619,13 @@
     "7c8e": 4.097560975609756,
     "4c2e": 3.6761487964989064
    },
+   "lastfb": {
+    "3c6e": 8.71111111111111,
+    "4c4e": 2.7884919380335127,
+    "8c8e": 3.106295149638803,
+    "7c8e": 2.9051383399209487,
+    "4c2e": 2.9787234042553195
+   },
    "last88_44": 4.076539101497504,
    "n88_44": 4900,
    "plain6": 20.63157894736842,
@@ -9627,6 +9642,50 @@
   "D16930-8c8e-jzp": {
    "n": 1,
    "d": 2
+  },
+  "D10593-low": {
+   "66_jzp": {
+    "n": 256,
+    "share": 0.0018552875695732839,
+    "p": 0.5,
+    "base": 0.05589053803339518
+   },
+   "66_anti": {
+    "n": 256,
+    "share": 0.0018552875695732839,
+    "p": 0.25,
+    "base": 0.05589053803339518
+   },
+   "66_10": {
+    "n": 768,
+    "share": 0.0055658627087198514,
+    "p": 0.21875,
+    "base": 0.05589053803339518
+   },
+   "66_53": {
+    "n": 768,
+    "share": 0.0055658627087198514,
+    "p": 0.17708333333333334,
+    "base": 0.05589053803339518
+   },
+   "54_fake": {
+    "n": 288,
+    "share": 0.003061224489795918,
+    "p": 0.3333333333333333,
+    "base": 0.07210884353741497
+   },
+   "56_fake": {
+    "n": 128,
+    "share": 0.0010204081632653062,
+    "p": 0.625,
+    "base": 0.06135204081632653
+   },
+   "56_10": {
+    "n": 1536,
+    "share": 0.012244897959183673,
+    "p": 0.18229166666666666,
+    "base": 0.06135204081632653
+   }
   }
  },
  "checks_niss": {
