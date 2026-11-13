@@ -28,7 +28,7 @@ So the solver behind it probably preferred fewer quarter turns among equal-lengt
 
 So mrauo's "Only 1/3 of 2q 4b2e cases use 2qt for optimal wtf" ([[D9450]]) read the *allcases* row "2qt(b) 4c2e", which is 4a2 2e. Zagros answered "I think a and b might be flipped" and "Should be 60%" ([[D9451]], [[D9452]]), which is right: with one optimal at random, the 4b2 2e path is 2qt on {= E['claims']['C41']['evidence'].split(' is 2qt ')[1].split(' ')[0] =} of states, 4a2 2e on {= E['claims']['C41']['evidence'].split('4a2 2e: ')[1].split(',')[0] =}.
 
-**Aedan Bryant's *HTR Subset Stats*** (1,000 states per subset): the mean optimal and the mean NISS HTR are within 0.06 of mine on {= E['d15_rows'] - len(E['d15_bad']) =} of its {= E['d15_rows'] =} rows. Of the others, four are rows the sheet carries with the numbers of another row, a copy slip:
+**Aedan Bryant's *HTR Subset Stats*** (1,000 states per subset): the mean optimal and the mean NISS HTR are within 0.06 of mine on {= E['d15_rows'] - len(E['d15_bad']) =} of its {= E['d15_rows'] =} rows. Of the others, four are rows the sheet carries with the numbers of another row, a copy slip. Lewis Isom spotted the 5qt 2C one in 2024 ("5qt 2c0e apparently has a case where NISS HTR only takes 6 moves, which is obviously impossible for any 5q case", [[T4102]]), and Cale agreed ("the impossible 6 move HTRs do seem like a mistake though", [[T4106]]):
 
 | Sheet row | Has the numbers of |
 |---|---|
