@@ -85,7 +85,7 @@ The rule values ("Heuristic" column, same penalty scale) aren't affected. They s
 **A3. FakeMMAP's HTR-breaking table (`RK_OBL_table_DS_2e.csv`, attached to [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)): five cells one too high, two of them labelled 7.**
 Of the first version (`RK_OBL_table_HTR_breaking.csv`, posted the day before) FakeMMAP said ≤ 7 was proven optimal and 8, 9, 10 "might actually be solvable in as little as 7" ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606)). In the 7 Sep file 211 of 216 cells are right. The two 7s below are 6 in both files. The 6 Sep file has eight cells labelled 7 or less that are off by one: those two 7s, four more one too high (D-D + F-H R-V even and D-D − F-V R-H even say 7, R-D + F-H R-H odd and F-D + F-H R-H odd say 6), and two one too low (R-V + F-H R-H odd and F-V + F-H R-H odd say 5, and both are 6). The 7 Sep file fixes those six. Appendix C of the write-up has a state and an optimal solution for each.
 
-Each row is one of the five cells, with the table's value, the real optimal and a state of the case (its inverse solves it):
+Each row is one of the five cells, with the table's value, the real optimal and a state of the case (its inverse solves it). A case covers 3,072 states and its value is the shortest finish over all of them, which is what a lower bound needs; the shorter value is reached by only some of the case's states (between 16 and 136 of them).
 
 | Case | Table value, moves | Real optimal, moves | A state of that case |
 |---|---:|---:|---|
