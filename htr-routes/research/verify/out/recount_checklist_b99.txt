@@ -1,0 +1,62 @@
+0c0 0e OK | +1 with same 3: 0.9987
+0c0 2e OK | +1 with same 3: 1.0000
+0c0 4e OK | +1 with same 3: 0.9990
+0c0 6e OK | +1 with same 3: 0.9985
+0c0 8e OK | +1 with same 3: 0.9998
+0c0 OK | +1 with same 3: 0.9920
+0c3 0e OK | +1 with same 3: 1.0000
+0c3 2e OK | +1 with same 3: 0.9997
+0c3 4e OK | +1 with same 3: 0.9999
+0c3 6e OK | +1 with same 3: 1.0000
+0c3 8e OK | +1 with same 3: 1.0000
+0c3 OK | +1 with same 3: 0.9999
+0c4 0e OK | +1 with same 3: 1.0000
+0c4 2e OK | +1 with same 3: 1.0000
+0c4 4e OK | +1 with same 3: 1.0000
+0c4 6e OK | +1 with same 3: 1.0000
+0c4 8e OK | +1 with same 3: 1.0000
+0c4 OK | +1 with same 3: 1.0000
+2c3 0e OK | +1 with same 3: 0.9989
+2c3 2e OK | +1 with same 3: 1.0000
+2c3 4e OK | +1 with same 3: 0.9996
+2c3 6e OK | +1 with same 3: 0.9999
+2c3 8e OK | +1 with same 3: 0.9992
+2c3 OK | +1 with same 3: 0.9997
+2c4 0e OK | +1 with same 3: 0.9994
+2c4 2e OK | +1 with same 3: 0.9994
+2c4 4e OK | +1 with same 3: 0.9994
+2c4 6e OK | +1 with same 3: 0.9995
+2c4 8e OK | +1 with same 3: 0.9993
+2c4 OK | +1 with same 3: 0.9994
+2c5 0e OK | +1 with same 3: 0.9982
+2c5 2e OK | +1 with same 3: 0.9981
+2c5 4e OK | +1 with same 3: 0.9999
+2c5 6e OK | +1 with same 3: 0.9999
+2c5 8e OK | +1 with same 3: 0.9980
+2c5 OK | +1 with same 3: 0.9999
+4a1 0e OK | +1 with same 3: 0.9999
+4a1 2e OK | +1 with same 3: 0.9998
+4a1 4e OK | +1 with same 3: 0.9988
+4a1 OK | +1 with same 3: 0.9986
+4a2 0e OK | +1 with same 3: 0.9990
+4a2 2e OK | +1 with same 3: 0.9906
+4a2 4e OK | +1 with same 3: 0.9964
+4a2 OK | +1 with same 3: 0.9931
+4b2 0e OK | +1 with same 3: 0.9954
+4b2 2e OK | +1 with same 3: 0.9973
+4b2 4e OK | +1 with same 3: 0.9974
+4b2 OK | +1 with same 3: 0.9971
+4b5 0e OK | +1 with same 3: 1.0000
+4b5 2e OK | +1 with same 3: 0.9999
+4b5 4e OK | +1 with same 3: 1.0000
+4b5 OK | +1 with same 3: 1.0000
+4c3 0e OK | +1 with same 3: 0.9999
+4c3 2e OK | +1 with same 3: 0.9998
+4c3 4e OK | +1 with same 3: 0.9996
+4c3 OK | +1 with same 3: 0.9997
+4c4 0e OK | +1 with same 3: 0.9997
+4c4 2e OK | +1 with same 3: 0.9996
+4c4 4e OK | +1 with same 3: 0.9997
+4c4 OK | +1 with same 3: 0.9997
+largest cumulative difference in the first 5 steps: 4.971428571431957e-05
+best single route per corner subset: from 50.6 to 98.1

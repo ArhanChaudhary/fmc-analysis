@@ -1,0 +1,17 @@
+[package]
+name = "htfirst"
+version = "0.1.0"
+edition = "2021"
+description = "Half turns before the first quarter turn of DR finishes: exact per sampled state, optimal and optimal + 1, both sides"
+
+[[bin]]
+name = "htfirst"
+path = "src/main.rs"
+
+[dependencies]
+rayon = "1.10"
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+lto = true

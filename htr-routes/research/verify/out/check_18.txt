@@ -1,0 +1,2 @@
+entries with 18: 184
+side half turns not giving 17: 0; U/D moves give [0, 0, 1104, 0, 0]

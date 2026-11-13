@@ -68,6 +68,8 @@ Both optimal finishes, that one and the other, were re-read on the sticker model
 | 2c3 2e | {= pc(Q4('2c3 2e', 'ht_before_first_qt_lt2_either_side')) =} | {= pc(Q4('2c3 2e', 'ht_before_first_qt_lt2_normal')) =} |
 | All DRs | {= pc(Q4('all', 'ht_before_first_qt_lt2_either_side')) =} | {= pc(Q4('all', 'ht_before_first_qt_lt2_normal')) =} |
 
+Every subset × edges, for all DRs and for those with an optimal of 13 or less and 12 or less, and what you can see on a DR that predicts it, is on its own page: [*Half turns before the first quarter turn*](../tables/half-turns-before-first-qt.html).
+
 **The last DR move.** With the last move either way (the better of X and X·R2; sampled, 25,000 per subset × edges, edges pooled by size; optimal lengths from the exact table):
 
 {{variation}}

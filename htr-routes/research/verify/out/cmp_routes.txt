@@ -1,0 +1,97 @@
+(state, H route) pairs compared: 1610 (895 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c0_0e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 19174 (4784 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c0_2e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 28327 (6233 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c0_4e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 37241 (7379 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c0_6e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 13538 (3411 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c0_8e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 34658 (4987 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c3_0e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 51999 (6337 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c3_2e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 76126 (10855 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c3_4e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 47545 (5216 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c3_6e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 30047 (4049 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c3_8e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 22785 (5012 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c4_0e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 41171 (8742 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c4_2e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 39118 (7668 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c4_4e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 46476 (9738 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c4_6e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 33033 (5474 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_0c4_8e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 47072 (9561 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c3_0e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 33197 (6094 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c3_2e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 39360 (7269 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c3_4e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 51558 (9316 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c3_6e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 46281 (9264 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c3_8e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 31898 (4712 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c4_0e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 56474 (9683 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c4_2e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 53854 (8855 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c4_4e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 56889 (9188 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c4_6e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 48592 (6709 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c4_8e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 63461 (10971 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c5_0e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 81766 (14006 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c5_2e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 78093 (13250 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c5_4e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 81486 (13450 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c5_6e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 60917 (10220 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_2c5_8e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 34690 (7747 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4a1_0e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 36980 (7846 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4a1_2e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 29825 (6132 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4a1_4e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 41712 (7675 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4a2_0e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 55047 (9063 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4a2_2e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 33277 (5845 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4a2_4e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 31104 (5474 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4b2_0e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 34864 (6547 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4b2_2e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 37525 (7076 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4b2_4e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 59995 (9560 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4b5_0e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 74115 (12787 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4b5_2e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 78929 (13122 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4b5_4e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 38432 (7591 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4c3_0e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 53425 (9324 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4c3_2e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 50593 (9069 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4c3_4e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 86808 (14391 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4c4_0e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 92539 (15180 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4c4_2e.tsv: 500 states compared, 0 with differences
+(state, H route) pairs compared: 82369 (13251 with an optimal reading)
+/data/fmc/htr-routes/research/out/big/run1/states_4c4_4e.tsv: 500 states compared, 0 with differences
+done

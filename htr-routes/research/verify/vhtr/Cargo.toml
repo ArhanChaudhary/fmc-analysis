@@ -1,0 +1,11 @@
+[package]
+name = "vhtr"
+version = "0.1.0"
+edition = "2021"
+description = "Independent recount for the htr-routes study: own DR model, DRBound's proved table read by its Lean index, own labels, finishes, NISS readings and route keys (no htrtools code)"
+
+[dependencies]
+rayon = "1.10"
+
+[profile.release]
+opt-level = 3

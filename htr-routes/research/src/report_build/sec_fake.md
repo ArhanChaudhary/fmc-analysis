@@ -41,7 +41,7 @@ The Lean theorems cited here are in the study's folder lean/FakeBound (Lean 4, n
 3. the smallest term, with term 2's signs and the $\alpha$ index fixed (see (a));
 4. the exact optimum of the same model, *computer only*: the largest shortest-reduction any whole-number section lengths allowed by $\alpha$, A, B and C can force, solved by enumeration instead of by hand.
 
-Each row is a target finish length. It gives the number of (state, path) cases, the mean R in moves for each of the four readings with the corner path known, and the mean reduction the finishes actually needed. Sampled, {= n(25000) =} states per subset × edges.
+Each row is a target finish length. It gives the number of (state, path) cases, the mean R in moves for each of the four readings with the corner path known, and the mean reduction the finishes actually needed. Sampled, {= n(25000) =} states per subset × edges; the means and shares in this section weight each case by the size of its subset × edges, so they are over uniformly random DRs.
 
 {{fake_summary}}
 
@@ -79,7 +79,7 @@ $$\frac{(|S|-1)M-(N-|S|)+\sum_{i\ \mathrm{edge}} \alpha_i}{|S|}.$$
 |---|---|---|---|---|
 | 4a1 > 0c0 > 4a1 > 0c0 | 0 | 10 | 0, 3, 0, 4 | 6, 6, 5 |
 
-Term 2 as printed with $S = \{0, 2\}$ gives 4, whatever A, B and C are; derived, it gives 5. With the printed $\alpha_i$ as well it's still 4 (`literal_min_fails`). On the sample, the smallest term with term 2 and the index exactly as printed is too short on {= pc(Q9('opt', 'insuff_min_terms_as_written')) =} of cases at the optimum.
+Term 2 as printed with $S = \{0, 2\}$ gives 4, whatever A, B and C are; derived, it gives 5. With the printed $\alpha_i$ as well it's still 4 (`literal_min_fails`). On the sample, the smallest term with term 2 and the index exactly as printed is too short on {= pc(Q9('opt', 'insuff_min_terms_as_written')) =} of cases at the optimum (172,497 of the 1,914,809 cases, 9.0%, before weighting).
 
 A real DR where it bites, replayed ($N = 3$; every optimal finish takes the path in the table):
 

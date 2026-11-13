@@ -1,0 +1,3 @@
+cosets of H reached: 29400 (29,400 expected); HTR corner group 96
+linear HTR length histogram over cosets: [1, 2, 9, 36, 124, 530, 1806, 3732, 5158, 7070, 7218, 3202, 488, 24, 0]
+random states checked 2000, violations 0

@@ -1,0 +1,128 @@
+state: R2 D R2 F2 R2 D L2 D B2 R2 D2 B2 U
+label normal 4b2 2e / inverse 4b2 2e; optimal 13
+linear HTR normal 6 inverse 6; NISS HTR 6
+optimal finishes: 3
+  U' B2 D2 R2 B2 D' L2 D' R2 F2 R2 D' R2  path 4b2 2e > 4a1 4e > 0c0 2e > 4a1 4e > 0c0 0e  sections [0, 4, 1, 3, 1]
+  R2 B2 U' R2 L2 D L2 U L2 U2 R2 U' F2  path 4b2 2e > 2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e  sections [2, 2, 1, 3, 1]
+  R2 B2 U' L2 R2 D L2 U L2 U2 R2 U' F2  path 4b2 2e > 2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e  sections [2, 2, 1, 3, 1]
+distinct corner paths of the optimal finishes: {"4b2 2e > 2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e": 2, "4b2 2e > 4a1 4e > 0c0 2e > 4a1 4e > 0c0 0e": 1}
+shortest HTR over every reading of every optimal finish: 9
+  readings with that HTR, by moves before the switch (None = no switch before HTR): {"Some(1)": 1, "Some(8)": 1}
+    U' B2 D2 R2 B2 D' L2 D' R2 F2 R2 D' R2 split 1 inverse-first false switch-after Some(1) H:4b2 2e > 4a1 4e > (4b2 2e > 4a1 4e > 0c0 0e) | ht
+    U' B2 D2 R2 B2 D' L2 D' R2 F2 R2 D' R2 split 5 inverse-first true switch-after Some(8) H:4b2 2e > 2c3 2e > 4b2 4e > 4a1 4e > (0c0 0e) | ht
+
+state: R2 D R2 F2 R2 D L2 D B2 R2 D2 B2 U R2
+label normal 4b2 2e / inverse 4b2 2e; optimal 12
+linear HTR normal 5 inverse 6; NISS HTR 5
+optimal finishes: 2
+  B2 U' R2 L2 D L2 U L2 U2 R2 U' F2  path 4b2 2e > 2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e  sections [1, 2, 1, 3, 1]
+  B2 U' L2 R2 D L2 U L2 U2 R2 U' F2  path 4b2 2e > 2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e  sections [1, 2, 1, 3, 1]
+distinct corner paths of the optimal finishes: {"4b2 2e > 2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e": 2}
+shortest HTR over every reading of every optimal finish: 9
+  readings with that HTR, by moves before the switch (None = no switch before HTR): {"Some(7)": 2, "Some(2)": 2}
+    B2 U' R2 L2 D L2 U L2 U2 R2 U' F2 split 7 inverse-first false switch-after Some(7) H:4b2 2e > 2c3 4e > 4b2 2e > 4a1 4e > (0c0 0e) | ht
+    B2 U' R2 L2 D L2 U L2 U2 R2 U' F2 split 10 inverse-first true switch-after Some(2) H:4b2 2e > 4a1 2e > (4b2 2e > 4a1 4e > 0c0 0e) | ht
+    B2 U' L2 R2 D L2 U L2 U2 R2 U' F2 split 7 inverse-first false switch-after Some(7) H:4b2 2e > 2c3 4e > 4b2 2e > 4a1 4e > (0c0 0e) | ht
+    B2 U' L2 R2 D L2 U L2 U2 R2 U' F2 split 10 inverse-first true switch-after Some(2) H:4b2 2e > 4a1 2e > (4b2 2e > 4a1 4e > 0c0 0e) | ht
+
+state: D F2 R2 U2 B2 U' F2 U' F2 U L2 B2 U' R2 U'
+label normal 4b4 0e / inverse 4a4 0e; optimal 15
+linear HTR normal 11 inverse 10; NISS HTR 9
+optimal finishes: 41
+distinct corner paths of the optimal finishes: {"4b4 0e > 2c5 4e > 2c4 2e > 2c3 4e > 4b2 4e > 4a1 4e > 0c0 0e": 5, "4b4 0e > 4a3 4e > 4b2 4e > 4a1 4e > 0c0 0e": 2, "4b4 0e > 4a3 4e > 4b2 2e > 4a1 4e > 0c0 0e": 10, "4b4 0e > 2c5 4e > 2c4 4e > 2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e": 24}
+shortest HTR over every reading of every optimal finish: 10
+  readings with that HTR, by moves before the switch (None = no switch before HTR): {"Some(4)": 2, "Some(9)": 2, "Some(2)": 2, "Some(6)": 2, "Some(8)": 2, "Some(1)": 2}
+    F2 U' R2 D' R2 B2 U2 R2 B2 D R2 D' B2 R2 F2 split 4 inverse-first false switch-after Some(4) H:4b4 0e > 4a3 4e > 4b2 2e > (4a1 4e > 0c0 0e) | ht
+    F2 U' R2 D' R2 B2 U2 R2 B2 D R2 D' B2 R2 F2 split 9 inverse-first true switch-after Some(6) H:4a4 0e > 4a3 4e > 4b2 2e > (4a1 4e > 0c0 0e) | ht
+    F2 U' R2 D' R2 B2 U2 F2 U' R2 B2 R2 B2 R2 U split 9 inverse-first false switch-after Some(9) H:4b4 0e > 4a3 4e > 4b2 2e > 4a1 4e > (0c0 0e) | ht
+    F2 U' R2 D' R2 B2 U2 F2 U' R2 B2 R2 B2 R2 U split 14 inverse-first true switch-after Some(1) H:4a4 0e > 4a3 4e > (4a2 4e > 4a1 4e > 0c0 0e) | ht
+    F2 U' R2 D' R2 B2 U2 F2 U' L2 F2 R2 F2 L2 U split 9 inverse-first false switch-after Some(9) H:4b4 0e > 4a3 4e > 4b2 2e > 4a1 4e > (0c0 0e) | ht
+    F2 U' R2 D' R2 B2 U2 F2 U' L2 F2 R2 F2 L2 U split 14 inverse-first true switch-after Some(1) H:4a4 0e > 4a3 4e > (4a2 4e > 4a1 4e > 0c0 0e) | ht
+
+state: B2 U B2 R2 D' L2 U B2 D' F2 D' L2 F2 U' R2 U
+label normal 0c3 4e / inverse 0c3 4e; optimal 16
+linear HTR normal 13 inverse 13; NISS HTR 12
+optimal finishes: 15
+  U' R2 U F2 L2 D F2 D B2 U' L2 D R2 B2 U' B2  path 0c3 4e > 4a4 4e > 4b5 4e > 2c4 2e > 2c3 4e > 4b2 4e > 4a1 4e > 0c0 0e  sections [0, 1, 2, 1, 1, 1, 2, 1]
+  D B2 U' R2 D R2 U B2 L2 D R2 B2 D L2 U' B2  path 0c3 4e > 4a4 4e > 4b5 2e > 2c4 6e > 2c3 2e > 4b2 2e > 4a1 4e > 0c0 0e  sections [0, 1, 1, 1, 2, 2, 1, 1]
+  D B2 U' R2 D R2 D L2 F2 D B2 L2 U L2 U' B2  path 0c3 4e > 4a4 4e > 4b5 2e > 2c4 6e > 2c3 2e > 4b2 2e > 4a1 4e > 0c0 0e  sections [0, 1, 1, 1, 2, 2, 1, 1]
+  D B2 D' F2 D F2 D B2 L2 D R2 B2 D L2 U' B2  path 0c3 4e > 4a4 4e > 4b5 2e > 2c4 6e > 2c3 2e > 4b2 2e > 4a1 4e > 0c0 0e  sections [0, 1, 1, 1, 2, 2, 1, 1]
+  D2 R2 D' B2 D R2 L2 U R2 D' R2 U2 R2 F2 D' F2  path 0c3 4e > 4a2 2e > 4b3 2e > 4a2 4e > 4a1 4e > 0c0 0e  sections [2, 1, 2, 1, 4, 1]
+  D2 R2 D' B2 D L2 R2 U R2 D' R2 U2 R2 F2 D' F2  path 0c3 4e > 4a2 2e > 4b3 2e > 4a2 4e > 4a1 4e > 0c0 0e  sections [2, 1, 2, 1, 4, 1]
+  D2 L2 U' F2 U2 L2 U' L2 U' R2 F2 L2 D L2 D' F2  path 0c3 4e > 4a2 2e > 4a1 2e > 4b2 2e > 4a1 4e > 0c0 0e  sections [2, 3, 1, 3, 1, 1]
+  D2 L2 U' F2 D2 R2 U' R2 D' B2 R2 F2 U L2 D' F2  path 0c3 4e > 4a2 2e > 4a1 2e > 4b2 2e > 4a1 4e > 0c0 0e  sections [2, 3, 1, 3, 1, 1]
+  D2 L2 U' B2 D F2 B2 U L2 U' L2 U2 R2 B2 U' B2  path 0c3 4e > 4a2 2e > 4b3 2e > 4a2 4e > 4a1 4e > 0c0 0e  sections [2, 1, 2, 1, 4, 1]
+  D2 L2 U' B2 D B2 F2 U L2 U' L2 U2 R2 B2 U' B2  path 0c3 4e > 4a2 2e > 4b3 2e > 4a2 4e > 4a1 4e > 0c0 0e  sections [2, 1, 2, 1, 4, 1]
+  D2 L2 D F2 U2 R2 D R2 D' B2 R2 F2 U L2 D' F2  path 0c3 4e > 4a2 2e > 4a1 2e > 4b2 2e > 4a1 4e > 0c0 0e  sections [2, 3, 1, 3, 1, 1]
+  D2 L2 D F2 D2 L2 D L2 U' R2 F2 L2 D L2 D' F2  path 0c3 4e > 4a2 2e > 4a1 2e > 4b2 2e > 4a1 4e > 0c0 0e  sections [2, 3, 1, 3, 1, 1]
+  F2 D B2 L2 D' B2 U F2 U' R2 D' L2 U F2 D' R2  path 0c3 4e > 4a2 2e > 4b3 4e > 2c4 0e > 2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e  sections [1, 2, 1, 1, 1, 1, 1, 1]
+  B2 D R2 F2 U' R2 U B2 U' B2 U' F2 U B2 U' R2  path 0c3 4e > 4a2 2e > 4b3 4e > 2c4 0e > 2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e  sections [1, 2, 1, 1, 1, 1, 1, 1]
+  B2 D R2 F2 U' R2 D L2 U' L2 D' F2 U B2 U' R2  path 0c3 4e > 4a2 2e > 4b3 4e > 2c4 0e > 2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e  sections [1, 2, 1, 1, 1, 1, 1, 1]
+distinct corner paths of the optimal finishes: {"0c3 4e > 4a4 4e > 4b5 2e > 2c4 6e > 2c3 2e > 4b2 2e > 4a1 4e > 0c0 0e": 3, "0c3 4e > 4a4 4e > 4b5 4e > 2c4 2e > 2c3 4e > 4b2 4e > 4a1 4e > 0c0 0e": 1, "0c3 4e > 4a2 2e > 4b3 2e > 4a2 4e > 4a1 4e > 0c0 0e": 4, "0c3 4e > 4a2 2e > 4b3 4e > 2c4 0e > 2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e": 3, "0c3 4e > 4a2 2e > 4a1 2e > 4b2 2e > 4a1 4e > 0c0 0e": 4}
+shortest HTR over every reading of every optimal finish: 12
+  readings with that HTR, by moves before the switch (None = no switch before HTR): {"Some(2)": 4, "Some(10)": 4}
+    D2 R2 D' B2 D R2 L2 U R2 D' R2 U2 R2 F2 D' F2 split 10 inverse-first false switch-after Some(10) H:0c3 4e > 4a2 2e > 4b3 2e > 4a2 4e > 4a1 4e > (0c0 0e) | ht
+    D2 R2 D' B2 D R2 L2 U R2 D' R2 U2 R2 F2 D' F2 split 14 inverse-first true switch-after Some(2) H:0c3 4e > 4a2 2e > (4a1 2e > 4b2 2e > 4a1 4e > 0c0 0e) | ht
+    D2 R2 D' B2 D L2 R2 U R2 D' R2 U2 R2 F2 D' F2 split 10 inverse-first false switch-after Some(10) H:0c3 4e > 4a2 2e > 4b3 2e > 4a2 4e > 4a1 4e > (0c0 0e) | ht
+    D2 R2 D' B2 D L2 R2 U R2 D' R2 U2 R2 F2 D' F2 split 14 inverse-first true switch-after Some(2) H:0c3 4e > 4a2 2e > (4a1 2e > 4b2 2e > 4a1 4e > 0c0 0e) | ht
+    D2 L2 U' B2 D F2 B2 U L2 U' L2 U2 R2 B2 U' B2 split 10 inverse-first false switch-after Some(10) H:0c3 4e > 4a2 2e > 4b3 2e > 4a2 4e > 4a1 4e > (0c0 0e) | ht
+    D2 L2 U' B2 D F2 B2 U L2 U' L2 U2 R2 B2 U' B2 split 14 inverse-first true switch-after Some(2) H:0c3 4e > 4a2 2e > (4a1 2e > 4b2 2e > 4a1 4e > 0c0 0e) | ht
+
+state: F2 U' L2 U' F2 R2 F2 L2 U F2 D2 B2
+label normal 2c3 2e / inverse 2c3 2e; optimal 12
+linear HTR normal 7 inverse 6; NISS HTR 6
+optimal finishes: 1
+  B2 D2 F2 U' L2 F2 R2 F2 U L2 U F2  path 2c3 2e > 4b2 2e > 4a1 4e > 0c0 0e  sections [3, 4, 1, 1]
+distinct corner paths of the optimal finishes: {"2c3 2e > 4b2 2e > 4a1 4e > 0c0 0e": 1}
+shortest HTR over every reading of every optimal finish: 8
+  readings with that HTR, by moves before the switch (None = no switch before HTR): {"Some(4)": 2}
+    B2 D2 F2 U' L2 F2 R2 F2 U L2 U F2 split 4 inverse-first false switch-after Some(4) H:2c3 2e > 4b2 2e > (4a1 4e > 0c0 0e) | ht
+    B2 D2 F2 U' L2 F2 R2 F2 U L2 U F2 split 8 inverse-first true switch-after Some(4) H:2c3 2e > 4b2 4e > 4a1 4e > (0c0 0e) | ht
+
+state: F2 D2 R2 D' R2 U2 B2 D' L2 U2 F2 U L2 R2
+label normal 0c3 2e / inverse 0c3 2e; optimal 14
+linear HTR normal 11 inverse 11; NISS HTR 9
+optimal finishes: 4
+  R2 L2 U' F2 U2 L2 D B2 U2 R2 D R2 D2 F2  path 0c3 2e > 4a2 4e > 4a1 4e > 0c0 0e  sections [2, 3, 3, 3]
+  R2 L2 U' F2 U2 L2 D B2 D2 L2 D L2 U2 F2  path 0c3 2e > 4a2 4e > 4a1 4e > 0c0 0e  sections [2, 3, 3, 3]
+  L2 R2 U' F2 U2 L2 D B2 U2 R2 D R2 D2 F2  path 0c3 2e > 4a2 4e > 4a1 4e > 0c0 0e  sections [2, 3, 3, 3]
+  L2 R2 U' F2 U2 L2 D B2 D2 L2 D L2 U2 F2  path 0c3 2e > 4a2 4e > 4a1 4e > 0c0 0e  sections [2, 3, 3, 3]
+distinct corner paths of the optimal finishes: {"0c3 2e > 4a2 4e > 4a1 4e > 0c0 0e": 4}
+shortest HTR over every reading of every optimal finish: 11
+  readings with that HTR, by moves before the switch (None = no switch before HTR): {"Some(4)": 4, "None": 20, "Some(8)": 4, "Some(3)": 4, "Some(7)": 4}
+    R2 L2 U' F2 U2 L2 D B2 U2 R2 D R2 D2 F2 split 3 inverse-first false switch-after Some(3) H:0c3 2e > 4a2 4e > (4a1 4e > 0c0 0e) | ht
+    R2 L2 U' F2 U2 L2 D B2 U2 R2 D R2 D2 F2 split 6 inverse-first true switch-after Some(8) H:0c3 2e > 4a2 4e > 4a1 4e > (0c0 0e) | ht
+    R2 L2 U' F2 U2 L2 D B2 U2 R2 D R2 D2 F2 split 7 inverse-first false switch-after Some(7) H:0c3 2e > 4a2 4e > 4a1 4e > (0c0 0e) | ht
+    R2 L2 U' F2 U2 L2 D B2 U2 R2 D R2 D2 F2 split 10 inverse-first true switch-after Some(4) H:0c3 2e > 4a2 4e > (4a1 4e > 0c0 0e) | ht
+    R2 L2 U' F2 U2 L2 D B2 U2 R2 D R2 D2 F2 split 11 inverse-first false switch-after None H:0c3 2e > 4a2 4e > 4a1 4e > 0c0 0e | ht
+    R2 L2 U' F2 U2 L2 D B2 U2 R2 D R2 D2 F2 split 12 inverse-first false switch-after None H:0c3 2e > 4a2 4e > 4a1 4e > 0c0 0e | ht
+
+state: D2 F2 L2 U' B2 U' L2 U2 B2 U' L2 D R2 D2
+label normal 0c4 0e / inverse 0c4 0e; optimal 14
+linear HTR normal 9 inverse 9; NISS HTR 7
+optimal finishes: 2
+  D2 R2 D' L2 U B2 U2 L2 U B2 U L2 F2 D2  path 0c4 0e > 4a3 4e > 4b2 2e > 4a1 4e > 0c0 0e  sections [2, 1, 3, 1, 3]
+  D2 R2 D' L2 D' B2 D2 L2 D' B2 U L2 F2 D2  path 0c4 0e > 4a3 4e > 4b2 2e > 4a1 4e > 0c0 0e  sections [2, 1, 3, 1, 3]
+distinct corner paths of the optimal finishes: {"0c4 0e > 4a3 4e > 4b2 2e > 4a1 4e > 0c0 0e": 2}
+shortest HTR over every reading of every optimal finish: 11
+  readings with that HTR, by moves before the switch (None = no switch before HTR): {"Some(6)": 2, "Some(5)": 2, "None": 10}
+    D2 R2 D' L2 U B2 U2 L2 U B2 U L2 F2 D2 split 5 inverse-first false switch-after Some(5) H:0c4 0e > 4a3 4e > 4b2 2e > (4a1 4e > 0c0 0e) | ht
+    D2 R2 D' L2 U B2 U2 L2 U B2 U L2 F2 D2 split 8 inverse-first true switch-after Some(6) H:0c4 0e > 4a3 4e > 4b2 2e > (4a1 4e > 0c0 0e) | ht
+    D2 R2 D' L2 U B2 U2 L2 U B2 U L2 F2 D2 split 11 inverse-first false switch-after None H:0c4 0e > 4a3 4e > 4b2 2e > 4a1 4e > 0c0 0e | ht
+    D2 R2 D' L2 U B2 U2 L2 U B2 U L2 F2 D2 split 12 inverse-first false switch-after None H:0c4 0e > 4a3 4e > 4b2 2e > 4a1 4e > 0c0 0e | ht
+    D2 R2 D' L2 U B2 U2 L2 U B2 U L2 F2 D2 split 13 inverse-first false switch-after None H:0c4 0e > 4a3 4e > 4b2 2e > 4a1 4e > 0c0 0e | ht
+    D2 R2 D' L2 U B2 U2 L2 U B2 U L2 F2 D2 split 14 inverse-first false switch-after None H:0c4 0e > 4a3 4e > 4b2 2e > 4a1 4e > 0c0 0e | ht
+
+state: F2 U' B2 R2 B2 U R2
+label normal 0c0 2e / inverse 0c0 2e; optimal 7
+linear HTR normal 6 inverse 6; NISS HTR 4
+optimal finishes: 1
+  R2 U' B2 R2 B2 U F2  path 0c0 2e > 4a1 4e > 0c0 0e  sections [1, 3, 1]
+distinct corner paths of the optimal finishes: {"0c0 2e > 4a1 4e > 0c0 0e": 1}
+shortest HTR over every reading of every optimal finish: 4
+  readings with that HTR, by moves before the switch (None = no switch before HTR): {"Some(2)": 2}
+    R2 U' B2 R2 B2 U F2 split 2 inverse-first false switch-after Some(2) H:0c0 2e > 4a1 4e > (0c0 0e) | ht
+    R2 U' B2 R2 B2 U F2 split 5 inverse-first true switch-after Some(2) H:0c0 2e > 4a1 4e > (0c0 0e) | ht
+
+R2 B2 D2 B2 D U2 R2 U L2 F2 U' B2: optimal 12; reductions to 1q of length <= 4: 168 distinct states (by shortest length [0, 0, 0, 16, 152]); best total Some(14)
+R2 B2 D2 B2 D U2 R2 U L2 F2 U' B2: optimal 12; reductions to 1q of length <= 5: 1024 distinct states (by shortest length [0, 0, 0, 16, 152, 856]); best total Some(12)

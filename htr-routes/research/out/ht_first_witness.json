@@ -1,0 +1,227 @@
+[
+ {
+  "id": "H1",
+  "finding": "rule 1: a 2c4 2e that is trigger-ready on neither side and needs one half turn before the first qt on both sides",
+  "state": "#21090,13708,8",
+  "sample": "2c4 2e #27",
+  "scramble": "L2 U' F2 U B2 D' B2 L2 D' R2 U2 R2 F2",
+  "optimal": 13,
+  "subset_normal": "2c4 2e",
+  "subset_inverse": "2c4 2e",
+  "n_optimal_finishes": 2,
+  "optimal_finishes": [
+   {
+    "finish": "F2 R2 U2 R2 D L2 B2 D B2 U' F2 U L2",
+    "half_turns_before_first_qt_normal": 4,
+    "half_turns_before_first_qt_inverse": 1
+   },
+   {
+    "finish": "F2 R2 D2 L2 U F2 L2 U B2 D' L2 D L2",
+    "half_turns_before_first_qt_normal": 4,
+    "half_turns_before_first_qt_inverse": 1
+   }
+  ],
+  "fewest_half_turns_before_first_qt": {
+   "normal": 4,
+   "inverse": 1
+  },
+  "corner_setup_sticker": {
+   "normal": 1,
+   "inverse": 1
+  },
+  "qt_that_lowers_now": {
+   "normal": [],
+   "inverse": []
+  },
+  "corner_case": {
+   "normal": "2c4-7",
+   "inverse": "2c4-4"
+  },
+  "drread_subset": "2c4 2e",
+  "drread_optimal": 13,
+  "replayed_ok": true
+ },
+ {
+  "id": "H2",
+  "finding": "rule 1, the other way: a 2c4 2e that is trigger-ready on a side and whose optimal starts with that qt",
+  "state": "#21860,35869,20",
+  "sample": "2c4 2e #65",
+  "scramble": "F2 L2 D' F2 R2 U' F2 D F2 L2 D2 L2 U",
+  "optimal": 13,
+  "subset_normal": "2c4 2e",
+  "subset_inverse": "2c4 2e",
+  "n_optimal_finishes": 2,
+  "optimal_finishes": [
+   {
+    "finish": "U' L2 D2 L2 F2 D' F2 U R2 F2 D L2 F2",
+    "half_turns_before_first_qt_normal": 0,
+    "half_turns_before_first_qt_inverse": 2
+   },
+   {
+    "finish": "D' B2 D2 B2 L2 D' L2 D R2 F2 D L2 F2",
+    "half_turns_before_first_qt_normal": 0,
+    "half_turns_before_first_qt_inverse": 2
+   }
+  ],
+  "fewest_half_turns_before_first_qt": {
+   "normal": 0,
+   "inverse": 2
+  },
+  "corner_setup_sticker": {
+   "normal": 0,
+   "inverse": 1
+  },
+  "qt_that_lowers_now": {
+   "normal": [
+    "D",
+    "D'",
+    "U",
+    "U'"
+   ],
+   "inverse": []
+  },
+  "corner_case": {
+   "normal": "2c4-3",
+   "inverse": "2c4-7"
+  },
+  "drread_subset": "2c4 2e",
+  "drread_optimal": 13,
+  "replayed_ok": true
+ },
+ {
+  "id": "H3",
+  "finding": "rule 2: a 4a2 4e whose corners need two half turns on both sides, and whose optimal needs two half turns before the first qt",
+  "state": "#18794,16276,16",
+  "sample": "4a2 4e #62",
+  "scramble": "R2 D2 F2 L2 U F2 U2 L2 D B2 D2",
+  "optimal": 11,
+  "subset_normal": "4a2 4e",
+  "subset_inverse": "4a2 4e",
+  "n_optimal_finishes": 2,
+  "optimal_finishes": [
+   {
+    "finish": "D2 B2 D' L2 U2 F2 U' L2 F2 D2 R2",
+    "half_turns_before_first_qt_normal": 2,
+    "half_turns_before_first_qt_inverse": 4
+   },
+   {
+    "finish": "D2 B2 D' L2 D2 B2 U' R2 B2 U2 R2",
+    "half_turns_before_first_qt_normal": 2,
+    "half_turns_before_first_qt_inverse": 4
+   }
+  ],
+  "fewest_half_turns_before_first_qt": {
+   "normal": 2,
+   "inverse": 4
+  },
+  "corner_setup_sticker": {
+   "normal": 2,
+   "inverse": 2
+  },
+  "qt_that_lowers_now": {
+   "normal": [],
+   "inverse": []
+  },
+  "corner_case": {
+   "normal": "4a2-3",
+   "inverse": "4a2-3"
+  },
+  "drread_subset": "4a2 4e",
+  "drread_optimal": 11,
+  "replayed_ok": true
+ },
+ {
+  "id": "H4",
+  "finding": "the limit of the reads: a 2c4 2e that is trigger-ready on both sides and still needs two half turns before the first qt on both sides",
+  "state": "#22408,21382,0",
+  "sample": "2c4 2e #1637",
+  "scramble": "R2 F2 D' B2 D2 R2 U' R2 D' L2 U B2 F2",
+  "optimal": 13,
+  "subset_normal": "2c4 2e",
+  "subset_inverse": "2c4 2e",
+  "n_optimal_finishes": 2,
+  "optimal_finishes": [
+   {
+    "finish": "F2 B2 U' L2 D R2 U R2 D2 B2 D F2 R2",
+    "half_turns_before_first_qt_normal": 2,
+    "half_turns_before_first_qt_inverse": 2
+   },
+   {
+    "finish": "B2 F2 U' L2 D R2 U R2 D2 B2 D F2 R2",
+    "half_turns_before_first_qt_normal": 2,
+    "half_turns_before_first_qt_inverse": 2
+   }
+  ],
+  "fewest_half_turns_before_first_qt": {
+   "normal": 2,
+   "inverse": 2
+  },
+  "corner_setup_sticker": {
+   "normal": 0,
+   "inverse": 0
+  },
+  "qt_that_lowers_now": {
+   "normal": [
+    "D",
+    "D'",
+    "U",
+    "U'"
+   ],
+   "inverse": [
+    "D",
+    "D'",
+    "U",
+    "U'"
+   ]
+  },
+  "corner_case": {
+   "normal": "2c4-5",
+   "inverse": "2c4-1"
+  },
+  "drread_subset": "2c4 2e",
+  "drread_optimal": 13,
+  "replayed_ok": true
+ },
+ {
+  "id": "H5",
+  "finding": "a 4a2 4e with 4-0 corners on both sides: three half turns before the first qt",
+  "state": "#5160,6956,23",
+  "sample": "4a2 4e #1114",
+  "scramble": "R2 D2 B2 U' L2 D2 L2 F2 U' B2 U2 F2 L2",
+  "optimal": 13,
+  "subset_normal": "4a2 4e",
+  "subset_inverse": "4a2 4e",
+  "n_optimal_finishes": 2,
+  "optimal_finishes": [
+   {
+    "finish": "L2 F2 U2 B2 U F2 L2 D2 L2 U B2 D2 R2",
+    "half_turns_before_first_qt_normal": 4,
+    "half_turns_before_first_qt_inverse": 3
+   },
+   {
+    "finish": "F2 D2 L2 U' L2 B2 U2 L2 F2 D B2 D2 L2",
+    "half_turns_before_first_qt_normal": 3,
+    "half_turns_before_first_qt_inverse": 3
+   }
+  ],
+  "fewest_half_turns_before_first_qt": {
+   "normal": 3,
+   "inverse": 3
+  },
+  "corner_setup_sticker": {
+   "normal": 3,
+   "inverse": 3
+  },
+  "qt_that_lowers_now": {
+   "normal": [],
+   "inverse": []
+  },
+  "corner_case": {
+   "normal": "4a2-4",
+   "inverse": "4a2-4"
+  },
+  "drread_subset": "4a2 4e",
+  "drread_optimal": 13,
+  "replayed_ok": true
+ }
+]

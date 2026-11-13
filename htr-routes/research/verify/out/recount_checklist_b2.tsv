@@ -1,0 +1,535 @@
+group	target	step	class	cumulative
+0c0 0e	opt	1	0c0 > 4a1 > 0c0 | ht	0.4251
+0c0 0e	opt	2	0c0 | ht	0.8435
+0c0 0e	opt	3	0c0 | qt	0.9260
+0c0 0e	opt	4	0c0 > 4a1 > 0c0 | qt	0.9286
+0c0 0e	opt	5	0c0 > 4a1 > (0c0) | ht	0.9304
+0c0 0e	p1_same3	3		0.9826
+0c0 2e	opt	1	0c0 > 4a1 > 0c0 | ht	0.6046
+0c0 2e	opt	2	0c0 > 4a1 > 0c0 > 4a1 > (0c0) | ht	0.6572
+0c0 2e	opt	3	0c0 > 4a1 > (0c0) | ht	0.7019
+0c0 2e	opt	4	0c0 > 4a1 > 4b2 > 4a1 > 0c0 | ht	0.7226
+0c0 2e	opt	5	0c0 > 4a1 > 0c0 > (4a1 > 0c0) | ht	0.7305
+0c0 2e	opt	6	0c0 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.7378
+0c0 2e	opt	7	0c0 > 4a1 > 0c0 | qt	0.7407
+0c0 2e	opt	8	0c0 > 4a1 > 4b2 > (4a1 > 0c0) | ht	0.7433
+0c0 2e	p1_same3	3		0.9229
+0c0 4e	opt	1	0c0 > 4a1 > 0c0 | ht	0.4486
+0c0 4e	opt	2	0c0 > 4a1 > (0c0) | ht	0.5784
+0c0 4e	opt	3	0c0 > 4a1 > 4b2 > 4a1 > 0c0 | ht	0.6154
+0c0 4e	opt	4	0c0 > 4a1 > 4b2 > (4a1 > 0c0) | ht	0.6364
+0c0 4e	opt	5	0c0 > 4a1 > 0c0 > 4a1 > 0c0 | ht	0.6510
+0c0 4e	opt	6	0c0 > 4a1 > 0c0 > 4a1 > (0c0) | ht	0.6636
+0c0 4e	opt	7	0c0 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.6753
+0c0 4e	opt	8	0c0 > 4a1 > 0c0 > (4a1 > 0c0) | ht	0.6838
+0c0 4e	p1_same3	3		0.8814
+0c0 6e	opt	1	0c0 > 4a1 > (0c0) | ht	0.4080
+0c0 6e	opt	2	0c0 > 4a1 > 0c0 > 4a1 > (0c0) | ht	0.5366
+0c0 6e	opt	3	0c0 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.6020
+0c0 6e	opt	4	0c0 > 4a1 > 4b2 > (4a1 > 0c0) | ht	0.6403
+0c0 6e	opt	5	0c0 > 4a1 > 0c0 > 4a1 > 0c0 | ht	0.6568
+0c0 6e	opt	6	0c0 > 4a1 > 0c0 | ht	0.6683
+0c0 6e	opt	7	0c0 > 4a1 > 0c0 > (4a1 > 0c0) | ht	0.6736
+0c0 6e	opt	8	0c0 > 4a1 > 4b2 > 4a1 > 0c0 | ht	0.6775
+0c0 6e	p1_same3	3		0.8802
+0c0 8e	opt	1	0c0 > 4a1 > (0c0) | ht	0.5353
+0c0 8e	opt	2	0c0 > 4a1 > 0c0 | ht	0.7008
+0c0 8e	opt	3	0c0 > 4a1 > 0c0 > 4a1 > (0c0) | ht	0.7707
+0c0 8e	opt	4	0c0 > 4a1 > 4b2 > (4a1 > 0c0) | ht	0.7780
+0c0 8e	opt	5	0c0 > 4a1 > 4b2 > 4a1 > 0c0 | ht	0.7829
+0c0 8e	opt	6	0c0 > 4a1 > 0c0 > (4a1 > 0c0) | ht	0.7854
+0c0 8e	opt	7	0c0 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.7870
+0c0 8e	opt	8	0c0 > 4a1 > 0c0 | qt	0.7881
+0c0 8e	p1_same3	3		0.9496
+0c0	opt	1	0c0 > 4a1 > 0c0 | ht	0.4230
+0c0	opt	2	0c0 > 4a1 > (0c0) | ht	0.5591
+0c0	opt	3	0c0 > 4a1 > 0c0 > 4a1 > (0c0) | ht	0.6091
+0c0	opt	4	0c0 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.6341
+0c0	opt	5	0c0 > 4a1 > 4b2 > 4a1 > 0c0 | ht	0.6575
+0c0	opt	6	0c0 > 4a1 > 4b2 > (4a1 > 0c0) | ht	0.6756
+0c0	opt	7	0c0 > 4a1 > 0c0 > 4a1 > 0c0 | ht	0.6863
+0c0	opt	8	0c0 > 4a1 > 0c0 > (4a1 > 0c0) | ht	0.6936
+0c0	p1_same3	3		0.8639
+0c3 0e	opt	1	0c3 > 4a2 > (4a1 > 0c0) | ht	0.8550
+0c3 0e	opt	2	0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0) | ht	0.9423
+0c3 0e	opt	3	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.9660
+0c3 0e	opt	4	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.9689
+0c3 0e	opt	5	0c3 > 4a2 > (4b3 > 4a2 > 4a1 > 0c0) | ht	0.9715
+0c3 0e	opt	6	0c3 > 4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9732
+0c3 0e	opt	7	0c3 > 4a2 > 4b3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9739
+0c3 0e	opt	8	0c3 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9743
+0c3 0e	p1_same3	3		0.9980
+0c3 2e	opt	1	0c3 > 4a2 > (4a1 > 0c0) | ht	0.8078
+0c3 2e	opt	2	0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0) | ht	0.9131
+0c3 2e	opt	3	0c3 > 4a2 > 4a1 > 0c0 | ht	0.9207
+0c3 2e	opt	4	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.9249
+0c3 2e	opt	5	0c3 > 4a2 > (4b3 > 4a2 > 4a1 > 0c0) | ht	0.9276
+0c3 2e	opt	6	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.9301
+0c3 2e	opt	7	0c3 > 4a2 > 4b3 > (4b2 > 4a1 > 0c0) | ht	0.9318
+0c3 2e	opt	8	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.9328
+0c3 2e	p1_same3	3		0.9950
+0c3 4e	opt	1	0c3 > 4a2 > (4a1 > 0c0) | ht	0.6720
+0c3 4e	opt	2	0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0) | ht	0.8507
+0c3 4e	opt	3	0c3 > 4a2 > 4b3 > (4b2 > 4a1 > 0c0) | ht	0.8580
+0c3 4e	opt	4	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.8642
+0c3 4e	opt	5	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8680
+0c3 4e	opt	6	0c3 > 4a2 > (4b3 > 4a2 > 4a1 > 0c0) | ht	0.8715
+0c3 4e	opt	7	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8739
+0c3 4e	opt	8	0c3 > 4a2 > 4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8754
+0c3 4e	p1_same3	3		0.9869
+0c3 6e	opt	1	0c3 > 4a2 > (4a1 > 0c0) | ht	0.8263
+0c3 6e	opt	2	0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0) | ht	0.9392
+0c3 6e	opt	3	0c3 > 4a2 > 4a1 > 0c0 | ht	0.9460
+0c3 6e	opt	4	0c3 > 4a2 > (4b3 > 4a2 > 4a1 > 0c0) | ht	0.9489
+0c3 6e	opt	5	0c3 > 4a2 > 4b3 > (4b2 > 4a1 > 0c0) | ht	0.9516
+0c3 6e	opt	6	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.9532
+0c3 6e	opt	7	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.9540
+0c3 6e	opt	8	0c3 > 4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9547
+0c3 6e	p1_same3	3		0.9966
+0c3 8e	opt	1	0c3 > 4a2 > (4a1 > 0c0) | ht	0.8727
+0c3 8e	opt	2	0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0) | ht	0.9481
+0c3 8e	opt	3	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.9610
+0c3 8e	opt	4	0c3 > 4a2 > 4b3 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.9650
+0c3 8e	opt	5	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.9683
+0c3 8e	opt	6	0c3 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9700
+0c3 8e	opt	7	0c3 > 4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9712
+0c3 8e	opt	8	0c3 > 4a2 > 4b3 > (4b2 > 4a1 > 0c0) | ht	0.9719
+0c3 8e	p1_same3	3		0.9971
+0c3	opt	1	0c3 > 4a2 > (4a1 > 0c0) | ht	0.7438
+0c3	opt	2	0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0) | ht	0.8879
+0c3	opt	3	0c3 > 4a2 > 4b3 > (4b2 > 4a1 > 0c0) | ht	0.8928
+0c3	opt	4	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8976
+0c3	opt	5	0c3 > 4a2 > 4a1 > 0c0 | ht	0.9013
+0c3	opt	6	0c3 > 4a2 > (4b3 > 4a2 > 4a1 > 0c0) | ht	0.9044
+0c3	opt	7	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.9070
+0c3	opt	8	0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.9090
+0c3	p1_same3	3		0.9906
+0c4 0e	opt	1	0c4 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.8317
+0c4 0e	opt	2	0c4 > 4a3 > 4b2 > 4a1 > 0c0 | ht	0.8675
+0c4 0e	opt	3	0c4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.8758
+0c4 0e	opt	4	0c4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8798
+0c4 0e	opt	5	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8826
+0c4 0e	opt	6	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.8842
+0c4 0e	opt	7	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8852
+0c4 0e	p1_same3	3		0.9749
+0c4 2e	opt	1	0c4 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.8654
+0c4 2e	opt	2	0c4 > 4a3 > 4b2 > 4a1 > 0c0 | ht	0.8798
+0c4 2e	opt	3	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8912
+0c4 2e	opt	4	0c4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8987
+0c4 2e	opt	5	0c4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.9060
+0c4 2e	opt	6	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.9101
+0c4 2e	opt	7	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.9123
+0c4 2e	opt	8	0c4 > 4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.9123
+0c4 2e	p1_same3	3		0.9809
+0c4 4e	opt	1	0c4 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.8349
+0c4 4e	opt	2	0c4 > 4a3 > 4b2 > 4a1 > 0c0 | ht	0.8512
+0c4 4e	opt	3	0c4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.8611
+0c4 4e	opt	4	0c4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8708
+0c4 4e	opt	5	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8775
+0c4 4e	opt	6	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.8831
+0c4 4e	opt	7	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8863
+0c4 4e	opt	8	0c4 > 4a3 > 4b2 > (4a1 > 4b2 > 4a1 > 0c0) | ht	0.8864
+0c4 4e	p1_same3	3		0.9747
+0c4 6e	opt	1	0c4 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.8180
+0c4 6e	opt	2	0c4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.8372
+0c4 6e	opt	3	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8542
+0c4 6e	opt	4	0c4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8645
+0c4 6e	opt	5	0c4 > 4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8734
+0c4 6e	opt	6	0c4 > 4a3 > 4b2 > 4a1 > 0c0 | ht	0.8770
+0c4 6e	opt	7	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8803
+0c4 6e	opt	8	0c4 > 4a3 > 4b2 > (4a1 > 0c0 > 4a1 > 0c0) | ht	0.8806
+0c4 6e	p1_same3	3		0.9776
+0c4 8e	opt	1	0c4 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.8028
+0c4 8e	opt	2	0c4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.8617
+0c4 8e	opt	3	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8711
+0c4 8e	opt	4	0c4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8788
+0c4 8e	opt	5	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.8814
+0c4 8e	opt	6	0c4 > 4a3 > 4b2 > 4a1 > 0c0 | ht	0.8826
+0c4 8e	p1_same3	3		0.9822
+0c4	opt	1	0c4 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.8375
+0c4	opt	2	0c4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.8511
+0c4	opt	3	0c4 > 4a3 > 4b2 > 4a1 > 0c0 | ht	0.8628
+0c4	opt	4	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8740
+0c4	opt	5	0c4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8820
+0c4	opt	6	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.8879
+0c4	opt	7	0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8908
+0c4	opt	8	0c4 > 4a3 > 4b2 > (4a1 > 4b2 > 4a1 > 0c0) | ht	0.8909
+0c4	p1_same3	3		0.9758
+2c3 0e	opt	1	2c3 > 4b2 > (4a1 > 0c0) | ht	0.4627
+2c3 0e	opt	2	2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.6695
+2c3 0e	opt	3	2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.7512
+2c3 0e	opt	4	2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8139
+2c3 0e	opt	5	2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8546
+2c3 0e	opt	6	2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8672
+2c3 0e	opt	7	2c3 > 4b2 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.8744
+2c3 0e	opt	8	2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8806
+2c3 0e	p1_same3	3		0.9585
+2c3 2e	opt	1	2c3 > 4b2 > 4a1 > 0c0 | ht	0.6645
+2c3 2e	opt	2	2c3 > 4b2 > (4a1 > 0c0) | ht	0.7964
+2c3 2e	opt	3	2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8023
+2c3 2e	opt	4	2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8056
+2c3 2e	opt	5	2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8081
+2c3 2e	opt	6	2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8102
+2c3 2e	opt	7	2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8116
+2c3 2e	opt	8	2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8125
+2c3 2e	p1_same3	3		0.9660
+2c3 4e	opt	1	2c3 > 4b2 > 4a1 > 0c0 | ht	0.5531
+2c3 4e	opt	2	2c3 > 4b2 > (4a1 > 0c0) | ht	0.7658
+2c3 4e	opt	3	2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.7812
+2c3 4e	opt	4	2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7907
+2c3 4e	opt	5	2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7993
+2c3 4e	opt	6	2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8062
+2c3 4e	opt	7	2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8094
+2c3 4e	opt	8	2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8122
+2c3 4e	p1_same3	3		0.9614
+2c3 6e	opt	1	2c3 > 4b2 > (4a1 > 0c0) | ht	0.6607
+2c3 6e	opt	2	2c3 > 4b2 > 4a1 > 0c0 | ht	0.7330
+2c3 6e	opt	3	2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.7670
+2c3 6e	opt	4	2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7831
+2c3 6e	opt	5	2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7980
+2c3 6e	opt	6	2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8078
+2c3 6e	opt	7	2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8123
+2c3 6e	opt	8	2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8162
+2c3 6e	p1_same3	3		0.9580
+2c3 8e	opt	1	2c3 > 4b2 > (4a1 > 0c0) | ht	0.4634
+2c3 8e	opt	2	2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.6723
+2c3 8e	opt	3	2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7446
+2c3 8e	opt	4	2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7829
+2c3 8e	opt	5	2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8126
+2c3 8e	opt	6	2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8342
+2c3 8e	opt	7	2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8546
+2c3 8e	opt	8	2c3 > 4b2 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.8593
+2c3 8e	p1_same3	3		0.9570
+2c3	opt	1	2c3 > 4b2 > 4a1 > 0c0 | ht	0.5354
+2c3	opt	2	2c3 > 4b2 > (4a1 > 0c0) | ht	0.7567
+2c3	opt	3	2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.7796
+2c3	opt	4	2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7910
+2c3	opt	5	2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8008
+2c3	opt	6	2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8083
+2c3	opt	7	2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8116
+2c3	opt	8	2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8146
+2c3	p1_same3	3		0.9610
+2c4 0e	opt	1	2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.7010
+2c4 0e	opt	2	2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8594
+2c4 0e	opt	3	2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.8858
+2c4 0e	opt	4	2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8875
+2c4 0e	opt	5	2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8890
+2c4 0e	opt	6	2c4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8903
+2c4 0e	opt	7	2c4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8913
+2c4 0e	opt	8	2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8919
+2c4 0e	p1_same3	3		0.9872
+2c4 2e	opt	1	2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.6773
+2c4 2e	opt	2	2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8628
+2c4 2e	opt	3	2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.8990
+2c4 2e	opt	4	2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9051
+2c4 2e	opt	5	2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9082
+2c4 2e	opt	6	2c4 > 4b3 > 4a2 > 4a1 > 0c0 | ht	0.9100
+2c4 2e	opt	7	2c4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.9116
+2c4 2e	opt	8	2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9131
+2c4 2e	p1_same3	3		0.9890
+2c4 4e	opt	1	2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.6203
+2c4 4e	opt	2	2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8202
+2c4 4e	opt	3	2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.8758
+2c4 4e	opt	4	2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8808
+2c4 4e	opt	5	2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8844
+2c4 4e	opt	6	2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8870
+2c4 4e	opt	7	2c4 > 4b3 > 4a2 > 4a1 > 0c0 | ht	0.8891
+2c4 4e	opt	8	2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8910
+2c4 4e	p1_same3	3		0.9867
+2c4 6e	opt	1	2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7382
+2c4 6e	opt	2	2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8408
+2c4 6e	opt	3	2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.8846
+2c4 6e	opt	4	2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8916
+2c4 6e	opt	5	2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8963
+2c4 6e	opt	6	2c4 > 4b3 > 4a2 > 4a1 > 0c0 | ht	0.8995
+2c4 6e	opt	7	2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.9012
+2c4 6e	opt	8	2c4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.9029
+2c4 6e	p1_same3	3		0.9862
+2c4 8e	opt	1	2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7768
+2c4 8e	opt	2	2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.8951
+2c4 8e	opt	3	2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.9146
+2c4 8e	opt	4	2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9232
+2c4 8e	opt	5	2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.9292
+2c4 8e	opt	6	2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9326
+2c4 8e	opt	7	2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9349
+2c4 8e	opt	8	2c4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.9372
+2c4 8e	p1_same3	3		0.9944
+2c4	opt	1	2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.6598
+2c4	opt	2	2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8354
+2c4	opt	3	2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.8838
+2c4	opt	4	2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8895
+2c4	opt	5	2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8932
+2c4	opt	6	2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8955
+2c4	opt	7	2c4 > 4b3 > 4a2 > 4a1 > 0c0 | ht	0.8976
+2c4	opt	8	2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8993
+2c4	p1_same3	3		0.9872
+2c5 0e	opt	1	2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7779
+2c5 0e	opt	2	2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8648
+2c5 0e	opt	3	2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8963
+2c5 0e	opt	4	2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.9143
+2c5 0e	opt	5	2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9180
+2c5 0e	opt	6	2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9191
+2c5 0e	opt	7	2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9200
+2c5 0e	opt	8	2c5 > 4b4 > 2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9208
+2c5 0e	p1_same3	3		0.9865
+2c5 2e	opt	1	2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7475
+2c5 2e	opt	2	2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8616
+2c5 2e	opt	3	2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9104
+2c5 2e	opt	4	2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.9243
+2c5 2e	opt	5	2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9291
+2c5 2e	opt	6	2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9307
+2c5 2e	opt	7	2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9316
+2c5 2e	opt	8	2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.9325
+2c5 2e	p1_same3	3		0.9869
+2c5 4e	opt	1	2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7149
+2c5 4e	opt	2	2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8602
+2c5 4e	opt	3	2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9193
+2c5 4e	opt	4	2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.9315
+2c5 4e	opt	5	2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9341
+2c5 4e	opt	6	2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9358
+2c5 4e	opt	7	2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9368
+2c5 4e	opt	8	2c5 > 4b4 > 2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9376
+2c5 4e	p1_same3	3		0.9898
+2c5 6e	opt	1	2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7301
+2c5 6e	opt	2	2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8408
+2c5 6e	opt	3	2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9059
+2c5 6e	opt	4	2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.9242
+2c5 6e	opt	5	2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9270
+2c5 6e	opt	6	2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9290
+2c5 6e	opt	7	2c5 > 4b4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.9304
+2c5 6e	opt	8	2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.9316
+2c5 6e	p1_same3	3		0.9874
+2c5 8e	opt	1	2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7756
+2c5 8e	opt	2	2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8597
+2c5 8e	opt	3	2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.9098
+2c5 8e	opt	4	2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.9224
+2c5 8e	opt	5	2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9250
+2c5 8e	opt	6	2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9274
+2c5 8e	opt	7	2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9288
+2c5 8e	opt	8	2c5 > 4b4 > 4a3 > 4b2 > 4a1 > (0c0) | ht	0.9297
+2c5 8e	p1_same3	3		0.9891
+2c5	opt	1	2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7276
+2c5	opt	2	2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8553
+2c5	opt	3	2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9137
+2c5	opt	4	2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.9278
+2c5	opt	5	2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9308
+2c5	opt	6	2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9325
+2c5	opt	7	2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9337
+2c5	opt	8	2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.9345
+2c5	p1_same3	3		0.9886
+4a1 0e	opt	1	4a1 > 0c0 > (4a1 > 0c0) | ht	0.3351
+4a1 0e	opt	2	4a1 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.4645
+4a1 0e	opt	3	4a1 > 0c0 > 4a1 > (0c0) | ht	0.5456
+4a1 0e	opt	4	4a1 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.6107
+4a1 0e	opt	5	4a1 > 0c0 > 4a1 > 0c0 | ht	0.6653
+4a1 0e	opt	6	4a1 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7051
+4a1 0e	opt	7	4a1 > 4b2 > 4a1 > 0c0 > 4a1 > (0c0) | ht	0.7169
+4a1 0e	opt	8	4a1 > 4b2 > 4a1 > 0c0 > (4a1 > 0c0) | ht	0.7217
+4a1 0e	p1_same3	3		0.8417
+4a1 2e	opt	1	4a1 > 4b2 > 4a1 > 0c0 | ht	0.3875
+4a1 2e	opt	2	4a1 > 0c0 > 4a1 > 0c0 | ht	0.5877
+4a1 2e	opt	3	4a1 > 0c0 > (4a1 > 0c0) | ht	0.7045
+4a1 2e	opt	4	4a1 > 0c0 > 4a1 > (0c0) | ht	0.7672
+4a1 2e	opt	5	4a1 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.7816
+4a1 2e	opt	6	4a1 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7897
+4a1 2e	opt	7	4a1 > 0c0 > 4a1 > (4b2 > 4a1 > 0c0) | ht	0.7937
+4a1 2e	opt	8	4a1 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.7976
+4a1 2e	p1_same3	3		0.9173
+4a1 4e	opt	1	4a1 > 0c0 | ht	0.3362
+4a1 4e	opt	2	4a1 > 4b2 > 4a1 > 0c0 | ht	0.5033
+4a1 4e	opt	3	4a1 > 0c0 > (4a1 > 0c0) | ht	0.6061
+4a1 4e	opt	4	4a1 > 0c0 > 4a1 > (0c0) | ht	0.6658
+4a1 4e	opt	5	4a1 > 0c0 > 4a1 > 0c0 | ht	0.6947
+4a1 4e	opt	6	4a1 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7008
+4a1 4e	opt	7	4a1 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.7046
+4a1 4e	opt	8	4a1 > 0c0 | qt	0.7071
+4a1 4e	p1_same3	3		0.8622
+4a1	opt	1	4a1 > 4b2 > 4a1 > 0c0 | ht	0.2935
+4a1	opt	2	4a1 > 0c0 > (4a1 > 0c0) | ht	0.4481
+4a1	opt	3	4a1 > 0c0 | ht	0.5803
+4a1	opt	4	4a1 > 0c0 > 4a1 > 0c0 | ht	0.6644
+4a1	opt	5	4a1 > 0c0 > 4a1 > (0c0) | ht	0.7222
+4a1	opt	6	4a1 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.7341
+4a1	opt	7	4a1 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7422
+4a1	opt	8	4a1 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.7457
+4a1	p1_same3	3		0.8432
+4a2 0e	opt	1	4a2 > 4b3 > 4a2 > 4a1 > (0c0) | ht	0.2912
+4a2 0e	opt	2	4a2 > 4a1 > 4b2 > 4a1 > 0c0 | ht	0.4042
+4a2 0e	opt	3	4a2 > 4a1 > (0c0) | ht	0.4436
+4a2 0e	opt	4	4a2 > 4a1 > 4b2 > (4a1 > 0c0) | ht	0.4820
+4a2 0e	opt	5	4a2 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.5030
+4a2 0e	opt	6	4a2 > 4b3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.5211
+4a2 0e	opt	7	4a2 > 4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.5279
+4a2 0e	opt	8	4a2 > 4b3 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.5308
+4a2 0e	p1_same3	3		0.6820
+4a2 2e	opt	1	4a2 > 4b3 > 4a2 > 4a1 > (0c0) | ht	0.4223
+4a2 2e	opt	2	4a2 > 4a1 > (0c0) | ht	0.6784
+4a2 2e	opt	3	4a2 > 4a1 > 4b2 > 4a1 > 0c0 | ht	0.7679
+4a2 2e	opt	4	4a2 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.7959
+4a2 2e	opt	5	4a2 > 4a1 > 4b2 > (4a1 > 0c0) | ht	0.8142
+4a2 2e	opt	6	4a2 > 4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8240
+4a2 2e	opt	7	4a2 > 4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8310
+4a2 2e	opt	8	4a2 > 4b3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8362
+4a2 2e	p1_same3	3		0.9573
+4a2 4e	opt	1	4a2 > 4a1 > 0c0 | ht	0.6088
+4a2 4e	opt	2	4a2 > 4b3 > 4a2 > 4a1 > (0c0) | ht	0.7220
+4a2 4e	opt	3	4a2 > 4a1 > 4b2 > 4a1 > 0c0 | ht	0.7909
+4a2 4e	opt	4	4a2 > 4a1 > (0c0) | ht	0.8367
+4a2 4e	opt	5	4a2 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.8531
+4a2 4e	opt	6	4a2 > 4a1 > 4b2 > (4a1 > 0c0) | ht	0.8610
+4a2 4e	opt	7	4a2 > 4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8629
+4a2 4e	opt	8	4a2 > 4b3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8641
+4a2 4e	p1_same3	3		0.9359
+4a2	opt	1	4a2 > 4a1 > (0c0) | ht	0.4160
+4a2	opt	2	4a2 > 4b3 > 4a2 > 4a1 > (0c0) | ht	0.6414
+4a2	opt	3	4a2 > 4a1 > 4b2 > 4a1 > 0c0 | ht	0.7321
+4a2	opt	4	4a2 > 4a1 > 0c0 | ht	0.7940
+4a2	opt	5	4a2 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.8162
+4a2	opt	6	4a2 > 4a1 > 4b2 > (4a1 > 0c0) | ht	0.8294
+4a2	opt	7	4a2 > 4b3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8348
+4a2	opt	8	4a2 > 4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8389
+4a2	p1_same3	3		0.9076
+4b2 0e	opt	1	4b2 > 4a1 > 0c0 | ht	0.3654
+4b2 0e	opt	2	4b2 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.5115
+4b2 0e	opt	3	4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.6097
+4b2 0e	opt	4	4b2 > 4a1 > (0c0) | ht	0.6809
+4b2 0e	opt	5	4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.7239
+4b2 0e	opt	6	4b2 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.7554
+4b2 0e	opt	7	4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.7791
+4b2 0e	opt	8	4b2 > 4a1 > 4b2 > (4a1 > 0c0) | ht	0.7837
+4b2 0e	p1_same3	3		0.8555
+4b2 2e	opt	1	4b2 > 4a1 > 0c0 | ht	0.4593
+4b2 2e	opt	2	4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.5370
+4b2 2e	opt	3	4b2 > 4a1 > (0c0) | ht	0.5902
+4b2 2e	opt	4	4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.6329
+4b2 2e	opt	5	4b2 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.6635
+4b2 2e	opt	6	4b2 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.6730
+4b2 2e	opt	7	4b2 > 4a1 > 0c0 > 4a1 > (0c0) | ht	0.6820
+4b2 2e	opt	8	4b2 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.6861
+4b2 2e	p1_same3	3		0.8628
+4b2 4e	opt	1	4b2 > 4a1 > 0c0 | ht	0.3028
+4b2 4e	opt	2	4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.5332
+4b2 4e	opt	3	4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.6675
+4b2 4e	opt	4	4b2 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.7166
+4b2 4e	opt	5	4b2 > 4a1 > (0c0) | ht	0.7604
+4b2 4e	opt	6	4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.7776
+4b2 4e	opt	7	4b2 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.7929
+4b2 4e	opt	8	4b2 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.8045
+4b2 4e	p1_same3	3		0.8910
+4b2	opt	1	4b2 > 4a1 > 0c0 | ht	0.3762
+4b2	opt	2	4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.5334
+4b2	opt	3	4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.6262
+4b2	opt	4	4b2 > 4a1 > (0c0) | ht	0.6733
+4b2	opt	5	4b2 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.7143
+4b2	opt	6	4b2 > 4a1 > 0c0 > 4a1 > (0c0) | ht	0.7307
+4b2	opt	7	4b2 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.7428
+4b2	opt	8	4b2 > 4a1 > (0c0 > 4a1 > 0c0) | ht	0.7497
+4b2	p1_same3	3		0.8800
+4b5 0e	opt	1	4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.6080
+4b5 0e	opt	2	4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8420
+4b5 0e	opt	3	4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.9263
+4b5 0e	opt	4	4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0) | ht	0.9284
+4b5 0e	opt	5	4b5 > 2c4 > 4b3 > 4a2 > 4a1 > 0c0 | ht	0.9302
+4b5 0e	opt	6	4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.9319
+4b5 0e	opt	7	4b5 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9325
+4b5 0e	opt	8	4b5 > 4a4 > 4a3 > 4b2 > 4a1 > 0c0 | ht	0.9330
+4b5 0e	p1_same3	3		0.9940
+4b5 2e	opt	1	4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.6256
+4b5 2e	opt	2	4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8513
+4b5 2e	opt	3	4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.9363
+4b5 2e	opt	4	4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.9372
+4b5 2e	opt	5	4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0) | ht	0.9380
+4b5 2e	opt	6	4b5 > 4a4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.9385
+4b5 2e	opt	7	4b5 > 4a4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9388
+4b5 2e	opt	8	4b5 > 2c4 > 2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.9391
+4b5 2e	p1_same3	3		0.9962
+4b5 4e	opt	1	4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.6703
+4b5 4e	opt	2	4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8959
+4b5 4e	opt	3	4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.9386
+4b5 4e	opt	4	4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.9396
+4b5 4e	opt	5	4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0) | ht	0.9404
+4b5 4e	opt	6	4b5 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9409
+4b5 4e	opt	7	4b5 > 4a4 > 4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9414
+4b5 4e	opt	8	4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.9418
+4b5 4e	p1_same3	3		0.9964
+4b5	opt	1	4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.6468
+4b5	opt	2	4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8740
+4b5	opt	3	4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.9372
+4b5	opt	4	4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.9381
+4b5	opt	5	4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0) | ht	0.9390
+4b5	opt	6	4b5 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.9395
+4b5	opt	7	4b5 > 4a4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.9399
+4b5	opt	8	4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.9403
+4b5	p1_same3	3		0.9963
+4c3 0e	opt	1	4a3 > 4b2 > (4a1 > 0c0) | ht	0.7077
+4c3 0e	opt	2	4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7844
+4c3 0e	opt	3	4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.8329
+4c3 0e	opt	4	4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8634
+4c3 0e	opt	5	4b3 > 4a2 > 4a1 > 0c0 | ht	0.8864
+4c3 0e	opt	6	4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.9022
+4c3 0e	opt	7	4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.9151
+4c3 0e	opt	8	4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.9234
+4c3 0e	p1_same3	3		0.9616
+4c3 2e	opt	1	4a3 > 4b2 > (4a1 > 0c0) | ht	0.6619
+4c3 2e	opt	2	4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7202
+4c3 2e	opt	3	4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7509
+4c3 2e	opt	4	4b3 > 4a2 > 4a1 > 0c0 | ht	0.7789
+4c3 2e	opt	5	4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8014
+4c3 2e	opt	6	4a3 > 4b2 > 4a1 > 0c0 | ht	0.8176
+4c3 2e	opt	7	4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8322
+4c3 2e	opt	8	4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8436
+4c3 2e	p1_same3	3		0.9429
+4c3 4e	opt	1	4a3 > 4b2 > (4a1 > 0c0) | ht	0.6227
+4c3 4e	opt	2	4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7024
+4c3 4e	opt	3	4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7442
+4c3 4e	opt	4	4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.7758
+4c3 4e	opt	5	4a3 > 4b2 > 4a1 > 0c0 | ht	0.7964
+4c3 4e	opt	6	4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8132
+4c3 4e	opt	7	4b3 > 4a2 > 4a1 > 0c0 | ht	0.8294
+4c3 4e	opt	8	4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8437
+4c3 4e	p1_same3	3		0.9393
+4c3	opt	1	4a3 > 4b2 > (4a1 > 0c0) | ht	0.6431
+4c3	opt	2	4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7128
+4c3	opt	3	4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7498
+4c3	opt	4	4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.7777
+4c3	opt	5	4b3 > 4a2 > 4a1 > 0c0 | ht	0.8005
+4c3	opt	6	4a3 > 4b2 > 4a1 > 0c0 | ht	0.8174
+4c3	opt	7	4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0) | ht	0.8329
+4c3	opt	8	4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.8458
+4c3	p1_same3	3		0.9416
+4c4 0e	opt	1	4b4 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.6516
+4c4 0e	opt	2	4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7240
+4c4 0e	opt	3	4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.7666
+4c4 0e	opt	4	4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.7998
+4c4 0e	opt	5	4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8192
+4c4 0e	opt	6	4a4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0) | ht	0.8293
+4c4 0e	opt	7	4b4 > 2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8352
+4c4 0e	opt	8	4b4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.8411
+4c4 0e	p1_same3	3		0.9630
+4c4 2e	opt	1	4b4 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.6788
+4c4 2e	opt	2	4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.7536
+4c4 2e	opt	3	4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7866
+4c4 2e	opt	4	4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8076
+4c4 2e	opt	5	4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8212
+4c4 2e	opt	6	4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8326
+4c4 2e	opt	7	4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8425
+4c4 2e	opt	8	4b4 > 2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8516
+4c4 2e	p1_same3	3		0.9637
+4c4 4e	opt	1	4b4 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.6838
+4c4 4e	opt	2	4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.7482
+4c4 4e	opt	3	4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7825
+4c4 4e	opt	4	4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8019
+4c4 4e	opt	5	4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8153
+4c4 4e	opt	6	4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8260
+4c4 4e	opt	7	4b4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.8359
+4c4 4e	opt	8	4b4 > 2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8456
+4c4 4e	p1_same3	3		0.9590
+4c4	opt	1	4b4 > 4a3 > 4b2 > (4a1 > 0c0) | ht	0.6806
+4c4	opt	2	4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0) | ht	0.7499
+4c4	opt	3	4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0) | ht	0.7839
+4c4	opt	4	4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8044
+4c4	opt	5	4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8181
+4c4	opt	6	4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0) | ht	0.8290
+4c4	opt	7	4b4 > 2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 | ht	0.8387
+4c4	opt	8	4b4 > 4a3 > (4a2 > 4a1 > 0c0) | ht	0.8478
+4c4	p1_same3	3		0.9612

@@ -268,6 +268,7 @@ The questions, in the words of the people who asked them, and where each is answ
 
 - tseitsei89 ([25 Apr 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1233062604705108060)): "how common is it to have a 3qt DR where the ONLY optimal solution(s) go through 5qt path? I just had one". Yura Riabov ([25 Apr 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1233063193782259764)): "not too rare, but depends on the case". *Answer*: every optimal uses 5qt on 17.5% of 2c3, 27.4% of 4c3, 24.0% of 0c3; by edges in section 7.
 - Lichi Fang ([2 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1246934529072042056), [6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248336857452908564)): "Do we have any statistics about the average move it takes to finish a DR when allowing the last move of the DR to be inverted?", "how much do you think would inverting the last move of DR change the length for DR finish?" *Answer*: section 7 (and the first study, 6.6).
+- Kai Cui ([27 Oct 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1300060647719043174)): "Are there stats on how many ht before first qt including niss for Dr finishes?" No answer at the time, and Kai Cui measured 2c3 2e ([5 Nov 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1303457154635665448)). The same, wider: for a given subset, how often do you need X half turns before the first qt to find the optimal, on the side that needs fewer (for 2c4 2e, how often 0, 1 or 2)? Are there visible features that suggest a case may need them? And, maybe more relevant, the same counting only DRs with a 13 or better (or 12 or better) optimal, since with a 14 or 15 you'd use another DR anyway. *Answer*: section 7 for 2c3 2e and all DRs; every subset × edges, all three ways, and what you can see that predicts it, on the page [*Half turns before the first quarter turn*](../tables/half-turns-before-first-qt.html).
 
 **DR bounding and FakeMMAP's bound (sections 8 and 9)**
 
@@ -336,20 +337,20 @@ Same rows, in moves: the mean gain over all DRs, and the mean optimum in DR move
 | 4b5 | 0.067 | 14.29 | 14.22 |
 | all DRs | 0.048 | 13.58 | 13.54 |
 
-By the DR-move optimum (uniform, weighted by exact subset size). Each row is a DR-move optimum: its share of DR states, how many were sampled, and the share of those with a shorter finish outside DR:
+By the DR-move optimum (uniform, weighted by exact subset size). Each row is a DR-move optimum: its share of all DR states (exact, from the first study's table), how many were sampled, and the share of those with a shorter finish outside DR:
 
-| DR-move optimum | Share of DR states | Sampled | A shorter finish outside DR exists |
+| DR-move optimum | Share of DR states (exact) | Sampled | A shorter finish outside DR exists |
 |---|---|---|---|
-| 8 | 0.022% | 95 | 0.061% |
-| 9 | 0.096% | 269 | 0.092% |
-| 10 | 0.55% | 701 | 0.32% |
-| 11 | 2.7% | 1,805 | 0.73% |
-| 12 | 11.3% | 5,578 | 1.3% |
-| 13 | 28.7% | 12,904 | 2.0% |
-| 14 | 37.1% | 16,697 | 3.8% |
-| 15 | 18.3% | 9,055 | 9.4% |
+| 8 | 0.021% | 95 | 0.061% |
+| 9 | 0.12% | 269 | 0.092% |
+| 10 | 0.60% | 701 | 0.32% |
+| 11 | 2.8% | 1,805 | 0.73% |
+| 12 | 11.2% | 5,578 | 1.3% |
+| 13 | 28.8% | 12,904 | 2.0% |
+| 14 | 36.8% | 16,697 | 3.8% |
+| 15 | 18.5% | 9,055 | 9.4% |
 | 16 | 1.1% | 841 | 35.7% |
-| 17 | 0.007% | 13 | 43.1% |
+| 17 | 0.008% | 13 | 43.1% |
 
 **Corner path, route.** Read a finish move by move and write down the corner subset at the start and after each quarter turn, until the cube is in HTR (corners and edges). `4b2 2c3 4b2 4a1 0c0` is a 4b2 that regresses to 2c3, comes back to 4b2, then goes 4a1 and HTR. The moves up to that point are the finish's HTR, the rest its post-HTR part. A *route* (route class) is the chain plus where the NISS switch is: `4b2 2c3 (4b2 4a1 0c0)` means one qt on the first side to 2c3, then switch, and the rest on the other side, where the subsets are read on that side. Routes are the kind Daichi's cheat sheet lists; the list of routes comes from the data, not from a list picked in advance. Edge counts are dropped from route names in the tables (they are in the files); where a route does carry them, its states are separated by arrows, `2c3 2e → 4b2 2e → 4a1 4e → 0c0`.
 
@@ -359,7 +360,7 @@ By the DR-move optimum (uniform, weighted by exact subset size). Each row is a D
 
 **Checklist.** For a subset × edges (or a corner subset with its edge counts pooled by their exact sizes), the routes in greedy order: first the route that works on the most states, then the one that adds the most states not yet covered, and so on. The cumulative share after k routes is the share of DRs where at least one of the first k finds an optimal finish (or within +1). Greedy is close to the best possible set (tested with no HTR limit): among the top 25 to 40 routes, the best set of 1 to 4 routes beats greedy by at most 0.5 points in 2,192 of 2,208 cases, and by 1.8 points at worst.
 
-**Reduction (bounding).** A reduction to 1q is a pair of sequences, P on normal and U on inverse, each empty or ending in a quarter turn, after which the state (inverse of U, then the scramble, then P) is 4a1 4e, so one more quarter turn and half turns finish it (4a1 4e is exactly the set of DRs one quarter turn and half turns finish, proved in Lean over all 29,400 HTR cosets: `qt1_is_4a1_4e`). Its length is |P| + |U|. A reduction to 2q ends in a state that needs exactly two quarter turns: 4a2, 4b2, or 0c0 that isn't HTR, which is 0c0 with bad edges and the U D' kind of 0c0 0e (`qt2_cosets`). Bounding with threshold R means writing every reduction of length at most R and finishing each reduced state as well as it can be finished. *Bounding finds the optimal* means that some reduction of length at most R plus the optimal finish of the reduced state is an optimal finish of the DR. That is the best a solver can get from those reductions; the bound arithmetic in the bounding docs only decides the order and when to stop.
+**Reduction (bounding).** A reduction to 1q is a pair of sequences, P on normal and U on inverse, each empty or ending in a quarter turn, after which the state (inverse of U, then the scramble, then P) is 4a1 4e, so one more quarter turn and half turns finish it (4a1 4e is exactly the set of DRs one quarter turn and half turns finish, proved in Lean over all 29,400 HTR cosets: `qt1_is_4a1_4e`). Its length is |P| + |U|. A reduction to 2q ends in a state that needs exactly two quarter turns: 4a2, 4b2, or 0c0 that isn't HTR, which is 0c0 with bad edges and the U D' kind of 0c0 0e (`qt2_cosets`). Bounding with threshold R means writing every reduction of length at most R and finishing each reduced state as well as it can be finished. *Bounding finds the optimal* means that some reduction of length at most R plus the optimal finish of the reduced state is an optimal finish of the DR. A DR that is already that close to HTR counts with a reduction of 0 moves: for 2q that includes every 4a1 4e DR, and the 4a2, 4b2 and 0c0 DRs themselves, so the 2q shares start well above zero at R = 0. That is the best a solver can get from those reductions; the bound arithmetic in the bounding docs only decides the order and when to stop.
 
 **The last DR move.** If the DR ends in a quarter turn of a side face (R, say), R' is also a DR, and its state is X·R2. *With the last move either way* takes the better of X and X·R2, as in the first study.
 
@@ -1391,6 +1392,8 @@ Both optimal finishes, that one and the other, were re-read on the sticker model
 | 2c3 2e | 82.7% | 62.0% |
 | All DRs | 92.0% | 76.4% |
 
+Every subset × edges, for all DRs and for those with an optimal of 13 or less and 12 or less, and what you can see on a DR that predicts it, is on its own page: [*Half turns before the first quarter turn*](../tables/half-turns-before-first-qt.html).
+
 **The last DR move.** With the last move either way (the better of X and X·R2; sampled, 25,000 per subset × edges, edges pooled by size; optimal lengths from the exact table):
 
 | Subset | Mean optimal (moves) | Mean, last move either way (moves) | One shorter | Same | Optimal 15+ | 15+ either way |
@@ -1647,7 +1650,7 @@ The Lean theorems cited here are in the study's folder lean/FakeBound (Lean 4, n
 3. the smallest term, with term 2's signs and the $\alpha$ index fixed (see (a));
 4. the exact optimum of the same model, *computer only*: the largest shortest-reduction any whole-number section lengths allowed by $\alpha$, A, B and C can force, solved by enumeration instead of by hand.
 
-Each row is a target finish length. It gives the number of (state, path) cases, the mean R in moves for each of the four readings with the corner path known, and the mean reduction the finishes actually needed. Sampled, 25,000 states per subset × edges.
+Each row is a target finish length. It gives the number of (state, path) cases, the mean R in moves for each of the four readings with the corner path known, and the mean reduction the finishes actually needed. Sampled, 25,000 states per subset × edges; the means and shares in this section weight each case by the size of its subset × edges, so they are over uniformly random DRs.
 
 | Target | (state, path) cases | Mean R, as written (largest term) | Without term 1 | Smallest term | Exact model | Mean reduction needed |
 |---|---|---|---|---|---|---|
@@ -1697,7 +1700,7 @@ $$\frac{(|S|-1)M-(N-|S|)+\sum_{i\ \mathrm{edge}} \alpha_i}{|S|}.$$
 |---|---|---|---|---|
 | 4a1 0c0 4a1 0c0 | 0 | 10 | 0, 3, 0, 4 | 6, 6, 5 |
 
-Term 2 as printed with $S = \{0, 2\}$ gives 4, whatever A, B and C are; derived, it gives 5. With the printed $\alpha_i$ as well it's still 4 (`literal_min_fails`). On the sample, the smallest term with term 2 and the index exactly as printed is too short on 9.2% of cases at the optimum.
+Term 2 as printed with $S = \{0, 2\}$ gives 4, whatever A, B and C are; derived, it gives 5. With the printed $\alpha_i$ as well it's still 4 (`literal_min_fails`). On the sample, the smallest term with term 2 and the index exactly as printed is too short on 9.2% of cases at the optimum (172,497 of the 1,914,809 cases, 9.0%, before weighting).
 
 A real DR where it bites, replayed ($N = 3$; every optimal finish takes the path in the table):
 
@@ -2155,7 +2158,7 @@ The 0c3 one is the only flagged headline. Every other headline moves by at most 
 
 - **Findability and time.** Every number is what exists along a route, not what you'd find in an attempt. The HTR budget is a stand-in for effort (how much longer than the shortest HTR you are willing to look), not a cost model: it does not count how many HTRs of that length a route has, or how long setups take. A route and a reduction are different amounts of work, so section 8 compares them only in kind.
 - **Half turns inside a route.** Routes record the corner subsets after each quarter turn, not how many half turns come between. Steps of hand checklists that limit setup moves ("1-2 moves to trigger", "two half turns followed by a quarter turn") are graded as their whole route, which flatters them; Jay's and rodneykinney's setup counts are not graded separately.
-- **Samples.** Route and bounding questions are sampled (25,000 states per subset × edges; 4,000 for reduction counts). A share's standard error is at most 0.3 points per subset × edges; small differences between routes deep in a checklist are noise. The +1 level uses the same enumeration as the optimum but was not cross-checked by an independent solver.
+- **Samples.** Route and bounding questions are sampled (25,000 states per subset × edges; 4,000 for reduction counts). A share's standard error is at most 0.3 points per subset × edges; small differences between routes deep in a checklist are noise. The +1 level uses the same enumeration as the optimum; a second, separate program recomputed every route at the optimum and at +1 on 24,000 of the states (500 per subset × edges) and agrees on all of them (appendix B).
 - **DR-breaking and HTR-breaking finishes**, and finishes that leave the slice, are not routes here: finishes stay in the DR group, E slice solved. (The leave-slice optimum is used only where a sheet uses it.) How often breaking DR would beat the DR-move optimum is measured in section 3: 4.3% of DRs, more on 0c3 0e, 0c4 0e and 0c0 0e.
 - **The DR itself.** The tables are over uniform DR states. The DRs cubelib finds on random scrambles give the same checklists, grades and bounding shares within about a point per corner subset (section 12), so that's not the gap it looked like; what section 12 doesn't model is which DRs a solver chooses to keep. Generated sets such as Kai Cui's and JTuu's states built around one trigger are not uniform, and section 8 shows how much that can matter. Variations of the DR other than its last move are not covered.
 - **Fixed targets** of 10 to 12 in sections 8 and 9 use finishes up to max(optimal + 1, min(optimal + 2, 12)) moves; for DRs whose optimum is 9 or less, a longer target is not covered.
@@ -4605,7 +4608,13 @@ Within +1, where the first quarter turn goes most often, same columns as in sect
 - An independent sticker model (a 54-sticker cube built from geometry, with its own subset labels, HTR test and NISS reading) re-reads every optimal finish of 1,240 states (1,000 random DR scrambles and 5 per subset × edges from the sample): every finish replayed, every route and HTR length of every reading equal to the tool's. nissy 2.0.8 lists the same optimal finishes for all 1,240.
 - The forms of the finish read forward (section 4, *Edge paths of the finish*), on all 25,000 sampled DRs of 2c4 2e and 5 of every other subset × edges: nissy lists every optimal finish, at the optimum the tool found; with both orders of commuting moves, that's the tool's count of optimal finishes on every DR; every finish is replayed on the sticker model and its form read there; and the set of forms of every DR, with the shortest HTR of each, equals the tool's. So the 2c4 2e shares are recomputed from the sticker model alone. The +1 forms aren't checked this way.
 - Reduction counts from the coset tables equal a brute-force enumeration of every pair of sequences for reductions of up to 5 moves on 4,800 states (the first 100 of every subset × edges), and up to 7 moves on 520 states (40 of 0c0, and 10 of every subset × edges, by a second, separate program). Which reductions find the optimal comes from an exact search, not from the counts.
-- The leave-slice maximum of 4a1 4e (15) is a count over the first study's exact leave-slice table, every state.
+- A second program, written separately from the Rust tool, recounts the per-state results: its own model of the DR group, the first study's proved table read through its Lean index, its own labels, finish enumeration, NISS readings, NISS HTR search and reduction search. State by state it gives the same as the tool on:
+  - every route at the optimum and at +1 with its HTR lengths, the optimum, both labels and the shortest NISS HTR, on 24,000 states (500 per subset × edges; 2,305,975 state-and-route pairs);
+  - bounding as stated, with reductions up to 7 moves to 1q and to 2q, at the optimum and at +1, on 2,400 states;
+  - the late-switch data and, per corner path, the shortest reductions behind section 9, on 14,400 states (94,643 state, length and path cells);
+  - every class, HTR length, reading and reduction on the examples page (10,099 checks on its 200 DRs).
+- Separate scripts then recompute the aggregates from the per-state records: the checklists (the same routes in the same order with the same shares, for budgets 0, 2 and no limit), the bounding shares and counts, the late-switch shares, which edge counts the routes pass, and section 9's counts and means, written from FakeMMAP's messages (904 + 19 failures of the printed lower bounds, none with $\alpha_{i+1}$). The sample's optimal lengths fit the exact distribution in every subset × edges (chi-square 339 on 350 degrees of freedom).
+- The leave-slice maximum of 4a1 4e (15) is a count over the first study's exact leave-slice table, every state. A separate search over all 40,320 × 40,320 corner and edge arrangements gives the same leave-slice distribution in every subset × edges (452 cells).
 - A Lean 4 certificate in the study's folder recomputes the small exact tables from its own cube model and proves they equal the study's: the 663,552 HTR states, the corner quarter-turn counts and subsets of all 40,320 corner arrangements, the shortest linear HTR of every subset (all 29,400 HTR cosets), which cosets are one quarter turn from HTR (exactly 4a1 4e) and two, FakeMMAP's $\alpha$ for every corner path used, the *5/6 fake* count, the bare-qt reductions of 3qt and 4qt cases, and the 2qt(a)/(b) labels of Aedan Bryant's and the *Extra Quarter-Turn Stats* sheets from their own example triggers.
 - Every move sequence in this write-up, the errata and the worked examples is replayed on the sticker model (the examples page states its count).
 

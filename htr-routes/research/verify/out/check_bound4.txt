@@ -1,0 +1,53 @@
+  differs (exactly q): 0c0 0e idx 200 d 11: at-most [[0, 0], [0, 0]] exactly [[99, 99], [1, 99]] theirs opt (0, 0) p1 (0, 0)
+  differs (exactly q): 0c0 0e idx 202 d 8: at-most [[0, 0], [0, 0]] exactly [[99, 99], [1, 2]] theirs opt (0, 0) p1 (0, 0)
+0c0 0e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 27
+0c0 2e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+0c0 4e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+0c0 6e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+0c0 8e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+0c3 0e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+0c3 2e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+0c3 4e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+0c3 6e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+0c3 8e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+0c4 0e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+0c4 2e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+0c4 4e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+0c4 6e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+0c4 8e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c3 0e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c3 2e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c3 4e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c3 6e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c3 8e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c4 0e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c4 2e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c4 4e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c4 6e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c4 8e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c5 0e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c5 2e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c5 4e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c5 6e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+2c5 8e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4a1 0e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4a1 2e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+  differs (exactly q): 4a1 4e idx 200 d 12: at-most [[0, 0], [0, 0]] exactly [[0, 2], [0, 2]] theirs opt (0, 0) p1 (0, 0)
+  differs (exactly q): 4a1 4e idx 201 d 13: at-most [[0, 0], [0, 0]] exactly [[0, 2], [0, 1]] theirs opt (0, 0) p1 (0, 0)
+4a1 4e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 0
+4a2 0e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4a2 2e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4a2 4e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4b2 0e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4b2 2e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4b2 4e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4b5 0e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4b5 2e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4b5 4e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4c3 0e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4c3 2e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4c3 4e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4c4 0e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4c4 2e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+4c4 4e: 50 states, r <= 7; equal to bound4 with 'at most q quarter turns from HTR': 50; with 'exactly q': 50
+done

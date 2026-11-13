@@ -1,0 +1,10 @@
+ht_first_witness.py 60 40: the reads of ht_first.py against the sticker model and against drread
+states	2880
+setup_mismatch	0
+label_mismatch	0
+drread_states	440
+case_mismatch	0
+drread_optimal_mismatch	0
+drread_subset_mismatch	0
+witnesses	5	all replayed and re-read: True
+ALL EQUAL

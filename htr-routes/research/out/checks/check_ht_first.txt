@@ -1,0 +1,32 @@
+check_ht_first.py 3000 500 200 2c4_2e 4a1_4e 2c3_2e 0c0_0e
+2c4 2e: first 3000 states, 81 s
+  better side, first qt after 0 / 1 / 2 / 3+ half turns, this enumeration: 65.4% / 27.3% / 6.5% / 0.8%
+  normal side alone, this enumeration:                                     42.2% / 32.0% / 14.3% / 11.5%
+  better side, same states in the main data (htfirst.tsv):                 65.4% / 27.3% / 6.5% / 0.8%
+  normal side alone, same states in the main data:                         42.2% / 32.0% / 14.3% / 11.5%
+4a1 4e: first 3000 states, 46 s
+  better side, first qt after 0 / 1 / 2 / 3+ half turns, this enumeration: 56.7% / 22.2% / 8.5% / 12.6%
+  normal side alone, this enumeration:                                     38.6% / 23.1% / 12.8% / 25.5%
+  better side, same states in the main data (htfirst.tsv):                 56.7% / 22.2% / 8.5% / 12.6%
+  normal side alone, same states in the main data:                         38.6% / 23.1% / 12.8% / 25.5%
+2c3 2e: first 3000 states, 33 s
+  better side, first qt after 0 / 1 / 2 / 3+ half turns, this enumeration: 54.9% / 28.2% / 11.9% / 5.0%
+  normal side alone, this enumeration:                                     35.3% / 26.8% / 16.4% / 21.5%
+  better side, same states in the main data (htfirst.tsv):                 54.9% / 28.2% / 11.9% / 5.0%
+  normal side alone, same states in the main data:                         35.3% / 26.8% / 16.4% / 21.5%
+0c0 0e: first 3000 states, 55 s
+  better side, first qt after 0 / 1 / 2 / 3+ half turns, this enumeration: 51.7% / 24.8% / 13.1% / 10.4%
+  normal side alone, this enumeration:                                     34.2% / 22.5% / 13.8% / 29.6%
+  better side, same states in the main data (htfirst.tsv):                 51.7% / 24.8% / 13.1% / 10.4%
+  normal side alone, same states in the main data:                         34.2% / 22.5% / 13.8% / 29.6%
+states	12000
+opt_mismatch_htrtools	0
+opt_mismatch_htfirst	0
+nopt_mismatch	0
+p1_states	2000
+p1_mismatch	0
+sticker_states	800
+sticker_finishes	18852
+sticker_fail	0
+depth_mismatch	0
+ALL EQUAL

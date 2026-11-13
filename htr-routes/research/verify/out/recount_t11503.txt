@@ -1,0 +1,15 @@
+cases (state, path, N >= 2) at the optimum: 1914809
+lower bounds as printed (alpha_i) fail: 923 {'first': 904, 'B': 19} by corner subset {'0c4': 334, '4c3': 19, '4c4': 509, '4b2': 61}
+lower bounds with alpha_(i+1) fail: 0 {}
+R as written (largest term) below the need: 0
+smallest term, as printed (term 2 signs, alpha_i) below the need: 172497 9.0%
+smallest term, derived (alpha_(i+1)) below the need: 0
+written: mean over the cases 12.0345; each case weighted by the size of its subset x edges 12.1444
+no_term1: mean over the cases 11.1000; each case weighted by the size of its subset x edges 11.3264
+smallest: mean over the cases 8.7003; each case weighted by the size of its subset x edges 8.8896
+need: mean over the cases 6.7294; each case weighted by the size of its subset x edges 6.9641
+printed_short: mean over the cases 0.0901; each case weighted by the size of its subset x edges 0.0924
+written_minimal_S: mean over the cases 12.0311; each case weighted by the size of its subset x edges 12.1435
+no_term1_minimal_S: mean over the cases 10.7964; each case weighted by the size of its subset x edges 11.1422
+smallest_minimal_S: mean over the cases 8.7003; each case weighted by the size of its subset x edges 8.8896
+printed_short_minimal_S: mean over the cases 0.0901; each case weighted by the size of its subset x edges 0.0924
