@@ -1,6 +1,6 @@
 ## Appendix A: full tables
 
-**EO to DR by case**, all 40 cases, in three tables: how common each case is, the mean turns to DR with each option, and the chance of a DR in 6 or fewer with each option. One axis, any turns and the last turn either way are exact over all 1,082,565 EO-solved states; the better of two DR axes is exact (read by the case on the first axis); normal or inverse and all EO-keeping options together are sampled ({= NSAMP('c') =} states; the last column gives how many fell in each case, and the cases marked *few* rest on about 300 to 1,000).
+**EO to DR by case**, all 40 cases but 0c0e (already a DR), in three tables: how common each case is, the mean turns to DR with each option, and the chance of a DR in 6 or fewer with each option. One axis, any turns and the last turn either way are exact over all 1,082,565 EO-solved states; the better of two DR axes is exact (read by the case on the first axis); normal or inverse and all EO-keeping options together are sampled ({= NSAMP('c') =} states; the last column gives how many fell in each case, and the cases marked *few* rest on about 300 to 1,000). The share and odds, and the one-axis and last-turn columns, are proved in Lean ✓: each printed value is Lean's exact count, rounded (appendix B).
 
 Each row is a case: its share of EO-solved states, and how many of the sampled states fell in it.
 
@@ -33,7 +33,7 @@ Chance of a DR in 6 or fewer, one column per option:
     co = rand() % POW3TO7;
     cp = rand() % FACTORIAL8;
 
-and prints a solution of it as the scramble. glibc's `rand()` takes $2^{31}$ values, {= NISSYBIAS('ratio') =} times $12!$, so `rand() % FACTORIAL12` gives the lowest {= NISSYBIAS('low') =} edge-permutation indices ({= NISSYBIAS('lowshare') =} of them) one chance more than the rest: they are {= NISSYBIAS('more') =} more likely. The other three draws are over ranges small enough that the same bias is negligible. Since the scramble solves the drawn state, the drawn state is the inverse of the scramble, and that is where the effect shows: on {= n(X('n')) =} nissy scrambles the inverse side is shorter to DR, the normal side barely moved. Each row is one way of reaching DR; the *DR in ≤* columns are the share of scrambles:
+and prints a solution of it as the scramble. glibc's `rand()` takes $2^{31}$ values, {= NISSYBIAS('ratio') =} ✓ times $12!$, so `rand() % FACTORIAL12` gives the lowest {= NISSYBIAS('low') =} ✓ edge-permutation indices ({= NISSYBIAS('lowshare') =} ✓ of them) one chance more than the rest: they are {= NISSYBIAS('more') =} ✓ more likely. The other three draws are over ranges small enough that the same bias is negligible. Since the scramble solves the drawn state, the drawn state is the inverse of the scramble, and that is where the effect shows: on {= n(X('n')) =} nissy scrambles the inverse side is shorter to DR, the normal side barely moved. Each row is one way of reaching DR; the *DR in ≤* columns are the share of scrambles:
 
 {{nissy_bias}}
 
@@ -77,7 +77,15 @@ The study's own scrambles pass every test. A separate set of {= n(X('s500_n')) =
 - The sampled EO to DR rows agree with the exact ones where both exist (one axis: {= CSTAT('check_plain_exact_vs_sampled', 'sampled', 'mean') =} sampled against {= CSTAT('check_plain_exact_vs_sampled', 'exact', 'mean') =} exact).
 - Every solution in the per-scramble tables (NISS DR, optimal DR with its EO split, the best routes through EOs of at most 4, 5 and 6) is replayed on the sticker model, a separate implementation that reads EO and DR off the stickers; so is every example in this write-up ({= WX['checks'] =} checks) and every move sequence on the examples page.
 - The optimal solutions of the first three scrambles with no sub-10 DR (nissy `solve optimal`, about 3.5 GB) are replayed and solve the cube.
-- **Lean.** A certificate of the small exact tables (the bad-edge layouts and the one-axis EO distances) is being built separately: see `lean/EODR/README.md`.
+- **Lean** (`lean/EODR`, Lean 4, no Mathlib; its README lists every theorem). **Proved**, marked ✓ in the text: Lean builds the cube from its geometry, redoes each search itself, and checks every distance table with an independent rule.
+  - One-axis EO, all 2,048 states: the distances (mean {= EO1() =}), by bad-edge count (Shota's table, 8 against 6 bad, the 10- and 12-bad rows), and the EO counts per state.
+  - The bad-edge layouts over all 70,963,200 classes: torchlight's counts, every triple, the shares of section 6.
+  - EO to DR over all {= EODRT() =} EO-solved states, one axis and the EO's last turn either way: the distribution (Cale's and FakeMMAP's), the {= EODRN(10) =} at 10, the {= CT('plain', 'p_le6') =} in 6, every per-case figure quoted, and every value in the share, odds, one-axis and last-turn columns of the case tables (section 5 and appendix A). That check found three values rounded twice (7c6e and 6c2e with the last turn, 0c4e's share), now fixed. Also the corner-twist counts (Emma's and Zagros's).
+  - The superflip has no NISS EO under 7 on any axis: it commutes with every face turn, so any NISS EO of it is a linear EO of the same length.
+  - Arithmetic: nissy's modulo bias, the binomials (Lichi Fang's 3 of 27, DougCube's 92.71%), the coset count.
+  - The errata examples (the EO 10 from DR, the 4c6e, the superflip's NISS EO) are checked on the Lean cube too (`htr-routes/lean/FakeBound/Corrections`).
+
+  **Computed, not proved**: everything sampled (the {= n(X('n')) =} scrambles, the {= NSAMP('b') =} EO states, the {= NSAMP('c') =} EO-solved states: every NISS, inverse and all-options row); the any-turn tables over 2,217,093,120 cosets (torchlight's {= CT('any', 'mean') =}, DougCube's {= A1('fixed', 'mean') =}, Louis's shares); the better of two DR axes (exact, but in Rust only); the optimal solves; the measurements of nissy's scrambles.
 
 `research/README.md` lists every step, its command, its input and output, and how long it takes; `research/out/SUMMARY.md` has every number the tables are made from.
 

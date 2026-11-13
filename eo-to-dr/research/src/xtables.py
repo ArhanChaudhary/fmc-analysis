@@ -82,8 +82,8 @@ for k in u:
 table('nissy_bias', ['Shortest DR (50,000 scrambles each)', 'Mean turns, uniform', 'Mean turns, nissy scramble', 'DR in ≤ 8, uniform', 'DR in ≤ 8, nissy scramble', 'DR in ≤ 9, uniform', 'DR in ≤ 9, nissy scramble'], rows)
 cs = [r for r in rd('checks_scrambles.tsv')]
 table('scramble_checks', ['Scrambles', 'Axis', 'What is counted', '$\\chi^2$', 'Degrees of freedom'],
-      [[{'mkscr': 'this study (uniform states)', 'nissy': 'nissy 2.0.8 `scramble`', 'judging500': "judging-a-dr's 500"}[r['scrambles']] + f" ({int(r['n']):,})",
-        r['axis'], r['what'], r['chi2'], r['df']] for r in cs])
+      [[{'mkscr': 'this study, uniform states', 'nissy': 'nissy 2.0.8 `scramble`', 'judging500': "judging-a-dr's 500"}[r['scrambles']] + f" ({int(r['n']):,})",
+        {'RL': 'R/L', 'UD': 'U/D', 'FB': 'F/B'}.get(r['axis'], r['axis']), r['what'], r['chi2'], r['df']] for r in cs])
 
 # number of DR solutions per length (normal side, 3 axes)
 rows = []
@@ -244,7 +244,26 @@ for r in rd('c7_typical.tsv'):
 table('c7', ['After the EO: DR with', 'Exact or sampled', 'Mean, turns', 'DR in ≤ 4', 'DR in ≤ 5', 'DR in ≤ 6', 'DR in ≤ 7', 'DR in ≤ 8', 'DR in ≤ 6: 1 in'], rows)
 EXTRA['c7'] = {r['option']: r for r in rd('c7_typical.tsv')}
 
-cases = [r for r in rd('c6_by_case.tsv') if r['case'] not in ('all', '0c0e')]
+def c6rows():
+    """c6_by_case.tsv, with the exact columns (share, and the mean and the chance of each distance for one axis, any
+    turns and the last EO turn either way) recomputed from the counts in eodr_exact.tsv: c6_by_case.tsv stores them
+    to 5 decimals, and rounding those again for the page put three values one off in the last digit (Lean's
+    `case_tables_match_page` found them)."""
+    ex = {(r['corners'], r['edges'], r['option']): [int(r[f'd{i}']) for i in range(12)] for r in rd('eodr_exact.tsv')}
+    out = rd('c6_by_case.tsv')
+    for r in out:
+        if r['case'] == 'all':
+            continue
+        c, e = r['case'][:-1].split('c')
+        n = sum(ex[(c, e, 'eo')])
+        r['share'] = n / 1082565
+        for k, opt in (('plain', 'eo'), ('any_turns', 'any'), ('switch_last', 'eo_switchF')):
+            h = ex[(c, e, opt)]
+            r[k + '_mean'] = sum(i * x for i, x in enumerate(h)) / n
+            for t in (5, 6, 7):
+                r[f'{k}_p_le{t}'] = sum(h[:t + 1]) / n
+    return out
+cases = [r for r in c6rows() if r['case'] not in ('all', '0c0e')]
 NIC = {r['case']: r for r in rd('c6_normal_inverse.tsv')}
 cases.sort(key=lambda r: -float(r['share']))
 C6K = ('plain', 'any_turns', 'switch_last', 'two_axes', 'normal_or_inverse', 'all_eo_kept')
@@ -265,7 +284,7 @@ table('c6_case_full', ['Case on the DR axis', 'Share of EO-solved states', 'Odds
       [crow(r, 'share') for r in cases])
 table('c6_case_full_mean', ['Case on the DR axis'] + [f'Mean turns: {h}' for h in C6H], [crow(r, 'mean') for r in cases])
 table('c6_case_full_le6', ['Case on the DR axis'] + [f'DR in ≤ 6: {h}' for h in C6H], [crow(r, 'le6') for r in cases])
-EXTRA['c6'] = {r['case']: r for r in rd('c6_by_case.tsv')}
+EXTRA['c6'] = {r['case']: r for r in c6rows()}
 ni = rd('c6_normal_inverse.tsv')
 table('c6_normal_inverse', ['Case', 'States sampled', 'Correlation, normal against inverse', 'Inverse DR in ≤ 6 when normal is 6', 'Inverse DR in ≤ 6 when normal is 8', 'Inverse DR in ≤ 6, any normal'],
       [[r['case'], f"{int(r['states']):,}", r['correlation'], pc(r['p_inv_le6_given_normal_6']) if r['p_inv_le6_given_normal_6'] else '–',
@@ -276,7 +295,7 @@ EXTRA['c6ni'] = {r['case']: r for r in ni}
 rows = [[r['kind'], r['nissy_step'], f"{int(r['positions']):,}", f"{int(r['agree']):,}"] for r in rd('checks_nissy.tsv')]
 table('checks_nissy', ['Table checked', 'nissy step', 'Positions compared', 'Positions that agree'], rows)
 import re as _re
-rows = [[_re.sub(r'L=(\d+)', r'of exactly \1', r['check']).replace('(dr -L)', '(nissy dr -L)'), r['scrambles'], r['agree']] for r in rd('checks_counts.tsv')]
+rows = [[_re.sub(r'L=(\d+)', r'of exactly \1', r['check']).replace('(dr -L)', '(nissy dr -L)').replace(' <= ', ' ≤ '), r['scrambles'], r['agree']] for r in rd('checks_counts.tsv')]
 table('checks_counts', ['Count checked', 'Scrambles compared', 'Scrambles that agree'], rows)
 json.dump(EXTRA, open(OUT + 'report_extra.json', 'w'), indent=1, default=str)
 

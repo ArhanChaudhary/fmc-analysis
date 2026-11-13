@@ -8,7 +8,8 @@ Inputs:
                           one; trigger flags (C11) and switch positions of the shortest-HTR readings (C13)
   out/big/redcount2.tsv   htrtools redcount2: the first 4,000 of those states per subset; number of reductions to 1q
                           / 2q of each length r <= 7 a solver writes (pairs A on normal, B on inverse, each empty or
-                          ending in a quarter turn), counted exactly (checked against brute force on 4,800 states)
+                          ending in a quarter turn), counted exactly (checked against brute force on 4,800 states for
+                          r <= 5, and on 40 states of 0c0 0e / 2e / 4e / 6e for r <= 7)
   htrtools alpha          FakeMMAP's alpha_i for each corner path: fewest half turns section i must have over every
                           corner permutation following the path (alpha_1 = 3 for 4a3 > 4b2 > 4a1, as in T11501)
 Q9 (T11502; derivation in ../notes/fakemmap_C.md).  A finish h_0 q_1 h_1 ... q_N h_N, section lengths s_i >= alpha_i,

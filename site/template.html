@@ -25,9 +25,9 @@ $endif$
     <a href="https://github.com/ArhanChaudhary/fmc-analysis">Source</a>
   </nav>
 </header>
-<div class="layout$if(is-home)$ home$endif$">
+<div class="layout$if(is-home)$ home$elseif(toc)$$else$ notoc$endif$">
 $if(is-home)$
-$else$
+$elseif(toc)$
   <aside class="toc">
     <details open>
       <summary>On this page</summary>

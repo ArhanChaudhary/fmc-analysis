@@ -135,8 +135,9 @@ def build():
           '- When the answer says "nothing better" for 10 moves, the 8-move answer is still the best one.', '']
     tally = collections.defaultdict(list)
     for typ in TYPES:
-        L += [f'### {TITLE[typ]}', '', f'{iv.LONG[typ][0].upper() + iv.LONG[typ][1:]}.', '']
-        for c in [c for c in C if c['type'] == typ]:
+        mine = [c for c in C if c['type'] == typ]
+        L += [f"### {TITLE[typ]}: skeletons {mine[0]['k']}–{mine[-1]['k']}", '', f'{iv.LONG[typ][0].upper() + iv.LONG[typ][1:]}.', '']
+        for c in mine:
             sk, scr = c['skeleton'], c['scramble']; a8, a10 = c['answers']['8'], c['answers']['10']
             s = cube.do(cube.SOLVED, scr + sk)
             L += [f"#### {TITLE[typ]}, skeleton {c['k']}", '', f"Scramble: `{' '.join(scr)}`", '', f"Skeleton: `{' '.join(sk)}` ({len(sk)})", '', f'Left: {exlib.left_text(s)}', '',
@@ -144,7 +145,7 @@ def build():
             L += answer_lines(sk, a8, a10)
             L += ['</details>', '']
             tally[typ].append((len(sk), a8['cost'] if a8 else None, a10['cost'] if a10 else None))
-    L += ['## The tally', '', 'Over the 20 skeletons of each kind above, next to the same numbers from the big samples of the write-up (20,000 random skeletons of 20 moves at 8 moves per insertion; fewer at 10, see the write-up). One row per leftover; the counts are of the 20 skeletons.', '',
+    L += ['## The tally', '', 'Over the 20 skeletons of each kind above, next to the same numbers from the big samples of the write-up (20,000 random skeletons of 20 moves at 8 moves per insertion, 5,000 for 2tc and 2e2e; fewer at 10, see the write-up). One row per leftover; the counts are of the 20 skeletons.', '',
           '| Leftover | On this page: mean added, 8 moves or less | On this page: nothing fits at 8 | On this page: mean added, up to 10 | On this page: up to 10 beats 8 or less | Write-up, 20-move skeletons: mean added, 8 or less | Write-up: mean added, up to 10 |', '|---|---:|---:|---:|---:|---:|---:|']
     for typ in TYPES:
         t = tally[typ]; v8 = [x[1] for x in t if x[1] is not None]; v10 = [x[2] for x in t if x[2] is not None]

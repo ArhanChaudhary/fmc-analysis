@@ -44,13 +44,13 @@ On real scrambles the price is smaller still, because the short DRs carry most o
 | every 11-mover | {= ATT('res_all') =} | {= ATT('drs_all') =} |
 | only the 11-movers the list keeps | {= ATT('res_kept') =} | {= ATT('drs_kept') =} |
 
-The tally is at the end of the examples page.
+The tally is at the end of the examples page. Every DR there is finished optimally, so that table is **computer only**, the answer key for what the list costs; the list itself needs no solving.
 
 If you have the HTR lengths, do the 4c3 line as "9+ on both sides, toss" instead: it drops about as many and loses {= LOSS('4c3', lambda e, a, b, tp, lo, hi: lo >= 9) =} of the 4c3 finishes in 11 instead of {= LOSS('4c3', 'list') =}.
 
 Subset by subset. Each one has a table of how it finishes by bad edges, then what to read and when to drop it.
 
-#### 0c0
+### 0c0
 
 0.5% of all DRs, average optimal 12.28. Depends almost only on the bad edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -82,7 +82,7 @@ Subset by subset. Each one has a table of how it finishes by bad edges, then wha
 - **Needing a 12**: never because of the subset. 6e with no pairs is still {= pct(q(cs='0c0',e=6,pairs=0),12) =}.
 - **Don't conclude** that "0" means no quarter turns: every 0c0 with bad edges needs two. The shortest 0c0 2e is `D F2 R2 F2 D`, solved by `D' F2 R2 F2 D'`.
 
-#### 4a1
+### 4a1
 
 2.9% of all DRs, average optimal 12.42. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -115,7 +115,7 @@ Only 4e can be finished with one quarter turn. 2e and 0e need three.
 - **Don't forget** the 3qt finishes on 4e. When a 4a1 4e is very blocky and the formula still says 10+, look for one: `U2 F2 R2 B2 U D2 B2 R2 B2 R2 F2` has formula 10 and a 3qt finish in 7 (`U B2 L2 F2 D F2 D`).
   - 2e and 0e really need three quarter turns: `D F2 U' B2 F2 D'` (4a1 2e) is solved by `D F2 B2 U F2 D'`, and `U L2 R2 U L2 R2 U'` (4a1 0e) by `U R2 L2 U' R2 L2 U'`.
 
-#### 4a2
+### 4a2
 
 2.9% of all DRs, average optimal 13.35. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -146,7 +146,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: 10 or more to HTR on both sides ({= SH('4a2',q(cs='4a2',hmin=lambda x: x>=10)) =} of 4a2): {= T(q(cs='4a2',hmin=lambda x: x>=10)) =}. The worst corner case on both sides, above all with 2e.
 - **Don't conclude** that 2qt means good. On average 4a2 finishes worse than 2c3 and 4b2: {= T(q(cs='4a2')) =} against {= T(q(cs='2c3')) =} and {= T(q(cs='4b2')) =}.
 
-#### 4b2
+### 4b2
 
 11.4% of all DRs, average optimal 12.68. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -179,7 +179,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: there is no dead corner of 4b2. The weakest HTR cells of any size are 7 and 8 with 2e ({= pct(q(cs='4b2',e=2,htr=(7,8)),12) =}) and 8 and 9 with 4e ({= pct(q(cs='4b2',e=4,htr=(8,9)),12) =}).
 - **Don't conclude** that a short HTR means a short finish. Example 10 in the examples file has a 4-move HTR, sits in a cell where {= pct(q(cs='4b2',e=4,htr=(4,8)),12) =} finish in 12, and is a 13.
 
-#### 2c3
+### 2c3
 
 15.2% of all DRs, average optimal 12.92. The edge count matters a lot. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -218,7 +218,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: nothing is dead. The weakest cells of any size: 6e with adjacent corners on both sides ({= pct(q(cs='2c3',e=6,both=(S('9'),S('9'))),12) =}), 4e at 8 and 9 to HTR ({= pct(q(cs='2c3',e=4,htr=(8,9)),12) =}), 6e at 9 and 9 ({= pct(q(cs='2c3',e=6,htr=(9,9)),12) =}).
 - **Don't conclude** that stacked corners are bad. At 3qt stacked is the *best* layout. It's at 4qt and 5qt that stacked is the worst.
 
-#### 4c3 (4a3 and 4b3)
+### 4c3 (4a3 and 4b3)
 
 11.4% of all DRs, average optimal 13.49. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -254,7 +254,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: 10 on both sides, or 9 and 10 with nothing else going for it. The rule keeps {= KEEP('4c3',lambda lo: lo<9,12) =} of the 12s, so there it costs a quarter of them.
 - **Don't conclude** that what the rule drops is dead: `U' L2 D' B2 U' B2 U L2 D` is 9 to HTR on both sides and finishes in 9.
 
-#### 0c3
+### 0c3
 
 1.4% of all DRs, average optimal 14.46. The worst subset on average, worse than 5qt. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -280,11 +280,11 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 
 **When to drop it, and what not to conclude:**
 
-- **Needing a 10 or an 11**: always. The longer HTR is 10 or more for 99% of 0c3, so a 10 is all but ruled out before you look. For an 11 even the better cells are 1–3%: 2e or 6e with a qt straight to 4a2 is {= pct(q(cs='0c3',e=(2,6),cc=S('3')),11) =}, 2e with five pairs {= pct(q(cs='0c3',e=2,pairs=5),11) =}, 2e or 6e at 9 and 10 to HTR {= pct(q(cs='0c3',e=(2,6),htr=(9,10)),11) =}, 4e at 10 and 11 {= pct(q(cs='0c3',e=4,htr=(10,11)),11) =}. 9 on the longer side reaches {= pct(q(cs='0c3',hmax=9),11) =}, and that is one 0c3 in a hundred.
+- **Needing a 10 or an 11**: always. The longer HTR is 10 or more for 99% of 0c3, so a 10 is all but ruled out before you look. For an 11 even the better cells are only about 1–3%: 2e or 6e with a qt straight to 4a2 is {= pct(q(cs='0c3',e=(2,6),cc=S('3')),11) =}, 2e with five pairs {= pct(q(cs='0c3',e=2,pairs=5),11) =}, 2e or 6e at 9 and 10 to HTR {= pct(q(cs='0c3',e=(2,6),htr=(9,10)),11) =}, 4e at 10 and 11 {= pct(q(cs='0c3',e=4,htr=(10,11)),11) =}. 9 on the longer side reaches {= pct(q(cs='0c3',hmax=9),11) =}, and that is one 0c3 in a hundred.
 - **Needing a 12**: by default. 0c3 4e with 12 or 13 on the longer side (six in seven of 0c3 4e) is at most {= pct(q(cs='0c3',e=4,hmax=12),12) =}.
 - **Don't conclude** that no bad corners means good corners.
 
-#### 2c4
+### 2c4
 
 22.9% of all DRs, the most common subset, average optimal 13.65. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -327,7 +327,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Don't conclude** that 2c4 is bad as a subset. The best layout on both sides is as good as an average 2c3 4e ({= C2('2c4','8','8') =} against {= E('2c3',4) =}), and 2c4 is where reading pays the most, because the spread inside it is the widest.
 - **Don't conclude** that 6e is a discard on its own: it's {= E('2c4',6) =} against {= E('2c4',4) =} for 4e. 8e is worse.
 
-#### 0c4
+### 0c4
 
 1.0% of all DRs, average optimal 13.67. Same average as 2c4 but fewer short finishes: {= T(q(cs='0c4')) =} against {= T(q(cs='2c4')) =}. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -352,7 +352,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: 6e or 8e, or no pairs.
 - **Don't conclude** anything from the corners here, there's nothing to tell apart.
 
-#### 4c4 (4a4 and 4b4)
+### 4c4 (4a4 and 4b4)
 
 11.4% of all DRs, average optimal 14.40. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -378,7 +378,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: by default. It takes a short DR *and* something going for it (five pairs, or 9 and 10 to HTR, or the best corners), and then it's about {= pct(q(cs='4c4',pairs=5),12) =}. 11 to HTR on both sides: {= pct(q(cs='4c4',htr=(11,11)),12) =}.
 - **Don't conclude** from examples 2 and 9 in the examples file that 4c4 comes good. Those were rare outcomes.
 
-#### 2c5
+### 2c5
 
 7.6% of all DRs, average optimal 14.33. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -408,7 +408,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: by default, and at once with a stack on both sides, a stack plus opposite, or 11 to HTR on both sides ({= pct(q(cs='2c5',htr=(11,11)),12) =}). Worth a look with a short DR and five pairs, or adjacent corners on both sides with 9 or 10 to HTR.
 - **Don't conclude** that "5qt, skip" loses nothing when a 13 is enough: one 2c5 in seven finishes in 13.
 
-#### 4b5
+### 4b5
 
 11.4% of all DRs, average optimal 14.28. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 

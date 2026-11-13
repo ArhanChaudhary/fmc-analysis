@@ -27,7 +27,13 @@ def example(ix, note=''):
 def pick(m, cond=None, seed=0):
     idx = np.flatnonzero(m if cond is None else m & cond)
     return int(idx[np.random.default_rng(seed).integers(len(idx))]) if len(idx) else None
+def tidy(numbers):
+    """As printed: thousands separators, and Python lists written out ("['21']" -> "21")."""
+    import re
+    numbers = re.sub(r"\[([^\]]*)\]", lambda m: m.group(1).replace("'", ''), numbers)
+    return re.sub(r'(?<![\w.,-])\d{4,}(?![\w.])', lambda m: f'{int(m.group(0)):,}', numbers)
 def claim(cid, tag, text, verdict, numbers, ex=None):
+    numbers = tidy(numbers)
     rows.append((cid, tag, text, verdict, numbers, json.dumps(ex) if ex else ''))
     if ex: EX[cid] = ex
 
@@ -97,7 +103,7 @@ mm = m78 & (F['drm_c'] == 7)
 nb_in = (F['drm_c'] - F['carm']); ok = (F['side'][m78] == nb_in[m78]).all()
 claim('T9450-7c8e-side', 'T9450 rodneykinney', '7c8e: every bad in-ARM corner forms a side pair', 'correct' if ok else 'wrong', f"side pairs = bad corners not out of AR on {int((F['side'][m78] == nb_in[m78]).sum())} of {int(m78.sum())} 7c8e states")
 v78 = {f'{a_}{b_}': (int(d[m78 & arm(a_, b_)].min()), int(d[m78 & arm(a_, b_)].max())) for a_ in range(8) for b_ in range(5) if (m78 & arm(a_, b_)).sum()}
-claim('D5086-7c8e', 'D5086 Jay', '7c8e: 1C0E is always 5-6 and 2C1E is the only one that can give sub 4', 'correct' if v78['10'] == (5, 6) and [k for k, x in v78.items() if x[0] <= 3] == ['21'] else 'wrong', '1C0E range ' + str(v78['10']) + '; ARMs with a state of 3 or fewer: ' + str([k for k, x in v78.items() if x[0] <= 3]))
+claim('D5086-7c8e', 'D5086 Jay', '7c8e: 1C0E is always 5-6 and 2C1E is the only one that can give sub 4', 'correct' if v78['10'] == (5, 6) and [k for k, x in v78.items() if x[0] <= 3] == ['21'] else 'wrong', f"1C0E {v78['10'][0]}–{v78['10'][1]}" + '; ARMs with a state of 3 or fewer: ' + str([k for k, x in v78.items() if x[0] <= 3]))
 e4 = p6(m78 & (F['earm'] == 4)); e3 = {c_: p6(m78 & arm(c_, 3)) for c_ in range(8) if (m78 & arm(c_, 3)).sum()}; e2 = p6(m78 & (F['earm'] == 2)); e3a = p6(m78 & (F['earm'] == 3))
 claim('T9279-7c8e', 'T9279 tseitsei89', '7c8e: edge ARM 4 is always 0% sub-7; 3 is much better than 2 but only good if corner ARM >= 4', 'correct for edge ARM 4; "3 better than 2" holds', f'edge ARM 4 {e4:.4f}; edge ARM 3 {e3a:.3f} vs 2 {e2:.3f}; edge ARM 3 by corner ARM ' + ', '.join(f'{k} {x:.3f}' for k, x in e3.items()))
 zero = sum(int((m78 & arm(a_, b_)).sum()) for a_ in range(8) for b_ in range(5) if (m78 & arm(a_, b_)).sum() and p6(m78 & arm(a_, b_)) == 0)

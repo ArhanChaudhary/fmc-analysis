@@ -17,7 +17,7 @@ def pc(x, d=None):
 def cls2(r):
     m = r.get('mirror_alias', '')
     return cls(r['class']) + (f" (mirror: {cls(m)})" if m else '')
-def cls(c): return '`' + c.replace(' | ht', '') + '`' if c.endswith(' | ht') else '`' + c + '`'
+def cls(c): return '`' + (c[:-5] if c.endswith(' | ht') else c).replace('|', '\\|') + '`'   # (an escaped pipe: these go in table cells)
 def write(name, head, rows):
     out = ['| ' + ' | '.join(head) + ' |', '|' + '---|' * len(head)] + ['| ' + ' | '.join(str(x) for x in r) + ' |' for r in rows]
     open(D + name + '.md', 'w').write('\n'.join(out) + '\n')
@@ -426,7 +426,9 @@ GA['c0c4'] = {'uni3': _cl(_u['0c4']['class3']), 'uni2': _cl(_u['0c4']['class2'])
               'gap': {p: (float(_o[('0c4', p)]['after3']) - float(_uc[('0c4', p)]['after3'])) * 100 for p in P11}}
 GA['cell_first_same'] = {p: sum(_o[(s, p)]['class1'] == _u[s]['class1'] for s in SUBS) for p in P11}
 _c23 = _o[('2c3 0e', 'scr11')]; GA['c2c3_0e'] = [float(_c23['after1']) * 100, float(_c23['se1']) * 100, float(_u['2c3 0e']['after1']) * 100]
+GA['c2c3_0e'] += [float(_o[('2c3 0e', 'dr11')]['after1']) * 100]           # the population that is not flagged, so the row has every cell
 _c08 = _o[('0c0 8e', 'dr11')]; GA['c0c0_8e'] = [float(_c08['after1']) * 100, float(_c08['se1']) * 100, float(_u['0c0 8e']['after1']) * 100]
+GA['c0c0_8e'] += [float(_o[('0c0 8e', 'scr11')]['after1']) * 100]
 GA['cell_flag_list'] = sorted({s for p in P11 for s in SUBS if any(_flag(_u[s][a], _u[s][se], _o[(s, p)][a], _o[(s, p)][se]) for a, se in _cols)}, key=SUBS.index)
 GA['cell_flags'] = {p: sum(any(_flag(_u[s][a], _u[s][se], _o[(s, p)][a], _o[(s, p)][se]) for a, se in _cols) for s in SUBS) for p in P11}
 # the other headlines of section 1: Q3, bounding, hand checklists

@@ -237,7 +237,7 @@ For each kind of leftover, 20 skeletons of 16 to 22 moves. They are random move 
 - `// (8-3/22)` is the usual note: an 8-move alg, 3 moves cancel, 22 moves so far.
 - When the answer says "nothing better" for 10 moves, the 8-move answer is still the best one.
 
-### 3c
+### 3c: skeletons 1–20
 
 A corner 3-cycle.
 
@@ -707,7 +707,7 @@ Solution: R L' F' U B2 U' F' U B2 R' D F' U' F2 R' U B U' F2 B2 D B2 D2 F B2 U2 
 
 </details>
 
-### 5c
+### 5c: skeletons 1–20
 
 A corner 5-cycle.
 
@@ -1220,7 +1220,7 @@ Solution: R L' F2 U R' D F' U' F2 R' U B U' F2 B2 D' B D2 R' D2 R B' R' D2 R B2 
 
 </details>
 
-### Pure 2c2c
+### Pure 2c2c: skeletons 1–20
 
 Two corner swaps, no twist.
 
@@ -1751,7 +1751,7 @@ Solution: R L' F2 U R' F' U' F D F R2 U L2 U' R U L2 B U' F2 B2 D B2 D2 F B2 U2 
 
 </details>
 
-### Twisted 2c2c
+### Twisted 2c2c: skeletons 1–20
 
 Two corner swaps, each with a twist.
 
@@ -2240,7 +2240,7 @@ Solution: R L' F2 U R' D F' U' F2 D' R' U R D R' B U' F' B2 D B2 D' F' D' F B2 U
 
 </details>
 
-### 3c1t
+### 3c1t: skeletons 1–20
 
 A twisted corner 3-cycle and one twisted corner.
 
@@ -2740,7 +2740,7 @@ Solution: R L' F2 U2 R D2 R' U' R D2 R2 D F' U' R B R' F2 R B' R2 U B U' F2 B2 D
 
 </details>
 
-### 2tc
+### 2tc: skeletons 1–20
 
 Two corners twisted in place.
 
@@ -3253,7 +3253,7 @@ Solution: L' U2 R D2 R' U2 R D2 F2 U R' D F' U' F2 R' U B U' B2 D B2 D' F2 D' F 
 
 </details>
 
-### 3tc
+### 3tc: skeletons 1–20
 
 Three corners twisted in place, all the same way.
 
@@ -3745,7 +3745,7 @@ Solution: R L' F' U F' R' F U' F' U2 D B2 U' F' U B2 U2 F2 R' U B U' F2 B2 D B2 
 
 </details>
 
-### 3e
+### 3e: skeletons 1–20
 
 An edge 3-cycle.
 
@@ -4227,7 +4227,7 @@ Solution: R L' F2 U R' D F' U' D2 B2 L B2 D2 F2 U B U' F2 B2 D B2 D2 F B2 U2 (25
 
 </details>
 
-### 2e2e
+### 2e2e: skeletons 1–20
 
 Two edge swaps, no flip.
 
@@ -4786,7 +4786,7 @@ Solution: R L' F2 U R' D F' U' F2 R' U B U2 R' F2 B2 D2 F2 B2 U2 R U F2 B2 D B2 
 
 </details>
 
-### 5e
+### 5e: skeletons 1–20
 
 An edge 5-cycle.
 
@@ -5375,7 +5375,7 @@ Solution: U2 R L' F2 B2 U R' D F' U' F2 R' U B U' F2 B2 D B2 D2 B' L F2 L' F B' 
 
 ## The tally
 
-Over the 20 skeletons of each kind above, next to the same numbers from the big samples of the write-up (20,000 random skeletons of 20 moves at 8 moves per insertion; fewer at 10, see the write-up). One row per leftover; the counts are of the 20 skeletons.
+Over the 20 skeletons of each kind above, next to the same numbers from the big samples of the write-up (20,000 random skeletons of 20 moves at 8 moves per insertion, 5,000 for 2tc and 2e2e; fewer at 10, see the write-up). One row per leftover; the counts are of the 20 skeletons.
 
 | Leftover | On this page: mean added, 8 moves or less | On this page: nothing fits at 8 | On this page: mean added, up to 10 | On this page: up to 10 beats 8 or less | Write-up, 20-move skeletons: mean added, 8 or less | Write-up: mean added, up to 10 |
 |---|---:|---:|---:|---:|---:|---:|

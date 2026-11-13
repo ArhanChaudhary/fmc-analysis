@@ -17,19 +17,25 @@ def single(cs, named=False):
     odds = [f'| Bad corners | {H.ODDS_HEAD} |', '|---|---:|---:|---:|---:|']
     typ = ['| Bad corners | A typical DR | Its optimal, moves |', '|---|---|---:|']
     items = [(k, pooled[k][1] if k in pooled else h) for k, h in H.one[cs].items() if k not in {b for b, _ in pooled.values()}]
+    # rows that share a layout are told apart by whether a qt takes them straight to a lower subset
+    qts = collections.defaultdict(set)
+    for k, _ in items: qts[H.layout(int(H.cc[k][2]))].add(H.cc[k][10])
+    def qt_tell(k):
+        if len(qts[H.layout(int(H.cc[k][2]))]) < 2: return ''
+        return f'; a qt goes straight to {H.cc[k][10]}' if H.cc[k][10] else '; needs a setup'
     for k, h in sorted(items, key=lambda kv: H.st(kv[1])[1]):
         c = H.cc[k]
         if k in pooled:
             o = H.cc[pooled[k][0]]
             lo, hi = min(int(c[5]), int(o[5])), max(int(c[6]), int(o[6]))
-            name = f"{H.layout(int(c[2]))} (two cases that look the same)"
+            name = f"{H.layout(int(c[2]))}{qt_tell(k)} (two cases that look the same)"
             look.append(f"| {name} |" + (f" {c[1]} |" if named else '') + f" {lo}–{hi} | {c[10] or 'nothing, needs a setup'} | {100*sum(h)/tot:.0f}% |")
             odds.append(f"| {name} | {H.odds(h)} |")
             typ.append(f"| {name}, one | `{H.TYP[k][0]}` | {H.TYP[k][1]} |")
             typ.append(f"| {name}, the other | `{H.TYP[pooled[k][0]][0]}` | {H.TYP[pooled[k][0]][1]} |")
             continue
         tell = {'8': '; back-face diagonals agree', '7': '; back-face diagonals differ'}.get(k, '')
-        name = f"{H.layout(int(c[2]))}{tell}"
+        name = f"{H.layout(int(c[2]))}{qt_tell(k)}{tell}"
         look.append(f"| {name} |" + (f" {c[1]} |" if named else '') + f" {c[5]}–{c[6]} | {c[10] or 'nothing, needs a setup'} | {100*sum(h)/tot:.0f}% |")
         odds.append(f"| {name} | {H.odds(h)} |")
         typ.append(f"| {name} | `{H.TYP[k][0]}` | {H.TYP[k][1]} |")
@@ -90,7 +96,7 @@ Both sides together, one row per combination of the cases on normal and on inver
               ('a stack on one side only', lambda a, b: stk(a) != stk(b)),
               ('a stack on both sides', lambda a, b: stk(a) and stk(b))])}
 
-So a double stack is as dead as a 5qt at every target, and the best layout on both sides is as good as the last row. Each row is a kind of DR, with the share finishing in 10, 11, 12 and 13 or less:
+So a double stack is as dead as a 5qt at every target, and the best layout on both sides (first row above) is as good as an average 2c3 4e (last row of the table below). Each row is a kind of DR, with the share finishing in 10, 11, 12 and 13 or less:
 
 | DRs | {H.ODDS_HEAD} |
 |---|---:|---:|---:|---:|

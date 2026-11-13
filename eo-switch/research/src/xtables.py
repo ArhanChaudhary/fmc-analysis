@@ -37,6 +37,7 @@ def stats(drm, mask):
         w = P[f'P3_{L}'][sel]; r[f'a{L}'] = int(w.sum()); r[f'q{L}'] = (w * (d[sel] <= k)).sum() / w.sum() if w.sum() else float('nan')
     return r
 def verdict(p): return 'switch' if p > 0.5 else 'discard' if p < 0.1 else 'check'
+def shown(v): return 'your call' if v == 'check' else v     # as printed: the cards call the middle band *your call*
 
 # ------------------------------------------------------------------------------------------------------------------
 # The rule cards: per DRM, groups of cells as a solver reads them on the switched side (first match wins).
@@ -99,7 +100,7 @@ write('rule_cards_sum', ['DRM', 'Sub-7 rate, whole DRM', 'Settled (share of the 
 seen = set(); rows = []; rows2 = []
 for drm in DRMS:
     for lab, t, s in E['rule'][drm]['cells']:
-        rows.append([drm if drm not in seen else '', t, lab, n_(s['n']), pc(s['share']), pc(s['p6'])])
+        rows.append([drm if drm not in seen else '', t, shown(lab), n_(s['n']), pc(s['share']), pc(s['p6'])])
         rows2.append([drm if drm not in seen else '', t, pc(s['q5']), n_(s['a5']), pc(s['p7']), pc(s['p5'])])
         seen.add(drm)
 write('rule_cells', ['DRM', 'Cell (read on the switched side)', 'Verdict', 'States', 'Share of the DRM', 'Sub-7 rate, exact'], rows)
@@ -108,12 +109,15 @@ write('rule_cells_rzp', ['DRM', 'Cell (read on the switched side)', 'Sub-7 rate,
 
 # ------------------------------------------------------------------------------------------------------------------
 # finer tables
+def pl(n, w):
+    """'1 pair', '2 pairs'"""
+    return f'{n} {w}' + ('' if n == 1 else 's')
 def cross(drm, rowsdef, name, head0):
     rows = []
     for txt, mask in rowsdef:
         s = stats(drm, mask)
         if s is None: continue
-        rows.append([txt, n_(s['n']), pc(s['share']), pc(s['p6']), pc(s['q5']), n_(s['a5']), verdict(s['p6'])])
+        rows.append([txt, n_(s['n']), pc(s['share']), pc(s['p6']), pc(s['q5']), n_(s['a5']), shown(verdict(s['p6']))])
     write(name, [head0, 'States', 'Share of the DRM', 'Sub-7 rate, exact', 'Sub-7 rate, real attempts (RZP to 5)', 'Real attempts (RZP to 5)', 'Band'], rows)
 cross('4c4e', [(f'{e} paired, edge ARM {a}', (ep == e) & (earm == a)) for e in (0, 1, 2) for a in (0, 1, 2)], 'c44_paired_earm', 'Paired edges, edge ARM')
 chk = (ep == 1) & (earm == 1)
@@ -123,15 +127,15 @@ cross('4c4e', [('4d corners (always corner ARM 2: ARM 21)', chk & (case == 3)),
                ('corner ARM 0 or 4, 4a corners', chk & np.isin(carm, [0, 4]) & (case == 0)),
                ('corner ARM 1 or 3 (4c corners)', chk & np.isin(carm, [1, 3])),
                ('corner ARM 0 or 4, 4b corners', chk & np.isin(carm, [0, 4]) & (case == 1))], 'c44_check', 'Inside *one paired, edge ARM 1*')
-cross('4c4e', [(f'{p} pairs on {e} edge(s)' + (' (a bar)' if p == 2 and e == 1 else ''), (pairs == p) & (ep == e)) for p in range(5) for e in range(3)], 'c44_bars', 'Pairs, paired edges')
-cross('4c2e', [(f'{p} pairs, {s} side pairs', (pairs == p) & (side == s)) for p in range(3) for s in range(3)], 'c42_cells', 'Pairs, side pairs')
+cross('4c4e', [(f"{pl(p, 'pair')} on {pl(e, 'edge')}" + (' (a bar)' if p == 2 and e == 1 else ''), (pairs == p) & (ep == e)) for p in range(5) for e in range(3)], 'c44_bars', 'Pairs, paired edges')
+cross('4c2e', [(f"{pl(p, 'pair')}, {pl(s, 'side pair')}", (pairs == p) & (side == s)) for p in range(3) for s in range(3)], 'c42_cells', 'Pairs, side pairs')
 c42 = pph == 2
 cross('4c2e', [(f'corner ARM {a}', c42 & (carm == a)) for a in range(5)] + [(f'edge ARM {a}', c42 & (earm == a)) for a in range(3)]
       + [(f'4{"abcd"[c]} corners', c42 & (case == c)) for c in range(4)] + [('JZP', c42 & (jzp == 1))], 'c42_check', 'Inside *exactly 1*')
-cross('8c8e', [(f'{p} pairs', pairs == p) for p in range(9)], 'c88_pairs', 'Pairs')
+cross('8c8e', [(pl(p, 'pair'), pairs == p) for p in range(9)], 'c88_pairs', 'Pairs')
 cross('7c8e', [(f'4 pairs, edge ARM {a}', (pairs == 4) & (earm == a)) for a in range(5)], 'c78_check', 'Inside *4 pairs*')
-cross('7c8e', [(f'{p} pairs', pairs == p) for p in range(1, 7)], 'c78_pairs', 'Pairs')
-cross('3c2e', [(f'{p} pairs', pairs == p) for p in range(2)], 'c32_pairs', 'Pairs')
+cross('7c8e', [(pl(p, 'pair'), pairs == p) for p in range(1, 7)], 'c78_pairs', 'Pairs')
+cross('3c2e', [(pl(p, 'pair'), pairs == p) for p in range(2)], 'c32_pairs', 'Pairs')
 cross('8c8e', [(f'corner ARM {a}', carm == a) for a in range(9)], 'c88_carm', 'Corner ARM')
 # show the DRM once per block
 out, last = [], None
@@ -139,7 +143,7 @@ for drm in ['4c6e', '3c4e', '3c6e', '5c4e', '5c6e', '6c6e']:
     for p in list(range(7)) + ['JZP']:
         s = stats(drm, (jzp == 1) if p == 'JZP' else (pairs == p))
         if not s: continue
-        out.append([drm if drm != last else '', 'JZP' if p == 'JZP' else f'{p} pairs', n_(s['n']), pc(s['share']), pc(s['p6']), verdict(s['p6'])]); last = drm
+        out.append([drm if drm != last else '', 'JZP' if p == 'JZP' else pl(p, 'pair'), n_(s['n']), pc(s['share']), pc(s['p6']), shown(verdict(s['p6']))]); last = drm
 E['pairs_max'] = {drm: max(stats(drm, pairs == p)['p6'] for p in range(9) if stats(drm, pairs == p)) for drm in ['4c6e', '3c4e', '3c6e', '5c4e', '5c6e', '6c6e', '8c8e']}
 E['arm_rate'] = {drm: {f'{a}{b}': stats(drm, (carm == a) & (earm == b))['p6'] for a in range(9) for b in range(5) if stats(drm, (carm == a) & (earm == b))} for drm in ['4c4e', '4c2e', '7c8e', '8c8e']}
 write('low_pairs', ['DRM', 'Pairs on the switched case', 'States', 'Share of the DRM', 'Sub-7 rate, exact', 'Band'], out)
@@ -174,13 +178,13 @@ WHO = {
  '44-wen-reject': ('anything but ARM 01, 02, 12', 'wen [[D7282]] [[D7283]]'),
  '44-armthenpairs': ('ARM above 10% sub-7, then 2+ pairs', 'Yura Riabov [[D11021]]'),
  '44-caycala-5': ('RZP in 5: 3-4 pairs; 2 pairs with ARM 10, 11, 20, 21, 31, 32, 42a; 1 pair with 21; 0 pairs with 42', 'caycala (chart) [[D11016]]'),
- '44-caycala-5-strict': ('the same without the bracketed (10), (11), (20), (31)', 'caycala (chart) [[D11016]]'),
+ '44-caycala-5-strict': ("caycala's RZP-in-5 chart without the bracketed (10), (11), (20), (31)", 'caycala (chart) [[D11016]]'),
  '44-caycala-6': ('RZP in 6: 3-4 pairs, or 0 pairs with 42', 'caycala (chart) [[D11016]]'),
  '44-2pairs': ('2+ pairs', 'Jay [[T610]], rodneykinney [[T3225]], tseitsei89 [[D14265]] [[T9325]]'),
  '44-3pairs': ('3+ pairs', 'rodneykinney, *Domino Setup Theory*'),
  '44-3anypairs': ('3+ pairs counting side pairs', 'rodneykinney\'s older advice, as Jay put it [[T610]]'),
  '44-rodney-case': ('3-4 pairs; 2 pairs unless 4b-0; 1 pair if 4d-2', 'rodneykinney [[T8108]]'),
- '44-rodney-case+0p': ('the same, plus 0 pairs if 4a-0 or 4d-2 with no fake pairs', 'rodneykinney [[T8108]] [[T8123]]'),
+ '44-rodney-case+0p': ('3-4 pairs; 2 pairs unless 4b-0; 1 pair if 4d-2; 0 pairs if 4a-0 or 4d-2 with no fake pairs', 'rodneykinney [[T8108]] [[T8123]]'),
  '44-tetrad': ('4d needs 1+ pair, 4b-0 3+, everything else 2+', 'rodneykinney [[D12095]]'),
  '44-complex': ('3+ pairs; 2 pairs unless 4b; 1 pair only if 4d', 'compLex [[D13425]]'),
  '44-tseitsei': ('2+ pairs, or 1 pair and 4d', 'tseitsei89 [[T9321]]'),

@@ -223,7 +223,7 @@ n2 = 0
 for c in order:
     if not chosen[c]:
         continue
-    part2.append(f'### {c}\n')
+    part2.append(f'### Case {c}: examples 1–{len(chosen[c])}\n')
     for j, (a, b) in enumerate(chosen[c], 1):
         n2 += 1
         s0, y, eo = a['scramble'], a['eo_axis'], a['eo']
@@ -261,7 +261,7 @@ A1 = json.load(open(OUT + 'a50k_stats.json'))['a1']
 six = np.array(stats['six']); dn_ = np.array(stats['niss'])
 head = f"""# Worked examples: EO to DR, and scramble to DR
 
-Examples to play along with the write-up ([WRITEUP.md](WRITEUP.md)). Try a scramble, then open the answers.
+Examples to play along with [the write-up](index.html). Try a scramble, then open the answers.
 
 **Part 1** is {NSCR} uniformly random scrambles, the first {NSCR} of the study's 50,000 (drawn by the study itself, not by nissy's `scramble`; see the write-up, appendix B). For each one: the bad edges on each axis, how many EOs of at most 4 and at most 5 turns it has, and, folded away, its shortest DR (normal, inverse, best of six, NISS) and the best DR through an EO of at most 4 and of at most 5 turns. **Part 2** is {n2} EO-solved states by case: a scramble and an EO, then how far DR is on each of the two DR axes, on the inverse, and with the EO's last turn the other way.
 
@@ -270,7 +270,7 @@ How to read it:
 - Turns are face turns (HTM). *Normal* means turns after the scramble, *inverse* turns after the inverse scramble, written in brackets as usual for NISS: `R U (F D)` is `R U` on the normal side and `F D` on the inverse. A *NISS EO* has turns on both sides.
 - A *route through an EO* is the EO, then turns that keep it (no quarter turns of the EO's axis) to DR on one of the two other axes, on the same side.
 - "EOs of at most 4 turns" counts every move sequence that solves EO for the first time at its last turn, both directions of the last turn counted, as nissy's `-a` lists them (nissy's default listing shows about half of these).
-- A case like 4c4e names the bad corners and the edges out of place for that DR axis (slice edges outside the slice, and as many other edges inside it), as in Cale's "DR setup stats" sheet.
+- A case like 4c4e names the bad corners and the edges out of place for that DR axis (slice edges outside the slice, and as many other edges inside it), the counts of Cale's "DR setup stats" sheet (which writes the edges first, 4e4c).
 
 Every answer is exact: a shortest DR is the fewest turns there are (from exact distance tables), and a "best DR through an EO" is the best over every EO of that length or shorter. "For example" gives one of the shortest; there are usually several. These are computer only, the answer key: try the scramble the way you would in an attempt, then compare.
 
@@ -281,7 +281,7 @@ In these {NSCR}: best of six {six.mean():.2f} on average, NISS {dn_.mean():.2f} 
 ## Part 1. {NSCR} scrambles
 
 """
-page = head + '\n'.join(part1) + f'\n## Part 2. EO to DR, {n2} states by case\n\nEach is a scramble from the study\'s sample and one of its EOs of at most 4 turns. The cases are in order of how often they come up after an EO, most common first. The line on top gives the case on each DR axis; the table gives the turns to DR each way, all with the EO kept unless the row says otherwise.\n\n' + '\n'.join(part2)
+page = head + '\n'.join(part1) + f'\n## Part 2. EO to DR, {n2} states by case\n\nEach is a scramble from the study\'s sample and one of its EOs of at most 4 turns. The cases are the 16 most common after an EO, most common first, then four rarer ones ({', '.join(order[16:-1])} and {order[-1]}). The line on top gives the case on each DR axis; the table gives the turns to DR each way, all with the EO kept unless the row says otherwise.\n\n' + '\n'.join(part2)
 page = page.replace('{REPLAYED}', f'{REPLAYED[0]:,}').replace('{MISMATCHES}', str(len(MISMATCH)))
 open(PAGE, 'w').write(page)
 print(f'{PAGE}: {NSCR} scrambles, {n2} EO-solved states; {REPLAYED[0]:,} sticker-model checks, {len(MISMATCH)} mismatches')

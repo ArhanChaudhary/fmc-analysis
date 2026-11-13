@@ -19,7 +19,9 @@ November 2026. A name with a date is a link to that message on the FMC solvers D
 
 Case labels like "F-D + F-V R-H odd" are FakeMMAP's: corner case with cs sign, M-slice edges, S-slice edges, E-parity.
 
-Section A is what's wrong in the two bounding docs and their tables, section B what's wrong in things said in the channels. Each entry has an example.
+What the entries are measured against is **computer only**, the answer key, not something to do in an attempt. What you can use by hand (the reads, the drop rules, the guide per subset) is in the write-up.
+
+Section A is what's wrong in Rodney's bounding doc and sheet and in FakeMMAP's table, section B what's wrong in things said in the channels. Each entry has an example.
 
 ---
 
@@ -142,7 +144,7 @@ I can't show a fifth subset because there isn't one: the other 44 top out at 17 
 **B3. Arithmetic slip.** [Aneurin, 12 Mar 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1084362354894049340) has 27248 for $(4!)^4/12$. It's 27648.
 
 **B4. "I hypothesize that corner case + moves to HTR on normal + moves to HTR on inverse can tell you the optimal solution with a standard deviation of like 0.25 moves"** ([Zagros, 4 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1490097940641878216)).
-It's nowhere near that. The sd of the optimal over all DRs, given what you know, one set of reads per row:
+It's nowhere near that. The sd of the optimal over all DRs, given what you know, one set of reads per row (**computer only**, a measure of the reads over every DR state):
 
 | Known | Scatter left, sd in moves |
 |---|---:|
@@ -171,4 +173,5 @@ Zagros didn't list the bad-edge count, and knowing more can only lower the sd, s
 - Rodney Kinney, "Advanced DR Bounding [Beta]": https://docs.google.com/document/d/13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0
 - Rodney Kinney, sheet "Adv DR Bounding" (rules vs the 216 computed cases): https://docs.google.com/spreadsheets/d/1jRvikzLlm3yHlDQmQ0DLyj3Aw6uinL3Oa-U9_U7R5mY
 - FakeMMAP, sheet "OBL++": https://docs.google.com/spreadsheets/d/1kax7evfA85p_4ArXKO7si3FrCpj7PEeFwoz4GY5wRAE
+- Aedan Bryant, sheet "HTR Subset Stats" (sampled): https://docs.google.com/spreadsheets/d/17iChOoeB205t3wHTXMLrjM9si2vtxRgFeYR2z3pn1i0
 - FakeMMAP's BFS listing, script and tables are attachments on FakeMMAP's posts of 6–10 Sep 2026 in #fmc-theory.

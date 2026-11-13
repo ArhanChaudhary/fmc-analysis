@@ -36,7 +36,7 @@ hand = collections.defaultdict(collections.Counter)
 for s, lo, hi, l, dlp, par, d, c in pv.rows('h2_lengths.csv'): hand[s][max(int(hi), int(l) + int(dlp))] += int(c)
 def pr(c, T): return pv.num(100 * sum(n for b, n in c.items() if b > T) / sum(c.values()))
 for i, T in enumerate((10, 11, 12)):
-    L += ['', (('What is proven, per subset. "Hand" is the better of the two guaranteed hand bounds (longer HTR, corner length with the right parity). The other two are the computer tables of section 7. '
+    L += ['', (('What is proven, per subset. "Hand" is the better of the two guaranteed hand bounds (longer HTR, corner length with the right parity). The other two are the computer tables of section 7, **computer only**: lookups in millions of cases. '
                 'Each cell is the share of the subset for which that bound proves there is no finish in ') if i == 0 else 'The same for a finish in ') + f'{T} or less:', '',
           f'| Subset | No {T}: hand bound proves it | No {T}: NISS@DR proves it | No {T}: everything visible proves it |', '|---|---:|---:|---:|']
     for s in subs:

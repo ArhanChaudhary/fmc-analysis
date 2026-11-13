@@ -28,7 +28,7 @@ front=front.replace('{{CORNER_SECTION}}', open('/data/fmc/judging-a-dr/research/
 tail=open('/data/fmc/judging-a-dr/research/src/report_build/new_tail.md').read()
 def data(name): return open(R+'data/'+name).read().strip('\n')
 B='/data/fmc/judging-a-dr/research/src/report_build/'
-doc = (front + '\n\n### The seven levels\n\n' + levels + '\n\n' + howgood + '\n\n' + open(B+'throwing.md').read().rstrip('\n') + '\n\n### Examples\n\n' + examples + '\n\n'
+doc = (front + '\n\n### The seven levels\n\n' + levels + '\n\n' + howgood + '\n\n' + open(B+'throwing.md').read().rstrip('\n') + '\n\n### The seven levels on the docs\' examples\n\n' + examples + '\n\n'
        + tail.replace('{{C216}}', c216).replace('{{PROOF}}', proof).replace('{{HOW}}', how)
               .replace('{{APPA}}', data('appendix_a.md')).replace('{{APPB}}', data('appendix_b.md')).replace('{{APPC}}', appC).replace('{{GUIDE}}', open(B+'guide.md').read().rstrip('\n'))
               .replace('{{PAIRS}}', data('odds_by_true_pairs.md')).replace('{{CORNERS}}', data('corner_cases.md'))
@@ -75,7 +75,7 @@ DESC = {
  'The reads, cheapest first': 'What each read is worth, with the tables:',
  'Bounds people use, graded': "Levi's formula, trangium's 2q bound at any qt, HTR length, the parity bound. Which never fail, how often the others do.",
  'Leave slice, the slice, and width': 'What the slice costs, and how many first moves are optimal.',
- 'What a computer can prove from the DR': 'Table lookups that prove "no 12" for most 4–5qt DRs and "no 11" for nearly all, and why no hand read gets there.',
+ 'What a computer can prove from the DR': '**Computer only.** Table lookups that prove "no 12" for most 4–5qt DRs and "no 11" for nearly all, and why no hand read gets there.',
  "What I'd do per subset": '**The reference to keep open.** For each of the 12 corner subsets: how often it finishes in 10, 11 and 12, what to read, when to drop it for the finish you need, what not to conclude.',
  'The 216 NISS@1qt cases, three ways': "FakeMMAP's and Rodney's tables checked with half turns, with DR moves and with any move.",
  "The proof, if you don't speak Lean": 'What is proven, how, and what you have to trust.',
@@ -87,7 +87,7 @@ DESC = {
  'Appendix D: odds by true pairs, all 48 subsets': 'Odds for 10, 11, 12 and 13 by number of pairs.',
  'Appendix E: the 46 corner cases': 'Layout, example scramble, corner solution lengths, odds for 10 to 13, and the both-sides tables.',
  'Appendix F: HTR length on both sides, all 48 subsets': 'Odds for 10 to 13 for every pair of HTR lengths.',
- 'Appendix H: every read at every target': 'Ranking and pruning power of each read, for a finish in 9, 10, 11, 12 or 13.',
+ 'Appendix H: every read at every target': 'Ranking and pruning power of each read, for a finish in 9, 10, 11, 12 or 13. **Computer only**: ceilings, not rules to carry.',
  'Appendix G: a scramble for every subset': 'A longest state, and one that finishes in exactly its longer HTR, for each of the 48 subsets.',
  'Docs and sheets referred to': 'Links.',
 }

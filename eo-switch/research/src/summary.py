@@ -21,6 +21,13 @@ att_total = int(sum(P[f'P3_{L_}'].sum() for L_ in (4, 5, 6)))
 n_scr = len(open(os.path.join(OUT, 'scrambles.txt')).read().split())  # placeholder, replaced below
 n_scr = sum(1 for _ in open(os.path.join(OUT, 'scrambles.txt')))
 NAMED = [pop.drm_name(*x) for x in pop.DRMS_NAMED]
+def exact_mean(nm):
+    """Mean EO-kept distance of a DRM ('all' = every case) from the distances themselves, rounded once (re-rounding
+    variants_by_drm.tsv's 4-decimal mean gave 6.880 for 2c2e, whose exact mean 12328/1792 = 6.87946 rounds to 6.879)."""
+    if nm == 'all': return d.mean()
+    c, e = nm[:-1].split('c'); return d[pop.drm_mask(int(c), int(e))].mean()
+# finding 8: the largest share of a low DRM's sub-7 states that a cheap 1-3 feature rule puts into a cell over 50%
+LOW_BEST = max(float(r['sub7_in_switch_cells']) for r in top if r['drm'] in ('4c6e', '3c4e', '3c6e', '5c4e', '5c6e', '6c6e') and r['cheap_only'] == 'yes')
 
 w('# When to switch on an EO: the numbers (study 6)')
 w('')
@@ -60,7 +67,7 @@ w(f'6. **The trackers on the server are right.** The NISS predictors (ARM axis s
   f'were each exact on 20,000 random cubes. Fanti\'s rule figures are any-turn optimal (F/B quarter turns allowed), not EO-kept; the differences are about a point at most.')
 w(f'7. **After a switch, the last turns are not free.** The direction of the RZP\'s last quarter turn does not change the switched case at all (a DR-group premove keeps the coset; checked on '
   f'{open(os.path.join(OUT, "checks_last_rzp_turn.txt")).read().split()[0]} of {open(os.path.join(OUT, "checks_last_rzp_turn.txt")).read().split()[1]} pairs of example attempts), and inverting the EO\'s last turn only adds 2 points for 4c4e (19.1% -> 21.2%), against 9 points without a switch. The second DR axis adds 6 (25.0%).')
-w(f'8. **Low-rate DRMs have no cheap rescue.** For 4c6e, 3c4e, 3c6e, 5c4e, 5c6e and 6c6e no rule of up to 3 traceable features puts more than 15% of their sub-7 states into a cell above 50%; discarding them is right.')
+w(f'8. **Low-rate DRMs have no cheap rescue.** For 4c6e, 3c4e, 3c6e, 5c4e, 5c6e and 6c6e no rule of up to 3 traceable features puts more than {pct(LOW_BEST, 1)} of their sub-7 states into a cell above 50%; discarding them is right.')
 w('')
 # ------------------------------------------------------------------ checks
 w('## Checks')
@@ -93,7 +100,7 @@ w('| DRM | states | mean | plain | lastF | lastFB | two axes | normal or inverse
 w('|---|---|---|---|---|---|---|---|---|---|')
 for nm in NAMED + ['all']:
     r = vb[nm]
-    w(f"| {nm} | {int(r['cosets']):,} | {float(r['mean_d']):.3f} | {f3(r['plain_le6'])} | {f3(r['lastF_le6'])} | {f3(r['lastFB_le6'])} | {f3(r['two_le6'])} | {f3(r['inv_le6'])} | {f3(r['plain_le5'])} | {f3(r['plain_le7'])} |")
+    w(f"| {nm} | {int(r['cosets']):,} | {exact_mean(nm):.3f} | {f3(r['plain_le6'])} | {f3(r['lastF_le6'])} | {f3(r['lastFB_le6'])} | {f3(r['two_le6'])} | {f3(r['inv_le6'])} | {f3(r['plain_le5'])} | {f3(r['plain_le7'])} |")
 w('')
 w('All 41 DRMs, k = 5, 6, 7: `out/variants_by_drm.tsv`. "Inverse where definable": the inverse is not a function of the coset, but its distribution given the coset is (above); it is used only as the "normal or inverse" option.')
 w('')

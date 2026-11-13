@@ -21,9 +21,9 @@
 - The finisher agrees with a separate sticker-level brute force on test states, and every solution it writes is replayed: {= RL('n1s', f='{:,}') =} DR-1s solutions and every 8fe solution of the 500 scrambles solve their scramble in the stated number of moves.
 - The DR finish table is the Lean-certified one of the first study.
 
-**Lean.** `lean/DRXs` in the repository proves, by evaluation of its own definitions (no Mathlib):
+**Formally verified.** `lean/DRXs` in the repository is a Lean 4 certificate (no Mathlib, no `sorry`) that builds its own sticker cube and proves, by evaluating its own definitions:
 
-- the model is a cube: every turn is a permutation, its moves equal the Python model's, and the orders of `U` and of these come out right:
+- *the model is a cube*: every turn is a permutation, its moves equal the Python model's, and the orders of `U` and of these come out right:
 
   ```
   R U R' U'    // order 6
@@ -31,9 +31,10 @@
   R U2 D' B D' // order 1260
   ```
 
-- exactly 768 kinds are reached, 256 per pair of faces, and the kind of a state decides where every move takes it (checked over all reachable corner and edge colourings, not just one state per kind);
-- the slices: 1, 140, 383 and 244 kinds need 0, 1, 2 and 3;
-- the turns to DR: 2, 4, 18, 60, 56 kinds of DR-1s at 2 to 6 turns and none above; the DR-2s and DR-3s rows of 4.1; DR-3s to DR-2s in 2 turns for all 244; DR-2s to DR-1s in 2, 3 or 4 turns for 209, 102 and 72;
-- the slice-EO count: of 70,963,200 arrangements, 22,143,888 have no skip on normal and 14,678,928 none on either side.
+- *the kinds (sections 3 and 4)*: exactly 768 kinds per colour (checked for the U/D and the F/B colours), and the kind of a state decides where every move takes it; 1, 140, 383 and 244 kinds need 0, 1, 2 and 3 slices; DR-1s to DR in 2 to 6 turns (1, 2, 9, 30, 28 of the 70 layouts on each pair of faces, 5.17 on average), the DR-2s and DR-3s rows of 4.1 and their averages; DR-3s to DR-2s in 2 turns for all 244 and free after a trigger; DR-2s to DR-1s in 2, 3 or 4 turns, free after a trigger for 209 of 383 and 3 for the rest (the whole after-trigger table of 4.3); Simon's 1, 4, 13, 36, 16;
+- *the slice-EO rule*, for every way an edge can sit and each axis, on normal and on inverse, from the stickers. So the slice-EO count of 6.1 is exact for the cube: of 70,963,200 arrangements, 22,143,888 have no skip on normal and 14,678,928 none on either side, 2.25 skips per scramble over both sides (exactly 18/8);
+- *turns to a slice EO for one slice* (6.1): all four rows of that table, over the 7,920 placements;
+- *6.3 from a full EO*: the renaming turns each face turn into a face turn and an 8fe into a real DR, and over all 1,082,565 positions with a full EO, with moves that keep it, the distance to the 8fe equals the distance of the renamed position to the DR, position by position, so the two columns of the 6.3 table are the same (7.80 on average; the DR column also matches the separate Lean search of [*When to switch an EO*](../eo-switch/));
+- *the errata examples and the 6-turn example of section 8*: each printed scramble has the stated kind, flipped edges, slices and fewest turns, each printed fix reaches DR in its printed number of turns, Simon's thirteen rows, and in B3 nissy's shortest DRs (4 on normal, 6 on the inverse, any axis) by brute force.
 
-The proofs use `native_decide`, which trusts the Lean compiler. The searches over 2.2 billion cosets, the finish samples and the real scrambles are not in Lean; they rest on the cross-checks above.
+*Computed, not proved*: the searches over 2.2 billion cosets (6.2, 6.4, the rest of 6.3, including "with any moves" and the twelve targets), the finish samples (section 5), the 500 real scrambles (section 7), Appendix A's other rows, Appendix B and errata B3's tables. They rest on the cross-checks above. The proofs use `native_decide`, which trusts the Lean compiler.

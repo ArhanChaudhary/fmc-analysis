@@ -102,7 +102,7 @@ The same subsets, with the share of each that finishes in 9, 10, 11, 12 and 13 o
 | 4b5 2e | <0.01% | 0.02% | 0.23% | 2.0% | 14% |
 | 4b5 4e | <0.01% | 0.01% | 0.19% | 1.8% | 13% |
 
-What is proven, per subset. "Hand" is the better of the two guaranteed hand bounds (longer HTR, corner length with the right parity). The other two are the computer tables of section 7. Each cell is the share of the subset for which that bound proves there is no finish in 10 or less:
+What is proven, per subset. "Hand" is the better of the two guaranteed hand bounds (longer HTR, corner length with the right parity). The other two are the computer tables of section 7, **computer only**: lookups in millions of cases. Each cell is the share of the subset for which that bound proves there is no finish in 10 or less:
 
 | Subset | No 10: hand bound proves it | No 10: NISS@DR proves it | No 10: everything visible proves it |
 |---|---:|---:|---:|

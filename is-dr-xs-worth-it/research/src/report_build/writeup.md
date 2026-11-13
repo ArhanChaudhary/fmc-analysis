@@ -73,14 +73,14 @@ First what nobody had before, each line with the sample and the move rule behind
   | both together | {= EOD('eo10', 0, 5) =} |
 
   The 5-movers give more and do better per thing finished ({= f'{REAL["eo10"]["policies"][4]["n"] - REAL["eo10"]["policies"][0]["n"]:,.0f}' =} more DRs against {= f'{REAL["eo10"]["policies"][2]["n"] - REAL["eo10"]["policies"][0]["n"]:,.0f}' =} more DR-1s); the slice EOs take far less looking. Both sides are **computer only** (every DR-xs and every 5-move EO, each finished as well as possible). What carries over is the order: EOs of 4 or less, then the skips, then 5-movers.
-- **A slice-EO skip is there on {= SKIP4('normal') =} of scrambles on normal, {= SKIP4('both') =} counting inverse.** That's exact, over all 70,963,200 arrangements of edge kinds and orientations, and it answers wen's question, where tseitsei89 had said ([[D19421]]): "I have no idea. But it seems to happen on most scrambles I would say." The skips clump, though: {= SKIP('both', 'avg') =} per scramble on average over both sides, yet {= SKIP('both', 0) =} of scrambles have none (6.1).
-- **Getting to a DR-2s 8fe is getting to a DR with the pieces renamed.** An 8fe is placed like a DR on one pair of faces in the colours of another pair: move every piece a quarter turn around the third axis, leave the centres, flip every edge, and it's a real DR. So (6.3):
-  - from a full EO, with moves that keep it, the distance to the 8fe has exactly the distribution of the distance to the DR over all {= f"{sum(EO8['8fe']):,}" =} positions, {= E8AVG() =} on average;
+- **A slice-EO skip is there on {= SKIP4('normal') =} of scrambles on normal, {= SKIP4('both') =} counting inverse.** That's exact, over all 70,963,200 arrangements of edge kinds and orientations, and it answers wen's question, where tseitsei89 had said ([[D19421]]): "I have no idea. But it seems to happen on most scrambles I would say." The skips clump, though: {= SKIP('both', 'avg') =} per scramble on average over both sides, yet {= SKIP('both', 0) =} of scrambles have none (6.1). ✓ Lean
+- **Getting to a DR-2s 8fe is getting to a DR with the pieces renamed.** An 8fe is placed like a DR on one pair of faces in the colours of another pair: move every piece a quarter turn around the third axis, leave the centers, flip every edge, and it's a real DR. So (6.3):
+  - from a full EO, with moves that keep it, the distance to the 8fe has exactly the distribution of the distance to the DR over all {= f"{sum(EO8['8fe']):,}" =} positions, {= E8AVG() =} on average (✓ Lean, position by position);
   - with any moves each 8fe is as far as a DR. A scramble has twelve 8fe targets against six DRs, which is why its shortest 8fe comes {= f2(float(NEARAVG('dr')) - float(NEARAVG('2s8fe'))) =} of a move before its shortest DR;
   - only the finish differs, +{= D8() =}.
 
   So a skip isn't how you get an 8fe. An oriented one leads to it only when the whole axis is oriented ({= SHR('eo-fb_2s8fe | A oriented') =} of them, and that's just a normal EO). A misoriented one on an axis with 8 bad edges is the one separate way in, {= SHM('eo-fb_2s8fe | A misoriented') =} moves on average.
-- **The whole trade in two numbers.** The shortest of each over {= NEARN() =} random scrambles (any moves, linear, three colours, normal and inverse), 6.4. Each row is a target; the number is the average length of the shortest one on a scramble:
+- **The whole trade in two numbers.** The shortest of each over {= NEARN() =} random scrambles (any moves, linear, three colours, normal and inverse; 6.4). Each row is a target; the number is the average length of the shortest one on a scramble:
 
   | Shortest on the scramble | Average length, moves |
   |---|---:|
@@ -136,13 +136,13 @@ First what nobody had before, each line with the sample and the move rule behind
   |---|---:|---:|---:|---:|---:|
   | layouts | {= FIX70(2) =} | {= FIX70(3) =} | {= FIX70(4) =} | {= FIX70(5) =} | {= FIX70(6) =} |
 
-  That's {= FIXSHARE(1, (5, 6)) =} needing 5 or 6, {= FIXAVG(1) =} on average. All 70 with a shortest fix and a scramble each are in Appendix A, the list Radek B asked for. Right after a trigger, DR-2s to DR-1s is free for {= STEP('DR-2s -> DR-1s (or better)', 'after_quarter_better', 0) =} of the {= STEPS['DR-2s -> DR-1s (or better)']['kinds'] =} kinds of DR-2s and costs 3 for the rest (4.2, 4.3).
+  That's {= FIXSHARE(1, (5, 6)) =} needing 5 or 6, {= FIXAVG(1) =} on average. All 70 with a shortest fix and a scramble each are in Appendix A, the list Radek B asked for. Right after a trigger, DR-2s to DR-1s is free for {= STEP('DR-2s -> DR-1s (or better)', 'after_quarter_better', 0) =} of the {= STEPS['DR-2s -> DR-1s (or better)']['kinds'] =} kinds of DR-2s and costs 3 for the rest (4.2, 4.3). ✓ Lean
 
 **What it confirms or corrects**, each worked out in the section named:
 
 - **trangium's averages hold.** trangium's nissy averages are 0.1 to 0.4 below my DR-1s numbers and a tenth or two below my 8fe ones on the subsets trangium measured; those are true optimals, which can leave the form. The tutorial's "8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR" holds, in odds too. Rodney's "+3/+4 penalty for -1/-2 slice" is a bit hard on the DR-1s, and tseitsei89's "in reality around 3 moves worse" is what it turns into when you don't get the best finish (5.3).
-- **DR-1s to DR.** Daichi's "6 moves max" is exact. Rodney's "basically flat", with 3 as the median, isn't: the distribution isn't flat and the typical fix isn't 3 (section 8). The EO Meta Comparison doc's "1 slice can be fixed in 3 moves" is {= f2(float(FIXAVG(1)) - 1 - 3) =} short on average with one slice turn cancelling, the way Rodney counts it, and {= f2(float(FIXAVG(1)) - 3) =} from the state alone (4.2). Simon's slice-DR table is four layouts off: {= SIMON() =}, not 1, 4, 9, 40, 16; the thirteen 4-turn layouts are at the end of Appendix A.
-- **Slice EOs.** For one given slice a slice EO is never more than 2 moves away, like FakeMMAP said, if all-misoriented counts; all-oriented only, it takes 3 moves {= SD('any axis, oriented only', 3) =} of the time. The 1 in 8 for a slice and an axis (tseitsei89, count quackula) is right (6.1).
+- **DR-1s to DR.** Daichi's "6 moves max" is exact. Rodney's "basically flat", with 3 as the median, isn't: the distribution isn't flat and the typical fix isn't 3 (section 8). The EO Meta Comparison doc's "1 slice can be fixed in 3 moves" is {= f2(float(FIXAVG(1)) - 1 - 3) =} short on average with one slice turn cancelling, the way Rodney counts it, and {= f2(float(FIXAVG(1)) - 3) =} from the state alone (4.2). Simon's slice-DR table is four layouts off: {= SIMON() =}, not 1, 4, 9, 40, 16; the thirteen 4-turn layouts are at the end of Appendix A. ✓ Lean
+- **Slice EOs.** For one given slice a slice EO is never more than 2 moves away, like FakeMMAP said, if all-misoriented counts; all-oriented only, it takes 3 moves {= SD('any axis, oriented only', 3) =} of the time. The 1 in 8 for a slice and an axis (tseitsei89, count quackula) is right (6.1). ✓ Lean
 - **Which skips can give a DR-1s at all**, as long as you keep that axis's EO, is a clean rule (6.2):
   - oriented, on an axis that isn't the slice's own: always;
   - misoriented on such an axis: only if that axis has exactly 8 bad edges, trangium's "MUST have 8 bad", which is {= SHR('eo-fb_1s | A misoriented') =} of them (70 in 128, Rodney's "55%");
@@ -399,7 +399,7 @@ And how often it's within that many moves, same rows:
 
 ### 6.3 To a DR-2s 8fe: the same problem as a DR
 
-**Getting to a DR-2s 8fe is getting to a DR with the pieces renamed.** An 8fe has its corners and slice edges placed like a DR on one pair of faces, in the colours of another pair. Move every piece a quarter turn around the third axis, leave the centres where they are, and flip every edge in its place: the 8fe turns into a real DR. Do that to any position, rename the faces of a move sequence by the same quarter turn, and reaching the 8fe turns into reaching the DR. Edges that are good for the third axis stay good, so an EO on that axis carries over too. Counted over every position with a full EO, with moves that keep it. Each row is a distance, and the two columns count the positions that far from the real DR and from the 8fe:
+**Getting to a DR-2s 8fe is getting to a DR with the pieces renamed.** An 8fe has its corners and slice edges placed like a DR on one pair of faces, in the colours of another pair. Move every piece a quarter turn around the third axis, leave the centers where they are, and flip every edge in its place: the 8fe turns into a real DR. Do that to any position, rename the faces of a move sequence by the same quarter turn, and reaching the 8fe turns into reaching the DR. Edges that are good for the third axis stay good, so an EO on that axis carries over too. Counted over every position with a full EO, with moves that keep it. Each row is a distance, and the two columns count the positions that far from the real DR and from the 8fe:
 
 {{eo_to_8fe}}
 
@@ -453,26 +453,26 @@ Everything said that a computer can settle, and what the numbers say. Wherever s
 
 | Claim | Who | Verdict |
 |---|---|---|
-| DR-1s to DR is 6 moves at most, no 7 | Daichi, [[T12406]], [[T12408]] | **True.** Exactly 2 to 6 turns over the 70 layouts (4.2). A 6: `{= W6() =}` gives a DR-1s whose shortest fix is 6 turns. |
-| The DR-1s to DR distribution is "basically flat", 3 moves is the median | Rodney, [[T12409]], [[T12410]] | **No.** 1, 2, 9, 30, 28 of 70 for 2 to 6 turns. Rodney's 3 is one half turn, one quarter turn and the slice with one of its two turns cancelling; counted that way the median layout is 4, and 5 from scratch. |
-| "DR-2s needs at most 2 moves to reach DR-1s" | Rodney, [[T12409]] | **True** for the setup: 0, 1 or 2 moves, then the slice (4.3). |
-| From DR-3s you get DR-2s in 0 moves with a slice that cancels with the last DR move | tseitsei89's tutorial | **True** for all {= NK(3) =} kinds of DR-3s. |
-| The rule for the number of slices from centers and flipped edges | trangium's dr-fe examples doc, Rodney [[T10661]], the tutorial | **True**, all 768 kinds (section 3). |
+| DR-1s to DR is 6 moves at most, no 7 | Daichi, [[T12406]], [[T12408]] | **True.** Exactly 2 to 6 turns over the 70 layouts (4.2). A 6: `{= W6() =}` gives a DR-1s whose shortest fix is 6 turns. ✓ Lean |
+| The DR-1s to DR distribution is "basically flat", 3 moves is the median | Rodney, [[T12409]], [[T12410]] | **No.** 1, 2, 9, 30, 28 of 70 for 2 to 6 turns. Rodney's 3 is one half turn, one quarter turn and the slice with one of its two turns cancelling; counted that way the median layout is 4, and 5 from scratch. ✓ Lean |
+| "DR-2s needs at most 2 moves to reach DR-1s" | Rodney, [[T12409]] | **True** for the setup: 0, 1 or 2 moves, then the slice (4.3). ✓ Lean |
+| From DR-3s you get DR-2s in 0 moves with a slice that cancels with the last DR move | tseitsei89's tutorial | **True** for all {= NK(3) =} kinds of DR-3s. ✓ Lean |
+| The rule for the number of slices from centers and flipped edges | trangium's dr-fe examples doc, Rodney [[T10661]], the tutorial | **True**, all 768 kinds (section 3). ✓ Lean |
 | "1 slice can be fixed in 3 moves, and 2 slices can be fixed in 5 moves" | EO Meta Comparison doc (an assumption, stated as one) | As move counts to a real DR, about a move short with one slice turn cancelling, as Rodney counts the 3 ({= f2(float(FIXAVG(1)) - 1) =} and {= f2(float(FIXAVG(2)) - 1) =} on average), and about 2 short from the state alone ({= FIXAVG(1) =} and {= FIXAVG(2) =}). As finish penalties, 3 is a little high for a DR-1s (+{= D1() =}) and 5 much too high for a DR-2s 8fe (+{= D8() =}). |
 | "UD colors on the RL faces will result in 8 flipped edges, which can be fixed with U\* D\* R\* L\*, with a guaranteed -2 cancellation", "This effectively adds +2 to the moves to reach DR" | EO Meta Comparison doc, Off-Axis DR | **True** as moves to DR. Counted as finish length the 8-flipped case costs less: a DR-2s 8fe finishes {= D8() =} longer than a DR, so the off-axis table, which charges the full +2, undersells that case by about a move. |
 | A DR-1s finish is about 2.2 to 2.4 longer than a DR's on optimal; a DR-2s 8fe about 1 | trangium, in the tutorial and [[T10847]], [[T11138]] | **Consistent.** trangium's are optimals. With the best finish of the method's form, on {= N1() =} and {= N8() =} states: +{= D1() =} and +{= D8() =}, 0.1 to 0.4 above trangium's by subset. |
 | "8 move DR-1s is on average better than an 11 move DR but worse than 10 move DR" | the tutorial | **Holds** with these finishes: at +{= D1() =} an 8-move DR-1s is {= f2(float(D1()) - 2) =} behind a 10-move DR and {= f2(3 - float(D1())) =} ahead of an 11 (5.3). |
 | 3-1 is bad, 2-2 is good, 4-0 is great | Rodney [[T10832]], tseitsei89 [[T10822]] | **Right order, small effect** except for one case: {= SPLIT('3-1') =}, {= SPLIT('2-2') =}, {= SPLIT('4-0') =} average finish, and the 4-0 is only good when the slice is the one that fixes (5.4). |
 | An extra-good DR-1s is "just 1-2 moves worse than full DR" | Rodney, [[T11232]] | **On average**, +{= f2(float(SPLIT('4-0')) - float(AD())) =}: +{= BETTER(2, 'diff') =} when the four are in the slice that fixes, +{= OTHER4('diff') =} when they are in the other one. |
-| Slice EO for a given slice "is never more than 2 moves away"; "partial EO in <=2 is guaranteed" | FakeMMAP, [[T10773]]; EO Meta Comparison doc | **True**, exactly, counting all-misoriented as a slice EO (6.1). |
-| A slice-EO skip for one slice and axis has chance 1 in 8 | tseitsei89, count quackula, [[D19427]] | **True.** And at least one on a scramble: {= SKIP4('normal') =} on normal, {= SKIP4('both') =} with inverse. |
+| Slice EO for a given slice "is never more than 2 moves away"; "partial EO in <=2 is guaranteed" | FakeMMAP, [[T10773]]; EO Meta Comparison doc | **True**, exactly, counting all-misoriented as a slice EO (6.1). ✓ Lean |
+| A slice-EO skip for one slice and axis has chance 1 in 8 | tseitsei89, count quackula, [[D19427]] | **True.** And at least one on a scramble: {= SKIP4('normal') =} on normal, {= SKIP4('both') =} with inverse. ✓ Lean |
 | A misoriented slice EO gives a DR-1s only on an axis with 8 bad edges | tseitsei89 [[T11009]], trangium [[T11357]] | **True** for routes that keep the axis's EO, and {= SHR('eo-fb_1s | A misoriented') =} of misoriented skips qualify (6.2). |
 | "The chance of getting 4 flipped edges in general is 55%" | Rodney, [[T11566]] | **True**: 70 in 128. |
 | The optimal linear dr-fe distribution 1, 4, 50, 586, … | trangium, [[T11332]] | **Reproduced exactly.** |
 | "almost always a linear 7-mover on some axis and side, around half the time a 6-mover, and pretty much never a 5-mover" | trangium, [[T10696]] | **Right for 7 and 6**: {= NEAR('xs', 7) =} of scrambles have a 7, {= NEAR('xs', 6) =} a 6. A 5 or shorter is there on {= NEAR('xs', 5) =}, one scramble in {= f'{100 / float(NEAR("xs", 5).rstrip("%")):.0f}' =} (6.4). |
-| Six edge-orientation patterns that guarantee an extra-good DR-xs | Rodney, [[T11232]] | **Five of six.** "All edges misoriented (12 bad) -> FB on UD will be extra-good -1s" is not a DR-1s: it is a DR-2s with four flipped edges of one slice. {= W12() =} trangium's fix ([[T11234]]), "FB-colored misoriented, others oriented", is right. count quackula's 12-bad notes already had it: "If the CO color is green/blue: This is a DR-2s 4fe." |
+| Six edge-orientation patterns that guarantee an extra-good DR-xs | Rodney, [[T11232]] | **Five of six.** "All edges misoriented (12 bad) -> FB on UD will be extra-good -1s" is not a DR-1s: it is a DR-2s with four flipped edges of one slice. {= W12() =} trangium's fix ([[T11234]]), "FB-colored misoriented, others oriented", is right. count quackula's 12-bad notes already had it: "If the CO color is green/blue: This is a DR-2s 4fe." (the 12-bad example ✓ Lean) |
 | The cases with a fix to DR guaranteed in net +4 or less | count quackula's guaranteed-fix doc and 12-bad notes | **All consistent** with Appendix B, case by case. |
-| Step 3 of the slice-DR method: 1, 4, 9, 40, 16 cases of 70 at 2 to 6 moves | Simon's slice-DR doc | **Four cases off**: {= SIMON() =} (4.2, Appendix A). |
+| Step 3 of the slice-DR method: 1, 4, 9, 40, 16 cases of 70 at 2 to 6 moves | Simon's slice-DR doc | **Four cases off**: {= SIMON() =} (4.2, Appendix A). ✓ Lean |
 
 ---
 
@@ -484,7 +484,7 @@ Everything said that a computer can settle, and what the numbers say. Wherever s
 - **NISS inside the route, and EO-changing moves.** A slice EO is taken on normal or on inverse, and the route to the DR-xs stays on that side and keeps that axis's EO. The finish uses both sides. So the counts of section 7 are a floor on what's there.
 - **Normal DRs through an EO longer than 5 moves.** The normal-DR lists of section 7 come from cubelib-cli, which lists no EO longer than 5.
 - **EO-breaking triggers and the EO-shifting ideas** from the EO-free trigger doc. The route rule here keeps the EO of one axis; 6.2 shows what dropping that rule could gain at most.
-- **Time.** Section 7 counts what there is to find and to finish. How long a check takes is up to the people who do them; the times people have posted are in section 7.
+- **Time.** Section 7 counts what there is to find and to finish. How long a check takes is up to the people who do them; the times people have posted are in 7.6.
 
 ---
 

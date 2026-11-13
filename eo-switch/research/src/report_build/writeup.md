@@ -30,6 +30,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 - **Start with [section 1](#1-the-short-version)**, the short version: what is new, then what it confirms or corrects. If you read one thing after it, make it the switch cards in [section 4](#4-the-switch-cards-drm-by-drm).
 - **The [worked examples](examples.html)** go with it: 200 real attempts from random scrambles, each with what you'd trace on normal, the verdict, and the optimal DR after the switch, answers folded away. **The [errata](errata.html)** list what the numbers show is wrong in things said on the server, each with an example.
 - **Sections 6 to 11** are the details behind section 1. Anything marked **computer only** is an answer key, not advice: it can't be checked at the table.
+- **✓ after a number: proved in Lean**, recounted on a Lean model of the cube, not only computed. [Appendix B](#appendix-b-how-it-was-computed-and-what-checks-it) lists what is proved and what is only computed.
 
 ---
 

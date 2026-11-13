@@ -34,7 +34,48 @@ local function width_class(n)
   return "c-xl"
 end
 
+-- An empty cell after the first filled cell of its row shows a dash, so a blank never reads as a lost
+-- value.  Empty cells at the start of a row stay blank: they continue the group of the row above.
+-- Every dash is reported on stderr, one line per table (a warning, the build goes on): a dash can also hide a
+-- value a writer lost, so check each new one against the writer of its table.
+local source_name = (PANDOC_STATE and PANDOC_STATE.input_files and PANDOC_STATE.input_files[1]) or "?"
+local function short(s, n)
+  s = s:gsub("%s+", " ")
+  if pandoc.text.len(s) > n then return pandoc.text.sub(s, 1, n - 1) .. "…" end   -- by characters, not bytes
+  return s
+end
+local function dash_empty_cells(t)
+  local header = {}
+  for _, row in ipairs(t.head.rows) do
+    for i, cell in ipairs(row.cells) do header[i] = pandoc.utils.stringify(cell.contents) end
+  end
+  local dashed = {}
+  for _, body in ipairs(t.bodies) do
+    for _, row in ipairs(body.body) do
+      local seen = false
+      local first = nil
+      for i, cell in ipairs(row.cells) do
+        local text = pandoc.utils.stringify(cell.contents)
+        if text:match("^%s*$") then
+          if seen then
+            cell.contents = { pandoc.Plain({ pandoc.Str("–") }) }
+            dashed[#dashed + 1] = "[" .. short(first, 40) .. " / " .. short(header[i] or "?", 30) .. "]"
+          end
+        else
+          if not seen then first = text end
+          seen = true
+        end
+      end
+    end
+  end
+  if #dashed > 0 then
+    io.stderr:write(string.format("tables.lua: warning: %s: %d dash%s in empty cells of table [%s]: %s\n",
+      source_name, #dashed, #dashed == 1 and "" or "es", short(table.concat(header, " | "), 80), table.concat(dashed, " ")))
+  end
+end
+
 function Table(t)
+  dash_empty_cells(t)
   local longest = {}
   for _, body in ipairs(t.bodies) do
     for _, row in ipairs(body.body) do

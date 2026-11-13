@@ -17,7 +17,7 @@ Every scramble and move sequence below was replayed on a sticker-level cube. Eac
 
 Over all DRs the better of X and X·R2 is 0.325 moves shorter on average: X·R2 is one move shorter on 32.5% of DRs and never more than one, so the gain is about 1/3 of a move, twice the estimate. Yura Riabov called the estimate "very rough" and said "i doubt it will be more than a half move difference with 1 move inverted" ([6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372741602545674)); that ceiling holds. The first study had the exact third.
 
-Example. Think of the first line as the end of a DR on U/D whose last move was a quarter turn of R (say R). Turning that move the other way (R') gives the same state followed by R2, the second line:
+Example. Think of the first line as the end of a DR on U/D whose last move was the quarter turn R. Turning that move the other way (R') gives the same state followed by R2, the second line:
 
 ```
 R2 D R2 F2 R2 D L2 D B2 R2 D2 B2 U // 4b2 2e, optimal 13
@@ -67,7 +67,7 @@ Evan named exceptions in the same thread ("the b side of 4c3", "4c4 and 0c4 ofc 
 | Switch needed after | 2c3 | 4b2 | 2c4 | 2c5 |
 |---|---|---|---|---|
 | more than 2 moves | 17.9% | 16.1% | 24.1% | 43.5% |
-| 4 or more moves | 5.5% | 4.9% | | |
+| 4 or more moves | 5.5% | 4.9% | 8.7% | 23.5% |
 
 Yura Riabov added "i almost never do this but i think it is useful" and "i really don't like switching after more than 2 moves or for badish cases, which is why i'm worse at finishes than i could be" ([3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368162064148725770), [3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368162218579071158)).
 
@@ -90,8 +90,8 @@ Just before, Levi Gibson wrote "for the 4a2 subset I use full DR Bounding" ([28 
 |---|---|---|---|
 | 4a2 | 76.6% | 93.6% | 207 |
 | 2c3 | 48.1% | 78.8% | 140 |
-| 2c3 2e | 52.1% | | |
-| 2c3 4e | 46.2% | | |
+| 2c3 2e | 52.1% | 80.2% | 146 |
+| 2c3 4e | 46.2% | 77.3% | 138 |
 
 On 4a2 the 75% holds, but "+1 the rest of the time" doesn't. On 2c3 both fall short. On 2c3 2e and 4e Levi Gibson adds triggers: "For 2c3 2e and 4e I do full DR Bounding + checking the 5-move triggers, and that seems to catch everything" ([28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311674286389334026)). The triggers aren't measured here, so this corrects the share for bounding alone. Levi Gibson's later answer to "Would it be around 80 percent?" for 2c3 was a guess ("yeah something like that I'd guess", [29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051081831780434)), with the advice to check "a bunch of half turns into a 5-move trigger" as well ([29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051209158525018)).
 

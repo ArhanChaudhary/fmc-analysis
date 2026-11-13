@@ -77,7 +77,7 @@ Here's every second spot plus both ends, and every third spot plus both ends, ag
   ```
 
   The misses of an 8-3 or better are different. Every one of them sits next to two moves on opposite faces (`R L`, `U D'`), {= SKIPNEAR(20) =} at 20 moves: there a full cancel reaches across the pair, and the shifted alg lands two spots over, not one. The tutorial's footnote covers it: "when in a skeleton there are two consecutive parallel layers moves try swapping them too see if this gives better insertions". So check every other move, and both sides of a parallel pair. (Of all the misses, the 8-2s and worse included, {= SKIPALL(20) =} are next to such a pair.)
-- **What you miss is small**: when the best is 8-3 or better, the misses are 8-3s and a few 8-4s (fifth column). Nothing better than an {= SKIPWORST() =} was missed on any of {= SKIPTOTAL() =} skeletons.
+- **What you miss is small**: when the best is 8-3 or better, the misses are 8-3s and a few 8-4s (fifth and sixth columns). Nothing better than an {= SKIPWORST() =} was missed on any of {= SKIPTOTAL() =} skeletons.
 - notkevin's next line ([[N4773]]) is about two comms, which this table does not test: "(aka, the worst insertions you can miss with this without the second comm nesting is -4, where both comms only partially cancel on both sides)".
 - **Every third move doesn't work.** With a best of 8-3 or better, every third spot and both ends finds it only {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every third move finds it') =} of the time.
 
@@ -104,9 +104,9 @@ And one where every third spot misses it:
   | After a spot whose case needs a 10-mover, 20-move skeletons | Share | How many | Out of |
   |---|---:|---:|---:|
   | the spot two further on holds an 8-3 or better (spots) | {= TSP(20, 'two', 'ten') =} | {= TS(20, 'two') =} | {= TS(20, 'ten') =} |
-  | the spot right after it holds one (spots) | {= TSP(20, 'next', 'ten') =} | | |
-  | walking a 20-move skeleton that way misses a best of 8-3 or better (walks) | {= TSP(20, 'rule_miss', 'walks') =} | | |
-  | plain every other move misses it (walks) | {= TSP(20, 'plain_miss', 'walks') =} | | |
+  | the spot right after it holds one (spots) | {= TSP(20, 'next', 'ten') =} | {= TS(20, 'next') =} | {= TS(20, 'ten') =} |
+  | walking a 20-move skeleton that way misses a best of 8-3 or better (walks) | {= TSP(20, 'rule_miss', 'walks') =} | {= TS(20, 'rule_miss') =} | {= TS(20, 'walks') =} |
+  | plain every other move misses it (walks) | {= TSP(20, 'plain_miss', 'walks') =} | {= TS(20, 'plain_miss') =} | {= TS(20, 'walks') =} |
 
 - **By cases, exactly.** {= FACT('ten_cases') =} of the {= STATES('3c') =} corner 3-cycles have a shortest alg of 10 moves.
   - One move on: for {= FACT('ten_cases_no8_after_one_move') =} of them no single move leads to a case with an 8-mover; for the other {= FACT('ten_cases_8_after_some_move') =}, {= FACT('ten_cases_moves_with_8')[0] =} of the 18 moves do.

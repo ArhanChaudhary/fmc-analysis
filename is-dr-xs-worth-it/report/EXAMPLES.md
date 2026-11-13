@@ -12,7 +12,7 @@ R' U' F U R F B' U2 F' L2 U B2 L' F' R2 D2 F' R2 F B' L2 U' R' U' F // scramble
 
 - **Slice-EO skips.** The tutorial lists two on normal and three on inverse. The count here: 2 on normal (E on F/B oriented, S on F/B oriented) and 3 on inverse (E on F/B oriented, M on U/D misoriented, M on F/B oriented).
 - **`(R' D2 L U L)`**, the tutorial's "DR-2s in 5 moves": 2 slices, 2 flipped, 7 turns to DR. Two flipped edges with the centers right is a DR-2s by the table in section 3 of the write-up.
-- **`(L' R)`** on top, which cancels to `(R' D2 L U R)`, the tutorial's "4a2-1s in 5": 1 slices, 4 flipped, 5 turns to DR. The tutorial says "The shortest possible setups for edges are 5 moves", which is the same count.
+- **`(L' R)`** on top, which cancels to `(R' D2 L U R)`, the tutorial's "4a2-1s in 5": 1 slice, 4 flipped, 5 turns to DR. The tutorial says "The shortest possible setups for edges are 5 moves", which is the same count.
 - **The finish.** The best finish of the form setup, slice, DR finish from that DR-1s is 15 moves, and its first move cancels with the last move of the route. Written out for the scramble:
 
   ```
@@ -355,7 +355,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `B U R2 D' L2 F' U2 D'` | 8 | DR-1s | skip: M slice on R/L, oriented | 4a4 | 6 |
 | 6 | `B' D B2 U D2 L2 F' D'` | 8 | DR-1s | skip: M slice on R/L, oriented | 2c4 | 4 |
 
-Shown: 6 of the 24 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
+Shown: 6 of the 24 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
 
 <details>
 <summary>Answers for scramble 8</summary>
@@ -394,7 +394,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `(F U R D' L2 R F2 D')` | 8 | DR-1s | one-move slice EO: M slice on F/B, oriented | 4b4 | 5 |
 | 6 | `(F U' D2 L D' L' F2 U)` | 8 | DR-1s | one-move slice EO: M slice on F/B, oriented | 4b4 | 4 |
 
-Shown: 6 of the 34 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 34 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 9</summary>
@@ -433,7 +433,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `(U' L2 D2 L2 B' U2 B2 R)` | 8 | DR-1s | one-move slice EO: E slice on U/D, oriented | 4b4 | 6 |
 | 6 | `(U' L2 D2 L2 B' U2 B2 R')` | 8 | DR-1s | one-move slice EO: E slice on U/D, oriented | 4b4 | 5 |
 
-Shown: 6 of the 6 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
+Shown: 6 of the 6 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
 
 <details>
 <summary>Answers for scramble 10</summary>
@@ -472,7 +472,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `D' F2 U2 F' L U2 R F'` | 8 | DR-1s | one-move slice EO: S slice on U/D, oriented | 4b5 | 6 |
 | 6 | `(B L' U2 F2 U' R2 F2 L)` | 8 | DR-1s | one-move slice EO: E slice on F/B, oriented | 4a2 | 6 |
 
-Shown: 6 of the 20 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
+Shown: 6 of the 20 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
 
 <details>
 <summary>Answers for scramble 11</summary>
@@ -511,7 +511,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `L U' L2 U' B U L2 F` | 8 | DR-1s | one-move slice EO: E slice on R/L, oriented | 4b4 | 5 |
 | 6 | `L R2 B U2 B' L2 D' B` | 8 | DR-1s | one-move slice EO: E slice on R/L, oriented | 4b5 | 5 |
 
-Shown: 6 of the 14 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
+Shown: 6 of the 14 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
 
 <details>
 <summary>Answers for scramble 12</summary>
@@ -599,7 +599,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 1 | `U' B2 U2 R' B' L2 B' R` | 8 | DR-1s | one-move slice EO: S slice on U/D, oriented | 4b2 | 4 |
 | 2 | `U' B2 U2 R' B' L2 B' R'` | 8 | DR-1s | one-move slice EO: S slice on U/D, oriented | 4b2 | 5 |
 
-Shown: 2 of the 2 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
+Shown: 2 of the 2 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
 
 <details>
 <summary>Answers for scramble 15</summary>
@@ -630,7 +630,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 1 | `F' U L2 B D2 F' U' B` | 8 | DR-1s | skip: S slice on R/L, oriented | 2c3 | 5 |
 | 2 | `F' U L2 B D2 F' U' B'` | 8 | DR-1s | skip: S slice on R/L, oriented | 2c3 | 6 |
 
-Shown: 2 of the 2 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
+Shown: 2 of the 2 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
 
 <details>
 <summary>Answers for scramble 16</summary>
@@ -814,7 +814,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `(B U' D2 R D2 L' D')` | 7 | DR-1s | one-move slice EO: E slice on F/B, oriented | 0c4 | 6 |
 | 6 | `(B' L' D L' U F2 L')` | 7 | DR-1s | one-move slice EO: E slice on F/B, oriented | 2c3 | 3 |
 
-Shown: 6 of the 36 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 36 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 22</summary>
@@ -853,7 +853,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `(L R2 F2 U F U2 L2 U)` | 8 | DR-1s | one-move slice EO: E slice on R/L, oriented | 2c5 | 5 |
 | 6 | `(L R2 F' D' B2 D2 F' D')` | 8 | DR-1s | one-move slice EO: E slice on R/L, oriented | 4b2 | 4 |
 
-Shown: 6 of the 8 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 8 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 23</summary>
@@ -892,7 +892,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `(L2 U R2 U' R' D F2 R')` | 8 | DR-1s | skip: M slice on F/B, misoriented | 4a4 | 6 |
 | 6 | `(L2 U R2 U' R' D F2 R)` | 8 | DR-1s | skip: M slice on F/B, misoriented | 4a4 | 6 |
 
-Shown: 6 of the 10 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 10 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 24</summary>
@@ -1066,7 +1066,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 1 | `(D2 U2 B R F U2 B' L)` | 8 | DR-1s | skip: S slice on U/D, oriented | 2c4 | 6 |
 | 2 | `(D2 U2 B R F U2 B' L')` | 8 | DR-1s | skip: S slice on U/D, oriented | 2c4 | 5 |
 
-Shown: 2 of the 2 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
+Shown: 2 of the 2 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
 
 <details>
 <summary>Answers for scramble 29</summary>
@@ -1097,7 +1097,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 1 | `(F L' B R B D2 F L')` | 8 | DR-1s | skip: S slice on U/D, oriented | 4b5 | 5 |
 | 2 | `(F L' B R B D2 F L)` | 8 | DR-1s | skip: S slice on U/D, oriented | 4b5 | 5 |
 
-Shown: 2 of the 2 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
+Shown: 2 of the 2 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
 
 <details>
 <summary>Answers for scramble 30</summary>
@@ -1109,7 +1109,7 @@ Each row is the route with the same number above: the best finish of the method'
 | 1 | 17 | `F2 U2 B D2 R L U' F2 U L2 D B2 R2 U2 L2 D R2 L F' D2 B' R' B' L F'` | 25 |
 | 2 | 16 | `B U2 F2 D2 B' U2 B' U2 R' L' D2 B2 R2 U B2 D' L' F' D2 B' R' B' L F'` | 24 |
 
-Best of these: **24**, shorter than every normal DR of 10 or less gives. Normal DRs on this scramble: 25 through one of 10 or less, 22 through 11 or less, 20 through 12 or less.
+Best of these: **24**, shorter than anything a normal DR of 10 or less gives. Normal DRs on this scramble: 25 through one of 10 or less, 22 through 11 or less, 20 through 12 or less.
 
 </details>
 
@@ -1132,7 +1132,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `F B D B' D' B D` | 7 | DR-1s | skip: S slice on R/L, oriented | 2c4 | 5 |
 | 6 | `B D B' D F B D` | 7 | DR-1s | skip: S slice on R/L, oriented | 2c4 | 3 |
 
-Shown: 6 of the 102 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 102 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 31</summary>
@@ -1171,7 +1171,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `R D' L2 D B R2 L2 F` | 8 | DR-1s | one-move slice EO: S slice on R/L, oriented | 4b4 | 5 |
 | 6 | `R D' L2 D F U2 D2 B'` | 8 | DR-1s | one-move slice EO: S slice on R/L, oriented | 4b4 | 4 |
 
-Shown: 6 of the 8 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 8 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 32</summary>
@@ -1251,7 +1251,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 3 | `(D' U2 R' U2 F R2 L B')` | 8 | DR-1s | one-move slice EO: E slice on U/D, oriented | 4a3 | 4 |
 | 4 | `(D' U2 R' U2 F R2 L B)` | 8 | DR-1s | one-move slice EO: E slice on U/D, oriented | 4a3 | 5 |
 
-Shown: 4 of the 4 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 4 of the 4 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 34</summary>
@@ -1288,7 +1288,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `(L' R' F' R B' L' F2 L)` | 8 | DR-1s | skip: M slice on U/D, misoriented | 4b4 | 6 |
 | 6 | `(L' R' F' R B' L' F2 L')` | 8 | DR-1s | skip: M slice on U/D, misoriented | 4b4 | 5 |
 
-Shown: 6 of the 6 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 6 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 35</summary>
@@ -1419,7 +1419,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 1 | `(L' D' B' U L' F' B R B')` | 9 | DR-2s 8fe | EO on U/D | 2c3 | 4 |
 | 2 | `(L' D' B' U L' F' B R B)` | 9 | DR-2s 8fe | EO on U/D | 2c3 | 4 |
 
-Shown: 0 of the 0 DR-1s of 8 or less and 2 of the 2 DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
+Shown: no DR-1s of 8 or less and 2 of the 2 DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
 
 <details>
 <summary>Answers for scramble 39</summary>
@@ -1497,7 +1497,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `(U' B' F2 U2 L' B' L' B)` | 8 | DR-1s | one-move slice EO: M slice on U/D, oriented | 2c3 | 5 |
 | 6 | `(F' F2 R2 F2 R2 U2 R D')` | 8 | DR-1s | one-move slice EO: M slice on F/B, oriented | 2c4 | 6 |
 
-Shown: 6 of the 26 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 26 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 41</summary>
@@ -1847,7 +1847,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `(F R2 B R2 L' F' B L')` | 8 | DR-1s | skip: S slice on U/D, oriented | 2c4 | 6 |
 | 6 | `(R' B U2 F R' F D2 F')` | 8 | DR-1s | skip: S slice on U/D, oriented | 4b2 | 6 |
 
-Shown: 6 of the 16 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
+Shown: 6 of the 16 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
 
 <details>
 <summary>Answers for scramble 50</summary>
@@ -1882,7 +1882,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 1 | `(F2 U' L' F' R' F2 L2 U' L)` | 9 | DR-2s 8fe | EO on F/B | 4a2 | 4 |
 | 2 | `(F2 U' L' F' R' F2 L2 U' L')` | 9 | DR-2s 8fe | EO on F/B | 4a2 | 4 |
 
-Shown: 0 of the 0 DR-1s of 8 or less and 2 of the 2 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: no DR-1s of 8 or less and 2 of the 2 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 51</summary>
@@ -1917,7 +1917,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `F2 B2 U2 L2 F' D' F` | 7 | DR-1s | skip: S slice on R/L, oriented | 4a4 | 5 |
 | 6 | `D2 F' U' B U F B` | 7 | DR-1s | skip: S slice on R/L, oriented | 4b3 | 6 |
 
-Shown: 6 of the 673 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
+Shown: 6 of the 673 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
 
 <details>
 <summary>Answers for scramble 52</summary>
@@ -1999,7 +1999,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `(U' F R2 B' L2 B2 L F)` | 8 | DR-1s | one-move slice EO: M slice on U/D, oriented | 2c4 | 5 |
 | 6 | `R2 D R2 B D' F' L2 U'` | 8 | DR-1s | skip: E slice on R/L, oriented | 4a4 | 5 |
 
-Shown: 6 of the 6 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 6 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 54</summary>
@@ -2175,7 +2175,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 3 | `(F' U' F2 U' B2 L2 R' U')` | 8 | DR-1s | one-move slice EO: M slice on F/B, oriented | 4a1 | 6 |
 | 4 | `(F' D' L2 D' F2 L' R2 U')` | 8 | DR-1s | one-move slice EO: M slice on F/B, oriented | 4a1 | 6 |
 
-Shown: 4 of the 4 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
+Shown: 4 of the 4 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
 
 <details>
 <summary>Answers for scramble 59</summary>
@@ -2189,7 +2189,7 @@ Each row is the route with the same number above: the best finish of the method'
 | 3 | 15 | `U2 F2 L' F2 R' F2 D2 F2 L2 U D' F U2 L2 F2 U R L2 B2 U F2 U F` | 23 |
 | 4 | 14 | `D2 R U2 D2 L' F2 R L U' D B L2 D2 F2 U R2 L F2 D L2 D F` | 22 |
 
-Best of these: **22**, shorter than every normal DR of 10 or less gives. Normal DRs on this scramble: 23 through one of 10 or less, 19 through 11 or less, 19 through 12 or less.
+Best of these: **22**, shorter than anything a normal DR of 10 or less gives. Normal DRs on this scramble: 23 through one of 10 or less, 19 through 11 or less, 19 through 12 or less.
 
 </details>
 
@@ -2292,7 +2292,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 3 | `R' L2 F2 U' B D' F2 U` | 8 | DR-1s | one-move slice EO: E slice on R/L, misoriented | 2c5 | 5 |
 | 4 | `R' L2 F2 U' B D' F2 U'` | 8 | DR-1s | one-move slice EO: E slice on R/L, misoriented | 2c5 | 6 |
 
-Shown: 4 of the 4 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
+Shown: 4 of the 4 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
 
 <details>
 <summary>Answers for scramble 62</summary>
@@ -2540,7 +2540,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `B' L' D2 L' F2 R D` | 7 | DR-1s | one-move slice EO: E slice on F/B, misoriented | 2c5 | 6 |
 | 6 | `(F2 L' D2 R2 U D2 R')` | 7 | DR-1s | skip: E slice on F/B, oriented | 4b5 | 5 |
 
-Shown: 6 of the 76 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
+Shown: 6 of the 76 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
 
 <details>
 <summary>Answers for scramble 68</summary>
@@ -2880,7 +2880,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `(L R2 U' F D B' F' U)` | 8 | DR-1s | one-move slice EO: E slice on R/L, misoriented | 2c4 | 6 |
 | 6 | `(L' D B U B L2 B D)` | 8 | DR-1s | one-move slice EO: E slice on R/L, misoriented | 4a2 | 5 |
 
-Shown: 6 of the 8 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 8 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 76</summary>
@@ -2919,7 +2919,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `F2 R F' L2 U2 F R'` | 7 | DR-1s | skip: S slice on U/D, oriented | 4b2 | 5 |
 | 6 | `(B R' U F2 D L' D')` | 7 | DR-1s | one-move slice EO: E slice on F/B, oriented | 4a2 | 6 |
 
-Shown: 6 of the 164 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 164 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 77</summary>
@@ -2958,7 +2958,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `U' R F' R2 D2 B L2 F'` | 8 | DR-1s | one-move slice EO: M slice on U/D, oriented | 4a4 | 5 |
 | 6 | `U' R F' R2 D2 F U2 B'` | 8 | DR-1s | one-move slice EO: M slice on U/D, oriented | 4a4 | 6 |
 
-Shown: 6 of the 7 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 7 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 78</summary>
@@ -2997,7 +2997,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `L F R' F2 B U2 F' L` | 8 | DR-1s | skip: S slice on U/D, oriented | 2c3 | 6 |
 | 6 | `B L2 D2 B R L2 F2 B'` | 8 | DR-1s | skip: S slice on U/D, oriented | 2c5 | 5 |
 
-Shown: 6 of the 10 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 10 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 79</summary>
@@ -3165,7 +3165,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `B' L' B2 L2 U' R2 B2 D` | 8 | DR-1s | one-move slice EO: S slice on F/B, oriented | 0c3 | 6 |
 | 6 | `B' L' B2 R2 U' F2 L2 U` | 8 | DR-1s | one-move slice EO: S slice on F/B, oriented | 0c3 | 4 |
 
-Shown: 6 of the 32 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 32 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 83</summary>
@@ -3204,7 +3204,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `L D2 R B L' B' L' B'` | 8 | DR-1s | skip: S slice on U/D, misoriented | 0c4 | 6 |
 | 6 | `B2 R L' B R F L2 F'` | 8 | DR-1s | skip: S slice on U/D, misoriented | 2c3 | 5 |
 
-Shown: 6 of the 8 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
+Shown: 6 of the 8 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
 
 <details>
 <summary>Answers for scramble 84</summary>
@@ -3349,7 +3349,7 @@ Each row is the route with the same number above: the best finish of the method'
 | 7 | 16 | `D2 L U' D R' L' F2 U R2 D2 B2 D' R2 B2 D R2 B' L' F R' U2 F' L B2 D'` | 25 |
 | 8 | 16 | `L' U2 F2 L U2 L F2 R' F2 L U D' R' L' D' L2 B L' F R' U2 F' L B2 D'` | 25 |
 
-Best of these: **22**, shorter than every normal DR of 10 or less gives. Normal DRs on this scramble: 23 through one of 10 or less, 20 through 11 or less, 20 through 12 or less.
+Best of these: **22**, shorter than anything a normal DR of 10 or less gives. Normal DRs on this scramble: 23 through one of 10 or less, 20 through 11 or less, 20 through 12 or less.
 
 </details>
 
@@ -3458,7 +3458,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `F U2 F2 U F2 U B2 R` | 8 | DR-1s | one-move slice EO: M slice on F/B, oriented | 2c4 | 4 |
 | 6 | `F D2 B2 U B2 U F2 L` | 8 | DR-1s | one-move slice EO: M slice on F/B, oriented | 2c4 | 5 |
 
-Shown: 6 of the 8 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 8 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 90</summary>
@@ -3540,7 +3540,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `L B' D2 L2 D B' F2 D'` | 8 | DR-1s | one-move slice EO: E slice on R/L, oriented | 4b2 | 6 |
 | 6 | `L B' D2 L2 D B' F2 D` | 8 | DR-1s | one-move slice EO: E slice on R/L, oriented | 4b2 | 6 |
 
-Shown: 6 of the 12 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
+Shown: 6 of the 12 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 8 moves.
 
 <details>
 <summary>Answers for scramble 92</summary>
@@ -3579,7 +3579,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `L' B' F' R2 B' U2 B D'` | 8 | DR-1s | one-move slice EO: E slice on R/L, misoriented | 2c4 | 6 |
 | 6 | `R' R2 F' D B L2 F' U` | 8 | DR-1s | one-move slice EO: S slice on R/L, oriented | 2c4 | 6 |
 
-Shown: 6 of the 22 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
+Shown: 6 of the 22 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
 
 <details>
 <summary>Answers for scramble 93</summary>
@@ -3618,7 +3618,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `(U' L' U' B2 L2 U R' D')` | 8 | DR-1s | skip: M slice on F/B, oriented | 4b5 | 6 |
 | 6 | `(U' L' D' L2 F2 U R' U')` | 8 | DR-1s | skip: M slice on F/B, oriented | 4b5 | 5 |
 
-Shown: 6 of the 20 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
+Shown: 6 of the 20 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
 
 <details>
 <summary>Answers for scramble 94</summary>
@@ -3698,7 +3698,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 3 | `U R F' R' B L B L` | 8 | DR-1s | one-move slice EO: M slice on U/D, misoriented | 2c4 | 6 |
 | 4 | `U R F' R' B L B L'` | 8 | DR-1s | one-move slice EO: M slice on U/D, misoriented | 2c4 | 6 |
 
-Shown: 4 of the 4 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
+Shown: 4 of the 4 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 10 moves.
 
 <details>
 <summary>Answers for scramble 96</summary>
@@ -3821,7 +3821,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `(F U2 R' U' D L' U L')` | 8 | DR-1s | one-move slice EO: E slice on F/B, oriented | 2c4 | 4 |
 | 6 | `(F' R F2 R L2 U R D')` | 8 | DR-1s | one-move slice EO: E slice on F/B, oriented | 4b5 | 5 |
 
-Shown: 6 of the 44 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 44 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 99</summary>
@@ -3860,7 +3860,7 @@ Each row is one route to a DR-xs on this scramble, shortest first; the last colu
 | 5 | `R F U' D2 F' D' B2 U'` | 8 | DR-1s | one-move slice EO: M slice on R/L, oriented | 2c4 | 5 |
 | 6 | `(D B2 U2 R2 F D2 L' B')` | 8 | DR-1s | one-move slice EO: S slice on U/D, oriented | 4b2 | 6 |
 
-Shown: 6 of the 10 DR-1s of 8 or less and 0 of the 0 DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
+Shown: 6 of the 10 DR-1s of 8 or less and no DR-2s 8fe of 9 or less. Shortest normal DR: 9 moves.
 
 <details>
 <summary>Answers for scramble 100</summary>
@@ -3882,7 +3882,7 @@ Best of these: **22**, longer than the best through a normal DR of 10 or less. N
 
 ### The tally
 
-Of the hundred above: 69 where the best shown is longer than the best through a normal DR of 10 or less; 11 where the best shown is as short as the best through a normal DR of 10 or less; 7 have none listed; 5 where the best shown is as short as the best through a normal DR of 11 or less; 5 where the best shown is as short as the best through a normal DR of 12 or less; 3 where the best shown is shorter than every normal DR of 10 or less gives.
+Of the hundred above: 69 where the best shown is longer than the best through a normal DR of 10 or less; 11 where the best shown is as short as the best through a normal DR of 10 or less; 7 where none is listed; 5 where the best shown is as short as the best through a normal DR of 11 or less; 5 where the best shown is as short as the best through a normal DR of 12 or less; 3 where the best shown is shorter than anything a normal DR of 10 or less gives.
 
 Over all 500 scrambles and every DR-xs of the kinds listed, not just the ones shown (write-up, section 7). How often one of them is as good as the best normal-DR solution of its scramble; each row is a kind of thing to finish, and the last column is the same share turned around:
 

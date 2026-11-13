@@ -1,6 +1,6 @@
 # EODR — a Lean 4 certificate for the small exact tables of "EO → DR and scramble → DR"
 
-Lean 4.35.0, no Mathlib (only the library that ships with Lean). About 1,100 lines written by hand, plus `EODR/Study.lean`, which is generated. No `sorry`.
+Lean 4.35.0, no Mathlib (only the library that ships with Lean). About 1,350 lines written by hand, plus `EODR/Study.lean`, which is generated. No `sorry`.
 
 The case study's exact numbers that fit in a small state space are computed in Rust (`research/eodrtools`: `eo axis`, `eo layouts`, `eodr exact`) and in the research's coset tables. This project does them again in Lean, from its own definitions of the cube and the 18 face turns, and states each number as a theorem. Four of the research's output files are copied verbatim into `EODR/Study.lean`, and the theorems named `…_matches_study` say that Lean's tables equal those files row for row. All of them do. No number had to be changed.
 
@@ -54,6 +54,17 @@ Words: axes 0 = R/L, 1 = U/D, 2 = F/B. Turns are face turns (HTM), named U U2 U'
 | `eodr_digits` | 8447364/1082565 = 7.8031…; 8164226/1082565 = 7.541557…; ≤ 6: 5.92% and 9.47%; 4c4e ≤ 6: 19.24% (1 in 5.20) and with the switch 28.058% (1 in 3.56); 4c4e is 1 in 15.34; 10 turns: 0.287% (EO-DR-50); 6c6e 12.746%. |
 | `twist_counts` | Over the 2,187 twist vectors with sum ≡ 0 (mod 3), the number with k twisted corners: 0:1, 2:56, 3:112, 4:420, 5:560, 6:616, 7:336, 8:86 (EO-DR-18: 112/2187 and 420/2187). Of the 616 with six twisted, 56 have all six twisted the same way and 560 have three each way (EO-DR-5: 1 in 11). |
 
+**E. Per-case figures, the page's case tables, the superflip, nissy's bias, binomials** (`EODR/Cases.lean`, `EODR/CaseTheorems.lean`; added 2026-11-13)
+
+| Theorem | It says |
+|---|---|
+| `case_stats` | Lean's own per-case counts (from the checked BFS of D, not from the research's file), [states, ≤ 4, ≤ 5, ≤ 6, ≤ 7, Σ distance] with one axis: 4c6e [94080, 72, 568, 4344, 25624, 738096]; 4c4e [70560, 578, 3064, 13576, 41926, 507090]; 4c2e [13440, 72, 448, 2512, 8432, 96232]; 3c4e [18816, 0, 184, 1872, 9032, 140112]; 7c8e [23520, 120, 744, 3856, 13496, 170624]; 3c6e [25088, 16, 160, 1216, 6792, 196792]; 6c6e [137984, …]; 5c6e [125440, …]. With the EO's last turn either way, ≤ 6 and Σ: 4c6e 7216, 713496; 4c4e 19798, 486544; 4c2e 3656, 92636; 3c4e 2988, 135120; 7c8e 5740, 164100; 3c6e 1964, 190124. 4c4e's last-turn histogram 0, 4, 28, 136, 744, 4012, 14874, 32640, 17782, 340. The option is the same with F2 and B2 in every case; 40 cases. |
+| `case_digits` | The page's per-case figures as printed, each the exact fraction rounded: Jay's 6e4c (errata 3) 4.6% / 19.2% / 18.7%, means 7.85 / 7.19 / 7.16; Cale's 1 in 21.7 (≈ 22) for 4c6e; Zagros's 9.9% and 16.4% (≈ 10% and 16%); Noah Swor's 3c6e 1 in 12.8, 20.6, 3.7 and 7c8e 1 in 4.1; Tom Nelson's 1 in 5.2 and 1 in 3.6, 28.1%; shares 3c6e 2.3% (1 in 43.2), 4c4e 1 in 15.3, 6c6e 12.7% against 5c6e 11.6%; Tom Nelson's 150 × 4.3% = 6.5 and 150 × 0.82% = 1.2; Cale's 25 re-test 7.0 / 21.1 / 46.3 / 25.2 / 0.48%; 5.9% (64,103; 1 in 16.89) and 0.29% (3,114). |
+| `case_tables_match_page` | The page's case tables (section 5's, 16 rows; appendix A's three, 39 rows each; copied verbatim from `report/data/c6_case*.md`): every row names a case that occurs, and in the columns Lean has (share, odds, mean and DR in ≤ 6, one axis and last turn either way) every value is Lean's exact fraction rounded. It first found three values rounded twice by the research (stored to 5 decimals, then rounded again): 7c6e last turn ≤ 6 printed 6.8% (exact 5080/75264 = 6.7%), 6c2e the same 0.33% (exact 0.32%), 0c4e share 0.015% (exact 168/1082565 = 0.016%); `research/src/xtables.py` now reads these columns from the exact counts. |
+| `superflip_niss_eo` | On the sticker model, the superflip (as printed) commutes with all 18 face turns, has 12 bad edges on each axis, and that mask needs 7 turns in the checked one-axis EO table; the printed NISS EO `D F U' (L B R U')` solves EO on U/D. With one line on paper (a NISS EO A, B is B⁻¹·S·A EO-solved; S commutes with B⁻¹, so this is S·(B⁻¹A), a linear EO of |A| + |B| turns) the superflip has **no NISS EO of 6 or fewer on any axis**. |
+| `nissy_modulo_bias` | 12! = 479,001,600; 2³¹ = 4 · 12! + 231,477,248, so with `rand() % FACTORIAL12` the lowest 231,477,248 edge-permutation indices (48.3% of them) come up 5 times out of 2³¹ and the rest 4 times: 25% more likely. 2³¹ = 4.48 × 12!. |
+| `binomial_digits` | Lichi Fang's 3 of 27 at p = 19798/70560: P(X ≤ 3) = 3.3% (exact rational, Σ C(27,i) pⁱ(1−p)²⁷⁻ⁱ). DougCube's 1 − (1 − 9409/1082565)³⁰⁰ = 92.71%. bpaul's C(12,4) = 495 against 12!/8! = 11,880; 2¹¹·3⁷·495 = 2,217,093,120 (a third: 739 million). |
+
 ## Files
 
 | File | Content |
@@ -64,9 +75,10 @@ Words: axes 0 = R/L, 1 = U/D, 2 = F/B. Turns are face turns (HTM), named U U2 U'
 | `EODR/Eo.lean` | B: the one-axis table, the distance readings, and the canonical first-reach counts (the recursion of `eo.rs: eo_counts`). |
 | `EODR/Layouts.lean` | C: `badAt`, the placements, the count, and the readings. |
 | `EODR/Eodr.lean` | D: the coset BFS, `tally` (per case and option), the readings, and the twist counts. |
-| `EODR/Study.lean` | Generated by `gen_study.py`: `eo_axis.tsv`, `eo_layouts.tsv`, `eodr_exact.tsv` and `eo0_hist_eo-fb_dr.txt` from `research/out/`, verbatim. |
+| `EODR/Study.lean` | Generated by `gen_study.py`: `eo_axis.tsv`, `eo_layouts.tsv`, `eodr_exact.tsv` and `eo0_hist_eo-fb_dr.txt` from `research/out/`, and four case tables of the page (`report/data/c6_case.md`, `c6_case_full*.md`), verbatim. |
 | `EODR/Parse.lean` | Reads those files (tab-separated, header dropped). |
-| `EODR/Model.lean`, `EoTheorems.lean`, `LayoutTheorems.lean`, `EodrTheorems.lean` | The theorems, A to D. |
+| `EODR/Cases.lean` | E: readings of the per-case table, the rounding check of printed values, the page-table reader, the superflip string, factorial, binomial sums. |
+| `EODR/Model.lean`, `EoTheorems.lean`, `LayoutTheorems.lean`, `EodrTheorems.lean`, `CaseTheorems.lean` | The theorems, A to E. |
 | `EODR/Audit.lean` | `#print axioms` for every theorem. |
 | `gen_study.py` | Writes `EODR/Study.lean`. Rerun it after the research's outputs change; if a number changed, the build fails. |
 
@@ -76,7 +88,7 @@ Words: axes 0 = R/L, 1 = U/D, 2 = F/B. Turns are face turns (HTM), named U U2 U'
     cd /data/fmc/eo-to-dr/lean/EODR
     systemd-run --user --scope -q -p MemoryMax=5G lake build
 
-Measured from a clean tree (`rm -rf .lake/build`) on the 4-core VM: 8 s wall, 18 s CPU, peak memory 0.55 GB (one Lean process). The theorem files take 2–3 s each. D's BFS over 26.9 million slots, 1,082,565 of them reached, takes about 1.5 s with its check. C's count over 70,963,200 configurations takes about 2 s. The last step prints the audit (`Audit.lean`).
+Measured from a clean tree (`rm -rf .lake/build`) on the 4-core VM, with part E (2026-11-13): 29 s wall, 26 s CPU, peak memory 0.56 GB (one Lean process); before E it was 8 s. The theorem files take 2–6 s each (`CaseTheorems` about 4–6 s: it runs the BFS once more, and the kernel checks the binomials with numbers of about 1,800 digits). D's BFS over 26.9 million slots, 1,082,565 of them reached, takes about 1.5 s with its check. C's count over 70,963,200 configurations takes about 2 s. The last step prints the audit (`Audit.lean`).
 
 `lakefile.toml` sets `precompileModules = true`, as in the two earlier certificates: the definitions are compiled to machine code before the theorem files run them.
 
@@ -87,7 +99,7 @@ Two notes for anyone who edits the code:
 ## Trust
 
 - Every theorem that runs a computation is proved by `native_decide`: Lean compiles the statement, runs it, and accepts the answer `true`. This trusts the Lean compiler and the C compiler, not only Lean's kernel. `Audit.lean` shows one axiom per such theorem, named `<theorem>._native.native_decide.ax_…`, next to Lean's three standard axioms. A wrong number does fail: for example, `(layouts.count 34650).2 = 70963201` and `(eodr.run eodr.N).states = 1082566` are both rejected.
-- Proved by `decide`, the kernel alone, with no axioms: `eo_mean_digits`, `eo_le5_mean_digits`, `layout_share_digits`, `eodr_states` and `eodr_digits` (arithmetic on the numbers).
+- Proved by `decide`, the kernel alone, with no axioms: `eo_mean_digits`, `eo_le5_mean_digits`, `layout_share_digits`, `eodr_states`, `eodr_digits`, `case_digits`, `nissy_modulo_bias` and `binomial_digits` (arithmetic on the numbers).
 - `search.ruleHolds` does not trust `bfs`. For each state with an entry it checks three things: the entry is 0 exactly at the goal; every turn leads to a state with an entry, and d(x) ≤ d(after the turn) + 1; and a non-goal state has a turn to an entry one lower. The third gives a sequence of d(x) turns to the goal. The second, followed along any sequence of k turns to the goal, gives d(x) ≤ k. So the entries are the true fewest-turn counts (turns applied after the state), whatever `bfs` did.
 - What a theorem says is exactly what its Lean statement says about the Lean definitions. That those definitions are the cube and the study's quantities is for the reader to check. A is the evidence: the EO rule's flip table, the cyclic corner lists, and agreement of the coordinate actions with the sticker model.
 
@@ -103,5 +115,6 @@ Two notes for anyone who edits the code:
 - **The exact rows that need the full 2,217,093,120-coset space**: "any turns (EO may break)" (7.7969, torchlight) and its switch variant, and the fixed-axis scramble → DR distribution (9.5245, max 12). These need `all_dr.u8` (2.2 GB) or a BFS over (co, eo, sl). That does not fit a Lean `native_decide` run in 5 GB, and was not attempted.
 - **"Better of the two DR axes, EO kept" (7.4008, 11.33%, EO-DR-334)**: exact in the research, but it sums over 8!·3⁷ corner states and 34,650 edge placements, about 3·10¹⁰ steps. Not attempted.
 - **That every one of the 12!·2¹¹ edge states, and every coset, occurs on a real cube**, and that each placement of kinds stands for exactly 4!³ permutations: these are the usual facts behind the normalisation by 70,963,200, not proved here. (`flip_table` gives the parity half: a turn changes 0 or 4 edges' goodness. The BFS in B and D shows that every even mask and every (twist vector, slice mask) state is reached.)
+- **The paper steps of E**: that a turn sequence commuting turn by turn commutes as a whole, and the reading of a NISS EO as premoves (B⁻¹·S·A), behind `superflip_niss_eo`; and that a binomial is the right model for Lichi Fang's and DougCube's samples (the page calls both Open).
 - **That the EO-solved cosets are equally likely after a random EO** (README "C's EO-solved states are uniform"): this is what makes the D counts probabilities. It is the study's argument, not proved here.
 - The table mappings to other axes through rotations, and the checks against nissy, are research-side checks, not redone here (B and C compute all three axes directly).

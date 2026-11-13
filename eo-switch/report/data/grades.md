@@ -9,8 +9,8 @@
 |  | RZP in 4 (DR in 7): always | Zagros [[D18940]] | >99.9% | 59.4% | >99.9% | 0% | 59.0% |
 |  | 3-4 pairs; 2 pairs unless 4b-0; 1 pair if 4d-2 | rodneykinney [[T8108]] | 25.2% | 49.3% | 64.6% | 6.8% | 49.5% |
 |  | 4d needs 1+ pair, 4b-0 3+, everything else 2+ | rodneykinney [[D12095]] | 25.2% | 49.3% | 64.6% | 6.8% | 49.5% |
-|  | the same without the bracketed (10), (11), (20), (31) | caycala (chart) [[D11016]] | 19.8% | 49.2% | 50.6% | 9.5% | 49.1% |
-|  | the same, plus 0 pairs if 4a-0 or 4d-2 with no fake pairs | rodneykinney [[T8108]] [[T8123]] | 25.4% | 49.1% | 64.8% | 6.8% | 49.3% |
+|  | caycala's RZP-in-5 chart without the bracketed (10), (11), (20), (31) | caycala (chart) [[D11016]] | 19.8% | 49.2% | 50.6% | 9.5% | 49.1% |
+|  | 3-4 pairs; 2 pairs unless 4b-0; 1 pair if 4d-2; 0 pairs if 4a-0 or 4d-2 with no fake pairs | rodneykinney [[T8108]] [[T8123]] | 25.4% | 49.1% | 64.8% | 6.8% | 49.3% |
 |  | ARM above 10% sub-7, then 2+ pairs | Yura Riabov [[D11021]] | 23.6% | 48.8% | 59.8% | 7.7% | 49.1% |
 |  | 3+ pairs; 2 pairs unless 4b; 1 pair only if 4d | compLex [[D13425]] | 19.9% | 48.6% | 50.3% | 9.6% | 48.5% |
 |  | per corner case: 4a-0 2+p, 4a-2 1+p, 4a-4 edge ARM 2, 4b-0 3+p, 4b-2 2+p and edge ARM 1, 4c 2+p, 4d 1+p and edge ARM 1 | rodneykinney, *DRM Subsets* | 26.7% | 47.0% | 65.2% | 6.7% | 46.9% |

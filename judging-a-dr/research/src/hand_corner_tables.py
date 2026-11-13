@@ -67,7 +67,7 @@ for cs in ['0c0', '4a1', '4a2', '4b2', '0c3', '2c3', '4c3', '0c4', '2c4', '4c4',
     for i, (k, h) in enumerate(rows): NAME[k] = f'{cs}-{i+1}'
     out.append(f'\n**{cs}**. Each row is one corner case: what it looks like.\n\n| Case | Bad corners | L | A qt takes it straight to | Told apart from a look-alike by |\n|---|---|---|---|---|')
     for k, h in rows:
-        out.append(f'| {NAME[k]} | {layout(int(cc[k][2]))} | {cc[k][5]}–{cc[k][6]} | {cc[k][10] or "nothing (set up first)"} | {TELL.get(k, '')} |')
+        out.append(f'| {NAME[k]} | {layout(int(cc[k][2]))} | {cc[k][5]}–{cc[k][6]} | {cc[k][10] or "nothing, needs a setup"} | {TELL.get(k, '')} |')
     out.append(f'\nThe same cases with a typical DR and the shortest setup of their corners:\n\n| Case | A typical DR | Its optimal, moves | Shortest setup of these corners |\n|---|---|---:|---|')
     for k, h in rows:
         out.append(f'| {NAME[k]} | `{TYP[k][0]}` | {TYP[k][1]} | {('`' + cc[k][9] + '`') if cc[k][9] else 'none needed'} |')

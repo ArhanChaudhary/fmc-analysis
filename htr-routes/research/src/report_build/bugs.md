@@ -17,7 +17,7 @@ Every scramble and move sequence below was replayed on a sticker-level cube. Eac
 
 Over all DRs the better of X and X·R2 is {= f3(Q5('all', 'mean_gain')) =} moves shorter on average: X·R2 is one move shorter on {= pc(Q5('all', 'share_variation_shorter')) =} of DRs and never more than one, so the gain is about 1/3 of a move, twice the estimate. Yura Riabov called the estimate "very rough" and said "i doubt it will be more than a half move difference with 1 move inverted" ([[T4610]]); that ceiling holds. The first study had the exact third.
 
-Example. Think of the first line as the end of a DR on U/D whose last move was a quarter turn of R (say R). Turning that move the other way (R') gives the same state followed by R2, the second line:
+Example. Think of the first line as the end of a DR on U/D whose last move was the quarter turn R. Turning that move the other way (R') gives the same state followed by R2, the second line:
 
 ```
 {= WIT('W06', 'scramble') =} // 4b2 2e, optimal {= WIT('W06', 'optimal') =}
@@ -67,7 +67,7 @@ Evan named exceptions in the same thread ("the b side of 4c3", "4c4 and 0c4 ofc 
 | Switch needed after | 2c3 | 4b2 | 2c4 | 2c5 |
 |---|---|---|---|---|
 | more than 2 moves | {= pc(C11('2c3', 'shortest_htr_needs_switch_after_gt2')) =} | {= pc(C11('4b2', 'shortest_htr_needs_switch_after_gt2')) =} | {= pc(C11('2c4', 'shortest_htr_needs_switch_after_gt2')) =} | {= pc(C11('2c5', 'shortest_htr_needs_switch_after_gt2')) =} |
-| 4 or more moves | {= pc(C11('2c3', 'shortest_htr_needs_switch_after_gt3')) =} | {= pc(C11('4b2', 'shortest_htr_needs_switch_after_gt3')) =} | | |
+| 4 or more moves | {= pc(C11('2c3', 'shortest_htr_needs_switch_after_gt3')) =} | {= pc(C11('4b2', 'shortest_htr_needs_switch_after_gt3')) =} | {= pc(C11('2c4', 'shortest_htr_needs_switch_after_gt3')) =} | {= pc(C11('2c5', 'shortest_htr_needs_switch_after_gt3')) =} |
 
 Yura Riabov added "i almost never do this but i think it is useful" and "i really don't like switching after more than 2 moves or for badish cases, which is why i'm worse at finishes than i could be" ([[D11239]], [[D11240]]).
 
@@ -90,8 +90,8 @@ Just before, Levi Gibson wrote "for the 4a2 subset I use full DR Bounding" ([[D9
 |---|---|---|---|
 | 4a2 | {= pc(Q8('4a2', '1', '4', 'found_opt')) =} | {= pc(Q8('4a2', '1', '4', 'found_p1')) =} | {= n(round(float(Q8('4a2', '1', '4', 'mean_reductions_le_R')))) =} |
 | 2c3 | {= pc(Q8('2c3', '1', '4', 'found_opt')) =} | {= pc(Q8('2c3', '1', '4', 'found_p1')) =} | {= n(round(float(Q8('2c3', '1', '4', 'mean_reductions_le_R')))) =} |
-| 2c3 2e | {= pc(Q8('2c3 2e', '1', '4', 'found_opt')) =} | | |
-| 2c3 4e | {= pc(Q8('2c3 4e', '1', '4', 'found_opt')) =} | | |
+| 2c3 2e | {= pc(Q8('2c3 2e', '1', '4', 'found_opt')) =} | {= pc(Q8('2c3 2e', '1', '4', 'found_p1')) =} | {= n(round(float(Q8('2c3 2e', '1', '4', 'mean_reductions_le_R')))) =} |
+| 2c3 4e | {= pc(Q8('2c3 4e', '1', '4', 'found_opt')) =} | {= pc(Q8('2c3 4e', '1', '4', 'found_p1')) =} | {= n(round(float(Q8('2c3 4e', '1', '4', 'mean_reductions_le_R')))) =} |
 
 On 4a2 the 75% holds, but "+1 the rest of the time" doesn't. On 2c3 both fall short. On 2c3 2e and 4e Levi Gibson adds triggers: "For 2c3 2e and 4e I do full DR Bounding + checking the 5-move triggers, and that seems to catch everything" ([[D9117]]). The triggers aren't measured here, so this corrects the share for bounding alone. Levi Gibson's later answer to "Would it be around 80 percent?" for 2c3 was a guess ("yeah something like that I'd guess", [[D9209]]), with the advice to check "a bunch of half turns into a 5-move trigger" as well ([[D9212]]).
 

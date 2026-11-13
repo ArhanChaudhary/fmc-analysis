@@ -2,7 +2,7 @@
 
 Lean 4.35.0, no Mathlib (only the library that ships with Lean). About 690 lines written by hand (`Switch.lean`, `Parse.lean`, `Model.lean`, `Theorems.lean`, `Audit.lean`), plus `Cube.lean`, `Pieces.lean` and `Search.lean` copied from eo-to-dr's certificate, and `EOSwitch/Study.lean`, which is generated. No `sorry`.
 
-The study's switch rules rest on exact tables over the 1,082,565 EO-solved states: every corner twist (3^7) × every placement of the four E-slice pieces (C(12,4) = 495), F/B EO solved, target DR on U/D, EO kept (turns U D R L F2 B2). The research computes the distances in Rust (`research/eoswtools dist`) and the features in Python (`research/src/features.py`). This project computes both again in Lean, from its own definitions of the cube and the face turns, and states each table as a theorem. Then it checks the research's output against them: `out/dist_hist.txt` and `out/variants_by_drm.tsv` are copied verbatim into `EOSwitch/Study.lean`, along with seven tables of `out/SUMMARY.md`. The theorems named `…_matches_study` say that Lean's numbers equal those files. They all do, except for one printed digit (the 2c2e mean in SUMMARY section 1, `summary_2c2e_mean`). No other number had to be changed.
+The study's switch rules rest on exact tables over the 1,082,565 EO-solved states: every corner twist (3^7) × every placement of the four E-slice pieces (C(12,4) = 495), F/B EO solved, target DR on U/D, EO kept (turns U D R L F2 B2). The research computes the distances in Rust (`research/eoswtools dist`) and the features in Python (`research/src/features.py`). This project computes both again in Lean, from its own definitions of the cube and the face turns, and states each table as a theorem. Then it checks the research's output against them: `out/dist_hist.txt` and `out/variants_by_drm.tsv` are copied verbatim into `EOSwitch/Study.lean`, along with seven tables of `out/SUMMARY.md`. The theorems named `…_matches_study` say that Lean's numbers equal those files. They all do. One printed digit was off (the 2c2e mean in SUMMARY section 1, 6.880 for 6.879); `summary.py` was fixed on 2026-11-13 and `summary_2c2e_mean` now pins 6.879.
 
 The full BFS fits easily: Lean does it directly, over 26.9 million slots (1,082,565 reached), and `search.ruleHolds` checks the result independently (see Trust). No distance table is taken from the research.
 
@@ -53,6 +53,33 @@ Words, as in the research's `features.py`. A corner is *bad* when it is twisted.
 | `summary_tables_match_study` | Seven tables of `out/SUMMARY.md`. Section 1 (12 DRMs + all): states equal; plain, ≤ 5, ≤ 7 and the mean rounded correctly, except the 2c2e mean. The six feature tables of section 4 (4c4e paired edges; paired × same slice; pairs × paired edges; 4c2e pairs + side/2; 7c8e pairs; 2c2e paired × JZP): the rows are Lean's cells in order, with equal states, and "share" and "p<=6 P1" rounded correctly. |
 | `summary_2c2e_mean` | **The one printed digit that is off.** SUMMARY section 1 prints the 2c2e mean as 6.880. The exact mean is 12328/1792 = 6.87946…, which rounds to 6.879. `summary.py` re-rounds variants_by_drm.tsv's 6.8795 to three places. Cosmetic only. |
 
+**E. Recounts for the pages and the errata** (`EOSwitch/Full.lean`, `EOSwitch/Recount.lean`; added 2026-11-13)
+
+`Full.lean` adds the remaining features the rules use, defined from places and stickers as in `features.py`: the corner case 4a–4d (tetrad {ULF URB DRF DLB} = places with x·y·z = −1), its suffix, "stacked" (all bad corners on one R/L side), corners on one layer, anti-AR, wen's split pairs, "4a one U/D turn from 4d", "R L gives JZP", the twist-1 count; and per state the distances with the EO's last turn free (min over s, s·F2) and the last two free (s, s·F2, s·B2, s·F2·B2). `T` groups all 1,082,565 states by their feature record (39,140 groups) with the three distance histograms. `cell c e p` = [states, ≤ 5, ≤ 6, ≤ 7] of DRM xcye with property p.
+
+| Theorem | It says |
+|---|---|
+| `full_table` | `T` has every reached state; every feature record survives packing; JZP from the tables equals `feat`'s. |
+| `corner_case_your_call` | 4c4e, one paired edge, edge ARM 1, by corners: 4d [576, 128, 512, 576] (88.9%); 4b ARM 21 1488/4512; 4a ARM 21 432/2304; 4a corner ARM 0/4 408/1728; corner ARM 1/3 1560/10368; 4b corner ARM 0/4 192/3456. |
+| `errata_b_3qt` | 4c2e 4b-0 by pairs 0, 1, 2: 80/960, 232/384, 152/192 (8.3%, 60.4%, 79.2%). |
+| `errata_c_stacked` | 4c4e, 1 pair, ARM 21: a 392/2016, b 1104/3840 (28.75%), d 512/576; a stacked 120/336 (35.7%), a not stacked 272/1680 (16.2%). |
+| `corner_case_claims` | Claims T8122 (4a-0, 4a-2, 4b-0, 4b-2), T8123 (0 pairs, 0 fake: 4a-0 28/120, no 4d, 4b-2 112/576), D14342 (4d, 1 pair, ARM 20/21/22: 0, 512/576, 0), D14348 (4a by ARM 2X). |
+| `arm_4c4e` | 4c4e by ARM × paired edges, all 15 ARMs (Appendix A); the "trash" ARMs 02, 12, 30, 40 are all under 4%. |
+| `paired_edge_arm_4c4e` | 4c4e by paired edges × edge ARM (9 cells); on 4c4e, both bad edges in one slice exactly when edge ARM ≠ 1 (all 70,560 states). |
+| `pairs4_7c8e` | 7c8e with 4 pairs by edge ARM (528/1744 for edge ARM 1) and by ARM 11, 12, 33, 41, 62, 21 (claim D15175). |
+| `bars_by_arm` | 4c4e, 2 pairs, per ARM: bar on one edge against pairs on the two edges (gap 11.8 to 31.2 points). |
+| `strict_separation` | Settled shares (cells under 10% or over 50%) of 8 keys on 4c4e, 4c2e, 7c8e, 8c8e, 2c2e (`decided_by_feature`; ARM 22032/70560, pairs 23520, pairs + ARM 34992). |
+| `rule_cards` | The 12 switch cards, each row as [states, ≤ 5, ≤ 6, ≤ 7], first matching row wins. |
+| `low_drm_pairs` | 4c6e, 3c4e, 3c6e, 5c4e, 5c6e, 6c6e by pairs and JZP. |
+| `graded_rules` | 4c2e: "1.5+ pairs", Jay's and tseitsei89's rules switch exactly the same states; 4c4e 2+ pairs, 3+ pairs, T8108, caycala's 3+ off one layer, Daichi's and Zagros's 4-move rules (DR ≤ 7); 7c8e 5-6 pairs; 2c2e 1+ pairs. |
+| `last_turn_4c4e` | 4c4e sub-7: 13,576; with the EO's last turn free 19,798 (+8.8 points); last two free 25,304. |
+| `inverse_option` | Better of normal and inverse, DR ≤ 6, as the class average of the uniformity argument (the argument itself is not proved): 3c6e 1 in 10.57, 4c4e 2.875, 8c8e 3.724, 7c8e 3.322, 4c2e 2.950. |
+| `example_labels` | The errata examples' DRM, ARM, pairs, corner case and suffix, lr and distance (a 4a-4, b 4b-0, c 4a not stacked); T8123's `F2 B2 R` (4a-0, 3) and `D F2 B2 R` (4b-2, 4); errata a's NISS DR: `U F2 B2 U L` then L is DR. |
+| `cax_map_eq`, `coset_of_relabel` | Proved by rewriting, for every sticker array: two relabellings that agree on every label's colour axis give the same twists and E-slice places. |
+| `rzp_last_turn` | For every face, X and X' agree on the colour axis of every label; and a premove is a relabelling (checked on every sequence of up to 3 turns). So the RZP's last quarter turn either way gives the same switched case. |
+
+Every number of E was compared with the pages (WRITEUP section 1, the cards, Appendix A, the errata, the claims table) on 2026-11-13: all agree with the printed rounding. One tie: errata c prints b corners as 28.7%, the exact value is 1104/3840 = 28.75% exactly (28.8% under round-half-up); either is a correct rounding.
+
 ## Files
 
 | File | Content |
@@ -64,6 +91,7 @@ Words, as in the research's `features.py`. A corner is *bad* when it is twisted.
 | `EOSwitch/Parse.lean` | Reads those files and checks a printed decimal against an exact fraction (`roundsTo`). |
 | `EOSwitch/Model.lean`, `EOSwitch/Theorems.lean` | The theorems: A, and B to D. |
 | `EOSwitch/Audit.lean` | `#print axioms` for every theorem. |
+| `EOSwitch/Full.lean`, `EOSwitch/Recount.lean` | Part E: the extra features, the grouped table `T`, and its theorems. |
 | `gen_study.py` | Writes `EOSwitch/Study.lean`. Rerun it after the research's outputs change; if a number changed, the build fails. |
 
 ## Build
@@ -72,7 +100,7 @@ Words, as in the research's `features.py`. A corner is *bad* when it is twisted.
     cd /data/fmc/eo-switch/lean/EOSwitch
     systemd-run --user --scope -q -p MemoryMax=5G lake build
 
-From a clean tree (`rm -rf .lake/build`) on the 4-core VM, this took 37 s wall time, 46 s CPU and 0.55 GB peak memory (one Lean process). The BFS and the tally (`run`) take about 7.7 s. They are top-level constants, so the compiled code computes them once per Lean process, when the module is loaded. Each file that imports `Switch` therefore takes about 8 s, even when it uses neither: `Parse.lean` 7.9 s, `Model.lean` 8.6 s, `Theorems.lean` 9.3 s, `Audit.lean` and the root about 7.7 s each. Within a file, all theorems share one computation. The last step prints the audit.
+From a clean tree (`rm -rf .lake/build`) on the 4-core VM, this took 263 s wall time, 179 s CPU and 0.72 GB peak memory (2026-11-13, with part E; before it, 37 s). `Full.lean` takes 29 s and `Recount.lean` 93 s (building the grouped table `T` and running its theorems). The BFS and the tally (`run`) take about 7.7 s. They are top-level constants, so the compiled code computes them once per Lean process, when the module is loaded. Each file that imports `Switch` therefore takes about 8 s, even when it uses neither: `Parse.lean` 7.9 s, `Model.lean` 8.6 s, `Theorems.lean` 9.3 s, `Audit.lean` and the root about 7.7 s each. Within a file, all theorems share one computation. The last step prints the audit.
 
 `lakefile.toml` sets `precompileModules = true`, as in the earlier certificates. EODR's two notes apply here too. Large tables are top-level constants, and `tally` is `@[noinline]` and receives the BFS table as an argument. After editing a definition file, build the whole project.
 
@@ -91,7 +119,7 @@ From a clean tree (`rm -rf .lake/build`) on the 4-core VM, this took 37 s wall t
 
 ## Not proved in Lean
 
-- **The other features and rules** of the study: ARM-based rules, corner orbit case (4a–4d) and suffix, twist split, fake-pair rules, split pairs, AR bars, layer layouts, corner-only distance, trigger-family distances, `rl_to_jzp`, and the rule search over 38 features (`search_*.tsv`). Only the features of the headline rules are defined (pairs, fake pairs, paired edges, bars, side pairs, same slice, ARM counts, JZP).
-- **The free options**: the last EO turn inverted (lastF, lastFB), the second DR axis and normal-or-inverse. Also the RZP-weighted population P2 (`eoswtools rzp`) and the sampled real attempts P3 (121,527,134 attempts). Their columns in SUMMARY and variants_by_drm.tsv are not checked.
+- **The rule search** over 38 features (`search_*.tsv`) and the features only it uses (AR bars, layer layouts other than one-layer, corner-only distance, trigger-family distances); most graded rules of section 7 (those used in section 1 and the claims are in E).
+- **The free options**: the second DR axis; normal-or-inverse beyond E's class-average figures (which rest on the uniformity argument); lastF/lastFB beyond 4c4e (EODR proves lastF per case). Also the RZP-weighted population P2 (`eoswtools rzp`) and the sampled real attempts P3 (121,527,134 attempts). Their columns in SUMMARY and variants_by_drm.tsv are not checked.
 - **That the switched state is uniform within its class** (finding 1). This is the study's argument plus a sampled test, and is what lets the P1 counts stand for real switched attempts.
 - The research's checks against eo-to-dr's table, nissy, the NISS predictors and Rodney's string code are research-side and not redone here. The distance table is redone from scratch, so the eo-to-dr comparison is covered in substance: eo-to-dr's own certificate proves the same histogram.

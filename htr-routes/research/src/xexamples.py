@@ -260,13 +260,14 @@ for g in ORDER:
     subs = [s for s in top if s.split()[0] == g]
     if not subs:
         continue
-    parts.append(f'## {g}\n')
+    parts.append(f'## Corner subset {g}\n')
     for s in subs:
-        parts.append(f'### {s}\n\n{size[s] / TOTAL * 100:.2f}% of all DR states.\n')
+        k = len(blocks[s])
+        parts.append(f'### Subset {s}: examples 1–{k}\n\n{s} is {size[s] / TOTAL * 100:.2f}% of all DR states.\n')
         parts += blocks[s]
 head = f"""# Worked examples: which HTR routes to try from a DR
 
-Examples to play along with the write-up ([WRITEUP.md](WRITEUP.md)). Find the finish yourself, then open the answer.
+Examples to play along with [the write-up](index.html). Find the finish yourself, then open the answer.
 
 These are {n} DR states, the first {NPER} of the study's uniform sample in each of the {NSUB} most common subsets with their edge counts (together {sum(size[s] for s in top) / TOTAL * 100:.0f}% of all DR states). Nothing is hand-picked, so they're as hard or as easy as real DRs of that subset. Each scramble is a random DR followed by DR moves to the state, so it doesn't give the finish away.
 
@@ -276,7 +277,7 @@ These are {n} DR states, the first {NPER} of the study's uniform sample in each 
 R2 U (D F2)   // R2 U on normal, then D F2 on the inverse
 ```
 
- The finish "as read on normal" is the same finish written linearly.
+The finish "as read on normal" is the same finish written linearly.
 
 The bounding lines give the shortest reduction that keeps an optimal finish: moves on normal and (on inverse), each empty or ending in a quarter turn, after which the DR is one quarter turn from HTR (4a1 4e) or two (4a2, 4b2, or a 0c0 with bad edges), and the rest of the optimal finish from there, with exactly that many quarter turns. This is the one-quarter-turn reading of the write-up's bounding section (what JTuu's simulation measured); the method as the bounding docs state it, finishing the reduced state optimally with any number of quarter turns, can occasionally do it with a shorter reduction.
 

@@ -13,6 +13,8 @@ if [ -e "$output" ]; then
 fi
 mkdir -p "$output"
 cssver=$(sha1sum site/style.css | cut -c1-10)
+warnings=$(mktemp)
+trap 'rm -f "$warnings" "$warnings.page"' EXIT
 
 # render SOURCE.md PAGE.html ROOT [more pandoc options]
 # The first heading of a page becomes its title; the other headings keep the ids GitHub gives them,
@@ -20,9 +22,12 @@ cssver=$(sha1sum site/style.css | cut -c1-10)
 render() {
     local source=$1 page=$2 root=$3
     shift 3
+    # pandoc's messages, with the warnings of site/tables.lua, go to the terminal and to $warnings (counted at the end)
     pandoc --from gfm+tex_math_dollars --to html5 --katex=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/ --standalone --shift-heading-level-by=-1 --toc --toc-depth=2 \
         --lua-filter site/tables.lua --template site/template.html --variable "root=$root" --variable "cssver=$cssver" "$@" \
-        --output "$output/$page" "$source"
+        --output "$output/$page" "$source" 2>"$warnings.page" || { cat "$warnings.page" >&2; exit 1; }
+    cat "$warnings.page" >&2
+    cat "$warnings.page" >> "$warnings"
     # every in-page link must have a target (a broken one only shows when somebody clicks it)
     local anchor
     for anchor in $(grep -o 'href="#[^"]*"' "$output/$page" | sed 's/href="#\(.*\)"/\1/' | sort -u); do
@@ -56,6 +61,12 @@ for writeup in */report/WRITEUP.md; do
 done
 
 cp site/style.css "$output/"
+# a table cell left empty after the row's first filled cell shows a dash (site/tables.lua); that is right for a
+# value that doesn't apply, wrong for one a writer lost, so every such table is listed above
+dashed=$(grep -c '^tables.lua: warning:' "$warnings" || true)
+if [ "$dashed" -gt 0 ]; then
+    echo "build-pages: warning: $dashed tables show a dash in an empty cell (listed above as 'tables.lua: warning'); check new ones against their writer" >&2
+fi
 # (GitHub Pages: no Jekyll processing)
 touch "$output/.nojekyll"
 printf 'Pages site: %s\n' "$output"

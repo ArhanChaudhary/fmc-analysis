@@ -25,7 +25,7 @@ page in `research/out`. Built by `src/summary.py`.
   DRs come from EOs and triggers and are not uniform within a subset". Uniform numbers, including the "all DRs" ones,
   are good numbers for real DRs (section 4).
 - **Breaking DR rarely pays.** On 48,000 uniform DR states (1,000 per subset x edges) solved optimally with all 18
-  face turns by nissy, a finish shorter than the DR-move optimum exists on 4.3% ± 0.1% of DRs, by one move in 90% of those cases (weighted by subset size; 83% of the unweighted sample, where 0e cells are oversampled);
+  face turns by nissy, a finish shorter than the DR-move optimum exists on 4.3% ± 0.1% of DRs, by one move in 90% of those cases (weighted by subset size; 83.5% of the unweighted sample, where 0e cells are oversampled);
   mean gain 0.048 moves. For DRs whose DR-move optimum is 12 or less (the ones a solver finishes) it is
   1.1%; it climbs only for long finishes (9% at 15, 36% at 16). Exceptions by cell: 0c3 0e (36%), 0c4 0e (26%),
   0c0 0e (21%, up to 4 moves: `R L F2 B2 R' L' D2` solves a DR whose DR-move optimum is 11). On the real population the share is 4.2% ± 0.2% with each DR once and 3.9% ± 0.4% with each scramble once (uniform 4.3%).

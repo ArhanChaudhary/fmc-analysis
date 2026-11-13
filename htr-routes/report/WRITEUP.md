@@ -375,7 +375,7 @@ Each row is a subset × edges and the first three routes of its budget-2 checkli
 
 | Subset | Try first | Then | Then |
 |---|---|---|---|
-| 0c0 0e | `0c0 > 4a1 > 0c0` | `0c0` | `0c0 | qt` |
+| 0c0 0e | `0c0 > 4a1 > 0c0` | `0c0` | `0c0 \| qt` |
 | 0c0 2e | `0c0 > 4a1 > 0c0` | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) | `0c0 > 4a1 > (0c0)` |
 | 0c0 4e | `0c0 > 4a1 > 0c0` | `0c0 > 4a1 > (0c0)` | `0c0 > 4a1 > 4b2 > 4a1 > 0c0` |
 | 0c0 6e | `0c0 > 4a1 > (0c0)` | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `0c0 > 4a1 > 4b2 > 4a1 > (0c0)`) |
@@ -484,7 +484,7 @@ The hardest row is 4a2 0e (44.4% after three routes). Where the edge count chang
 | Target | Own list ahead after 1 route (points) | After 2 routes | After 3 routes | After 5 routes |
 |---|---|---|---|---|
 | Optimal | 1.6 | 0.6 | 0.4 | 0.1 |
-| Within +1 | 1.6 | | 0.3 | |
+| Within +1 | 1.6 | 0.5 | 0.3 | 0.0 |
 
 Small on average, because the edge counts where it matters are mostly the rare ones. Inside a corner subset it can be a lot more. Each row is a corner subset at the step where the gap is largest:
 
@@ -614,13 +614,13 @@ Where knowing the edge count changes what to try first. Each row is a subset × 
 |---|---|---|---|---|---|
 | 0c0 0e | `0c0 > 4a1 > 0c0`, then `0c0` (the DR is already HTR) | 2 routes | 84.4% | 42.7% | the pooled order never tries it |
 | 0c0 6e | `0c0 > 4a1 > (0c0)`, switching before the last qt | 1 route | 40.8% | 18.1% | pooled first route is only 6th here |
-| 0c0 8e | the same switch first | 1 route | | | gains 6.9 points |
+| 0c0 8e | the same switch first | 1 route | 53.5% | 46.6% | |
 | 2c4 0e | linear, `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 1 route | 70.1% | 42.7% | pooled switches at 2c3 |
 | 2c3 0e | switch at 4b2, `2c3 > 4b2 > (4a1 > 0c0)` | 1 route | 46.3% | 19.5% | |
 | 2c3 6e | the same | 1 route | 66.1% | 40.9% | |
 | 2c3 8e | the same | 1 route | 46.3% | 20.3% | |
 | 4a2 0e | the 4b3 regression `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 1 route | 29.1% | 4.0% | |
-| 4a2 2e | the same | | | | |
+| 4a2 2e | the same | 1 route | 42.2% | 34.0% | |
 | 4a2 4e | linear, `4a2 > 4a1 > 0c0` | 3 routes | 79.1% | 71.6% | |
 | 4a1 0e | `4a1 > 0c0 > (4a1 > 0c0)` | 3 routes | 54.6% | 33.9% | pooled first route is 14th |
 | 4a1 4e | the 1qt route `4a1 > 0c0` | 2 routes | 50.3% | 34.9% | |
@@ -760,10 +760,10 @@ In short. Each row is an intermediate subset; each cell is the share, of the DRs
 | Intermediate subset | 0e | 2e | 4e | 6e |
 |---|---|---|---|---|
 | 4b2 | 4.6% | 92.6% | 56.4% | |
-| 4a1 | | | >99.9% | |
-| 4a2 | | | 94.6% | |
-| 2c3 | | 66.3% | 76.8% | 22.7% |
-| 4c3 | | 64.6% | 67.0% | |
+| 4a1 | 0.091% | 3.9% | >99.9% | |
+| 4a2 | 0.15% | 13.1% | 94.6% | |
+| 2c3 | 0.44% | 66.3% | 76.8% | 22.7% |
+| 4c3 | 5.9% | 64.6% | 67.0% | |
 
 So the 4b2 you go through is mostly 4b2 2e, the 4a1 before HTR is 4a1 4e, the 4a2 is 4a2 4e, 2c3 is split, and 4c3 is 2e or 4e about equally.
 
@@ -774,8 +774,8 @@ Per starting subset × edges, the share that can pass each intermediate subset a
 | 2c3 2e | 4b2 2e | 69.2% | 4b2 4e | 46.3% |
 | 2c3 0e | 4b2 4e | 88.6% | 4b2 2e | 58.3% |
 | 2c3 8e | 4b2 4e | 85.7% | 4b2 2e | 57.3% |
-| 2c4 0e | 2c3 4e | 89.1% | | |
-| 2c4 8e | 2c3 4e | 93.8% | | |
+| 2c4 0e | 2c3 4e | 89.1% | 2c3 2e | 1.1% |
+| 2c4 8e | 2c3 4e | 93.8% | 2c3 2e | 4.4% |
 | 0c4 8e | 4b2 2e | 86.5% | 4b2 4e | 12.8% |
 | 4b2 4e, regressing | 2c3 4e | 40.8% | 2c3 2e | 28.8% |
 | | | | 2c3 6e | 13.1% |
@@ -937,6 +937,8 @@ U2 L2 U F2 L2 R2 U' B2 R2 U' L2 U2 B2 // 2c3 2e, 13 optimal
 
 The shortest HTR in any reading of any of its 2 optimal finishes is 10 moves.
 
+---
+
 ## 7. Extra quarter turns, and the last DR move
 
 **Extra quarter turns.** The share of DRs where every optimal uses more quarter turns than the corner subset needs, where some optimal does, and where every leave-slice optimal does (the *Extra Quarter-Turn Stats* reading). Sampled, 25,000 per subset × edges, edges pooled by size:
@@ -967,9 +969,9 @@ Each reading on the cases they were talking about:
 | Reading | 4a2 and 4b2: 4qt or more | 4b2 4e: 4qt |
 |---|---|---|
 | every optimal | 53.9% | 63.7% |
-| some optimal | 80.7% | |
+| some optimal | 80.7% | 86.9% |
 | one optimal picked at random | 69.0% | 77.6% |
-| one leave-slice optimal at random | 56.3% | |
+| one leave-slice optimal at random | 56.3% | 66.5% |
 
 The 57% fits a random leave-slice optimal or *every optimal*. Both quotes fit.
 
@@ -1089,11 +1091,11 @@ What it says:
 
 | Subset | R ≤ 4 | R ≤ 6 |
 |---|---|---|
-| 0c0 | 91.5% | |
+| 0c0 | 91.5% | 96.9% |
 | 4a2 | 76.6% | 85.2% |
 | 4a1 | 75.6% | 95.4% |
 | 4b2 | 58.0% | 88.8% |
-| 2c3 | 48.1% | |
+| 2c3 | 48.1% | 86.2% |
 
 So at R ≤ 6, 4a1 and 4b2 overtake 4a2. On 2c5 and 4b5 no reduction of 5 or less reaches 4a1 4e at all (it takes at least 6), and 4c4 and 2c4 are close to that.
 
@@ -1135,7 +1137,7 @@ With the bounds doing their job you only finish a few of them, but you still wri
 
 Bounding gets to 80% with short reductions on 0c0 (3) and 4a1 (5), and to about 80% on 4a2 (5: 80.0%, on the line in every population of section 12). Those are where the budget-2 checklist struggles (0c0 and 4a1 stop short of 80% after eight routes). On 4b2 bounding needs every reduction up to 6, about 16,087 of them, where the checklist stops at 75.0%. On 2c4, 2c5, 4b5, 0c3, 0c4, 4c3 and 4c4 one to five routes reach 80%, and bounding needs 6 or 7 moves of reduction or doesn't get there by 7. A route and a reduction aren't the same amount of work, so this only compares them in kind.
 
-**For a human the bounding column is mostly out of reach.** Each extra move of reduction multiplies the reductions by about eight, and in an attempt you write tens, maybe a couple of hundred (R ≤ 4 is about 89 on average). So only the 0c0 entry (R = 3, about 156 reductions) is a practical recommendation. Every entry with R of 5 or more, thousands of reductions, is **computer only**: it shows where the optimal lies, not how to find it. Plan an attempt with the R ≤ 4 column of section 8.
+**For a human the bounding column is mostly out of reach.** Each extra move of reduction multiplies the reductions by about eight, and in an attempt you write tens, maybe a couple of hundred (R ≤ 4 is about 89 on average). So only the 0c0 entry (R = 3, about 156 reductions) is a practical recommendation. Every entry with R of 5 or more, thousands of reductions, is **computer only**: it shows where the optimal lies, not how to find it. Plan an attempt with the R ≤ 4 column of the first table above.
 
 **Levi Gibson's verdicts per subset.** After "lots and lots of solves" ([8 May 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1370092390362382348)): "0c0: Yes", "4a2: yes yes yes amazing muah chief's kiss", for 4a1 "if you get a 4a1 case randomly, bound it. Otherwise it's not great. For the 2e/6e case it's not great because you 99% of the time you want to find a 0c0 or 4b2 trigger", for 4b2 "just check the really short ones, and then just try triggers for the rest", for 2c3 "I only use it for the 6e subset now. Triggers will get you optimal usually for 2e and 4e", and "Bounding is actually REALLY good for 4c3". Row by row, bounding with every reduction of at most 4 and 5 moves against the first three and five budget-2 routes (4,000 states per subset × edges for bounding, 25,000 for the routes). Each row is a subset × edges; each cell is the share where that method finds the optimal:
 
@@ -1183,9 +1185,9 @@ On 4c3, Levi Gibson's reason was the b side ("On the b corners side there are so
 |---|---|---|
 | Optimal, R ≤ 4 | 48.1% | 76.6% |
 | Optimal, R ≤ 4, 2c3 2e only | 52.1% | |
-| Reductions on average, R ≤ 4 (a count, not a share) | 140 | |
+| Reductions on average, R ≤ 4 (a count, not a share) | 140 | 207 |
 | Within +1, R ≤ 4 | 78.8% | 93.6% |
-| Optimal, R ≤ 5 | 71.1% | |
+| Optimal, R ≤ 5 | 71.1% | 80.0% |
 
 On 4a2 the 75% holds (Levi Gibson had just written "for the 4a2 subset I use full DR Bounding", [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311669869900464138)), but within +1 it's only the share in the *Within +1* row, not every DR. For 2c3 both halves are off for bounding alone: the optimal comes from a reduction of 4 or less on under half of 2c3, and on 21.2% not even +1 does. Levi Gibson does add the triggers ("For 2c3 2e and 4e I do full DR Bounding + checking the 5-move triggers, and that seems to catch everything", [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311674286389334026)); I haven't measured that combination. There's an example in the errata: a 2c3 2e where the best any reduction of at most 4 gives is +2.
 
@@ -1273,7 +1275,7 @@ Same rows: the longest reduction any finish needed, and the share of cases where
 
 | Corner path | $\alpha$ per section | Finish | Section lengths | 1q reduction per window |
 |---|---|---|---|---|
-| 4b2 > 4a3 > 4b2 > 4a1 > 0c0 | 0, 0, 3, 1, 0 | 14-move | 2, 1, 3, 1, 3 | 10, 9, 9, 9 |
+| 4b2 > 4a3 > 4b2 > 4a1 > 0c0 | 0, 0, 3, 1, 0 | 14 | 2, 1, 3, 1, 3 | 10, 9, 9, 9 |
 
 So a 9-move reduction is needed. With $\alpha_i$ the smallest term is 8, whatever A, B and C are, and the first bound of [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491533155201716475) claims $28 \geq 29$. (c) has a real DR on which the lower bound fails.
 
@@ -1293,7 +1295,7 @@ $$\frac{(|S|-1)M-(N-|S|)+\sum_{i\ \mathrm{edge}} \alpha_i}{|S|}.$$
 
 | Corner path | $\alpha$ per section | Finish | Section lengths | 1q reduction per window |
 |---|---|---|---|---|
-| 4a1 > 0c0 > 4a1 > 0c0 | 0 | 10-move | 0, 3, 0, 4 | 6, 6, 5 |
+| 4a1 > 0c0 > 4a1 > 0c0 | 0 | 10 | 0, 3, 0, 4 | 6, 6, 5 |
 
 Term 2 as printed with $S = \{0, 2\}$ gives 4, whatever A, B and C are; derived, it gives 5. With the printed $\alpha_i$ as well it's still 4 (`literal_min_fails`). On the sample, the smallest term with term 2 and the index exactly as printed is too short on 9.2% of cases at the optimum.
 
@@ -1327,7 +1329,7 @@ The other choices are readings, not corrections:
 |---|---|---|---|---|
 | at the optimum, corner path known | 12.1 | 11.1 | 8.9 | 8.9 |
 | at the optimum, path unknown | 12.7 | 12.4 | 10.6 | 10.6 |
-| 12 or better, path unknown | 11.2 | 11.0 | | 9.0 |
+| 12 or better, path unknown | 11.2 | 11.0 | 9.0 | 9.0 |
 
 *Path unknown* is the worst case over the subset's corner paths, with the DR's own A and B. What the finishes actually needed:
 
@@ -1409,7 +1411,7 @@ How often the corrected bound beats the trivial one, reaches the optimum, and is
 | 4b2 | 82.9% | 1.8% | 40.4% |
 | 4b5 | 76.4% | 2.6% | 77.5% |
 
-So FakeMMAP's hope comes true on most subsets. The corrected bound on a typical path (the median), one or two above the trivial bound; each row is a bound and the subsets where it is the median:
+So FakeMMAP's hope comes true on most subsets. The corrected bound on a typical path (the median) is one or two above the trivial bound. Each row is a bound and the subsets where it is the median:
 
 | Typical bound (median) | Subsets |
 |---|---|
@@ -1586,7 +1588,7 @@ Everything said on the server that the numbers can settle, by theme. Questions a
 |---|---|---|
 | "57% of the time, the optimal solution uses 4QT for a  2QT corner case" | rodneykinney [13 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1063355084697784371) | **Depends** on which optimal: 53.9% every optimal, 80.7% some optimal, 69.0% one at random (leave slice 56.3%). |
 | "over 60% the optimal solution for htr subset 2qt(a) 4c4e … use 4qt rather than 2qt" (first nissy optimal) | Lichi Fang [6 Aug 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1137835695721939094) | **True**: one optimal at random 77.6%, every optimal 63.7%. |
-| "so yeah, should be 1/6" (mean gain from inverting the last DR move), "very rough" | Yura Riabov [6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248337792673779803), [6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372741602545674) | **Corrected**: 0.325 move, about 1/3 [a]. Yura's ceiling, "i doubt it will be more than a half move difference with 1 move inverted" ([6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372741602545674)), is **True**. |
+| "so yeah, should be 1/6" (mean gain from inverting the last DR move), "very rough" | Yura Riabov [6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248337792673779803), [6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372741602545674) | **Corrected**: 0.325 moves, about 1/3 [a]. Yura's ceiling, "i doubt it will be more than a half move difference with 1 move inverted" ([6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372741602545674)), is **True**. |
 | "but inverting last move before dr will always reduce optimal by 1" (the 18-move states) | Yura Riabov [24 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1364979172774252674) | **True**, exact: every 18-move DR state is 17 after its last side half turn either way; torchlight's finding as Jay reported it ([28 Mar 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1355356897414348904): "i think torchlight figured out that for all those cases any of R2 L2 F2 B2 (UD oriented DR) would take the case from 18 to 17") is also true. |
 | "a qt break from DR only makes it around 0.5 worse, rather than 1 as you might expect" | trangium [6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469487095407186093) | **True**, roughly: 0.68 on average. |
 
@@ -1741,8 +1743,8 @@ The numbers that move, against uniform, as a share of DRs:
 | Number | Uniform | Each DR once | Each scramble once |
 |---|---|---|---|
 | 0c0, first route | 42.3% | 39.1% | 40.2% |
-| 2c3 0e, first route (flagged with each scramble once) | 46.3% | | 43.4 ± 0.9% |
-| 0c0 8e, first route (flagged with each DR once) | 53.5% | 47.5 ± 2.7% | |
+| 2c3 0e, first route (flagged with each scramble once) | 46.3% | 45.7% | 43.4 ± 0.9% |
+| 0c0 8e, first route (flagged with each DR once) | 53.5% | 47.5 ± 2.7% | 50.9% |
 | 0c3, *NISS HTR 2+ shorter* (flagged with each DR once) | 52.4% | 50.1% | 52.0% |
 
 The 0c3 one is the only flagged headline. Every other headline moves by at most 0.9 points; every bounding share at R ≤ 3 to 5, per corner subset, by at most 0.8; the per-subset HTR numbers of section 6 outside 0c0 by at most 1.4. The subsets where short reductions reach 80% are still 0c0, 4a1 and 4a2, with 4a2 on the line in every population (80.0% uniform, 80.3% and 79.6% on real DRs). **No recommendation in this study changes.**
@@ -1769,16 +1771,16 @@ The 0c3 one is the only flagged headline. Every other headline moves by at most 
 |---|---|---|---|---|
 | 0c0 0e | 1 | `0c0 > 4a1 > 0c0` | 42.5% | 48.2% |
 |  | 2 | `0c0` | 84.4% | 95.1% |
-|  | 3 | `0c0 | qt` | 92.6% | 98.3% |
-|  | 4 | `0c0 > 4a1 > 0c0 | qt` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 4b2 > 4a1 > 0c0)`) | 92.9% | 98.5% |
+|  | 3 | `0c0 \| qt` | 92.6% | 98.3% |
+|  | 4 | `0c0 > 4a1 > 0c0 \| qt` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 4b2 > 4a1 > 0c0)`) | 92.9% | 98.5% |
 |  | 5 | `0c0 > 4a1 > (0c0)` | 93.0% | 98.6% |
 | 0c0 2e | 1 | `0c0 > 4a1 > 0c0` | 60.5% | 83.7% |
 |  | 2 | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) | 65.7% | 88.3% |
 |  | 3 | `0c0 > 4a1 > (0c0)` | 70.2% | 92.3% |
 |  | 4 | `0c0 > 4a1 > 4b2 > 4a1 > 0c0` | 72.3% | 93.8% |
-|  | 5 | `0c0 > 4a1 > 0c0 > (4a1 > 0c0)` (mirror: `0c0 > 4a1 > 0c0 | qt`) | 73.0% | 94.1% |
+|  | 5 | `0c0 > 4a1 > 0c0 > (4a1 > 0c0)` (mirror: `0c0 > 4a1 > 0c0 \| qt`) | 73.0% | 94.1% |
 |  | 6 | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `0c0 > 4a1 > 4b2 > 4a1 > (0c0)`) | 73.8% | 94.3% |
-|  | 7 | `0c0 > 4a1 > 0c0 | qt` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 4b2 > 4a1 > 0c0)`) | 74.1% | 95.0% |
+|  | 7 | `0c0 > 4a1 > 0c0 \| qt` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 4b2 > 4a1 > 0c0)`) | 74.1% | 95.0% |
 |  | 8 | `0c0 > 4a1 > 4b2 > (4a1 > 0c0)` | 74.3% | 95.2% |
 | 0c0 4e | 1 | `0c0 > 4a1 > 0c0` | 44.9% | 70.0% |
 |  | 2 | `0c0 > 4a1 > (0c0)` | 57.8% | 83.6% |
@@ -1787,23 +1789,23 @@ The 0c3 one is the only flagged headline. Every other headline moves by at most 
 |  | 5 | `0c0 > 4a1 > 0c0 > 4a1 > 0c0` | 65.1% | 90.5% |
 |  | 6 | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) | 66.4% | 91.3% |
 |  | 7 | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `0c0 > 4a1 > 4b2 > 4a1 > (0c0)`) | 67.5% | 91.9% |
-|  | 8 | `0c0 > 4a1 > 0c0 > (4a1 > 0c0)` (mirror: `0c0 > 4a1 > 0c0 | qt`) | 68.4% | 92.1% |
+|  | 8 | `0c0 > 4a1 > 0c0 > (4a1 > 0c0)` (mirror: `0c0 > 4a1 > 0c0 \| qt`) | 68.4% | 92.1% |
 | 0c0 6e | 1 | `0c0 > 4a1 > (0c0)` | 40.8% | 70.7% |
 |  | 2 | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) | 53.7% | 83.9% |
 |  | 3 | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `0c0 > 4a1 > 4b2 > 4a1 > (0c0)`) | 60.2% | 88.0% |
 |  | 4 | `0c0 > 4a1 > 4b2 > (4a1 > 0c0)` | 64.0% | 90.3% |
 |  | 5 | `0c0 > 4a1 > 0c0 > 4a1 > 0c0` | 65.7% | 91.1% |
 |  | 6 | `0c0 > 4a1 > 0c0` | 66.8% | 92.0% |
-|  | 7 | `0c0 > 4a1 > 0c0 > (4a1 > 0c0)` (mirror: `0c0 > 4a1 > 0c0 | qt`) | 67.4% | 92.2% |
+|  | 7 | `0c0 > 4a1 > 0c0 > (4a1 > 0c0)` (mirror: `0c0 > 4a1 > 0c0 \| qt`) | 67.4% | 92.2% |
 |  | 8 | `0c0 > 4a1 > 4b2 > 4a1 > 0c0` | 67.8% | 92.2% |
 | 0c0 8e | 1 | `0c0 > 4a1 > (0c0)` | 53.5% | 78.7% |
 |  | 2 | `0c0 > 4a1 > 0c0` | 70.1% | 91.7% |
 |  | 3 | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) | 77.1% | 95.0% |
 |  | 4 | `0c0 > 4a1 > 4b2 > (4a1 > 0c0)` | 77.8% | 95.4% |
 |  | 5 | `0c0 > 4a1 > 4b2 > 4a1 > 0c0` | 78.3% | 95.7% |
-|  | 6 | `0c0 > 4a1 > 0c0 > (4a1 > 0c0)` (mirror: `0c0 > 4a1 > 0c0 | qt`) | 78.5% | 95.8% |
+|  | 6 | `0c0 > 4a1 > 0c0 > (4a1 > 0c0)` (mirror: `0c0 > 4a1 > 0c0 \| qt`) | 78.5% | 95.8% |
 |  | 7 | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `0c0 > 4a1 > 4b2 > 4a1 > (0c0)`) | 78.7% | 95.8% |
-|  | 8 | `0c0 > 4a1 > 0c0 | qt` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 4b2 > 4a1 > 0c0)`) | 78.8% | 96.0% |
+|  | 8 | `0c0 > 4a1 > 0c0 \| qt` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 4b2 > 4a1 > 0c0)`) | 78.8% | 96.0% |
 | 2c5 0e | 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > (4a1 > 0c0)`) | 77.8% | 95.5% |
 |  | 2 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 86.5% | 98.0% |
 |  | 3 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 89.6% | 98.7% |
@@ -1971,7 +1973,7 @@ The 0c3 one is the only flagged headline. Every other headline moves by at most 
 |  | 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | 92.2% |
 |  | 6 | `4a1 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a1 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 70.1% | 92.5% |
 |  | 7 | `4a1 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4a1 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 70.5% | 92.7% |
-|  | 8 | `4a1 > 0c0 | qt` (mirror: `4a1 > 4b2 > (4a1 > 4b2 > 4a1 > 0c0)`) | 70.7% | 93.1% |
+|  | 8 | `4a1 > 0c0 \| qt` (mirror: `4a1 > 4b2 > (4a1 > 4b2 > 4a1 > 0c0)`) | 70.7% | 93.1% |
 | 2c3 0e | 1 | `2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a1 > (0c0)`) | 46.3% | 81.8% |
 |  | 2 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 67.0% | 93.7% |
 |  | 3 | `2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 75.1% | 95.9% |
@@ -2506,7 +2508,7 @@ Through 4c3 (4a3 or 4b3), same columns:
 |---|---|---|---|
 | 0c0 0e | 1 | `0c0 > 4a1 > 0c0` | 49.4% |
 |  | 2 | `0c0` | 91.2% |
-|  | 3 | `0c0 | qt` | 99.5% |
+|  | 3 | `0c0 \| qt` | 99.5% |
 |  | 4 | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` | 99.8% |
 | 0c0 2e | 1 | `0c0 > 4a1 > 0c0` | 70.1% |
 |  | 2 | `0c0 > 4a1 > 0c0 > 4a1 > 0c0` | 93.2% |
@@ -2889,7 +2891,7 @@ Through 4c3 (4a3 or 4b3), same columns:
   - Formula.lean: the smallest term is sound (`Rmin_sound`) and so is the largest, the formula as written (`Rmax_sound`).
   - Counter.lean: the counterexamples to the printed forms (`printed_term2_fails`, `literal_min_fails`, `witness_0c3`, `alpha_i_fails`), that the smallest term isn't always the exact worst case (`Rmin_not_tight`), and where C goes (`C_placement`).
   - Subset.lean, on the cube: half turns keep the subset × bad edges (`half_turns_keep_subset_data`, `labels_keep`), FakeMMAP's $C = 5$ and 6 (`fake_C_examples`), and $\alpha$ of the two counterexample paths (`counter_alphas`).
-- *Corrections* (lean/FakeBound/Corrections/Examples.lean), the errata examples: the optimal finish of every DR state in a, c, d, e and f (`dr_optima_correct`, from the first study's proved table) and the printed finishes of a, d and f (`dr_solutions_valid`); the HTR lengths and printed HTRs of b and c (`htr_4c4`, `htr_13`); the subset names of a, d, e and f (`labels_htr_routes`); f's index example end to end (`index_example`, `index_example_arith`) and the C example (`C_example`). Each errata item says which of its example is Lean-checked.
+- *Corrections* (lean/FakeBound/Corrections/Examples.lean), the errata examples: the optimal finish of every DR state in a, c, d, e and f (`dr_optima_correct`, from the first study's proved table) and the printed finishes of a, d and f (`dr_solutions_valid`); the HTR lengths and printed HTRs of b and c (`htr_4c4`, `htr_13`); the subset names of a, d, e and f (`labels_htr_routes`); f's index example end to end (`index_example`, `index_example_arith`) and the C example (`C_example`). Each errata item says how much of its example is Lean-checked.
 
 **Computed, not proved**: every share and mean from the samples (25,000 states per subset × edges, 4,000 for bounding), the exact model of section 9 (an enumeration in Python), the shortest NISS HTRs (the Rust tool's search, cross-checked with nissy), which finishes are optimal and how they read (the Rust tool, cross-checked on the sticker model and with nissy), the reduction counts, and the means over the first study's exact table, such as the gain from the last DR move.
 

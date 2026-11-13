@@ -1,6 +1,6 @@
 # DRXs — a Lean 4 certificate for the kinds of DR-xs state and for the slice-EO skip count
 
-Lean 4.35.0, no Mathlib (only the library that ships with Lean, `Std.HashMap` included). About 900 lines, no `sorry`.
+Lean 4.35.0, no Mathlib (only the library that ships with Lean, `Std.HashMap` included). About 1,600 lines, no `sorry`.
 
 The case study "Is DR-xs worth it?" rests on a few exact computations done in Python (`research/src/cube.py`, `fe.py`, `fecosets.py`, `festeps.py`, `seo_skip.py`). This project does them again in Lean, from its own definitions, and states each resulting number as a theorem. Every number below is also the number the Python prints; none had to be changed.
 
@@ -70,6 +70,25 @@ In C, D, E the previous axis is "none" (counted from scratch).
 | `seo_configurations` | 34,650 × 2,048 = 70,963,200. |
 | `seo_share_normal`, `seo_share_both` | So the share with at least one skip is 68.7953 % on normal and 79.3147 % on normal or inverse, to four places. |
 
+**G–K, added 2026-11-13** (`DRXs/Theorems2.lean`, `DRXs/EightFeTheorems.lean`; definitions in `AfterTrigger.lean`, `Colours.lean`, `EdgeOrient.lean`, `Witness.lean`, `EightFe.lean`)
+
+| Theorem | It says |
+|---|---|
+| `eo_reference_free`, `eo_moves` | Edge orientation for an axis, defined from the stickers (`edges.goodWith`), does not depend on the reference axis, and a face turn keeps it except a quarter turn of that axis, which turns over the four edges of the face. |
+| `slice_eo_rule` | **The slice-EO rule of `seo_skip.py`, exhaustively**: for every edge place, piece and twist and each axis, bad for e = bad for F/B xor g_e(place kind) xor g_e(piece kind). So F counts the slice EOs of the sticker cube. (It was tried on 200 random states only.) |
+| `eo_inverse`, `kinds_of_places` | On the inverse every edge keeps its orientation for every axis (place and piece swap), so the inverse side of F is right too; seo_skip's place kinds are the E/M/S of the places. |
+| `seo_skip_average`, `seo_skip_average_digits` | 79,833,600 and 159,667,200 skips in all: 1.125 per scramble on normal, exactly 2.25 on both sides; 20.69 % with none on either side. |
+| `seo_dist_states`, `seo_dist_hists`, `seo_dist_digits` | `seo_dist.py` from stickers: the E-slice pieces sit 7,920 ways; turns to a slice EO, any axis either flavour 2550/3036/2334 (never more than 2); oriented only 1345/2022/4089/464 (3 moves 5.9 %); F/B either 990/1560/4852/518 (1 in 8); F/B oriented 495/850/3740/2598/237 (1 in 16). |
+| `after_trigger_better`, `after_trigger_worse` | `festeps.after_quarter`: the write-up's 4.3 table after a trigger (DR-3s→DR-2s free for all 244; DR-2s→DR-1s free for 209, else 3; DR-1s→DR 0/3/4/5 for 2/20/14/104; DR-2s→DR), and free for 69 on the worse axis. |
+| `dr1s_layouts` | 70 DR-1s layouts per side axis, 1, 2, 9, 30, 28 at 2–6 turns; turn sums 724, 2614, 2074 (means 5.17, 6.83, 8.50). |
+| `simon_count`, `simon13_rows_U`, `simon13_rows_D` | Simon's table: 1, 4, 13, 36, 16 with the last trigger move the other way (U2 for a U trigger, D2 for D; the two differ on 36 layouts). Errata A2's 13 printed rows check for a U trigger (layout, both counts, fix reaches DR); for a D trigger two of them (BL DB UF BR, FL DF UB FR) are 3-turn layouts. |
+| `colour2_kinds`, `errata_B1` | The kinds for the F/B colours (768, same slices, complete invariant); errata B1's scramble: 12 bad on F/B, F/B colours on U/D, 4 flipped, 2 slices, 6 turns, the printed fix works. |
+| `errata_B2_six`, `errata_B3`, `errata_B3_nissy` | The 6-turn DR-1s of B2 and section 8; B3's example (8 bad, the good ones E pieces, flipped pieces DB DF UF UR at BL BR FL FR, 4 turns, `F B R L`), and nissy's shortest DRs by brute force over any axis: none within 3 on normal, none within 5 on the inverse, the printed 4 and 6 work. |
+| `rename_conjugates`, `rename_is_python_rename`, `eight_fe_is_renamed_dr` | The 8fe renaming (`eo8_hist.rename`) as one place permutation: it turns each face turn into a face turn (σ_z keeps the 14 EO-keeping turns), and it takes each of the two 8fe kinds to a real DR. |
+| `eight_fe_full_eo`, `eight_fe_mean_digits` | Section 6.3: over all 1,082,565 positions with F/B EO (BFS with the 14 turns, tables pass the rule check), one DR and one 8fe; both distance histograms are 1, 2, 17, 134, 1065, 8190, 54694, 267576, 560568, 187204, 3114 (mean 7.80, = EOSwitch's `dist_hist`), and position by position the 8fe distance is the DR distance of the renamed position. |
+
+The 6.3 search reads a state through `absF` (U/D colour at every place, colour axis at the E-slice pieces), which is all `fe.look` with the U/D colours reads; `lift` turns it back into stickers. That `look` reads nothing else is read off its code, as in Invariant.lean.
+
 ## Files
 
 | File | Content |
@@ -91,9 +110,9 @@ In C, D, E the previous axis is "none" (counted from scratch).
 
     source /data/fmc/env.sh
     cd /data/fmc/is-dr-xs-worth-it/lean/DRXs
-    systemd-run --user --scope -q -p MemoryMax=2G lake build
+    systemd-run --user --scope -q -p MemoryMax=3G lake build
 
-From a clean tree this takes about 1 minute on the 4-core VM (measured: 51 s wall, 72 s of CPU, peak memory 0.7 GB): 41 s for F's run (`SeoTheorems`), 17 s for `Theorems`, a few seconds for everything else. With other jobs hammering the disk the wall time has been several times longer for the same CPU time. The last step prints the audit (`Audit.lean`).
+From a clean tree this takes about 1 minute on the 4-core VM (measured 2026-11-13: 67 s wall, 155 s of CPU, peak memory 1.0 GB): 45 s for the 6.3 search (`EightFeTheorems`), 38 s for F's run (`SeoTheorems`), 19 s for `Theorems`, 15 s for `Theorems2`, a few seconds for everything else (modules build in parallel). With other jobs hammering the disk the wall time has been several times longer for the same CPU time. The last step prints the audit (`Audit.lean`).
 
 `lakefile.toml` sets `precompileModules = true`, as in the first study: the definitions are compiled to machine code before the theorem files run them. Without it they would run in the interpreter and F would not finish in reasonable time.
 
@@ -111,12 +130,12 @@ To regenerate `DRXs/PyMoves.lean`: `/data/fmc/venv/bin/python gen_moves.py` (it 
 - **`dijkstra` / `to_set`.** The Python runs Dijkstra's algorithm with a heap on the reversed graph. The Lean repeats the rule from the Python's own comment over all entries until nothing changes (`fecosets.shortest`). Same table.
 - **Asserts** are counted (`failed`) instead of stopping the run; `explore_asserts_hold` says the count is 0.
 - **More than the Python:** `Invariant.lean` (the complete invariance check), `kinds_closed`, `tables_satisfy_rule`, `turns_of_a_face`, `moves_keep_corners_and_edges`.
-- **Less than the Python:** no slice turns, wide turns or rotations in the cube model (nothing here needs them); no `best_move` / `path`; no `after_quarter` in `festeps`; in `seo_skip`, no `check_rule`, no per-event counts and no "oriented only" tables.
+- **Less than the Python:** no slice turns, wide turns or rotations in the cube model (nothing here needs them); no `best_move` / `path`; in `seo_skip`, no `check_rule`, no per-event counts and no "oriented only" tables.
 - **Move sequences** are strings whose names must be separated by spaces (`"R U R' U'"`); the Python also accepts them run together.
 - **`seo_skip`**: numpy handles the 2,048 orientation vectors of a placement at once; the Lean loops over them.
 
 ## Not proved in Lean
 
-- The slice-EO rule itself (`b ^ g_e(place kind) ^ g_e(piece kind)`): F counts with the rule as given. The Python tries the rule against the sticker model on 200 random states (`seo_skip.check_rule`).
+- (Proved since 2026-11-13: the slice-EO rule, `slice_eo_rule`.)
 - That the two walks of `Invariant.lean` cover every reachable state: this is the short argument at the top of that file. It uses three things read off the code of `fe.look` (it reads a state only through the colour axes of its stickers; its corner loop reads corner places only; its edge loop reads edge places only) and `moves_keep_corners_and_edges`.
 - That the DR-xs move set and the cost count (one group = its face turns, no two groups in a row about one axis) are the right model of solving; that is the study's business, not the certificate's.

@@ -31,6 +31,11 @@ November 2026. A name with a date is a link to that message on the FMC solvers D
 - **Start with [section 1](#1-the-short-version)**, the short version: what is new, then what it confirms or corrects. If you read one thing after it, make it the table in [section 2](#2-what-id-do-per-subset): for each kind of DR it says how often it finishes short, what to look at, when to drop it, and what not to conclude. With five minutes more, [section 5](#5-how-much-can-a-read-tell-you) measures how much any read can tell you for the finish you need (10, 11, 12 or 13).
 - **The [worked examples](examples.html)** go with it, to see it on real DRs: eleven DRs read step by step, then 100 scrambles with the DRs on the page and the answers folded away. **The [errata](errata.html)** list what the full search shows is wrong in the docs and sheets involved and in things said on the server, each with an example.
 - **Everything from section 10 on** is checking and reference: the 216 cases, the proof, how it was computed, and eight appendices of tables to look things up in.
+- **What you can use in an attempt, and what's the answer key.** Every number is measured on the exact optimal finish of every DR state, but most of them are odds for reads you make at the table: the subset and its bad edges, the true pairs, the corner case on normal and on inverse, the HTR lengths you found, the corner solution and its parity. Those odds, the guide per subset, the prune list and the plain drop rules are for the attempt, and so are the hand bounds (the longer HTR, the corner solution with the right parity, Levi's formula, setup + HTR). What follows is **computer only**, and each place says so:
+  - the optimal finish of a given DR, and every verdict that rests on it: the "truth" in the examples, which worked examples in the docs are optimal, the real-scramble tallies where every DR is finished optimally;
+  - the ranking and throwing-away tables of "How much can a read tell you?" and Appendix H, which rank DRs by the exact odds of every class of reads, thousands of them. They're ceilings for what a rule can do; the plain rules are the version you carry;
+  - the sd figures, which measure how much the reads leave open and aren't something to work out;
+  - what a computer can prove from the DR (NISS@DR and the levels above it, millions of cases), the cost of the slice and the width of a DR, and the finishes that break DR.
 
 ---
 
@@ -44,7 +49,7 @@ November 2026. A name with a date is a link to that message on the FMC solvers D
 | [6. The reads, cheapest first](#6-the-reads-cheapest-first) | What each read is worth, with the tables: [6.1 Subset](#61-subset), [6.2 Pairs](#62-pairs), [6.3 Corner case, on both sides](#63-corner-case-on-both-sides), [6.4 HTR length on both sides](#64-htr-length-on-both-sides), [6.5 Corner length and E-slice parity](#65-corner-length-and-e-slice-parity), [6.6 The last DR move](#66-the-last-dr-move). |
 | [7. Bounds people use, graded](#7-bounds-people-use-graded) | Levi's formula, trangium's 2q bound at any qt, HTR length, the parity bound. Which never fail, how often the others do. |
 | [8. Leave slice, the slice, and width](#8-leave-slice-the-slice-and-width) | What the slice costs, and how many first moves are optimal. |
-| [9. What a computer can prove from the DR](#9-what-a-computer-can-prove-from-the-dr) | Table lookups that prove "no 12" for most 4–5qt DRs and "no 11" for nearly all, and why no hand read gets there. |
+| [9. What a computer can prove from the DR](#9-what-a-computer-can-prove-from-the-dr) | **Computer only.** Table lookups that prove "no 12" for most 4–5qt DRs and "no 11" for nearly all, and why no hand read gets there. |
 | [10. The 216 NISS@1qt cases, three ways](#10-the-216-niss1qt-cases-three-ways) | FakeMMAP's and Rodney's tables checked with half turns, with DR moves and with any move. |
 | [11. The proof, if you don't speak Lean](#11-the-proof-if-you-dont-speak-lean) | What is proven, how, and what you have to trust. |
 | [12. How it was computed and checked](#12-how-it-was-computed-and-checked) | The programs, and what agreed with what. |
@@ -56,7 +61,7 @@ November 2026. A name with a date is a link to that message on the FMC solvers D
 | [Appendix E: the 46 corner cases](#appendix-e-the-46-corner-cases) | Layout, example scramble, corner solution lengths, odds for 10 to 13, and the both-sides tables. |
 | [Appendix F: HTR length on both sides, all 48 subsets](#appendix-f-htr-length-on-both-sides-all-48-subsets) | Odds for 10 to 13 for every pair of HTR lengths. |
 | [Appendix G: a scramble for every subset](#appendix-g-a-scramble-for-every-subset) | A longest state, and one that finishes in exactly its longer HTR, for each of the 48 subsets. |
-| [Appendix H: every read at every target](#appendix-h-every-read-at-every-target) | Ranking and pruning power of each read, for a finish in 9, 10, 11, 12 or 13. |
+| [Appendix H: every read at every target](#appendix-h-every-read-at-every-target) | Ranking and pruning power of each read, for a finish in 9, 10, 11, 12 or 13. **Computer only**: ceilings, not rules to carry. |
 | [Docs and sheets referred to](#docs-and-sheets-referred-to) | Links. |
 
 ---
@@ -72,9 +77,9 @@ What is new here:
   | Bad corners | Never finishes in | In 11 | In 12 | Fastest, moves |
   |---|---:|---:|---:|---:|
   | 2c5, stacked on both sides | 12 | | | 13 |
-  | the same subset, stacked on one side and opposite on the other | 11 | | 0.24% | |
+  | the same subset, stacked on one side and opposite on the other | 11 | | 0.24% | 12 |
   | 2c4, stacked on both sides | 10 | 0.06% | 1.1% | 11 |
-  | 4a2 2e, all four bad corners on one layer on both sides | 12 | | | |
+  | 4a2 2e, all four bad corners on one layer on both sides | 12 | | | 13 |
 
   The first two rows are 19% of all 2c5, and the third is as dead as a 5qt. The fastest double-stacked 2c4 and 2c5 are in section 6.3.
 - **A five-line prune list for an 11-move DR that needs no solving** (section 2). What it does in each qt group:
@@ -82,7 +87,7 @@ What is new here:
   | Share of the group | 1–2qt | 3qt | 4qt | 5qt |
   |---|---:|---:|---:|---:|
   | DRs it drops | 8% | 28% | 81% | all |
-  | finishes in 11 it loses | 0.68% | 6.0% | 36% | |
+  | finishes in 11 it loses | 0.68% | 6.0% | 36% | all |
 
   Over all DR states it drops 57% and keeps 92% of the 11s and 96% of the 10s. On real scrambles, 491 of 500 random ones (those with an EO-first DR of 10 or less), each row is what you finish:
 
@@ -90,13 +95,15 @@ What is new here:
   |---|---:|---:|
   | every DR of 10 or less, plus only the 11-movers the list keeps | 20.05 | 353 |
   | the same, but every 11-mover | 20.04 | 733 |
+
+  That table finishes every DR optimally, so it's **computer only**, the answer key for what the list costs. What you take into an attempt is the list itself, which needs no solving.
 - **For a 10 or an 11, the subset does most of the pruning.** Share of DRs that finish, by qt group:
 
   | Finishes | 1–2qt | 3qt | 4qt | 5qt |
   |---|---:|---:|---:|---:|
   | in 11 | 10% | 4.6% | 1.1% | 0.24% |
   | in 10 | 2.4% | 0.87% | 0.16% | 0.02% |
-- **Still no clean yes/no: tseitsei89's "100% cases and 0% cases" don't exist at any target.** The subset explains 35% of the variance of the optimal, everything readable together 48%, and what's left has an sd of 0.78 moves. Zagros's hunch was that corner case + HTR on both sides pins the optimal to ~0.25 moves; it's 0.80. Two 2c4 4e with the same corner case on both sides, 7 to HTR on both sides and the same corner length finish in 7 and in 16 (section 5).
+- **Still no clean yes/no: tseitsei89's "100% cases and 0% cases" don't exist at any target.** The subset explains 35% of the variance of the optimal, everything readable together 48%, and what's left has an sd of 0.78 moves. Zagros's hunch was that corner case + HTR on both sides pins the optimal to ~0.25 moves; it's 0.80. Two 2c4 4e with the same corner case on both sides, 7 to HTR on both sides and the same corner length finish in 7 and in 16 (section 5). The sd figures are **computer only**: they measure the reads over every DR state, nothing you work out in an attempt. What you use there are the odds each read gives, in the guide per subset.
 - **The lower the target, the more the reads tell you, and the free reads tell the most.** Keep only the best-looking quarter of a qt group, going by pairs and corner case (no solving needed). Share of the finishes you keep:
 
   | Finishes in | 3qt | 4qt |
@@ -105,7 +112,7 @@ What is new here:
   | 11 | 63% | 77% |
   | 10 | 74% | 89% |
 
-  From 3qt up, pairs plus corner cases rank better than the two HTR lengths at every target from 10 up, and the HTR lengths on top add 1 to 7 points. At 1–2qt it's the other way round: HTR length is the best single read.
+  From 3qt up, pairs plus corner cases rank better than the two HTR lengths at every target from 10 up, and the HTR lengths on top add 1 to 7 points. At 1–2qt it's the other way round: HTR length is the best single read. These shares rank DRs by the exact odds of every combination of reads, a table of thousands of classes, so they're **computer only**: a ceiling for what a rule built on those reads can do. The versions you carry are the prune list above and the plain rules below.
 - **Plain rules, with their price.** Zagros's "9+ on both sides, toss", turned into a rule against your target T. For an 11, each row is a rule, with the share of 3qt and 4qt DRs it drops and the share of their 11s it loses:
 
   | Rule | DRs dropped, 3qt | DRs dropped, 4qt | 11s lost, 3qt | 11s lost, 4qt |
@@ -120,7 +127,7 @@ What is new here:
   |---:|---:|---:|
   | 1.4 | 1.7 | 1.9 |
 
-  A 2c4 with five or more pairs finishes in 11 sixteen times as often as one with none (6.8% against 0.43%). Adding pseudo-pairs and semi-pairs moves the sd left from 0.850 to 0.842. The pair count is the same on inverse for every DR state, so count once.
+  A 2c4 with five or more pairs finishes in 11 sixteen times as often as one with none (6.8% against 0.43%). Adding pseudo-pairs and semi-pairs moves the sd left from 0.850 to 0.842 (an sd over every DR state, **computer only**). The pair count is the same on inverse for every DR state, so count once.
 - **Inside a subset the corner case on both sides is a big read.** For 2c4, each row is a corner case (on both sides for the first two), with the share finishing in 10, 11 and 12 or less:
 
   | Corner case | In 10 | In 11 | In 12 |
@@ -153,12 +160,12 @@ What is new here:
   | the same: proves "no 11" | 97% | 99% |
   | everything readable put together: under 1% for a 12 | 24% | 45% |
 
-  The gap is the corner–edge relation, which is what Rodney's NISS@1qt tracing looks at. No count of visible features replaces it.
+  The gap is the corner–edge relation, which is what Rodney's NISS@1qt tracing looks at. No count of visible features replaces it. All three rows are **computer only**: NISS@DR is a lookup in millions of cases, and "everything readable put together" ranks by the exact odds of every class of reads. They show where the information is. In an attempt the version you have is Rodney's tracing, per skeleton.
 - **Exact numbers that were guesses.**
   - The shortest HTR at 1 to 5 corner qts is 1 / 3 / 5 / 7 / 9 on either side (Joba's safe bound took 1 / 2 / 4 / 6 / 8).
   - Only four subsets ever need 18: 0c0 8e, 0c3 4e, 2c5 0e and 2c5 4e.
-  - The slice is free (finish = leave slice) for 73% of DRs, from 56% at 1–2qt to 85% at 5qt.
-  - A DR whose optimal is 10 or 11 has exactly one optimal first move three times in four.
+  - The slice is free (finish = leave slice) for 73% of DRs, from 56% at 1–2qt to 85% at 5qt. **Computer only**: it needs the optimal finish and the optimal leave slice.
+  - A DR whose optimal is 10 or 11 has exactly one optimal first move three times in four. **Computer only**, from the optimal finish of every state.
   - 0c3 is the worst subset on average (14.46), worse than 5qt, and 4a2 2e and 0e finish like a 2c4.
 - **Questions from the server, answered exactly**: stats by bad corner position (Daichi, JTuu, wen), by pairs (Rodney, Levi), the normal × inverse HTR table (Zagros), the 4a1 4e bound against the real leave slice (count quackula), the cost of the slice and the width of a DR (JTuu), an invertible last move (Zagros), error stats for bounding (compLex), God's number per subset (compLex), optimal lengths of all corner cases (Evan).
 - **Proven in Lean**: the optimal finish of every DR state (so every stat here is a count over proven optimals) and its maximum of 18, the HTR and corner-length-with-parity bounds, the 216 HT-only values, and the counterexample to Levi's formula.
@@ -171,7 +178,7 @@ What it confirms or corrects in the docs and sheets people use:
 - **Zagros's "4c3 that is 9+ on both sides I throw away"** drops half of all 4c3 and keeps 92% of the 10s, 83% of the 11s and 73% of the 12s. It does throw away real finds: one 9 to HTR on both sides finishes in 9 (section 6.4).
 - **Zagros's "L + longest HTR predicts within ~1 move"** is true for 93.3% of DRs, but the subset alone does it for 91.3%.
 - **Levi's "blocky 2c4s are way better"**: yes, the ×16 above.
-- **Rodney's two worked examples** in the Advanced DR Bounding doc are optimal 13s, and Levi's example in the DR Bounding doc is right once the last DR move is turned the other way (section 9).
+- **Rodney's two worked examples** in the Advanced DR Bounding doc are optimal 13s (**computer only**, a table lookup: the answer key), and Levi's example in the DR Bounding doc is right once the last DR move is turned the other way (section 9).
 - **Checked and matching**: Joba's optimal distribution for all 48 subsets, in every cell; FakeMMAP's corner counts per qt; the 1,352 states at 18 that Reid gave (section 12).
 - The errata page that goes with this doc has the rest: typos in Rodney's doc, and claims from the channels about the longest DR→HTR, which subsets reach 18 and where 16+ optimals live, each with a scramble.
 
@@ -239,13 +246,13 @@ On real scrambles the price is smaller still, because the short DRs carry most o
 | every 11-mover | 20.04 | 733 |
 | only the 11-movers the list keeps | 20.05 | 353 |
 
-The tally is at the end of the examples page.
+The tally is at the end of the examples page. Every DR there is finished optimally, so that table is **computer only**, the answer key for what the list costs; the list itself needs no solving.
 
 If you have the HTR lengths, do the 4c3 line as "9+ on both sides, toss" instead: it drops about as many and loses 17% of the 4c3 finishes in 11 instead of 28%.
 
 Subset by subset. Each one has a table of how it finishes by bad edges, then what to read and when to drop it.
 
-#### 0c0
+### 0c0
 
 0.5% of all DRs, average optimal 12.28. Depends almost only on the bad edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -277,7 +284,7 @@ Subset by subset. Each one has a table of how it finishes by bad edges, then wha
 - **Needing a 12**: never because of the subset. 6e with no pairs is still 19%.
 - **Don't conclude** that "0" means no quarter turns: every 0c0 with bad edges needs two. The shortest 0c0 2e is `D F2 R2 F2 D`, solved by `D' F2 R2 F2 D'`.
 
-#### 4a1
+### 4a1
 
 2.9% of all DRs, average optimal 12.42. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -310,7 +317,7 @@ Only 4e can be finished with one quarter turn. 2e and 0e need three.
 - **Don't forget** the 3qt finishes on 4e. When a 4a1 4e is very blocky and the formula still says 10+, look for one: `U2 F2 R2 B2 U D2 B2 R2 B2 R2 F2` has formula 10 and a 3qt finish in 7 (`U B2 L2 F2 D F2 D`).
   - 2e and 0e really need three quarter turns: `D F2 U' B2 F2 D'` (4a1 2e) is solved by `D F2 B2 U F2 D'`, and `U L2 R2 U L2 R2 U'` (4a1 0e) by `U R2 L2 U' R2 L2 U'`.
 
-#### 4a2
+### 4a2
 
 2.9% of all DRs, average optimal 13.35. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -341,7 +348,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: 10 or more to HTR on both sides (15% of 4a2): 0 / 0.05% / 1.1%. The worst corner case on both sides, above all with 2e.
 - **Don't conclude** that 2qt means good. On average 4a2 finishes worse than 2c3 and 4b2: 1.1% / 4.8% / 18% against 1.3% / 6.7% / 28% and 2.2% / 10% / 36%.
 
-#### 4b2
+### 4b2
 
 11.4% of all DRs, average optimal 12.68. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -374,7 +381,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: there is no dead corner of 4b2. The weakest HTR cells of any size are 7 and 8 with 2e (14%) and 8 and 9 with 4e (15%).
 - **Don't conclude** that a short HTR means a short finish. Example 10 in the examples file has a 4-move HTR, sits in a cell where 84% finish in 12, and is a 13.
 
-#### 2c3
+### 2c3
 
 15.2% of all DRs, average optimal 12.92. The edge count matters a lot. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -413,7 +420,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: nothing is dead. The weakest cells of any size: 6e with adjacent corners on both sides (7.6%), 4e at 8 and 9 to HTR (9.2%), 6e at 9 and 9 (10%).
 - **Don't conclude** that stacked corners are bad. At 3qt stacked is the *best* layout. It's at 4qt and 5qt that stacked is the worst.
 
-#### 4c3 (4a3 and 4b3)
+### 4c3 (4a3 and 4b3)
 
 11.4% of all DRs, average optimal 13.49. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -449,7 +456,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: 10 on both sides, or 9 and 10 with nothing else going for it. The rule keeps 73% of the 12s, so there it costs a quarter of them.
 - **Don't conclude** that what the rule drops is dead: `U' L2 D' B2 U' B2 U L2 D` is 9 to HTR on both sides and finishes in 9.
 
-#### 0c3
+### 0c3
 
 1.4% of all DRs, average optimal 14.46. The worst subset on average, worse than 5qt. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -475,11 +482,11 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 
 **When to drop it, and what not to conclude:**
 
-- **Needing a 10 or an 11**: always. The longer HTR is 10 or more for 99% of 0c3, so a 10 is all but ruled out before you look. For an 11 even the better cells are 1–3%: 2e or 6e with a qt straight to 4a2 is 0.97%, 2e with five pairs 1.3%, 2e or 6e at 9 and 10 to HTR 1.7%, 4e at 10 and 11 2.6%. 9 on the longer side reaches 4.3%, and that is one 0c3 in a hundred.
+- **Needing a 10 or an 11**: always. The longer HTR is 10 or more for 99% of 0c3, so a 10 is all but ruled out before you look. For an 11 even the better cells are only about 1–3%: 2e or 6e with a qt straight to 4a2 is 0.97%, 2e with five pairs 1.3%, 2e or 6e at 9 and 10 to HTR 1.7%, 4e at 10 and 11 2.6%. 9 on the longer side reaches 4.3%, and that is one 0c3 in a hundred.
 - **Needing a 12**: by default. 0c3 4e with 12 or 13 on the longer side (six in seven of 0c3 4e) is at most 0.76%.
 - **Don't conclude** that no bad corners means good corners.
 
-#### 2c4
+### 2c4
 
 22.9% of all DRs, the most common subset, average optimal 13.65. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -522,7 +529,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Don't conclude** that 2c4 is bad as a subset. The best layout on both sides is as good as an average 2c3 4e (0.92% / 5.6% / 26% against 1.3% / 6.4% / 27%), and 2c4 is where reading pays the most, because the spread inside it is the widest.
 - **Don't conclude** that 6e is a discard on its own: it's 0.14% / 1.2% / 7.7% against 0.23% / 1.6% / 9.1% for 4e. 8e is worse.
 
-#### 0c4
+### 0c4
 
 1.0% of all DRs, average optimal 13.67. Same average as 2c4 but fewer short finishes: 0.08% / 0.87% / 6.7% against 0.23% / 1.6% / 9.4%. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -547,7 +554,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: 6e or 8e, or no pairs.
 - **Don't conclude** anything from the corners here, there's nothing to tell apart.
 
-#### 4c4 (4a4 and 4b4)
+### 4c4 (4a4 and 4b4)
 
 11.4% of all DRs, average optimal 14.40. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -573,7 +580,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: by default. It takes a short DR *and* something going for it (five pairs, or 9 and 10 to HTR, or the best corners), and then it's about 5.0%. 11 to HTR on both sides: 0.44%.
 - **Don't conclude** from examples 2 and 9 in the examples file that 4c4 comes good. Those were rare outcomes.
 
-#### 2c5
+### 2c5
 
 7.6% of all DRs, average optimal 14.33. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -603,7 +610,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 - **Needing a 12**: by default, and at once with a stack on both sides, a stack plus opposite, or 11 to HTR on both sides (0.13%). Worth a look with a short DR and five pairs, or adjacent corners on both sides with 9 or 10 to HTR.
 - **Don't conclude** that "5qt, skip" loses nothing when a 13 is enough: one 2c5 in seven finishes in 13.
 
-#### 4b5
+### 4b5
 
 11.4% of all DRs, average optimal 14.28. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
 
@@ -634,7 +641,7 @@ On top of any row: a last DR move that can be turned the other way is worth a th
 
 ## 3. What people asked for
 
-**Bounding at high qt.** With a computer, DR bounding works at any qt. Look at part of the DR, tabulate the fewest moves that solve that part, and you have a lower bound at any qt with no skeleton. With the right table it proves "no finish in 12" for 59% of 5qt DRs and "no finish in 11" for 94% (section 9). The catch is that the tables have millions of cases, so nobody can use them in an attempt, and the bar on the server is clear:
+**Bounding at high qt.** With a computer, DR bounding works at any qt. Look at part of the DR, tabulate the fewest moves that solve that part, and you have a lower bound at any qt with no skeleton. With the right table it proves "no finish in 12" for 59% of 5qt DRs and "no finish in 11" for 94% (section 9). The catch is that the tables have millions of cases, so that's **computer only**: nobody can use them in an attempt, and the bar on the server is clear:
 
 > "is the lower bound fast to determine by human methods? If it takes too long to figure out the lower bound, you can just as well try to actually solve the DR" ([tseitsei89, 13 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1416359895761944657))
 
@@ -653,7 +660,7 @@ And the specific questions, each with a section below:
 
 | Asked | By | Where |
 |---|---|---|
-| Can Levi's and Rodney's DR bounding be pushed to 3qt, 4qt and 5qt DRs, so you can toss a DR because its bound is high instead of wasting time on it? | | §5, §9 |
+| Can Levi's and Rodney's DR bounding be pushed to 3qt, 4qt and 5qt DRs, so you can toss a DR because its bound is high instead of wasting time on it? | Jay, Levi, Rodney and tseitsei89 (quoted above) | §5, §9 |
 | Corner case + HTR on normal + HTR on inverse "can tell you the optimal solution with a standard deviation of like 0.25 moves"? | [Zagros, 4 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1490097940641878216) | §5 |
 | Stats by optimal corner length and longest direct HTR; "predict the opt finish length within ~1 move"? | [Zagros, 25 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1365341555308888114) | §5 |
 | A square table, moves to HTR on both sides. "4c3 that is 9+ on both sides I throw away" | [Zagros, 10 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1470865840298655918) | §6.4 |
@@ -752,13 +759,13 @@ The same rows for the longer finishes, 12, 13 and 14 or less:
 | 4b5 | 1.9% | 14% | 58% |
 | **all DRs** | 15% | 44% | 80% |
 
-For a 10 or an 11 the subset has already done most of the pruning: one 4qt DR in 90 finishes in 11, one 5qt DR in 400. The reads matter most where the odds are still alive, at 1–3qt, and for finding the few high-qt DRs worth keeping. (The tables below go by corner-qt group from 1–2qt up. 0c0, half a percent of DR states, has its own row in section 2.)
+For a 10 or an 11 the subset has already done most of the pruning: one 4qt DR in 90 finishes in 11, one 5qt DR in 400. The reads matter most where the odds are still alive, at 1–3qt, and for finding the few high-qt DRs worth keeping. (The tables below go by corner-qt group from 1–2qt up. 0c0, half a percent of DR states, has its own entry in section 2.)
 
 **Two kinds of read.** Some need no solving: the subset, the true pairs, the corner case on normal and on inverse. Some need you to solve something: the shortest HTR on both sides, the optimal corner solution and its parity. The tables keep the two apart, because a read you have to work for costs time, and because the HTR numbers assume you found the *shortest* HTR. If yours is longer than the shortest, the DR looks worse than it is, and an HTR rule drops more than it should.
 
 ### Ranking
 
-Rank the DRs of a qt group by what the read says, keep only the best-looking quarter, and count how many of the finishes in T you kept. With no information that's 25%. Each number is the best any rule based on that read could do. Each row is a qt group and a target; the reads that need no solving come first, with the share of the group that finishes in T at all for scale:
+Rank the DRs of a qt group by what the read says, keep only the best-looking quarter, and count how many of the finishes in T you kept. With no information that's 25%. Each number is the best any rule based on that read could do, which makes these tables **computer only**: a rule that gets there ranks by the exact odds of every class of DRs, thousands of them. They're ceilings, and the plain rules further down are what you carry. Each row is a qt group and a target; the reads that need no solving come first, with the share of the group that finishes in T at all for scale:
 
 | Corner qt | Finish needed | DRs that finish in T at all | Subset alone | Subset and pairs | Subset and corner case on both sides | Subset, pairs and corner cases |
 |---|---|---:|---:|---:|---:|---:|
@@ -822,7 +829,7 @@ The reads you have to solve for, on the same rows: the share of the finishes in 
 
 ### Throwing away
 
-The other direction: how many DRs can you drop and still keep 95% of the finishes in T? Each cell is the share of the qt group you can drop, for the reads that need no solving first:
+The other direction: how many DRs can you drop and still keep 95% of the finishes in T? Like the ranking, these are ceilings, **computer only**. Each cell is the share of the qt group you can drop, for the reads that need no solving first:
 
 | Corner qt | Finish needed | Subset alone | Subset and pairs | Subset and corner case on both sides | Subset, pairs and corner cases |
 |---|---|---:|---:|---:|---:|
@@ -980,7 +987,7 @@ So tseitsei89's "100% cases and 0% cases" don't exist at any target. There is no
 
 ### Plain rules
 
-The tables above are ceilings: a rule that reaches them needs a table of thousands of classes. These are rules you can carry in your head.
+The tables above are ceilings, **computer only**: a rule that reaches them needs a table of thousands of classes. These are rules you can carry in your head, for the attempt.
 
 **HTR length against your target** (needs the shortest HTR on both sides). This is Zagros's "4c3 that is 9+ on both sides I throw away" ([Zagros, 10 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1470865840298655918)) moved to the finish you need, T. Each rule gets two columns: the share of the qt group it drops, and the share of the finishes in T it loses. The rules on the longer side first:
 
@@ -1070,7 +1077,7 @@ Pairs are spread the same way in every qt group, so each rule drops the same sha
 
 The corner-case rules are per subset. They are in section 2 and section 6.3.
 
-**What is proven at each target.** Two bounds hold for every finish and can be worked out by hand: the longer HTR, and the best corner solution with the right E-parity (section 6.5). Each row is a qt group and a target; the columns are the share of its DRs for which a bound proves there is no finish in T. Two of the computer tables of section 9 follow in the second table:
+**What is proven at each target.** Two bounds hold for every finish and can be worked out by hand: the longer HTR, and the best corner solution with the right E-parity (section 6.5). Each row is a qt group and a target; the columns are the share of its DRs for which a bound proves there is no finish in T. Two of the computer tables of section 9 follow in the second table, **computer only**: NISS@DR and everything visible are lookups in millions of cases.
 
 | Corner qt | Finish needed | DRs with no such finish | Longer HTR proves it | Corner length with parity proves it | Either one proves it |
 |---|---|---:|---:|---:|---:|
@@ -1135,7 +1142,7 @@ Appendix H has every read at every target with more cut-offs (best 10%, 25%, 50%
 
 ### Scatter
 
-The same thing without a target: how much scatter is left in the optimal once you know the read (sd, in moves). Each row is what you know; the last column is the sd of the optimal among DRs that look the same to it.
+The same thing without a target: how much scatter is left in the optimal once you know the read (sd, in moves). **Computer only**: it measures the reads over every DR state, it isn't something to work out in an attempt. Each row is what you know; the last column is the sd of the optimal among DRs that look the same to it.
 
 | What you know | Needs solving | Scatter left, sd in moves |
 |---|---|---:|
@@ -1234,7 +1241,7 @@ That last row has numbers for 4a1 and 2c4 only. So pairs matter more the lower y
 
 Levi is right about blocky 2c4s: for an 11, from 0.43% with no pairs to 6.8% with five or more, 16 times as often. The same step is worth ×5 at 4a1, ×8 at 2c3 and ×40 at 2c5. Appendix D has all 48 subsets, for 10, 11, 12 and 13.
 
-On Rodney's finer split: I also counted pseudo-pairs (both stickers opposite), side semi-pairs and top semi-pairs, defined as in Rodney's message. Knowing all four counts instead of just the true pairs moves the sd left from 0.850 to 0.842. Pairs with E-slice edges add even less. So count true pairs and stop.
+On Rodney's finer split: I also counted pseudo-pairs (both stickers opposite), side semi-pairs and top semi-pairs, defined as in Rodney's message. Knowing all four counts instead of just the true pairs moves the sd left from 0.850 to 0.842 (an sd over every DR state, **computer only**). Pairs with E-slice edges add even less. So count true pairs and stop.
 
 You don't need to count again on the inverse scramble: a block stays a block, so the number of true pairs is the same on both sides for every DR state.
 
@@ -1253,37 +1260,37 @@ How to read the tables:
 
 | Bad corners | L | A qt takes it straight to | Share of the subset |
 |---|---|---|---:|
-| both on one layer, adjacent; back-face diagonals agree | 7–10 | 2c3 | 17% |
-| 1 up 1 down, opposite | 8–10 | 4b3 | 8% |
-| both on one layer, adjacent; back-face diagonals differ | 7–10 | 2c3 | 17% |
-| both on one layer, adjacent | 8–11 | nothing, needs a setup | 17% |
-| 1 up 1 down, stacked | 9–11 | 4b3 | 8% |
-| 1 up 1 down, opposite | 8–11 | nothing, needs a setup | 17% |
-| 1 up 1 down, stacked | 9–12 | nothing, needs a setup | 17% |
+| both on one layer, adjacent; a qt goes straight to 2c3; back-face diagonals agree | 7–10 | 2c3 | 17% |
+| 1 up 1 down, opposite; a qt goes straight to 4b3 | 8–10 | 4b3 | 8% |
+| both on one layer, adjacent; a qt goes straight to 2c3; back-face diagonals differ | 7–10 | 2c3 | 17% |
+| both on one layer, adjacent; needs a setup | 8–11 | nothing, needs a setup | 17% |
+| 1 up 1 down, stacked; a qt goes straight to 4b3 | 9–11 | 4b3 | 8% |
+| 1 up 1 down, opposite; needs a setup | 8–11 | nothing, needs a setup | 17% |
+| 1 up 1 down, stacked; needs a setup | 9–12 | nothing, needs a setup | 17% |
 
 How each case finishes, same rows: the share of its DRs finishing in 10, 11, 12 and 13 or less.
 
 | Bad corners | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|
-| both on one layer, adjacent; back-face diagonals agree | 0.48% | 3.1% | 16% | 57% |
-| 1 up 1 down, opposite | 0.31% | 2.3% | 13% | 51% |
-| both on one layer, adjacent; back-face diagonals differ | 0.38% | 2.4% | 13% | 47% |
-| both on one layer, adjacent | 0.15% | 1.1% | 7.0% | 33% |
-| 1 up 1 down, stacked | 0.13% | 1.1% | 7.0% | 33% |
-| 1 up 1 down, opposite | 0.13% | 0.99% | 6.4% | 31% |
-| 1 up 1 down, stacked | 0.04% | 0.52% | 4.1% | 23% |
+| both on one layer, adjacent; a qt goes straight to 2c3; back-face diagonals agree | 0.48% | 3.1% | 16% | 57% |
+| 1 up 1 down, opposite; a qt goes straight to 4b3 | 0.31% | 2.3% | 13% | 51% |
+| both on one layer, adjacent; a qt goes straight to 2c3; back-face diagonals differ | 0.38% | 2.4% | 13% | 47% |
+| both on one layer, adjacent; needs a setup | 0.15% | 1.1% | 7.0% | 33% |
+| 1 up 1 down, stacked; a qt goes straight to 4b3 | 0.13% | 1.1% | 7.0% | 33% |
+| 1 up 1 down, opposite; needs a setup | 0.13% | 0.99% | 6.4% | 31% |
+| 1 up 1 down, stacked; needs a setup | 0.04% | 0.52% | 4.1% | 23% |
 
 A typical DR of each case, with its optimal finish:
 
 | Bad corners | A typical DR | Its optimal, moves |
 |---|---|---:|
-| both on one layer, adjacent; back-face diagonals agree | `R2 D' B2 F2 L2 D' B2 U B2 D' B2 F2 U2` | 13 |
-| 1 up 1 down, opposite | `R2 B2 F2 U' L2 D2 B2 U' F2 L2 U' L2 U'` | 13 |
-| both on one layer, adjacent; back-face diagonals differ | `F2 U' B2 D' L2 D' L2 U B2 R2 U L2 F2 U'` | 14 |
-| both on one layer, adjacent | `B2 D2 R2 U F2 U L2 U' R2 D2 R2 F2 U' R2` | 14 |
-| 1 up 1 down, stacked | `B2 U B2 U2 B2 F2 R2 D B2 L2 U' B2 R2 U'` | 14 |
-| 1 up 1 down, opposite | `U' L2 D B2 U2 B2 L2 F2 U' L2 B2 D2 U' R2` | 14 |
-| 1 up 1 down, stacked | `U F2 U' L2 F2 D B2 R2 F2 D2 B2 U' F2 U2` | 14 |
+| both on one layer, adjacent; a qt goes straight to 2c3; back-face diagonals agree | `R2 D' B2 F2 L2 D' B2 U B2 D' B2 F2 U2` | 13 |
+| 1 up 1 down, opposite; a qt goes straight to 4b3 | `R2 B2 F2 U' L2 D2 B2 U' F2 L2 U' L2 U'` | 13 |
+| both on one layer, adjacent; a qt goes straight to 2c3; back-face diagonals differ | `F2 U' B2 D' L2 D' L2 U B2 R2 U L2 F2 U'` | 14 |
+| both on one layer, adjacent; needs a setup | `B2 D2 R2 U F2 U L2 U' R2 D2 R2 F2 U' R2` | 14 |
+| 1 up 1 down, stacked; a qt goes straight to 4b3 | `B2 U B2 U2 B2 F2 R2 D B2 L2 U' B2 R2 U'` | 14 |
+| 1 up 1 down, opposite; needs a setup | `U' L2 D B2 U2 B2 L2 F2 U' L2 B2 D2 U' R2` | 14 |
+| 1 up 1 down, stacked; needs a setup | `U F2 U' L2 F2 D B2 R2 F2 D2 B2 U' F2 U2` | 14 |
 
 **Telling the two look-alike 2c4 cases apart.** Hold the cube so the two bad corners are on the front edge of one layer (if you see six bad corners, turn both layers, U D', and you will see two). The four corners of the back face are then all good. Take each diagonal of the back face. Its two corners share exactly one colour: their sticker on the back face, their U/D sticker, or their sticker on the side. If both diagonals share the same kind of sticker, the diagonals agree; otherwise they differ.
 
@@ -1296,7 +1303,7 @@ Both sides together, one row per combination of the cases on normal and on inver
 | a stack on one side only | 37.5% | 0.10% | 0.92% | 6.4% | 32% |
 | a stack on both sides | 6.2% | 0 | 0.06% | 1.1% | 11% |
 
-So a double stack is as dead as a 5qt at every target, and the best layout on both sides is as good as the last row. Each row is a kind of DR, with the share finishing in 10, 11, 12 and 13 or less:
+So a double stack is as dead as a 5qt at every target, and the best layout on both sides (first row above) is as good as an average 2c3 4e (last row of the table below). Each row is a kind of DR, with the share finishing in 10, 11, 12 and 13 or less:
 
 | DRs | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|
@@ -1349,41 +1356,41 @@ The last two rows are 19% of all 2c5, and you can drop them on sight whatever yo
 
 | Bad corners | Subset | L | A qt takes it straight to | Share of the subset |
 |---|---|---|---|---:|
-| 2-2, pairs on opposite sides | 4a3 | 7–9 | 4b2 | 8% |
-| 2-2, pairs stacked | 4a3 | 7–9 | 4b2 | 8% |
+| 2-2, pairs on opposite sides; a qt goes straight to 4b2 | 4a3 | 7–9 | 4b2 | 8% |
+| 2-2, pairs stacked; a qt goes straight to 4b2 | 4a3 | 7–9 | 4b2 | 8% |
 | 2-2, pairs sharing one column | 4b3 | 7–10 | 4a2 | 17% |
 | 3-1 | 4b3 | 8–11 | nothing, needs a setup | 33% |
 | 2-2, diagonal over diagonal | 4a3 | 8–10 | nothing, needs a setup | 8% |
 | 4-0 (two cases that look the same) | 4a3 | 8–10 | nothing, needs a setup | 8% |
-| 2-2, pairs stacked | 4a3 | 8–10 | nothing, needs a setup | 8% |
-| 2-2, pairs on opposite sides | 4a3 | 9–11 | nothing, needs a setup | 8% |
+| 2-2, pairs stacked; needs a setup | 4a3 | 8–10 | nothing, needs a setup | 8% |
+| 2-2, pairs on opposite sides; needs a setup | 4a3 | 9–11 | nothing, needs a setup | 8% |
 
 How each case finishes, same rows: the share of its DRs finishing in 10, 11, 12 and 13 or less.
 
 | Bad corners | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|
-| 2-2, pairs on opposite sides | 0.75% | 4.5% | 22% | 68% |
-| 2-2, pairs stacked | 0.62% | 3.6% | 18% | 60% |
+| 2-2, pairs on opposite sides; a qt goes straight to 4b2 | 0.75% | 4.5% | 22% | 68% |
+| 2-2, pairs stacked; a qt goes straight to 4b2 | 0.62% | 3.6% | 18% | 60% |
 | 2-2, pairs sharing one column | 0.50% | 2.8% | 13% | 47% |
 | 3-1 | 0.29% | 2.0% | 11% | 45% |
 | 2-2, diagonal over diagonal | 0.26% | 1.8% | 10% | 43% |
 | 4-0 (two cases that look the same) | 0.24% | 1.7% | 10% | 43% |
-| 2-2, pairs stacked | 0.23% | 1.6% | 9.4% | 40% |
-| 2-2, pairs on opposite sides | 0.05% | 0.47% | 3.6% | 22% |
+| 2-2, pairs stacked; needs a setup | 0.23% | 1.6% | 9.4% | 40% |
+| 2-2, pairs on opposite sides; needs a setup | 0.05% | 0.47% | 3.6% | 22% |
 
 A typical DR of each case, with its optimal finish:
 
 | Bad corners | A typical DR | Its optimal, moves |
 |---|---|---:|
-| 2-2, pairs on opposite sides | `D R2 D' F2 D' B2 R2 B2 U L2 D2 U' R2` | 13 |
-| 2-2, pairs stacked | `R2 U' F2 U R2 B2 D L2 U2 R2 U' R2 U'` | 13 |
+| 2-2, pairs on opposite sides; a qt goes straight to 4b2 | `D R2 D' F2 D' B2 R2 B2 U L2 D2 U' R2` | 13 |
+| 2-2, pairs stacked; a qt goes straight to 4b2 | `R2 U' F2 U R2 B2 D L2 U2 R2 U' R2 U'` | 13 |
 | 2-2, pairs sharing one column | `R2 D2 R2 U L2 U' B2 R2 B2 U L2 D F2 U'` | 14 |
 | 3-1 | `R2 F2 U' B2 D' B2 R2 D' R2 D R2 U2 L2 U'` | 14 |
 | 2-2, diagonal over diagonal | `B2 F2 U' F2 L2 U R2 U2 L2 R2 B2 D' F2 L2` | 14 |
 | 4-0 (two cases that look the same), one | `D2 B2 D' B2 U' B2 D2 L2 U' L2 U' F2 U'` | 13 |
 | 4-0 (two cases that look the same), the other | `D' F2 U L2 D' L2 R2 U' B2 U R2 D F2 U'` | 14 |
-| 2-2, pairs stacked | `D' L2 U' F2 D' F2 L2 D' L2 U B2 U2 R2 U2` | 14 |
-| 2-2, pairs on opposite sides | `D' L2 U F2 D' B2 L2 U' R2 U L2 D F2 U'` | 14 |
+| 2-2, pairs stacked; needs a setup | `D' L2 U' F2 D' F2 L2 D' L2 U B2 U2 R2 U2` | 14 |
+| 2-2, pairs on opposite sides; needs a setup | `D' L2 U F2 D' B2 L2 U' R2 U L2 D F2 U'` | 14 |
 
 The row marked "two cases that look the same" is two corner cases with the same bad corners and no quarter turn that lowers the count. I have not found a visible test that separates them, so the row gives their odds together. Apart, they are 0.40% / 2.8% / 15% / 57% and 0.07% / 0.68% / 5.1% / 28% (in 10 / 11 / 12 / 13), and only the optimal corner solution tells you which: 8 moves is the better one, 10 the worse one, and with 9 it can be either.
 
@@ -1398,26 +1405,26 @@ Both sides together, one row per combination of the cases on normal and on inver
 
 | Bad corners | L | A qt takes it straight to | Share of the subset |
 |---|---|---|---:|
-| 2-2, pairs sharing one column | 3–6 | 4a1 | 17% |
+| 2-2, pairs sharing one column; a qt goes straight to 4a1 | 3–6 | 4a1 | 17% |
 | 3-1 (two cases that look the same) | 4–8 | nothing, needs a setup | 67% |
-| 2-2, pairs sharing one column | 6–9 | nothing, needs a setup | 17% |
+| 2-2, pairs sharing one column; needs a setup | 6–9 | nothing, needs a setup | 17% |
 
 How each case finishes, same rows: the share of its DRs finishing in 10, 11, 12 and 13 or less.
 
 | Bad corners | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|
-| 2-2, pairs sharing one column | 3.4% | 14% | 44% | 88% |
+| 2-2, pairs sharing one column; a qt goes straight to 4a1 | 3.4% | 14% | 44% | 88% |
 | 3-1 (two cases that look the same) | 2.1% | 9.8% | 36% | 83% |
-| 2-2, pairs sharing one column | 1.3% | 7.0% | 30% | 78% |
+| 2-2, pairs sharing one column; needs a setup | 1.3% | 7.0% | 30% | 78% |
 
 A typical DR of each case, with its optimal finish:
 
 | Bad corners | A typical DR | Its optimal, moves |
 |---|---|---:|
-| 2-2, pairs sharing one column | `U' L2 D' L2 U' F2 U L2 U2 R2 D' R2 U'` | 13 |
+| 2-2, pairs sharing one column; a qt goes straight to 4a1 | `U' L2 D' L2 U' F2 U L2 U2 R2 D' R2 U'` | 13 |
 | 3-1 (two cases that look the same), one | `U' L2 D' L2 U B2 D2 B2 U' L2 U B2 D'` | 13 |
 | 3-1 (two cases that look the same), the other | `R2 U L2 R2 D L2 U' B2 F2 R2 D' R2 D2` | 13 |
-| 2-2, pairs sharing one column | `B2 D2 L2 D R2 F2 D' L2 B2 F2 D' U' L2` | 13 |
+| 2-2, pairs sharing one column; needs a setup | `B2 D2 L2 D R2 F2 D' L2 B2 F2 D' U' L2` | 13 |
 
 The 3-1 row is two corner cases that look the same (Daichi's "3-1 good parity" and "3-1 bad parity"). I have not found a visible test that separates them, so the row gives their odds together. Apart, they are 2.5% / 11% / 40% / 86% and 1.7% / 8.4% / 33% / 81% (in 10 / 11 / 12 / 13), and only the optimal corner solution tells you which: 4 moves is the better one, 8 the worse one, and with 5 to 7 it can be either.
 
@@ -1692,7 +1699,7 @@ A bound is only a bound if it never exceeds the optimal. Graded on all states; e
 | Levi's 1qt formula, $\text{HTR}_\text{normal} + \text{HTR}_\text{inverse} - 1$ (4a1 4e) | never for a finish with one quarter turn. A finish with three is shorter for 11.7% of 4a1 4e | 10.85 | 12.27 |
 | setup + HTR, any qt (below) | never for a finish with the minimum number of quarter turns. A finish with more is shorter for 2.6% at 1–2qt and 0.002% above | see below | |
 
-**Levi's formula.** $\text{HTR}_\text{normal} + \text{HTR}_\text{inverse} - 1$ bounds the finishes with one quarter turn, which is what Levi's doc uses it for. (The doc writes it as the path to the trigger on normal + on inverse + 1. An HTR is that path plus the quarter turn, so it's the same number.) Levi's 1qt example, after this reduction:
+**Levi's formula.** $\text{HTR}_\text{normal} + \text{HTR}_\text{inverse} - 1$ bounds the finishes with one quarter turn, which is what Levi's doc uses it for. (The doc writes it as the path to the trigger on normal + on inverse + 1. An HTR is that path plus the quarter turn, so it's the same number.) Levi's 1qt example, the DR in his doc after the 1qt reduction `R2 U' F2 U`:
 
 ```
 R2 U' F2 U   // shortest HTR here is 7 on normal and 3 on inverse, each counting the qt
@@ -1716,7 +1723,7 @@ If the formula says 12 or less, a 3qt finish beats it 2.5% of the time, and 0.6%
     U2 F2 R2 B2 U D2 B2 R2 B2 R2 F2   // 4a1 4e. HTR is 6 on normal, 5 on inverse, formula says 10
     U B2 L2 F2 D F2 D                  // 7
 
-(Both lines are proven in Lean.) For 4a1 2e optimal is below the formula 44% of the time and for 4a1 0e 95%, so the formula is only for 4c4e, like Levi says. (4a1 2e and 0e are fine DRs to solve. It's the formula that doesn't apply to them, because they can't be finished with one quarter turn.)
+(Both lines are proven in Lean.) For 4a1 2e optimal is below the formula 44% of the time and for 4a1 0e 95%, so the formula is only for 4a1 4e (Levi's "1qt 4c4e"), like Levi says. (4a1 2e and 0e are fine DRs to solve. It's the formula that doesn't apply to them, because they can't be finished with one quarter turn.)
 
 One more thing about 4a1 4e that I haven't seen written down: for 72 of its 432 cases (one in six) the shortest HTR is not a 1qt HTR at all. The shortest 1qt path is 8, 9 or 10 moves and a 3qt HTR does it in 7 or 8. So "shortest HTR" and "shortest way to the trigger" are different numbers there, and the formula wants the second. One where it happens on both sides:
 
@@ -1749,9 +1756,9 @@ Each row is a qt group; the columns are the share of its DRs where the bound is 
 | Corner qt | Beaten by extra qts | Bound equals optimal | 1 under | 2 under | 3 or more under |
 |---|---:|---:|---:|---:|---:|
 | 1–2qt | 2.6% | 4.0% | 11% | 18% | 64% |
-| 3qt | 0.00% | 0.3% | 2.3% | 9.5% | 88% |
-| 4qt | 0.00% | 0.3% | 2.6% | 13% | 84% |
-| 5qt | 0.00% | 0.1% | 0.8% | 6.3% | 93% |
+| 3qt | <0.01% | 0.3% | 2.3% | 9.5% | 88% |
+| 4qt | <0.01% | 0.3% | 2.6% | 13% | 84% |
+| 5qt | 0 | 0.1% | 0.8% | 6.3% | 93% |
 
 The averages, in moves, on the same rows:
 
@@ -1800,16 +1807,18 @@ Daichi's objection ([Daichi, 28 Mar 2026](https://discord.com/channels/100784097
 
 ## 8. Leave slice, the slice, and width
 
+Both measures in this section come from the optimal finish and the optimal leave slice of every state, so they're **computer only**: the answer key to JTuu's questions, not something to check in an attempt.
+
 **Cost of the slice** (JTuu's question): optimal finish minus optimal leave slice. Each row is a qt group; the columns are the share of its DRs where the slice costs nothing, 1, 2, or 3 or more moves, and the average cost:
 
 | Corner qt | Costs nothing | 1 move | 2 moves | 3 or more | Average, moves |
 |---|---:|---:|---:|---:|---:|
 | 0qt | 44% | 42% | 14% | 0.6% | +0.71 |
 | 1–2qt | 56% | 39% | 5.4% | 0.1% | +0.50 |
-| 3qt | 67% | 32% | 1.6% | | +0.35 |
-| 4qt | 79% | 20% | 0.5% | | +0.21 |
-| 5qt | 85% | 15% | 0.1% | | +0.15 |
-| all DRs | 73% | 26% | 1.6% | | +0.29 |
+| 3qt | 67% | 32% | 1.6% | <0.01% | +0.35 |
+| 4qt | 79% | 20% | 0.5% | <0.01% | +0.21 |
+| 5qt | 85% | 15% | 0.1% | <0.01% | +0.15 |
+| all DRs | 73% | 26% | 1.6% | 0.02% | +0.29 |
 
 The longer the finish, the more room to fit the slice for free. (+1 happens because the optimal finish doesn't have to be an optimal leave slice with a slice inserted.) Examples:
 
@@ -1838,7 +1847,7 @@ Short finishes are narrow: when the optimal is 10 or 11, three times out of four
 
 ## 9. What a computer can prove from the DR
 
-Here the computer does the reading, from the DR alone. It shows where the information is and what any hand rule is up against.
+**This whole section is computer only, the answer key.** Here the computer does the reading, from the DR alone. It shows where the information is and what any hand rule is up against. The hand versions are elsewhere: the two proven bounds and the setup + HTR bound (section 7), the plain rules, and Rodney's tracing per skeleton.
 
 ### You can't finish faster than the part you're looking at
 
@@ -1960,7 +1969,7 @@ The same subsets: the share of each for which NISS@DR, and everything visible, p
 | 2c5 4e | 93% | 99% | 61% | 93% |
 | 4b5 4e | 96% | 99.6% | 60% | 96% |
 
-### Examples
+### The seven levels on the docs' examples
 
 I wrote a small lookup tool for this: give it a scramble and the moves to DR (NISS in brackets) and it prints every level on both sides plus the real optimal, straight from the precomputed tables. The numbers below are its output.
 
@@ -1999,7 +2008,7 @@ Here plain NISS@DR on the normal side already says 13. Rodney's 13-mover is opti
 
 Levi says "14-move optimal finish, giving a 24". Both are right. The DR ends in R, a finish that starts with a turn of that face merges with it, and the same DR with R' instead has optimal 14. The tool prints both.
 
-None of this is something you can do at the table, and that's the point of keeping it. Next to what a hand can do (section 5), for the finish you need. Each row is a qt group and a target; each number is a share of its DRs:
+None of this is something you can do at the table, and that's the point of keeping it. The table sets it next to what a hand can do (section 5), for the finish you need. Each row is a qt group and a target; each number is a share of its DRs:
 
 | Corner qt | Finish needed | Everything readable puts it under 1% | The two hand bounds prove it | A table that sees the corners exactly and the colours of the edges proves it | DRs that really have no such finish |
 |---|---|---:|---:|---:|---:|
@@ -2084,7 +2093,7 @@ The two that get shorter with quarter turns, explicitly (with half turns alone b
   M F2 U2 M'   // the labelled case in 6 moves, the sheet's penalty of 4 after the 2-move F-V setup
   ```
 - **Rodney's rules are still a true lower bound in all 216 cases**, even against the shorter optimals. The "100%" survives.
-- **OBL++** has a finer grid and I didn't grade it cell by cell. Collapsed to these 216 labels it covers 144 cases, matches on 140 of them and already has four of the five fixes above. It's one *lower* in four (D-D ± F-H R-H even, R-V + F-D R-H even, R-V + F-D R-D odd: 8 vs my 9).
+- **OBL++** has a finer grid and I didn't grade it cell by cell. Collapsed to these 216 labels it covers 144 cases, matches on 140 of them and already has four of the five fixes above. It's one *lower* in four (D-D ± F-H R-H even, two cases; R-V + F-D R-H even; R-V + F-D R-D odd: 8 vs my 9).
 
   For those four I ran nissy on all 3,072 states of each case and none has a solution of 8 or fewer, so 9 stands for the cases as I label them. Whether those cells are off or just mean something slightly different, I don't know.
 
@@ -2195,7 +2204,7 @@ Everything builds in under half an hour, in 3 GB of RAM if that last check is ru
 - **The 216 cases with any move**: a Python script, as described above, plus nissy for the disputed cells.
 - **The proof**: the Lean project builds its own tables from its own definitions. It shares nothing with the Rust code except the ten move tables and, for the exact table, the numbering of the symmetry-reduced states (so the two tables can be compared entry by entry).
 
-What agreed with what. Each row is a check, with what it was checked against and the result:
+What agreed with what. Each row is a check (with what it was checked against, where that is someone else's result) and its result:
 
 | Check | Result |
 |---|---|
@@ -2242,7 +2251,7 @@ For the hand reads in sections 5 to 8:
   R L F2 B2 R' L' D2   // solves it in 7
   ```
 
-  At the HTR level that's 66 of the 216 cases. Computed with nissy, not in Lean; every solution quoted was replayed on a sticker model.
+  At the HTR level that's 66 of the 216 cases. Computed with nissy, not in Lean: **computer only**, the answer key. Every solution quoted was replayed on a sticker model.
 - **Uniform states.** Every DR state counts once. Against the DRs you actually reach, that's close to right. The test: 10,000 uniformly random scrambles, every EO-first DR of at most 11 moves cubelib-cli lists for each, as on the examples page (6,840,923 DRs), counted once per DR and once per scramble, standard errors clustered by scramble. Every corner subset comes out close to uniform. Each row is a measure, with the most any corner subset is off:
 
   | Per corner subset | Off from uniform by at most |
@@ -2254,7 +2263,7 @@ For the hand reads in sections 5 to 8:
 
   The "all DRs" numbers hold too: the HTR routes study's all-DR headlines move by at most 0.4 points. What does shift is the bad-edge mix inside a subset. With each scramble counted once, 0e is up to 43% rarer than uniform and 6e up to 17% commoner. Not modelled: CO-first or direct DRs, EOs over 5 moves, the twin of a DR with its last move turned the other way (counted once), and which DRs a solver chooses to keep. Computed, not proven; the full tables are in the [HTR routes study's real-DR section](https://fmc.arhan.sh/htr-routes/#12-real-drs).
 - **No hand bound for a 12 at 4–5qt.** There isn't one. What's here is the measurement that says a feature count won't give one, the reads ranked by what they buy at each target, and the kill rules that do exist. For a 10 or an 11 the two proven hand bounds do rule out a good share of 4–5qt DRs (section 5), but those are DRs you were dropping anyway.
-- **Your HTR may not be the shortest.** Every HTR number assumes the shortest HTR on each side. How often a solver finds it, and how fast, is not something a BFS can measure.
+- **Your HTR may not be the shortest.** Every HTR number assumes the shortest HTR on each side. How often a solver finds it, and how fast, is not something a BFS can measure. Where a number needs a computer to use (the optimal finish of a given DR, the rankings by exact odds, the sd figures, NISS@DR), it's marked **computer only** where it appears.
 - **Reads I didn't test.** Bigger blocks than pairs, anything you only see after a few moves (moves to FR, the shape after the first qt), and Rodney's NISS@1qt features per skeleton, which is section 9's table rather than a read.
 - **Width is only first moves.** JTuu's real question, how many finishes are within one of optimal, needs a count of solutions per state. Not done.
 - **Not done either**: what share of DRs have an optimal finish that goes through a shortest HTR ([Zagros, 27 Dec 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1454570265353912422)), and how many U2/D2 an optimal has per subset ([wen, 8 May 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1502269153774669904)).
@@ -2264,7 +2273,7 @@ For the hand reads in sections 5 to 8:
 
 ## Appendix A: all 48 subsets
 
-Exact over all DR states. Fastest and Longest are the shortest and the longest optimal finish in the subset (the longest is God's number for the subset in DR moves). Every column counts DR-move finishes. With all 18 face turns allowed a finish is sometimes shorter (section 13), so for any moves the "In N" shares are lower bounds; it matters on 0c3 0e (shorter on 36% of states), 0c4 0e (shorter on 26% of states), 0c0 0e (shorter on 21% of states). The 18-move states were not solved with all moves. Each row is a subset (corner subset and bad edges):
+Exact over all DR states. Fastest and Longest are the shortest and the longest optimal finish in the subset (the longest is God's number for the subset in DR moves). Those two are the answer key, **computer only**; the odds are the subset read, for the attempt. Every column counts DR-move finishes. With all 18 face turns allowed a finish is sometimes shorter (section 13), so for any moves the "In N" shares are lower bounds; it matters on 0c3 0e (shorter on 36% of states), 0c4 0e (shorter on 26% of states) and 0c0 0e (shorter on 21% of states). The 18-move states were not solved with all moves. Each row is a subset (corner subset and bad edges):
 
 | Subset | Share of all DRs | Average optimal, moves | Fastest, moves | Longest, moves |
 |---|---:|---:|---:|---:|
@@ -2370,7 +2379,7 @@ The same subsets, with the share of each that finishes in 9, 10, 11, 12 and 13 o
 | 4b5 2e | <0.01% | 0.02% | 0.23% | 2.0% | 14% |
 | 4b5 4e | <0.01% | 0.01% | 0.19% | 1.8% | 13% |
 
-What is proven, per subset. "Hand" is the better of the two guaranteed hand bounds (longer HTR, corner length with the right parity). The other two are the computer tables of section 9. Each cell is the share of the subset for which that bound proves there is no finish in 10 or less:
+What is proven, per subset. "Hand" is the better of the two guaranteed hand bounds (longer HTR, corner length with the right parity). The other two are the computer tables of section 9, **computer only**: lookups in millions of cases. Each cell is the share of the subset for which that bound proves there is no finish in 10 or less:
 
 | Subset | No 10: hand bound proves it | No 10: NISS@DR proves it | No 10: everything visible proves it |
 |---|---:|---:|---:|
@@ -2669,66 +2678,66 @@ The same rows, with the share finishing in 10, 11, 12 and 13 or less:
 
 Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E-parity). The three optimal columns are for half turns only (FakeMMAP's first BFS), DR moves, and any of the 18 face turns. The sequence makes a state of the case in the any-move optimal, so its inverse is an optimal solution. Each row is one case:
 
-| Corners | F edges | R edges | E-parity | Optimal, half turns | Optimal, DR moves | Optimal, any move | Sequence |
+| Corners | M-slice edges (F) | S-slice edges (R) | E-parity | Optimal, half turns | Optimal, DR moves | Optimal, any move | Sequence |
 |---|---|---|---|---:|---:|---:|---|
-| H-H + | F-H | R-H | even | 0 | 0 | 0 | ` ` |
-| R-D + | F-H | R-D | odd | 1 | 1 | 1 | ` L2` |
-| F-D + | F-D | R-H | odd | 1 | 1 | 1 | ` B2` |
-| R-V + | F-H | R-V | odd | 2 | 2 | 2 | ` L2 D2` |
-| R-D - | F-D | R-D | even | 2 | 2 | 2 | ` L2 B2` |
-| F-V + | F-V | R-H | odd | 2 | 2 | 2 | ` B2 D2` |
-| F-D - | F-D | R-D | even | 2 | 2 | 2 | ` B2 L2` |
-| R-V + | F-H | R-V | even | 3 | 3 | 3 | ` L2 D2 L2` |
-| D-D + | F-D | R-V | even | 3 | 3 | 3 | ` L2 D2 B2` |
-| R-V - | F-V | R-V | even | 3 | 3 | 3 | ` L2 B2 D2` |
-| H-H - | F-D | R-H | odd | 3 | 3 | 3 | ` L2 B2 L2` |
-| D-D - | F-V | R-D | even | 3 | 3 | 3 | ` B2 D2 L2` |
-| F-V + | F-V | R-H | even | 3 | 3 | 3 | ` B2 D2 B2` |
-| F-V - | F-V | R-V | even | 3 | 3 | 3 | ` B2 L2 D2` |
-| H-H - | F-H | R-D | odd | 3 | 3 | 3 | ` F2 R2 F2` |
-| R-D + | F-H | R-D | even | 4 | 4 | 4 | ` L2 D2 L2 D2` |
-| D-D + | F-D | R-V | odd | 4 | 4 | 4 | ` L2 D2 L2 B2` |
-| F-V - | F-D | R-V | odd | 4 | 4 | 4 | ` L2 D2 B2 L2` |
-| R-V - | F-V | R-V | odd | 4 | 4 | 4 | ` L2 B2 D2 L2` |
-| D-D - | F-V | R-V | odd | 4 | 4 | 4 | ` L2 F2 U2 F2` |
-| H-H - | F-V | R-H | odd | 4 | 4 | 4 | ` L2 B2 L2 D2` |
-| F-D - | F-H | R-H | even | 4 | 4 | 4 | ` L2 B2 L2 B2` |
-| R-V - | F-V | R-D | odd | 4 | 4 | 4 | ` F2 U2 R2 F2` |
-| F-D + | F-D | R-H | even | 4 | 4 | 4 | ` B2 D2 B2 D2` |
-| D-D - | F-V | R-D | odd | 4 | 4 | 4 | ` F2 U2 F2 L2` |
-| D-D + | F-V | R-V | odd | 4 | 4 | 4 | ` B2 L2 D2 L2` |
-| F-V - | F-V | R-V | odd | 4 | 4 | 4 | ` B2 L2 D2 B2` |
-| H-H - | F-H | R-V | odd | 4 | 4 | 4 | ` F2 R2 F2 D2` |
-| R-D - | F-H | R-H | even | 4 | 4 | 4 | ` B2 L2 B2 L2` |
-| H-H + | F-H | R-H | odd | 5 | 5 | 5 | ` R2 U2 L2 U2 R2` |
-| R-D - | F-D | R-D | odd | 5 | 5 | 5 | ` L2 D2 L2 D2 B2` |
-| F-V - | F-D | R-V | even | 5 | 5 | 5 | ` R2 D2 L2 B2 R2` |
-| F-D - | F-V | R-D | odd | 5 | 5 | 5 | ` L2 D2 B2 L2 D2` |
-| F-V - | F-H | R-V | even | 5 | 5 | 5 | ` L2 D2 F2 R2 F2` |
-| D-D - | F-V | R-V | even | 5 | 5 | 5 | ` L2 F2 U2 R2 F2` |
-| D-D + | F-D | R-D | odd | 5 | 5 | 5 | ` L2 F2 U2 F2 D2` |
-| F-V + | F-V | R-V | even | 5 | 5 | 5 | ` R2 B2 D2 B2 R2` |
-| R-D - | F-V | R-D | even | 5 | 5 | 5 | ` R2 B2 L2 D2 R2` |
-| F-D - | F-V | R-H | even | 5 | 5 | 5 | ` L2 B2 L2 D2 B2` |
-| F-V - | F-H | R-H | even | 5 | 5 | 5 | ` L2 B2 L2 B2 D2` |
-| F-D + | F-H | R-D | odd | 5 | 5 | 5 | ` R2 B2 R2 B2 R2` |
-| R-D - | F-D | R-V | odd | 5 | 5 | 5 | ` F2 U2 R2 F2 D2` |
-| R-V - | F-V | R-H | even | 5 | 5 | 5 | ` B2 D2 L2 B2 L2` |
-| F-D - | F-D | R-D | odd | 5 | 5 | 5 | ` B2 D2 B2 D2 L2` |
-| R-V - | F-V | R-D | even | 5 | 5 | 5 | ` B2 D2 F2 R2 F2` |
-| D-D - | F-D | R-D | odd | 5 | 5 | 5 | ` B2 L2 D2 L2 D2` |
-| R-V + | F-V | R-V | even | 5 | 5 | 5 | ` F2 R2 U2 R2 F2` |
-| D-D + | F-V | R-V | even | 5 | 5 | 5 | ` F2 R2 U2 F2 L2` |
-| R-D - | F-H | R-V | even | 5 | 5 | 5 | ` F2 R2 F2 D2 L2` |
-| F-D - | F-D | R-V | even | 5 | 5 | 5 | ` F2 R2 F2 D2 B2` |
-| R-V - | F-H | R-H | even | 5 | 5 | 5 | ` B2 L2 B2 L2 D2` |
-| R-D + | F-D | R-H | odd | 5 | 5 | 5 | ` F2 R2 B2 R2 F2` |
+| H-H + | F-H | R-H | even | 0 | 0 | 0 | (solved: nothing to do) |
+| R-D + | F-H | R-D | odd | 1 | 1 | 1 | `L2` |
+| F-D + | F-D | R-H | odd | 1 | 1 | 1 | `B2` |
+| R-V + | F-H | R-V | odd | 2 | 2 | 2 | `L2 D2` |
+| R-D - | F-D | R-D | even | 2 | 2 | 2 | `L2 B2` |
+| F-V + | F-V | R-H | odd | 2 | 2 | 2 | `B2 D2` |
+| F-D - | F-D | R-D | even | 2 | 2 | 2 | `B2 L2` |
+| R-V + | F-H | R-V | even | 3 | 3 | 3 | `L2 D2 L2` |
+| D-D + | F-D | R-V | even | 3 | 3 | 3 | `L2 D2 B2` |
+| R-V - | F-V | R-V | even | 3 | 3 | 3 | `L2 B2 D2` |
+| H-H - | F-D | R-H | odd | 3 | 3 | 3 | `L2 B2 L2` |
+| D-D - | F-V | R-D | even | 3 | 3 | 3 | `B2 D2 L2` |
+| F-V + | F-V | R-H | even | 3 | 3 | 3 | `B2 D2 B2` |
+| F-V - | F-V | R-V | even | 3 | 3 | 3 | `B2 L2 D2` |
+| H-H - | F-H | R-D | odd | 3 | 3 | 3 | `F2 R2 F2` |
+| R-D + | F-H | R-D | even | 4 | 4 | 4 | `L2 D2 L2 D2` |
+| D-D + | F-D | R-V | odd | 4 | 4 | 4 | `L2 D2 L2 B2` |
+| F-V - | F-D | R-V | odd | 4 | 4 | 4 | `L2 D2 B2 L2` |
+| R-V - | F-V | R-V | odd | 4 | 4 | 4 | `L2 B2 D2 L2` |
+| D-D - | F-V | R-V | odd | 4 | 4 | 4 | `L2 F2 U2 F2` |
+| H-H - | F-V | R-H | odd | 4 | 4 | 4 | `L2 B2 L2 D2` |
+| F-D - | F-H | R-H | even | 4 | 4 | 4 | `L2 B2 L2 B2` |
+| R-V - | F-V | R-D | odd | 4 | 4 | 4 | `F2 U2 R2 F2` |
+| F-D + | F-D | R-H | even | 4 | 4 | 4 | `B2 D2 B2 D2` |
+| D-D - | F-V | R-D | odd | 4 | 4 | 4 | `F2 U2 F2 L2` |
+| D-D + | F-V | R-V | odd | 4 | 4 | 4 | `B2 L2 D2 L2` |
+| F-V - | F-V | R-V | odd | 4 | 4 | 4 | `B2 L2 D2 B2` |
+| H-H - | F-H | R-V | odd | 4 | 4 | 4 | `F2 R2 F2 D2` |
+| R-D - | F-H | R-H | even | 4 | 4 | 4 | `B2 L2 B2 L2` |
+| H-H + | F-H | R-H | odd | 5 | 5 | 5 | `R2 U2 L2 U2 R2` |
+| R-D - | F-D | R-D | odd | 5 | 5 | 5 | `L2 D2 L2 D2 B2` |
+| F-V - | F-D | R-V | even | 5 | 5 | 5 | `R2 D2 L2 B2 R2` |
+| F-D - | F-V | R-D | odd | 5 | 5 | 5 | `L2 D2 B2 L2 D2` |
+| F-V - | F-H | R-V | even | 5 | 5 | 5 | `L2 D2 F2 R2 F2` |
+| D-D - | F-V | R-V | even | 5 | 5 | 5 | `L2 F2 U2 R2 F2` |
+| D-D + | F-D | R-D | odd | 5 | 5 | 5 | `L2 F2 U2 F2 D2` |
+| F-V + | F-V | R-V | even | 5 | 5 | 5 | `R2 B2 D2 B2 R2` |
+| R-D - | F-V | R-D | even | 5 | 5 | 5 | `R2 B2 L2 D2 R2` |
+| F-D - | F-V | R-H | even | 5 | 5 | 5 | `L2 B2 L2 D2 B2` |
+| F-V - | F-H | R-H | even | 5 | 5 | 5 | `L2 B2 L2 B2 D2` |
+| F-D + | F-H | R-D | odd | 5 | 5 | 5 | `R2 B2 R2 B2 R2` |
+| R-D - | F-D | R-V | odd | 5 | 5 | 5 | `F2 U2 R2 F2 D2` |
+| R-V - | F-V | R-H | even | 5 | 5 | 5 | `B2 D2 L2 B2 L2` |
+| F-D - | F-D | R-D | odd | 5 | 5 | 5 | `B2 D2 B2 D2 L2` |
+| R-V - | F-V | R-D | even | 5 | 5 | 5 | `B2 D2 F2 R2 F2` |
+| D-D - | F-D | R-D | odd | 5 | 5 | 5 | `B2 L2 D2 L2 D2` |
+| R-V + | F-V | R-V | even | 5 | 5 | 5 | `F2 R2 U2 R2 F2` |
+| D-D + | F-V | R-V | even | 5 | 5 | 5 | `F2 R2 U2 F2 L2` |
+| R-D - | F-H | R-V | even | 5 | 5 | 5 | `F2 R2 F2 D2 L2` |
+| F-D - | F-D | R-V | even | 5 | 5 | 5 | `F2 R2 F2 D2 B2` |
+| R-V - | F-H | R-H | even | 5 | 5 | 5 | `B2 L2 B2 L2 D2` |
+| R-D + | F-D | R-H | odd | 5 | 5 | 5 | `F2 R2 B2 R2 F2` |
 | H-H - | F-D | R-H | even | 6 | 6 | 6 | `L2 B2 D2 L2 D2 L2` |
 | F-D - | F-V | R-D | even | 6 | 6 | 6 | `R2 U2 R2 F2 L2 U2` |
 | F-V - | F-H | R-V | odd | 6 | 6 | 6 | `R2 D2 L2 F2 L2 F2` |
 | F-D + | F-V | R-H | even | 6 | 6 | 6 | `R2 U2 F2 L2 U2 R2` |
 | H-H - | F-V | R-D | even | 6 | 6 | 6 | `L2 D2 F2 R2 U2 F2` |
-| F-D - | F-H | R-D | even | 6 | 6 | 5 | ` R L' D2 R' L'` |
+| F-D - | F-H | R-D | even | 6 | 6 | 5 | `R L' D2 R' L'` |
 | D-D + | F-H | R-V | odd | 6 | 6 | 6 | `F2 R' L' F2 R L` |
 | D-D + | F-D | R-D | even | 6 | 6 | 6 | `L2 F2 U2 R2 F2 D2` |
 | F-V + | F-V | R-V | odd | 6 | 6 | 6 | `F' B R2 F B D2` |
@@ -2744,7 +2753,7 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | H-H + | F-D | R-D | even | 6 | 6 | 6 | `R2 F2 L2 B2 L2 F2` |
 | H-H - | F-D | R-V | even | 6 | 6 | 6 | `F2 U2 R2 F2 D2 L2` |
 | R-D + | F-H | R-V | even | 6 | 6 | 6 | `F2 U2 R2 F2 D2 B2` |
-| R-D - | F-D | R-H | even | 6 | 6 | 5 | ` F' B D2 F B` |
+| R-D - | F-D | R-H | even | 6 | 6 | 5 | `F' B D2 F B` |
 | D-D - | F-V | R-H | odd | 6 | 6 | 6 | `L2 F B L2 F' B'` |
 | H-H - | F-H | R-D | even | 6 | 6 | 6 | `F2 U2 B2 U2 R2 F2` |
 | R-D - | F-D | R-V | even | 6 | 6 | 6 | `F' B R2 D2 F B` |
@@ -2768,19 +2777,19 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | D-D + | F-H | R-V | even | 7 | 7 | 6 | `R' L' F2 R' L F2` |
 | H-H + | F-V | R-H | odd | 7 | 7 | 7 | `R2 U2 B2 R2 D2 L2 F2` |
 | R-D - | F-V | R-H | odd | 7 | 7 | 7 | `L2 D2 B2 L2 D2 B2 L2` |
-| F-D + | F-H | R-H | odd | 7 | 7 | 5 | ` R L' D2 R' L` |
+| F-D + | F-H | R-H | odd | 7 | 7 | 5 | `R L' D2 R' L` |
 | H-H - | F-D | R-D | odd | 7 | 7 | 6 | `R L' D2 R' L' B2` |
 | D-D - | F-H | R-D | odd | 7 | 7 | 7 | `R' L' F2 R L F2 D2` |
-| R-V + | F-D | R-V | even | 7 | 7 | 5 | ` R' L' B2 R L` |
+| R-V + | F-D | R-V | even | 7 | 7 | 5 | `R' L' B2 R L` |
 | R-V + | F-H | R-D | odd | 7 | 7 | 6 | `F' B D2 R2 F B'` |
-| F-D + | F-D | R-D | odd | 7 | 7 | 5 | ` F' B R2 F B` |
+| F-D + | F-D | R-D | odd | 7 | 7 | 5 | `F' B R2 F B` |
 | F-V - | F-H | R-H | odd | 7 | 7 | 7 | `L2 B2 D2 B2 D2 L2 B2` |
 | R-V + | F-H | R-H | odd | 7 | 7 | 6 | `L2 F B' L2 F' B` |
 | F-D - | F-D | R-H | odd | 7 | 7 | 7 | `R2 F2 U2 F2 R2 D2 L2` |
 | H-H + | F-H | R-D | odd | 7 | 7 | 6 | `L B2 U2 D2 F2 R'` |
 | R-V - | F-D | R-V | odd | 7 | 7 | 6 | `R' L' D2 B2 R' L'` |
 | D-D - | F-H | R-V | odd | 7 | 7 | 7 | `R2 F2 R2 F2 D2 R2 D2` |
-| R-V + | F-D | R-V | odd | 7 | 7 | 5 | ` R' L' B2 R L'` |
+| R-V + | F-D | R-V | odd | 7 | 7 | 5 | `R' L' B2 R L'` |
 | H-H + | F-V | R-H | even | 7 | 7 | 6 | `B2 R L' D2 R' L` |
 | F-V + | F-D | R-V | odd | 7 | 7 | 7 | `L2 F2 R2 U2 F2 L2 D2` |
 | H-H + | F-V | R-D | even | 7 | 7 | 7 | `R2 F2 L2 U2 B2 L2 F2` |
@@ -2791,9 +2800,9 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | H-H + | F-V | R-V | even | 7 | 7 | 7 | `F2 R2 F2 L2 B2 L2 D2` |
 | F-D - | F-H | R-V | odd | 7 | 7 | 7 | `F2 U2 R2 F2 D2 L2 B2` |
 | H-H + | F-H | R-V | odd | 7 | 7 | 7 | `F2 U2 L2 B2 U2 F2 R2` |
-| R-D + | F-H | R-H | odd | 7 | 7 | 5 | ` F' B D2 F B'` |
+| R-D + | F-H | R-H | odd | 7 | 7 | 5 | `F' B D2 F B'` |
 | D-D + | F-D | R-H | odd | 7 | 7 | 7 | `L2 F B' L2 U2 F' B'` |
-| F-V + | F-V | R-D | even | 7 | 7 | 5 | ` F' B' R2 F B` |
+| F-V + | F-V | R-D | even | 7 | 7 | 5 | `F' B' R2 F B` |
 | H-H - | F-H | R-V | even | 7 | 7 | 7 | `F2 U2 B2 U2 R2 F2 D2` |
 | R-D - | F-H | R-H | odd | 7 | 7 | 7 | `B2 L2 D2 B2 D2 B2 L2` |
 | H-H - | F-D | R-V | odd | 7 | 7 | 6 | `L2 F B U2 F' B` |
@@ -2804,13 +2813,13 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | R-V - | F-H | R-H | odd | 7 | 7 | 7 | `B2 L2 D2 L2 D2 B2 L2` |
 | H-H + | F-D | R-H | odd | 7 | 7 | 6 | `F L2 U2 D2 R2 B'` |
 | R-D - | F-H | R-D | odd | 7 | 7 | 7 | `F2 R2 U2 R2 B2 U2 F2` |
-| R-D + | F-D | R-D | odd | 7 | 7 | 5 | ` R' L B2 R L` |
+| R-D + | F-D | R-D | odd | 7 | 7 | 5 | `R' L B2 R L` |
 | F-V + | F-D | R-H | odd | 7 | 7 | 6 | `R' L D2 B2 R' L` |
 | R-V + | F-V | R-D | odd | 7 | 7 | 7 | `F2 R2 F2 D2 L2 B2 D2` |
 | H-H + | F-D | R-V | even | 7 | 7 | 7 | `F2 R2 F2 D2 L2 B2 L2` |
 | D-D + | F-V | R-H | odd | 7 | 7 | 7 | `F B U2 L2 B F' L2` |
 | F-V - | F-V | R-D | odd | 7 | 7 | 6 | `F' B' D2 R2 F B` |
-| F-V + | F-V | R-D | odd | 7 | 7 | 5 | ` F' B' R2 F B'` |
+| F-V + | F-V | R-D | odd | 7 | 7 | 5 | `F' B' R2 F B'` |
 | H-H + | F-H | R-V | even | 7 | 7 | 6 | `R2 F B' D2 F' B` |
 | R-D - | F-H | R-V | odd | 7 | 7 | 7 | `F2 L2 F2 L2 U2 L2 U2` |
 | F-V + | F-D | R-D | even | 7 | 7 | 7 | `B2 R2 B2 R2 D2 B2 R2` |
@@ -2825,13 +2834,13 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | R-D + | F-V | R-D | even | 8 | 8 | 6 | `R' L' B2 R L D2` |
 | R-V - | F-D | R-H | odd | 8 | 8 | 8 | `B2 D2 B2 R L D2 R' L'` |
 | R-D + | F-V | R-H | even | 8 | 8 | 8 | `L2 D2 F2 R2 U2 B2 R2 F2` |
-| H-H + | F-D | R-H | even | 8 | 8 | 5 | ` R' L B2 R L'` |
+| H-H + | F-D | R-H | even | 8 | 8 | 5 | `R' L B2 R L'` |
 | H-H - | F-V | R-V | odd | 8 | 8 | 7 | `F2 R' L' U2 F2 R' L` |
 | F-V + | F-H | R-H | even | 8 | 8 | 7 | `F2 R' L F2 D2 R L'` |
 | R-V - | F-D | R-D | even | 8 | 8 | 8 | `R' L' F2 R L F2 D2 B2` |
 | R-V + | F-H | R-H | even | 8 | 8 | 7 | `L2 F B' L2 U2 F' B` |
-| F-D - | F-D | R-H | even | 8 | 8 | 5 | ` F' B' D2 F B'` |
-| H-H + | F-H | R-D | even | 8 | 8 | 5 | ` F' B R2 F B'` |
+| F-D - | F-D | R-H | even | 8 | 8 | 5 | `F' B' D2 F B'` |
+| H-H + | F-H | R-D | even | 8 | 8 | 5 | `F' B R2 F B'` |
 | D-D + | F-H | R-D | even | 8 | 8 | 8 | `R2 F2 R2 F2 R2 U2 L2 U2` |
 | D-D + | F-D | R-H | even | 8 | 8 | 6 | `L2 F B' L2 F' B'` |
 | F-V - | F-V | R-H | odd | 8 | 8 | 7 | `F2 R2 F B' R2 F B` |
@@ -2855,7 +2864,7 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | F-D - | F-H | R-V | even | 8 | 8 | 6 | `L2 F B U2 F' B'` |
 | D-D - | F-D | R-H | even | 8 | 8 | 8 | `F2 R2 B2 R2 F2 D2 B2 D2` |
 | R-V - | F-H | R-V | odd | 8 | 8 | 7 | `L2 F2 R L' F2 R L` |
-| R-D - | F-H | R-D | even | 8 | 8 | 5 | ` R L D2 R' L` |
+| R-D - | F-H | R-D | even | 8 | 8 | 5 | `R L D2 R' L` |
 | R-V + | F-V | R-H | even | 8 | 8 | 8 | `F2 R2 F B' R2 D2 F B` |
 | D-D + | F-V | R-D | even | 8 | 8 | 8 | `F2 R2 F2 D2 L2 B2 D2 B2` |
 | F-D + | F-H | R-V | odd | 8 | 8 | 7 | `R2 F B D2 F' B' R2` |
@@ -2873,7 +2882,7 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | R-D - | F-V | R-V | even | 9 | 8 | 7 | `F2 R' L' U2 F2 R' L'` |
 | F-D - | F-V | R-V | even | 9 | 8 | 7 | `L2 F B U2 L2 F' B'` |
 | F-V - | F-V | R-H | even | 9 | 9 | 6 | `F' B' D2 F B' D2` |
-| H-H - | F-H | R-H | odd | 9 | 9 | 5 | ` F' B' D2 F B` |
+| H-H - | F-H | R-H | odd | 9 | 9 | 5 | `F' B' D2 F B` |
 | R-V + | F-D | R-D | odd | 9 | 9 | 9 | `L2 F2 R2 U2 B2 U2 F2 L2 B2` |
 | F-V - | F-D | R-D | odd | 9 | 9 | 7 | `L2 F' B R2 F B L2` |
 | H-H + | F-V | R-V | odd | 9 | 9 | 9 | `L2 F2 R2 F2 D2 L2 B2 D2 L2` |
@@ -3119,6 +3128,7 @@ A corner case is what the corners look like up to rotation, mirror and turning a
 - **A typical DR**: a state of that case whose optimal finish is the median for the case, with that optimal next to it. This is what the case usually looks like.
 - **Shortest setup**: the shortest scramble that produces those corners, so you can put the layout on a cube quickly. As a DR it is one of the rare best ones of its case (it finishes in as many moves as the scramble is long), so don't judge the case by it.
 - **A qt takes it straight to**: the corner subsets one U or D quarter turn can reach with one qt less.
+- **Told apart from a look-alike by**: for a case with the same bad corners and the same answer in the column before as another case, what separates the two (a colour test, or only the corner solution).
 - **Share** is of the corner subset, all edge counts together. **In 10 … In 13** are the shares whose optimal finish is that long or shorter.
 
 Each subset has three tables (what the case looks like, a typical DR and the setup, how it finishes), then a both-sides table where each row is a pair of cases, one on normal and one on inverse, in either order.
@@ -3127,7 +3137,7 @@ Each subset has three tables (what the case looks like, a typical DR and the set
 
 | Case | Bad corners | L | A qt takes it straight to | Told apart from a look-alike by |
 |---|---|---|---|---|
-| 0c0-1 | none bad | 0–5 | nothing (set up first) |  |
+| 0c0-1 | none bad | 0–5 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -3146,9 +3156,9 @@ How each case finishes: its share of 0c0, its average optimal, and the share fin
 | Case | Bad corners | L | A qt takes it straight to | Told apart from a look-alike by |
 |---|---|---|---|---|
 | 4a1-1 | 4-0 | 1–4 | 0c0 |  |
-| 4a1-2 | 2-2, pairs on opposite sides | 2–5 | nothing (set up first) |  |
-| 4a1-3 | 2-2, pairs stacked | 3–6 | nothing (set up first) |  |
-| 4a1-4 | 2-2, diagonal over diagonal | 4–7 | nothing (set up first) |  |
+| 4a1-2 | 2-2, pairs on opposite sides | 2–5 | nothing, needs a setup |  |
+| 4a1-3 | 2-2, pairs stacked | 3–6 | nothing, needs a setup |  |
+| 4a1-4 | 2-2, diagonal over diagonal | 4–7 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -3188,9 +3198,9 @@ How each case finishes: its share of 4a1, its average optimal, and the share fin
 | Case | Bad corners | L | A qt takes it straight to | Told apart from a look-alike by |
 |---|---|---|---|---|
 | 4a2-1 | 2-2, diagonal over diagonal | 5–8 | 4a1 |  |
-| 4a2-2 | 2-2, pairs stacked | 6–9 | nothing (set up first) |  |
-| 4a2-3 | 2-2, pairs on opposite sides | 7–10 | nothing (set up first) |  |
-| 4a2-4 | 4-0 | 8–11 | nothing (set up first) |  |
+| 4a2-2 | 2-2, pairs stacked | 6–9 | nothing, needs a setup |  |
+| 4a2-3 | 2-2, pairs on opposite sides | 7–10 | nothing, needs a setup |  |
+| 4a2-4 | 4-0 | 8–11 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -3230,9 +3240,9 @@ How each case finishes: its share of 4a2, its average optimal, and the share fin
 | Case | Bad corners | L | A qt takes it straight to | Told apart from a look-alike by |
 |---|---|---|---|---|
 | 4b2-1 | 2-2, pairs sharing one column | 3–6 | 4a1 |  |
-| 4b2-2 | 3-1 | 4–7 | nothing (set up first) | looks the same as the 3-1 case with L 5–8. Only the corner solution separates them: L = 4 is this one |
-| 4b2-3 | 3-1 | 5–8 | nothing (set up first) | looks the same as the 3-1 case with L 4–7. Only the corner solution separates them: L = 8 is this one |
-| 4b2-4 | 2-2, pairs sharing one column | 6–9 | nothing (set up first) |  |
+| 4b2-2 | 3-1 | 4–7 | nothing, needs a setup | looks the same as the 3-1 case with L 5–8. Only the corner solution separates them: L = 4 is this one |
+| 4b2-3 | 3-1 | 5–8 | nothing, needs a setup | looks the same as the 3-1 case with L 4–7. Only the corner solution separates them: L = 8 is this one |
+| 4b2-4 | 2-2, pairs sharing one column | 6–9 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -3272,7 +3282,7 @@ How each case finishes: its share of 4b2, its average optimal, and the share fin
 | Case | Bad corners | L | A qt takes it straight to | Told apart from a look-alike by |
 |---|---|---|---|---|
 | 0c3-1 | none bad | 9–12 | 4a2 |  |
-| 0c3-2 | none bad | 10–12 | nothing (set up first) |  |
+| 0c3-2 | none bad | 10–12 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -3302,7 +3312,7 @@ How each case finishes: its share of 0c3, its average optimal, and the share fin
 |---|---|---|---|---|
 | 2c3-1 | 1 up 1 down, stacked | 5–8 | 4b2 |  |
 | 2c3-2 | 1 up 1 down, opposite | 5–8 | 4b2 |  |
-| 2c3-3 | both on one layer, adjacent | 6–9 | nothing (set up first) |  |
+| 2c3-3 | both on one layer, adjacent | 6–9 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -3337,13 +3347,13 @@ How each case finishes: its share of 2c3, its average optimal, and the share fin
 |---|---|---|---|---|
 | 4c3-1 | 2-2, pairs on opposite sides | 7–9 | 4b2 |  |
 | 4c3-2 | 2-2, pairs stacked | 7–9 | 4b2 |  |
-| 4c3-3 | 4-0 | 8–9 | nothing (set up first) | looks the same as the 4-0 case with L 9–10. Only the corner solution separates them: L = 8 is this one |
+| 4c3-3 | 4-0 | 8–9 | nothing, needs a setup | looks the same as the 4-0 case with L 9–10. Only the corner solution separates them: L = 8 is this one |
 | 4c3-4 | 2-2, pairs sharing one column | 7–10 | 4a2 |  |
-| 4c3-5 | 3-1 | 8–11 | nothing (set up first) |  |
-| 4c3-6 | 2-2, diagonal over diagonal | 8–10 | nothing (set up first) |  |
-| 4c3-7 | 2-2, pairs stacked | 8–10 | nothing (set up first) |  |
-| 4c3-8 | 4-0 | 9–10 | nothing (set up first) | looks the same as the 4-0 case with L 8–9. Only the corner solution separates them: L = 10 is this one |
-| 4c3-9 | 2-2, pairs on opposite sides | 9–11 | nothing (set up first) |  |
+| 4c3-5 | 3-1 | 8–11 | nothing, needs a setup |  |
+| 4c3-6 | 2-2, diagonal over diagonal | 8–10 | nothing, needs a setup |  |
+| 4c3-7 | 2-2, pairs stacked | 8–10 | nothing, needs a setup |  |
+| 4c3-8 | 4-0 | 9–10 | nothing, needs a setup | looks the same as the 4-0 case with L 8–9. Only the corner solution separates them: L = 10 is this one |
+| 4c3-9 | 2-2, pairs on opposite sides | 9–11 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -3417,10 +3427,10 @@ How each case finishes: its share of 0c4, its average optimal, and the share fin
 | 2c4-1 | both on one layer, adjacent | 7–10 | 2c3 | the two diagonals of the back face agree (see the note under the table) |
 | 2c4-2 | 1 up 1 down, opposite | 8–10 | 4b3 |  |
 | 2c4-3 | both on one layer, adjacent | 7–10 | 2c3 | the two diagonals of the back face differ (see the note under the table) |
-| 2c4-4 | both on one layer, adjacent | 8–11 | nothing (set up first) |  |
+| 2c4-4 | both on one layer, adjacent | 8–11 | nothing, needs a setup |  |
 | 2c4-5 | 1 up 1 down, stacked | 9–11 | 4b3 |  |
-| 2c4-6 | 1 up 1 down, opposite | 8–11 | nothing (set up first) |  |
-| 2c4-7 | 1 up 1 down, stacked | 9–12 | nothing (set up first) |  |
+| 2c4-6 | 1 up 1 down, opposite | 8–11 | nothing, needs a setup |  |
+| 2c4-7 | 1 up 1 down, stacked | 9–12 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -3487,9 +3497,9 @@ How each case finishes: its share of 2c4, its average optimal, and the share fin
 |---|---|---|---|---|
 | 4c4-1 | 2-2, diagonal over diagonal | 9–10 | 4a3 |  |
 | 4c4-2 | 2-2, pairs sharing one column | 9–11 | 4a3 |  |
-| 4c4-3 | 2-2, pairs stacked | 10–11 | nothing (set up first) |  |
-| 4c4-4 | 3-1 | 10–12 | nothing (set up first) |  |
-| 4c4-5 | 2-2, pairs on opposite sides | 11–12 | nothing (set up first) |  |
+| 4c4-3 | 2-2, pairs stacked | 10–11 | nothing, needs a setup |  |
+| 4c4-4 | 3-1 | 10–12 | nothing, needs a setup |  |
+| 4c4-5 | 2-2, pairs on opposite sides | 11–12 | nothing, needs a setup |  |
 | 4c4-6 | 4-0 | 11–12 | 0c3 |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
@@ -4300,7 +4310,7 @@ For each corner-qt group and each finish you might need, what each read is worth
 - **Drop, keeping 90%, 95%, 99%**: the share of the group's DRs you can drop while keeping that share of the finishes in T.
 - **In classes under 1%**: the share of the group's DRs that the read puts in a class where at most one in a hundred finishes in T. The last column is the share of the finishes in T those classes hold.
 
-Every number is the best any rule based on that read could do. Each group has two tables, ranking and throwing away.
+Every number is the best any rule based on that read could do, so like the ranking tables earlier these are **computer only**: ceilings, not rules to carry. The hand versions are the plain rules and the guide per subset. Each group has two tables, ranking and throwing away.
 
 **1–2qt (4a1, 4a2, 4b2).** Share of the group that finishes in 9, 10, 11, 12 or 13 or less: 0.51%, 2.4%, 10%, 35%, 79%. Ranking first: each row is one read at one target, and the last three columns are the share of the finishes in T you keep if you keep the best-looking 10%, 25% or 50% of the group.
 
@@ -4753,6 +4763,5 @@ Throwing away, 5qt, same rows: the share of the group you can drop and still kee
 - wen, sheet "HTR better smh (v2)" (the corner subsets): https://docs.google.com/spreadsheets/d/1ZhulzHeNgv2Hiy4x9R1MzsMRlPlI-E8DRiHFJlPlboM
 - FakeMMAP's BFS listing, script and tables are attachments on FakeMMAP's posts of 6–10 Sep 2026 in #fmc-theory.
 - Mallard (cubelib) source, for how the 48 subsets are built: https://github.com/Jobarion/cubelib
-- Rodney Kinney, "HTR Theory" (September 2023): https://docs.google.com/document/d/1HjS92UBCeCasbW44ezE0fjt5vmWQvlfkaC4rA113nmw
 - Levi Gibson, sheet "Corner Solution Length x DR Finish length" (sampled; Appendix B is the exact version): https://docs.google.com/spreadsheets/d/14rZI1Nf84Og1jS8dN1MfT0sYhvdIWu9gPXkHDs1iVU4
 

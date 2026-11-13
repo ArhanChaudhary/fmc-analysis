@@ -1,6 +1,6 @@
 # Worked examples: which HTR routes to try from a DR
 
-Examples to play along with the write-up ([WRITEUP.md](WRITEUP.md)). Find the finish yourself, then open the answer.
+Examples to play along with [the write-up](index.html). Find the finish yourself, then open the answer.
 
 These are 200 DR states, the first 10 of the study's uniform sample in each of the 20 most common subsets with their edge counts (together 93% of all DR states). Nothing is hand-picked, so they're as hard or as easy as real DRs of that subset. Each scramble is a random DR followed by DR moves to the state, so it doesn't give the finish away.
 
@@ -10,7 +10,7 @@ These are 200 DR states, the first 10 of the study's uniform sample in each of t
 R2 U (D F2)   // R2 U on normal, then D F2 on the inverse
 ```
 
- The finish "as read on normal" is the same finish written linearly.
+The finish "as read on normal" is the same finish written linearly.
 
 The bounding lines give the shortest reduction that keeps an optimal finish: moves on normal and (on inverse), each empty or ending in a quarter turn, after which the DR is one quarter turn from HTR (4a1 4e) or two (4a2, 4b2, or a 0c0 with bad edges), and the rest of the optimal finish from there, with exactly that many quarter turns. This is the one-quarter-turn reading of the write-up's bounding section (what JTuu's simulation measured); the method as the bounding docs state it, finishing the reduced state optimally with any number of quarter turns, can occasionally do it with a shorter reduction.
 
@@ -26,11 +26,11 @@ The bounding lines give the shortest reduction that keeps an optimal finish: mov
 | 4 | 169 | 84% | 192 |
 | 5 | 171 | 86% | 192 |
 
-## 2c5
+## Corner subset 2c5
 
-### 2c5 2e
+### Subset 2c5 2e: examples 1–10
 
-1.74% of all DR states.
+2c5 2e is 1.74% of all DR states.
 
 **2c5 2e, example 1.** `F2 D R2 D B2 U2 D R2 D L2 U F2 U' L2 D F2 D B2 U F2 U L2 D`
 
@@ -306,9 +306,9 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-### 2c5 4e
+### Subset 2c5 4e: examples 1–10
 
-3.92% of all DR states.
+2c5 4e is 3.92% of all DR states.
 
 **2c5 4e, example 1.** `B2 L2 D2 F2 U' B2 U L2 U' B2 D' F2 L2 B2 D' R2 U2 D' B2 U B2 R2`
 
@@ -579,9 +579,9 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-### 2c5 6e
+### Subset 2c5 6e: examples 1–10
 
-1.74% of all DR states.
+2c5 6e is 1.74% of all DR states.
 
 **2c5 6e, example 1.** `U2 L2 D2 B2 U D R2 U D2 F2 U' R2 D R2 F2 B2 U' L2 U' B2 R2 U2`
 
@@ -854,11 +854,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-## 2c4
+## Corner subset 2c4
 
-### 2c4 2e
+### Subset 2c4 2e: examples 1–10
 
-5.22% of all DR states.
+2c4 2e is 5.22% of all DR states.
 
 **2c4 2e, example 1.** `U D F2 R2 F2 U' B2 U D' B2 R2 L2 U' L2 U L2 U L2 F2 U2 R2 B2 D2`
 
@@ -1128,9 +1128,9 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-### 2c4 4e
+### Subset 2c4 4e: examples 1–10
 
-11.76% of all DR states.
+2c4 4e is 11.76% of all DR states.
 
 **2c4 4e, example 1.** `F2 U D' R2 F2 U' D2 B2 L2 U2 B2 U' B2 D' L2 D' R2 B2 D L2 U'`
 
@@ -1399,9 +1399,9 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-### 2c4 6e
+### Subset 2c4 6e: examples 1–10
 
-5.22% of all DR states.
+2c4 6e is 5.22% of all DR states.
 
 **2c4 6e, example 1.** `U2 F2 U2 D B2 U2 R2 U2 D' F2 U' F2 U' R2 U B2 U' B2 L2 D F2 B2 R2 D`
 
@@ -1677,11 +1677,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-## 4a2
+## Corner subset 4a2
 
-### 4a2 2e
+### Subset 4a2 2e: examples 1–10
 
-1.31% of all DR states.
+4a2 2e is 1.31% of all DR states.
 
 **4a2 2e, example 1.** `R2 U2 L2 U B2 U D R2 D2 L2 D B2 U2 R2 F2 R2 F2 U' L2 B2 U2 B2 U'`
 
@@ -1944,9 +1944,9 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-### 4a2 4e
+### Subset 4a2 4e: examples 1–10
 
-1.47% of all DR states.
+4a2 4e is 1.47% of all DR states.
 
 **4a2 4e, example 1.** `L2 B2 U' D2 R2 U2 D2 B2 U2 F2 U' L2 U' B2 L2 B2 R2 U2 B2 U' F2 R2 U2`
 
@@ -2211,11 +2211,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-## 4a1
+## Corner subset 4a1
 
-### 4a1 4e
+### Subset 4a1 4e: examples 1–10
 
-1.47% of all DR states.
+4a1 4e is 1.47% of all DR states.
 
 **4a1 4e, example 1.** `U D' R2 F2 B2 R2 B2 U2 R2 D2 F2 R2 U L2 D R2 F2 L2 U'`
 
@@ -2495,11 +2495,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-## 2c3
+## Corner subset 2c3
 
-### 2c3 2e
+### Subset 2c3 2e: examples 1–10
 
-3.48% of all DR states.
+2c3 2e is 3.48% of all DR states.
 
 **2c3 2e, example 1.** `U' R2 F2 U' D2 R2 U2 R2 F2 B2 U B2 R2 B2 L2 D' L2 F2 U' D' R2 U`
 
@@ -2768,9 +2768,9 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-### 2c3 4e
+### Subset 2c3 4e: examples 1–10
 
-7.84% of all DR states.
+2c3 4e is 7.84% of all DR states.
 
 **2c3 4e, example 1.** `L2 U2 D2 L2 U2 R2 U2 D2 R2 D2 F2 U B2 D' B2 L2 U' L2 U' L2 U`
 
@@ -3041,9 +3041,9 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-### 2c3 6e
+### Subset 2c3 6e: examples 1–10
 
-3.48% of all DR states.
+2c3 6e is 3.48% of all DR states.
 
 **2c3 6e, example 1.** `B2 U F2 B2 U L2 D2 R2 D' L2 B2 D B2 L2 D2 F2 B2 D' F2 R2 L2 D2`
 
@@ -3321,11 +3321,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-## 4c3
+## Corner subset 4c3
 
-### 4c3 2e
+### Subset 4c3 2e: examples 1–10
 
-5.22% of all DR states.
+4c3 2e is 5.22% of all DR states.
 
 **4c3 2e, example 1.** `D F2 U' D F2 R2 D R2 D L2 U2 F2 R2 B2 D L2 B2 U2 B2 U B2 U2 R2`
 
@@ -3598,9 +3598,9 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-### 4c3 4e
+### Subset 4c3 4e: examples 1–10
 
-5.88% of all DR states.
+4c3 4e is 5.88% of all DR states.
 
 **4c3 4e, example 1.** `D' L2 D2 R2 L2 F2 B2 U' D B2 D' L2 D B2 U2 L2 U F2 R2 U L2 U2`
 
@@ -3868,11 +3868,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-## 4c4
+## Corner subset 4c4
 
-### 4c4 2e
+### Subset 4c4 2e: examples 1–10
 
-5.22% of all DR states.
+4c4 2e is 5.22% of all DR states.
 
 **4c4 2e, example 1.** `U F2 U2 R2 L2 U R2 D F2 B2 R2 U' F2 D' B2 U2 L2 B2 U2 F2 U'`
 
@@ -4145,9 +4145,9 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-### 4c4 4e
+### Subset 4c4 4e: examples 1–10
 
-5.88% of all DR states.
+4c4 4e is 5.88% of all DR states.
 
 **4c4 4e, example 1.** `R2 U' D2 F2 U R2 U' D' L2 U' F2 L2 U F2 L2 F2 U' F2 D B2 U2 L2 D2`
 
@@ -4415,11 +4415,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-## 4b2
+## Corner subset 4b2
 
-### 4b2 2e
+### Subset 4b2 2e: examples 1–10
 
-5.22% of all DR states.
+4b2 2e is 5.22% of all DR states.
 
 **4b2 2e, example 1.** `U' F2 U' R2 F2 B2 U' D2 R2 L2 F2 D R2 D' L2 F2 D' F2 U' D' L2`
 
@@ -4695,9 +4695,9 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-### 4b2 4e
+### Subset 4b2 4e: examples 1–10
 
-5.88% of all DR states.
+4b2 4e is 5.88% of all DR states.
 
 **4b2 4e, example 1.** `U' D2 R2 U2 D' R2 U R2 U2 L2 D F2 D' B2 D' F2 U L2 D R2 D2`
 
@@ -4972,11 +4972,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-## 4b5
+## Corner subset 4b5
 
-### 4b5 2e
+### Subset 4b5 2e: examples 1–10
 
-5.22% of all DR states.
+4b5 2e is 5.22% of all DR states.
 
 **4b5 2e, example 1.** `L2 F2 U D R2 F2 U' D2 B2 D2 B2 L2 F2 U' R2 U' F2 U F2 D B2`
 
@@ -5261,9 +5261,9 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 </details>
 
-### 4b5 4e
+### Subset 4b5 4e: examples 1–10
 
-5.88% of all DR states.
+4b5 4e is 5.88% of all DR states.
 
 **4b5 4e, example 1.** `F2 B2 D' B2 U2 D' F2 D2 F2 U R2 U' B2 D R2 U' F2 U2 F2 R2 F2 U`
 

@@ -6,6 +6,7 @@ import EODR.Model
 import EODR.EoTheorems
 import EODR.LayoutTheorems
 import EODR.EodrTheorems
+import EODR.CaseTheorems
 namespace EODR
 -- A
 #print axioms model_size
@@ -38,4 +39,11 @@ namespace EODR
 #print axioms eo0_hist_matches_study
 #print axioms eodr_digits
 #print axioms twist_counts
+-- E
+#print axioms case_stats
+#print axioms case_digits
+#print axioms case_tables_match_page
+#print axioms superflip_niss_eo
+#print axioms nissy_modulo_bias
+#print axioms binomial_digits
 end EODR

@@ -29,9 +29,9 @@ With 8-movers on 20-move random skeletons the order by cost is the order of the 
 | twisted 2c2c | {= M('2c2c-twisted') =} | {= M('2c2c-twisted', L=10) =} | {= M('2c2c-twisted', L=12, src='two12') =} | {= POSTED('2c2c-twisted') =} | {= POSTEDM('2c2c-twisted') =} |
 | pure 2c2c | {= M('2c2c-pure') =} | {= M('2c2c-pure', L=10) =} | {= M('2c2c-pure', L=12, src='two12') =} | {= POSTED('2c2c-pure') =} | {= POSTEDM('2c2c-pure') =} |
 | 3c1t | {= M('3c1t') =} | {= M('3c1t', L=10) =} | {= M('3c1t', L=12, src='two12') =} | {= POSTED('3c1t') =} | {= POSTEDM('3c1t') =} |
-| 5c | {= M('5c') =} | | {= M('5c', L=12, src='two12') =} | {= POSTED('5c') =} | {= POSTEDM('5c') =} |
+| 5c | {= M('5c') =} | {= M('5c', L=10) =} | {= M('5c', L=12, src='two12') =} | {= POSTED('5c') =} | {= POSTEDM('5c') =} |
 
-Cap 10 is {= NSK('3c1t', L=10) =} skeletons per type, cap 12 {= NSK('3c1t', L=12, src='two12') =} per type. At cap 12 the 3c1t and the 5c are too close to order on that many skeletons. The posted skeletons are too few to rank the 4-corner types, and of different lengths; they only agree that a 5c is the dearest.
+Cap 10 is {= NSK('3c1t', L=10) =} skeletons per type ({= NSK('5c', L=10) =} for the 5c), cap 12 {= NSK('3c1t', L=12, src='two12') =} per type. At cap 12 the 3c1t and the 5c are too close to order on that many skeletons. The posted skeletons are too few to rank the 4-corner types, and of different lengths; they only agree that a 5c is the dearest.
 
 A typical skeleton of each, 20 moves, 8-movers. Each costs its type's average, rounded. They're there to show what the averages look like on a cube; the order rests on the 20,000 skeletons per type, not on these three.
 

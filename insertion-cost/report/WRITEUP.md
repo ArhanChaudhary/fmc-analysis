@@ -96,7 +96,7 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
   |---|---:|---:|---:|
   | pure 2c2c | 9.26 | 8.40 | 7.87 |
   | 5c | 10.10 | 9.79 | 9.49 |
-  | 3tc | | 9.32 | 8.56 |
+  | 3tc | 9.41 | 9.32 | 8.56 |
 
   The 3tc's whole step from cap 10 to cap 12 comes from longer comms, since no 3tc alg is 12 moves or fewer. Where a 10-move pure 2c2c alg fits (62% of skeletons) it beats two 8-movers by 0.63. Caps 10 and 12 count every alg of that length, so these are **computer only**, the answer key for a full alg list. What carries over to an attempt is which algs are worth learning (the 10-move pure 2c2c algs, 6.3).
 - **Longer algs barely help a 3c.** At 20 moves it's 5.90 with 8-movers, 5.85 with every alg up to 10 moves and 5.77 up to 12. How often a longer alg is what wins, on 20-move skeletons:
@@ -115,7 +115,7 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
   |---|---:|---:|
   | best first comm, then the best second | 14% | 10.54 |
   | also first comms one move worse (Insertion Finder's greedy 1) | 3.7% | 10.41 |
-  | also two moves worse (example [f]) | 0.48% | |
+  | also two moves worse (example [f]) | 0.48% | 10.38 |
   | best pair of comms (computer) | | 10.37 |
 
   With every 3c alg up to 10 the best first comm misses the best pair on 20%, and the longer list actually gives a longer result than 8-movers alone on 0.25% of 1,998 skeletons (shorter on 9.3%). That's what bvcuber13 and Ben ran into on Insertion Finder; it happens, but not often (example [l]). The best pair is a computer number. Best first comm then best second is the hand search, and also following the first comms a move worse is the hand fix.
@@ -124,7 +124,7 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
   | Which spots you check | Finds the best, share of skeletons | Finds a best of 8-3 or better, share of those skeletons |
   |---|---:|---:|
   | every other move | 89% | 97% |
-  | every third move (example [j]) | | 75% |
+  | every third move (example [j]) | 72% | 75% |
 
   Every other move loses 0.11 of a move on average, and nothing better than an 8-4 was missed on any of 140,000 skeletons. Every miss of an 8-3 or better sits next to two moves on opposite faces (371 of 371 at 20 moves): a full cancel reaches across the pair, so the shifted alg lands two spots over, not one. So check every other move and both sides of a parallel pair. notkevin's "guarantees" ([7 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1436457200880189582)) is a bit too strong (example [c]).
 - **paulduc03's question, answered**: after a case that needs 10 moves, "can I go 3 moves further instead of 2" ([30 Dec 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1455642235449114665))? No, like DougCube said. That walk misses a best of 8-3 or better on 3.9% of walks against 3.2% for plain every other move, and every one of the 80 3-cycles that need 10 moves can be at a case with an 8-mover two moves later (example [k]).
@@ -144,9 +144,9 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
 
   | The moves | Mean moves added | Adds 6 or less | Nothing fits |
   |---|---:|---:|---:|
-  | random moves | 6.02 | 66% | |
-  | after EO | 6.05 | | |
-  | DR moves | 6.08 | | |
+  | random moves | 6.02 | 66% | 0.80% |
+  | after EO | 6.05 | 66% | 0.71% |
+  | DR moves | 6.08 | 64% | 0.62% |
   | DR moves, a 3c that DR moves can leave | 6.18 | 56% | 2.5% |
 
   So the DR guide's feeling that 8-movers cancel less on DR skeletons, which it says hasn't been proved, is true in this model, by 0.16 of a move, and it comes from which corners are left, not from the moves. These are move sequences, not DR solves.
@@ -541,7 +541,7 @@ Each number is the **best pair**, every first comm at every spot followed by the
 
 Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for the whole leftover. All on random skeletons; the *Skeletons* column says how many each row rests on, and at cap 10 that is few, so read those rows to the nearest percent or so.
 
-**2tc** (two corners twisted in place), one row per cap and skeleton length, columns as in the 3c table.
+**2tc** (two corners twisted in place), one row per cap and skeleton length, columns as in the 3c table but running from *Adds 4 or less* to *Adds 12 or less*.
 
 | Cap | Skeleton length | Skeletons | Mean moves added | Adds 4 or less | Adds 5 or less | Adds 6 or less | Adds 7 or less | Adds 8 or less | Adds 9 or less | Adds 10 or less | Adds 11 or less | Adds 12 or less | Nothing fits |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -560,7 +560,7 @@ Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for th
 | 10 | 26 | 200 | 6.95 | 3.0% | 12% | 31% | 64% | 96% | 100% | 100% | 100% | 100% | 0 |
 | 10 | 30 | 200 | 6.74 | 6.5% | 13% | 32% | 70% | 96% | 100% | 100% | 100% | 100% | 0 |
 
-**Twisted 2c2c**, one row per cap and skeleton length, columns as in the 3c table.
+**Twisted 2c2c**, one row per cap and skeleton length, columns as in the 2tc table.
 
 | Cap | Skeleton length | Skeletons | Mean moves added | Adds 4 or less | Adds 5 or less | Adds 6 or less | Adds 7 or less | Adds 8 or less | Adds 9 or less | Adds 10 or less | Adds 11 or less | Adds 12 or less | Nothing fits |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -579,7 +579,7 @@ Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for th
 | 10 | 26 | 500 | 8.29 | 0.60% | 2.8% | 7.6% | 21% | 52% | 87% | 99.6% | 100% | 100% | 0 |
 | 10 | 30 | 500 | 8.02 | 1.0% | 2.6% | 8.8% | 27% | 65% | 94% | 100% | 100% | 100% | 0 |
 
-**Pure 2c2c**, one row per cap and skeleton length, columns as in the 3c table.
+**Pure 2c2c**, one row per cap and skeleton length, columns as in the 2tc table.
 
 | Cap | Skeleton length | Skeletons | Mean moves added | Adds 4 or less | Adds 5 or less | Adds 6 or less | Adds 7 or less | Adds 8 or less | Adds 9 or less | Adds 10 or less | Adds 11 or less | Adds 12 or less | Nothing fits |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -598,7 +598,7 @@ Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for th
 | 10 | 26 | 500 | 8.05 | 0.80% | 3.0% | 12% | 28% | 61% | 91% | 99% | 100% | 100% | 0 |
 | 10 | 30 | 500 | 7.93 | 1.0% | 3.6% | 13% | 33% | 63% | 93% | 99.6% | 100% | 100% | 0 |
 
-**3tc** (three corners twisted the same way), one row per cap and skeleton length, columns as in the 3c table.
+**3tc** (three corners twisted the same way), one row per cap and skeleton length, columns as in the 2tc table.
 
 | Cap | Skeleton length | Skeletons | Mean moves added | Adds 4 or less | Adds 5 or less | Adds 6 or less | Adds 7 or less | Adds 8 or less | Adds 9 or less | Adds 10 or less | Adds 11 or less | Adds 12 or less | Nothing fits |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -617,7 +617,7 @@ Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for th
 | 10 | 26 | 500 | 8.89 | 0.60% | 2.0% | 4.6% | 13% | 32% | 67% | 92% | 100% | 100% | 0 |
 | 10 | 30 | 500 | 8.63 | 1.0% | 2.2% | 7.0% | 16% | 39% | 74% | 96% | 100% | 100% | 0 |
 
-**3c1t**, one row per cap and skeleton length, columns as in the 3c table.
+**3c1t**, one row per cap and skeleton length, columns as in the 2tc table.
 
 | Cap | Skeleton length | Skeletons | Mean moves added | Adds 4 or less | Adds 5 or less | Adds 6 or less | Adds 7 or less | Adds 8 or less | Adds 9 or less | Adds 10 or less | Adds 11 or less | Adds 12 or less | Nothing fits |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -636,7 +636,7 @@ Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for th
 | 10 | 26 | 500 | 9.38 | 0.20% | 1.0% | 2.4% | 6.4% | 19% | 46% | 87% | 99% | 100% | 0 |
 | 10 | 30 | 500 | 9.11 | 0.60% | 1.6% | 3.8% | 11% | 27% | 57% | 89% | 99.4% | 100% | 0 |
 
-**5c**, one row per cap and skeleton length, columns as in the 3c table.
+**5c**, one row per cap and skeleton length, columns as in the 2tc table.
 
 | Cap | Skeleton length | Skeletons | Mean moves added | Adds 4 or less | Adds 5 or less | Adds 6 or less | Adds 7 or less | Adds 8 or less | Adds 9 or less | Adds 10 or less | Adds 11 or less | Adds 12 or less | Nothing fits |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -765,7 +765,7 @@ The samples differ in size and are not the same skeletons: the 100 5c skeletons 
 - **5c**: 10.37 with 8-movers, 10.03 at cap 10 (2,000 skeletons). On the same 100 skeletons: 10.10, 9.79, 9.49.
 - **Pure 2c2c gains the most**: 9.26, 8.40, 7.87 on the same 100. The 10-move 2c2c algs are worth learning if you take 2c2c skeletons.
 - **Twisted 2c2c, 3c1t, 3tc** gain little at 10, where nothing is new for them but longer comms, and more at 12: a 3tc goes from 9.32 to 8.56 on these 100 skeletons, all of it from longer comms, since it has no alg of 12 moves or fewer.
-- **A comm plus an alg** (the column *Cap 10 with a comm plus an alg*) is worth another 0.16 on a 5c and 0.31 on a pure 2c2c at cap 10. That is a 5c done as a 3c comm and a 2c2c alg, the kind of line Insertion Finder returns with all its sets on.
+- **A comm plus an alg** (the column *Cap 10, a comm plus an alg*) is worth another 0.16 on a 5c and 0.31 on a pure 2c2c at cap 10. That is a 5c done as a 3c comm and a 2c2c alg, the kind of line Insertion Finder returns with all its sets on.
 
 These are averages over 100 or 200 skeletons, compared on the same skeletons, so the direction of each step is solid. For its size: two standard errors of a mean are ±0.26 for a 5c at cap 12 on 100 skeletons (Appendix C).
 
@@ -867,7 +867,7 @@ The second comm may go inside the first. How much that is worth, with 8-movers o
 
 For the next two, cap 8 is the best of two 3e algs of 8 moves or fewer and one alg of 8 or fewer for the whole leftover (both have 6-movers), and cap 10 is the same with algs of up to 10 moves. Random skeletons; the *Skeletons* column is the sample behind each row.
 
-**2e2e** (two swaps, no flip), one row per cap and skeleton length, columns as in the 3c table.
+**2e2e** (two swaps, no flip), one row per cap and skeleton length, columns as in the 2tc table.
 
 | Cap | Skeleton length | Skeletons | Mean moves added | Adds 4 or less | Adds 5 or less | Adds 6 or less | Adds 7 or less | Adds 8 or less | Adds 9 or less | Adds 10 or less | Adds 11 or less | Adds 12 or less | Nothing fits |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -886,7 +886,7 @@ For the next two, cap 8 is the best of two 3e algs of 8 moves or fewer and one a
 | 10 | 26 | 200 | 7.08 | 9.0% | 19% | 30% | 55% | 78% | 96% | 100% | 100% | 100% | 0 |
 | 10 | 30 | 200 | 7.08 | 9.5% | 15% | 32% | 56% | 78% | 98% | 100% | 100% | 100% | 0 |
 
-**5e**, one row per cap and skeleton length, columns as in the 3c table.
+**5e**, one row per cap and skeleton length, columns as in the 2tc table.
 
 | Cap | Skeleton length | Skeletons | Mean moves added | Adds 4 or less | Adds 5 or less | Adds 6 or less | Adds 7 or less | Adds 8 or less | Adds 9 or less | Adds 10 or less | Adds 11 or less | Adds 12 or less | Nothing fits |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -1265,7 +1265,7 @@ Here's every second spot plus both ends, and every third spot plus both ends, ag
   ```
 
   The misses of an 8-3 or better are different. Every one of them sits next to two moves on opposite faces (`R L`, `U D'`), 371 of 371 at 20 moves: there a full cancel reaches across the pair, and the shifted alg lands two spots over, not one. The tutorial's footnote covers it: "when in a skeleton there are two consecutive parallel layers moves try swapping them too see if this gives better insertions". So check every other move, and both sides of a parallel pair. (Of all the misses, the 8-2s and worse included, 38% are next to such a pair.)
-- **What you miss is small**: when the best is 8-3 or better, the misses are 8-3s and a few 8-4s (fifth column). Nothing better than an 8-4 was missed on any of 140,000 skeletons.
+- **What you miss is small**: when the best is 8-3 or better, the misses are 8-3s and a few 8-4s (fifth and sixth columns). Nothing better than an 8-4 was missed on any of 140,000 skeletons.
 - notkevin's next line ([7 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1436457482577907792)) is about two comms, which this table does not test: "(aka, the worst insertions you can miss with this without the second comm nesting is -4, where both comms only partially cancel on both sides)".
 - **Every third move doesn't work.** With a best of 8-3 or better, every third spot and both ends finds it only 75% of the time.
 
@@ -1338,9 +1338,9 @@ Counting spots from 0 (before the first move), the 8-3 is at spot 4. Every other
   | After a spot whose case needs a 10-mover, 20-move skeletons | Share | How many | Out of |
   |---|---:|---:|---:|
   | the spot two further on holds an 8-3 or better (spots) | 1.7% | 514 | 30,002 |
-  | the spot right after it holds one (spots) | 0.57% | | |
-  | walking a 20-move skeleton that way misses a best of 8-3 or better (walks) | 3.9% | | |
-  | plain every other move misses it (walks) | 3.2% | | |
+  | the spot right after it holds one (spots) | 0.57% | 171 | 30,002 |
+  | walking a 20-move skeleton that way misses a best of 8-3 or better (walks) | 3.9% | 462 | 11,708 |
+  | plain every other move misses it (walks) | 3.2% | 371 | 11,708 |
 
 - **By cases, exactly.** 80 of the 1,008 corner 3-cycles have a shortest alg of 10 moves.
   - One move on: for 48 of them no single move leads to a case with an 8-mover; for the other 32, 12 of the 18 moves do.
@@ -3128,7 +3128,7 @@ Every corner 3-cycle and every edge 3-cycle, grouped into classes: two cases are
 | 11 | `R' U2 R U L2 U' R' U L2 U R` | UBL>DBL UFR>UBL DBL>UFR | 48 |  |  |  | 10 | 96 |
 | 12 | `L2 U' F2 U F2 U L2 U' F2 U' F2 U` | UBL>DFL UFR>UBL DFL>UFR | 16 |  |  |  |  | 36 |
 
-**Edge 3-cycles: 1,760 cases in 43 classes.** One row per class, same columns.
+**Edge 3-cycles: 1,760 cases in 43 classes.** One row per class, same columns plus 6- and 7-move algs.
 
 | Shortest alg, moves | A shortest alg | Pieces (from > to, + twist) | States in the class | 6-move algs | 7-move algs | 8-move algs | 9-move algs | 10-move algs | 11-move algs | 12-move algs |
 |---:|---|---|---:|---:|---:|---:|---:|---:|---:|---:|

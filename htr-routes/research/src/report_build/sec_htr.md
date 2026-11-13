@@ -28,6 +28,8 @@ The chance that the shortest HTRs carry an optimal is about a third whatever the
 
 The shortest HTR in any reading of any of its {= WIT('W05', 'n_optimal_finishes') =} optimal finishes is {= WIT('W05', 'shortest_htr_in_any_reading_of_any_optimal') =} moves.
 
+---
+
 ## 7. Extra quarter turns, and the last DR move
 
 **Extra quarter turns.** The share of DRs where every optimal uses more quarter turns than the corner subset needs, where some optimal does, and where every leave-slice optimal does (the *Extra Quarter-Turn Stats* reading). Sampled, 25,000 per subset × edges, edges pooled by size:
@@ -44,9 +46,9 @@ Each reading on the cases they were talking about:
 | Reading | 4a2 and 4b2: 4qt or more | 4b2 4e: 4qt |
 |---|---|---|
 | every optimal | {= E['claims']['C01']['evidence'].split('every optimal uses 4+ qt ')[1].split(';')[0] =} | {= E['claims']['C02']['evidence'].split('every optimal ')[1].split(';')[0] =} |
-| some optimal | {= E['claims']['C01']['evidence'].split('some optimal does ')[1].split(';')[0] =} | |
+| some optimal | {= E['claims']['C01']['evidence'].split('some optimal does ')[1].split(';')[0] =} | {= E['claims']['C02']['evidence'].split('some optimal ')[1].split('%')[0] + '%' =} |
 | one optimal picked at random | {= E['claims']['C01']['evidence'].split('one optimal picked at random ')[1].split(' ')[0] =} | {= E['claims']['C02']['evidence'].split('uses 4+ qt ')[1].split(' ')[0] =} |
-| one leave-slice optimal at random | {= E['claims']['C01']['evidence'].split('(leave-slice ')[1].split(')')[0] =} | |
+| one leave-slice optimal at random | {= E['claims']['C01']['evidence'].split('(leave-slice ')[1].split(')')[0] =} | {= E['claims']['C02']['evidence'].split('(leave-slice ')[1].split(')')[0] =} |
 
 The 57% fits a random leave-slice optimal or *every optimal*. Both quotes fit.
 

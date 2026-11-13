@@ -10,4 +10,6 @@ import EODR.Model
 import EODR.EoTheorems
 import EODR.LayoutTheorems
 import EODR.EodrTheorems
+import EODR.Cases
+import EODR.CaseTheorems
 import EODR.Audit

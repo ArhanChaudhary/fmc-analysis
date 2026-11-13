@@ -4,6 +4,8 @@
    said true".  The last three theorems need no axiom at all. -/
 import DRXs.Theorems
 import DRXs.SeoTheorems
+import DRXs.Theorems2
+import DRXs.EightFeTheorems
 namespace DRXs
 -- A
 #print axioms model_size
@@ -40,4 +42,31 @@ namespace DRXs
 #print axioms seo_configurations
 #print axioms seo_share_normal
 #print axioms seo_share_both
+-- G to K (2026-11-13)
+#print axioms eo_reference_free
+#print axioms eo_moves
+#print axioms slice_eo_rule
+#print axioms eo_inverse
+#print axioms kinds_of_places
+#print axioms seo_skip_average
+#print axioms seo_skip_average_digits
+#print axioms seo_dist_states
+#print axioms seo_dist_hists
+#print axioms seo_dist_digits
+#print axioms after_trigger_better
+#print axioms after_trigger_worse
+#print axioms dr1s_layouts
+#print axioms simon_count
+#print axioms simon13_rows_U
+#print axioms simon13_rows_D
+#print axioms errata_B1
+#print axioms colour2_kinds
+#print axioms errata_B2_six
+#print axioms errata_B3
+#print axioms errata_B3_nissy
+#print axioms rename_conjugates
+#print axioms rename_is_python_rename
+#print axioms eight_fe_is_renamed_dr
+#print axioms eight_fe_full_eo
+#print axioms eight_fe_mean_digits
 end DRXs

@@ -17,13 +17,13 @@ Each row is what you allow after the EO; the *DR in ≤* columns are the share o
 
 Zagros asked ([[D12300]]): "What is typical eo->dr? … Is 7 moves from eo to dr typical? Or is 8 optimal common". Louis answered with the distribution ("That's the optimal distribution for EO to DR", [[D12306]]) and Zagros read it as "So it is 8 then typically" ([[D12307]]), adding "But I suppose this probably doesnt account for all the different ways you can rzp->switch" ([[D12308]]). The first row is that distribution, for EO-solved states (Zagros's sub-7 is after an RZP, a different population). The rest of the table is what the ways to switch are worth:
 
-- **The other DR axis** of the same EO is worth more than switching the EO's last turn: at most 6 on {= CT('two', 'p_le6') =} of EOs against {= CT('switch', 'p_le6') =}, mean {= CT('two', 'mean') =} against {= CT('switch', 'mean') =}. Checking the inverse is worth about the same as the other axis ({= CT('ni', 'p_le6') =}).
-- **All of the EO-keeping options together** (two axes, normal or inverse, last turn either way): mean {= CT('allkept', 'mean') =}, at most 6 on {= CT('allkept', 'p_le6') =} (1 in {= CT('allkept', 'one_in_le6') =}, against 1 in {= CT('plain', 'one_in_le6') =} for one axis), at most 7 on {= CT('allkept', 'p_le7') =}. So once you use every option, the typical EO is 7 from DR, not 8.
+- **The other DR axis** of the same EO is worth more than switching the EO's last turn: at most 6 on {= CT('two', 'p_le6') =} of EOs against {= CT('switch', 'p_le6') =} ✓, mean {= CT('two', 'mean') =} against {= CT('switch', 'mean') =} ✓. Checking the inverse is worth about the same as the other axis ({= CT('ni', 'p_le6') =}).
+- **All of the EO-keeping options together** (two axes, normal or inverse, last turn either way): mean {= CT('allkept', 'mean') =}, at most 6 on {= CT('allkept', 'p_le6') =} (1 in {= CT('allkept', 'one_in_le6') =}, against 1 in {= CT('plain', 'one_in_le6') =} ✓ for one axis), at most 7 on {= CT('allkept', 'p_le7') =}. So once you use every option, the typical EO is 7 from DR, not 8.
 - **EO-breaking turns change almost nothing** (exact; torchlight's table). On top of all the EO-keeping options they add {= f3(float(CT('allkept', 'mean')) - float(CT('all', 'mean'))) =} turns on average [f]. One axis, with and without them:
 
 | Turns after the EO | Mean, turns | DR in ≤ 6 |
 |---|---|---|
-| Keeping the EO | {= CT('plain', 'mean') =} | {= pc(E['c7'][C7N['plain']]['p_le6'], 2) =} |
+| Keeping the EO | {= CT('plain', 'mean') =} ✓ | {= pc(E['c7'][C7N['plain']]['p_le6'], 2) =} |
 | Any turns | {= CT('any', 'mean') =} | {= pc(E['c7'][C7N['any']]['p_le6'], 2) =} |
 
 The lengths are optimal DRs after the EO: an answer key for what's there, not what you find by hand on every EO. What carries to an attempt is the list of options and their order: after an EO, look at the other DR axis and at the inverse as well as the one you set out for, and try the last turn the other way. The case on each axis says how likely each one is to give something short (5.2).
@@ -44,7 +44,7 @@ The case after the EO, on the DR axis you're looking at, in the server's naming:
 
 {{c6_case}}
 
-This table is for the attempt: the case is what you read at the table (twisted corners and edges out of place on each DR axis), and the row says how likely a DR in 6 or fewer is with each option. The DR lengths behind it are optimal, so treat the odds as what is there to find. All 40 cases with the mean and the odds of each option are in appendix A. The better of two axes is read by the case on the first one, so it mixes every case the second axis can have.
+This table is for the attempt: the case is what you read at the table (twisted corners and edges out of place on each DR axis), and the row says how likely a DR in 6 or fewer is with each option. The DR lengths behind it are optimal, so treat the odds as what is there to find. All 40 cases but 0c0e (already a DR) with the mean and the odds of each option are in appendix A. The better of two axes is read by the case on the first one, so it mixes every case the second axis can have.
 
 **Normal and inverse.** Jay said of RZP to DR on normal and on inverse: "i'm certain there's zero correlation" ([[D848]]); Tom Nelson: "it's the opposite for rzp to DR because if it's bad then it's more likely to be better after switching" ([[D847]]), and Rodney Kinney called that "Regression to the mean" ([[D851]]).
 

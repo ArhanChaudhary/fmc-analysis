@@ -6,15 +6,15 @@ re-read the page: 5 examples from the tutorial and the server and 200 play-along
 
 $ python report_build/check_quotes.py
 writeup.md: 50 quotations; 0 not found
-bugs.md: 79 quotations; 0 not found
+bugs.md: 11 quotations; 0 not found
 app.md: 0 quotations; 0 not found
 sec_claims.md: 80 quotations; 0 not found
 sec_cost.md: 49 quotations; 0 not found
 sec_find.md: 20 quotations; 0 not found
 sec_greedy.md: 17 quotations; 0 not found
 sec_real.md: 15 quotations; 0 not found
-sec_short.md: 3 quotations; 0 not found
+sec_short.md: 21 quotations; 0 not found
 sec_types.md: 42 quotations; 0 not found
 examples_server.src.md: 11 quotations; 0 not found
 thresholds.md: 2 quotations; 0 not found
-quotations checked: 368 (137 messages cited): 305 word for word in a message cited next to them, 52 in a source document, 11 in a message cited elsewhere in the text; not found: 0
+quotations checked: 318 (137 messages cited): 256 word for word in a message cited next to them, 40 in a source document, 22 in a message cited elsewhere in the text; not found: 0

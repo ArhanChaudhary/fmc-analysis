@@ -26,10 +26,10 @@ The doc says "we assume 1 slice can be fixed in 3 moves, and 2 slices can be fix
 | DR-2s to DR | 4 | 9 | 6.83 | 5.83 |
 | DR-3s to DR | 6 | 10 | 8.50 | 7.50 |
 
-So in Rodney's own way of counting, the 3 and the 5 are each about a move short (1.17 and 0.83), and about two from the state alone. The median DR-1s layout is 4 with the cancel and 5 without (B2). The 6-turn layout in B2 still takes 5 with the cancel.
+So in Rodney's own way of counting, the 3 and the 5 are each about a move short (1.17 and 0.83), and about two from the state alone. The median DR-1s layout is 4 with the cancel and 5 without (B2). The 6-turn layout in B2 still takes 5 with the cancel. ✓ Lean: fewest, most and averages from the state.
 
 **A2. Simon's slice-DR doc: the table for step 3.**
-"Num Cases out of 70" at 2, 3, 4, 5, 6 moves is given as 1, 4, 9, 40, 16, with "~4.9 moves on average". Taking the better direction of the last trigger move like the doc does, I get 1, 4, 13, 36, 16: thirteen layouts have a 4-turn fix, not nine. The average stays 4.9. The thirteen, with the corners on F/B, the fixing slice `R L` and the last trigger move a quarter turn of U or D:
+"Num Cases out of 70" at 2, 3, 4, 5, 6 moves is given as 1, 4, 9, 40, 16, with "~4.9 moves on average". Taking the better direction of the last trigger move like the doc does, I get 1, 4, 13, 36, 16: thirteen layouts have a 4-turn fix, not nine. The average stays 4.9. The thirteen, with the corners on F/B, the fixing slice `R L` and the last trigger move a quarter turn of U (with a D trigger the counts 1, 4, 13, 36, 16 are the same, but the thirteen are a different set: for example `BL DB UF BR` and `FL DF UB FR` take 3 turns there):
 
 Each row is one layout; the two middle columns are its fewest turns to a real DR as the layout stands and after turning the last trigger move the other way.
 
@@ -49,7 +49,7 @@ Each row is one layout; the two middle columns are its fewest turns to a real DR
 | FL DF UB BR | 5 | 4 | `U2 L2 B R L` |
 | FL DF UF FR | 5 | 4 | `U2 D2 F R L` |
 
-You can check each fix on a cube: do a DR, do the fix backwards, and the fix brings the DR back.
+You can check each fix on a cube: do a DR, do the fix backwards, and the fix brings the DR back. ✓ Lean: the 1, 4, 13, 36, 16 and every row with a `U` as the last trigger move.
 
 ---
 
@@ -57,7 +57,7 @@ You can check each fix on a cube: do a DR, do the fix backwards, and the fix bri
 
 **B1. "All edges misoriented (12 bad) -> FB on UD will be extra-good -1s"** (Rodney, [19 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474226073247027220)).
 It is a DR-2s, not a DR-1s: four flipped edges, all of one slice, with the centers two slices off. `B' D2 L2 U2 F2 D2 F L2 F2 D2 R2 F2 U' D' L' F' B' U'` has all twelve edges bad on F/B and green or blue on the U and D face of every corner; it has 4 flipped edges, needs 2 slices, and a shortest fix to DR is `U B F L U D` (6 turns).
-trangium said they could not get that line to work ([19 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474238124333858836)) and proposed "FB-colored misoriented, others oriented" instead: that one is right, it gives a DR-1s whose four flipped edges belong to one slice. count quackula's 12-bad notes say the same for green/blue: "This is a DR-2s 4fe." The other five lines of Rodney's list are right.
+trangium said they could not get that line to work ([19 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474238124333858836)) and proposed "FB-colored misoriented, others oriented" instead: that one is right, it gives a DR-1s whose four flipped edges belong to one slice. count quackula's 12-bad notes say the same for green/blue: "This is a DR-2s 4fe." The other five lines of Rodney's list are right. ✓ Lean: the example (twelve bad, 4 flipped, 2 slices, the 6-turn fix).
 
 **B2. "I would guess the distribution is basically flat", and 3 moves as the median** for DR-1s to DR (Rodney, [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560294279010717737), [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560296978137485322)).
 Of the 70 layouts, how many need each number of turns:
@@ -73,7 +73,7 @@ U R2 F2 D' B2 U2 L2 D R' L' B' L2 U2 F2 // scramble
 F2 U2 L2 B R L // shortest fix, 6 turns
 ```
 
-Right after a trigger, with the slice free to merge into its last move, the best case is 0 extra turns, but most layouts still need 5.
+Right after a trigger, with the slice free to merge into its last move, the best case is 0 extra turns, but most layouts still need 5. ✓ Lean
 
 **B3. "If you have 8 bad edges, where all the good edges belong to the same slice, then you can orient the corners that correspond to the good edges along any axis and you are guaranteed an extra-good dr-xs"** (Rodney, [20 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474455821978042472)).
 Take the EO axis as F/B and the four good edges as the E-slice edges, so the corners in question are the white/yellow ones. Each row is where their white or yellow faces go:
@@ -109,7 +109,7 @@ F B R L // normal (4)
 B2 U' B2 U R L // on the inverse (6)
 ```
 
-so no single slice turn reaches DR from either side.
+so no single slice turn reaches DR from either side. ✓ Lean: the example, its fix and both nissy lengths (no shorter DR on any axis); the tables above are computed.
 
 ---
 

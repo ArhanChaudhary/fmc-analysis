@@ -22,13 +22,13 @@ What it says:
 
 | Subset | R ≤ 4 | R ≤ 6 |
 |---|---|---|
-| 0c0 | {= pc(Q8('0c0', '1', '4', 'found_opt')) =} | |
+| 0c0 | {= pc(Q8('0c0', '1', '4', 'found_opt')) =} | {= pc(Q8('0c0', '1', '6', 'found_opt')) =} |
 | 4a2 | {= pc(Q8('4a2', '1', '4', 'found_opt')) =} | {= pc(Q8('4a2', '1', '6', 'found_opt')) =} |
 | 4a1 | {= pc(Q8('4a1', '1', '4', 'found_opt')) =} | {= pc(Q8('4a1', '1', '6', 'found_opt')) =} |
 | 4b2 | {= pc(Q8('4b2', '1', '4', 'found_opt')) =} | {= pc(Q8('4b2', '1', '6', 'found_opt')) =} |
-| 2c3 | {= pc(Q8('2c3', '1', '4', 'found_opt')) =} | |
+| 2c3 | {= pc(Q8('2c3', '1', '4', 'found_opt')) =} | {= pc(Q8('2c3', '1', '6', 'found_opt')) =} |
 
-So at R ≤ 6, 4a1 and 4b2 overtake 4a2. On 2c5 and 4b5 no reduction of 5 or less reaches 4a1 4e at all (it takes at least 6), and 4c4 and 2c4 are close to that.
+So at R ≤ 6, 4a1, 4b2 and 2c3 overtake 4a2. On 2c5 and 4b5 no reduction of 5 or less reaches 4a1 4e at all (it takes at least 6), and 4c4 and 2c4 are close to that.
 
 **Each extra move of reduction costs a lot.** The number of reductions grows {= f1(E['q8_growth'][0]) =} to {= f1(E['q8_growth'][1]) =} times from 5 to 6 moves. The mean number of reductions per DR, over all DRs:
 
@@ -55,7 +55,7 @@ With the bounds doing their job you only finish a few of them, but you still wri
 
 Bounding gets to 80% with short reductions on 0c0 (3) and 4a1 (5), and to about 80% on 4a2 (5: {= pc(Q8('4a2', '1', '5', 'found_opt')) =}, on the line in every population of section 12). Those are where the budget-2 checklist struggles (0c0 and 4a1 stop short of 80% after eight routes). On 4b2 bounding needs every reduction up to 6, about {= n(round(float(Q8('4b2', '1', '6', 'mean_reductions_le_R')))) =} of them, where the checklist stops at {= BUD('4b2', '2', 8) =}. On 2c4, 2c5, 4b5, 0c3, 0c4, 4c3 and 4c4 one to five routes reach 80%, and bounding needs 6 or 7 moves of reduction or doesn't get there by 7. A route and a reduction aren't the same amount of work, so this only compares them in kind.
 
-**For a human the bounding column is mostly out of reach.** Each extra move of reduction multiplies the reductions by about eight, and in an attempt you write tens, maybe a couple of hundred (R ≤ 4 is about {= n(round(float(Q8('all', '1', '4', 'mean_reductions_le_R')))) =} on average). So only the 0c0 entry (R = 3, about {= n(round(float(Q8('0c0', '1', '3', 'mean_reductions_le_R')))) =} reductions) is a practical recommendation. Every entry with R of 5 or more, thousands of reductions, is **computer only**: it shows where the optimal lies, not how to find it. Plan an attempt with the R ≤ 4 column of section 8.
+**For a human the bounding column is mostly out of reach.** Each extra move of reduction multiplies the reductions by about eight, and in an attempt you write tens, maybe a couple of hundred (R ≤ 4 is about {= n(round(float(Q8('all', '1', '4', 'mean_reductions_le_R')))) =} on average). So only the 0c0 entry (R = 3, about {= n(round(float(Q8('0c0', '1', '3', 'mean_reductions_le_R')))) =} reductions) is a practical recommendation. Every entry with R of 5 or more, thousands of reductions, is **computer only**: it shows where the optimal lies, not how to find it. Plan an attempt with the R ≤ 4 column of the first table above.
 
 **Levi Gibson's verdicts per subset.** After "lots and lots of solves" ([[T7074]]): "0c0: Yes", "4a2: yes yes yes amazing muah chief's kiss", for 4a1 "if you get a 4a1 case randomly, bound it. Otherwise it's not great. For the 2e/6e case it's not great because you 99% of the time you want to find a 0c0 or 4b2 trigger", for 4b2 "just check the really short ones, and then just try triggers for the rest", for 2c3 "I only use it for the 6e subset now. Triggers will get you optimal usually for 2e and 4e", and "Bounding is actually REALLY good for 4c3". Row by row, bounding with every reduction of at most 4 and 5 moves against the first three and five budget-2 routes (4,000 states per subset × edges for bounding, 25,000 for the routes). Each row is a subset × edges; each cell is the share where that method finds the optimal:
 
@@ -80,9 +80,9 @@ On 4c3, Levi Gibson's reason was the b side ("On the b corners side there are so
 |---|---|---|
 | Optimal, R ≤ 4 | {= pc(Q8('2c3', '1', '4', 'found_opt')) =} | {= pc(Q8('4a2', '1', '4', 'found_opt')) =} |
 | Optimal, R ≤ 4, 2c3 2e only | {= pc(Q8('2c3 2e', '1', '4', 'found_opt')) =} | |
-| Reductions on average, R ≤ 4 (a count, not a share) | {= n(round(float(Q8('2c3', '1', '4', 'mean_reductions_le_R')))) =} | |
+| Reductions on average, R ≤ 4 (a count, not a share) | {= n(round(float(Q8('2c3', '1', '4', 'mean_reductions_le_R')))) =} | {= n(round(float(Q8('4a2', '1', '4', 'mean_reductions_le_R')))) =} |
 | Within +1, R ≤ 4 | {= pc(Q8('2c3', '1', '4', 'found_p1')) =} | {= pc(Q8('4a2', '1', '4', 'found_p1')) =} |
-| Optimal, R ≤ 5 | {= pc(Q8('2c3', '1', '5', 'found_opt')) =} | |
+| Optimal, R ≤ 5 | {= pc(Q8('2c3', '1', '5', 'found_opt')) =} | {= pc(Q8('4a2', '1', '5', 'found_opt')) =} |
 
 On 4a2 the 75% holds (Levi Gibson had just written "for the 4a2 subset I use full DR Bounding", [[D9106]]), but within +1 it's only the share in the *Within +1* row, not every DR. For 2c3 both halves are off for bounding alone: the optimal comes from a reduction of 4 or less on under half of 2c3, and on {= pc(1 - float(Q8('2c3', '1', '4', 'found_p1'))) =} not even +1 does. Levi Gibson does add the triggers ("For 2c3 2e and 4e I do full DR Bounding + checking the 5-move triggers, and that seems to catch everything", [[D9117]]); I haven't measured that combination. There's an example in the errata: a 2c3 2e where the best any reduction of at most 4 gives is +2.
 

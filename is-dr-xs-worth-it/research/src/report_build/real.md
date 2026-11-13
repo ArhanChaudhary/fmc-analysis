@@ -45,7 +45,7 @@ Over the {= RL('H', f='{:,.0f}') =} scrambles that have a normal DR of 10 or les
 
 {{real_result}}
 
-- On top of every normal DR of 10 or less, which gives {= POL(0) =} on average. Each row adds one set, on top of the row above, except the 11-move DRs, which go on the normal DRs of 10 alone; the last column is how much the average drops from what it builds on:
+- The base is every normal DR of 10 or less, which gives {= POL(0) =} on average. Each row adds one set, on top of the row above, except the 11-move DRs, which go on the normal DRs of 10 alone; the last column is how much the average drops from what it builds on:
 
   | Add | More things to finish per scramble | Average best solution after, moves | Shorter by, moves |
   |---|---:|---:|---:|

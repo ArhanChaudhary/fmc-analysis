@@ -21,8 +21,10 @@ GAPS_STATES=big/real/list.txt $CAP $T bound4 $D/lean_exact_table.u8 0 1 big/real
 $CAP python3 src/real_analysis.py                                                  # (b) out/b_*.tsv (uniform run reproduced too)
 python3 src/compare.py                                                             # out/cmp_*.tsv
 
-# Gap 2: all-move optimum (nissy optimal, 3.1 GB table) of 48,000 uniform + 46,928 real-population DR states
-for f in uni1000 real; do :; done   # inputs: big/g2/uni1000.tsv (htr-routes run1, first 1,000 per subset x edges), big/g2/real_states.tsv
+# Gap 2: all-move optimum (nissy optimal, 3.1 GB table) of 48,000 uniform + 23,976 real-population DR states
+# inputs: big/g2/uni1000.tsv (htr-routes run1, first 1,000 per subset x edges); big/g2/real_states1000.tsv (46,928 states:
+# 1,000 per subset x edges of big/real, all where fewer), cut to its first 500 per subset x edges for the run:
+awk -F'\t' 'c[$1]++<500' big/g2/real_states1000.tsv > big/g2/real_states.tsv                            # 23,976 states
 systemd-run --user --scope -q -p MemoryMax=12G python3 src/g2_solve.py big/g2/uni1000.tsv big/g2/uni1000.out 8
 systemd-run --user --scope -q -p MemoryMax=12G python3 src/g2_solve.py big/g2/real_states.tsv big/g2/real.out 8
 python3 src/g2_analysis.py                                                         # out/g2.tsv

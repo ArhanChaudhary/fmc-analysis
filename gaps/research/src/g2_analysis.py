@@ -3,7 +3,7 @@
 
 Inputs (g2_solve.py outputs, columns: subset, idx, c, e, s, d, lsd, dvar, scramble, true_opt, shorter solution):
   big/g2/uni1000.out   the first 1,000 uniform states of every subset x edges of htr-routes' main pass
-  big/g2/real.out      up to 1,000 states per subset x edges of the real-population sample (big/real/meta.tsv), with
+  big/g2/real.out      up to 500 states per subset x edges of the real-population sample (big/real/meta.tsv), with
                        that sample's population weights scaled to the subsample
 Pooled groups (corner subset, all): uniform weighted by exact subset size, real by population weight; SE clustered
 by scramble for the real population.

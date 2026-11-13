@@ -20,7 +20,7 @@ The reads, in the order of what they cost you:
 
 The first three you get by looking. The last two you have to solve for, and the numbers assume you found the shortest HTR and the optimal corner solution.
 
-After each read I give four numbers, **a / b / c / d**: the share of all DR states *with that same read* whose optimal finish is 10 or less / 11 or less / 12 or less / 13 or less. They are exact counts over all 19,508,428,800 DR states. 0 means no state at all gets there, <0.01% means a few do.
+After each read I give four numbers, **a / b / c / d**: the share of all DR states *with that same read* whose optimal finish is 10 or less / 11 or less / 12 or less / 13 or less. They are exact counts over all 19,508,428,800 DR states. 0 means no state at all gets there, <0.01% means a few do. These numbers are **computer only**: a lookup per DR in the full table, and for the combined lines (without solving, everything together) a class out of thousands. They're here to show what the reads are worth on one DR. In an attempt you have the odds of the write-up's guide per subset and its drop rules, which go by one read at a time.
 
 Which of the four is yours depends on the DR. A 9- or 10-move DR gets finished whatever it looks like, and a 12 or a 13 from it is a result. The DRs you want to prune are the 11-movers, and those need a 10 or an 11 (one more if the first move of the finish merges with the last move of the DR). The examples are DR states with no DR length attached, so each verdict says what you'd do with it at 9 or 10 moves and at 11.
 
@@ -34,7 +34,7 @@ What each line counts:
 - **Corner solution and parity**: the ones of that subset with that L and that cost for the right parity.
 - **Everything together**: subset + pairs + both HTR lengths + L + parity fit, as one class.
 
-Then the truth: the optimal finish in DR moves, from the full table.
+Then the truth: the optimal finish in DR moves, from the full table. That's the answer key, **computer only**.
 
 **How the examples were picked.** Each row is a group of examples and where they come from:
 
@@ -50,7 +50,9 @@ Corner cases are named by where the bad corners are. When it matters which of tw
 
 ---
 
-## 1. Rodney's first random scramble: a decent 2c3
+## Eleven worked examples
+
+### 1. Rodney's first random scramble: a decent 2c3
 
     U D L2 D' B2 U R2 F2 B2 D2 L2 D' R2 L2 D2 B2   // 2c3 6e
 
@@ -96,7 +98,7 @@ Only one of the ten moves starts an optimal finish (R2). Rodney's doc finds a 13
 
 ---
 
-## 2. Rodney's 4a4: the reads say no, and it's a 13
+### 2. Rodney's 4a4: the reads say no, and it's a 13
 
     U R2 L2 F2 U' B2 D2 F2 D L2 U B2 R2 U' F2 U   // 4c4 4e (4a4 on normal, 4b4 on inverse)
 
@@ -131,7 +133,7 @@ This is the one in ten. Rodney gets there by writing down the four ways to 2qt a
 
 ---
 
-## 3. Levi's DR, and why you read both versions of the last move
+### 3. Levi's DR, and why you read both versions of the last move
 
     Scramble: R' U' F B2 R' F2 L' U2 R2 F2 D2 L2 U2 R' B2 U' F L' F L D F' L2 F2 R' U' F
     (D2 B' L' B U' F2 D L U2 R)   // 10-move DR, 4c3 4e
@@ -194,7 +196,7 @@ An invertible last move is worth a third of a move on average. Here it's worth a
 
 ---
 
-## 4. A 2c5 with the corners stacked on both sides: dead
+### 4. A 2c5 with the corners stacked on both sides: dead
 
     D2 B2 U' R2 D R2 B2 R2 F2 U2 R2 D F2 U R2 U'   // 2c5 2e
 
@@ -220,7 +222,7 @@ You can stop here, whatever the length of the DR. For the record:
 
 ---
 
-## 5. A 2c4 with the best corners on both sides
+### 5. A 2c4 with the best corners on both sides
 
     D' L2 D R2 B2 F2 U2 B2 R2 U L2 U'   // 2c4 4e
 
@@ -263,7 +265,7 @@ Two optimal first moves (U and L2). With an L2 available from the last DR move i
 
 ---
 
-## 6. A 2c4 with a double stack
+### 6. A 2c4 with a double stack
 
     U B2 U' F2 U B2 D2 L2 U' R2 U R2 U' L2 U2   // 2c4 4e
 
@@ -289,7 +291,7 @@ Same subset as example 5, same number of bad pieces, roughly the same pairs. One
 
 ---
 
-## 7. A 4c3 that's 9+ to HTR on both sides
+### 7. A 4c3 that's 9+ to HTR on both sides
 
     R2 U B2 D' F2 U' B2 R2 D F2 U' R2 D' R2 U'   // 4c3 4e
 
@@ -316,7 +318,7 @@ Same subset as example 5, same number of bad pieces, roughly the same pairs. One
 
 ---
 
-## 8. A 4c3 that's short to HTR on both sides
+### 8. A 4c3 that's short to HTR on both sides
 
     R2 U' L2 D2 B2 D' B2 R2 D' F2 U2 F2   // 4c3 4e
 
@@ -351,7 +353,7 @@ Examples 7 and 8 are the same subset. This is the spread Zagros's rule is cuttin
 
 ---
 
-## 9. A blocky 4c4
+### 9. A blocky 4c4
 
     R2 U F2 U' L2 U R2 D' B2 U' F2 D   // 4c4 4e
 
@@ -361,7 +363,7 @@ Examples 7 and 8 are the same subset. This is the spread Zagros's rule is cuttin
 
 **Corners.** 3-1 on normal, 2-2 on inverse. 0 / 0.08% / 1.3% / 11%. No help.
 
-**Without solving.** 4c4 4e, five or more pairs, those corners: 0 / 0.37% / 4.7% / 28%.
+**Without solving.** 4c4 4e, five or more pairs (this lookup counts five and up as one), those corners: 0 / 0.37% / 4.7% / 28%.
 
 **HTR.** 11 and 10. 0 / 0.07% / 1.3% / 10%. No help.
 
@@ -382,7 +384,7 @@ One optimal first move. That's the 3-in-100 outcome, so don't read it as "blocky
 
 ---
 
-## 10. A 4b2 where everything says 12 and it's a 13
+### 10. A 4b2 where everything says 12 and it's a 13
 
     U2 F2 R2 B2 U2 L2 F2 D' L2 F2 L2 R2 U   // 4b2 4e
 
@@ -415,7 +417,7 @@ The optimal here takes six moves to get to HTR and seven half turns after it. No
 
 ---
 
-## 11. A 1qt case where a 3qt finish beats the 1qt bound
+### 11. A 1qt case where a 3qt finish beats the 1qt bound
 
     U2 F2 R2 B2 U D2 B2 R2 B2 R2 F2   // 4a1 4e
 
@@ -466,7 +468,7 @@ The examples where a single read did the deciding. Each row is an example and th
 
 ## 100 scrambles: which DRs would you finish?
 
-A hundred random-state scrambles, written the way FMC scrambles are, and for each one some of the DRs you could have on your page. What you can read off each DR without solving is in the two tables. The answers are folded away under it: pick the DRs you'd finish, then open them.
+A hundred random-state scrambles, written the way FMC scrambles are, and for each one some of the DRs you could have on your page. What you can read off each DR without solving is in the two tables. The answers are folded away under them: pick the DRs you'd finish, then open them.
 
 **Where the DRs come from.** cubelib-cli (the solver behind Mallard) lists every DR that goes EO first (EOs of up to 5 moves; it doesn't list longer ones), with NISS, and then DR on normal or on inverse without breaking the EO, on all three axes. A scramble has far more of those than anyone writes down: 721 up to 11 moves on average over the 500 scrambles of the tally at the end. Each scramble shows at most 8 of them: up to 4 of 10 moves or less, shortest first, then 11-movers, drawn at random where there are more. Nothing was picked by how it finishes.
 
@@ -478,7 +480,7 @@ A hundred random-state scrambles, written the way FMC scrambles are, and for eac
 - **4a2**: with 4e, keep it if on at least one side the bad corners are 2-2 with the two pairs stacked or each on a diagonal. With 2e or 0e, keep it only if one side has each layer's pair on a diagonal (a quarter turn straight to 4a1).
 - **4a1, 4b2, 2c3, 0c0**: keep.
 
-**The answers are the answer key**, not what a person finds in an hour: the true shortest HTR on each side, the optimal finish in DR moves, and the shortest solution through that DR.
+**The answers are the answer key**, **computer only**, not what a person finds in an hour: the true shortest HTR on each side, the optimal finish in DR moves, and the shortest solution through that DR.
 
 ### How to read the tables
 
@@ -488,14 +490,14 @@ A hundred random-state scrambles, written the way FMC scrambles are, and for eac
 - **True pairs**: a corner and an edge next to each other in one of the two layers of the DR axis, both touching stickers matching.
 - **Corner case, normal** and **inverse**: where the bad corners sit on each side, by the names in the table below (the same names as in the write-up's corner case appendix). Normal is the cube after the scramble and the unbracketed moves, with the bracketed ones as premoves the usual way. Inverse is the other side.
 - **The list says**: `keep` or `drop` for a DR of 11 moves or more. A DR of 10 moves or less says `look anyway`.
-- **Same reads: in 10, in 11, in 12**: of all DR states with that subset, that many true pairs (five or more count as one) and those two corner cases, the share whose optimal finish is 10 or less, 11 or less, 12 or less. 0 means none. An 11-move DR needs one of the first two.
+- **Same reads: in 10, in 11, in 12**: of all DR states with that subset, that many true pairs (five or more count as one) and those two corner cases, the share whose optimal finish is 10 or less, 11 or less, 12 or less. 0 means none. An 11-move DR needs one of the first two. These are **computer only**, a lookup in a table of every subset, pair count and pair of corner cases. In an attempt the column to go by is **The list says**, with the guide per subset for the odds.
 - **Shortest HTR, normal** and **inverse** (answers): the true shortest on each side.
 - **Optimal finish** (answers): the optimal finish in DR moves of the DR as written.
 - **Solution** (answers): the shortest solution through that DR, which is DR + finish less whatever cancels where the finish meets the DR. R then R2 is R', so a last move that is better turned the other way saves a move.
 
 ### The corner cases
 
-"A qt takes it straight to" is the subset you are in after the right quarter turn of a layer, when one lowers the corner qt count with no setup. L is the range of optimal corner solutions. Each row is one corner case:
+"A qt takes it straight to" is the subset you are in after the right quarter turn of a layer, when one lowers the corner qt count with no setup. L is the range of optimal corner solution lengths. Each row is one corner case:
 
 | Corner case | Bad corners | L | A qt takes it straight to |
 |---|---|---|---|
@@ -598,7 +600,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 11 | 10 | 15 | 25 |
 | 8 | 9 | 10 | 15 | 25 |
 
-Best on the page: **24 moves**, from DR 1 (DR 2, 4 and 6 tie it): `R' D2 L' U2 F2 R' U2 L D2 R' F2 D2 L' U2 B R2 L F' R2 F D U B U`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **24 moves**, from DR 1 (DRs 2, 4 and 6 tie it): `R' D2 L' U2 F2 R' U2 L D2 R' F2 D2 L' U2 B R2 L F' R2 F D U B U`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -652,7 +654,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 11 | 11 | 15 | 24 |
 | 8 | 9 | 11 | 14 | 24 |
 
-Best on the page: **23 moves**, from DR 1 (DR 2 and 5 tie it): `U L F L2 F R2 D2 F D2 B' U2 L2 F' R2 F2 B' U' B' F' D R L2 B`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 1 (DRs 2 and 5 tie it): `U L F L2 F R2 D2 F D2 B' U2 L2 F' R2 F2 B' U' B' F' D R L2 B`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -688,7 +690,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 2c4-6 | 2c4-3 | drop | 0.06% | 0.65% | 5.1% |
 | 8 | 2c5-3 | 2c5-2 | drop | 0 | 0 | 0.07% |
 
-Shown: 8 of the 1255 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 15; 10 moves: 0 of 120; 11 moves: 4 of 1119).
+Shown: 8 of the 1,255 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 15; 10 moves: 0 of 120; 11 moves: 4 of 1,119).
 
 <details>
 <summary>Answers for scramble 3</summary>
@@ -850,7 +852,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 2c3-3 | 2c3-1 | keep | 0.62% | 4.5% | 24% |
 | 8 | 2c5-1 | 2c5-1 | drop | 0.10% | 0.85% | 6.2% |
 
-Shown: 8 of the 1274 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 95; 11 moves: 4 of 1176).
+Shown: 8 of the 1,274 DRs up to 11 moves (9 moves: 3 of 3; 10 moves: 1 of 95; 11 moves: 4 of 1,176).
 
 <details>
 <summary>Answers for scramble 6</summary>
@@ -958,7 +960,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 4c4-1 | 4c4-4 | drop | <0.01% | 0.24% | 2.5% |
 | 8 | 4c4-4 | 4c4-3 | drop | 0 | 0.08% | 1.9% |
 
-Shown: 8 of the 1070 DRs up to 11 moves (8 moves: 2 of 2; 9 moves: 2 of 10; 10 moves: 0 of 98; 11 moves: 4 of 960).
+Shown: 8 of the 1,070 DRs up to 11 moves (8 moves: 2 of 2; 9 moves: 2 of 10; 10 moves: 0 of 98; 11 moves: 4 of 960).
 
 <details>
 <summary>Answers for scramble 8</summary>
@@ -1138,7 +1140,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 9 | 7 | 13 | 24 |
 | 8 | 8 | 9 | 14 | 24 |
 
-Best on the page: **23 moves**, from DR 2 (DR 3 and 4 tie it): `D F U R' U2 R F2 R L2 U2 R D2 B2 L D2 L' B' F L U2 B2 U2 L2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 2 (DRs 3 and 4 tie it): `D F U R' U2 R F2 R L2 U2 R D2 B2 L D2 L' B' F L U2 B2 U2 L2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -1570,7 +1572,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 9 | 8 | 13 | 23 |
 | 8 | 7 | 10 | 13 | 22 |
 
-Best on the page: **22 moves**, from DR 1 (DR 2, 3, 4 and 8 tie it): `F' B L' R B' F2 L' U2 F2 R U2 R F2 U2 R D2 R L2 D' L U' F2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DRs 2, 3, 4 and 8 tie it): `F' B L' R B' F2 L' U2 F2 R U2 R F2 U2 R D2 R L2 D' L U' F2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -1732,7 +1734,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 6 | 7 | 14 | 24 |
 | 8 | 10 | 7 | 15 | 25 |
 
-Best on the page: **22 moves**, from DR 1 (DR 3 and 4 tie it): `F2 L2 D2 U2 F2 R2 U2 L2 B' R2 F2 R2 D2 L B' U2 R D' R' B U' L`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DRs 3 and 4 tie it): `F2 L2 D2 U2 F2 R2 U2 L2 B' R2 F2 R2 D2 L B' U2 R D' R' B U' L`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -1876,7 +1878,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 4c4-3 | 4c4-2 | drop | 0 | 0.16% | 1.9% |
 | 8 | 0c4-1 | 0c4-1 | drop | 0.15% | 1.2% | 8.6% |
 
-Shown: 8 of the 1591 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 7; 10 moves: 0 of 103; 11 moves: 4 of 1480).
+Shown: 8 of the 1,591 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 7; 10 moves: 0 of 103; 11 moves: 4 of 1,480).
 
 <details>
 <summary>Answers for scramble 25</summary>
@@ -1930,7 +1932,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 2c4-5 | 2c4-5 | drop | 0 | 0.08% | 1.4% |
 | 8 | 2c4-7 | 2c4-2 | drop | 0.04% | 0.74% | 6.2% |
 
-Shown: 8 of the 2483 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 18; 10 moves: 0 of 208; 11 moves: 4 of 2256).
+Shown: 8 of the 2,483 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 18; 10 moves: 0 of 208; 11 moves: 4 of 2,256).
 
 <details>
 <summary>Answers for scramble 26</summary>
@@ -2326,7 +2328,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 9 | 9 | 15 | 26 |
 | 8 | 10 | 9 | 14 | 25 |
 
-Best on the page: **23 moves**, from DR 1 (DR 3, 4 and 6 tie it): `F D' B' L D2 R' U2 B' L F' U2 B U2 B' U2 R2 F2 U2 R2 F L2 B' R2`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 1 (DRs 3, 4 and 6 tie it): `F D' B' L D2 R' U2 B' L F' U2 B U2 B' U2 R2 F2 U2 R2 F L2 B' R2`. The list drops 4 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -2470,7 +2472,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 4c4-4 | 4c4-3 | drop | 0 | 0.06% | 1.2% |
 | 8 | 0c3-1 | 0c3-1 | drop | 0.19% | 0.83% | 4.3% |
 
-Shown: 8 of the 1760 DRs up to 11 moves (9 moves: 4 of 11; 10 moves: 0 of 153; 11 moves: 4 of 1596).
+Shown: 8 of the 1,760 DRs up to 11 moves (9 moves: 4 of 11; 10 moves: 0 of 153; 11 moves: 4 of 1,596).
 
 <details>
 <summary>Answers for scramble 36</summary>
@@ -2488,7 +2490,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 10 | 10 | 14 | 25 |
 | 8 | 12 | 12 | 16 | 26 |
 
-Best on the page: **22 moves**, from DR 1 (DR 2, 3 and 4 tie it): `F2 R2 F2 D2 R B2 D2 R2 U2 L' F2 L D2 U' R' U' R' L2 B D2 R L'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DRs 2, 3 and 4 tie it): `F2 R2 F2 D2 R B2 D2 R2 U2 L' F2 L D2 U' R' U' R' L2 B D2 R L'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -2524,7 +2526,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 2c4-4 | 2c4-3 | drop | 0.07% | 0.66% | 5.4% |
 | 8 | 4c3-4 | 4c3-9 | drop | 0.05% | 0.54% | 3.8% |
 
-Shown: 8 of the 1382 DRs up to 11 moves (8 moves: 4 of 6; 9 moves: 0 of 11; 10 moves: 0 of 134; 11 moves: 4 of 1231).
+Shown: 8 of the 1,382 DRs up to 11 moves (8 moves: 4 of 6; 9 moves: 0 of 11; 10 moves: 0 of 134; 11 moves: 4 of 1,231).
 
 <details>
 <summary>Answers for scramble 37</summary>
@@ -3010,7 +3012,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 2c4-2 | 2c4-7 | drop | 0 | 0.24% | 4.5% |
 | 8 | 2c5-1 | 2c5-1 | drop | 0.05% | 0.29% | 2.5% |
 
-Shown: 8 of the 1013 DRs up to 11 moves (9 moves: 4 of 6; 10 moves: 0 of 77; 11 moves: 4 of 930).
+Shown: 8 of the 1,013 DRs up to 11 moves (9 moves: 4 of 6; 10 moves: 0 of 77; 11 moves: 4 of 930).
 
 <details>
 <summary>Answers for scramble 46</summary>
@@ -3064,7 +3066,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 4c4-1 | 4c4-4 | drop | 0 | 0.07% | 1.3% |
 | 8 | 2c5-2 | 2c5-1 | drop | 0.02% | 0.23% | 2.4% |
 
-Shown: 8 of the 1074 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 4; 10 moves: 0 of 84; 11 moves: 4 of 985).
+Shown: 8 of the 1,074 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 4; 10 moves: 0 of 84; 11 moves: 4 of 985).
 
 <details>
 <summary>Answers for scramble 47</summary>
@@ -3172,7 +3174,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 2c3-2 | 2c3-3 | keep | 0.33% | 2.5% | 15% |
 | 8 | 2c3-3 | 2c3-3 | keep | 0.19% | 1.6% | 11% |
 
-Shown: 8 of the 1843 DRs up to 11 moves (9 moves: 4 of 16; 10 moves: 0 of 163; 11 moves: 4 of 1664).
+Shown: 8 of the 1,843 DRs up to 11 moves (9 moves: 4 of 16; 10 moves: 0 of 163; 11 moves: 4 of 1,664).
 
 <details>
 <summary>Answers for scramble 49</summary>
@@ -3244,7 +3246,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 7 | 7 | 14 | 23 |
 | 8 | 11 | 11 | 14 | 25 |
 
-Best on the page: **23 moves**, from DR 1 (DR 2, 3, 4, 5 and 7 tie it): `U F B L' B2 R L2 D2 F' L2 U2 F2 L2 F U2 R2 F L2 F' D F D2 U`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 1 (DRs 2, 3, 4, 5 and 7 tie it): `U F B L' B2 R L2 D2 F' L2 U2 F2 L2 F U2 R2 F L2 F' D F D2 U`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -3568,7 +3570,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 9 | 7 | 13 | 24 |
 | 8 | 8 | 8 | 13 | 23 |
 
-Best on the page: **21 moves**, from DR 1 (DR 2 and 3 tie it): `F' U R' B2 L U2 B2 U2 R2 F2 D' R2 D' L2 F2 L2 D F' L B' R'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **21 moves**, from DR 1 (DRs 2 and 3 tie it): `F' U R' B2 L U2 B2 U2 R2 F2 D' R2 D' L2 F2 L2 D F' L B' R'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -3622,7 +3624,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 9 | 9 | 13 | 24 |
 | 8 | 9 | 10 | 15 | 26 |
 
-Best on the page: **23 moves**, from DR 1 (DR 2, 3, 4 and 5 tie it): `U' R2 U' F2 R2 F2 D F2 R2 U' F2 D' B2 U' B' R2 U' B R' B2 R' D F`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 1 (DRs 2, 3, 4 and 5 tie it): `U' R2 U' F2 R2 F2 D F2 R2 U' F2 D' B2 U' B' R2 U' B R' B2 R' D F`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -3820,7 +3822,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 4b5-1 | 4b5-1 | drop | <0.01% | 0.08% | 1.2% |
 | 8 | 2c4-6 | 2c4-1 | keep | 0.67% | 4.0% | 21% |
 
-Shown: 8 of the 1316 DRs up to 11 moves (9 moves: 4 of 8; 10 moves: 0 of 88; 11 moves: 4 of 1220).
+Shown: 8 of the 1,316 DRs up to 11 moves (9 moves: 4 of 8; 10 moves: 0 of 88; 11 moves: 4 of 1,220).
 
 <details>
 <summary>Answers for scramble 61</summary>
@@ -3892,7 +3894,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 6 | 7 | 13 | 23 |
 | 8 | 9 | 9 | 12 | 23 |
 
-Best on the page: **23 moves**, from DR 1 (DR 2, 4, 7 and 8 tie it): `L U D2 F' D R2 B' U2 D2 R F D2 F' R2 D2 B2 U2 F' D2 F R2 D2 B2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 1 (DRs 2, 4, 7 and 8 tie it): `L U D2 F' D R2 B' U2 D2 R F D2 F' R2 D2 B2 U2 F' D2 F R2 D2 B2`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -3928,7 +3930,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 2c4-7 | 2c4-4 | drop | 0 | 0 | 0.17% |
 | 8 | 4c4-4 | 4c4-5 | drop | 0 | <0.01% | 0.22% |
 
-Shown: 8 of the 1140 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 57; 11 moves: 4 of 1081).
+Shown: 8 of the 1,140 DRs up to 11 moves (9 moves: 2 of 2; 10 moves: 2 of 57; 11 moves: 4 of 1,081).
 
 <details>
 <summary>Answers for scramble 63</summary>
@@ -4144,7 +4146,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 2c4-6 | 2c4-2 | drop | 0.17% | 1.2% | 8.1% |
 | 8 | 2c3-3 | 2c3-3 | keep | 0.44% | 3.7% | 22% |
 
-Shown: 8 of the 1074 DRs up to 11 moves (9 moves: 4 of 15; 10 moves: 0 of 116; 11 moves: 4 of 943).
+Shown: 8 of the 1,074 DRs up to 11 moves (9 moves: 4 of 15; 10 moves: 0 of 116; 11 moves: 4 of 943).
 
 <details>
 <summary>Answers for scramble 67</summary>
@@ -4252,7 +4254,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 2c5-3 | 2c5-2 | drop | 0 | 0 | 0.14% |
 | 8 | 2c3-2 | 2c3-3 | keep | 0.33% | 2.5% | 15% |
 
-Shown: 8 of the 1752 DRs up to 11 moves (9 moves: 4 of 6; 10 moves: 0 of 127; 11 moves: 4 of 1619).
+Shown: 8 of the 1,752 DRs up to 11 moves (9 moves: 4 of 6; 10 moves: 0 of 127; 11 moves: 4 of 1,619).
 
 <details>
 <summary>Answers for scramble 69</summary>
@@ -4324,7 +4326,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 7 | 8 | 13 | 23 |
 | 8 | 6 | 7 | 12 | 23 |
 
-Best on the page: **22 moves**, from DR 1 (DR 2 and 6 tie it): `U' L' U B R F B2 D2 B D2 L2 F' D2 L2 B' U2 F L2 D' F' U' B`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DRs 2 and 6 tie it): `U' L' U B R F B2 D2 B D2 L2 F' D2 L2 B' U2 F L2 D' F' U' B`. The list drops 1 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -4594,7 +4596,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 10 | 10 | 14 | 25 |
 | 8 | 6 | 7 | 11 | 22 |
 
-Best on the page: **22 moves**, from DR 1 (DR 4 and 8 tie it): `U' B' U2 L' B R2 F' U2 L' D2 B2 R F2 L2 B2 L' B2 D2 B2 U' B D`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DRs 4 and 8 tie it): `U' B' U2 L' B R2 F' U2 L' D2 B2 R F2 L2 B2 L' B2 D2 B2 U' B D`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -4846,7 +4848,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 4c3-4 | 4c3-3 | drop | 0.65% | 3.5% | 17% |
 | 8 | 4b2-1 | 4b2-3 | keep | 13% | 35% | 75% |
 
-Shown: 8 of the 1690 DRs up to 11 moves (9 moves: 4 of 11; 10 moves: 0 of 161; 11 moves: 4 of 1518).
+Shown: 8 of the 1,690 DRs up to 11 moves (9 moves: 4 of 11; 10 moves: 0 of 161; 11 moves: 4 of 1,518).
 
 <details>
 <summary>Answers for scramble 80</summary>
@@ -4864,7 +4866,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 8 | 10 | 11 | 22 |
 | 8 | 5 | 5 | 12 | 23 |
 
-Best on the page: **22 moves**, from DR 1 (DR 2, 4 and 7 tie it): `B R F' U2 R F2 R' U2 R' L2 F2 L' F2 D2 F2 R2 U' R2 U' B2 R D`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DRs 2, 4 and 7 tie it): `B R F' U2 R F2 R' U2 R' L2 F2 L' F2 D2 F2 R2 U' R2 U' B2 R D`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -5170,7 +5172,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 2c5-3 | 2c5-1 | drop | 0 | <0.01% | 0.37% |
 | 8 | 0c3-1 | 0c3-2 | drop | 0 | 0.28% | 3.0% |
 
-Shown: 8 of the 1117 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 4; 10 moves: 0 of 83; 11 moves: 4 of 1029).
+Shown: 8 of the 1,117 DRs up to 11 moves (8 moves: 1 of 1; 9 moves: 3 of 4; 10 moves: 0 of 83; 11 moves: 4 of 1,029).
 
 <details>
 <summary>Answers for scramble 86</summary>
@@ -5566,7 +5568,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 9 | 8 | 13 | 24 |
 | 8 | 10 | 10 | 15 | 25 |
 
-Best on the page: **22 moves**, from DR 1 (DR 3 and 4 tie it): `U' F' L2 F' R' U F2 B2 R' U L2 B2 D2 B2 U D2 B2 L2 B2 L2 U F'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **22 moves**, from DR 1 (DRs 3 and 4 tie it): `U' F' L2 F' R' U F2 B2 R' U L2 B2 D2 B2 U D2 B2 L2 B2 L2 U F'`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -5674,7 +5676,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 8 | 8 | 12 | 23 |
 | 8 | 10 | 9 | 13 | 24 |
 
-Best on the page: **23 moves**, from DR 1 (DR 4, 6 and 7 tie it): `L B R F L2 U2 F2 B2 L D2 R' U2 L F2 R B2 D2 L' D' L' B' U' B'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 1 (DRs 4, 6 and 7 tie it): `L B R F L2 U2 F2 B2 L D2 R' U2 L F2 R B2 D2 L' D' L' B' U' B'`. The list drops 2 of the 4 DRs of 11 moves or more, and the best one is 9 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -5836,7 +5838,7 @@ Each row is a DR from above, with its true shortest HTR on each side and its opt
 | 7 | 9 | 9 | 13 | 24 |
 | 8 | 9 | 7 | 14 | 24 |
 
-Best on the page: **23 moves**, from DR 2 (DR 3 and 4 tie it): `F' D R L2 D2 R B2 L D2 R D2 F2 R F2 R2 F R2 U2 R' B2 R D F2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
+Best on the page: **23 moves**, from DR 2 (DRs 3 and 4 tie it): `F' D R L2 D2 R B2 L D2 R D2 F2 R F2 R2 F R2 U2 R' B2 R D F2`. The list drops 3 of the 4 DRs of 11 moves or more, and the best one is 10 moves long, so you'd finish it anyway.
 
 </details>
 
@@ -5926,7 +5928,7 @@ The same DRs: the corner case on each side, what the list says, and the share of
 | 7 | 2c3-2 | 2c3-1 | keep | 1.6% | 8.8% | 36% |
 | 8 | 4c4-1 | 4c4-4 | drop | 0.02% | 0.61% | 5.0% |
 
-Shown: 8 of the 2200 DRs up to 11 moves (9 moves: 4 of 21; 10 moves: 0 of 176; 11 moves: 4 of 2003).
+Shown: 8 of the 2,200 DRs up to 11 moves (9 moves: 4 of 21; 10 moves: 0 of 176; 11 moves: 4 of 2,003).
 
 <details>
 <summary>Answers for scramble 100</summary>

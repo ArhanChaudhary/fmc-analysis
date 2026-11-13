@@ -6,7 +6,7 @@ New stuff first, then what the numbers confirm or correct. Scramble-level lines 
 
 | Allowed | DR in ≤ 9 | DR in ≤ 8 | Mean, turns |
 |---|---|---|---|
-| One fixed axis | | | {= A1('fixed', 'mean') =} |
+| One fixed axis | {= A1('fixed', 'p_le9') =} | {= A1('fixed', 'p_le8') =} | {= A1('fixed', 'mean') =} |
 | Linear, one side (3 axes) | {= A1('lin', 'p_le9') =} | {= A1('lin', 'p_le8') =} | {= A1('lin', 'mean') =} |
 | Best of six | {= A1('six', 'p_le9') =} | {= A1('six', 'p_le8') =} | {= A1('six', 'mean') =} |
 | NISS | {= A1('niss', 'p_le9') =} | {= A1('niss', 'p_le8') =} | {= A1('niss', 'mean') =} |
@@ -41,19 +41,19 @@ So the 25 win for a DR in 10 and the 200 for a DR in 11: a 5-move EO gives about
 | Options checked | Mean, turns | DR in ≤ 6 | DR in ≤ 6, odds | DR in ≤ 7 |
 |---|---|---|---|---|
 | Every option | {= CT('allkept', 'mean') =} | {= CT('allkept', 'p_le6') =} | 1 in {= CT('allkept', 'one_in_le6') =} | {= CT('allkept', 'p_le7') =} |
-| One axis alone | {= CT('plain', 'mean') =} | | 1 in {= CT('plain', 'one_in_le6') =} | |
+| One axis alone | {= CT('plain', 'mean') =} ✓ | {= CT('plain', 'p_le6') =} | 1 in {= CT('plain', 'one_in_le6') =} ✓ | {= CT('plain', 'p_le7') =} |
 
 (The every-option row is sampled.) The lengths are optimal DRs after the EO, the answer key. What you use in an attempt is the list of options to check after each EO, and the case on each DR axis, which you can read at the table and which gives the odds of each (5.2).
 
-- **The other DR axis of the same EO is worth more than switching the EO's last turn**: exact, at most 6 on {= CT('two', 'p_le6') =} against {= CT('switch', 'p_le6') =}, and about as much as checking the inverse ({= CT('ni', 'p_le6') =}). DanielEgdal set out to compute the two-axis numbers in 2023 and thought it "pretty much infeasible" ([[T3329]]). FakeMMAP showed the state space is about $5\cdot 10^9$ ([[T3340]]), and DanielEgdal ran it until it stalled at $3\cdot 10^8$ ([[T3347]]). They're exact here (5.1).
+- **The other DR axis of the same EO is worth more than switching the EO's last turn**: exact, at most 6 on {= CT('two', 'p_le6') =} against {= CT('switch', 'p_le6') =} ✓, and about as much as checking the inverse ({= CT('ni', 'p_le6') =}). DanielEgdal set out to compute the two-axis numbers in 2023 and thought it "pretty much infeasible" ([[T3329]]). FakeMMAP showed the state space is about $5\cdot 10^9$ ([[T3340]]), and DanielEgdal ran it until it stalled at $3\cdot 10^8$ ([[T3347]]). They're exact here (5.1).
 - **Normal and inverse after an EO are related almost only through the case.** The DR lengths on the two sides correlate {= NI('all', 'correlation') =} over all states, and at most {= NIRANGE()[1] =} within a case. Once you know the case, the inverse is nearly a fresh draw (5.2).
 
 **EO counts per scramble** (all three axes, counted the way nissy's `-a` lists them; 4.1). Each row is the kind of EO counted; the last two columns are the share of scrambles with none that short:
 
 | EOs counted | EOs of ≤ 4, mean | EOs of ≤ 4, median | Scrambles with no EO of ≤ 4 | Scrambles with no EO of ≤ 5 |
 |---|---|---|---|---|
-| Normal | {= B4('linear (normal)', 'all three axes', 4, 'mean_le') =} | {= B4('linear (normal)', 'all three axes', 4, 'median_le') =} | {= B4('linear (normal)', 'all three axes', 4, 'p_none_le') =} | |
-| With inverse and NISS EOs | {= B4('NISS (normal, inverse, both)', 'all three axes', 4, 'mean_le') =} | {= B4('NISS (normal, inverse, both)', 'all three axes', 4, 'median_le') =} | | {= B4('NISS (normal, inverse, both)', 'all three axes', 5, 'p_none_le') =} [d] |
+| Normal | {= B4('linear (normal)', 'all three axes', 4, 'mean_le') =} | {= B4('linear (normal)', 'all three axes', 4, 'median_le') =} | {= B4('linear (normal)', 'all three axes', 4, 'p_none_le') =} | {= B4('linear (normal)', 'all three axes', 5, 'p_none_le') =} |
+| With inverse and NISS EOs | {= B4('NISS (normal, inverse, both)', 'all three axes', 4, 'mean_le') =} | {= B4('NISS (normal, inverse, both)', 'all three axes', 4, 'median_le') =} | {= B4('NISS (normal, inverse, both)', 'all three axes', 4, 'p_none_le') =} | {= B4('NISS (normal, inverse, both)', 'all three axes', 5, 'p_none_le') =} [d] |
 
 **Shortest EO over three axes without NISS** (sampled, {= NSAMP('b') =} states; 4.1). Each row is a side rule; the last column is the share of states with an EO that short:
 
@@ -64,7 +64,7 @@ So the 25 win for a DR in 10 and the 200 for a DR in 11: a 5-move EO gives about
 
 **Bad edges you can count at the table** (so these are for the attempt; 4.2):
 
-- **8 bad beats 6 for a short linear EO**: an EO in 4 or fewer on {= B5(8, 'p_linear_le4') =} against {= B5(6, 'p_linear_le4') =}. With NISS 6 bad is a little better, {= B5(6, 'p_niss_le4') =} against {= B5(8, 'p_niss_le4') =}.
+- **8 bad beats 6 for a short linear EO**: an EO in 4 or fewer on {= B5(8, 'p_linear_le4') =} ✓ against {= B5(6, 'p_linear_le4') =} ✓. With NISS 6 bad is a little better, {= B5(6, 'p_niss_le4') =} against {= B5(8, 'p_niss_le4') =}.
 - **12 bad beats 10 with NISS**: in 5 or fewer on {= B5(12, 'p_niss_le5') =} against {= B5(10, 'p_niss_le5') =}.
 
 **nissy 2.0.8's `scramble` isn't uniform, and DRs on the inverse of its scrambles come out shorter.** Its source draws the edge permutation as
@@ -73,7 +73,7 @@ So the 25 win for a DR in 10 and the 200 for a DR in 11: a 5-move EO gives about
 ep = rand() % FACTORIAL12;   // the edge permutation of the drawn state
 ```
 
-rand() gives {= NISSYBIAS('ratio') =} times $12!$ values, so the lowest {= NISSYBIAS('lowshare') =} of edge-permutation indices come up {= NISSYBIAS('more') =} more often than the rest. The inverse side is where the drawn state is, and that's where it shows, on {= n(X('n')) =} of its scrambles. Each row is one measure, on nissy's scrambles and on uniform ones:
+rand() gives {= NISSYBIAS('ratio') =} ✓ times $12!$ values, so the lowest {= NISSYBIAS('lowshare') =} ✓ of edge-permutation indices come up {= NISSYBIAS('more') =} ✓ more often than the rest. The inverse side is where the drawn state is, and that's where it shows, on {= n(X('n')) =} of its scrambles. Each row is one measure, on nissy's scrambles and on uniform ones:
 
 | Measure | nissy's scrambles | Uniform states |
 |---|---|---|
@@ -89,18 +89,18 @@ The twisted-corner counts are off too ($\chi^2$ {= CHI('nissy', 'RL', 'twisted c
 
 | Table | Their number | Here |
 |---|---|---|
-| Cale's and FakeMMAP's {= EODRT() =} EO-solved states | | mean {= CT('plain', 'mean') =} |
+| Cale's and FakeMMAP's {= EODRT() =} EO-solved states | | mean {= CT('plain', 'mean') =} ✓ |
 | torchlight's EO-breaking version (EO-breaking turns change almost nothing, as torchlight's table showed in 2023) | | {= CT('any', 'mean') =} |
 | DougCube's one-axis DR from a scramble | | {= A1('fixed', 'mean') =} |
-| DougCube's one-axis EO | | {= EO1() =} |
-| Shota's shortest linear EO by bad-edge count | | the same table |
+| DougCube's one-axis EO | | {= EO1() =} ✓ |
+| Shota's shortest linear EO by bad-edge count | | the same table ✓ |
 | Louis's one-axis DR shares | 6.2% and 43% | the same |
 | Joba's exact NISS EO mean | 3.455 | {= BOPT('any_axis_niss', 'mean') =} on {= NSAMP('b') =} states, within sampling error |
 | No EO of at most 4 even with NISS, on official scrambles: Cale ([[D2197]]) and wen ([[T5360]]) | about 4% | {= B4('NISS (normal, inverse, both)', 'all three axes', 4, 'p_none_le') =}, within sampling error |
 
-- **The DR-4c4e numbers Tom Nelson quoted** ("1 in 5.2 normally, but 1 in 3.6 if you can switch the last move", [[D2200]]) are exact for EO-solved states: {= C6ONEIN('4c4e', 'plain_p_le6') =} and {= C6ONEIN('4c4e', 'switch_last_p_le6') =} for a DR in 6 or fewer. At that rate Lichi Fang's 3 of 27 has probability {= pc(BINOM(3, 27, float(E['c6']['4c4e']['switch_last_p_le6']))) =}, and Cale's 25 fit it. Both samples are the first 4c4e nissy online found, which needn't be like a 4c4e straight off an EO. Open (section 6).
+- **The DR-4c4e numbers Tom Nelson quoted** ("1 in 5.2 normally, but 1 in 3.6 if you can switch the last move", [[D2200]]) are exact for EO-solved states: {= C6ONEIN('4c4e', 'plain_p_le6') =} ✓ and {= C6ONEIN('4c4e', 'switch_last_p_le6') =} ✓ for a DR in 6 or fewer. At that rate Lichi Fang's 3 of 27 has probability {= pc(BINOM(3, 27, float(E['c6']['4c4e']['switch_last_p_le6']))) =} ✓, and Cale's 25 fit it. Both samples are the first 4c4e nissy online found, which needn't be like a 4c4e straight off an EO. Open (section 6).
 - **Corrected:**
-  - KrzychXyz's "~3%" of EO to DR cases at 10 is {= EODR(10) =} ({= EODRN(10) =} of {= EODRT() =} states; "10 is the worst" is right) [h].
-  - Aneurin's later "Superflip takes 6 moves to solve EO with NISS": it takes 7, as Aneurin had first said [b].
-  - Jay's "Similar efficiency to 4c4e and 4c2e in theory" for 6e4c: one axis, at most 6 on {= C6('4c6e', 'plain_p_le6') =} against {= C6('4c4e', 'plain_p_le6') =} [j].
+  - KrzychXyz's "~3%" of EO to DR cases at 10 is {= EODR(10) =} ✓ ({= EODRN(10) =} ✓ of {= EODRT() =} states; "10 is the worst" is right) [h].
+  - Aneurin's later "Superflip takes 6 moves to solve EO with NISS": it takes 7 ✓, as Aneurin had first said [b].
+  - Jay's "Similar efficiency to 4c4e and 4c2e in theory" for 6e4c: one axis, at most 6 on {= C6('4c6e', 'plain_p_le6') =} ✓ against {= C6('4c4e', 'plain_p_le6') =} ✓ [j].
 - **True as said**: the bad-edge facts (torchlight's exact counts, 6/6/4 and 6/6/8 above 6/6/6, no two axes more than 8 apart, at least 4 elsewhere when one axis has 12, 0 to 8 bad on the other axes after an EO), the EO odds for 10 and 12 bad edges, Emma's corner-twist odds, Zagros's 1 in 11 for 6+0, Cale's 1 in 22 for 4c6e, Zagros's 10% against 16% for 3c4e and 7c8e, and the rest of the claims table (section 6).

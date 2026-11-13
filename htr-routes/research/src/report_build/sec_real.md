@@ -48,8 +48,8 @@ The numbers that move, against uniform, as a share of DRs:
 | Number | Uniform | Each DR once | Each scramble once |
 |---|---|---|---|
 | 0c0, first route | {= f1(E['gaps']['c0c0_first'][2]) =}% | {= f1(E['gaps']['c0c0_first'][0]) =}% | {= f1(E['gaps']['c0c0_first'][1]) =}% |
-| 2c3 0e, first route (flagged with each scramble once) | {= f1(E['gaps']['c2c3_0e'][2]) =}% | | {= f1(E['gaps']['c2c3_0e'][0]) =} ± {= f1(E['gaps']['c2c3_0e'][1]) =}% |
-| 0c0 8e, first route (flagged with each DR once) | {= f1(E['gaps']['c0c0_8e'][2]) =}% | {= f1(E['gaps']['c0c0_8e'][0]) =} ± {= f1(E['gaps']['c0c0_8e'][1]) =}% | |
+| 2c3 0e, first route (flagged with each scramble once) | {= f1(E['gaps']['c2c3_0e'][2]) =}% | {= f1(E['gaps']['c2c3_0e'][3]) =}% | {= f1(E['gaps']['c2c3_0e'][0]) =} ± {= f1(E['gaps']['c2c3_0e'][1]) =}% |
+| 0c0 8e, first route (flagged with each DR once) | {= f1(E['gaps']['c0c0_8e'][2]) =}% | {= f1(E['gaps']['c0c0_8e'][0]) =} ± {= f1(E['gaps']['c0c0_8e'][1]) =}% | {= f1(E['gaps']['c0c0_8e'][3]) =}% |
 | 0c3, *NISS HTR 2+ shorter* (flagged with each DR once) | {= f1(E['gaps']['c0c3_2plus'][0]) =}% | {= f1(E['gaps']['c0c3_2plus'][1]) =}% | {= f1(E['gaps']['c0c3_2plus'][2]) =}% |
 
 The 0c3 one is the only flagged headline. Every other headline moves by at most {= f1(E['gaps']['hl_maxdiff_ex0c3']) =} points; every bounding share at R ≤ 3 to 5, per corner subset, by at most {= f1(E['gaps']['bd_maxdiff']) =}; the per-subset HTR numbers of section 6 outside 0c0 by at most {= f1(E['gaps']['q3_corner_max']) =}. The subsets where short reductions reach 80% are still 0c0, 4a1 and 4a2, with 4a2 on the line in every population ({= f1(E['gaps']['b4a2_r5'][0]) =}% uniform, {= f1(E['gaps']['b4a2_r5'][1]) =}% and {= f1(E['gaps']['b4a2_r5'][2]) =}% on real DRs). **No recommendation in this study changes.**

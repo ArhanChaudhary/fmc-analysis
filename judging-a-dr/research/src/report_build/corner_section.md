@@ -11,37 +11,37 @@ How to read the tables:
 
 | Bad corners | L | A qt takes it straight to | Share of the subset |
 |---|---|---|---:|
-| both on one layer, adjacent; back-face diagonals agree | 7–10 | 2c3 | 17% |
-| 1 up 1 down, opposite | 8–10 | 4b3 | 8% |
-| both on one layer, adjacent; back-face diagonals differ | 7–10 | 2c3 | 17% |
-| both on one layer, adjacent | 8–11 | nothing, needs a setup | 17% |
-| 1 up 1 down, stacked | 9–11 | 4b3 | 8% |
-| 1 up 1 down, opposite | 8–11 | nothing, needs a setup | 17% |
-| 1 up 1 down, stacked | 9–12 | nothing, needs a setup | 17% |
+| both on one layer, adjacent; a qt goes straight to 2c3; back-face diagonals agree | 7–10 | 2c3 | 17% |
+| 1 up 1 down, opposite; a qt goes straight to 4b3 | 8–10 | 4b3 | 8% |
+| both on one layer, adjacent; a qt goes straight to 2c3; back-face diagonals differ | 7–10 | 2c3 | 17% |
+| both on one layer, adjacent; needs a setup | 8–11 | nothing, needs a setup | 17% |
+| 1 up 1 down, stacked; a qt goes straight to 4b3 | 9–11 | 4b3 | 8% |
+| 1 up 1 down, opposite; needs a setup | 8–11 | nothing, needs a setup | 17% |
+| 1 up 1 down, stacked; needs a setup | 9–12 | nothing, needs a setup | 17% |
 
 How each case finishes, same rows: the share of its DRs finishing in 10, 11, 12 and 13 or less.
 
 | Bad corners | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|
-| both on one layer, adjacent; back-face diagonals agree | 0.48% | 3.1% | 16% | 57% |
-| 1 up 1 down, opposite | 0.31% | 2.3% | 13% | 51% |
-| both on one layer, adjacent; back-face diagonals differ | 0.38% | 2.4% | 13% | 47% |
-| both on one layer, adjacent | 0.15% | 1.1% | 7.0% | 33% |
-| 1 up 1 down, stacked | 0.13% | 1.1% | 7.0% | 33% |
-| 1 up 1 down, opposite | 0.13% | 0.99% | 6.4% | 31% |
-| 1 up 1 down, stacked | 0.04% | 0.52% | 4.1% | 23% |
+| both on one layer, adjacent; a qt goes straight to 2c3; back-face diagonals agree | 0.48% | 3.1% | 16% | 57% |
+| 1 up 1 down, opposite; a qt goes straight to 4b3 | 0.31% | 2.3% | 13% | 51% |
+| both on one layer, adjacent; a qt goes straight to 2c3; back-face diagonals differ | 0.38% | 2.4% | 13% | 47% |
+| both on one layer, adjacent; needs a setup | 0.15% | 1.1% | 7.0% | 33% |
+| 1 up 1 down, stacked; a qt goes straight to 4b3 | 0.13% | 1.1% | 7.0% | 33% |
+| 1 up 1 down, opposite; needs a setup | 0.13% | 0.99% | 6.4% | 31% |
+| 1 up 1 down, stacked; needs a setup | 0.04% | 0.52% | 4.1% | 23% |
 
 A typical DR of each case, with its optimal finish:
 
 | Bad corners | A typical DR | Its optimal, moves |
 |---|---|---:|
-| both on one layer, adjacent; back-face diagonals agree | `R2 D' B2 F2 L2 D' B2 U B2 D' B2 F2 U2` | 13 |
-| 1 up 1 down, opposite | `R2 B2 F2 U' L2 D2 B2 U' F2 L2 U' L2 U'` | 13 |
-| both on one layer, adjacent; back-face diagonals differ | `F2 U' B2 D' L2 D' L2 U B2 R2 U L2 F2 U'` | 14 |
-| both on one layer, adjacent | `B2 D2 R2 U F2 U L2 U' R2 D2 R2 F2 U' R2` | 14 |
-| 1 up 1 down, stacked | `B2 U B2 U2 B2 F2 R2 D B2 L2 U' B2 R2 U'` | 14 |
-| 1 up 1 down, opposite | `U' L2 D B2 U2 B2 L2 F2 U' L2 B2 D2 U' R2` | 14 |
-| 1 up 1 down, stacked | `U F2 U' L2 F2 D B2 R2 F2 D2 B2 U' F2 U2` | 14 |
+| both on one layer, adjacent; a qt goes straight to 2c3; back-face diagonals agree | `R2 D' B2 F2 L2 D' B2 U B2 D' B2 F2 U2` | 13 |
+| 1 up 1 down, opposite; a qt goes straight to 4b3 | `R2 B2 F2 U' L2 D2 B2 U' F2 L2 U' L2 U'` | 13 |
+| both on one layer, adjacent; a qt goes straight to 2c3; back-face diagonals differ | `F2 U' B2 D' L2 D' L2 U B2 R2 U L2 F2 U'` | 14 |
+| both on one layer, adjacent; needs a setup | `B2 D2 R2 U F2 U L2 U' R2 D2 R2 F2 U' R2` | 14 |
+| 1 up 1 down, stacked; a qt goes straight to 4b3 | `B2 U B2 U2 B2 F2 R2 D B2 L2 U' B2 R2 U'` | 14 |
+| 1 up 1 down, opposite; needs a setup | `U' L2 D B2 U2 B2 L2 F2 U' L2 B2 D2 U' R2` | 14 |
+| 1 up 1 down, stacked; needs a setup | `U F2 U' L2 F2 D B2 R2 F2 D2 B2 U' F2 U2` | 14 |
 
 **Telling the two look-alike 2c4 cases apart.** Hold the cube so the two bad corners are on the front edge of one layer (if you see six bad corners, turn both layers, U D', and you will see two). The four corners of the back face are then all good. Take each diagonal of the back face. Its two corners share exactly one colour: their sticker on the back face, their U/D sticker, or their sticker on the side. If both diagonals share the same kind of sticker, the diagonals agree; otherwise they differ.
 
@@ -54,7 +54,7 @@ Both sides together, one row per combination of the cases on normal and on inver
 | a stack on one side only | 37.5% | 0.10% | 0.92% | 6.4% | 32% |
 | a stack on both sides | 6.2% | 0 | 0.06% | 1.1% | 11% |
 
-So a double stack is as dead as a 5qt at every target, and the best layout on both sides is as good as the last row. Each row is a kind of DR, with the share finishing in 10, 11, 12 and 13 or less:
+So a double stack is as dead as a 5qt at every target, and the best layout on both sides (first row above) is as good as an average 2c3 4e (last row of the table below). Each row is a kind of DR, with the share finishing in 10, 11, 12 and 13 or less:
 
 | DRs | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|
@@ -107,41 +107,41 @@ The last two rows are 19% of all 2c5, and you can drop them on sight whatever yo
 
 | Bad corners | Subset | L | A qt takes it straight to | Share of the subset |
 |---|---|---|---|---:|
-| 2-2, pairs on opposite sides | 4a3 | 7–9 | 4b2 | 8% |
-| 2-2, pairs stacked | 4a3 | 7–9 | 4b2 | 8% |
+| 2-2, pairs on opposite sides; a qt goes straight to 4b2 | 4a3 | 7–9 | 4b2 | 8% |
+| 2-2, pairs stacked; a qt goes straight to 4b2 | 4a3 | 7–9 | 4b2 | 8% |
 | 2-2, pairs sharing one column | 4b3 | 7–10 | 4a2 | 17% |
 | 3-1 | 4b3 | 8–11 | nothing, needs a setup | 33% |
 | 2-2, diagonal over diagonal | 4a3 | 8–10 | nothing, needs a setup | 8% |
 | 4-0 (two cases that look the same) | 4a3 | 8–10 | nothing, needs a setup | 8% |
-| 2-2, pairs stacked | 4a3 | 8–10 | nothing, needs a setup | 8% |
-| 2-2, pairs on opposite sides | 4a3 | 9–11 | nothing, needs a setup | 8% |
+| 2-2, pairs stacked; needs a setup | 4a3 | 8–10 | nothing, needs a setup | 8% |
+| 2-2, pairs on opposite sides; needs a setup | 4a3 | 9–11 | nothing, needs a setup | 8% |
 
 How each case finishes, same rows: the share of its DRs finishing in 10, 11, 12 and 13 or less.
 
 | Bad corners | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|
-| 2-2, pairs on opposite sides | 0.75% | 4.5% | 22% | 68% |
-| 2-2, pairs stacked | 0.62% | 3.6% | 18% | 60% |
+| 2-2, pairs on opposite sides; a qt goes straight to 4b2 | 0.75% | 4.5% | 22% | 68% |
+| 2-2, pairs stacked; a qt goes straight to 4b2 | 0.62% | 3.6% | 18% | 60% |
 | 2-2, pairs sharing one column | 0.50% | 2.8% | 13% | 47% |
 | 3-1 | 0.29% | 2.0% | 11% | 45% |
 | 2-2, diagonal over diagonal | 0.26% | 1.8% | 10% | 43% |
 | 4-0 (two cases that look the same) | 0.24% | 1.7% | 10% | 43% |
-| 2-2, pairs stacked | 0.23% | 1.6% | 9.4% | 40% |
-| 2-2, pairs on opposite sides | 0.05% | 0.47% | 3.6% | 22% |
+| 2-2, pairs stacked; needs a setup | 0.23% | 1.6% | 9.4% | 40% |
+| 2-2, pairs on opposite sides; needs a setup | 0.05% | 0.47% | 3.6% | 22% |
 
 A typical DR of each case, with its optimal finish:
 
 | Bad corners | A typical DR | Its optimal, moves |
 |---|---|---:|
-| 2-2, pairs on opposite sides | `D R2 D' F2 D' B2 R2 B2 U L2 D2 U' R2` | 13 |
-| 2-2, pairs stacked | `R2 U' F2 U R2 B2 D L2 U2 R2 U' R2 U'` | 13 |
+| 2-2, pairs on opposite sides; a qt goes straight to 4b2 | `D R2 D' F2 D' B2 R2 B2 U L2 D2 U' R2` | 13 |
+| 2-2, pairs stacked; a qt goes straight to 4b2 | `R2 U' F2 U R2 B2 D L2 U2 R2 U' R2 U'` | 13 |
 | 2-2, pairs sharing one column | `R2 D2 R2 U L2 U' B2 R2 B2 U L2 D F2 U'` | 14 |
 | 3-1 | `R2 F2 U' B2 D' B2 R2 D' R2 D R2 U2 L2 U'` | 14 |
 | 2-2, diagonal over diagonal | `B2 F2 U' F2 L2 U R2 U2 L2 R2 B2 D' F2 L2` | 14 |
 | 4-0 (two cases that look the same), one | `D2 B2 D' B2 U' B2 D2 L2 U' L2 U' F2 U'` | 13 |
 | 4-0 (two cases that look the same), the other | `D' F2 U L2 D' L2 R2 U' B2 U R2 D F2 U'` | 14 |
-| 2-2, pairs stacked | `D' L2 U' F2 D' F2 L2 D' L2 U B2 U2 R2 U2` | 14 |
-| 2-2, pairs on opposite sides | `D' L2 U F2 D' B2 L2 U' R2 U L2 D F2 U'` | 14 |
+| 2-2, pairs stacked; needs a setup | `D' L2 U' F2 D' F2 L2 D' L2 U B2 U2 R2 U2` | 14 |
+| 2-2, pairs on opposite sides; needs a setup | `D' L2 U F2 D' B2 L2 U' R2 U L2 D F2 U'` | 14 |
 
 The row marked "two cases that look the same" is two corner cases with the same bad corners and no quarter turn that lowers the count. I have not found a visible test that separates them, so the row gives their odds together. Apart, they are 0.40% / 2.8% / 15% / 57% and 0.07% / 0.68% / 5.1% / 28% (in 10 / 11 / 12 / 13), and only the optimal corner solution tells you which: 8 moves is the better one, 10 the worse one, and with 9 it can be either.
 
@@ -156,26 +156,26 @@ Both sides together, one row per combination of the cases on normal and on inver
 
 | Bad corners | L | A qt takes it straight to | Share of the subset |
 |---|---|---|---:|
-| 2-2, pairs sharing one column | 3–6 | 4a1 | 17% |
+| 2-2, pairs sharing one column; a qt goes straight to 4a1 | 3–6 | 4a1 | 17% |
 | 3-1 (two cases that look the same) | 4–8 | nothing, needs a setup | 67% |
-| 2-2, pairs sharing one column | 6–9 | nothing, needs a setup | 17% |
+| 2-2, pairs sharing one column; needs a setup | 6–9 | nothing, needs a setup | 17% |
 
 How each case finishes, same rows: the share of its DRs finishing in 10, 11, 12 and 13 or less.
 
 | Bad corners | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|
-| 2-2, pairs sharing one column | 3.4% | 14% | 44% | 88% |
+| 2-2, pairs sharing one column; a qt goes straight to 4a1 | 3.4% | 14% | 44% | 88% |
 | 3-1 (two cases that look the same) | 2.1% | 9.8% | 36% | 83% |
-| 2-2, pairs sharing one column | 1.3% | 7.0% | 30% | 78% |
+| 2-2, pairs sharing one column; needs a setup | 1.3% | 7.0% | 30% | 78% |
 
 A typical DR of each case, with its optimal finish:
 
 | Bad corners | A typical DR | Its optimal, moves |
 |---|---|---:|
-| 2-2, pairs sharing one column | `U' L2 D' L2 U' F2 U L2 U2 R2 D' R2 U'` | 13 |
+| 2-2, pairs sharing one column; a qt goes straight to 4a1 | `U' L2 D' L2 U' F2 U L2 U2 R2 D' R2 U'` | 13 |
 | 3-1 (two cases that look the same), one | `U' L2 D' L2 U B2 D2 B2 U' L2 U B2 D'` | 13 |
 | 3-1 (two cases that look the same), the other | `R2 U L2 R2 D L2 U' B2 F2 R2 D' R2 D2` | 13 |
-| 2-2, pairs sharing one column | `B2 D2 L2 D R2 F2 D' L2 B2 F2 D' U' L2` | 13 |
+| 2-2, pairs sharing one column; needs a setup | `B2 D2 L2 D R2 F2 D' L2 B2 F2 D' U' L2` | 13 |
 
 The 3-1 row is two corner cases that look the same (Daichi's "3-1 good parity" and "3-1 bad parity"). I have not found a visible test that separates them, so the row gives their odds together. Apart, they are 2.5% / 11% / 40% / 86% and 1.7% / 8.4% / 33% / 81% (in 10 / 11 / 12 / 13), and only the optimal corner solution tells you which: 4 moves is the better one, 8 the worse one, and with 5 to 7 it can be either.
 

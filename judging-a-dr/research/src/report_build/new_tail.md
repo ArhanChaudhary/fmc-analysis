@@ -1,4 +1,4 @@
-None of this is something you can do at the table, and that's the point of keeping it. Next to what a hand can do (section 3), for the finish you need. Each row is a qt group and a target; each number is a share of its DRs:
+None of this is something you can do at the table, and that's the point of keeping it. The table sets it next to what a hand can do (section 3), for the finish you need. Each row is a qt group and a target; each number is a share of its DRs:
 
 {{PIV_COMPARE}}
 
@@ -62,7 +62,7 @@ For the hand reads in sections 3 to 6:
   {= GAPS()['ex_sol'] =}   // solves it in {= GAPS()['ex']['true_optimum'] =}
   ```
 
-  At the HTR level that's 66 of the 216 cases. Computed with nissy, not in Lean; every solution quoted was replayed on a sticker model.
+  At the HTR level that's 66 of the 216 cases. Computed with nissy, not in Lean: **computer only**, the answer key. Every solution quoted was replayed on a sticker model.
 - **Uniform states.** Every DR state counts once. Against the DRs you actually reach, that's close to right. The test: {= '{:,}'.format(GAPS()['scr']) =} uniformly random scrambles, every EO-first DR of at most 11 moves cubelib-cli lists for each, as on the examples page ({= '{:,}'.format(GAPS()['dr11']) =} DRs), counted once per DR and once per scramble, standard errors clustered by scramble. Every corner subset comes out close to uniform. Each row is a measure, with the most any corner subset is off:
 
   | Per corner subset | Off from uniform by at most |
@@ -74,7 +74,7 @@ For the hand reads in sections 3 to 6:
 
   The "all DRs" numbers hold too: the HTR routes study's all-DR headlines move by at most {= '%.1f' % GAPS()['q3all'] =} points. What does shift is the bad-edge mix inside a subset. With each scramble counted once, 0e is up to {= '%.0f' % GAPS()['e0'] =}% rarer than uniform and 6e up to {= '%.0f' % GAPS()['e6'] =}% commoner. Not modelled: CO-first or direct DRs, EOs over 5 moves, the twin of a DR with its last move turned the other way (counted once), and which DRs a solver chooses to keep. Computed, not proven; the full tables are in the [HTR routes study's real-DR section](https://fmc.arhan.sh/htr-routes/#12-real-drs).
 - **No hand bound for a 12 at 4–5qt.** There isn't one. What's here is the measurement that says a feature count won't give one, the reads ranked by what they buy at each target, and the kill rules that do exist. For a 10 or an 11 the two proven hand bounds do rule out a good share of 4–5qt DRs (section 3), but those are DRs you were dropping anyway.
-- **Your HTR may not be the shortest.** Every HTR number assumes the shortest HTR on each side. How often a solver finds it, and how fast, is not something a BFS can measure.
+- **Your HTR may not be the shortest.** Every HTR number assumes the shortest HTR on each side. How often a solver finds it, and how fast, is not something a BFS can measure. Where a number needs a computer to use (the optimal finish of a given DR, the rankings by exact odds, the sd figures, NISS@DR), it's marked **computer only** where it appears.
 - **Reads I didn't test.** Bigger blocks than pairs, anything you only see after a few moves (moves to FR, the shape after the first qt), and Rodney's NISS@1qt features per skeleton, which is section 7's table rather than a read.
 - **Width is only first moves.** JTuu's real question, how many finishes are within one of optimal, needs a count of solutions per state. Not done.
 - **Not done either**: what share of DRs have an optimal finish that goes through a shortest HTR ([[T10409]]), and how many U2/D2 an optimal has per subset ([[D17576]]).
@@ -84,7 +84,7 @@ For the hand reads in sections 3 to 6:
 
 ## Appendix A: all 48 subsets
 
-Exact over all DR states. Fastest and Longest are the shortest and the longest optimal finish in the subset (the longest is God's number for the subset in DR moves). Every column counts DR-move finishes. With all 18 face turns allowed a finish is sometimes shorter (section 12), so for any moves the "In N" shares are lower bounds; it matters on {= ', '.join('%s (shorter on %.0f%% of states)' % (c, x) for c, x in GAPS()['worst']) =}. The 18-move states were not solved with all moves. Each row is a subset (corner subset and bad edges):
+Exact over all DR states. Fastest and Longest are the shortest and the longest optimal finish in the subset (the longest is God's number for the subset in DR moves). Those two are the answer key, **computer only**; the odds are the subset read, for the attempt. Every column counts DR-move finishes. With all 18 face turns allowed a finish is sometimes shorter (section 12), so for any moves the "In N" shares are lower bounds; it matters on {= (lambda s: ', '.join(s[:-1]) + ' and ' + s[-1] if len(s) > 1 else s[0])(['%s (shorter on %.0f%% of states)' % (c, x) for c, x in GAPS()['worst']]) =}. The 18-move states were not solved with all moves. Each row is a subset (corner subset and bad edges):
 
 {{APPA}}
 
@@ -121,6 +121,7 @@ A corner case is what the corners look like up to rotation, mirror and turning a
 - **A typical DR**: a state of that case whose optimal finish is the median for the case, with that optimal next to it. This is what the case usually looks like.
 - **Shortest setup**: the shortest scramble that produces those corners, so you can put the layout on a cube quickly. As a DR it is one of the rare best ones of its case (it finishes in as many moves as the scramble is long), so don't judge the case by it.
 - **A qt takes it straight to**: the corner subsets one U or D quarter turn can reach with one qt less.
+- **Told apart from a look-alike by**: for a case with the same bad corners and the same answer in the column before as another case, what separates the two (a colour test, or only the corner solution).
 - **Share** is of the corner subset, all edge counts together. **In 10 … In 13** are the shares whose optimal finish is that long or shorter.
 
 Each subset has three tables (what the case looks like, a typical DR and the setup, how it finishes), then a both-sides table where each row is a pair of cases, one on normal and one on inverse, in either order.
@@ -153,7 +154,7 @@ For each corner-qt group and each finish you might need, what each read is worth
 - **Drop, keeping 90%, 95%, 99%**: the share of the group's DRs you can drop while keeping that share of the finishes in T.
 - **In classes under 1%**: the share of the group's DRs that the read puts in a class where at most one in a hundred finishes in T. The last column is the share of the finishes in T those classes hold.
 
-Every number is the best any rule based on that read could do. Each group has two tables, ranking and throwing away.
+Every number is the best any rule based on that read could do, so like the ranking tables earlier these are **computer only**: ceilings, not rules to carry. The hand versions are the plain rules and the guide per subset. Each group has two tables, ranking and throwing away.
 
 {{PIV_FULL}}
 
@@ -162,5 +163,4 @@ Every number is the best any rule based on that read could do. Each group has tw
 ## Docs and sheets referred to
 
 {{DOCS}}
-- Rodney Kinney, "HTR Theory" (September 2023): https://docs.google.com/document/d/1HjS92UBCeCasbW44ezE0fjt5vmWQvlfkaC4rA113nmw
 - Levi Gibson, sheet "Corner Solution Length x DR Finish length" (sampled; Appendix B is the exact version): https://docs.google.com/spreadsheets/d/14rZI1Nf84Og1jS8dN1MfT0sYhvdIWu9gPXkHDs1iVU4

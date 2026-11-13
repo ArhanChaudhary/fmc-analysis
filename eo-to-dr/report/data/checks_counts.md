@@ -11,4 +11,4 @@
 | eofb NISS count of exactly 4 | 30 | 30 |
 | eofb NISS count of exactly 5 | 30 | 30 |
 | dr best of 6 (nissy dr -L) | 30 | 30 |
-| dr NISS (nissy dr -N), scrambles where NISS <= 7 beats linear | 40 | 40 |
+| dr NISS (nissy dr -N), scrambles where NISS ≤ 7 beats linear | 40 | 40 |

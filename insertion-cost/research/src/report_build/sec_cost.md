@@ -42,27 +42,27 @@ Each number is the **best pair**, every first comm at every spot followed by the
 
 Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for the whole leftover. All on random skeletons; the *Skeletons* column says how many each row rests on, and at cap 10 that is few, so read those rows to the nearest percent or so.
 
-**2tc** (two corners twisted in place), one row per cap and skeleton length, columns as in the 3c table.
+**2tc** (two corners twisted in place), one row per cap and skeleton length, columns as in the 3c table but running from *Adds 4 or less* to *Adds 12 or less*.
 
 {{cost_2tc}}
 
-**Twisted 2c2c**, one row per cap and skeleton length, columns as in the 3c table.
+**Twisted 2c2c**, one row per cap and skeleton length, columns as in the 2tc table.
 
 {{cost_2c2c-twisted}}
 
-**Pure 2c2c**, one row per cap and skeleton length, columns as in the 3c table.
+**Pure 2c2c**, one row per cap and skeleton length, columns as in the 2tc table.
 
 {{cost_2c2c-pure}}
 
-**3tc** (three corners twisted the same way), one row per cap and skeleton length, columns as in the 3c table.
+**3tc** (three corners twisted the same way), one row per cap and skeleton length, columns as in the 2tc table.
 
 {{cost_3tc}}
 
-**3c1t**, one row per cap and skeleton length, columns as in the 3c table.
+**3c1t**, one row per cap and skeleton length, columns as in the 2tc table.
 
 {{cost_3c1t}}
 
-**5c**, one row per cap and skeleton length, columns as in the 3c table.
+**5c**, one row per cap and skeleton length, columns as in the 2tc table.
 
 {{cost_5c}}
 
@@ -124,7 +124,7 @@ The samples differ in size and are not the same skeletons: the {= NSK('5c', L=12
 - **5c**: {= M('5c') =} with 8-movers, {= M('5c', L=10) =} at cap 10 ({= NSK('5c', L=10) =} skeletons). On the same {= PAIRN('5c') =} skeletons: {= PAIR('5c', '8') =}, {= PAIR('5c', '10') =}, {= PAIR('5c', '12') =}.
 - **Pure 2c2c gains the most**: {= PAIR('2c2c-pure', '8') =}, {= PAIR('2c2c-pure', '10') =}, {= PAIR('2c2c-pure', '12') =} on the same {= PAIRN('2c2c-pure') =}. The 10-move 2c2c algs are worth learning if you take 2c2c skeletons.
 - **Twisted 2c2c, 3c1t, 3tc** gain little at 10, where nothing is new for them but longer comms, and more at 12: a 3tc goes from {= PAIR('3tc', '10') =} to {= PAIR('3tc', '12') =} on these {= PAIRN('3tc') =} skeletons, all of it from longer comms, since it has no alg of 12 moves or fewer.
-- **A comm plus an alg** (the column *Cap 10 with a comm plus an alg*) is worth another {= PAIRD('5c', '10', '10m') =} on a 5c and {= PAIRD('2c2c-pure', '10', '10m') =} on a pure 2c2c at cap 10. That is a 5c done as a 3c comm and a 2c2c alg, the kind of line Insertion Finder returns with all its sets on.
+- **A comm plus an alg** (the column *Cap 10, a comm plus an alg*) is worth another {= PAIRD('5c', '10', '10m') =} on a 5c and {= PAIRD('2c2c-pure', '10', '10m') =} on a pure 2c2c at cap 10. That is a 5c done as a 3c comm and a 2c2c alg, the kind of line Insertion Finder returns with all its sets on.
 
 These are averages over {= PAIRN('5c') =} or {= PAIRN('3c') =} skeletons, compared on the same skeletons, so the direction of each step is solid. For its size: two standard errors of a mean are ±{= SE2('5c', L=12, src='two12') =} for a 5c at cap 12 on {= NSK('5c', L=12, src='two12') =} skeletons (Appendix C).
 
@@ -162,11 +162,11 @@ The second comm may go inside the first. How much that is worth, with 8-movers o
 
 For the next two, cap 8 is the best of two 3e algs of 8 moves or fewer and one alg of 8 or fewer for the whole leftover (both have 6-movers), and cap 10 is the same with algs of up to 10 moves. Random skeletons; the *Skeletons* column is the sample behind each row.
 
-**2e2e** (two swaps, no flip), one row per cap and skeleton length, columns as in the 3c table.
+**2e2e** (two swaps, no flip), one row per cap and skeleton length, columns as in the 2tc table.
 
 {{cost_2e2e}}
 
-**5e**, one row per cap and skeleton length, columns as in the 3c table.
+**5e**, one row per cap and skeleton length, columns as in the 2tc table.
 
 {{cost_5e}}
 

@@ -326,7 +326,7 @@ The two that get shorter with quarter turns, explicitly (with half turns alone b
   M F2 U2 M'   // the labelled case in 6 moves, the sheet's penalty of 4 after the 2-move F-V setup
   ```
 - **Rodney's rules are still a true lower bound in all 216 cases**, even against the shorter optimals. The "100%" survives.
-- **OBL++** has a finer grid and I didn't grade it cell by cell. Collapsed to these 216 labels it covers 144 cases, matches on 140 of them and already has four of the five fixes above. It's one *lower* in four (D-D ± F-H R-H even, R-V + F-D R-H even, R-V + F-D R-D odd: 8 vs my 9).
+- **OBL++** has a finer grid and I didn't grade it cell by cell. Collapsed to these 216 labels it covers 144 cases, matches on 140 of them and already has four of the five fixes above. It's one *lower* in four (D-D ± F-H R-H even, two cases; R-V + F-D R-H even; R-V + F-D R-D odd: 8 vs my 9).
 
   For those four I ran nissy on all 3,072 states of each case and none has a solution of 8 or fewer, so 9 stands for the cases as I label them. Whether those cells are off or just mean something slightly different, I don't know.
 
@@ -437,7 +437,7 @@ Everything builds in under half an hour, in 3 GB of RAM if that last check is ru
 - **The 216 cases with any move**: a Python script, as described above, plus nissy for the disputed cells.
 - **The proof**: the Lean project builds its own tables from its own definitions. It shares nothing with the Rust code except the ten move tables and, for the exact table, the numbering of the symmetry-reduced states (so the two tables can be compared entry by entry).
 
-What agreed with what. Each row is a check, with what it was checked against and the result:
+What agreed with what. Each row is a check (with what it was checked against, where that is someone else's result) and its result:
 
 | Check | Result |
 |---|---|
@@ -591,66 +591,66 @@ For the big 3–5qt subsets. L = optimal corner solution. "Min" is the best case
 
 Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E-parity). The three optimal columns are for half turns only (FakeMMAP's first BFS), DR moves, and any of the 18 face turns. The sequence makes a state of the case in the any-move optimal, so its inverse is an optimal solution. Each row is one case:
 
-| Corners | F edges | R edges | E-parity | Optimal, half turns | Optimal, DR moves | Optimal, any move | Sequence |
+| Corners | M-slice edges (F) | S-slice edges (R) | E-parity | Optimal, half turns | Optimal, DR moves | Optimal, any move | Sequence |
 |---|---|---|---|---:|---:|---:|---|
-| H-H + | F-H | R-H | even | 0 | 0 | 0 | ` ` |
-| R-D + | F-H | R-D | odd | 1 | 1 | 1 | ` L2` |
-| F-D + | F-D | R-H | odd | 1 | 1 | 1 | ` B2` |
-| R-V + | F-H | R-V | odd | 2 | 2 | 2 | ` L2 D2` |
-| R-D - | F-D | R-D | even | 2 | 2 | 2 | ` L2 B2` |
-| F-V + | F-V | R-H | odd | 2 | 2 | 2 | ` B2 D2` |
-| F-D - | F-D | R-D | even | 2 | 2 | 2 | ` B2 L2` |
-| R-V + | F-H | R-V | even | 3 | 3 | 3 | ` L2 D2 L2` |
-| D-D + | F-D | R-V | even | 3 | 3 | 3 | ` L2 D2 B2` |
-| R-V - | F-V | R-V | even | 3 | 3 | 3 | ` L2 B2 D2` |
-| H-H - | F-D | R-H | odd | 3 | 3 | 3 | ` L2 B2 L2` |
-| D-D - | F-V | R-D | even | 3 | 3 | 3 | ` B2 D2 L2` |
-| F-V + | F-V | R-H | even | 3 | 3 | 3 | ` B2 D2 B2` |
-| F-V - | F-V | R-V | even | 3 | 3 | 3 | ` B2 L2 D2` |
-| H-H - | F-H | R-D | odd | 3 | 3 | 3 | ` F2 R2 F2` |
-| R-D + | F-H | R-D | even | 4 | 4 | 4 | ` L2 D2 L2 D2` |
-| D-D + | F-D | R-V | odd | 4 | 4 | 4 | ` L2 D2 L2 B2` |
-| F-V - | F-D | R-V | odd | 4 | 4 | 4 | ` L2 D2 B2 L2` |
-| R-V - | F-V | R-V | odd | 4 | 4 | 4 | ` L2 B2 D2 L2` |
-| D-D - | F-V | R-V | odd | 4 | 4 | 4 | ` L2 F2 U2 F2` |
-| H-H - | F-V | R-H | odd | 4 | 4 | 4 | ` L2 B2 L2 D2` |
-| F-D - | F-H | R-H | even | 4 | 4 | 4 | ` L2 B2 L2 B2` |
-| R-V - | F-V | R-D | odd | 4 | 4 | 4 | ` F2 U2 R2 F2` |
-| F-D + | F-D | R-H | even | 4 | 4 | 4 | ` B2 D2 B2 D2` |
-| D-D - | F-V | R-D | odd | 4 | 4 | 4 | ` F2 U2 F2 L2` |
-| D-D + | F-V | R-V | odd | 4 | 4 | 4 | ` B2 L2 D2 L2` |
-| F-V - | F-V | R-V | odd | 4 | 4 | 4 | ` B2 L2 D2 B2` |
-| H-H - | F-H | R-V | odd | 4 | 4 | 4 | ` F2 R2 F2 D2` |
-| R-D - | F-H | R-H | even | 4 | 4 | 4 | ` B2 L2 B2 L2` |
-| H-H + | F-H | R-H | odd | 5 | 5 | 5 | ` R2 U2 L2 U2 R2` |
-| R-D - | F-D | R-D | odd | 5 | 5 | 5 | ` L2 D2 L2 D2 B2` |
-| F-V - | F-D | R-V | even | 5 | 5 | 5 | ` R2 D2 L2 B2 R2` |
-| F-D - | F-V | R-D | odd | 5 | 5 | 5 | ` L2 D2 B2 L2 D2` |
-| F-V - | F-H | R-V | even | 5 | 5 | 5 | ` L2 D2 F2 R2 F2` |
-| D-D - | F-V | R-V | even | 5 | 5 | 5 | ` L2 F2 U2 R2 F2` |
-| D-D + | F-D | R-D | odd | 5 | 5 | 5 | ` L2 F2 U2 F2 D2` |
-| F-V + | F-V | R-V | even | 5 | 5 | 5 | ` R2 B2 D2 B2 R2` |
-| R-D - | F-V | R-D | even | 5 | 5 | 5 | ` R2 B2 L2 D2 R2` |
-| F-D - | F-V | R-H | even | 5 | 5 | 5 | ` L2 B2 L2 D2 B2` |
-| F-V - | F-H | R-H | even | 5 | 5 | 5 | ` L2 B2 L2 B2 D2` |
-| F-D + | F-H | R-D | odd | 5 | 5 | 5 | ` R2 B2 R2 B2 R2` |
-| R-D - | F-D | R-V | odd | 5 | 5 | 5 | ` F2 U2 R2 F2 D2` |
-| R-V - | F-V | R-H | even | 5 | 5 | 5 | ` B2 D2 L2 B2 L2` |
-| F-D - | F-D | R-D | odd | 5 | 5 | 5 | ` B2 D2 B2 D2 L2` |
-| R-V - | F-V | R-D | even | 5 | 5 | 5 | ` B2 D2 F2 R2 F2` |
-| D-D - | F-D | R-D | odd | 5 | 5 | 5 | ` B2 L2 D2 L2 D2` |
-| R-V + | F-V | R-V | even | 5 | 5 | 5 | ` F2 R2 U2 R2 F2` |
-| D-D + | F-V | R-V | even | 5 | 5 | 5 | ` F2 R2 U2 F2 L2` |
-| R-D - | F-H | R-V | even | 5 | 5 | 5 | ` F2 R2 F2 D2 L2` |
-| F-D - | F-D | R-V | even | 5 | 5 | 5 | ` F2 R2 F2 D2 B2` |
-| R-V - | F-H | R-H | even | 5 | 5 | 5 | ` B2 L2 B2 L2 D2` |
-| R-D + | F-D | R-H | odd | 5 | 5 | 5 | ` F2 R2 B2 R2 F2` |
+| H-H + | F-H | R-H | even | 0 | 0 | 0 | (solved: nothing to do) |
+| R-D + | F-H | R-D | odd | 1 | 1 | 1 | `L2` |
+| F-D + | F-D | R-H | odd | 1 | 1 | 1 | `B2` |
+| R-V + | F-H | R-V | odd | 2 | 2 | 2 | `L2 D2` |
+| R-D - | F-D | R-D | even | 2 | 2 | 2 | `L2 B2` |
+| F-V + | F-V | R-H | odd | 2 | 2 | 2 | `B2 D2` |
+| F-D - | F-D | R-D | even | 2 | 2 | 2 | `B2 L2` |
+| R-V + | F-H | R-V | even | 3 | 3 | 3 | `L2 D2 L2` |
+| D-D + | F-D | R-V | even | 3 | 3 | 3 | `L2 D2 B2` |
+| R-V - | F-V | R-V | even | 3 | 3 | 3 | `L2 B2 D2` |
+| H-H - | F-D | R-H | odd | 3 | 3 | 3 | `L2 B2 L2` |
+| D-D - | F-V | R-D | even | 3 | 3 | 3 | `B2 D2 L2` |
+| F-V + | F-V | R-H | even | 3 | 3 | 3 | `B2 D2 B2` |
+| F-V - | F-V | R-V | even | 3 | 3 | 3 | `B2 L2 D2` |
+| H-H - | F-H | R-D | odd | 3 | 3 | 3 | `F2 R2 F2` |
+| R-D + | F-H | R-D | even | 4 | 4 | 4 | `L2 D2 L2 D2` |
+| D-D + | F-D | R-V | odd | 4 | 4 | 4 | `L2 D2 L2 B2` |
+| F-V - | F-D | R-V | odd | 4 | 4 | 4 | `L2 D2 B2 L2` |
+| R-V - | F-V | R-V | odd | 4 | 4 | 4 | `L2 B2 D2 L2` |
+| D-D - | F-V | R-V | odd | 4 | 4 | 4 | `L2 F2 U2 F2` |
+| H-H - | F-V | R-H | odd | 4 | 4 | 4 | `L2 B2 L2 D2` |
+| F-D - | F-H | R-H | even | 4 | 4 | 4 | `L2 B2 L2 B2` |
+| R-V - | F-V | R-D | odd | 4 | 4 | 4 | `F2 U2 R2 F2` |
+| F-D + | F-D | R-H | even | 4 | 4 | 4 | `B2 D2 B2 D2` |
+| D-D - | F-V | R-D | odd | 4 | 4 | 4 | `F2 U2 F2 L2` |
+| D-D + | F-V | R-V | odd | 4 | 4 | 4 | `B2 L2 D2 L2` |
+| F-V - | F-V | R-V | odd | 4 | 4 | 4 | `B2 L2 D2 B2` |
+| H-H - | F-H | R-V | odd | 4 | 4 | 4 | `F2 R2 F2 D2` |
+| R-D - | F-H | R-H | even | 4 | 4 | 4 | `B2 L2 B2 L2` |
+| H-H + | F-H | R-H | odd | 5 | 5 | 5 | `R2 U2 L2 U2 R2` |
+| R-D - | F-D | R-D | odd | 5 | 5 | 5 | `L2 D2 L2 D2 B2` |
+| F-V - | F-D | R-V | even | 5 | 5 | 5 | `R2 D2 L2 B2 R2` |
+| F-D - | F-V | R-D | odd | 5 | 5 | 5 | `L2 D2 B2 L2 D2` |
+| F-V - | F-H | R-V | even | 5 | 5 | 5 | `L2 D2 F2 R2 F2` |
+| D-D - | F-V | R-V | even | 5 | 5 | 5 | `L2 F2 U2 R2 F2` |
+| D-D + | F-D | R-D | odd | 5 | 5 | 5 | `L2 F2 U2 F2 D2` |
+| F-V + | F-V | R-V | even | 5 | 5 | 5 | `R2 B2 D2 B2 R2` |
+| R-D - | F-V | R-D | even | 5 | 5 | 5 | `R2 B2 L2 D2 R2` |
+| F-D - | F-V | R-H | even | 5 | 5 | 5 | `L2 B2 L2 D2 B2` |
+| F-V - | F-H | R-H | even | 5 | 5 | 5 | `L2 B2 L2 B2 D2` |
+| F-D + | F-H | R-D | odd | 5 | 5 | 5 | `R2 B2 R2 B2 R2` |
+| R-D - | F-D | R-V | odd | 5 | 5 | 5 | `F2 U2 R2 F2 D2` |
+| R-V - | F-V | R-H | even | 5 | 5 | 5 | `B2 D2 L2 B2 L2` |
+| F-D - | F-D | R-D | odd | 5 | 5 | 5 | `B2 D2 B2 D2 L2` |
+| R-V - | F-V | R-D | even | 5 | 5 | 5 | `B2 D2 F2 R2 F2` |
+| D-D - | F-D | R-D | odd | 5 | 5 | 5 | `B2 L2 D2 L2 D2` |
+| R-V + | F-V | R-V | even | 5 | 5 | 5 | `F2 R2 U2 R2 F2` |
+| D-D + | F-V | R-V | even | 5 | 5 | 5 | `F2 R2 U2 F2 L2` |
+| R-D - | F-H | R-V | even | 5 | 5 | 5 | `F2 R2 F2 D2 L2` |
+| F-D - | F-D | R-V | even | 5 | 5 | 5 | `F2 R2 F2 D2 B2` |
+| R-V - | F-H | R-H | even | 5 | 5 | 5 | `B2 L2 B2 L2 D2` |
+| R-D + | F-D | R-H | odd | 5 | 5 | 5 | `F2 R2 B2 R2 F2` |
 | H-H - | F-D | R-H | even | 6 | 6 | 6 | `L2 B2 D2 L2 D2 L2` |
 | F-D - | F-V | R-D | even | 6 | 6 | 6 | `R2 U2 R2 F2 L2 U2` |
 | F-V - | F-H | R-V | odd | 6 | 6 | 6 | `R2 D2 L2 F2 L2 F2` |
 | F-D + | F-V | R-H | even | 6 | 6 | 6 | `R2 U2 F2 L2 U2 R2` |
 | H-H - | F-V | R-D | even | 6 | 6 | 6 | `L2 D2 F2 R2 U2 F2` |
-| F-D - | F-H | R-D | even | 6 | 6 | 5 | ` R L' D2 R' L'` |
+| F-D - | F-H | R-D | even | 6 | 6 | 5 | `R L' D2 R' L'` |
 | D-D + | F-H | R-V | odd | 6 | 6 | 6 | `F2 R' L' F2 R L` |
 | D-D + | F-D | R-D | even | 6 | 6 | 6 | `L2 F2 U2 R2 F2 D2` |
 | F-V + | F-V | R-V | odd | 6 | 6 | 6 | `F' B R2 F B D2` |
@@ -666,7 +666,7 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | H-H + | F-D | R-D | even | 6 | 6 | 6 | `R2 F2 L2 B2 L2 F2` |
 | H-H - | F-D | R-V | even | 6 | 6 | 6 | `F2 U2 R2 F2 D2 L2` |
 | R-D + | F-H | R-V | even | 6 | 6 | 6 | `F2 U2 R2 F2 D2 B2` |
-| R-D - | F-D | R-H | even | 6 | 6 | 5 | ` F' B D2 F B` |
+| R-D - | F-D | R-H | even | 6 | 6 | 5 | `F' B D2 F B` |
 | D-D - | F-V | R-H | odd | 6 | 6 | 6 | `L2 F B L2 F' B'` |
 | H-H - | F-H | R-D | even | 6 | 6 | 6 | `F2 U2 B2 U2 R2 F2` |
 | R-D - | F-D | R-V | even | 6 | 6 | 6 | `F' B R2 D2 F B` |
@@ -690,19 +690,19 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | D-D + | F-H | R-V | even | 7 | 7 | 6 | `R' L' F2 R' L F2` |
 | H-H + | F-V | R-H | odd | 7 | 7 | 7 | `R2 U2 B2 R2 D2 L2 F2` |
 | R-D - | F-V | R-H | odd | 7 | 7 | 7 | `L2 D2 B2 L2 D2 B2 L2` |
-| F-D + | F-H | R-H | odd | 7 | 7 | 5 | ` R L' D2 R' L` |
+| F-D + | F-H | R-H | odd | 7 | 7 | 5 | `R L' D2 R' L` |
 | H-H - | F-D | R-D | odd | 7 | 7 | 6 | `R L' D2 R' L' B2` |
 | D-D - | F-H | R-D | odd | 7 | 7 | 7 | `R' L' F2 R L F2 D2` |
-| R-V + | F-D | R-V | even | 7 | 7 | 5 | ` R' L' B2 R L` |
+| R-V + | F-D | R-V | even | 7 | 7 | 5 | `R' L' B2 R L` |
 | R-V + | F-H | R-D | odd | 7 | 7 | 6 | `F' B D2 R2 F B'` |
-| F-D + | F-D | R-D | odd | 7 | 7 | 5 | ` F' B R2 F B` |
+| F-D + | F-D | R-D | odd | 7 | 7 | 5 | `F' B R2 F B` |
 | F-V - | F-H | R-H | odd | 7 | 7 | 7 | `L2 B2 D2 B2 D2 L2 B2` |
 | R-V + | F-H | R-H | odd | 7 | 7 | 6 | `L2 F B' L2 F' B` |
 | F-D - | F-D | R-H | odd | 7 | 7 | 7 | `R2 F2 U2 F2 R2 D2 L2` |
 | H-H + | F-H | R-D | odd | 7 | 7 | 6 | `L B2 U2 D2 F2 R'` |
 | R-V - | F-D | R-V | odd | 7 | 7 | 6 | `R' L' D2 B2 R' L'` |
 | D-D - | F-H | R-V | odd | 7 | 7 | 7 | `R2 F2 R2 F2 D2 R2 D2` |
-| R-V + | F-D | R-V | odd | 7 | 7 | 5 | ` R' L' B2 R L'` |
+| R-V + | F-D | R-V | odd | 7 | 7 | 5 | `R' L' B2 R L'` |
 | H-H + | F-V | R-H | even | 7 | 7 | 6 | `B2 R L' D2 R' L` |
 | F-V + | F-D | R-V | odd | 7 | 7 | 7 | `L2 F2 R2 U2 F2 L2 D2` |
 | H-H + | F-V | R-D | even | 7 | 7 | 7 | `R2 F2 L2 U2 B2 L2 F2` |
@@ -713,9 +713,9 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | H-H + | F-V | R-V | even | 7 | 7 | 7 | `F2 R2 F2 L2 B2 L2 D2` |
 | F-D - | F-H | R-V | odd | 7 | 7 | 7 | `F2 U2 R2 F2 D2 L2 B2` |
 | H-H + | F-H | R-V | odd | 7 | 7 | 7 | `F2 U2 L2 B2 U2 F2 R2` |
-| R-D + | F-H | R-H | odd | 7 | 7 | 5 | ` F' B D2 F B'` |
+| R-D + | F-H | R-H | odd | 7 | 7 | 5 | `F' B D2 F B'` |
 | D-D + | F-D | R-H | odd | 7 | 7 | 7 | `L2 F B' L2 U2 F' B'` |
-| F-V + | F-V | R-D | even | 7 | 7 | 5 | ` F' B' R2 F B` |
+| F-V + | F-V | R-D | even | 7 | 7 | 5 | `F' B' R2 F B` |
 | H-H - | F-H | R-V | even | 7 | 7 | 7 | `F2 U2 B2 U2 R2 F2 D2` |
 | R-D - | F-H | R-H | odd | 7 | 7 | 7 | `B2 L2 D2 B2 D2 B2 L2` |
 | H-H - | F-D | R-V | odd | 7 | 7 | 6 | `L2 F B U2 F' B` |
@@ -726,13 +726,13 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | R-V - | F-H | R-H | odd | 7 | 7 | 7 | `B2 L2 D2 L2 D2 B2 L2` |
 | H-H + | F-D | R-H | odd | 7 | 7 | 6 | `F L2 U2 D2 R2 B'` |
 | R-D - | F-H | R-D | odd | 7 | 7 | 7 | `F2 R2 U2 R2 B2 U2 F2` |
-| R-D + | F-D | R-D | odd | 7 | 7 | 5 | ` R' L B2 R L` |
+| R-D + | F-D | R-D | odd | 7 | 7 | 5 | `R' L B2 R L` |
 | F-V + | F-D | R-H | odd | 7 | 7 | 6 | `R' L D2 B2 R' L` |
 | R-V + | F-V | R-D | odd | 7 | 7 | 7 | `F2 R2 F2 D2 L2 B2 D2` |
 | H-H + | F-D | R-V | even | 7 | 7 | 7 | `F2 R2 F2 D2 L2 B2 L2` |
 | D-D + | F-V | R-H | odd | 7 | 7 | 7 | `F B U2 L2 B F' L2` |
 | F-V - | F-V | R-D | odd | 7 | 7 | 6 | `F' B' D2 R2 F B` |
-| F-V + | F-V | R-D | odd | 7 | 7 | 5 | ` F' B' R2 F B'` |
+| F-V + | F-V | R-D | odd | 7 | 7 | 5 | `F' B' R2 F B'` |
 | H-H + | F-H | R-V | even | 7 | 7 | 6 | `R2 F B' D2 F' B` |
 | R-D - | F-H | R-V | odd | 7 | 7 | 7 | `F2 L2 F2 L2 U2 L2 U2` |
 | F-V + | F-D | R-D | even | 7 | 7 | 7 | `B2 R2 B2 R2 D2 B2 R2` |
@@ -747,13 +747,13 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | R-D + | F-V | R-D | even | 8 | 8 | 6 | `R' L' B2 R L D2` |
 | R-V - | F-D | R-H | odd | 8 | 8 | 8 | `B2 D2 B2 R L D2 R' L'` |
 | R-D + | F-V | R-H | even | 8 | 8 | 8 | `L2 D2 F2 R2 U2 B2 R2 F2` |
-| H-H + | F-D | R-H | even | 8 | 8 | 5 | ` R' L B2 R L'` |
+| H-H + | F-D | R-H | even | 8 | 8 | 5 | `R' L B2 R L'` |
 | H-H - | F-V | R-V | odd | 8 | 8 | 7 | `F2 R' L' U2 F2 R' L` |
 | F-V + | F-H | R-H | even | 8 | 8 | 7 | `F2 R' L F2 D2 R L'` |
 | R-V - | F-D | R-D | even | 8 | 8 | 8 | `R' L' F2 R L F2 D2 B2` |
 | R-V + | F-H | R-H | even | 8 | 8 | 7 | `L2 F B' L2 U2 F' B` |
-| F-D - | F-D | R-H | even | 8 | 8 | 5 | ` F' B' D2 F B'` |
-| H-H + | F-H | R-D | even | 8 | 8 | 5 | ` F' B R2 F B'` |
+| F-D - | F-D | R-H | even | 8 | 8 | 5 | `F' B' D2 F B'` |
+| H-H + | F-H | R-D | even | 8 | 8 | 5 | `F' B R2 F B'` |
 | D-D + | F-H | R-D | even | 8 | 8 | 8 | `R2 F2 R2 F2 R2 U2 L2 U2` |
 | D-D + | F-D | R-H | even | 8 | 8 | 6 | `L2 F B' L2 F' B'` |
 | F-V - | F-V | R-H | odd | 8 | 8 | 7 | `F2 R2 F B' R2 F B` |
@@ -777,7 +777,7 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | F-D - | F-H | R-V | even | 8 | 8 | 6 | `L2 F B U2 F' B'` |
 | D-D - | F-D | R-H | even | 8 | 8 | 8 | `F2 R2 B2 R2 F2 D2 B2 D2` |
 | R-V - | F-H | R-V | odd | 8 | 8 | 7 | `L2 F2 R L' F2 R L` |
-| R-D - | F-H | R-D | even | 8 | 8 | 5 | ` R L D2 R' L` |
+| R-D - | F-H | R-D | even | 8 | 8 | 5 | `R L D2 R' L` |
 | R-V + | F-V | R-H | even | 8 | 8 | 8 | `F2 R2 F B' R2 D2 F B` |
 | D-D + | F-V | R-D | even | 8 | 8 | 8 | `F2 R2 F2 D2 L2 B2 D2 B2` |
 | F-D + | F-H | R-V | odd | 8 | 8 | 7 | `R2 F B D2 F' B' R2` |
@@ -795,7 +795,7 @@ Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E
 | R-D - | F-V | R-V | even | 9 | 8 | 7 | `F2 R' L' U2 F2 R' L'` |
 | F-D - | F-V | R-V | even | 9 | 8 | 7 | `L2 F B U2 L2 F' B'` |
 | F-V - | F-V | R-H | even | 9 | 9 | 6 | `F' B' D2 F B' D2` |
-| H-H - | F-H | R-H | odd | 9 | 9 | 5 | ` F' B' D2 F B` |
+| H-H - | F-H | R-H | odd | 9 | 9 | 5 | `F' B' D2 F B` |
 | R-V + | F-D | R-D | odd | 9 | 9 | 9 | `L2 F2 R2 U2 B2 U2 F2 L2 B2` |
 | F-V - | F-D | R-D | odd | 9 | 9 | 7 | `L2 F' B R2 F B L2` |
 | H-H + | F-V | R-V | odd | 9 | 9 | 9 | `L2 F2 R2 F2 D2 L2 B2 D2 L2` |

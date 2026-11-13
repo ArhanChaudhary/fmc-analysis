@@ -27,7 +27,7 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
   |---|---:|---:|---:|
   | pure 2c2c | {= PAIR('2c2c-pure', '8') =} | {= PAIR('2c2c-pure', '10') =} | {= PAIR('2c2c-pure', '12') =} |
   | 5c | {= PAIR('5c', '8') =} | {= PAIR('5c', '10') =} | {= PAIR('5c', '12') =} |
-  | 3tc | | {= PAIR('3tc', '10') =} | {= PAIR('3tc', '12') =} |
+  | 3tc | {= PAIR('3tc', '8') =} | {= PAIR('3tc', '10') =} | {= PAIR('3tc', '12') =} |
 
   The 3tc's whole step from cap 10 to cap 12 comes from longer comms, since no 3tc alg is 12 moves or fewer. Where a 10-move pure 2c2c alg fits ({= CELL('direct', 'pure 2c2c', 'Alg of 10 or less: fits somewhere') =} of skeletons) it beats two 8-movers by {= f2(float(CELL('direct', 'pure 2c2c', 'Two 8-move comms on the skeletons where an alg of 10 or less fits: mean added')) - float(CELL('direct', 'pure 2c2c', 'Alg of 10 or less: mean added'))) =}. Caps 10 and 12 count every alg of that length, so these are **computer only**, the answer key for a full alg list. What carries over to an attempt is which algs are worth learning (the 10-move pure 2c2c algs, 6.3).
 - **Longer algs barely help a 3c.** At 20 moves it's {= M('3c') =} with 8-movers, {= M('3c', L=10) =} with every alg up to 10 moves and {= M('3c', L=12) =} up to 12. How often a longer alg is what wins, on 20-move skeletons:
@@ -46,7 +46,7 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
   |---|---:|---:|
   | best first comm, then the best second | {= GLOSS('5c', 0) =} | {= CELL('greedy', '5c', 'Best first comm only: mean added') =} |
   | also first comms one move worse (Insertion Finder's greedy 1) | {= GLOSS('5c', 1) =} | {= CELL('greedy', '5c', 'First comms within 1 move: mean added') =} |
-  | also two moves worse (example [f]) | {= GLOSS('5c', 2) =} | |
+  | also two moves worse (example [f]) | {= GLOSS('5c', 2) =} | {= CELL('greedy', '5c', 'First comms within 2 moves: mean added') =} |
   | best pair of comms (computer) | | {= CELL('greedy', '5c', 'Best pair of comms: mean added') =} |
 
   With every 3c alg up to 10 the best first comm misses the best pair on {= GLOSS('5c', 0, L=10) =}, and the longer list actually gives a longer result than 8-movers alone on {= G10('worse') =} of {= G10('n') =} skeletons (shorter on {= G10('better') =}). That's what bvcuber13 and Ben ran into on Insertion Finder; it happens, but not often (example [l]). The best pair is a computer number. Best first comm then best second is the hand search, and also following the first comms a move worse is the hand fix.
@@ -55,7 +55,7 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
   | Which spots you check | Finds the best, share of skeletons | Finds a best of 8-3 or better, share of those skeletons |
   |---|---:|---:|
   | every other move | {= CELL('one_skip', '20', 'Every other move finds the best') =} | {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every other move finds it') =} |
-  | every third move (example [j]) | | {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every third move finds it') =} |
+  | every third move (example [j]) | {= CELL('one_skip', '20', 'Every third move finds the best') =} | {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every third move finds it') =} |
 
   Every other move loses {= CELL('one_skip', '20', 'Every other move: mean loss, moves') =} of a move on average, and nothing better than an {= SKIPWORST() =} was missed on any of {= SKIPTOTAL() =} skeletons. Every miss of an 8-3 or better sits next to two moves on opposite faces ({= SKIPNEAR(20) =} at 20 moves): a full cancel reaches across the pair, so the shifted alg lands two spots over, not one. So check every other move and both sides of a parallel pair. notkevin's "guarantees" ([[N4772]]) is a bit too strong (example [c]).
 - **paulduc03's question, answered**: after a case that needs 10 moves, "can I go 3 moves further instead of 2" ([[N5145]])? No, like DougCube said. That walk misses a best of 8-3 or better on {= TSP(20, 'rule_miss', 'walks') =} of walks against {= TSP(20, 'plain_miss', 'walks') =} for plain every other move, and every one of the {= FACT('ten_cases') =} 3-cycles that need 10 moves can be at a case with an 8-mover two moves later (example [k]).
@@ -75,9 +75,9 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
 
   | The moves | Mean moves added | Adds 6 or less | Nothing fits |
   |---|---:|---:|---:|
-  | random moves | {= CELL('dr17', ('random moves', '8'), 'Mean moves added') =} | {= CELL('dr17', ('random moves', '8'), 'Adds 6 or less') =} | |
-  | after EO | {= CELL('dr17', ('EO in 5, then moves that keep EO', '8'), 'Mean moves added') =} | | |
-  | DR moves | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; any 3c', '8'), 'Mean moves added') =} | | |
+  | random moves | {= CELL('dr17', ('random moves', '8'), 'Mean moves added') =} | {= CELL('dr17', ('random moves', '8'), 'Adds 6 or less') =} | {= CELL('dr17', ('random moves', '8'), 'Nothing fits') =} |
+  | after EO | {= CELL('dr17', ('EO in 5, then moves that keep EO', '8'), 'Mean moves added') =} | {= CELL('dr17', ('EO in 5, then moves that keep EO', '8'), 'Adds 6 or less') =} | {= CELL('dr17', ('EO in 5, then moves that keep EO', '8'), 'Nothing fits') =} |
+  | DR moves | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; any 3c', '8'), 'Mean moves added') =} | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; any 3c', '8'), 'Adds 6 or less') =} | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; any 3c', '8'), 'Nothing fits') =} |
   | DR moves, a 3c that DR moves can leave | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Mean moves added') =} | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Adds 6 or less') =} | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Nothing fits') =} |
 
   So the DR guide's feeling that 8-movers cancel less on DR skeletons, which it says hasn't been proved, is true in this model, by {= DRGAP() =} of a move, and it comes from which corners are left, not from the moves. These are move sequences, not DR solves.

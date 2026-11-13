@@ -162,11 +162,11 @@ theorem variants_match_study : parse.variantsOk run.cells = true := by
 
 /-- The seven tables of `out/SUMMARY.md` that these numbers come from agree with Lean.  Section 1's table (12 DRMs
 and "all"): states equal; plain (≤ 6), ≤ 5 and ≤ 7 shares and the mean are the exact values rounded to the printed
-3 digits, except the 2c2e mean (`summary_2c2e_mean`).  The six feature tables of section 4: the rows are, in order,
+3 digits (the 2c2e mean too, since `summary.py` was fixed on 2026-11-13; see `summary_2c2e_mean`).  The six feature tables of section 4: the rows are, in order,
 Lean's cells with the same feature values, with the same number of states, and their "share" and "p<=6 P1" columns
 are Lean's exact values rounded. -/
 theorem summary_tables_match_study :
-    parse.plainOk run.cells ["2c2e"] = true ∧
+    parse.plainOk run.cells [] = true ∧
     parse.featTableOk run.cells study.SUM_4C4E_PAIRED 4 4 1 (fun k => [k.edgesPaired]) = true ∧
     parse.featTableOk run.cells study.SUM_4C4E_SLICE 4 4 2 (fun k => [k.edgesPaired, b2n k.sameSlice]) = true ∧
     parse.featTableOk run.cells study.SUM_4C4E_BARS 4 4 2 (fun k => [k.pairs, k.edgesPaired]) = true ∧
@@ -175,10 +175,11 @@ theorem summary_tables_match_study :
     parse.featTableOk run.cells study.SUM_2C2E 2 2 2 (fun k => [k.edgesPaired, b2n k.jzp]) = true := by
   native_decide
 
-/-- The one printed digit that is off: SUMMARY section 1 prints the 2c2e mean as 6.880; the exact mean is
-12328/1792 = 6.87946…, which rounds to 6.879 (6.880 is variants_by_drm.tsv's 6.8795 rounded again). -/
+/-- The one printed digit that was off, now fixed: SUMMARY section 1 printed the 2c2e mean as 6.880, re-rounding
+variants_by_drm.tsv's 6.8795; the exact mean 12328/1792 = 6.87946… rounds to 6.879.  `summary.py` now rounds the
+exact mean once, and SUMMARY prints 6.879 (6.880 would be rejected). -/
 theorem summary_2c2e_mean :
-    parse.plainMean "2c2e" = "6.880" ∧ weighted (total (drm run.cells 2 2)) = 12328 ∧
+    parse.plainMean "2c2e" = "6.879" ∧ weighted (total (drm run.cells 2 2)) = 12328 ∧
     parse.roundsTo 12328 1792 "6.880" = false ∧ parse.roundsTo 12328 1792 "6.879" = true ∧
     parse.roundsTo 12328 1792 "6.8795" = true := by
   native_decide

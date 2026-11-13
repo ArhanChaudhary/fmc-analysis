@@ -29,9 +29,9 @@ With 8-movers on 20-move random skeletons the order by cost is the order of the 
 | twisted 2c2c | 8.73 | 8.66 | 8.30 | 10 | 8.30 |
 | pure 2c2c | 9.13 | 8.48 | 7.87 | 3 | 9.00 |
 | 3c1t | 9.90 | 9.73 | 9.44 | 20 | 8.65 |
-| 5c | 10.37 | | 9.49 | 33 | 9.85 |
+| 5c | 10.37 | 10.03 | 9.49 | 33 | 9.85 |
 
-Cap 10 is 500 skeletons per type, cap 12 100 per type. At cap 12 the 3c1t and the 5c are too close to order on that many skeletons. The posted skeletons are too few to rank the 4-corner types, and of different lengths; they only agree that a 5c is the dearest.
+Cap 10 is 500 skeletons per type (2,000 for the 5c), cap 12 100 per type. At cap 12 the 3c1t and the 5c are too close to order on that many skeletons. The posted skeletons are too few to rank the 4-corner types, and of different lengths; they only agree that a 5c is the dearest.
 
 A typical skeleton of each, 20 moves, 8-movers. Each costs its type's average, rounded. They're there to show what the averages look like on a cube; the order rests on the 20,000 skeletons per type, not on these three.
 

@@ -17,7 +17,7 @@ The hardest row is 4a2 0e ({= BUD('4a2 0e', '2', 3) =} after three routes). Wher
 | Target | Own list ahead after 1 route (points) | After 2 routes | After 3 routes | After 5 routes |
 |---|---|---|---|---|
 | Optimal | {= EGA('opt', 1) =} | {= EGA('opt', 2) =} | {= EGA('opt', 3) =} | {= EGA('opt', 5) =} |
-| Within +1 | {= EGA('p1', 1) =} | | {= EGA('p1', 3) =} | |
+| Within +1 | {= EGA('p1', 1) =} | {= EGA('p1', 2) =} | {= EGA('p1', 3) =} | {= EGA('p1', 5) =} |
 
 Small on average, because the edge counts where it matters are mostly the rare ones. Inside a corner subset it can be a lot more. Each row is a corner subset at the step where the gap is largest:
 
@@ -48,13 +48,13 @@ Where knowing the edge count changes what to try first. Each row is a subset × 
 |---|---|---|---|---|---|
 | 0c0 0e | `0c0 > 4a1 > 0c0`, then {= BUD('0c0 0e', '2', 2, 'class') =} (the DR is already HTR) | 2 routes | {= EGR('0c0 0e', 2) =} | {= EGR('0c0 0e', 2, 'pooled') =} | the pooled order never tries it |
 | 0c0 6e | {= EGF('0c0 6e') =}, switching before the last qt | 1 route | {= EGR('0c0 6e', 1) =} | {= EGR('0c0 6e', 1, 'pooled') =} | pooled first route is only {= EGRANK('0c0 6e') =}th here |
-| 0c0 8e | the same switch first | 1 route | | | gains {= EGG('0c0 8e', 1) =} points |
+| 0c0 8e | the same switch first | 1 route | {= EGR('0c0 8e', 1) =} | {= EGR('0c0 8e', 1, 'pooled') =} | |
 | 2c4 0e | linear, {= EGF('2c4 0e') =} | 1 route | {= EGR('2c4 0e', 1) =} | {= EGR('2c4 0e', 1, 'pooled') =} | pooled switches at 2c3 |
 | 2c3 0e | switch at 4b2, {= EGF('2c3 0e') =} | 1 route | {= EGR('2c3 0e', 1) =} | {= EGR('2c3 0e', 1, 'pooled') =} | |
 | 2c3 6e | the same | 1 route | {= EGR('2c3 6e', 1) =} | {= EGR('2c3 6e', 1, 'pooled') =} | |
 | 2c3 8e | the same | 1 route | {= EGR('2c3 8e', 1) =} | {= EGR('2c3 8e', 1, 'pooled') =} | |
 | 4a2 0e | the 4b3 regression {= EGF('4a2 0e') =} | 1 route | {= EGR('4a2 0e', 1) =} | {= EGR('4a2 0e', 1, 'pooled') =} | |
-| 4a2 2e | the same | | | | |
+| 4a2 2e | the same | 1 route | {= EGR('4a2 2e', 1) =} | {= EGR('4a2 2e', 1, 'pooled') =} | |
 | 4a2 4e | linear, {= EGF('4a2 4e') =} | 3 routes | {= EGR('4a2 4e', 3) =} | {= EGR('4a2 4e', 3, 'pooled') =} | |
 | 4a1 0e | {= EGF('4a1 0e') =} | 3 routes | {= EGR('4a1 0e', 3) =} | {= EGR('4a1 0e', 3, 'pooled') =} | pooled first route is {= EGRANK('4a1 0e') =}th |
 | 4a1 4e | the 1qt route {= EGF('4a1 4e') =} | 2 routes | {= EGR('4a1 4e', 2) =} | {= EGR('4a1 4e', 2, 'pooled') =} | |
@@ -131,10 +131,10 @@ In short. Each row is an intermediate subset; each cell is the share, of the DRs
 | Intermediate subset | 0e | 2e | 4e | 6e |
 |---|---|---|---|---|
 | 4b2 | {= ESR('4b2', '0e') =} | {= ESR('4b2', '2e') =} | {= ESR('4b2', '4e') =} | |
-| 4a1 | | | {= ESR('4a1', '4e') =} | |
-| 4a2 | | | {= ESR('4a2', '4e') =} | |
-| 2c3 | | {= ESR('2c3', '2e') =} | {= ESR('2c3', '4e') =} | {= ESR('2c3', '6e') =} |
-| 4c3 | | {= ESR('4c3', '2e') =} | {= ESR('4c3', '4e') =} | |
+| 4a1 | {= ESR('4a1', '0e') =} | {= ESR('4a1', '2e') =} | {= ESR('4a1', '4e') =} | |
+| 4a2 | {= ESR('4a2', '0e') =} | {= ESR('4a2', '2e') =} | {= ESR('4a2', '4e') =} | |
+| 2c3 | {= ESR('2c3', '0e') =} | {= ESR('2c3', '2e') =} | {= ESR('2c3', '4e') =} | {= ESR('2c3', '6e') =} |
+| 4c3 | {= ESR('4c3', '0e') =} | {= ESR('4c3', '2e') =} | {= ESR('4c3', '4e') =} | |
 
 So the 4b2 you go through is mostly 4b2 2e, the 4a1 before HTR is 4a1 4e, the 4a2 is 4a2 4e, 2c3 is split, and 4c3 is 2e or 4e about equally.
 
@@ -145,8 +145,8 @@ Per starting subset × edges, the share that can pass each intermediate subset a
 | 2c3 2e | 4b2 2e | {= ESV('2c3 2e', '4b2 2e') =} | 4b2 4e | {= ESV('2c3 2e', '4b2 4e') =} |
 | 2c3 0e | 4b2 4e | {= ESV('2c3 0e', '4b2 4e') =} | 4b2 2e | {= ESV('2c3 0e', '4b2 2e') =} |
 | 2c3 8e | 4b2 4e | {= ESV('2c3 8e', '4b2 4e') =} | 4b2 2e | {= ESV('2c3 8e', '4b2 2e') =} |
-| 2c4 0e | 2c3 4e | {= ESV('2c4 0e', '2c3 4e') =} | | |
-| 2c4 8e | 2c3 4e | {= ESV('2c4 8e', '2c3 4e') =} | | |
+| 2c4 0e | 2c3 4e | {= ESV('2c4 0e', '2c3 4e') =} | 2c3 2e | {= ESV('2c4 0e', '2c3 2e') =} |
+| 2c4 8e | 2c3 4e | {= ESV('2c4 8e', '2c3 4e') =} | 2c3 2e | {= ESV('2c4 8e', '2c3 2e') =} |
 | 0c4 8e | 4b2 2e | {= ESV('0c4 8e', '4b2 2e') =} | 4b2 4e | {= ESV('0c4 8e', '4b2 4e') =} |
 | 4b2 4e, regressing | 2c3 4e | {= ESV('4b2 4e', '2c3 4e') =} | 2c3 2e | {= ESV('4b2 4e', '2c3 2e') =} |
 | | | | 2c3 6e | {= ESV('4b2 4e', '2c3 6e') =} |

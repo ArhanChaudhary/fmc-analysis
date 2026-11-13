@@ -289,13 +289,13 @@ def judge(rows):
     best = min(r['total'] for r in rows); left = [r for r in rows if says(r) != 'drop']
     bl = min((r['total'] for r in left), default=None)
     return best, [k for k, r in enumerate(rows) if r['total'] == best], bl, [k for k, r in enumerate(rows) if says(r) != 'drop' and r['total'] == bl]
-def plural(n, word): return f'{n} {word}' if n == 1 else f'{n} {word}s'
+def plural(n, word): return f'{n:,} {word}' if n == 1 else f'{n:,} {word}s'
 def verdict_line(rows, solution):
     best, wb, bl, wl = judge(rows); long = [r for r in rows if r['length'] > 10]; nd = sum(r['drop'] for r in long)
     w = wl[0] if bl == best else wb[0]
     ties = [k for k in wb if k != w]
     names = [str(k + 1) for k in ties]
-    tied = f" (DR {names[0] if len(names) == 1 else ', '.join(names[:-1]) + ' and ' + names[-1]} {'ties' if len(names) == 1 else 'tie'} it)" if ties else ''
+    tied = f" ({'DR' if len(names) == 1 else 'DRs'} {names[0] if len(names) == 1 else ', '.join(names[:-1]) + ' and ' + names[-1]} {'ties' if len(names) == 1 else 'tie'} it)" if ties else ''
     s = f"Best on the page: **{best} moves**, from DR {w + 1}{tied}: `{solution}`. "
     if not long: return s + 'No DR of 11 moves or more here, so the list has nothing to say.'
     s += f"The list drops {nd} of the {plural(len(long), 'DR')} of 11 moves or more"
@@ -336,7 +336,7 @@ def block(k, scramble, recs, rows, names, solution):
     for j, r in enumerate(rows):
         out.append(f"| {j + 1} | {names[r['a']]} | {names[r['b']]} | {says(r)} | {odds(r).replace(' / ', ' | ')} |")
     cap = max(cnt)
-    out += ['', f"Shown: {len(rows)} of the {plural(len(recs), 'DR')} up to {cap} moves (" + '; '.join(f"{L} moves: {sum(r['length'] == L for r in rows)} of {cnt[L]}" for L in sorted(cnt)) + ').', '',
+    out += ['', f"Shown: {len(rows)} of the {plural(len(recs), 'DR')} up to {cap} moves (" + '; '.join(f"{L} moves: {sum(r['length'] == L for r in rows)} of {cnt[L]:,}" for L in sorted(cnt)) + ').', '',
             '<details>', f'<summary>Answers for scramble {k + 1}</summary>', ''] + AHEAD
     for j, r in enumerate(rows):
         out.append(f"| {j + 1} | {r['hn']} | {r['hi']} | {r['opt']} | {r['total']} |")
@@ -418,13 +418,13 @@ def build(rerun):
     per11 = avg(x['n9'] + x['n10'] + x['n11'] for x in run)
     out = [START, '', '## 100 scrambles: which DRs would you finish?', '',
            f"A hundred random-state scrambles, written the way FMC scrambles are, and for each one some of the DRs you could have on your page. "
-           "What you can read off each DR without solving is in the two tables. The answers are folded away under it: pick the DRs you'd finish, then open them.", '',
+           "What you can read off each DR without solving is in the two tables. The answers are folded away under them: pick the DRs you'd finish, then open them.", '',
            f"**Where the DRs come from.** cubelib-cli (the solver behind Mallard) lists every DR that goes EO first (EOs of up to 5 moves; it doesn't list longer ones), with NISS, and then DR on normal or on inverse without breaking the EO, on all three axes. "
            f"A scramble has far more of those than anyone writes down: {per11:,.0f} up to 11 moves on average over the {N_RUN} scrambles of the tally at the end. "
            f"Each scramble shows at most {SHOWN} of them: up to {SHOWN // 2} of 10 moves or less, shortest first, then 11-movers, drawn at random where there are more. Nothing was picked by how it finishes.", '',
            "**What you're testing.** You finish a DR of 10 moves or less whatever it looks like. The 11-movers are where you need a quick way to say no, and that's what the short list in the write-up's guide is for. It needs no solving:", '']
     out += guide_list() + ['',
-           '**The answers are the answer key**, not what a person finds in an hour: the true shortest HTR on each side, the optimal finish in DR moves, and the shortest solution through that DR.', '',
+           '**The answers are the answer key**, **computer only**, not what a person finds in an hour: the true shortest HTR on each side, the optimal finish in DR moves, and the shortest solution through that DR.', '',
            '### How to read the tables', '',
            '- **Moves to DR**: brackets are moves on inverse. The last move on each side is written clockwise, and the row is about that DR exactly as written.',
            '- **Length**: the number of moves to DR. **Axis**: the axis the DR is on.',
@@ -432,12 +432,12 @@ def build(rerun):
            '- **True pairs**: a corner and an edge next to each other in one of the two layers of the DR axis, both touching stickers matching.',
            "- **Corner case, normal** and **inverse**: where the bad corners sit on each side, by the names in the table below (the same names as in the write-up's corner case appendix). Normal is the cube after the scramble and the unbracketed moves, with the bracketed ones as premoves the usual way. Inverse is the other side.",
            "- **The list says**: `keep` or `drop` for a DR of 11 moves or more. A DR of 10 moves or less says `look anyway`.",
-           '- **Same reads: in 10, in 11, in 12**: of all DR states with that subset, that many true pairs (five or more count as one) and those two corner cases, the share whose optimal finish is 10 or less, 11 or less, 12 or less. 0 means none. An 11-move DR needs one of the first two.',
+           '- **Same reads: in 10, in 11, in 12**: of all DR states with that subset, that many true pairs (five or more count as one) and those two corner cases, the share whose optimal finish is 10 or less, 11 or less, 12 or less. 0 means none. An 11-move DR needs one of the first two. These are **computer only**, a lookup in a table of every subset, pair count and pair of corner cases. In an attempt the column to go by is **The list says**, with the guide per subset for the odds.',
            '- **Shortest HTR, normal** and **inverse** (answers): the true shortest on each side.',
            '- **Optimal finish** (answers): the optimal finish in DR moves of the DR as written.',
            "- **Solution** (answers): the shortest solution through that DR, which is DR + finish less whatever cancels where the finish meets the DR. R then R2 is R', so a last move that is better turned the other way saves a move.", '',
            '### The corner cases', '',
-           '"A qt takes it straight to" is the subset you are in after the right quarter turn of a layer, when one lowers the corner qt count with no setup. L is the range of optimal corner solutions. Each row is one corner case:', '',
+           '"A qt takes it straight to" is the subset you are in after the right quarter turn of a layer, when one lowers the corner qt count with no setup. L is the range of optimal corner solution lengths. Each row is one corner case:', '',
            '| Corner case | Bad corners | L | A qt takes it straight to |', '|---|---|---|---|']
     for cs in pv.CS_ORDER:
         for k in sorted(pv.cases(cs), key=lambda k: int(names[k].split('-')[1])):

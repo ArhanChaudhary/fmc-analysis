@@ -10,7 +10,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 - **Louis's [*DRM/ARM average optimals*](https://docs.google.com/spreadsheets/d/13fSwUROzP0hZQV1Cn96GndWbPy4UrsHiYTaWFSeWtJs)**: "I've generated every possible EO->DR case of increasing lengths" and sorted them by DRM and ARM ([27 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1222749709039435839)); its last tab is the EO to DR distribution. **Rodney Kinney**'s *DRM corner variant+pair stats* is built on it ([13 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383068446736257125): "and I did some work on the DRM/ARM stats and came up with something cool."). Separately: **KrzychXyz**'s sheet of every case sorted by DRM ("all DR cases (from EO) grouped by subsets, sorted by optimal", [8 Jun 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1249110563011825778)), and **Evan**'s [*arm/pairs*](https://docs.google.com/spreadsheets/d/1YZYyokxYXwDdBTgN7ojpPAFHKKz48hCyNO2l6-iwmVk) tables ("this stat is in my arm/pairs sheet", [11 Aug 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1404504939190812763)).
 - **FakeMMAP**'s counts of the same 1,082,565 states, "not allowing EO-breaking moves" ([16 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1141304202065367170)), and **torchlight**'s table that "allows breaking EO" ([16 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1141354103138693243)): EO-breaking turns change almost nothing. DougCube confirmed the counts two years later: "that matches the table I just generated:" ([15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417261933916196945)).
 - **DougCube's [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo)** (posted [2 Mar 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1345852930544369684)): fixed-axis EO (mean 4.609), DR from a scramble on one fixed axis ("Going to DR", mean 9.5245, at most 12), and, added after August 2025, "NISS-EO on any axis. Credit: Joba". **Joba** computed that NISS EO table over all $12!\cdot 2^{11}$ edge states: "On average, eo can be solved in 3.455 moves." ([27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410262132783714485)).
-- **Shota**'s table of the shortest linear EO against the number of bad edges ([11 Sep 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1283314529916420116): "here's a table that also takes into account the optimal move counts") and Shota's [*Full EO*](https://docs.google.com/spreadsheets/d/1K38k5BQUV5PQh4ZmeJGNfrRZbnuhVePp4CLqyCIelm4) sheet of every one-axis EO case (linked by KrzychXyz in [27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410290372118319134)).
+- **Shota**'s table of the shortest linear EO against the number of bad edges ([11 Sep 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1283314529916420116): "here's a table that also takes into account the optimal move counts") and Shota's [*Full EO*](https://docs.google.com/spreadsheets/d/1K38k5BQUV5PQh4ZmeJGNfrRZbnuhVePp4CLqyCIelm4) sheet of every one-axis EO case (linked by KrzychXyz on [27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410290372118319134)).
 - **Tronto's** EO-solved scrambles, about 250 ("like 250") ([9 Apr 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1227179797512192033), [9 Apr 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1227180109698433074)), with optimal solutions with and without EO-breaking moves: "optimal average: 16.64" against "eofbfin average: 16.70" ([9 Apr 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1227181234061447240)). That's EO to solved, not EO to DR, but it's the only earlier measurement of what keeping the EO costs over the whole solve.
 - **The server's own counts**: Louis's "Only 6.2% of axes are 8 moves or less away from DR if you don't allow NISS" ([9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326956621435506808)); torchlight's exact bad-edge counts on the three axes ([25 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1155803699025813594), [12 Oct 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1162060161507151983)); wen's "200ish <=5 movers and 17 <=4 movers" from memory ([12 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1250363326324543500)); Cale's sheet of EO counts on official scrambles, with about 4% having no EO of at most 4 ([13 Jul 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1128898843254194188); wen, [6 Aug 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1270547867097890827)); Rodney Kinney's 1,000 optimal EO to DR solutions (*Multi-Axis DR*, [18 Dec 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1186454920828825711)).
 - **Tools**: DR Finder 2 (sanya.sweetduet.info), which Daichi pointed to for DRs from a scramble ([9 Sep 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1547200826983063552)), and nissy.
@@ -38,6 +38,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 - **Start with [section 1](#1-the-short-version)**, the short version: what is new, then what it confirms or corrects, one line each.
 - **The [worked examples](examples.html)** go with it: 150 scrambles with their shortest DRs and their best DRs through EOs of at most 4 and 5, then 60 EO-solved states by case, answers folded away. **The [errata](errata.html)** list what the numbers show is wrong in things said on the server, each with an example.
 - **The appendices are reference**: every case, normal against inverse by case, every bad-edge triple, and how it was computed and checked (with nissy's scrambler).
+- **✓ after a number: proved in Lean**, counted on a Lean model of the cube, not only computed. [Appendix B](#appendix-b-how-it-was-computed-and-what-checks-it) lists what is proved and what is only computed.
 - **What you can use in an attempt, and what's the answer key.** Most numbers here are what exists, found by exact search: the optimal DR from a scramble, the best DR after every EO of a given length, counts of hundreds of EOs per scramble. Those are **computer only**: they say what's there, not something to do in an attempt, and each place says so. What you can use at the table is what you can see or count: the bad edges on each axis and the odds of a short EO from them (4.2), the case an EO leaves on each DR axis and its odds with each option (5.2), and which options after an EO are worth checking (5.1).
 
 ---
@@ -67,7 +68,7 @@ New stuff first, then what the numbers confirm or correct. Scramble-level lines 
 
 | Allowed | DR in ≤ 9 | DR in ≤ 8 | Mean, turns |
 |---|---|---|---|
-| One fixed axis | | | 9.52 |
+| One fixed axis | 43.3% | 6.2% | 9.52 |
 | Linear, one side (3 axes) | 76.5% | 16.5% | 9.05 |
 | Best of six | 91.5% | 28.4% | 8.76 |
 | NISS | 99.1% | 47.5% | 8.46 |
@@ -102,19 +103,19 @@ So the 25 win for a DR in 10 and the 200 for a DR in 11: a 5-move EO gives about
 | Options checked | Mean, turns | DR in ≤ 6 | DR in ≤ 6, odds | DR in ≤ 7 |
 |---|---|---|---|---|
 | Every option | 6.898 | 25.7% | 1 in 3.89 | 79.6% |
-| One axis alone | 7.803 | | 1 in 16.89 | |
+| One axis alone | 7.803 ✓ | 5.9% | 1 in 16.89 ✓ | 30.6% |
 
 (The every-option row is sampled.) The lengths are optimal DRs after the EO, the answer key. What you use in an attempt is the list of options to check after each EO, and the case on each DR axis, which you can read at the table and which gives the odds of each (5.2).
 
-- **The other DR axis of the same EO is worth more than switching the EO's last turn**: exact, at most 6 on 11.3% against 9.5%, and about as much as checking the inverse (11.2%). DanielEgdal set out to compute the two-axis numbers in 2023 and thought it "pretty much infeasible" ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156572910304112743)). FakeMMAP showed the state space is about $5\cdot 10^9$ ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156574602508644474)), and DanielEgdal ran it until it stalled at $3\cdot 10^8$ ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156656635566104657)). They're exact here (5.1).
+- **The other DR axis of the same EO is worth more than switching the EO's last turn**: exact, at most 6 on 11.3% against 9.5% ✓, and about as much as checking the inverse (11.2%). DanielEgdal set out to compute the two-axis numbers in 2023 and thought it "pretty much infeasible" ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156572910304112743)). FakeMMAP showed the state space is about $5\cdot 10^9$ ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156574602508644474)), and DanielEgdal ran it until it stalled at $3\cdot 10^8$ ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156656635566104657)). They're exact here (5.1).
 - **Normal and inverse after an EO are related almost only through the case.** The DR lengths on the two sides correlate 0.1684 over all states, and at most 0.063 within a case. Once you know the case, the inverse is nearly a fresh draw (5.2).
 
 **EO counts per scramble** (all three axes, counted the way nissy's `-a` lists them; 4.1). Each row is the kind of EO counted; the last two columns are the share of scrambles with none that short:
 
 | EOs counted | EOs of ≤ 4, mean | EOs of ≤ 4, median | Scrambles with no EO of ≤ 4 | Scrambles with no EO of ≤ 5 |
 |---|---|---|---|---|
-| Normal | 15.3 | 12 | 21.5% | |
-| With inverse and NISS EOs | 43.9 | 36 | | 0.012% [d] |
+| Normal | 15.3 | 12 | 21.5% | 0.48% |
+| With inverse and NISS EOs | 43.9 | 36 | 4.0% | 0.012% [d] |
 
 **Shortest EO over three axes without NISS** (sampled, 1,000,000 states; 4.1). Each row is a side rule; the last column is the share of states with an EO that short:
 
@@ -125,7 +126,7 @@ So the 25 win for a DR in 10 and the 200 for a DR in 11: a 5-move EO gives about
 
 **Bad edges you can count at the table** (so these are for the attempt; 4.2):
 
-- **8 bad beats 6 for a short linear EO**: an EO in 4 or fewer on 28.9% against 22.5%. With NISS 6 bad is a little better, 63.3% against 61.4%.
+- **8 bad beats 6 for a short linear EO**: an EO in 4 or fewer on 28.9% ✓ against 22.5% ✓. With NISS 6 bad is a little better, 63.3% against 61.4%.
 - **12 bad beats 10 with NISS**: in 5 or fewer on 85.8% against 79.5%.
 
 **nissy 2.0.8's `scramble` isn't uniform, and DRs on the inverse of its scrambles come out shorter.** Its source draws the edge permutation as
@@ -134,7 +135,7 @@ So the 25 win for a DR in 10 and the 200 for a DR in 11: a 5-move EO gives about
 ep = rand() % FACTORIAL12;  // the edge permutation of the drawn state
 ```
 
-rand() gives 4.48 times $12!$ values, so the lowest 48.3% of edge-permutation indices come up 25% more often than the rest. The inverse side is where the drawn state is, and that's where it shows, on 50,000 of its scrambles. Each row is one measure, on nissy's scrambles and on uniform ones:
+rand() gives 4.48 ✓ times $12!$ values, so the lowest 48.3% ✓ of edge-permutation indices come up 25% ✓ more often than the rest. The inverse side is where the drawn state is, and that's where it shows, on 50,000 of its scrambles. Each row is one measure, on nissy's scrambles and on uniform ones:
 
 | Measure | nissy's scrambles | Uniform states |
 |---|---|---|
@@ -150,20 +151,20 @@ The twisted-corner counts are off too ($\chi^2$ 33.2 and 34.9 on 7 degrees of fr
 
 | Table | Their number | Here |
 |---|---|---|
-| Cale's and FakeMMAP's 1,082,565 EO-solved states | | mean 7.803 |
+| Cale's and FakeMMAP's 1,082,565 EO-solved states | | mean 7.803 ✓ |
 | torchlight's EO-breaking version (EO-breaking turns change almost nothing, as torchlight's table showed in 2023) | | 7.797 |
 | DougCube's one-axis DR from a scramble | | 9.52 |
-| DougCube's one-axis EO | | 4.609 |
-| Shota's shortest linear EO by bad-edge count | | the same table |
+| DougCube's one-axis EO | | 4.609 ✓ |
+| Shota's shortest linear EO by bad-edge count | | the same table ✓ |
 | Louis's one-axis DR shares | 6.2% and 43% | the same |
 | Joba's exact NISS EO mean | 3.455 | 3.455 on 1,000,000 states, within sampling error |
 | No EO of at most 4 even with NISS, on official scrambles: Cale ([13 Jul 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1128898843254194188)) and wen ([6 Aug 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1270547867097890827)) | about 4% | 4.0%, within sampling error |
 
-- **The DR-4c4e numbers Tom Nelson quoted** ("1 in 5.2 normally, but 1 in 3.6 if you can switch the last move", [13 Jul 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1128948555684519946)) are exact for EO-solved states: 1 in 5.2 and 1 in 3.6 for a DR in 6 or fewer. At that rate Lichi Fang's 3 of 27 has probability 3.3%, and Cale's 25 fit it. Both samples are the first 4c4e nissy online found, which needn't be like a 4c4e straight off an EO. Open (section 6).
+- **The DR-4c4e numbers Tom Nelson quoted** ("1 in 5.2 normally, but 1 in 3.6 if you can switch the last move", [13 Jul 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1128948555684519946)) are exact for EO-solved states: 1 in 5.2 ✓ and 1 in 3.6 ✓ for a DR in 6 or fewer. At that rate Lichi Fang's 3 of 27 has probability 3.3% ✓, and Cale's 25 fit it. Both samples are the first 4c4e nissy online found, which needn't be like a 4c4e straight off an EO. Open (section 6).
 - **Corrected:**
-  - KrzychXyz's "~3%" of EO to DR cases at 10 is 0.29% (3,114 of 1,082,565 states; "10 is the worst" is right) [h].
-  - Aneurin's later "Superflip takes 6 moves to solve EO with NISS": it takes 7, as Aneurin had first said [b].
-  - Jay's "Similar efficiency to 4c4e and 4c2e in theory" for 6e4c: one axis, at most 6 on 4.6% against 19.2% [j].
+  - KrzychXyz's "~3%" of EO to DR cases at 10 is 0.29% ✓ (3,114 ✓ of 1,082,565 states; "10 is the worst" is right) [h].
+  - Aneurin's later "Superflip takes 6 moves to solve EO with NISS": it takes 7 ✓, as Aneurin had first said [b].
+  - Jay's "Similar efficiency to 4c4e and 4c2e in theory" for 6e4c: one axis, at most 6 on 4.6% ✓ against 19.2% ✓ [j].
 - **True as said**: the bad-edge facts (torchlight's exact counts, 6/6/4 and 6/6/8 above 6/6/6, no two axes more than 8 apart, at least 4 elsewhere when one axis has 12, 0 to 8 bad on the other axes after an EO), the EO odds for 10 and 12 bad edges, Emma's corner-twist odds, Zagros's 1 in 11 for 6+0, Cale's 1 in 22 for 4c6e, Zagros's 10% against 16% for 3c4e and 7c8e, and the rest of the claims table (section 6).
 
 ---
@@ -195,7 +196,7 @@ The questions, in the words of the people who asked them, grouped as the section
 
 - DanielEgdal ([21 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1154347811412914238)): "Anyone know if the stats in Cale's dr stat document accounts for the fact that you could do a z and then have a different DR case?" Tom Nelson ([21 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1154354743133618269)): "the stats are for a given axis". DanielEgdal wanted to compute it, and a week later ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156572910304112743)): "I wanted to do it yeah, but realised the computation is pretty much infeasible with any current idea I have". FakeMMAP then showed the state space shrinks to "~5*10^9" ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156574602508644474)); DanielEgdal: "oh this does seem true" ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156584745271050280)), and ran it: "my program got to 3*10^8 after 10 min, before everything starting to lag and stall" ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156656635566104657)). *Answer*: 5.1 and 5.2, exact.
 - DanielEgdal ([1 Jan 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1191520771957338163)): "I'm thinking about taking every DR equivalent state and mapping it to inverse and taking the minimum movecount of the two". zakimoshi ([12 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1416002099480625245)), of Louis's table: "Also doesn't include niss". *Answer*: 5.1. The inverse takes a DR in 6 or fewer from 5.9% to 11.2%.
-- Yura Riabov ([12 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1416001965229478052)), on the same table: "Does that include reverting the last move?"; zakimoshi ([12 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1416002025887502367)): "No"; Yura Riabov ([12 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1416008638639898665)), on how much it would change: "i'd guess by a couple of %". *Answer*: 5.1. The last EO turn either way takes a DR in 6 or fewer from 5.9% to 9.5%, which fits the guess.
+- Yura Riabov ([12 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1416001965229478052)), on the same table: "Does that include reverting the last move?"; zakimoshi ([12 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1416002025887502367)): "No"; Yura Riabov ([12 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1416008638639898665)), on how much it would change: "i'd guess by a couple of %". *Answer*: 5.1. The last EO turn either way takes a DR in 6 or fewer from 5.9% ✓ to 9.5% ✓, which fits the guess.
 - Bhargav7777 ([24 Feb 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1078553751108988958)): "is it worth NISSing with all EOs -> RZP or will it be the same on both sides?" *Answer*, for EOs: 5.2. Not the same: within a case the two sides are unrelated.
 - DougCube ([15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417257592325148794)): "there are EO-breaking DRs that Idk how to acct for." KrzychXyz ([15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417258791082135593)): "It doesn't include EO-breaking stuff and I've been meaning to check how much that changes for some time now, but I'm too lazy". *Answer*: 5.1. Hardly at all; torchlight's 2023 table already had it ([16 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1141354103138693243)).
 - Zagros ([30 Jun 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1389269657126699138)): "What is typical eo->dr? I know the golden number we use for stats is sub-7 after rzp". *Answer*: 5.1, for EO-solved states; the states after an RZP are a different population (section 7).
@@ -223,7 +224,7 @@ Each row is one way of reaching DR from the scramble; the *DR in ≤* columns ar
 | Best of 6: 3 axes, normal or inverse | sampled, 50,000 | 8.76 | 28.4% | 91.5% | 100.0% | 100.0% | 10 |
 | NISS: 3 axes, moves on both sides | sampled, 50,000 | 8.46 | 47.5% | 99.1% | 100.0% | 100.0% | 10 |
 
-*One fixed axis* is DR on one given axis with turns after the scramble only, exact over every coset; it is DougCube's table (the "Going to DR" tab of [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo)) and Louis's 6.2% and 43% ([9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326953435177680938), [9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326954809827262576), restated for one axis, linear, in [9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326956179103940748)). *Best of 3 axes, normal*: the fewest turns to DR on any axis, turns after the scramble only. *Inverse*: the same on the inverse scramble. *Best of 6*: the better of those two, the six tries of 3 axes on each side. *NISS*: turns on both sides, counted together, best of 3 axes.
+*One fixed axis* is DR on one given axis with turns after the scramble only, exact over every coset; it is DougCube's table (the "Going to DR" tab of [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo)) and Louis's 6.2% and 43% ([9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326953435177680938), [9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326954809827262576), restated for one axis, linear, on [9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326956179103940748)). *Best of 3 axes, normal*: the fewest turns to DR on any axis, turns after the scramble only. *Inverse*: the same on the inverse scramble. *Best of 6*: the better of those two, the six tries of 3 axes on each side. *NISS*: turns on both sides, counted together, best of 3 axes.
 
 What it says:
 
@@ -231,10 +232,10 @@ What it says:
 
 | Allowed | Mean, turns | DR in ≤ 10 | DR in ≤ 9 | DR in ≤ 8 |
 |---|---|---|---|---|
-| One axis | 9.52 | | | |
+| One axis | 9.52 | 97.4% | 43.3% | 6.2% |
 | Best of three, one side (linear) | 9.05 | >99.9% | 76.5% | 16.5% |
 | Best of six (with the inverse) | 8.76 | every scramble in the sample | 91.5% | 28.4% |
-| NISS | 8.46 | | 99.1% | 47.5% |
+| NISS | 8.46 | every scramble in the sample | 99.1% | 47.5% |
 
 - **Normal and inverse are the same thing statistically** (9.05 and 9.05), but on a given scramble they often differ: the inverse is shorter on 25.5% of scrambles and longer on 25.2%.
 - **NISS beats the best of six linear tries on 27.0% of scrambles**: by one turn on 24.2%, by two on 2.6%, by three on 0.12%.
@@ -438,7 +439,7 @@ The shortest EO of a scramble, over the three axes. Each row is a side rule; the
 | Best of 3 axes, normal or inverse | sampled, 1,000,000 | 3.601 | 7.5% | 43.6% | 88.1% | 99.9% | 7 |
 | Best of 3 axes with NISS | sampled, 1,000,000 | 3.455 | 8.1% | 49.6% | 96.0% | >99.9% | 6 |
 
-The fixed-axis row is exact (DougCube's 4.609 in [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo)). The NISS row reproduces Joba's exact 3.455 ([27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410262132783714485)) to within the sample's error, and Joba's table also gives the rarest case, one the sample never hit: 7 turns even with NISS ("Distance 7: 1792" of all $12!\cdot 2^{11}$ edge states).
+The fixed-axis row is exact (DougCube's 4.609 ✓ in [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo)). The NISS row reproduces Joba's exact 3.455 ([27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410262132783714485)) to within the sample's error, and Joba's table also gives the rarest case, one the sample never hit: 7 turns even with NISS ("Distance 7: 1792" of all $12!\cdot 2^{11}$ edge states).
 
 What's new is the middle two rows, linear on all three axes and normal or inverse, and the odds at each length. (The 50,000 scrambles of section 3 agree within sampling error: an EO of at most 4, normal or inverse, on 88.3% of them against 88.1% here.) The short ones, as the share of scrambles with an EO of that length or shorter on some axis:
 
@@ -523,8 +524,8 @@ This table is for the attempt: the bad edges on each axis are what you see when 
 
 What it says:
 
-- **8 bad beats 6 bad for short EOs, linearly**: an EO of at most 4 on 28.9% of 8-bad axes against 22.5% of 6-bad ones, of at most 3 on 4.2% against 0.87%. With NISS 6 bad is a little better (63.3% against 61.4% for at most 4).
-- **10 and 12 bad**: no normal EO under 6 (54 of the 66 ten-bad states of one axis take 6, 12 take 7; twelve bad takes 7).
+- **8 bad beats 6 bad for short EOs, linearly**: an EO of at most 4 on 28.9% ✓ of 8-bad axes against 22.5% ✓ of 6-bad ones, of at most 3 on 4.2% ✓ against 0.87% ✓. With NISS 6 bad is a little better (63.3% against 61.4% for at most 4).
+- **10 and 12 bad**: no normal EO under 6 (54 ✓ of the 66 ten-bad states of one axis take 6, 12 ✓ take 7; twelve bad takes 7 ✓).
 - **With NISS a 12-bad axis is better than a 10-bad one**: at most 5 on 85.8% against 79.5%, at most 4 on 19.5% against 11.8%.
 - **Normal or inverse doesn't help a 10- or 12-bad axis**: the inverse has the same number of bad edges on each axis as the normal side.
 
@@ -562,13 +563,13 @@ Each row is what you allow after the EO; the *DR in ≤* columns are the share o
 
 Zagros asked ([30 Jun 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1389269657126699138)): "What is typical eo->dr? … Is 7 moves from eo to dr typical? Or is 8 optimal common". Louis answered with the distribution ("That's the optimal distribution for EO to DR", [1 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1389570667267231815)) and Zagros read it as "So it is 8 then typically" ([1 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1389576595051774002)), adding "But I suppose this probably doesnt account for all the different ways you can rzp->switch" ([1 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1389576810953703516)). The first row is that distribution, for EO-solved states (Zagros's sub-7 is after an RZP, a different population). The rest of the table is what the ways to switch are worth:
 
-- **The other DR axis** of the same EO is worth more than switching the EO's last turn: at most 6 on 11.3% of EOs against 9.5%, mean 7.401 against 7.542. Checking the inverse is worth about the same as the other axis (11.2%).
-- **All of the EO-keeping options together** (two axes, normal or inverse, last turn either way): mean 6.898, at most 6 on 25.7% (1 in 3.89, against 1 in 16.89 for one axis), at most 7 on 79.6%. So once you use every option, the typical EO is 7 from DR, not 8.
+- **The other DR axis** of the same EO is worth more than switching the EO's last turn: at most 6 on 11.3% of EOs against 9.5% ✓, mean 7.401 against 7.542 ✓. Checking the inverse is worth about the same as the other axis (11.2%).
+- **All of the EO-keeping options together** (two axes, normal or inverse, last turn either way): mean 6.898, at most 6 on 25.7% (1 in 3.89, against 1 in 16.89 ✓ for one axis), at most 7 on 79.6%. So once you use every option, the typical EO is 7 from DR, not 8.
 - **EO-breaking turns change almost nothing** (exact; torchlight's table). On top of all the EO-keeping options they add 0.003 turns on average [f]. One axis, with and without them:
 
 | Turns after the EO | Mean, turns | DR in ≤ 6 |
 |---|---|---|
-| Keeping the EO | 7.803 | 5.92% |
+| Keeping the EO | 7.803 ✓ | 5.92% |
 | Any turns | 7.797 | 5.94% |
 
 The lengths are optimal DRs after the EO: an answer key for what's there, not what you find by hand on every EO. What carries to an attempt is the list of options and their order: after an EO, look at the other DR axis and at the inverse as well as the one you set out for, and try the last turn the other way. The case on each axis says how likely each one is to give something short (5.2).
@@ -594,7 +595,7 @@ The case after the EO, on the DR axis you're looking at, in the server's naming:
 | 6c4e | 9.6% | 1 in 10.5 | 7.97 | 3.0% | 5.3% | 8.5% | 5.9% | 20.5% |
 | 4c6e | 8.7% | 1 in 11.5 | 7.85 | 4.6% | 7.7% | 10.3% | 9.0% | 24.2% |
 | 5c4e | 8.7% | 1 in 11.5 | 7.60 | 7.2% | 12.2% | 13.6% | 14.0% | 31.4% |
-| 7c6e | 7.0% | 1 in 14.4 | 7.82 | 4.0% | 6.8% | 8.6% | 7.9% | 20.9% |
+| 7c6e | 7.0% | 1 in 14.4 | 7.82 | 4.0% | 6.7% | 8.6% | 7.9% | 20.9% |
 | 4c4e | 6.5% | 1 in 15.3 | 7.19 | 19.2% | 28.1% | 25.4% | 34.8% | 51.1% |
 | 7c4e | 5.2% | 1 in 19.2 | 8.10 | 2.2% | 3.8% | 6.6% | 4.4% | 16.1% |
 | 6c8e | 4.0% | 1 in 25.1 | 7.90 | 3.2% | 5.6% | 8.1% | 6.3% | 19.7% |
@@ -602,11 +603,11 @@ The case after the EO, on the DR axis you're looking at, in the server's naming:
 | 4c8e | 2.7% | 1 in 36.8 | 8.48 | 0.27% | 0.49% | 4.6% | 0.54% | 11.4% |
 | 3c6e | 2.3% | 1 in 43.2 | 7.84 | 4.8% | 7.8% | 10.9% | 9.3% | 25.2% |
 | 7c8e | 2.2% | 1 in 46.0 | 7.25 | 16.4% | 24.4% | 20.5% | 30.3% | 43.8% |
-| 6c2e | 1.8% | 1 in 54.9 | 8.27 | 0.16% | 0.33% | 5.8% | 0.33% | 14.1% |
+| 6c2e | 1.8% | 1 in 54.9 | 8.27 | 0.16% | 0.32% | 5.8% | 0.33% | 14.1% |
 | 8c6e | 1.8% | 1 in 56.2 | 8.08 | 1.2% | 2.1% | 5.8% | 2.4% | 14.4% |
 | 3c4e | 1.7% | 1 in 57.5 | 7.45 | 9.9% | 15.9% | 18.2% | 19.0% | 39.6% |
 
-This table is for the attempt: the case is what you read at the table (twisted corners and edges out of place on each DR axis), and the row says how likely a DR in 6 or fewer is with each option. The DR lengths behind it are optimal, so treat the odds as what is there to find. All 40 cases with the mean and the odds of each option are in appendix A. The better of two axes is read by the case on the first one, so it mixes every case the second axis can have.
+This table is for the attempt: the case is what you read at the table (twisted corners and edges out of place on each DR axis), and the row says how likely a DR in 6 or fewer is with each option. The DR lengths behind it are optimal, so treat the odds as what is there to find. All 40 cases but 0c0e (already a DR) with the mean and the odds of each option are in appendix A. The better of two axes is read by the case on the first one, so it mixes every case the second axis can have.
 
 **Normal and inverse.** Jay said of RZP to DR on normal and on inverse: "i'm certain there's zero correlation" ([11 Feb 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1074182849965596824)); Tom Nelson: "it's the opposite for rzp to DR because if it's bad then it's more likely to be better after switching" ([11 Feb 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1074181270952747120)), and Rodney Kinney called that "Regression to the mean" ([11 Feb 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1074187563704782908)).
 
@@ -631,13 +632,13 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | Claim | Who | Verdict |
 |---|---|---|
 | "Only 6.2% of axes are 8 moves or less away from DR if you don't allow NISS"; "43% of scrambles being 9 moves or better away from DR" | Louis [9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326956621435506808), [9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326954809827262576) (restated for one axis, [9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326956179103940748)) | **True**: exact, 6.2% and 43.3% on one fixed axis, linear. Over three axes and both sides it is 28.4% and 91.5% (3.1). |
-| "5.9% of axes are 6 moves or fewer away from DR linearly if EO is solved (and you don't break it)" | Louis [10 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1327214655453663253) | **True**: 5.9%, exact. |
+| "5.9% of axes are 6 moves or fewer away from DR linearly if EO is solved (and you don't break it)" | Louis [10 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1327214655453663253) | **True**: 5.9% ✓, exact. |
 | "well sub-10 is not possible for superflip" | wen [9 Sep 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1547202526749786114) | **True**: 10 on every axis, normal and inverse, and 10 with NISS [b]. |
-| DR skip: "1 in 2^11 * 3^7 * 12! / 8! or something like that", a passing answer in a joke thread | bpaul [24 Jan 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1067539508649791558) | **Corrected**, lightly: the order of the four slice edges does not matter, so $12!/8!$ is $12!/(8!\cdot 4!) = 495$; 1 in 2,217,093,120 on a given axis, about 1 in 739 million on some axis [i]. |
+| DR skip: "1 in 2^11 * 3^7 * 12! / 8! or something like that", a passing answer in a joke thread | bpaul [24 Jan 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1067539508649791558) | **Corrected**, lightly: the order of the four slice edges does not matter, so $12!/8!$ should be $12!/(8!\cdot 4!) = 495$ ✓; 1 in 2,217,093,120 ✓ on a given axis, about 1 in 739 million ✓ on some axis [i]. |
 | From 4 four-move and 45 five-move EOs with RZPs in 5, "you can expect 4 DRs in 11 and 10 DRs in 12" | Tom Nelson [9 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1062115508641599498) | **Depends** on what is counted. Tom counted DRs through a few RZP types ([11 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1062872328960229487): "I just counted R, R U2 R and R U R"). Every route through those EOs gives about 8.1 (EO, DR axis) pairs in 11 and 34.3 in 12 on average (3.3), so Tom Nelson's figures are a lower bound on what exists, as Tom Nelson's own caveats say ([9 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1062118696950169742)). |
 | "I see people checking ~50 EOs, so finding 6 DRs with <= 11 moves sounds realistic" | Rodney Kinney [9 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1062022602262065182) | **Depends** on the EOs: 50 EOs of 5 turns give about 5.9 routes in 11 on average, 50 of at most 4 about 35 (3.3). What exists, not what is found. |
-| "150 4e4c's in 5 is ~7 10 move DRs and 1 9 move DR" | Tom Nelson [20 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1153957932375998534) | **True** as arithmetic on the exact table: an RZP in 5 then a DR in 5 or fewer is 150 × 4.3% = 6.5, in 4 or fewer 150 × 0.82% = 1.2 (4c4e straight off an EO, one axis, EO kept). zakimoshi's caveat ([20 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1153959223818989629), "This kinda implies that everything is unrelated to each other") stands: RZPs of one scramble are not independent, and RZPs are not covered here (section 7). |
-| One of 300 EOs gives a DR in 5 or less "92.71%" (binomial, `1 - (1 - p)^300`, from the one-axis table) | DougCube [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417264063553081415) | **Open**: the arithmetic is right, for one DR axis per EO (JTuu, [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417265136581873664): "oh, it's only UD dr"; DougCube, [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417265956362915975): "oh sorry, I forgot to stipulate that"). DougCube flagged the assumption ([15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417264352293027912): "assuming each of the EOs are statistically independent of each other"; [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417264724143374489): "by limiting to 5-move or less EO, then it becomes coupled and are not independent"; [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417264810105639034): "if instead, it's any length EO, then I think these computations should hold very well"). How dependent the EOs of one scramble are for EO to DR alone is not measured here; for whole routes, see 3.3. |
+| "150 4e4c's in 5 is ~7 10 move DRs and 1 9 move DR" | Tom Nelson [20 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1153957932375998534) | **True** as arithmetic on the exact table: an RZP in 5 then a DR in 5 or fewer is 150 × 4.3% ✓ = 6.5 ✓, in 4 or fewer 150 × 0.82% ✓ = 1.2 ✓ (4c4e straight off an EO, one axis, EO kept). zakimoshi's caveat ([20 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1153959223818989629), "This kinda implies that everything is unrelated to each other") stands: RZPs of one scramble are not independent, and RZPs are not covered here (section 7). |
+| One of 300 EOs gives a DR in 5 or less "92.71%" (binomial, `1 - (1 - p)^300`, from the one-axis table) | DougCube [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417264063553081415) | **Open**: the arithmetic is right ✓, for one DR axis per EO (JTuu, [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417265136581873664): "oh, it's only UD dr"; DougCube, [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417265956362915975): "oh sorry, I forgot to stipulate that"). DougCube flagged the assumption ([15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417264352293027912): "assuming each of the EOs are statistically independent of each other"; [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417264724143374489): "by limiting to 5-move or less EO, then it becomes coupled and are not independent"; [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417264810105639034): "if instead, it's any length EO, then I think these computations should hold very well"). How dependent the EOs of one scramble are for EO to DR alone is not measured here; for whole routes, see 3.3. |
 
 **EO to DR.** One claim per row, who said it, and the verdict.
 
@@ -645,39 +646,39 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 |---|---|---|
 | The EO to DR counts 1, 2, 17, …, 3114 ("not allowing EO-breaking moves") | FakeMMAP [16 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1141304202065367170); DougCube [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417261933916196945) | **True**, reproduced exactly. |
 | EO to DR with EO-breaking turns: "allows breaking EO" | torchlight [16 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1141354103138693243) | **True**: mean 7.797 against 7.803, exact. |
-| "Last sheet of DRM/ARM doc has a distribution. 10 is the worst (~3% of all cases)" | KrzychXyz [12 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1415999087219839016) | **Corrected**: 10 is the worst, as KrzychXyz says, but 3,114 of the 1,082,565 EO-solved states need it, 0.29%: ten times less than said. One such EO in [h]. |
-| "like how DR-4e4c in 6 moves is 1 in 5.2 normally, but 1 in 3.6 if you can switch the last move" | Tom Nelson [13 Jul 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1128948555684519946) | **True** for at most 6: 1 in 5.2 and 1 in 3.6 (the EO's last turn). |
-| "only 3 out of this 27 DR-4e4c can be reduced to DR in 6 moves or less (accounting for switching the last move)" | Lichi Fang [8 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1215614177234788352) | **Open**. The exact rate for a 4c4e straight off an EO, last EO turn either way, is 28.1%; 3 or fewer of 27 has probability 3.3% under it (compLex: "only a 3.2% chance of those test results", [8 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1215616530650497074)), and Cale's 25 fit it (next row). Both samples are the first 4e4c nissy online found, after an RZP, which need not be like a uniform EO-solved state (torchlight, [8 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1215720321995382867): "if the EO isn't already 4c4e, it means that the 4c4e case you get from RZP is 1 move away from something that is not 4c4e"). Lichi Fang's own guess was the switch: "Or maybe switching the last move of rzp is much worse than switching the last move of eo?"; Cale's sheet for switching the RZP's last move ([9 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1216110077291925564)) gives a rate only a little lower. RZPs are not covered here. |
-| Re-test, first 4e4c found on 25 scrambles: "The optimals were 6 moves for 24%, 7 moves for 56%, and 8 moves for 20%" | Cale [9 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1216110077291925564) | **True** within its sample: the exact shares for a 4c4e with the EO's last turn either way are 7.0% in 5 or fewer, 21.1% in 6, 46.3% in 7, 25.2% in 8 and 0.48% in 9; on 25 a share has a standard error of about 9 points. |
-| "'dr setup sheet' shows that 4c4e pops up 1 in 15.3 eo"; "so 4e4c is about 1/15" | Mike [25 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1155743788506042398); Andrew [5 Oct 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1027344312876404759) | **True**: 1 in 15.3 on one given DR axis. With two DR axes per EO, about twice as often on one of them. |
-| "~5.12% chance of 3 misoriented and ~19.20% chance of 4 misoriented" | Emma [29 Mar 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1090611423480127488) | **True**, exact: 112 and 420 of the 2,187 corner orientations. |
-| "Shouldn't it be 1/11 chance of 6/0" (of 6-twist cases) | Zagros [6 Aug 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1402620621313020028) | **True**: 56 of the 616 orientations with six twisted corners. wen's "50/50?" ([6 Aug 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1402535429735059537)) was a guess. |
-| "i think DR-5c6e is actually tied for the most common DRM you can get after any random EO"; "6c (including both 6+0 and 3+3) is a bit more common than 5c", "edit: 3+3 is tied with 5c" | Jay [5 Feb 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1336873153795854438); torchlight [5 Feb 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1336879107362914316) | **True**, both: 5c6e and 6c6e with 3+3 corners are tied in Cale's split; 6c6e as a whole is the most common case (12.7% against 11.6%). |
-| 4c6e: "even with full moveset sub-7 is 1 in 22" | Cale [10 Apr 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1094878042096152576) | **True**: 1 in 21.7 for at most 6 (one axis, EO kept). |
-| DR-6e4c: "Similar efficiency to 4c4e and 4c2e in theory but many of the optimal solutions aren't findable with just setups to R U2 L" | Jay [14 Dec 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1052704838682689648) | **Corrected** for the optimum too: at most 6 on 4.6% of 4c6e against 19.2% for 4c4e and 18.7% for 4c2e; means 7.85, 7.19, 7.16. Jay's later "i guess it's a bit more worse than 4c2e than i thought" ([10 Apr 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1094891233882685470)), after Cale's 1 in 22, was about 4c6e in 5 [j]. |
-| "It's 10% sub7 vs 78 being 16%" (3c4e against 7c8e); "3c4e (10.1% sub-7)" | Zagros [9 Jul 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1524816104239923201); Fanti [6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436042954501390401) | **True**: at most 6 on 9.9% and 16.4%. |
-| 3c6e: "it’s 1/7 for 7 moves instead of 1/3 for 4e4c, 8c8e, 8e7c, 2e4c etc" | Noah Swor [3 Aug 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1269374128155267147) | **Depends** on what "7 moves" means, and the message was about 3c6e RZPs (mrauo, [3 Aug 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1269372746723491851): "Is it worth to switch from 3c6e rzp in 5?"), while these numbers are for EO-solved states, a different population. The 1/3 figures fit a DR in 6 or fewer with the EO's last turn either way (4c4e 1 in 3.6, 7c8e 1 in 4.1); on that reading 3c6e is 1 in 12.8, not 1 in 7. Without the switch it is 1 in 20.6 in 6 and 1 in 3.7 in 7. |
+| "Last sheet of DRM/ARM doc has a distribution. 10 is the worst (~3% of all cases)" | KrzychXyz [12 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1415999087219839016) | **Corrected**: 10 is the worst, as KrzychXyz says, but 3,114 ✓ of the 1,082,565 EO-solved states need it, 0.29% ✓: ten times less than said. One such EO in [h]. |
+| "like how DR-4e4c in 6 moves is 1 in 5.2 normally, but 1 in 3.6 if you can switch the last move" | Tom Nelson [13 Jul 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1128948555684519946) | **True** for at most 6: 1 in 5.2 ✓ and 1 in 3.6 ✓ (the EO's last turn). |
+| "only 3 out of this 27 DR-4e4c can be reduced to DR in 6 moves or less (accounting for switching the last move)" | Lichi Fang [8 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1215614177234788352) | **Open**. The exact rate for a 4c4e straight off an EO, last EO turn either way, is 28.1% ✓; 3 or fewer of 27 has probability 3.3% ✓ under it (compLex: "only a 3.2% chance of those test results", [8 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1215616530650497074)), and Cale's 25 fit it (next row). Both samples are the first 4c4e nissy online found, after an RZP, which need not be like a uniform EO-solved state (torchlight, [8 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1215720321995382867): "if the EO isn't already 4c4e, it means that the 4c4e case you get from RZP is 1 move away from something that is not 4c4e"). Lichi Fang's own guess was the switch: "Or maybe switching the last move of rzp is much worse than switching the last move of eo?"; Cale's sheet for switching the RZP's last move ([9 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1216110077291925564)) gives a rate only a little lower. RZPs are not covered here. |
+| Re-test, first 4c4e found on 25 scrambles: "The optimals were 6 moves for 24%, 7 moves for 56%, and 8 moves for 20%" | Cale [9 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1216110077291925564) | **True** within its sample: the exact shares for a 4c4e with the EO's last turn either way are 7.0% ✓ in 5 or fewer, 21.1% ✓ in 6, 46.3% ✓ in 7, 25.2% ✓ in 8 and 0.48% ✓ in 9; on 25 a share has a standard error of about 9 points. |
+| "'dr setup sheet' shows that 4c4e pops up 1 in 15.3 eo"; "so 4e4c is about 1/15" | Mike [25 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1155743788506042398); Andrew [5 Oct 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1027344312876404759) | **True**: 1 in 15.3 ✓ on one given DR axis. With two DR axes per EO, about twice as often on one of them. |
+| "~5.12% chance of 3 misoriented and ~19.20% chance of 4 misoriented" | Emma [29 Mar 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1090611423480127488) | **True**, exact: 112 ✓ and 420 ✓ of the 2,187 corner orientations. |
+| "Shouldn't it be 1/11 chance of 6/0" (of 6-twist cases) | Zagros [6 Aug 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1402620621313020028) | **True**: 56 ✓ of the 616 ✓ orientations with six twisted corners. wen's "50/50?" ([6 Aug 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1402535429735059537)) was a guess. |
+| "i think DR-5c6e is actually tied for the most common DRM you can get after any random EO"; "6c (including both 6+0 and 3+3) is a bit more common than 5c", "edit: 3+3 is tied with 5c" | Jay [5 Feb 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1336873153795854438); torchlight [5 Feb 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1336879107362914316) | **True**, both: 5c6e and 6c6e with 3+3 corners are tied in Cale's split; 6c6e as a whole is the most common case (12.7% ✓ against 11.6% ✓). |
+| 4c6e: "even with full moveset sub-7 is 1 in 22" | Cale [10 Apr 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1094878042096152576) | **True**: 1 in 21.7 ✓ for at most 6 (one axis, EO kept). |
+| DR-6e4c: "Similar efficiency to 4c4e and 4c2e in theory but many of the optimal solutions aren't findable with just setups to R U2 L" | Jay [14 Dec 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1052704838682689648) | **Corrected** for the optimum too: at most 6 on 4.6% ✓ of 4c6e against 19.2% ✓ for 4c4e and 18.7% ✓ for 4c2e; means 7.85 ✓, 7.19 ✓, 7.16 ✓. Jay's later "i guess it's a bit more worse than 4c2e than i thought" ([10 Apr 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1094891233882685470)), after Cale's 1 in 22, was about 4c6e in 5 [j]. |
+| "It's 10% sub7 vs 78 being 16%" (3c4e against 7c8e); "3c4e (10.1% sub-7)" | Zagros [9 Jul 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1524816104239923201); Fanti [6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436042954501390401) | **True**: at most 6 on 9.9% ✓ and 16.4% ✓. |
+| 3c6e: "it’s 1/7 for 7 moves instead of 1/3 for 4e4c, 8c8e, 8e7c, 2e4c etc" | Noah Swor [3 Aug 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1269374128155267147) | **Depends** on what "7 moves" means, and the message was about 3c6e RZPs (mrauo, [3 Aug 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1269372746723491851): "Is it worth to switch from 3c6e rzp in 5?"), while these numbers are for EO-solved states, a different population. The 1/3 figures fit a DR in 6 or fewer with the EO's last turn either way (4c4e 1 in 3.6 ✓, 7c8e 1 in 4.1 ✓); on that reading 3c6e is 1 in 12.8 ✓, not 1 in 7. Without the switch it is 1 in 20.6 ✓ in 6 and 1 in 3.7 ✓ in 7. |
 | RZP to DR on normal and inverse: "i'm certain there's zero correlation"; "it's the opposite for rzp to DR because if it's bad then it's more likely to be better after switching"; "Regression to the mean" | Jay [11 Feb 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1074182849965596824); Tom Nelson [11 Feb 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1074181270952747120); Rodney Kinney [11 Feb 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1074187563704782908) | **Depends**, and both are nearly right for EOs: 0.1684 overall, almost all of it because both sides have the same case; within a case at most 0.063; and a bad normal side is no reason to skip the inverse (5.2). Measured for EO-solved states, not RZPs. |
 
 **Scramble to EO.** One claim per row, who said it, and the verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
-| EO skip: "also 1/2048 for fixed axis", "103741/70963200 for any axis"; "9335 (~0.1458%, 1 in 686) had solved EO already" on 6,406,775 scrambles | torchlight [12 Oct 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1162060161507151983); Minkowski [25 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1155752261566349332) | **True**: exact $103741/70963200$; Minkowski's sample is within its error. |
+| EO skip: "also 1/2048 for fixed axis", "103741/70963200 for any axis"; "9335 (~0.1458%, 1 in 686) had solved EO already" on 6,406,775 scrambles | torchlight [12 Oct 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1162060161507151983); Minkowski [25 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1155752261566349332) | **True**: exact $103741/70963200$ ✓; Minkowski's sample is within its error. |
 | The sum of bad edges over the three axes peaks at 18: "18    16978144    23.925280%" | torchlight [14 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383629578248917003) | **True**, exact. |
-| "13.907% that's sort of lucky I guess" (all three axes with 0, 2, 4 or 8 bad) | jisu101 [3 Nov 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1567141993912737856) | **True**: 9868829/70963200 = 13.906967%. |
+| "13.907% that's sort of lucky I guess" (all three axes with 0, 2, 4 or 8 bad) | jisu101 [3 Nov 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1567141993912737856) | **True**: 9868829/70963200 = 13.906967% ✓. |
 | "6/6/4 or 6/6/8 is more likely than 6/6/6"; "6/6/6 is more common than 4 on UD / 6 on LR / 6 on FB" | Yura Riabov [1 Feb 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1202771755161354291); torchlight [25 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1155834425523843143) | **True**, sorted and ordered: 218033/1478400 = 14.747903% and 815891/8870400 = 9.197905% sorted; 218033/4435200 = 4.915968% and 815891/8870400 = 9.197905% ordered. |
 | "no 2 axes can differ by more than 8"; 10/10/2 "managed to set it up"; "12 bad one one axis means the other two axises will have to have at least 4 bad edges."; "after eo you could have anywhere from 0-8 bad edges on the other 2 axis, but never 10 or 12" | wen [28 Jan 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1068768848951640134), [28 Jan 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1068771254791843851); Aneurin [13 Apr 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1095998245680984114); Jay [12 Apr 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1095913568148406334) | **True**, exact. |
 | "for example 2/10/10 is much rarer than what you would expect with a simple calculation" | wen [1 Sep 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1544377101958914128) | **True**: 6.5 times rarer than with independent axes. |
-| A linear EO for 12 bad is 7 (wen); for 10 bad no 5-mover (Jay: "nope"), "10 bad is always 6 or 7"; "TIL that some 10 bad are 7 optimal for linear eo huh"; "2 cases. Both the ones where good edges are both on F." | wen [14 May 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1372121363321716777); Jay [21 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1363990899373113385), [21 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1363990973776007198); Zagros [18 Feb 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1341452145551216721); KrzychXyz [27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410290372118319134) | **True**: 12 of the 66 ten-bad states of one axis need 7 (two cases up to symmetry), the rest 6; twelve bad needs 7. |
-| "i think youre more likely to get a 4 move eo from 8 than 6"; "maybe im weird i think 8 is lowk worse than 6" | wen [3 Nov 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1567140241989701753); kyh [3 Nov 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1567139891303809035) | **Depends**: linearly wen is right (28.9% against 22.5% for at most 4); with NISS 6 bad is a little better (63.3% against 61.4%). |
+| A linear EO for 12 bad is 7 (wen); for 10 bad no 5-mover (Jay: "nope"), "10 bad is always 6 or 7"; "TIL that some 10 bad are 7 optimal for linear eo huh"; "2 cases. Both the ones where good edges are both on F." | wen [14 May 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1372121363321716777); Jay [21 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1363990899373113385), [21 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1363990973776007198); Zagros [18 Feb 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1341452145551216721); KrzychXyz [27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410290372118319134) | **True**: 12 ✓ of the 66 ten-bad states of one axis need 7 (two cases up to symmetry), the rest 6; twelve bad needs 7 ✓. |
+| "i think youre more likely to get a 4 move eo from 8 than 6"; "maybe im weird i think 8 is lowk worse than 6" | wen [3 Nov 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1567140241989701753); kyh [3 Nov 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1567139891303809035) | **Depends**: linearly wen is right (28.9% ✓ against 22.5% ✓ for at most 4); with NISS 6 bad is a little better (63.3% against 61.4%). |
 | 10 bad, NISS EO in at most 5: "68%, not bad", "90% if we factor in starting from inverse", both "assuming" independence | wen [14 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1064043808620298322), [14 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1064044766775476334) | **Depends** on what is counted: with every NISS EO (normal, inverse or both sides) it is 79.5%, between wen's two figures. |
-| "On average, eo can be solved in 3.455 moves."; fixed axis 4.609 | Joba [27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410262132783714485); DougCube [3 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1412657827918516265) | **True**: 3.455 on the sample; 4.609 exact. DougCube withdrew the comparison of the two ([3 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1412702486145536000)), since one has NISS and the other not; with three axes and no NISS it is 3.881. |
+| "On average, eo can be solved in 3.455 moves."; fixed axis 4.609 | Joba [27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410262132783714485); DougCube [3 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1412657827918516265) | **True**: 3.455 on the sample; 4.609 ✓ exact. DougCube withdrew the comparison of the two ([3 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1412702486145536000)), since one has NISS and the other not; with three axes and no NISS it is 3.881. |
 | God's number for EO: "7"; "yeah 7 with superflip" | Noah Swor [17 Jun 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1252389040737488987); alkamaass [17 Jun 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1252389194437890088) | **True**, with or without NISS (Joba's table; the superflip [b]). |
 | Superflip: "EO is 7 moves", "Even with niss" | Aneurin [13 Sep 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1019443537940594768), [13 Sep 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1019443653632069642) | **True** [b]. |
 | "Superflip takes 6 moves to solve EO with NISS" | Aneurin [13 Apr 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1095997368069009439) | **Corrected**: 7 [b]. Aneurin's first statement was right. |
 | More 3-move than 4-move EOs: "so the chance is 0" | Kai Cui [7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315061840354607256) | **Withdrawn** at the time: kalindumaxxer answered "i literally got one" ([7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315061928632258621)), Kai Cui "oh bruh" ([7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315061947477004338)) and, after Yura Riabov's `U (R2 U)` ([7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315062162749657159)), "nvm then" ([7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315062202729758750)) and "probably quite rare" ([7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315062624492322927)). Counting every EO (nissy `-a`), it happens on 0.018% of scrambles with NISS, never linearly in the sample [e]. kalindumaxxer asked "exluding htr equivalent variants" ([7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315059156046184611)); that convention is not counted here. |
-| "I remember something like 200ish <=5 movers and 17 <=4 movers"; "the median for 4 or less is more like 14" | wen [12 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1250363326324543500); Lichi Fang [12 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1250367613356347464) | **Depends** on the counting. They are about what Cale's sheet of official scrambles shows (NISS, all axes, nissy's listing). On uniform scrambles with every EO counted (nissy `-a`), all axes: normal only, at most 5 203.2 and at most 4 15.3 (median 12); with inverse and NISS EOs 646.4 and 43.9 (median 36). nissy's default listing shows about half (4.1). |
+| "I remember something like 200ish <=5 movers and 17 <=4 movers"; "the median for 4 or less is more like 14" | wen [12 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1250363326324543500); Lichi Fang [12 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1250367613356347464) | **Depends** on the counting. They are about what Cale's sheet of official scrambles shows (NISS, all axes, nissy's listing). On uniform scrambles with every EO counted (nissy `-a`), all axes: normal only, 203.2 of at most 5 and 15.3 of at most 4 (median 12); with inverse and NISS EOs 646.4 and 43.9 (median 36). nissy's default listing shows about half (4.1). |
 | "virtually all scrambles have some EO in 5" | Lewis Isom [17 Jun 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1252391829085622393) | **True**: none of at most 5 on 0.48% linearly, 0.012% with NISS [d]. |
 | 12 bad on one axis: "1 in 2048"; 10 bad: "About 3% it seems", "close to 10% on a real scramble" | Aneurin [13 Apr 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1096002839890907156); wen [9 Aug 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1271343483147522069), [9 Aug 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1271354315990110292) | **True**: exact $1/2048$; 3.2% on one axis, 9.2% on some axis. |
 
@@ -698,7 +699,7 @@ R2 F2 L2 B2 D F2 L2 D2 L2 U F2 D B2 U' L' F' U B L D R B' L2 U'  // scramble
 F B R' D' L' B (D F2 R)                                          // NISS DR on U/D
 ```
 
-**[b] The superflip.** DR in 10 on each axis, normal and inverse, and 10 with NISS. No DR solution of 9 or fewer exists on the normal side; there are 9,216 of 10. Its shortest EO is 7 turns on every axis, also with NISS (the search of section 4 over every NISS split).
+**[b] The superflip.** DR in 10 on each axis, normal and inverse, and 10 with NISS. No DR solution of 9 or fewer exists on the normal side; there are 9,216 of 10. Its shortest EO is 7 turns ✓ on every axis, also with NISS (the search of section 4 over every NISS split, and a Lean proof: the superflip commutes with every turn, so a NISS EO of it is a linear EO of the same length).
 
 ```
 U R2 F B R B2 R U2 L B2 R U' D' R2 F R' L B2 U2 F2  // scramble
@@ -800,7 +801,7 @@ U B' R F'                                                      // EO
 F2 D2 L' B2 R' U' R2 D                                         // shortest DR keeping the EO
 ```
 
-One case shows nothing about averages: the averages are in the row above and in appendix A (7.85 for 4c6e against 7.19 for 4c4e).
+One case shows nothing about averages: the averages are in Jay's DR-6e4c row of the claims table above and in appendix A (7.85 for 4c6e against 7.19 for 4c4e).
 
 ---
 
@@ -819,7 +820,7 @@ One case shows nothing about averages: the averages are in the row above and in 
 
 ## Appendix A: full tables
 
-**EO to DR by case**, all 40 cases, in three tables: how common each case is, the mean turns to DR with each option, and the chance of a DR in 6 or fewer with each option. One axis, any turns and the last turn either way are exact over all 1,082,565 EO-solved states; the better of two DR axes is exact (read by the case on the first axis); normal or inverse and all EO-keeping options together are sampled (10,000,000 states; the last column gives how many fell in each case, and the cases marked *few* rest on about 300 to 1,000).
+**EO to DR by case**, all 40 cases but 0c0e (already a DR), in three tables: how common each case is, the mean turns to DR with each option, and the chance of a DR in 6 or fewer with each option. One axis, any turns and the last turn either way are exact over all 1,082,565 EO-solved states; the better of two DR axes is exact (read by the case on the first axis); normal or inverse and all EO-keeping options together are sampled (10,000,000 states; the last column gives how many fell in each case, and the cases marked *few* rest on about 300 to 1,000). The share and odds, and the one-axis and last-turn columns, are proved in Lean ✓: each printed value is Lean's exact count, rounded (appendix B).
 
 Each row is a case: its share of EO-solved states, and how many of the sampled states fell in it.
 
@@ -858,7 +859,7 @@ Each row is a case: its share of EO-solved states, and how many of the sampled s
 | 4c0e | 0.039% | 1 in 2,577.5 | 3,983 |
 | 7c0e | 0.031% | 1 in 3,221.9 | 3,140 |
 | 0c6e | 0.021% | 1 in 4,832.9 | 2,048 |
-| 0c4e | 0.015% | 1 in 6,443.8 | 1,575 |
+| 0c4e | 0.016% | 1 in 6,443.8 | 1,575 |
 | 3c0e | 0.010% | 1 in 9,665.8 | 1,019 (few) |
 | 8c0e | 0.0079% | 1 in 12,588.0 | about 794 (few) |
 | 0c8e | 0.0065% | 1 in 15,465.2 | about 647 (few) |
@@ -918,7 +919,7 @@ Chance of a DR in 6 or fewer, one column per option:
 | 6c4e | 3.0% | 3.0% | 5.3% | 8.5% | 5.9% | 20.5% |
 | 4c6e | 4.6% | 4.6% | 7.7% | 10.3% | 9.0% | 24.2% |
 | 5c4e | 7.2% | 7.3% | 12.2% | 13.6% | 14.0% | 31.4% |
-| 7c6e | 4.0% | 4.0% | 6.8% | 8.6% | 7.9% | 20.9% |
+| 7c6e | 4.0% | 4.0% | 6.7% | 8.6% | 7.9% | 20.9% |
 | 4c4e | 19.2% | 19.3% | 28.1% | 25.4% | 34.8% | 51.1% |
 | 7c4e | 2.2% | 2.2% | 3.8% | 6.6% | 4.4% | 16.1% |
 | 6c8e | 3.2% | 3.2% | 5.6% | 8.1% | 6.3% | 19.7% |
@@ -926,7 +927,7 @@ Chance of a DR in 6 or fewer, one column per option:
 | 4c8e | 0.27% | 0.27% | 0.49% | 4.6% | 0.54% | 11.4% |
 | 3c6e | 4.8% | 4.8% | 7.8% | 10.9% | 9.3% | 25.2% |
 | 7c8e | 16.4% | 16.4% | 24.4% | 20.5% | 30.3% | 43.8% |
-| 6c2e | 0.16% | 0.16% | 0.33% | 5.8% | 0.33% | 14.1% |
+| 6c2e | 0.16% | 0.16% | 0.32% | 5.8% | 0.33% | 14.1% |
 | 8c6e | 1.2% | 1.2% | 2.1% | 5.8% | 2.4% | 14.4% |
 | 3c4e | 9.9% | 10.1% | 15.9% | 18.2% | 19.0% | 39.6% |
 | 5c2e | 2.3% | 2.5% | 4.3% | 9.5% | 4.5% | 22.3% |
@@ -1075,7 +1076,7 @@ Chance of a DR in 6 or fewer, one column per option:
     co = rand() % POW3TO7;
     cp = rand() % FACTORIAL8;
 
-and prints a solution of it as the scramble. glibc's `rand()` takes $2^{31}$ values, 4.48 times $12!$, so `rand() % FACTORIAL12` gives the lowest 231,477,248 edge-permutation indices (48.3% of them) one chance more than the rest: they are 25% more likely. The other three draws are over ranges small enough that the same bias is negligible. Since the scramble solves the drawn state, the drawn state is the inverse of the scramble, and that is where the effect shows: on 50,000 nissy scrambles the inverse side is shorter to DR, the normal side barely moved. Each row is one way of reaching DR; the *DR in ≤* columns are the share of scrambles:
+and prints a solution of it as the scramble. glibc's `rand()` takes $2^{31}$ values, 4.48 ✓ times $12!$, so `rand() % FACTORIAL12` gives the lowest 231,477,248 ✓ edge-permutation indices (48.3% ✓ of them) one chance more than the rest: they are 25% ✓ more likely. The other three draws are over ranges small enough that the same bias is negligible. Since the scramble solves the drawn state, the drawn state is the inverse of the scramble, and that is where the effect shows: on 50,000 nissy scrambles the inverse side is shorter to DR, the normal side barely moved. Each row is one way of reaching DR; the *DR in ≤* columns are the share of scrambles:
 
 | Shortest DR (50,000 scrambles each) | Mean turns, uniform | Mean turns, nissy scramble | DR in ≤ 8, uniform | DR in ≤ 8, nissy scramble | DR in ≤ 9, uniform | DR in ≤ 9, nissy scramble |
 |---|---:|---:|---:|---:|---:|---:|
@@ -1097,33 +1098,33 @@ The test of every scramble set (twisted corners, bad edges and slice pieces in t
 
 | Scrambles | Axis | What is counted | $\chi^2$ | Degrees of freedom |
 |---|---:|---:|---:|---:|
-| this study (uniform states) (50,000) | RL | twisted corners | 9.8 | 7 |
-| this study (uniform states) (50,000) | RL | bad edges | 5.8 | 6 |
-| this study (uniform states) (50,000) | RL | slice pieces in slice | 1.0 | 4 |
-| this study (uniform states) (50,000) | UD | twisted corners | 4.1 | 7 |
-| this study (uniform states) (50,000) | UD | bad edges | 1.4 | 6 |
-| this study (uniform states) (50,000) | UD | slice pieces in slice | 2.8 | 4 |
-| this study (uniform states) (50,000) | FB | twisted corners | 7.5 | 7 |
-| this study (uniform states) (50,000) | FB | bad edges | 4.5 | 6 |
-| this study (uniform states) (50,000) | FB | slice pieces in slice | 3.2 | 4 |
-| nissy 2.0.8 `scramble` (50,000) | RL | twisted corners | 33.2 | 7 |
-| nissy 2.0.8 `scramble` (50,000) | RL | bad edges | 1.3 | 6 |
-| nissy 2.0.8 `scramble` (50,000) | RL | slice pieces in slice | 0.8 | 4 |
-| nissy 2.0.8 `scramble` (50,000) | UD | twisted corners | 34.9 | 7 |
-| nissy 2.0.8 `scramble` (50,000) | UD | bad edges | 13.5 | 6 |
-| nissy 2.0.8 `scramble` (50,000) | UD | slice pieces in slice | 13.5 | 4 |
-| nissy 2.0.8 `scramble` (50,000) | FB | twisted corners | 17.8 | 7 |
-| nissy 2.0.8 `scramble` (50,000) | FB | bad edges | 11.0 | 6 |
-| nissy 2.0.8 `scramble` (50,000) | FB | slice pieces in slice | 2.3 | 4 |
-| judging-a-dr's 500 (500) | RL | twisted corners | 4.8 | 6 |
-| judging-a-dr's 500 (500) | RL | bad edges | 3.3 | 4 |
-| judging-a-dr's 500 (500) | RL | slice pieces in slice | 1.5 | 3 |
-| judging-a-dr's 500 (500) | UD | twisted corners | 6.8 | 6 |
-| judging-a-dr's 500 (500) | UD | bad edges | 1.5 | 4 |
-| judging-a-dr's 500 (500) | UD | slice pieces in slice | 2.4 | 3 |
-| judging-a-dr's 500 (500) | FB | twisted corners | 3.7 | 6 |
-| judging-a-dr's 500 (500) | FB | bad edges | 1.6 | 4 |
-| judging-a-dr's 500 (500) | FB | slice pieces in slice | 2.9 | 3 |
+| this study, uniform states (50,000) | R/L | twisted corners | 9.8 | 7 |
+| this study, uniform states (50,000) | R/L | bad edges | 5.8 | 6 |
+| this study, uniform states (50,000) | R/L | slice pieces in slice | 1.0 | 4 |
+| this study, uniform states (50,000) | U/D | twisted corners | 4.1 | 7 |
+| this study, uniform states (50,000) | U/D | bad edges | 1.4 | 6 |
+| this study, uniform states (50,000) | U/D | slice pieces in slice | 2.8 | 4 |
+| this study, uniform states (50,000) | F/B | twisted corners | 7.5 | 7 |
+| this study, uniform states (50,000) | F/B | bad edges | 4.5 | 6 |
+| this study, uniform states (50,000) | F/B | slice pieces in slice | 3.2 | 4 |
+| nissy 2.0.8 `scramble` (50,000) | R/L | twisted corners | 33.2 | 7 |
+| nissy 2.0.8 `scramble` (50,000) | R/L | bad edges | 1.3 | 6 |
+| nissy 2.0.8 `scramble` (50,000) | R/L | slice pieces in slice | 0.8 | 4 |
+| nissy 2.0.8 `scramble` (50,000) | U/D | twisted corners | 34.9 | 7 |
+| nissy 2.0.8 `scramble` (50,000) | U/D | bad edges | 13.5 | 6 |
+| nissy 2.0.8 `scramble` (50,000) | U/D | slice pieces in slice | 13.5 | 4 |
+| nissy 2.0.8 `scramble` (50,000) | F/B | twisted corners | 17.8 | 7 |
+| nissy 2.0.8 `scramble` (50,000) | F/B | bad edges | 11.0 | 6 |
+| nissy 2.0.8 `scramble` (50,000) | F/B | slice pieces in slice | 2.3 | 4 |
+| judging-a-dr's 500 (500) | R/L | twisted corners | 4.8 | 6 |
+| judging-a-dr's 500 (500) | R/L | bad edges | 3.3 | 4 |
+| judging-a-dr's 500 (500) | R/L | slice pieces in slice | 1.5 | 3 |
+| judging-a-dr's 500 (500) | U/D | twisted corners | 6.8 | 6 |
+| judging-a-dr's 500 (500) | U/D | bad edges | 1.5 | 4 |
+| judging-a-dr's 500 (500) | U/D | slice pieces in slice | 2.4 | 3 |
+| judging-a-dr's 500 (500) | F/B | twisted corners | 3.7 | 6 |
+| judging-a-dr's 500 (500) | F/B | bad edges | 1.6 | 4 |
+| judging-a-dr's 500 (500) | F/B | slice pieces in slice | 2.9 | 3 |
 
 The study's own scrambles pass every test. A separate set of 500 scrambles from nissy's scrambler shows the same effect. Each row is a mean number of turns to DR; z is how many standard errors those scrambles sit from the uniform sample:
 
@@ -1177,13 +1178,21 @@ The study's own scrambles pass every test. A separate set of 500 scrambles from 
 | eofb NISS count of exactly 4 | 30 | 30 |
 | eofb NISS count of exactly 5 | 30 | 30 |
 | dr best of 6 (nissy dr -L) | 30 | 30 |
-| dr NISS (nissy dr -N), scrambles where NISS <= 7 beats linear | 40 | 40 |
+| dr NISS (nissy dr -N), scrambles where NISS ≤ 7 beats linear | 40 | 40 |
 
 - The known tables come out exactly: the EO-solved part of the EO-keeping table is FakeMMAP's and Cale's 1, 2, 17, …, 3114 (mean 7.803); the any-turn version gives torchlight's 7.797; one-axis EO 4.609; DougCube's one-axis DR from a scramble, mean 9.52. The sample agrees with the exact one-axis table (mean 9.53 on 150,000 axes; $\chi^2$ 5.94 on 6 df), and with the DR-xs study's 2,000,000 scrambles (best of three, $\chi^2$ 9.85 on 6 df; best of six, 9.47 on 5).
 - The sampled EO to DR rows agree with the exact ones where both exist (one axis: 7.8026 sampled against 7.8031 exact).
 - Every solution in the per-scramble tables (NISS DR, optimal DR with its EO split, the best routes through EOs of at most 4, 5 and 6) is replayed on the sticker model, a separate implementation that reads EO and DR off the stickers; so is every example in this write-up (47 checks) and every move sequence on the examples page.
 - The optimal solutions of the first three scrambles with no sub-10 DR (nissy `solve optimal`, about 3.5 GB) are replayed and solve the cube.
-- **Lean.** A certificate of the small exact tables (the bad-edge layouts and the one-axis EO distances) is being built separately: see `lean/EODR/README.md`.
+- **Lean** (`lean/EODR`, Lean 4, no Mathlib; its README lists every theorem). **Proved**, marked ✓ in the text: Lean builds the cube from its geometry, redoes each search itself, and checks every distance table with an independent rule.
+  - One-axis EO, all 2,048 states: the distances (mean 4.609), by bad-edge count (Shota's table, 8 against 6 bad, the 10- and 12-bad rows), and the EO counts per state.
+  - The bad-edge layouts over all 70,963,200 classes: torchlight's counts, every triple, the shares of section 6.
+  - EO to DR over all 1,082,565 EO-solved states, one axis and the EO's last turn either way: the distribution (Cale's and FakeMMAP's), the 3,114 at 10, the 5.9% in 6, every per-case figure quoted, and every value in the share, odds, one-axis and last-turn columns of the case tables (section 5 and appendix A). That check found three values rounded twice (7c6e and 6c2e with the last turn, 0c4e's share), now fixed. Also the corner-twist counts (Emma's and Zagros's).
+  - The superflip has no NISS EO under 7 on any axis: it commutes with every face turn, so any NISS EO of it is a linear EO of the same length.
+  - Arithmetic: nissy's modulo bias, the binomials (Lichi Fang's 3 of 27, DougCube's 92.71%), the coset count.
+  - The errata examples (the EO 10 from DR, the 4c6e, the superflip's NISS EO) are checked on the Lean cube too (`htr-routes/lean/FakeBound/Corrections`).
+
+  **Computed, not proved**: everything sampled (the 50,000 scrambles, the 1,000,000 EO states, the 10,000,000 EO-solved states: every NISS, inverse and all-options row); the any-turn tables over 2,217,093,120 cosets (torchlight's 7.797, DougCube's 9.52, Louis's shares); the better of two DR axes (exact, but in Rust only); the optimal solves; the measurements of nissy's scrambles.
 
 `research/README.md` lists every step, its command, its input and output, and how long it takes; `research/out/SUMMARY.md` has every number the tables are made from.
 

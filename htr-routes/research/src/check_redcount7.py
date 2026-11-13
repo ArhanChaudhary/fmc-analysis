@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """The reduction counts of htrtools redcount2 (coset tables) against brute-force enumeration of every pair
-(htrtools redcount, rmax 7) on the first 10 states of every subset x edges (480 states), every length r <= 7.
+(htrtools redcount, rmax 7) on the first 10 states per subset x edges, every length r <= 7.  The brute-force run was
+stopped after 6 hours, so it covers 40 states (0c0 0e, 2e, 4e, 6e), not all 480.
 Output: out/checks/check_redcount7.txt"""
 import csv, collections
 from common import R, OUT

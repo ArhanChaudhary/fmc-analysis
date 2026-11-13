@@ -7,4 +7,11 @@ import DRXs.PyMoves
 import DRXs.Theorems
 import DRXs.SeoSkip
 import DRXs.SeoTheorems
+import DRXs.AfterTrigger
+import DRXs.Colours
+import DRXs.EdgeOrient
+import DRXs.EightFe
+import DRXs.Witness
+import DRXs.Theorems2
+import DRXs.EightFeTheorems
 import DRXs.Audit

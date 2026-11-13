@@ -1,6 +1,6 @@
 # Worked examples: EO to DR, and scramble to DR
 
-Examples to play along with the write-up ([WRITEUP.md](WRITEUP.md)). Try a scramble, then open the answers.
+Examples to play along with [the write-up](index.html). Try a scramble, then open the answers.
 
 **Part 1** is 150 uniformly random scrambles, the first 150 of the study's 50,000 (drawn by the study itself, not by nissy's `scramble`; see the write-up, appendix B). For each one: the bad edges on each axis, how many EOs of at most 4 and at most 5 turns it has, and, folded away, its shortest DR (normal, inverse, best of six, NISS) and the best DR through an EO of at most 4 and of at most 5 turns. **Part 2** is 60 EO-solved states by case: a scramble and an EO, then how far DR is on each of the two DR axes, on the inverse, and with the EO's last turn the other way.
 
@@ -9,7 +9,7 @@ How to read it:
 - Turns are face turns (HTM). *Normal* means turns after the scramble, *inverse* turns after the inverse scramble, written in brackets as usual for NISS: `R U (F D)` is `R U` on the normal side and `F D` on the inverse. A *NISS EO* has turns on both sides.
 - A *route through an EO* is the EO, then turns that keep it (no quarter turns of the EO's axis) to DR on one of the two other axes, on the same side.
 - "EOs of at most 4 turns" counts every move sequence that solves EO for the first time at its last turn, both directions of the last turn counted, as nissy's `-a` lists them (nissy's default listing shows about half of these).
-- A case like 4c4e names the bad corners and the edges out of place for that DR axis (slice edges outside the slice, and as many other edges inside it), as in Cale's "DR setup stats" sheet.
+- A case like 4c4e names the bad corners and the edges out of place for that DR axis (slice edges outside the slice, and as many other edges inside it), the counts of Cale's "DR setup stats" sheet (which writes the edges first, 4e4c).
 
 Every answer is exact: a shortest DR is the fewest turns there are (from exact distance tables), and a "best DR through an EO" is the best over every EO of that length or shorter. "For example" gives one of the shortest; there are usually several. These are computer only, the answer key: try the scramble the way you would in an attempt, then compare.
 
@@ -8078,9 +8078,9 @@ L F U2 F2 B2 L    // then DR on F/B
 
 ## Part 2. EO to DR, 60 states by case
 
-Each is a scramble from the study's sample and one of its EOs of at most 4 turns. The cases are in order of how often they come up after an EO, most common first. The line on top gives the case on each DR axis; the table gives the turns to DR each way, all with the EO kept unless the row says otherwise.
+Each is a scramble from the study's sample and one of its EOs of at most 4 turns. The cases are the 16 most common after an EO, most common first, then four rarer ones (2c4e, 4c2e, 3c2e and 8c8e). The line on top gives the case on each DR axis; the table gives the turns to DR each way, all with the EO kept unless the row says otherwise.
 
-### 6c6e
+### Case 6c6e: examples 1–3
 
 **6c6e, example 1.** After the EO the case is 6c6e for DR on F/B and 5c6e for DR on R/L.
 
@@ -8148,7 +8148,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 5c6e
+### Case 5c6e: examples 1–3
 
 **5c6e, example 1.** After the EO the case is 5c6e for DR on R/L and 7c4e for DR on U/D.
 
@@ -8216,7 +8216,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 6c4e
+### Case 6c4e: examples 1–3
 
 **6c4e, example 1.** After the EO the case is 6c4e for DR on R/L and 7c6e for DR on F/B.
 
@@ -8284,7 +8284,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 4c6e
+### Case 4c6e: examples 1–3
 
 **4c6e, example 1.** After the EO the case is 4c6e for DR on U/D and 2c8e for DR on F/B.
 
@@ -8352,7 +8352,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 5c4e
+### Case 5c4e: examples 1–3
 
 **5c4e, example 1.** After the EO the case is 5c4e for DR on F/B and 6c4e for DR on R/L.
 
@@ -8420,7 +8420,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 7c6e
+### Case 7c6e: examples 1–3
 
 **7c6e, example 1.** After the EO the case is 7c6e for DR on R/L and 8c6e for DR on F/B.
 
@@ -8488,7 +8488,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 4c4e
+### Case 4c4e: examples 1–3
 
 **4c4e, example 1.** After the EO the case is 4c4e for DR on U/D and 3c6e for DR on R/L.
 
@@ -8556,7 +8556,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 7c4e
+### Case 7c4e: examples 1–3
 
 **7c4e, example 1.** After the EO the case is 7c4e for DR on R/L and 6c6e for DR on F/B.
 
@@ -8624,7 +8624,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 6c8e
+### Case 6c8e: examples 1–3
 
 **6c8e, example 1.** After the EO the case is 6c8e for DR on R/L and 4c6e for DR on U/D.
 
@@ -8692,7 +8692,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 5c8e
+### Case 5c8e: examples 1–3
 
 **5c8e, example 1.** After the EO the case is 5c8e for DR on F/B and 8c4e for DR on U/D.
 
@@ -8760,7 +8760,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 4c8e
+### Case 4c8e: examples 1–3
 
 **4c8e, example 1.** After the EO the case is 4c8e for DR on R/L and 6c6e for DR on U/D.
 
@@ -8828,7 +8828,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 3c6e
+### Case 3c6e: examples 1–3
 
 **3c6e, example 1.** After the EO the case is 3c6e for DR on U/D and 3c6e for DR on F/B.
 
@@ -8896,7 +8896,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 7c8e
+### Case 7c8e: examples 1–3
 
 **7c8e, example 1.** After the EO the case is 7c8e for DR on U/D and 6c6e for DR on R/L.
 
@@ -8964,7 +8964,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 6c2e
+### Case 6c2e: examples 1–3
 
 **6c2e, example 1.** After the EO the case is 6c2e for DR on U/D and 5c6e for DR on F/B.
 
@@ -9032,7 +9032,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 8c6e
+### Case 8c6e: examples 1–3
 
 **8c6e, example 1.** After the EO the case is 8c6e for DR on F/B and 7c2e for DR on R/L.
 
@@ -9100,7 +9100,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 3c4e
+### Case 3c4e: examples 1–3
 
 **3c4e, example 1.** After the EO the case is 3c4e for DR on F/B and 4c6e for DR on U/D.
 
@@ -9168,7 +9168,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 2c4e
+### Case 2c4e: examples 1–3
 
 **2c4e, example 1.** After the EO the case is 2c4e for DR on F/B and 5c2e for DR on U/D.
 
@@ -9236,7 +9236,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 4c2e
+### Case 4c2e: examples 1–3
 
 **4c2e, example 1.** After the EO the case is 4c2e for DR on U/D and 7c4e for DR on F/B.
 
@@ -9304,7 +9304,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 3c2e
+### Case 3c2e: examples 1–3
 
 **3c2e, example 1.** After the EO the case is 3c2e for DR on R/L and 6c4e for DR on F/B.
 
@@ -9372,7 +9372,7 @@ Each row is one way to finish: the DR axis and the option, the fewest turns to D
 
 </details>
 
-### 8c8e
+### Case 8c8e: examples 1–3
 
 **8c8e, example 1.** After the EO the case is 8c8e for DR on R/L and 5c6e for DR on F/B.
 

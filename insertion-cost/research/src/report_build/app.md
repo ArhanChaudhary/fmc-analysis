@@ -87,7 +87,7 @@ Every corner 3-cycle and every edge 3-cycle, grouped into classes: two cases are
 
 {{classes_3c}}
 
-**Edge 3-cycles: {= STATES('3e') =} cases in {= NCLASS('3e') =} classes.** One row per class, same columns.
+**Edge 3-cycles: {= STATES('3e') =} cases in {= NCLASS('3e') =} classes.** One row per class, same columns plus 6- and 7-move algs.
 
 {{classes_3e}}
 

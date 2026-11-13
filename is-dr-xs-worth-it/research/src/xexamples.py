@@ -64,7 +64,7 @@ def tutorial():
           '```', f'{S} // scramble', '```', '',
           f"- **Slice-EO skips.** The tutorial lists two on normal and three on inverse. The count here: {len(sk_n)} on normal ({', '.join(f'{t} on {ax} {fl}' for t, ax, fl in sk_n)}) and {len(sk_i)} on inverse ({', '.join(f'{t} on {ax} {fl}' for t, ax, fl in sk_i)}).",
           f"- **`(R' D2 L U L)`**, the tutorial's \"DR-2s in 5 moves\": {a[1]}. Two flipped edges with the centers right is a DR-2s by the table in section 3 of the write-up.",
-          f"- **`(L' R)`** on top, which cancels to `(R' D2 L U R)`, the tutorial's \"4a2-1s in 5\": {b[1]}. The tutorial says \"The shortest possible setups for edges are 5 moves\", which is the same count.",
+          f"- **`(L' R)`** on top, which cancels to `(R' D2 L U R)`, the tutorial's \"4a2-1s in 5\": {b[1].replace('1 slices', '1 slice')}. The tutorial says \"The shortest possible setups for edges are 5 moves\", which is the same count.",
           f"- **The finish.** The best finish of the form setup, slice, DR finish from that DR-1s is {b[2].split()[1]} moves, and its first move cancels with the last move of the route. Written out for the scramble:", '', '  ```', f"  {' '.join(whole)} // ({len(whole)})", '  ```', '',
           f"- The tutorial's own solution is 19 too. So on this DR-1s the method as taught finds the best there is of its form.", '']
     return L
@@ -117,19 +117,19 @@ def build():
         for j, r in enumerate(rows, 1):
             L.append(f"| {j} | {route(r)} | {r['length']} | {'DR-1s' if r['class'] == '1' else 'DR-2s 8fe'} | {frm(r)} | {r['subset']} | {r['turns_to_dr']} |")
         n1 = sum(1 for r in one[k]); n8 = len(eight[k])
-        L += ['', f"Shown: {len(r1)} of the {n1} DR-1s of 8 or less and {len(r8)} of the {n8} DR-2s 8fe of 9 or less. Shortest normal DR: {b['shortest_dr']} moves.", '',
+        L += ['', "Shown: " + (f"{len(r1)} of the {n1} DR-1s of 8 or less" if n1 else "no DR-1s of 8 or less") + " and " + (f"{len(r8)} of the {n8} DR-2s 8fe of 9 or less" if n8 else "no DR-2s 8fe of 9 or less") + f". Shortest normal DR: {b['shortest_dr']} moves.", '',
               '<details>', f'<summary>Answers for scramble {k}</summary>', '',
               'Each row is the route with the same number above: the best finish of the method\'s form from it, then the whole solution written out for the scramble.', '',
               '| # | Finish, moves | Solution | Solution length, moves |', '|---:|---:|---|---:|']
         for j, r in enumerate(rows, 1): L.append(f"| {j} | {r['finish']} | `{r['solution']}` | {r['total']} |")
         best = min(int(r['total']) for r in rows); c10, c11, c12 = classic(b, 10), classic(b, 11), classic(b, 12)
         cl = lambda v: 'none' if v == 99 else str(v)
-        verdict = ('shorter than every normal DR of 12 or less gives' if best < c12 else 'as short as the best through a normal DR of 12 or less' if best == c12 else
-                   'shorter than every normal DR of 11 or less gives' if best < c11 else 'as short as the best through a normal DR of 11 or less' if best == c11 else
-                   'shorter than every normal DR of 10 or less gives' if best < c10 else 'as short as the best through a normal DR of 10 or less' if best == c10 else 'longer than the best through a normal DR of 10 or less')
+        verdict = ('shorter than anything a normal DR of 12 or less gives' if best < c12 else 'as short as the best through a normal DR of 12 or less' if best == c12 else
+                   'shorter than anything a normal DR of 11 or less gives' if best < c11 else 'as short as the best through a normal DR of 11 or less' if best == c11 else
+                   'shorter than anything a normal DR of 10 or less gives' if best < c10 else 'as short as the best through a normal DR of 10 or less' if best == c10 else 'longer than the best through a normal DR of 10 or less')
         stats[verdict] += 1
         L += ['', f"Best of these: **{best}**, {verdict}. Normal DRs on this scramble: {cl(c10)} through one of 10 or less, {cl(c11)} through 11 or less, {cl(c12)} through 12 or less.", '', '</details>', '']
-    L += ['### The tally', '', f'Of the hundred above: ' + '; '.join(f'{v} {"have none listed" if k == "none" else "where the best shown is " + k}' for k, v in stats.most_common()) + '.', '',
+    L += ['### The tally', '', f'Of the hundred above: ' + '; '.join(f'{v} {"where none is listed" if k == "none" else "where the best shown is " + k}' for k, v in stats.most_common()) + '.', '',
           'Over all 500 scrambles and every DR-xs of the kinds listed, not just the ones shown (write-up, section 7). How often one of them is as good as the best normal-DR solution of its scramble; each row is a kind of thing to finish, and the last column is the same share turned around:', '',
           open(R + 'report/data/real_yield.md').read().strip(), '', 'And what finishing them does to the result, over the scrambles with a normal DR of 10 or less; each row is a set of things you finish:', '', open(R + 'report/data/real_result.md').read().strip(), '',
           'Every finish is the best of its form, the answer key, not what you find in an hour.', '']

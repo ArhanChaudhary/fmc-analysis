@@ -109,6 +109,17 @@ def PRUNE_TABLE():
         n, dn = _prune(g); kept = [x - y for x, y in zip(n, dn)]
         L.append(f"| {pv.GROUP_NAME[g] if g else '**all DR states**'} | {CELLS(tri(n))} | " + (CELLS(tri(kept)) if sum(kept) else 'nothing is kept | | ') + ' |')
     return '\n'.join(L)
+def SLICE3(group=None):
+    """Share of the DRs of a qt group (None: all) whose optimal finish is 3 or more moves longer than the optimal leave slice."""
+    n = k = 0
+    for sub, d, ls, c in pv.rows('h3_leaveslice.csv'):
+        if group and pv.QT[sub.split()[0]] != group: continue
+        n += int(c); k += int(c) * (int(d) - int(ls) >= 3)
+    return pv.num(100 * k / n)
+def LAYH(cs, a, b, e=None):
+    """Histogram of the DRs of corner subset cs (e bad edges) whose bad-corner layout contains a on one side and b on the other."""
+    L = lambda x: pv.cases(cs, lambda c: x in c['layout'])
+    return q(cs=cs, e=e, both=(L(a), L(b)))
 def CELLS(s):
     """'a / b / c' as table cells 'a | b | c'."""
     return s.replace(' / ', ' | ')

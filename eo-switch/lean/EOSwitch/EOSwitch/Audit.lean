@@ -4,6 +4,7 @@
    said true".  The theorems proved by `decide` need no such axiom. -/
 import EOSwitch.Model
 import EOSwitch.Theorems
+import EOSwitch.Recount
 namespace EOSwitch
 -- A
 #print axioms model_size
@@ -32,4 +33,23 @@ namespace EOSwitch
 #print axioms variants_match_study
 #print axioms summary_tables_match_study
 #print axioms summary_2c2e_mean
+-- E (Recount.lean)
+#print axioms full_table
+#print axioms corner_case_your_call
+#print axioms errata_b_3qt
+#print axioms errata_c_stacked
+#print axioms corner_case_claims
+#print axioms arm_4c4e
+#print axioms paired_edge_arm_4c4e
+#print axioms pairs4_7c8e
+#print axioms bars_by_arm
+#print axioms strict_separation
+#print axioms rule_cards
+#print axioms low_drm_pairs
+#print axioms graded_rules
+#print axioms last_turn_4c4e
+#print axioms inverse_option
+#print axioms example_labels
+#print axioms coset_of_relabel
+#print axioms rzp_last_turn
 end EOSwitch

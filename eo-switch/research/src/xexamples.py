@@ -148,8 +148,11 @@ for drm, lab in QUOTA: RATE[(drm, lab)] = grp_rate(drm, lab)
 
 # ---------------------------------------------------------------- the page
 CASE = 'abcd'
+def pl(n, w):
+    """'1 pair', '2 pairs'"""
+    return f'{n} {w}' + ('' if n == 1 else 's')
 out = ['# Worked examples: when to switch an EO', '',
-       'Examples to play along with the write-up ([WRITEUP.md](WRITEUP.md)). Do the EO and RZP, trace the inverse as the card says, decide, then open the answer.', '',
+       'Examples to play along with [the write-up](index.html). Do the EO and RZP, trace the inverse as the card says, decide, then open the answer.', '',
        f'These are {len(EX)} real attempts from the study\'s uniformly random scrambles: an EO and an RZP that reach the DRM at a total of 5 moves, so the target after the switch is a DR in 6 (sub-7). They\'re spread over the cells of the switch cards (more where the cards have more to say, 4c4e most) and picked at random within each cell. Nothing is hand-picked, so within each cell about as many reach a sub-7 as the cell\'s rate says.', '',
        '**How to read it.**', '',
        '- Every attempt is turned so that its EO is on F/B and its DR on U/D, the frame of the write-up: the scramble printed is the generated one with the faces renamed, which is the same scramble held in another orientation.',
@@ -160,26 +163,26 @@ out = ['# Worked examples: when to switch an EO', '',
        f'**Replay check.** Every move sequence on this page was replayed on the sticker model before the page was written: {CHECKS[0]:,} checks (the turned scramble is the generated one after a rotation; EO + RZP solves the F/B EO and gives the stated DRM; the switched case is the attempt\'s; every value traced on normal equals the feature of the inverse; the DR solves the inverse to DR on U/D with the EO kept, in the table\'s optimal number of moves, and nissy 2.0.8 finds the same length), 0 mismatches.', '']
 hits = collections.Counter(); tot = collections.Counter()
 for e in EX: tot[e['lab']] += 1; hits[e['lab']] += e['n'] <= 6
-out.append('**In these ' + str(len(EX)) + '**, a DR in 6 or less exists after the switch in ' + ', '.join(f"{hits[k]} of the {tot[k]} *{k}*" for k in ('switch', 'your call', 'discard')) + ' attempts.')
+out.append('**In these ' + str(len(EX)) + '**, a DR in 6 or less exists after the switch in ' + ', '.join(f"{hits[k]} of the {tot[k]} *{k}*" for k in ('switch', 'your call')) + f" and {hits['discard']} of the {tot['discard']} *discard*" + ' attempts.')
 out.append('')
 order = ['4c4e', '4c2e', '3c2e', '7c8e', '8c8e', '2c2e', '4c6e', '3c4e', '3c6e', '5c4e', '5c6e', '6c6e']
 for drm in order:
     ex = [x for x in EX if x['drm'] == drm]
-    out += [f'## {drm}', '']
+    out += [f'## DRM {drm}: examples 1–{len(ex)}', '']
     for k, e in enumerate(ex, 1):
         f = lambda kk: int(F[kk][e['ix']])
         br = (lambda x: x) if e['side'] == 0 else (lambda x: f'({x})')
         moves = (f"EO `{br(e['eo'])}`, RZP `{br(e['rzp'])}`" if e['rzp'] else f"EO `{br(e['eo'])}`, no RZP needed") + ('' if e['side'] == 0 else ', on the inverse scramble')
         tr = e['tr']
         out += [f"**{drm}, example {k}.** `{e['S']}`", '',
-                f"{moves}: {drm} in 5. Traced before switching: {tr['paired']} paired edge(s), edge ARM {tr['earm']}, corner ARM {tr['carm']} (R/L stickers on U/D), {tr['pairs']} pair(s), {tr['side']} side pair(s).", '',
+                f"{moves}: {drm} in 5. Traced before switching: {pl(tr['paired'], 'paired edge')}, edge ARM {tr['earm']}, corner ARM {tr['carm']} (R/L stickers on U/D), {pl(tr['pairs'], 'pair')}, {pl(tr['side'], 'side pair')}.", '',
                 '<details><summary>Verdict and the DR after the switch</summary>', '']
         share, rate = RATE[(drm, e['lab'])]
         case = f", corners 4{CASE[f('corner_case')]}-{f('case_suffix')}" if f('drm_c') == 4 else ''
         er = ' '.join(x for x in (e['eo'], e['rzp']) if x)
         full = (f"`{er} ({e['dr']})`" if e['side'] == 0 else f"`({er}) {e['dr']}`")
         out += [f"Card: **{e['lab']}** ({e['txt']}: {pc(share)} of {drm}, {pc(rate)} sub-7).", '',
-                f"Switched case: {drm}, ARM {f('carm')}{f('earm')}, {f('pairs')} pair(s) on {f('edges_paired')} edge(s), {f('fake')} fake, {f('side')} side pair(s){case}{', JZP' if f('jzp') else ''}.", '',
+                f"Switched case: {drm}, ARM {f('carm')}{f('earm')}, {pl(f('pairs'), 'pair')} on {pl(f('edges_paired'), 'edge')}, {f('fake')} fake, {pl(f('side'), 'side pair')}{case}{', JZP' if f('jzp') else ''}.", '',
                 f"Optimal DR on the {'inverse' if e['side'] == 0 else 'normal side'}: `{e['dr']}` ({e['n']} moves, {'sub-7' if e['n'] <= 6 else 'not sub-7'}). The whole attempt: {full}, {5 + e['n']} moves to DR.", '',
                 '</details>', '']
 open(PAGE, 'w').write('\n'.join(out))

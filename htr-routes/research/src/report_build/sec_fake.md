@@ -57,7 +57,7 @@ Same rows: the longest reduction any finish needed, and the share of cases where
 
 | Corner path | $\alpha$ per section | Finish | Section lengths | 1q reduction per window |
 |---|---|---|---|---|
-| 4b2 > 4a3 > 4b2 > 4a1 > 0c0 | 0, 0, 3, 1, 0 | 14-move | 2, 1, 3, 1, 3 | 10, 9, 9, 9 |
+| 4b2 > 4a3 > 4b2 > 4a1 > 0c0 | 0, 0, 3, 1, 0 | 14 | 2, 1, 3, 1, 3 | 10, 9, 9, 9 |
 
 So a 9-move reduction is needed. With $\alpha_i$ the smallest term is 8, whatever A, B and C are, and the first bound of [[T11503]] claims $28 \geq 29$. (c) has a real DR on which the lower bound fails.
 
@@ -77,7 +77,7 @@ $$\frac{(|S|-1)M-(N-|S|)+\sum_{i\ \mathrm{edge}} \alpha_i}{|S|}.$$
 
 | Corner path | $\alpha$ per section | Finish | Section lengths | 1q reduction per window |
 |---|---|---|---|---|
-| 4a1 > 0c0 > 4a1 > 0c0 | 0 | 10-move | 0, 3, 0, 4 | 6, 6, 5 |
+| 4a1 > 0c0 > 4a1 > 0c0 | 0 | 10 | 0, 3, 0, 4 | 6, 6, 5 |
 
 Term 2 as printed with $S = \{0, 2\}$ gives 4, whatever A, B and C are; derived, it gives 5. With the printed $\alpha_i$ as well it's still 4 (`literal_min_fails`). On the sample, the smallest term with term 2 and the index exactly as printed is too short on {= pc(Q9('opt', 'insuff_min_terms_as_written')) =} of cases at the optimum.
 
@@ -111,7 +111,7 @@ The other choices are readings, not corrections:
 |---|---|---|---|---|
 | at the optimum, corner path known | {= f1(Q9('opt', 'mean_R_literal')) =} | {= f1(Q9('opt', 'mean_R_no_term1')) =} | {= f1(Q9('opt', 'mean_R_min_terms')) =} | {= f1(Q9('opt', 'mean_R_exact')) =} |
 | at the optimum, path unknown | {= f1(Q9('opt', 'mean_Rstate_literal')) =} | {= f1(Q9('opt', 'mean_Rstate_no_term1')) =} | {= f1(Q9('opt', 'mean_Rstate_min_terms')) =} | {= f1(Q9('opt', 'mean_Rstate_exact')) =} |
-| 12 or better, path unknown | {= f1(Q9('M12', 'mean_Rstate_literal')) =} | {= f1(Q9('M12', 'mean_Rstate_no_term1')) =} | | {= f1(Q9('M12', 'mean_Rstate_exact')) =} |
+| 12 or better, path unknown | {= f1(Q9('M12', 'mean_Rstate_literal')) =} | {= f1(Q9('M12', 'mean_Rstate_no_term1')) =} | {= f1(Q9('M12', 'mean_Rstate_min_terms')) =} | {= f1(Q9('M12', 'mean_Rstate_exact')) =} |
 
 *Path unknown* is the worst case over the subset's corner paths, with the DR's own A and B. What the finishes actually needed:
 
@@ -167,7 +167,7 @@ How often the corrected bound beats the trivial one, reaches the optimum, and is
 
 {{lb_shares}}
 
-So FakeMMAP's hope comes true on most subsets. The corrected bound on a typical path (the median), one or two above the trivial bound; each row is a bound and the subsets where it is the median:
+So FakeMMAP's hope comes true on most subsets. The corrected bound on a typical path (the median) is one or two above the trivial bound. Each row is a bound and the subsets where it is the median:
 
 | Typical bound (median) | Subsets |
 |---|---|

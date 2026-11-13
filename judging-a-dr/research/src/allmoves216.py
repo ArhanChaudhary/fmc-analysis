@@ -3,7 +3,7 @@
 
 Method (meet in the middle, complete up to 10 moves): every sequence of <= 10 face turns is a product a·b of two
 sequences of <= 5 turns.  If a·b is an HTR state then a and b^-1 show the same "axis colouring" (each sticker replaced
-by its axis U/D, R/L or F/B) and the product passes an exact HTR test.  So we list all 621,649 canonical sequences of
+by its axis U/D, R/L or F/B) and the product passes an exact HTR test.  So we list all 624,124 canonical sequences of
 length <= 5 twice, join them on that key, and keep the shortest product for every HTR state reached.
 Since the DR-move table never exceeds 10 on these classes, this decides every class."""
 import sys, os, subprocess, collections, numpy as np

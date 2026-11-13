@@ -6,4 +6,6 @@ import EOSwitch.Study
 import EOSwitch.Parse
 import EOSwitch.Model
 import EOSwitch.Theorems
+import EOSwitch.Full
+import EOSwitch.Recount
 import EOSwitch.Audit

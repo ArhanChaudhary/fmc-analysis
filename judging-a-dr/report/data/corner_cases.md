@@ -3,7 +3,7 @@
 
 | Case | Bad corners | L | A qt takes it straight to | Told apart from a look-alike by |
 |---|---|---|---|---|
-| 0c0-1 | none bad | 0–5 | nothing (set up first) |  |
+| 0c0-1 | none bad | 0–5 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -22,9 +22,9 @@ How each case finishes: its share of 0c0, its average optimal, and the share fin
 | Case | Bad corners | L | A qt takes it straight to | Told apart from a look-alike by |
 |---|---|---|---|---|
 | 4a1-1 | 4-0 | 1–4 | 0c0 |  |
-| 4a1-2 | 2-2, pairs on opposite sides | 2–5 | nothing (set up first) |  |
-| 4a1-3 | 2-2, pairs stacked | 3–6 | nothing (set up first) |  |
-| 4a1-4 | 2-2, diagonal over diagonal | 4–7 | nothing (set up first) |  |
+| 4a1-2 | 2-2, pairs on opposite sides | 2–5 | nothing, needs a setup |  |
+| 4a1-3 | 2-2, pairs stacked | 3–6 | nothing, needs a setup |  |
+| 4a1-4 | 2-2, diagonal over diagonal | 4–7 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -64,9 +64,9 @@ How each case finishes: its share of 4a1, its average optimal, and the share fin
 | Case | Bad corners | L | A qt takes it straight to | Told apart from a look-alike by |
 |---|---|---|---|---|
 | 4a2-1 | 2-2, diagonal over diagonal | 5–8 | 4a1 |  |
-| 4a2-2 | 2-2, pairs stacked | 6–9 | nothing (set up first) |  |
-| 4a2-3 | 2-2, pairs on opposite sides | 7–10 | nothing (set up first) |  |
-| 4a2-4 | 4-0 | 8–11 | nothing (set up first) |  |
+| 4a2-2 | 2-2, pairs stacked | 6–9 | nothing, needs a setup |  |
+| 4a2-3 | 2-2, pairs on opposite sides | 7–10 | nothing, needs a setup |  |
+| 4a2-4 | 4-0 | 8–11 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -106,9 +106,9 @@ How each case finishes: its share of 4a2, its average optimal, and the share fin
 | Case | Bad corners | L | A qt takes it straight to | Told apart from a look-alike by |
 |---|---|---|---|---|
 | 4b2-1 | 2-2, pairs sharing one column | 3–6 | 4a1 |  |
-| 4b2-2 | 3-1 | 4–7 | nothing (set up first) | looks the same as the 3-1 case with L 5–8. Only the corner solution separates them: L = 4 is this one |
-| 4b2-3 | 3-1 | 5–8 | nothing (set up first) | looks the same as the 3-1 case with L 4–7. Only the corner solution separates them: L = 8 is this one |
-| 4b2-4 | 2-2, pairs sharing one column | 6–9 | nothing (set up first) |  |
+| 4b2-2 | 3-1 | 4–7 | nothing, needs a setup | looks the same as the 3-1 case with L 5–8. Only the corner solution separates them: L = 4 is this one |
+| 4b2-3 | 3-1 | 5–8 | nothing, needs a setup | looks the same as the 3-1 case with L 4–7. Only the corner solution separates them: L = 8 is this one |
+| 4b2-4 | 2-2, pairs sharing one column | 6–9 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -148,7 +148,7 @@ How each case finishes: its share of 4b2, its average optimal, and the share fin
 | Case | Bad corners | L | A qt takes it straight to | Told apart from a look-alike by |
 |---|---|---|---|---|
 | 0c3-1 | none bad | 9–12 | 4a2 |  |
-| 0c3-2 | none bad | 10–12 | nothing (set up first) |  |
+| 0c3-2 | none bad | 10–12 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -178,7 +178,7 @@ How each case finishes: its share of 0c3, its average optimal, and the share fin
 |---|---|---|---|---|
 | 2c3-1 | 1 up 1 down, stacked | 5–8 | 4b2 |  |
 | 2c3-2 | 1 up 1 down, opposite | 5–8 | 4b2 |  |
-| 2c3-3 | both on one layer, adjacent | 6–9 | nothing (set up first) |  |
+| 2c3-3 | both on one layer, adjacent | 6–9 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -213,13 +213,13 @@ How each case finishes: its share of 2c3, its average optimal, and the share fin
 |---|---|---|---|---|
 | 4c3-1 | 2-2, pairs on opposite sides | 7–9 | 4b2 |  |
 | 4c3-2 | 2-2, pairs stacked | 7–9 | 4b2 |  |
-| 4c3-3 | 4-0 | 8–9 | nothing (set up first) | looks the same as the 4-0 case with L 9–10. Only the corner solution separates them: L = 8 is this one |
+| 4c3-3 | 4-0 | 8–9 | nothing, needs a setup | looks the same as the 4-0 case with L 9–10. Only the corner solution separates them: L = 8 is this one |
 | 4c3-4 | 2-2, pairs sharing one column | 7–10 | 4a2 |  |
-| 4c3-5 | 3-1 | 8–11 | nothing (set up first) |  |
-| 4c3-6 | 2-2, diagonal over diagonal | 8–10 | nothing (set up first) |  |
-| 4c3-7 | 2-2, pairs stacked | 8–10 | nothing (set up first) |  |
-| 4c3-8 | 4-0 | 9–10 | nothing (set up first) | looks the same as the 4-0 case with L 8–9. Only the corner solution separates them: L = 10 is this one |
-| 4c3-9 | 2-2, pairs on opposite sides | 9–11 | nothing (set up first) |  |
+| 4c3-5 | 3-1 | 8–11 | nothing, needs a setup |  |
+| 4c3-6 | 2-2, diagonal over diagonal | 8–10 | nothing, needs a setup |  |
+| 4c3-7 | 2-2, pairs stacked | 8–10 | nothing, needs a setup |  |
+| 4c3-8 | 4-0 | 9–10 | nothing, needs a setup | looks the same as the 4-0 case with L 8–9. Only the corner solution separates them: L = 10 is this one |
+| 4c3-9 | 2-2, pairs on opposite sides | 9–11 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -293,10 +293,10 @@ How each case finishes: its share of 0c4, its average optimal, and the share fin
 | 2c4-1 | both on one layer, adjacent | 7–10 | 2c3 | the two diagonals of the back face agree (see the note under the table) |
 | 2c4-2 | 1 up 1 down, opposite | 8–10 | 4b3 |  |
 | 2c4-3 | both on one layer, adjacent | 7–10 | 2c3 | the two diagonals of the back face differ (see the note under the table) |
-| 2c4-4 | both on one layer, adjacent | 8–11 | nothing (set up first) |  |
+| 2c4-4 | both on one layer, adjacent | 8–11 | nothing, needs a setup |  |
 | 2c4-5 | 1 up 1 down, stacked | 9–11 | 4b3 |  |
-| 2c4-6 | 1 up 1 down, opposite | 8–11 | nothing (set up first) |  |
-| 2c4-7 | 1 up 1 down, stacked | 9–12 | nothing (set up first) |  |
+| 2c4-6 | 1 up 1 down, opposite | 8–11 | nothing, needs a setup |  |
+| 2c4-7 | 1 up 1 down, stacked | 9–12 | nothing, needs a setup |  |
 
 The same cases with a typical DR and the shortest setup of their corners:
 
@@ -363,9 +363,9 @@ How each case finishes: its share of 2c4, its average optimal, and the share fin
 |---|---|---|---|---|
 | 4c4-1 | 2-2, diagonal over diagonal | 9–10 | 4a3 |  |
 | 4c4-2 | 2-2, pairs sharing one column | 9–11 | 4a3 |  |
-| 4c4-3 | 2-2, pairs stacked | 10–11 | nothing (set up first) |  |
-| 4c4-4 | 3-1 | 10–12 | nothing (set up first) |  |
-| 4c4-5 | 2-2, pairs on opposite sides | 11–12 | nothing (set up first) |  |
+| 4c4-3 | 2-2, pairs stacked | 10–11 | nothing, needs a setup |  |
+| 4c4-4 | 3-1 | 10–12 | nothing, needs a setup |  |
+| 4c4-5 | 2-2, pairs on opposite sides | 11–12 | nothing, needs a setup |  |
 | 4c4-6 | 4-0 | 11–12 | 0c3 |  |
 
 The same cases with a typical DR and the shortest setup of their corners:

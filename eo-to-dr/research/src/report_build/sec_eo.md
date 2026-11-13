@@ -18,7 +18,7 @@ The shortest EO of a scramble, over the three axes. Each row is a side rule; the
 
 {{b4_opt}}
 
-The fixed-axis row is exact (DougCube's {= EO1() =} in [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo)). The NISS row reproduces Joba's exact 3.455 ([[T9374]]) to within the sample's error, and Joba's table also gives the rarest case, one the sample never hit: 7 turns even with NISS ("Distance 7: 1792" of all $12!\cdot 2^{11}$ edge states).
+The fixed-axis row is exact (DougCube's {= EO1() =} ✓ in [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo)). The NISS row reproduces Joba's exact 3.455 ([[T9374]]) to within the sample's error, and Joba's table also gives the rarest case, one the sample never hit: 7 turns even with NISS ("Distance 7: 1792" of all $12!\cdot 2^{11}$ edge states).
 
 What's new is the middle two rows, linear on all three axes and normal or inverse, and the odds at each length. (The {= n(X('n')) =} scrambles of section 3 agree within sampling error: an EO of at most 4, normal or inverse, on {= A2('b', 4, 'p_has_eo') =} of them against {= BOPT('any_axis_lin_or_inv', 'le4') =} here.) The short ones, as the share of scrambles with an EO of that length or shorter on some axis:
 
@@ -69,7 +69,7 @@ This table is for the attempt: the bad edges on each axis are what you see when 
 
 What it says:
 
-- **8 bad beats 6 bad for short EOs, linearly**: an EO of at most 4 on {= B5(8, 'p_linear_le4') =} of 8-bad axes against {= B5(6, 'p_linear_le4') =} of 6-bad ones, of at most 3 on {= B5(8, 'p_linear_le3') =} against {= B5(6, 'p_linear_le3') =}. With NISS 6 bad is a little better ({= B5(6, 'p_niss_le4') =} against {= B5(8, 'p_niss_le4') =} for at most 4).
-- **10 and 12 bad**: no normal EO under 6 ({= B5H(10, 6) =} of the {= B5N(10) =} ten-bad states of one axis take 6, {= B5H(10, 7) =} take 7; twelve bad takes {= [k for k in ('6','7') if B5H(12, k) != '0'][0] =}).
+- **8 bad beats 6 bad for short EOs, linearly**: an EO of at most 4 on {= B5(8, 'p_linear_le4') =} ✓ of 8-bad axes against {= B5(6, 'p_linear_le4') =} ✓ of 6-bad ones, of at most 3 on {= B5(8, 'p_linear_le3') =} ✓ against {= B5(6, 'p_linear_le3') =} ✓. With NISS 6 bad is a little better ({= B5(6, 'p_niss_le4') =} against {= B5(8, 'p_niss_le4') =} for at most 4).
+- **10 and 12 bad**: no normal EO under 6 ({= B5H(10, 6) =} ✓ of the {= B5N(10) =} ten-bad states of one axis take 6, {= B5H(10, 7) =} ✓ take 7; twelve bad takes {= [k for k in ('6','7') if B5H(12, k) != '0'][0] =} ✓).
 - **With NISS a 12-bad axis is better than a 10-bad one**: at most 5 on {= B5(12, 'p_niss_le5') =} against {= B5(10, 'p_niss_le5') =}, at most 4 on {= B5(12, 'p_niss_le4') =} against {= B5(10, 'p_niss_le4') =}.
 - **Normal or inverse doesn't help a 10- or 12-bad axis**: the inverse has the same number of bad edges on each axis as the normal side.
