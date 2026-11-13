@@ -7,6 +7,7 @@ import os, sys, json, pickle, collections, itertools
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import pop, geom, rings
+from halfup import hu
 from geom import cube, N0, NAMES, EOK, move_ix
 from rings import rings_of, canon, sym_key, nice, ring_str, swap_rows, slot_type
 OUT = os.path.normpath(os.path.join(HERE, '..', 'out')) + '/'
@@ -21,11 +22,11 @@ pairs, side, ep, earm, carm, jzp, pph = f('pairs'), f('side'), f('edges_paired')
 DRMS = ['4c4e', '4c2e', '3c2e', '7c8e', '8c8e', '2c2e', '4c6e', '3c4e', '3c6e', '5c4e', '5c6e', '6c6e']
 def M(drm): return pop.drm_mask(int(drm[0]), int(drm[2]))
 def pc(x, dd=None):
-    x = float(x) * 100
+    share, x = x, float(x) * 100
     if x == 0: return '0%'
     if 99.95 <= x and dd is None: return '100%' if x == 100 else '>99.9%'
     if dd is None: dd = 1 if x >= 1 else 2 if x >= 0.1 else 3
-    return f'{x:.{dd}f}%'
+    return f'{hu(share, dd, 100):.{dd}f}%'
 def n_(x): return f'{int(x):,}'
 def write(name, head, rows):
     out = ['| ' + ' | '.join(head) + ' |', '|' + '---|' * len(head)] + ['| ' + ' | '.join(str(x) for x in r) + ' |' for r in rows]

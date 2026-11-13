@@ -12,6 +12,7 @@ same length.  The page states the count of checks and fails on any mismatch.  us
 import os, sys, csv, random, collections, subprocess, re
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import pop, geom, features as fx
+from halfup import hu
 from geom import cube
 import xtrace, niss_checks, rings, xtrace_rings, json
 ZR = rings.load(); SIG = ZR['sigma'].astype(int); QSIG = ZR['qsig'].astype(int); HBAR = ZR['hbar'].astype(int)
@@ -22,7 +23,7 @@ CHECKS = [0]; BAD = []
 def check(ok, what):
     CHECKS[0] += 1
     if not ok: BAD.append(what)
-def pc(x): return f'{x * 100:.1f}%' if x >= 0.01 else f'{x * 100:.2f}%'
+def pc(x): return f'{hu(x, 1, 100):.1f}%' if x >= 0.01 else f'{hu(x, 2, 100):.2f}%'
 
 # ---------------------------------------------------------------- the card (same groups as xtables.RULES)
 def card(ix):

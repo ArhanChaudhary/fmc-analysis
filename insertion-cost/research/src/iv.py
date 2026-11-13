@@ -11,7 +11,7 @@
 Formatting is the first study's: 10% and up whole, 1-10% one decimal, under 1% two."""
 import sys, json, functools, math
 sys.path.insert(0, '/data/fmc/judging-a-dr/research/src')
-from pv import fmt, num
+from pv import fmt, num, exact
 O = '/data/fmc/insertion-cost/research/out/'
 TYPES = ['3c', '2tc', '3tc', '2c2c-pure', '2c2c-twisted', '3c1t', '5c', '3c3c', '3e', '2f', '2e2e', '2e2e-flipped', '3e1f', '5e', '3e3e']
 CORNER = TYPES[:8]; EDGE = TYPES[8:]
@@ -51,6 +51,8 @@ def _half_up(x, q):
     return str(decimal.Decimal(repr(round(x, 9))).quantize(decimal.Decimal(q), rounding=decimal.ROUND_HALF_UP))
 def f2(x): return _half_up(x, '0.01')
 def f1(x): return _half_up(x, '0.1')
+def f0(x): return _half_up(x, '1')
+def f2s(x): s = f2(x); return s if s[0] == '-' else '+' + s             # with the sign, as '+.2f'
 def what(typ, L, model=None, src='sample'):
     """The model in plain words."""
     model = model or head(typ); k = 'c' if typ in CORNER else 'e'

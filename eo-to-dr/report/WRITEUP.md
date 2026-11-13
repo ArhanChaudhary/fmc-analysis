@@ -85,7 +85,7 @@ NISS beats the best of six linear tries on 27.0% of scrambles. The best of six w
 |---|---|---|
 | Every EO of at most 5 turns, normal, inverse and NISS | 97.7% | >99.9% |
 | Normal EOs only | 77.7% | 97.3% |
-| EOs of at most 4 of every kind | 82.2% | 95.0% |
+| EOs of at most 4 of every kind | 82.3% | 95.0% |
 
 A route in 9 or better exists on 64.6% of scrambles. **Computer only**: that's every EO of at most 5 (646.4 per scramble on average with NISS, 203.2 normal only), each with its best DR on both axes, which nobody writes out and solves in an hour. It says what's there to find. By hand, read the case each EO leaves on both DR axes and keep the EOs whose case has good odds (5.2).
 
@@ -238,7 +238,7 @@ What it says:
 | NISS | 8.46 | every scramble in the sample | 99.1% | 47.5% |
 
 - **Normal and inverse are the same thing statistically** (9.05 and 9.05), but on a given scramble they often differ: the inverse is shorter on 25.5% of scrambles and longer on 25.2%.
-- **NISS beats the best of six linear tries on 27.0% of scrambles**: by one turn on 24.2%, by two on 2.6%, by three on 0.12%.
+- **NISS beats the best of six linear tries on 27.0% of scrambles**: by one turn on 24.2%, by two on 2.7%, by three on 0.12%.
 - **No sub-10 DR at all.** 8.5% of scrambles have no DR under 10 on any axis, normal or inverse, and 0.87% (437 of 50,000) have none even with NISS. None in the sample needs more than 10 with NISS, or more than 10 best of six [a].
 - **The longest linear DR** seen on one side is 11 (on 12 scrambles).
 - **The superflip** is one of the scrambles with no sub-10 DR, and not a special one: 10 on every axis, normal and inverse, and 10 with NISS [b].
@@ -309,7 +309,7 @@ The same rows, by how many turns the best route loses to the optimal (shares of 
 | normal, inverse or NISS | optimal NISS DR | ≤ 5 | 44.8% | 11.4% | 0.68% | 0.70 |
 | normal, inverse or NISS | optimal NISS DR | ≤ 6 | 30.7% | 3.1% | 0.044% | 0.37 |
 | normal, inverse or NISS | optimal DR, best of 6 | ≤ 3 | 21.0% | 11.3% | 2.4% | 1.01 |
-| normal, inverse or NISS | optimal DR, best of 6 | ≤ 4 | 40.5% | 17.3% | 2.6% | 0.84 |
+| normal, inverse or NISS | optimal DR, best of 6 | ≤ 4 | 40.5% | 17.4% | 2.6% | 0.84 |
 | normal, inverse or NISS | optimal DR, best of 6 | ≤ 5 | 34.6% | 5.5% | 0.28% | 0.40 |
 | normal, inverse or NISS | optimal DR, best of 6 | ≤ 6 | 17.8% | 1.0% | 0.0040% | 0.07 |
 
@@ -331,7 +331,7 @@ The same as odds of a DR of a given length from the scramble, which is what a so
 | Through a normal or inverse EO of ≤ 5, DR on the same side | sampled, 50,000 | 12.8% | 50.0% | 90.3% | 99.5% | 99.9% | 0.094% | 9.45 |
 | Through a normal or inverse EO of ≤ 6, DR on the same side | sampled, 50,000 | 19.5% | 66.9% | 98.3% | >99.9% | 100.0% | 0% | 9.12 |
 | Through any EO of ≤ 3 (normal, inverse, NISS; a NISS EO takes the DR on the better side) | sampled, 50,000 | 5.1% | 21.0% | 43.4% | 49.5% | 49.6% | 50.4% | 9.58 |
-| Through any EO of ≤ 4 (normal, inverse, NISS; a NISS EO takes the DR on the better side) | sampled, 50,000 | 10.4% | 42.5% | 82.2% | 95.0% | 96.0% | 4.0% | 9.58 |
+| Through any EO of ≤ 4 (normal, inverse, NISS; a NISS EO takes the DR on the better side) | sampled, 50,000 | 10.4% | 42.5% | 82.3% | 95.0% | 96.0% | 4.0% | 9.58 |
 | Through any EO of ≤ 5 (normal, inverse, NISS; a NISS EO takes the DR on the better side) | sampled, 50,000 | 18.2% | 64.6% | 97.7% | >99.9% | >99.9% | 0.012% | 9.16 |
 | Through any EO of ≤ 6 (normal, inverse, NISS; a NISS EO takes the DR on the better side) | sampled, 50,000 | 28.4% | 82.7% | 99.9% | 100.0% | 100.0% | 0% | 8.84 |
 
@@ -342,7 +342,7 @@ The two targets people ask about most, as the share of scrambles with such a rou
 | Normal, at most 5 turns | 77.7% | 97.3% |
 | Adding the inverse EOs | 90.3% | 99.5% |
 | Adding the NISS EOs | 97.7% | >99.9% |
-| At most 4, every kind | 82.2% | 95.0% |
+| At most 4, every kind | 82.3% | 95.0% |
 
 A route through an EO of at most 5 (all kinds) is 9 or better on 64.6% of scrambles, against 99.1% for the NISS optimum. These are what exists, not what anybody finds: every EO of that length is checked, with both DR axes and the best DR after it. **Computer only**: an answer key for how good the EOs you could write are, not a search to do in an attempt.
 
@@ -908,7 +908,7 @@ Mean turns to DR, one column per option:
 | 8c0e | 8.98 | 8.77 | 8.79 | 8.12 | 8.59 | 7.64 |
 | 0c8e | 8.94 | 8.94 | 8.77 | 8.23 | 8.63 | 7.77 |
 | 2c0e | 6.00 | 5.86 | 5.71 | 5.89 | 5.55 | 5.27 |
-| 0c2e | 5.75 | 5.75 | 5.62 | 5.68 | 5.57 | 5.39 |
+| 0c2e | 5.75 | 5.75 | 5.63 | 5.68 | 5.57 | 5.39 |
 
 Chance of a DR in 6 or fewer, one column per option:
 

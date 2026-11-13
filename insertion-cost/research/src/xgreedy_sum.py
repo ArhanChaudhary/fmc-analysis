@@ -2,7 +2,7 @@
 """Tables and numbers from the greedy runs (xgreedy.py): report/data/greedy*.md and out/greedy.json."""
 import csv, json, os, glob, re, collections
 import iv
-from iv import O, SHOW, fmt, num, f2
+from iv import O, SHOW, fmt, num, f2, f1
 D = '/data/fmc/insertion-cost/report/data/'
 def write(name, lines):
     open(D + name + '.md', 'w').write('\n'.join(lines) + '\n'); print(name, len(lines), 'lines')
@@ -51,7 +51,7 @@ def main():
     L = ['| Leftover | Ways to choose the first comm at one spot | 8-move first comms at one spot, on average |', '|---|---:|---:|']
     for typ in ['2tc', '3tc', '2c2c-pure', '2c2c-twisted', '3c1t', '5c', '3c3c']:
         s = J.get(f'{typ}_n20_L8')
-        if s: L.append(f"| {SHOW[typ]} | {s['splits']} | {s['firsts_per_spot']:.1f} |")
+        if s: L.append(f"| {SHOW[typ]} | {s['splits']} | {f1(s['firsts_per_spot'])} |")
     write('first_choices', L)
     # cap 10 against cap 8 at greedy 0, same skeletons (5c, 20 moves)
     a, b = load('5c', 20, 8), load('5c', 20, 10)

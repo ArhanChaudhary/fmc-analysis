@@ -356,7 +356,7 @@ def t_exchange():
                 for t in OTHERS:
                     m = iv.equal_length(t, L, T, p)
                     cells.append(f1(n - m) if m is not None else '')
-                rows.append(f'| {T} or less | {n} | {num(100 * p)} | ' + ' | '.join(cells) + ' |')
+                rows.append(f'| {T} or less | {n} | {num(100 * iv.exact(p))} | ' + ' | '.join(cells) + ' |')
         write(f'exchange_cap{L}', rows)
     rows = ['| 3c skeleton of | Its expected total where an 8-mover fits | ' + ' | '.join(f'{SHOW[t]} shorter by' for t in OTHERS) + ' |', '|---:|---:|' + '---:|' * len(OTHERS)]
     for n in (16, 18, 20, 22, 24, 26, 28):
@@ -372,7 +372,7 @@ def t_exchange():
             if T - n > 13 or T - n < 1: continue
             cs = []
             for t in ['3c'] + OTHERS:
-                p = iv.chance(t, n, 8, T); cs.append('' if p is None else ('0' if p == 0 else num(100 * p)))
+                p = iv.chance(t, n, 8, T); cs.append('' if p is None else ('0' if p == 0 else num(100 * iv.exact(p))))
             rows.append(f'| {n} | ' + ' | '.join(cs) + ' |')
         write(f'chance_{T}', rows)
 
@@ -441,7 +441,7 @@ THRESH = [  # who, what was said, type, length, target
 def t_thresholds():
     L = ['| Who | Skeleton and goal | Chance of the goal | Expected total where something fits |', '|---|---|---:|---:|']
     for who, said, typ, n, T in THRESH:
-        L.append(f"| {who} | {said} | {num(100 * iv.chance(typ, n, 8, T))} | {f1(n + mean_at(typ, n, 8))} |")
+        L.append(f"| {who} | {said} | {num(100 * iv.exact(iv.chance(typ, n, 8, T)))} | {f1(n + mean_at(typ, n, 8))} |")
     write('thresholds', L)
 # ---------------------------------------------------------------- the tutorial's table, line by line
 TRONTO = [('Corner 3-cycle', '5/6', '3c'), ('Edge 3-cycle', '7', '3e'), ('2 Twisted Corners (2 comms)', '8', '2tc'), ('3 Twisted Corners (2 comms)', '9', '3tc'),
@@ -459,7 +459,7 @@ def t_tronto():
             if not c: return 'not run'
             return f2(mean(c)) + (f" ({n_(c['n'])}; fits on {fmt(c['n'] - c['inf'], c['n'])})" if c['inf'] > c['n'] * 0.005 else f" ({n_(c['n'])})")
         rs = [r for r in real if r['type'] == typ and not r['dup_of']]; ok = [r for r in rs if r['L8'] is not None]
-        posted = (f"{sum(r['L8'] for r in ok) / len(ok):.2f} ({len(ok)}" + (f' of {len(rs)} where something fits' if len(ok) != len(rs) else '') + f", {sum(r['n'] for r in ok) / len(ok):.1f} moves)") if ok else 'none posted'
+        posted = (f"{f2(sum(r['L8'] for r in ok) / len(ok))} ({len(ok)}" + (f' of {len(rs)} where something fits' if len(ok) != len(rs) else '') + f", {f1(sum(r['n'] for r in ok) / len(ok))} moves)") if ok else 'none posted'
         L.append(f"| {name} | {val} | {m(16, 8)} | {m(20, 8)} | {m(20, 10)} | {m(20, 12, 'sample' if typ in ('3c', '3e') else 'two12')} | {posted} |")
     write('tronto', L)
 

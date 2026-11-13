@@ -23,8 +23,8 @@ Zagros asked ([[D12300]]): "What is typical eo->dr? … Is 7 moves from eo to dr
 
 | Turns after the EO | Mean, turns | DR in ≤ 6 |
 |---|---|---|
-| Keeping the EO | {= CT('plain', 'mean') =} ✓ | {= pc(E['c7'][C7N['plain']]['p_le6'], 2) =} |
-| Any turns | {= CT('any', 'mean') =} | {= pc(E['c7'][C7N['any']]['p_le6'], 2) =} |
+| Keeping the EO | {= CT('plain', 'mean') =} ✓ | {= pc(E['c7'][C7N['plain']]['p_le6'], 2, rounded=True) =} |
+| Any turns | {= CT('any', 'mean') =} | {= pc(E['c7'][C7N['any']]['p_le6'], 2, rounded=True) =} |
 
 The lengths are optimal DRs after the EO: an answer key for what's there, not what you find by hand on every EO. What carries to an attempt is the list of options and their order: after an EO, look at the other DR axis and at the inverse as well as the one you set out for, and try the last turn the other way. The case on each axis says how likely each one is to give something short (5.2).
 

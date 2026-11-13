@@ -2,7 +2,7 @@
 import sys
 sys.path.insert(0, '/data/fmc/judging-a-dr/research/src')
 import pv
-from pv import q, q2, tri, quad, pct, share, avg
+from pv import q, q2, tri, quad, pct, share, avg, hu
 T = tri
 def S(ids): return frozenset(ids.split()) if isinstance(ids, str) else frozenset(ids)
 def _ok(h, what):
@@ -14,7 +14,7 @@ def HX(cs, x, e=None): return tri(_ok(q(cs=cs, e=e, hmax=x), (cs, 'hmax', x, e))
 def HB(cs, a, b, e=None): return tri(_ok(q(cs=cs, e=e, htr=(a, b)), (cs, 'htr', a, b, e)))
 def C1(cs, ids, e=None): return tri(_ok(q(cs=cs, e=e, cc=S(ids)), (cs, 'cc', ids, e)))
 def C2(cs, X, Y, e=None): return tri(_ok(q(cs=cs, e=e, both=(S(X), S(Y))), (cs, 'both', X, Y, e)))
-def SH(cs, h): return f'{100 * sum(h) / sum(q(cs=cs)):.0f}%'
+def SH(cs, h): return f'{hu(100 * sum(h) / sum(q(cs=cs))):.0f}%'
 def _pairs(cs):
     ids = sorted(pv.cases(cs), key=int); out = []
     for i, a in enumerate(ids):
@@ -26,7 +26,7 @@ def XPH(cs, which): return _pairs(cs)[0 if which == 'best' else -1][1]
 def KEEP(cs, keep_if, T):
     """Share of the finishes in T that survive when only DRs whose shorter HTR satisfies keep_if are kept."""
     kept = q(cs=cs, hmin=keep_if); allh = q(cs=cs)
-    return f'{100 * sum(kept[:T + 1]) / sum(allh[:T + 1]):.0f}%'
+    return f'{hu(100 * sum(kept[:T + 1]) / sum(allh[:T + 1])):.0f}%'
 def XP(cs, which): return tri(_pairs(cs)[0 if which == 'best' else -1][1])
 def XPS(cs, which): return SH(cs, _pairs(cs)[0 if which == 'best' else -1][1])
 # ---- the prune list for an 11-move DR (guide.md): what needs no solving, boiled down
@@ -53,12 +53,12 @@ def PRUNE(what, T=11, group=None):
     """'drop': share of DRs the list drops.  'stay': share of DRs it keeps.  'lose': share of the finishes in T it
     loses.  'keep': share of them it keeps.  'base' / 'kept': share finishing in T, of all of them / of what it keeps."""
     n, dn = _prune(group)
-    if what == 'drop': return f'{100 * sum(dn) / sum(n):.0f}%'
-    if what == 'stay': return f'{100 - 100 * sum(dn) / sum(n):.0f}%'
+    if what == 'drop': return f'{hu(100 * sum(dn) / sum(n)):.0f}%'
+    if what == 'stay': return f'{hu(100 - pv.exact(100 * sum(dn)) / sum(n)):.0f}%'
     if what == 'base': return pv.pct(n, T)
     if what == 'kept': return pv.pct([x - y for x, y in zip(n, dn)], T)
-    lost = 100 * sum(dn[:T + 1]) / sum(n[:T + 1])
-    return pv.num(lost) if what == 'lose' else f'{100 - lost:.0f}%'
+    lost = pv.exact(100 * sum(dn[:T + 1])) / sum(n[:T + 1])
+    return pv.num(lost) if what == 'lose' else f'{hu(100 - lost):.0f}%'
 def LOSS(cs, rule, T=11):
     """Share of the finishes in T of corner subset cs lost by a rule: 'list' (the prune list) or a predicate on the row."""
     n = dn = 0
@@ -66,10 +66,10 @@ def LOSS(cs, rule, T=11):
         if xs != cs or d > T: continue
         n += c
         if (_dropped(xs, e, a, b, tp, lo, hi) if rule == 'list' else rule(e, a, b, tp, lo, hi)): dn += c
-    return f'{100 * dn / n:.0f}%'
+    return f'{hu(100 * dn / n):.0f}%'
 def PRUNE_HIGHQT():
     """Share of the DRs the list drops that are 4qt or 5qt."""
-    tot = sum(_prune()[1]); return f"{100 * (sum(_prune('4qt')[1]) + sum(_prune('5qt')[1])) / tot:.0f}%"
+    tot = sum(_prune()[1]); return f"{hu(100 * (sum(_prune('4qt')[1]) + sum(_prune('5qt')[1])) / tot):.0f}%"
 def _attempts():
     """Rows of out/hand/attempt_run.csv (many_examples.py --rerun): per random scramble, every EO-first DR up to 12
     moves by length class, with the best solution through them (optimal finishes) with and without the prune list."""
@@ -84,25 +84,25 @@ def ATT(what):
     run = _attempts(); have = [x for x in run if x['n9'] + x['n10'] > 0]; a = lambda xs: sum(xs) / len(have)
     if what == 'n': return str(len(run))
     if what == 'have': return str(len(have))
-    if what == 'drs_all': return f"{a(x['n9'] + x['n10'] + x['n11'] for x in have):,.0f}"
-    if what == 'drs_kept': return f"{a(x['n9'] + x['n10'] + x['kept11'] for x in have):,.0f}"
-    if what == 'res_all': return f"{a(min(x['best9'], x['best10'], x['best11']) for x in have):.2f}"
-    if what == 'res_kept': return f"{a(min(x['best9'], x['best10'], x['best_kept11']) for x in have):.2f}"
+    if what == 'drs_all': return f"{hu(a(x['n9'] + x['n10'] + x['n11'] for x in have)):,.0f}"
+    if what == 'drs_kept': return f"{hu(a(x['n9'] + x['n10'] + x['kept11'] for x in have)):,.0f}"
+    if what == 'res_all': return f"{hu(a(min(x['best9'], x['best10'], x['best11']) for x in have), 2):.2f}"
+    if what == 'res_kept': return f"{hu(a(min(x['best9'], x['best10'], x['best_kept11']) for x in have), 2):.2f}"
     raise KeyError(what)
 def QTSHARE(*groups):
     """Share of all DR states in these qt groups."""
     return pv.num(100 * sum(sum(_prune(g)[0]) for g in groups) / sum(_prune()[0]))
 def PPR(cs, T):
     """What one more pair multiplies the odds of a finish in T by (geometric mean of the steps from 0 to 4 pairs)."""
-    return f"{(share(q(cs=cs, pairs=4), T) / share(q(cs=cs, pairs=0), T)) ** 0.25:.1f}"
+    return f"{hu((share(q(cs=cs, pairs=4), T) / share(q(cs=cs, pairs=0), T)) ** 0.25, 1):.1f}"
 def P05(cs, T):
     """Odds of a finish in T with five or more pairs, as a multiple of the odds with none."""
-    return f"{share(q(cs=cs, pairs=5), T) / share(q(cs=cs, pairs=0), T):.0f}"
+    return f"{hu(share(q(cs=cs, pairs=5), T) / share(q(cs=cs, pairs=0), T)):.0f}"
 def PRUNE_TABLE():
     L = ['| DRs | Dropped, share of the DRs | Finishes in 10 lost | Finishes in 11 lost | Finishes in 12 lost |', '|---|---:|---:|---:|---:|']
     for g in pv.GROUPS + [None]:
         n, dn = _prune(g)
-        L.append(f"| {pv.GROUP_NAME[g] if g else '**all DR states**'} | {100 * sum(dn) / sum(n):.0f}% | " + ' | '.join(pv.num(100 * sum(dn[:T + 1]) / sum(n[:T + 1])) for T in (10, 11, 12)) + ' |')
+        L.append(f"| {pv.GROUP_NAME[g] if g else '**all DR states**'} | {hu(100 * sum(dn) / sum(n)):.0f}% | " + ' | '.join(pv.num(100 * sum(dn[:T + 1]) / sum(n[:T + 1])) for T in (10, 11, 12)) + ' |')
     L += ['', 'And how the DRs finish before and after the list, on the same rows: the share finishing in 10, 11 and 12 or less, of all of them and of what you keep.', '',
           '| DRs | All of them: in 10 | All of them: in 11 | All of them: in 12 | What you keep: in 10 | What you keep: in 11 | What you keep: in 12 |', '|---|---:|---:|---:|---:|---:|---:|']
     for g in pv.GROUPS + [None]:
@@ -125,7 +125,7 @@ def SLICE(group=None, k=None):
         cost = int(d) - int(ls)
         n += int(c); tot += int(c) * cost
         hit += int(c) * (cost >= 3 if k == 3 else cost == k)
-    return '+%.2f' % (tot / n) if k is None else pv.num(100 * hit / n)
+    return '+%.2f' % hu(tot / n, 2) if k is None else pv.num(100 * hit / n)
 def LAYH(cs, a, b, e=None):
     """Histogram of the DRs of corner subset cs (e bad edges) whose bad-corner layout contains a on one side and b on the other."""
     L = lambda x: pv.cases(cs, lambda c: x in c['layout'])
@@ -203,15 +203,15 @@ def _scatter(fields):
     N = sum(a[0] for a in g.values()); S1 = sum(a[1] for a in g.values()); S2 = sum(a[2] for a in g.values())
     var = Fr(S2, N) - Fr(S1, N) ** 2; W = sum(Fr(s2) - Fr(s1 * s1, n) for n, s1, s2 in g.values()) / N
     return float(1 - W / var), float(W) ** 0.5
-def SDLEFT(*fields): return f'{_scatter(fields)[1]:.2f}'
-def VAREXP(*fields): return f'{100 * _scatter(fields)[0]:.0f}%'
+def SDLEFT(*fields): return f'{hu(_scatter(fields)[1], 2):.2f}'
+def VAREXP(*fields): return f'{hu(_scatter(fields)[0], 0, 100):.0f}%'
 def DEAD(group, T):
     """Share of a qt group whose reads (every read together, k6) put it in a class where at most 1% finish in T (T = 10, 11, 12)."""
     col = {10: 12, 11: 13, 12: 14}[T]; g = {}
     for r in _k6():
         if pv.QT[r[0].split()[0]] != group: continue
         a = g.setdefault(r[:9], [0, 0]); a[0] += r[col]; a[1] += r[9]
-    return f'{100 * sum(n for x, n in g.values() if 100 * x <= n) / sum(n for _, n in g.values()):.0f}%'
+    return f'{hu(100 * sum(n for x, n in g.values() if 100 * x <= n) / sum(n for _, n in g.values())):.0f}%'
 ALLREADS = _K6F
 def _sd_h5(nf):
     """sd left knowing the subset and the first nf pair counts of h5 (true, pseudo, side semi, top semi)."""
@@ -219,7 +219,7 @@ def _sd_h5(nf):
     for r in pv.rows('h5_pairs.csv'):
         k = r[:1 + nf]; d, c = int(r[5]), int(r[6]); a = g.setdefault(k, [0, 0, 0]); a[0] += c; a[1] += c * d; a[2] += c * d * d
     N = sum(a[0] for a in g.values()); return (sum(s2 - s1 * s1 / n for n, s1, s2 in g.values()) / N) ** 0.5
-def SDPAIRS(nf): return f'{_sd_h5(nf):.3f}'
+def SDPAIRS(nf): return f'{hu(_sd_h5(nf), 3):.3f}'
 # ---- plain rules for section 1: both sides k or more to HTR (dropped share of a qt group, share of its finishes in T lost)
 def HRULE(group, k, what, T=11):
     allh = q2(group=group); dropped = q2(group=group, hmin=lambda h: h >= k)
@@ -245,10 +245,10 @@ def LASTMOVE(what):
     """'gain': moves saved on average by the better of the two last moves; 'lo'/'hi': smallest/largest over the 48 subsets
     (with the subset); 'shorter': share where the other way is shorter."""
     t = _h8()
-    if what == 'gain': n = sum(a[0] for a in t.values()); return f'{sum(a[1] - a[2] for a in t.values()) / n:.2f}'
-    if what == 'shorter': n = sum(a[0] for a in t.values()); return f'{100 * sum(a[3] for a in t.values()) / n:.0f}%'
+    if what == 'gain': n = sum(a[0] for a in t.values()); return f'{hu(sum(a[1] - a[2] for a in t.values()) / n, 2):.2f}'
+    if what == 'shorter': n = sum(a[0] for a in t.values()); return f'{hu(100 * sum(a[3] for a in t.values()) / n):.0f}%'
     per = sorted(((a[1] - a[2]) / a[0], s) for s, a in t.items()); v, s = per[0] if what == 'lo' else per[-1]
-    return f'{v:.2f} ({s})'
+    return f'{hu(v, 2):.2f} ({s})'
 # ---- Levi's 1qt formula (HTR normal + HTR inverse - 1) on 4a1 4e, against the optimal and against the leave slice
 def _levi():
     c = _col.Counter()
@@ -260,7 +260,7 @@ def LEVI(what):
     c = _levi(); N = sum(c.values())
     k = {'below': lambda x: x < 0, -1: lambda x: x == -1, -2: lambda x: x == -2, '-3': lambda x: x <= -3,
          'equal': lambda x: x == 0, 'above': lambda x: x > 0}[what]
-    return f'{100 * sum(v for x, v in c.items() if k(x)) / N:.1f}%'
+    return f'{hu(100 * sum(v for x, v in c.items() if k(x)) / N, 1):.1f}%'
 def LEVILS(k):
     """Share of 4a1 4e whose optimal leave slice minus the formula is k (-3: that or less, 4: that or more);
     'mean' the average, 'below' the share under the formula."""
@@ -268,9 +268,9 @@ def LEVILS(k):
     for sub, hn, hi, ls, n in pv.rows('h4_htr_leaveslice.csv'):
         if sub == '4a1 4e': c[int(ls) - (int(hn) + int(hi) - 1)] += int(n)
     N = sum(c.values())
-    if k == 'mean': return f'{sum(x * v for x, v in c.items()) / N:+.2f}'
-    if k == 'below': return f'{100 * sum(v for x, v in c.items() if x < 0) / N:.1f}%'
-    return f'{100 * sum(v for x, v in c.items() if (x <= k if k == -3 else x >= k if k == 4 else x == k)) / N:.1f}%'
+    if k == 'mean': return f'{hu(sum(x * v for x, v in c.items()) / N, 2):+.2f}'
+    if k == 'below': return f'{hu(100 * sum(v for x, v in c.items() if x < 0) / N, 1):.1f}%'
+    return f'{hu(100 * sum(v for x, v in c.items() if (x <= k if k == -3 else x >= k if k == 4 else x == k)) / N, 1):.1f}%'
 def SETUPBEAT(sub):
     """Share of a subset (or of the qt groups from 3qt up, sub = '3qt+') where a finish with extra qts is under setup + HTR."""
     n = b = 0
@@ -278,5 +278,5 @@ def SETUPBEAT(sub):
         if s == sub or (sub == '3qt+' and pv.QT[s.split()[0]] in ('3qt', '4qt', '5qt')):
             n += int(c); b += int(c) * (int(d) < int(g))
     x = 100 * b / n
-    return f'{x:.1f}%' if x >= 0.095 else f'{x:.2f}%' if x >= 0.0095 else f'{x:.3f}%'
+    return f'{hu(x, 1):.1f}%' if x >= 0.095 else f'{hu(x, 2):.2f}%' if x >= 0.0095 else f'{hu(x, 3):.3f}%'
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}

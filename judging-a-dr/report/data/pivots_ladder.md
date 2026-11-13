@@ -15,7 +15,7 @@
 | 5qt (2c5, 4b5) | 10 or less | 99.9% | 44% | 73% | 97% |
 | 5qt (2c5, 4b5) | 11 or less | 99.8% | 5.9% | 37% | 76% |
 | 5qt (2c5, 4b5) | 12 or less | 98% | 0 | 13% | 28% |
-| 5qt (2c5, 4b5) | 13 or less | 86% | 0 | 1.2% | 3.9% |
+| 5qt (2c5, 4b5) | 13 or less | 86% | 0 | 1.3% | 3.9% |
 
 The three biggest levels, same rows: the share of the qt group for which each proves there is no finish in T.
 

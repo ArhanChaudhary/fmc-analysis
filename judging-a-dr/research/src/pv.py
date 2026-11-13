@@ -8,7 +8,7 @@ of hand reads.  Everything is a sum over the census histograms in out/hand/ (exa
 
 Formatting, used everywhere so the tables agree with each other: 10% and up as whole numbers, 1% to 10% with one
 decimal, under 1% with two, '<0.01%' when some states get there but fewer than that, and 0 when no state does."""
-import csv, collections, functools, re
+import csv, collections, functools, re, decimal, fractions, numbers
 
 H = '/data/fmc/judging-a-dr/research/out/hand/'
 TOT = 19508428800
@@ -26,15 +26,34 @@ def rows(name):
     with open(H + name) as f:
         r = csv.reader(f); next(r); return [tuple(x) for x in r]
 
+def exact(x):
+    """x as a Fraction: a whole number, a Fraction or a Decimal as it is; a float as its shortest repr, which is the
+    decimal a reader would compute (40275 / 5000 is 8.055, not the binary number just under it)."""
+    if isinstance(x, numbers.Integral): return fractions.Fraction(int(x))          # int() for numpy's whole numbers
+    if isinstance(x, (fractions.Fraction, decimal.Decimal)): return fractions.Fraction(x)
+    return fractions.Fraction(repr(float(x)))
+def hu(x, digits=0, scale=1):
+    """x * scale rounded to `digits` decimals with an exact half going up (away from zero), as a Decimal that takes
+    the format of the float it replaces: f'{hu(x, 2):.2f}', f'{hu(a / b, 1, 100):.1f}%'.  Formatting the float itself
+    rounds its binary digits, so an exact half goes either way (8.055 -> 8.05, 8.685 -> 8.69, 6.25 -> 6.2, 12.5 -> 12).
+    Every printed number goes through this.  nan and inf come back as they are."""
+    if not isinstance(x, (numbers.Integral, fractions.Fraction, decimal.Decimal)):
+        x = float(x)
+        if x != x or x in (float('inf'), float('-inf')): return x
+    v = exact(x) * scale * 10 ** digits
+    n = (2 * abs(v.numerator) + v.denominator) // (2 * v.denominator)
+    return decimal.Decimal(n).scaleb(-digits).copy_sign(-1 if v < 0 else 1)
+_CUT = [fractions.Fraction(c) for c in ('99.95', '99.05', '9.95', '0.995', '0.00995')]     # where the number of decimals changes
 def fmt(good, n):
     if n == 0: return ''
     if good == 0: return '0'
-    p = 100 * good / n
-    if p >= 99.95 and good < n: return '99.9%'
-    if p >= 99.05 and good < n: return f'{p:.1f}%'
-    if p >= 9.95: return f'{p:.0f}%'
-    if p >= 0.995: return f'{p:.1f}%'
-    if p >= 0.00995: return f'{p:.2f}%'
+    try: p = 100 * exact(good) / exact(n)
+    except ValueError: p = 100 * good / n       # nan: as before
+    if p >= _CUT[0] and good < n: return '99.9%'
+    if p >= _CUT[1] and good < n: return f'{hu(p, 1):.1f}%'
+    if p >= _CUT[2]: return f'{hu(p):.0f}%'
+    if p >= _CUT[3]: return f'{hu(p, 1):.1f}%'
+    if p >= _CUT[4]: return f'{hu(p, 2):.2f}%'
     return '<0.01%'
 def share(h, T): return 100 * sum(h[:T + 1]) / sum(h)
 def pct(h, T): return fmt(sum(h[:T + 1]), sum(h))
@@ -45,11 +64,13 @@ def avg(h): return sum(d * c for d, c in enumerate(h)) / sum(h)
 def fastest(h): return min(d for d, c in enumerate(h) if c)
 def num(x, digits=1):
     """A share (0..100) as text, same rounding rule as fmt."""
-    if 99.95 <= x < 100: return '99.9%'
-    if 99.05 <= x < 100: return f'{x:.1f}%'
-    if x >= 9.95: return f'{x:.0f}%'
-    if x >= 0.995: return f'{x:.1f}%'
-    if x >= 0.00995: return f'{x:.2f}%'
+    try: x = exact(x)
+    except (ValueError, OverflowError): pass    # nan, inf: as before
+    if _CUT[0] <= x < 100: return '99.9%'
+    if _CUT[1] <= x < 100: return f'{hu(x, 1):.1f}%'
+    if x >= _CUT[2]: return f'{hu(x):.0f}%'
+    if x >= _CUT[3]: return f'{hu(x, 1):.1f}%'
+    if x >= _CUT[4]: return f'{hu(x, 2):.2f}%'
     return '0' if x == 0 else '<0.01%'
 
 # ---- corner cases

@@ -75,10 +75,10 @@ And with the DRs of 11 as well ({= RL('eo11', 'H', f='{:,}') =} scrambles), same
 
 {{real_eo11}}
 
-- **The 5-move EOs are worth {= EOD('eo10', 0, 4) =}** on the average result at this budget, and they're about {= f'{REAL["eo10"]["policies"][4]["eos"] - REAL["eo10"]["policies"][0]["eos"]:,.0f}' =} more EOs to go through.
+- **The 5-move EOs are worth {= EOD('eo10', 0, 4) =}** on the average result at this budget, and they're about {= f'{hu(REAL["eo10"]["policies"][4]["eos"] - REAL["eo10"]["policies"][0]["eos"]):,.0f}' =} more EOs to go through.
 - **The slice-EO routes are worth {= EOD('eo10', 0, 2) =}** from the DR-1s of 8 or less ({= EOD('eo10', 0, 1) =} from those of 7 or less alone), and what you look through to get them is the slice-EO skips ({= SKIP('both', 'avg') =} per scramble on average over both sides) and the one-move slice EOs. No normal EO is added.
 - **They combine**: both together give {= EOP('eo10', 5) =}, {= EOD('eo10', 0, 5) =} better than the start. That's less than the two gains added, because they often get to the same length. Neither replaces the other.
-- **Per thing finished the 5-movers do better**: their gain comes from {= f'{REAL["eo10"]["policies"][4]["n"] - REAL["eo10"]["policies"][0]["n"]:,.0f}' =} more DRs to finish, the slice-EO gain from {= f'{REAL["eo10"]["policies"][2]["n"] - REAL["eo10"]["policies"][0]["n"]:,.0f}' =} more DR-1s. The slice EOs win on what you have to look through to get there.
+- **Per thing finished the 5-movers do better**: their gain comes from {= f'{hu(REAL["eo10"]["policies"][4]["n"] - REAL["eo10"]["policies"][0]["n"]):,.0f}' =} more DRs to finish, the slice-EO gain from {= f'{hu(REAL["eo10"]["policies"][2]["n"] - REAL["eo10"]["policies"][0]["n"]):,.0f}' =} more DR-1s. The slice EOs win on what you have to look through to get there.
 
 This fits tseitsei89's order, sub-5 EOs first, then the slice-EO skips, then the 5-movers ([[T11014]]), on one condition: a skip and the DR-1s behind it have to be quick to find. The slice-EO routes give about half of what all the 5-move EOs give, for far fewer starts. What that costs in minutes is the part these tables can't tell you, and it's where the doubts were: zakimoshi's "isn't actually a very cost effective strategy time wise" ([[T11306]]), JTuu's "if it's even close, I feel like 5-move eos win for time management reasons" ([[D19528]]).
 

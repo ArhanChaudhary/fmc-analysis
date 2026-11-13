@@ -11,7 +11,7 @@ the first study's: 10% and up whole, 1-10% one decimal, under 1% two, '<0.01%', 
 import sys, csv, collections, functools, os
 sys.path.insert(0, '/data/fmc/judging-a-dr/research/src')
 import pv
-from pv import fmt, num, avg, share, pct, CS_ORDER
+from pv import fmt, num, avg, share, pct, hu, CS_ORDER
 O = '/data/fmc/is-dr-xs-worth-it/research/out/'
 def merged(s): return pv.merged(s)
 

@@ -435,7 +435,7 @@ The two biggest checks Lean runs, one per row:
 
 | Check | Entries read (against ten moves each) | Time | Memory |
 |---|---:|---|---|
-| biggest bound check | 406,425,600 | about 4.5 minutes | |
+| biggest bound check | 406,425,600 | about 4.5 minutes | 0.9 GB |
 | exact-optimal check | 1,339,269,120 | 17 minutes | 1.9 GB |
 | the examples on this page | the table built once more, then looked up | 16 minutes | 1.9 GB |
 

@@ -19,7 +19,7 @@
 | 5qt | 10 or less | 100% | 100% | 100% | 100% |
 | 5qt | 11 or less | 100% | 95% | 100% | 96% |
 | 5qt | 12 or less | 0% | 32% | 17% | 36% |
-| 5qt | 13 or less | 0% | 0% | 2% | 2% |
+| 5qt | 13 or less | 0% | 0% | 3% | 2% |
 
 What dropping those classes costs. Same rows; each number is the share of all the finishes in T of the qt group that sit in the classes under 1%.
 

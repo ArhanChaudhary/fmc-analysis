@@ -68,7 +68,7 @@ def report(kv, tables, label=''):
         if n == 0:
             print(f"  {what:<50} no such state"); return
         odds = ' / '.join(pv.fmt(sum(h[:T + 1]), n) for T in pv.TARGETS)
-        print(f"  {what:<50} {odds:<32} average {sum(d * c for d, c in enumerate(h)) / n:.2f}   ({100 * n / 19508428800:.3f}% of all DRs)")
+        print(f"  {what:<50} {odds:<32} average {pv.hu(sum(d * c for d, c in enumerate(h)) / n, 2):.2f}   ({pv.hu(100 * n / 19508428800, 3):.3f}% of all DRs)")
     print('  what the tables say for DRs with the same read (share finishing in 10 / 11 / 12 / 13 or less):')
     line('subset', hist(h3, lambda r: r[0], sub, 1, 3))
     line(f'+ {min(tp, 6)}{"+" if tp >= 6 else ""} true pairs', hist(h5, lambda r: (r[0], min(int(r[1]), 6)), (sub, min(tp, 6)), 5, 6))

@@ -29,14 +29,14 @@ def single(cs, named=False):
             o = H.cc[pooled[k][0]]
             lo, hi = min(int(c[5]), int(o[5])), max(int(c[6]), int(o[6]))
             name = f"{H.layout(int(c[2]))}{qt_tell(k)} (two cases that look the same)"
-            look.append(f"| {name} |" + (f" {c[1]} |" if named else '') + f" {lo}–{hi} | {c[10] or 'nothing, needs a setup'} | {100*sum(h)/tot:.0f}% |")
+            look.append(f"| {name} |" + (f" {c[1]} |" if named else '') + f" {lo}–{hi} | {c[10] or 'nothing, needs a setup'} | {pv.hu(100*sum(h)/tot):.0f}% |")
             odds.append(f"| {name} | {H.odds(h)} |")
             typ.append(f"| {name}, one | `{H.TYP[k][0]}` | {H.TYP[k][1]} |")
             typ.append(f"| {name}, the other | `{H.TYP[pooled[k][0]][0]}` | {H.TYP[pooled[k][0]][1]} |")
             continue
         tell = {'8': '; back-face diagonals agree', '7': '; back-face diagonals differ'}.get(k, '')
         name = f"{H.layout(int(c[2]))}{qt_tell(k)}{tell}"
-        look.append(f"| {name} |" + (f" {c[1]} |" if named else '') + f" {c[5]}–{c[6]} | {c[10] or 'nothing, needs a setup'} | {100*sum(h)/tot:.0f}% |")
+        look.append(f"| {name} |" + (f" {c[1]} |" if named else '') + f" {c[5]}–{c[6]} | {c[10] or 'nothing, needs a setup'} | {pv.hu(100*sum(h)/tot):.0f}% |")
         odds.append(f"| {name} | {H.odds(h)} |")
         typ.append(f"| {name} | `{H.TYP[k][0]}` | {H.TYP[k][1]} |")
     return '\n'.join(look + ['', 'How each case finishes, same rows: the share of its DRs finishing in 10, 11, 12 and 13 or less.', ''] + odds
@@ -56,12 +56,12 @@ def both(cs, rows):
     out = list(BOTH_HEAD)
     for label, pred in rows:
         acc = pair_hist(cs, pred)
-        out.append(f'| {label} | {100*sum(acc)/tot:.1f}% | {H.odds(acc)} |')
+        out.append(f'| {label} | {pv.hu(100*sum(acc)/tot, 1):.1f}% | {H.odds(acc)} |')
     return '\n'.join(out)
 
 def extremes(cs):
     t = sorted(H.two[cs].items(), key=lambda kv: H.st(kv[1])[1]); tot = sum(sum(h) for h in H.two[cs].values())
-    f = lambda kv: f'{100*sum(kv[1])/tot:.1f}% | {H.odds(kv[1])}'
+    f = lambda kv: f'{pv.hu(100*sum(kv[1])/tot, 1):.1f}% | {H.odds(kv[1])}'
     return '\n'.join(BOTH_HEAD + [f'| the best pair of cases | {f(t[0])} |', f'| the worst pair of cases | {f(t[-1])} |'])
 
 import pv

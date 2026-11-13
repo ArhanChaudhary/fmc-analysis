@@ -2,7 +2,7 @@
 """Tables of the DR-xs report, written to report/data/*.md from the outputs in research/out/."""
 import csv, json, collections, os, sys
 import xv
-from xv import fmt, num, pct, avg, share, CS_ORDER, O
+from xv import fmt, num, pct, avg, share, hu, CS_ORDER, O
 D = '/data/fmc/is-dr-xs-worth-it/report/data/'
 os.makedirs(D, exist_ok=True)
 def write(name, lines):
@@ -28,7 +28,7 @@ def t_fix():
     L = ['| Turns to a real DR | Kinds of DR-1s state | Kinds of DR-2s state | Kinds of DR-3s state |', '|---:|---:|---:|---:|']
     for t in range(2, 11): L.append(f'| {t} | ' + ' | '.join(str(c[s][t]) for s in (1, 2, 3)) + ' |')
     L.append('| all | ' + ' | '.join(str(len(by[s])) for s in (1, 2, 3)) + ' |')
-    L.append('| average turns | ' + ' | '.join(f'{sum(by[s]) / len(by[s]):.2f}' for s in (1, 2, 3)) + ' |')
+    L.append('| average turns | ' + ' | '.join(f'{hu(sum(by[s]) / len(by[s]), 2):.2f}' for s in (1, 2, 3)) + ' |')
     write('fix_turns', L)
     # the steps in between, one row per number of turns, one column per step; from scratch, then right after a trigger
     S = json.load(open(O + 'festeps.json'))
@@ -68,8 +68,8 @@ def t_finish():
     L8 = ['| Corner subset | DR-2s 8fe: average finish, moves | 8fe minus DR, moves | trangium\'s 8fe, nissy optimal average |', '|---|---:|---:|---:|']
     for cs in CS_ORDER + [None]:
         d, h = xv.dr(cs), xv.one_s(cs); e = xv.eight(cs) if have8 else None
-        L.append(f"| {cs or '**all**'} | {num(100 * sum(d) / sum(xv.dr())) if cs else '100%'} | {avg(d):.2f} | {avg(h):.2f} | +{avg(h) - avg(d):.2f} | {TR1.get(cs, '')} |")
-        L8.append(f"| {cs or '**all**'} | " + (f"{avg(e):.2f} | +{avg(e) - avg(d):.2f}" if e and sum(e) else ' | ') + f" | {TR8.get(cs, '')} |")
+        L.append(f"| {cs or '**all**'} | {num(100 * sum(d) / sum(xv.dr())) if cs else '100%'} | {hu(avg(d), 2):.2f} | {hu(avg(h), 2):.2f} | +{hu(avg(h) - avg(d), 2):.2f} | {TR1.get(cs, '')} |")
+        L8.append(f"| {cs or '**all**'} | " + (f"{hu(avg(e), 2):.2f} | +{hu(avg(e) - avg(d), 2):.2f}" if e and sum(e) else ' | ') + f" | {TR8.get(cs, '')} |")
     write('finish_subset', L); write('finish_subset_8fe', L8)
     # transposed: one row per finish length, one column per kind of state (an 11-column table otherwise)
     T = range(10, 19)
@@ -79,7 +79,7 @@ def t_finish():
         v = pct(h, t); return f'0 of {sum(h):,}' if v == '0' and sampled else v
     L = ['| Finish in, moves | ' + ' | '.join(nm for nm, _ in rows) + ' |', '|---|' + '---:|' * len(rows)]
     for t in T: L.append(f'| {t} or less | ' + ' | '.join(spct(h, t, nm != 'DR') for nm, h in rows) + ' |')
-    L.append('| average finish, moves | ' + ' | '.join(f'{avg(h):.2f}' for _, h in rows) + ' |')
+    L.append('| average finish, moves | ' + ' | '.join(f'{hu(avg(h), 2):.2f}' for _, h in rows) + ' |')
     write('finish_odds', L)
     # solution length: route length + finish; split in two by solution length so each table stays narrow
     def row(L, nm, h, length, N): L.append(f'| {nm} | ' + ' | '.join(spct(h, n - length, 'DR in' not in nm or '1s' in nm or '8fe' in nm) for n in N) + ' |')
@@ -97,7 +97,7 @@ def t_finish():
         h = [0] * 30
         for x, y in zip(a, b):
             if min(int(y['turns_to_dr']), int(y['turns_to_dr_inverse'])) == k: h[int(x['finish'])] += 1
-        L.append(f'| {k} | {num(100 * sum(h) / len(a))} | {avg(h):.2f} | +{avg(h) - avg(xv.dr()):.2f} | {pct(h, 14)} | {pct(h, 15)} |')
+        L.append(f'| {k} | {num(100 * sum(h) / len(a))} | {hu(avg(h), 2):.2f} | +{hu(avg(h) - avg(xv.dr()), 2):.2f} | {pct(h, 14)} | {pct(h, 15)} |')
     write('better', L)
 
 def t_skip():
@@ -116,7 +116,7 @@ def t_skip():
     for k in (0, 1, 2, 3):
         L.append(f'| exactly {k} | ' + ' | '.join(fmt(h.get(k, 0), tot) for h in hs) + ' |')
     L.append('| 4 or more | ' + ' | '.join(fmt(sum(v for kk, v in h.items() if kk >= 4), tot) for h in hs) + ' |')
-    L.append('| average number | ' + ' | '.join(f'{sum(k * v for k, v in h.items()) / tot:.2f}' for h in hs) + ' |')
+    L.append('| average number | ' + ' | '.join(f'{hu(sum(k * v for k, v in h.items()) / tot, 2):.2f}' for h in hs) + ' |')
     write('skip_odds', L)
     J = json.load(open(O + 'seo_hist.json'))
     # each of these is two tables: whether there is a route and its average length, then how often it is short
@@ -126,7 +126,7 @@ def t_skip():
         if not reach: return f'| {nm} | never | |', None
         mean = sum(d * c for d, c in h.items() if d != 255) / reach
         cum = lambda t: sum(c for d, c in h.items() if d <= t)
-        return (f'| {nm} | {fmt(reach, tot) if reach < tot else "always"} | {mean:.2f} |',
+        return (f'| {nm} | {fmt(reach, tot) if reach < tot else "always"} | {hu(mean, 2):.2f} |',
                 f'| {nm} | ' + ' | '.join(fmt(cum(t), tot) for t in (5, 6, 7, 8, 9)) + ' |')
     def heads(lab):
         return (['| ' + ' | '.join(lab) + ' | A route exists, share of such skips | Average moves, when there is one |', '|' + '---|' * len(lab) + '---:|---:|'],
@@ -195,7 +195,7 @@ def t_eo8():
     L = ['| Moves from a full EO | Positions that many moves from the real DR | Positions that many moves from the DR-2s 8fe |', '|---:|---:|---:|']
     for d, (a, b) in enumerate(zip(J['dr'], J['8fe'])): L.append(f'| {d} | {a:,} | {b:,} |')
     avg = lambda h: sum(d * c for d, c in enumerate(h)) / sum(h)
-    L.append(f"| all {n:,} positions, average | {avg(J['dr']):.2f} | {avg(J['8fe']):.2f} |")
+    L.append(f"| all {n:,} positions, average | {hu(avg(J['dr']), 2):.2f} | {hu(avg(J['8fe']), 2):.2f} |")
     write('eo_to_8fe', L)
 
 if __name__ == '__main__':

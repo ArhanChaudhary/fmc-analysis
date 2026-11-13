@@ -33,7 +33,7 @@ How many DR solutions a scramble has, normal side, all three axes (each canonica
 
 {{a1_solutions}}
 
-So the median scramble has {= CELL('a1_solutions', '9', 'Median') =} DRs of 9 on the normal side and {= CELL('a1_solutions', '10', 'Median') =} of 10. Its optimal DRs, of whatever length that is, number {= NOPT() =} on average (median {= f'{X("nopt_median"):.0f}' =}); on {= XP('nopt_le2') =} of scrambles there is just one, counted twice for the direction of its last turn.
+So the median scramble has {= CELL('a1_solutions', '9', 'Median') =} DRs of 9 on the normal side and {= CELL('a1_solutions', '10', 'Median') =} of 10. Its optimal DRs, of whatever length that is, number {= NOPT() =} on average (median {= f'{hu(X("nopt_median")):.0f}' =}); on {= XP('nopt_le2') =} of scrambles there is just one, counted twice for the direction of its last turn.
 
 ### 3.2 The optimal DR against DRs through a short EO
 

@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """Names available inside {= ... =} in the write-up source.  Every number in the text comes through here."""
-import sys, json, csv, collections, os
+import sys, json, csv, collections, os, re
 sys.path.insert(0, '/data/fmc/is-dr-xs-worth-it/research/src')
 import xv
-from xv import pct, avg, fmt, num, share, O
+from xv import pct, avg, fmt, num, share, hu, O
 J = json.load(open(O + 'seo_hist.json')); SDIST = json.load(open(O + 'seo_dist.json')); STEPS = json.load(open(O + 'festeps.json'))
 KINDS = list(csv.DictReader(open(O + 'kinds.tsv'), delimiter='\t'))
-def f2(x): return f'{x:.2f}'
-def f1(x): return f'{x:.1f}'
+def f2(x): return f'{hu(x, 2):.2f}'
+def f1(x): return f'{hu(x, 1):.1f}'
+def _hf(f, v):
+    """f.format(v), rounded half up to the decimals of f first."""
+    m = re.search(r'\.(\d+)f\}', f); return f.format(hu(v, int(m.group(1))) if m else v)
 # ---- finishes
 def P1(t, **kw): return pct(xv.one_s(**kw), t)
 def PD(t, cs=None): return pct(xv.dr(cs), t)
@@ -55,11 +58,11 @@ def SKIP(key, k='some'):
     if k == 'some': return num(100 * (tot - h[0]) / tot, 1)
     if k == 'avg': return f2(sum(a * b for a, b in h.items()) / tot)
     return num(100 * h.get(k, 0) / tot)
-def SKIP4(key): h = _skip(key); return f'{100 * (sum(h.values()) - h[0]) / sum(h.values()):.4f}%'
-def SD(name, k): h = SDIST[name]; v = 100 * h.get(str(k), 0) / 7920; return '0' if v == 0 else f'{v:.1f}%'
+def SKIP4(key): h = _skip(key); return f'{hu(100 * (sum(h.values()) - h[0]) / sum(h.values()), 4):.4f}%'
+def SD(name, k): h = SDIST[name]; v = 100 * h.get(str(k), 0) / 7920; return '0' if v == 0 else f'{hu(v, 1):.1f}%'
 def _h(key): return {int(k): v for k, v in J[key].items()}
 def SH(key, t): h = _h(key); return num(100 * sum(c for d, c in h.items() if d <= t) / sum(h.values()))
-def SHR(key): h = _h(key); return num(100 * (1 - h.get(255, 0) / sum(h.values())), 1)
+def SHR(key): h = _h(key); return num(100 - xv.pv.exact(100 * h.get(255, 0)) / sum(h.values()), 1)
 def SHM(key): h = _h(key); r = {d: c for d, c in h.items() if d != 255}; return f2(sum(d * c for d, c in r.items()) / sum(r.values()))
 # ---- random scrambles: nearest
 def _near(what, sides):
@@ -85,15 +88,15 @@ def W12():
 REAL = json.load(open(O + 'real.json')) if os.path.exists(O + 'real.json') else {}
 def RL(key, sub=None, f='{:.2f}'):
     v = REAL[key] if sub is None else REAL[key][sub]
-    return f.format(v) if isinstance(v, (int, float)) else str(v)
+    return _hf(f, v) if isinstance(v, (int, float)) else str(v)
 def POL(i, what='result'):
-    v = REAL['policies'][i][what]; return f'{v:.2f}' if what == 'result' else f'{v:,.0f}'
-def POLD(i, j): return f"{round(REAL['policies'][i]['result'], 2) - round(REAL['policies'][j]['result'], 2):.2f}"
-def POLN(i, j): return f"{REAL['policies'][i]['n'] - REAL['policies'][j]['n']:,.0f}"
+    v = REAL['policies'][i][what]; return f'{hu(v, 2):.2f}' if what == 'result' else f'{hu(v):,.0f}'
+def POLD(i, j): return f"{hu(REAL['policies'][i]['result'], 2) - hu(REAL['policies'][j]['result'], 2):.2f}"
+def POLN(i, j): return f"{hu(REAL['policies'][i]['n'] - REAL['policies'][j]['n']):,.0f}"
 def TH(name, k=0): return REAL['there'][name][k]
-def YLD(key): return num(100 * REAL['yield'][key])
-def YIN(key): return f"{1 / REAL['yield'][key]:,.0f}"
-def YX(a, b): return f"{REAL['yield'][a] / REAL['yield'][b]:.1f}"
+def YLD(key): return num(100 * xv.pv.exact(REAL['yield'][key]))
+def YIN(key): return f"{hu(1 / REAL['yield'][key]):,.0f}"
+def YX(a, b): return f"{hu(REAL['yield'][a] / REAL['yield'][b], 1):.1f}"
 def EIGHT3(what):
     r = xv._rows('sample8fe.tsv'); g = [int(x['finish_setup3']) - int(x['finish']) for x in r]
     return num(100 * sum(v == 0 for v in g) / len(g)) if what == 'same' else f2(sum(g) / len(g))
@@ -101,12 +104,12 @@ def _eo():
     return list(csv.DictReader(open(O + 'eo_run.tsv'), delimiter='\t'))
 def EO(col, f='avg'):
     v = [int(r[col]) for r in _eo()]
-    return f'{sum(v) / len(v):,.1f}' if f == 'avg' else num(100 * sum(x > 0 for x in v) / len(v))
+    return f'{hu(sum(v) / len(v), 1):,.1f}' if f == 'avg' else num(100 * sum(x > 0 for x in v) / len(v))
 def EOP(key, i, what='result'):
-    v = REAL[key]['policies'][i][what]; return f'{v:.2f}' if what == 'result' else f'{v:,.0f}'
-def EOD(key, i, j): return f"{round(REAL[key]['policies'][i]['result'], 2) - round(REAL[key]['policies'][j]['result'], 2):.2f}"
-def EOV(k, f='{:,.0f}'): return f.format(REAL['eo'][k])
-def YX2(a, b): return f"{REAL['yield'][a] / REAL['yield'][b]:.2f}"
+    v = REAL[key]['policies'][i][what]; return f'{hu(v, 2):.2f}' if what == 'result' else f'{hu(v):,.0f}'
+def EOD(key, i, j): return f"{hu(REAL[key]['policies'][i]['result'], 2) - hu(REAL[key]['policies'][j]['result'], 2):.2f}"
+def EOV(k, f='{:,.0f}'): return _hf(f, REAL['eo'][k])
+def YX2(a, b): return f"{hu(REAL['yield'][a] / REAL['yield'][b], 2):.2f}"
 def _better(k):
     a = xv._rows('sample1s.tsv'); b = xv._rows('sample1s_labels.tsv')
     return [int(x['finish']) for x, y in zip(a, b) if min(int(y['turns_to_dr']), int(y['turns_to_dr_inverse'])) == k]
@@ -132,8 +135,8 @@ def EXCH():
         frac = (math.log(p) - math.log(cd(x - 1))) / (math.log(cd(x)) - math.log(cd(x - 1)))
         out.append(t - (x - 1 + frac))
     return f1(sum(out) / len(out))
-def SE1(): return f'{xv.se(xv.one_s()):.3f}'
-def SE8(): return f'{xv.se(xv.eight()):.2f}'
+def SE1(): return f'{hu(xv.se(xv.one_s()), 3):.3f}'
+def SE8(): return f'{hu(xv.se(xv.eight()), 2):.2f}'
 def A8C(): r = xv._rows('sample8fe.tsv'); return f2(sum(int(x['finish_setup3']) for x in r) / len(r))
 def REAL_HEADLINE(): return open(os.path.dirname(os.path.abspath(__file__)) + '/real_headline.md').read().strip() if os.path.exists(os.path.dirname(os.path.abspath(__file__)) + '/real_headline.md') else '(pending)'
 def REAL_VERDICT(): return open(os.path.dirname(os.path.abspath(__file__)) + '/real_verdict.md').read().strip() if os.path.exists(os.path.dirname(os.path.abspath(__file__)) + '/real_verdict.md') else '(pending)'

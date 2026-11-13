@@ -67,7 +67,7 @@ HEAD_NAMES = ['Subset alone', 'Subset and pairs', 'Subset and corner case on bot
               'Subset and HTR on both sides', 'Subset, pairs, corner cases and HTR', 'Subset, pairs, HTR, L and E-parity']
 COST = {'subset': 'look', 'pairs': 'look', 'corners': 'recognise', 'pairs+corners': 'recognise', 'htr': 'solve', 'Lp': 'solve', 'pairs+htr': 'solve', 'quick': 'solve', 'all': 'solve'}
 M = {(k, grp, T): measures(g, grp, T) for k, _, g in READS for grp in pv.GROUPS + ['all'] for T in pv.WIDE}
-def n0(x): return f'{x:.0f}%'
+def n0(x): return f'{pv.hu(x):.0f}%'
 def write(name, lines):
     open(OUT + name, 'w').write('\n'.join(lines) + '\n'); print(f'--- {name}'); print('\n'.join(lines))
 
@@ -90,7 +90,7 @@ def base_rows(first, targets):
     h = hist(lambda cs: True); out.append(f'| **all DRs** | ' + first(h, True) + pv.cells(h, targets) + ' |')
     return out
 L = (['| DRs | Share of all DRs | In 8 | In 9 | In 10 | In 11 |', '|---|---:|---:|---:|---:|---:|']
-     + base_rows(lambda h, last=False: '100% | ' if last else f'{100*sum(h)/pv.TOT:.1f}% | ', range(8, 12))
+     + base_rows(lambda h, last=False: '100% | ' if last else f'{pv.hu(100*sum(h)/pv.TOT, 1):.1f}% | ', range(8, 12))
      + ['', 'The same rows for the longer finishes, 12, 13 and 14 or less:', '', '| DRs | In 12 | In 13 | In 14 |', '|---|---:|---:|---:|']
      + base_rows(lambda h, last=False: '', range(12, 15)))
 write('pivots_base.md', L)
@@ -263,7 +263,7 @@ BIG = ['4b2 4e', '2c3 4e', '4c3 4e', '2c4 4e', '0c3 4e', '4c4 4e', '2c5 4e', '4b
 L = ['| Subset | Share of all DRs | Average optimal, moves | In 11 | In 12 |', '|---|---:|---:|---:|---:|']
 for s in BIG:
     h = sub[(s,)]
-    L.append(f'| {s} | {100*sum(h)/pv.TOT:.2f}% | {pv.avg(h):.2f} | {pv.pct(h, 11)} | {pv.pct(h, 12)} |')
+    L.append(f'| {s} | {pv.hu(100*sum(h)/pv.TOT, 2):.2f}% | {pv.hu(pv.avg(h), 2):.2f} | {pv.pct(h, 11)} | {pv.pct(h, 12)} |')
 L += ['', 'The same subsets: the share of each for which NISS@DR, and everything visible, proves there is no finish in 11, and in 12.', '',
       '| Subset | No 11: NISS@DR proves it | No 11: everything visible proves it | No 12: NISS@DR proves it | No 12: everything visible proves it |', '|---|---:|---:|---:|---:|']
 for s in BIG:

@@ -14,6 +14,7 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import sticker, cube
+from halfup import hu
 from canon import simplify
 
 OUT = os.path.normpath(os.path.join(HERE, '..', 'out')) + '/'
@@ -276,7 +277,7 @@ Every answer is exact: a shortest DR is the fewest turns there are (from exact d
 
 **Replay check.** Every move sequence on this page was replayed on the sticker model before the page was written: {{REPLAYED}} checks (each EO is an EO on its axis, each DR is a DR on its axis with the stated number of turns, DR turns after an EO keep it, each case and bad-edge count is read off the stickers), {{MISMATCHES}} mismatches.
 
-In these {NSCR}: best of six {six.mean():.2f} on average, NISS {dn_.mean():.2f} (the 50,000 give {A1['best of 6 (3 axes x normal/inverse, linear)']['mean']:.2f} and {A1['NISS (moves on both sides), best of 3 axes']['mean']:.2f}).
+In these {NSCR}: best of six {hu(six.mean(), 2):.2f} on average, NISS {hu(dn_.mean(), 2):.2f} (the 50,000 give {A1['best of 6 (3 axes x normal/inverse, linear)']['mean']:.2f} and {A1['NISS (moves on both sides), best of 3 axes']['mean']:.2f}).
 
 ## Part 1. {NSCR} scrambles
 

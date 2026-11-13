@@ -14,7 +14,7 @@ def build(D6=D6):
     six = lambda x: 'nan' if x != x else f'{x:.6f}'
     iv.f2 = six; iv.f1 = six
     iv.fmt = lambda good, n: '' if n == 0 else '0' if good == 0 else f'{100 * good / n:.6f}%'
-    iv.num = lambda x, digits=1: '0' if x == 0 else f'{x:.6f}%'
+    iv.num = lambda x, digits=1: '0' if x == 0 else f'{float(x):.6f}%'
     ten = open(iv.O + 'ten_skip.json').read()           # xtables.t_one rewrites this file; put it back as it was
     with contextlib.redirect_stdout(io.StringIO()):
         import xtables, xgreedy_sum, xdr

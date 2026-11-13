@@ -6,6 +6,7 @@ computation except the odds at several targets of the best route through an EO (
 usage: xtables.py"""
 import csv, json, os, sys
 import numpy as np
+from halfup import hu, exact
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.normpath(os.path.join(HERE, '..', 'out')) + '/'
@@ -14,9 +15,11 @@ AX = ['RL', 'UD', 'FB']
 csv.field_size_limit(10**8)
 
 
-def pc(x, d=None):
-    """A share as a percentage: one decimal, two below 1%, more below 0.1%, '0' for none."""
-    x = float(x) * 100
+def pc(x, d=None, rounded=False):
+    """A share as a percentage: one decimal, two below 1%, more below 0.1%, '0' for none.  An exact half goes up
+    (halfup.hu).  rounded=True is for a share its result file has already rounded (5 decimals of a number that has
+    more): a 5 in its last place is no half then, and it is formatted from the float as it always was."""
+    share, x = x, float(x) * 100
     if x == 0:
         return '0%'
     if x >= 99.95 and x < 100:
@@ -25,7 +28,7 @@ def pc(x, d=None):
         return '< 0.0001%'
     if d is None:
         d = 1 if x >= 1 else 2 if x >= 0.1 else 3 if x >= 0.01 else 4
-    return f'{x:.{d}f}%'
+    return f'{x:.{d}f}%' if rounded else f'{hu(share, d, 100):.{d}f}%'
 
 
 def rd(name):
@@ -91,7 +94,7 @@ for r in rd('a50k_a1_counts.tsv'):
     if r['length'] == 'optimal':
         continue
     rows.append([r['length'], f"{float(r['mean_dr_solutions']):,.1f}" if float(r['mean_dr_solutions']) >= 10 else r['mean_dr_solutions'],
-                 f"{float(r['median']):,.0f}", pc(r['p_at_least_one']), f"{int(r['max']):,}"])
+                 f"{hu(float(r['median'])):,.0f}", pc(r['p_at_least_one']), f"{int(r['max']):,}"])
 table('a1_solutions', ['DR length, turns', 'DR solutions per scramble, mean', 'Median', 'Scrambles with at least one', 'Most on one scramble'], rows)
 opt = [r for r in rd('a50k_a1_counts.tsv') if r['length'] == 'optimal'][0]
 EXTRA['nopt_mean'] = float(opt['mean_dr_solutions'])
@@ -117,7 +120,7 @@ upto = lambda b, k: b[:, :k + 1].min(1)                 # best route through an 
 rows = []
 def trow(name, v, kind='sampled, 50,000'):
     has = v < 99
-    rows.append([name, kind] + [pc((v <= t).mean()) for t in (8, 9, 10, 11, 12)] + [pc(1 - has.mean()) if (~has).any() else '0%', f'{v[has].mean():.2f}'])
+    rows.append([name, kind] + [pc((v <= t).mean()) for t in (8, 9, 10, 11, 12)] + [pc(1 - exact(has.mean())) if (~has).any() else '0%', f'{hu(v[has].mean(), 2):.2f}'])
 trow('Optimal DR, best of 3 axes, normal', dlin)
 trow('Optimal DR, best of 6 (normal or inverse)', d6)
 trow('Optimal DR with NISS', dniss)
@@ -198,7 +201,7 @@ for eos, en in (('linear (normal)', 'normal'), ('normal or inverse (linear)', 'n
     for axes, an in (('one axis (F/B)', 'F/B only'), ('all three axes', 'all three')):
         r3, r4, r5, r6 = (bk[(eos, axes, k)] for k in (3, 4, 5, 6))
         rows.append([en, an, f"{float(r3['mean_le']):.2f}", f"{float(r4['mean_le']):.1f}", f"{float(r5['mean_le']):.0f}", f"{float(r6['mean_le']):,.0f}",
-                     f"{float(r4['median_le']):.0f}", f"{float(r5['median_le']):.0f}", pc(r4['p_none_le']), pc(r5['p_none_le']), f"{int(r5['max_le']):,}"])
+                     f"{hu(float(r4['median_le'])):.0f}", f"{hu(float(r5['median_le'])):.0f}", pc(r4['p_none_le']), pc(r5['p_none_le']), f"{int(r5['max_le']):,}"])
 table('b4', ['EOs', 'Axes', 'EOs of ≤ 3, mean', 'EOs of ≤ 4, mean', 'EOs of ≤ 5, mean', 'EOs of ≤ 6, mean'], [x[:6] for x in rows])
 table('b4_more', ['EOs', 'Axes', 'EOs of ≤ 4, median', 'EOs of ≤ 5, median', 'Scrambles with no EO of ≤ 4', 'Scrambles with no EO of ≤ 5', 'Most EOs of ≤ 5 on one scramble'], [x[:2] + x[6:] for x in rows])
 EXTRA['b4'] = {f'{e}|{a}|{k}': {kk: r[kk] for kk in ('mean_le', 'median_le', 'p_none_le', 'min_le', 'max_le')} for (e, a, k), r in bk.items()}
@@ -220,9 +223,9 @@ table('b4_opt', ['Shortest EO', 'Exact or sampled', 'Mean, turns', 'EO in ≤ 2'
 # ------------------------------------------------------------------------------------------------ B5
 rows, rows_n, hist = [], [], {}
 for r in rd('b5_by_bad.tsv'):
-    rows.append([r['bad'], f"${r['p_state']}$", pc(r['p_linear_le3']), pc(r['p_linear_le4']), pc(r['p_linear_le5']),
-                 pc(r['p_lin_or_inv_le4']), pc(r['p_lin_or_inv_le5'])])
-    rows_n.append([r['bad'], pc(r['p_niss_le3']), pc(r['p_niss_le4']), pc(r['p_niss_le5']), f"{int(r['sampled_axes']):,}"])
+    rows.append([r['bad'], f"${r['p_state']}$", pc(r['p_linear_le3'], rounded=True), pc(r['p_linear_le4'], rounded=True), pc(r['p_linear_le5'], rounded=True),
+                 pc(r['p_lin_or_inv_le4'], rounded=True), pc(r['p_lin_or_inv_le5'], rounded=True)])
+    rows_n.append([r['bad'], pc(r['p_niss_le3'], rounded=True), pc(r['p_niss_le4'], rounded=True), pc(r['p_niss_le5'], rounded=True), f"{int(r['sampled_axes']):,}"])
     hist[r['bad']] = dict(x.split(':') for x in r['optimal_hist'].split())
 table('b5_by_bad', ['Bad edges', 'Share of axes', 'Normal EO in ≤ 3', 'Normal EO in ≤ 4', 'Normal EO in ≤ 5', 'Normal or inverse EO in ≤ 4', 'Normal or inverse EO in ≤ 5'], rows)
 table('b5_by_bad_niss', ['Bad edges', 'NISS EO in ≤ 3', 'NISS EO in ≤ 4', 'NISS EO in ≤ 5', 'Sampled axes (NISS columns)'], rows_n)
@@ -230,7 +233,7 @@ lens = sorted({int(k) for h in hist.values() for k in h})
 table('b5_hist', ['Shortest normal EO, turns'] + [f'{b} bad' for b in hist],
       [[str(l)] + [h.get(str(l), '–') for h in hist.values()] for l in lens])
 EXTRA['b5'] = {r['bad']: r for r in rd('b5_by_bad.tsv')}
-rows = [[r['sorted_triple'], f"${r['probability']}$", pc(r['p'])] for r in rd('b5_sorted.tsv')]
+rows = [[r['sorted_triple'], f"${r['probability']}$", pc(r['p'], rounded=True)] for r in rd('b5_sorted.tsv')]
 table('b5_sorted', ['Bad edges on the three axes (sorted)', 'Probability (exact)', 'As a percentage'], rows)
 table('b5_top', ['Bad edges on the three axes (sorted)', 'Probability (exact)', 'As a percentage'], rows[:8])
 
@@ -240,7 +243,7 @@ for r in rd('c7_typical.tsv'):
     if r['option'].startswith('one DR axis, EO kept, normal (sampled'):
         continue
     kind = 'exact, 1,082,565 states' if r['kind'] == 'exact' else f"sampled, {int(r['states']):,}"
-    rows.append([r['option'], kind, f"{float(r['mean']):.3f}", pc(r['p_le4']), pc(r['p_le5']), pc(r['p_le6']), pc(r['p_le7']), pc(r['p_le8']), r['one_in_le6']])
+    rows.append([r['option'], kind, f"{float(r['mean']):.3f}", pc(r['p_le4'], rounded=True), pc(r['p_le5'], rounded=True), pc(r['p_le6'], rounded=True), pc(r['p_le7'], rounded=True), pc(r['p_le8'], rounded=True), r['one_in_le6']])
 table('c7', ['After the EO: DR with', 'Exact or sampled', 'Mean, turns', 'DR in ≤ 4', 'DR in ≤ 5', 'DR in ≤ 6', 'DR in ≤ 7', 'DR in ≤ 8', 'DR in ≤ 6: 1 in'], rows)
 EXTRA['c7'] = {r['option']: r for r in rd('c7_typical.tsv')}
 
@@ -269,15 +272,17 @@ cases.sort(key=lambda r: -float(r['share']))
 C6K = ('plain', 'any_turns', 'switch_last', 'two_axes', 'normal_or_inverse', 'all_eo_kept')
 C6H = ['one axis, EO kept', 'any turns', 'last EO turn either way, EO kept', 'better of 2 DR axes', 'normal or inverse', 'all EO-keeping options']
 def crow(r, full):
-    base = [r['case'], pc(r['share']), f"1 in {1082565 / int(r['cosets']):,.1f}"]
+    pc6 = lambda v: pc(v, rounded=isinstance(v, str))                                  # recomputed here, or as the result file rounded it
+    m2 = lambda v: f'{float(v):.2f}' if isinstance(v, str) else f'{hu(v, 2):.2f}'
+    base = [r['case'], pc(r['share']), f"1 in {hu(1082565 / int(r['cosets']), 1):,.1f}"]
     if full == 'share':
         ns = int(NIC[r['case']]['states']) if r['case'] in NIC else round(10000000 * int(r['cosets']) / 1082565)
         return base + [(f'{ns:,}' if r['case'] in NIC else f'about {ns:,}') + (' (few)' if ns < 1100 else '')]
     if full == 'mean':
-        return [r['case']] + [f"{float(r[k + '_mean']):.2f}" for k in C6K]
+        return [r['case']] + [m2(r[k + '_mean']) for k in C6K]
     if full == 'le6':
-        return [r['case']] + [pc(r[k + '_p_le6']) for k in C6K]
-    return base + [f"{float(r['plain_mean']):.2f}"] + [pc(r[k + '_p_le6']) for k in ('plain', 'switch_last', 'two_axes', 'normal_or_inverse', 'all_eo_kept')]
+        return [r['case']] + [pc6(r[k + '_p_le6']) for k in C6K]
+    return base + [m2(r['plain_mean'])] + [pc6(r[k + '_p_le6']) for k in ('plain', 'switch_last', 'two_axes', 'normal_or_inverse', 'all_eo_kept')]
 table('c6_case', ['Case on the DR axis', 'Share of EO-solved states', 'Odds', 'Mean turns, one axis', 'DR in ≤ 6: one axis', 'DR in ≤ 6: last EO turn either way', 'DR in ≤ 6: better of 2 DR axes', 'DR in ≤ 6: normal or inverse', 'DR in ≤ 6: all of these'],
       [crow(r, False) for r in cases[:16]])
 table('c6_case_full', ['Case on the DR axis', 'Share of EO-solved states', 'Odds', 'States sampled (normal or inverse, all EO-keeping options)'],
@@ -287,8 +292,8 @@ table('c6_case_full_le6', ['Case on the DR axis'] + [f'DR in ≤ 6: {h}' for h i
 EXTRA['c6'] = {r['case']: r for r in c6rows()}
 ni = rd('c6_normal_inverse.tsv')
 table('c6_normal_inverse', ['Case', 'States sampled', 'Correlation, normal against inverse', 'Inverse DR in ≤ 6 when normal is 6', 'Inverse DR in ≤ 6 when normal is 8', 'Inverse DR in ≤ 6, any normal'],
-      [[r['case'], f"{int(r['states']):,}", r['correlation'], pc(r['p_inv_le6_given_normal_6']) if r['p_inv_le6_given_normal_6'] else '–',
-        pc(r['p_inv_le6_given_normal_8']) if r['p_inv_le6_given_normal_8'] else '–', pc(r['p_inv_le6'])] for r in ni])
+      [[r['case'], f"{int(r['states']):,}", r['correlation'], pc(r['p_inv_le6_given_normal_6'], rounded=True) if r['p_inv_le6_given_normal_6'] else '–',
+        pc(r['p_inv_le6_given_normal_8'], rounded=True) if r['p_inv_le6_given_normal_8'] else '–', pc(r['p_inv_le6'], rounded=True)] for r in ni])
 EXTRA['c6ni'] = {r['case']: r for r in ni}
 
 # ------------------------------------------------------------------------------------------------ checks

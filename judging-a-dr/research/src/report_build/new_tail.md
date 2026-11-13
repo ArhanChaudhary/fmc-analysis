@@ -45,15 +45,15 @@ For the hand reads in sections 3 to 6:
 
 ## 12. What this doesn't do
 
-- **DR moves only.** "Optimal" here is U, D, R2, L2, F2, B2. A finish that breaks DR is shorter for {= '%.1f' % (GAPS()['g2']['uniform']['shorter'] * 100) =}% of DR states (± {= '%.1f' % (GAPS()['g2']['uniform']['se'] * 100) =} points), by one move in {= '%.0f' % GAPS()['by1'] =}% of those, {= '%.3f' % GAPS()['g2']['uniform']['mean_gain'] =} moves on average. That's {= '{:,}'.format(GAPS()['g2n']) =} uniform states, 1,000 per subset × edges, solved with all 18 face turns by nissy's `solve optimal`. On other sets of DRs, each row is a set and the share of it where a DR-breaking finish is shorter:
+- **DR moves only.** "Optimal" here is U, D, R2, L2, F2, B2. A finish that breaks DR is shorter for {= '%.1f' % (GAPS()['g2']['uniform']['shorter'] * 100) =}% of DR states (± {= '%.1f' % (GAPS()['g2']['uniform']['se'] * 100) =} points), by one move in {= '%.0f' % hu(GAPS()['by1']) =}% of those, {= '%.3f' % GAPS()['g2']['uniform']['mean_gain'] =} moves on average. That's {= '{:,}'.format(GAPS()['g2n']) =} uniform states, 1,000 per subset × edges, solved with all 18 face turns by nissy's `solve optimal`. On other sets of DRs, each row is a set and the share of it where a DR-breaking finish is shorter:
 
   | Which DRs | DR-breaking finish shorter, share |
   |---|---:|
   | real DRs, each DR counted once | {= '%.1f' % (GAPS()['g2']['dr11']['shorter'] * 100) =}% |
   | real DRs, each scramble counted once | {= '%.1f' % (GAPS()['g2']['scr11']['shorter'] * 100) =}% |
-  | DR-move optimum 12 or less | {= '%.1f' % GAPS()['le12'] =}% |
-  | DR-move optimum 15 | {= '%.1f' % GAPS()['at'][15] =}% |
-  | DR-move optimum 16 | {= '%.0f' % GAPS()['at'][16] =}% |
+  | DR-move optimum 12 or less | {= '%.1f' % hu(GAPS()['le12'], 1) =}% |
+  | DR-move optimum 15 | {= '%.1f' % hu(GAPS()['at'][15], 1) =}% |
+  | DR-move optimum 16 | {= '%.0f' % hu(GAPS()['at'][16]) =}% |
 
   So it only climbs on long finishes. Most of it sits in three cells: {= ', '.join('%s %.0f%%' % (c, x) for c, x in GAPS()['worst']) =}. An example ({= GAPS()['ex']['subset'] =}, DR moves only, DR-move optimum {= GAPS()['ex']['dr_optimum'] =}):
 

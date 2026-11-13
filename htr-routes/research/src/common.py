@@ -7,8 +7,10 @@ Inputs (written by `htrtools routes`, see README):
   out/big/run1/route_keys.tsv        route id -> key ("H:..." route to HTR, "F:..." labels over the whole finish)
   out/checks/dist48.tsv              exact number of DR states per subset (to pool subsets by their true size)
 """
-import os, csv, re, collections
+import os, csv, re, collections, sys
 import numpy as np
+sys.path.append('/data/fmc/judging-a-dr/research/src')
+from pv import hu, exact          # every printed number: an exact half goes up (the first study's rule; xhtfirst.py reads pv too)
 HERE = os.path.dirname(os.path.abspath(__file__))
 R = os.path.normpath(os.path.join(HERE, '..'))
 RUN = os.path.join(R, 'out', 'big', 'run1')

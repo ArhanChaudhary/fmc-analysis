@@ -53,7 +53,7 @@
 |  | ARM 00, 84, 01, 31, 63 | Lewis Isom [[D7116]] | 6.7% | 38.3% | 17.7% | 11.9% | 33.2% |
 |  | 3+ fake pairs and edge ARM not 2 | tseitsei89 [[T9568]] [[T9572]] | 44.3% | 15.3% | 46.8% | 7.7% | 14.7% |
 | 2c2e | **a bad U/D edge with a pair** | **this study** (switch) | 23.2% | 59.6% | 58.5% | 9.8% | 60.3% |
-|  | **a paired edge, or JZP** | **this study** (switch + your call) | 31.2% | 54.3% | 71.7% | 6.7% | 56.0% |
+|  | **a paired edge, or JZP** | **this study** (switch + your call) | 31.3% | 54.3% | 71.7% | 6.7% | 56.0% |
 |  | 1+ pairs | rodneykinney, *DRM Subsets Meta* | 23.2% | 59.6% | 58.5% | 9.8% | 60.3% |
 | 4c6e | **JZP** | **this study** (switch) | 0.61% | 61.1% | 8.1% | 4.2% | 58.4% |
 |  | **JZP or 4 pairs** | **this study** (switch + your call) | 1.8% | 52.3% | 20.6% | 3.7% | 52.4% |

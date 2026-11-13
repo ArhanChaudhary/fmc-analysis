@@ -1,8 +1,8 @@
 | Half turns to two bars | U/D turns of the shortest such setup | Length of that DR (moves) | States | Share of that half-turn count | Sub-7 rate |
 |---|---|---|---|---|---|
-| 0 | 0 | 1 | 2 | 6.2% | 100% |
+| 0 | 0 | 1 | 2 | 6.3% | 100% |
 | 0 | 1 | 2 | 12 | 37.5% | 100% |
-| 0 | 2 | 3 | 18 | 56.2% | 100% |
+| 0 | 2 | 3 | 18 | 56.3% | 100% |
 | 1 | 0 | 2 | 4 | 0.58% | 100% |
 | 1 | 1 | 3 | 60 | 8.7% | 100% |
 | 1 | 2 | 4 | 260 | 37.8% | 100% |

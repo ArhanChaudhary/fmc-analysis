@@ -459,7 +459,7 @@ People said two things you can see on a DR-1s matter: how far it is from a DR, a
 | Fewest turns to a real DR, from the better side | Share of DR-1s | Average finish, moves | Average finish minus a DR's, moves | Finish in 14 or less | Finish in 15 or less |
 |---:|---:|---:|---:|---:|---:|
 | 2 | 2.8% | 14.52 | +0.94 | 46% | 81% |
-| 3 | 5.5% | 15.15 | +1.57 | 25% | 59% |
+| 3 | 5.6% | 15.15 | +1.57 | 25% | 59% |
 | 4 | 23% | 15.74 | +2.16 | 11% | 36% |
 | 5 | 53% | 15.96 | +2.38 | 6.1% | 27% |
 | 6 | 16% | 16.12 | +2.54 | 4.1% | 21% |
@@ -500,7 +500,7 @@ There are 9 pairs of a slice and an axis, each in two flavours (all oriented, al
 | exactly 2 | 23% | 21% | 9.5% | 17% |
 | exactly 3 | 7.3% | 14% | 1.6% | 7.5% |
 | 4 or more | 2.0% | 25% | 0.24% | 7.0% |
-| average number | 1.12 | 2.25 | 0.56 | 1.12 |
+| average number | 1.13 | 2.25 | 0.56 | 1.13 |
 
 - **68.7953% of scrambles have at least one skip on normal, and 79.3147% have one on normal or inverse.** That's wen's question.
 - Each single skip (one slice, one axis, one flavour, one side) has chance $1/16$, so $1/8$ for a slice and an axis with either flavour, like tseitsei89 and count quackula worked out ([3 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1533722203646988318), [3 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1533721112813244467)). The skips are far from independent: the average is 2.25 per scramble over both sides, but 21% of scrambles have none.
@@ -513,7 +513,7 @@ And for one given slice, the moves to a slice EO on some axis, over all 7,920 wa
 | any axis, oriented or misoriented | 32.2% | 38.3% | 29.5% | 0 | 0 |
 | any axis, oriented only | 17.0% | 25.5% | 51.6% | 5.9% | 0 |
 | one given axis, oriented or misoriented | 12.5% | 19.7% | 61.3% | 6.5% | 0 |
-| one given axis, oriented only | 6.2% | 10.7% | 47.2% | 32.8% | 3.0% |
+| one given axis, oriented only | 6.3% | 10.7% | 47.2% | 32.8% | 3.0% |
 
 FakeMMAP's "never more than 2 moves away", "No matter which slice you pick" ([25 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465100277303476304), [25 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465100381318025409)) is exact, and so is the EO Meta Comparison doc's "partial EO in <=2 is guaranteed", as long as all-misoriented counts. All-oriented only, it takes 3 moves 5.9% of the time.
 

@@ -139,7 +139,7 @@ D2 L2 D R2 D' R   // optimal DR, 6 moves
 |---|---|---|
 | 7c8e with 5 or 6 pairs | 95.4% ✓ | 33.8% ✓ |
 | 2c2e with a paired edge | 95.0% ✓ | 37.5% ✓ |
-| 4c6e JZP | 85.0% ✓ | 31.2% ✓ |
+| 4c6e JZP | 85.0% ✓ | 31.3% ✓ |
 | 4c4e with both bad edges paired | 80.0% ✓ | 28.7% ✓ |
 | 3c2e | 76.6% ✓ | 24.2% ✓ |
 | 4c2e with 1.5+ pairs | 73.2% ✓ | 30.8% ✓ |
@@ -265,7 +265,7 @@ The questions, in the askers' own words, and where each is answered. Most got an
 - tseitsei89 ([25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409607396103290960)): "It would be really nice to find a way to filter out good 1 pair cases but there doesnt seem to be one currently". *Answer*: the 1-pair cases 2 half turns from two bars, 1,152 of them at 73.6% (three ring pictures, appendix A); by a pair trace alone, edge ARM, then the corner case (section 6.1).
 - bpaul ([21 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1397028793960370187), [21 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1397028895227772979)): "random thought i wonder whether looking at pair stats not just on the count but also based on the number of pairs per edge could be good", "sounds way harder to count for higher corner counts but maybe for 4c4e it would be helpful idk". *Answer*: yes, and it's the main 4c4e finding (sections 6.1 and 10).
 - caycala ([25 Apr 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1365339679385321552)): "i wonder what the probability is for 21 + no pairs+ 1 corner pair". *Answer*, reading "corner pair" as a side pair: 4c4e ARM 21 with no pairs and 1 side pair is 6.8%; with 2 side pairs it is 24.1%.
-- FakeMMAP ([21 Jun 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1385961621888696432)): "Do you think it's worthwhile to check for ARM if you have 0 pairs on the off-chance it's a short setup to F2 B2 R?" *Answer*: with 0 pairs, ARM 00 is 66.7% and ARM 42 is 83.3%, but each is only 36 of the 21,000 zero-pair cases. Every other ARM is 11.0% or less (ARM 21 is the best of them). So it's only worth it if the ARM check costs you nothing. The ring picture finds the case directly: `F2 B2 R` is the one 0-pair picture that is 2 half turns from two bars, in each layer two bad corners pointing at each other across a good edge place with the bad edge opposite (`oEo->-<-` twice, 96 cases at 81.2%).
+- FakeMMAP ([21 Jun 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1385961621888696432)): "Do you think it's worthwhile to check for ARM if you have 0 pairs on the off-chance it's a short setup to F2 B2 R?" *Answer*: with 0 pairs, ARM 00 is 66.7% and ARM 42 is 83.3%, but each is only 36 of the 21,000 zero-pair cases. Every other ARM is 11.0% or less (ARM 21 is the best of them). So it's only worth it if the ARM check costs you nothing. The ring picture finds the case directly: `F2 B2 R` is the one 0-pair picture that is 2 half turns from two bars, in each layer two bad corners pointing at each other across a good edge place with the bad edge opposite (`oEo->-<-` twice, 96 cases at 81.3%).
 
 **Real RZPs, the last turn and the other axis (section 8)**
 
@@ -472,7 +472,7 @@ There is no formula for the row swaps. I looked for one. No score read off one l
 
 | Pairs | Half turns to two bars | States | Share of 4c4e | Sub-7 rate |
 |---|---|---|---|---|
-| 0 | 2 | 96 | 0.14% | 81.2% |
+| 0 | 2 | 96 | 0.14% | 81.3% |
 | 0 | 3 | 4,848 | 6.9% | 12.0% |
 | 0 | 4 or 5 | 16,056 | 22.8% | 1.5% |
 | 1 | 2 | 1,152 | 1.6% | 73.6% |
@@ -496,7 +496,7 @@ Read it as a recipe:
 | The unpaired corner is in | A bad piece in the two places behind it | Both bad edges in one layer, opposite each other | Row swaps | States (4c4e) | Sub-7 rate |
 |---|---|---|---|---|---|
 | the other layer | no | no | 1 | 768 | 95.8% |
-| the other layer | no | yes | 2 | 384 | 81.2% |
+| the other layer | no | yes | 2 | 384 | 81.3% |
 | the other layer | yes | no | 2 | 384 | 83.3% |
 | the layer of the edge that lacks it | no | no | 2 | 384 | 83.3% |
 | the layer of the edge that lacks it | yes | no | 3 | 480 | 43.3% |
@@ -651,7 +651,7 @@ By DRM, one row per number of side turns:
 |  | 4 | 15,056 | 80.0% | 4.6% | 36.8% |
 |  | 5 | 288 | 1.5% | 0% | 0% |
 | 3c6e | 2 | 256 | 1.0% | 100% | 21.1% |
-|  | 3 | 5,120 | 20.4% | 16.2% | 68.4% |
+|  | 3 | 5,120 | 20.4% | 16.3% | 68.4% |
 |  | 4 | 19,328 | 77.0% | 0.66% | 10.5% |
 |  | 5 | 384 | 1.5% | 0% | 0% |
 | 5c4e | 3 | 7,808 | 8.3% | 34.7% | 40.0% |
@@ -713,7 +713,7 @@ So 3 side turns is where the sub-7s are: it holds between 40.0% and 78.3% of eac
 | 2c2e | 2 qt + 1 half turn | 3 | 416 | 23.2% | 46.2% | 45.3% |
 |  | 3 qt | 3 | 288 | 16.1% | 33.3% | 22.6% |
 |  | 2 qt + 2 half turns | 4 | 960 | 53.6% | 13.3% | 30.2% |
-|  | 3 qt + 1 half turn | 4 | 128 | 7.1% | 6.2% | 1.9% |
+|  | 3 qt + 1 half turn | 4 | 128 | 7.1% | 6.3% | 1.9% |
 | 4c6e | 2 qt | 2 | 128 | 0.14% | 100% | 2.9% |
 |  | 2 qt + 1 half turn | 3 | 4,416 | 4.7% | 48.2% | 49.0% |
 |  | 3 qt | 3 | 4,288 | 4.6% | 13.2% | 13.1% |
@@ -884,7 +884,7 @@ The cards of section 6 and the side turns see different things, so they stack. *
 |  | no pair, not JZP | short | 256 | 14.3% | 15.6% | 14.0% | 2,182 |
 |  | no pair, not JZP | not short | 976 | 54.5% | 8.2% | 8.2% | 8,194 |
 | 4c6e | JZP | short | 320 | 0.34% | 85.0% | 85.4% | 2,348 |
-|  | JZP | not short | 256 | 0.27% | 31.2% | 26.9% | 2,008 |
+|  | JZP | not short | 256 | 0.27% | 31.3% | 26.9% | 2,008 |
 |  | 4 pairs | short | 672 | 0.71% | 73.8% | 75.0% | 5,100 |
 |  | 4 pairs | not short | 464 | 0.49% | 10.3% | 10.7% | 3,400 |
 |  | anything else | short | 3,552 | 3.8% | 41.9% | 42.5% | 27,718 |
@@ -1176,7 +1176,7 @@ By pairs, one row per DRM and pair count (JZP as its own row):
 
 | DRM | Pairs on the switched case | States | Share of the DRM | Sub-7 rate, exact | Band |
 |---|---|---|---|---|---|
-| 4c6e | 0 pairs | 12,800 | 13.6% | 0.12% | discard |
+| 4c6e | 0 pairs | 12,800 | 13.6% | 0.13% | discard |
 |  | 1 pair | 35,200 | 37.4% | 0.80% | discard |
 |  | 2 pairs | 33,600 | 35.7% | 4.8% | discard |
 |  | 3 pairs | 11,200 | 11.9% | 16.1% | your call |
@@ -1354,7 +1354,7 @@ Every rule from the server I could pin down, graded the same way on the switched
 |  | ARM 00, 84, 01, 31, 63 | Lewis Isom [12 Aug 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1272720588355665990) | 6.7% | 38.3% | 17.7% | 11.9% | 33.2% |
 |  | 3+ fake pairs and edge ARM not 2 | tseitsei89 [2 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1412521094816075866) [2 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1412521849803247656) | 44.3% | 15.3% | 46.8% | 7.7% | 14.7% |
 | 2c2e | **a bad U/D edge with a pair** | **this study** (switch) | 23.2% | 59.6% | 58.5% | 9.8% | 60.3% |
-|  | **a paired edge, or JZP** | **this study** (switch + your call) | 31.2% | 54.3% | 71.7% | 6.7% | 56.0% |
+|  | **a paired edge, or JZP** | **this study** (switch + your call) | 31.3% | 54.3% | 71.7% | 6.7% | 56.0% |
 |  | 1+ pairs | rodneykinney, *DRM Subsets Meta* | 23.2% | 59.6% | 58.5% | 9.8% | 60.3% |
 | 4c6e | **JZP** | **this study** (switch) | 0.61% | 61.1% | 8.1% | 4.2% | 58.4% |
 |  | **JZP or 4 pairs** | **this study** (switch + your call) | 1.8% | 52.3% | 20.6% | 3.7% | 52.4% |
@@ -1662,7 +1662,7 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | `oE<-o-o-` | `>E<-o->-` | 1 | 3 | 384 | 95.8% |
 | `oE<-o-<-` | `>Eo->-o-` | 1 | 2 | 192 | 100% |
 | `>E<-o-o-` | `oE<-o->-` | 2 | 3 | 384 | 83.3% |
-| `>E<-oE<-` | `>-o-o-o-` | 2 | 3 | 384 | 81.2% |
+| `>E<-oE<-` | `>-o-o-o-` | 2 | 3 | 384 | 81.3% |
 | `oE<-o-o-` | `>E<->-o-` | 2 | 3 | 384 | 83.3% |
 | `<E>E<-o-` | `>-o-o-o-` | 2 | 2 | 384 | 70.8% |
 | `>E<-o-o-` | `oEo->-<-` | 2 | 2 | 192 | 54.2% |
@@ -1688,15 +1688,15 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | `oE<-o-<-` | `oE>->-o-` | 2 | 1 | 384 | 62.5% |
 | `oE<-o->-` | `<Eo->-o-` | 2 | 1 | 384 | 79.2% |
 | `oE<Eo->-` | `<-o->-o-` | 2 | 1 | 384 | 79.2% |
-| `oEo->-<-` | `oEo->-<-` | 2 | 0 | 96 | 81.2% |
+| `oEo->-<-` | `oEo->-<-` | 2 | 0 | 96 | 81.3% |
 
 **4c4e: U/D turns by half-turn count** (section 4.5). Each row is a half-turn count with the number of U/D turns its shortest one-quarter-turn setup needs, **computer only** as a table:
 
 | Half turns to two bars | U/D turns of the shortest such setup | Length of that DR (moves) | States | Share of that half-turn count | Sub-7 rate |
 |---|---|---|---|---|---|
-| 0 | 0 | 1 | 2 | 6.2% | 100% |
+| 0 | 0 | 1 | 2 | 6.3% | 100% |
 | 0 | 1 | 2 | 12 | 37.5% | 100% |
-| 0 | 2 | 3 | 18 | 56.2% | 100% |
+| 0 | 2 | 3 | 18 | 56.3% | 100% |
 | 1 | 0 | 2 | 4 | 0.58% | 100% |
 | 1 | 1 | 3 | 60 | 8.7% | 100% |
 | 1 | 2 | 4 | 260 | 37.8% | 100% |
@@ -1732,7 +1732,7 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | 2 | 10 | 800 | 67.0% |
 | 2 | 11 | 1,280 | 64.4% |
 | 2 | 20 | 384 | 70.8% |
-| 2 | 21 | 3,200 | 77.2% |
+| 2 | 21 | 3,200 | 77.3% |
 | 2 | 22 | 384 | 67.7% |
 | 2 | 31 | 1,280 | 71.9% |
 | 2 | 32 | 800 | 69.0% |
@@ -1799,7 +1799,7 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | 2c2e | 2 qt + 1 half turn | 46.8% | 3,636 | 92.3% | 9.6% |
 |  | 3 qt | 31.0% | 2,484 | 94.4% | 2.8% |
 |  | 2 qt + 2 half turns | 14.3% | 8,114 | 84.2% | 0% |
-|  | 3 qt + 1 half turn | 5.2% | 966 | 56.2% | 0% |
+|  | 3 qt + 1 half turn | 5.2% | 966 | 56.3% | 0% |
 | 4c6e | 2 qt | 100% | 954 | 100% | 100% |
 |  | 2 qt + 1 half turn | 48.7% | 34,212 | 96.4% | 8.0% |
 |  | 3 qt | 13.2% | 32,982 | 58.4% | 1.1% |

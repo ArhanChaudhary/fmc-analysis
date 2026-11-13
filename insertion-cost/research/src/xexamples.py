@@ -151,7 +151,7 @@ def build():
         t = tally[typ]; v8 = [x[1] for x in t if x[1] is not None]; v10 = [x[2] for x in t if x[2] is not None]
         better = sum(1 for x in t if x[2] is not None and (x[1] is None or x[2] < x[1]))
         c8, c10 = iv.cell(typ, 20, 8, iv.head(typ)), iv.cell(typ, 20, 10, iv.head(typ))
-        L.append(f"| {iv.SHOW[typ]} | {sum(v8) / len(v8):.2f} | {len(t) - len(v8)} of {len(t)} | {sum(v10) / len(v10):.2f} | {better} of {len(t)} | {iv.mean(c8):.2f} | {iv.mean(c10):.2f} |")
+        L.append(f"| {iv.SHOW[typ]} | {iv.f2(sum(v8) / len(v8))} | {len(t) - len(v8)} of {len(t)} | {iv.f2(sum(v10) / len(v10))} | {better} of {len(t)} | {iv.f2(iv.mean(c8))} | {iv.f2(iv.mean(c10))} |")
     L += ['', 'Twenty skeletons are a handful: the page is for practice, the write-up has the odds. Every answer is the best there is for its cap, the answer key, not what you find in the time you have.', '']
     open(PAGE, 'w').write('\n'.join(L))
     print('wrote', PAGE, len(L), 'lines')

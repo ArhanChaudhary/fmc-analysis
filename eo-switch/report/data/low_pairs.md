@@ -1,6 +1,6 @@
 | DRM | Pairs on the switched case | States | Share of the DRM | Sub-7 rate, exact | Band |
 |---|---|---|---|---|---|
-| 4c6e | 0 pairs | 12,800 | 13.6% | 0.12% | discard |
+| 4c6e | 0 pairs | 12,800 | 13.6% | 0.13% | discard |
 |  | 1 pair | 35,200 | 37.4% | 0.80% | discard |
 |  | 2 pairs | 33,600 | 35.7% | 4.8% | discard |
 |  | 3 pairs | 11,200 | 11.9% | 16.1% | your call |

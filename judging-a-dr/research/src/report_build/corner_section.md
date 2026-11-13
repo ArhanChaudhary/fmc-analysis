@@ -52,7 +52,7 @@ Both sides together, one row per combination of the cases on normal and on inver
 | the best case on both sides (adjacent, a qt straight to 2c3, first row) | 2.8% | 0.92% | 5.6% | 26% | 75% |
 | no stack on either side, and a qt goes straight to 2c3 or 4b3 on both | 17.4% | 0.68% | 4.2% | 21% | 66% |
 | a stack on one side only | 37.5% | 0.10% | 0.92% | 6.4% | 32% |
-| a stack on both sides | 6.2% | 0 | 0.06% | 1.1% | 11% |
+| a stack on both sides | 6.3% | 0 | 0.06% | 1.1% | 11% |
 
 So a double stack is as dead as a 5qt at every target, and the best layout on both sides (first row above) is as good as an average 2c3 4e (last row of the table below). Each row is a kind of DR, with the share finishing in 10, 11, 12 and 13 or less:
 
@@ -94,10 +94,10 @@ Both sides together, one row per combination of the cases on normal and on inver
 |---|---:|---:|---:|---:|---:|
 | adjacent on both sides | 25.0% | 0.08% | 0.69% | 4.7% | 25% |
 | adjacent and opposite | 25.0% | 0.02% | 0.35% | 2.9% | 18% |
-| opposite on both sides | 6.2% | 0 | 0.09% | 1.4% | 11% |
+| opposite on both sides | 6.3% | 0 | 0.09% | 1.4% | 11% |
 | adjacent and stacked | 25.0% | 0 | 0.06% | 1.1% | 9.5% |
 | opposite and stacked | 12.5% | 0 | 0 | 0.24% | 4.5% |
-| stacked on both sides | 6.2% | 0 | 0 | 0 | 0.64% |
+| stacked on both sides | 6.3% | 0 | 0 | 0 | 0.64% |
 
 The last two rows are 19% of all 2c5, and you can drop them on sight whatever your target: a 2c5 that is stacked on both sides never finishes in 12, and stacked on one side with opposite on the other never finishes in 11 and is 0.24% for a 12.
 

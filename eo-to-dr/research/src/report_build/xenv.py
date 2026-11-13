@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Names available inside {= ... =} in the write-up and errata sources.  Every number in the text comes through here:
 from a cell of a generated table (report/data), or from the result files the tables are made from (research/out)."""
-import json, csv, os, re, math, functools
+import json, csv, os, re, math, functools, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from halfup import hu, exact
 O = '/data/fmc/eo-to-dr/research/out/'
 D = '/data/fmc/eo-to-dr/report/data/'
 csv.field_size_limit(10**8)
@@ -11,18 +13,21 @@ S500 = _j('s500_stats.json')
 W = {w['id']: w for w in _j('witness.json')}
 WX = _j('witness_extra.json')
 
-def pc(x, d=None):
-    """A share as a percentage: one decimal, two below 1%, more below 0.1%."""
-    x = float(x) * 100
+def pc(x, d=None, rounded=False):
+    """A share as a percentage: one decimal, two below 1%, more below 0.1%.  An exact half goes up (halfup.hu).
+    rounded=True is for a share its result file has already rounded (5 decimals of a number that has more): a 5 in
+    its last place is no half then, and it is formatted from the float as it always was.  So are the means of the
+    result files (f2, f3, f4): they are kept to 3 or 4 decimals there."""
+    share, x = x, float(x) * 100
     if x == 0: return '0%'
     if 99.95 <= x < 100 and d is None: return '>99.9%'
     if d is None: d = 1 if x >= 1 else 2 if x >= 0.1 else 3 if x >= 0.01 else 4
-    return f'{x:.{d}f}%'
+    return f'{x:.{d}f}%' if rounded else f'{hu(share, d, 100):.{d}f}%'
 def f2(x): return f'{float(x):.2f}'
 def f3(x): return f'{float(x):.3f}'
 def f4(x): return f'{float(x):.4f}'
 def n(x): return f'{int(x):,}'
-def onein(p): return f'1 in {1 / float(p):.1f}'
+def onein(p): return f'1 in {1 / float(p):.1f}' if isinstance(p, str) else f'1 in {hu(round(1 / p, 9), 1):.1f}'          # text: a share as its result file rounded it
 
 @functools.lru_cache(None)
 def _table(name):
@@ -42,14 +47,14 @@ A1N = {'fixed': 'fixed axis, exact (all 2,217,093,120 cosets)', 'pooled': 'fixed
 def A1(key, what, src=None):
     """A1 statistic: key in A1N, what = mean / p_le8 / p_le9 / p_le10 / max; src = None (uniform 50,000), 'nissy', '500'."""
     d = {None: A, 'nissy': NB, '500': S500}[src]['a1'][A1N[key]][what]
-    return f2(d) if what == 'mean' else str(d) if what == 'max' else pc(d)
+    return f2(d) if what == 'mean' else str(d) if what == 'max' else pc(d, rounded=key in ('fixed', 'pooled'))     # the others are counts out of 50,000 or 500
 def A1D(key, what):
     """Difference uniform - nissy scramble of an A1 statistic (mean in turns, shares in points)."""
     a, b = A['a1'][A1N[key]][what], NB['a1'][A1N[key]][what]
-    return f2(a - b) if what == 'mean' else f'{abs(a - b) * 100:.1f}'
+    return f2(a - b) if what == 'mean' else f'{hu(abs(exact(a) - exact(b)), 1, 100):.1f}'
 def SE(key):
     """Standard error of an A1 mean on the 50,000."""
-    return f'{E["sd_" + key] / math.sqrt(E["n"]):.3f}'
+    return f'{hu(E["sd_" + key] / math.sqrt(E["n"]), 3):.3f}'
 def GAIN(which, g):
     d = A['a1'][which]; return pc(d[str(g)] / E['n'])
 def GAINGE(which, g):
@@ -72,10 +77,10 @@ def A2(kind, k, col):
     return f2(v) if col.startswith('mean') else pc(v)
 def A2NOT(kind, k):
     """Share of scrambles where the best route through an EO of at most k is longer than the optimal (reference)."""
-    return pc(1 - float(_a2()[(A2K[kind], k)]['p_equals_optimal']) - float(_a2()[(A2K[kind], k)]['p_better_than_optimal_ref'] or 0))
+    return pc(1 - exact(_a2()[(A2K[kind], k)]['p_equals_optimal']) - exact(_a2()[(A2K[kind], k)]['p_better_than_optimal_ref'] or 0))
 def G(key, what):
     v = A['a3_gains'][key][what]
-    return pc(v) if what.startswith('p_') else f2(v)
+    return pc(v, rounded=what in ('p_improves_given_eo_le4', 'p_other_axes_better')) if what.startswith('p_') else f2(v)     # those two are shares of a part of the scrambles
 
 # ---- B
 def BOPT(kind, what):
@@ -88,8 +93,8 @@ def BOPT(kind, what):
         k = what[2:]; t = sum(d['hist'].values()); return pc(d['hist'].get(k, 0) / t)
 def B4(eos, axes, k, what):
     r = E['b4'][f'{eos}|{axes}|{k}'][what]
-    return pc(r) if what.startswith('p_') else f'{float(r):.1f}' if what == 'mean_le' else f'{float(r):,.0f}'
-def B5(bad, col): return pc(E['b5'][str(bad)][col])
+    return pc(r) if what.startswith('p_') else f'{float(r):.1f}' if what == 'mean_le' else f'{hu(float(r)):,.0f}'
+def B5(bad, col): return pc(E['b5'][str(bad)][col], rounded=True)
 def LAY(key): return B['layouts'][key]
 def GAP(kind, key): return pc(A[f'gap_{kind}'][key])
 def MORE3(kind): return pc(A[f'more3than4_{kind}'])
@@ -97,7 +102,7 @@ def MORE3(kind): return pc(A[f'more3than4_{kind}'])
 # ---- C
 def C7(opt, col):
     r = E['c7'][opt]
-    return f3(r[col]) if col == 'mean' else r[col] if col in ('one_in_le6', 'max', 'states') else pc(r[col])
+    return f3(r[col]) if col == 'mean' else r[col] if col in ('one_in_le6', 'max', 'states') else pc(r[col], rounded=True)
 C7N = {'plain': 'one DR axis, EO kept, normal (the known table)', 'any': 'one DR axis, any turns (EO may break)',
        'switch': 'one DR axis, EO kept, last EO turn inverted if better', 'anyswitch': 'one DR axis, any turns, last EO turn inverted if better',
        'two': 'better of the two DR axes, EO kept', 'inv': 'one DR axis, EO kept, on the inverse only',
@@ -106,12 +111,12 @@ C7N = {'plain': 'one DR axis, EO kept, normal (the known table)', 'any': 'one DR
        'anytwo': 'two DR axes, any turns, normal', 'all': 'everything above (EO kept or not)'}
 def CT(key, col): return C7(C7N[key], col)
 def C6(case, col):
-    v = E['c6'][case][col]
-    return f2(v) if col.endswith('mean') else f'{float(v):,.1f}' if col == 'one_in' else n(v) if col == 'cosets' else pc(v)
+    v = E['c6'][case][col]; file = isinstance(v, str)          # as the result file rounded it; a float was recomputed from the counts (xtables.c6rows)
+    return (f2(v) if file else f'{hu(v, 2):.2f}') if col.endswith('mean') else f'{float(v):,.1f}' if col == 'one_in' else n(v) if col == 'cosets' else pc(v, rounded=file)
 def C6ONEIN(case, col): return onein(E['c6'][case][col])
 def NI(case, col):
     v = E['c6ni'][case][col]
-    return v if col == 'correlation' else pc(v) if v else '–'
+    return v if col == 'correlation' else pc(v, rounded=True) if v else '–'
 def NIRANGE(minstates=1000):
     v = [float(r['correlation']) for k, r in E['c6ni'].items() if k != 'all' and int(r['states']) >= minstates]
     return f'{min(v):.3f}', f'{max(v):.3f}', str(len(v))
@@ -148,7 +153,7 @@ def _lay():
     return [((int(r['bad_fb']), int(r['bad_rl']), int(r['bad_ud'])), Fraction(r['probability'])) for r in rows]
 def LAYP(pred):
     """Exact probability that the (F/B, R/L, U/D) bad-edge counts satisfy pred, as a share."""
-    return pc(float(sum(p for t, p in _lay() if pred(t))))
+    return pc(sum(p for t, p in _lay() if pred(t)))
 def LAYF(pred):
     from fractions import Fraction
     f = sum(p for t, p in _lay() if pred(t)); return f'{f.numerator}/{f.denominator}'
@@ -163,7 +168,7 @@ def RATIO_2_10_10():
     from math import comb
     ex = float(sum(p for t, p in _lay() if sorted(t) == [2, 10, 10]))
     ind = sum(comb(12, a) * comb(12, b) * comb(12, c) / 2048 ** 3 for a, b, c in set(permutations((2, 10, 10))))
-    return f'{ind / ex:.1f}'
+    return f'{hu(ind / ex, 1):.1f}'
 ENV.update({k: v for k, v in list(globals().items()) if not k.startswith('_')})
 def B4X(L, col):
     r = [r for r in csv.DictReader(open(O + 'b4_one_axis_exact.tsv'), delimiter='\t') if r['length'] == str(L)][0]
@@ -227,13 +232,14 @@ def CHIP(scr, axis, what):
     m, e = f'{p:.0e}'.split('e')
     return f'${m}\\cdot 10^{{{int(e)}}}$'
 ENV.update({k: v for k, v in list(globals().items()) if not k.startswith('_')})
-def COSETS3(): return f"{int(COSETS().replace(',', '')) / 3 / 1e6:.0f} million"
+def COSETS3(): return f"{hu(int(COSETS().replace(',', '')) / 3 / 1e6):.0f} million"
 ENV.update({k: v for k, v in list(globals().items()) if not k.startswith('_')})
 def CASELE(c, e, k, option='eo'):
     """Exact share of the EO-solved states of case <c>c<e>e at distance at most k (option eo, any, eo_switchF, ...)."""
     r = [r for r in csv.DictReader(open(O + 'eodr_exact.tsv'), delimiter='\t') if r['corners'] == str(c) and r['edges'] == str(e) and r['option'] == option][0]
     h = [int(r[f'd{i}']) for i in range(12)]
-    return sum(h[:k + 1]) / sum(h)
+    from fractions import Fraction
+    return Fraction(sum(h[:k + 1]), sum(h))
 ENV.update({k: v for k, v in list(globals().items()) if not k.startswith('_')})
 def SCR(i):
     """A witness scramble as printed: adjacent same-face turns merged (same position, checked in xwitness.py)."""
@@ -243,11 +249,11 @@ ENV.update({k: v for k, v in list(globals().items()) if not k.startswith('_')})
 RANDN = 2 ** 31; F12 = math.factorial(12)
 def NISSYBIAS(what):
     low = RANDN - (RANDN // F12) * F12           # indices below this come up RANDN // F12 + 1 times, the rest RANDN // F12
-    if what == 'ratio': return f'{RANDN / F12:.2f}'
+    if what == 'ratio': return f'{hu(RANDN / F12, 2):.2f}'
     if what == 'low': return n(low)
     if what == 'lowshare': return pc(low / F12)
     if what == 'more': return pc((RANDN // F12 + 1) / (RANDN // F12) - 1, 0)
-def XN(key, d=2): return f'{E[key]:.{d}f}'
+def XN(key, d=2): return f'{hu(E[key], d):.{d}f}'
 def XC(key): return n(round(E[key] * E['n'])) if isinstance(E[key], float) else n(E[key])
 def BRK(k): return n(round(float(_a2()[(A2K['n'], k)]['p_needs_eo_breaking']) * E['n']))
 ENV.update({k: v for k, v in list(globals().items()) if not k.startswith('_')})

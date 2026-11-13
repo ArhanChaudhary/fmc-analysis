@@ -12,6 +12,6 @@
 | Through a normal or inverse EO of ≤ 5, DR on the same side | sampled, 50,000 | 12.8% | 50.0% | 90.3% | 99.5% | 99.9% | 0.094% | 9.45 |
 | Through a normal or inverse EO of ≤ 6, DR on the same side | sampled, 50,000 | 19.5% | 66.9% | 98.3% | >99.9% | 100.0% | 0% | 9.12 |
 | Through any EO of ≤ 3 (normal, inverse, NISS; a NISS EO takes the DR on the better side) | sampled, 50,000 | 5.1% | 21.0% | 43.4% | 49.5% | 49.6% | 50.4% | 9.58 |
-| Through any EO of ≤ 4 (normal, inverse, NISS; a NISS EO takes the DR on the better side) | sampled, 50,000 | 10.4% | 42.5% | 82.2% | 95.0% | 96.0% | 4.0% | 9.58 |
+| Through any EO of ≤ 4 (normal, inverse, NISS; a NISS EO takes the DR on the better side) | sampled, 50,000 | 10.4% | 42.5% | 82.3% | 95.0% | 96.0% | 4.0% | 9.58 |
 | Through any EO of ≤ 5 (normal, inverse, NISS; a NISS EO takes the DR on the better side) | sampled, 50,000 | 18.2% | 64.6% | 97.7% | >99.9% | >99.9% | 0.012% | 9.16 |
 | Through any EO of ≤ 6 (normal, inverse, NISS; a NISS EO takes the DR on the better side) | sampled, 50,000 | 28.4% | 82.7% | 99.9% | 100.0% | 100.0% | 0% | 8.84 |

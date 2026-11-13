@@ -6,17 +6,22 @@ import os, sys, csv, json, collections
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import pop
+from halfup import hu
 OUT = os.path.normpath(os.path.join(HERE, '..', 'out')) + '/'
 D = os.path.normpath(os.path.join(HERE, '..', '..', 'report', 'data')) + '/'
 os.makedirs(D, exist_ok=True)
 F = pop.feat(); d = F['d'].astype(int); P = pop.populations()
 def T(name): return list(csv.DictReader(open(OUT + name), delimiter='\t'))
-def pc(x, dd=None):
-    x = float(x) * 100
+def pc(x, dd=None, rounded=None):
+    """A share as a percentage.  One computed here from the counts: an exact half goes up (halfup.hu).  One read
+    from a result file (text, or rounded=True) is 4 or 5 decimals of a number that has more, a 5 in its last place is
+    no half, and it is formatted from the float as it always was."""
+    if rounded is None: rounded = isinstance(x, str)
+    share, x = x, float(x) * 100
     if x == 0: return '0%'
     if 99.95 <= x and dd is None: return '>99.9%'
     if dd is None: dd = 1 if x >= 1 else 2 if x >= 0.1 else 3
-    return f'{x:.{dd}f}%'
+    return f'{x:.{dd}f}%' if rounded else f'{hu(share, dd, 100):.{dd}f}%'
 def n_(x): return f'{int(x):,}'
 def write(name, head, rows):
     out = ['| ' + ' | '.join(head) + ' |', '|' + '---|' * len(head)] + ['| ' + ' | '.join(str(x) for x in r) + ' |' for r in rows]
@@ -269,7 +274,7 @@ rows = []; E['pop'] = {}
 for drm in DRMS:
     v = [popv(drm, 'P1', 'any', 0), popv(drm, 'P2', 'same side', 5), popv(drm, 'P2', 'switched', 5), popv(drm, 'P3', 'switched', 5), popv(drm, 'P3', 'switched', 6, 'p_le5')]
     n5 = int(float([r for r in pp if r['drm'] == drm and r['population'] == 'P3' and r['side'] == 'switched' and r['L'] == '5'][0]['weight_or_attempts']))
-    rows.append([drm] + [pc(x) for x in v] + [n_(n5)]); E['pop'][drm] = v
+    rows.append([drm] + [pc(x, rounded=True) for x in v] + [n_(n5)]); E['pop'][drm] = v
 write('populations', ['DRM', 'Sub-7 rate, uniform (the tables)', 'Sub-7 rate after an RZP of 5, same side', 'Sub-7 rate after an RZP of 5, switched', 'Sub-7 rate, real attempts, RZP to 5, switched', 'DR in 5 or fewer, real attempts, RZP to 6, switched', 'Real attempts (RZP to 5)'], rows)
 su = T('checks_switch_uniform.tsv')
 E['uniform_worst_z'] = max(abs(float(r['z_20_batches'])) for r in su); E['uniform_cells'] = len(su)

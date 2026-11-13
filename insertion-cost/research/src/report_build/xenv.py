@@ -6,7 +6,7 @@ the same result files the tables are made from."""
 import sys, json, csv, os, re, math, collections, functools
 sys.path.insert(0, '/data/fmc/insertion-cost/research/src')
 import iv
-from iv import O, fmt, num, f2, f1, SHOW
+from iv import O, fmt, num, f2, f1, f0, f2s, SHOW
 D = '/data/fmc/insertion-cost/report/data/'
 def _j(name):
     p = O + name
@@ -88,7 +88,7 @@ def PAIRD(typ, a, b): return f2(X('caps_paired', SHOW[typ], _PK[a]) - X('caps_pa
 def PAIRN(typ): return CELL('caps_paired', SHOW[typ], 'Skeletons')
 def NEST(typ): return f2(X('nesting', SHOW[typ], 'No nesting: mean added') - X('nesting', SHOW[typ], 'Nesting allowed: mean added'))
 def APART(typ): return f2(X('nesting', SHOW[typ], 'The two not touching: mean added') - X('nesting', SHOW[typ], 'Nesting allowed: mean added'))
-def CH(typ, n, T, L=8): return num(100 * iv.chance(typ, n, L, T))
+def CH(typ, n, T, L=8): return num(100 * iv.exact(iv.chance(typ, n, L, T)))
 def EXACT(typ, n, k, L=8):
     c = _c(typ, n, L, None, 'sample'); return fmt(c['h'].get(str(k), 0), c['n'])
 def TOTAL(typ, n, L=8):
@@ -101,7 +101,7 @@ def TOTALX(typ, n, L=8):
 def CPX(typ, cap, what): return CORP[typ][str(cap)][what]
 def EXR(typ, L=8):
     v = [float(x) for x in COL(f'exchange_cap{L}', f'{SHOW[typ]} shorter by') if x]
-    return f'{min(v):.1f} to {max(v):.1f}'
+    return f'{f1(min(v))} to {f1(max(v))}'
 def EXM(typ, n): return CELL('exchange_mean', str(n), f'{SHOW[typ]} shorter by')
 def NESTED10(typ, n=20):
     """Share of skeletons whose best at cap 10 is a pair of comms that has to be nested (no pair kept apart and no single
@@ -131,7 +131,7 @@ def PERTEN(typ='3c', L=8): return f2((iv.mean(_c(typ, 10, L, None, 'sample')) - 
 def GE(n, k):
     """Share of 3c skeletons of length n whose best 8-mover insertion cancels k moves or more."""
     c = _c('3c', int(n), 8, 'one', 'sample'); return fmt(iv.count_le(c, 8 - k), c['n'])
-def ONEIN(n, col): return f"{100 / _pc(CELL('one_longer', n, col)):.0f}"
+def ONEIN(n, col): return f0(100 / _pc(CELL('one_longer', n, col)))
 _NEAR = 'Of those, next to two opposite-face moves'; _MISS = 'Best is 8-3 or better and every other move missed it: walks'
 def SKIPN():
     tot = 0
@@ -166,7 +166,7 @@ def RC(group, cap, what):
     v = REAL['comp'][group][str(cap)][what]
     return f'{v:,}' if isinstance(v, int) else f2(v)
 def RDIFF(group, cap):
-    d = REAL['comp'][group][str(cap)]; return f"{d['diff']:+.2f}"
+    d = REAL['comp'][group][str(cap)]; return f2s(d['diff'])
 def RSE(group, cap): return f2(REAL['comp'][group][str(cap)]['se'])
 def AU(table, key, what):
     v = REAL[table][key][what]
@@ -209,7 +209,7 @@ def REALN(group):
     if group == '2c2c': return str(bt.get('2c2c-pure', 0) + bt.get('2c2c-twisted', 0))
     return str(sum(v for k, v in bt.items() if k not in ('3c', '5c', '3c1t', '2c2c-pure', '2c2c-twisted', '3e')))
 def SUB(name, typ):
-    d = REAL['subsets'][name][typ]; return f"{d['diff']:+.2f} ± {d['se']:.2f}"
+    d = REAL['subsets'][name][typ]; return f"{f2s(d['diff'])} ± {f2(d['se'])}"
 def SUBN(name, typ): return str(REAL['subsets'][name][typ]['k'])
 def AUL(table, key):
     d = REAL[table][key]; return fmt(d['plus1'] + d['plus2'] + d['plus3'], d['k'])
@@ -236,7 +236,7 @@ def POSTED(typ): return str(len(_posted(typ)))
 def POSTEDM(typ): v = _posted(typ); return f2(sum(v) / len(v))
 def SPOT(which, i):
     sp = REAL['spots']
-    return num(100 * sp['real'][i] / sp['k_real']) if which == 'real' else num(100 * sp[which][i])
+    return num(100 * sp['real'][i] / sp['k_real']) if which == 'real' else num(100 * iv.exact(sp[which][i]))
 def RRLEN(eid, key):
     r = next(x for x in _rows() if x['id'] == eid); return str(r['n'] + r[key])
 def REALTHIRDS():
@@ -262,17 +262,17 @@ def GHIT(typ, g, n=20, L=8):
     d = _g(typ, n, L); return fmt(d[f'g{g}_hit'], d['n'])
 def GM(typ, key, n=20, L=8): return f2(_g(typ, n, L)[key])
 def GN(typ, n=20, L=8): return f"{_g(typ, n, L)['n']:,}"
-def GONEIN(n, col): return f"{100 / _pc(CELL('greedy_first', n, col)):.0f}"
+def GONEIN(n, col): return f0(100 / _pc(CELL('greedy_first', n, col)))
 def G10(key):
     d = GREEDY['5c_cap10_vs_8']
     if key in ('n', 'run'): return f"{d[key]:,}"
     if key == 'worse': return fmt(d['g0_10_worse'], d['n'])
     if key == 'better': return fmt(d['g0_10_better'], d['n'])
     return f2(d[key])
-def SUBD(name, typ): return f"{REAL['subsets'][name][typ]['diff']:+.2f}"
+def SUBD(name, typ): return f2s(REAL['subsets'][name][typ]['diff'])
 def D16RANGE():
     v = [iv.mean(_c(t, 16, 8, None, 'sample')) - iv.mean(_c(t, 20, 8, None, 'sample')) for t in ('2tc', '2c2c-twisted', '2c2c-pure', '3tc', '3c1t', '5c')]
-    return f'{min(v):.2f} to {max(v):.2f}'
+    return f'{f2(min(v))} to {f2(max(v))}'
 def DRN():
     """Skeletons per kind of 17-move sequence in the trig0n runs (the same for every kind and cap)."""
     J = _j('dr17.json'); n = {sum(h.values()) for kind in J.values() for h in kind.values()}

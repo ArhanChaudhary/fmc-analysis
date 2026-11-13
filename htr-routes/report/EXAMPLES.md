@@ -23,7 +23,7 @@ The bounding lines give the shortest reduction that keeps an optimal finish: mov
 | 1 | 124 | 62% | 151 |
 | 2 | 155 | 78% | 182 |
 | 3 | 162 | 81% | 189 |
-| 4 | 169 | 84% | 192 |
+| 4 | 169 | 85% | 192 |
 | 5 | 171 | 86% | 192 |
 
 ## Corner subset 2c5

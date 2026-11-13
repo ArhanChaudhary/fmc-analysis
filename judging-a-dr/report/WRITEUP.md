@@ -904,7 +904,7 @@ Another way to cut it. Say a class of DRs is "under 1%" if at most one in a hund
 | 5qt | 10 or less | 100% | 100% | 100% | 100% |
 | 5qt | 11 or less | 100% | 95% | 100% | 96% |
 | 5qt | 12 or less | 0% | 32% | 17% | 36% |
-| 5qt | 13 or less | 0% | 0% | 2% | 2% |
+| 5qt | 13 or less | 0% | 0% | 3% | 2% |
 
 What dropping those classes costs. Same rows; each number is the share of all the finishes in T of the qt group that sit in the classes under 1%.
 
@@ -1100,7 +1100,7 @@ The corner-case rules are per subset. They are in section 2 and section 6.3.
 | 5qt | 10 or less | 99.9% | 44% | 73% | 80% |
 | 5qt | 11 or less | 99.8% | 5.9% | 37% | 38% |
 | 5qt | 12 or less | 98% | 0 | 13% | 13% |
-| 5qt | 13 or less | 86% | 0 | 1.2% | 1.2% |
+| 5qt | 13 or less | 86% | 0 | 1.3% | 1.3% |
 
 Same rows, against the setup + HTR bound and two computer tables. The setup + HTR bound is not a proof, so next to the share it rules out is the share of the finishes in T it is wrong about (a dash where it rules out nothing).
 
@@ -1302,7 +1302,7 @@ Both sides together, one row per combination of the cases on normal and on inver
 | the best case on both sides (adjacent, a qt straight to 2c3, first row) | 2.8% | 0.92% | 5.6% | 26% | 75% |
 | no stack on either side, and a qt goes straight to 2c3 or 4b3 on both | 17.4% | 0.68% | 4.2% | 21% | 66% |
 | a stack on one side only | 37.5% | 0.10% | 0.92% | 6.4% | 32% |
-| a stack on both sides | 6.2% | 0 | 0.06% | 1.1% | 11% |
+| a stack on both sides | 6.3% | 0 | 0.06% | 1.1% | 11% |
 
 So a double stack is as dead as a 5qt at every target, and the best layout on both sides (first row above) is as good as an average 2c3 4e (last row of the table below). Each row is a kind of DR, with the share finishing in 10, 11, 12 and 13 or less:
 
@@ -1344,10 +1344,10 @@ Both sides together, one row per combination of the cases on normal and on inver
 |---|---:|---:|---:|---:|---:|
 | adjacent on both sides | 25.0% | 0.08% | 0.69% | 4.7% | 25% |
 | adjacent and opposite | 25.0% | 0.02% | 0.35% | 2.9% | 18% |
-| opposite on both sides | 6.2% | 0 | 0.09% | 1.4% | 11% |
+| opposite on both sides | 6.3% | 0 | 0.09% | 1.4% | 11% |
 | adjacent and stacked | 25.0% | 0 | 0.06% | 1.1% | 9.5% |
 | opposite and stacked | 12.5% | 0 | 0 | 0.24% | 4.5% |
-| stacked on both sides | 6.2% | 0 | 0 | 0 | 0.64% |
+| stacked on both sides | 6.3% | 0 | 0 | 0 | 0.64% |
 
 The last two rows are 19% of all 2c5, and you can drop them on sight whatever your target: a 2c5 that is stacked on both sides never finishes in 12, and stacked on one side with opposite on the other never finishes in 11 and is 0.24% for a 12.
 
@@ -1922,7 +1922,7 @@ How often does a level *prove* that there is no finish in T? Percentages are of 
 | 5qt (2c5, 4b5) | 10 or less | 99.9% | 44% | 73% | 97% |
 | 5qt (2c5, 4b5) | 11 or less | 99.8% | 5.9% | 37% | 76% |
 | 5qt (2c5, 4b5) | 12 or less | 98% | 0 | 13% | 28% |
-| 5qt (2c5, 4b5) | 13 or less | 86% | 0 | 1.2% | 3.9% |
+| 5qt (2c5, 4b5) | 13 or less | 86% | 0 | 1.3% | 3.9% |
 
 The three biggest levels, same rows: the share of the qt group for which each proves there is no finish in T.
 
@@ -2206,7 +2206,7 @@ The two biggest checks Lean runs, one per row:
 
 | Check | Entries read (against ten moves each) | Time | Memory |
 |---|---:|---|---|
-| biggest bound check | 406,425,600 | about 4.5 minutes | |
+| biggest bound check | 406,425,600 | about 4.5 minutes | 0.9 GB |
 | exact-optimal check | 1,339,269,120 | 17 minutes | 1.9 GB |
 | the examples on this page | the table built once more, then looked up | 16 minutes | 1.9 GB |
 
@@ -3358,10 +3358,10 @@ How each case finishes: its share of 2c3, its average optimal, and the share fin
 
 | Cases on the two sides | Share of the subset | Average optimal, moves | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|---:|---:|
-| 2c3-1 and 2c3-1 | 6.2% | 12.49 | 3.1% | 14% | 45% | 88% |
+| 2c3-1 and 2c3-1 | 6.3% | 12.49 | 3.1% | 14% | 45% | 88% |
 | 2c3-2 and 2c3-1 | 12.5% | 12.64 | 2.3% | 10% | 38% | 85% |
 | 2c3-3 and 2c3-1 | 25.0% | 12.78 | 1.5% | 7.7% | 32% | 80% |
-| 2c3-2 and 2c3-2 | 6.2% | 12.84 | 1.6% | 7.7% | 30% | 77% |
+| 2c3-2 and 2c3-2 | 6.3% | 12.84 | 1.6% | 7.7% | 30% | 77% |
 | 2c3-3 and 2c3-2 | 25.0% | 13.01 | 1.0% | 5.4% | 24% | 70% |
 | 2c3-3 and 2c3-3 | 25.0% | 13.25 | 0.53% | 3.3% | 16% | 57% |
 
@@ -3591,10 +3591,10 @@ How each case finishes: its share of 2c5, its average optimal, and the share fin
 |---|---:|---:|---:|---:|---:|---:|
 | 2c5-1 and 2c5-1 | 25.0% | 13.95 | 0.08% | 0.69% | 4.7% | 25% |
 | 2c5-1 and 2c5-2 | 25.0% | 14.15 | 0.02% | 0.35% | 2.9% | 18% |
-| 2c5-2 and 2c5-2 | 6.2% | 14.38 | 0 | 0.09% | 1.4% | 11% |
+| 2c5-2 and 2c5-2 | 6.3% | 14.38 | 0 | 0.09% | 1.4% | 11% |
 | 2c5-1 and 2c5-3 | 25.0% | 14.44 | 0 | 0.06% | 1.1% | 9.5% |
 | 2c5-2 and 2c5-3 | 12.5% | 14.69 | 0 | 0 | 0.24% | 4.5% |
-| 2c5-3 and 2c5-3 | 6.2% | 15.31 | 0 | 0 | 0 | 0.64% |
+| 2c5-3 and 2c5-3 | 6.3% | 15.31 | 0 | 0 | 0 | 0.64% |
 
 **4b5**. Each row is one corner case: what it looks like.
 
@@ -3694,7 +3694,7 @@ One table per subset, one row per pair of HTR lengths (the shorter of normal and
 
 | HTR, shorter and longer side | Share of subset | Average optimal, moves | Fastest, moves | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| 6 and 6 | 6.2% | 12.19 | 6 | 4.9% | 20% | 59% | 96% |
+| 6 and 6 | 6.3% | 12.19 | 6 | 4.9% | 20% | 59% | 96% |
 | 6 and 7 | 27% | 12.34 | 7 | 3.4% | 16% | 52% | 94% |
 | 6 and 8 | 10% | 12.48 | 8 | 2.1% | 12% | 46% | 92% |
 | 7 and 7 | 29% | 12.58 | 7 | 2.1% | 11% | 41% | 87% |
@@ -3767,7 +3767,7 @@ One table per subset, one row per pair of HTR lengths (the shorter of normal and
 | 8 and 11 | 4.2% | 13.37 | 11 | 0 | 1.2% | 13% | 53% |
 | 9 and 9 | 14% | 13.22 | 9 | 0.30% | 3.2% | 18% | 59% |
 | 9 and 10 | 25% | 13.60 | 10 | <0.01% | 0.65% | 7.6% | 40% |
-| 9 and 11 | 12% | 13.83 | 11 | 0 | 0.03% | 2.5% | 28% |
+| 9 and 11 | 13% | 13.83 | 11 | 0 | 0.03% | 2.5% | 28% |
 | 10 and 10 | 11% | 14.17 | 11 | 0 | 0.05% | 1.5% | 16% |
 | 10 and 11 | 11% | 14.45 | 12 | 0 | 0 | 0.20% | 6.1% |
 | 11 and 11 | 2.8% | 14.85 | 13 | 0 | 0 | 0 | 1.1% |
@@ -4074,7 +4074,7 @@ One table per subset, one row per pair of HTR lengths (the shorter of normal and
 | 7 and 9 | 17% | 13.16 | 9 | 0.63% | 3.8% | 19% | 62% |
 | 8 and 8 | 17% | 13.30 | 9 | 0.62% | 3.4% | 16% | 54% |
 | 8 and 9 | 21% | 13.60 | 10 | 0.14% | 1.5% | 9.0% | 39% |
-| 9 and 9 | 6.2% | 14.22 | 11 | 0 | 0.20% | 2.1% | 16% |
+| 9 and 9 | 6.3% | 14.22 | 11 | 0 | 0.20% | 2.1% | 16% |
 
 **2c4 2e**. Each row is a pair of HTR lengths:
 
@@ -4131,7 +4131,7 @@ One table per subset, one row per pair of HTR lengths (the shorter of normal and
 | 9 and 11 | 17% | 13.93 | 11 | 0 | 0.26% | 3.3% | 24% |
 | 10 and 10 | 17% | 14.16 | 11 | 0 | 0.15% | 2.5% | 18% |
 | 10 and 11 | 21% | 14.43 | 12 | 0 | 0 | 0.63% | 8.3% |
-| 11 and 11 | 6.2% | 14.93 | 12 | 0 | 0 | 0.01% | 1.5% |
+| 11 and 11 | 6.3% | 14.93 | 12 | 0 | 0 | 0.01% | 1.5% |
 
 **4c4 0e**. Each row is a pair of HTR lengths:
 
@@ -4216,13 +4216,13 @@ One table per subset, one row per pair of HTR lengths (the shorter of normal and
 | HTR, shorter and longer side | Share of subset | Average optimal, moves | Fastest, moves | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | 9 and 9 | 0.39% | 13.88 | 9 | 0.23% | 1.5% | 5.4% | 27% |
-| 9 and 10 | 6.2% | 13.93 | 10 | 0.10% | 0.73% | 4.8% | 25% |
+| 9 and 10 | 6.3% | 13.93 | 10 | 0.10% | 0.73% | 4.8% | 25% |
 | 9 and 11 | 3.1% | 14.18 | 11 | 0 | 0.37% | 2.5% | 16% |
 | 9 and 12 | 2.3% | 14.44 | 12 | 0 | 0 | 0.93% | 9.2% |
 | 10 and 10 | 25% | 14.08 | 10 | 0.03% | 0.36% | 3.1% | 20% |
 | 10 and 11 | 25% | 14.35 | 11 | 0 | 0.10% | 1.4% | 11% |
 | 10 and 12 | 19% | 14.60 | 12 | 0 | 0 | 0.39% | 5.6% |
-| 11 and 11 | 6.2% | 14.67 | 12 | 0 | 0 | 0.38% | 5.3% |
+| 11 and 11 | 6.3% | 14.67 | 12 | 0 | 0 | 0.38% | 5.3% |
 | 11 and 12 | 9.4% | 14.98 | 13 | 0 | 0 | 0 | 1.5% |
 | 12 and 12 | 3.5% | 15.47 | 13 | 0 | 0 | 0 | 0.11% |
 
@@ -4233,9 +4233,9 @@ One table per subset, one row per pair of HTR lengths (the shorter of normal and
 | 10 and 10 | 25% | 14.09 | 10 | 0.05% | 0.35% | 3.6% | 20% |
 | 10 and 11 | 25% | 14.26 | 11 | 0 | 0.21% | 1.7% | 14% |
 | 10 and 12 | 25% | 14.54 | 12 | 0 | 0 | 0.65% | 6.9% |
-| 11 and 11 | 6.2% | 14.57 | 12 | 0 | 0 | 0.77% | 6.3% |
-| 11 and 12 | 12% | 14.87 | 13 | 0 | 0 | 0 | 2.4% |
-| 12 and 12 | 6.2% | 15.52 | 13 | 0 | 0 | 0 | 0.03% |
+| 11 and 11 | 6.3% | 14.57 | 12 | 0 | 0 | 0.77% | 6.3% |
+| 11 and 12 | 13% | 14.87 | 13 | 0 | 0 | 0 | 2.4% |
+| 12 and 12 | 6.3% | 15.52 | 13 | 0 | 0 | 0 | 0.03% |
 
 **4b5 0e**. Each row is a pair of HTR lengths:
 
@@ -4249,7 +4249,7 @@ One table per subset, one row per pair of HTR lengths (the shorter of normal and
 
 | HTR, shorter and longer side | Share of subset | Average optimal, moves | Fastest, moves | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| 9 and 9 | 6.2% | 14.12 | 9 | 0.09% | 0.49% | 3.6% | 19% |
+| 9 and 9 | 6.3% | 14.12 | 9 | 0.09% | 0.49% | 3.6% | 19% |
 | 9 and 10 | 36% | 14.20 | 10 | 0.04% | 0.36% | 2.6% | 16% |
 | 9 and 11 | 1.0% | 14.32 | 11 | 0 | 0.09% | 1.5% | 12% |
 | 10 and 10 | 53% | 14.31 | 10 | <0.01% | 0.12% | 1.6% | 12% |
@@ -4768,7 +4768,7 @@ Throwing away, 5qt, same rows: the share of the group you can drop and still kee
 | **13 or less** | nothing | 10% | 5% | 1% | 0% | 0% |
 | 13 or less | subset | 12% | 6% | 1% | 0% | 0% |
 | 13 or less | + true pairs | 19% | 11% | 2% | 0% | 0% |
-| 13 or less | + corner case on both sides | 21% | 14% | 6% | 2% | 0% |
+| 13 or less | + corner case on both sides | 21% | 14% | 6% | 3% | 0% |
 | 13 or less | + pairs and corner cases | 27% | 17% | 7% | 2% | 0% |
 | 13 or less | + HTR length on both sides | 22% | 15% | 6% | 1% | 0% |
 | 13 or less | + corner length L and E-parity | 26% | 19% | 7% | 1% | 0% |

@@ -13,6 +13,6 @@
 | normal, inverse or NISS | optimal NISS DR | ≤ 5 | 44.8% | 11.4% | 0.68% | 0.70 |
 | normal, inverse or NISS | optimal NISS DR | ≤ 6 | 30.7% | 3.1% | 0.044% | 0.37 |
 | normal, inverse or NISS | optimal DR, best of 6 | ≤ 3 | 21.0% | 11.3% | 2.4% | 1.01 |
-| normal, inverse or NISS | optimal DR, best of 6 | ≤ 4 | 40.5% | 17.3% | 2.6% | 0.84 |
+| normal, inverse or NISS | optimal DR, best of 6 | ≤ 4 | 40.5% | 17.4% | 2.6% | 0.84 |
 | normal, inverse or NISS | optimal DR, best of 6 | ≤ 5 | 34.6% | 5.5% | 0.28% | 0.40 |
 | normal, inverse or NISS | optimal DR, best of 6 | ≤ 6 | 17.8% | 1.0% | 0.0040% | 0.07 |

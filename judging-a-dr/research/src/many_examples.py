@@ -353,12 +353,12 @@ def tally_page(pages):
          f"| of 10 moves or less (you'd finish these anyway) | {len(rows) - len(long)} |",
          f'| of 11 moves or more | {len(long)} |',
          f"| of those, dropped by the list | {sum(r['drop'] for r in long)} ({pv.fmt(sum(r['drop'] for r in long), len(long))}) |",
-         f'| DRs to finish per scramble, without the list | {avg(len(rs) for _, _, rs in pages):.1f} |',
-         f"| DRs to finish per scramble, with the list | {avg(sum(says(r) != 'drop' for r in rs) for _, _, rs in pages):.1f} |",
-         f'| Best solution on the page, average, finishing every DR shown | {avg(b for b, _, _, _ in J):.2f} |',
-         f"| Best solution on the page, average, finishing what the list leaves | {avg(bl for _, _, bl, _ in J if bl is not None):.2f}{f' ({gone} scrambles left with nothing)' if gone else ''} |",
+         f'| DRs to finish per scramble, without the list | {pv.hu(avg(len(rs) for _, _, rs in pages), 1):.1f} |',
+         f"| DRs to finish per scramble, with the list | {pv.hu(avg(sum(says(r) != 'drop' for r in rs) for _, _, rs in pages), 1):.1f} |",
+         f'| Best solution on the page, average, finishing every DR shown | {pv.hu(avg(b for b, _, _, _ in J), 2):.2f} |',
+         f"| Best solution on the page, average, finishing what the list leaves | {pv.hu(avg(bl for _, _, bl, _ in J if bl is not None), 2):.2f}{f' ({gone} scrambles left with nothing)' if gone else ''} |",
          f"| Scrambles where the list drops the page's best solution | {len(lost) + gone} of {len(pages)} |",
-         f'| Moves lost on those, average | {avg(lost):.2f} |' if lost else '| Moves lost on those, average | none lost |']
+         f'| Moves lost on those, average | {pv.hu(avg(lost), 2):.2f} |' if lost else '| Moves lost on those, average | none lost |']
     return t
 def load_run():
     with open(RUN) as f:
@@ -378,16 +378,16 @@ def tally_run(run):
     v = [[f(x) for x in have] for _, f in pol]
     for (name, _), col in zip(pol, v):
         assert all(b < 99 for _, b in col)
-        out.append(f"| {name} | {avg(c for c, _ in col):,.0f} | {avg(b for _, b in col):.2f} | {pv.fmt(sum(b == x['best'] for (_, b), x in zip(col, have)), n)} |")
+        out.append(f"| {name} | {pv.hu(avg(c for c, _ in col)):,.0f} | {pv.hu(avg(b for _, b in col), 2):.2f} | {pv.fmt(sum(b == x['best'] for (_, b), x in zip(col, have)), n)} |")
     c = [avg(c for c, _ in col) for col in v]; r = [avg(b for _, b in col) for col in v]
-    out += ['', f"So the list on the 11-movers takes the DRs to finish from {c[2]:,.0f} to {c[1]:,.0f} per scramble and the average result from {r[2]:.2f} to {r[1]:.2f}. "
-            f"On the 12-movers as well it takes {c[4]:,.0f} to {c[3]:,.0f}, and {r[4]:.2f} to {r[3]:.2f}.", '',
+    out += ['', f"So the list on the 11-movers takes the DRs to finish from {pv.hu(c[2]):,.0f} to {pv.hu(c[1]):,.0f} per scramble and the average result from {pv.hu(r[2], 2):.2f} to {pv.hu(r[1], 2):.2f}. "
+            f"On the 12-movers as well it takes {pv.hu(c[4]):,.0f} to {pv.hu(c[3]):,.0f}, and {pv.hu(r[4], 2):.2f} to {pv.hu(r[3], 2):.2f}.", '',
             'And by the length of the DR, over all ' + str(len(run)) + ' scrambles. "Reaches the best" means its solution is as short as the best one over all of that scramble\'s DRs up to 12 moves. '
             'The list is meant for 11 moves and up; the first two rows show what it would do if you used it on shorter DRs too. Each row is a DR length:', '',
             '| DR length | DRs per scramble | Scrambles where one of them reaches the best | The list drops | Kept DRs that reach the best | Dropped DRs that reach the best |', '|---|---:|---:|---:|---:|---:|']
     for cl in CLASSES:
         N = sum(x[f'n{cl}'] for x in run); K = sum(x[f'kept{cl}'] for x in run); Rr = sum(x[f'reach{cl}'] for x in run); Rk = sum(x[f'reach_kept{cl}'] for x in run)
-        out.append(f"| {'9 or less' if cl == 9 else cl} | {N / len(run):,.1f} | {pv.fmt(sum(x[f'reach{cl}'] > 0 for x in run), len(run))} | {pv.fmt(N - K, N)} | {pv.fmt(Rk, K)} | {pv.fmt(Rr - Rk, N - K)} |")
+        out.append(f"| {'9 or less' if cl == 9 else cl} | {pv.hu(N / len(run), 1):,.1f} | {pv.fmt(sum(x[f'reach{cl}'] > 0 for x in run), len(run))} | {pv.fmt(N - K, N)} | {pv.fmt(Rk, K)} | {pv.fmt(Rr - Rk, N - K)} |")
     r11 = (sum(x['reach11'] for x in run), sum(x['reach_kept11'] for x in run)); r12 = (sum(x['reach12'] for x in run), sum(x['reach_kept12'] for x in run))
     out += ['', f"In counts: of the {r11[0]:,} 11-movers that reach their scramble's best solution the list keeps {r11[1]:,}, and of the {r12[0]:,} 12-movers it keeps {r12[1]:,}."]
     return out
@@ -420,7 +420,7 @@ def build(rerun):
            f"A hundred random-state scrambles, written the way FMC scrambles are, and for each one some of the DRs you could have on your page. "
            "What you can read off each DR without solving is in the two tables. The answers are folded away under them: pick the DRs you'd finish, then open them.", '',
            f"**Where the DRs come from.** cubelib-cli (the solver behind Mallard) lists every DR that goes EO first (EOs of up to 5 moves; it doesn't list longer ones), with NISS, and then DR on normal or on inverse without breaking the EO, on all three axes. "
-           f"A scramble has far more of those than anyone writes down: {per11:,.0f} up to 11 moves on average over the {N_RUN} scrambles of the tally at the end. "
+           f"A scramble has far more of those than anyone writes down: {pv.hu(per11):,.0f} up to 11 moves on average over the {N_RUN} scrambles of the tally at the end. "
            f"Each scramble shows at most {SHOWN} of them: up to {SHOWN // 2} of 10 moves or less, shortest first, then 11-movers, drawn at random where there are more. Nothing was picked by how it finishes.", '',
            "**What you're testing.** You finish a DR of 10 moves or less whatever it looks like. The 11-movers are where you need a quick way to say no, and that's what the short list in the write-up's guide is for. It needs no solving:", '']
     out += guide_list() + ['',

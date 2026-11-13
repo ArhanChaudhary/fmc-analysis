@@ -4,7 +4,7 @@
 Writes report/data/real_*.md and out/real.json."""
 import csv, json, collections, sys
 import xv
-from xv import fmt, num, O
+from xv import fmt, num, hu, O
 D = '/data/fmc/is-dr-xs-worth-it/report/data/'
 def load(name): return list(csv.DictReader(open(O + name), delimiter='\t'))
 base = {}
@@ -29,16 +29,16 @@ def write(name, L): open(D + name + '.md', 'w').write('\n'.join(L) + '\n'); prin
 S = sorted(base)
 # ---- what there is
 L = ['| On a scramble | Share of the 500 that have one | Average number per scramble |', '|---|---:|---:|']
-def there(nm, f): L.append(f'| {nm} | {fmt(sum(1 for s in S if f(s) > 0), N)} | {avg(f(s) for s in S):,.1f} |')
+def there(nm, f): L.append(f'| {nm} | {fmt(sum(1 for s in S if f(s) > 0), N)} | {hu(avg(f(s) for s in S), 1):,.1f} |')
 TH = {}
 def there(nm, f):
-    L.append(f'| {nm} | {fmt(sum(1 for s in S if f(s) > 0), N)} | {avg(f(s) for s in S):,.1f} |'); TH[nm] = (fmt(sum(1 for s in S if f(s) > 0), N), f'{avg(f(s) for s in S):,.1f}')
+    L.append(f'| {nm} | {fmt(sum(1 for s in S if f(s) > 0), N)} | {hu(avg(f(s) for s in S), 1):,.1f} |'); TH[nm] = (fmt(sum(1 for s in S if f(s) > 0), N), f'{hu(avg(f(s) for s in S), 1):,.1f}')
 there('a normal DR of 9 moves or less', lambda s: base[s]['n9']); there('a normal DR of 10 or less', lambda s: nclassic(base[s], 10)); there('a normal DR of 11 or less', lambda s: nclassic(base[s], 11))
 for ln in (6, 7, 8): there(f'a DR-1s of {ln} or less from a slice-EO skip', lambda s, ln=ln: count(one[s], ln, ('0',)))
 for ln in (6, 7, 8): there(f'a DR-1s of {ln} or less from a skip or a one-move slice EO', lambda s, ln=ln: count(one[s], ln))
 for ln in (7, 8, 9): there(f'a DR-2s 8fe of {ln} or less (from a slice EO or an EO of 4 or less)', lambda s, ln=ln: count(eight[s], ln))
 write('real_there', L); R['there'] = TH
-R['share_1s8'] = fmt(sum(1 for s in S if count(one[s], 8) > 0), N); R['share_1s7'] = fmt(sum(1 for s in S if count(one[s], 7) > 0), N); R['n_1s8'] = f'{avg(count(one[s], 8) for s in S):.0f}'
+R['share_1s8'] = fmt(sum(1 for s in S if count(one[s], 8) > 0), N); R['share_1s7'] = fmt(sum(1 for s in S if count(one[s], 7) > 0), N); R['n_1s8'] = f'{hu(avg(count(one[s], 8) for s in S)):.0f}'
 sh = collections.Counter(min([int(r['length']) for r in one[s]] or [99]) for s in S)
 R['shortest_1s'] = {k: v for k, v in sorted(sh.items())}
 # ---- what it finishes in: the 491 scrambles that have a normal DR of 10 or less
@@ -54,7 +54,7 @@ pol = [('every normal DR of 10 or less', lambda s: (nclassic(base[s], 10), class
 L = ['| You finish | Things to finish, per scramble | Average best solution, moves | Best solution in 20 or less | 19 or less |', '|---|---:|---:|---:|---:|']
 for nm, f in pol:
     v = [f(s) for s in H]
-    L.append(f'| {nm} | {avg(c for c, _ in v):,.0f} | {avg(b for _, b in v):.2f} | {fmt(sum(b <= 20 for _, b in v), len(H))} | {fmt(sum(b <= 19 for _, b in v), len(H))} |')
+    L.append(f'| {nm} | {hu(avg(c for c, _ in v)):,.0f} | {hu(avg(b for _, b in v), 2):.2f} | {fmt(sum(b <= 20 for _, b in v), len(H))} | {fmt(sum(b <= 19 for _, b in v), len(H))} |')
     R[nm] = dict(n=avg(c for c, _ in v), result=avg(b for _, b in v))
     R.setdefault('policies', []).append(dict(name=nm, n=avg(c for c, _ in v), result=avg(b for _, b in v)))
 write('real_result', L); R['H'] = len(H)
@@ -72,15 +72,15 @@ allr = [r for s in S for r in one[s]]; alle = [r for s in S for r in eight[s]]
 L = ['| Kind and length | Number on the 500 scrambles | Their average finish, moves | Average finish of the uniform sample, moves | Setup searched, real and sample alike |', '|---|---:|---:|---:|---|']
 for ln in (6, 7, 8):
     rs = [r for r in allr if int(r['length']) == ln]
-    L.append(f"| DR-1s in {ln} | {len(rs):,} | {avg(int(r['finish']) for r in rs):.2f} | {xv.avg(xv.one_s()):.2f} | any length from either end |")
+    L.append(f"| DR-1s in {ln} | {len(rs):,} | {hu(avg(int(r['finish']) for r in rs), 2):.2f} | {hu(xv.avg(xv.one_s()), 2):.2f} | any length from either end |")
 for ln in (7, 8, 9):
     rs = [r for r in alle if int(r['length']) == ln]
-    L.append(f"| DR-2s 8fe in {ln} | {len(rs):,} | {avg(int(r['finish']) for r in rs):.2f} | {avg(int(x['finish_setup3']) for x in xv._rows('sample8fe.tsv')):.2f} | up to 3 moves from either end |")
+    L.append(f"| DR-2s 8fe in {ln} | {len(rs):,} | {hu(avg(int(r['finish']) for r in rs), 2):.2f} | {hu(avg(int(x['finish_setup3']) for x in xv._rows('sample8fe.tsv')), 2):.2f} | up to 3 moves from either end |")
 write('real_candidates', L)
 L = ['| What you finish | How many per scramble | Share that reach the scramble\'s best normal-DR solution | One in this many reaches it |', '|---|---:|---:|---:|']
 Y = {}
 def yrow(nm, n, reach, key):
-    L.append(f'| {nm} | {n / N:,.1f} | {fmt(reach, n)} | {n / reach:,.0f} |' if reach else f'| {nm} | {n / N:,.1f} | 0 | |'); Y[key] = reach / n if n else 0
+    L.append(f'| {nm} | {hu(n / N, 1):,.1f} | {fmt(reach, n)} | {hu(n / reach):,.0f} |' if reach else f'| {nm} | {hu(n / N, 1):,.1f} | 0 | |'); Y[key] = reach / n if n else 0
 for c, nm in ((9, 'a normal DR of 9 or less'), (10, 'a normal DR of 10'), (11, 'a normal DR of 11'), (12, 'a normal DR of 12')):
     yrow(nm, sum(base[s][f'n{c}'] for s in S), sum(base[s][f'reach{c}'] for s in S), f'dr{c}')
 for lo, hi, nm in ((0, 6, 'a DR-1s of 6 or less'), (7, 7, 'a DR-1s of 7'), (8, 8, 'a DR-1s of 8')):
@@ -114,6 +114,6 @@ if os.path.exists(O + 'eo_run.tsv'):
         L = ['| You check and finish | Normal EOs to check, per scramble | Things to finish, per scramble | Average best solution, moves |', '|---|---:|---:|---:|']; P = []
         for i, (nm, f) in enumerate(pol):
             v = [f(s) for s in Hs]; ne = avg(eo[s]['eos4' if i < 4 else 'eos5'] for s in Hs)
-            L.append(f'| {nm} | {ne:,.0f} | {avg(c for c, _ in v):,.0f} | {avg(b for _, b in v):.2f} |'); P.append(dict(name=nm, eos=ne, n=avg(c for c, _ in v), result=avg(b for _, b in v)))
+            L.append(f'| {nm} | {hu(ne):,.0f} | {hu(avg(c for c, _ in v)):,.0f} | {hu(avg(b for _, b in v), 2):.2f} |'); P.append(dict(name=nm, eos=ne, n=avg(c for c, _ in v), result=avg(b for _, b in v)))
         write('real_' + key, L); R[key] = dict(H=len(Hs), policies=P)
     json.dump(R, open(O + 'real.json', 'w'), indent=1)

@@ -19,7 +19,7 @@
 | 5qt | 10 or less | 99.9% | 44% | 73% | 80% |
 | 5qt | 11 or less | 99.8% | 5.9% | 37% | 38% |
 | 5qt | 12 or less | 98% | 0 | 13% | 13% |
-| 5qt | 13 or less | 86% | 0 | 1.2% | 1.2% |
+| 5qt | 13 or less | 86% | 0 | 1.3% | 1.3% |
 
 Same rows, against the setup + HTR bound and two computer tables. The setup + HTR bound is not a proof, so next to the share it rules out is the share of the finishes in T it is wrong about (a dash where it rules out nothing).
 

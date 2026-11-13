@@ -3,7 +3,7 @@
 own loaders, exact Fractions, own formatter; compared string by string with what pv/fillenv produce."""
 import csv, re, sys, collections
 from fractions import Fraction as F
-from decimal import Decimal, ROUND_HALF_EVEN
+from decimal import Decimal, ROUND_HALF_UP
 H = '/data/fmc/judging-a-dr/research/out/hand/'
 def rows(n):
     with open(H + n) as f:
@@ -37,7 +37,7 @@ def q2(cs=None, e=None, hmin=None, hmax=None, L=None, Lp=None, parity=None):
         if ok(xs, cs) and ok(xe, e) and ok(lo, hmin) and ok(hi, hmax) and ok(l, L) and ok(l + dlp, Lp) and ok(par, parity): h[d] += c
     return h
 def dec(x, nd):
-    return str(Decimal(x.numerator) / Decimal(x.denominator)) if False else format((Decimal(x.numerator) / Decimal(x.denominator)).quantize(Decimal(1).scaleb(-nd), rounding=ROUND_HALF_EVEN), 'f')
+    return str(Decimal(x.numerator) / Decimal(x.denominator)) if False else format((Decimal(x.numerator) / Decimal(x.denominator)).quantize(Decimal(1).scaleb(-nd), rounding=ROUND_HALF_UP), 'f')
 def fmt(good, n):
     if n == 0: return ''
     if good == 0: return '0'

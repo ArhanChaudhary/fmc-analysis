@@ -73,12 +73,12 @@ for cs in ['0c0', '4a1', '4a2', '4b2', '0c3', '2c3', '4c3', '0c4', '2c4', '4c4',
         out.append(f'| {NAME[k]} | `{TYP[k][0]}` | {TYP[k][1]} | {('`' + cc[k][9] + '`') if cc[k][9] else 'none needed'} |')
     out.append(f'\nHow each case finishes: its share of {cs}, its average optimal, and the share finishing in 10, 11, 12 and 13 or less.\n\n| Case | Share of the subset | Average optimal, moves | {ODDS_HEAD} |\n|---|---:|---:|---:|---:|---:|---:|')
     for k, h in rows:
-        out.append(f'| {NAME[k]} | {100*sum(h)/tot:.1f}% | {st(h)[1]:.2f} | {odds(h)} |')
+        out.append(f'| {NAME[k]} | {pv.hu(100*sum(h)/tot, 1):.1f}% | {pv.hu(st(h)[1], 2):.2f} | {odds(h)} |')
     if cs == '2c4':
         out.append('\n' + BACK_FACE_NOTE)
     if len(one[cs]) > 1:
         out.append(f'\n{cs}, corner case on both sides. Each row is a pair of cases, one on normal and one on inverse, in either order:\n\n| Cases on the two sides | Share of the subset | Average optimal, moves | {ODDS_HEAD} |\n|---|---:|---:|---:|---:|---:|---:|')
         for k, h in sorted(two[cs].items(), key=lambda kv: st(kv[1])[1]):
-            out.append(f'| {NAME[k[0]]} and {NAME[k[1]]} | {100*sum(h)/tot:.1f}% | {st(h)[1]:.2f} | {odds(h)} |')
+            out.append(f'| {NAME[k[0]]} and {NAME[k[1]]} | {pv.hu(100*sum(h)/tot, 1):.1f}% | {pv.hu(st(h)[1], 2):.2f} | {odds(h)} |')
 open('/data/fmc/judging-a-dr/report/data/corner_cases.md', 'w').write('\n'.join(out) + '\n')
 print(len(out), 'lines')

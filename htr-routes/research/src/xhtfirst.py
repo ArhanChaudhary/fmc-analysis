@@ -60,7 +60,7 @@ def pc(x):                      # as on the reference page
     x = float(x)
     if x == 0: return '0%'
     if x < 0.0005: return '<0.1%'
-    return f'{100 * x:.1f}%'
+    return f'{pv.hu(round(x, 9), 1, 100):.1f}%'         # round(x, 9): a share is a sum of float weights over their total, a count ratio like 9/400 comes out as 0.022500000000000006
 def dist(t, m):
     w = wt[m]; tot = w.sum()
     if tot == 0: return None

@@ -24,7 +24,7 @@ assert len(subs) == 48 and sum(sum(h) for h in h3.values()) == pv.TOT
 L = ['| Subset | Share of all DRs | Average optimal, moves | Fastest, moves | Longest, moves |', '|---|---:|---:|---:|---:|']
 for s in subs:
     h = h3[s]
-    L.append(f'| {s} | {100*sum(h)/pv.TOT:.2f}% | {pv.avg(h):.2f} | {pv.fastest(h)} | {max(d for d, c in enumerate(h) if c)} |')
+    L.append(f'| {s} | {pv.hu(100*sum(h)/pv.TOT, 2):.2f}% | {pv.hu(pv.avg(h), 2):.2f} | {pv.fastest(h)} | {max(d for d, c in enumerate(h) if c)} |')
 L += ['', 'The same subsets, with the share of each that finishes in 9, 10, 11, 12 and 13 or less:', '', '| Subset | In 9 | In 10 | In 11 | In 12 | In 13 |', '|---|---:|---:|---:|---:|---:|']
 for s in subs:
     L.append(f'| {s} | ' + pv.cells(h3[s], pv.WIDE) + ' |')
@@ -53,7 +53,7 @@ for s in ['4c3 4e', '0c3 4e', '2c4 4e', '0c4 4e', '4c4 4e', '2c5 4e', '4b5 4e']:
     tot = sum(sum(h) for h in g.values())
     for (l, par), h in sorted(g.items()):
         m = pv.fastest(h)
-        L.append(f"| {s} | {l} | {'odd' if par else 'even'} | {100*sum(h)/tot:.1f}% | {m} | +{m-l} | {pv.avg(h):.2f} |")
+        L.append(f"| {s} | {l} | {'odd' if par else 'even'} | {pv.hu(100*sum(h)/tot, 1):.1f}% | {m} | +{m-l} | {pv.hu(pv.avg(h), 2):.2f} |")
         L2.append(f"| {s} | {l} | {'odd' if par else 'even'} | {pv.cells(h)} |")
 write('appendix_b.md', L + L2)
 
@@ -68,14 +68,14 @@ for T in pv.TARGETS:
     for s in subs:
         L.append(f'| {s} | ' + ' | '.join(pv.pct(g[s][k], T) if sum(g[s][k]) else '' for k in range(7)) + ' |')
 tot = [sum(sum(g[s][k]) for s in subs) for k in range(7)]
-L += ['', 'Share of all DRs with that many pairs: ' + ', '.join(f'{k}{" or more" if k == 6 else ""}: {100*tot[k]/pv.TOT:.1f}%' for k in range(7)) + '.']
+L += ['', 'Share of all DRs with that many pairs: ' + ', '.join(f'{k}{" or more" if k == 6 else ""}: {pv.hu(100*tot[k]/pv.TOT, 1):.1f}%' for k in range(7)) + '.']
 write('odds_by_true_pairs.md', L[1:])
 L = ['| Corners | Finish in | 0 pairs | 1 | 2 | 3 | 4 | 5 or more |', '|---|---|---:|---:|---:|---:|---:|---:|']
 for cs in ['4a1', '4b2', '2c3', '4c3', '2c4', '4c4', '2c5', '4b5']:
     for T in (10, 11, 12):
         L.append(f'| {cs} | {T} or less | ' + ' | '.join(pv.pct(gc[cs][k], T) for k in range(6)) + ' |')
 tp = [sum(sum(gc[cs][k]) for cs in gc) for k in range(6)]
-L.append('| share of all DRs | | ' + ' | '.join(f'{100*x/pv.TOT:.0f}%' for x in tp) + ' |')
+L.append('| share of all DRs | | ' + ' | '.join(f'{pv.hu(100*x/pv.TOT):.0f}%' for x in tp) + ' |')
 write('main_pairs.md', L)
 
 # ---- HTR on both sides
@@ -86,7 +86,7 @@ for s in subs:
     tot = sum(sum(h) for h in sq[s].values())
     L += ['', f'**{s}**. Each row is a pair of HTR lengths:', '', '| HTR, shorter and longer side | Share of subset | Average optimal, moves | Fastest, moves | In 10 | In 11 | In 12 | In 13 |', '|---|---:|---:|---:|---:|---:|---:|---:|']
     for (a, b), h in sorted(sq[s].items()):
-        L.append(f'| {a} and {b} | {pv.num(100*sum(h)/tot)} | {pv.avg(h):.2f} | {pv.fastest(h)} | {pv.cells(h)} |')
+        L.append(f'| {a} and {b} | {pv.num(100*sum(h)/tot)} | {pv.hu(pv.avg(h), 2):.2f} | {pv.fastest(h)} | {pv.cells(h)} |')
 write('htr_square_tables.md', L[1:])
 L = []
 for s in ['4c3 4e', '2c4 4e', '2c5 4e', '0c3 4e']:
@@ -108,7 +108,7 @@ def z(pred):
 allc = z(lambda a, b: True)
 L = ['| 4c3 that is… | Share of 4c3 | Average optimal, moves | In 10 | In 11 | In 12 | In 13 |', '|---|---:|---:|---:|---:|---:|---:|']
 for name, pred in (('9+ to HTR on both sides (what the rule throws away)', lambda a, b: a >= 9), ('the rest', lambda a, b: a < 9), ('7 or less to HTR on at least one side', lambda a, b: a <= 7)):
-    h = z(pred); L.append(f'| {name} | {100*sum(h)/sum(allc):.0f}% | {pv.avg(h):.2f} | {pv.cells(h)} |')
+    h = z(pred); L.append(f'| {name} | {pv.hu(100*sum(h)/sum(allc)):.0f}% | {pv.hu(pv.avg(h), 2):.2f} | {pv.cells(h)} |')
 h = z(lambda a, b: a < 9)
-L += ['', 'Share of the 4c3 finishes the rule keeps: ' + ', '.join(f'{100*sum(h[:T+1])/sum(allc[:T+1]):.0f}% of those in {T}' for T in pv.TARGETS) + '.']
+L += ['', 'Share of the 4c3 finishes the rule keeps: ' + ', '.join(f'{pv.hu(100*sum(h[:T+1])/sum(allc[:T+1])):.0f}% of those in {T}' for T in pv.TARGETS) + '.']
 write('main_zagros.md', L)

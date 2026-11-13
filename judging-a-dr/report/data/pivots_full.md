@@ -430,7 +430,7 @@ Throwing away, 5qt, same rows: the share of the group you can drop and still kee
 | **13 or less** | nothing | 10% | 5% | 1% | 0% | 0% |
 | 13 or less | subset | 12% | 6% | 1% | 0% | 0% |
 | 13 or less | + true pairs | 19% | 11% | 2% | 0% | 0% |
-| 13 or less | + corner case on both sides | 21% | 14% | 6% | 2% | 0% |
+| 13 or less | + corner case on both sides | 21% | 14% | 6% | 3% | 0% |
 | 13 or less | + pairs and corner cases | 27% | 17% | 7% | 2% | 0% |
 | 13 or less | + HTR length on both sides | 22% | 15% | 6% | 1% | 0% |
 | 13 or less | + corner length L and E-parity | 26% | 19% | 7% | 1% | 0% |

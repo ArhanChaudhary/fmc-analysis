@@ -12,7 +12,7 @@ model, and writes out/real.json (everything the report quotes) and the tables re
 import names
 import json, re, sys, os, collections, subprocess, math, random
 import cube, cubie, exlib, iv, check_solutions
-from iv import O, SHOW, fmt, num, f2, f1
+from iv import O, SHOW, fmt, num, f2, f1, f2s
 D = '/data/fmc/insertion-cost/report/data/'
 def write(name, lines):
     open(D + name + '.md', 'w').write('\n'.join(lines) + '\n'); print(name, len(lines), 'lines')
@@ -204,7 +204,7 @@ def main():
             d = [r['L8'] - rand_mean(typ, r['n'], 8)[0] for r in rs]
             if d:
                 md = sum(d) / len(d); se = (sum((x - md) ** 2 for x in d) / max(len(d) - 1, 1) / len(d)) ** 0.5
-                cells += [str(len(d)), f'{md:+.2f}', f'{se:.2f}']; J['subsets'][name][typ] = {'k': len(d), 'diff': md, 'se': se}
+                cells += [str(len(d)), f2s(md), f2(se)]; J['subsets'][name][typ] = {'k': len(d), 'diff': md, 'se': se}
             else: cells += ['0', '', '']
         L.append(f'| {name} | ' + ' | '.join(cells) + ' |')
     write('real_subsets', L)
@@ -224,7 +224,7 @@ def main():
             C[typ][str(Lc)] = {'k': len(real), 'real': sum(real) / len(real), 'rand': sum(rnd) / len(rnd), 'not_run': nc, 'nothing_fits': inf}
             assert not (nc and inf)
             over = f'the {len(real):,} where something fits' if inf else f'the first {len(real):,} (only those were run)' if nc else 'all of them'
-            T[Lc].append(f"| a random {typ} | {len(lines):,} | {sum(real) / len(real):.2f} | {over} | {sum(rnd) / len(rnd):.2f} |")
+            T[Lc].append(f"| a random {typ} | {len(lines):,} | {f2(sum(real) / len(real))} | {over} | {f2(sum(rnd) / len(rnd))} |")
     write('real_corpus', T[8]); write('real_corpus_10', T[10])
     # ---- where the best 3c insertion sits: real skeletons with their own leftover, real sequences with a random 3c,
     #      and random sequences of the same lengths (thirds of the skeleton by position / length)
@@ -259,7 +259,7 @@ def main():
         return out
     w_rand, k_rand = thirds([(rseq(len(r['skeleton'].split())), rnd.choice(els)) for r in lines])
     L = ['| 3c, the best 8-mover insertion is in the | First third | Middle third | Last third | Skeletons tried | Of them with an 8-mover somewhere |', '|---|---:|---:|---:|---:|---:|']
-    L.append(f"| real skeletons with their own 3c (counts) | {w_real[0]:.1f} | {w_real[1]:.1f} | {w_real[2]:.1f} | {len(real_items)} | {k_real} |")
+    L.append(f"| real skeletons with their own 3c (counts) | {f1(w_real[0])} | {f1(w_real[1])} | {f1(w_real[2])} | {len(real_items)} | {k_real} |")
     for name, w, k, tried in (('real skeletons with their own 3c', w_real, k_real, len(real_items)), ("of them, DougCube's", w_doug, k_doug, k_doug), ('of them, everybody else\'s', w_rest, k_rest, k_rest),
                               ('the real move sequences with a random 3c', w_corp, k_corp, len(lines)), ('random sequences of the same lengths with a random 3c', w_rand, k_rand, len(lines))):
         L.append(f"| {name} | {num(100 * w[0] / k)} | {num(100 * w[1] / k)} | {num(100 * w[2] / k)} | {tried:,} | {k:,} |")

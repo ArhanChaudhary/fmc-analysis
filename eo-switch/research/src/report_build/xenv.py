@@ -2,29 +2,38 @@
 """Names available inside {= ... =} in the write-up and errata sources.  Every number in the text comes through here:
 from a cell of a generated table (report/data), or from the result files the tables are made from (research/out,
 report_extra.json written by xtables.py)."""
-import json, csv, os, math, functools
+import json, csv, os, math, functools, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from halfup import hu
 O = '/data/fmc/eo-switch/research/out/'
 D = '/data/fmc/eo-switch/report/data/'
 def _j(name): return json.load(open(O + name))
 E = _j('report_extra.json')
+class _Rd(float):
+    """A number as a result file keeps it (grades.tsv, populations.tsv, variants_by_drm.tsv, q4.tsv: 4 or 5 decimals of
+    a number that has more).  A 5 in its last place is no half, so pc, p0, f1, f2 and f3 format it from the float as
+    they always did; text read from a result file is treated the same.  Everything else goes through halfup.hu."""
+def _mark(o): return _Rd(o) if isinstance(o, float) else {k: _mark(v) for k, v in o.items()} if isinstance(o, dict) else [_mark(v) for v in o] if isinstance(o, list) else o
+for _k in ('grade', 'pop', 'var', 'bars', 'low_best', 'uniform_worst_z'): E[_k] = _mark(E[_k])
+def _old(x): return isinstance(x, (str, _Rd))
 W = _j('witness.json')
 
 def pc(x, d=None):
     """A share as a percentage: one decimal, two below 1%, three below 0.1%."""
-    x = float(x) * 100
+    share, x = x, float(x) * 100
     if x == 0: return '0%'
     if 99.95 <= x and d is None: return '>99.9%'
     if d is None: d = 1 if x >= 1 else 2 if x >= 0.1 else 3
-    return f'{x:.{d}f}%'
+    return f'{x:.{d}f}%' if _old(share) else f'{hu(share, d, 100):.{d}f}%'
 def pcx(x, d=None):
     """pc, but an exact 100% prints as 100% (pc prints >99.9% for anything from 99.95% up)"""
     return '100%' if float(x) == 1.0 else pc(x, d)
-def p0(x): return f'{float(x) * 100:.0f}%'
-def f1(x): return f'{float(x):.1f}'
-def f2(x): return f'{float(x):.2f}'
-def f3(x): return f'{float(x):.3f}'
+def p0(x): return f'{float(x) * 100:.0f}%' if _old(x) else f'{hu(x, 0, 100):.0f}%'
+def f1(x): return f'{float(x):.1f}' if _old(x) else f'{hu(x, 1):.1f}'
+def f2(x): return f'{float(x):.2f}' if _old(x) else f'{hu(x, 2):.2f}'
+def f3(x): return f'{float(x):.3f}' if _old(x) else f'{hu(x, 3):.3f}'
 def n(x): return f'{int(float(x)):,}'
-def oneIn(x): return f'1 in {1 / float(x):.1f}'
+def oneIn(x): return f'1 in {1 / float(x):.1f}' if _old(x) else f'1 in {hu(round(1 / x, 9), 1):.1f}'
 
 @functools.lru_cache(None)
 def _table(name):

@@ -15,12 +15,12 @@ import os, sys, json
 import numpy as np
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 sys.path.insert(0, os.path.join(ROOT, 'htr-routes', 'research', 'src'))
-from common import SUBS, CGROUPS, CORNER, SIZE, load_states   # noqa: E402
+from common import SUBS, CGROUPS, CORNER, SIZE, load_states, hu   # noqa: E402
 
 def pc(x):
     if x == 0: return '0%'
     if x < 0.0005: return '<0.1%'
-    return f'{100 * x:.1f}%'
+    return f'{hu(round(x, 9), 1, 100):.1f}%'            # round(x, 9): the shares are sums of float weights, see xhtfirst.pc
 def dist(v, w):
     tot = w.sum()
     return [float(w[v == k].sum() / tot) for k in (0, 1, 2)] + [float(w[v >= 3].sum() / tot)]
@@ -92,7 +92,7 @@ def ds(grp, k, p='le13', tg='opt', side='either'):
     d = J['dist'][f'{grp}|{p}|{tg}|{side}']['d']
     return pc(d[2] + d[3] if k == '2+' else d[1] + d[2] + d[3] if k == '1+' else d[0] + d[1] if k == '<2' else d[k])
 def sd(case, k, where='2c4 2e le13'): return J['side'][f'{case}|{where}']['d'][k]
-def rng(vals): return f'{100 * min(vals):.0f}% to {100 * max(vals):.0f}%'
+def rng(vals): return f'{hu(round(min(vals), 9), 0, 100):.0f}% to {hu(round(max(vals), 9), 0, 100):.0f}%'
 def half(k): return f'{k} half turn' + ('' if k == 1 else 's')
 def looks(cs): return '; '.join(f"{J['setup_look'][f'{cs}|{k}'].replace('2-2, ', '2-2 with the ').replace('with the diagonal over diagonal', 'with a diagonal over a diagonal')}: {k}" for k in range(4))
 def pair(name):
