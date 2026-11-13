@@ -296,6 +296,96 @@ for p in POP:
                                worst=worst, worst_heldout=rate(T0, odd & (cpn == worst), 2), worst_heldout_n=int((odd & (cpn == worst)).sum()),
                                best=best, best_heldout=rate(T0, odd & (cpn == best), 2), best_heldout_n=int((odd & (cpn == best)).sum()))
 
+# ------------------------------------------------------------------ optimal finishes with no extra quarter turn
+# qtf = the fewest quarter turns any finish of the state can have; a finish with exactly that many has no extra one.
+qmin = np.zeros(N, np.int64); qmax = np.zeros(N, np.int64)
+for s in SUBS:
+    st = common.load_states(s); m = X.sub == s
+    qmin[m] = st['qmin']; qmax[m] = st['qmax']; assert (st['qtfull'] == X.qtf[m]).all()
+hasmin = X.hasmin
+assert (hasmin == (qmin == X.qtf)).all()                     # the main pass's fewest quarter turns in an optimal finish
+some_extra = qmax > X.qtf
+# no quarter turn in a finish without extra ones (an HTR state solved by half turns): the finish length, as above
+ET = np.minimum(np.where(X.e0[0] == 99, X.d, X.e0[0]), np.where(X.e0[1] == 99, X.d, X.e0[1]))
+assert ((X.e0[0] == 99) == (X.e0[1] == 99)).all() and (ET[hasmin] >= T0[hasmin]).all()
+def dist5(m):
+    w = wt[m]; tot = w.sum()
+    if tot == 0: return None
+    hm = hasmin[m]; v = ET[m]
+    return [float(w[~hm].sum() / tot)] + [float(w[hm & (v == k)].sum() / tot) for k in range(3)] + [float(w[hm & (v >= 3)].sum() / tot)]
+def qts(gm):
+    v = sorted(set(X.qtf[gm].tolist()))
+    return str(v[0]) if len(v) == 1 else f'{v[0]} or {v[1]}' if len(v) == 2 else f'{v[0]} to {v[-1]}'
+NX = {}
+H5 = ['No optimal without extra quarter turns', '0 half turns', '1 half turn', '2 half turns', '3 or more']
+for g, gm in GROUPS:
+    for p in POP:
+        m = gm & POP[p]
+        d5 = dist5(m); z = rate(T0, m, 0) if m.sum() else None
+        zero = float(wt[m & (T0 == 0)].sum() / wt[m].sum()) if m.sum() else None
+        zmin = d5[1] if d5 else None
+        NX[(g, p)] = dict(n=int(m.sum()), share=float(wt[m].sum() / wt[gm].sum()), qts=qts(gm), d5=d5, zero=zero, zero_min=zmin,
+                          zero_extra=(zero - zmin) if d5 else None,
+                          every_extra=float(wt[m & ~hasmin].sum() / wt[m].sum()) if m.sum() else None,
+                          some_extra=float(wt[m & some_extra].sum() / wt[m].sum()) if m.sum() else None)
+        assert d5 is None or abs(float(wt[m & (T0 == 0) & ~(hasmin & (ET == 0))].sum() / wt[m].sum()) - (zero - zmin)) < 1e-9
+E['noextra'] = {f'{g}|{p}': v for (g, p), v in NX.items()}
+def c5(v): return [pc(x) for x in v] if v else ['–'] * 5
+for p in POP:
+    cut = p != 'all'
+    def row(g, lab):
+        v = NX[(g, p)]
+        return [lab] + ([pc(v['share']), f"{v['n']:,}"] if cut else []) + [v['qts']] + c5(v['d5'])
+    head = (['Share of its DRs that short', 'DRs in the sample'] if cut else []) + ['Quarter turns in such a finish'] + H5
+    write(f'noextra_rows_{p}', ['Subset × edges'] + head, [row(s, s) for s in SUBS])
+    write(f'noextra_corner_{p}', ['Corner subset'] + head, [row(g, g) for g in CG] + [row('all', 'all DRs')])
+    def srow(g, lab):
+        v = NX[(g, p)]
+        return [lab] + ([pc(v['zero']), pc(v['zero_min']), pc(v['zero_extra'])] if v['d5'] else ['–'] * 3)
+    write(f'zero_split_rows_{p}', ['Subset × edges', '0 half turns, as in the main table', 'A finish with no extra quarter turn starts with the quarter turn', 'Only finishes with extra quarter turns do'],
+          [srow(s, s) for s in SUBS])
+rows = []
+for g in CG + ['all']:
+    r = [g if g != 'all' else 'all DRs']
+    for p in ('all', 'le13'):
+        v = NX[(g, p)]; r += [pc(v['zero']), pc(v['zero_min']), pc(v['zero_extra'])]
+    rows.append(r)
+write('zero_split_corner', ['Corner subset', 'All DRs: 0 half turns, as in the main table', 'All DRs: a finish with no extra quarter turn starts with the quarter turn', 'All DRs: only finishes with extra quarter turns do',
+                            'Optimal ≤ 13: 0 half turns, as in the main table', 'Optimal ≤ 13: a finish with no extra quarter turn starts with the quarter turn', 'Optimal ≤ 13: only finishes with extra quarter turns do'], rows)
+rows = []
+for g in ('4b2 0e', '4b2 2e', '4b2 4e', '4b2', '4a2 0e', '4a2 2e', '4a2 4e', '4a2'):
+    for p in ('all', 'le13'):
+        v = NX[(g, p)]
+        rows.append([g if ' ' in g else f'{g}, edge counts pooled', POPNAME[p], pc(v['every_extra']), pc(v['some_extra']), pc(v['zero']), pc(v['zero_min']), pc(v['zero_extra'])])
+write('two_qt', ['Subset', 'DRs counted', 'Every optimal has 4 or more quarter turns', 'Some optimal has 4 or more', '0 half turns, as in the main table',
+                 'A 2qt optimal starts with the quarter turn', 'Only an optimal with 4 or more quarter turns does'], rows)
+# the ready side again, on the optimal finishes with no extra quarter turn.  Where qtf equals the corners' count
+# (every row but 4a1 0e, 4a1 2e and 0c0) the first quarter turn of such a finish lowers the corners' count, so on a
+# side it cannot come before the half turns the corners need there: a floor, checked here on every state.
+same = X.qtf == X.cq
+for i in (0, 1):
+    e = np.where(X.e0[i] == 99, 99, X.e0[i])
+    assert (e[hasmin & same & (X.cq > 0)] >= X.sC[i][hasmin & same & (X.cq > 0)]).all()
+RN = {}
+for g in [s for s in READY_ROWS if (X.qtf[GM[s]] == X.cq[GM[s]]).all()] + [cg for cg in READY_CG if cg != '4a1']:
+    for p in POP:
+        m = GM[g] & POP[p] & same
+        hm = m & hasmin
+        def sh(a, b): return float(wt[a].sum() / wt[b].sum()) if wt[b].sum() else None
+        nr, rd_ = hm & (SC >= 1), hm & (SC == 0)
+        RN[(g, p)] = dict(n=int(hm.sum()), has=sh(hm, m), neither=sh(nr, hm), zero_neither=sh(nr & (ET == 0), nr), zero_ready=sh(rd_ & (ET == 0), rd_),
+                          two_neither=sh(nr & (ET >= 2), nr), two_ready=sh(rd_ & (ET >= 2), rd_), at_floor=sh(hm & (ET == SC), hm),
+                          n_neither=int(nr.sum()), n_ready=int(rd_.sum()))
+E['ready_noextra'] = {f'{g}|{p}': v for (g, p), v in RN.items()}
+def o(x): return pc(x) if x is not None else '–'
+RNH = ['Has an optimal with no extra quarter turn', 'DRs in the sample that have one', 'Of those: neither side ready', '0 half turns, neither side ready', '0 half turns, a side ready',
+       'Needs 2+, neither side ready', 'Needs 2+, a side ready', 'First quarter turn as early as the corners allow']
+for p in POP:
+    write(f'ready_noextra_low_{p}', ['Subset × edges'] + RNH,
+          [[g, o(RN[(g, p)]['has']), f"{RN[(g, p)]['n']:,}"] + [o(RN[(g, p)][k]) for k in ('neither', 'zero_neither', 'zero_ready', 'two_neither', 'two_ready', 'at_floor')] for g in ('4b2 0e', '4b2 2e', '4b2 4e', '4a2 0e', '4a2 2e', '4a2 4e', '4a1 4e')])
+    write(f'ready_noextra_corner_{p}', ['Corner subset'] + RNH,
+          [[g, o(RN[(g, p)]['has']), f"{RN[(g, p)]['n']:,}"] + [o(RN[(g, p)][k]) for k in ('neither', 'zero_neither', 'zero_ready', 'two_neither', 'two_ready', 'at_floor')] for g in READY_CG if g != '4a1'])
+
 E['reads'] = {f'{g}|{p}|{k}': r for (g, p, k), r in RD.items()}
 E['kai'] = dict(ours=DIST[('2c3 2e', 'all', 'opt', 'either')][2], kai=[0.6, 0.248148, 0.109259, 0.042593], kai_n=540)
 with open(f'{OUT}/ht_first_reads.tsv', 'w') as f:

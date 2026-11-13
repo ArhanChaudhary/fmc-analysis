@@ -15,11 +15,18 @@ chosen subset x edges:
   5. for the first K states every optimal finish is replayed on the sticker model (sticker.py, geometry only): the
      inverse of the first finish is the scramble, and every other finish must solve it;
   6. the number of optimal finishes is compared with nopt of `htrtools routes`.
+  7. the fewest quarter turns any finish of a state can have (qt_full) is recomputed here by a 0-1 search over all
+     40,320 x 70 pairs of a corner arrangement and an edge pattern (quarter turns cost 1, half turns 0, from the HTR
+     states), with this file's move tables, and compared with qtfull of `htrtools routes` and qtf of `htfirst run`;
+     the fewest and most quarter turns over the optimal finishes are compared with qmin / qmax of `htrtools routes`;
+     and the count of step 3 restricted to the optimal finishes with exactly that many quarter turns ("no extra
+     quarter turn") is compared with e0n / e0i / hasmin of `htfirst run`.
 Then the row's shares (first qt after 0 / 1 / 2 / 3+ half turns; better side, normal alone) are printed from this
-enumeration next to the shares of the same states in the main data.
-usage: check_ht_first.py <N> <M> <K> <subset> [<subset> ...]      (subset as "2c4_2e")
-Output: out/checks/check_ht_first.txt"""
-import sys, os, csv, json, itertools, time
+enumeration next to the shares of the same states in the main data, and the split of "0 half turns" into a finish
+with no extra quarter turn and only finishes with extra ones.
+usage: check_ht_first.py <N> <M> <K> <subset> [<subset> ...] [out=<file name in out/checks>]      (subset as "2c4_2e")
+Output: out/checks/check_ht_first.txt unless out= is given"""
+import sys, os, csv, json, itertools, time, collections
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 R = os.path.normpath(os.path.join(HERE, '..'))
@@ -91,8 +98,45 @@ def lead(seq):
     return 99
 def trail(seq): return lead(seq[::-1])
 
+# ---- fewest quarter turns of any finish: 0-1 search over (corner arrangement, edge pattern), own tables
+PERM8 = list(itertools.permutations(range(8)))
+PATS = [m for m in range(256) if bin(m).count('1') == 4]            # positions holding the four M-slice edges (UF UB DF DB)
+PIDX = {m: i for i, m in enumerate(PATS)}
+HOME = sum(1 << p for p in (0, 2, 4, 6))
+def pattern_of(eperm): return sum(1 << p for p in range(8) if eperm[p] % 2 == 0)
+def qt_full_table():
+    PM = np.zeros((10, 70), dtype=np.int64)
+    for m in range(10):
+        t = MAPS[m][1]
+        for i, mask in enumerate(PATS):
+            PM[m, i] = PIDX[sum(1 << t[p] for p in range(8) if mask >> p & 1)]
+    CMq = CM.astype(np.int64)
+    half = [m for m in range(10) if not ISQ[m]]; quarter = [m for m in range(10) if ISQ[m]]
+    hc = {0}; st = [0]                                           # corner arrangements of the half-turn group
+    while st:
+        x = st.pop()
+        for m in half:
+            y = int(CMq[m, x])
+            if y not in hc: hc.add(y); st.append(y)
+    assert len(hc) == 96
+    dist = np.full(40320 * 70, -1, dtype=np.int8)
+    step = lambda f, m: CMq[m, f // 70] * 70 + PM[m, f % 70]
+    level = np.array(sorted(c * 70 + PIDX[HOME] for c in hc), dtype=np.int64); k = 0
+    while len(level):
+        dist[level] = k; queue = level; allk = [level]
+        while len(queue):                                        # close under half turns
+            nx = np.unique(np.concatenate([step(queue, m) for m in half]))
+            nx = nx[dist[nx] == -1]; dist[nx] = k; allk.append(nx); queue = nx
+        cur = np.concatenate(allk)
+        nx = np.unique(np.concatenate([step(cur, m) for m in quarter]))
+        level = nx[dist[nx] == -1]; k += 1
+    assert (dist >= 0).all()
+    return dist
+
 def main():
-    N, M, K = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]); SUBS = sys.argv[4:]
+    N, M, K = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]); SUBS = [a for a in sys.argv[4:] if not a.startswith('out=')]
+    outname = ([a[4:] for a in sys.argv[4:] if a.startswith('out=')] or ['check_ht_first.txt'])[0]
+    QF = qt_full_table()
     import sticker
     from sticker import do, SOLVED, inv_seq
     lines = []
@@ -106,12 +150,13 @@ def main():
         for r in rd:
             if r['subset'] in want and int(r['idx']) < N: hf[(r['subset'], int(r['idx']))] = r
     tot = dict(states=0, opt_mismatch_htrtools=0, opt_mismatch_htfirst=0, nopt_mismatch=0, p1_states=0, p1_mismatch=0,
-               sticker_states=0, sticker_finishes=0, sticker_fail=0, depth_mismatch=0)
+               sticker_states=0, sticker_finishes=0, sticker_fail=0, depth_mismatch=0,
+               qtfull_mismatch_htrtools=0, qtfull_mismatch_htfirst=0, qmin_qmax_mismatch_htrtools=0, noextra_mismatch_htfirst=0)
     for sub in SUBS:
         name = sub.replace('_', ' ')
         rows = list(csv.DictReader(open(os.path.join(R, 'out', 'big', 'run1', f'states_{sub}.tsv')), delimiter='\t'))[:N]
         t0 = time.time()
-        mine = []; main_n = []; main_i = []
+        mine = []; main_n = []; main_i = []; split = collections.Counter()
         for k, r in enumerate(rows):
             c, e, s = int(r['c']), int(r['e']), int(r['s']); d = depth(c, e, s)
             h = hf[(name, int(r['idx']))]
@@ -128,6 +173,22 @@ def main():
             tot['opt_mismatch_htfirst'] += (a != int(h['a0n'])) or (b != int(h['a0i'])) or (noqt != (h['noqt0'] == '1'))
             tot['nopt_mismatch'] += len(fs) != int(r['nopt'])
             main_n.append(99 if h['noqt0'] == '1' else int(h['a0n'])); main_i.append(int(h['a0i']))
+            # quarter turns: the fewest any finish can have, and the optimal finishes with exactly that many
+            qf = int(QF[c * 70 + PIDX[pattern_of(PERM8[e])]])
+            nq = [sum(1 for m in x if ISQ[m]) for x in fs]
+            tot['qtfull_mismatch_htrtools'] += qf != int(r['qtfull'])
+            tot['qmin_qmax_mismatch_htrtools'] += (min(nq) != int(r['qmin'])) or (max(nq) != int(r['qmax']))
+            keepf = [x for x, q in zip(fs, nq) if q == qf]
+            en_, ei_ = (min(lead(x) for x in keepf), min(trail(x) for x in keepf)) if keepf else (99, 99)
+            if 'e0n' in h:
+                tot['qtfull_mismatch_htfirst'] += qf != int(h['qtf'])
+                tot['noextra_mismatch_htfirst'] += (en_ != int(h['e0n'])) or (ei_ != int(h['e0i'])) or (bool(keepf) != (h['hasmin'] == '1'))
+            split['states'] += 1
+            split['every optimal has extra quarter turns'] += not keepf
+            split['some optimal has extra quarter turns'] += max(nq) > qf
+            split['an optimal starts or ends with a quarter turn'] += min(a, b) == 0
+            split['an optimal with no extra quarter turn starts or ends with a quarter turn'] += min(en_, ei_) == 0
+            split['only optimals with extra quarter turns start or end with a quarter turn'] += min(a, b) == 0 and min(en_, ei_) != 0
             if k < M:
                 f1 = finishes(c, e, s, d + 1)
                 a1 = min(lead(x) for x in f1); b1 = min(trail(x) for x in f1)
@@ -146,13 +207,15 @@ def main():
         P(f'{name}: first {len(rows)} states, {time.time() - t0:.0f} s')
         P(f'  better side, first qt after 0 / 1 / 2 / 3+ half turns, this enumeration: {dist([min(a, b) for a, b in mine])}')
         P(f'  normal side alone, this enumeration:                                     {dist([a for a, b in mine])}')
+        for kk, v in split.items():
+            if kk != 'states': P(f'  {kk}: {100 * v / split["states"]:.1f}% of the {split["states"]} states')
         keep = [(a, b) for a, b in zip(main_n, main_i) if a != 99]
         P(f'  better side, same states in the main data (htfirst.tsv):                 {dist([min(a, b) for a, b in keep])}')
         P(f'  normal side alone, same states in the main data:                         {dist([a for a, b in keep])}')
     for k, v in tot.items(): P(f'{k}\t{v}')
     ok = all(tot[k] == 0 for k in tot if 'mismatch' in k or 'fail' in k)
     P('ALL EQUAL' if ok else 'DIFFERENCES FOUND')
-    open(os.path.join(R, 'out', 'checks', 'check_ht_first.txt'), 'w').write('\n'.join(lines) + '\n')
+    open(os.path.join(R, 'out', 'checks', outname), 'w').write('\n'.join(lines) + '\n')
 
 if __name__ == '__main__':
     main()

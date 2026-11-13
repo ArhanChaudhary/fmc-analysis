@@ -129,3 +129,21 @@ finish 13.3% need 2+, 2–3 11.7%, 4–7 5.8%, 8–15 2.8%, 16 or more 1.2%. All
 A finish one move over the optimum almost never needs 2+ half turns first. All DRs: 0.6% (94.2% have one that starts
 with a qt on a side); optimal ≤ 13: 1.4% (89.1%); optimal ≤ 12: 3.3% (82.1%). By corner subset at optimal ≤ 13 the worst
 are 4a2 2.6%, 4a1 2.4%, 0c0 2.3% (with its no-qt finishes counted as 3 or more), 4b2 2.1%.
+
+## 7. When the first quarter turn has to make progress (follow-up, 2026-11-13)
+
+On the page as the section of that name and as *Rule 1 when the quarter turn has to make progress*.
+
+- "No extra quarter turn" = an optimal finish with as many quarter turns as the fewest any finish of the state can have
+  (`qtf` of `htfirst run`, = `qtfull` of the main pass): the corners' count on every subset but 4a1 0e / 2e (3) and 0c0
+  outside HTR (2). A quarter turn changes that number by exactly one, half turns never, so on such a finish every
+  quarter turn lowers it.
+- New columns of `out/big/htfirst/htfirst.tsv`: `e0n` / `e0i` (the count over those finishes), `eqn` / `eqi`, `hasmin`, `qtf`.
+  `hasmin` equals `qmin == qtfull` of the main pass on all 1,200,000 states.
+- All DRs: a quarter turn at once belongs to a finish with no extra quarter turn on 5.7% of 4b2 (13.6% / 5.7% / 5.2% at
+  0e / 2e / 4e), 7.3% of 4a2, 20.8% of 4a1, 32.5% of 2c3; only finishes with extra quarter turns start that way on
+  57.9% / 49.9% / 40.3% / 30.0%. Every optimal has extra quarter turns on 55.0% of 4b2, 49.4% of 4a2.
+- Under the restriction rule 1 is exact one way: neither side ready, then no such finish starts with a quarter turn
+  (0 of the sampled DRs; and the count on a side is never below the half turns the corners need there).
+- Check: `out/checks/check_ht_first_noextra.txt` (18,000 states) and `check_ht_first.txt` (12,000), 0 differences; the
+  first 3,000 states of the 4b2 rows give 14.1% / 6.1% / 5.1% and 59.4% / 53.1% / 61.5%, the figures measured before.

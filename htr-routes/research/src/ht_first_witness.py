@@ -89,6 +89,8 @@ def main():
          (X.sub == '2c4 2e') & (X.d <= 13) & (SCmax == 0) & (X.t0 == 2)),
         ('H5', 'a 4a2 4e with 4-0 corners on both sides: three half turns before the first qt',
          (X.sub == '4a2 4e') & (X.d <= 13) & (X.sC[0] == 3) & (X.sC[1] == 3) & (X.t0 == 3)),
+        ('H6', 'a 4b2 2e that is ready on neither side and whose optimal starts with a quarter turn all the same: every optimal finish has 4 quarter turns',
+         (X.sub == '4b2 2e') & (X.d <= 13) & (SC >= 1) & (X.t0 == 0) & (D['a0n'] == 0) & ~X.hasmin),
     ]
     wit = []; ok_all = True
     for wid, finding, mask in specs:
@@ -101,7 +103,8 @@ def main():
         for x in fs:
             mv = [NAMES[m] for m in x]
             ok &= do(st, mv) == SOLVED and len(mv) == d
-            fin.append(dict(finish=' '.join(mv), half_turns_before_first_qt_normal=C.lead(x), half_turns_before_first_qt_inverse=C.trail(x)))
+            fin.append(dict(finish=' '.join(mv), half_turns_before_first_qt_normal=C.lead(x), half_turns_before_first_qt_inverse=C.trail(x),
+                            quarter_turns=sum(1 for m in x if C.ISQ[m])))
         sn, nown = setup_sticker(sticker.corners(st)); si, nowi = setup_sticker(sticker.corners(sti))
         dr = drread([scr])[0]
         ent = dict(id=wid, finding=finding, state=f'#{c},{e},{s}', sample=f'{X.sub[i]} #{int(D["idx"][i])}', scramble=' '.join(scr), optimal=d,
@@ -113,12 +116,19 @@ def main():
         ok &= dr['optimal'] == d and dr['subset'] == X.sub[i] == merged(ent['subset_normal'])
         ok &= (sn, si) == (int(X.sC[0][i]), int(X.sC[1][i])) and (dr['case_normal'], dr['case_inverse']) == (cn[i], ci[i])
         ok &= ent['fewest_half_turns_before_first_qt'] == dict(normal=int(D['a0n'][i]), inverse=int(D['a0i'][i]))
+        # quarter turns: the fewest any finish can have (the data's qtf; on the subsets used here it is the corners' count,
+        # which the sticker model gives), and whether some optimal finish has no extra one
+        ent['fewest_quarter_turns_of_any_finish'] = int(X.qtf[i]); ent['corner_quarter_turns_sticker'] = int(sticker.QTC[sticker.corners(st)])
+        ent['an_optimal_has_no_extra_quarter_turn'] = any(f['quarter_turns'] == ent['fewest_quarter_turns_of_any_finish'] for f in fin)
+        ok &= ent['fewest_quarter_turns_of_any_finish'] == ent['corner_quarter_turns_sticker'] and ent['an_optimal_has_no_extra_quarter_turn'] == bool(X.hasmin[i])
         ent['replayed_ok'] = bool(ok); ok_all &= ok
         wit.append(ent)
         print(wid, ent['sample'], ent['scramble'], '| optimal', d, '|', len(fs), 'finishes | setup', sn, si, '| cases', dr['case_normal'], dr['case_inverse'], '| ok', ok, flush=True)
         for f in fin: print('    ', f['finish'], f['half_turns_before_first_qt_normal'], f['half_turns_before_first_qt_inverse'])
     json.dump(wit, open(f'{OUT}/ht_first_witness.json', 'w'), indent=1)
 
+    if not (K or J):            # witnesses only: the reads check file is left as it is
+        print('witnesses', len(wit), 'all replayed and re-read:', ok_all); return
     # reads check
     lines = [f'ht_first_witness.py {K} {J}: the reads of ht_first.py against the sticker model and against drread']
     tot = collections.Counter()

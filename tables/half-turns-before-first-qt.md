@@ -2,13 +2,14 @@
 
 From a DR, how many half turns does an optimal finish make before its first quarter turn, if you start on the better side? Per subset × edges, for all DRs and for the DRs that matter in an attempt: those with an optimal of 13 or less, or 12 or less.
 
-**How it's counted.** Take every optimal finish of the DR (U, D, R2, L2, F2, B2) and count the moves before its first U or D quarter turn. They're all half turns; U2 and D2 count. Read each finish from its first move (normal) and from its last move (inverse) and keep the smaller number: that's *the better side*, chosen with hindsight. The *normal side alone* columns keep only the first reading. Sampled: 25,000 uniformly random DRs per subset × edges, each with every optimal finish from the exact table of all DR states, so a share is good to about ±0.3 points, more on the rows with few DRs (the tables give the count). November 2026.
+**How it's counted.** Take every optimal finish of the DR (U, D, R2, L2, F2, B2) and count the moves before its first U or D quarter turn. They're all half turns; U2 and D2 count. Any optimal finish counts, including one with more quarter turns than the corners need, so the first quarter turn doesn't have to make progress: on a 2qt case it can be the first of four ([when it has to](#when-the-first-quarter-turn-has-to-make-progress)). Read each finish from its first move (normal) and from its last move (inverse) and keep the smaller number: that's *the better side*, chosen with hindsight. The *normal side alone* columns keep only the first reading. Sampled: 25,000 uniformly random DRs per subset × edges, each with every optimal finish from the exact table of all DR states, so a share is good to about ±0.3 points, more on the rows with few DRs (the tables give the count). November 2026.
 
 **The short answer.**
 
 - Over all DRs, 69.9% need no half turn first, 22.2% need one, and 8.0% need two or more. Among DRs with an optimal of 13 or less it's 12.6% that need two or more, and with 12 or less 15.9%.
 - It depends on the subset and on the edge count. With an optimal of 12 or less, two or more half turns first are needed on 30.6% of 4a1 4e, 28.1% of 4a2 4e, 27.5% of 4b2 2e and 21.5% of 2c3 2e, and on none of the sampled DRs of 2c5, 0c3, 0c4, 4c4 or 4b5.
 - Checking both sides matters: on the normal side alone, 23.6% of all DRs need two or more, against 8.0% on the better side.
+- On the 2qt subsets the high *0 half turns* shares are 4qt optimals. A quarter turn at once belongs to a 2qt optimal on 5.7% of 4b2 and 7.3% of 4a2; on 57.9% and 49.9% only an optimal with four or more quarter turns starts that way. Those are common: every optimal of a 4b2 has four or more quarter turns on 55.0% of its DRs, and some optimal on 82.6% ([when the first quarter turn has to make progress](#when-the-first-quarter-turn-has-to-make-progress); [*Which HTR routes to try from a DR*](../htr-routes/#7-extra-quarter-turns-and-the-last-dr-move), section 7).
 - What you can see: the corner case says whether to expect **one** half turn first. Call a side ready when a quarter turn takes its corners straight down a quarter turn. A 2c4 2e with an optimal of 13 or less needs a half turn first on 88.0% if neither side is ready, against 29.2% if one is. Needing **two or more** barely shows: only 4a2 has a usable sign, the bad-corner layout on both sides (77.7% against 22.2% on 4a2 4e). Pairs and the E slice say nothing, the bad edges next to nothing ([what you can see](#what-you-can-see-that-predicts-it)).
 - One move over the optimal it nearly stops mattering: with an optimal of 13 or less, 1.4% of DRs have no finish within one move of the optimal that reaches its first quarter turn after 0 or 1 half turns ([within one move](#a-finish-within-one-move-of-the-optimal)).
 
@@ -243,6 +244,337 @@ Edge counts pooled. Each row is a corner subset:
 | 4b5 | 85.0% | 13.4% | 1.6% | <0.1% | 63.5% | 24.2% | 8.2% | 4.1% |
 | all DRs | 69.9% | 22.2% | 5.9% | 2.1% | 48.6% | 27.8% | 12.1% | 11.5% |
 
+## When the first quarter turn has to make progress
+
+The tables above count any optimal finish. On a 2qt subset that includes the optimal finishes with four quarter turns, and those are what fills its *0 half turns* column: on a 4b2 whose corners need a half turn first (4b2 parity) no quarter turn makes progress, and an optimal still starts with one, the first of four. This section counts only the finishes that don't do that.
+
+**No extra quarter turn.** Every DR has a fewest number of quarter turns that any finish of it can have. It's the corners' count (2 on 4b2 and 4a2, 3 on 2c3, and so on) on every subset but two: on 4a1 0e and 4a1 2e one quarter turn can't fix the edges and it's 3, and on 0c0 outside HTR it's 2. A finish with exactly that many has *no extra quarter turn*; on 4b2 or 4a2 that's a 2qt finish, which is what not using 4q means. Half turns never change the number and a quarter turn changes it by exactly one, so on such a finish every quarter turn lowers it. If the finish starts with a quarter turn, that turn makes progress, and on every row where the number is the corners' count it lowers the corners' count: the side was ready, in the words of the next section.
+
+**How common the extra quarter turns are** was measured on the server before. rodneykinney ([13 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1063355084697784371)): "How often does the optimal DR finish use more QT than the optimal corner finish? Surprisingly often! For example, 57% of the time, the optimal solution uses 4QT for a 2QT corner case." Lichi Fang ([6 Aug 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1137835695721939094)): "I shockingly discovered that over 60% the optimal solution for htr subset 2qt(a) 4c4e (the R U2 F2 R' case) use 4qt rather than 2qt. How are they possibly findable?" [*Which HTR routes to try from a DR*](../htr-routes/#7-extra-quarter-turns-and-the-last-dr-move) (section 7) checks both: on 4a2 and 4b2 together every optimal uses 4 or more quarter turns on 53.9% of DRs and some optimal does on 80.7%; on 4b2 4e it's 63.7% and 86.9%. Its verdict is that both quotes fit: the 57% read as every optimal, or as one leave-slice optimal picked at random (56.3%), and the over 60% as every optimal of 4b2 4e.
+
+The two 2qt subsets. Each row is a subset × edges and a group of its DRs. The first two cells are the shares where every optimal, and where some optimal, has 4 or more quarter turns. Then the *0 half turns* share of the main tables, split in two: a 2qt optimal starts with the quarter turn on one of the sides, or only an optimal with 4 or more quarter turns does. Sampled, 25,000 per subset × edges:
+
+| Subset | DRs counted | Every optimal has 4 or more quarter turns | Some optimal has 4 or more | 0 half turns, as in the main table | A 2qt optimal starts with the quarter turn | Only an optimal with 4 or more quarter turns does |
+|---|---|---|---|---|---|---|
+| 4b2 0e | All DRs | 55.0% | 80.8% | 72.0% | 13.6% | 58.4% |
+| 4b2 0e | Optimal ≤ 13 | 57.5% | 74.9% | 66.2% | 14.3% | 51.9% |
+| 4b2 2e | All DRs | 45.2% | 77.7% | 60.0% | 5.7% | 54.3% |
+| 4b2 2e | Optimal ≤ 13 | 48.6% | 74.0% | 54.8% | 6.0% | 48.8% |
+| 4b2 4e | All DRs | 63.7% | 86.9% | 66.3% | 5.2% | 61.1% |
+| 4b2 4e | Optimal ≤ 13 | 66.1% | 84.3% | 61.5% | 5.6% | 55.9% |
+| 4b2, edge counts pooled | All DRs | 55.0% | 82.6% | 63.6% | 5.7% | 57.9% |
+| 4b2, edge counts pooled | Optimal ≤ 13 | 57.7% | 79.2% | 58.5% | 6.0% | 52.5% |
+| 4a2 0e | All DRs | 96.0% | 99.5% | 75.7% | 1.8% | 73.8% |
+| 4a2 0e | Optimal ≤ 13 | 97.3% | 98.8% | 75.6% | 2.2% | 73.4% |
+| 4a2 2e | All DRs | 65.8% | 86.6% | 67.9% | 6.4% | 61.5% |
+| 4a2 2e | Optimal ≤ 13 | 67.3% | 77.1% | 64.7% | 10.7% | 54.0% |
+| 4a2 4e | All DRs | 32.1% | 60.0% | 46.7% | 8.5% | 38.3% |
+| 4a2 4e | Optimal ≤ 13 | 31.2% | 49.1% | 40.9% | 12.2% | 28.7% |
+| 4a2, edge counts pooled | All DRs | 49.4% | 73.3% | 57.2% | 7.3% | 49.9% |
+| 4a2, edge counts pooled | Optimal ≤ 13 | 44.9% | 59.7% | 49.8% | 11.5% | 38.3% |
+
+So on 4b2 a quarter turn at once belongs to a 2qt optimal on 5.7% of DRs, and the other 57.9% of its 63.6% are 4qt optimals. They're not rare finishes: every optimal of a 4b2 has 4 or more quarter turns on 55.0% of its DRs.
+
+A 4b2 2e like that, replayed. Neither side is ready (4b2-3 on normal, 4b2-3 on inverse: the corners need 2 half turns before a quarter turn lowers them, on either side). Its optimal starts with a quarter turn all the same, and both optimal finishes have 4 quarter turns:
+
+```
+L2 D2 F2 L2 U B2 D' L2 D' L2 R2 U' // 4b2 2e, 12 optimal; corners 4b2-3 on normal, 4b2-3 on inverse
+U R2 L2 D L2 D B2 U' L2 F2 D2 L2 // optimal finish, 4 quarter turns: 0 half turns before the first qt on normal, 4 on inverse
+U L2 R2 D L2 D B2 U' L2 F2 D2 L2 // the other optimal finish, 4 quarter turns: 0 half turns before the first qt on normal, 4 on inverse
+```
+
+The same split for every corner subset, edge counts pooled. Each row is a corner subset; the first three cells are over all its DRs, the last three over those with an optimal of 13 or less:
+
+| Corner subset | All DRs: 0 half turns, as in the main table | All DRs: a finish with no extra quarter turn starts with the quarter turn | All DRs: only finishes with extra quarter turns do | Optimal ≤ 13: 0 half turns, as in the main table | Optimal ≤ 13: a finish with no extra quarter turn starts with the quarter turn | Optimal ≤ 13: only finishes with extra quarter turns do |
+|---|---|---|---|---|---|---|
+| 0c0 | 64.5% | 17.2% | 47.2% | 61.5% | 17.0% | 44.5% |
+| 2c5 | 82.7% | 77.8% | 4.9% | 80.0% | 79.0% | 1.0% |
+| 2c4 | 66.3% | 51.6% | 14.7% | 64.6% | 57.6% | 7.1% |
+| 0c3 | 64.4% | 32.4% | 32.1% | 64.9% | 58.3% | 6.6% |
+| 4a2 | 57.2% | 7.3% | 49.9% | 49.8% | 11.5% | 38.3% |
+| 4a1 | 61.1% | 20.8% | 40.3% | 57.7% | 19.3% | 38.4% |
+| 2c3 | 62.5% | 32.5% | 30.0% | 57.5% | 32.6% | 24.9% |
+| 0c4 | 84.6% | 71.1% | 13.6% | 78.7% | 65.4% | 13.3% |
+| 4c3 | 65.2% | 26.7% | 38.5% | 60.4% | 30.7% | 29.7% |
+| 4c4 | 79.3% | 38.6% | 40.7% | 78.1% | 51.1% | 27.0% |
+| 4b2 | 63.6% | 5.7% | 57.9% | 58.5% | 6.0% | 52.5% |
+| 4b5 | 85.0% | 81.9% | 3.1% | 81.6% | 80.6% | 1.0% |
+| all DRs | 69.9% | 42.2% | 27.7% | 61.5% | 33.7% | 27.8% |
+
+On 2c5 and 4b5 a quarter turn at once nearly always makes progress, and on 2c4 and 0c4 mostly. On 4a2, 4b2, 0c0 and 4a1 it mostly doesn't, and on 2c3, 0c3, 4c3 and 4c4 it's about half and half.
+
+Every subset × edges, all DRs:
+
+| Subset × edges | 0 half turns, as in the main table | A finish with no extra quarter turn starts with the quarter turn | Only finishes with extra quarter turns do |
+|---|---|---|---|
+| 0c0 0e | 38.3% | 22.9% | 15.3% |
+| 0c0 2e | 58.3% | 22.6% | 35.7% |
+| 0c0 4e | 62.3% | 14.0% | 48.3% |
+| 0c0 6e | 77.0% | 17.5% | 59.5% |
+| 0c0 8e | 66.3% | 37.0% | 29.2% |
+| 2c5 0e | 88.4% | 82.6% | 5.9% |
+| 2c5 2e | 83.2% | 77.9% | 5.3% |
+| 2c5 4e | 82.0% | 77.3% | 4.7% |
+| 2c5 6e | 83.1% | 78.1% | 5.0% |
+| 2c5 8e | 86.6% | 81.7% | 4.9% |
+| 2c4 0e | 59.9% | 49.1% | 10.8% |
+| 2c4 2e | 65.4% | 51.5% | 13.9% |
+| 2c4 4e | 65.7% | 50.4% | 15.4% |
+| 2c4 6e | 68.4% | 54.0% | 14.4% |
+| 2c4 8e | 72.4% | 58.9% | 13.5% |
+| 0c3 0e | 64.8% | 45.2% | 19.5% |
+| 0c3 2e | 60.3% | 34.0% | 26.3% |
+| 0c3 4e | 69.5% | 30.0% | 39.6% |
+| 0c3 6e | 57.0% | 34.3% | 22.7% |
+| 0c3 8e | 64.2% | 46.9% | 17.3% |
+| 4a2 0e | 75.7% | 1.8% | 73.8% |
+| 4a2 2e | 67.9% | 6.4% | 61.5% |
+| 4a2 4e | 46.7% | 8.5% | 38.3% |
+| 4a1 0e | 79.2% | 29.5% | 49.6% |
+| 4a1 2e | 65.5% | 43.0% | 22.5% |
+| 4a1 4e | 56.2% | 0.6% | 55.7% |
+| 2c3 0e | 85.2% | 27.1% | 58.0% |
+| 2c3 2e | 54.6% | 33.2% | 21.4% |
+| 2c3 4e | 61.5% | 31.7% | 29.8% |
+| 2c3 6e | 69.8% | 34.4% | 35.4% |
+| 2c3 8e | 83.2% | 25.4% | 57.8% |
+| 0c4 0e | 83.3% | 75.4% | 7.9% |
+| 0c4 2e | 83.8% | 72.1% | 11.7% |
+| 0c4 4e | 83.6% | 69.9% | 13.6% |
+| 0c4 6e | 87.7% | 71.6% | 16.1% |
+| 0c4 8e | 90.3% | 81.2% | 9.1% |
+| 4c3 0e | 69.4% | 35.7% | 33.7% |
+| 4c3 2e | 64.1% | 26.6% | 37.5% |
+| 4c3 4e | 65.8% | 26.3% | 39.6% |
+| 4c4 0e | 83.3% | 36.4% | 47.0% |
+| 4c4 2e | 79.9% | 38.3% | 41.5% |
+| 4c4 4e | 78.6% | 39.0% | 39.6% |
+| 4b2 0e | 72.0% | 13.6% | 58.4% |
+| 4b2 2e | 60.0% | 5.7% | 54.3% |
+| 4b2 4e | 66.3% | 5.2% | 61.1% |
+| 4b5 0e | 85.2% | 82.0% | 3.2% |
+| 4b5 2e | 84.0% | 80.8% | 3.3% |
+| 4b5 4e | 85.9% | 82.9% | 3.0% |
+
+### Counting only finishes with no extra quarter turn
+
+The main tables again, counting only the optimal finishes with no extra quarter turn. A DR whose every optimal has extra quarter turns has no such finish and can't be 0, 1, 2 or 3 or more, so it gets its own column, and the five shares add up to all the DRs of the row. *Quarter turns in such a finish* is the fewest any finish can have. Better side, chosen with hindsight, as above.
+
+Optimal of 13 or less. Each row is a subset × edges:
+
+| Subset × edges | Share of its DRs that short | DRs in the sample | Quarter turns in such a finish | No optimal without extra quarter turns | 0 half turns | 1 half turn | 2 half turns | 3 or more |
+|---|---|---|---|---|---|---|---|---|
+| 0c0 0e | 100.0% | 25,000 | 0 or 2 | 8.8% | 22.9% | 13.8% | 7.5% | 47.0% |
+| 0c0 2e | 98.8% | 24,701 | 2 | 30.1% | 22.4% | 26.9% | 14.9% | 5.7% |
+| 0c0 4e | 92.3% | 23,082 | 2 | 41.2% | 13.8% | 20.2% | 13.5% | 11.3% |
+| 0c0 6e | 75.2% | 18,805 | 2 | 58.5% | 17.0% | 16.1% | 7.3% | 1.0% |
+| 0c0 8e | 77.6% | 19,407 | 2 | 23.1% | 35.3% | 25.5% | 12.4% | 3.6% |
+| 2c5 0e | 11.2% | 2,798 | 5 | 1.2% | 88.1% | 10.7% | 0% | 0% |
+| 2c5 2e | 15.4% | 3,845 | 5 | 1.1% | 79.8% | 18.0% | 1.1% | 0% |
+| 2c5 4e | 15.1% | 3,780 | 5 | 0.8% | 77.6% | 19.7% | 1.9% | 0% |
+| 2c5 6e | 11.6% | 2,907 | 5 | 0.9% | 81.3% | 17.3% | 0.6% | 0% |
+| 2c5 8e | 10.8% | 2,698 | 5 | 1.1% | 85.4% | 13.5% | 0% | 0% |
+| 2c4 0e | 58.0% | 14,488 | 4 | 3.8% | 53.8% | 32.0% | 9.4% | 0.9% |
+| 2c4 2e | 43.5% | 10,885 | 4 | 5.5% | 55.7% | 29.3% | 9.0% | 0.5% |
+| 2c4 4e | 38.0% | 9,489 | 4 | 6.2% | 56.6% | 27.6% | 8.5% | 1.1% |
+| 2c4 6e | 35.0% | 8,742 | 4 | 5.5% | 61.9% | 27.9% | 4.8% | 0% |
+| 2c4 8e | 24.0% | 6,003 | 4 | 3.3% | 72.8% | 22.2% | 1.7% | 0% |
+| 0c3 0e | 26.1% | 6,517 | 3 | 1.7% | 69.7% | 28.6% | 0% | 0% |
+| 0c3 2e | 17.4% | 4,348 | 3 | 5.0% | 55.4% | 35.9% | 3.7% | 0% |
+| 0c3 4e | 9.2% | 2,312 | 3 | 10.5% | 61.9% | 27.6% | 0% | 0% |
+| 0c3 6e | 17.4% | 4,360 | 3 | 4.2% | 54.7% | 36.8% | 4.3% | 0% |
+| 0c3 8e | 25.1% | 6,276 | 3 | 1.2% | 70.3% | 28.5% | 0% | 0% |
+| 4a2 0e | 28.5% | 7,116 | 2 | 97.3% | 2.2% | 0.4% | 0% | 0% |
+| 4a2 2e | 39.6% | 9,903 | 2 | 67.3% | 10.7% | 14.6% | 7.5% | 0% |
+| 4a2 4e | 63.5% | 15,879 | 2 | 31.2% | 12.2% | 22.0% | 22.2% | 12.4% |
+| 4a1 0e | 70.2% | 17,562 | 3 | 51.4% | 28.8% | 15.1% | 4.2% | 0.5% |
+| 4a1 2e | 87.8% | 21,957 | 3 | 14.7% | 40.7% | 28.1% | 12.9% | 3.6% |
+| 4a1 4e | 91.2% | 22,810 | 1 | 66.3% | 0.6% | 2.0% | 4.4% | 26.8% |
+| 2c3 0e | 51.8% | 12,942 | 3 | 56.3% | 29.1% | 13.3% | 1.3% | 0% |
+| 2c3 2e | 87.9% | 21,963 | 3 | 11.3% | 32.6% | 30.6% | 17.6% | 7.9% |
+| 2c3 4e | 72.3% | 18,078 | 3 | 19.3% | 31.7% | 27.2% | 14.6% | 7.2% |
+| 2c3 6e | 60.6% | 15,147 | 3 | 26.3% | 35.5% | 27.2% | 10.1% | 1.0% |
+| 2c3 8e | 44.6% | 11,162 | 3 | 59.6% | 26.2% | 12.5% | 1.7% | 0% |
+| 0c4 0e | 60.3% | 15,079 | 4 | 7.8% | 69.2% | 21.0% | 2.0% | 0% |
+| 0c4 2e | 44.1% | 11,036 | 4 | 11.0% | 66.4% | 21.6% | 1.1% | 0% |
+| 0c4 4e | 37.5% | 9,365 | 4 | 13.6% | 63.7% | 21.0% | 1.7% | 0% |
+| 0c4 6e | 24.4% | 6,104 | 4 | 16.1% | 68.2% | 15.7% | 0% | 0% |
+| 0c4 8e | 15.4% | 3,848 | 4 | 7.6% | 84.5% | 8.0% | 0% | 0% |
+| 4c3 0e | 54.3% | 13,568 | 3 | 25.2% | 39.6% | 28.6% | 6.6% | 0% |
+| 4c3 2e | 45.7% | 11,415 | 3 | 29.8% | 31.0% | 26.7% | 11.4% | 1.1% |
+| 4c3 4e | 45.3% | 11,327 | 3 | 33.5% | 29.9% | 25.5% | 10.4% | 0.7% |
+| 4c4 0e | 8.6% | 2,152 | 4 | 27.5% | 53.6% | 18.9% | 0% | 0% |
+| 4c4 2e | 10.6% | 2,649 | 4 | 30.2% | 50.8% | 16.9% | 2.2% | 0% |
+| 4c4 4e | 11.7% | 2,937 | 4 | 26.2% | 51.3% | 20.8% | 1.7% | 0% |
+| 4b2 0e | 74.3% | 18,567 | 2 | 57.5% | 14.3% | 14.8% | 9.7% | 3.6% |
+| 4b2 2e | 84.5% | 21,120 | 2 | 48.6% | 6.0% | 10.8% | 13.1% | 21.5% |
+| 4b2 4e | 82.0% | 20,490 | 2 | 66.1% | 5.6% | 9.4% | 9.2% | 9.7% |
+| 4b5 0e | 13.1% | 3,272 | 5 | 1.0% | 79.1% | 16.9% | 3.0% | 0% |
+| 4b5 2e | 13.6% | 3,401 | 5 | 1.0% | 77.8% | 19.4% | 1.8% | 0% |
+| 4b5 4e | 12.9% | 3,236 | 5 | 0.8% | 83.3% | 15.3% | 0.5% | 0% |
+
+Edge counts pooled. Each row is a corner subset:
+
+| Corner subset | Share of its DRs that short | DRs in the sample | Quarter turns in such a finish | No optimal without extra quarter turns | 0 half turns | 1 half turn | 2 half turns | 3 or more |
+|---|---|---|---|---|---|---|---|---|
+| 0c0 | 89.8% | 110,995 | 0 or 2 | 41.0% | 17.0% | 21.1% | 12.6% | 8.4% |
+| 2c5 | 14.3% | 16,028 | 5 | 0.9% | 79.0% | 18.7% | 1.4% | 0% |
+| 2c4 | 38.6% | 49,607 | 4 | 5.8% | 57.6% | 28.1% | 7.8% | 0.7% |
+| 0c3 | 13.4% | 23,813 | 3 | 6.5% | 58.3% | 32.8% | 2.4% | 0% |
+| 4a2 | 51.6% | 32,898 | 2 | 44.9% | 11.5% | 19.1% | 16.7% | 7.9% |
+| 4a1 | 89.1% | 62,329 | 1 or 3 | 42.7% | 19.3% | 14.0% | 8.2% | 15.7% |
+| 2c3 | 72.5% | 79,292 | 3 | 19.2% | 32.6% | 27.9% | 14.3% | 6.1% |
+| 0c4 | 36.0% | 45,432 | 4 | 13.1% | 65.4% | 20.3% | 1.3% | 0% |
+| 4c3 | 45.7% | 36,310 | 3 | 31.5% | 30.7% | 26.2% | 10.7% | 0.9% |
+| 4c4 | 11.1% | 7,738 | 4 | 28.0% | 51.1% | 19.1% | 1.9% | 0% |
+| 4b2 | 82.9% | 60,177 | 2 | 57.7% | 6.0% | 10.2% | 11.0% | 15.1% |
+| 4b5 | 13.2% | 9,909 | 5 | 0.9% | 80.6% | 17.3% | 1.2% | 0% |
+| all DRs | 43.4% | 534,528 | 0 to 5 | 27.9% | 33.7% | 21.8% | 10.3% | 6.3% |
+
+Optimal of 12 or less:
+
+| Subset × edges | Share of its DRs that short | DRs in the sample | Quarter turns in such a finish | No optimal without extra quarter turns | 0 half turns | 1 half turn | 2 half turns | 3 or more |
+|---|---|---|---|---|---|---|---|---|
+| 0c0 0e | 99.3% | 24,814 | 0 or 2 | 8.8% | 22.6% | 13.9% | 7.5% | 47.2% |
+| 0c0 2e | 79.9% | 19,978 | 2 | 32.1% | 21.6% | 26.2% | 14.9% | 5.3% |
+| 0c0 4e | 53.0% | 13,252 | 2 | 42.3% | 15.1% | 19.3% | 13.1% | 10.2% |
+| 0c0 6e | 27.1% | 6,780 | 2 | 56.8% | 21.1% | 16.1% | 6.0% | 0% |
+| 0c0 8e | 38.4% | 9,598 | 2 | 22.4% | 37.0% | 26.5% | 12.0% | 2.1% |
+| 2c5 0e | 1.5% | 373 | 5 | 0% | 94.9% | 5.1% | 0% | 0% |
+| 2c5 2e | 2.6% | 658 | 5 | 0% | 87.1% | 12.9% | 0% | 0% |
+| 2c5 4e | 2.6% | 645 | 5 | 0% | 83.1% | 16.9% | 0% | 0% |
+| 2c5 6e | 1.7% | 415 | 5 | 0% | 88.0% | 12.0% | 0% | 0% |
+| 2c5 8e | 1.5% | 367 | 5 | 0% | 86.6% | 13.4% | 0% | 0% |
+| 2c4 0e | 19.9% | 4,963 | 4 | 2.0% | 59.5% | 31.3% | 7.2% | 0% |
+| 2c4 2e | 11.3% | 2,814 | 4 | 3.6% | 61.6% | 28.2% | 6.6% | 0% |
+| 2c4 4e | 9.1% | 2,282 | 4 | 2.8% | 62.9% | 27.3% | 6.9% | 0% |
+| 2c4 6e | 7.7% | 1,914 | 4 | 3.4% | 71.6% | 22.4% | 2.6% | 0% |
+| 2c4 8e | 4.4% | 1,091 | 4 | 0.8% | 82.8% | 16.4% | 0% | 0% |
+| 0c3 0e | 5.5% | 1,381 | 3 | 0% | 89.6% | 10.4% | 0% | 0% |
+| 0c3 2e | 3.7% | 915 | 3 | 0.8% | 73.3% | 25.9% | 0% | 0% |
+| 0c3 4e | 1.5% | 378 | 3 | 1.3% | 82.8% | 15.9% | 0% | 0% |
+| 0c3 6e | 3.7% | 921 | 3 | 0.5% | 73.5% | 26.0% | 0% | 0% |
+| 0c3 8e | 5.6% | 1,396 | 3 | 0% | 90.2% | 9.8% | 0% | 0% |
+| 4a2 0e | 6.1% | 1,526 | 2 | 98.0% | 2.0% | 0% | 0% | 0% |
+| 4a2 2e | 10.5% | 2,615 | 2 | 61.3% | 17.7% | 18.1% | 2.9% | 0% |
+| 4a2 4e | 26.2% | 6,545 | 2 | 25.8% | 18.6% | 26.4% | 22.3% | 6.8% |
+| 4a1 0e | 24.1% | 6,031 | 3 | 47.8% | 32.2% | 16.3% | 3.7% | 0% |
+| 4a1 2e | 42.9% | 10,726 | 3 | 14.9% | 41.2% | 28.3% | 13.5% | 2.2% |
+| 4a1 4e | 53.1% | 13,263 | 1 | 63.0% | 1.1% | 3.2% | 6.5% | 26.3% |
+| 2c3 0e | 11.7% | 2,933 | 3 | 52.2% | 36.8% | 11.0% | 0% | 0% |
+| 2c3 2e | 42.2% | 10,562 | 3 | 11.7% | 33.4% | 30.4% | 18.0% | 6.5% |
+| 2c3 4e | 27.0% | 6,741 | 3 | 16.4% | 34.9% | 28.3% | 15.1% | 5.3% |
+| 2c3 6e | 17.0% | 4,246 | 3 | 22.3% | 44.4% | 26.4% | 6.9% | 0% |
+| 2c3 8e | 9.4% | 2,341 | 3 | 57.3% | 32.7% | 10.0% | 0% | 0% |
+| 0c4 0e | 17.7% | 4,428 | 4 | 8.6% | 69.7% | 21.6% | 0% | 0% |
+| 0c4 2e | 9.1% | 2,277 | 4 | 8.0% | 76.2% | 15.8% | 0% | 0% |
+| 0c4 4e | 7.2% | 1,801 | 4 | 9.8% | 74.5% | 15.7% | 0% | 0% |
+| 0c4 6e | 3.7% | 913 | 4 | 12.3% | 77.7% | 10.1% | 0% | 0% |
+| 0c4 8e | 1.9% | 466 | 4 | 5.2% | 94.8% | 0% | 0% | 0% |
+| 4c3 0e | 17.1% | 4,283 | 3 | 21.8% | 48.5% | 25.9% | 3.8% | 0% |
+| 4c3 2e | 12.0% | 2,992 | 3 | 25.5% | 39.2% | 27.4% | 8.0% | 0% |
+| 4c3 4e | 11.8% | 2,954 | 3 | 28.9% | 37.5% | 26.6% | 7.0% | 0% |
+| 4c4 0e | 1.3% | 317 | 4 | 13.9% | 72.6% | 13.6% | 0% | 0% |
+| 4c4 2e | 1.6% | 397 | 4 | 22.7% | 63.7% | 13.6% | 0% | 0% |
+| 4c4 4e | 1.9% | 474 | 4 | 20.7% | 66.5% | 12.9% | 0% | 0% |
+| 4b2 0e | 28.5% | 7,113 | 2 | 52.6% | 18.7% | 17.2% | 9.3% | 2.3% |
+| 4b2 2e | 39.3% | 9,831 | 2 | 48.1% | 7.8% | 12.5% | 13.5% | 18.1% |
+| 4b2 4e | 34.4% | 8,610 | 2 | 63.6% | 7.9% | 11.4% | 9.5% | 7.6% |
+| 4b5 0e | 1.9% | 474 | 5 | 0% | 83.1% | 16.9% | 0% | 0% |
+| 4b5 2e | 2.0% | 508 | 5 | 0% | 82.5% | 17.5% | 0% | 0% |
+| 4b5 4e | 1.8% | 440 | 5 | 0% | 90.2% | 9.8% | 0% | 0% |
+
+Edge counts pooled:
+
+| Corner subset | Share of its DRs that short | DRs in the sample | Quarter turns in such a finish | No optimal without extra quarter turns | 0 half turns | 1 half turn | 2 half turns | 3 or more |
+|---|---|---|---|---|---|---|---|---|
+| 0c0 | 53.7% | 74,422 | 0 or 2 | 39.4% | 18.4% | 21.2% | 12.7% | 8.3% |
+| 2c5 | 2.4% | 2,458 | 5 | 0% | 85.0% | 15.0% | 0% | 0% |
+| 2c4 | 9.4% | 13,064 | 4 | 3.1% | 64.2% | 26.7% | 6.0% | 0% |
+| 0c3 | 2.6% | 4,991 | 3 | 0.8% | 77.2% | 22.0% | 0% | 0% |
+| 4a2 | 18.4% | 10,686 | 2 | 35.7% | 18.2% | 24.0% | 17.1% | 5.0% |
+| 4a1 | 47.6% | 30,020 | 1 or 3 | 42.9% | 18.0% | 13.7% | 9.3% | 15.9% |
+| 2c3 | 27.7% | 26,823 | 3 | 16.0% | 35.7% | 28.6% | 14.8% | 4.9% |
+| 0c4 | 6.9% | 9,885 | 4 | 9.5% | 75.3% | 15.2% | 0% | 0% |
+| 4c3 | 12.0% | 10,229 | 3 | 27.1% | 38.7% | 26.9% | 7.3% | 0% |
+| 4c4 | 1.7% | 1,188 | 4 | 21.4% | 65.4% | 13.2% | 0% | 0% |
+| 4b2 | 36.5% | 25,554 | 2 | 55.7% | 8.1% | 12.1% | 11.5% | 12.7% |
+| 4b5 | 1.9% | 1,422 | 5 | 0% | 86.2% | 13.8% | 0% | 0% |
+| all DRs | 14.7% | 210,742 | 0 to 5 | 29.6% | 31.8% | 21.2% | 10.7% | 6.8% |
+
+All DRs:
+
+| Subset × edges | Quarter turns in such a finish | No optimal without extra quarter turns | 0 half turns | 1 half turn | 2 half turns | 3 or more |
+|---|---|---|---|---|---|---|
+| 0c0 0e | 0 or 2 | 8.8% | 22.9% | 13.8% | 7.5% | 47.0% |
+| 0c0 2e | 2 | 29.9% | 22.6% | 26.9% | 14.9% | 5.7% |
+| 0c0 4e | 2 | 39.5% | 14.0% | 21.0% | 13.9% | 11.6% |
+| 0c0 6e | 2 | 55.1% | 17.5% | 17.9% | 8.0% | 1.6% |
+| 0c0 8e | 2 | 22.1% | 37.0% | 25.0% | 11.8% | 4.2% |
+| 2c5 0e | 5 | 4.5% | 82.6% | 12.2% | 0.6% | 0% |
+| 2c5 2e | 5 | 3.6% | 77.9% | 16.5% | 2.0% | <0.1% |
+| 2c5 4e | 5 | 2.9% | 77.3% | 16.7% | 3.0% | 0.1% |
+| 2c5 6e | 5 | 3.2% | 78.1% | 16.4% | 2.3% | 0.1% |
+| 2c5 8e | 5 | 3.5% | 81.7% | 13.3% | 1.5% | 0% |
+| 2c4 0e | 4 | 3.8% | 49.1% | 35.0% | 10.6% | 1.5% |
+| 2c4 2e | 4 | 5.1% | 51.5% | 33.7% | 8.3% | 1.4% |
+| 2c4 4e | 4 | 6.2% | 50.4% | 33.4% | 8.2% | 1.7% |
+| 2c4 6e | 4 | 5.7% | 54.0% | 33.8% | 5.9% | 0.5% |
+| 2c4 8e | 4 | 4.8% | 58.9% | 32.5% | 3.7% | 0.1% |
+| 0c3 0e | 3 | 14.4% | 45.2% | 38.1% | 2.2% | 0% |
+| 0c3 2e | 3 | 16.9% | 34.0% | 42.1% | 6.6% | 0.4% |
+| 0c3 4e | 3 | 31.6% | 30.0% | 33.4% | 5.0% | 0.1% |
+| 0c3 6e | 3 | 15.2% | 34.3% | 43.2% | 7.0% | 0.4% |
+| 0c3 8e | 3 | 12.7% | 46.9% | 38.8% | 1.7% | 0% |
+| 4a2 0e | 2 | 96.0% | 1.8% | 1.8% | 0.3% | 0% |
+| 4a2 2e | 2 | 65.8% | 6.4% | 12.8% | 11.6% | 3.4% |
+| 4a2 4e | 2 | 32.1% | 8.5% | 17.0% | 22.3% | 20.0% |
+| 4a1 0e | 3 | 48.1% | 29.5% | 16.1% | 5.4% | 0.9% |
+| 4a1 2e | 3 | 13.5% | 43.0% | 28.0% | 12.0% | 3.4% |
+| 4a1 4e | 1 | 66.0% | 0.6% | 1.8% | 4.0% | 27.6% |
+| 2c3 0e | 3 | 53.1% | 27.1% | 16.6% | 3.1% | 0.1% |
+| 2c3 2e | 3 | 10.2% | 33.2% | 32.1% | 17.1% | 7.4% |
+| 2c3 4e | 3 | 16.8% | 31.7% | 29.5% | 14.6% | 7.3% |
+| 2c3 6e | 3 | 21.9% | 34.4% | 30.7% | 11.3% | 1.7% |
+| 2c3 8e | 3 | 52.8% | 25.4% | 17.3% | 4.5% | 0.1% |
+| 0c4 0e | 4 | 5.6% | 75.4% | 17.2% | 1.8% | <0.1% |
+| 0c4 2e | 4 | 8.0% | 72.1% | 18.2% | 1.7% | 0% |
+| 0c4 4e | 4 | 9.9% | 69.9% | 17.8% | 2.4% | <0.1% |
+| 0c4 6e | 4 | 12.9% | 71.6% | 14.5% | 1.0% | 0% |
+| 0c4 8e | 4 | 6.9% | 81.2% | 11.8% | 0.1% | 0% |
+| 4c3 0e | 3 | 23.5% | 35.7% | 31.8% | 8.4% | 0.6% |
+| 4c3 2e | 3 | 25.4% | 26.6% | 30.5% | 14.6% | 2.9% |
+| 4c3 4e | 3 | 29.3% | 26.3% | 28.3% | 13.1% | 3.0% |
+| 4c4 0e | 4 | 32.3% | 36.4% | 25.0% | 6.2% | 0.1% |
+| 4c4 2e | 4 | 27.9% | 38.3% | 28.5% | 5.0% | 0.3% |
+| 4c4 4e | 4 | 26.2% | 39.0% | 29.2% | 5.4% | 0.2% |
+| 4b2 0e | 2 | 55.0% | 13.6% | 15.5% | 10.9% | 5.1% |
+| 4b2 2e | 2 | 45.2% | 5.7% | 10.9% | 13.7% | 24.4% |
+| 4b2 4e | 2 | 63.7% | 5.2% | 9.2% | 9.9% | 11.9% |
+| 4b5 0e | 5 | 1.9% | 82.0% | 14.1% | 2.0% | <0.1% |
+| 4b5 2e | 5 | 2.0% | 80.8% | 14.9% | 2.3% | <0.1% |
+| 4b5 4e | 5 | 1.9% | 82.9% | 14.0% | 1.2% | <0.1% |
+
+Edge counts pooled:
+
+| Corner subset | Quarter turns in such a finish | No optimal without extra quarter turns | 0 half turns | 1 half turn | 2 half turns | 3 or more |
+|---|---|---|---|---|---|---|
+| 0c0 | 0 or 2 | 40.2% | 17.2% | 21.6% | 12.7% | 8.4% |
+| 2c5 | 5 | 3.2% | 77.8% | 16.4% | 2.5% | 0.1% |
+| 2c4 | 4 | 5.8% | 51.6% | 33.6% | 7.7% | 1.3% |
+| 0c3 | 3 | 24.0% | 32.4% | 37.7% | 5.7% | 0.2% |
+| 4a2 | 2 | 49.4% | 7.3% | 14.7% | 16.8% | 11.8% |
+| 4a1 | 1 or 3 | 41.5% | 20.8% | 14.2% | 7.7% | 15.8% |
+| 2c3 | 3 | 17.5% | 32.5% | 30.0% | 14.1% | 5.8% |
+| 0c4 | 4 | 10.0% | 71.1% | 17.0% | 1.9% | <0.1% |
+| 4c3 | 3 | 27.4% | 26.7% | 29.4% | 13.7% | 2.9% |
+| 4c4 | 4 | 27.1% | 38.6% | 28.7% | 5.2% | 0.3% |
+| 4b2 | 2 | 55.0% | 5.7% | 10.2% | 11.7% | 17.4% |
+| 4b5 | 5 | 1.9% | 81.9% | 14.4% | 1.8% | <0.1% |
+| all DRs | 0 to 5 | 20.2% | 42.2% | 24.6% | 8.7% | 4.4% |
+
+On 4a1 4e a finish with no extra quarter turn has one quarter turn, so it's half turns, the quarter turn, half turns, and it almost never starts within two half turns of either end. On 0c0 0e the HTR states solved by half turns alone have a finish with no quarter turn at all, and count as 3 or more as before.
+
 ## What you can see that predicts it
 
 Before you solve anything you can read the corner case on normal and on inverse, where the bad edges sit, the pairs and the E slice. Measured against the tables above: the corner case tells you a lot about needing **one** half turn first, the bad-corner layout gives one usable rule for **two or more** (on 4a2), the pairs and the E slice tell you nothing, and where the bad edges sit next to nothing. Jay suggested the split in 2023 ([3 Nov 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1169972245620342794)): "4qt 2cxe could be divided into a bunch of mini cases ranging from needing 0 half turns on both sides of the scramble to make ideal qt progress, all the way to needing 2 half turns before you can do that ideal qt".
@@ -308,6 +640,48 @@ F2 L2 D' F2 R2 U' F2 D F2 L2 D2 L2 U // 2c4 2e, 13 optimal; corners 2c4-3 on nor
 U' L2 D2 L2 F2 D' F2 U R2 F2 D L2 F2 // optimal finish: 0 half turns before the first qt on normal, 2 on inverse
 D' B2 D2 B2 L2 D' L2 D R2 F2 D L2 F2 // the other optimal finish: 0 half turns before the first qt on normal, 2 on inverse
 ```
+
+### Rule 1 when the quarter turn has to make progress
+
+Count only the optimal finishes with no extra quarter turn ([above](#when-the-first-quarter-turn-has-to-make-progress)), on the rows where that means the corners' count. Then rule 1 is exact one way: if neither side is ready, no such finish starts with a quarter turn, on any DR. That's what solvers call 4b2 parity: with it a quarter turn at once makes no progress. More generally the first quarter turn of such a finish can't come before the half turns the corners need on that side. It's logic, and it holds on every sampled DR.
+
+The other way it stays odds. The 2qt rows and 4a1 4e, DRs with an optimal of 13 or less. Each row is a subset × edges. *Has an optimal with no extra quarter turn* is a share of those DRs, the next cell is how many that is in the sample, and the rest are shares of the DRs that have one: neither side ready; such a finish starting with the quarter turn, without the sign and with a side ready; needing 2+ on such finishes; and the first quarter turn coming exactly as early as the corners allow on the better side:
+
+| Subset × edges | Has an optimal with no extra quarter turn | DRs in the sample that have one | Of those: neither side ready | 0 half turns, neither side ready | 0 half turns, a side ready | Needs 2+, neither side ready | Needs 2+, a side ready | First quarter turn as early as the corners allow |
+|---|---|---|---|---|---|---|---|---|
+| 4b2 0e | 42.5% | 7,882 | 62.0% | 0% | 88.7% | 46.3% | 7.3% | 78.0% |
+| 4b2 2e | 51.4% | 10,856 | 67.8% | 0% | 36.2% | 73.1% | 55.5% | 37.1% |
+| 4b2 4e | 33.9% | 6,946 | 66.4% | 0% | 49.1% | 62.6% | 42.3% | 49.4% |
+| 4a2 0e | 2.7% | 189 | 16.9% | 0% | 100.0% | 0% | 0% | 100.0% |
+| 4a2 2e | 32.7% | 3,240 | 55.0% | 0% | 72.6% | 29.6% | 14.4% | 76.9% |
+| 4a2 4e | 68.8% | 10,926 | 66.8% | 0% | 53.4% | 56.7% | 37.4% | 56.9% |
+| 4a1 4e | 33.7% | 7,693 | 75.5% | 0% | 7.5% | 93.5% | 88.7% | 10.7% |
+
+So on a 4b2 2e with a 2qt optimal and a ready side, a 2qt optimal starts with that quarter turn on 36.2%, against 69.2% of ready 4b2 2e in the main count, where the 4qt optimals come in. For 2+ the sign is still weak (73.1% against 55.5%). On 4a1 4e being ready hardly helps: the single quarter turn also has to fix all four bad edges.
+
+The corner subsets, edge counts pooled (4a1 is left out because of 4a1 0e and 2e), optimal of 13 or less:
+
+| Corner subset | Has an optimal with no extra quarter turn | DRs in the sample that have one | Of those: neither side ready | 0 half turns, neither side ready | 0 half turns, a side ready | Needs 2+, neither side ready | Needs 2+, a side ready | First quarter turn as early as the corners allow |
+|---|---|---|---|---|---|---|---|---|
+| 2c4 | 94.2% | 47,196 | 12.1% | 0% | 69.5% | 20.9% | 7.4% | 70.7% |
+| 0c3 | 93.5% | 22,981 | 32.1% | 0% | 91.8% | 5.3% | 1.2% | 92.7% |
+| 4a2 | 55.1% | 14,355 | 64.3% | 0% | 58.5% | 51.9% | 31.3% | 61.1% |
+| 2c3 | 80.8% | 55,399 | 20.0% | 0% | 50.4% | 39.5% | 21.7% | 52.4% |
+| 4c3 | 68.5% | 25,693 | 34.6% | 0% | 68.6% | 25.5% | 12.3% | 70.7% |
+| 4c4 | 72.0% | 5,578 | 25.0% | 0% | 94.6% | 7.9% | 0.8% | 94.0% |
+| 4b2 | 42.3% | 25,684 | 67.1% | 0% | 43.2% | 68.2% | 48.6% | 43.2% |
+
+All DRs:
+
+| Subset × edges | Has an optimal with no extra quarter turn | DRs in the sample that have one | Of those: neither side ready | 0 half turns, neither side ready | 0 half turns, a side ready | Needs 2+, neither side ready | Needs 2+, a side ready | First quarter turn as early as the corners allow |
+|---|---|---|---|---|---|---|---|---|
+| 4b2 0e | 45.0% | 11,262 | 66.2% | 0% | 89.3% | 50.1% | 6.8% | 76.6% |
+| 4b2 2e | 54.8% | 13,689 | 70.2% | 0% | 35.0% | 74.9% | 57.2% | 35.9% |
+| 4b2 4e | 36.3% | 9,063 | 68.8% | 0% | 45.9% | 66.6% | 46.1% | 46.0% |
+| 4a2 0e | 4.0% | 996 | 53.1% | 0% | 97.9% | 15.1% | 0% | 94.1% |
+| 4a2 2e | 34.2% | 8,541 | 72.5% | 0% | 67.8% | 51.8% | 22.7% | 72.8% |
+| 4a2 4e | 67.9% | 16,963 | 73.6% | 0% | 47.4% | 69.2% | 43.5% | 50.4% |
+| 4a1 4e | 34.0% | 8,502 | 75.4% | 0% | 6.8% | 94.1% | 89.9% | 9.8% |
 
 ### One side at a time
 
@@ -727,4 +1101,4 @@ So about a third of the *2 or more* moves down a column, and the picture stays: 
 
 The sample is the one behind [*Which HTR routes to try from a DR*](../htr-routes/): 25,000 uniformly random DR states for each of the 48 subset × edges. For each state every optimal finish is enumerated against the exact optimal-finish table of all 19,508,428,800 DR states ([*Judging a DR by hand*](../judging-a-dr/)), and the fewest moves before the first quarter turn is kept for each reading direction. Pooled rows weight each subset × edges by its exact number of DR states (with a cut on the optimal, by that number times the share that qualifies). The script is `tables/src/half_turns_before_first_qt.py` in the repository.
 
-**Checked.** A second program (`htr-routes/research/htfirst`: a search over half-turn starts against the same exact table, with the first program's cube model but none of its enumeration) gives the same number on all 1,200,000 sampled DRs, on both sides. A third count in Python, with its own move tables, agrees on 12,000 DRs (the first 3,000 of 2c4 2e, 4a1 4e, 2c3 2e and 0c0 0e) and replays every optimal finish of 800 of them on a 54-sticker cube (18,852 finishes, all solve). The within-one-move numbers come from the second program and agree with the third count on 2,000 DRs. The reads: the half turns the corners need on each side were recomputed on the sticker cube for 2,880 DRs (60 of every subset × edges) and the corner case names by the first study's reader for 440, with no difference. Every example on this page is replayed on the sticker cube and re-read by that reader. Scripts: `htr-routes/research/src/ht_first.py`, `xhtfirst.py`, `check_ht_first.py`, `ht_first_witness.py`.
+**Checked.** A second program (`htr-routes/research/htfirst`: a search over half-turn starts against the same exact table, with the first program's cube model but none of its enumeration) gives the same number on all 1,200,000 sampled DRs, on both sides. A third count in Python, with its own move tables, agrees on 12,000 DRs (the first 3,000 of 2c4 2e, 4a1 4e, 2c3 2e and 0c0 0e) and replays every optimal finish of 800 of them on a 54-sticker cube (18,852 finishes, all solve). The within-one-move numbers come from the second program and agree with the third count on 2,000 DRs. The reads: the half turns the corners need on each side were recomputed on the sticker cube for 2,880 DRs (60 of every subset × edges) and the corner case names by the first study's reader for 440, with no difference. The counts over finishes with no extra quarter turn come from the second program too; the third count agrees on 30,000 DRs (those above and the first 3,000 of 4b2 0e, 4b2 2e, 4b2 4e, 4a2 4e, 4a2 2e and 4a1 2e), with the fewest quarter turns of any finish recomputed by its own search over all 2,822,400 pairs of a corner arrangement and an edge pattern, and the fewest and most quarter turns of the optimal finishes equal to the first program's. Every example on this page is replayed on the sticker cube and re-read by that reader. Scripts: `htr-routes/research/src/ht_first.py`, `xhtfirst.py`, `check_ht_first.py`, `ht_first_witness.py`.

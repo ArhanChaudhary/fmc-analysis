@@ -10,6 +10,11 @@
 //!   noqt  some finish within the budget has no quarter turn at all (only possible from an HTR state)
 //!   q     which first moves U, U', D, D' (bits 0..3) start a finish within the budget
 //!   p1    which (half turn, quarter turn) pairs start one: bit 4 * (index in U2 D2 R2 L2 F2 B2) + (index in U U' D D')
+//!   e     (optimal level only) like a, over the optimal finishes with no extra quarter turn: those whose number of
+//!         quarter turns is qt_full, the fewest any finish of the state can have (class.rs: fewest quarter turns of
+//!         any DR sequence reaching HTR, corners and edges; half turns never change it and a quarter turn changes it
+//!         by one, so such a finish is one on which every quarter turn lowers qt_full).  99 = none with a quarter turn
+//!   eq    which first moves U, U', D, D' start such a finish;  hasmin: some optimal finish has no extra quarter turn
 //!
 //! Method: depth-first over canonical half-turn prefixes P (never the same face twice in a row, never three moves
 //! in a row on one axis), kept only while depth(X P) <= budget - |P|.  After each prefix every quarter turn q that is
@@ -63,8 +68,38 @@ struct Res {
     noqt: bool,
     q: u8,
     p1: u32,
+    e: u8,
+    eq: u8,
 }
-const EMPTY: Res = Res { a: 99, b: 99, noqt: false, q: 0, p1: 0 };
+const EMPTY: Res = Res { a: 99, b: 99, noqt: false, q: 0, p1: 0, e: 99, eq: 0 };
+
+#[inline]
+fn qtf(m: &Model, z: S3) -> u8 {
+    m.cls.qt_full[m.cls.ccos[z.0] as usize][m.cls.epat[z.1] as usize]
+}
+
+/// Is there an optimal finish of `z` on which every quarter turn lowers qt_full (so it has exactly qt_full(z)
+/// quarter turns, the fewest any finish of z can have)?
+fn min_qt_path(m: &Model, z: S3) -> bool {
+    let dz = m.depth(z.0, z.1, z.2);
+    if dz == 0 {
+        return true;
+    }
+    let qz = qtf(m, z);
+    for mv in 0..NMOVES {
+        let y = m.mv(mv, z);
+        if m.depth(y.0, y.1, y.2) + 1 != dz {
+            continue;
+        }
+        if model::is_qt(mv as u8) && qtf(m, y) + 1 != qz {
+            continue;
+        }
+        if min_qt_path(m, y) {
+            return true;
+        }
+    }
+    false
+}
 
 /// Is there an optimal finish of `z` that is canonical after a last move on face `lf` (axis run `la`)?
 fn tail_ok(m: &Model, z: S3, lf: u8, la: u8) -> bool {
@@ -109,6 +144,13 @@ fn search(m: &Model, y: S3, h: u8, sb: u8, first: usize, lf: u8, la: u8, budget:
                 continue;
             }
             let ok = total == d || tail_ok(m, z, FACE[q], axis_run(q, lf, la));
+            // optimal level: the same start on a finish with no extra quarter turn
+            if budget == d && total == d && qtf(m, z) + 1 == qtf(m, y) && min_qt_path(m, z) {
+                res.e = res.e.min(h);
+                if h == 0 {
+                    res.eq |= 1 << qi;
+                }
+            }
             if ok {
                 res.a = res.a.min(h);
                 res.b = res.b.min(sb);
@@ -147,16 +189,17 @@ fn one(m: &Model, x: S3) -> (u8, [Res; 4]) {
     (d, out)
 }
 
-const HEADER: &str = "subset\tidx\tc\te\ts\td\ta0n\ta0i\ta1n\ta1i\tb0n\tb0i\tb1n\tb1i\tnoqt0\tnoqt1\tq0n\tq0i\tq1n\tq1i\tp0n\tp0i\tp1n\tp1i\tccn\tcci\tepn\tepi";
+const HEADER: &str = "subset\tidx\tc\te\ts\td\ta0n\ta0i\ta1n\ta1i\tb0n\tb0i\tb1n\tb1i\tnoqt0\tnoqt1\tq0n\tq0i\tq1n\tq1i\tp0n\tp0i\tp1n\tp1i\tccn\tcci\tepn\tepi\te0n\te0i\teqn\teqi\thasmin\tqtf";
 fn line(m: &Model, sub: &str, idx: &str, x: S3) -> String {
     let (d, r) = one(m, x);
     let (ci, ei) = (m.core.cinv[x.0] as usize, m.core.einv[x.1] as usize);
     format!(
-        "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{:x}\t{:x}\t{:x}\t{:x}\t{}\t{}\t{}\t{}",
+        "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{:x}\t{:x}\t{:x}\t{:x}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}",
         sub, idx, x.0, x.1, x.2, d, r[0].a, r[1].a, r[2].a, r[3].a, r[0].b, r[1].b, r[2].b, r[3].b,
         (r[0].noqt || r[1].noqt) as u8, (r[2].noqt || r[3].noqt) as u8, r[0].q, r[1].q, r[2].q, r[3].q,
         r[0].p1, r[1].p1, r[2].p1, r[3].p1,
-        m.cls.ccos[x.0], m.cls.ccos[ci], m.cls.epat[x.1], m.cls.epat[ei]
+        m.cls.ccos[x.0], m.cls.ccos[ci], m.cls.epat[x.1], m.cls.epat[ei],
+        r[0].e, r[1].e, r[0].eq, r[1].eq, min_qt_path(m, x) as u8, qtf(m, x)
     )
 }
 

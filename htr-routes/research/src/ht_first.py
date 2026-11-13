@@ -11,6 +11,9 @@ Columns of htfirst.tsv used here
   a1n / a1i   the same over finishes of at most optimal + 1 moves
   b0n ...     the same counting only R2 L2 F2 B2
   noqt0/1     some optimal (some finish within +1) has no quarter turn at all
+  e0n / e0i   like a0n / a0i over the optimal finishes with no extra quarter turn (as many quarter turns as the fewest
+              any finish of the state can have, qtf); 99 = no such finish has a quarter turn
+  hasmin      some optimal finish has no extra quarter turn;  qtf  that fewest number of quarter turns
   ccn / cci   corner coset on normal / inverse;  epn / epi  edge pattern on normal / inverse
 
 Reads computed here (all from the piece positions, per side)
@@ -201,6 +204,9 @@ class Data:
         self.t0 = np.minimum(D['a0n'], D['a0i']); self.t1 = np.minimum(D['a1n'], D['a1i'])
         self.t0n = D['a0n']; self.t1n = D['a1n']
         self.u0 = np.minimum(D['b0n'], D['b0i']); self.u1 = np.minimum(D['b1n'], D['b1i'])
+        if 'e0n' in D:
+            self.e0 = (D['e0n'], D['e0i']); self.hasmin = D['hasmin'] == 1; self.qtf = D['qtf']
+            assert (self.qtf == self.qf[0]).all() and (self.qtf == self.qf[1]).all()
 
 def sizes():
     sys.path.insert(0, HERE)

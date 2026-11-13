@@ -1,22 +1,42 @@
 check_ht_first.py 3000 500 200 2c4_2e 4a1_4e 2c3_2e 0c0_0e
-2c4 2e: first 3000 states, 81 s
+2c4 2e: first 3000 states, 35 s
   better side, first qt after 0 / 1 / 2 / 3+ half turns, this enumeration: 65.4% / 27.3% / 6.5% / 0.8%
   normal side alone, this enumeration:                                     42.2% / 32.0% / 14.3% / 11.5%
+  every optimal has extra quarter turns: 4.6% of the 3000 states
+  some optimal has extra quarter turns: 32.9% of the 3000 states
+  an optimal starts or ends with a quarter turn: 65.4% of the 3000 states
+  an optimal with no extra quarter turn starts or ends with a quarter turn: 51.9% of the 3000 states
+  only optimals with extra quarter turns start or end with a quarter turn: 13.5% of the 3000 states
   better side, same states in the main data (htfirst.tsv):                 65.4% / 27.3% / 6.5% / 0.8%
   normal side alone, same states in the main data:                         42.2% / 32.0% / 14.3% / 11.5%
-4a1 4e: first 3000 states, 46 s
+4a1 4e: first 3000 states, 22 s
   better side, first qt after 0 / 1 / 2 / 3+ half turns, this enumeration: 56.7% / 22.2% / 8.5% / 12.6%
   normal side alone, this enumeration:                                     38.6% / 23.1% / 12.8% / 25.5%
+  every optimal has extra quarter turns: 66.5% of the 3000 states
+  some optimal has extra quarter turns: 86.0% of the 3000 states
+  an optimal starts or ends with a quarter turn: 56.7% of the 3000 states
+  an optimal with no extra quarter turn starts or ends with a quarter turn: 0.6% of the 3000 states
+  only optimals with extra quarter turns start or end with a quarter turn: 56.0% of the 3000 states
   better side, same states in the main data (htfirst.tsv):                 56.7% / 22.2% / 8.5% / 12.6%
   normal side alone, same states in the main data:                         38.6% / 23.1% / 12.8% / 25.5%
-2c3 2e: first 3000 states, 33 s
+2c3 2e: first 3000 states, 23 s
   better side, first qt after 0 / 1 / 2 / 3+ half turns, this enumeration: 54.9% / 28.2% / 11.9% / 5.0%
   normal side alone, this enumeration:                                     35.3% / 26.8% / 16.4% / 21.5%
+  every optimal has extra quarter turns: 10.3% of the 3000 states
+  some optimal has extra quarter turns: 41.2% of the 3000 states
+  an optimal starts or ends with a quarter turn: 54.9% of the 3000 states
+  an optimal with no extra quarter turn starts or ends with a quarter turn: 33.3% of the 3000 states
+  only optimals with extra quarter turns start or end with a quarter turn: 21.6% of the 3000 states
   better side, same states in the main data (htfirst.tsv):                 54.9% / 28.2% / 11.9% / 5.0%
   normal side alone, same states in the main data:                         35.3% / 26.8% / 16.4% / 21.5%
-0c0 0e: first 3000 states, 55 s
+0c0 0e: first 3000 states, 16 s
   better side, first qt after 0 / 1 / 2 / 3+ half turns, this enumeration: 51.7% / 24.8% / 13.1% / 10.4%
   normal side alone, this enumeration:                                     34.2% / 22.5% / 13.8% / 29.6%
+  every optimal has extra quarter turns: 9.0% of the 3000 states
+  some optimal has extra quarter turns: 22.6% of the 3000 states
+  an optimal starts or ends with a quarter turn: 37.9% of the 3000 states
+  an optimal with no extra quarter turn starts or ends with a quarter turn: 22.8% of the 3000 states
+  only optimals with extra quarter turns start or end with a quarter turn: 15.1% of the 3000 states
   better side, same states in the main data (htfirst.tsv):                 51.7% / 24.8% / 13.1% / 10.4%
   normal side alone, same states in the main data:                         34.2% / 22.5% / 13.8% / 29.6%
 states	12000
@@ -29,4 +49,8 @@ sticker_states	800
 sticker_finishes	18852
 sticker_fail	0
 depth_mismatch	0
+qtfull_mismatch_htrtools	0
+qtfull_mismatch_htfirst	0
+qmin_qmax_mismatch_htrtools	0
+noextra_mismatch_htfirst	0
 ALL EQUAL

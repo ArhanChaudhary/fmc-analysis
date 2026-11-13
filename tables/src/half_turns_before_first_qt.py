@@ -81,7 +81,7 @@ def chk(name):
         if len(p) >= 2 and p[1].isdigit(): out[p[0]] = int(p[1])
     assert 'ALL EQUAL' in open(os.path.join(HO, 'checks', name)).read(), name
     return out
-C1, C2 = chk('check_ht_first.txt'), chk('check_ht_first_reads.txt')
+C1, C2, C3 = chk('check_ht_first.txt'), chk('check_ht_first_reads.txt'), chk('check_ht_first_noextra.txt')
 def T(name):
     t = J['tables'][name]
     return '\n'.join(['| ' + ' | '.join(t['head']) + ' |', '|' + '---|' * len(t['head'])] + ['| ' + ' | '.join(r) + ' |' for r in t['rows']])
@@ -107,9 +107,84 @@ def wit(wid):
     w = WIT[wid]
     L = [f"{w['scramble']} // {w['sample'].split(' #')[0]}, {w['optimal']} optimal; corners {w['corner_case']['normal']} on normal, {w['corner_case']['inverse']} on inverse"]
     for i, f in enumerate(w['optimal_finishes']):
-        L.append(f"{f['finish']} // {'optimal finish' if i == 0 else 'the other optimal finish' if len(w['optimal_finishes']) == 2 else 'optimal finish'}: "
+        L.append(f"{f['finish']} // {'optimal finish' if i == 0 else 'the other optimal finish' if len(w['optimal_finishes']) == 2 else 'optimal finish'}"
+                 f"{', ' + str(f['quarter_turns']) + ' quarter turns' if wid == 'H6' else ''}: "
                  f"{half(f['half_turns_before_first_qt_normal'])} before the first qt on normal, {f['half_turns_before_first_qt_inverse']} on inverse")
     return '```\n' + '\n'.join(L) + '\n```'
+def nx(grp, key, p='all'): return pc(J['noextra'][f'{grp}|{p}'][key])
+def rn(grp, key, p='le13'):
+    v = J['ready_noextra'][f'{grp}|{p}'][key]
+    return f'{v:,}' if key.startswith('n') and isinstance(v, int) else pc(v)
+def claim(cid):             # the verdicts of htr-routes on what the server had (its claims table, section 7)
+    import csv
+    return next(r for r in csv.DictReader(open(os.path.join(HO, 'claims.tsv')), delimiter='\t') if r['id'] == cid)['evidence']
+C01, C02 = claim('C01'), claim('C02')
+C01_every = C01.split('every optimal uses 4+ qt ')[1].split(';')[0]; C01_some = C01.split('some optimal does ')[1].split(';')[0]
+C02_every = C02.split('every optimal ')[1].split(';')[0]; C02_some = C02.split('some optimal ')[1].split('%')[0] + '%'
+assert C02_every == nx('4b2 4e', 'every_extra') and C02_some == nx('4b2 4e', 'some_extra'), (C02_every, C02_some)
+W6 = WIT['H6']
+assert not W6['an_optimal_has_no_extra_quarter_turn'] and all(f['quarter_turns'] == 4 and f['half_turns_before_first_qt_normal'] == 0 for f in W6['optimal_finishes'])
+assert W6['corner_setup_sticker']['normal'] >= 1 and W6['corner_setup_sticker']['inverse'] >= 1
+SEC7 = '../htr-routes/#7-extra-quarter-turns-and-the-last-dr-move'
+NOEXTRA = f"""## When the first quarter turn has to make progress
+
+The tables above count any optimal finish. On a 2qt subset that includes the optimal finishes with four quarter turns, and those are what fills its *0 half turns* column: on a 4b2 whose corners need a half turn first (4b2 parity) no quarter turn makes progress, and an optimal still starts with one, the first of four. This section counts only the finishes that don't do that.
+
+**No extra quarter turn.** Every DR has a fewest number of quarter turns that any finish of it can have. It's the corners' count (2 on 4b2 and 4a2, 3 on 2c3, and so on) on every subset but two: on 4a1 0e and 4a1 2e one quarter turn can't fix the edges and it's 3, and on 0c0 outside HTR it's 2. A finish with exactly that many has *no extra quarter turn*; on 4b2 or 4a2 that's a 2qt finish, which is what not using 4q means. Half turns never change the number and a quarter turn changes it by exactly one, so on such a finish every quarter turn lowers it. If the finish starts with a quarter turn, that turn makes progress, and on every row where the number is the corners' count it lowers the corners' count: the side was ready, in the words of the next section.
+
+**How common the extra quarter turns are** was measured on the server before. rodneykinney ([13 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1063355084697784371)): "How often does the optimal DR finish use more QT than the optimal corner finish? Surprisingly often! For example, 57% of the time, the optimal solution uses 4QT for a 2QT corner case." Lichi Fang ([6 Aug 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1137835695721939094)): "I shockingly discovered that over 60% the optimal solution for htr subset 2qt(a) 4c4e (the R U2 F2 R' case) use 4qt rather than 2qt. How are they possibly findable?" [*Which HTR routes to try from a DR*]({SEC7}) (section 7) checks both: on 4a2 and 4b2 together every optimal uses 4 or more quarter turns on {C01_every} of DRs and some optimal does on {C01_some}; on 4b2 4e it's {C02_every} and {C02_some}. Its verdict is that both quotes fit: the 57% read as every optimal, or as one leave-slice optimal picked at random ({C01.split('(leave-slice ')[1].split(')')[0]}), and the over 60% as every optimal of 4b2 4e.
+
+The two 2qt subsets. Each row is a subset × edges and a group of its DRs. The first two cells are the shares where every optimal, and where some optimal, has 4 or more quarter turns. Then the *0 half turns* share of the main tables, split in two: a 2qt optimal starts with the quarter turn on one of the sides, or only an optimal with 4 or more quarter turns does. Sampled, {N:,} per subset × edges:
+
+{T('two_qt')}
+
+So on 4b2 a quarter turn at once belongs to a 2qt optimal on {nx('4b2', 'zero_min')} of DRs, and the other {nx('4b2', 'zero_extra')} of its {nx('4b2', 'zero')} are 4qt optimals. They're not rare finishes: every optimal of a 4b2 has 4 or more quarter turns on {nx('4b2', 'every_extra')} of its DRs.
+
+A 4b2 2e like that, replayed. Neither side is ready ({W6['corner_case']['normal']} on normal, {W6['corner_case']['inverse']} on inverse: the corners need {W6['corner_setup_sticker']['normal']} half turns before a quarter turn lowers them, on either side). Its optimal starts with a quarter turn all the same, and both optimal finishes have 4 quarter turns:
+
+{wit('H6')}
+
+The same split for every corner subset, edge counts pooled. Each row is a corner subset; the first three cells are over all its DRs, the last three over those with an optimal of 13 or less:
+
+{T('zero_split_corner')}
+
+On 2c5 and 4b5 a quarter turn at once nearly always makes progress, and on 2c4 and 0c4 mostly. On 4a2, 4b2, 0c0 and 4a1 it mostly doesn't, and on 2c3, 0c3, 4c3 and 4c4 it's about half and half.
+
+Every subset × edges, all DRs:
+
+{T('zero_split_rows_all')}
+
+### Counting only finishes with no extra quarter turn
+
+The main tables again, counting only the optimal finishes with no extra quarter turn. A DR whose every optimal has extra quarter turns has no such finish and can't be 0, 1, 2 or 3 or more, so it gets its own column, and the five shares add up to all the DRs of the row. *Quarter turns in such a finish* is the fewest any finish can have. Better side, chosen with hindsight, as above.
+
+Optimal of 13 or less. Each row is a subset × edges:
+
+{T('noextra_rows_le13')}
+
+Edge counts pooled. Each row is a corner subset:
+
+{T('noextra_corner_le13')}
+
+Optimal of 12 or less:
+
+{T('noextra_rows_le12')}
+
+Edge counts pooled:
+
+{T('noextra_corner_le12')}
+
+All DRs:
+
+{T('noextra_rows_all')}
+
+Edge counts pooled:
+
+{T('noextra_corner_all')}
+
+On 4a1 4e a finish with no extra quarter turn has one quarter turn, so it's half turns, the quarter turn, half turns, and it almost never starts within two half turns of either end. On 0c0 0e the HTR states solved by half turns alone have a finish with no quarter turn at all, and count as 3 or more as before.
+
+"""
 GOOD = ('2c4', '0c3', '4a2', '2c3', '4c3', '4c4')
 LOW3 = ('2c5', '2c4', '0c3', '0c4', '4c3', '4c4', '4b5')         # corner subsets where 3 or more is rare
 ready13 = {r[0]: r for r in J['tables']['ready_corner_le13']['rows']}
@@ -151,6 +226,24 @@ A 2c4 2e where neither side is ready, replayed. Both optimal finishes need half 
 And one that's ready on normal only: there any U or D quarter turn takes the corners from 2c4 to 2c3, and both optimal finishes start with one.
 
 {wit('H2')}
+
+### Rule 1 when the quarter turn has to make progress
+
+Count only the optimal finishes with no extra quarter turn ([above](#when-the-first-quarter-turn-has-to-make-progress)), on the rows where that means the corners' count. Then rule 1 is exact one way: if neither side is ready, no such finish starts with a quarter turn, on any DR. That's what solvers call 4b2 parity: with it a quarter turn at once makes no progress. More generally the first quarter turn of such a finish can't come before the half turns the corners need on that side. It's logic, and it holds on every sampled DR.
+
+The other way it stays odds. The 2qt rows and 4a1 4e, DRs with an optimal of 13 or less. Each row is a subset × edges. *Has an optimal with no extra quarter turn* is a share of those DRs, the next cell is how many that is in the sample, and the rest are shares of the DRs that have one: neither side ready; such a finish starting with the quarter turn, without the sign and with a side ready; needing 2+ on such finishes; and the first quarter turn coming exactly as early as the corners allow on the better side:
+
+{T('ready_noextra_low_le13')}
+
+So on a 4b2 2e with a 2qt optimal and a ready side, a 2qt optimal starts with that quarter turn on {rn('4b2 2e', 'zero_ready')}, against {rd('4b2 2e', 'a side', 'after_0')} of ready 4b2 2e in the main count, where the 4qt optimals come in. For 2+ the sign is still weak ({rn('4b2 2e', 'two_neither')} against {rn('4b2 2e', 'two_ready')}). On 4a1 4e being ready hardly helps: the single quarter turn also has to fix all four bad edges.
+
+The corner subsets, edge counts pooled (4a1 is left out because of 4a1 0e and 2e), optimal of 13 or less:
+
+{T('ready_noextra_corner_le13')}
+
+All DRs:
+
+{T('ready_noextra_low_all')}
 
 ### One side at a time
 
@@ -266,18 +359,19 @@ So about a third of the *2 or more* moves down a column, and the picture stays: 
 assert J['side_rank']['le13']['side_count'][:4] == J['side_rank']['le13']['all_count'][:4]
 assert len(WIT['H2']['qt_that_lowers_now']['normal']) == 4 and not WIT['H2']['qt_that_lowers_now']['inverse']
 assert all(f['half_turns_before_first_qt_normal'] == 0 for f in WIT['H2']['optimal_finishes'])
-CHECKS = f"""**Checked.** A second program (`htr-routes/research/htfirst`: a search over half-turn starts against the same exact table, with the first program's cube model but none of its enumeration) gives the same number on all {J['compare']['states']:,} sampled DRs, on both sides. A third count in Python, with its own move tables, agrees on {C1['states']:,} DRs (the first 3,000 of 2c4 2e, 4a1 4e, 2c3 2e and 0c0 0e) and replays every optimal finish of {C1['sticker_states']:,} of them on a 54-sticker cube ({C1['sticker_finishes']:,} finishes, all solve). The within-one-move numbers come from the second program and agree with the third count on {C1['p1_states']:,} DRs. The reads: the half turns the corners need on each side were recomputed on the sticker cube for {C2['states']:,} DRs (60 of every subset × edges) and the corner case names by the first study's reader for {C2['drread_states']:,}, with no difference. Every example on this page is replayed on the sticker cube and re-read by that reader. Scripts: `htr-routes/research/src/ht_first.py`, `xhtfirst.py`, `check_ht_first.py`, `ht_first_witness.py`."""
+CHECKS = f"""**Checked.** A second program (`htr-routes/research/htfirst`: a search over half-turn starts against the same exact table, with the first program's cube model but none of its enumeration) gives the same number on all {J['compare']['states']:,} sampled DRs, on both sides. A third count in Python, with its own move tables, agrees on {C1['states']:,} DRs (the first 3,000 of 2c4 2e, 4a1 4e, 2c3 2e and 0c0 0e) and replays every optimal finish of {C1['sticker_states']:,} of them on a 54-sticker cube ({C1['sticker_finishes']:,} finishes, all solve). The within-one-move numbers come from the second program and agree with the third count on {C1['p1_states']:,} DRs. The reads: the half turns the corners need on each side were recomputed on the sticker cube for {C2['states']:,} DRs (60 of every subset × edges) and the corner case names by the first study's reader for {C2['drread_states']:,}, with no difference. The counts over finishes with no extra quarter turn come from the second program too; the third count agrees on {C1['states'] + C3['states']:,} DRs (those above and the first 3,000 of 4b2 0e, 4b2 2e, 4b2 4e, 4a2 4e, 4a2 2e and 4a1 2e), with the fewest quarter turns of any finish recomputed by its own search over all 2,822,400 pairs of a corner arrangement and an edge pattern, and the fewest and most quarter turns of the optimal finishes equal to the first program's. Every example on this page is replayed on the sticker cube and re-read by that reader. Scripts: `htr-routes/research/src/ht_first.py`, `xhtfirst.py`, `check_ht_first.py`, `ht_first_witness.py`."""
 doc = f"""# Half turns before the first quarter turn
 
 From a DR, how many half turns does an optimal finish make before its first quarter turn, if you start on the better side? Per subset × edges, for all DRs and for the DRs that matter in an attempt: those with an optimal of 13 or less, or 12 or less.
 
-**How it's counted.** Take every optimal finish of the DR (U, D, R2, L2, F2, B2) and count the moves before its first U or D quarter turn. They're all half turns; U2 and D2 count. Read each finish from its first move (normal) and from its last move (inverse) and keep the smaller number: that's *the better side*, chosen with hindsight. The *normal side alone* columns keep only the first reading. Sampled: {N:,} uniformly random DRs per subset × edges, each with every optimal finish from the exact table of all DR states, so a share is good to about ±0.3 points, more on the rows with few DRs (the tables give the count). November 2026.
+**How it's counted.** Take every optimal finish of the DR (U, D, R2, L2, F2, B2) and count the moves before its first U or D quarter turn. They're all half turns; U2 and D2 count. Any optimal finish counts, including one with more quarter turns than the corners need, so the first quarter turn doesn't have to make progress: on a 2qt case it can be the first of four ([when it has to](#when-the-first-quarter-turn-has-to-make-progress)). Read each finish from its first move (normal) and from its last move (inverse) and keep the smaller number: that's *the better side*, chosen with hindsight. The *normal side alone* columns keep only the first reading. Sampled: {N:,} uniformly random DRs per subset × edges, each with every optimal finish from the exact table of all DR states, so a share is good to about ±0.3 points, more on the rows with few DRs (the tables give the count). November 2026.
 
 **The short answer.**
 
 - Over all DRs, {pc(allr[0][3][0])} need no half turn first, {pc(allr[0][3][1])} need one, and {pc(two(allr[0]))} need two or more. Among DRs with an optimal of 13 or less it's {pc(two(allr[1]))} that need two or more, and with 12 or less {pc(two(allr[2]))}.
 - It depends on the subset and on the edge count. With an optimal of 12 or less, two or more half turns first are needed on {pc(two(worst[0]))} of {worst[0][0]}, {pc(two(worst[1]))} of {worst[1][0]}, {pc(two(worst[2]))} of {worst[2][0]} and {pc(two(worst[3]))} of {worst[3][0]}, and on none of the sampled DRs of {', '.join(none12[:-1])} or {none12[-1]}.
 - Checking both sides matters: on the normal side alone, {pc(two_n(allr[0]))} of all DRs need two or more, against {pc(two(allr[0]))} on the better side.
+- On the 2qt subsets the high *0 half turns* shares are 4qt optimals. A quarter turn at once belongs to a 2qt optimal on {nx('4b2', 'zero_min')} of 4b2 and {nx('4a2', 'zero_min')} of 4a2; on {nx('4b2', 'zero_extra')} and {nx('4a2', 'zero_extra')} only an optimal with four or more quarter turns starts that way. Those are common: every optimal of a 4b2 has four or more quarter turns on {nx('4b2', 'every_extra')} of its DRs, and some optimal on {nx('4b2', 'some_extra')} ([when the first quarter turn has to make progress](#when-the-first-quarter-turn-has-to-make-progress); [*Which HTR routes to try from a DR*]({SEC7}), section 7).
 - What you can see: the corner case says whether to expect **one** half turn first. Call a side ready when a quarter turn takes its corners straight down a quarter turn. A 2c4 2e with an optimal of 13 or less needs a half turn first on {rd('2c4 2e', 'neither', 'needs_1plus')} if neither side is ready, against {rd('2c4 2e', 'a side', 'needs_1plus')} if one is. Needing **two or more** barely shows: only 4a2 has a usable sign, the bad-corner layout on both sides ({rd('4a2 4e', 'setup2+', 'needs_2plus')} against {rd('4a2 4e', 'setup<2', 'needs_2plus')} on 4a2 4e). Pairs and the E slice say nothing, the bad edges next to nothing ([what you can see](#what-you-can-see-that-predicts-it)).
 - One move over the optimal it nearly stops mattering: with an optimal of 13 or less, {ds('all', '2+', 'le13', 'p1')} of DRs have no finish within one move of the optimal that reaches its first quarter turn after 0 or 1 half turns ([within one move](#a-finish-within-one-move-of-the-optimal)).
 
@@ -319,7 +413,7 @@ Edge counts pooled. Each row is a corner subset:
 
 {table(ALLP, 'Corner subset', False)}
 
-{READS}
+{NOEXTRA}{READS}
 ## How it was computed
 
 The sample is the one behind [*Which HTR routes to try from a DR*](../htr-routes/): {N:,} uniformly random DR states for each of the 48 subset × edges. For each state every optimal finish is enumerated against the exact optimal-finish table of all 19,508,428,800 DR states ([*Judging a DR by hand*](../judging-a-dr/)), and the fewest moves before the first quarter turn is kept for each reading direction. Pooled rows weight each subset × edges by its exact number of DR states (with a cut on the optimal, by that number times the share that qualifies). The script is `tables/src/half_turns_before_first_qt.py` in the repository.

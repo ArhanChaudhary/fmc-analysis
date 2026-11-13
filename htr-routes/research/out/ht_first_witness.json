@@ -13,12 +13,14 @@
    {
     "finish": "F2 R2 U2 R2 D L2 B2 D B2 U' F2 U L2",
     "half_turns_before_first_qt_normal": 4,
-    "half_turns_before_first_qt_inverse": 1
+    "half_turns_before_first_qt_inverse": 1,
+    "quarter_turns": 4
    },
    {
     "finish": "F2 R2 D2 L2 U F2 L2 U B2 D' L2 D L2",
     "half_turns_before_first_qt_normal": 4,
-    "half_turns_before_first_qt_inverse": 1
+    "half_turns_before_first_qt_inverse": 1,
+    "quarter_turns": 4
    }
   ],
   "fewest_half_turns_before_first_qt": {
@@ -39,6 +41,9 @@
   },
   "drread_subset": "2c4 2e",
   "drread_optimal": 13,
+  "fewest_quarter_turns_of_any_finish": 4,
+  "corner_quarter_turns_sticker": 4,
+  "an_optimal_has_no_extra_quarter_turn": true,
   "replayed_ok": true
  },
  {
@@ -55,12 +60,14 @@
    {
     "finish": "U' L2 D2 L2 F2 D' F2 U R2 F2 D L2 F2",
     "half_turns_before_first_qt_normal": 0,
-    "half_turns_before_first_qt_inverse": 2
+    "half_turns_before_first_qt_inverse": 2,
+    "quarter_turns": 4
    },
    {
     "finish": "D' B2 D2 B2 L2 D' L2 D R2 F2 D L2 F2",
     "half_turns_before_first_qt_normal": 0,
-    "half_turns_before_first_qt_inverse": 2
+    "half_turns_before_first_qt_inverse": 2,
+    "quarter_turns": 4
    }
   ],
   "fewest_half_turns_before_first_qt": {
@@ -86,6 +93,9 @@
   },
   "drread_subset": "2c4 2e",
   "drread_optimal": 13,
+  "fewest_quarter_turns_of_any_finish": 4,
+  "corner_quarter_turns_sticker": 4,
+  "an_optimal_has_no_extra_quarter_turn": true,
   "replayed_ok": true
  },
  {
@@ -102,12 +112,14 @@
    {
     "finish": "D2 B2 D' L2 U2 F2 U' L2 F2 D2 R2",
     "half_turns_before_first_qt_normal": 2,
-    "half_turns_before_first_qt_inverse": 4
+    "half_turns_before_first_qt_inverse": 4,
+    "quarter_turns": 2
    },
    {
     "finish": "D2 B2 D' L2 D2 B2 U' R2 B2 U2 R2",
     "half_turns_before_first_qt_normal": 2,
-    "half_turns_before_first_qt_inverse": 4
+    "half_turns_before_first_qt_inverse": 4,
+    "quarter_turns": 2
    }
   ],
   "fewest_half_turns_before_first_qt": {
@@ -128,6 +140,9 @@
   },
   "drread_subset": "4a2 4e",
   "drread_optimal": 11,
+  "fewest_quarter_turns_of_any_finish": 2,
+  "corner_quarter_turns_sticker": 2,
+  "an_optimal_has_no_extra_quarter_turn": true,
   "replayed_ok": true
  },
  {
@@ -144,12 +159,14 @@
    {
     "finish": "F2 B2 U' L2 D R2 U R2 D2 B2 D F2 R2",
     "half_turns_before_first_qt_normal": 2,
-    "half_turns_before_first_qt_inverse": 2
+    "half_turns_before_first_qt_inverse": 2,
+    "quarter_turns": 4
    },
    {
     "finish": "B2 F2 U' L2 D R2 U R2 D2 B2 D F2 R2",
     "half_turns_before_first_qt_normal": 2,
-    "half_turns_before_first_qt_inverse": 2
+    "half_turns_before_first_qt_inverse": 2,
+    "quarter_turns": 4
    }
   ],
   "fewest_half_turns_before_first_qt": {
@@ -180,6 +197,9 @@
   },
   "drread_subset": "2c4 2e",
   "drread_optimal": 13,
+  "fewest_quarter_turns_of_any_finish": 4,
+  "corner_quarter_turns_sticker": 4,
+  "an_optimal_has_no_extra_quarter_turn": true,
   "replayed_ok": true
  },
  {
@@ -196,12 +216,14 @@
    {
     "finish": "L2 F2 U2 B2 U F2 L2 D2 L2 U B2 D2 R2",
     "half_turns_before_first_qt_normal": 4,
-    "half_turns_before_first_qt_inverse": 3
+    "half_turns_before_first_qt_inverse": 3,
+    "quarter_turns": 2
    },
    {
     "finish": "F2 D2 L2 U' L2 B2 U2 L2 F2 D B2 D2 L2",
     "half_turns_before_first_qt_normal": 3,
-    "half_turns_before_first_qt_inverse": 3
+    "half_turns_before_first_qt_inverse": 3,
+    "quarter_turns": 2
    }
   ],
   "fewest_half_turns_before_first_qt": {
@@ -222,6 +244,56 @@
   },
   "drread_subset": "4a2 4e",
   "drread_optimal": 13,
+  "fewest_quarter_turns_of_any_finish": 2,
+  "corner_quarter_turns_sticker": 2,
+  "an_optimal_has_no_extra_quarter_turn": true,
+  "replayed_ok": true
+ },
+ {
+  "id": "H6",
+  "finding": "a 4b2 2e that is ready on neither side and whose optimal starts with a quarter turn all the same: every optimal finish has 4 quarter turns",
+  "state": "#12341,7627,1",
+  "sample": "4b2 2e #24",
+  "scramble": "L2 D2 F2 L2 U B2 D' L2 D' L2 R2 U'",
+  "optimal": 12,
+  "subset_normal": "4b2 2e",
+  "subset_inverse": "4b2 2e",
+  "n_optimal_finishes": 2,
+  "optimal_finishes": [
+   {
+    "finish": "U R2 L2 D L2 D B2 U' L2 F2 D2 L2",
+    "half_turns_before_first_qt_normal": 0,
+    "half_turns_before_first_qt_inverse": 4,
+    "quarter_turns": 4
+   },
+   {
+    "finish": "U L2 R2 D L2 D B2 U' L2 F2 D2 L2",
+    "half_turns_before_first_qt_normal": 0,
+    "half_turns_before_first_qt_inverse": 4,
+    "quarter_turns": 4
+   }
+  ],
+  "fewest_half_turns_before_first_qt": {
+   "normal": 0,
+   "inverse": 4
+  },
+  "corner_setup_sticker": {
+   "normal": 2,
+   "inverse": 2
+  },
+  "qt_that_lowers_now": {
+   "normal": [],
+   "inverse": []
+  },
+  "corner_case": {
+   "normal": "4b2-3",
+   "inverse": "4b2-3"
+  },
+  "drread_subset": "4b2 2e",
+  "drread_optimal": 12,
+  "fewest_quarter_turns_of_any_finish": 2,
+  "corner_quarter_turns_sticker": 2,
+  "an_optimal_has_no_extra_quarter_turn": false,
   "replayed_ok": true
  }
 ]
