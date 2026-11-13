@@ -53,7 +53,7 @@ def main():
     J = {k: {c: {str(x): v for x, v in h.items()} for c, h in d.items()} for k, d in J.items()}
     json.dump(J, open(iv.O + 'dr17.json', 'w'), indent=1)
     table(J)
-def table(J):
+def table(J, D='/data/fmc/insertion-cost/report/data/'):
     """report/data/dr17.md from out/dr17.json (`xdr.py --table` rewrites it without the run)."""
     NAME = {'1': 'random moves', '2': 'EO in 5, then moves that keep EO', '3': 'EO in 4, DR in 10, then DR moves; any 3c', '3dr': 'EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave'}
     L = ['| 17 to 3c with | Cap | Mean moves added | Adds 4 or less | Adds 5 or less | Adds 6 or less | Adds 7 or less | Adds 8 or less | Nothing fits |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
@@ -62,7 +62,7 @@ def table(J):
             h = J[name][cap]; tot = sum(h.values()); fin = {int(k): v for k, v in h.items() if k != 'none'}
             le = lambda k: fmt(sum(v for x, v in fin.items() if x <= k), tot)
             L.append(f"| {NAME[name]} | {cap} | {f2(sum(k * v for k, v in fin.items()) / sum(fin.values()))} | {le(4)} | {le(5)} | {le(6)} | {le(7)} | {le(8)} | {fmt(h.get('none', 0), tot) if h.get('none') else '0'} |")
-    open('/data/fmc/insertion-cost/report/data/dr17.md', 'w').write('\n'.join(L) + '\n')
+    open(D + 'dr17.md', 'w').write('\n'.join(L) + '\n')
     print('\n'.join(L))
 if __name__ == '__main__':
     if '--table' in sys.argv: table(json.load(open(iv.O + 'dr17.json')))

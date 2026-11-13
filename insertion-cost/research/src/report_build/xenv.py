@@ -26,6 +26,21 @@ def CELL(name, row, col):
     hit = [r for r in rows if tuple(x.replace('**', '') for x in r[:len(key)]) == key]
     assert len(hit) == 1, (name, row, len(hit))
     return hit[0][head.index(col)]
+D6 = O + 'data6/'
+@functools.lru_cache(None)
+def _table6(name):
+    lines = [l for l in open(D6 + name + '.md').read().split('\n') if l.startswith('|')]
+    cells = lambda l: [c.strip() for c in l.strip().strip('|').split('|')]
+    return cells(lines[0]), [cells(l) for l in lines[2:]]
+def X(name, row, col):
+    """The number in a cell before rounding (six decimals, from the twin tables of tables6.py), for arithmetic: a
+    difference of two cells is then rounded once, not three times.  The twin must round to the printed cell."""
+    head, rows = _table6(name); key = (row,) if isinstance(row, str) else tuple(row)
+    hit = [r for r in rows if tuple(x.replace('**', '') for x in r[:len(key)]) == key]
+    assert len(hit) == 1, (name, row, len(hit))
+    v = float(hit[0][head.index(col)].rstrip('%').split(' ')[0]); shown = CELL(name, row, col).split(' ')[0]
+    if re.fullmatch(r'-?\d+\.\d\d', shown): assert f2(v) == shown, ('the six-decimal tables are stale: run tables6.py', name, row, col, v, shown)
+    return v
 def COL(name, col):
     head, rows = _table(name); return [r[head.index(col)] for r in rows]
 def _pc(txt): return float(txt.rstrip('%').replace('<', ''))
@@ -69,16 +84,21 @@ def DIFF(a, b, n=20, L=8): return f2(iv.mean(_c(a, n, L, None, 'sample')) - iv.m
 def DIFFL(typ, L1, L2, n=20): return f2(iv.mean(_c(typ, n, L1, None, 'sample')) - iv.mean(_c(typ, n, L2, None, 'sample')))
 _PK = {'8': 'Cap 8: mean added where something fits', '10': 'Cap 10: mean added', '10m': 'Cap 10, a comm plus an alg: mean added', '12': 'Cap 12: mean added'}
 def PAIR(typ, key): return CELL('caps_paired', SHOW[typ], _PK[key])
-def PAIRD(typ, a, b): return f2(float(PAIR(typ, a)) - float(PAIR(typ, b)))
+def PAIRD(typ, a, b): return f2(X('caps_paired', SHOW[typ], _PK[a]) - X('caps_paired', SHOW[typ], _PK[b]))
 def PAIRN(typ): return CELL('caps_paired', SHOW[typ], 'Skeletons')
-def NEST(typ): return f2(float(CELL('nesting', SHOW[typ], 'No nesting: mean added')) - float(CELL('nesting', SHOW[typ], 'Nesting allowed: mean added')))
-def APART(typ): return f2(float(CELL('nesting', SHOW[typ], 'The two not touching: mean added')) - float(CELL('nesting', SHOW[typ], 'Nesting allowed: mean added')))
+def NEST(typ): return f2(X('nesting', SHOW[typ], 'No nesting: mean added') - X('nesting', SHOW[typ], 'Nesting allowed: mean added'))
+def APART(typ): return f2(X('nesting', SHOW[typ], 'The two not touching: mean added') - X('nesting', SHOW[typ], 'Nesting allowed: mean added'))
 def CH(typ, n, T, L=8): return num(100 * iv.chance(typ, n, L, T))
 def EXACT(typ, n, k, L=8):
     c = _c(typ, n, L, None, 'sample'); return fmt(c['h'].get(str(k), 0), c['n'])
 def TOTAL(typ, n, L=8):
     import xtables
     return f1(n + xtables.mean_at(typ, n, L))
+def TOTALX(typ, n, L=8):
+    """The expected total before rounding, for differences."""
+    import xtables
+    return n + xtables.mean_at(typ, n, L)
+def CPX(typ, cap, what): return CORP[typ][str(cap)][what]
 def EXR(typ, L=8):
     v = [float(x) for x in COL(f'exchange_cap{L}', f'{SHOW[typ]} shorter by') if x]
     return f'{min(v):.1f} to {max(v):.1f}'
@@ -131,8 +151,9 @@ def SKIPWORST():
 TENSKIP = _j('ten_skip.json')
 def TS(n, key): return f"{TENSKIP[str(n)][key]:,}"
 def TSP(n, a, b): return fmt(TENSKIP[str(n)][a], TENSKIP[str(n)][b])
-def GAP2C2C(col): return f2(float(CELL('nesting', 'pure 2c2c', col)) - float(CELL('nesting', 'twisted 2c2c', col)))
-def GAP2C2CNEST(): return f2(float(GAP2C2C('Nesting allowed: mean added')) - float(GAP2C2C('No nesting: mean added')))
+def _gap2c2c(col): return X('nesting', 'pure 2c2c', col) - X('nesting', 'twisted 2c2c', col)
+def GAP2C2C(col): return f2(_gap2c2c(col))
+def GAP2C2CNEST(): return f2(_gap2c2c('Nesting allowed: mean added') - _gap2c2c('No nesting: mean added'))
 # ---- greedy (the first comm of a two-comm leftover)
 def G(typ, key, n=20, L=8): return GREEDY[f'{typ}_n{n}_L{L}'][key]
 # ---- real skeletons
@@ -252,7 +273,12 @@ def SUBD(name, typ): return f"{REAL['subsets'][name][typ]['diff']:+.2f}"
 def D16RANGE():
     v = [iv.mean(_c(t, 16, 8, None, 'sample')) - iv.mean(_c(t, 20, 8, None, 'sample')) for t in ('2tc', '2c2c-twisted', '2c2c-pure', '3tc', '3c1t', '5c')]
     return f'{min(v):.2f} to {max(v):.2f}'
-def DRGAP(): return f2(float(CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Mean moves added')) - float(CELL('dr17', ('random moves', '8'), 'Mean moves added')))
+def DRN():
+    """Skeletons per kind of 17-move sequence in the trig0n runs (the same for every kind and cap)."""
+    J = _j('dr17.json'); n = {sum(h.values()) for kind in J.values() for h in kind.values()}
+    assert len(n) == 1, n
+    return f'{n.pop():,}'
+def DRGAP(): return f2(X('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Mean moves added') - X('dr17', ('random moves', '8'), 'Mean moves added'))
 def GV(key):
     """Verdict cells of the claims table that depend on the greedy runs."""
     if key == 'first83':

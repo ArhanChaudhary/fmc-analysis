@@ -1,6 +1,6 @@
 Nobody searches every pair of comms by hand. You find the best first comm, maybe write down a few more, and then look for the second comm in each. Insertion Finder's *greedy* setting is the same idea, in its own words: "Let's say when searching insertions for each step, the minimum moves of all skeletons is M. IF will keep all skeletons whose moves equal or less than M + N moves. 0 means always best first (human mode?)." So two questions: how good is the best first comm, and what do you lose by following only the best ones?
 
-**The best first comm of a 5c, 8-movers, random skeletons (5,000 per length; 20,000 at 20 moves), next to the best comm of a 3c of the same length.**
+**The best first comm of a 5c, 8-movers, random skeletons ({= f"{G('5c', 'n', n=16):,}" =} per length; {= f"{G('5c', 'n'):,}" =} at 20 moves), next to the best comm of a 3c of the same length.**
 
 {{greedy_first}}
 

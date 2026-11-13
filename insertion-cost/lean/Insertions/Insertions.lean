@@ -4,4 +4,16 @@ import Insertions.AllStates
 import Insertions.Three
 import Insertions.Theorems
 import Insertions.ThreeTheorems
+import Insertions.FirstComms
+import Insertions.FirstCommsTheorem
+import Insertions.Cube
+import Insertions.PyMoves
+import Insertions.Replay
+import Insertions.Search
+import Insertions.Counts
+import Insertions.ErrataTheorems
+import Insertions.WitnessTheorems
+import Insertions.Search10
+import Insertions.Ten
+import Insertions.TenTheorems
 import Insertions.Audit

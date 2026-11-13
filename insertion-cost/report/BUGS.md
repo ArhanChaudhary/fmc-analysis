@@ -8,7 +8,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 - **Every alg of 12 moves or fewer** for every corner-only and edge-only leftover that one or two 3-cycle insertions solve, and for 2c2e. Exhaustive, by joining all 6-move sequences with all 6-move sequences.
 - **Which leftovers one, two or three 3-cycles can make**, counted over all corner states and proved in Lean.
-- **The exact best insertion of a skeleton**: every spot, every alg within a cap on the alg's length, two comms allowed to nest. The caps are 8 (pure 8-movers; for edges the 6-, 7- and 8-movers), 10 and 12. Cap 8 on a 3c is the true best over all 8-movers at all spots.
+- **The exact best insertion of a skeleton**: every spot, every alg within a cap on the alg's length, two comms allowed to nest. The caps are 8 (pure 8-movers; for edges the 6-, 7- and 8-movers), 10 and 12. Cap 8 on a 3c is the true best over all 8-movers at all spots of the skeleton as written (a pair of moves on opposite faces is not also tried the other way round; see the limits in the write-up).
 - **Random skeletons**: random move sequences with a random leftover of the type, 20,000 per type and length at cap 8 (5,000 for 2tc, 2fe and the two kinds of 2e2e), fewer for two comms at cap 10 (200 to 2,000) and at cap 12 (100, at 20 moves only). They are not solves: no blocks, no EO.
 - **201 worked examples from real solves, 191 distinct skeletons**: 168 examples from the server and 33 from Cyprian Kalbarczyk's example solves, each replayed on a sticker-level cube before it was counted.
 
@@ -85,10 +85,12 @@ L' B' D2 R D R' B' R2 U2 F R2 U2 D' L2 F' D' F' U' ^ F D F' L' D2 B2 U'
 Solution: L' B' D2 R D R' B' R2 U2 F R2 U2 D' L2 F' D' F2 U' B U F U' F B' D F' L' D2 B2 U' (30)
 ```
 
+✓ Lean: the three blocks replay as printed, 29, 29 and 30 are the best that two comms of 8 moves or fewer give on these skeletons, nested or not, and the 24 and 9 first comms per spot hold for every 2c2c and every 3c1t. The means are sampled.
+
 Jay's "i didn't notice a meaningful different between 2 insertion 4c types" ([27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443789835356606609)) is what a one-move difference with a spread of more than a move looks like solve by solve.
 
 **A2. Checking every other move "still guarantees you'll find them"** (notkevin, [7 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1436457200880189582): "if you're expecting at least a -3 somewhere, it has to cancel at least a full move, so checking every other still guarantees you'll find them").
-Nearly. On random 3c skeletons of 20 moves, when the best 8-mover insertion is an 8-3 or better, checking every second spot and both ends (the odd spots or the even ones, both counted) finds an insertion that good 97% of the time. All of those misses (every one over seven skeleton lengths) are next to two moves on opposite faces, where the full cancel reaches across the pair and the shifted alg lands two spots away. Nothing better than an 8-4 was missed on any of 140,000 skeletons. alkamaass had said the rule is not thorough when recommending it ([31 May 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1246266143551787058)): "this isn't thorough tho bc it can miss stuff like R (R blah blah B' ) B'". Example:
+Nearly. On random 3c skeletons of 20 moves, when the best 8-mover insertion is an 8-3 or better, checking every second spot and both ends (the odd spots or the even ones, both counted) finds an insertion that good 97% of the time. All of those misses (every one over seven skeleton lengths) are next to two moves on opposite faces, where the full cancel reaches across the pair and the alg moved one move over would go between the two moves of the pair, swapped. Nothing better than an 8-4 was missed on any of 140,000 skeletons. alkamaass had said the rule is not thorough when recommending it ([31 May 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1246266143551787058)): "this isn't thorough tho bc it can miss stuff like R (R blah blah B' ) B'". Example:
 
 ```
 R' U' F R U2 F2 D2 R' U2 F2 R' F2 L2 R F2 R U R F' L2 B U2 F' L F' R' U' F   // scramble
@@ -105,7 +107,9 @@ F2 D2 B2 U' D2 L2 F2 L' D R' B' R2 F U' F' B * U2 B' L D
 Solution: F2 D2 B2 U' D2 L2 F2 L' D R' B' R2 F U' B D F' U F D' F' U B' L D (25)
 ```
 
-Counting spots from 0 (before the first move), the 8-3 is at spot 16. Checking the odd spots (1, 3, 5, 7, 9, 11, 13, 15, 17, 19) and both ends finds nothing better than an 8-1; the even spots would find it. The spot is right after the pair `F' B`.
+Counting spots from 0 (before the first move), the 8-3 is at spot 16. Checking the odd spots (1, 3, 5, 7, 9, 11, 13, 15, 17, 19) and both ends finds nothing better than an 8-1; the even spots would find it. The spot is right after the pair `F' B`. Written the other way round, `B F'`, the alg moved one move over, `D F' U F D' F' U' F`, fits between the two for the same 25; as written, spot 14 gives nothing better than an 8-1.
+
+✓ Lean: the block replays; over every 8-mover at every spot the best is 25, at spot 16 only and by one alg only; the odd spots, the ends and spot 14 give at best an 8-1; with the pair written `B F'` the moved alg gives 25 between the two. The shares and the 140,000 skeletons are computed.
 
 **A3. "sub-22 for 3C skeleton", "sub-20 for every other skeleton"** for sub-30 (sequesteredcuber, [8 Jul 2023](https://discord.com/channels/1007840975726575667/1077216728683135046/1127188954995769364)).
 Two moves apart is too close. With 8-movers on random skeletons:
@@ -133,6 +137,8 @@ F2 D2 R2 D' F' L F ^ R' D B2 L B R' * B' U' B2 U2 L2 D
 ^ = D R' U2 R D' R' U2 R // (8-2/30)
 Solution: F2 D2 R2 D' F' L F D R' U2 R D' R' U2 D B2 L B R' D2 B' U2 B D2 B' U B2 U2 L2 D (30)
 ```
+
+✓ Lean: the block replays and 30 is the best that two comms of 8 moves or fewer give on it. The chances and the rates are sampled.
 
 ---
 

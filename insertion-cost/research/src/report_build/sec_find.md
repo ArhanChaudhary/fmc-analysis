@@ -8,13 +8,13 @@ So far it's been what the best insertion costs. This section is where it sits an
 
 Where the best 3c insertion sits in the skeleton, by thirds. When several spots tie for the best, each gets an equal share.
 
-**Where the best 3c insertion is, random skeletons, 20,000 per row. Lengths where the spots split evenly into three.**
+**Where the best 3c insertion is, random skeletons, {= NSK('3c') =} per row. Lengths where the spots split evenly into three.**
 
 {{one_thirds}}
 
 Flat. And spot by spot on the 20-move skeletons, with 8-movers:
 
-**3c, 20,000 random skeletons of 20 moves, 8-movers: each spot of the skeleton.**
+**3c, {= NSK('3c') =} random skeletons of 20 moves, 8-movers: each spot of the skeleton.**
 
 {{one_positions}}
 
@@ -24,7 +24,7 @@ Flat. And spot by spot on the 20-move skeletons, with 8-movers:
 
 ### 8.2 How much cancels, and with which alg
 
-**3c, the best insertion with 8-movers: how many moves it cancels. Random skeletons, 20,000 per row.**
+**3c, the best insertion with 8-movers: how many moves it cancels. Random skeletons, {= NSK('3c') =} per row.**
 
 {{one_cancel}}
 
@@ -33,7 +33,7 @@ Flat. And spot by spot on the 20-move skeletons, with 8-movers:
 - An 8-3 or better exists on {= GE('20', 3) =} of 20-move 3c skeletons and {= GE('30', 3) =} of 30-move ones. On a 5c the first comm has much better odds (8.4).
 - kyh ([[N4186]]): "the chance ur cancelling 4 moves or more is not that high i think". {= GE('20', 4) =} at 20 moves, {= GE('26', 4) =} at 26.
 
-**3c: when a longer alg is the best. Random skeletons, 20,000 per row. The first four columns split the skeletons by the shortest alg that gives the best insertion with algs of up to 10 moves, so they add up to 100%. The four means at the end are over the same skeletons, the ones where an 8-mover fits.**
+**3c: when a longer alg is the best. Random skeletons, {= NSK('3c') =} per row. The first four columns split the skeletons by the shortest alg that gives the best insertion with algs of up to 10 moves, so they add up to 100%. The four means at the end are over the same skeletons, the ones where an 8-mover fits.**
 
 {{one_longer}}
 
@@ -61,7 +61,7 @@ alkamaass ([[N1142]], [[N1143]], [[N1144]]): "desperate with time check every ot
 
 Here's every second spot plus both ends, and every third spot plus both ends, against checking all of them, for one 8-move comm on a 3c:
 
-**3c, 8-movers, random skeletons (20,000 per length, each counted once for every way of starting the count). Only skeletons with an 8-mover somewhere are counted. *Mean loss* is how much longer the result is than with every spot checked; a set of spots that holds no 8-mover at all is scored as an 8-0.**
+**3c, 8-movers, random skeletons ({= NSK('3c') =} per length, each counted once for every way of starting the count). Only skeletons with an 8-mover somewhere are counted. *Mean loss* is how much longer the result is than with every spot checked; a set of spots that holds no 8-mover at all is scored as an 8-0.**
 
 {{one_skip}}
 
@@ -76,7 +76,7 @@ Here's every second spot plus both ends, and every third spot plus both ends, ag
   R (R blah blah B' ) B'   // alkamaass's example of what every other move can miss
   ```
 
-  The misses of an 8-3 or better are different. Every one of them sits next to two moves on opposite faces (`R L`, `U D'`), {= SKIPNEAR(20) =} at 20 moves: there a full cancel reaches across the pair, and the shifted alg lands two spots over, not one. The tutorial's footnote covers it: "when in a skeleton there are two consecutive parallel layers moves try swapping them too see if this gives better insertions". So check every other move, and both sides of a parallel pair. (Of all the misses, the 8-2s and worse included, {= SKIPALL(20) =} are next to such a pair.)
+  The misses of an 8-3 or better are different. Every one of them sits next to two moves on opposite faces (`R L`, `U D'`), {= SKIPNEAR(20) =} at 20 moves: there a full cancel reaches across the pair, and the alg moved over the move it cancels would go between the two moves of the pair, which takes writing the pair the other way round (example [c]). The tutorial's footnote covers it: "when in a skeleton there are two consecutive parallel layers moves try swapping them too see if this gives better insertions". So check every other move, and both sides of a parallel pair. (Of all the misses, the 8-2s and worse included, {= SKIPALL(20) =} are next to such a pair.)
 - **What you miss is small**: when the best is 8-3 or better, the misses are 8-3s and a few 8-4s (fifth and sixth columns). Nothing better than an {= SKIPWORST() =} was missed on any of {= SKIPTOTAL() =} skeletons.
 - notkevin's next line ([[N4773]]) is about two comms, which this table does not test: "(aka, the worst insertions you can miss with this without the second comm nesting is -4, where both comms only partially cancel on both sides)".
 - **Every third move doesn't work.** With a best of 8-3 or better, every third spot and both ends finds it only {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every third move finds it') =} of the time.
@@ -91,7 +91,7 @@ And one where every third spot misses it:
 
 **Three spots on after a 10-move case.** paulduc03 asked something narrower ([[N5145]]): "When I check between 2 moves in my 3C skeleton, sometimes it happens that the most optimal way to solve the 3C is 10 moves. In this case, can I go 3 moves further instead of 2 and still make sur not to miss any insertion below 6 moves ?" DougCube ([[N5147]]): "I don't think that works."
 
-**3c, random skeletons, 20,000 per length. A spot *needs a 10-mover* when the shortest alg for the case at that spot has 10 moves; only spots with two more spots after them are counted. One row per skeleton length: how many such spots there are, and how often the next spot or the one after has an 8-3 or better.**
+**3c, random skeletons, {= NSK('3c') =} per length. A spot *needs a 10-mover* when the shortest alg for the case at that spot has 10 moves; only spots with two more spots after them are counted. One row per skeleton length: how many such spots there are, and how often the next spot or the one after has an 8-3 or better.**
 
 {{ten_skip}}
 

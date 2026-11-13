@@ -51,7 +51,7 @@ In this section ± is one standard error of the difference (Appendix C gives two
 
 {{real_corpus_10}}
 
-For a 3c it's the same as random sequences ({= CP('3c', 8, 'real') =} against {= CP('3c', 8, 'rand') =} at cap 8). For a 5c within a tenth of a move: the real sequences are {= f2(float(CP('5c', 8, 'rand')) - float(CP('5c', 8, 'real'))) =} cheaper at cap 8 and {= f2(float(CP('5c', 10, 'rand')) - float(CP('5c', 10, 'real'))) =} at cap 10. Blocks, pairs and triggers in the moves make next to no difference to how insertions cancel.
+For a 3c it's the same as random sequences ({= CP('3c', 8, 'real') =} against {= CP('3c', 8, 'rand') =} at cap 8). For a 5c within a tenth of a move: the real sequences are {= f2(CPX('5c', 8, 'rand') - CPX('5c', 8, 'real')) =} cheaper at cap 8 and {= f2(CPX('5c', 10, 'rand') - CPX('5c', 10, 'real')) =} at cap 10. Blocks, pairs and triggers in the moves make next to no difference to how insertions cancel.
 
 **Selection is part of it.** Split by where the skeleton comes from:
 

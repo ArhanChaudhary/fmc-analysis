@@ -41,7 +41,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
   - **caps 10 and 12** count every sequence of that length, far more than any list a person knows;
   - **the best pair of comms** for a two-comm leftover means following up every first comm at every spot.
 
-  Those are **computer only**, Insertion Finder's job: the answer key, not something to do in an attempt, and each place says so. The hand version of the best pair is to take the best first comm, and the ones a move worse when there's time (8.4), which gets within {= f2(max(float(CELL('greedy', r, 'First comms within 1 move: mean added')) - float(CELL('greedy', r, 'Best pair of comms: mean added')) for r in ('2tc', '3tc', 'pure 2c2c', 'twisted 2c2c', '3c1t', '5c', '3c3c'))) =} of a move of it. The rest is for the attempt: the odds and exchange rates for choosing a skeleton (section 7), the search rules of section 8 (every other move, the ends, opposite-face pairs), and the case facts of sections 4 and 5.
+  Those are **computer only**, Insertion Finder's job: the answer key, not something to do in an attempt, and each place says so. The hand version of the best pair is to take the best first comm, and the ones a move worse when there's time (8.4), which gets within {= f2(max(X('greedy', r, 'First comms within 1 move: mean added') - X('greedy', r, 'Best pair of comms: mean added') for r in ('2tc', '3tc', 'pure 2c2c', 'twisted 2c2c', '3c1t', '5c', '3c3c'))) =} of a move of it. The rest is for the attempt: the odds and exchange rates for choosing a skeleton (section 7), the search rules of section 8 (every other move, the ends, opposite-face pairs), and the case facts of sections 4 and 5.
 
 ---
 
@@ -98,7 +98,7 @@ Sections 6 and 7 answer these. In short: the tutorial's corner rows and cpaul's 
 | 10 | Everything up to 10 moves: the 9-movers (a setup move that cancels into an 8-mover), the 10-move sledge comms, the 10-move 2c2c algs. |
 | 12 | Everything up to 12: also the 12-move two-twist comms, triple sexy and the like. |
 
-Within the cap *every* move sequence that does the job counts, not a list of known algs. So cap 8 on a 3c is the true best over all 8-movers at all spots, and cap 12 is every sequence of up to 12 moves, far more than any list a person knows. Cap 8 is the hand number: checking every spot with 8-movers is what solvers do. Caps 10 and 12 are **computer only** (unless you have learned the 10- and 12-move algs of that leftover): they say what a full alg list would give, which is an answer key, not a search to run in an attempt.
+Within the cap *every* move sequence that does the job counts, not a list of known algs. So cap 8 on a 3c is the true best over all 8-movers at all spots of the skeleton as written (section 11 has the one kind of spot that leaves out), and cap 12 is every sequence of up to 12 moves, far more than any list a person knows. Cap 8 is the hand number: checking every spot with 8-movers is what solvers do. Caps 10 and 12 are **computer only** (unless you have learned the 10- and 12-move algs of that leftover): they say what a full alg list would give, which is an answer key, not a search to run in an attempt.
 
 **What may be inserted.** Four ways of solving a leftover, each searched exactly:
 

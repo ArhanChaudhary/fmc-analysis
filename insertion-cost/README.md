@@ -20,7 +20,9 @@ It builds on the table in Sebastiano Tronto's tutorial ("Move count (an estimate
 | `research/SPEC.md` | the model: skeleton, leftover, insertion, cost, the cap on alg length, the models `one`, `two`, `direct`, `mixed` |
 | `research/instools/` | the Rust side: all algs up to 12 moves for every leftover, the exact best insertion(s) of a skeleton, samplers |
 | `research/src/` | the Python side: sticker model, leftover types, checks, real skeletons, report tables, examples page |
-| `lean/Insertions/` | Lean certificate of which leftovers one, two or three 3-cycles make |
+| `lean/Insertions/` | Lean certificate: which leftovers one, two or three 3-cycles make, first comms per spot, every alg of 8 moves or fewer (corners: 10 or fewer), and the printed examples replayed with their best insertions |
+| `research/notes/errata_derivations.md` | each correction of the errata re-derived from the person's words, term by term |
+| `research/verify/` | checks that share no code with the tools: `double_rounding.py` (every computed number of the pages against its six-decimal value) |
 
 ## How the numbers are made
 
@@ -43,6 +45,7 @@ Everything starts from one sticker-level model of the cube built from geometry (
 | Insertion Finder pages | `instools best --file`, `if_table.py` | `if_cases.tsv`, `if_best.txt`, `if_compare.tsv` |
 | Example scrambles for the claims | `exlib.py`, `witness.py` | `witness.json`, `report_build/wit_*.md` |
 | Report tables | `xtables.py`, `xgreedy_sum.py`, `xreal.py` | `report/data/*.md` |
+| The same tables at six decimals, for differences of two cells (rounded once) | `tables6.py` | `data6/*.md` |
 | How people are named in the pages | `names.py` | |
 | Write-up and errata | `report_build/assemble.py` (and `--bugs`) | `report/WRITEUP.md`, `report/BUGS.md` |
 | Examples page | `xexamples.py --cases`, then `xexamples.py` | `examples_cases.json`, `report/EXAMPLES.md` |
@@ -78,6 +81,6 @@ The text is `research/src/report_build/writeup.md` and the `sec_*.md`, `app.md` 
 
 ## Lean
 
-    cd insertion-cost/lean/Insertions && lake build      # about three minutes
+    cd insertion-cost/lean/Insertions && lake build      # about eleven minutes of CPU, under 2 GB
 
 See `lean/Insertions/README.md` for the list of theorems.

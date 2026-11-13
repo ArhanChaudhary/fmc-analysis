@@ -14,7 +14,7 @@ Everything people said that the numbers can settle, by theme. A verdict is only 
 | "5c is 10-11 moves."; "5c ~high 10" | Aneurin [[N290]]; Phuwish [[N4542]] | **True**: {= M('5c', 16) =} at 16 moves, {= M('5c') =} at 20. |
 | 2tc with two insertions: "~8.0 I guess" | Phuwish [[N4532]] | **True**: {= M('2tc', 16) =} at 16 moves, {= M('2tc') =} at 20. |
 | 3tc: "mid to high 8", "a half to a move worse" than a 2tc | Phuwish [[N4537]] | **Higher with pure comms**: {= M('3tc') =} at 20 moves, {= DIFF('3tc', '2tc') =} worse than a 2tc. With algs up to 12 it is {= M('3tc', L=12, src='two12') =} ({= NSK('3tc', L=12, src='two12') =} skeletons), so the alg list can explain the figure. |
-| "more like 9 for pure 2-2", "like 9.5 for 2-2 with a twist", "like 10 for 3c1t" | cpaul [[N4857]], [[N4858]], [[N4859]] | **9 and 10 are right** ({= M('2c2c-pure') =}, {= M('3c1t') =}). **Which 2c2c is cheaper depends on the alg length**: with 8-movers the twisted one ({= M('2c2c-twisted') =}); with algs up to 10 the pure one ({= M('2c2c-pure', L=10) =} against {= M('2c2c-twisted', L=10) =}, 500 skeletons each), which is cpaul's order. |
+| "more like 9 for pure 2-2", "like 9.5 for 2-2 with a twist", "like 10 for 3c1t" | cpaul [[N4857]], [[N4858]], [[N4859]] | **9 and 10 are right** ({= M('2c2c-pure') =}, {= M('3c1t') =}). **Which 2c2c is cheaper depends on the alg length**: with 8-movers the twisted one ({= M('2c2c-twisted') =}); with algs up to 10 the pure one ({= M('2c2c-pure', L=10) =} against {= M('2c2c-twisted', L=10) =}, {= NSK('2c2c-pure', L=10) =} skeletons each), which is cpaul's order. |
 | "5-6, 8-9, 6-8 for good 2c2c, 8-9 for bad 2c2c"; "this is i expected not avg expected" | Baiqiang [[N4853]], [[N4863]] | **Not averages, in Baiqiang's words.** Which 2c2c is the good one was asked (kyh, [[N4855]]) and not answered. With algs up to 12 on {= NSK('2c2c-pure', L=12, src='two12') =} random 20-move skeletons each: pure 2c2c {= M('2c2c-pure', L=12, src='two12') =}, twisted {= M('2c2c-twisted', L=12, src='two12') =}, 3c1t {= M('3c1t', L=12, src='two12') =}. Posted skeletons with a comm plus an alg at cap 12: 2c2c {= CELL('real_mixed', '2c2c (pure or twisted)', 'Cap 12: mean added') =}, 3c1t {= CELL('real_mixed', '3c1t', 'Cap 12: mean added') =} (9.2). |
 | "i think 3c1t > 2c2c > 5c" | argonblue [[N6507]] | **By cost the first two are the other way round**: 2c2c, then 3c1t, then 5c. A 2c2c is {= DIFF('3c1t', '2c2c-pure') =} to {= DIFF('3c1t', '2c2c-twisted') =} cheaper than a 3c1t [a]. |
 | "i didn't notice a meaningful different between 2 insertion 4c types" | Jay [[N4860]] | **There is one on average**: about a move between a 2c2c and a 3c1t, with a spread from skeleton to skeleton that is wider than that, so it is hard to notice solve by solve [a]. |
@@ -30,7 +30,7 @@ Everything people said that the numbers can settle, by theme. A verdict is only 
 |---|---|---|
 | A 5c should be "maybe like 5-6" shorter than a 3c | asacuber [[N1325]] | **5 is break-even**: {= EXM('5c', 20) =} against a 20-move 3c by expected total, {= EXR('5c') =} for equal chance of a target (7.2). |
 | 3c in 23: sub-30 "you will probably get it"; in 25 "you will need some luck" | Tronto's tutorial, 2.4.10 | **Right**: {= CH('3c', 23, 29) =} and {= CH('3c', 25, 29) =}. |
-| "a skeleton leaving 4 corner in 18 moves is probably better than one leaving 3 corners in 25" | Tronto's tutorial, 2.4.10 | **Right, by about {= f1(float(TOTAL('3c', 25)) - float(TOTAL('3c1t', 18))) =} moves or more** in expected total. |
+| "a skeleton leaving 4 corner in 18 moves is probably better than one leaving 3 corners in 25" | Tronto's tutorial, 2.4.10 | **Right, by about {= f1(TOTALX('3c', 25) - TOTALX('3c1t', 18)) =} moves or more** in expected total. |
 | "3c in 22-24 or 5c in 16-18"; "18 to anything like 5c, 4c, 3c1t, and 24 for 3c" | Gezza Cubing [[N1740]]; oliynykmax [[N1741]] | **The 5c end is the better one**: sub-30 from a 5c in 18 {= CH('5c', 18, 29) =}, from a 3c in 24 {= CH('3c', 24, 29) =}. |
 | "sub-22 for 3C skeleton", "sub-20 for every other skeleton" | sequesteredcuber [[N292]] | **Uneven**: sub-30 from a 3c in 21 {= CH('3c', 21, 29) =}, from a 5c in 19 {= CH('5c', 19, 29) =}, from a pure 2c2c in 19 {= CH('2c2c-pure', 19, 29) =} [g]. |
 | 21 to 3c: "a guaranteed 29 right?"; "not strictly guaranteed", "but it's very likely" | 2023HAMI08 [[N4836]]; kyh [[N4837]], [[N4838]] | **kyh is right**: {= CH('3c', 21, 29) =} with 8-movers [h]. |
@@ -50,7 +50,7 @@ Everything people said that the numbers can settle, by theme. A verdict is only 
 | Checking every other move "still guarantees you'll find" a -3 or better; "this isn't thorough tho" | notkevin [[N4772]]; alkamaass [[N1144]] | **Almost**: a best of 8-3 or better is found {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every other move finds it') =} of the time on a 20-move 3c. Those misses are all next to two opposite-face moves [c]. Nothing better than an {= SKIPWORST() =} was missed on any of {= SKIPTOTAL() =} skeletons. |
 | Every third spot instead of every other | tested here | **It does not work**: an 8-3 or better is found {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every third move finds it') =} of the time on a 20-move 3c [j]. |
 | When the case at a spot needs 10 moves, "can I go 3 moves further instead of 2 and still make sur not to miss any insertion below 6 moves ?"; "I don't think that works." | paulduc03 [[N5145]], asking; DougCube [[N5147]] | **DougCube is right**: two spots on from such a spot there is an 8-3 or better {= TSP(20, 'two', 'ten') =} of the time on a 20-move 3c, and all {= FACT('ten_cases') =} cases that need 10 moves can have an 8-mover two moves later [k]. |
-| "for the first 5c insertion you have 5x more options than for the second"; "there are 5 possible cycles, not 1" | Not officially a David [[N139]]; Zagros [[N3688]] | **True**: {= FC('5c') =} 3-cycles per spot leave a 3c. |
+| "for the first 5c insertion you have 5x more options than for the second"; "there are 5 possible cycles, not 1" | Not officially a David [[N139]]; Zagros [[N3688]] | **True**: {= FC('5c') =} 3-cycles per spot leave a 3c. ✓ Lean |
 | For a 5c "you'll probably have at least an 8-3 or 8-4 for the first one" | Ben [[N5538]] | {= GV('first83') =} |
 | "my pr single wouldve been a 30 if i didnt go look for sub optimal first insertions", "but its a 28"; "i just had to check a suboptimal first insertion (8-2 instead of 8-3) to get any cancellations in the second" | kyh [[N5837]], [[N5838]]; argonblue [[N5842]] | {= GV('subopt') =} |
 | "if you set greedy to 0 and only pick regular 3c comms then it basically shows human findable"; "greedy 1 is still reasonable if your skeleton is really good but anything higher isn't imo"; "i think 1 is realistic" | Ben [[N5683]], [[N5688]]; kyh [[N5836]] | {= GV('greedy') =} |
@@ -69,8 +69,8 @@ Everything people said that the numbers can settle, by theme. A verdict is only 
 | "theres 4 types of 7c that work"; "I counted your last one as 2 separate" | wen [[N393]], [[N396]], to torchlight's list of three [[N394]] | **True**, counted wen's way: exactly four leftovers on seven corners take three comms. |
 | "for most 3c cases theres 2 ways to do the commutator"; "about half of the 8 movers you can do 2 ways" | Gezza Cubing [[N1383]], [[N1397]] | **{= F8(2) =} have two, {= F8(1) =} have one, {= F8(0) =} have none.** |
 | "i feel like every 8 mover has two ways no"; "no", "U2, R' D R doesn't for example" | eff [[N1407]], asking; rogo [[N1408]], [[N1409]] | **rogo is right**: `[U2, R' D R]` is one of the {= F8(1) =} with a single 8-mover. |
-| "There arent 8 movers if they're oriented" | Zagros [[N2485]] | **Mostly**: {= FACT('oriented_3c_with_8') =} of the {= FACT('oriented_3c') =} oriented 3-cycles have one. Jay's `R' F' R B2 R' F R B2` ([[N2488]]) is one of them. |
-| A case where no single move gives a pure comm, "so you can skip one move from it" | Srećko [[N4195]] | **True** for {= FACT('no8_after_any_move_all_3c') =} of the {= STATES('3c') =} 3-cycles. |
+| "There arent 8 movers if they're oriented" | Zagros [[N2485]] | **Mostly**: {= FACT('oriented_3c_with_8') =} of the {= FACT('oriented_3c') =} oriented 3-cycles have one. Jay's `R' F' R B2 R' F R B2` ([[N2488]]) is one of them. ✓ Lean |
+| A case where no single move gives a pure comm, "so you can skip one move from it" | Srećko [[N4195]] | **True** for {= FACT('no8_after_any_move_all_3c') =} of the {= STATES('3c') =} 3-cycles. ✓ Lean |
 | "optimal to twist one corner while preserving all edges is 12 moves" | torchlight [[N505]] | **True as stated**: no sequence of {= str(int(TW('min')) - 1) =} moves or fewer that keeps every edge leaves a corner twisted in its place, whatever else it does; {= TW('seq') =} sequences of {= TW('min') =} moves do (section 5). |
 | "what's the shortest 2c2c alg", "I think it’s 10?" | kyh [[N3525]], zakk drewji [[N3526]] | **10**, for a pure 2c2c. 12 for a twisted one. |
 | "10 moves is the minimum for any 2E2C without cancellations" | Noah Swor [[N3120]] | **True.** |
@@ -111,6 +111,8 @@ The examples:
 
 **[l]** is the skeleton of 8.4 where greedy 0 gives a longer result with more algs.
 
+✓ Lean for [a] to [e] and [g] to [k]: every block replays as printed, and the best each states is exact over every alg of 8 moves or fewer, and of 10 or fewer where it says so. [f] and [l] are computed.
+
 ---
 
 ## 11. What this does not cover
@@ -121,14 +123,15 @@ The examples:
 
   | Model | Sample |
   |---|---|
-  | two comms at cap 10 | 200 to 2,000 skeletons per length |
-  | a comm plus an alg | 200 skeletons of 20 moves |
-  | two comms at cap 12 | 100 |
+  | two comms at cap 10 | {= NSK('2tc', L=10) =} to {= NSK('5c', L=10) =} skeletons per length |
+  | a comm plus an alg | {= NSK('5c', L=10, src='mixed') =} skeletons of 20 moves |
+  | two comms at cap 12 | {= NSK('5c', L=12, src='two12') =} |
 
   Two standard errors of a mean are ±{= SE2('5c', L=10) =} for a 5c at cap 10 and ±{= SE2('5c', L=12, src='two12') =} at cap 12 (Appendix C). Enough for a mean, not for the rare outcomes.
 - **Parity and mixed leftovers.** 2c2e, 3e3c, 2e2e with corners, and everything else with both corners and edges left, are not sampled. Their algs are only counted for 2c2e (section 5).
 - **Leftovers that need three comms** (2c2c1t, 3c2t, 7c and the rest of section 4): counted, not costed.
 - **More than two insertions on a two-comm leftover.** A comm that leaves the same kind of leftover but shortens the skeleton, like the 8-10 of section 9.5, is a third insertion and isn't searched.
+- **Spots inside a pair of opposite-face moves.** A skeleton is searched as it is written, with `U D` never also tried as `D U`, so the spot between the two moves the other way round isn't looked at. A recount that tries both orders finds a better 8-mover result on 76 of 20,000 random 3c skeletons of 20 moves (74 of them by one move), which moves the 3c average by about 0.004; computed once, by a separate program. The every-other-move rule misses exactly this kind of spot (8.3).
 - **Insertions inside a turn.** Every spot searched is between two moves of the skeleton. An alg put in the middle of a turn (a `B'` done as `B2`, the comm, `B`) is found only when a longer alg within the cap happens to equal it (8.2).
 - **Algs longer than 12 moves**, so no 3tc alg and no two-twist of neighbouring corners in one piece, and the 13-move algs people do insert.
 - **Slice insertions, centre insertions, real DR skeletons.** The DR rows of 6.1 are modelled move sequences. Whether 8-move comms cancel less on skeletons from real DR solves, the question in the Fokianos and Raposio guide, is answered here only for that model.

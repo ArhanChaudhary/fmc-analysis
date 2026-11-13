@@ -41,8 +41,16 @@ def pct(c, k):
 def se(c):
     s = solved(c); m = mean(c)
     return (sum(v * (int(k) - m) ** 2 for k, v in c['h'].items()) / max(s - 1, 1) / s) ** 0.5
-def f2(x): return f'{x:.2f}'
-def f1(x): return f'{x:.1f}'
+def _half_up(x, q):
+    """x to the step q ('0.01'), an exact half rounded away from zero.  A mean like 40275 / 5000 = 8.055 is an exact
+    half, and formatting the float alone sends such a value up or down by its binary digits (8.055 -> 8.05,
+    8.685 -> 8.69).  Every number formatted here is a ratio of small whole numbers, so rounding to 9 places first
+    gives its exact decimal back."""
+    import decimal
+    if x != x: return 'nan'
+    return str(decimal.Decimal(repr(round(x, 9))).quantize(decimal.Decimal(q), rounding=decimal.ROUND_HALF_UP))
+def f2(x): return _half_up(x, '0.01')
+def f1(x): return _half_up(x, '0.1')
 def what(typ, L, model=None, src='sample'):
     """The model in plain words."""
     model = model or head(typ); k = 'c' if typ in CORNER else 'e'

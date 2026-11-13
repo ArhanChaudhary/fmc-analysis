@@ -80,7 +80,7 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
 
   The cap-10 order is cpaul's ("9 for pure 2-2", "9.5 for 2-2 with a twist"), and it's **computer only** unless you've learned the 10-move pure 2c2c algs. With the 8-movers you actually insert by hand, the twisted one is cheaper.
 - **By cost a 2c2c beats a 3c1t, and a 3c1t beats a 5c.** That answers jisu101's "2c2c, 3c1t, or 5c?" ([1 Aug 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1533125109978632212), [1 Aug 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1533125157483315321)). A 2c2c is 0.77 to 1.17 cheaper than a 3c1t (20 moves, 8-movers), so argonblue's "3c1t > 2c2c > 5c" has the first two swapped (a typical skeleton of each is example [a] in section 10). It's about a move on average, and the spread from one skeleton to the next is wider than that, so you won't really notice it solve by solve.
-- **wen's question, answered**: "Why is there even a difference if the number of possible first insertions is the same tbh" ([27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443790851443785758)). For the two kinds of 2c2c the number really is the same, 24 first comms per spot, and when the two comms don't touch they cost the same (9.41 and 9.40). The 0.40 between them comes from comms that interact, 0.24 of it from nesting: the best twisted pair is nested on 24% of skeletons, the best pure pair on 5.1%. Across types the number isn't the same, and the costs come in the same order (first line of the next block):
+- **wen's question, answered**: "Why is there even a difference if the number of possible first insertions is the same tbh" ([27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443790851443785758)). For the two kinds of 2c2c the number really is the same, 24 first comms per spot, and when the two comms don't touch they cost the same (9.41 and 9.40). The 0.40 between them comes from comms that interact, 0.25 of it from nesting: the best twisted pair is nested on 24% of skeletons, the best pure pair on 5.1%. Across types the number isn't the same, and the costs come in the same order (first line of the next block):
 
   | Leftover | First comms that leave a 3c, per spot |
   |---|---:|
@@ -90,6 +90,8 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
   | 3c1t | 9 |
   | 5c | 5 |
 
+  ✓ Lean: these counts, for every leftover of each type.
+
 - **A longer alg list is worth far more on two comms than on one.** Same skeletons under every cap (100 of 20 moves per type):
 
   | Leftover | Cap 8: mean added | Cap 10: mean added | Cap 12: mean added |
@@ -98,7 +100,7 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
   | 5c | 10.10 | 9.79 | 9.49 |
   | 3tc | 9.41 | 9.32 | 8.56 |
 
-  The 3tc's whole step from cap 10 to cap 12 comes from longer comms, since no 3tc alg is 12 moves or fewer. Where a 10-move pure 2c2c alg fits (62% of skeletons) it beats two 8-movers by 0.63. Caps 10 and 12 count every alg of that length, so these are **computer only**, the answer key for a full alg list. What carries over to an attempt is which algs are worth learning (the 10-move pure 2c2c algs, 6.3).
+  The 3tc's whole step from cap 10 to cap 12 comes from longer comms, since no 3tc alg is 12 moves or fewer. Where a 10-move pure 2c2c alg fits (62% of skeletons) it beats two 8-movers by 0.62. Caps 10 and 12 count every alg of that length, so these are **computer only**, the answer key for a full alg list. What carries over to an attempt is which algs are worth learning (the 10-move pure 2c2c algs, 6.3).
 - **Longer algs barely help a 3c.** At 20 moves it's 5.90 with 8-movers, 5.85 with every alg up to 10 moves and 5.77 up to 12. How often a longer alg is what wins, on 20-move skeletons:
 
   | What happens | Share of skeletons |
@@ -126,7 +128,7 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
   | every other move | 89% | 97% |
   | every third move (example [j]) | 72% | 75% |
 
-  Every other move loses 0.11 of a move on average, and nothing better than an 8-4 was missed on any of 140,000 skeletons. Every miss of an 8-3 or better sits next to two moves on opposite faces (371 of 371 at 20 moves): a full cancel reaches across the pair, so the shifted alg lands two spots over, not one. So check every other move and both sides of a parallel pair. notkevin's "guarantees" ([7 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1436457200880189582)) is a bit too strong (example [c]).
+  Every other move loses 0.11 of a move on average, and nothing better than an 8-4 was missed on any of 140,000 skeletons. Every miss of an 8-3 or better sits next to two moves on opposite faces (371 of 371 at 20 moves): a full cancel reaches across the pair, so the alg moved one move over would go between the two moves of the pair, swapped. So check every other move and both sides of a parallel pair. notkevin's "guarantees" ([7 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1436457200880189582)) is a bit too strong (example [c]).
 - **paulduc03's question, answered**: after a case that needs 10 moves, "can I go 3 moves further instead of 2" ([30 Dec 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1455642235449114665))? No, like DougCube said. That walk misses a best of 8-3 or better on 3.9% of walks against 3.2% for plain every other move, and every one of the 80 3-cycles that need 10 moves can be at a case with an 8-mover two moves later (example [k]).
 - **Exchange rates, 8-movers** (Fanti's question, [5 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1247972528425799841)): how many moves shorter each skeleton has to be to give the same expected total as a 20-move 3c.
 
@@ -139,7 +141,7 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
   | twisted 2c2c | 3.0 |
   | 2tc | 2.0 |
 
-  For the same chance of a given result the rates are about the same, a bit lower when the 3c would need luck. asacuber's "maybe like 5-6" ([5 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1247972799151341690)) for the 5c is right, at the 5 end. With algs up to 10 a 5c needs about 3.8 to 4.9 and a pure 2c2c about 1.8 to 3.9 (**computer only**: that assumes every alg up to 10). The cap-8 rates are for the attempt, but they price a two-comm skeleton at its best pair. Taking just the best first comm by hand adds 0.17 on a 5c and 0.31 on a twisted 2c2c (8.4), so add that to the rate if you won't follow up more than the best first comm.
+  For the same chance of a given result the rates are about the same, a bit lower when the 3c would need luck. asacuber's "maybe like 5-6" ([5 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1247972799151341690)) for the 5c is right, at the 5 end. With algs up to 10 a 5c needs about 3.8 to 4.9 and a pure 2c2c about 1.8 to 3.9 (**computer only**: that assumes every alg up to 10). The cap-8 rates are for the attempt, but they price a two-comm skeleton at its best pair. Taking just the best first comm by hand adds 0.16 on a 5c and 0.31 on a twisted 2c2c (8.4), so add that to the rate if you won't follow up more than the best first comm.
 - **trig0n's 17 to 3c** ([23 Sep 2022](https://discord.com/channels/1007840975726575667/1007841335434285126/1022791984907296778); nobody replied). Modelled 17-move sequences, 20,000 each, with 8-movers:
 
   | The moves | Mean moves added | Adds 6 or less | Nothing fits |
@@ -160,12 +162,12 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
   | the posted 3c, their own leftover | 5.12 | 5.98 |
 
   So blocks, pairs and triggers in the moves make next to no difference to how insertions cancel. The posted skeletons with their own leftover are cheaper, and selection is part of that: the skeletons shown with their insertion are -1.13 from random, the 34 posted bare or in a collection -0.41. Whether those last few tenths are real or selection again, these few skeletons can't say. For a skeleton you've just found, start from the random-skeleton tables.
-- **Edges depend on the alg list.** Only 9.5% of edge 3-cycles have an alg of 8 moves or fewer (corners: 52%), and the 24 with a 6-mover are exactly the 24 whose three edges are oriented on all three axes. With 8 or fewer nothing fits on 44% of random 20-move skeletons; with every alg up to 10 a 3e costs 6.05 (**computer only** unless you know every edge alg up to 10). The 17 real 3e skeletons cost 3.18 at cap 10. All of them were posted with their insertion, and whether their three edges are oriented doesn't explain the difference (9.2).
+- **Edges depend on the alg list.** Only 9.5% of edge 3-cycles have an alg of 8 moves or fewer (corners: 52%), and the 24 with a 6-mover are exactly the 24 whose three edges are oriented on all three axes (✓ Lean, these counts). With 8 or fewer nothing fits on 44% of random 20-move skeletons; with every alg up to 10 a 3e costs 6.05 (**computer only** unless you know every edge alg up to 10). The 17 real 3e skeletons cost 3.18 at cap 10. All of them were posted with their insertion, and whether their three edges are oriented doesn't explain the difference (9.2).
 - **Where the insertion is** (3c, 8-movers). No third of a random skeleton is better than another. The first and the last spot are clearly worse: an 8-3 or better there 1.1% of the time, against 4.0% at an inner spot, and the spot next to them a little worse. An 8-mover fits at about half the spots (52%). On the 89 real 3c skeletons the best spot is in the first, middle and last third 24%, 39% and 37% of the time, so DougCube's "first 1/3 or last 1/3" doesn't show up. It isn't refuted either: DougCube's stats count the insertions DougCube found, of every kind (9.4).
 - **Exact counts.**
   - Two 3-cycle insertions solve exactly 3c1t, 2c2c (pure and twisted), 5c, 3c3c, 2tc and 3tc. 22 other types of corner leftover (11 by name, 8,845,836 states) need exactly three (Lean).
-  - 528 of the 1,008 corner 3-cycles have an 8-mover, 336 of them two different ones. 32 of the 112 3-cycles that keep all three corners oriented have one, and 112 3-cycles have none even after any one move.
-  - No 2c2c alg is shorter than 10 moves (132 pure cases have a 10-mover; a twisted one needs 12).
+  - 528 of the 1,008 corner 3-cycles have an 8-mover, 336 of them two different ones. 32 of the 112 3-cycles that keep all three corners oriented have one, and 112 3-cycles have none even after any one move. ✓ Lean
+  - No 2c2c alg is shorter than 10 moves (132 pure cases have a 10-mover; a twisted one needs 12). ✓ Lean up to 10 moves
   - A 3c1t has an alg of 12 moves or fewer in only 528 of 10,080 cases, a 2tc in 32 of 56 (the pairs of corners that don't share an edge).
   - No alg that leaves a corner twisted in place is shorter than 12, no three-twist is within 12, no 2c2e is shorter than 10.
 - **People and Insertion Finder.** The insertion that was posted for a 3c is the best 8-mover insertion or better in 76 of 79 cases (96%), and on the corner leftovers that need two comms in 52 of 60 (87%). Against algs up to 12 (**computer only**, the answer key), 21% of the hand solutions leave a move or more on the table. On the Insertion Finder pages the search gives the same result once its cap covers the algs Insertion Finder used, and at cap 12 it's one move shorter on two pages (16 to 3C1T: 24 against 25; 13 to 3T: 22 against 23). An Insertion Finder "optimal" is optimal for the alg sets that were on: on the 23-move 3c of [16 Oct 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1296311051121463346) the posted 8-4 is the best 8-mover insertion (27), and a 10-mover that cancels all ten of its moves gives 23 (9.5).
@@ -242,7 +244,7 @@ Sections 6 and 7 answer these. In short: the tutorial's corner rows and cpaul's 
 | 10 | Everything up to 10 moves: the 9-movers (a setup move that cancels into an 8-mover), the 10-move sledge comms, the 10-move 2c2c algs. |
 | 12 | Everything up to 12: also the 12-move two-twist comms, triple sexy and the like. |
 
-Within the cap *every* move sequence that does the job counts, not a list of known algs. So cap 8 on a 3c is the true best over all 8-movers at all spots, and cap 12 is every sequence of up to 12 moves, far more than any list a person knows. Cap 8 is the hand number: checking every spot with 8-movers is what solvers do. Caps 10 and 12 are **computer only** (unless you have learned the 10- and 12-move algs of that leftover): they say what a full alg list would give, which is an answer key, not a search to run in an attempt.
+Within the cap *every* move sequence that does the job counts, not a list of known algs. So cap 8 on a 3c is the true best over all 8-movers at all spots of the skeleton as written (section 11 has the one kind of spot that leaves out), and cap 12 is every sequence of up to 12 moves, far more than any list a person knows. Cap 8 is the hand number: checking every spot with 8-movers is what solvers do. Caps 10 and 12 are **computer only** (unless you have learned the 10- and 12-move algs of that leftover): they say what a full alg list would give, which is an answer key, not a search to run in an attempt.
 
 **What may be inserted.** Four ways of solving a leftover, each searched exactly:
 
@@ -537,7 +539,7 @@ Shortest alg for the case at each spot, from before the first move to after the 
 
 For these, cap 8 means two 8-move comms, the second allowed inside the first; no alg of 8 moves or fewer does any of them in one go.
 
-Each number is the **best pair**, every first comm at every spot followed by the best second: **computer only** as a search. By hand you take the best first comm and then the best second, which costs 0.17 more on a 5c; also following the first comms a move worse gets within 0.09 of the best pair on every type (8.4). So read the cap-8 rows as a careful hand search, a few hundredths optimistic.
+Each number is the **best pair**, every first comm at every spot followed by the best second: **computer only** as a search. By hand you take the best first comm and then the best second, which costs 0.16 more on a 5c; also following the first comms a move worse gets within 0.09 of the best pair on every type (8.4). So read the cap-8 rows as a careful hand search, a few hundredths optimistic.
 
 Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for the whole leftover. All on random skeletons; the *Skeletons* column says how many each row rests on, and at cap 10 that is few, so read those rows to the nearest percent or so.
 
@@ -554,7 +556,7 @@ Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for th
 | 8 | 30 | 5,000 | 7.07 | 3.0% | 9.4% | 27% | 60% | 93% | 99.9% | 100% | 100% | 100% | 0 |
 | 10 | 10 | 200 | 8.38 | 0.50% | 2.0% | 4.5% | 17% | 49% | 89% | 100% | 100% | 100% | 0 |
 | 10 | 14 | 200 | 7.95 | 1.0% | 2.5% | 11% | 27% | 67% | 96% | 100% | 100% | 100% | 0 |
-| 10 | 18 | 200 | 7.50 | 2.5% | 8.0% | 16% | 44% | 79% | 99% | 100% | 100% | 100% | 0 |
+| 10 | 18 | 200 | 7.51 | 2.5% | 8.0% | 16% | 44% | 79% | 99% | 100% | 100% | 100% | 0 |
 | 10 | 20 | 200 | 7.34 | 2.5% | 6.5% | 21% | 48% | 86% | 100% | 100% | 100% | 100% | 0 |
 | 10 | 22 | 200 | 7.26 | 1.5% | 6.0% | 28% | 53% | 86% | 100% | 100% | 100% | 100% | 0 |
 | 10 | 26 | 200 | 6.95 | 3.0% | 12% | 31% | 64% | 96% | 100% | 100% | 100% | 100% | 0 |
@@ -660,7 +662,7 @@ Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for th
 | Leftover | The tutorial's table | Posted on the server | Random, 16 moves, cap 8: mean added | Random, 20 moves, cap 8: mean added | Random, 20 moves, cap 10: mean added | Random, 20 moves, cap 12: mean added |
 |---|---:|---|---:|---:|---:|---:|
 | 3c | 5/6 | Baiqiang 5-6; Aneurin 6; Eli Rogers ~ +6 | 6.08 | 5.90 | 5.85 | 5.77 |
-| 2tc | 8 | Phuwish ~8.0 | 8.05 | 7.71 | 7.34 | not run |
+| 2tc | 8 | Phuwish ~8.0 | 8.06 | 7.71 | 7.34 | not run |
 | 3tc | 9 | Phuwish mid to high 8 | 9.89 | 9.50 | 9.34 | 8.56 |
 | pure 2c2c | 9/10 | cpaul 9 (pure); tave_789 asked whether a 2c2c is close to 9.5, Phuwish: yeah; Baiqiang 6-8 for a good 2c2c and 8-9 for a bad one, without saying which kind is which | 9.49 | 9.13 | 8.48 | 7.87 |
 | twisted 2c2c | not a row of the table | cpaul 9.5 (with a twist); tave_789 and Phuwish as above; Baiqiang as above | 9.01 | 8.73 | 8.66 | 8.30 |
@@ -710,7 +712,7 @@ The cap-12 column is on 100 skeletons that are not the skeletons of the cap-8 co
 | 5c | 5 | 4.3 |
 | 3c3c | 2 | 1.7 |
 
-- **For the two kinds of 2c2c the number is the same**, 24 each: any three of the four corners, either direction (jisu101's point, [1 Aug 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1533125667565080657), [1 Aug 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1533125708480516218)), with three ways to twist. They still cost 8.73 and 9.13 with 8-movers, and the 0.40 between them comes from comms that interact. When the two comms do not touch, a pure and a twisted 2c2c cost the same, 9.41 and 9.40 (6.5). With nesting forbidden the twisted one is 0.16 cheaper (9.03 against 9.19): its second comm cancels into the first more often without sitting inside it. Nesting is the other 0.24: the best pair is nested on 24% of twisted 2c2c skeletons and 5.1% of pure ones.
+- **For the two kinds of 2c2c the number is the same**, 24 each: any three of the four corners, either direction (jisu101's point, [1 Aug 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1533125667565080657), [1 Aug 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1533125708480516218)), with three ways to twist. They still cost 8.73 and 9.13 with 8-movers, and the 0.40 between them comes from comms that interact. When the two comms do not touch, a pure and a twisted 2c2c cost the same, 9.41 and 9.40 (6.5). With nesting forbidden the twisted one is 0.16 cheaper (9.03 against 9.19): its second comm cancels into the first more often without sitting inside it. Nesting is the other 0.25: the best pair is nested on 24% of twisted 2c2c skeletons and 5.1% of pure ones.
 - **Across types it isn't the same.** More choices for the first comm means better odds of a good one, and the costs come in that order:
 
   | | 2tc | 2c2c | 3tc | 3c1t | 5c | 3c3c |
@@ -730,12 +732,12 @@ At 20 moves, the mean added under each cap. Caps 10 and 12 are every alg of that
 | 3c | 99.6% | 5.90 | 20,000 | 5.85 | 20,000 | 5.99 | 200 | 5.77 | 20,000 |
 | 2tc | every one | 7.71 | 5,000 | 7.34 | 200 | 7.34 | 200 | not run | not run |
 | 3tc | every one | 9.50 | 20,000 | 9.34 | 500 | 9.26 | 200 | 8.56 | 100 |
-| pure 2c2c | every one | 9.13 | 20,000 | 8.48 | 500 | 8.24 | 200 | 7.87 | 100 |
+| pure 2c2c | every one | 9.13 | 20,000 | 8.48 | 500 | 8.25 | 200 | 7.87 | 100 |
 | twisted 2c2c | every one | 8.73 | 20,000 | 8.66 | 500 | 8.60 | 200 | 8.30 | 100 |
 | 3c1t | every one | 9.90 | 20,000 | 9.73 | 500 | 9.56 | 200 | 9.44 | 100 |
 | 5c | every one | 10.37 | 20,000 | 10.03 | 2,000 | 9.66 | 200 | 9.49 | 100 |
 | 3c3c | 99.9% | 11.05 | 20,000 | 10.48 | 2,000 | 10.09 | 200 | 9.88 | 100 |
-| 3e | 56% | 5.95 | 20,000 | 6.05 | 20,000 | 5.67 | 200 | 5.95 | 20,000 |
+| 3e | 56% | 5.95 | 20,000 | 6.05 | 20,000 | 5.68 | 200 | 5.95 | 20,000 |
 | 2fe | 96% | 8.96 | 5,000 | 7.51 | 200 | 7.51 | 200 | not run | not run |
 | 2e2e | 97% | 9.29 | 5,000 | 7.63 | 200 | 6.89 | 200 | not run | not run |
 | flipped 2e2e | 91% | 11.08 | 5,000 | 7.83 | 200 | 7.54 | 200 | not run | not run |
@@ -756,7 +758,7 @@ The samples differ in size and are not the same skeletons: the 100 5c skeletons 
 | 3c1t | 100 | 9.82 | 0 | 9.67 | 9.53 | 9.44 |
 | 5c | 100 | 10.10 | 0 | 9.79 | 9.63 | 9.49 |
 | 3c3c | 100 | 10.87 | 0 | 10.23 | 10.01 | 9.88 |
-| 3e | 200 | 5.89 | 92 | 6.04 | 5.67 | 5.98 |
+| 3e | 200 | 5.89 | 92 | 6.04 | 5.68 | 5.98 |
 | 3e1f | 100 | 11.76 | 34 | 10.03 | 8.92 | 9.34 |
 | 5e | 100 | 11.20 | 16 | 9.13 | 8.54 | 8.83 |
 | 3e3e | 100 | 11.79 | 38 | 10.25 | 9.52 | 9.82 |
@@ -807,7 +809,7 @@ These are averages over 100 or 200 skeletons, compared on the same skeletons, so
 | 5e | 20,000 | 99.9% | 9.08 | 11.55 | 15,508 |
 | 3e3e | 20,000 | 99.6% | 10.02 | 11.86 | 10,907 |
 
-- **Pure 2c2c**: a 10-move alg fits somewhere on 62% of skeletons and then costs 8.44. Two 8-move comms cost 9.07 on those same skeletons (9.13 over all of them), so where it fits the alg is 0.63 better.
+- **Pure 2c2c**: a 10-move alg fits somewhere on 62% of skeletons and then costs 8.44. Two 8-move comms cost 9.07 on those same skeletons (9.13 over all of them), so where it fits the alg is 0.62 better.
 - **2tc**: the 12-move two-twist is there on every skeleton, and costs 9.03. Two comms cost 7.71. The tutorial already says of the 2tc and 3tc algs: "But this is usually not the best way". For the 2tc it is worse by 1.32.
 - **5c, 3c1t**: one alg of up to 12 moves alone is no better than two 8-move comms on the skeletons where it fits (10.50 against 10.35 for a 5c, 11.33 against 9.80 for a 3c1t), but on some skeletons it is the best, which is where the gain of 6.3 comes from.
 
@@ -834,7 +836,7 @@ The second comm may go inside the first. How much that is worth, with 8-movers o
 | 3e3e | 20,000 | 6,183 | 11.14 | 11.63 | 12.04 | 31% |
 
 - **On a 5c, nesting is worth 0.30**, and the best solution needs it on 24% of skeletons. Gezza Cubing ([20 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1253277699506704424)): "for things like 5c, you can insert a commutator in the middle of the first commutator". argonblue ([27 Jan 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1465819786910109828)), on having just seen one: "i thought it wasn't possible to nest 3c comms that are parts of a 5-cycle, but insertion finder apparently did it for one of my skeletons (improving it by 1 move)?" What argonblue saw is no rarity: it is the best there is on that 24% (one is written out as example [e] in section 10).
-- **Twisted 2c2c**: 0.30, needed on 24%. **3c1t**: 0.14. **Pure 2c2c, 2tc, 3tc**: under a tenth of a move.
+- **Twisted 2c2c**: 0.30, needed on 24%. **3c1t**: 0.15. **Pure 2c2c, 2tc, 3tc**: under a tenth of a move.
 - **Two comms that do not touch** cost 0.58 more than the best on a 5c. That is the price of treating a 5c as two separate 3c searches.
 
 ### 6.6 Edges
@@ -878,7 +880,7 @@ For the next two, cap 8 is the best of two 3e algs of 8 moves or fewer and one a
 | 8 | 22 | 5,000 | 9.08 | 5.0% | 11% | 18% | 32% | 43% | 53% | 64% | 75% | 85% | 2.2% |
 | 8 | 26 | 5,000 | 8.64 | 6.1% | 12% | 22% | 38% | 50% | 60% | 71% | 81% | 90% | 1.3% |
 | 8 | 30 | 5,000 | 8.36 | 6.5% | 14% | 25% | 41% | 54% | 65% | 77% | 85% | 93% | 0.64% |
-| 10 | 10 | 200 | 8.41 | 4.0% | 7.0% | 11% | 26% | 44% | 70% | 93% | 99.5% | 100% | 0 |
+| 10 | 10 | 200 | 8.42 | 4.0% | 7.0% | 11% | 26% | 44% | 70% | 93% | 99.5% | 100% | 0 |
 | 10 | 14 | 200 | 8.00 | 2.5% | 6.5% | 16% | 32% | 60% | 84% | 97% | 100% | 100% | 0 |
 | 10 | 18 | 200 | 7.64 | 5.0% | 10% | 20% | 38% | 69% | 92% | 100% | 100% | 100% | 0 |
 | 10 | 20 | 200 | 7.63 | 5.5% | 12% | 22% | 36% | 66% | 92% | 99.5% | 100% | 100% | 0 |
@@ -908,7 +910,7 @@ For the next two, cap 8 is the best of two 3e algs of 8 moves or fewer and one a
 - **With algs of 8 or fewer, nothing fits on 44% of random 20-move skeletons.** When something fits it is good (5.95). That is FakeMMAP's "huge variance" ([3 Jul 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1390246333834596463)).
 - **With every alg up to 10, a 3e costs 6.05**, about what a 3c costs. The tutorial's 7 is a move above that, and its footnote says why the number moves: "Warning: this varies a lot! If edges are oriented early in the solve, you have better chances of finding a good insertion (6 or 8 movers)."
 - **Whether a short alg fits depends on how the three edges sit.** A 6-mover needs them oriented on all three axes and an alg of 8 or fewer on at least two (section 5); on these random skeletons the leftover is oriented on two or three axes 18% of the time. So read the cap-8 rows as what the short algs give when nothing in the solve has arranged that, and the cap-10 and cap-12 rows as what a full alg list gives on any skeleton. The 17 real 3e skeletons of section 9 are far cheaper than any row here, and how their edges are oriented does not explain it (9.2).
-- **2e2e and 5e** at cap 10: 7.63 and 9.06 (200 and 500 skeletons). A 2e2e is the cheap one, and a 5e costs 0.96 less than a 5c at the same cap (500 5e skeletons against 2,000 5c skeletons). The other edge types are in Appendix A.
+- **2e2e and 5e** at cap 10: 7.63 and 9.06 (200 and 500 skeletons). A 2e2e is the cheap one, and a 5e costs 0.97 less than a 5c at the same cap (500 5e skeletons against 2,000 5c skeletons). The other edge types are in Appendix A.
 
 ---
 
@@ -1264,7 +1266,7 @@ Here's every second spot plus both ends, and every third spot plus both ends, ag
   R (R blah blah B' ) B'   // alkamaass's example of what every other move can miss
   ```
 
-  The misses of an 8-3 or better are different. Every one of them sits next to two moves on opposite faces (`R L`, `U D'`), 371 of 371 at 20 moves: there a full cancel reaches across the pair, and the shifted alg lands two spots over, not one. The tutorial's footnote covers it: "when in a skeleton there are two consecutive parallel layers moves try swapping them too see if this gives better insertions". So check every other move, and both sides of a parallel pair. (Of all the misses, the 8-2s and worse included, 38% are next to such a pair.)
+  The misses of an 8-3 or better are different. Every one of them sits next to two moves on opposite faces (`R L`, `U D'`), 371 of 371 at 20 moves: there a full cancel reaches across the pair, and the alg moved over the move it cancels would go between the two moves of the pair, which takes writing the pair the other way round (example [c]). The tutorial's footnote covers it: "when in a skeleton there are two consecutive parallel layers moves try swapping them too see if this gives better insertions". So check every other move, and both sides of a parallel pair. (Of all the misses, the 8-2s and worse included, 38% are next to such a pair.)
 - **What you miss is small**: when the best is 8-3 or better, the misses are 8-3s and a few 8-4s (fifth and sixth columns). Nothing better than an 8-4 was missed on any of 140,000 skeletons.
 - notkevin's next line ([7 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1436457482577907792)) is about two comms, which this table does not test: "(aka, the worst insertions you can miss with this without the second comm nesting is -4, where both comms only partially cancel on both sides)".
 - **Every third move doesn't work.** With a best of 8-3 or better, every third spot and both ends finds it only 75% of the time.
@@ -1286,7 +1288,7 @@ F2 D2 B2 U' D2 L2 F2 L' D R' B' R2 F U' F' B * U2 B' L D
 Solution: F2 D2 B2 U' D2 L2 F2 L' D R' B' R2 F U' B D F' U F D' F' U B' L D (25)
 ```
 
-Counting spots from 0 (before the first move), the 8-3 is at spot 16. Checking the odd spots (1, 3, 5, 7, 9, 11, 13, 15, 17, 19) and both ends finds nothing better than an 8-1; the even spots would find it. The spot is right after the pair `F' B`.
+Counting spots from 0 (before the first move), the 8-3 is at spot 16. Checking the odd spots (1, 3, 5, 7, 9, 11, 13, 15, 17, 19) and both ends finds nothing better than an 8-1; the even spots would find it. The spot is right after the pair `F' B`. Written the other way round, `B F'`, the alg moved one move over, `D F' U F D' F' U' F`, fits between the two for the same 25; as written, spot 14 gives nothing better than an 8-1.
 
 And one where every third spot misses it:
 
@@ -1879,14 +1881,14 @@ Everything people said that the numbers can settle, by theme. A verdict is only 
 | Edge 3-cycle 7 | Tronto's tutorial, 2.4.10 | **Depends on the alg list**, as its footnote says. Random skeletons: 6.05 with every alg up to 10; with 8 or fewer nothing fits on 44% of them. |
 | "a optimal 3c skeleton's insertion is 6 moves on average"; "3c on average gives ~ +6"; "3C insertions are usually +6 moves" | Aneurin [8 Jul 2023](https://discord.com/channels/1007840975726575667/1077216728683135046/1127188448462258266); Eli Rogers [9 Sep 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1414943185569845381); Jay [29 May 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1112910413688995890) | **True**: 5.90 at 20 moves, 6.08 at 16, 5.68 at 26. |
 | "5c is 10-11 moves."; "5c ~high 10" | Aneurin [8 Jul 2023](https://discord.com/channels/1007840975726575667/1077216728683135046/1127188481563693068); Phuwish [4 Oct 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1424239470932131973) | **True**: 10.65 at 16 moves, 10.37 at 20. |
-| 2tc with two insertions: "~8.0 I guess" | Phuwish [4 Oct 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1424237318960709642) | **True**: 8.05 at 16 moves, 7.71 at 20. |
+| 2tc with two insertions: "~8.0 I guess" | Phuwish [4 Oct 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1424237318960709642) | **True**: 8.06 at 16 moves, 7.71 at 20. |
 | 3tc: "mid to high 8", "a half to a move worse" than a 2tc | Phuwish [4 Oct 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1424239016290553917) | **Higher with pure comms**: 9.50 at 20 moves, 1.79 worse than a 2tc. With algs up to 12 it is 8.56 (100 skeletons), so the alg list can explain the figure. |
 | "more like 9 for pure 2-2", "like 9.5 for 2-2 with a twist", "like 10 for 3c1t" | cpaul [27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443760547458842644), [27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443760556908740648), [27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443760590995853465) | **9 and 10 are right** (9.13, 9.90). **Which 2c2c is cheaper depends on the alg length**: with 8-movers the twisted one (8.73); with algs up to 10 the pure one (8.48 against 8.66, 500 skeletons each), which is cpaul's order. |
 | "5-6, 8-9, 6-8 for good 2c2c, 8-9 for bad 2c2c"; "this is i expected not avg expected" | Baiqiang [27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443756810715664537), [28 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443860338440146986) | **Not averages, in Baiqiang's words.** Which 2c2c is the good one was asked (kyh, [27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443757686025093241)) and not answered. With algs up to 12 on 100 random 20-move skeletons each: pure 2c2c 7.87, twisted 8.30, 3c1t 9.44. Posted skeletons with a comm plus an alg at cap 12: 2c2c 6.85, 3c1t 7.65 (9.2). |
 | "i think 3c1t > 2c2c > 5c" | argonblue [1 Aug 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1533125544114131034) | **By cost the first two are the other way round**: 2c2c, then 3c1t, then 5c. A 2c2c is 0.77 to 1.17 cheaper than a 3c1t [a]. |
 | "i didn't notice a meaningful different between 2 insertion 4c types" | Jay [27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443789835356606609) | **There is one on average**: about a move between a 2c2c and a 3c1t, with a spread from skeleton to skeleton that is wider than that, so it is hard to notice solve by solve [a]. |
 | "maybe there's some non 3c type insertion method for 2c2c that lowers the movecount that far" | Jay [27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443789835356606609) | **There is**: the 10-move 2c2c algs. A pure 2c2c averages 8.48 with algs of up to 10 moves (500 skeletons) and 7.87 up to 12 (100), against 9.13 with 8-movers. |
-| "Why is there even a difference if the number of possible first insertions is the same tbh" | wen [27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443790851443785758), asking | **Answered both ways it can be read.** The two kinds of 2c2c: the number is the same, 24 first comms per spot each, and they cost the same when the two comms do not touch (9.41 and 9.40); the 0.40 between them comes from comms that interact, 0.24 of it from nesting. A 2c2c against a 3c1t or a 5c: the number is not the same, 24 against 9 against 5 (6.2). |
+| "Why is there even a difference if the number of possible first insertions is the same tbh" | wen [27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443790851443785758), asking | **Answered both ways it can be read.** The two kinds of 2c2c: the number is the same, 24 first comms per spot each, and they cost the same when the two comms do not touch (9.41 and 9.40); the 0.40 between them comes from comms that interact, 0.25 of it from nesting. A 2c2c against a 3c1t or a 5c: the number is not the same, 24 against 9 against 5 (6.2). |
 | "getting +9 from 2tc is as bad as +11,+12 from 5c" | Phuwish [4 Oct 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1424238456275730556) | **About right**: +9 or worse on 26% of 2tc skeletons, +12 or worse on 16% of 5c skeletons. |
 | For two corner insertions "the average is 13 moves for me, one 8-2 and one 8-1"; "you can usually do a bit better with 5c" | Zagros [1 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1246424587554783313); Java [1 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1246425063641579541) | **Java is right**: the best is 10.37 on average, and +13 or worse is the best there is on only 1.3% of 20-move 5c skeletons. |
 | "8-4 8-4 is soooooooo lucky tho", "for a 15 move skeleton" | alkamaass [1 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1246494760366112789), [1 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1246494791827591292) | **Yes**: +8 or better on 4.3% of 14-move and 5.4% of 16-move 5c skeletons. |
@@ -1897,7 +1899,7 @@ Everything people said that the numbers can settle, by theme. A verdict is only 
 |---|---|---|
 | A 5c should be "maybe like 5-6" shorter than a 3c | asacuber [5 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1247972799151341690) | **5 is break-even**: 4.8 against a 20-move 3c by expected total, 4.0 to 5.1 for equal chance of a target (7.2). |
 | 3c in 23: sub-30 "you will probably get it"; in 25 "you will need some luck" | Tronto's tutorial, 2.4.10 | **Right**: 76% and 12%. |
-| "a skeleton leaving 4 corner in 18 moves is probably better than one leaving 3 corners in 25" | Tronto's tutorial, 2.4.10 | **Right, by about 2.6 moves or more** in expected total. |
+| "a skeleton leaving 4 corner in 18 moves is probably better than one leaving 3 corners in 25" | Tronto's tutorial, 2.4.10 | **Right, by about 2.7 moves or more** in expected total. |
 | "3c in 22-24 or 5c in 16-18"; "18 to anything like 5c, 4c, 3c1t, and 24 for 3c" | Gezza Cubing [18 Aug 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1274622450046603284); oliynykmax [18 Aug 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1274622638806925372) | **The 5c end is the better one**: sub-30 from a 5c in 18 80%, from a 3c in 24 34%. |
 | "sub-22 for 3C skeleton", "sub-20 for every other skeleton" | sequesteredcuber [8 Jul 2023](https://discord.com/channels/1007840975726575667/1077216728683135046/1127188954995769364) | **Uneven**: sub-30 from a 3c in 21 99.6%, from a 5c in 19 48%, from a pure 2c2c in 19 87% [g]. |
 | 21 to 3c: "a guaranteed 29 right?"; "not strictly guaranteed", "but it's very likely" | 2023HAMI08 [27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443620873839051034); kyh [27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443621022745235476), [27 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1443621113996513372) | **kyh is right**: 99.6% with 8-movers [h]. |
@@ -1917,7 +1919,7 @@ Everything people said that the numbers can settle, by theme. A verdict is only 
 | Checking every other move "still guarantees you'll find" a -3 or better; "this isn't thorough tho" | notkevin [7 Nov 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1436457200880189582); alkamaass [31 May 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1246266143551787058) | **Almost**: a best of 8-3 or better is found 97% of the time on a 20-move 3c. Those misses are all next to two opposite-face moves [c]. Nothing better than an 8-4 was missed on any of 140,000 skeletons. |
 | Every third spot instead of every other | tested here | **It does not work**: an 8-3 or better is found 75% of the time on a 20-move 3c [j]. |
 | When the case at a spot needs 10 moves, "can I go 3 moves further instead of 2 and still make sur not to miss any insertion below 6 moves ?"; "I don't think that works." | paulduc03 [30 Dec 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1455642235449114665), asking; DougCube [30 Dec 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1455657733272633651) | **DougCube is right**: two spots on from such a spot there is an 8-3 or better 1.7% of the time on a 20-move 3c, and all 80 cases that need 10 moves can have an 8-mover two moves later [k]. |
-| "for the first 5c insertion you have 5x more options than for the second"; "there are 5 possible cycles, not 1" | Not officially a David [21 Apr 2023](https://discord.com/channels/1007840975726575667/1077216728683135046/1098919767429099570); Zagros [16 Aug 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1406274793552220182) | **True**: 5 3-cycles per spot leave a 3c. |
+| "for the first 5c insertion you have 5x more options than for the second"; "there are 5 possible cycles, not 1" | Not officially a David [21 Apr 2023](https://discord.com/channels/1007840975726575667/1077216728683135046/1098919767429099570); Zagros [16 Aug 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1406274793552220182) | **True**: 5 3-cycles per spot leave a 3c. ✓ Lean |
 | For a 5c "you'll probably have at least an 8-3 or 8-4 for the first one" | Ben [31 Jan 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1467098844712931498) | **Yes for an 8-3**: there on 80% of 20-move 5c skeletons and 71% of 16-move ones. An 8-4 or better: 37% and 31% (8.4). |
 | "my pr single wouldve been a 30 if i didnt go look for sub optimal first insertions", "but its a 28"; "i just had to check a suboptimal first insertion (8-2 instead of 8-3) to get any cancellations in the second" | kyh [26 Mar 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1486867754354086093), [26 Mar 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1486867787023515738); argonblue [26 Mar 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1486868609656688780) | **True**: on a 20-move 5c, the best first comm followed by the best second misses the best pair on 14% of skeletons (8.4) [f]. |
 | "if you set greedy to 0 and only pick regular 3c comms then it basically shows human findable"; "greedy 1 is still reasonable if your skeleton is really good but anything higher isn't imo"; "i think 1 is realistic" | Ben [26 Feb 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1476513726097129576), [26 Feb 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1476514406320963629); kyh [26 Mar 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1486867581557280848) | **What the settings give**, with pure comms on a 20-move 5c: 10.54 at greedy 0 (longer than the best pair on 14% of skeletons), 10.41 at greedy 1 (3.7%), 10.37 for the best pair. What is findable is not measured. |
@@ -1936,8 +1938,8 @@ Everything people said that the numbers can settle, by theme. A verdict is only 
 | "theres 4 types of 7c that work"; "I counted your last one as 2 separate" | wen [29 Jul 2023](https://discord.com/channels/1007840975726575667/1077216728683135046/1134857937907613789), [29 Jul 2023](https://discord.com/channels/1007840975726575667/1077216728683135046/1134860037613957220), to torchlight's list of three [29 Jul 2023](https://discord.com/channels/1007840975726575667/1077216728683135046/1134858381644025927) | **True**, counted wen's way: exactly four leftovers on seven corners take three comms. |
 | "for most 3c cases theres 2 ways to do the commutator"; "about half of the 8 movers you can do 2 ways" | Gezza Cubing [20 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1253275920970551347), [20 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1253278252026564668) | **336 have two, 192 have one, 480 have none.** |
 | "i feel like every 8 mover has two ways no"; "no", "U2, R' D R doesn't for example" | eff [20 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1253302165154304010), asking; rogo [20 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1253304211752484905), [20 Jun 2024](https://discord.com/channels/1007840975726575667/1077216728683135046/1253304286931062805) | **rogo is right**: `[U2, R' D R]` is one of the 192 with a single 8-mover. |
-| "There arent 8 movers if they're oriented" | Zagros [26 Apr 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1365885825166082088) | **Mostly**: 32 of the 112 oriented 3-cycles have one. Jay's `R' F' R B2 R' F R B2` ([26 Apr 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1365886921221341216)) is one of them. |
-| A case where no single move gives a pure comm, "so you can skip one move from it" | Srećko [9 Sep 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1414947538515005494) | **True** for 112 of the 1,008 3-cycles. |
+| "There arent 8 movers if they're oriented" | Zagros [26 Apr 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1365885825166082088) | **Mostly**: 32 of the 112 oriented 3-cycles have one. Jay's `R' F' R B2 R' F R B2` ([26 Apr 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1365886921221341216)) is one of them. ✓ Lean |
+| A case where no single move gives a pure comm, "so you can skip one move from it" | Srećko [9 Sep 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1414947538515005494) | **True** for 112 of the 1,008 3-cycles. ✓ Lean |
 | "optimal to twist one corner while preserving all edges is 12 moves" | torchlight [27 Aug 2023](https://discord.com/channels/1007840975726575667/1077216728683135046/1145356913731715073) | **True as stated**: no sequence of 11 moves or fewer that keeps every edge leaves a corner twisted in its place, whatever else it does; 4,464 sequences of 12 moves do (section 5). |
 | "what's the shortest 2c2c alg", "I think it’s 10?" | kyh [29 Jul 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1399733098836394074), zakk drewji [29 Jul 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1399740709698801775) | **10**, for a pure 2c2c. 12 for a twisted one. |
 | "10 moves is the minimum for any 2E2C without cancellations" | Noah Swor [15 Jul 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1394725607153209354) | **True.** |
@@ -2080,6 +2082,8 @@ Solution: L' D' R F U' L D L U L' D' L D' L' D R2 D' L D F U' B D' L D F' D' B D
 
 **[l]** is the skeleton of 8.4 where greedy 0 gives a longer result with more algs.
 
+✓ Lean for [a] to [e] and [g] to [k]: every block replays as printed, and the best each states is exact over every alg of 8 moves or fewer, and of 10 or fewer where it says so. [f] and [l] are computed.
+
 ---
 
 ## 11. What this does not cover
@@ -2098,6 +2102,7 @@ Solution: L' D' R F U' L D L U L' D' L D' L' D R2 D' L D F U' B D' L D F' D' B D
 - **Parity and mixed leftovers.** 2c2e, 3e3c, 2e2e with corners, and everything else with both corners and edges left, are not sampled. Their algs are only counted for 2c2e (section 5).
 - **Leftovers that need three comms** (2c2c1t, 3c2t, 7c and the rest of section 4): counted, not costed.
 - **More than two insertions on a two-comm leftover.** A comm that leaves the same kind of leftover but shortens the skeleton, like the 8-10 of section 9.5, is a third insertion and isn't searched.
+- **Spots inside a pair of opposite-face moves.** A skeleton is searched as it is written, with `U D` never also tried as `D U`, so the spot between the two moves the other way round isn't looked at. A recount that tries both orders finds a better 8-mover result on 76 of 20,000 random 3c skeletons of 20 moves (74 of them by one move), which moves the 3c average by about 0.004; computed once, by a separate program. The every-other-move rule misses exactly this kind of spot (8.3).
 - **Insertions inside a turn.** Every spot searched is between two moves of the skeleton. An alg put in the middle of a turn (a `B'` done as `B2`, the comm, `B`) is found only when a longer alg within the cap happens to equal it (8.2).
 - **Algs longer than 12 moves**, so no 3tc alg and no two-twist of neighbouring corners in one piece, and the 13-move algs people do insert.
 - **Slice insertions, centre insertions, real DR skeletons.** The DR rows of 6.1 are modelled move sequences. Whether 8-move comms cancel less on skeletons from real DR solves, the question in the Fokianos and Raposio guide, is answered here only for that model.
@@ -2160,7 +2165,7 @@ A block is left out when nothing of that length exists (no alg of 8 or fewer doe
 | 8, two comms | 10 | 5,000 | 8.81 | 0.28% | 0.98% | 3.2% | 9.9% | 33% | 73% | 99% | 100% | 100% | 0 |
 | 8, two comms | 12 | 5,000 | 8.53 | 0.52% | 1.4% | 4.9% | 15% | 43% | 82% | 99.5% | 100% | 100% | 0 |
 | 8, two comms | 14 | 5,000 | 8.29 | 0.52% | 2.1% | 6.3% | 20% | 52% | 89% | 99.8% | 100% | 100% | 0 |
-| 8, two comms | 16 | 5,000 | 8.05 | 0.82% | 3.1% | 9.6% | 26% | 61% | 94% | 99.9% | 100% | 100% | 0 |
+| 8, two comms | 16 | 5,000 | 8.06 | 0.82% | 3.1% | 9.6% | 26% | 61% | 94% | 99.9% | 100% | 100% | 0 |
 | 8, two comms | 18 | 5,000 | 7.88 | 0.86% | 3.7% | 11% | 31% | 69% | 96% | 100% | 100% | 100% | 0 |
 | 8, two comms | 20 | 5,000 | 7.71 | 1.5% | 4.5% | 14% | 37% | 74% | 98% | 100% | 100% | 100% | 0 |
 | 8, two comms | 22 | 5,000 | 7.57 | 1.6% | 5.0% | 17% | 41% | 79% | 99% | 100% | 100% | 100% | 0 |
@@ -2171,7 +2176,7 @@ A block is left out when nothing of that length exists (no alg of 8 or fewer doe
 | 8, best of the two | 10 | 5,000 | 8.81 | 0.28% | 0.98% | 3.2% | 9.9% | 33% | 73% | 99% | 100% | 100% | 0 |
 | 8, best of the two | 12 | 5,000 | 8.53 | 0.52% | 1.4% | 4.9% | 15% | 43% | 82% | 99.5% | 100% | 100% | 0 |
 | 8, best of the two | 14 | 5,000 | 8.29 | 0.52% | 2.1% | 6.3% | 20% | 52% | 89% | 99.8% | 100% | 100% | 0 |
-| 8, best of the two | 16 | 5,000 | 8.05 | 0.82% | 3.1% | 9.6% | 26% | 61% | 94% | 99.9% | 100% | 100% | 0 |
+| 8, best of the two | 16 | 5,000 | 8.06 | 0.82% | 3.1% | 9.6% | 26% | 61% | 94% | 99.9% | 100% | 100% | 0 |
 | 8, best of the two | 18 | 5,000 | 7.88 | 0.86% | 3.7% | 11% | 31% | 69% | 96% | 100% | 100% | 100% | 0 |
 | 8, best of the two | 20 | 5,000 | 7.71 | 1.5% | 4.5% | 14% | 37% | 74% | 98% | 100% | 100% | 100% | 0 |
 | 8, best of the two | 22 | 5,000 | 7.57 | 1.6% | 5.0% | 17% | 41% | 79% | 99% | 100% | 100% | 100% | 0 |
@@ -2183,23 +2188,23 @@ A block is left out when nothing of that length exists (no alg of 8 or fewer doe
 | 10, two comms | 12 | 200 | 8.09 | 0 of 200 | 2.0% | 8.5% | 22% | 66% | 93% | 100% | 100% | 100% | 0 |
 | 10, two comms | 14 | 200 | 7.95 | 1.0% | 2.5% | 11% | 27% | 67% | 96% | 100% | 100% | 100% | 0 |
 | 10, two comms | 16 | 200 | 7.59 | 1.5% | 6.0% | 17% | 41% | 76% | 99% | 100% | 100% | 100% | 0 |
-| 10, two comms | 18 | 200 | 7.50 | 2.5% | 8.0% | 16% | 44% | 79% | 99% | 100% | 100% | 100% | 0 |
+| 10, two comms | 18 | 200 | 7.51 | 2.5% | 8.0% | 16% | 44% | 79% | 99% | 100% | 100% | 100% | 0 |
 | 10, two comms | 20 | 200 | 7.34 | 2.5% | 6.5% | 21% | 48% | 86% | 100% | 100% | 100% | 100% | 0 |
 | 10, two comms | 22 | 200 | 7.26 | 1.5% | 6.0% | 28% | 53% | 86% | 100% | 100% | 100% | 100% | 0 |
 | 10, two comms | 24 | 200 | 7.20 | 3.5% | 8.5% | 24% | 52% | 92% | 100% | 100% | 100% | 100% | 0 |
 | 10, two comms | 26 | 200 | 6.95 | 3.0% | 12% | 31% | 64% | 96% | 100% | 100% | 100% | 100% | 0 |
-| 10, two comms | 28 | 200 | 6.93 | 4.0% | 9.5% | 28% | 64% | 98% | 100% | 100% | 100% | 100% | 0 |
+| 10, two comms | 28 | 200 | 6.94 | 4.0% | 9.5% | 28% | 64% | 98% | 100% | 100% | 100% | 100% | 0 |
 | 10, two comms | 30 | 200 | 6.74 | 6.5% | 13% | 32% | 70% | 96% | 100% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 10 | 200 | 8.38 | 0.50% | 2.0% | 4.5% | 17% | 49% | 89% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 12 | 200 | 8.09 | 0 of 200 | 2.0% | 8.5% | 22% | 66% | 93% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 14 | 200 | 7.95 | 1.0% | 2.5% | 11% | 27% | 67% | 96% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 16 | 200 | 7.59 | 1.5% | 6.0% | 17% | 41% | 76% | 99% | 100% | 100% | 100% | 0 |
-| 10, best of the two | 18 | 200 | 7.50 | 2.5% | 8.0% | 16% | 44% | 79% | 99% | 100% | 100% | 100% | 0 |
+| 10, best of the two | 18 | 200 | 7.51 | 2.5% | 8.0% | 16% | 44% | 79% | 99% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 20 | 200 | 7.34 | 2.5% | 6.5% | 21% | 48% | 86% | 100% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 22 | 200 | 7.26 | 1.5% | 6.0% | 28% | 53% | 86% | 100% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 24 | 200 | 7.20 | 3.5% | 8.5% | 24% | 52% | 92% | 100% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 26 | 200 | 6.95 | 3.0% | 12% | 31% | 64% | 96% | 100% | 100% | 100% | 100% | 0 |
-| 10, best of the two | 28 | 200 | 6.93 | 4.0% | 9.5% | 28% | 64% | 98% | 100% | 100% | 100% | 100% | 0 |
+| 10, best of the two | 28 | 200 | 6.94 | 4.0% | 9.5% | 28% | 64% | 98% | 100% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 30 | 200 | 6.74 | 6.5% | 13% | 32% | 70% | 96% | 100% | 100% | 100% | 100% | 0 |
 | 12, one alg | 10 | 20,000 | 9.62 | 0.03% | 0.18% | 0.85% | 3.2% | 13% | 39% | 83% | 99.4% | 99.9% | 0.10% |
 | 12, one alg | 12 | 20,000 | 9.45 | 0.11% | 0.27% | 1.3% | 4.4% | 16% | 46% | 88% | 99.7% | 99.9% | 0.08% |
@@ -2489,7 +2494,7 @@ A block is left out when nothing of that length exists (no alg of 8 or fewer doe
 | 10, two comms | 24 | 2,000 | 9.94 | 0.20% | 0.65% | 1.3% | 4.5% | 13% | 31% | 63% | 93% | 99.8% | 0 |
 | 10, two comms | 26 | 2,000 | 9.85 | 0.10% | 0.70% | 1.6% | 4.8% | 13% | 32% | 68% | 95% | 99.9% | 0 |
 | 10, two comms | 28 | 2,000 | 9.70 | 0.15% | 0.45% | 1.6% | 5.3% | 16% | 37% | 73% | 96% | 100% | 0 |
-| 10, two comms | 30 | 2,000 | 9.64 | 0.20% | 0.55% | 1.6% | 4.9% | 16% | 39% | 76% | 97% | 100% | 0 |
+| 10, two comms | 30 | 2,000 | 9.65 | 0.20% | 0.55% | 1.6% | 4.9% | 16% | 39% | 76% | 97% | 100% | 0 |
 | 10, one alg | 10 | 20,000 | 9.43 | 0.01% | 0.02% | 0.10% | 0.32% | 1.0% | 2.9% | 7.6% | 7.6% | 7.6% | 92% |
 | 10, one alg | 12 | 20,000 | 9.46 | <0.01% | 0.03% | 0.09% | 0.27% | 1.1% | 3.6% | 9.4% | 9.4% | 9.4% | 91% |
 | 10, one alg | 14 | 20,000 | 9.42 | 0.02% | 0.07% | 0.16% | 0.37% | 1.4% | 4.0% | 10% | 10% | 10% | 90% |
@@ -2557,7 +2562,7 @@ A block is left out when nothing of that length exists (no alg of 8 or fewer doe
 | 10, two comms | 18 | 2,000 | 10.76 | 0 of 2,000 | 0.05% | 0.40% | 1.7% | 4.5% | 12% | 35% | 74% | 97% | 0 |
 | 10, two comms | 20 | 2,000 | 10.64 | 0 of 2,000 | 0.05% | 0.55% | 1.5% | 4.7% | 14% | 41% | 78% | 97% | 0 |
 | 10, two comms | 22 | 2,000 | 10.49 | 0.15% | 0.35% | 1.1% | 2.1% | 7.0% | 18% | 45% | 80% | 98% | 0 |
-| 10, two comms | 24 | 2,000 | 10.41 | 0 of 2,000 | 0.10% | 0.30% | 1.9% | 6.9% | 20% | 48% | 83% | 99% | 0 |
+| 10, two comms | 24 | 2,000 | 10.42 | 0 of 2,000 | 0.10% | 0.30% | 1.9% | 6.9% | 20% | 48% | 83% | 99% | 0 |
 | 10, two comms | 26 | 2,000 | 10.34 | 0 of 2,000 | 0.20% | 0.65% | 2.4% | 7.0% | 21% | 50% | 86% | 99.1% | 0 |
 | 10, two comms | 28 | 2,000 | 10.22 | 0.15% | 0.25% | 1.1% | 3.0% | 9.7% | 25% | 52% | 87% | 99.2% | 0 |
 | 10, two comms | 30 | 2,000 | 10.12 | 0.05% | 0.20% | 1.2% | 3.5% | 9.7% | 25% | 58% | 90% | 99.5% | 0 |
@@ -2660,27 +2665,27 @@ A block is left out when nothing of that length exists (no alg of 8 or fewer doe
 | 8, best of the two | 28 | 5,000 | 8.09 | 2.2% | 6.7% | 16% | 33% | 56% | 80% | 94% | 99% | 99% | 1.0% |
 | 8, best of the two | 30 | 5,000 | 7.93 | 2.7% | 7.3% | 17% | 36% | 60% | 84% | 96% | 99.1% | 99.2% | 0.76% |
 | 10, two comms | 10 | 200 | 8.87 | 0 of 200 | 1.5% | 3.5% | 12% | 32% | 68% | 96% | 100% | 100% | 0 |
-| 10, two comms | 12 | 200 | 8.48 | 1.0% | 2.5% | 8.5% | 19% | 44% | 77% | 99% | 100% | 100% | 0 |
+| 10, two comms | 12 | 200 | 8.49 | 1.0% | 2.5% | 8.5% | 19% | 44% | 77% | 99% | 100% | 100% | 0 |
 | 10, two comms | 14 | 200 | 8.23 | 0.50% | 1.5% | 10% | 22% | 56% | 86% | 99.5% | 100% | 100% | 0 |
-| 10, two comms | 16 | 200 | 7.93 | 2.0% | 4.0% | 12% | 32% | 64% | 94% | 99% | 100% | 100% | 0 |
+| 10, two comms | 16 | 200 | 7.94 | 2.0% | 4.0% | 12% | 32% | 64% | 94% | 99% | 100% | 100% | 0 |
 | 10, two comms | 18 | 200 | 7.78 | 1.5% | 4.5% | 14% | 37% | 70% | 95% | 99.5% | 100% | 100% | 0 |
 | 10, two comms | 20 | 200 | 7.51 | 1.5% | 9.0% | 20% | 44% | 77% | 96% | 100% | 100% | 100% | 0 |
-| 10, two comms | 22 | 200 | 7.34 | 3.5% | 10% | 22% | 46% | 85% | 96% | 100% | 100% | 100% | 0 |
-| 10, two comms | 24 | 200 | 7.30 | 3.5% | 9.0% | 26% | 50% | 82% | 98% | 100% | 100% | 100% | 0 |
+| 10, two comms | 22 | 200 | 7.35 | 3.5% | 10% | 22% | 46% | 85% | 96% | 100% | 100% | 100% | 0 |
+| 10, two comms | 24 | 200 | 7.31 | 3.5% | 9.0% | 26% | 50% | 82% | 98% | 100% | 100% | 100% | 0 |
 | 10, two comms | 26 | 200 | 7.08 | 4.0% | 12% | 30% | 57% | 87% | 99.5% | 100% | 100% | 100% | 0 |
 | 10, two comms | 28 | 200 | 6.86 | 5.0% | 15% | 36% | 64% | 91% | 99.5% | 100% | 100% | 100% | 0 |
-| 10, two comms | 30 | 200 | 6.88 | 5.0% | 12% | 36% | 64% | 92% | 99.5% | 100% | 100% | 100% | 0 |
+| 10, two comms | 30 | 200 | 6.89 | 5.0% | 12% | 36% | 64% | 92% | 99.5% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 10 | 200 | 8.87 | 0 of 200 | 1.5% | 3.5% | 12% | 32% | 68% | 96% | 100% | 100% | 0 |
-| 10, best of the two | 12 | 200 | 8.48 | 1.0% | 2.5% | 8.5% | 19% | 44% | 77% | 99% | 100% | 100% | 0 |
+| 10, best of the two | 12 | 200 | 8.49 | 1.0% | 2.5% | 8.5% | 19% | 44% | 77% | 99% | 100% | 100% | 0 |
 | 10, best of the two | 14 | 200 | 8.23 | 0.50% | 1.5% | 10% | 22% | 56% | 86% | 99.5% | 100% | 100% | 0 |
-| 10, best of the two | 16 | 200 | 7.93 | 2.0% | 4.0% | 12% | 32% | 64% | 94% | 99% | 100% | 100% | 0 |
+| 10, best of the two | 16 | 200 | 7.94 | 2.0% | 4.0% | 12% | 32% | 64% | 94% | 99% | 100% | 100% | 0 |
 | 10, best of the two | 18 | 200 | 7.78 | 1.5% | 4.5% | 14% | 37% | 70% | 95% | 99.5% | 100% | 100% | 0 |
 | 10, best of the two | 20 | 200 | 7.51 | 1.5% | 9.0% | 20% | 44% | 77% | 96% | 100% | 100% | 100% | 0 |
-| 10, best of the two | 22 | 200 | 7.34 | 3.5% | 10% | 22% | 46% | 85% | 96% | 100% | 100% | 100% | 0 |
-| 10, best of the two | 24 | 200 | 7.30 | 3.5% | 9.0% | 26% | 50% | 82% | 98% | 100% | 100% | 100% | 0 |
+| 10, best of the two | 22 | 200 | 7.35 | 3.5% | 10% | 22% | 46% | 85% | 96% | 100% | 100% | 100% | 0 |
+| 10, best of the two | 24 | 200 | 7.31 | 3.5% | 9.0% | 26% | 50% | 82% | 98% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 26 | 200 | 7.08 | 4.0% | 12% | 30% | 57% | 87% | 99.5% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 28 | 200 | 6.86 | 5.0% | 15% | 36% | 64% | 91% | 99.5% | 100% | 100% | 100% | 0 |
-| 10, best of the two | 30 | 200 | 6.88 | 5.0% | 12% | 36% | 64% | 92% | 99.5% | 100% | 100% | 100% | 0 |
+| 10, best of the two | 30 | 200 | 6.89 | 5.0% | 12% | 36% | 64% | 92% | 99.5% | 100% | 100% | 100% | 0 |
 
 **2e2e** (two swaps, no flip): one row per cap, model and skeleton length.
 
@@ -2719,12 +2724,12 @@ A block is left out when nothing of that length exists (no alg of 8 or fewer doe
 | 8, best of the two | 26 | 5,000 | 8.64 | 6.1% | 12% | 22% | 38% | 50% | 60% | 71% | 81% | 90% | 1.3% |
 | 8, best of the two | 28 | 5,000 | 8.50 | 7.0% | 14% | 23% | 40% | 51% | 62% | 73% | 83% | 91% | 0.92% |
 | 8, best of the two | 30 | 5,000 | 8.36 | 6.5% | 14% | 25% | 41% | 54% | 65% | 77% | 85% | 93% | 0.64% |
-| 10, two comms | 10 | 200 | 8.64 | 3.5% | 6.5% | 10% | 24% | 38% | 62% | 90% | 99% | 100% | 0 |
-| 10, two comms | 12 | 200 | 8.47 | 2.0% | 4.0% | 12% | 25% | 43% | 72% | 94% | 99.5% | 100% | 0 |
+| 10, two comms | 10 | 200 | 8.65 | 3.5% | 6.5% | 10% | 24% | 38% | 62% | 90% | 99% | 100% | 0 |
+| 10, two comms | 12 | 200 | 8.48 | 2.0% | 4.0% | 12% | 25% | 43% | 72% | 94% | 99.5% | 100% | 0 |
 | 10, two comms | 14 | 200 | 8.31 | 2.0% | 5.5% | 12% | 25% | 50% | 76% | 96% | 100% | 100% | 0 |
 | 10, two comms | 16 | 200 | 8.07 | 3.5% | 8.5% | 17% | 28% | 49% | 84% | 98% | 100% | 100% | 0 |
 | 10, two comms | 18 | 200 | 7.93 | 5.0% | 10% | 17% | 34% | 57% | 84% | 98% | 100% | 100% | 0 |
-| 10, two comms | 20 | 200 | 7.89 | 4.5% | 10% | 18% | 32% | 56% | 87% | 99% | 100% | 100% | 0 |
+| 10, two comms | 20 | 200 | 7.90 | 4.5% | 10% | 18% | 32% | 56% | 87% | 99% | 100% | 100% | 0 |
 | 10, two comms | 22 | 200 | 7.84 | 3.5% | 9.0% | 18% | 39% | 58% | 88% | 100% | 100% | 100% | 0 |
 | 10, two comms | 24 | 200 | 7.51 | 8.0% | 15% | 26% | 42% | 67% | 89% | 98% | 100% | 100% | 0 |
 | 10, two comms | 26 | 200 | 7.29 | 7.0% | 18% | 27% | 48% | 72% | 94% | 100% | 100% | 100% | 0 |
@@ -2741,7 +2746,7 @@ A block is left out when nothing of that length exists (no alg of 8 or fewer doe
 | 10, one alg | 26 | 20,000 | 7.54 | 5.6% | 12% | 22% | 41% | 64% | 89% | 97% | 97% | 97% | 3.5% |
 | 10, one alg | 28 | 20,000 | 7.48 | 5.7% | 12% | 23% | 42% | 66% | 91% | 97% | 97% | 97% | 3.1% |
 | 10, one alg | 30 | 20,000 | 7.40 | 6.4% | 14% | 25% | 45% | 69% | 92% | 98% | 98% | 98% | 2.3% |
-| 10, best of the two | 10 | 200 | 8.41 | 4.0% | 7.0% | 11% | 26% | 44% | 70% | 93% | 99.5% | 100% | 0 |
+| 10, best of the two | 10 | 200 | 8.42 | 4.0% | 7.0% | 11% | 26% | 44% | 70% | 93% | 99.5% | 100% | 0 |
 | 10, best of the two | 12 | 200 | 8.20 | 3.0% | 5.5% | 15% | 28% | 51% | 78% | 97% | 100% | 100% | 0 |
 | 10, best of the two | 14 | 200 | 8.00 | 2.5% | 6.5% | 16% | 32% | 60% | 84% | 97% | 100% | 100% | 0 |
 | 10, best of the two | 16 | 200 | 7.79 | 5.5% | 12% | 20% | 36% | 56% | 89% | 99.5% | 100% | 100% | 0 |
@@ -2795,12 +2800,12 @@ A block is left out when nothing of that length exists (no alg of 8 or fewer doe
 | 10, two comms | 14 | 200 | 8.79 | 0 of 200 | 1.0% | 4.0% | 15% | 37% | 72% | 92% | 100% | 100% | 0 |
 | 10, two comms | 16 | 200 | 8.42 | 1.0% | 2.0% | 7.0% | 20% | 49% | 81% | 98% | 100% | 100% | 0 |
 | 10, two comms | 18 | 200 | 8.53 | 0.50% | 2.5% | 7.0% | 21% | 42% | 76% | 98% | 100% | 100% | 0 |
-| 10, two comms | 20 | 200 | 8.06 | 1.0% | 4.0% | 12% | 29% | 56% | 92% | 100% | 100% | 100% | 0 |
+| 10, two comms | 20 | 200 | 8.07 | 1.0% | 4.0% | 12% | 29% | 56% | 92% | 100% | 100% | 100% | 0 |
 | 10, two comms | 22 | 200 | 8.02 | 1.0% | 4.0% | 14% | 30% | 62% | 88% | 99.5% | 100% | 100% | 0 |
 | 10, two comms | 24 | 200 | 8.00 | 1.0% | 4.0% | 14% | 31% | 62% | 89% | 99.5% | 100% | 100% | 0 |
 | 10, two comms | 26 | 200 | 7.95 | 0 of 200 | 3.5% | 13% | 34% | 62% | 94% | 100% | 100% | 100% | 0 |
-| 10, two comms | 28 | 200 | 7.71 | 1.0% | 2.5% | 18% | 38% | 74% | 94% | 100% | 100% | 100% | 0 |
-| 10, two comms | 30 | 200 | 7.75 | 1.5% | 8.5% | 16% | 36% | 68% | 94% | 100% | 100% | 100% | 0 |
+| 10, two comms | 28 | 200 | 7.72 | 1.0% | 2.5% | 18% | 38% | 74% | 94% | 100% | 100% | 100% | 0 |
+| 10, two comms | 30 | 200 | 7.76 | 1.5% | 8.5% | 16% | 36% | 68% | 94% | 100% | 100% | 100% | 0 |
 | 10, one alg | 10 | 20,000 | 8.80 | 0.24% | 0.86% | 3.2% | 9.7% | 28% | 57% | 83% | 83% | 83% | 17% |
 | 10, one alg | 12 | 20,000 | 8.70 | 0.27% | 0.91% | 3.7% | 12% | 33% | 65% | 88% | 88% | 88% | 12% |
 | 10, one alg | 14 | 20,000 | 8.61 | 0.38% | 1.1% | 4.3% | 14% | 37% | 70% | 91% | 91% | 91% | 9.2% |
@@ -2813,14 +2818,14 @@ A block is left out when nothing of that length exists (no alg of 8 or fewer doe
 | 10, one alg | 28 | 20,000 | 8.09 | 0.67% | 2.4% | 8.8% | 26% | 61% | 90% | 99% | 99% | 99% | 1.1% |
 | 10, one alg | 30 | 20,000 | 8.02 | 0.90% | 2.7% | 9.7% | 28% | 63% | 91% | 99.2% | 99.2% | 99.2% | 0.78% |
 | 10, best of the two | 10 | 200 | 8.69 | 0 of 200 | 1.5% | 5.0% | 15% | 40% | 78% | 93% | 100% | 100% | 0 |
-| 10, best of the two | 12 | 200 | 8.57 | 0.50% | 2.0% | 6.0% | 16% | 46% | 78% | 95% | 100% | 100% | 0 |
+| 10, best of the two | 12 | 200 | 8.58 | 0.50% | 2.0% | 6.0% | 16% | 46% | 78% | 95% | 100% | 100% | 0 |
 | 10, best of the two | 14 | 200 | 8.43 | 0 of 200 | 1.5% | 5.5% | 20% | 50% | 83% | 96% | 100% | 100% | 0 |
-| 10, best of the two | 16 | 200 | 8.07 | 1.0% | 2.0% | 9.0% | 27% | 62% | 89% | 100% | 100% | 100% | 0 |
-| 10, best of the two | 18 | 200 | 8.13 | 0.50% | 3.5% | 9.5% | 28% | 57% | 90% | 99% | 100% | 100% | 0 |
+| 10, best of the two | 16 | 200 | 8.08 | 1.0% | 2.0% | 9.0% | 27% | 62% | 89% | 100% | 100% | 100% | 0 |
+| 10, best of the two | 18 | 200 | 8.14 | 0.50% | 3.5% | 9.5% | 28% | 57% | 90% | 99% | 100% | 100% | 0 |
 | 10, best of the two | 20 | 200 | 7.83 | 1.0% | 4.0% | 16% | 36% | 65% | 96% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 22 | 200 | 7.71 | 1.0% | 5.0% | 16% | 38% | 74% | 94% | 99.5% | 100% | 100% | 0 |
 | 10, best of the two | 24 | 200 | 7.72 | 1.5% | 4.5% | 16% | 36% | 74% | 96% | 100% | 100% | 100% | 0 |
-| 10, best of the two | 26 | 200 | 7.64 | 1.0% | 4.5% | 18% | 42% | 72% | 98% | 100% | 100% | 100% | 0 |
+| 10, best of the two | 26 | 200 | 7.65 | 1.0% | 4.5% | 18% | 42% | 72% | 98% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 28 | 200 | 7.47 | 1.0% | 2.5% | 22% | 44% | 84% | 99.5% | 100% | 100% | 100% | 0 |
 | 10, best of the two | 30 | 200 | 7.45 | 1.5% | 9.0% | 20% | 44% | 82% | 98% | 100% | 100% | 100% | 0 |
 | 12, one alg | 10 | 20,000 | 8.74 | 0.40% | 1.4% | 4.9% | 14% | 38% | 71% | 95% | 99.9% | 100% | 0 |
@@ -3209,17 +3214,36 @@ Every corner 3-cycle and every edge 3-cycle, grouped into classes: two cases are
 - 163,683 solutions printed in the sample files, every solution for the real skeletons (2,143) and every solution on the examples page were replayed: each solves its scramble with the stated length.
 - On the Insertion Finder pages people posted, the search is never worse than Insertion Finder once its cap covers the algs Insertion Finder used (section 9).
 
-**Lean.** `lean/Insertions` in the repository (Lean 4, no Mathlib, about 700 lines) recomputes the counts of section 4 from its own definitions and states each as a theorem:
+**Formally verified.** `lean/Insertions` in the repository is a Lean 4 certificate (no Mathlib, no `sorry`). It recomputes from its own definitions, and states as theorems:
 
-- `corner_three_cycles`, `edge_three_cycles`: there are 1,008 corner 3-cycles and 1,760 edge 3-cycles, all different, each of order 3, and the inverse of each is in the list.
-- `corner_products_of_two`: every pair of corner 3-cycles multiplied gives 216,511 different states, and by type exactly the 5c, 3c3c, 3c1t, twisted 2c2c, pure 2c2c, 3tc and 2tc counts of section 4, the 3c1t and the 3tc as two types each, one per twist direction (plus the 3-cycles and the solved state). No other type occurs.
-- `corner_no_two_twisted_3_cycles`, `corner_no_two_swaps_with_twist`: two 3-cycles never give two twisted 3-cycles (the mixed 3c3c), nor two swaps with a twisted corner (2c2c1t).
-- `corner_type_sizes`, `corner_two_gives_whole_types`: the number of all corner states of each type, counted over all 88,179,840 corner states, equals the number reached, so every state of those seven types is two 3-cycles away.
-- `edge_products_of_two`, `edge_type_sizes`, `edge_two_gives_whole_types`: the same for edges: 925,035 states, the six edge types of section 4, each reached in full.
-- `corner_fewest_up_to_three`, `corner_three_totals`, `corner_three_gives_whole_types`: multiplying by a third 3-cycle, exactly 22 more types appear (twist directions apart; 11 by name), 8,845,836 states, each type in full: the second table of section 4.
-- `corner_type_sizes_by_hand`, `edge_type_sizes_by_hand`: the same sizes again as plain arithmetic (which 5 corners, how many cyclic orders, how many twists).
+- *the leftover types (section 4)*:
+  - `corner_three_cycles`, `edge_three_cycles`: there are 1,008 corner 3-cycles and 1,760 edge 3-cycles, all different, each of order 3, and the inverse of each is in the list.
+  - `corner_products_of_two`: every pair of corner 3-cycles multiplied gives 216,511 different states, and by type exactly the 5c, 3c3c, 3c1t, twisted 2c2c, pure 2c2c, 3tc and 2tc counts of section 4, the 3c1t and the 3tc as two types each, one per twist direction (plus the 3-cycles and the solved state). No other type occurs.
+  - `corner_no_two_twisted_3_cycles`, `corner_no_two_swaps_with_twist`: two 3-cycles never give two twisted 3-cycles (the mixed 3c3c), nor two swaps with a twisted corner (2c2c1t).
+  - `corner_type_sizes`, `corner_two_gives_whole_types`: the number of all corner states of each type, counted over all 88,179,840 corner states, equals the number reached, so every state of those seven types is two 3-cycles away.
+  - `edge_products_of_two`, `edge_type_sizes`, `edge_two_gives_whole_types`: the same for edges: 925,035 states, the six edge types of section 4, each reached in full.
+  - `corner_fewest_up_to_three`, `corner_three_totals`, `corner_three_gives_whole_types`: multiplying by a third 3-cycle, exactly 22 more types appear (twist directions apart; 11 by name), 8,845,836 states, each type in full: the second table of section 4.
+  - `corner_type_sizes_by_hand`, `edge_type_sizes_by_hand`: the same sizes again as plain arithmetic (which 5 corners, how many cyclic orders, how many twists).
+- *first comms per spot* (`first_comms_per_spot`, 6.2): for every state of every type, the 3-cycles that leave a 3-cycle: 108 for a 2tc, 24 for either 2c2c, 18 for a 3tc, 9 for a 3c1t, 5 for a 5c.
+- *the algs of 8 moves or fewer*, on a sticker cube whose 18 turns equal the Python model's (`moves_agree_with_python`), found by joining every sequence of up to 4 turns with every sequence of up to 4 turns, no pruning:
+  - `corner_algs_up_to_8`, `corner_counts` (section 5): 864 corner-only sequences, all 8-move 3-cycles; 528 of the 1,008 3-cycles have one, 336 of them two; 32 of the 112 oriented 3-cycles have one; 112 have none even one move over; Jay's `R' F' R B2 R' F R B2` is one of the oriented ones (`jay_oriented_8_mover`).
+  - `edge_counts` (6.6): the edge 3-cycles with an alg of 8 or fewer are 168, with 6-, 7- and 8-move sequences 96, 240 and 2,496; the 24 with a 6-mover are oriented on all three axes, and exactly that many edge 3-cycles are.
+- *the corner algs of 10 moves or fewer* (`ten_facts`, the same join with halves of up to 5 turns): of the corner 3-cycles, 528 have an 8-mover, 336 more a 9-mover and 80 more a 10-mover (1,728 and 11,856 sequences of 9 and 10 moves); a pure 2c2c has a 10-mover in 132 cases and nothing shorter; nothing of 10 moves or fewer does a twisted 2c2c, a 3c1t, a 2tc or a 3tc.
+- *the examples*: every scramble, skeleton, comm and solution of the corrections page and of [a] to [e] and [g] to [k] replays as printed (lengths, cancels, what the skeleton leaves), and the optima they state are exact over every alg of 8 moves or fewer, and of 10 or fewer where they say so:
+  - [a]: 29, 29 and 30;
+  - [b]: 26 with 8-movers, 25 with algs up to 10, and no 9-mover better than 26;
+  - [c]: 25 at spot 16 only, and nothing better than an 8-1 on the odd spots and the ends;
+  - [d]: 19;
+  - [e]: 29 nested and 31 without nesting;
+  - [g]: 30;
+  - [h]: no 8-mover at any spot, 30 with algs up to 10;
+  - [i]: 28 with 8-movers, 27 with algs up to 10;
+  - [j]: 25 at spot 4 only;
+  - [k]: 25 at spot 10 only, no alg under 10 moves for the case at spot 8, and the walk sees nothing better than an 8-1;
+  - the 20-move 3c of 6.1 with no 8-mover: 28 with algs up to 10, and the shortest alg at each spot as printed;
+  - the 23-move 3c of 9.5: 27 with 8-movers, 23 with algs up to 10.
 
-Most of these are proved by `native_decide`, which trusts the Lean compiler to run the count. The algorithm lists, the insertion searches and the samples are not in Lean; they rest on the cross-checks above. That the edge leftovers needing three comms are 13 types is counted in Python only, and is not used here.
+*Computed, not proved*: the corner alg lists over 10 moves and the edge lists over 8 (cap 12, the 3c1t and 2tc alg counts, twisting in place, 2c2e), the insertion searches on the samples and on the real skeletons, every mean, share and exchange rate (the samples), and examples [f] and [l]. They rest on the cross-checks above. The proofs use `native_decide`, which trusts the Lean compiler. That the edge leftovers needing three comms are 13 types is counted in Python only, and is not used here.
 
 ---
 
