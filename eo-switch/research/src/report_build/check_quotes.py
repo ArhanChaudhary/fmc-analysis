@@ -16,8 +16,9 @@ import sqlite3
 # the documents the study quotes: DR setup stats and its last-move sheet (Cale), Domino Setup Theory, DRM/ARM average
 # optimals, the DRM-ARM-stats code, the Hitchhiker's guides to FMC and DR, DRM corner variant+pair stats, DRM Subsets
 # (doc, sheet, tree pages), arm/pairs, Axial Reduction Theory, DRM Subsets Meta, DR - 4c4e Theory,
-# Fanti's armpairs_1.txt, the speedsolving DR guide
-DOCIDS = (6, 40, 69, 108, 111, 126, 274, 275, 276, 280, 304, 319, 320, 384, 459, 515, 521, 583)
+# Fanti's armpairs_1.txt, the speedsolving DR guide, and the auto-captions of the video How to do Domino Reductions: The
+# Secret They Don't Want You To Know (FewestMoves, 2019)
+DOCIDS = (4, 6, 40, 69, 108, 111, 126, 274, 275, 276, 280, 304, 319, 320, 384, 459, 515, 521, 583)
 _kb = sqlite3.connect('/data/fmc/kb/kb.sqlite')
 def norm(t):
     t = t.replace('ﬁ', 'fi').replace('ﬂ', 'fl').replace('ﬀ', 'ff').replace('ﬃ', 'ffi').replace('/quotesingle.ts1', "'")

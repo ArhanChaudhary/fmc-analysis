@@ -129,6 +129,16 @@ check('C13 Evan arm/pairs (doc 276)', '4c4e ARM 21 sub-7', .344, stat(m44 & arm(
 for k, p in [(2, .394), (3, .758)]:
     mm = m44 & (F['pairs'] == k)
     check('C13 Evan arm/pairs (doc 276)', f'4c4e {k} pairs sub-7', p, stat(mm)[2], int(mm.sum()), kind='sampled', sample_n=int(1171847 * mm.sum() / 70560))
+# Evan's arm/pairs, tab 44 (sampled): the ALL and PAIRS blocks are one sample of 1,171,847 whose own sub-7 total is 0.185;
+# the ARM block is a separate sample (its fifteen ARM totals add up to exactly 1,000,000) and matches the uniform rates.
+# The sheet's exact tab, 44-more (70,560 cases), has 2 pairs 0.411 and 3 pairs 0.79.  Written to out/sheet_notes.json.
+import json
+_ev = dict(n=1171847, all6=.185, n_arm=1000000, more2=.411, more3=.79, more_n=70560)
+_p = float(sub7[m44].mean()); _ev['uniform6'] = _p
+_ev['z_all'] = (abs(_ev['all6'] - _p) - 0.0005) / math.sqrt(_p * (1 - _p) / _ev['n'])
+_ev['exact2'] = float(stat(m44 & (F['pairs'] == 2))[2]); _ev['exact3'] = float(stat(m44 & (F['pairs'] == 3))[2])
+assert abs(_ev['exact2'] - _ev['more2']) < 0.0005 and abs(_ev['exact3'] - _ev['more3']) < 0.005 and int(m44.sum()) == _ev['more_n']
+json.dump(dict(evan=_ev), open(os.path.join(pop.OUT, 'sheet_notes.json'), 'w'), indent=1)
 # ---- C18 WRITEUP (exact one axis; options)
 T6 = pop.targets(6)
 for nm, key, p in [('one axis', 'plain', 19.2), ('last turn', 'lastF', 28.1), ('two axes', 'two', 25.4), ('normal or inverse', 'inv', 34.8)]:

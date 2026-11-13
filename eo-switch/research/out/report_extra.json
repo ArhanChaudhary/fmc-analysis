@@ -1255,11 +1255,11 @@
  },
  "grade": {
   "44-caycala-3p": {
-   "share_switched": 0.034,
-   "precision": 0.8158,
-   "recall": 0.1442,
-   "target_states_discarded": 0.1647,
-   "p3": 0.8148
+   "share_switched": 0.0344,
+   "precision": 0.8177,
+   "recall": 0.146,
+   "target_states_discarded": 0.1643,
+   "p3": 0.817
   },
   "44-caycala-6": {
    "share_switched": 0.0362,
@@ -1289,6 +1289,13 @@
    "target_states_discarded": 0.0,
    "p3": 0.5904
   },
+  "44-armthenpairs": {
+   "share_switched": 0.2163,
+   "precision": 0.508,
+   "recall": 0.5712,
+   "target_states_discarded": 0.0825,
+   "p3": 0.5089
+  },
   "44-rodney-case": {
    "share_switched": 0.252,
    "precision": 0.4931,
@@ -1317,26 +1324,12 @@
    "target_states_discarded": 0.0677,
    "p3": 0.4929
   },
-  "44-armthenpairs": {
-   "share_switched": 0.2357,
-   "precision": 0.4883,
-   "recall": 0.5983,
-   "target_states_discarded": 0.0773,
-   "p3": 0.4908
-  },
   "44-complex": {
    "share_switched": 0.199,
    "precision": 0.4862,
    "recall": 0.5028,
    "target_states_discarded": 0.0957,
    "p3": 0.4846
-  },
-  "44-subsets": {
-   "share_switched": 0.2668,
-   "precision": 0.4704,
-   "recall": 0.6523,
-   "target_states_discarded": 0.0669,
-   "p3": 0.4695
   },
   "44-2pairs": {
    "share_switched": 0.2602,
@@ -1367,11 +1360,11 @@
    "p3": 0.4552
   },
   "44-wen": {
-   "share_switched": 0.2934,
-   "precision": 0.4537,
-   "recall": 0.6918,
-   "target_states_discarded": 0.0593,
-   "p3": 0.4546
+   "share_switched": 0.2935,
+   "precision": 0.454,
+   "recall": 0.6927,
+   "target_states_discarded": 0.0591,
+   "p3": 0.4549
   },
   "44-fanti": {
    "share_switched": 0.3524,
@@ -1513,19 +1506,19 @@
    "target_states_discarded": 0.0677,
    "p3": 0.588
   },
+  "78-caycala": {
+   "share_switched": 0.2296,
+   "precision": 0.5259,
+   "recall": 0.7365,
+   "target_states_discarded": 0.0432,
+   "p3": 0.521
+  },
   "78-tseitsei-c": {
    "share_switched": 0.2262,
    "precision": 0.5248,
    "recall": 0.7241,
    "target_states_discarded": 0.0452,
    "p3": 0.523
-  },
-  "78-image": {
-   "share_switched": 0.2347,
-   "precision": 0.5145,
-   "recall": 0.7365,
-   "target_states_discarded": 0.0432,
-   "p3": 0.5105
   },
   "78-fanti": {
    "share_switched": 0.2347,
@@ -1548,12 +1541,19 @@
    "target_states_discarded": 0.0765,
    "p3": 0.4296
   },
-  "88-correct": {
-   "share_switched": 0.0002,
-   "precision": 1.0,
-   "recall": 0.0011,
-   "target_states_discarded": 0.1447,
-   "p3": 1.0
+  "88-tree": {
+   "share_switched": 0.1625,
+   "precision": 0.4029,
+   "recall": 0.4518,
+   "target_states_discarded": 0.0794,
+   "p3": 0.3912
+  },
+  "88-tree-6p": {
+   "share_switched": 0.2,
+   "precision": 0.3887,
+   "recall": 0.5367,
+   "target_states_discarded": 0.0671,
+   "p3": 0.3771
   },
   "88-lewis": {
    "share_switched": 0.0668,
@@ -1561,13 +1561,6 @@
    "recall": 0.1766,
    "target_states_discarded": 0.1193,
    "p3": 0.3319
-  },
-  "88-tseitsei": {
-   "share_switched": 0.4429,
-   "precision": 0.153,
-   "recall": 0.4679,
-   "target_states_discarded": 0.0771,
-   "p3": 0.1472
   },
   "22-doc319": {
    "share_switched": 0.2321,
@@ -1597,13 +1590,6 @@
    "target_states_discarded": 0.0366,
    "p3": 0.524
   },
-  "46-rodney": {
-   "share_switched": 0.1189,
-   "precision": 0.2017,
-   "recall": 0.5193,
-   "target_states_discarded": 0.0222,
-   "p3": 0.2048
-  },
   "34-rodney": {
    "share_switched": 0.1071,
    "precision": 0.3373,
@@ -1631,34 +1617,6 @@
    "recall": 0.5,
    "target_states_discarded": 0.0242,
    "p3": 0.123
-  },
-  "54-doc319": {
-   "share_switched": 0.0612,
-   "precision": 0.2764,
-   "recall": 0.2347,
-   "target_states_discarded": 0.0552,
-   "p3": 0.2817
-  },
-  "54-subset": {
-   "share_switched": 0.1276,
-   "precision": 0.2307,
-   "recall": 0.408,
-   "target_states_discarded": 0.0427,
-   "p3": 0.2275
-  },
-  "56-doc319": {
-   "share_switched": 0.0306,
-   "precision": 0.3792,
-   "recall": 0.1892,
-   "target_states_discarded": 0.0497,
-   "p3": 0.3765
-  },
-  "66-doc319": {
-   "share_switched": 0.3942,
-   "precision": 0.1021,
-   "recall": 0.7199,
-   "target_states_discarded": 0.0157,
-   "p3": 0.1026
   }
  },
  "pop": {
@@ -9088,6 +9046,20 @@
    2
   ]
  },
+ "sheets": {
+  "evan": {
+   "n": 1171847,
+   "all6": 0.185,
+   "n_arm": 1000000,
+   "more2": 0.411,
+   "more3": 0.79,
+   "more_n": 70560,
+   "uniform6": 0.19240362811791384,
+   "z_all": 18.958721066918027,
+   "exact2": 0.41085858585858587,
+   "exact3": 0.79
+  }
+ },
  "mismatch": [
   {
    "source": "C13 Evan arm/pairs (doc 276)",
@@ -9171,9 +9143,9 @@
   },
   "T597-4movers": {
    "id": "T597-4movers",
-   "source": "T597 rodneykinney",
+   "source": "T597 rodneykinney (answering T591 Jay: \"1 or 0 pairs (side pair or top pair)\")",
    "claim": "no 4-move 4c4e DR with 0 or 1 pairs (\"any 4 moves from solved leave at least 2 bad pairs\")",
-   "verdict": "correct if pairs counts top and side pairs (shortest with at most 1: 5); wrong for top pairs alone: F2 B2 R has 0 top pairs (4 side pairs) and is 3 moves",
+   "verdict": "correct: with top and side pairs counted, as in the question, the shortest with at most 1 is 5 (with top pairs alone F2 B2 R has none, 4 side pairs, and is 3 moves)",
    "numbers": "shortest by top pairs: 0p 3, 1p 4, 2p 2, 3p 3, 4p 1",
    "example (setup from solved, optimal DR, replayed on cube.py)": "{\"setup\": \"R' B2 F2\", \"dr\": \"F2 B2 R\", \"length\": 3, \"state\": \"4c4e AR-0c0e pairs 0 fake 0 side 4 d 3 case 4a-0\", \"note\": \"state solved by F2 B2 R\"}"
   },
@@ -9249,12 +9221,12 @@
    "numbers": "4a-0 as the sheet folds it (corner ARM 0 or 4): 0p 0.017, 1p 0.083, 2p 0.250; corner ARM 0: 0p 0.033, 1p 0.167, 2p 0.500; corner ARM 4: 0p 0.000, 1p 0.000, 2p 0.000; shortest: corner ARM 0 6, corner ARM 4 7; U/D quarter turns (half turns free) from the corners of R U2 R: 4a-0 3, 4a-2 1, 4a-4 3, 4b-0 0, 4b-2 2, 4b-4 2, 4c-1 1, 4c-3 1, 4d-2 2",
    "example (setup from solved, optimal DR, replayed on cube.py)": "{\"setup\": \"R' F2 R' B2 F2 R'\", \"dr\": \"R F2 B2 R F2 R\", \"length\": 6, \"state\": \"4c2e AR-0c0e pairs 2 fake 0 side 1 d 6 case 4a-0\", \"note\": \"a 4c2e with 4a-0 corners (corner ARM 0) and 2 pairs: 6 moves, with three R quarter turns\"}"
   },
-  "D16266-4a": {
-   "id": "D16266-4a",
-   "source": "D16266 Zagros",
+  "D16268-4a": {
+   "id": "D16268-4a",
+   "source": "D16268 tseitsei89 (answering D16267 Zagros: \"Even jzp you can get 4a1 corners and it can just be bad\")",
    "claim": "4c2e with 4a corners almost always sucks",
-   "verdict": "correct",
-   "numbers": "4c2e 4a 0.181 vs all 4c2e 0.187",
+   "verdict": "depends: right for JZP, which is what the exchange is about; over all of 4c2e 4a is at the 4c2e rate",
+   "numbers": "4c2e JZP: 4a 0.250 (192 states), 4b 0.792 (384); all 4c2e: 4a 0.181 vs 0.187",
    "example (setup from solved, optimal DR, replayed on cube.py)": ""
   },
   "D15161-jzp-b": {
@@ -9277,8 +9249,8 @@
    "id": "D6979-3c6e",
    "source": "D6979 Noah Swor",
    "claim": "3c6e: 1/7 for 7 moves, against 1/3 for 4e4c, 8c8e, 8e7c, 2e4c",
-   "verdict": "direction right, 3c6e worse than stated: the 1/3 matches DR in 6 on the better of normal and inverse; 3c6e is then 1 in 10.5",
-   "numbers": "better of normal and inverse, DR <= 6: 3c6e 1 in 10.57, 4c4e 1 in 2.88, 8c8e 1 in 3.72, 7c8e 1 in 3.32, 4c2e 1 in 2.95; one side DR <= 7: 3c6e 1 in 3.69, 4c4e 1 in 1.68, 8c8e 1 in 1.59, 7c8e 1 in 1.74, 4c2e 1 in 1.59",
+   "verdict": "direction right, 3c6e worse than stated: the 1/3 is DR in 6 with the EO's last move switchable (Cale's last-move sheet, which has no 3c6e tab); on that count 3c6e is 1 in 12.8; one side, DR <= 7, it is 1 in 3.7, so the 1/7 is not reproduced",
+   "numbers": "EO's last move switchable, DR <= 6 (8c8e with a 4-4 twist split, the sheet's 8e8c tab, 1 in 4.08): 3c6e 1 in 12.77, 4c4e 1 in 3.56, 8c8e 1 in 4.26, 7c8e 1 in 4.10, 4c2e 1 in 3.68; better of normal and inverse, DR <= 6: 3c6e 1 in 10.57, 4c4e 1 in 2.88, 8c8e 1 in 3.72, 7c8e 1 in 3.32, 4c2e 1 in 2.95; one side DR <= 7: 3c6e 1 in 3.69, 4c4e 1 in 1.68, 8c8e 1 in 1.59, 7c8e 1 in 1.74, 4c2e 1 in 1.59",
    "example (setup from solved, optimal DR, replayed on cube.py)": ""
   },
   "D6982-3c6e": {
@@ -9309,7 +9281,7 @@
    "id": "T9348-5c4e",
    "source": "T9348 rodneykinney",
    "claim": "5c4e with 2 pairs has 40% chance of sub-8",
-   "verdict": "not reproduced: any optimal DR gives 57% (Rodney may count findable solutions only)",
+   "verdict": "not reproduced: any optimal DR gives 57% (rodneykinney may count findable solutions only)",
    "numbers": "DR <= 7: 0.570 EO-kept, 0.575 any turns",
    "example (setup from solved, optimal DR, replayed on cube.py)": ""
   },
@@ -9460,10 +9432,26 @@
   "doc69-3p": {
    "id": "doc69-3p",
    "source": "doc 69 rodneykinney",
-   "claim": "for DR <= 6 look for an inverse with at least three pairs; otherwise save the NISS",
-   "verdict": "too strict: 3+ pairs is 80% sub-7 but holds only 15% of the sub-7 states",
-   "numbers": "3+ pairs: share 0.036, sub-7 0.799, recall 0.148",
+   "claim": "for DR <= 6 look for an inverse with at least three pairs (top and side pairs together: the lazy estimate 12 - 2pt - 2ps is then 6 or less); otherwise save the NISS",
+   "verdict": "depends on the cut: 3+ top and side pairs is 39% sub-7 and holds 64% of the sub-7 states",
+   "numbers": "3+ top and side pairs: share 0.320, sub-7 0.387, recall 0.643; 3+ top pairs alone: share 0.036, sub-7 0.799, recall 0.148",
    "example (setup from solved, optimal DR, replayed on cube.py)": ""
+  },
+  "D13393-3p": {
+   "id": "D13393-3p",
+   "source": "D13393 caycala",
+   "claim": "4c4e: the only 3+ pairs case not worth switching is 3 pairs with all white or all yellow corners (all four bad corners in one layer)",
+   "verdict": "depends on the cut: a third of the group is sub-7 and none of it under 6 moves, against about four in five for 3 pairs",
+   "numbers": "3 pairs, all bad corners in one layer: 0.333 (96 states, shortest 6); all 3 pairs 0.790; 4 pairs, all bad corners in one layer: 24 states, longest 5",
+   "example (setup from solved, optimal DR, replayed on cube.py)": "{\"setup\": \"L' D' L2 B2 U2 L\", \"dr\": \"L' U2 B2 L2 D L\", \"length\": 6, \"state\": \"4c4e AR-2c1e pairs 3 fake 1 side 1 d 6 case 4a-2\", \"note\": \"\"}"
+  },
+  "D16930-8c8e-jzp": {
+   "id": "D16930-8c8e-jzp",
+   "source": "D16930 Yura Riabov (T3767 Jay: the R L U D premove technique)",
+   "claim": "8c8e with JZP on the other axis is guaranteed to be R L to DR after the switch",
+   "verdict": "correct",
+   "numbers": "1 8c8e case with ARM 00 after the switch, DR in 2",
+   "example (setup from solved, optimal DR, replayed on cube.py)": "{\"setup\": \"L' R'\", \"dr\": \"R L\", \"length\": 2, \"state\": \"8c8e AR-0c0e pairs 8 fake 0 side 8 d 2\", \"note\": \"state solved by R L\"}"
   },
   "T3210-lazy": {
    "id": "T3210-lazy",
@@ -9539,6 +9527,16 @@
    "n6": 11,
    "n5": 7
   },
+  "T597-4movers": {
+   "min_any": 5,
+   "min_top": [
+    3,
+    4,
+    2,
+    3,
+    1
+   ]
+  },
   "D14402-21-1p": {
    "b": 0.2875,
    "d": 0.8888888888888888,
@@ -9561,6 +9559,10 @@
    "n_allU": 288,
    "n_colF": 336,
    "n_colR": 336
+  },
+  "T8123-0p": {
+   "n4": 14,
+   "missed": 8
   },
   "T8147-3qt": {
    "fold": [
@@ -9592,6 +9594,39 @@
     "4c-3": 1,
     "4d-2": 2
    }
+  },
+  "D16268-4a": {
+   "jzp_a": 0.25,
+   "n_jzp_a": 192,
+   "jzp_b": 0.7916666666666666,
+   "n_jzp_b": 384,
+   "all_a": 0.18055555555555555,
+   "all": 0.1869047619047619
+  },
+  "D6979-3c6e": {
+   "last": {
+    "3c6e": 12.773930753564153,
+    "4c4e": 3.563996363269017,
+    "8c8e": 4.257425742574258,
+    "7c8e": 4.097560975609756,
+    "4c2e": 3.6761487964989064
+   },
+   "last88_44": 4.076539101497504,
+   "n88_44": 4900,
+   "plain6": 20.63157894736842,
+   "plain7": 3.6937573616018846
+  },
+  "D13393-3p": {
+   "p": 0.3333333333333333,
+   "n": 96,
+   "min": 6,
+   "p3": 0.79,
+   "n4": 24,
+   "max4": 5
+  },
+  "D16930-8c8e-jzp": {
+   "n": 1,
+   "d": 2
   }
  },
  "checks_niss": {

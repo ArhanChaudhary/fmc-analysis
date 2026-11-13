@@ -241,7 +241,7 @@ w('## Files')
 w('')
 w('`src/` Python (features.py, pop.py, step1.py, reproduce.py, populations.py, rules.py, grade.py, search.py, q4.py, niss_checks.py, claims.py, witness.py, explain.py, summary.py), '
   '`eoswtools/` Rust (BFS, two-axis completions, RZP weights, sampled attempts; cubie.rs of is-dr-xs-worth-it and common.rs of eo-to-dr compiled in by #[path]), `run_all.sh` regenerates everything. '
-  '`out/`: SUMMARY.md, claims.tsv, witness.json, reproduce.tsv, grades.tsv, search_top.tsv, search_<drm>.tsv, feature_value.tsv, variants_by_drm.tsv, populations.tsv, q4.tsv, checks_*.tsv; '
+  '`out/`: SUMMARY.md, claims.tsv, claims_cells.json (the numbers the claims rows print), sheet_notes.json, witness.json, reproduce.tsv, grades.tsv, search_top.tsv, search_<drm>.tsv, feature_value.tsv, variants_by_drm.tsv, populations.tsv, q4.tsv, checks_*.tsv; '
   '`out/big/` (not for the site): d.u8, feat.npz, p_rl.u32, rzp_w.u64, att_* (counts per coset, batches, example attempts).')
 open(os.path.join(OUT, 'SUMMARY.md'), 'w').write('\n'.join(L) + '\n')
 print('wrote out/SUMMARY.md,', len(L), 'lines')

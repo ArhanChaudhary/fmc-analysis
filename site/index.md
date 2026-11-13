@@ -56,4 +56,4 @@ After EO + RZP, when to switch to the inverse and look for a DR there. Count the
 
 - [Write-up](eo-switch/): the two rings and the half-turn count for 4c4e, side turns for every DRM, the switch cards, the tracings, the RZP bias and the last turns, the rules graded, the sheets reproduced and the claims check. It opens with the short version.
 - [Worked examples](eo-switch/examples.html): 200 real attempts, with what to trace before switching, the rings and the count, the card's verdict and the optimal DR after the switch, answers folded away.
-- [Errata](eo-switch/errata.html): what the numbers show is wrong in things said on the server, each with an example.
+- [Errata](eo-switch/errata.html): what the numbers show is wrong in something said on the server, with an example.

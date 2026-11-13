@@ -2,16 +2,16 @@
 
 The sixth case study of this repository: after EO + RZP, when to switch (go to the inverse, keep the EO and look for a short DR there). Its main result is a count: how many turns of the side faces the DR needs when U and D turns are free. A U or D turn never makes or breaks a pair, so a switched case is two rings (the U and D layers up to turning) and the four E-slice places, a half turn swaps a row between the rings, and a quarter turn has a one-line rule. For 4c4e the count is the number of half turns to two bars: 0 or 1 is a certain sub-7, 2 is 72.1%, 3 is 16.0%, 4 or 5 is 1.7%. For every DRM, 2 side turns or fewer is a certain sub-7, and 3 with no extra quarter turn is the switch group. The study also gives a switch card per DRM for a pair trace alone, shows how to read every feature (the rings included) from the normal side, covers what a real RZP changes (the RZP bias, gone after a switch; the last RZP and EO turns; the second DR axis; RZP length), grades every switch rule from the FMC solvers Discord on the same terms, reproduces the published tables, and checks every concrete claim.
 
-It builds on Cale's *DR setup stats*, Louis's *DRM/ARM average optimals*, rodneykinney's corner cases, *DR - 4c4e Theory* (the two-bar target and the half turns that form pairs), *DRM corner variant+pair stats*, *DRM Subsets* and its trees, Evan's *arm/pairs* sheets, Fanti's rule sets, Radek B's and Levi Gibson's tables, wen's pair tracing, torchlight's RZP bias, and the hand rules of Yura Riabov, tseitsei89, wen, Jay, Noah Swor, Lewis Isom, caycala, compLex, Daichi and Zagros. What it adds:
+It builds on Cale's *DR setup stats*, Louis's *DRM/ARM average optimals*, rodneykinney's corner cases, the two-bar target (a 2019 FewestMoves video, then rodneykinney's *DR - 4c4e Theory*, which also counts the half turns still missing along one corner solution), *Domino Setup Theory* (top pairs come from side-face moves only; the side-pair tracing), *DRM Subsets*, its trees and *Axial Reduction Theory* (DRs sorted by trigger and by the quarter turns before it), *DRM corner variant+pair stats*, Jay's same-axis reading of the inverse's ARM, Evan's *arm/pairs* sheets, Fanti's rule sets, Radek B's and Levi Gibson's tables, wen's pair tracing, torchlight's RZP bias, and the hand rules of Yura Riabov, tseitsei89, wen, Jay, Noah Swor, Lewis Isom, caycala, compLex, Daichi and Zagros. What it adds:
 
 - The two-ring picture, exact for every case: what U/D turns, half turns and quarter turns do to it.
-- For 4c4e, half turns to two bars: the bands above, the count as the larger of row swaps and a hole number, how to read it from a pair trace (exact rule for 3 and 4 pairs, a one-swap look for 2), and every ring picture with 2 swaps or fewer.
+- For 4c4e, the half turns to two bars counted exactly, over every route: the bands above, the count as the larger of row swaps and a hole number, how to read it from a pair trace (exact rule for 3 and 4 pairs, a one-swap look for 2), and every ring picture with 2 swaps or fewer.
 - For every DRM, side turns: the certain class, quarter turns against half turns, the trigger cases in ring notation, and each card's groups split by them (7c8e with 5-6 pairs: 95.4% against 33.8%).
 - For 4c4e by a pair trace alone, a rule that settles about twice as many cases as pairs or ARM: count the paired edges, then look at edge ARM.
 - The your-call groups split by the corner case.
-- The rings, side pairs and edge ARM read on the normal side.
+- The rings and holes read on the normal side, and a check on 20,000 random cubes of the side-pair and edge-ARM readings the server had (rodneykinney's and Jay's).
 - Proof that the uniform tables are exact for switched RZPs.
-- A grade for every rule on exact cases and on 121.5 million real attempts.
+- A grade for every rule, as its author stated it, on exact cases and on 121.5 million real attempts.
 - That Fanti's figures are any-turn numbers.
 
 | Where | What |

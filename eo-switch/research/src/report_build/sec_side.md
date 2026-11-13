@@ -2,7 +2,12 @@
 
 The same idea works for every DRM. Let U and D turn freely and count the turns of the side faces a DR needs: R and L quarter turns, and the half turns R2, L2, F2, B2. I call that number the case's *side turns*. A DR is never shorter than its side turns and never longer than three times them, and that already gives a certain class.
 
-rodneykinney's *DRM Subsets* already sorts solutions by the trigger they end in (`R`, `R U R`, `R U2 R`, `R U L`, `R U2 L`, `R L`), from one stored optimal solution per case. Side turns count what comes before the trigger as well, and over every DR of the case.
+Two of rodneykinney's docs already cut DRs this way, each from one stored optimal solution per case:
+
+- ***Axial Reduction Theory*** ([[T8585]]) splits any solution into blocks of side-axis moves between U/D quarter turns: "we can associate any half-turns with a DR-RL sequence, and write any solution as a sequence of DR-RL sequence separated by U/D quarter turns". It counts the sub-7 DRs per family, and DR+Trigger (U/D-axis moves, then a standard trigger) is 29.8% of them.
+- ***DRM Subsets*** (dated August 2025 on the doc, first posted [[T8136]]) sorts the solutions by the trigger they end in (`R`, `R U R`, `R U2 R`, `R U L`, `R U2 L`, `R L`) and, for a 4c4e, 3c2e or 7c8e trigger, by the R/L quarter turns before it: `R* DR-UD <Trigger>` is easy, `DR-UD R* DR-UD <Trigger>` findable, and hard is when it "requires >=2 R* moves to reach the trigger DRM".
+
+Side turns count the half turns as well as the quarter turns, and over every DR of the case. That is what gives the certain class, and the split of the 3s by their extra quarter turn (section 5.2) is the doc's families measured on every case.
 
 ### 5.1 Side turns
 

@@ -64,6 +64,22 @@
    "note": "",
    "replayed": "DR on U/D reached with F/B EO kept (cube.py)"
   },
+  "D13393-3p": {
+   "setup": "L' D' L2 B2 U2 L",
+   "dr": "L' U2 B2 L2 D L",
+   "length": 6,
+   "state": "4c4e AR-2c1e pairs 3 fake 1 side 1 d 6 case 4a-2",
+   "note": "",
+   "replayed": "DR on U/D reached with F/B EO kept (cube.py)"
+  },
+  "D16930-8c8e-jzp": {
+   "setup": "L' R'",
+   "dr": "R L",
+   "length": 2,
+   "state": "8c8e AR-0c0e pairs 8 fake 0 side 8 d 2",
+   "note": "state solved by R L",
+   "replayed": "DR on U/D reached with F/B EO kept (cube.py)"
+  },
   "T3210-lazy": {
    "setup": "R' F2 U F2",
    "dr": "F2 U' F2 R",

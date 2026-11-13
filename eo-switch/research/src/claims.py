@@ -82,8 +82,9 @@ m41 = m44 & arm(4, 1); louis41 = fx.state_solved_by("D' B2 F2 D R'"); assert m41
 cells('T4256-sets', n41=int(m41.sum()), n41_5=int((m41 & (d == 5)).sum()), sub6_41=frac(m41, 5), sets=len(sets), n6=n6, n5=n5)
 mn = {k: int(d[m44 & (F['pairs'] == k)].min()) for k in range(5)}
 mn2 = int(d[m44 & ((F['pairs'] + F['side']) <= 1)].min())
-claim('T597-4movers', 'T597 rodneykinney', 'no 4-move 4c4e DR with 0 or 1 pairs ("any 4 moves from solved leave at least 2 bad pairs")', f'correct if pairs counts top and side pairs (shortest with at most 1: {mn2}); wrong for top pairs alone: F2 B2 R has 0 top pairs (4 side pairs) and is 3 moves',
+claim('T597-4movers', 'T597 rodneykinney (answering T591 Jay: "1 or 0 pairs (side pair or top pair)")', 'no 4-move 4c4e DR with 0 or 1 pairs ("any 4 moves from solved leave at least 2 bad pairs")', f'correct: with top and side pairs counted, as in the question, the shortest with at most 1 is {mn2} (with top pairs alone F2 B2 R has none, 4 side pairs, and is 3 moves)',
       'shortest by top pairs: ' + ', '.join(f'{k}p {mn[k]}' for k in range(5)), example(fx.state_solved_by('F2 B2 R'), 'state solved by F2 B2 R'))
+cells('T597-4movers', min_any=mn2, min_top=[mn[k] for k in range(5)])
 mm = m44 & ((F['pairs'] + F['side']) <= 1)
 claim('T604-5', 'T604 Radek B', '0 or 1 top and side pairs => at best 5 moves (4c4e)', 'correct' if d[mm].min() >= 5 else 'wrong', f'shortest {int(d[mm].min())} over {int(mm.sum())} states', example(pick(mm, d == d[mm].min())))
 # Evan / caycala 02 layouts
@@ -119,6 +120,9 @@ claim('T8122-a0b0', 'T8122 rodneykinney', '4c4e without pairs: 4a-0 is better th
 fbr = fx.state_solved_by('F2 B2 R'); dfbr = fx.state_solved_by('D F2 B2 R')
 claim('T8123-0p', 'T8123 rodneykinney (answer to T8107 Nico)', 'to catch 0-pair F2 B2 R-type DRs, switch 4a-0 and 4d-2 with no fake pairs', 'incomplete: the F2 B2 R state is 4a-0 with no fake pairs, but one U/D turn earlier (D F2 B2 R, 0 pairs, no fake pairs, 4 moves) it is 4b-2 and the rule discards it',
       f"F2 B2 R state: {fx.describe(F, fbr)}; D F2 B2 R state: {fx.describe(F, dfbr)}; 4c4e 0 pairs, no fake pairs: 4a-0 {p6(m44 & (F['pairs'] == 0) & (F['fake'] == 0) & cc('a', 0)):.3f}, 4d {p6(m44 & (F['pairs'] == 0) & (F['fake'] == 0) & cc('d')):.3f}, 4b-2 {p6(m44 & (F['pairs'] == 0) & (F['fake'] == 0) & cc('b', 2)):.3f}", example(dfbr, 'state solved by D F2 B2 R'))
+z4 = m44 & (F['pairs'] == 0) & (d <= 4); caught = z4 & (cc('a', 0) | cc('d')) & (F['fake'] == 0)
+assert ((z4 & ~caught) == (z4 & cc('b', 2))).all()
+cells('T8123-0p', n4=int(z4.sum()), missed=int((z4 & ~caught).sum()))
 mins = {k: int(d[m42 & cc(k[0], int(k[1]))].min()) for k in ['a0', 'a2', 'b0', 'b2', 'c1', 'd2']}
 claim('T8149-4b2', 'T8149 rodneykinney', '4c2e 4b-2: 6 moves is the absolute minimum; 4a-2 is good', 'correct' if mins['b2'] == 6 else 'wrong', 'shortest per case: ' + ', '.join(f'4{k[0]}-{k[1]} {x}' for k, x in mins.items()) + f"; 4a-2 sub-7 {p6(m42 & cc('a', 2)):.3f}, 4b-2 {p6(m42 & cc('b', 2)):.3f}")
 # rodneykinney T8147: "3qt corners" in 4c2e.  rodneykinney counts quarter turns from the trigger of the DRM in hand
@@ -144,21 +148,28 @@ claim('T8147-3qt', 'T8147 rodneykinney (4c2e table T8140; T8132, T8149)', '4c2e:
       example(ex3, 'a 4c2e with 4a-0 corners (corner ARM 0) and 2 pairs: 6 moves, with three R quarter turns'))
 assert max(p4_) == 0
 cells('T8147-3qt', fold=pf, arm0=p0_, arm4=p4_, min_arm0=int(d[a0].min()), min_arm4=int(d[a4].min()), n_arm0_2p=int((a0 & (F['pairs'] == 2)).sum()), qt=qt)
-claim('D16266-4a', 'D16266 Zagros', '4c2e with 4a corners almost always sucks', 'correct', f"4c2e 4a {p6(m42 & cc('a')):.3f} vs all 4c2e {p6(m42):.3f}")
+ja = m42 & (F['jzp'] == 1) & cc('a'); jb = m42 & (F['jzp'] == 1) & cc('b')
+claim('D16268-4a', 'D16268 tseitsei89 (answering D16267 Zagros: "Even jzp you can get 4a1 corners and it can just be bad")', '4c2e with 4a corners almost always sucks', 'depends: right for JZP, which is what the exchange is about; over all of 4c2e 4a is at the 4c2e rate',
+      f"4c2e JZP: 4a {frac(ja):.3f} ({int(ja.sum())} states), 4b {frac(jb):.3f} ({int(jb.sum())}); all 4c2e: 4a {p6(m42 & cc('a')):.3f} vs {p6(m42):.3f}")
+cells('D16268-4a', jzp_a=frac(ja), n_jzp_a=int(ja.sum()), jzp_b=frac(jb), n_jzp_b=int(jb.sum()), all_a=frac(m42 & cc('a')), all=frac(m42))
 claim('D15161-jzp-b', 'D15161 Daichi', '4c2e 0 pairs: JZP with b corners is way better than with a corners', 'correct' if p6(m42 & (F['pairs'] == 0) & (F['jzp'] == 1) & cc('b')) > p6(m42 & (F['pairs'] == 0) & (F['jzp'] == 1) & cc('a')) else 'wrong',
       f"b {p6(m42 & (F['pairs'] == 0) & (F['jzp'] == 1) & cc('b')):.3f}, a {p6(m42 & (F['pairs'] == 0) & (F['jzp'] == 1) & cc('a')):.3f}")
 claim('D12737-41', 'D12737 caycala', '4c2e ARM 41 with 0 pairs is 0% sub-7?', 'correct' if p6(m42 & arm(4, 1) & (F['pairs'] == 0)) == 0 else 'wrong', f"{p6(m42 & arm(4, 1) & (F['pairs'] == 0)):.4f} over {int((m42 & arm(4, 1) & (F['pairs'] == 0)).sum())} states")
 q7 = {nm: float((d[m] <= 7).mean()) for nm, m in [('3c6e', m36), ('4c4e', m44), ('8c8e', m88), ('7c8e', m78), ('4c2e', m42)]}
 T6 = pop.targets(6)
 qi = {nm: float(T6['inv'][m].mean()) for nm, m in [('3c6e', m36), ('4c4e', m44), ('8c8e', m88), ('7c8e', m78), ('4c2e', m42)]}
-claim('D6979-3c6e', 'D6979 Noah Swor', '3c6e: 1/7 for 7 moves, against 1/3 for 4e4c, 8c8e, 8e7c, 2e4c', 'direction right, 3c6e worse than stated: the 1/3 matches DR in 6 on the better of normal and inverse; 3c6e is then 1 in 10.5',
-      'better of normal and inverse, DR <= 6: ' + ', '.join(f'{k} 1 in {1 / x:.2f}' for k, x in qi.items()) + '; one side DR <= 7: ' + ', '.join(f'{k} 1 in {1 / x:.2f}' for k, x in q7.items()))
+ql = {nm: float(T6['lastF'][m].mean()) for nm, m in [('3c6e', m36), ('4c4e', m44), ('8c8e', m88), ('7c8e', m78), ('4c2e', m42)]}
+# Cale's last-move sheet (doc 40) has 8e8c as the 4,900 cases with a 4-4 twist split (and 8e7c as one of its two mirror halves)
+m88_44 = m88 & (F['tw1'] == 4) & (F['tw2'] == 4); ql88_44 = float(T6['lastF'][m88_44].mean())
+cells('D6979-3c6e', last={k: 1 / x for k, x in ql.items()}, last88_44=1 / ql88_44, n88_44=int(m88_44.sum()), plain6=1 / frac(m36), plain7=1 / frac(m36, 7))
+claim('D6979-3c6e', 'D6979 Noah Swor', '3c6e: 1/7 for 7 moves, against 1/3 for 4e4c, 8c8e, 8e7c, 2e4c', f"direction right, 3c6e worse than stated: the 1/3 is DR in 6 with the EO's last move switchable (Cale's last-move sheet, which has no 3c6e tab); on that count 3c6e is 1 in {1 / ql['3c6e']:.1f}; one side, DR <= 7, it is 1 in {1 / frac(m36, 7):.1f}, so the 1/7 is not reproduced",
+      f"EO's last move switchable, DR <= 6 (8c8e with a 4-4 twist split, the sheet's 8e8c tab, 1 in {1 / ql88_44:.2f}): " + ', '.join(f'{k} 1 in {1 / x:.2f}' for k, x in ql.items()) + '; better of normal and inverse, DR <= 6: ' + ', '.join(f'{k} 1 in {1 / x:.2f}' for k, x in qi.items()) + '; one side DR <= 7: ' + ', '.join(f'{k} 1 in {1 / x:.2f}' for k, x in q7.items()))
 mins = {f'{a_}{b_}': int(d[m36 & arm(a_, b_)].min()) for a_ in range(4) for b_ in range(4) if (m36 & arm(a_, b_)).sum()}
 claim('D6982-3c6e', 'D6982 Jay', '3c6e: AR-2C1E is the only subset where +4 to DR is possible', 'correct' if [k for k, x in mins.items() if x <= 4] == ['21'] else 'wrong', 'shortest per ARM: ' + ', '.join(f'{k} {x}' for k, x in mins.items()))
 claim('T1805-4c6e', 'T1805 Cale', '4c6e: even with the full move set, sub-7 is 1 in 22', 'correct', f'any turns: 1 in {1 / p6(m46, DA):.1f}; EO kept: 1 in {1 / p6(m46):.1f}')
 claim('D7854-5c4e21', 'D7854 Yura Riabov / D10597 beef beans', '5c4e AR 21 (the 4-move trigger one) is only 15%; 5c4e/5c6e/6c6e 2c1e all around 15%', 'correct',
       ', '.join(f'{nm} 21 {p6(m & arm(2, 1)):.3f}' for nm, m in [('5c4e', m54), ('5c6e', m56), ('6c6e', m66)]))
-claim('T9348-5c4e', 'T9348 rodneykinney', '5c4e with 2 pairs has 40% chance of sub-8', 'not reproduced: any optimal DR gives 57% (Rodney may count findable solutions only)', f"DR <= 7: {float((d[m54 & (F['pairs'] == 2)] <= 7).mean()):.3f} EO-kept, {float((DA[m54 & (F['pairs'] == 2)] <= 7).mean()):.3f} any turns")
+claim('T9348-5c4e', 'T9348 rodneykinney', '5c4e with 2 pairs has 40% chance of sub-8', 'not reproduced: any optimal DR gives 57% (rodneykinney may count findable solutions only)', f"DR <= 7: {float((d[m54 & (F['pairs'] == 2)] <= 7).mean()):.3f} EO-kept, {float((DA[m54 & (F['pairs'] == 2)] <= 7).mean()):.3f} any turns")
 mm = m78 & (F['drm_c'] == 7)
 nb_in = (F['drm_c'] - F['carm']); ok = (F['side'][m78] == nb_in[m78]).all()
 claim('T9450-7c8e-side', 'T9450 rodneykinney', '7c8e: every bad in-ARM corner forms a side pair', 'correct' if ok else 'wrong', f"side pairs = bad corners not out of AR on {int((F['side'][m78] == nb_in[m78]).sum())} of {int(m78.sum())} 7c8e states")
@@ -194,7 +205,19 @@ claim('T4202-swap', 'T4202 Cale / D7896 wen', 'the ARM of one DR axis on normal 
 claim('doc320-rlcount', 'doc 320 rodneykinney', 'R/L stickers on the U/D faces = corners out of AR on inverse', 'correct (every sampled cube)', 'see checks_niss.tsv')
 claim('doc320-flow', 'doc 320 rodneykinney (flow chart); EO-DR-618 asks for a proof', 'NISS flow chart for the corner case on inverse', 'correct on every sampled 4c4e cube (a check by sampling, not a proof)', 'see checks_niss.tsv')
 claim('doc384-trace', 'doc 384 (wen), D12044-D12080 cuber, doc 69 rodneykinney', 'pair tracing: bad edge in E + misoriented corner whose E-side stickers show its colours = a pair on inverse', 'correct (every sampled cube)', 'see checks_niss.tsv')
-claim('doc69-3p', 'doc 69 rodneykinney', 'for DR <= 6 look for an inverse with at least three pairs; otherwise save the NISS', 'too strict: 3+ pairs is 80% sub-7 but holds only 15% of the sub-7 states', f"3+ pairs: share {float((F['pairs'][m44] >= 3).mean()):.3f}, sub-7 {p6(m44 & (F['pairs'] >= 3)):.3f}, recall {float(((F['pairs'] >= 3) & (d <= 6))[m44].sum() / (d[m44] <= 6).sum()):.3f}")
+any3 = (F['pairs'] + F['side']) >= 3
+claim('doc69-3p', 'doc 69 rodneykinney', 'for DR <= 6 look for an inverse with at least three pairs (top and side pairs together: the lazy estimate 12 - 2pt - 2ps is then 6 or less); otherwise save the NISS', 'depends on the cut: 3+ top and side pairs is 39% sub-7 and holds 64% of the sub-7 states',
+      f"3+ top and side pairs: share {float(any3[m44].mean()):.3f}, sub-7 {p6(m44 & any3):.3f}, recall {float((any3 & (d <= 6))[m44].sum() / (d[m44] <= 6).sum()):.3f}; 3+ top pairs alone: share {float((F['pairs'][m44] >= 3).mean()):.3f}, sub-7 {p6(m44 & (F['pairs'] >= 3)):.3f}, recall {float(((F['pairs'] >= 3) & (d <= 6))[m44].sum() / (d[m44] <= 6).sum()):.3f}")
+# caycala D13393: the 3-pair group left out, on its own
+g3 = m44 & (F['pairs'] == 3) & (F['corners_one_layer'] == 1); g4 = m44 & (F['pairs'] == 4) & (F['corners_one_layer'] == 1)
+claim('D13393-3p', 'D13393 caycala', '4c4e: the only 3+ pairs case not worth switching is 3 pairs with all white or all yellow corners (all four bad corners in one layer)', 'depends on the cut: a third of the group is sub-7 and none of it under 6 moves, against about four in five for 3 pairs',
+      f"3 pairs, all bad corners in one layer: {frac(g3):.3f} ({int(g3.sum())} states, shortest {int(d[g3].min())}); all 3 pairs {frac(m44 & (F['pairs'] == 3)):.3f}; 4 pairs, all bad corners in one layer: {int(g4.sum())} states, longest {int(d[g4].max())}", example(pick(g3, d == d[g3].min())))
+cells('D13393-3p', p=frac(g3), n=int(g3.sum()), min=int(d[g3].min()), p3=frac(m44 & (F['pairs'] == 3)), n4=int(g4.sum()), max4=int(d[g4].max()))
+# Yura Riabov D16930: 8c8e with JZP on the other axis (ARM 00 after the switch) is R L
+j88 = m88 & (F['jzp'] == 1)
+claim('D16930-8c8e-jzp', 'D16930 Yura Riabov (T3767 Jay: the R L U D premove technique)', '8c8e with JZP on the other axis is guaranteed to be R L to DR after the switch', 'correct' if (d[j88] == 2).all() and j88[fx.state_solved_by('R L')] else 'wrong',
+      f'{int(j88.sum())} 8c8e case with ARM 00 after the switch, DR in {int(d[j88].max())}', example(fx.state_solved_by('R L'), 'state solved by R L'))
+cells('D16930-8c8e-jzp', n=int(j88.sum()), d=int(d[j88].max()))
 jt = fx.state_solved_by("F2 U' F2 R")
 claim('T3210-lazy', 'T3210 JTuu on doc 69', "Rodney's lazy estimate 12 - 2pt - 2ps gives 7 for F2 U' F2 R", 'correct', f"state solved by F2 U' F2 R: {fx.describe(F, jt)}; estimate {12 - 2 * int(F['pairs'][jt]) - 2 * int(F['side'][jt])}", example(jt, "state solved by F2 U' F2 R"))
 r = {k: p6(m88 & arm(4, 2) & (F['arm_corner_case'] == 'abcd'.index(k))) for k in 'ab'}

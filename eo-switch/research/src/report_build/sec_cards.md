@@ -56,7 +56,7 @@ The card's switch group is smaller and better. The new part is the middle: you k
 
 ### 6.2 4c2e
 
-**Pairs + side pairs/2: 1.5 or more, switch; exactly 1, your call; 0 or 0.5, discard.** This is rodneykinney's rule ([[T9466]], [[T9468]]), and it switches exactly the same cases as Jay's ([[T8144]]) and tseitsei89's ([[T9321]]). The card adds the discard end ({= pc(RG('4c2e', 'discard', 'share')) =} of 4c2e at {= pc(RG('4c2e', 'discard')) =}) and a way to read side pairs from normal (section 7). One row per count of pairs and side pairs:
+**Pairs + side pairs/2: 1.5 or more, switch; exactly 1, your call; 0 or 0.5, discard.** Jay ([[T8144]]), tseitsei89 ([[T9321]]) and rodneykinney ([[T9466]], [[T9468]]) all arrive at this rule: the three versions switch exactly the same cases. The card adds the discard end ({= pc(RG('4c2e', 'discard', 'share')) =} of 4c2e at {= pc(RG('4c2e', 'discard')) =}) and a way to read side pairs from normal (section 7). One row per count of pairs and side pairs:
 
 {{c42_cells}}
 
@@ -88,15 +88,15 @@ ARM on top of pairs adds little: the full pairs × ARM table settles {= pc(STRIC
 
 {{c88_carm}}
 
-Pairs don't help much for 8c8e: the best common pair count, 6, is {= CELL('c88_pairs', '6 pairs', 'Sub-7 rate, exact') =} (appendix A). The best 1-3 feature rule needs {= E['c88_65']['cells'] =} cells (edge ARM × pairs × the orbit case of the out-of-AR corners) to settle {= pc(E['c88_65']['strict_sep_P1']) =}, which is **computer only**. The *correct 8c* check (R L gives JZP, Jay [[T3767]], Yura Riabov [[D16930]]) is always sub-7, but it covers {= pc(GR('88-correct', 'share_switched')) =} of 8c8e.
+Pairs don't help much for 8c8e: the best common pair count, 6, is {= CELL('c88_pairs', '6 pairs', 'Sub-7 rate, exact') =} (appendix A). The best 1-3 feature rule needs {= E['c88_65']['cells'] =} cells (edge ARM × pairs × the orbit case of the out-of-AR corners) to settle {= pc(E['c88_65']['strict_sep_P1']) =}, which is **computer only**. The best rule on the server is rodneykinney's decision tree: 3 fake pairs or fewer with edge ARM not 2 is {= pc(GR('88-tree', 'precision')) =} on {= pc(GR('88-tree', 'share_switched')) =} of 8c8e (section 9), your call by the bands here. And 8c8e with JZP on the other axis is `R L` after the switch (Yura Riabov, [[D16930]]), but that is {= CX('D16930-8c8e-jzp', 'n') =} case of 8c8e.
 
 ### 6.6 The low DRMs: 4c6e, 3c4e, 3c6e, 5c4e, 5c6e, 6c6e
 
 **Discard**, with these exceptions worth knowing:
 
-- **4c6e JZP: switch** ({= pc(RG('4c6e', 'switch')) =}, {= pc(RG('4c6e', 'switch', 'share')) =} of 4c6e), as Yura Riabov said: "You shouldn't switch 6e4c unless it's jzp" ([[D6915]]). 4c6e with 4 pairs is {= pc(RG('4c6e', 'check')) =} (Radek B's "Like only if there are 4 pairs (or if it's jzp)", [[D7471]]).
+- **4c6e JZP: switch** ({= pc(RG('4c6e', 'switch')) =}, {= pc(RG('4c6e', 'switch', 'share')) =} of 4c6e), as Yura Riabov said: "You shouldn't switch 6e4c unless it's jzp" ([[D6915]]). 4c6e with 4 pairs is {= pc(RG('4c6e', 'check')) =} (Radek B: "If the numbers are correct, then it seems to me like tracing pairs is a really good way of deciding whether to switch for 4c6e. Like only if there are 4 pairs (or if it's jzp)", [[D7471]]).
 - **3c4e with 2 pairs** ({= pc(RG('3c4e', 'check')) =}, {= pc(RG('3c4e', 'check', 'share')) =} of 3c4e), **5c4e with 3 pairs** ({= pc(RG('5c4e', 'check')) =}), **5c6e with 4 pairs** ({= pc(RG('5c6e', 'check')) =}), **6c6e with JZP or 5-6 pairs** ({= pc(RG('6c6e', 'check')) =}): your call, all rare.
-- **3c6e**: no pair count is above {= pc(E['pairs_max']['3c6e']) =}; Fanti's 3 pairs with ARM 00 or 2 pairs with ARM 21 ([[D15179]]) is {= pc(GR('36-fanti', 'precision')) =} on {= pc(GR('36-fanti', 'share_switched')) =} of 3c6e, and ARM 21 alone (Jay, [[D6982]]) {= pc(GR('36-jay', 'precision')) =}.
+- **3c6e**: no pair count is above {= pc(E['pairs_max']['3c6e']) =}; Fanti's aside, "36 is kind of crap where only 3p AR + 2p 21 are worth" ([[D15179]]), is {= pc(GR('36-fanti', 'precision')) =} on {= pc(GR('36-fanti', 'share_switched')) =} of 3c6e, and ARM 21 alone (Jay: "It could be worth it mathematically if it's AR-2C1E (only subset where +4 to DR is possible), otherwise it's maybe too risky", [[D6982]]) is {= pc(GR('36-jay', 'precision')) =}.
 
 By pairs, one row per DRM and pair count (JZP as its own row):
 

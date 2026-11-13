@@ -55,6 +55,7 @@ def RG(drm, g, k='p6'): return RULE(drm, 'groups', g, k)
 def RCELL(drm, i, k='p6'): return RULE(drm, 'cells', i, 2, k)
 def STRICT(drm, k): return E['strict'][drm][k]
 def GR(i, k): return E['grade'][i][k]
+PAIRRULES = ['44-2pairs', '44-rodney-case', '44-rodney-case+0p', '44-tetrad', '44-complex', '44-tseitsei', '44-jay', '44-wen', '44-armthenpairs', '44-caycala-5', '44-caycala-5-strict']   # the 4c4e rules built on 2+ pairs
 def POP(drm, i): return E['pop'][drm][i]
 def OPT(drm, i): return E['opt'][drm][i]
 def VAR(drm, col): return E['var'][drm][col]
@@ -67,6 +68,7 @@ def EV(i, before, after=None):
     """a piece of a claims.tsv numbers string: the text after `before` up to `after` (default: the next space)"""
     s = E['claims'][i]['numbers'].split(before, 1)[1]
     return s.split(after if after else ' ', 1)[0].rstrip('.,;')
+def SH(src, k): return E['sheets'][src][k]          # out/sheet_notes.json (reproduce.py)
 def WC(i, k): return W['claims'][i][k]
 def WA(cell, j, k):
     a = [x for x in W['attempts'] if x['cell'] == cell][j]

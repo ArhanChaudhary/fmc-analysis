@@ -1,8 +1,14 @@
 ## 4. Two rings: count the half turns (4c4e)
 
-A U or D turn never makes or breaks a pair. So when you size up a setup, don't count them: let both layers turn freely and ask how many turns of the side faces the DR needs. For 4c4e the finish is one R or L quarter turn and everything before it is half turns, so the question is *how many half turns to two bars*. That count sorts 4c4e far better than pairs, ARM or the corner case, and its two ends are near 100% and near 0%.
+A U or D turn never makes or breaks a pair. So when you size up a setup, don't count them: let both layers turn freely and ask how many turns of the side faces the DR needs. For 4c4e the finish is one R or L quarter turn and everything before it is half turns, so the question is *how many half turns to two bars*. Counted exactly, that sorts 4c4e far better than pairs, ARM or the corner case, and its two ends are near 100% and near 0%.
 
-The target is rodneykinney's. *DR - 4c4e Theory* says "The final trigger must have two full “bars” formed with the bad corners and edges.", calls each side half turn "an opportunity to form a pair for free", and notes that "An additional 0-2 moves may be needed to solve the E slice." That doc builds a minimum move count from it (corner moves, a pairs penalty, a slice penalty). Here I count the half turns themselves, exactly, with U and D turns free, and measure what the count is worth.
+Three things in that paragraph were already on the server, and the count stands on them:
+
+- **U/D turns and top pairs.** rodneykinney's *Domino Setup Theory* (dated April 2022, first linked [[D2848]]): "no single move can form both a top and a side pair; side pairs are formed only by U/D moves and top pairs are formed only by R/L/F/B moves". Its estimate of the moves to DR counts the two kinds of move apart: "Let dt be the number of moves needed to form a top double pair, and ds be the number of moves needed to form a side double pair. It turns out that 2 + dt + ds is an accurate estimate of the moves needed to reach DR".
+- **The two bars.** The video [*How to do Domino Reductions: The Secret They Don't Want You To Know*](https://www.youtube.com/watch?v=oAbPQOfui2U) (FewestMoves, 6 Feb 2019; linked by Andrew, [[D212]]) says, in its auto-captions as they stand, "you're also going to need two bars what I call this structure a bar", and then "so what you need for domino reduction is a book is a bar another bar on the bottom and then your two edges in the right places". rodneykinney's *DR - 4c4e Theory* (dated May 2025; linked [[T9254]]): "The final trigger must have two full “bars” formed with the bad corners and edges."
+- **Half turns form the pairs, and a count of them.** The same doc: "Between each quarter turn is at least one side half turn (R2/L2/F2/B2), which is an opportunity to form a pair for free. The “pairs” penalty is 4, minus the number of existing pairs, minus the number of side half turns in the optimal corner solution. This accounts for the need to insert a slice or corner swap to form the needed pairs." The quarter turns there are the U/D quarter turns of the corner solution, and the doc adds that "An additional 0-2 moves may be needed to solve the E slice."
+
+What differs here: the doc's penalty books one pair per half turn along one corner solution, for an estimate of the minimum. I count the fewest half turns over every route, with U and D turns free. One swap can make two pairs (section 4.4), so the two counts are not the same number, and I measure what the exact one is worth.
 
 ### 4.1 The picture
 
@@ -156,7 +162,7 @@ So for a 2, about two in three line up, and once you have found the two swaps yo
 
 ### 4.6 The DRs that don't finish with one quarter turn
 
-{= pcx(1 - RJ['qopt']['1'] / RJ['all44']['hits']) =} of 4c4e's sub-7 cases have no optimal DR with a single quarter turn. Each row is the fewest quarter turns in an optimal DR:
+{= pcx(1 - RJ['qopt']['1'] / RJ['all44']['hits']) =} of 4c4e's sub-7 cases have no optimal DR with a single quarter turn. rodneykinney had this split from one stored optimal solution per case ("I've been wondering how often an optimal DR setup changes the XcXe case and/or breaks DR.", [[T8167]]; FakeMMAP's reading the same day: "Percentage of 4c4e cases having one sub-7 optimal solution that ends in one of the standard XcXe triggers (row), such that 4c4e->XcXe has one (non-DR-breaking) or more than one (DR-breaking) R/L moves.", [[T8172]]), and *DRM Subsets* has it for the findable sub-7s of 4c4e with 2 or more pairs: Trigger 81%, AR 9%, 4c4e 8%. Over every optimal DR of every sub-7 case, the single quarter turn is {= pcx(RJ['qopt']['1'] / RJ['all44']['hits']) =}. Each row is the fewest quarter turns in an optimal DR:
 
 {{ring44_routes}}
 

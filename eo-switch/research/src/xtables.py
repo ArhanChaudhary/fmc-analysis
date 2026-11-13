@@ -186,19 +186,18 @@ WHO = {
  '44-caycala-5-strict': ("caycala's RZP-in-5 chart without the bracketed (10), (11), (20), (31)", 'caycala (chart) [[D11016]]'),
  '44-caycala-6': ('RZP in 6: 3-4 pairs, or 0 pairs with 42', 'caycala (chart) [[D11016]]'),
  '44-2pairs': ('2+ pairs', 'Jay [[T610]], rodneykinney [[T3225]], tseitsei89 [[D14265]] [[T9325]]'),
- '44-3pairs': ('3+ pairs', 'rodneykinney, *Domino Setup Theory*'),
- '44-3anypairs': ('3+ pairs counting side pairs', 'rodneykinney\'s older advice, as Jay put it [[T610]]'),
+ '44-3pairs': ('3+ pairs (top pairs)', "the always-switch tier of rodneykinney's and caycala's rules [[T8108]] [[D11016]]"),
+ '44-3anypairs': ('3+ pairs, top and side pairs together', 'rodneykinney, *Domino Setup Theory* (as Jay put it, [[T610]])'),
  '44-rodney-case': ('3-4 pairs; 2 pairs unless 4b-0; 1 pair if 4d-2', 'rodneykinney [[T8108]]'),
  '44-rodney-case+0p': ('3-4 pairs; 2 pairs unless 4b-0; 1 pair if 4d-2; 0 pairs if 4a-0 or 4d-2 with no fake pairs', 'rodneykinney [[T8108]] [[T8123]]'),
  '44-tetrad': ('4d needs 1+ pair, 4b-0 3+, everything else 2+', 'rodneykinney [[D12095]]'),
  '44-complex': ('3+ pairs; 2 pairs unless 4b; 1 pair only if 4d', 'compLex [[D13425]]'),
  '44-tseitsei': ('2+ pairs, or 1 pair and 4d', 'tseitsei89 [[T9321]]'),
- '44-subsets': ('per corner case: 4a-0 2+p, 4a-2 1+p, 4a-4 edge ARM 2, 4b-0 3+p, 4b-2 2+p and edge ARM 1, 4c 2+p, 4d 1+p and edge ARM 1', 'rodneykinney, *DRM Subsets*'),
  '44-jay': ('2+ pairs; fewer only if JZP or anti-JZP, or 1 pair and 4d', 'Jay [[D12085]]'),
- '44-wen': ('2+ pairs; 1 pair if 4d or one U/D turn from 4d; 0 pairs if anti-AR', 'wen [[D14326]] [[D14347]]'),
+ '44-wen': ('2+ pairs; 1 pair if 4d or one U/D turn from 4d; 0 pairs if anti-AR or the `D F2 B2 R` case', 'wen [[D14328]] [[D14333]]'),
  '44-fanti': ('2+ pairs; 1 pair with ARM 21; 0 pairs with JZP or ARM 42', 'Fanti, *armpairs_1.txt* [[D15160]]'),
  '44-daichi-4': ('RZP in 4 (DR in 7): 2-4 pairs; 1 pair except 20d, 22d; 0 pairs except 02, 30, 40, 01b, 41b, 20d, 2c with all corners on U', 'Daichi [[D18953]]'),
- '44-caycala-3p': ('3+ pairs unless all bad corners on one layer', 'caycala [[D13393]]'),
+ '44-caycala-3p': ('3+ pairs, but not 3 pairs with all bad corners on one layer', 'caycala [[D13393]]'),
  '44-always-4': ('RZP in 4 (DR in 7): always', 'Zagros [[D18940]]'),
  '42-noah': ('ARM 00, 10, 31', 'Noah Swor [[D7838]], Lewis Isom [[D7116]]'),
  '42-yura': ('ARM 00, 10, 31, 20, 21, 41', 'Noah Swor, Yura Riabov [[D7838]] [[D7840]] [[D7842]]'),
@@ -212,8 +211,8 @@ WHO = {
  '78-lewis': ('ARM 10, 21, 11, 63', 'Lewis Isom [[D7116]]'),
  '78-rodney': ('5 or 6 pairs', 'rodneykinney [[T8142]]'),
  '78-tseitsei-a': ('5 pairs; 4 pairs with edge ARM under 2', 'tseitsei89 [[T9314]]'),
- '78-tseitsei-b': ('4+ pairs, then edge ARM under 2, or edge ARM 1 or 3 and corner ARM over 3', 'tseitsei89 [[T9282]]'),
- '78-image': ('5-6 pairs; 4 pairs with ARM 21, 31, 43; 3 pairs with 21', 'chart attached to Brayan'"'"'s question [[D13502]]'),
+ '78-tseitsei-b': ('4+ pairs, then edge ARM under 2, or edge ARM 3 and corner ARM over 3', 'tseitsei89, a first sketch [[T9282]]'),
+ '78-caycala': ('never edge ARM 4 or 0, except 1c0e; then 5-6 pairs; 4 pairs with ARM 21, 31, 43; 3 pairs with 21', 'caycala (chart) [[D11016]] [[D13502]]'),
  '78-fanti': ('5+ pairs; 4 pairs with ARM 21, 31, 43; 3 pairs with 21', 'Fanti, *armpairs_1.txt* [[D15160]]'),
  '78-tseitsei-c': ('drop the 0% ARMs, then 5+ pairs, or 4 pairs with edge ARM under 2', 'tseitsei89 [[T9321]]'),
  '32-always': ('always', 'rodneykinney [[T9294]], tseitsei89 [[T9321]] [[D7286]]'),
@@ -222,18 +221,13 @@ WHO = {
  '46-jzp': ('only JZP', 'Yura Riabov [[D6915]], *Hitchhiker\'s Guide to DR*'),
  '46-radek': ('4 pairs or JZP', 'Radek B [[D7471]] [[D7472]]'),
  '46-tseitsei': ('JZP with b corners', 'tseitsei89 [[T9321]]'),
- '46-rodney': ('3+ pairs and corner ARM under 4', 'rodneykinney, *DRM Subsets*'),
  '88-lewis': ('ARM 00, 84, 01, 31, 63', 'Lewis Isom [[D7116]]'),
- '88-tseitsei': ('3+ fake pairs and edge ARM not 2', 'tseitsei89 [[T9568]] [[T9572]]'),
- '88-correct': ('R L (one R/L quarter-turn pair) gives JZP', 'Jay [[T3767]], Yura Riabov [[D16930]]'),
- '34-rodney': ('2+ pairs', 'rodneykinney [[T8312]], *DRM Subsets*'),
+ '88-tree': ('3 or fewer fake pairs and edge ARM not 2', "rodneykinney's decision tree [[T9558]] [[T9560]], as tseitsei89 read it out [[T9568]]"),
+ '88-tree-6p': ('3 or fewer fake pairs, and edge ARM not 2 or 6+ pairs', 'the same tree with its 6-pair branch [[T9569]]'),
+ '34-rodney': ('2+ pairs', 'rodneykinney, *DRM Subsets Meta* (NISS: Sometimes)'),
  '34-fanti': ('2 pairs; 1 pair with ARM 00 or 21', 'Fanti [[D15179]]'),
  '36-jay': ('ARM 21 only', 'Jay [[D6982]]'),
  '36-fanti': ('3 pairs with ARM 00, or 2 pairs with ARM 21', 'Fanti [[D15179]]'),
- '54-doc319': ('3+ pairs', 'rodneykinney, *DRM Subsets Meta*'),
- '54-subset': ('2+ pairs and 2+ side pairs', 'rodneykinney, *DRM Subsets*'),
- '56-doc319': ('4+ pairs', 'rodneykinney, *DRM Subsets Meta*'),
- '66-doc319': ('3+ pairs', 'rodneykinney, *DRM Subsets Meta*'),
  '22-doc319': ('1+ pairs', 'rodneykinney, *DRM Subsets Meta*'),
 }
 BOTH = {'4c4e': 'both bad edges paired, or one paired with edge ARM 1', '4c2e': 'pairs + side pairs/2 is 1 or more', '7c8e': '4 or more pairs',
@@ -263,6 +257,26 @@ for drm in order:
         E['grade'][i] = {k: float(a[k]) for k in ('share_switched', 'precision', 'recall', 'target_states_discarded')}
         E['grade'][i]['p3'] = float(b['precision'])
 write('grades', ['DRM', 'Switch when', 'Who', 'Switches (share of the DRM)', 'Sub-7 among switched', "Sub-7 states switched (share of the DRM's sub-7s)", 'Sub-7 states discarded (share of the DRM)', 'Real attempts: sub-7 among switched'], rows)
+
+# rows of the grades table that are a habit, a first sketch or a tentative remark: how their author put it
+NOTES = [
+ ('4c4e: anything but ARM 01, 02, 12', 'wen', '"Things like 0c1e or 0c2e" ([[D7282]]), "1c2e as well" ([[D7283]]): examples of what to reject, with no DRM named; the cut is "I guess sub-10% of 6 move to dr is my cut" ([[D7284]])'),
+ ('the four ARM lists (4c4e, 4c2e, 7c8e, 8c8e)', 'Lewis Isom', 'for an RZP in 5, "the list of good ARM I\'ve memorized", and "this is probably due to me just being slow in general (so surely better people would be able to NISS for more)" ([[D7116]])'),
+ ('the chart (4c4e and 7c8e)', 'caycala', '"This is what I came up with based on the stats and seems to be working okay for me for now" ([[D11016]]). The chart\'s 7c8e part opens with “NEVER SWITCH 4 OR 0 except 0,1”, read here as edge ARM 4 or 0, except ARM 10 (1c0e)'),
+ ('4c4e: 3+ pairs, but not 3 pairs with all bad corners on one layer', 'caycala', 'an exception inside 3+ pairs, not a rule of its own: "the only 3+ pairs case i wouldn’t switch for is 3 pairs with all white or all yellow corners" ([[D13393]])'),
+ ('4c4e: 2+ pairs', 'Jay', '"I\'ll probably start incorporating NISS prediction with a focus on throwing away anything with less than 2 top pairs while ignoring side pairs" ([[T610]])'),
+ ('the working list of 25 Aug 2025 (4c4e, 4c2e, 7c8e, 3c2e, 4c6e)', 'tseitsei89', '"so for now it looks something like this for me:" ([[T9321]]); ninety minutes later the 1-pair clause is out again, "So just simply if >1 pair = switch, else discard" ([[T9325]])'),
+ ('4c4e: RZP in 4: always', 'Zagros', '"It seems like you should pretty much always switch a 4 move DR-4c4e. Have you guys been doing this?" ([[D18940]])'),
+ ('4c2e: 1 pair and 1 side pair, or 2 pairs', 'Jay', '"My current approach for 4C2E is something like 1 top pair+1 side pair, and anything less is probably not worth switching unless it\'s 2 U/D pairs but lacking any side pair" ([[T8144]])'),
+ ('4c2e: "1.5+ pairs"', 'rodneykinney', 'a new name offered for the side-pair rule ("Still worth switching by the “2 side pairs = 1 pair” rule", [[T9466]]): "Maybe should change that rule to “1.5+ pairs”" ([[T9468]])'),
+ ('3c2e: a pair, a fake pair or a split pair', 'wen', 'a proposal: "I wonder if this would make a good enough alternative to fully niss tracing 3c2e" ([[D16512]])'),
+ ('7c8e: 4+ pairs, then edge ARM under 2, or edge ARM 3 and corner ARM over 3', 'tseitsei89', 'a first sketch, "Sonmaybe something like:" ([[T9282]]), after "Just tried to make it more concrete. Mainly for myself" ([[T9281]]); the next day it became 5 pairs, or 4 pairs with edge ARM under 2 ([[T9314]])'),
+ ('4c6e: 4 pairs or JZP', 'Radek B', '"If the numbers are correct, then it seems to me like tracing pairs is a really good way of deciding whether to switch for 4c6e. Like only if there are 4 pairs (or if it\'s jzp)" ([[D7471]])'),
+ ('3c4e: 2 pairs; 1 pair with ARM 00 or 21', 'Fanti', '"this is my rough sketch of 34 (maybe not final)" ([[D15179]])'),
+ ('3c6e: 3 pairs with ARM 00, or 2 pairs with ARM 21', 'Fanti', 'an aside in the same message: "36 is kind of crap where only 3p AR + 2p 21 are worth" ([[D15179]])'),
+ ('3c6e: ARM 21 only', 'Jay', '"It could be worth it mathematically if it\'s AR-2C1E (only subset where +4 to DR is possible), otherwise it\'s maybe too risky" ([[D6982]])'),
+]
+write('grades_notes', ['Row of the table below', 'Who', 'How they put it'], [list(r) for r in NOTES])
 
 # ------------------------------------------------------------------------------------------------------------------
 # populations: the RZP bias and the switch
@@ -358,6 +372,7 @@ for r in rp:
 rows = [[SRCN[k], n_(v[0]), n_(v[1])] for k, v in by.items()]
 write('reproduce', ['Source', 'Numbers compared', 'Reproduced'], rows)
 E['repro_by'] = {k: v for k, v in by.items()}
+E['sheets'] = json.load(open(OUT + 'sheet_notes.json'))            # what section 12 says about Evan's sampled tab (reproduce.py)
 E['mismatch'] = [{k: r[k] for k in ('source', 'quantity', 'published', 'ours', 'verdict')} for r in rp if not r['verdict'].startswith(('match', 'within'))]
 # claims
 E['claims'] = {r['id']: r for r in T('claims.tsv')}
