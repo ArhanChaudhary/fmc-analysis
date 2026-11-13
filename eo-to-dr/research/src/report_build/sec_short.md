@@ -48,7 +48,7 @@ So the 25 win for a DR in 10 and the 200 for a DR in 11: a 5-move EO gives about
 - **The other DR axis of the same EO is worth more than switching the EO's last turn**: exact, at most 6 on {= CT('two', 'p_le6') =} against {= CT('switch', 'p_le6') =} ✓, and about as much as checking the inverse ({= CT('ni', 'p_le6') =}). DanielEgdal set out to compute the two-axis numbers in 2023 and thought it "pretty much infeasible with any current idea I have" ([[T3329]]). FakeMMAP showed the state space is about $5\cdot 10^9$ ([[T3340]]), and DanielEgdal ran it until it stalled at $3\cdot 10^8$ ([[T3347]]). They're exact here (5.1).
 - **Normal and inverse after an EO are related almost only through the case.** The DR lengths on the two sides correlate {= NI('all', 'correlation') =} over all states, and at most {= NIRANGE()[1] =} within a case. Once you know the case, the inverse is nearly a fresh draw (5.2).
 
-**EO counts per scramble** (all three axes, counted the way nissy's `-a` lists them; nissy's default listing, the way counts are quoted on the server, keeps about two fifths of them; 4.1). Each row is the kind of EO counted; the last two columns are the share of scrambles with none that short:
+**EO counts per scramble** (all three axes, counted the way nissy's `-a` lists them; nissy's default listing, the way counts are quoted on the server, keeps about half of the normal ones and two fifths of them with NISS; 4.1). Each row is the kind of EO counted; the last two columns are the share of scrambles with none that short:
 
 | EOs counted | EOs of ≤ 4, mean | EOs of ≤ 4, median | Scrambles with no EO of ≤ 4 | Scrambles with no EO of ≤ 5 |
 |---|---|---|---|---|
