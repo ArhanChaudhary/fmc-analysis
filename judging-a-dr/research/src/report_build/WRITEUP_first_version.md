@@ -415,7 +415,7 @@ That's 19,508,428,800 in total, where an entry counts $16/s$ times, $s$ being th
 
 The one step that is *not* formalised is that this weighting counts states: that an entry stands for exactly that many of them. It's the standard orbit count, but here it's a paper argument, not a Lean theorem. So "1,352 states at 18" is proven up to that step, and "some state needs 18, none needs more" is proven outright.
 
-**What's proven.** `R.Checked` for all seven levels, so all seven bounds, both sides. Plus the HT-only version of NISS@DR, that it equals FakeMMAP's 216 values, that exactly 2 of them get shorter with qts, the counterexample to Levi's formula, and the exact optimal of every DR state with its maximum of 18.
+**What's proven.** `R.Checked` for all seven levels, so all seven bounds, both sides. Plus the HT-only version of NISS@DR, that it equals FakeMMAP's 216 values, that exactly 2 of them get shorter with qts, a 4a1 4e where a 3qt finish beats Levi's formula, and the exact optimal of every DR state with its maximum of 18.
 
 **The examples on this page.** The DR states this write-up prints with an optimal finish or an HTR length are in a list Lean reads back from the page. It has 198 stated optimals, of 167 different states: the typical DR of every corner case (section 4.3 and Appendix E), both columns of Appendix G, the setup + HTR examples of section 5, and the ones in the text. (Not in it: the sequences of Appendix C, which are any-move values, and the corner setups of Appendix E.) Proven for that list:
 

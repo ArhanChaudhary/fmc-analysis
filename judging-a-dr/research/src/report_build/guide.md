@@ -46,7 +46,7 @@ On real scrambles the price is smaller still, because the short DRs carry most o
 
 The tally is at the end of the examples page. Every DR there is finished optimally, so that table is **computer only**, the answer key for what the list costs; the list itself needs no solving.
 
-If you have the HTR lengths, do the 4c3 line as "9+ on both sides, toss" instead: it drops about as many and loses {= LOSS('4c3', lambda e, a, b, tp, lo, hi: lo >= 9) =} of the 4c3 finishes in 11 instead of {= LOSS('4c3', 'list') =}.
+If you have the HTR lengths, do the 4c3 line as Zagros's rule (9+ on both sides, throw it away) instead: it drops about as many and loses {= LOSS('4c3', lambda e, a, b, tp, lo, hi: lo >= 9) =} of the 4c3 finishes in 11 instead of {= LOSS('4c3', 'list') =}.
 
 Subset by subset. Each one has a table of how it finishes by bad edges, then what to read and when to drop it.
 
@@ -74,7 +74,7 @@ Subset by subset. Each one has a table of how it finishes by bad edges, then wha
   - 6e, 7 or 8: {= HX('0c0',7,6) =} and {= HX('0c0',8,6) =}.
 - **Corners**: one case only, nothing to read.
 - **Parity**: L is 0–5, and the wrong E-parity costs +2 or more for three corner states in four, so check it before trusting a short corner solution.
-- For 6e and 8e, go for the setup to a quarter turn first (Rodney's examples in [Rodney, 23 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1563054901871902741)).
+- For 6e and 8e, go for the setup to a quarter turn first (Rodney's 6e example in [Rodney, 23 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1563054901871902741)).
 
 **When to drop it, and what not to conclude:**
 
@@ -250,7 +250,7 @@ So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
 
 **When to drop it, and what not to conclude:**
 
-- **Needing a 10 or an 11**: Zagros's rule (9+ on both sides, toss) is a fair trade here. It drops half of all 4c3 and keeps {= KEEP('4c3',lambda lo: lo<9,10) =} of the 10s and {= KEEP('4c3',lambda lo: lo<9,11) =} of the 11s. What it drops is {= T(q(cs='4c3',hmin=lambda x: x>=9)) =}. Also drop the 4a3 with L 9–11 and the worse 4-0. Worth keeping: a qt straight to 4b2 on the 4a3 side, four or more pairs ({= pct(q(cs='4c3',pairs=lambda n: n>=4),11) =} for an 11), or 8 or less on the shorter side.
+- **Needing a 10 or an 11**: Zagros's rule (9+ on both sides, throw it away) is a fair trade here. It drops half of all 4c3 and keeps {= KEEP('4c3',lambda lo: lo<9,10) =} of the 10s and {= KEEP('4c3',lambda lo: lo<9,11) =} of the 11s. What it drops is {= T(q(cs='4c3',hmin=lambda x: x>=9)) =}. Also drop the 4a3 with L 9–11 and the worse 4-0. Worth keeping: a qt straight to 4b2 on the 4a3 side, four or more pairs ({= pct(q(cs='4c3',pairs=lambda n: n>=4),11) =} for an 11), or 8 or less on the shorter side.
 - **Needing a 12**: 10 on both sides, or 9 and 10 with nothing else going for it. The rule keeps {= KEEP('4c3',lambda lo: lo<9,12) =} of the 12s, so there it costs a quarter of them.
 - **Don't conclude** that what the rule drops is dead: `U' L2 D' B2 U' B2 U L2 D` is 9 to HTR on both sides and finishes in 9.
 

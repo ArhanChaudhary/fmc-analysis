@@ -141,7 +141,7 @@ Both of those have a NISS HTR of 11. This 0c3 4e, also 13 on both sides, has non
 ✓ Lean for the 12 and for the two 11s, with one step argued by hand: a NISS HTR of 11 or less has five moves or fewer on one of its two sides, and Lean tries every such side.
 
 **B2. "Interesting how only five subsets can be 18 optimal, and one of them is 0c0 8e"** ([Zagros, 17 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1406635136526581810), six minutes after [Joba's per-subset counts](https://discord.com/channels/1007840975726575667/1007841335434285126/1406633631165714492)).
-A count slip: it's four of the 48, in Joba's file and in the full BFS, 1,352 states in total. 0c0 8e is one of them, as Zagros says. One subset per row:
+A count slip: it's four of the 48, in Joba's file and in the full BFS, 1,352 states in total. 0c0 8e is one of them, as Zagros says. Tomas Rokicki's list of the distance-18 positions, which zakimoshi had found and linked in 2023 ([zakimoshi, 4 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1148298741523161120)), has the same four subsets. One subset per row:
 
 | Subset | States |
 |---|---:|

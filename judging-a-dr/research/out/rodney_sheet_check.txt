@@ -1,12 +1,24 @@
-  sheet differs: ['F-D', 'F-V', 'R-H', 'R2 U2 R2 F2 R2 U2 R2', '6.0'] cs/fr 0.0 0.0 sheet 7.0 ours 6 alg HTM 7
-  sheet differs: ['F-V', 'F-D', 'R-H', "M R2 U2 M'", '4.0'] cs/fr 0.0 0.0 sheet 6.0 ours 5 alg HTM 6
-  sheet differs: ['H-H', 'F-D', 'R-D', 'R2 U2 R2 U2 F2 R2 F2 R2 F2', '9.0'] cs/fr 0.0 1.0 sheet 9.0 ours 8 alg HTM 9
-  sheet differs: ['H-H', 'F-D', 'R-V', 'F2 U2 R2 F2 U2 R2 F2 R2 F2', '9.0'] cs/fr 0.0 1.0 sheet 9.0 ours 8 alg HTM 9
-  sheet differs: ['H-H', 'F-V', 'R-D', 'R2 U2 F2 R2 U2 F2 R2 F2 R2', '9.0'] cs/fr 0.0 1.0 sheet 9.0 ours 8 alg HTM 9
-  sheet differs: ['R-D', 'F-H', 'R-V', 'F2 U2 F2 R2 F2 U2 F2', '6.0'] cs/fr 0.0 0.0 sheet 7.0 ours 6 alg HTM 7
-  165  length of listed alg (HTM) - our all-move optimum = +0
-   32  length of listed alg (HTM) - our all-move optimum = +1
-   19  length of listed alg (HTM) - our all-move optimum = +2
+  sheet differs: ['F-D', 'F-V', 'R-H', 'R2 U2 R2 F2 R2 U2 R2', '6.0'] cs/fr 0.0 0.0 sheet 7.0 ours 6 alg HTM 7 case of the alg 384445
+  sheet differs: ['F-V', 'F-D', 'R-H', "M R2 U2 M'", '4.0'] cs/fr 0.0 0.0 sheet 6.0 ours 5 alg HTM 5 case of the alg 2181257
+  sheet differs: ['H-H', 'F-D', 'R-D', 'R2 U2 R2 U2 F2 R2 F2 R2 F2', '9.0'] cs/fr 0.0 1.0 sheet 9.0 ours 8 alg HTM 9 case of the alg 201
+  sheet differs: ['H-H', 'F-D', 'R-V', 'F2 U2 R2 F2 U2 R2 F2 R2 F2', '9.0'] cs/fr 0.0 1.0 sheet 9.0 ours 8 alg HTM 9 case of the alg 197
+  sheet differs: ['H-H', 'F-V', 'R-D', 'R2 U2 F2 R2 U2 F2 R2 F2 R2', '9.0'] cs/fr 0.0 1.0 sheet 9.0 ours 8 alg HTM 9 case of the alg 179
+  sheet differs: ['R-D', 'F-H', 'R-V', 'F2 U2 F2 R2 F2 U2 F2', '6.0'] cs/fr 0.0 0.0 sheet 7.0 ours 6 alg HTM 7 case of the alg 2202523
+  211  length of listed alg (HTM, cancelled across slice moves) - our all-move optimum = +0
+    5  length of listed alg (HTM, cancelled across slice moves) - our all-move optimum = +1
+   36  length of listed alg - sheet penalty, corner case D-D: +3
+   36  length of listed alg - sheet penalty, corner case F-D: +1
+    1  length of listed alg - sheet penalty, corner case F-V: +1
+   35  length of listed alg - sheet penalty, corner case F-V: +2
+   36  length of listed alg - sheet penalty, corner case H-H: +0
+   36  length of listed alg - sheet penalty, corner case R-D: +1
+   36  length of listed alg - sheet penalty, corner case R-V: +2
   216  rows
-  210  sheet optimum - our all-move optimum = +0
-    6  sheet optimum - our all-move optimum = +1
+  210  sheet optimum - our all-move optimum (of the case the listed alg gives) = +0
+    6  sheet optimum - our all-move optimum (of the case the listed alg gives) = +1
+  M F2 U2 M' (F2 for R2 in the row labelled F-V / F-D / R-H): case 370605, all-move optimum 6, alg HTM 6
+(HTM here cancels across slice moves: `M R2 U2 M'` is 5, the R turn inside the M merging with the R2. The first
+ version of this script counted a slice as 2 turns without cancelling and wrote 6, and 51 rows with the alg longer
+ than the optimum; that output is superseded by this one. The row labelled F-V / F-D / R-H lists `M R2 U2 M'`, which
+ gives another case: its 'sheet differs' line compares the labelled case's 6 with the 5 of the case the alg gives,
+ and its alg-minus-penalty is the one F-V row at +1. With F2 for R2 (line above) the alg is 6.)

@@ -185,7 +185,7 @@ The same for R':
 
 One move longer and this DR would have been a toss on sight.
 
-**Truth.** 15 as written, 14 with R'. Levi's doc says "14-move optimal finish, giving a 24", and that's the R' one. With everything read, the two versions compare like this. Each row is a target; the last column says whether the odds picked the better version:
+**Truth.** 15 as written, 14 with R'. Levi's doc says "14-move optimal finish, giving a 24". The 14 is the R' one, and the 24 holds either way: as written, a finish that starts with R2 merges with the R. With everything read, the two versions compare like this. Each row is a target; the last column says whether the odds picked the better version:
 
 | Finish in, moves or less | Ending in R | Ending in R' | Pointed the right way? |
 |---|---:|---:|---|
@@ -303,7 +303,7 @@ Same subset as example 5, same number of bad pieces, roughly the same pairs. One
 
 **Without solving.** 4c3 4e, no pairs, those corners: 0.11% / 1.1% / 7.7% / 34%.
 
-**HTR.** 10 on normal, 9 on inverse. This is Zagros's "9+ on both sides, throw away". For 9 and 10: 0.02% / 0.51% / 5.6% / 34%.
+**HTR.** 10 on normal, 9 on inverse. This is Zagros's rule (9+ on both sides, throw it away). For 9 and 10: 0.02% / 0.51% / 5.6% / 34%.
 
 **Corner solution and parity.** L = 10 with an odd number of side turns, E-slice even, so 11. With L = 10 and +1: 0 / 1.3% / 3.6% / 32%.
 

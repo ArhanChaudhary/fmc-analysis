@@ -1,0 +1,6 @@
+138 positions in the list
+positions | subset | optimal finish | optimal leave slice
+        4 | 0c0 8e | 18 | 16
+       56 | 0c3 4e | 18 | 18
+       26 | 2c5 0e | 18 | 18
+       52 | 2c5 4e | 18 | 18
