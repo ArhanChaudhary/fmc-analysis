@@ -111,6 +111,8 @@ def main():
         for name, kind in KIND.items():
             if os.path.exists(os.path.join(site, study, name)):
                 index_page(site, f'{study}/{name}', kind, entries)
+    if os.path.exists(os.path.join(site, 'decision-cards.html')):
+        index_page(site, 'decision-cards.html', 'Decision cards', entries)
     tables = os.path.join(site, 'tables')
     if os.path.isdir(tables):
         for name in sorted(os.listdir(tables)):

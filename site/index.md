@@ -4,6 +4,10 @@
 
 Each study takes one question from Rubik's cube fewest-moves solving, answers it against exhaustive data, and says what a solver can do with the answer.
 
+## Decision cards
+
+[Six questions from the middle of an attempt](decision-cards.html), answered from the studies' data: should I add partial EOs to my list, should I stop looking for EOs, should I switch this EO, should I add random moves to this EO, should I keep checking variants of this route, should I NISS in the middle of this route. Each card gives the rule, what you check at the table and the numbers behind it.
+
 ## Reference tables
 
 Single tables that answer one question, too small for a study.

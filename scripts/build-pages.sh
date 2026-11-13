@@ -79,6 +79,14 @@ if compgen -G "tables/*.md" > /dev/null; then
     done
 fi
 
+# decision cards: one page of in-attempt questions answered from the studies' data (cards/decision-cards.md, written by
+# cards/src/build.py), linked from the front page
+if [ -f cards/decision-cards.md ]; then
+    render cards/decision-cards.md decision-cards.html ./
+    cp cards/decision-cards.md "$output/"
+    grep -q 'href="decision-cards.html"' "$output/index.html" || { echo "build-pages: site/index.md does not link to decision-cards.html" >&2; exit 1; }
+fi
+
 # search: a page with the box (site/search.md, site/search.js) and an index of every listed page, section by section
 # (scripts/search-index.py; unlisted studies stay out of it, so the index can't lead to them)
 render site/search.md search.html ./ --variable is-home --variable is-search
