@@ -112,7 +112,7 @@ Read it as a recipe:
 {{ring44_3pairs}}
 
 3. **2 pairs.** Look one swap ahead: you are at 2 if some swap leaves one of the 1-swap pictures below. {= pcx(RJ['ph']['2|le2']['n'] / RJ['ph']['2|all']['n']) =} of 2-pair cases are at 2 or less, and those are {= pcx(RJ['ph']['2|le2']['p6']) =} sub-7 against {= pcx(RJ['ph']['2|ge3']['p6']) =} for the rest. This is the look that pays.
-4. **0 or 1 pair.** Call it 3 or more and move on. You lose {= n(RU('p01le2', 'n')) =} cases that are really at 2 ({= pcx(RU('p01le2', 'n') / RU('p01', 'n')) =} of the 0- and 1-pair cases), one 0-pair picture and three 1-pair pictures in appendix A.
+4. **0 or 1 pair.** Call it 3 or more and move on. You lose {= n(RU('p01le2', 'n')) =} cases that are really at 2 ({= pcx(RU('p01le2', 'n') / RU('p01', 'n')) =} of the 0- and 1-pair cases), one 0-pair picture and three 1-pair pictures in appendix A. That's the limit of the hand reading: with 0 or 1 pair it doesn't separate a 3 from a 4 or 5, and {= pcx(RU('p01_h45', 'share')) =} of the 4s and 5s are here, so the near-zero row of the table in 4.3 can't be picked out without a search. With 0 or 1 pair, {= pcx(RU('p0', 'share')) =} of 4c4e has no pair ({= pcx(RU('p0')) =} sub-7) and {= pcx(RU('p1', 'share')) =} has one ({= pcx(RU('p1')) =}); the paired-edge card (section 6) splits them better than that.
 
 The pictures with at most 1 swap, up to exchanging the layers and mirror image. Know the four with 1 swap and the rest is one swap of look-ahead:
 

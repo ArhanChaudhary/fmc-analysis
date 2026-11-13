@@ -1,4 +1,4 @@
-The question is whether there are switch guidelines, checkable at the table, that get closer to 100% or 0% sub-7 than ARM, DRM, pairs and the corner case do. There are, once you count the right thing. A U or D turn never makes or breaks a pair, so judge the setup as if U and D turns were free and count only the turns of the side faces. For 4c4e that is the number of half turns to two bars: at 0 or 1 a sub-7 is certain, at 2 it is {= pcx(RH(2)) =} ✓, at 3 it is {= pcx(RH(3)) =} ✓, at 4 it is {= pcx(RH(4)) =} ✓ and at 5 never. All the rules are about the case on the switched side; section 7 shows how to see it on normal before you switch.
+The question is whether there are switch guidelines, checkable at the table, that get closer to 100% or 0% sub-7 than ARM, DRM, pairs and the corner case do. There are, once you count the right thing. A U or D turn never makes or breaks a pair, so judge the setup as if U and D turns were free and count only the turns of the side faces. For 4c4e that is the number of half turns to two bars: at 0 or 1 a sub-7 is certain, at 2 it is {= pcx(RH(2)) =} ✓, at 3 it is {= pcx(RH(3)) =} ✓, at 4 it is {= pcx(RH(4)) =} ✓ and at 5 never. By hand you can read the top of that scale (the 2s and below, with 2 or more pairs), not the bottom: telling a 3 from a 4 takes a search. All the rules are about the case on the switched side; section 7 shows how to see it on normal before you switch.
 
 **What is new here**
 
@@ -20,6 +20,17 @@ The three rules hold on every one of the {= n(1082565) =} cases ✓.
 | 4 or 5 | **discard** | {= pcx(RHG('ge4', 'share')) =} ✓ | {= pcx(RHG('ge4')) =} ✓ | {= pcx(RHG('ge4', 'of_hits')) =} ✓ |
 
 Against the best rule a pair trace gives, the paired-edge card further down: its switch group is {= pcx(RCARD('switch', 'share')) =} ✓ of 4c4e at {= pcx(RCARD('switch')) =} ✓, this one is {= pcx(RHG('le2', 'share')) =} ✓ at {= pcx(RHG('le2')) =} ✓. Its discard group throws away {= pcx(RCARD('discard', 'of_hits')) =} ✓ of the sub-7s, this one {= pcx(RHG('ge4', 'of_hits')) =} ✓. And the card's own groups split: both edges paired is {= pcx(RCS('switch', '2 or fewer')) =} ✓ with 2 half turns or fewer and {= pcx(RCS('switch', '3')) =} ✓ with 3.
+
+**What of that you can read by hand.** The switch end, not the discard end. With 2 or more pairs the count can be read (below), and that is where the 2s are. With 0 or 1 pair the reading only says *3 or more*: it can't tell a 3 from a 4, and {= pcx(RU('p01_h45', 'share')) =} of the cases at 4 or 5 have 0 or 1 pair. So the 1.7% row is an answer key (**computer only**, unless you search for it), and for the low end the paired-edge card further down is still the tool. What a hand reading gives, one row per group, with its share of 4c4e and its sub-7 rate:
+
+| What you see (4c4e) | How you read it | Share of 4c4e | Sub-7 rate |
+|---|---|---|---|
+| 2 or more pairs, 2 half turns or fewer | the count | {= pcx(RU('p2le2', 'share')) =} | {= pcx(RU('p2le2')) =} |
+| 2 or more pairs, 3 half turns or more | the count | {= pcx(RU('p2ge3', 'share')) =} | {= pcx(RU('p2ge3')) =} |
+| 1 pair or none, one bad edge paired with edge ARM 1 | the card: your call | {= pcx(RU('p01_call', 'share')) =} | {= pcx(RU('p01_call')) =} |
+| 1 pair or none, the rest | the card: discard | {= pcx(RU('p01_disc', 'share')) =} | {= pcx(RU('p01_disc')) =} |
+
+Against the card alone ({= pcx(RCARD('switch', 'share')) =} at {= pcx(RCARD('switch')) =}, {= pcx(RCARD('your call', 'share')) =} at {= pcx(RCARD('your call')) =}, {= pcx(RCARD('discard', 'share')) =} at {= pcx(RCARD('discard')) =}): the switch group goes from {= pcx(RCARD('switch')) =} to {= pcx(RU('p2le2')) =}, and the discard group is about what it was.
 
 The count is the larger of two readings ✓ (section 4.2):
 

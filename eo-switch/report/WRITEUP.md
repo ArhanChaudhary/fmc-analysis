@@ -61,7 +61,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 ## 1. The short version
 
-The question is whether there are switch guidelines, checkable at the table, that get closer to 100% or 0% sub-7 than ARM, DRM, pairs and the corner case do. There are, once you count the right thing. A U or D turn never makes or breaks a pair, so judge the setup as if U and D turns were free and count only the turns of the side faces. For 4c4e that is the number of half turns to two bars: at 0 or 1 a sub-7 is certain, at 2 it is 72.1% ✓, at 3 it is 16.0% ✓, at 4 it is 1.7% ✓ and at 5 never. All the rules are about the case on the switched side; section 7 shows how to see it on normal before you switch.
+The question is whether there are switch guidelines, checkable at the table, that get closer to 100% or 0% sub-7 than ARM, DRM, pairs and the corner case do. There are, once you count the right thing. A U or D turn never makes or breaks a pair, so judge the setup as if U and D turns were free and count only the turns of the side faces. For 4c4e that is the number of half turns to two bars: at 0 or 1 a sub-7 is certain, at 2 it is 72.1% ✓, at 3 it is 16.0% ✓, at 4 it is 1.7% ✓ and at 5 never. By hand you can read the top of that scale (the 2s and below, with 2 or more pairs), not the bottom: telling a 3 from a 4 takes a search. All the rules are about the case on the switched side; section 7 shows how to see it on normal before you switch.
 
 **What is new here**
 
@@ -83,6 +83,17 @@ The three rules hold on every one of the 1,082,565 cases ✓.
 | 4 or 5 | **discard** | 34.8% ✓ | 1.7% ✓ | 3.0% ✓ |
 
 Against the best rule a pair trace gives, the paired-edge card further down: its switch group is 15.5% ✓ of 4c4e at 59.9% ✓, this one is 14.2% ✓ at 74.1% ✓. Its discard group throws away 18.0% ✓ of the sub-7s, this one 3.0% ✓. And the card's own groups split: both edges paired is 80.0% ✓ with 2 half turns or fewer and 28.9% ✓ with 3.
+
+**What of that you can read by hand.** The switch end, not the discard end. With 2 or more pairs the count can be read (below), and that is where the 2s are. With 0 or 1 pair the reading only says *3 or more*: it can't tell a 3 from a 4, and 97.8% of the cases at 4 or 5 have 0 or 1 pair. So the 1.7% row is an answer key (**computer only**, unless you search for it), and for the low end the paired-edge card further down is still the tool. What a hand reading gives, one row per group, with its share of 4c4e and its sub-7 rate:
+
+| What you see (4c4e) | How you read it | Share of 4c4e | Sub-7 rate |
+|---|---|---|---|
+| 2 or more pairs, 2 half turns or fewer | the count | 12.4% | 74.1% |
+| 2 or more pairs, 3 half turns or more | the count | 13.6% | 21.1% |
+| 1 pair or none, one bad edge paired with edge ARM 1 | the card: your call | 26.3% | 17.2% |
+| 1 pair or none, the rest | the card: discard | 47.7% | 5.5% |
+
+Against the card alone (15.5% at 59.9%, 32.5% at 20.0%, 52.0% at 6.7%): the switch group goes from 59.9% to 74.1%, and the discard group is about what it was.
 
 The count is the larger of two readings ✓ (section 4.2):
 
@@ -491,7 +502,7 @@ Read it as a recipe:
 | the layer of the edge that lacks it | yes | no | 3 | 480 | 43.3% |
 
 3. **2 pairs.** Look one swap ahead: you are at 2 if some swap leaves one of the 1-swap pictures below. 42.4% of 2-pair cases are at 2 or less, and those are 69.8% sub-7 against 20.0% for the rest. This is the look that pays.
-4. **0 or 1 pair.** Call it 3 or more and move on. You lose 1,248 cases that are really at 2 (2.4% of the 0- and 1-pair cases), one 0-pair picture and three 1-pair pictures in appendix A.
+4. **0 or 1 pair.** Call it 3 or more and move on. You lose 1,248 cases that are really at 2 (2.4% of the 0- and 1-pair cases), one 0-pair picture and three 1-pair pictures in appendix A. That's the limit of the hand reading: with 0 or 1 pair it doesn't separate a 3 from a 4 or 5, and 97.8% of the 4s and 5s are here, so the near-zero row of the table in 4.3 can't be picked out without a search. With 0 or 1 pair, 29.8% of 4c4e has no pair (4.3% sub-7) and 44.2% has one (13.3%); the paired-edge card (section 6) splits them better than that.
 
 The pictures with at most 1 swap, up to exchanging the layers and mirror image. Know the four with 1 swap and the rest is one swap of look-ahead:
 

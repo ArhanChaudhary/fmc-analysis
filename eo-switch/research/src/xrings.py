@@ -93,6 +93,10 @@ for p in range(5):
 write('ring44_pairs', ['Pairs', 'Half turns to two bars', 'States', 'Share of 4c4e', 'Sub-7 rate'], rows)
 R['p2le2'] = stats(c44, (pairs >= 2) & (hbar <= 2)); R['p2ge3'] = stats(c44, (pairs >= 2) & (hbar >= 3)); R['p01'] = stats(c44, pairs <= 1)
 R['p01le2'] = stats(c44, (pairs <= 1) & (hbar <= 2)); R['p01ge3'] = stats(c44, (pairs <= 1) & (hbar >= 3))
+# what a hand reading gives: the count where it can be counted (2+ pairs), the paired-edge card for 0 or 1 pair
+R['p0'] = stats(c44, pairs == 0); R['p1'] = stats(c44, pairs == 1)
+R['p01_call'] = stats(c44, (pairs <= 1) & card['your call']); R['p01_disc'] = stats(c44, (pairs <= 1) & card['discard'])
+R['p01_h45'] = stats(c44 & (hbar >= 4), pairs <= 1)
 # alignment: U/D turns of the shortest finish with the fewest half turns and one quarter turn
 u1 = np.full(N0, 99)
 for h in range(6):
