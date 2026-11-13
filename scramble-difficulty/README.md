@@ -9,6 +9,8 @@ It builds on torchlight's guess about the axis, Levi Gibson's corner QT count an
 | Where | What |
 |---|---|
 | [report/WRITEUP.md](report/WRITEUP.md) | the write-up |
+| [research/](research/) | the scripts (`src/`), the small outputs the tables are read from (`out/`), and how to rerun it (`README.md`) |
+| [lean/ScrDiff/](lean/ScrDiff/) | the Lean project: 30 theorems about the example scrambles and DRs on the page |
 | `UNLISTED` | marker file: the page is built but not linked from the front page |
 
-The code and data of this study are not in the repository yet.
+The large inputs (the DR lists, the WCA export, the generated scrambles) are not in the repository.

@@ -1,0 +1,6 @@
+name = "ScrDiff"
+version = "0.1.0"
+defaultTargets = ["ScrDiff"]
+
+[[lean_lib]]
+name = "ScrDiff"

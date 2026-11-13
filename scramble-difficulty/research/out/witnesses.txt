@@ -1,0 +1,48 @@
+Easy official scramble (2025 or later, best DR + finish <= 18, no EO under 3 moves, most DRs of <= 10):
+  HawaiiChampionship2026 (2026-07-24): R' U' F R L2 F2 D2 B2 D B2 R2 D' R U2 B' U2 F' R D L U' F2 R' U' F
+    bad edges 2/2/6; shortest EO 3; EOs of <= 4 moves: 77; of <= 5: 810 (all axes, normal + inverse)
+    DRs of <= 10 moves: 752; best DR + optimal finish: 18; DRs with DR + finish <= 22: 176
+    DR (FB, 6 moves): (F U2 L D' L D)   subset 2c3 4e, optimal finish 12, DR + finish 18; DR state on the cube model: True
+Hard official scramble (2025 or later, at most 3 DRs of <= 10, best DR + finish >= 23):
+  FewestMovesBogota2025 (2025-01-12): R' U' F L F' B2 L2 U2 F2 U B2 U' L2 D' R2 B2 R' D R2 B D' F' D R' U' F
+    bad edges 6/6/10; shortest EO 5; EOs of <= 4 moves: 0; of <= 5: 19 (all axes, normal + inverse)
+    DRs of <= 10 moves: 1; best DR + optimal finish: 23; DRs with DR + finish <= 22: 0
+    DR (RL, 10 moves): B' U (B' L2 U' F2 B' L2 R B)   subset 2c4 4e, optimal finish 13, DR + finish 23; DR state on the cube model: True
+Posted on the server:
+  w_zaki: R' U' F D B2 D B2 U' F2 L2 U2 F2 R2 D' F2 L' F' R' F D F L2 D R' U' F
+    EO axis UD: bad edges 6, shortest EO normal 5 inverse 5, EOs <= 5 normal 10 inverse 3
+    EO axis FB: bad edges 6, shortest EO normal 5 inverse 5, EOs <= 5 normal 2 inverse 12
+    EO axis RL: bad edges 8, shortest EO normal 6 inverse 6, EOs <= 5 normal 0 inverse 0
+    DRs of <= 10 moves (EO <= 5 with NISS, then DR): 3
+      FB 10 moves: B' D' R U' D F R2 U (B L)  (DR on the cube model: True)
+      FB 10 moves: B' D' R' U' D F' L2 D (B L)  (DR on the cube model: True)
+      UD 10 moves: L2 B (F' D2 B R D' L2 U L)  (DR on the cube model: True)
+  w_jtuuu: R' U' F D2 B2 D2 F2 D F2 U' R2 F2 L2 U2 F D2 R' B U F2 R D' R D2 R' U' F
+    EO axis UD: bad edges 8, shortest EO normal 6 inverse 6, EOs <= 5 normal 0 inverse 0
+    EO axis FB: bad edges 8, shortest EO normal 5 inverse 5, EOs <= 5 normal 24 inverse 18
+    EO axis RL: bad edges 6, shortest EO normal 6 inverse 5, EOs <= 5 normal 0 inverse 3
+    DRs of <= 10 moves (EO <= 5 with NISS, then DR): 2
+      RL 10 moves: U2 R B' D' F L R' U' L' D  (DR on the cube model: True)
+      RL 10 moves: U2 R B' D' F L' R D' L' U  (DR on the cube model: True)
+Short text, easy scramble (official, since 2020-08, middle of at most 16 moves):
+  ColomboCubingChristmas2023 (2023-12-23): R' U' F L F2 D2 R' B2 F2 R' B2 D R F2 R' D L B' R' U' F
+    bad edges 2/4/6; shortest EO 3; EOs of <= 4 moves: 56; of <= 5: 545 (all axes, normal + inverse)
+    DRs of <= 10 moves: 402; best DR + optimal finish: 18; DRs with DR + finish <= 22: 144
+    middle: 15 moves
+    DR (RL, 10 moves): D (D F' R2 U2 F' D2 B2 L B)   subset 4a1 4e, optimal finish 8, DR + finish 18; DR state on the cube model: True
+10/8/8 with a short EO (official):
+  Juhannus2024 (2024-06-20): R' U' F R2 F' U2 R D B2 L D' F2 R F2 U' R2 B2 U' R2 D2 F2 B R' U' F
+    bad edges 8/8/10; shortest EO 3; EOs of <= 4 moves: 18; of <= 5: 150 (all axes, normal + inverse)
+    DRs of <= 10 moves: 25; best DR + optimal finish: 21; DRs with DR + finish <= 22: 2
+    EOs of at most 3 moves (length, side, EO axis, moves): [(3, 'inverse', 'UD', 'L D U'), (3, 'inverse', 'UD', "L D U'"), (3, 'inverse', 'UD', "L D' U")]
+    DR (RL, 10 moves): (L B2 U' D' R D2 B L R F)   subset 2c5 6e, optimal finish 11, DR + finish 21; DR state on the cube model: True
+50 or more EOs of <= 4 moves, best DR + finish 22 (official):
+  EstonianOpen2019 (2019-09-21): R' U' F D2 F2 D B2 F2 D B2 D L2 F2 R' B L2 R2 B2 D2 L F R2 F R' U' F
+    bad edges 4/4/4; shortest EO 2; EOs of <= 4 moves: 57; of <= 5: 591 (all axes, normal + inverse)
+    DRs of <= 10 moves: 179; best DR + optimal finish: 22; DRs with DR + finish <= 22: 13
+    DR (FB, 9 moves): B' D2 L2 R2 B R (R F2 U)   subset 4b5 2e, optimal finish 13, DR + finish 22; DR state on the cube model: True
+First solution against the official middle: ColombianNationalsFMC2026 (2026-11-08)
+    official middle (18 moves): L' D' U2 F2 L2 F2 U' F L2 F2 R2 B U2 L' U' F' R' D
+    first solution found, inverted (20 moves): R D' R2 D L2 F2 U' B2 R2 U2 B2 F L2 D2 F R U' F' L' D2
+    same state on the cube model: True
+13 Lean claims

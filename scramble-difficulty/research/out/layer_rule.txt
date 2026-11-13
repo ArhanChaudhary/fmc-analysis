@@ -1,0 +1,19 @@
+all 23879 scrambles:
+  fewest flipped layer edges: 0.455 [0.450, 0.460] (chance 0.363)
+  fewest layer-coloured edges out of place or flipped (in the slice, or flipped in a layer): 0.464 [0.459, 0.470] (chance 0.363)
+  fewest bad edges on the two EO axes (sum): 0.438 [0.433, 0.443] (chance 0.363)
+  bad edges on the two EO axes + 4 x flipped layer edges: 0.456 [0.450, 0.462] (chance 0.363)
+  4 x flipped layer edges + every other bad-on-one-or-both count: 0.464 [0.458, 0.469] (chance 0.363)
+held-out third (7881 scrambles):
+  bad edges on the two EO axes + 4 x flipped layer edges: 0.451 [0.441, 0.461] (chance 0.362)
+  4 x flipped layer edges + the other three counts: 0.462 [0.452, 0.472] (chance 0.362)
+  fewest flipped layer edges: 0.454 [0.446, 0.464] (chance 0.362)
+flipped layer edges on a DR axis -> axes, mean DRs of <= 10 on that axis, median, share with none
+  0: 2047, 167.0, 34, 0.2%
+  1: 10076, 46.0, 22, 1.2%
+  2: 20292, 26.5, 12, 5.3%
+  3: 21906, 11.1, 5, 12.9%
+  4: 12528, 6.4, 3, 23.8%
+  5: 4116, 4.3, 2, 34.0%
+  6: 625, 3.7, 1, 42.1%
+  7: 47, 4.2, 0, 55.3%

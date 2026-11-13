@@ -1,0 +1,2 @@
+matched 7689 of 8108 official scrambles; optimal linear EO agrees on 5846; disagreements {(5, '4.0'): 663, (4, '3.0'): 798, (4, '2.0'): 136, (3, '2.0'): 120, (5, '3.0'): 73, (6, '5.0'): 22, (3, '1.0'): 13, (4, '1.0'): 9, (6, '4.0'): 5, (5, '2.0'): 3, (2, '1.0'): 1}
+sheet's 'An Optimal Solution' solves its scramble on the cube model: 8532 yes, 0 no; length matches the 'Optimal Length' column: 8532

@@ -610,7 +610,7 @@ The signals behind the first rows, with both ways of counting. A row is a condit
 
 ## Appendix A: how it was computed, and what checks it
 
-The code of this study is not in the repository yet.
+The scripts are in the repository under `scramble-difficulty/research/src`, with the small outputs the tables are read from in `research/out` and the Lean project in `scramble-difficulty/lean/ScrDiff`. The large inputs (the DR lists, the WCA export, the generated scrambles) are not in the repository; `research/README.md` says how each was made.
 
 **The DR lists.** cubelib-cli with `EO[niss=always;max=5] > DR[niss=before;max=10]`, the same steps and the same per-scramble deduplication as the DR population in `gaps/research` of the [repository](https://github.com/ArhanChaudhary/fmc-analysis), which supplies the 10,000 uniform scrambles (its lists go to 11 moves and are cut to 10 here). Every DR state gets its optimal finish and subset from the exact table of [*Judging a DR*](../judging-a-dr/). Four finishes were recomputed with nissy (12, 13, 8 and 13 moves, as in the table). On 20 scrambles, the DRs of at most 10 from a run to 11 moves and from a run to 10 moves are the same 650 states. For section 6.4 the lists were made again with the EO axis of each DR kept; on 30 scrambles the per-axis counts agree with the first lists.
 

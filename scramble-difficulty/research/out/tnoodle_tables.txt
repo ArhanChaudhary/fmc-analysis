@@ -1,0 +1,33 @@
+
+== official, 2016-04 to 2020-07: 2516 scrambles; the split gives a DR state on the cube model for 2516 (middle) and 2516 (full scramble): an identity, a test of the code, not a finding
+ middle length (moves): 15: 1 (0.0%), 16: 1 (0.0%), 17: 28 (1.1%), 18: 99 (3.9%), 19: 451 (17.9%), 20: 1047 (41.6%), 21: 889 (35.3%)
+ DR-move run h (moves): 5: 5 (0.2%), 6: 29 (1.2%), 7: 138 (5.5%), 8: 425 (16.9%), 9: 715 (28.4%), 10: 706 (28.1%), 11: 498 (19.8%)
+ text DR of the middle |X|+|Y| (moves): 7: 2 (0.1%), 8: 21 (0.8%), 9: 162 (6.4%), 10: 764 (30.4%), 11: 1160 (46.1%), 12: 402 (16.0%), 13: 5 (0.2%)
+ shorter outer block (moves): 0: 2498 (99.3%), 1: 5 (0.2%), 2: 3 (0.1%), 3: 3 (0.1%), 4: 6 (0.2%), 5: 1 (0.0%)
+ longer outer block (moves): 5: 1 (0.0%), 6: 3 (0.1%), 7: 7 (0.3%), 8: 23 (0.9%), 9: 163 (6.5%), 10: 763 (30.3%), 11: 1150 (45.7%), 12: 401 (15.9%), 13: 5 (0.2%)
+ axis: FB: 642 (25.5%), RL: 606 (24.1%), UD: 1268 (50.4%)
+ the longer block is at the end of the middle: False: 11 (0.4%), True: 2505 (99.6%)
+ text DR of the full scramble |X|+|Y|+6 (moves): 13: 2 (0.1%), 14: 21 (0.8%), 15: 162 (6.4%), 16: 764 (30.4%), 17: 1160 (46.1%), 18: 402 (16.0%), 19: 5 (0.2%)
+ mean text DR of the middle 10.703; mean middle length 20.058
+
+== official, 2020-08 to 2026-10: 5592 scrambles; the split gives a DR state on the cube model for 5592 (middle) and 5592 (full scramble): an identity, a test of the code, not a finding
+ middle length (moves): 15: 5 (0.1%), 16: 25 (0.4%), 17: 162 (2.9%), 18: 929 (16.6%), 19: 2452 (43.8%), 20: 1855 (33.2%), 21: 164 (2.9%)
+ DR-move run h (moves): 4: 4 (0.1%), 5: 39 (0.7%), 6: 210 (3.8%), 7: 772 (13.8%), 8: 1505 (26.9%), 9: 1469 (26.3%), 10: 1029 (18.4%), 11: 437 (7.8%), 12: 127 (2.3%)
+ text DR of the middle |X|+|Y| (moves): 6: 3 (0.1%), 7: 20 (0.4%), 8: 147 (2.6%), 9: 674 (12.1%), 10: 1782 (31.9%), 11: 2486 (44.5%), 12: 480 (8.6%)
+ shorter outer block (moves): 0: 2359 (42.2%), 1: 992 (17.7%), 2: 972 (17.4%), 3: 774 (13.8%), 4: 437 (7.8%), 5: 58 (1.0%)
+ longer outer block (moves): 4: 2 (0.0%), 5: 15 (0.3%), 6: 95 (1.7%), 7: 924 (16.5%), 8: 963 (17.2%), 9: 1125 (20.1%), 10: 1284 (23.0%), 11: 968 (17.3%), 12: 216 (3.9%)
+ axis: FB: 1770 (31.7%), RL: 1490 (26.6%), UD: 2332 (41.7%)
+ the longer block is at the end of the middle: False: 2074 (37.1%), True: 3518 (62.9%)
+ text DR of the full scramble |X|+|Y|+6 (moves): 12: 3 (0.1%), 13: 20 (0.4%), 14: 147 (2.6%), 15: 674 (12.1%), 16: 1782 (31.9%), 17: 2486 (44.5%), 18: 480 (8.6%)
+ mean text DR of the middle 10.430; mean middle length 19.149
+
+== generated (tnoodle-lib min2phase, this study): 5771 scrambles; the split gives a DR state on the cube model for 5771 (middle) and 5771 (full scramble): an identity, a test of the code, not a finding
+ middle length (moves): 15: 8 (0.1%), 16: 30 (0.5%), 17: 203 (3.5%), 18: 1043 (18.1%), 19: 2685 (46.5%), 20: 1730 (30.0%), 21: 72 (1.2%)
+ DR-move run h (moves): 3: 1 (0.0%), 4: 7 (0.1%), 5: 44 (0.8%), 6: 273 (4.7%), 7: 980 (17.0%), 8: 1606 (27.8%), 9: 1491 (25.8%), 10: 936 (16.2%), 11: 356 (6.2%), 12: 77 (1.3%)
+ text DR of the middle |X|+|Y| (moves): 6: 4 (0.1%), 7: 22 (0.4%), 8: 146 (2.5%), 9: 625 (10.8%), 10: 1646 (28.5%), 11: 2632 (45.6%), 12: 695 (12.0%), 13: 1 (0.0%)
+ shorter outer block (moves): 0: 2415 (41.8%), 1: 993 (17.2%), 2: 1042 (18.1%), 3: 767 (13.3%), 4: 477 (8.3%), 5: 77 (1.3%)
+ longer outer block (moves): 5: 19 (0.3%), 6: 111 (1.9%), 7: 910 (15.8%), 8: 1007 (17.4%), 9: 1091 (18.9%), 10: 1227 (21.3%), 11: 1083 (18.8%), 12: 323 (5.6%)
+ axis: FB: 1815 (31.5%), RL: 1556 (27.0%), UD: 2400 (41.6%)
+ the longer block is at the end of the middle: False: 2165 (37.5%), True: 3606 (62.5%)
+ text DR of the full scramble |X|+|Y|+6 (moves): 12: 4 (0.1%), 13: 22 (0.4%), 14: 146 (2.5%), 15: 625 (10.8%), 16: 1646 (28.5%), 17: 2632 (45.6%), 18: 695 (12.0%), 19: 1 (0.0%)
+ mean text DR of the middle 10.524; mean middle length 19.053

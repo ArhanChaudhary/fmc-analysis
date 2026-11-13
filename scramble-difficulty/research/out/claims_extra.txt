@@ -1,0 +1,110 @@
+scrambles 23879
+
+## A. Corner QT of the scramble (same on the three axes and on the inverse: checked in features3.py selftest)
+  scramble corner QT histogram: [(0.0, 69), (1.0, 678), (2.0, 3516), (3.0, 6709), (4.0, 8427), (5.0, 4480)] (uniform: 96, 1152, 5856, 11328, 14208, 7680 of 40320)
+  scrambles with a DR of <= 10: 23538
+  Spearman(scramble QT, mean corner QT of its DRs) = +0.072 [+0.060, +0.084]
+  Spearman(scramble QT, share of its DRs with QT <= 2) = -0.045 [-0.057, -0.033]
+  Spearman(scramble QT, share of its DRs in a good subset) = -0.066 [-0.080, -0.054]
+  Spearman(scramble QT, DRs of <= 10 (log)) = +0.001 [-0.011, +0.014]
+  Spearman(scramble QT, best DR + finish) = +0.007 [-0.005, +0.021]
+  Spearman(scramble QT, good DRs (log)) = -0.009 [-0.023, +0.005]
+  Spearman(scramble QT, DRs in a good subset (log)) = -0.033 [-0.046, -0.022]
+  by scramble QT: n | mean corner QT of DRs | share of DRs with QT <= 2 | share of DRs in a good subset | median DRs | mean best | easy % | hard %
+   QT 0: 69 | 3.37 | 23.1% | 35.9% | 29 | 21.12 | 11.6 | 4.3
+        DR corner-QT mix (pooled DRs), QT 0..5: 0.3% 3.5% 19.3% 29.1% 31.3% 16.5%
+   QT 1: 678 | 3.41 | 20.5% | 29.7% | 27 | 21.22 | 10.2 | 15.6
+        DR corner-QT mix (pooled DRs), QT 0..5: 0.4% 4.0% 16.1% 29.3% 34.1% 16.1%
+   QT 2: 3516 | 3.47 | 18.8% | 27.9% | 28 | 21.17 | 10.2 | 14.4
+        DR corner-QT mix (pooled DRs), QT 0..5: 0.6% 3.4% 14.9% 29.6% 33.5% 18.2%
+   QT 3: 6709 | 3.47 | 19.2% | 28.5% | 28 | 21.17 | 10.2 | 13.1
+        DR corner-QT mix (pooled DRs), QT 0..5: 0.6% 3.1% 15.6% 28.5% 34.3% 18.0%
+   QT 4: 8427 | 3.56 | 16.9% | 25.0% | 28 | 21.23 | 9.3 | 14.7
+        DR corner-QT mix (pooled DRs), QT 0..5: 0.4% 2.7% 13.8% 27.1% 36.0% 20.0%
+   QT 5: 4480 | 3.57 | 16.4% | 24.2% | 28 | 21.18 | 9.1 | 12.9
+        DR corner-QT mix (pooled DRs), QT 0..5: 0.4% 2.5% 13.5% 26.8% 36.7% 20.1%
+   all DRs pooled, QT 0..5: 0.5% 2.9% 14.4% 27.9% 35.2% 19.1%
+   QT 0: per-scramble mean share of DRs with QT <= 2: 22.4% [18.9, 26.7] (n=67)
+   QT 1: per-scramble mean share of DRs with QT <= 2: 18.7% [17.4, 19.9] (n=668)
+   QT 2: per-scramble mean share of DRs with QT <= 2: 18.8% [18.2, 19.4] (n=3472)
+   QT 3: per-scramble mean share of DRs with QT <= 2: 17.9% [17.5, 18.3] (n=6612)
+   QT 4: per-scramble mean share of DRs with QT <= 2: 17.1% [16.8, 17.4] (n=8291)
+   QT 5: per-scramble mean share of DRs with QT <= 2: 17.0% [16.5, 17.5] (n=4428)
+  held-out R^2, DRs of <= 10 (log): bad edges 0.431, + corner QT 0.431, gain +0.0000 [-0.0001, +0.0001]
+  held-out R^2, best DR + finish: bad edges 0.223, + corner QT 0.223, gain -0.0000 [-0.0002, +0.0002]
+  held-out R^2, DRs in a good subset (log): bad edges 0.361, + corner QT 0.362, gain +0.0006 [-0.0006, +0.0018]
+  held-out R^2, good DRs (log): bad edges 0.357, + corner QT 0.357, gain -0.0001 [-0.0005, +0.0003]
+  QT table against the corner case of the label on 3064 DRs of the official lists: 3057 agree, 7 differ
+
+## B. Per-axis features proposed on the server (all scrambles; hit rate = the favoured axis is among the axes with the most DRs of <= 10)
+  fewest bad edges on the two EO axes, summed                    within r -0.304 | hit rate 0.438 [0.433, 0.443] (chance 0.363)
+  fewest edges bad on either EO axis (Zagros: sum minus shared)  within r -0.214 | hit rate 0.429 [0.424, 0.433] (chance 0.363)
+  most shared bad edges                                          within r -0.248 | hit rate 0.283 [0.278, 0.288] (chance 0.363)
+  fewest shared bad edges                                        within r -0.248 | hit rate 0.422 [0.417, 0.427] (chance 0.363)
+  fewest misoriented corners                                     within r +0.021 | hit rate 0.358 [0.353, 0.363] (chance 0.363)
+  most DRM-style pairs, normal                                   within r +0.076 | hit rate 0.393 [0.388, 0.398] (chance 0.363)
+  most DRM-style pairs, normal + inverse                         within r +0.093 | hit rate 0.400 [0.393, 0.405] (chance 0.363)
+  most DRM-style pairs on the better side                        within r +0.097 | hit rate 0.400 [0.396, 0.406] (chance 0.363)
+  most EOs of <= 5 on the two EO axes                            within r +0.471 | hit rate 0.513 [0.508, 0.519] (chance 0.363)
+  held-out linear, bad edges of the two EO axes, summed: hit rate 0.431 [0.423, 0.440] (chance 0.362) | coefficients be_sum2 -0.254
+  held-out linear, + shared bad edges (Zagros): hit rate 0.427 [0.417, 0.438] (chance 0.362) | coefficients be_sum2 -0.226, ov -0.054
+  held-out linear, Levi Gibson's counts (corners; layer and slice pieces bad on one / both EO axes): hit rate 0.465 [0.454, 0.474] (chance 0.362) | coefficients mc +0.022, lg_Lone -0.120, lg_Lb -0.508, lg_Sone -0.120, lg_Sb -0.080
+  held-out linear, + shared bad edges + corners + DRM-style pairs: hit rate 0.449 [0.440, 0.460] (chance 0.362) | coefficients be_sum2 -0.312, ov +0.118, mc -0.063, drmp +0.129
+  held-out linear, bad-edge sum + layer pieces bad on both: hit rate 0.451 [0.442, 0.461] (chance 0.362) | coefficients be_sum2 -0.082, lg_Lb -0.343
+  held-out linear, Levi Gibson's six edge counts without the corners: hit rate 0.463 [0.454, 0.472] (chance 0.362) | coefficients lg_Lone -0.120, lg_Lb -0.508, lg_Sone -0.120, lg_Sb -0.080
+  held-out linear, EOs of <= 5 on the two EO axes + layer pieces bad on both: hit rate 0.516 [0.505, 0.527] (chance 0.362) | coefficients n_eo5_2 +0.009, lg_Lb -0.104
+  held-out linear, EOs of <= 5 on the two EO axes: hit rate 0.516 [0.504, 0.527] (chance 0.362) | coefficients n_eo5_2 +0.010
+  held-out linear, EOs + own EO + union + pairs: hit rate 0.518 [0.508, 0.529] (chance 0.362) | coefficients n_eo5_2 +0.005, eo_own +0.501, un -0.011, drmp +0.084
+  two EO axes with 6 and 6 bad: shared -> axes, median DRs on the third axis, share with none: 2: 2076, 3, 17%; 3: 6341, 3, 18%; 4: 5060, 3, 18%; 5: 1182, 3, 20%; 6: 72, 3, 24%
+  two EO axes with 4 and 6 bad: shared -> axes, median DRs on the third axis, share with none: 1: 2163, 16, 2%; 2: 7201, 15, 1%; 3: 5391, 15, 2%; 4: 960, 13, 3%
+  two EO axes with 6 and 8 bad: shared -> axes, median DRs on the third axis, share with none: 3: 2210, 3, 20%; 4: 7182, 4, 18%; 5: 5246, 4, 19%; 6: 964, 3, 19%
+  two EO axes with 4 and 4 bad: shared -> axes, median DRs on the third axis, share with none: 0: 316, 32, 0%; 1: 1913, 38, 1%; 2: 2003, 34, 0%; 3: 537, 30, 0%; 4: 39, 27, 3%
+
+## C. Which EO axis the DRs come from (scrambles with the per-EO-axis lists: 23879)
+  by bad edges on the EO axis: axes | mean EOs of <= 5 (N + I) | mean DR states of <= 10 through an EO on this axis | DR states per EO of <= 5 | share of axes with an EO of <= 5
+    0 bad: 42 | 2.0 | 5489.9 | 2744.940 | 100.0%
+    2 bad: 2271 | 262.8 | 56.1 | 0.214 | 100.0%
+    4 bad: 17299 | 147.6 | 50.8 | 0.344 | 100.0%
+    6 bad: 32452 | 28.6 | 7.9 | 0.276 | 97.1%
+    8 bad: 17253 | 44.1 | 11.2 | 0.253 | 98.1%
+   10 bad: 2285 | 0.0 | 1.1 | 2596.000 | 0.0%
+   12 bad: 35 | 0.0 | 2.3 | 81.000 | 0.0%
+  DR states of <= 10 on DR axis a through an EO on axis e, by bad edges on e (rows) and on the third axis t (columns): mean (pairs)
+   e \ t                2              4              6              8             10
+       2       46.2 ( 238)     34.5 (1425)     24.1 (2045)     22.0 ( 781)     17.0 (  49)
+       4       44.3 (1425)     32.8 (9616)     22.9 (15715)     18.7 (6999)     11.3 ( 796)
+       6        9.9 (2045)      6.0 (15715)      3.3 (29462)      2.6 (15602)      1.6 (2013)
+       8       16.4 ( 781)      8.7 (6999)      4.9 (15602)      4.1 (9628)      2.6 (1466)
+      10        1.4 (  49)      0.9 ( 796)      0.6 (2013)      0.4 (1466)      0.2 ( 240)
+  scrambles with >= 20 EOs of <= 5 and >= 80% of them on one EO axis, and a DR of <= 10: 2972; that axis holds 86.5% of the EOs and 74.4% of the DR states (mean of per-scramble shares); difference -12.1 points [-12.9, -11.2]; pooled DR share 73.7%
+  all scrambles with EOs and DRs (23524): the EO-richest axis holds 61.7% of the EOs of <= 5 and 55.7% of the DR states
+
+## D. Claim details
+  fewer than 4 EOs of <= 4 (N + I, quarter-turn ending counted once) = fewer than 8 with both endings counted: n=5052 (21.2% of scrambles), easy 1.9%, hard 38.1%, median DRs 8, mean best 22.30
+    the rest: n=18827 (78.8% of scrambles), easy 11.8%, hard 7.4%, median DRs 39, mean best 20.90
+  fewer than 8 EOs of <= 4 (N + I): n=8743 (36.6% of scrambles), easy 2.6%, hard 30.9%, median DRs 10, mean best 22.04
+  10/8/8 with an EO of <= 3: n=10 (0.0% of scrambles), easy 10.0%, hard 0.0%, median DRs 22, mean best 21.20
+  10/8/8 with shortest EO 4: n=128 (0.5% of scrambles), easy 1.6%, hard 36.7%, median DRs 6, mean best 22.24
+  10/8/8 with no EO under 5: n=120 (0.5% of scrambles), easy 0.8%, hard 52.5%, median DRs 3, mean best 23.31
+  10/8/8, all: n=258 (1.1% of scrambles), easy 1.6%, hard 42.6%, median DRs 5, mean best 22.70
+  50 or more EOs of <= 4 and best DR + finish >= 22: n=12 (0.1% of scrambles), easy 0.0%, hard 0.0%, median DRs 85, mean best 22.00
+  50 or more EOs of <= 4: n=667 (2.8% of scrambles), easy 38.2%, hard 0.0%, median DRs 217, mean best 19.71
+  10/8/8 with a short EO, official: Juhannus2024 (2024-06-20): R' U' F R2 F' U2 R D B2 L D' F2 R F2 U' R2 B2 U' R2 D2 F2 B R' U' F | shortest EO 3, EOs<=4 18, DRs 25, best 21
+  10/8/8 with a short EO, official: GermanNationals2017 (2017-09-01): R' U' F D2 U2 F2 D2 R U2 L D2 R2 D2 B U' L' B2 F D' R2 U2 B2 R F R' U' F | shortest EO 3, EOs<=4 16, DRs 16, best 22
+  10/8/8 with a short EO, official: FunwithFMinKrakow2025 (2025-04-12): R' U' F D' R2 L B D' R' U D' L2 B' R2 B2 U2 L B2 U2 R B2 F' R' U' F | shortest EO 3, EOs<=4 24, DRs 9, best 22
+  50+ four-movers and best >= 22, official: EstonianOpen2019 (2019-09-21): R' U' F D2 F2 D B2 F2 D B2 D L2 F2 R' B L2 R2 B2 D2 L F R2 F R' U' F | shortest EO 2, EOs<=4 57, DRs 179, best 22, bad edges [4.0, 4.0, 4.0]
+  50+ four-movers and best >= 22, official: NingboFootsteps2019 (2019-12-15): R' U' F U' L2 D R2 D U2 L2 D2 R D B' F L U F U' L' U2 R B2 R' U' F | shortest EO 3, EOs<=4 51, DRs 87, best 22, bad edges [2.0, 6.0, 8.0]
+  50+ four-movers and best >= 22, official: KoreanFMCChampionship2023 (2023-12-23): R' U' F L2 U' B' L2 F2 U' B' D2 F' R2 F2 B2 L B2 R' U2 L F2 B R' U' F | shortest EO 2, EOs<=4 61, DRs 197, best 22, bad edges [2.0, 4.0, 6.0]
+  current-era scrambles, middle <= 17 moves: n=433, easy 12.5%, hard 9.9%, median DRs 33, mean best 20.98
+  current-era scrambles, middle 18: n=1972, easy 9.8%, hard 13.5%, median DRs 28, mean best 21.18
+  current-era scrambles, middle 19: n=5137, easy 9.4%, hard 13.6%, median DRs 29, mean best 21.18
+  current-era scrambles, middle 20: n=3585, easy 9.3%, hard 15.1%, median DRs 27, mean best 21.25
+  current-era scrambles, middle 21: n=236, easy 9.7%, hard 16.1%, median DRs 24, mean best 21.21
+  short and easy: ColomboCubingChristmas2023 (2023-12-23): R' U' F L F2 D2 R' B2 F2 R' B2 D R F2 R' D L B' R' U' F | middle 15, bad edges [2.0, 4.0, 6.0], DRs 402, best 18
+  short and easy: GACubersQuietQuarrel2021 (2021-11-07): R' U' F R U' R F D' B2 U' R L F R U' D2 L2 U R' U' F | middle 15, bad edges [4.0, 6.0, 8.0], DRs 427, best 19
+  short and easy: CubolimpiadasAvesMaria2025 (2025-03-22): R' U' F U B' L' D2 U2 B2 L F' U2 B' R U F' U2 F D' R' U' F | middle 16, bad edges [2.0, 4.0, 6.0], DRs 191, best 19
+  long and hard: PeruNationals2023 (2023-08-04): R' U' F R' F' U' F D B R2 D F L' B2 U2 R2 L2 D' F2 D2 R2 F2 R2 F2 R' U' F | middle 21, bad edges [6.0, 6.0, 8.0], DRs 0, best 27
+  long and hard: Only3x3sinAcademyium2025 (2025-06-01): R' U' F D L2 R2 F2 R2 D2 F D2 B R2 F L2 F' L' D' R2 D2 R' U R F' R' U' F | middle 21, bad edges [6.0, 6.0, 6.0], DRs 0, best 27
+  scrambles with >= 10 DRs (summed over axes): 18947; the best axis holds 59.8% of them on average (median 57.9%); over half on one axis: 70.5%; over 80%: 9.5%
+  scrambles with a DR of <= 10: an axis with none: 26.6%; two axes with none: 6.0%
+done

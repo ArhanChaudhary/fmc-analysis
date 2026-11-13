@@ -1,0 +1,9 @@
+2016-04 to 2020-07: n=2516; same text: 282 (11.2%), official shorter: 1255 (49.9%), same length: 1057 (42.0%), official longer: 204 (8.1%)
+   first-found length minus official length: [(-5, 1), (-4, 3), (-3, 6), (-2, 25), (-1, 169), (0, 1057), (1, 865), (2, 308), (3, 65), (4, 16), (5, 1)]
+   mean first-found length 20.651033386327505
+2020-08 to 2026-10: n=5592; same text: 830 (14.8%), official shorter: 4762 (85.2%), same length: 830 (14.8%), official longer: 0 (0.0%)
+   first-found length minus official length: [(0, 830), (1, 2018), (2, 1981), (3, 651), (4, 92), (5, 18), (6, 2)]
+   mean first-found length 20.65200286123033
+example: ColombianNationalsFMC2026 (2026-11-08): R' U' F L2 U B2 R2 D2 U' L2 R B' L B D' R' U' F L2 B2 L B' R' U' F
+   official middle (19): L2 U B2 R2 D2 U' L2 R B' L B D' R' U' F L2 B2 L B'
+   first found (21): L' B2 R2 L' B D R' L2 U' L B2 R2 U2 R2 B' U2 L2 D2 R2 F B

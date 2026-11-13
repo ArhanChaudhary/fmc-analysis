@@ -1,0 +1,8 @@
+DRs of <= 10 (log): bad edges: held-out R^2 0.431
+DRs of <= 10 (log): flipped layer edges: held-out R^2 0.397
+DRs of <= 10 (log): both: held-out R^2 0.446
+best DR + finish: bad edges: held-out R^2 0.223
+best DR + finish: flipped layer edges: held-out R^2 0.203
+best DR + finish: both: held-out R^2 0.225
+Spearman(fewest flipped layer edges over the axes, DRs): -0.5242160458809619  Spearman(sum over axes, DRs): -0.6228650838920566
+Spearman(flipped sum, bad-edge sum): 0.923405006202918

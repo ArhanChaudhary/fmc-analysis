@@ -1,0 +1,458 @@
+scrambles per population: {'uni': 10000, 'real_old': 2516, 'real_new': 5592, 'gen': 5771}
+
+## 0. Targets
+n10 (log2 1+n): mean 4.840, quartiles [3.700439718141092, 4.857980995127572, 6.044394119358453]
+best DR+finish: mean 21.193, quartiles [20.0, 21.0, 22.0]
+good22 (log2 1+n): mean 2.525, quartiles [1.0, 2.321928094887362, 3.584962500721156]
+gsub10 (log2 1+n): mean 2.932, quartiles [1.584962500721156, 3.0, 4.169925001442312]
+pop uni n=10000: mean n10 70.5, median n10 28, mean best 21.184, share best<=19 0.100, share no DR<=10 0.0150
+pop real_old n=2516: mean n10 74.7, median n10 28, mean best 21.224, share best<=19 0.089, share no DR<=10 0.0119
+pop real_new n=5592: mean n10 70.5, median n10 28, mean best 21.198, share best<=19 0.097, share no DR<=10 0.0152
+pop gen n=5771: mean n10 69.4, median n10 28, mean best 21.191, share best<=19 0.094, share no DR<=10 0.0132
+best DR+finish histogram: {14: 2, 15: 4, 16: 12, 17: 85, 18: 459, 19: 1749, 20: 4757, 21: 7640, 22: 5858, 23: 2274, 24: 571, 25: 121, 26: 6, 27: 341}
+target agreement (Spearman, all scrambles):
+  n10 (log2 1+n)      +1.000 -0.707 +0.908 +0.876 +0.865 +0.406
+  best DR+finish      -0.707 +1.000 -0.795 -0.717 -0.647 +0.177
+  good22 (log2 1+n)   +0.908 -0.795 +1.000 +0.893 +0.827 +0.317
+  gsub10 (log2 1+n)   +0.876 -0.717 +0.893 +1.000 +0.752 +0.337
+  n9 (log2 1+n)       +0.865 -0.647 +0.827 +0.752 +1.000 +0.324
+  n_near (log2)       +0.406 +0.177 +0.317 +0.337 +0.324 +1.000
+easy (best <= 19): 0.097; hard (best >= 22): 0.139
+
+## 1. Single features (all populations, n=23879): Spearman rho [95% bootstrap CI] with each target; AUC for easy (best<=19), oriented
+  be_min                 -0.649 [-0.657, -0.641] | 0.447 [0.437, 0.457] | -0.579 [-0.586, -0.570] | -0.579 [-0.587, -0.570] | AUC 0.677 [0.669, 0.687]
+  be_mid                 -0.496 [-0.505, -0.487] | 0.350 [0.340, 0.361] | -0.453 [-0.464, -0.444] | -0.455 [-0.465, -0.445] | AUC 0.658 [0.648, 0.667]
+  be_max                 -0.387 [-0.397, -0.377] | 0.275 [0.264, 0.287] | -0.350 [-0.361, -0.340] | -0.349 [-0.360, -0.337] | AUC 0.618 [0.607, 0.629]
+  mc_min                 0.004 [-0.009, 0.016] | -0.007 [-0.019, 0.005] | 0.008 [-0.005, 0.020] | 0.007 [-0.006, 0.019] | AUC 0.496 [0.486, 0.506]
+  mc_mid                 0.010 [-0.003, 0.023] | -0.007 [-0.019, 0.006] | 0.014 [0.001, 0.026] | 0.011 [-0.003, 0.023] | AUC 0.496 [0.484, 0.509]
+  mc_max                 0.005 [-0.008, 0.018] | -0.005 [-0.018, 0.007] | 0.009 [-0.004, 0.021] | 0.008 [-0.003, 0.021] | AUC 0.498 [0.486, 0.509]
+  slin_max               -0.047 [-0.059, -0.035] | 0.034 [0.022, 0.046] | -0.042 [-0.053, -0.029] | -0.040 [-0.052, -0.027] | AUC 0.507 [0.497, 0.518]
+  slin_sum               -0.044 [-0.058, -0.031] | 0.032 [0.018, 0.045] | -0.037 [-0.051, -0.024] | -0.036 [-0.049, -0.024] | AUC 0.507 [0.494, 0.518]
+  eo_best                -0.712 [-0.719, -0.706] | 0.491 [0.482, 0.501] | -0.637 [-0.645, -0.630] | -0.641 [-0.649, -0.634] | AUC 0.717 [0.707, 0.729]
+  eo_sum                 -0.752 [-0.757, -0.746] | 0.523 [0.514, 0.532] | -0.675 [-0.682, -0.667] | -0.676 [-0.683, -0.669] | AUC 0.746 [0.735, 0.756]
+  eo_best_N              -0.645 [-0.654, -0.638] | 0.451 [0.439, 0.459] | -0.580 [-0.589, -0.572] | -0.580 [-0.589, -0.572] | AUC 0.696 [0.685, 0.705]
+  eo_n_axes_le4          0.619 [0.611, 0.627] | -0.435 [-0.446, -0.426] | 0.553 [0.545, 0.562] | 0.553 [0.543, 0.562] | AUC 0.687 [0.678, 0.697]
+  n_eo4                  0.778 [0.773, 0.783] | -0.537 [-0.546, -0.528] | 0.696 [0.689, 0.703] | 0.695 [0.688, 0.701] | AUC 0.752 [0.740, 0.761]
+  n_eo5                  0.794 [0.789, 0.799] | -0.551 [-0.560, -0.541] | 0.711 [0.704, 0.717] | 0.710 [0.703, 0.717] | AUC 0.755 [0.745, 0.765]
+  n_eo4_N                0.703 [0.697, 0.710] | -0.483 [-0.493, -0.473] | 0.629 [0.621, 0.636] | 0.629 [0.622, 0.637] | AUC 0.727 [0.718, 0.737]
+  n_eo4_maxaxis          0.742 [0.736, 0.747] | -0.511 [-0.521, -0.502] | 0.662 [0.655, 0.669] | 0.660 [0.652, 0.667] | AUC 0.733 [0.725, 0.744]
+  n_eo4_minaxis          0.482 [0.472, 0.491] | -0.331 [-0.342, -0.321] | 0.440 [0.429, 0.451] | 0.440 [0.431, 0.449] | AUC 0.644 [0.632, 0.655]
+  post_c_min             -0.099 [-0.111, -0.087] | 0.069 [0.055, 0.080] | -0.092 [-0.104, -0.079] | -0.091 [-0.102, -0.078] | AUC 0.525 [0.516, 0.533]
+  post_ce_min            -0.402 [-0.413, -0.391] | 0.289 [0.277, 0.302] | -0.377 [-0.388, -0.365] | -0.369 [-0.378, -0.359] | AUC 0.664 [0.653, 0.677]
+  post_lc_min            -0.434 [-0.445, -0.424] | 0.307 [0.296, 0.318] | -0.390 [-0.401, -0.380] | -0.391 [-0.403, -0.380] | AUC 0.642 [0.631, 0.652]
+  post_neasy             0.559 [0.550, 0.567] | -0.384 [-0.395, -0.374] | 0.517 [0.507, 0.525] | 0.509 [0.499, 0.519] | AUC 0.720 [0.707, 0.731]
+  post_neasy_max         0.545 [0.536, 0.554] | -0.375 [-0.385, -0.363] | 0.504 [0.493, 0.513] | 0.496 [0.486, 0.505] | AUC 0.715 [0.706, 0.727]
+  be1_min                -0.463 [-0.473, -0.454] | 0.327 [0.316, 0.339] | -0.419 [-0.429, -0.409] | -0.422 [-0.433, -0.412] | AUC 0.649 [0.640, 0.660]
+  mc1_min                0.003 [-0.009, 0.016] | -0.008 [-0.020, 0.003] | 0.006 [-0.006, 0.018] | 0.009 [-0.003, 0.021] | AUC 0.499 [0.489, 0.510]
+  pairs                  0.131 [0.119, 0.142] | -0.140 [-0.151, -0.127] | 0.152 [0.140, 0.164] | 0.118 [0.105, 0.130] | AUC 0.584 [0.570, 0.596]
+  solved                 0.129 [0.116, 0.141] | -0.085 [-0.098, -0.073] | 0.117 [0.105, 0.131] | 0.116 [0.102, 0.128] | AUC 0.535 [0.523, 0.548]
+  tetrad_split_min       0.005 [-0.009, 0.019] | -0.001 [-0.013, 0.010] | 0.004 [-0.010, 0.018] | 0.003 [-0.009, 0.015] | AUC 0.501 [0.490, 0.511]
+  cface_arm_min          0.005 [-0.007, 0.017] | -0.009 [-0.021, 0.004] | 0.008 [-0.005, 0.020] | 0.009 [-0.003, 0.022] | AUC 0.499 [0.487, 0.511]
+  cw_ccw_imbal           -0.007 [-0.019, 0.006] | 0.007 [-0.007, 0.020] | -0.010 [-0.023, 0.000] | -0.008 [-0.020, 0.005] | AUC 0.500 [0.494, 0.506]
+  ce_min                 -0.486 [-0.496, -0.477] | 0.333 [0.322, 0.344] | -0.431 [-0.440, -0.421] | -0.433 [-0.443, -0.424] | AUC 0.654 [0.644, 0.665]
+  lucky                  0.231 [0.218, 0.242] | -0.166 [-0.177, -0.155] | 0.211 [0.198, 0.223] | 0.210 [0.198, 0.223] | AUC 0.563 [0.554, 0.572]
+  be_in_own_slice_min    -0.386 [-0.397, -0.375] | 0.262 [0.249, 0.274] | -0.342 [-0.354, -0.332] | -0.342 [-0.352, -0.331] | AUC 0.596 [0.585, 0.605]
+  cparity                0.001 [-0.010, 0.014] | -0.010 [-0.022, 0.003] | 0.004 [-0.008, 0.017] | -0.000 [-0.011, 0.012] | AUC 0.503 [0.492, 0.513]
+  ar_c                   -0.006 [-0.018, 0.007] | 0.008 [-0.005, 0.020] | -0.011 [-0.023, 0.001] | -0.008 [-0.019, 0.005] | AUC 0.497 [0.486, 0.508]
+  ar_e                   0.353 [0.342, 0.364] | -0.245 [-0.258, -0.233] | 0.319 [0.308, 0.330] | 0.318 [0.307, 0.330] | AUC 0.611 [0.599, 0.623]
+  ar_sum                 0.269 [0.259, 0.281] | -0.184 [-0.196, -0.172] | 0.240 [0.228, 0.251] | 0.241 [0.231, 0.253] | AUC 0.590 [0.577, 0.603]
+  eb3                    -0.426 [-0.436, -0.415] | 0.297 [0.286, 0.310] | -0.385 [-0.394, -0.373] | -0.381 [-0.392, -0.370] | AUC 0.638 [0.627, 0.651]
+  cb3                    0.003 [-0.009, 0.014] | -0.002 [-0.015, 0.010] | 0.006 [-0.008, 0.019] | 0.006 [-0.007, 0.020] | AUC 0.497 [0.486, 0.510]
+  eb1                    0.345 [0.334, 0.356] | -0.245 [-0.258, -0.232] | 0.309 [0.296, 0.321] | 0.313 [0.301, 0.324] | AUC 0.606 [0.594, 0.618]
+
+## 1. Single features (TNoodle 2020-08 to 2026 + generated, n=11363): Spearman rho [95% bootstrap CI] with each target; AUC for easy (best<=19), oriented
+  t_len                  -0.027 [-0.044, -0.009] | 0.028 [0.010, 0.047] | -0.028 [-0.046, -0.011] | -0.028 [-0.047, -0.011] | AUC 0.510 [0.493, 0.525]
+  t_dr                   -0.022 [-0.042, -0.001] | 0.029 [0.012, 0.050] | -0.029 [-0.046, -0.013] | -0.018 [-0.036, 0.000] | AUC 0.498 [0.480, 0.516]
+  t_short                0.008 [-0.010, 0.027] | 0.000 [-0.018, 0.020] | 0.006 [-0.012, 0.026] | 0.002 [-0.015, 0.021] | AUC 0.507 [0.490, 0.523]
+  t_long                 -0.017 [-0.037, 0.001] | 0.017 [-0.000, 0.035] | -0.021 [-0.040, -0.004] | -0.011 [-0.030, 0.005] | AUC 0.492 [0.476, 0.510]
+  t_p1_end               -0.009 [-0.027, 0.008] | 0.006 [-0.012, 0.025] | -0.017 [-0.037, -0.001] | -0.008 [-0.027, 0.010] | AUC 0.504 [0.489, 0.521]
+  t_run                  -0.002 [-0.022, 0.017] | -0.001 [-0.018, 0.015] | 0.001 [-0.020, 0.020] | -0.007 [-0.026, 0.011] | AUC 0.489 [0.472, 0.509]
+  t_qt                   -0.014 [-0.033, 0.002] | 0.017 [-0.002, 0.035] | -0.019 [-0.038, -0.001] | -0.014 [-0.032, 0.004] | AUC 0.518 [0.496, 0.532]
+  be_min                 -0.650 [-0.660, -0.640] | 0.450 [0.435, 0.464] | -0.578 [-0.591, -0.567] | -0.578 [-0.590, -0.566] | AUC 0.671 [0.659, 0.686]
+  mc_min                 0.013 [-0.004, 0.034] | -0.014 [-0.033, 0.004] | 0.017 [0.000, 0.035] | 0.015 [-0.004, 0.032] | AUC 0.493 [0.476, 0.510]
+  n_eo4                  0.778 [0.771, 0.786] | -0.542 [-0.554, -0.527] | 0.699 [0.689, 0.710] | 0.696 [0.688, 0.706] | AUC 0.740 [0.728, 0.752]
+  eo_best                -0.710 [-0.720, -0.702] | 0.490 [0.477, 0.502] | -0.640 [-0.650, -0.630] | -0.638 [-0.648, -0.627] | AUC 0.709 [0.694, 0.723]
+
+## 1. Single features (real TNoodle 2016-2020, n=2516): Spearman rho [95% bootstrap CI] with each target; AUC for easy (best<=19), oriented
+  t_len                  -0.014 [-0.051, 0.021] | -0.014 [-0.051, 0.020] | -0.012 [-0.050, 0.025] | 0.004 [-0.034, 0.040] | AUC 0.508 [0.473, 0.548]
+  t_dr                   -0.024 [-0.062, 0.016] | -0.006 [-0.042, 0.033] | -0.030 [-0.067, 0.006] | -0.018 [-0.056, 0.025] | AUC 0.486 [0.448, 0.519]
+  t_short                -0.008 [-0.042, 0.031] | 0.026 [-0.014, 0.067] | -0.014 [-0.050, 0.024] | -0.007 [-0.044, 0.032] | AUC 0.501 [0.496, 0.505]
+  t_long                 -0.024 [-0.065, 0.012] | -0.008 [-0.050, 0.033] | -0.030 [-0.068, 0.008] | -0.019 [-0.059, 0.020] | AUC 0.488 [0.455, 0.526]
+  t_p1_end               0.009 [-0.022, 0.044] | -0.033 [-0.062, -0.000] | 0.006 [-0.031, 0.041] | 0.004 [-0.035, 0.037] | AUC 0.502 [0.501, 0.504]
+  t_run                  0.016 [-0.022, 0.052] | -0.007 [-0.046, 0.027] | 0.020 [-0.022, 0.059] | 0.019 [-0.020, 0.062] | AUC 0.512 [0.478, 0.555]
+  t_qt                   -0.031 [-0.071, 0.008] | 0.027 [-0.010, 0.065] | -0.028 [-0.065, 0.013] | -0.028 [-0.062, 0.017] | AUC 0.501 [0.466, 0.545]
+
+## 2. Held-out models (all populations, state features): train 15998, test 7881. Test R^2 [95% bootstrap CI over test scrambles]
+ target n10 (log2 1+n): baseline EO+CO linear R^2 0.431 [0.414, 0.449]
+   (bad edges only, no CO: R^2 0.431 [0.416, 0.449]; CO adds -0.0001)
+   + slice edges placed                             R^2 0.431  gain +0.000 [-0.000, +0.000]
+   + EO-search: optimal EO length                   R^2 0.634  gain +0.203 [+0.190, +0.216]
+   + EO-search: number of short EOs                 R^2 0.582  gain +0.151 [+0.136, +0.167]
+   + EO-search: DR case after the EOs               R^2 0.532  gain +0.100 [+0.089, +0.109]
+   + one-move lookahead                             R^2 0.458  gain +0.027 [+0.021, +0.033]
+   + pairs and solved pieces                        R^2 0.449  gain +0.018 [+0.013, +0.022]
+   + corner geometry (tetrads, ARM corners, twist)  R^2 0.431  gain +0.000 [-0.000, +0.000]
+   + misc (lucky EO, slice bad edges, parity)       R^2 0.453  gain +0.022 [+0.018, +0.026]
+   + axial reduction, multi-axis badness            R^2 0.450  gain +0.018 [+0.014, +0.023]
+   all derived features, linear: R^2 0.679 [0.667, 0.691]
+   COMPUTER-ONLY gradient boosting on all 199 raw+derived features: R^2 0.715 [0.701, 0.728]
+ target best DR+finish: baseline EO+CO linear R^2 0.223 [0.207, 0.239]
+   (bad edges only, no CO: R^2 0.223 [0.208, 0.238]; CO adds -0.0003)
+   + slice edges placed                             R^2 0.222  gain -0.000 [-0.001, +0.000]
+   + EO-search: optimal EO length                   R^2 0.317  gain +0.094 [+0.083, +0.106]
+   + EO-search: number of short EOs                 R^2 0.285  gain +0.062 [+0.052, +0.072]
+   + EO-search: DR case after the EOs               R^2 0.258  gain +0.035 [+0.027, +0.044]
+   + one-move lookahead                             R^2 0.237  gain +0.014 [+0.010, +0.018]
+   + pairs and solved pieces                        R^2 0.240  gain +0.017 [+0.011, +0.022]
+   + corner geometry (tetrads, ARM corners, twist)  R^2 0.223  gain +0.000 [-0.000, +0.000]
+   + misc (lucky EO, slice bad edges, parity)       R^2 0.232  gain +0.009 [+0.006, +0.012]
+   + axial reduction, multi-axis badness            R^2 0.230  gain +0.007 [+0.003, +0.011]
+   all derived features, linear: R^2 0.342 [0.324, 0.358]
+   COMPUTER-ONLY gradient boosting on all 199 raw+derived features: R^2 0.364 [0.347, 0.380]
+   AUC easy: baseline 0.720 [0.703, 0.735]; all linear 0.771 [0.754, 0.789]; GBM 0.781 [0.763, 0.798]
+   GBM permutation importance (drop in test R^2), top 12: n_eo5 0.140, pairs_I 0.022, eo_sum 0.016, post_neasy 0.015, eo_best 0.009, n_eo4 0.005, be_sum 0.004, be_min 0.004, post_ce_min 0.003, n_eo4_maxaxis 0.003, be1_min 0.003, post_eo_neasy_FB_UD_N 0.002
+ target good22 (log2 1+n): baseline EO+CO linear R^2 0.357 [0.341, 0.373]
+   (bad edges only, no CO: R^2 0.357 [0.338, 0.375]; CO adds +0.0001)
+   + slice edges placed                             R^2 0.358  gain +0.000 [-0.000, +0.000]
+   + EO-search: optimal EO length                   R^2 0.528  gain +0.171 [+0.158, +0.184]
+   + EO-search: number of short EOs                 R^2 0.495  gain +0.137 [+0.124, +0.153]
+   + EO-search: DR case after the EOs               R^2 0.465  gain +0.107 [+0.096, +0.118]
+   + one-move lookahead                             R^2 0.379  gain +0.022 [+0.016, +0.028]
+   + pairs and solved pieces                        R^2 0.383  gain +0.025 [+0.020, +0.031]
+   + corner geometry (tetrads, ARM corners, twist)  R^2 0.358  gain +0.000 [-0.000, +0.000]
+   + misc (lucky EO, slice bad edges, parity)       R^2 0.379  gain +0.022 [+0.017, +0.026]
+   + axial reduction, multi-axis badness            R^2 0.369  gain +0.012 [+0.008, +0.016]
+   all derived features, linear: R^2 0.588 [0.573, 0.603]
+   COMPUTER-ONLY gradient boosting on all 199 raw+derived features: R^2 0.616 [0.602, 0.632]
+ target gsub10 (log2 1+n): baseline EO+CO linear R^2 0.361 [0.342, 0.377]
+   (bad edges only, no CO: R^2 0.361 [0.344, 0.378]; CO adds -0.0000)
+   + slice edges placed                             R^2 0.361  gain +0.000 [-0.000, +0.000]
+   + EO-search: optimal EO length                   R^2 0.530  gain +0.169 [+0.157, +0.181]
+   + EO-search: number of short EOs                 R^2 0.491  gain +0.130 [+0.115, +0.143]
+   + EO-search: DR case after the EOs               R^2 0.457  gain +0.096 [+0.085, +0.106]
+   + one-move lookahead                             R^2 0.384  gain +0.023 [+0.017, +0.028]
+   + pairs and solved pieces                        R^2 0.375  gain +0.013 [+0.009, +0.018]
+   + corner geometry (tetrads, ARM corners, twist)  R^2 0.361  gain +0.000 [-0.000, +0.001]
+   + misc (lucky EO, slice bad edges, parity)       R^2 0.382  gain +0.020 [+0.016, +0.026]
+   + axial reduction, multi-axis badness            R^2 0.375  gain +0.013 [+0.009, +0.018]
+   all derived features, linear: R^2 0.573 [0.557, 0.589]
+   COMPUTER-ONLY gradient boosting on all 199 raw+derived features: R^2 0.599 [0.583, 0.614]
+
+## 2. Held-out models (TNoodle 2020-08 to 2026 + generated, state + text): train 7613, test 3750. Test R^2 [95% bootstrap CI over test scrambles]
+ target n10 (log2 1+n): baseline EO+CO linear R^2 0.438 [0.416, 0.463]
+   (bad edges only, no CO: R^2 0.438 [0.415, 0.460]; CO adds -0.0004)
+   + slice edges placed                             R^2 0.438  gain -0.000 [-0.001, +0.000]
+   + EO-search: optimal EO length                   R^2 0.637  gain +0.199 [+0.182, +0.218]
+   + EO-search: number of short EOs                 R^2 0.598  gain +0.160 [+0.138, +0.181]
+   + EO-search: DR case after the EOs               R^2 0.540  gain +0.102 [+0.089, +0.117]
+   + one-move lookahead                             R^2 0.466  gain +0.029 [+0.020, +0.038]
+   + pairs and solved pieces                        R^2 0.456  gain +0.018 [+0.011, +0.024]
+   + corner geometry (tetrads, ARM corners, twist)  R^2 0.436  gain -0.002 [-0.003, -0.000]
+   + misc (lucky EO, slice bad edges, parity)       R^2 0.453  gain +0.015 [+0.009, +0.022]
+   + axial reduction, multi-axis badness            R^2 0.456  gain +0.019 [+0.013, +0.025]
+   + scramble text                                  R^2 0.439  gain +0.001 [-0.001, +0.002]
+   all derived features, linear: R^2 0.686 [0.668, 0.701]
+   COMPUTER-ONLY gradient boosting on all 220 raw+derived features: R^2 0.707 [0.690, 0.725]
+ target best DR+finish: baseline EO+CO linear R^2 0.222 [0.199, 0.245]
+   (bad edges only, no CO: R^2 0.222 [0.200, 0.243]; CO adds -0.0004)
+   + slice edges placed                             R^2 0.222  gain +0.000 [-0.000, +0.001]
+   + EO-search: optimal EO length                   R^2 0.308  gain +0.086 [+0.071, +0.100]
+   + EO-search: number of short EOs                 R^2 0.283  gain +0.061 [+0.046, +0.076]
+   + EO-search: DR case after the EOs               R^2 0.265  gain +0.043 [+0.032, +0.055]
+   + one-move lookahead                             R^2 0.233  gain +0.012 [+0.006, +0.017]
+   + pairs and solved pieces                        R^2 0.242  gain +0.021 [+0.013, +0.027]
+   + corner geometry (tetrads, ARM corners, twist)  R^2 0.222  gain +0.000 [-0.001, +0.001]
+   + misc (lucky EO, slice bad edges, parity)       R^2 0.230  gain +0.008 [+0.004, +0.013]
+   + axial reduction, multi-axis badness            R^2 0.231  gain +0.009 [+0.005, +0.013]
+   + scramble text                                  R^2 0.221  gain -0.001 [-0.003, +0.001]
+   all derived features, linear: R^2 0.344 [0.319, 0.368]
+   COMPUTER-ONLY gradient boosting on all 220 raw+derived features: R^2 0.344 [0.314, 0.369]
+   AUC easy: baseline 0.713 [0.686, 0.742]; all linear 0.773 [0.748, 0.794]; GBM 0.770 [0.746, 0.789]
+   GBM permutation importance (drop in test R^2), top 12: n_eo5 0.089, n_eo4 0.039, pairs_I 0.024, post_neasy 0.015, eo_sum 0.012, eo_best 0.006, be_1mv_UD_N 0.003, be1_min 0.003, be_1mv_RL_N 0.003, be_1mv_FB_I 0.003, post_eo_ce_FB_UD_N 0.003, post_neasy_max 0.003
+ target good22 (log2 1+n): baseline EO+CO linear R^2 0.357 [0.331, 0.378]
+   (bad edges only, no CO: R^2 0.357 [0.334, 0.380]; CO adds -0.0002)
+   + slice edges placed                             R^2 0.357  gain -0.000 [-0.000, +0.000]
+   + EO-search: optimal EO length                   R^2 0.535  gain +0.178 [+0.159, +0.197]
+   + EO-search: number of short EOs                 R^2 0.512  gain +0.155 [+0.134, +0.175]
+   + EO-search: DR case after the EOs               R^2 0.467  gain +0.110 [+0.094, +0.124]
+   + one-move lookahead                             R^2 0.376  gain +0.019 [+0.011, +0.027]
+   + pairs and solved pieces                        R^2 0.381  gain +0.024 [+0.016, +0.032]
+   + corner geometry (tetrads, ARM corners, twist)  R^2 0.356  gain -0.001 [-0.002, +0.000]
+   + misc (lucky EO, slice bad edges, parity)       R^2 0.375  gain +0.018 [+0.012, +0.024]
+   + axial reduction, multi-axis badness            R^2 0.371  gain +0.014 [+0.008, +0.020]
+   + scramble text                                  R^2 0.359  gain +0.002 [-0.000, +0.004]
+   all derived features, linear: R^2 0.598 [0.578, 0.616]
+   COMPUTER-ONLY gradient boosting on all 220 raw+derived features: R^2 0.604 [0.584, 0.625]
+ target gsub10 (log2 1+n): baseline EO+CO linear R^2 0.358 [0.338, 0.382]
+   (bad edges only, no CO: R^2 0.359 [0.333, 0.382]; CO adds -0.0002)
+   + slice edges placed                             R^2 0.358  gain -0.000 [-0.001, +0.000]
+   + EO-search: optimal EO length                   R^2 0.527  gain +0.168 [+0.152, +0.185]
+   + EO-search: number of short EOs                 R^2 0.503  gain +0.145 [+0.127, +0.165]
+   + EO-search: DR case after the EOs               R^2 0.454  gain +0.096 [+0.081, +0.110]
+   + one-move lookahead                             R^2 0.380  gain +0.022 [+0.014, +0.029]
+   + pairs and solved pieces                        R^2 0.372  gain +0.014 [+0.008, +0.020]
+   + corner geometry (tetrads, ARM corners, twist)  R^2 0.358  gain -0.001 [-0.001, +0.001]
+   + misc (lucky EO, slice bad edges, parity)       R^2 0.373  gain +0.015 [+0.009, +0.021]
+   + axial reduction, multi-axis badness            R^2 0.375  gain +0.017 [+0.011, +0.022]
+   + scramble text                                  R^2 0.360  gain +0.001 [-0.001, +0.003]
+   all derived features, linear: R^2 0.571 [0.551, 0.592]
+   COMPUTER-ONLY gradient boosting on all 220 raw+derived features: R^2 0.586 [0.564, 0.605]
+
+## 3. Human-usable scores (fit on train, test numbers)
+  bad edges min+mid                | n10 0.411 | best 0.210 AUCeasy 0.715 | good22 0.343 | gsub10 0.348
+  n_eo4                            | n10 0.536 | best 0.288 AUCeasy 0.755 | good22 0.423 | gsub10 0.429
+  eo_best + n_eo4                  | n10 0.581 | best 0.301 AUCeasy 0.766 | good22 0.470 | gsub10 0.476
+  be_min + mc_min                  | n10 0.373 | best 0.192 AUCeasy 0.684 | good22 0.307 | gsub10 0.313
+  be_min + be_mid + mc_min         | n10 0.411 | best 0.210 AUCeasy 0.716 | good22 0.343 | gsub10 0.348
+  n_eo4 + post_c_min               | n10 0.537 | best 0.288 AUCeasy 0.755 | good22 0.425 | gsub10 0.430
+  n_eo4 + post_neasy               | n10 0.572 | best 0.296 AUCeasy 0.765 | good22 0.474 | gsub10 0.472
+  n_eo4 + eo_best + post_c_min     | n10 0.582 | best 0.301 AUCeasy 0.766 | good22 0.472 | gsub10 0.477
+  n_eo5 + post_neasy               | n10 0.606 | best 0.325 AUCeasy 0.764 | good22 0.493 | gsub10 0.492
+  post_neasy                       | n10 0.281 | best 0.121 AUCeasy 0.722 | good22 0.269 | gsub10 0.257
+  n_eo4_maxaxis + n_eo4            | n10 0.543 | best 0.289 AUCeasy 0.754 | good22 0.432 | gsub10 0.437
+  tree depth 2 on cube-only counts, target best DR+finish: test R^2 0.239 [0.221, 0.252]
+    |--- be_min <= 5.0
+    |   |--- be_mid <= 5.0
+    |   |   |--- value: [20.3]
+    |   |--- be_mid >  5.0
+    |   |   |--- value: [20.9]
+    |--- be_min >  5.0
+    |   |--- be_max <= 9.0
+    |   |   |--- value: [21.8]
+    |   |--- be_max >  9.0
+    |   |   |--- value: [22.8]
+    
+  tree depth 2 on cube-only counts, target n10 (log2 1+n): test R^2 0.446 [0.429, 0.463]
+    |--- be_min <= 5.0
+    |   |--- be_mid <= 5.0
+    |   |   |--- value: [6.6]
+    |   |--- be_mid >  5.0
+    |   |   |--- value: [5.3]
+    |--- be_min >  5.0
+    |   |--- be_max <= 9.0
+    |   |   |--- value: [3.7]
+    |   |--- be_max >  9.0
+    |   |   |--- value: [2.5]
+    
+  tree depth 2 on counts + EO search, target best DR+finish: test R^2 0.279 [0.261, 0.294]
+    |--- n_eo5 <= 132.5
+    |   |--- n_eo5 <= 53.5
+    |   |   |--- value: [22.7]
+    |   |--- n_eo5 >  53.5
+    |   |   |--- value: [21.8]
+    |--- n_eo5 >  132.5
+    |   |--- n_eo5 <= 288.5
+    |   |   |--- value: [20.9]
+    |   |--- n_eo5 >  288.5
+    |   |   |--- value: [20.2]
+    
+  tree depth 2 on counts + EO search, target n10 (log2 1+n): test R^2 0.544 [0.530, 0.560]
+    |--- n_eo5 <= 152.5
+    |   |--- n_eo5 <= 80.5
+    |   |   |--- value: [2.9]
+    |   |--- n_eo5 >  80.5
+    |   |   |--- value: [4.0]
+    |--- n_eo5 >  152.5
+    |   |--- n_eo5 <= 320.5
+    |   |   |--- value: [5.4]
+    |   |--- n_eo5 >  320.5
+    |   |   |--- value: [6.9]
+    
+  tree depth 3 on cube-only counts, target best DR+finish: test R^2 0.247 [0.233, 0.263]
+    |--- be_min <= 5.0
+    |   |--- be_mid <= 5.0
+    |   |   |--- pairs <= 1.5
+    |   |   |   |--- value: [20.4]
+    |   |   |--- pairs >  1.5
+    |   |   |   |--- value: [19.9]
+    |   |--- be_mid >  5.0
+    |   |   |--- pairs <= 1.5
+    |   |   |   |--- value: [21.0]
+    |   |   |--- pairs >  1.5
+    |   |   |   |--- value: [20.6]
+    |--- be_min >  5.0
+    |   |--- be_max <= 9.0
+    |   |   |--- pairs <= 2.5
+    |   |   |   |--- value: [21.9]
+    |   |   |--- pairs >  2.5
+    |   |   |   |--- value: [21.1]
+    |   |--- be_max >  9.0
+    |   |   |--- pairs <= 1.5
+    |   |   |   |--- value: [22.9]
+    |   |   |--- pairs >  1.5
+    |   |   |   |--- value: [22.6]
+    
+  tree depth 3 on cube-only counts, target n10 (log2 1+n): test R^2 0.470 [0.454, 0.486]
+  tree depth 3 on counts + EO search, target best DR+finish: test R^2 0.309 [0.292, 0.327]
+    |--- n_eo5 <= 132.5
+    |   |--- n_eo5 <= 53.5
+    |   |   |--- n_eo5 <= 23.5
+    |   |   |   |--- value: [23.4]
+    |   |   |--- n_eo5 >  23.5
+    |   |   |   |--- value: [22.5]
+    |   |--- n_eo5 >  53.5
+    |   |   |--- n_eo5 <= 84.5
+    |   |   |   |--- value: [22.0]
+    |   |   |--- n_eo5 >  84.5
+    |   |   |   |--- value: [21.6]
+    |--- n_eo5 >  132.5
+    |   |--- n_eo5 <= 288.5
+    |   |   |--- post_neasy <= 31.5
+    |   |   |   |--- value: [21.3]
+    |   |   |--- post_neasy >  31.5
+    |   |   |   |--- value: [20.8]
+    |   |--- n_eo5 >  288.5
+    |   |   |--- post_neasy <= 118.5
+    |   |   |   |--- value: [20.4]
+    |   |   |--- post_neasy >  118.5
+    |   |   |   |--- value: [19.8]
+    
+  tree depth 3 on counts + EO search, target n10 (log2 1+n): test R^2 0.591 [0.576, 0.607]
+
+## 4. Which DR axis (per scramble, 3 axes)
+
+### axis question, all populations: 23879 scrambles. Top-1 accuracy of "the axis this feature favours" [95% CI] (chance = share of tied winners)
+  mc           within-scramble r with log n10 +0.021 | n10: 0.369 [0.363, 0.374] (chance 0.363) | bestdr: 0.570 [0.564, 0.575] (chance 0.564) | best: 0.462 [0.457, 0.467] (chance 0.457)
+  slin         within-scramble r with log n10 -0.026 | n10: 0.364 [0.360, 0.369] (chance 0.363) | bestdr: 0.568 [0.563, 0.574] (chance 0.564) | best: 0.463 [0.458, 0.468] (chance 0.457)
+  be_min2      within-scramble r with log n10 -0.327 | n10: 0.408 [0.405, 0.410] (chance 0.363) | bestdr: 0.597 [0.593, 0.601] (chance 0.564) | best: 0.492 [0.489, 0.495] (chance 0.457)
+  be_max2      within-scramble r with log n10 -0.138 | n10: 0.416 [0.412, 0.421] (chance 0.363) | bestdr: 0.595 [0.590, 0.600] (chance 0.564) | best: 0.490 [0.485, 0.494] (chance 0.457)
+  be_sum2      within-scramble r with log n10 -0.304 | n10: 0.438 [0.432, 0.443] (chance 0.363) | bestdr: 0.611 [0.605, 0.616] (chance 0.564) | best: 0.506 [0.501, 0.512] (chance 0.457)
+  be_own       within-scramble r with log n10 +0.304 | n10: 0.438 [0.433, 0.443] (chance 0.363) | bestdr: 0.611 [0.606, 0.616] (chance 0.564) | best: 0.506 [0.501, 0.512] (chance 0.457)
+  eo_min2      within-scramble r with log n10 -0.485 | n10: 0.427 [0.425, 0.429] (chance 0.363) | bestdr: 0.614 [0.611, 0.618] (chance 0.564) | best: 0.510 [0.507, 0.513] (chance 0.457)
+  eo_own       within-scramble r with log n10 +0.485 | n10: 0.492 [0.486, 0.496] (chance 0.363) | bestdr: 0.649 [0.644, 0.654] (chance 0.564) | best: 0.542 [0.537, 0.547] (chance 0.457)
+  n_eo4_2      within-scramble r with log n10 +0.467 | n10: 0.493 [0.487, 0.497] (chance 0.363) | bestdr: 0.647 [0.642, 0.652] (chance 0.564) | best: 0.542 [0.537, 0.547] (chance 0.457)
+  n_eo5_2      within-scramble r with log n10 +0.471 | n10: 0.513 [0.507, 0.520] (chance 0.363) | bestdr: 0.661 [0.655, 0.667] (chance 0.564) | best: 0.557 [0.550, 0.563] (chance 0.457)
+  n_eo4_own    within-scramble r with log n10 -0.467 | n10: 0.493 [0.488, 0.498] (chance 0.363) | bestdr: 0.647 [0.642, 0.651] (chance 0.564) | best: 0.542 [0.537, 0.547] (chance 0.457)
+  post_c       within-scramble r with log n10 -0.082 | n10: 0.380 [0.376, 0.383] (chance 0.363) | bestdr: 0.576 [0.572, 0.581] (chance 0.564) | best: 0.467 [0.463, 0.472] (chance 0.457)
+  post_ce      within-scramble r with log n10 -0.164 | n10: 0.420 [0.414, 0.426] (chance 0.363) | bestdr: 0.605 [0.599, 0.610] (chance 0.564) | best: 0.494 [0.489, 0.500] (chance 0.457)
+  post_neasy   within-scramble r with log n10 +0.261 | n10: 0.477 [0.471, 0.483] (chance 0.363) | bestdr: 0.633 [0.627, 0.639] (chance 0.564) | best: 0.527 [0.520, 0.533] (chance 0.457)
+  arm_c        within-scramble r with log n10 +0.016 | n10: 0.368 [0.364, 0.373] (chance 0.363) | bestdr: 0.569 [0.563, 0.574] (chance 0.564) | best: 0.461 [0.456, 0.466] (chance 0.457)
+  tetrad       within-scramble r with log n10 +0.007 | n10: 0.365 [0.360, 0.369] (chance 0.363) | bestdr: 0.566 [0.561, 0.571] (chance 0.564) | best: 0.456 [0.451, 0.460] (chance 0.457)
+  clayer       within-scramble r with log n10 -0.006 | n10: 0.361 [0.357, 0.366] (chance 0.363) | bestdr: 0.562 [0.557, 0.567] (chance 0.564) | best: 0.457 [0.452, 0.462] (chance 0.457)
+  mc_1mv       within-scramble r with log n10 +0.010 | n10: 0.367 [0.362, 0.372] (chance 0.363) | bestdr: 0.567 [0.561, 0.573] (chance 0.564) | best: 0.460 [0.454, 0.465] (chance 0.457)
+  be_in_slice  within-scramble r with log n10 +0.077 | n10: 0.393 [0.388, 0.398] (chance 0.363) | bestdr: 0.578 [0.573, 0.583] (chance 0.564) | best: 0.475 [0.470, 0.481] (chance 0.457)
+  held-out linear (cube counts; 7881 test scrambles): n10: 0.439 [0.428, 0.449] (chance 0.363) | bestdr: 0.615 [0.604, 0.625] (chance 0.564) | best: 0.504 [0.493, 0.514] (chance 0.456)
+    coefficients: mc +0.025, be_min2 -0.291, be_sum2 -0.105, slin -0.003
+  held-out linear (counts + EO search; 7881 test scrambles): n10: 0.521 [0.511, 0.531] (chance 0.363) | bestdr: 0.666 [0.656, 0.676] (chance 0.564) | best: 0.545 [0.535, 0.557] (chance 0.456)
+    coefficients: mc +0.022, be_min2 -0.037, eo_min2 -0.780, n_eo4_2 +0.012, n_eo5_2 +0.003, post_c +0.001, post_neasy +0.010
+  held-out linear (all per-axis features; 7881 test scrambles): n10: 0.528 [0.518, 0.540] (chance 0.363) | bestdr: 0.669 [0.659, 0.680] (chance 0.564) | best: 0.554 [0.544, 0.564] (chance 0.456)
+    coefficients: mc +0.022, slin -0.022, be_min2 -0.062, be_max2 +0.057, be_sum2 -0.006, be_own +0.006, eo_min2 -0.540, eo_own +0.282, n_eo4_2 +0.002, n_eo5_2 +0.002, n_eo4_own -0.002, post_c +0.032, post_ce -0.081, post_neasy +0.010, arm_c -0.012, tetrad +0.016, clayer +0.001, mc_1mv +0.004, be_in_slice +0.090
+  COMPUTER-ONLY GBM on all per-axis features: n10: 0.543 [0.532, 0.554] | bestdr: 0.684 [0.673, 0.695] | best: 0.570 [0.561, 0.580]
+
+### axis question, TNoodle 2020-08 to 2026 + generated (with text): 11363 scrambles. Top-1 accuracy of "the axis this feature favours" [95% CI] (chance = share of tied winners)
+  mc           within-scramble r with log n10 +0.019 | n10: 0.371 [0.363, 0.379] (chance 0.363) | bestdr: 0.571 [0.564, 0.579] (chance 0.564) | best: 0.462 [0.455, 0.470] (chance 0.457)
+  slin         within-scramble r with log n10 -0.030 | n10: 0.367 [0.360, 0.374] (chance 0.363) | bestdr: 0.568 [0.560, 0.576] (chance 0.564) | best: 0.467 [0.460, 0.474] (chance 0.457)
+  be_min2      within-scramble r with log n10 -0.327 | n10: 0.408 [0.405, 0.411] (chance 0.363) | bestdr: 0.597 [0.591, 0.603] (chance 0.564) | best: 0.493 [0.488, 0.497] (chance 0.457)
+  be_max2      within-scramble r with log n10 -0.145 | n10: 0.419 [0.411, 0.426] (chance 0.363) | bestdr: 0.597 [0.591, 0.605] (chance 0.564) | best: 0.490 [0.483, 0.497] (chance 0.457)
+  be_sum2      within-scramble r with log n10 -0.307 | n10: 0.439 [0.433, 0.447] (chance 0.363) | bestdr: 0.613 [0.605, 0.621] (chance 0.564) | best: 0.506 [0.499, 0.513] (chance 0.457)
+  be_own       within-scramble r with log n10 +0.307 | n10: 0.439 [0.433, 0.446] (chance 0.363) | bestdr: 0.613 [0.606, 0.620] (chance 0.564) | best: 0.506 [0.498, 0.513] (chance 0.457)
+  eo_min2      within-scramble r with log n10 -0.486 | n10: 0.427 [0.424, 0.430] (chance 0.363) | bestdr: 0.615 [0.610, 0.621] (chance 0.564) | best: 0.509 [0.504, 0.514] (chance 0.457)
+  eo_own       within-scramble r with log n10 +0.488 | n10: 0.494 [0.488, 0.502] (chance 0.363) | bestdr: 0.652 [0.645, 0.660] (chance 0.564) | best: 0.541 [0.534, 0.548] (chance 0.457)
+  n_eo4_2      within-scramble r with log n10 +0.468 | n10: 0.494 [0.487, 0.501] (chance 0.363) | bestdr: 0.648 [0.641, 0.654] (chance 0.564) | best: 0.541 [0.534, 0.548] (chance 0.457)
+  n_eo5_2      within-scramble r with log n10 +0.474 | n10: 0.522 [0.513, 0.531] (chance 0.363) | bestdr: 0.667 [0.659, 0.676] (chance 0.564) | best: 0.558 [0.547, 0.566] (chance 0.457)
+  n_eo4_own    within-scramble r with log n10 -0.468 | n10: 0.494 [0.486, 0.501] (chance 0.363) | bestdr: 0.648 [0.641, 0.655] (chance 0.564) | best: 0.541 [0.533, 0.549] (chance 0.457)
+  post_c       within-scramble r with log n10 -0.083 | n10: 0.379 [0.374, 0.384] (chance 0.363) | bestdr: 0.575 [0.569, 0.581] (chance 0.564) | best: 0.467 [0.461, 0.474] (chance 0.457)
+  post_ce      within-scramble r with log n10 -0.170 | n10: 0.421 [0.412, 0.428] (chance 0.363) | bestdr: 0.603 [0.595, 0.612] (chance 0.564) | best: 0.494 [0.486, 0.503] (chance 0.457)
+  post_neasy   within-scramble r with log n10 +0.263 | n10: 0.480 [0.472, 0.488] (chance 0.363) | bestdr: 0.635 [0.626, 0.643] (chance 0.564) | best: 0.524 [0.515, 0.534] (chance 0.457)
+  arm_c        within-scramble r with log n10 +0.018 | n10: 0.371 [0.364, 0.379] (chance 0.363) | bestdr: 0.570 [0.562, 0.577] (chance 0.564) | best: 0.461 [0.453, 0.468] (chance 0.457)
+  tetrad       within-scramble r with log n10 +0.012 | n10: 0.368 [0.361, 0.374] (chance 0.363) | bestdr: 0.569 [0.562, 0.576] (chance 0.564) | best: 0.456 [0.449, 0.464] (chance 0.457)
+  clayer       within-scramble r with log n10 -0.004 | n10: 0.360 [0.353, 0.366] (chance 0.363) | bestdr: 0.558 [0.551, 0.566] (chance 0.564) | best: 0.457 [0.450, 0.463] (chance 0.457)
+  mc_1mv       within-scramble r with log n10 +0.011 | n10: 0.369 [0.362, 0.376] (chance 0.363) | bestdr: 0.570 [0.562, 0.578] (chance 0.564) | best: 0.459 [0.452, 0.468] (chance 0.457)
+  be_in_slice  within-scramble r with log n10 +0.080 | n10: 0.397 [0.390, 0.404] (chance 0.363) | bestdr: 0.581 [0.574, 0.588] (chance 0.564) | best: 0.474 [0.466, 0.482] (chance 0.457)
+  t_run        within-scramble r with log n10 +0.006 | n10: 0.364 [0.357, 0.373] (chance 0.363) | bestdr: 0.570 [0.561, 0.579] (chance 0.564) | best: 0.460 [0.452, 0.469] (chance 0.457)
+  t_is_axis    within-scramble r with log n10 +0.011 | n10: 0.365 [0.356, 0.373] (chance 0.363) | bestdr: 0.570 [0.561, 0.578] (chance 0.564) | best: 0.461 [0.451, 0.469] (chance 0.457)
+  t_qt         within-scramble r with log n10 +0.015 | n10: 0.360 [0.352, 0.369] (chance 0.363) | bestdr: 0.568 [0.560, 0.577] (chance 0.564) | best: 0.459 [0.452, 0.468] (chance 0.457)
+  held-out linear (cube counts; 3750 test scrambles): n10: 0.430 [0.416, 0.446] (chance 0.363) | bestdr: 0.609 [0.594, 0.624] (chance 0.564) | best: 0.501 [0.486, 0.517] (chance 0.463)
+    coefficients: mc +0.030, be_min2 -0.285, be_sum2 -0.120, slin -0.025
+  held-out linear (counts + EO search; 3750 test scrambles): n10: 0.521 [0.505, 0.535] (chance 0.363) | bestdr: 0.664 [0.649, 0.680] (chance 0.564) | best: 0.555 [0.538, 0.571] (chance 0.463)
+    coefficients: mc +0.027, be_min2 -0.038, eo_min2 -0.772, n_eo4_2 +0.008, n_eo5_2 +0.003, post_c +0.005, post_neasy +0.010
+  held-out linear (all per-axis features; 3750 test scrambles): n10: 0.529 [0.513, 0.544] (chance 0.363) | bestdr: 0.675 [0.658, 0.689] (chance 0.564) | best: 0.565 [0.549, 0.580] (chance 0.463)
+    coefficients: mc +0.030, slin -0.040, be_min2 -0.067, be_max2 +0.059, be_sum2 -0.007, be_own +0.007, eo_min2 -0.521, eo_own +0.287, n_eo4_2 -0.000, n_eo5_2 +0.002, n_eo4_own +0.000, post_c +0.037, post_ce -0.087, post_neasy +0.009, arm_c -0.012, tetrad +0.016, clayer +0.006, mc_1mv -0.004, be_in_slice +0.107, t_run -0.024, t_is_axis +0.097, t_qt +0.008
+  COMPUTER-ONLY GBM on all per-axis features: n10: 0.552 [0.535, 0.566] | bestdr: 0.681 [0.665, 0.697] | best: 0.581 [0.566, 0.597]
+
+### axis question, real TNoodle 2016-2020 (with text): 2516 scrambles. Top-1 accuracy of "the axis this feature favours" [95% CI] (chance = share of tied winners)
+  mc           within-scramble r with log n10 +0.018 | n10: 0.361 [0.347, 0.376] (chance 0.362) | bestdr: 0.566 [0.548, 0.583] (chance 0.563) | best: 0.455 [0.440, 0.472] (chance 0.457)
+  slin         within-scramble r with log n10 -0.026 | n10: 0.371 [0.359, 0.385] (chance 0.362) | bestdr: 0.571 [0.554, 0.586] (chance 0.563) | best: 0.457 [0.442, 0.473] (chance 0.457)
+  be_min2      within-scramble r with log n10 -0.325 | n10: 0.407 [0.400, 0.414] (chance 0.362) | bestdr: 0.598 [0.587, 0.610] (chance 0.563) | best: 0.491 [0.481, 0.501] (chance 0.457)
+  be_max2      within-scramble r with log n10 -0.117 | n10: 0.408 [0.394, 0.424] (chance 0.362) | bestdr: 0.588 [0.573, 0.604] (chance 0.563) | best: 0.489 [0.473, 0.503] (chance 0.457)
+  be_sum2      within-scramble r with log n10 -0.287 | n10: 0.431 [0.413, 0.443] (chance 0.362) | bestdr: 0.606 [0.589, 0.622] (chance 0.563) | best: 0.508 [0.492, 0.523] (chance 0.457)
+  be_own       within-scramble r with log n10 +0.287 | n10: 0.431 [0.417, 0.446] (chance 0.362) | bestdr: 0.606 [0.590, 0.624] (chance 0.563) | best: 0.508 [0.490, 0.524] (chance 0.457)
+  eo_min2      within-scramble r with log n10 -0.496 | n10: 0.432 [0.426, 0.438] (chance 0.362) | bestdr: 0.616 [0.604, 0.626] (chance 0.563) | best: 0.516 [0.507, 0.526] (chance 0.457)
+  eo_own       within-scramble r with log n10 +0.498 | n10: 0.496 [0.481, 0.510] (chance 0.362) | bestdr: 0.653 [0.635, 0.669] (chance 0.563) | best: 0.551 [0.535, 0.567] (chance 0.457)
+  n_eo4_2      within-scramble r with log n10 +0.485 | n10: 0.505 [0.490, 0.520] (chance 0.362) | bestdr: 0.654 [0.637, 0.672] (chance 0.563) | best: 0.547 [0.530, 0.562] (chance 0.457)
+  n_eo5_2      within-scramble r with log n10 +0.486 | n10: 0.529 [0.511, 0.546] (chance 0.362) | bestdr: 0.673 [0.656, 0.689] (chance 0.563) | best: 0.567 [0.550, 0.587] (chance 0.457)
+  n_eo4_own    within-scramble r with log n10 -0.485 | n10: 0.505 [0.490, 0.520] (chance 0.362) | bestdr: 0.654 [0.637, 0.669] (chance 0.563) | best: 0.547 [0.532, 0.564] (chance 0.457)
+  post_c       within-scramble r with log n10 -0.091 | n10: 0.381 [0.371, 0.391] (chance 0.362) | bestdr: 0.580 [0.567, 0.593] (chance 0.563) | best: 0.469 [0.458, 0.481] (chance 0.457)
+  post_ce      within-scramble r with log n10 -0.166 | n10: 0.428 [0.412, 0.443] (chance 0.362) | bestdr: 0.623 [0.606, 0.638] (chance 0.563) | best: 0.501 [0.485, 0.518] (chance 0.457)
+  post_neasy   within-scramble r with log n10 +0.265 | n10: 0.486 [0.469, 0.506] (chance 0.362) | bestdr: 0.639 [0.618, 0.657] (chance 0.563) | best: 0.529 [0.510, 0.548] (chance 0.457)
+  arm_c        within-scramble r with log n10 +0.012 | n10: 0.362 [0.349, 0.377] (chance 0.362) | bestdr: 0.565 [0.550, 0.581] (chance 0.563) | best: 0.456 [0.441, 0.472] (chance 0.457)
+  tetrad       within-scramble r with log n10 +0.010 | n10: 0.368 [0.355, 0.383] (chance 0.362) | bestdr: 0.568 [0.552, 0.583] (chance 0.563) | best: 0.452 [0.434, 0.467] (chance 0.457)
+  clayer       within-scramble r with log n10 -0.010 | n10: 0.360 [0.345, 0.375] (chance 0.362) | bestdr: 0.573 [0.559, 0.588] (chance 0.563) | best: 0.462 [0.447, 0.476] (chance 0.457)
+  mc_1mv       within-scramble r with log n10 +0.021 | n10: 0.370 [0.354, 0.384] (chance 0.362) | bestdr: 0.568 [0.553, 0.584] (chance 0.563) | best: 0.458 [0.442, 0.472] (chance 0.457)
+  be_in_slice  within-scramble r with log n10 +0.078 | n10: 0.390 [0.375, 0.405] (chance 0.362) | bestdr: 0.580 [0.566, 0.597] (chance 0.563) | best: 0.484 [0.468, 0.501] (chance 0.457)
+  t_run        within-scramble r with log n10 +0.052 | n10: 0.386 [0.367, 0.405] (chance 0.362) | bestdr: 0.594 [0.574, 0.613] (chance 0.563) | best: 0.470 [0.449, 0.488] (chance 0.457)
+  t_is_axis    within-scramble r with log n10 +0.048 | n10: 0.387 [0.370, 0.407] (chance 0.362) | bestdr: 0.594 [0.577, 0.613] (chance 0.563) | best: 0.470 [0.452, 0.490] (chance 0.457)
+  t_qt         within-scramble r with log n10 +0.045 | n10: 0.393 [0.376, 0.409] (chance 0.362) | bestdr: 0.591 [0.572, 0.608] (chance 0.563) | best: 0.473 [0.454, 0.490] (chance 0.457)
+  held-out linear (cube counts; 831 test scrambles): n10: 0.444 [0.409, 0.478] (chance 0.365) | bestdr: 0.594 [0.566, 0.623] (chance 0.550) | best: 0.494 [0.458, 0.528] (chance 0.454)
+    coefficients: mc +0.026, be_min2 -0.322, be_sum2 -0.079, slin +0.030
+  held-out linear (counts + EO search; 831 test scrambles): n10: 0.566 [0.532, 0.599] (chance 0.365) | bestdr: 0.662 [0.633, 0.692] (chance 0.550) | best: 0.580 [0.548, 0.614] (chance 0.454)
+    coefficients: mc +0.025, be_min2 +0.021, eo_min2 -0.795, n_eo4_2 +0.005, n_eo5_2 +0.004, post_c -0.001, post_neasy +0.010
+  held-out linear (all per-axis features; 831 test scrambles): n10: 0.567 [0.533, 0.601] (chance 0.365) | bestdr: 0.662 [0.629, 0.693] (chance 0.550) | best: 0.581 [0.548, 0.614] (chance 0.454)
+    coefficients: mc +0.031, slin -0.025, be_min2 -0.050, be_max2 +0.061, be_sum2 +0.011, be_own -0.011, eo_min2 -0.579, eo_own +0.263, n_eo4_2 -0.003, n_eo5_2 +0.004, n_eo4_own +0.003, post_c +0.027, post_ce -0.073, post_neasy +0.010, arm_c -0.006, tetrad +0.033, clayer -0.013, mc_1mv -0.006, be_in_slice +0.132, t_run +0.016, t_is_axis +0.052, t_qt -0.022
+  COMPUTER-ONLY GBM on all per-axis features: n10: 0.556 [0.522, 0.589] | bestdr: 0.674 [0.647, 0.708] | best: 0.591 [0.555, 0.623]
+
+## 5. The text DR axis
+  2020-08 to 2026 + generated: log2(1+n10) on the text axis minus the mean of the other two: +0.025 [-0.004, +0.058] (a factor 1.017 in 1+n10)
+  2020-08 to 2026 + generated: text axis is a best axis by n10: 0.365 (chance 0.363); mean n10 on text axis 22.460 vs other axes 23.747  (n=11363)
+  2020-08 to 2026 + generated: text axis is a best axis by bestdr: 0.570 (chance 0.564); mean bestdr on text axis 9.732 vs other axes 9.746  (n=11363)
+  2020-08 to 2026 + generated: text axis is a best axis by best: 0.461 (chance 0.457); mean best on text axis 22.479 vs other axes 22.518  (n=11363)
+  2016-2020: log2(1+n10) on the text axis minus the mean of the other two: +0.116 [+0.052, +0.179] (a factor 1.084 in 1+n10)
+  2016-2020: text axis is a best axis by n10: 0.387 (chance 0.362); mean n10 on text axis 28.444 vs other axes 23.116  (n=2516)
+  2016-2020: text axis is a best axis by bestdr: 0.594 (chance 0.563); mean bestdr on text axis 9.673 vs other axes 9.756  (n=2516)
+  2016-2020: text axis is a best axis by best: 0.470 (chance 0.457); mean best on text axis 22.453 vs other axes 22.543  (n=2516)
+
+## 7. Lookup tables (all populations)
+
+### shortest EO (any axis, normal or inverse) x number of EOs of <= 4 moves (all axes, normal + inverse) (n=23879): per cell n | share easy (best<=19) | median n10 | mean best | share hard (best>=23 or none)
+         <=2 || 1-7: 7 | 1.00 | 2766 | 17.71 | 0.00 || 8-19: 390 | 0.20 | 93 | 20.27 | 0.01 || 20-49: 1174 | 0.31 | 155 | 19.90 | 0.00 || >=50: 301 | 0.49 | 337 | 19.47 | 0.00
+           3 || 1-7: 28 | 0.04 | 25 | 21.14 | 0.04 || 8-19: 3003 | 0.08 | 36 | 20.93 | 0.04 || 20-49: 5039 | 0.16 | 70 | 20.49 | 0.01 || >=50: 366 | 0.29 | 176 | 19.91 | 0.00
+           4 || 1-7: 5980 | 0.03 | 12 | 21.79 | 0.24 || 8-19: 4336 | 0.07 | 25 | 21.21 | 0.10 || 20-49: 527 | 0.12 | 49 | 20.67 | 0.02
+         >=5 || 0: 2728 | 0.01 | 6 | 22.60 | 0.46
+
+### bad-edge triple class (n=23879): per cell n | share easy (best<=19) | median n10 | mean best | share hard (best>=23 or none)
+      two<=4 || all: 4743 | 0.22 | 95 | 20.26 | 0.01
+      one<=4 || all: 9304 | 0.10 | 39 | 20.87 | 0.05
+  none<=4,max<=8 || all: 8387 | 0.03 | 12 | 21.79 | 0.25
+  none<=4,max>=10 || all: 1445 | 0.02 | 5 | 22.85 | 0.51
+  share of scrambles in two<=4: 0.199
+  share of scrambles in one<=4: 0.390
+  share of scrambles in none<=4,max<=8: 0.351
+  share of scrambles in none<=4,max>=10: 0.061
+
+## 8. Claims tested (all populations)
+  fewer than 8 EOs of <= 4 moves (normal + inverse, all axes): yes n=8743 (0.366) easy 0.026 hard 0.309 median n10 10 mean best 22.04 | no n=15136 easy 0.138 hard 0.040 median n10 49 mean best 20.71 | diff easy -0.112 [-0.119, -0.105], diff mean best +1.33 [+1.29, +1.37]
+  fewer than 8 EOs of <= 4 moves (normal only): yes n=13535 (0.567) easy 0.047 hard 0.225 median n10 15 mean best 21.68 | no n=10344 easy 0.162 hard 0.025 median n10 63 mean best 20.56 | diff easy -0.114 [-0.121, -0.107], diff mean best +1.12 [+1.09, +1.16]
+  fewer than 30 EOs of exactly 5 moves (normal + inverse) and at most 2 of <= 4: yes n=754 (0.032) easy 0.005 hard 0.589 median n10 3 mean best 23.22 | no n=23125 easy 0.100 hard 0.124 median n10 30 mean best 21.13 | diff easy -0.094 [-0.101, -0.087], diff mean best +2.09 [+1.94, +2.24]
+  some axis has 2 or 4 bad edges: yes n=14005 (0.586) easy 0.140 hard 0.035 median n10 52 mean best 20.68 | no n=9874 easy 0.036 hard 0.285 median n10 11 mean best 21.92 | diff easy +0.104 [+0.097, +0.110], diff mean best -1.25 [-1.29, -1.21]
+  lucky: no axis with 6, 10 or 12 bad edges: yes n=3268 (0.137) easy 0.177 hard 0.057 median n10 63 mean best 20.61 | no n=20611 easy 0.084 hard 0.152 median n10 25 mean best 21.29 | diff easy +0.093 [+0.081, +0.106], diff mean best -0.68 [-0.73, -0.63]
+  10/8/8 bad edges and no EO under 5 moves: yes n=120 (0.005) easy 0.008 hard 0.525 median n10 3 mean best 23.31 | no n=23759 easy 0.097 hard 0.137 median n10 29 mean best 21.18 | diff easy -0.089 [-0.100, -0.070], diff mean best +2.13 [+1.74, +2.52]
+  an EO of <= 2 moves: yes n=1872 (0.078) easy 0.322 hard 0.002 median n10 152 mean best 19.90 | no n=22007 easy 0.078 hard 0.150 median n10 25 mean best 21.30 | diff easy +0.244 [+0.220, +0.264], diff mean best -1.40 [-1.45, -1.35]
+  share lucky: 0.1369
+
+## 6. Optimal solution length (official scrambles with DougCube sheet optimum, n=7689)
+  optimal length histogram: {15: 16, 16: 195, 17: 2083, 18: 5128, 19: 267}
+  Spearman(optimal length, n10 (log2 1+n)) = -0.199 [-0.224, -0.177]
+  Spearman(optimal length, best DR+finish) = 0.187 [0.167, 0.208]
+  Spearman(optimal length, good22 (log2 1+n)) = -0.200 [-0.222, -0.180]
+  Spearman(optimal length, gsub10 (log2 1+n)) = -0.193 [-0.214, -0.173]
+  Spearman(optimal length, n_eo5) = -0.141 [-0.162, -0.121]
+  Spearman(optimal length, n_eo4) = -0.140 [-0.160, -0.119]
+  Spearman(optimal length, eo_sum) = 0.136 [0.116, 0.158]
+  Spearman(optimal length, be_min) = 0.123 [0.101, 0.146]
+  Spearman(optimal length, mc_min) = 0.002 [-0.020, 0.026]
+  Spearman(optimal length, pairs) = -0.243 [-0.264, -0.218]
+  Spearman(optimal length, solved) = -0.029 [-0.052, -0.006]
+  Spearman(optimal length, t_len) = 0.007 [-0.014, 0.027]
+  Spearman(optimal length, t_dr) = -0.012 [-0.035, 0.007]
+
+done
