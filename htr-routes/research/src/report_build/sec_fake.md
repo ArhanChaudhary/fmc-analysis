@@ -167,7 +167,7 @@ How often the corrected bound beats the trivial one, reaches the optimum, and is
 
 {{lb_shares}}
 
-So FakeMMAP's hope comes true on most subsets. The corrected bound on a typical path (the median) is one or two above the trivial bound. Each row is a bound and the subsets where it is the median:
+So on most subsets the answer to FakeMMAP's question is yes. The corrected bound on a typical path (the median) is one or two above the trivial bound. Each row is a bound and the subsets where it is the median:
 
 | Typical bound (median) | Subsets |
 |---|---|

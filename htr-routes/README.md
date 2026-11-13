@@ -27,9 +27,9 @@ Large outputs (`research/out/big/`, per-state data) are not in the repository; `
     source /data/fmc/env.sh
     cd htr-routes/research/src
     python xchecklist.py                           # out/q2_same_classes_p1.tsv: the checklists read at +1 (about 2 minutes, 2 GB)
-    python xwitness.py                             # out/witness_extra.json: two extra examples, replayed (nissy -N takes a few minutes)
+    python xwitness.py                             # out/witness_extra.json: four extra examples, replayed (nissy -N takes a few minutes)
     python xlbdist.py                              # out/q9_lb_values.tsv: typical value of FakeMMAP's multi-qt lower bounds (a few minutes, 4 GB cap)
-    python xtables.py                              # report/data/*.md and out/report_extra.json
+    python xtables.py                              # report/data/*.md and out/report_extra.json (reads Aedan Bryant's sheet from the kb through sheet15.py)
     python report_build/assemble.py --final        # report/WRITEUP.md (every number is computed; --final fails if one is missing)
     python report_build/assemble.py --bugs --final # report/BUGS.md
     python xexamples.py                            # report/EXAMPLES.md, every move sequence replayed on the sticker model

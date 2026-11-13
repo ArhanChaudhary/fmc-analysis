@@ -361,6 +361,9 @@ E['ac_4b2_4e'] = _acsplit('2qt(a) 4c4e'); E['ac_4a1_4e'] = _acsplit('1qt 4c4e')
 # its QT-break column against the plain optimum, and how its QT-break solutions are written (sheet15.py)
 import sheet15
 E['d15x'] = sheet15.summary()
+# its QT-break column on the rows whose mean optimal and NISS HTR match mine (section 5; E['d15_bad'] are the others)
+_ok = [v['mean_qtbreak'] - v['mean_sol'] for k, v in E['d15x']['rows'].items() if ' '.join(k.split()) not in {' '.join(b.split()) for b in E['d15_bad']}]
+E['d15x']['qtbreak_mean_diff_ok'] = sum(_ok) / len(_ok); E['d15x']['n_rows_ok'] = len(_ok)
 ls = collections.defaultdict(dict)
 for l in open(f'{OUT}/checks/lsdist48.tsv'):
     a_, b_, c_ = l.split('\t'); ls[a_][int(b_)] = int(c_)

@@ -195,7 +195,12 @@ w(f'- AGREES (Kai T5573): 2c3 2e, some optimal has <2 half turns before its firs
 w('- Doc 9: its corner-QT shares (17.1/27.5/32.9/22.5%) match neither the fewest quarter turns to solve corners (exact 17.6/28.1/35.2/19.1%) nor that count among move-optimal corner solutions; its "+0/+2" extra-qt shares sit between our fewest-qt and most-qt optimal readings (out/compare_doc9.tsv).\n')
 
 w('## Q5. Inverting the last DR move\n')
-w(f'- CORRECTS Yura (T4606, 1/6): X R2 is one move shorter in {pct(q5["all"]["share_variation_shorter"])} of DRs (exact over all DR states 32.47%), never more; mean gain {float(q5["all"]["mean_gain"]):.3f} move{wref("W06")}. A qt break costs {float(q5["all"]["qt_break_minus_opt"]):.2f} moves on average (trangium ~0.5).')
+_x = json.load(open(f'{OUT}/report_extra.json'))['d15x']
+w(f'- DEPENDS Yura Riabov (T4606, "depends on if dr uses niss or not, but if not ... should be 1/6"; T4610, "very rough but i think it gives at least an order of numbers", '
+  f'"i doubt it will be more than a half move difference"): X R2 is one move shorter in {pct(q5["all"]["share_variation_shorter"])} of DRs (exact over all DR states 32.47%), never more; mean gain {float(q5["all"]["mean_gain"]):.3f} move{wref("W06")}. '
+  'As a number the 1/6 is low by half; as an order of magnitude with a half-move ceiling it holds. Lichi Fang named the missing factor at once (T4607: a DR has several optimal finishes; Yura: "also true", T4608).')
+w(f'- AGREES trangium (T11127, "around 0.5 worse"): Aedan Bryant\'s QT-break column (any moves after the break; {_x["qtbreak_not_dr_moves"]:,} of its {_x["qtbreak_solutions"]:,} solutions are not R or R\' then DR moves) '
+  f'averages +{_x["qtbreak_mean_diff"]:.2f} over its {_x["n_rows"]} rows. With DR moves only after the extra move the cost is {float(q5["all"]["qt_break_minus_opt"]):.2f}.')
 w('- With the variation allowed, route-class shares rise by about the same amount for every class (out/q1_routes.tsv columns share_vopt / share_vp1, checklists target vopt / vp1 in out/q2_checklist.tsv); it adds no new class to any checklist.\n')
 
 w('## Q6. Hand checklists graded\n')
@@ -203,13 +208,19 @@ w('Cumulative share of states where the checklist finds an optimal (budget 2 HTR
 for name in ['Zagros 4b2 order (D15884)', 'Yura 4b2 4e order (D6409-D6416)', 'rogo/Adri 4b2 4e order (D6422-D6424)', 'Lewis 4a2 0e/2e list (T6743)', 'Jay/rodney 2c3 0e checks (T328-T344)', 'Fanti 4b2 4e split (D10034), cumulative']:
     rows = [r for r in gr if r['checklist'] == name]
     w(f'- {name}: ' + '; '.join(f'{r["step_description"]}: {pct(r["cumulative_opt_htr_budget2"])} ({pct(r["cumulative_opt"])})' for r in rows))
-dch = [r for r in gr if r['checklist'].startswith('Daichi')]
-w('- Daichi\'s cheat sheet (D18340): ' + ', '.join(f'{r["subsets"]} {pct(r["cumulative_opt_htr_budget2"])}' for r in dch) + '.')
-w('- KNOWN: Zagros\'s "optimal in 15 minutes like 80% of the time" fits: his eight steps reach 71% optimal / 91% within +1 with near-shortest HTRs. NEW: Yura\'s 4b2 4e order (regress to 2c3) finds about twice as many optimals as rogo/Adri\'s (trigger, then 4a1 switch).\n')
+dch = [r for r in gr if r['checklist'].startswith('Daichi cheat sheet (D18340): ')]
+w('- Daichi\'s cheat sheet (D18340; the 0c4 row read as "4b2 switch, or linear through 4b2 2e except on 0c4 8e"): ' + ', '.join(f'{r["subsets"]} {pct(r["cumulative_opt_htr_budget2"])}' for r in dch) + '.')
+w('- The same on DRs with an optimal of 12 or less, the sheet\'s own "sub13" (D18343): ' + ', '.join(f'{r["subsets"]} {pct(r["cumulative_opt_htr_budget2_le12"])}' for r in dch)
+  + '. Against my first three budget-2 routes on the same states: out/q6_daichi_vs_mine.tsv.')
+_z = [r for r in gr if r['checklist'] == 'Zagros 4b2 order (D15884)'][-1]
+w(f'- OPEN: Zagros\'s "optimal in 15 minutes like 80% of the time" (D15885) is about "the system I have in my mind for each subset" and about time, which is not modelled. The 4b2 order (D15884) done fully: '
+  f'{pct(_z["cumulative_opt_htr_budget2"])} optimal / {pct(_z["cumulative_p1_htr_budget2"])} within +1 with budget-2 HTRs, {pct(_z["cumulative_opt_stated"])} / {pct(_z["cumulative_p1_stated"])} with the HTR limits as stated '
+  '(none on steps 1-2, "even if it\'s long"). NEW: Yura Riabov\'s 4b2 4e order (regress to 2c3 2e or 4e) finds about twice as many optimals as rogo/Adri\'s (trigger, then 4a1 switch); '
+  'Yura\'s "doing more than 1 half turn before reduction isn\'t worth it" (D6416) is not graded, so the order\'s shares are ceilings.\n')
 
 w('## Q7. Claims\n')
 cnt = collections.Counter(r['verdict'] for r in cl.values())
-w(f'{len(cl)} claims from the reading notes (out/claims.tsv): ' + ', '.join(f'{k} {v}' for k, v in cnt.most_common()) + '. Corrections with a witness: C15 (W06), C56 (W07), C51 (W08), C53 (W09). The SPEC\'s quoted numbers:\n')
+w(f'{len(cl)} claims from the reading notes (out/claims.tsv): ' + ', '.join(f'{k} {v}' for k, v in cnt.most_common()) + '. Corrections with a witness: C51 (W08), C53 (W09); C15 (W06) and C56 (W07) depend on the reading and have a witness too. The SPEC\'s quoted numbers:\n')
 for cid in ['C01', 'C02', 'C03', 'C04', 'C05', 'C06', 'C07', 'C08', 'C09', 'C10', 'C12', 'C14', 'C15', 'C26', 'C27', 'C48']:
     r = cl[cid]; w(f'- {cid} {r["author"]} ({r["number_claimed"]}): **{r["verdict"]}**. {r["evidence"]}')
 w('')
@@ -248,9 +259,11 @@ for g in CGROUPS:
     k80[g] = (rr, kfor('2'))
     w(f'| {g} | {bstr} | {kfor("2")} | {kfor("inf")} |')
 v4 = V[('2c3', '1', '4')]; v5 = V[('2c3', '1', '5')]
-w(f"\n- CORRECTS beef beans / Levi (\"all reductions <= 4 find optimal about 75-80% on 2c3\", D9086): {pct(v4['found_opt'])} (+- {100 * float(v4['se_opt']):.1f}) at <= 4 moves "
+w(f"\n- CORRECTS Levi Gibson (beef beans; D9108, \"I like to check all sub-5 reductions ... gets optimal like 75% of the time, and it gets optimal +1 the rest of the time\"; 80% for 2c3 a guess, D9209) on 2c3: {pct(v4['found_opt'])} (+- {100 * float(v4['se_opt']):.1f}) at <= 4 moves "
   f"({float(v4['mean_reductions_le_R']):.0f} reductions), {pct(v5['found_opt'])} at <= 5 ({float(v5['mean_reductions_le_R']):.0f} reductions); "
-  f"within +1 at <= 4: {pct(v4['found_p1'])}.")
+  f"within +1 at <= 4: {pct(v4['found_p1'])}. On 4a2, the subset named just before (D9106), <= 4 finds {pct(V[('4a2', '1', '4')]['found_opt'])}: the 75% holds there. "
+  f"With <= 5 moves (D9108's 'sub-6', for when 'I REALLY want to solve a DR optimally'): 4a2 {pct(V[('4a2', '1', '5')]['found_opt'])}, 2c3 {pct(v5['found_opt'])}. "
+  "Yura Riabov said the same in the exchange (D9112: very good for 4a2, for 2c3 trigger knowledge covers most cases; D9116), and Levi Gibson agreed (D9118).")
 w(f'- JTuu\'s T5744 sim (linear HTRs <= 7 + 1q reductions <= 4: 64.65%) uses the stricter one-quarter-turn finish; on that reading: {cl["C26"]["evidence"]}')
 w(f"- NEW: reducing to 2q needs far shorter reductions: 2q reductions of <= 3 moves reach an optimal in {pct(V[('all', '2', '3')]['found_opt'])} of all DRs "
   f"vs {pct(V[('all', '1', '3')]['found_opt'])} for 1q.")

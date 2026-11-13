@@ -79,7 +79,7 @@ put('C05', 'PARTLY', f"Depends on the reading. 4a1 4e: every optimal uses 5+ qt:
     f"one optimal at random has 5+ qt {pct(tie_share(TIELS, '4a1 4e', lambda c: qts(c) >= 5))} (leave slice). beef's 3-4% fits 'every leave-slice optimal'; Fanti's 6.10% is the sum of the allcases 5qt rows; full finishes give 10%.")
 a = tie_share(TIELS, '4b2 4e', lambda c: qts(c) == 2); b = tie_share(TIELS, '4b2 4e', lambda c: qts(c) == 4 and c[1].startswith('2c3'))
 c_ = tie_share(TIELS, '4b2 4e', lambda c: qts(c) == 4 and c[2].startswith('0c0'))
-put('C06', 'AGREES', f"4b2 4e, one leave-slice optimal at random: 2qt {pct(a)}, 4qt via 2c3 {pct(b)}, 4qt via 4a1 > 0c0 {pct(c_)} (Fanti: 40/45/8 from doc 171); "
+put('C06', 'AGREES', f"4b2 4e, one leave-slice optimal at random: 2qt {pct(a)}, 4qt via 2c3 {pct(b)}, 4qt via 4a1 > 0c0 {pct(c_)} (Fanti: 40/45/8 from allcases, 'i took the stats from here', D10038); "
     f"full finish {pct(tie_share(TIE, '4b2 4e', lambda c: qts(c) == 2))} / {pct(tie_share(TIE, '4b2 4e', lambda c: qts(c) == 4 and c[1].startswith('2c3')))} / "
     f"{pct(tie_share(TIE, '4b2 4e', lambda c: qts(c) == 4 and c[2].startswith('0c0')))}.")
 # C07 fake HTR: corner arrangements with 0 bad corners
@@ -105,7 +105,7 @@ for a_, q in sticker.QTC.items():
     cnt[(q, hit)] += 1
 f3 = cnt[(3, True)] / (cnt[(3, True)] + cnt[(3, False)]); f4 = cnt[(4, True)] / (cnt[(4, True)] + cnt[(4, False)])
 put('C10', 'PARTLY', f"Corners, exact over the 40320 permutations: a bare quarter turn (no setup) on normal or on inverse takes a 3qt case to 2qt in {pct(f3)} "
-    f"(rodney: 2/3, agrees). A 4qt case cannot reach 2qt with one quarter turn ({pct(f4)}); rodney's 1/6 for 4qt counted something else (his corner_h_sections column on the optimal corner solution, T507).")
+    f"(rodney: 2/3, agrees). A 4qt case cannot reach 2qt with one quarter turn ({pct(f4)}); rodney's 1/6 for 4qt counted something else (the corner_h_sections column on the optimal corner solution, T507).")
 C11T = {r['group']: r for r in csv.DictReader(open(f'{OUT}/c11_c13.tsv'), delimiter='\t')}
 def c11(g):
     r = C11T[g]
@@ -137,8 +137,8 @@ put('C15', 'PARTLY', f"Turning the DR's last move the other way (X -> X*R2): sho
 import sheet15
 S15 = sheet15.summary()
 put('C16', 'AGREES', f"With DR moves only after the extra move a qt break costs 1 + min(opt(X), opt(X*R2)) - opt(X) = {share('all', lambda t: 1 + np.minimum(t['d'], t['dvar']) - t['d']):.3f} moves on average. "
-    f"Doc 15's QT-break column, the one such stat on the server, is solved with any moves ({S15['qtbreak_not_dr_moves']:,} of its {S15['qtbreak_solutions']:,} listed solutions are not 'R or R', then DR moves') "
-    f"and averages +{S15['qtbreak_mean_diff']:.2f} over the plain optimum on its {S15['n_rows']} rows (trangium: ~0.5).")
+    f"Aedan Bryant's QT-break column is solved with any moves ({S15['qtbreak_not_dr_moves']:,} of its {S15['qtbreak_solutions']:,} listed solutions are not 'R or R', then DR moves') "
+    f"and averages +{S15['qtbreak_mean_diff']:.2f} over the plain optimum on its {S15['n_rows']} rows (trangium: around 0.5; T11127 gives no source).")
 h8 = collections.Counter()
 for r in csv.DictReader(open('/data/fmc/judging-a-dr/research/out/hand/h8_last_move.csv')):
     if r['depth'] == '18': h8[(r['subset'], r['depth_after_side_half_turn'])] += int(r['count'])
@@ -152,7 +152,7 @@ put('C19', 'ANSWERED', f"Some optimal finish uses a shortest NISS HTR in {pct(sh
 put('C20', 'ANSWERED', f"Some optimal starts with a shortest linear HTR of its side in {pct(share('all', lambda t: (t['best_lin_n'] == t['htrN']) | (t['best_lin_i'] == t['htrI'])))}; "
     f"through a shortest NISS HTR {pct(share('all', lambda t: t['best_any'] == t['htrNiss']))}.")
 put('C21', 'AGREES', f"0c0 2e: no optimal uses a shortest NISS HTR in {pct(share('0c0 2e', lambda t: t['best_any'] > t['htrNiss']))}; no optimal uses a shortest linear HTR of its side in "
-    f"{pct(share('0c0 2e', lambda t: (t['best_lin_n'] > t['htrN']) & (t['best_lin_i'] > t['htrI'])))}.")
+    f"{pct(share('0c0 2e', lambda t: (t['best_lin_n'] > t['htrN']) & (t['best_lin_i'] > t['htrI'])))}. These are floors for the question as asked: for the one optimal a solver finds, an inoptimal HTR is more common still.")
 put('C22', 'ANSWERED', f"All DR states: shortest NISS HTR = shortest linear (better side) in {pct(share('all', lambda t: np.minimum(t['htrN'], t['htrI']) == t['htrNiss']))}, "
     f"1 shorter {pct(share('all', lambda t: np.minimum(t['htrN'], t['htrI']) - t['htrNiss'] == 1))}, 2+ shorter {pct(share('all', lambda t: np.minimum(t['htrN'], t['htrI']) - t['htrNiss'] >= 2))}; "
     f"normal and inverse linear lengths equal in {pct(share('all', lambda t: t['htrN'] == t['htrI']))}, differ by 2+ in {pct(share('all', lambda t: abs(t['htrN'] - t['htrI']) >= 2))}. Per subset in q3_htr.tsv.")
@@ -181,21 +181,24 @@ def jtuu(L, Bm):
     return (lin | (red <= Bm)).mean(), lin.mean(), (red <= Bm).mean()
 j1 = jtuu(7, 4); j2 = jtuu(8, 5)
 put('C26', 'OPEN', f"Same definitions as JTuu (linear HTR within L moves, or a reduction of at most B moves to 4a1 4e followed by one quarter turn), uniform 2c3 2e, 25,000 states: an optimal is found by linear HTRs <= 7 or 1q reductions <= 4 in {pct(j1[0])} (linear alone {pct(j1[1])}, bounding alone {pct(j1[2])}); "
-    f"<= 8 / <= 5: {pct(j2[0])} ({pct(j2[1])}, {pct(j2[2])}). JTuu's sim: 64.65% / 86.05%, 6-9 points more; his states were probably drawn differently (e.g. with the last DR move inverted).")
+    f"<= 8 / <= 5: {pct(j2[0])} ({pct(j2[1])}, {pct(j2[2])}). JTuu's sim: 64.65% / 86.05%, 6-9 points more; JTuu's states were probably drawn differently (e.g. with the last DR move inverted).")
 def grade_line(name):
     rows = GR.get(name, [])
     return '; '.join(f"step {r['step']} {pct(float(r['cumulative_opt']))} (+1: {pct(float(r['cumulative_p1']))})" for r in rows)
 def grade_line2(name):
     return '; '.join(f"step {r['step']} {pct(float(r['cumulative_opt_htr_budget2']))} (+1: {pct(float(r['cumulative_p1_htr_budget2']))})" for r in GR.get(name, []))
-put('C27', 'AGREES', f"Zagros's 4b2 order on 4b2 (0/2/4e, weighted), only HTRs at most 2 moves over the shortest NISS HTR: {grade_line2('Zagros 4b2 order (D15884)')}; "
-    f"with no HTR limit: {grade_line('Zagros 4b2 order (D15884)')}. ~71% optimal (91% within +1) with realistic HTRs, close to his 80%.")
+put('C27', 'OPEN', f"Zagros's 4b2 order on 4b2 (0/2/4e, weighted), only HTRs at most 2 moves over the shortest NISS HTR: {grade_line2('Zagros 4b2 order (D15884)')}; "
+    f"with no HTR limit: {grade_line('Zagros 4b2 order (D15884)')}; with the HTR limits Zagros stated (none on steps 1-2, 'even if it's long'; step 3 under 9 moves; budget 2 on the rest): "
+    + '; '.join(f"step {r['step']} {pct(float(r['cumulative_opt_stated']))} (+1: {pct(float(r['cumulative_p1_stated']))})" for r in GR['Zagros 4b2 order (D15884)'])
+    + ". Step 5 is the regression to 2c3 2e or 4e, as Zagros wrote it. Time is not modelled, and D15885's 80% is about 'the system I have in my mind for each subset'.")
 put('C28', 'ANSWERED', f"Lewis's 4a2 0e/2e list, HTR budget 2: {grade_line2('Lewis 4a2 0e/2e list (T6743)')}; no limit: {grade_line('Lewis 4a2 0e/2e list (T6743)')}.")
 put('C32', 'ANSWERED', f"2c3 0e, one qt to 4b2 4e then switch (any prefix): {grade_line('Jay/rodney 2c3 0e checks (T328-T344)')}. Prefix restrictions (Jay's 11, rodney's 9/4/2) are not graded separately.")
 put('C33', 'NOT CHECKED', 'Prefix sets need the exact setup moves before the first quarter turn; see C32 for the route class itself.')
 put('C34', 'ANSWERED', 'Checking every reduction to 1q of <= 4 / <= 5 moves (both sides, NISS), then the optimal finish of the reduced state, reaches an optimal in: ' +
     ', '.join(f"{g} {pct(float(Q8V[(g, '1', '4')]['found_opt']))}/{pct(float(Q8V[(g, '1', '5')]['found_opt']))}" for g in ('0c0', '4a1', '4a2', '4b2', '2c3', '4c3', '2c4')) +
     ' (4,000 states per subset x edges).')
-put('C36', 'ANSWERED', f"Yura's 4b2 4e order (HTR budget 2): {grade_line2('Yura 4b2 4e order (D6409-D6416)')}; no limit: {grade_line('Yura 4b2 4e order (D6409-D6416)')}; every optimal of 4b2 4e uses 4qt in {pct(share('4b2 4e', lambda t: t['qmin'] > 2))}.")
+put('C36', 'ANSWERED', f"Yura's 4b2 4e order (HTR budget 2), step 2 the regression to 2c3 2e or 4e ('whatever is shortest', D6415): {grade_line2('Yura 4b2 4e order (D6409-D6416)')}; no limit: {grade_line('Yura 4b2 4e order (D6409-D6416)')}; "
+    "'doing more than 1 half turn before reduction isn't worth it' (D6416) is not graded, so these are ceilings; every optimal of 4b2 4e uses 4qt in {pct(share('4b2 4e', lambda t: t['qmin'] > 2))}.")
 put('C37', 'ANSWERED', f"rogo/Adri order (trigger, then reduce to 4a1 and switch), HTR budget 2: {grade_line2('rogo/Adri 4b2 4e order (D6422-D6424)')}; no limit {grade_line('rogo/Adri 4b2 4e order (D6422-D6424)')}. Yura's regress-to-2c3 order finds about twice as many optimals.")
 put('C39', 'AGREES', f"4b2 4e: every optimal uses 4qt {pct(share('4b2 4e', lambda t: t['qmin'] > 2))} (leave slice {pct(share('4b2 4e', lambda t: t['ls_qmin'] > 2))}): about half.")
 put('C40', 'AGREES', f"4b2 4e: every optimal 4qt {pct(share('4b2 4e', lambda t: t['qmin'] > 2))}.")
@@ -244,7 +247,7 @@ put('C52', 'PARTLY', f"Shortest linear HTR (exact) / shortest NISS HTR (minimum 
 maxlin = max(max(H48[s]) for s in SUBS)
 put('C53', 'ANSWERED', f"Longest shortest linear HTR on one side (exact over cosets): {maxlin} ({[s for s in SUBS if max(H48[s]) == maxlin]}); "
     f"longest over states of min(normal, inverse) in the sample {max(int(np.minimum(ST[s]['htrN'], ST[s]['htrI']).max()) for s in SUBS)}, longest NISS {max(int(ST[s]['htrNiss'].max()) for s in SUBS)} (sample; 12 exact over every DR state, out/checks/niss_exact.tsv). "
-    f"Doc 15, the source Lewis named ('See HTR subset stats'), has {S15['maxlin']}-move linear HTRs on its {', '.join(S15['maxlin_rows'])} row ({pct(S15['rows'][S15['maxlin_rows'][0]]['lin'][str(S15['maxlin'])])} of its states), "
+    f"Aedan Bryant's sheet, the source Lewis Isom named ('See HTR subset stats'), has {S15['maxlin']}-move linear HTRs on its {', '.join(S15['maxlin_rows'])} row ({pct(S15['rows'][S15['maxlin_rows'][0]]['lin'][str(S15['maxlin'])])} of its states), "
     f"{S15['maxlin_elsewhere']} at most elsewhere, and {S15['maxniss']} as its longest NISS HTR.")
 import json as _json
 _X4 = _json.load(open(f'{OUT}/witness_extra.json'))['X4']          # xwitness.py runs before this
@@ -257,7 +260,10 @@ put('C56', 'AGREES' if max(exact_dist('4a1 4e')) == 15 else 'PARTLY' if LSMAX['4
 put('C59', 'AGREES', f"Mean optimal (exact) 2c4 {exact_mean('2c4'):.3f}, 0c3 {exact_mean('0c3'):.3f}, 0c4 {exact_mean('0c4'):.3f}.")
 put('C61', 'AGREES', f"2c3: 3+ half turns needed before the first qt on both sides {pct(share('2c3', lambda t: np.minimum(t['ht_first_n'], t['ht_first_i']) >= 3))}.")
 dch = [r for k, rs in GR.items() if k.startswith('Daichi') for r in rs]
-put('C67', 'ANSWERED', "Daichi's cheat sheet routes reach an optimal (HTR budget 2 / no limit) in: " + ', '.join(f"{r['subsets']} {pct(float(r['cumulative_opt_htr_budget2']))}/{pct(float(r['cumulative_opt']))}" for r in dch) + '. "Linear" options (2c5, 4b5) admit every finish, so those rows are only meaningful with the budget.')
+dch = [r for r in dch if r['checklist'].startswith('Daichi cheat sheet (D18340): ')]
+put('C67', 'ANSWERED', "Daichi's cheat sheet routes reach an optimal (HTR budget 2 / no limit) in: " + ', '.join(f"{r['subsets']} {pct(float(r['cumulative_opt_htr_budget2']))}/{pct(float(r['cumulative_opt']))}" for r in dch) + '. "Linear" options (2c5, 4b5) admit every finish, so those rows are only meaningful with the budget. '
+    "The 0c4 row's '(2e could be linear, except for 0c4 8e)' is read as linear through 4b2 2e on 0c4 0e-6e. On DRs with an optimal of 12 or less (the sheet's 'sub13'), budget 2: "
+    + ', '.join(f"{r['subsets']} {pct(float(r['cumulative_opt_htr_budget2_le12']))}" for r in dch) + ' (against my first three routes: out/q6_daichi_vs_mine.tsv).')
 put('C77', 'AGREES', 'Mean optimal (exact): ' + ', '.join(f'{s} {exact_mean(s):.3f}' for s in ('2c4 0e', '2c4 2e', '2c4 4e', '2c4 6e', '2c4 8e', '2c3 0e', '2c3 8e')) + '.')
 put('C80', 'AGREES', f"Mean optimal 2c4 2e {exact_mean('2c4 2e'):.3f}, 2c4 4e {exact_mean('2c4 4e'):.3f}, 2c3 4e {exact_mean('2c3 4e'):.3f}: difference < 1.")
 put('C81', 'AGREES', f"Mean optimal 2c4 {exact_mean('2c4'):.3f}, 4b2 2e {exact_mean('4b2 2e'):.3f}.")

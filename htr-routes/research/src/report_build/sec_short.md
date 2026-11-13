@@ -151,14 +151,14 @@ The first route is the same on every corner subset, and the first three are the 
 
 **Settled, with the first study's table: the last DR move.** Turning it the other way gives a finish one move shorter on {= pc(Q5('all', 'share_variation_shorter')) =} of DRs, never more than one, so about a third of a move on average. Yura Riabov's quick 1/6 from 2024 is low by half, for the reason Lichi Fang gave at the time (a DR has several optimal finishes); Yura's own ceiling, half a move, holds. It doesn't change which routes to try (section 7).
 
-**Corrected** (errata, each with an example). Levi Gibson's "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time" ([[D9108]]), with bounding alone and every reduction of at most 4, share of DRs where it finds the optimal and a finish within +1:
+**Corrected** (errata, each with an example). Levi Gibson's "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time", then "If I REALLY want to solve a DR optimally I'll check all sub-6 reductions" ([[D9108]]), with bounding alone and every reduction of at most 4, share of DRs where it finds the optimal and a finish within +1:
 
 | Subset | Optimal | Within +1 |
 |---|---|---|
 | 4a2 (the one Levi Gibson had just named) | {= pc(Q8('4a2', '1', '4', 'found_opt')) =} | {= pc(Q8('4a2', '1', '4', 'found_p1')) =} |
 | 2c3 | {= pc(Q8('2c3', '1', '4', 'found_opt')) =} | {= pc(Q8('2c3', '1', '4', 'found_p1')) =} |
 
-So on 4a2 the 75% holds, but +1 doesn't cover the rest. Yura Riabov expected that split at the time ("i think it could be very good for 4a2 but for 2c3 trigger knowledge covers most cases", [[D9112]]). The other corrections:
+So on 4a2 the 75% holds, but +1 doesn't cover the rest. With every reduction of at most 5, the "sub-6", it's {= pc(Q8('4a2', '1', '5', 'found_opt')) =} on 4a2 and {= pc(Q8('2c3', '1', '5', 'found_opt')) =} on 2c3. Yura Riabov expected that split at the time ("i think it could be very good for 4a2 but for 2c3 trigger knowledge covers most cases", [[D9112]]). The other corrections:
 
 - 4c4 0e has 10-move linear HTRs, as Aedan Bryant's sheet showed.
 - The longest shortest HTR is 13 linear, which Aedan Bryant's sheet has on one row, and {= NXMAX() =} with NISS, both exact over every DR state.

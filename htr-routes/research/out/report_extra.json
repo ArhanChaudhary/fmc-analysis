@@ -50349,7 +50349,7 @@
    "claim": "40% of opt 4b2 4e solutions use 2qt, 45% regress to 2c3 only about 8% go to 0c0 2e/4e",
    "number_claimed": "40% / 45% / ~8%",
    "verdict": "AGREES",
-   "evidence": "4b2 4e, one leave-slice optimal at random: 2qt 33.5%, 4qt via 2c3 46.8%, 4qt via 4a1 > 0c0 9.9% (Fanti: 40/45/8 from doc 171); full finish 22.4% / 51.1% / 11.6%."
+   "evidence": "4b2 4e, one leave-slice optimal at random: 2qt 33.5%, 4qt via 2c3 46.8%, 4qt via 4a1 > 0c0 9.9% (Fanti: 40/45/8 from allcases, 'i took the stats from here', D10038); full finish 22.4% / 51.1% / 11.6%."
   },
   "C07": {
    "id": "C07",
@@ -50385,7 +50385,7 @@
    "claim": "[T500] half of all 3QT cases and a quarter of all 4QT cases can immediately be reduced to 2QT by applying a U move to the normal and/or inverse. [T506] Those actually showed 63% of 3QT cases either begin or end with a U. [T508] Those stats give 16% of 4QT cases reducible to 2QT, instead of one quart",
    "number_claimed": "2/3 (63%) of 3qt; 1/6 (16%) of 4qt; 4qt ~2x as common as 2qt",
    "verdict": "PARTLY",
-   "evidence": "Corners, exact over the 40320 permutations: a bare quarter turn (no setup) on normal or on inverse takes a 3qt case to 2qt in 66.1% (rodney: 2/3, agrees). A 4qt case cannot reach 2qt with one quarter turn (0.0%); rodney's 1/6 for 4qt counted something else (his corner_h_sections column on the optimal corner solution, T507)."
+   "evidence": "Corners, exact over the 40320 permutations: a bare quarter turn (no setup) on normal or on inverse takes a 3qt case to 2qt in 66.1% (rodney: 2/3, agrees). A 4qt case cannot reach 2qt with one quarter turn (0.0%); rodney's 1/6 for 4qt counted something else (the corner_h_sections column on the optimal corner solution, T507)."
   },
   "C11": {
    "id": "C11",
@@ -50439,7 +50439,7 @@
    "claim": "[T11127] (tbf, a qt break from DR only makes it around 0.5 worse, rather than 1 as you might expect) [T7157, Yura] you know that qt break is dr plus one move that can be inverted, right?",
    "number_claimed": "~0.5 move",
    "verdict": "AGREES",
-   "evidence": "With DR moves only after the extra move a qt break costs 1 + min(opt(X), opt(X*R2)) - opt(X) = 0.675 moves on average. Doc 15's QT-break column, the one such stat on the server, is solved with any moves (961 of its 3,060 listed solutions are not 'R or R', then DR moves') and averages +0.55 over the plain optimum on its 47 rows (trangium: ~0.5)."
+   "evidence": "With DR moves only after the extra move a qt break costs 1 + min(opt(X), opt(X*R2)) - opt(X) = 0.675 moves on average. Aedan Bryant's QT-break column is solved with any moves (961 of its 3,060 listed solutions are not 'R or R', then DR moves') and averages +0.55 over the plain optimum on its 47 rows (trangium: around 0.5; T11127 gives no source)."
   },
   "C17": {
    "id": "C17",
@@ -50484,7 +50484,7 @@
    "claim": "[T5349] how common does the optimal solution for htr-2e use an inoptimal htr [T5351, Jakob] Probably almost always? There are so few optimal HTRs compared to the many more variants in +1 or more [T5352] how about optimal from the side of the scramble",
    "number_claimed": "almost always",
    "verdict": "AGREES",
-   "evidence": "0c0 2e: no optimal uses a shortest NISS HTR in 67.8%; no optimal uses a shortest linear HTR of its side in 65.2%."
+   "evidence": "0c0 2e: no optimal uses a shortest NISS HTR in 67.8%; no optimal uses a shortest linear HTR of its side in 65.2%. These are floors for the question as asked: for the one optimal a solver finds, an inoptimal HTR is more common still."
   },
   "C22": {
    "id": "C22",
@@ -50529,7 +50529,7 @@
    "claim": "[T5744] HTR in 5: 110/2000 (5.50%) HTR in 6: 460/2000 (23.00%) HTR in 7: 946/2000 (47.30%) HTR in 8: 1410/2000 (70.50%) HTR in 9: 1693/2000 (84.65%) HTR in 10: 1870/2000 (93.50%) HTR in 11: 1963/2000 (98.15%) HTR in 12: 1992/2000 (99.60%) 4a1 in 2: 24/2000 (1.20%) 4a1 in 3: 445/2000 (22.25%) 4a1 in ",
    "number_claimed": "64.65% (L7,B4) ... 86.05% (L8,B5)",
    "verdict": "OPEN",
-   "evidence": "Same definitions as JTuu (linear HTR within L moves, or a reduction of at most B moves to 4a1 4e followed by one quarter turn), uniform 2c3 2e, 25,000 states: an optimal is found by linear HTRs <= 7 or 1q reductions <= 4 in 55.3% (linear alone 38.1%, bounding alone 44.7%); <= 8 / <= 5: 80.3% (63.4%, 71.3%). JTuu's sim: 64.65% / 86.05%, 6-9 points more; his states were probably drawn differently (e.g. with the last DR move inverted)."
+   "evidence": "Same definitions as JTuu (linear HTR within L moves, or a reduction of at most B moves to 4a1 4e followed by one quarter turn), uniform 2c3 2e, 25,000 states: an optimal is found by linear HTRs <= 7 or 1q reductions <= 4 in 55.3% (linear alone 38.1%, bounding alone 44.7%); <= 8 / <= 5: 80.3% (63.4%, 71.3%). JTuu's sim: 64.65% / 86.05%, 6-9 points more; JTuu's states were probably drawn differently (e.g. with the last DR move inverted)."
   },
   "C27": {
    "id": "C27",
@@ -50537,8 +50537,8 @@
    "author": "Zagros",
    "claim": "for example, for a 4b2: 1. check shortest HTR on normal by settings up to triggers and reasonable extensions 2. check more linear 2qt HTRs by just reducing to 4a1 and doing the HTR even if it's long 3. check shortest 4qt htr on normal if like <9 moves exists 4. write shortest reductions to 4a1 and o",
    "number_claimed": "~80% optimal",
-   "verdict": "AGREES",
-   "evidence": "Zagros's 4b2 order on 4b2 (0/2/4e, weighted), only HTRs at most 2 moves over the shortest NISS HTR: step 1 37.6% (+1: 67.2%); step 2 45.4% (+1: 75.7%); step 3 50.8% (+1: 80.8%); step 4 64.2% (+1: 90.4%); step 5 71.3% (+1: 93.4%); with no HTR limit: step 1 45.0% (+1: 74.8%); step 2 54.3% (+1: 83.0%); step 3 54.3% (+1: 83.0%); step 4 95.5% (+1: 99.4%); step 5 100.0% (+1: 100.0%). ~71% optimal (91% within +1) with realistic HTRs, close to his 80%."
+   "verdict": "OPEN",
+   "evidence": "Zagros's 4b2 order on 4b2 (0/2/4e, weighted), only HTRs at most 2 moves over the shortest NISS HTR: step 1 37.6% (+1: 67.2%); step 2 45.4% (+1: 75.7%); step 3 50.8% (+1: 80.8%); step 4 63.8% (+1: 90.1%); step 5 71.0% (+1: 93.4%); with no HTR limit: step 1 45.0% (+1: 74.8%); step 2 54.3% (+1: 83.0%); step 3 54.3% (+1: 83.0%); step 4 94.2% (+1: 99.2%); step 5 99.7% (+1: 100.0%); with the HTR limits Zagros stated (none on steps 1-2, 'even if it's long'; step 3 under 9 moves; budget 2 on the rest): step 1 45.0% (+1: 74.8%); step 2 54.3% (+1: 83.0%); step 3 54.3% (+1: 83.0%); step 4 67.1% (+1: 92.0%); step 5 74.3% (+1: 95.0%). Step 5 is the regression to 2c3 2e or 4e, as Zagros wrote it. Time is not modelled, and D15885's 80% is about 'the system I have in my mind for each subset'."
   },
   "C28": {
    "id": "C28",
@@ -50547,7 +50547,7 @@
    "claim": "Starting with 4a2 2e/0e (if you have 4a2 with 4e, then it's a lot easier). List of things to check: 1) Linear 2qt HTRs on both sides. This means the first qt makes 4a1 4e. 2) Write down all the +1's and +2's to 4a1 4e, and NISS them. 3) Try U/U' M2 U and U/U' S2 U on both sides to see if there's an ",
    "number_claimed": "none (procedure)",
    "verdict": "ANSWERED",
-   "evidence": "Lewis's 4a2 0e/2e list, HTR budget 2: step 1 13.3% (+1: 36.8%); step 2 32.2% (+1: 62.2%); step 3 37.7% (+1: 67.9%); step 4 52.7% (+1: 81.1%); step 5 53.4% (+1: 81.6%); no limit: step 1 32.4% (+1: 62.4%); step 2 32.4% (+1: 62.4%); step 3 73.0% (+1: 94.2%); step 4 73.6% (+1: 94.5%); step 5 73.6% (+1: 94.5%)."
+   "evidence": "Lewis's 4a2 0e/2e list, HTR budget 2: step 1 13.3% (+1: 36.8%); step 2 32.2% (+1: 62.2%); step 3 37.7% (+1: 67.9%); step 4 52.7% (+1: 81.1%); step 5 53.4% (+1: 81.6%); no limit: step 1 32.4% (+1: 62.4%); step 2 32.4% (+1: 62.4%); step 3 73.0% (+1: 94.1%); step 4 73.6% (+1: 94.5%); step 5 73.6% (+1: 94.5%)."
   },
   "C29": {
    "id": "C29",
@@ -50583,7 +50583,7 @@
    "claim": "I had a 10 move DR with 3qt corners but the HTR was 2C0E which is annoying. \u2026 there's actually not too many things you need to check if you want to try every possible two half turns followed by a quarter turn. You essentially abuse the fact that U2 R2 F and D2 L2 B are HTR equivalent when generating",
    "number_claimed": "11 checks",
    "verdict": "ANSWERED",
-   "evidence": "2c3 0e, one qt to 4b2 4e then switch (any prefix): step 1 46.9% (+1: 82.7%). Prefix restrictions (Jay's 11, rodney's 9/4/2) are not graded separately."
+   "evidence": "2c3 0e, one qt to 4b2 4e then switch (any prefix): step 1 46.9% (+1: 82.6%). Prefix restrictions (Jay's 11, rodney's 9/4/2) are not graded separately."
   },
   "C33": {
    "id": "C33",
@@ -50619,7 +50619,7 @@
    "claim": "[D6409] 4b2 4e is basically the best 4q subset [D6410, Java] do you always go to 2c3 immediately [D6411] if it's not 1-2 moves to trigger [D6412] i also try 2-3 moves to 4a1 and niss trace if i don't forget to do that [D6414, Java] do you go to 2c3 2e or 4e or both [D6415] whatever is shortest [D641",
    "number_claimed": "none (procedure)",
    "verdict": "ANSWERED",
-   "evidence": "Yura's 4b2 4e order (HTR budget 2): step 1 8.6% (+1: 16.1%); step 2 62.3% (+1: 88.4%); step 3 72.9% (+1: 94.0%); no limit: step 1 8.6% (+1: 16.2%); step 2 82.2% (+1: 97.1%); step 3 93.1% (+1: 99.0%); every optimal of 4b2 4e uses 4qt in 63.7%."
+   "evidence": "Yura's 4b2 4e order (HTR budget 2), step 2 the regression to 2c3 2e or 4e ('whatever is shortest', D6415): step 1 8.6% (+1: 16.1%); step 2 60.3% (+1: 86.5%); step 3 71.5% (+1: 93.3%); no limit: step 1 8.6% (+1: 16.2%); step 2 80.7% (+1: 96.6%); step 3 92.1% (+1: 98.8%); 'doing more than 1 half turn before reduction isn't worth it' (D6416) is not graded, so these are ceilings; every optimal of 4b2 4e uses 4qt in {pct(share('4b2 4e', lambda t: t['qmin'] > 2))}."
   },
   "C37": {
    "id": "C37",
@@ -50628,7 +50628,7 @@
    "claim": "[D6422, rogo] the first approach apart from R U2 F2 R to check should still be 'reduce to 1qt 4e and niss trace for short htrs' i think? [D6424, Adri] I agree that's why calling it the best 4qt subset seems confusing [D6438, Jay] For this subset specifically yes, as there are 3 possible non NISS 6 m",
    "number_claimed": "3 six-movers; trigger-only misses optimal 'vast majority'",
    "verdict": "ANSWERED",
-   "evidence": "rogo/Adri order (trigger, then reduce to 4a1 and switch), HTR budget 2: step 1 8.6% (+1: 16.1%); step 2 26.1% (+1: 49.5%); no limit step 1 8.6% (+1: 16.2%); step 2 36.2% (+1: 66.8%). Yura's regress-to-2c3 order finds about twice as many optimals."
+   "evidence": "rogo/Adri order (trigger, then reduce to 4a1 and switch), HTR budget 2: step 1 8.6% (+1: 16.1%); step 2 26.1% (+1: 49.4%); no limit step 1 8.6% (+1: 16.2%); step 2 36.3% (+1: 66.8%). Yura's regress-to-2c3 order finds about twice as many optimals."
   },
   "C38": {
    "id": "C38",
@@ -50727,7 +50727,7 @@
    "claim": "[D3669, wen] Anyone else feel like for 4q 2c, the optimals are most often reasonably explained with something like a direct HTR, or 1q then switch and 3q, and hardly ever with 2q switch 2q? I feel like I have seen very few 4q optimals that use such a pathway [D3670, Lichi] does it naturally follow f",
    "number_claimed": "hardly ever 2q switch 2q",
    "verdict": "AGREES",
-   "evidence": "2c4: share of states where an optimal is reached through each route shape using an HTR at most 2 moves over the shortest NISS HTR: 3+(1) | ht 66.5%, 1+(3) | ht 66.5%, 4 | ht 54.0%, 2+(2) | ht 30.8%, 4+(2) | ht 3.3%, 2+(4) | ht 3.3%, 5+(1) | ht 3.0%. (Without an HTR limit every shape that a finish can be read in ties, ~94%.) Through 2+(2) and neither 4 nor 1+(3) / 3+(1): 4.7%; through 4 or 1+(3) / 3+(1): 84.1%. wen's question is how the optimals are explained: 2 switch 2 is the only one of the three that finds one on 4.7%, so 'hardly ever' holds."
+   "evidence": "2c4: share of states where an optimal is reached through each route shape using an HTR at most 2 moves over the shortest NISS HTR: 1+(3) | ht 66.5%, 3+(1) | ht 66.5%, 4 | ht 54.0%, 2+(2) | ht 30.8%, 2+(4) | ht 3.3%, 4+(2) | ht 3.3%, 1+(5) | ht 3.0%. (Without an HTR limit every shape that a finish can be read in ties, ~94%.) Through 2+(2) and neither 4 nor 1+(3) / 3+(1): 4.7%; through 4 or 1+(3) / 3+(1): 84.1%. wen's question is how the optimals are explained: 2 switch 2 is the only one of the three that finds one on 4.7%, so 'hardly ever' holds."
   },
   "C49": {
    "id": "C49",
@@ -50772,7 +50772,7 @@
    "claim": "[T4099, Yura] Iirc for 4b5 the best possible htr is 11 moves without switching, so no [T4100, Lewis] No, the maximum it takes is 12 moves linearly, and 11 moves using NISS. [T11594, Daichi] 0c3 4e and 4c4 0e have 13 move optimal HTR cases [D16295, Zagros] there are 6qt optimal 4c4 htr cases. Like no",
    "number_claimed": "max 12 linear / 11 NISS vs 13 (0c3 4e, 4c4 0e)",
    "verdict": "ANSWERED",
-   "evidence": "Longest shortest linear HTR on one side (exact over cosets): 13 (['0c3 4e', '4c4 0e']); longest over states of min(normal, inverse) in the sample 13, longest NISS 12 (sample; 12 exact over every DR state, out/checks/niss_exact.tsv). Doc 15, the source Lewis named ('See HTR subset stats'), has 13-move linear HTRs on its 3qt 4E row (7.6% of its states), 12 at most elsewhere, and 11 as its longest NISS HTR."
+   "evidence": "Longest shortest linear HTR on one side (exact over cosets): 13 (['0c3 4e', '4c4 0e']); longest over states of min(normal, inverse) in the sample 13, longest NISS 12 (sample; 12 exact over every DR state, out/checks/niss_exact.tsv). Aedan Bryant's sheet, the source Lewis Isom named ('See HTR subset stats'), has 13-move linear HTRs on its 3qt 4E row (7.6% of its states), 12 at most elsewhere, and 11 as its longest NISS HTR."
   },
   "C54": {
    "id": "C54",
@@ -50898,7 +50898,7 @@
    "claim": "[image note D18340] 0c0: 0e yay; 2-8e 2q; 2-6e 4q through 4b2 2e. 4a1: 0e 3q or 5q (2c3->4b2 2e); 2-4e any 3q (except 4a2, 0c0 6/8e); 4e 1q. 4a2: 0-2e 1q switch or 4a1->4b2 4q route; 4e 2q only. 4b2: all 2q or 4q through 2c3. 2c3: 0e/8e 4b2 4e switch, 0c0 4e (5q), 2c3 2/4e to 4b2 2e (5q); 2-6e 3q. 4",
    "number_claimed": "great portion",
    "verdict": "ANSWERED",
-   "evidence": "Daichi's cheat sheet routes reach an optimal (HTR budget 2 / no limit) in: 0c0 0e 84.5%/91.8%, 0c0 2e 71.5%/95.9%, 0c0 4e 65.1%/94.4%, 0c0 6e 61.2%/94.5%, 0c0 8e 70.1%/77.9%, 2c5 0e 81.6%/100.0%, 2c5 2e 86.1%/100.0%, 2c5 4e 85.7%/100.0%, 2c5 6e 83.7%/100.0%, 2c5 8e 83.0%/100.0%, 2c4 0e 88.4%/98.8%, 2c4 2e 89.7%/98.6%, 2c4 4e 87.3%/98.5%, 2c4 6e 88.0%/98.6%, 2c4 8e 89.5%/98.1%, 0c3 0e 92.6%/97.5%, 0c3 2e 85.6%/93.1%, 0c3 4e 72.6%/84.3%, 0c3 6e 87.9%/94.3%, 0c3 8e 92.9%/98.8%, 4a2 0e 37.6%/69.3%, 4a2 2e 76.8%/87.1%, 4a2 4e 65.9%/67.8%, 4a1 0e 70.1%/95.7%, 4a1 2e 76.5%/86.3%, 4a1 4e 69.4%/89.8%, 2c3 0e 87.8%/99.9%, 2c3 2e 79.6%/89.8%, 2c3 4e 76.6%/83.2%, 2c3 6e 73.3%/78.1%, 2c3 8e 85.9%/99.9%, 0c4 0e 83.6%/100.0%, 0c4 2e 89.2%/100.0%, 0c4 4e 84.5%/100.0%, 0c4 6e 83.4%/100.0%, 0c4 8e 80.7%/100.0%, 4c3 0e 74.8%/76.5%, 4c3 2e 72.4%/74.6%, 4c3 4e 67.8%/70.7%, 4c4 0e 66.9%/86.5%, 4c4 2e 70.6%/90.7%, 4c4 4e 70.7%/91.4%, 4b2 0e 74.9%/91.6%, 4b2 2e 67.2%/94.4%, 4b2 4e 77.8%/93.1%, 4b5 0e 74.6%/100.0%, 4b5 2e 78.8%/100.0%, 4b5 4e 77.4%/100.0%. \"Linear\" options (2c5, 4b5) admit every finish, so those rows are only meaningful with the budget."
+   "evidence": "Daichi's cheat sheet routes reach an optimal (HTR budget 2 / no limit) in: 0c0 0e 84.5%/91.8%, 0c0 2e 71.5%/95.9%, 0c0 4e 65.1%/94.4%, 0c0 6e 61.2%/94.5%, 0c0 8e 70.1%/77.9%, 2c5 0e 81.6%/100.0%, 2c5 2e 86.1%/100.0%, 2c5 4e 85.7%/100.0%, 2c5 6e 83.6%/100.0%, 2c5 8e 83.0%/100.0%, 2c4 0e 88.4%/98.8%, 2c4 2e 89.7%/98.6%, 2c4 4e 87.3%/98.5%, 2c4 6e 88.0%/98.6%, 2c4 8e 89.5%/98.1%, 0c3 0e 92.6%/97.5%, 0c3 2e 85.6%/93.1%, 0c3 4e 72.6%/84.3%, 0c3 6e 87.9%/94.3%, 0c3 8e 92.9%/98.8%, 4a2 0e 37.6%/69.3%, 4a2 2e 76.8%/87.1%, 4a2 4e 65.9%/67.9%, 4a1 0e 70.1%/95.7%, 4a1 2e 76.5%/86.3%, 4a1 4e 69.4%/89.8%, 2c3 0e 87.8%/99.9%, 2c3 2e 79.6%/89.8%, 2c3 4e 76.6%/83.2%, 2c3 6e 73.3%/78.1%, 2c3 8e 85.8%/99.9%, 0c4 0e 87.2%/100.0%, 0c4 2e 88.9%/100.0%, 0c4 4e 86.2%/100.0%, 0c4 6e 83.7%/100.0%, 0c4 8e 80.7%/100.0%, 4c3 0e 74.8%/76.5%, 4c3 2e 72.4%/74.6%, 4c3 4e 67.8%/70.7%, 4c4 0e 66.9%/86.5%, 4c4 2e 70.6%/90.7%, 4c4 4e 70.7%/91.4%, 4b2 0e 74.9%/91.6%, 4b2 2e 67.2%/94.4%, 4b2 4e 77.8%/93.1%, 4b5 0e 74.6%/100.0%, 4b5 2e 78.8%/100.0%, 4b5 4e 77.4%/100.0%. \"Linear\" options (2c5, 4b5) admit every finish, so those rows are only meaningful with the budget. The 0c4 row's '(2e could be linear, except for 0c4 8e)' is read as linear through 4b2 2e on 0c4 0e-6e. On DRs with an optimal of 12 or less (the sheet's 'sub13'), budget 2: 0c0 0e 84.4%, 0c0 2e 70.1%, 0c0 4e 63.9%, 0c0 6e 67.4%, 0c0 8e 73.8%, 2c5 0e 92.2%, 2c5 2e 95.7%, 2c5 4e 95.5%, 2c5 6e 93.0%, 2c5 8e 95.9%, 2c4 0e 94.1%, 2c4 2e 94.0%, 2c4 4e 94.0%, 2c4 6e 93.5%, 2c4 8e 98.4%, 0c3 0e 100.0%, 0c3 2e 99.0%, 0c3 4e 99.2%, 0c3 6e 98.7%, 0c3 8e 100.0%, 4a2 0e 51.6%, 4a2 2e 79.6%, 4a2 4e 71.7%, 4a1 0e 72.0%, 4a1 2e 75.8%, 4a1 4e 68.7%, 2c3 0e 90.1%, 2c3 2e 79.8%, 2c3 4e 79.3%, 2c3 6e 75.1%, 2c3 8e 87.7%, 0c4 0e 91.3%, 0c4 2e 93.8%, 0c4 4e 92.4%, 0c4 6e 92.8%, 0c4 8e 96.4%, 4c3 0e 77.3%, 4c3 2e 73.6%, 4c3 4e 69.7%, 4c4 0e 87.1%, 4c4 2e 85.6%, 4c4 4e 85.2%, 4b2 0e 80.2%, 4b2 2e 66.7%, 4b2 4e 76.8%, 4b5 0e 92.8%, 4b5 2e 90.9%, 4b5 4e 89.1% (against my first three routes: out/q6_daichi_vs_mine.tsv)."
   },
   "C69": {
    "id": "C69",
@@ -53754,7 +53754,9 @@
   "maxniss": 11,
   "qtbreak_mean_diff": 0.5484893617021276,
   "qtbreak_solutions": 3060,
-  "qtbreak_not_dr_moves": 961
+  "qtbreak_not_dr_moves": 961,
+  "qtbreak_mean_diff_ok": 0.5590769230769229,
+  "n_rows_ok": 39
  },
  "lsmax": {
   "0c0 0e": 13,
