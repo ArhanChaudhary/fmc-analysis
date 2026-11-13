@@ -1,0 +1,25 @@
+sample_3c_n20 3s
+sample_3c_n10 2s
+sample_3c_n16 3s
+sample_3c_n30 3s
+base_3c_n21 2s
+sample_3e_n20 3s
+sample_5c_n20 29s
+sample_2c2c-twisted_n20 82s
+sample_2c2c-pure_n20 85s
+sample_3c1t_n20 40s
+sample_3tc_n20 59s
+sample_2tc_n20 78s
+base_5c_n19 28s
+base_3c1t_n19 37s
+base_2c2c-pure_n19 76s
+sample_5c_n16 22s
+sample_2c2c-twisted_n16 54s
+sample_2c2c-pure_n16 58s
+sample_3c1t_n16 28s
+sample_3tc_n16 41s
+sample_2tc_n16 49s
+any_sample_3c_n20 3s
+any_sample_5c_n20 81s
+any_sample_2c2c-twisted_n20 315s
+done

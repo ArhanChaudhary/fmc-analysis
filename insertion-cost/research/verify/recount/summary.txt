@@ -1,0 +1,171 @@
+any_sample_2c2c-twisted_n20: rows 2000, mismatches 0, study solutions replayed ok 100 bad 0, nothing fits 0, mean 8.73 (8.7270, over 2000)
+   over the 2000 where something fits: +4 or better 0.600%  +5 1.600%  +6 4.450%
+   sub-30 (total<=29): 73.350%
+   totals: [(22, 1), (23, 2), (24, 9), (25, 20), (26, 57), (27, 183), (28, 446), (29, 749), (30, 485), (31, 48)] none 0
+   +4 or better 0.600%   +5 or better 1.600%   +6 or better 4.450%
+   +9 or worse 64.100% (finite only 64.100%)   +11 or worse 2.400% (finite only 2.400%)   +12 or worse 0.000% (finite only 0.000%)   +13 or worse 0.000% (finite only 0.000%)
+any_sample_3c_n20: rows 20000, mismatches 76, study solutions replayed ok 994 bad 0, nothing fits 70, mean 5.90 (5.8985, over 19930)
+   MISMATCH idx 657 mine 7 study 8
+   MISMATCH idx 832 mine 7 study 8
+   MISMATCH idx 1138 mine 7 study 8
+   MISMATCH idx 1400 mine 7 study 8
+   MISMATCH idx 1507 mine 7 study 8
+   MISMATCH idx 2344 mine 7 study 8
+   MISMATCH idx 2367 mine 7 study 8
+   MISMATCH idx 2404 mine 7 study 8
+   MISMATCH idx 2656 mine 7 study 8
+   MISMATCH idx 2881 mine 7 study 8
+   over the 19930 where something fits: +4 or better 9.368%  +5 29.373%  +6 71.189%
+   sub-30 (total<=29): 99.650%
+   totals: [(18, 1), (19, 5), (20, 8), (21, 22), (22, 109), (23, 388), (24, 1334), (25, 3987), (26, 8334), (27, 5050), (28, 692)] none 70
+   +4 or better 9.335%   +5 or better 29.270%   +6 or better 70.940%
+   +9 or worse 0.350% (finite only 0.000%)   +11 or worse 0.350% (finite only 0.000%)   +12 or worse 0.350% (finite only 0.000%)   +13 or worse 0.350% (finite only 0.000%)
+any_sample_5c_n20: rows 2000, mismatches 8, study solutions replayed ok 100 bad 0, nothing fits 0, mean 10.39 (10.3860, over 2000)
+   MISMATCH idx 10 mine 12 study 13
+   MISMATCH idx 878 mine 11 study 12
+   MISMATCH idx 993 mine 11 study 12
+   MISMATCH idx 1287 mine 11 study 12
+   MISMATCH idx 1480 mine 12 study 13
+   MISMATCH idx 1582 mine 10 study 11
+   MISMATCH idx 1651 mine 11 study 12
+   MISMATCH idx 1982 mine 11 study 12
+   over the 2000 where something fits: +4 or better 0.100%  +5 0.150%  +6 0.750%
+   sub-30 (total<=29): 19.250%
+   totals: [(23, 1), (24, 1), (25, 1), (26, 12), (27, 21), (28, 93), (29, 256), (30, 609), (31, 699), (32, 278), (33, 28), (34, 1)] none 0
+   +4 or better 0.100%   +5 or better 0.150%   +6 or better 0.750%
+   +9 or worse 93.550% (finite only 93.550%)   +11 or worse 50.300% (finite only 50.300%)   +12 or worse 15.350% (finite only 15.350%)   +13 or worse 1.450% (finite only 1.450%)
+base_2c2c-pure_n19: rows 20000, mismatches 0, study solutions replayed ok 1000 bad 0, nothing fits 0, mean 9.20 (9.2008, over 20000)
+   over the 20000 where something fits: +4 or better 0.240%  +5 0.900%  +6 2.840%
+   sub-30 (total<=29): 87.410%
+   totals: [(19, 1), (20, 1), (21, 2), (22, 15), (23, 29), (24, 132), (25, 388), (26, 1260), (27, 3125), (28, 6206), (29, 6323), (30, 2263), (31, 250), (32, 5)] none 0
+   +4 or better 0.240%   +5 or better 0.900%   +6 or better 2.840%
+   +9 or worse 75.235% (finite only 75.235%)   +11 or worse 12.590% (finite only 12.590%)   +12 or worse 1.275% (finite only 1.275%)   +13 or worse 0.025% (finite only 0.025%)
+base_3c1t_n19: rows 20000, mismatches 0, study solutions replayed ok 1000 bad 0, nothing fits 0, mean 9.99 (9.9880, over 20000)
+   over the 20000 where something fits: +4 or better 0.100%  +5 0.360%  +6 1.145%
+   sub-30 (total<=29): 63.145%
+   totals: [(21, 2), (22, 4), (23, 14), (24, 52), (25, 157), (26, 506), (27, 1413), (28, 3681), (29, 6800), (30, 5983), (31, 1346), (32, 42)] none 0
+   +4 or better 0.100%   +5 or better 0.360%   +6 or better 1.145%
+   +9 or worse 89.260% (finite only 89.260%)   +11 or worse 36.855% (finite only 36.855%)   +12 or worse 6.940% (finite only 6.940%)   +13 or worse 0.210% (finite only 0.210%)
+base_3c_n21: rows 20000, mismatches 0, study solutions replayed ok 996 bad 0, nothing fits 72, mean 5.86 (5.8616, over 19928)
+   over the 19928 where something fits: +4 or better 9.881%  +5 31.017%  +6 72.933%
+   sub-30 (total<=29): 99.640%
+   totals: [(20, 1), (21, 8), (22, 31), (23, 110), (24, 369), (25, 1450), (26, 4212), (27, 8353), (28, 4677), (29, 717)] none 72
+   +4 or better 9.845%   +5 or better 30.905%   +6 or better 72.670%
+   +9 or worse 0.360% (finite only 0.000%)   +11 or worse 0.360% (finite only 0.000%)   +12 or worse 0.360% (finite only 0.000%)   +13 or worse 0.360% (finite only 0.000%)
+base_5c_n19: rows 20000, mismatches 0, study solutions replayed ok 1000 bad 0, nothing fits 0, mean 10.43 (10.4253, over 20000)
+   over the 20000 where something fits: +4 or better 0.045%  +5 0.200%  +6 0.685%
+   sub-30 (total<=29): 47.860%
+   totals: [(21, 2), (22, 3), (23, 4), (24, 31), (25, 97), (26, 283), (27, 900), (28, 2624), (29, 5628), (30, 6836), (31, 3242), (32, 337), (33, 13)] none 0
+   +4 or better 0.045%   +5 or better 0.200%   +6 or better 0.685%
+   +9 or worse 93.400% (finite only 93.400%)   +11 or worse 52.140% (finite only 52.140%)   +12 or worse 17.960% (finite only 17.960%)   +13 or worse 1.750% (finite only 1.750%)
+sample_2c2c-pure_n16: rows 20000, mismatches 0, study solutions replayed ok 1000 bad 0, nothing fits 0, mean 9.49 (9.4878, over 20000)
+   over the 20000 where something fits: +4 or better 0.150%  +5 0.600%  +6 2.065%
+   sub-30 (total<=29): 99.995%
+   totals: [(19, 9), (20, 21), (21, 90), (22, 293), (23, 906), (24, 2459), (25, 5381), (26, 6870), (27, 3401), (28, 527), (29, 42), (30, 1)] none 0
+   +4 or better 0.150%   +5 or better 0.600%   +6 or better 2.065%
+   +9 or worse 81.110% (finite only 81.110%)   +11 or worse 19.855% (finite only 19.855%)   +12 or worse 2.850% (finite only 2.850%)   +13 or worse 0.215% (finite only 0.215%)
+sample_2c2c-pure_n20: rows 20000, mismatches 0, study solutions replayed ok 1000 bad 0, nothing fits 0, mean 9.13 (9.1333, over 20000)
+   over the 20000 where something fits: +4 or better 0.220%  +5 0.905%  +6 2.955%
+   sub-30 (total<=29): 58.060%
+   totals: [(22, 2), (23, 10), (24, 32), (25, 137), (26, 410), (27, 1379), (28, 3346), (29, 6296), (30, 6197), (31, 1994), (32, 191), (33, 6)] none 0
+   +4 or better 0.220%   +5 or better 0.905%   +6 or better 2.955%
+   +9 or worse 73.420% (finite only 73.420%)   +11 or worse 10.955% (finite only 10.955%)   +12 or worse 0.985% (finite only 0.985%)   +13 or worse 0.030% (finite only 0.030%)
+sample_2c2c-twisted_n16: rows 20000, mismatches 0, study solutions replayed ok 1000 bad 0, nothing fits 0, mean 9.01 (9.0140, over 20000)
+   over the 20000 where something fits: +4 or better 0.260%  +5 0.850%  +6 2.950%
+   sub-30 (total<=29): 100.000%
+   totals: [(18, 3), (19, 9), (20, 40), (21, 118), (22, 420), (23, 1343), (24, 3607), (25, 7114), (26, 6127), (27, 1204), (28, 15)] none 0
+   +4 or better 0.260%   +5 or better 0.850%   +6 or better 2.950%
+   +9 or worse 72.300% (finite only 72.300%)   +11 or worse 6.095% (finite only 6.095%)   +12 or worse 0.075% (finite only 0.075%)   +13 or worse 0.000% (finite only 0.000%)
+sample_2c2c-twisted_n20: rows 20000, mismatches 0, study solutions replayed ok 1000 bad 0, nothing fits 0, mean 8.73 (8.7298, over 20000)
+   over the 20000 where something fits: +4 or better 0.375%  +5 1.340%  +6 4.215%
+   sub-30 (total<=29): 73.820%
+   totals: [(21, 1), (22, 5), (23, 8), (24, 61), (25, 193), (26, 575), (27, 1797), (28, 4656), (29, 7468), (30, 4736), (31, 498), (32, 2)] none 0
+   +4 or better 0.375%   +5 or better 1.340%   +6 or better 4.215%
+   +9 or worse 63.520% (finite only 63.520%)   +11 or worse 2.500% (finite only 2.500%)   +12 or worse 0.010% (finite only 0.010%)   +13 or worse 0.000% (finite only 0.000%)
+sample_2tc_n16: rows 5000, mismatches 0, study solutions replayed ok 250 bad 0, nothing fits 0, mean 8.06 (8.0550, over 5000)
+   over the 5000 where something fits: +4 or better 0.820%  +5 3.140%  +6 9.580%
+   sub-30 (total<=29): 100.000%
+   totals: [(17, 3), (18, 2), (19, 11), (20, 25), (21, 116), (22, 322), (23, 832), (24, 1725), (25, 1645), (26, 315), (27, 4)] none 0
+   +4 or better 0.820%   +5 or better 3.140%   +6 or better 9.580%
+   +9 or worse 39.280% (finite only 39.280%)   +11 or worse 0.080% (finite only 0.080%)   +12 or worse 0.000% (finite only 0.000%)   +13 or worse 0.000% (finite only 0.000%)
+sample_2tc_n20: rows 5000, mismatches 0, study solutions replayed ok 250 bad 0, nothing fits 0, mean 7.71 (7.7142, over 5000)
+   over the 5000 where something fits: +4 or better 1.500%  +5 4.480%  +6 13.860%
+   sub-30 (total<=29): 97.620%
+   totals: [(22, 3), (23, 16), (24, 56), (25, 149), (26, 469), (27, 1143), (28, 1862), (29, 1183), (30, 119)] none 0
+   +4 or better 1.500%   +5 or better 4.480%   +6 or better 13.860%
+   +9 or worse 26.040% (finite only 26.040%)   +11 or worse 0.000% (finite only 0.000%)   +12 or worse 0.000% (finite only 0.000%)   +13 or worse 0.000% (finite only 0.000%)
+sample_3c1t_n16: rows 20000, mismatches 0, study solutions replayed ok 1000 bad 0, nothing fits 0, mean 10.22 (10.2227, over 20000)
+   over the 20000 where something fits: +4 or better 0.125%  +5 0.350%  +6 0.840%
+   sub-30 (total<=29): 100.000%
+   totals: [(18, 1), (19, 5), (20, 19), (21, 45), (22, 98), (23, 334), (24, 1156), (25, 2964), (26, 6274), (27, 6803), (28, 2200), (29, 101)] none 0
+   +4 or better 0.125%   +5 or better 0.350%   +6 or better 0.840%
+   +9 or worse 91.710% (finite only 91.710%)   +11 or worse 45.520% (finite only 45.520%)   +12 or worse 11.505% (finite only 11.505%)   +13 or worse 0.505% (finite only 0.505%)
+sample_3c1t_n20: rows 20000, mismatches 0, study solutions replayed ok 1000 bad 0, nothing fits 0, mean 9.90 (9.8983, over 20000)
+   over the 20000 where something fits: +4 or better 0.125%  +5 0.470%  +6 1.385%
+   sub-30 (total<=29): 31.650%
+   totals: [(20, 1), (21, 1), (22, 2), (23, 5), (24, 16), (25, 69), (26, 183), (27, 548), (28, 1551), (29, 3954), (30, 6938), (31, 5577), (32, 1133), (33, 22)] none 0
+   +4 or better 0.125%   +5 or better 0.470%   +6 or better 1.385%
+   +9 or worse 88.120% (finite only 88.120%)   +11 or worse 33.660% (finite only 33.660%)   +12 or worse 5.775% (finite only 5.775%)   +13 or worse 0.110% (finite only 0.110%)
+sample_3c_n10: rows 20000, mismatches 0, study solutions replayed ok 962 bad 0, nothing fits 849, mean 6.44 (6.4392, over 19151)
+   over the 19151 where something fits: +4 or better 4.799%  +5 15.963%  +6 48.379%
+   sub-30 (total<=29): 95.755%
+   totals: [(9, 2), (10, 2), (11, 15), (12, 55), (13, 175), (14, 670), (15, 2138), (16, 6208), (17, 7036), (18, 2850)] none 849
+   +4 or better 4.595%   +5 or better 15.285%   +6 or better 46.325%
+   +9 or worse 4.245% (finite only 0.000%)   +11 or worse 4.245% (finite only 0.000%)   +12 or worse 4.245% (finite only 0.000%)   +13 or worse 4.245% (finite only 0.000%)
+sample_3c_n16: rows 20000, mismatches 0, study solutions replayed ok 992 bad 0, nothing fits 230, mean 6.08 (6.0804, over 19770)
+   over the 19770 where something fits: +4 or better 7.825%  +5 24.537%  +6 63.455%
+   sub-30 (total<=29): 98.850%
+   totals: [(14, 1), (15, 1), (16, 5), (17, 23), (18, 95), (19, 281), (20, 1141), (21, 3304), (22, 7694), (23, 5891), (24, 1334)] none 230
+   +4 or better 7.735%   +5 or better 24.255%   +6 or better 62.725%
+   +9 or worse 1.150% (finite only 0.000%)   +11 or worse 1.150% (finite only 0.000%)   +12 or worse 1.150% (finite only 0.000%)   +13 or worse 1.150% (finite only 0.000%)
+sample_3c_n20: rows 20000, mismatches 0, study solutions replayed ok 994 bad 0, nothing fits 72, mean 5.90 (5.9021, over 19928)
+   over the 19928 where something fits: +4 or better 9.369%  +5 29.376%  +6 71.196%
+   sub-30 (total<=29): 99.640%
+   totals: [(18, 1), (19, 5), (20, 8), (21, 22), (22, 109), (23, 388), (24, 1334), (25, 3987), (26, 8334), (27, 4975), (28, 765)] none 72
+   +4 or better 9.335%   +5 or better 29.270%   +6 or better 70.940%
+   +9 or worse 0.360% (finite only 0.000%)   +11 or worse 0.360% (finite only 0.000%)   +12 or worse 0.360% (finite only 0.000%)   +13 or worse 0.360% (finite only 0.000%)
+sample_3c_n30: rows 20000, mismatches 0, study solutions replayed ok 999 bad 0, nothing fits 9, mean 5.56 (5.5595, over 19991)
+   over the 19991 where something fits: +4 or better 13.936%  +5 41.554%  +6 84.403%
+   sub-30 (total<=29): 0.025%
+   totals: [(29, 5), (30, 16), (31, 37), (32, 147), (33, 538), (34, 2043), (35, 5521), (36, 8566), (37, 2917), (38, 201)] none 9
+   +4 or better 13.930%   +5 or better 41.535%   +6 or better 84.365%
+   +9 or worse 0.045% (finite only 0.000%)   +11 or worse 0.045% (finite only 0.000%)   +12 or worse 0.045% (finite only 0.000%)   +13 or worse 0.045% (finite only 0.000%)
+sample_3e_n20: rows 20000, mismatches 0, study solutions replayed ok 565 bad 0, nothing fits 8854, mean 5.95 (5.9488, over 11146)
+   over the 11146 where something fits: +4 or better 15.476%  +5 32.065%  +6 57.429%
+   sub-30 (total<=29): 55.730%
+   totals: [(18, 2), (19, 3), (20, 17), (21, 57), (22, 164), (23, 469), (24, 1013), (25, 1849), (26, 2827), (27, 3699), (28, 1046)] none 8854
+   +4 or better 8.625%   +5 or better 17.870%   +6 or better 32.005%
+   +9 or worse 44.270% (finite only 0.000%)   +11 or worse 44.270% (finite only 0.000%)   +12 or worse 44.270% (finite only 0.000%)   +13 or worse 44.270% (finite only 0.000%)
+sample_3tc_n16: rows 20000, mismatches 0, study solutions replayed ok 1000 bad 0, nothing fits 0, mean 9.89 (9.8892, over 20000)
+   over the 20000 where something fits: +4 or better 0.085%  +5 0.295%  +6 1.125%
+   sub-30 (total<=29): 100.000%
+   totals: [(18, 2), (19, 1), (20, 14), (21, 42), (22, 166), (23, 596), (24, 1617), (25, 4109), (26, 6757), (27, 5525), (28, 1141), (29, 30)] none 0
+   +4 or better 0.085%   +5 or better 0.295%   +6 or better 1.125%
+   +9 or worse 87.810% (finite only 87.810%)   +11 or worse 33.480% (finite only 33.480%)   +12 or worse 5.855% (finite only 5.855%)   +13 or worse 0.150% (finite only 0.150%)
+sample_3tc_n20: rows 20000, mismatches 0, study solutions replayed ok 1000 bad 0, nothing fits 0, mean 9.50 (9.5044, over 20000)
+   over the 20000 where something fits: +4 or better 0.155%  +5 0.585%  +6 2.000%
+   sub-30 (total<=29): 44.605%
+   totals: [(22, 2), (23, 1), (24, 28), (25, 86), (26, 283), (27, 860), (28, 2404), (29, 5257), (30, 7004), (31, 3665), (32, 409), (33, 1)] none 0
+   +4 or better 0.155%   +5 or better 0.585%   +6 or better 2.000%
+   +9 or worse 81.680% (finite only 81.680%)   +11 or worse 20.375% (finite only 20.375%)   +12 or worse 2.050% (finite only 2.050%)   +13 or worse 0.005% (finite only 0.005%)
+sample_5c_n16: rows 20000, mismatches 0, study solutions replayed ok 1000 bad 0, nothing fits 0, mean 10.65 (10.6547, over 20000)
+   over the 20000 where something fits: +4 or better 0.075%  +5 0.195%  +6 0.575%
+   sub-30 (total<=29): 99.760%
+   totals: [(18, 1), (19, 3), (20, 11), (21, 24), (22, 76), (23, 238), (24, 720), (25, 2005), (26, 4871), (27, 7100), (28, 4230), (29, 673), (30, 47), (31, 1)] none 0
+   +4 or better 0.075%   +5 or better 0.195%   +6 or better 0.575%
+   +9 or worse 94.635% (finite only 94.635%)   +11 or worse 60.255% (finite only 60.255%)   +12 or worse 24.755% (finite only 24.755%)   +13 or worse 3.605% (finite only 3.605%)
+sample_5c_n20: rows 20000, mismatches 0, study solutions replayed ok 1000 bad 0, nothing fits 0, mean 10.37 (10.3724, over 20000)
+   over the 20000 where something fits: +4 or better 0.085%  +5 0.200%  +6 0.710%
+   sub-30 (total<=29): 20.350%
+   totals: [(21, 1), (22, 2), (23, 4), (24, 10), (25, 23), (26, 102), (27, 329), (28, 968), (29, 2631), (30, 5819), (31, 6848), (32, 3006), (33, 251), (34, 6)] none 0
+   +4 or better 0.085%   +5 or better 0.200%   +6 or better 0.710%
+   +9 or worse 92.805% (finite only 92.805%)   +11 or worse 50.555% (finite only 50.555%)   +12 or worse 16.315% (finite only 16.315%)   +13 or worse 1.285% (finite only 1.285%)
+any_sample_2c2c-twisted_n20.out: rows 2000; any-order worse than written 0 (must be 0); strictly better on 0 (0.00%), by {}
+   mean written order 8.7270 over 2000; any order 8.7270 over 2000; on the 2000 where both fit: 8.7270 vs 8.7270
+   first better rows (idx, any, written): []
+any_sample_3c_n20.out: rows 20000; any-order worse than written 0 (must be 0); strictly better on 76 (0.38%), by {1: 74, 'fits now': 2}
+   mean written order 5.9021 over 19928; any order 5.8985 over 19930; on the 19928 where both fit: 5.9021 vs 5.8984
+   first better rows (idx, any, written): [('657', 7, 8), ('832', 7, 8), ('1138', 7, 8), ('1400', 7, 8), ('1507', 7, 8), ('2344', 7, 8), ('2367', 7, 8), ('2404', 7, 8)]
+any_sample_5c_n20.out: rows 2000; any-order worse than written 0 (must be 0); strictly better on 8 (0.40%), by {1: 8}
+   mean written order 10.3900 over 2000; any order 10.3860 over 2000; on the 2000 where both fit: 10.3900 vs 10.3860
+   first better rows (idx, any, written): [('10', 12, 13), ('878', 11, 12), ('993', 11, 12), ('1287', 11, 12), ('1480', 12, 13), ('1582', 10, 11), ('1651', 11, 12), ('1982', 11, 12)]
