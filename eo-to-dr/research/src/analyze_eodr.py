@@ -33,10 +33,10 @@ def summ(h):
     if t == 0:
         return {}
     m = sum(d * x for d, x in enumerate(h)) / t
-    out = {'mean': round(m, 4)}
+    out = {'mean': round(m, 9)}            # 9 decimals: the page rounds once (formatted columns only)
     for k in (4, 5, 6, 7, 8):
         p = sum(h[:k + 1]) / t
-        out[f'p_le{k}'] = round(p, 5)
+        out[f'p_le{k}'] = round(p, 9)
     out['one_in_le6'] = round(t / sum(h[:7]), 2) if sum(h[:7]) else ''
     out['max'] = max(d for d, x in enumerate(h) if x)
     return out
@@ -151,8 +151,8 @@ for k in ['all'] + cases:
     row = {'case': 'all' if k == 'all' else case(*k), 'states': n, 'correlation': round(rho, 4)}
     for a in range(4, 11):
         tot = sum(j[a])
-        row[f'p_inv_le6_given_normal_{a}'] = round(sum(j[a][:7]) / tot, 4) if tot >= 200 else ''
-    row['p_inv_le6'] = round(sum(sum(j[a][:7]) for a in range(NV)) / n, 4)
+        row[f'p_inv_le6_given_normal_{a}'] = round(sum(j[a][:7]) / tot, 9) if tot >= 200 else ''
+    row['p_inv_le6'] = round(sum(sum(j[a][:7]) for a in range(NV)) / n, 9)
     ni.append(row)
 write('c6_normal_inverse.tsv', ni)
 stats['joint_all'] = [[joint['all'][a][b] for b in range(NV)] for a in range(NV)]

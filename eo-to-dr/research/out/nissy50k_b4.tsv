@@ -1,43 +1,43 @@
 eos	axes	length	mean	median	p_at_least_one	min	max	mean_le	median_le	p_none_le	min_le	max_le	p10_le	p90_le
-linear (normal)	one axis (F/B)	0	0.0	0.0	0.00042	0	1	0.0	0.0	0.99958	0	1	0.0	0.0
-linear (normal)	one axis (F/B)	1	0.002	0.0	0.00094	0	2	0.002	0.0	0.99864	0	2	0.0	0.0
-linear (normal)	one axis (F/B)	2	0.026	0.0	0.0126	0	4	0.028	0.0	0.98652	0	4	0.0	0.0
-linear (normal)	one axis (F/B)	3	0.358	0.0	0.11094	0	16	0.387	0.0	0.88608	0	20	0.0	2.0
-linear (normal)	one axis (F/B)	4	4.733	0.0	0.41798	0	72	5.12	0.0	0.5816	0	92	0.0	16.0
-linear (normal)	one axis (F/B)	5	62.845	32.0	0.85472	0	384	67.965	32.0	0.14486	0	476	0.0	180.0
-linear (normal)	one axis (F/B)	6	837.756	584.0	0.99296	0	3920	905.721	634.0	0.00662	0	4332	160.0	2116.0
-linear (normal)	all three axes	0	0.001	0.0	0.00138	0	1	0.001	0.0	0.99862	0	1	0.0	0.0
-linear (normal)	all three axes	1	0.005	0.0	0.0027	0	2	0.007	0.0	0.99594	0	3	0.0	0.0
-linear (normal)	all three axes	2	0.078	0.0	0.03724	0	4	0.085	0.0	0.96024	0	6	0.0	0.0
-linear (normal)	all three axes	3	1.047	0.0	0.28436	0	20	1.132	0.0	0.70868	0	24	0.0	4.0
-linear (normal)	all three axes	4	14.069	12.0	0.78464	0	118	15.201	12.0	0.21512	0	140	0.0	36.0
-linear (normal)	all three axes	5	187.857	160.0	0.99534	0	956	203.058	174.0	0.00466	0	1058	48.0	408.0
-linear (normal)	all three axes	6	2506.379	2232.0	1.0	64	10870	2709.437	2404.0	0.0	64	11916	1046.0	4866.199999999997
-normal or inverse (linear)	one axis (F/B)	0	0.001	0.0	0.00042	0	2	0.001	0.0	0.99958	0	2	0.0	0.0
-normal or inverse (linear)	one axis (F/B)	1	0.004	0.0	0.00206	0	2	0.005	0.0	0.99752	0	2	0.0	0.0
-normal or inverse (linear)	one axis (F/B)	2	0.051	0.0	0.02402	0	4	0.056	0.0	0.97466	0	6	0.0	0.0
-normal or inverse (linear)	one axis (F/B)	3	0.714	0.0	0.18454	0	20	0.771	0.0	0.81128	0	24	0.0	4.0
-normal or inverse (linear)	one axis (F/B)	4	9.459	4.0	0.57506	0	92	10.229	4.0	0.42452	0	116	0.0	32.0
-normal or inverse (linear)	one axis (F/B)	5	125.73	76.0	0.9477	0	740	135.96	80.0	0.05188	0	824	12.0	348.0
-normal or inverse (linear)	one axis (F/B)	6	1676.379	1134.0	0.99796	0	7840	1812.339	1208.0	0.00162	0	8664	492.0	4084.0
-normal or inverse (linear)	all three axes	0	0.003	0.0	0.00138	0	2	0.003	0.0	0.99862	0	2	0.0	0.0
-normal or inverse (linear)	all three axes	1	0.011	0.0	0.00568	0	2	0.014	0.0	0.99298	0	4	0.0	0.0
-normal or inverse (linear)	all three axes	2	0.158	0.0	0.07054	0	8	0.172	0.0	0.9261	0	10	0.0	0.0
-normal or inverse (linear)	all three axes	3	2.109	0.0	0.42898	0	40	2.281	0.0	0.56436	0	48	0.0	8.0
-normal or inverse (linear)	all three axes	4	28.201	22.0	0.88302	0	226	30.482	24.0	0.1169	0	274	0.0	68.0
-normal or inverse (linear)	all three axes	5	375.937	322.0	0.9991	0	1836	406.419	346.0	0.0009	0	2012	108.0	796.0
-normal or inverse (linear)	all three axes	6	5014.793	4482.0	1.0	128	21200	5421.212	4830.0	0.0	128	23146	2192.0	9610.0
-NISS (normal, inverse, both)	one axis (F/B)	0	0.001	0.0	0.00042	0	2	0.001	0.0	0.99958	0	2	0.0	0.0
-NISS (normal, inverse, both)	one axis (F/B)	1	0.004	0.0	0.00206	0	2	0.005	0.0	0.99752	0	2	0.0	0.0
-NISS (normal, inverse, both)	one axis (F/B)	2	0.058	0.0	0.0257	0	8	0.063	0.0	0.97298	0	8	0.0	0.0
-NISS (normal, inverse, both)	one axis (F/B)	3	0.929	0.0	0.21732	0	24	0.992	0.0	0.77836	0	32	0.0	4.0
-NISS (normal, inverse, both)	one axis (F/B)	4	13.711	8.0	0.7129	0	124	14.703	8.0	0.28674	0	132	0.0	40.0
-NISS (normal, inverse, both)	one axis (F/B)	5	201.192	154.0	0.99054	0	1084	215.895	164.0	0.00946	0	1200	46.0	466.0
-NISS (normal, inverse, both)	one axis (F/B)	6	2936.796	2424.0	1.0	48	11884	3152.691	2588.0	0.0	48	13076	1222.0	5918.199999999997
-NISS (normal, inverse, both)	all three axes	0	0.003	0.0	0.00138	0	2	0.003	0.0	0.99862	0	2	0.0	0.0
-NISS (normal, inverse, both)	all three axes	1	0.011	0.0	0.00568	0	2	0.014	0.0	0.99298	0	4	0.0	0.0
-NISS (normal, inverse, both)	all three axes	2	0.181	0.0	0.07572	0	8	0.195	0.0	0.92098	0	10	0.0	0.0
-NISS (normal, inverse, both)	all three axes	3	2.747	0.0	0.48858	0	40	2.942	0.0	0.50478	0	48	0.0	8.0
-NISS (normal, inverse, both)	all three axes	4	40.989	36.0	0.96148	0	240	43.93	36.0	0.03844	0	282	8.0	90.0
-NISS (normal, inverse, both)	all three axes	5	602.919	540.0	0.9999	0	2592	646.849	578.0	0.0001	0	2844	264.0	1128.0
-NISS (normal, inverse, both)	all three axes	6	8801.086	8178.0	1.0	836	31256	9447.935	8757.0	0.0	836	34022	5094.0	14870.0
+linear (normal)	one axis (F/B)	0	0.00042	0.0	0.00042	0	1	0.00042	0.0	0.99958	0	1	0.0	0.0
+linear (normal)	one axis (F/B)	1	0.00188	0.0	0.00094	0	2	0.0023	0.0	0.99864	0	2	0.0	0.0
+linear (normal)	one axis (F/B)	2	0.02604	0.0	0.0126	0	4	0.02834	0.0	0.98652	0	4	0.0	0.0
+linear (normal)	one axis (F/B)	3	0.35836	0.0	0.11094	0	16	0.3867	0.0	0.88608	0	20	0.0	2.0
+linear (normal)	one axis (F/B)	4	4.73296	0.0	0.41798	0	72	5.11966	0.0	0.5816	0	92	0.0	16.0
+linear (normal)	one axis (F/B)	5	62.84512	32.0	0.85472	0	384	67.96478	32.0	0.14486	0	476	0.0	180.0
+linear (normal)	one axis (F/B)	6	837.75648	584.0	0.99296	0	3920	905.72126	634.0	0.00662	0	4332	160.0	2116.0
+linear (normal)	all three axes	0	0.00138	0.0	0.00138	0	1	0.00138	0.0	0.99862	0	1	0.0	0.0
+linear (normal)	all three axes	1	0.0054	0.0	0.0027	0	2	0.00678	0.0	0.99594	0	3	0.0	0.0
+linear (normal)	all three axes	2	0.07808	0.0	0.03724	0	4	0.08486	0.0	0.96024	0	6	0.0	0.0
+linear (normal)	all three axes	3	1.04672	0.0	0.28436	0	20	1.13158	0.0	0.70868	0	24	0.0	4.0
+linear (normal)	all three axes	4	14.06924	12.0	0.78464	0	118	15.20082	12.0	0.21512	0	140	0.0	36.0
+linear (normal)	all three axes	5	187.857	160.0	0.99534	0	956	203.05782	174.0	0.00466	0	1058	48.0	408.0
+linear (normal)	all three axes	6	2506.37928	2232.0	1.0	64	10870	2709.4371	2404.0	0.0	64	11916	1046.0	4866.199999999997
+normal or inverse (linear)	one axis (F/B)	0	0.00084	0.0	0.00042	0	2	0.00084	0.0	0.99958	0	2	0.0	0.0
+normal or inverse (linear)	one axis (F/B)	1	0.00412	0.0	0.00206	0	2	0.00496	0.0	0.99752	0	2	0.0	0.0
+normal or inverse (linear)	one axis (F/B)	2	0.05136	0.0	0.02402	0	4	0.05632	0.0	0.97466	0	6	0.0	0.0
+normal or inverse (linear)	one axis (F/B)	3	0.7144	0.0	0.18454	0	20	0.77072	0.0	0.81128	0	24	0.0	4.0
+normal or inverse (linear)	one axis (F/B)	4	9.45872	4.0	0.57506	0	92	10.22944	4.0	0.42452	0	116	0.0	32.0
+normal or inverse (linear)	one axis (F/B)	5	125.73044	76.0	0.9477	0	740	135.95988	80.0	0.05188	0	824	12.0	348.0
+normal or inverse (linear)	one axis (F/B)	6	1676.37868	1134.0	0.99796	0	7840	1812.33856	1208.0	0.00162	0	8664	492.0	4084.0
+normal or inverse (linear)	all three axes	0	0.00276	0.0	0.00138	0	2	0.00276	0.0	0.99862	0	2	0.0	0.0
+normal or inverse (linear)	all three axes	1	0.01136	0.0	0.00568	0	2	0.01412	0.0	0.99298	0	4	0.0	0.0
+normal or inverse (linear)	all three axes	2	0.15816	0.0	0.07054	0	8	0.17228	0.0	0.9261	0	10	0.0	0.0
+normal or inverse (linear)	all three axes	3	2.10872	0.0	0.42898	0	40	2.281	0.0	0.56436	0	48	0.0	8.0
+normal or inverse (linear)	all three axes	4	28.20116	22.0	0.88302	0	226	30.48216	24.0	0.1169	0	274	0.0	68.0
+normal or inverse (linear)	all three axes	5	375.93716	322.0	0.9991	0	1836	406.41932	346.0	0.0009	0	2012	108.0	796.0
+normal or inverse (linear)	all three axes	6	5014.79268	4482.0	1.0	128	21200	5421.212	4830.0	0.0	128	23146	2192.0	9610.0
+NISS (normal, inverse, both)	one axis (F/B)	0	0.00084	0.0	0.00042	0	2	0.00084	0.0	0.99958	0	2	0.0	0.0
+NISS (normal, inverse, both)	one axis (F/B)	1	0.00412	0.0	0.00206	0	2	0.00496	0.0	0.99752	0	2	0.0	0.0
+NISS (normal, inverse, both)	one axis (F/B)	2	0.05816	0.0	0.0257	0	8	0.06312	0.0	0.97298	0	8	0.0	0.0
+NISS (normal, inverse, both)	one axis (F/B)	3	0.92912	0.0	0.21732	0	24	0.99224	0.0	0.77836	0	32	0.0	4.0
+NISS (normal, inverse, both)	one axis (F/B)	4	13.71112	8.0	0.7129	0	124	14.70336	8.0	0.28674	0	132	0.0	40.0
+NISS (normal, inverse, both)	one axis (F/B)	5	201.19188	154.0	0.99054	0	1084	215.89524	164.0	0.00946	0	1200	46.0	466.0
+NISS (normal, inverse, both)	one axis (F/B)	6	2936.7962	2424.0	1.0	48	11884	3152.69144	2588.0	0.0	48	13076	1222.0	5918.199999999997
+NISS (normal, inverse, both)	all three axes	0	0.00276	0.0	0.00138	0	2	0.00276	0.0	0.99862	0	2	0.0	0.0
+NISS (normal, inverse, both)	all three axes	1	0.01136	0.0	0.00568	0	2	0.01412	0.0	0.99298	0	4	0.0	0.0
+NISS (normal, inverse, both)	all three axes	2	0.18064	0.0	0.07572	0	8	0.19476	0.0	0.92098	0	10	0.0	0.0
+NISS (normal, inverse, both)	all three axes	3	2.74688	0.0	0.48858	0	40	2.94164	0.0	0.50478	0	48	0.0	8.0
+NISS (normal, inverse, both)	all three axes	4	40.98852	36.0	0.96148	0	240	43.93016	36.0	0.03844	0	282	8.0	90.0
+NISS (normal, inverse, both)	all three axes	5	602.91884	540.0	0.9999	0	2592	646.849	578.0	0.0001	0	2844	264.0	1128.0
+NISS (normal, inverse, both)	all three axes	6	8801.08572	8178.0	1.0	836	31256	9447.93472	8757.0	0.0	836	34022	5094.0	14870.0

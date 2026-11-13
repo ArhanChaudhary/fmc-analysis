@@ -413,10 +413,10 @@ Each row is a kind of EO and its axes; the cells are the mean number of EOs per 
 
 | EOs | Axes | EOs of ≤ 3, mean | EOs of ≤ 4, mean | EOs of ≤ 5, mean | EOs of ≤ 6, mean |
 |---|---:|---:|---:|---:|---:|
-| normal | F/B only | 0.39 | 5.1 | 67 | 900 |
+| normal | F/B only | 0.38 | 5.1 | 67 | 900 |
 | normal | all three | 1.15 | 15.3 | 203 | 2,709 |
 | normal or inverse | F/B only | 0.76 | 10.1 | 135 | 1,802 |
-| normal or inverse | all three | 2.27 | 30.4 | 406 | 5,415 |
+| normal or inverse | all three | 2.27 | 30.5 | 406 | 5,415 |
 | normal, inverse or NISS | F/B only | 0.98 | 14.6 | 215 | 3,147 |
 | normal, inverse or NISS | all three | 2.95 | 43.9 | 646 | 9,443 |
 
@@ -558,7 +558,7 @@ Each row is what you allow after the EO; the *DR in ≤* columns are the share o
 | better of the two DR axes, EO kept | exact, 1,082,565 states | 7.401 | 0.22% | 1.7% | 11.3% | 50.6% | 96.0% | 8.82 |
 | one DR axis, EO kept, on the inverse only | sampled, 10,000,000 | 7.803 | 0.11% | 0.87% | 5.9% | 30.6% | 82.4% | 16.88 |
 | one DR axis, EO kept, better of normal and inverse | sampled, 10,000,000 | 7.420 | 0.23% | 1.7% | 11.2% | 49.7% | 95.2% | 8.96 |
-| two DR axes x last turn inverted, EO kept, normal | sampled, 10,000,000 | 7.139 | 0.39% | 2.9% | 17.8% | 66.1% | 98.9% | 5.63 |
+| two DR axes x last turn inverted, EO kept, normal | sampled, 10,000,000 | 7.139 | 0.38% | 2.9% | 17.8% | 66.1% | 98.9% | 5.63 |
 | two DR axes x normal/inverse, EO kept | sampled, 10,000,000 | 7.045 | 0.45% | 3.3% | 20.4% | 71.9% | 99.4% | 4.91 |
 | two axes x normal/inverse x last turn, EO kept | sampled, 10,000,000 | 6.898 | 0.60% | 4.4% | 25.7% | 79.6% | 99.7% | 3.89 |
 | two DR axes, any turns, normal | sampled, 10,000,000 | 7.396 | 0.23% | 1.7% | 11.4% | 50.9% | 96.1% | 8.78 |
@@ -969,7 +969,7 @@ Chance of a DR in 6 or fewer, one column per option:
 | 2c6e | 115,310 | -0.0034 | – | 0.15% | 0.13% |
 | 2c8e | 36,388 | 0.0021 | – | 0% | 0% |
 | 3c0e | 1,019 | 0.0273 | – | 0% | 0% |
-| 3c2e | 32,985 | -0.0018 | 61.4% | 59.1% | 61.7% |
+| 3c2e | 32,985 | -0.0018 | 61.4% | 59.0% | 61.7% |
 | 3c4e | 173,359 | 0.0006 | 10.1% | 10.0% | 10.0% |
 | 3c6e | 232,084 | 0.0001 | 5.0% | 4.7% | 4.8% |
 | 3c8e | 72,416 | -0.0027 | 0.37% | 0.36% | 0.38% |
@@ -981,13 +981,13 @@ Chance of a DR in 6 or fewer, one column per option:
 | 5c0e | 5,255 | -0.0111 | – | 0% | 0% |
 | 5c2e | 165,385 | -0.0004 | 2.6% | 2.3% | 2.3% |
 | 5c4e | 869,787 | 0.0009 | 7.2% | 7.2% | 7.2% |
-| 5c6e | 1,157,431 | 0.002 | 6.2% | 6.1% | 6.1% |
+| 5c6e | 1,157,431 | 0.002 | 6.3% | 6.1% | 6.1% |
 | 5c8e | 362,239 | -0.0012 | 1.4% | 1.4% | 1.4% |
 | 6c0e | 5,686 | -0.0097 | – | 0% | 0% |
 | 6c2e | 182,237 | 0.0162 | 0.64% | 0.15% | 0.16% |
 | 6c4e | 957,958 | 0.0021 | 3.0% | 3.0% | 3.0% |
 | 6c6e | 1,274,785 | 0.0167 | 6.0% | 5.5% | 5.6% |
-| 6c8e | 397,422 | 0.0282 | 4.1% | 3.1% | 3.2% |
+| 6c8e | 397,422 | 0.0282 | 4.1% | 3.2% | 3.2% |
 | 7c0e | 3,140 | 0.0026 | – | 0% | 0% |
 | 7c2e | 99,427 | 0.0006 | 0.32% | 0.31% | 0.29% |
 | 7c4e | 520,005 | -0.0006 | 2.1% | 2.2% | 2.2% |

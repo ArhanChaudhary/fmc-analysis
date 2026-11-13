@@ -184,9 +184,9 @@ def main(path, tag):
             for L in range(K + 1):
                 v = sum(c[f'neo_{kd}_{y}_{L}'] for kd in kinds for y in ys)
                 cum = sum(c[f'neo_{kd}_{y}_{l}'] for kd in kinds for y in ys for l in range(L + 1))
-                b4.append({'eos': kname, 'axes': scope, 'length': L, 'mean': round(float(v.mean()), 3), 'median': float(np.median(v)),
-                           'p_at_least_one': round(float((v > 0).mean()), 5), 'min': int(v.min()), 'max': int(v.max()),
-                           'mean_le': round(float(cum.mean()), 3), 'median_le': float(np.median(cum)), 'p_none_le': round(float((cum == 0).mean()), 5),
+                b4.append({'eos': kname, 'axes': scope, 'length': L, 'mean': round(float(v.mean()), 9), 'median': float(np.median(v)),
+                           'p_at_least_one': round(float((v > 0).mean()), 9), 'min': int(v.min()), 'max': int(v.max()),
+                           'mean_le': round(float(cum.mean()), 9), 'median_le': float(np.median(cum)), 'p_none_le': round(float((cum == 0).mean()), 9),
                            'min_le': int(cum.min()), 'max_le': int(cum.max()), 'p10_le': float(np.percentile(cum, 10)), 'p90_le': float(np.percentile(cum, 90))})
     write(os.path.join(OUT, f'{tag}_b4.tsv'), b4)
     eoopt = {kind: np.stack([c[f'eoopt_{kind}_{y}'] for y in AX], 1) for kind in 'nix'}
