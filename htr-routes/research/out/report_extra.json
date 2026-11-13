@@ -13009,752 +13009,1055 @@
    "subsets": "4b2 0e,4b2 2e,4b2 4e",
    "step": "1",
    "step_description": "S1+S2 linear 2qt 4b2 > 4a1 > HTR (normal or inverse)",
-   "cumulative_opt": "0.4496",
-   "cumulative_p1": "0.7477",
-   "cumulative_opt_htr_budget2": "0.3762",
-   "cumulative_p1_htr_budget2": "0.6719"
+   "cumulative_opt": "0.449623",
+   "cumulative_p1": "0.747749",
+   "cumulative_opt_htr_budget2": "0.376162",
+   "cumulative_p1_htr_budget2": "0.671921",
+   "cumulative_opt_stated": "0.449623",
+   "cumulative_p1_stated": "0.747749",
+   "cumulative_opt_htr_budget2_le12": "0.366606"
   },
   {
    "checklist": "Zagros 4b2 order (D15884)",
    "subsets": "4b2 0e,4b2 2e,4b2 4e",
    "step": "2",
    "step_description": "S3 linear 4qt HTR of <= 8 moves",
-   "cumulative_opt": "0.5428",
-   "cumulative_p1": "0.8304",
-   "cumulative_opt_htr_budget2": "0.4537",
-   "cumulative_p1_htr_budget2": "0.7572"
+   "cumulative_opt": "0.542800",
+   "cumulative_p1": "0.830382",
+   "cumulative_opt_htr_budget2": "0.453699",
+   "cumulative_p1_htr_budget2": "0.757178",
+   "cumulative_opt_stated": "0.542800",
+   "cumulative_p1_stated": "0.830382",
+   "cumulative_opt_htr_budget2_le12": "0.447000"
   },
   {
    "checklist": "Zagros 4b2 order (D15884)",
    "subsets": "4b2 0e,4b2 2e,4b2 4e",
    "step": "3",
    "step_description": "S4 reduce to 4a1, switch (4b2 > 4a1 > (HTR))",
-   "cumulative_opt": "0.5428",
-   "cumulative_p1": "0.8304",
-   "cumulative_opt_htr_budget2": "0.5077",
-   "cumulative_p1_htr_budget2": "0.8080"
+   "cumulative_opt": "0.542800",
+   "cumulative_p1": "0.830382",
+   "cumulative_opt_htr_budget2": "0.507733",
+   "cumulative_p1_htr_budget2": "0.807973",
+   "cumulative_opt_stated": "0.542800",
+   "cumulative_p1_stated": "0.830382",
+   "cumulative_opt_htr_budget2_le12": "0.511520"
   },
   {
    "checklist": "Zagros 4b2 order (D15884)",
    "subsets": "4b2 0e,4b2 2e,4b2 4e",
    "step": "4",
-   "step_description": "S5 regress to 2c3, switch (4b2 > 2c3 > (...))",
-   "cumulative_opt": "0.9547",
-   "cumulative_p1": "0.9943",
-   "cumulative_opt_htr_budget2": "0.6421",
-   "cumulative_p1_htr_budget2": "0.9037"
+   "step_description": "S5 regress to 2c3 2e or 4e, switch (4b2 > 2c3 > (...))",
+   "cumulative_opt": "0.941816",
+   "cumulative_p1": "0.992433",
+   "cumulative_opt_htr_budget2": "0.637625",
+   "cumulative_p1_htr_budget2": "0.901302",
+   "cumulative_opt_stated": "0.671421",
+   "cumulative_p1_stated": "0.920238",
+   "cumulative_opt_htr_budget2_le12": "0.653704"
   },
   {
    "checklist": "Zagros 4b2 order (D15884)",
    "subsets": "4b2 0e,4b2 2e,4b2 4e",
    "step": "5",
    "step_description": "S8 2+2: any 4qt route switching after the 2nd qt",
-   "cumulative_opt": "0.9996",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.7126",
-   "cumulative_p1_htr_budget2": "0.9343"
+   "cumulative_opt": "0.996933",
+   "cumulative_p1": "0.999902",
+   "cumulative_opt_htr_budget2": "0.710318",
+   "cumulative_p1_htr_budget2": "0.933712",
+   "cumulative_opt_stated": "0.742550",
+   "cumulative_p1_stated": "0.950321",
+   "cumulative_opt_htr_budget2_le12": "0.721559"
   },
   {
    "checklist": "Zagros 4b2 order (D15884), 4b2 4e only",
    "subsets": "4b2 4e",
    "step": "1",
    "step_description": "S1+S2 linear 2qt 4b2 > 4a1 > HTR (normal or inverse)",
-   "cumulative_opt": "0.3625",
-   "cumulative_p1": "0.6682",
-   "cumulative_opt_htr_budget2": "0.3028",
-   "cumulative_p1_htr_budget2": "0.5908"
+   "cumulative_opt": "0.362520",
+   "cumulative_p1": "0.668240",
+   "cumulative_opt_htr_budget2": "0.302840",
+   "cumulative_p1_htr_budget2": "0.590760",
+   "cumulative_opt_stated": "0.362520",
+   "cumulative_p1_stated": "0.668240",
+   "cumulative_opt_htr_budget2_le12": "0.293031"
   },
   {
    "checklist": "Zagros 4b2 order (D15884), 4b2 4e only",
    "subsets": "4b2 4e",
    "step": "2",
    "step_description": "S3 linear 4qt HTR of <= 8 moves",
-   "cumulative_opt": "0.4711",
-   "cumulative_p1": "0.7828",
-   "cumulative_opt_htr_budget2": "0.4082",
-   "cumulative_p1_htr_budget2": "0.7186"
+   "cumulative_opt": "0.471120",
+   "cumulative_p1": "0.782840",
+   "cumulative_opt_htr_budget2": "0.408160",
+   "cumulative_p1_htr_budget2": "0.718560",
+   "cumulative_opt_stated": "0.471120",
+   "cumulative_p1_stated": "0.782840",
+   "cumulative_opt_htr_budget2_le12": "0.400232"
   },
   {
    "checklist": "Zagros 4b2 order (D15884), 4b2 4e only",
    "subsets": "4b2 4e",
    "step": "3",
    "step_description": "S4 reduce to 4a1, switch (4b2 > 4a1 > (HTR))",
-   "cumulative_opt": "0.4711",
-   "cumulative_p1": "0.7828",
-   "cumulative_opt_htr_budget2": "0.4568",
-   "cumulative_p1_htr_budget2": "0.7738"
+   "cumulative_opt": "0.471120",
+   "cumulative_p1": "0.782840",
+   "cumulative_opt_htr_budget2": "0.456840",
+   "cumulative_p1_htr_budget2": "0.773840",
+   "cumulative_opt_stated": "0.471120",
+   "cumulative_p1_stated": "0.782840",
+   "cumulative_opt_htr_budget2_le12": "0.463879"
   },
   {
    "checklist": "Zagros 4b2 order (D15884), 4b2 4e only",
    "subsets": "4b2 4e",
    "step": "4",
-   "step_description": "S5 regress to 2c3, switch (4b2 > 2c3 > (...))",
-   "cumulative_opt": "0.9512",
-   "cumulative_p1": "0.9938",
-   "cumulative_opt_htr_budget2": "0.6535",
-   "cumulative_p1_htr_budget2": "0.9151"
+   "step_description": "S5 regress to 2c3 2e or 4e, switch (4b2 > 2c3 > (...))",
+   "cumulative_opt": "0.937120",
+   "cumulative_p1": "0.991880",
+   "cumulative_opt_htr_budget2": "0.647040",
+   "cumulative_p1_htr_budget2": "0.911480",
+   "cumulative_opt_stated": "0.660320",
+   "cumulative_p1_stated": "0.917880",
+   "cumulative_opt_htr_budget2_le12": "0.679907"
   },
   {
    "checklist": "Zagros 4b2 order (D15884), 4b2 4e only",
    "subsets": "4b2 4e",
    "step": "5",
    "step_description": "S8 2+2: any 4qt route switching after the 2nd qt",
-   "cumulative_opt": "0.9995",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.7445",
-   "cumulative_p1_htr_budget2": "0.9535"
+   "cumulative_opt": "0.995800",
+   "cumulative_p1": "0.999880",
+   "cumulative_opt_htr_budget2": "0.741520",
+   "cumulative_p1_htr_budget2": "0.952720",
+   "cumulative_opt_stated": "0.753880",
+   "cumulative_p1_stated": "0.957760",
+   "cumulative_opt_htr_budget2_le12": "0.768060"
   },
   {
    "checklist": "Yura 4b2 4e order (D6409-D6416)",
    "subsets": "4b2 4e",
    "step": "1",
    "step_description": "~S1 linear 2qt trigger with <= 2 setup moves (HTR <= 6)",
-   "cumulative_opt": "0.0862",
-   "cumulative_p1": "0.1617",
-   "cumulative_opt_htr_budget2": "0.0860",
-   "cumulative_p1_htr_budget2": "0.1614"
+   "cumulative_opt": "0.086200",
+   "cumulative_p1": "0.161720",
+   "cumulative_opt_htr_budget2": "0.086040",
+   "cumulative_p1_htr_budget2": "0.161440",
+   "cumulative_opt_stated": "0.086040",
+   "cumulative_p1_stated": "0.161440",
+   "cumulative_opt_htr_budget2_le12": "0.127526"
   },
   {
    "checklist": "Yura 4b2 4e order (D6409-D6416)",
    "subsets": "4b2 4e",
    "step": "2",
-   "step_description": "S2 regress to 2c3 (2e or 4e), then 2c3 linear or switch (4qt)",
-   "cumulative_opt": "0.8216",
-   "cumulative_p1": "0.9708",
-   "cumulative_opt_htr_budget2": "0.6226",
-   "cumulative_p1_htr_budget2": "0.8841"
+   "step_description": "S2 regress to 2c3 2e or 4e, then 2c3 linear or switch (4qt)",
+   "cumulative_opt": "0.807160",
+   "cumulative_p1": "0.965640",
+   "cumulative_opt_htr_budget2": "0.603280",
+   "cumulative_p1_htr_budget2": "0.864960",
+   "cumulative_opt_stated": "0.603280",
+   "cumulative_p1_stated": "0.864960",
+   "cumulative_opt_htr_budget2_le12": "0.558188"
   },
   {
    "checklist": "Yura 4b2 4e order (D6409-D6416)",
    "subsets": "4b2 4e",
    "step": "3",
    "step_description": "S3 reduce to 4a1 and switch",
-   "cumulative_opt": "0.9314",
-   "cumulative_p1": "0.9900",
-   "cumulative_opt_htr_budget2": "0.7291",
-   "cumulative_p1_htr_budget2": "0.9402"
+   "cumulative_opt": "0.920760",
+   "cumulative_p1": "0.988440",
+   "cumulative_opt_htr_budget2": "0.714880",
+   "cumulative_p1_htr_budget2": "0.932720",
+   "cumulative_opt_stated": "0.714880",
+   "cumulative_p1_stated": "0.932720",
+   "cumulative_opt_htr_budget2_le12": "0.711614"
   },
   {
    "checklist": "rogo/Adri 4b2 4e order (D6422-D6424)",
    "subsets": "4b2 4e",
    "step": "1",
    "step_description": "~S1 linear 2qt trigger with <= 2 setup moves (HTR <= 6)",
-   "cumulative_opt": "0.0862",
-   "cumulative_p1": "0.1617",
-   "cumulative_opt_htr_budget2": "0.0860",
-   "cumulative_p1_htr_budget2": "0.1614"
+   "cumulative_opt": "0.086200",
+   "cumulative_p1": "0.161720",
+   "cumulative_opt_htr_budget2": "0.086040",
+   "cumulative_p1_htr_budget2": "0.161440",
+   "cumulative_opt_stated": "0.086040",
+   "cumulative_p1_stated": "0.161440",
+   "cumulative_opt_htr_budget2_le12": "0.127526"
   },
   {
    "checklist": "rogo/Adri 4b2 4e order (D6422-D6424)",
    "subsets": "4b2 4e",
    "step": "2",
    "step_description": "S3 reduce to 4a1 and switch",
-   "cumulative_opt": "0.3625",
-   "cumulative_p1": "0.6682",
-   "cumulative_opt_htr_budget2": "0.2610",
-   "cumulative_p1_htr_budget2": "0.4945"
+   "cumulative_opt": "0.362520",
+   "cumulative_p1": "0.668240",
+   "cumulative_opt_htr_budget2": "0.261040",
+   "cumulative_p1_htr_budget2": "0.494480",
+   "cumulative_opt_stated": "0.261040",
+   "cumulative_p1_stated": "0.494480",
+   "cumulative_opt_htr_budget2_le12": "0.302439"
   },
   {
    "checklist": "Lewis 4a2 0e/2e list (T6743)",
    "subsets": "4a2 0e,4a2 2e",
    "step": "1",
    "step_description": "S1 linear 2qt 4a2 > 4a1 4e > HTR",
-   "cumulative_opt": "0.3239",
-   "cumulative_p1": "0.6239",
-   "cumulative_opt_htr_budget2": "0.1331",
-   "cumulative_p1_htr_budget2": "0.3680"
+   "cumulative_opt": "0.323887",
+   "cumulative_p1": "0.623929",
+   "cumulative_opt_htr_budget2": "0.133120",
+   "cumulative_p1_htr_budget2": "0.367962",
+   "cumulative_opt_stated": "0.133120",
+   "cumulative_p1_stated": "0.367962",
+   "cumulative_opt_htr_budget2_le12": "0.028040"
   },
   {
    "checklist": "Lewis 4a2 0e/2e list (T6743)",
    "subsets": "4a2 0e,4a2 2e",
    "step": "2",
    "step_description": "S2 reduce to 4a1 4e, switch",
-   "cumulative_opt": "0.3239",
-   "cumulative_p1": "0.6239",
-   "cumulative_opt_htr_budget2": "0.3222",
-   "cumulative_p1_htr_budget2": "0.6217"
+   "cumulative_opt": "0.323887",
+   "cumulative_p1": "0.623929",
+   "cumulative_opt_htr_budget2": "0.322193",
+   "cumulative_p1_htr_budget2": "0.621671",
+   "cumulative_opt_stated": "0.322193",
+   "cumulative_p1_stated": "0.621671",
+   "cumulative_opt_htr_budget2_le12": "0.370036"
   },
   {
    "checklist": "Lewis 4a2 0e/2e list (T6743)",
    "subsets": "4a2 0e,4a2 2e",
    "step": "3",
    "step_description": "S3 4qt linear through 4a2 4e again (qt, slice, qt)",
-   "cumulative_opt": "0.7296",
-   "cumulative_p1": "0.9415",
-   "cumulative_opt_htr_budget2": "0.3771",
-   "cumulative_p1_htr_budget2": "0.6794"
+   "cumulative_opt": "0.729558",
+   "cumulative_p1": "0.941456",
+   "cumulative_opt_htr_budget2": "0.377101",
+   "cumulative_p1_htr_budget2": "0.679442",
+   "cumulative_opt_stated": "0.377101",
+   "cumulative_p1_stated": "0.679442",
+   "cumulative_opt_htr_budget2_le12": "0.381682"
   },
   {
    "checklist": "Lewis 4a2 0e/2e list (T6743)",
    "subsets": "4a2 0e,4a2 2e",
    "step": "4",
    "step_description": "S4 regress to 4b3 (2e/4e), switch, 4a3 > 4b2 > 4a1",
-   "cumulative_opt": "0.7362",
-   "cumulative_p1": "0.9452",
-   "cumulative_opt_htr_budget2": "0.5273",
-   "cumulative_p1_htr_budget2": "0.8108"
+   "cumulative_opt": "0.736205",
+   "cumulative_p1": "0.945247",
+   "cumulative_opt_htr_budget2": "0.527344",
+   "cumulative_p1_htr_budget2": "0.810781",
+   "cumulative_opt_stated": "0.527344",
+   "cumulative_p1_stated": "0.810781",
+   "cumulative_opt_htr_budget2_le12": "0.486810"
   },
   {
    "checklist": "Lewis 4a2 0e/2e list (T6743)",
    "subsets": "4a2 0e,4a2 2e",
    "step": "5",
    "step_description": "S5 regress to 0c3, then 0c3 > 4a2 > 4a1 (linear or NISS)",
-   "cumulative_opt": "0.7362",
-   "cumulative_p1": "0.9452",
-   "cumulative_opt_htr_budget2": "0.5344",
-   "cumulative_p1_htr_budget2": "0.8158"
+   "cumulative_opt": "0.736205",
+   "cumulative_p1": "0.945247",
+   "cumulative_opt_htr_budget2": "0.534398",
+   "cumulative_p1_htr_budget2": "0.815807",
+   "cumulative_opt_stated": "0.534398",
+   "cumulative_p1_stated": "0.815807",
+   "cumulative_opt_htr_budget2_le12": "0.486810"
   },
   {
    "checklist": "Jay/rodney 2c3 0e checks (T328-T344)",
    "subsets": "2c3 0e",
    "step": "1",
    "step_description": "~2c3 0e: one qt to 4b2 4e, switch, 4a1 > HTR (Jay T328 / rodney T331-T344, prefix not restricted)",
-   "cumulative_opt": "0.4690",
-   "cumulative_p1": "0.8265",
-   "cumulative_opt_htr_budget2": "0.4627",
-   "cumulative_p1_htr_budget2": "0.8183"
+   "cumulative_opt": "0.469040",
+   "cumulative_p1": "0.826480",
+   "cumulative_opt_htr_budget2": "0.462680",
+   "cumulative_p1_htr_budget2": "0.818280",
+   "cumulative_opt_stated": "0.462680",
+   "cumulative_p1_stated": "0.818280",
+   "cumulative_opt_htr_budget2_le12": "0.475963"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c0 0e",
    "subsets": "0c0 0e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9175",
-   "cumulative_p1": "0.9680",
-   "cumulative_opt_htr_budget2": "0.8453",
-   "cumulative_p1_htr_budget2": "0.9519"
+   "cumulative_opt": "0.917520",
+   "cumulative_p1": "0.968000",
+   "cumulative_opt_htr_budget2": "0.845280",
+   "cumulative_p1_htr_budget2": "0.951920",
+   "cumulative_opt_stated": "0.845280",
+   "cumulative_p1_stated": "0.951920",
+   "cumulative_opt_htr_budget2_le12": "0.844120"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c0 2e",
    "subsets": "0c0 2e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9587",
-   "cumulative_p1": "0.9987",
-   "cumulative_opt_htr_budget2": "0.7152",
-   "cumulative_p1_htr_budget2": "0.9339"
+   "cumulative_opt": "0.958720",
+   "cumulative_p1": "0.998680",
+   "cumulative_opt_htr_budget2": "0.715240",
+   "cumulative_p1_htr_budget2": "0.933920",
+   "cumulative_opt_stated": "0.715240",
+   "cumulative_p1_stated": "0.933920",
+   "cumulative_opt_htr_budget2_le12": "0.700671"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c0 4e",
    "subsets": "0c0 4e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9444",
-   "cumulative_p1": "0.9960",
-   "cumulative_opt_htr_budget2": "0.6512",
-   "cumulative_p1_htr_budget2": "0.9081"
+   "cumulative_opt": "0.944400",
+   "cumulative_p1": "0.996000",
+   "cumulative_opt_htr_budget2": "0.651160",
+   "cumulative_p1_htr_budget2": "0.908120",
+   "cumulative_opt_stated": "0.651160",
+   "cumulative_p1_stated": "0.908120",
+   "cumulative_opt_htr_budget2_le12": "0.639073"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c0 6e",
    "subsets": "0c0 6e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9447",
-   "cumulative_p1": "0.9966",
-   "cumulative_opt_htr_budget2": "0.6124",
-   "cumulative_p1_htr_budget2": "0.8944"
+   "cumulative_opt": "0.944680",
+   "cumulative_p1": "0.996640",
+   "cumulative_opt_htr_budget2": "0.612360",
+   "cumulative_p1_htr_budget2": "0.894440",
+   "cumulative_opt_stated": "0.612360",
+   "cumulative_p1_stated": "0.894440",
+   "cumulative_opt_htr_budget2_le12": "0.673746"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c0 8e",
    "subsets": "0c0 8e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.7790",
-   "cumulative_p1": "0.9544",
-   "cumulative_opt_htr_budget2": "0.7008",
-   "cumulative_p1_htr_budget2": "0.9174"
+   "cumulative_opt": "0.779040",
+   "cumulative_p1": "0.954400",
+   "cumulative_opt_htr_budget2": "0.700840",
+   "cumulative_p1_htr_budget2": "0.917360",
+   "cumulative_opt_stated": "0.700840",
+   "cumulative_p1_stated": "0.917360",
+   "cumulative_opt_htr_budget2_le12": "0.738279"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c5 0e",
    "subsets": "2c5 0e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "1.0000",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.8161",
-   "cumulative_p1_htr_budget2": "0.9655"
+   "cumulative_opt": "1.000000",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.816080",
+   "cumulative_p1_htr_budget2": "0.965520",
+   "cumulative_opt_stated": "0.816080",
+   "cumulative_p1_stated": "0.965520",
+   "cumulative_opt_htr_budget2_le12": "0.922252"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c5 2e",
    "subsets": "2c5 2e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "1.0000",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.8609",
-   "cumulative_p1_htr_budget2": "0.9780"
+   "cumulative_opt": "1.000000",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.860880",
+   "cumulative_p1_htr_budget2": "0.978040",
+   "cumulative_opt_stated": "0.860880",
+   "cumulative_p1_stated": "0.978040",
+   "cumulative_opt_htr_budget2_le12": "0.957447"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c5 4e",
    "subsets": "2c5 4e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "1.0000",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.8567",
-   "cumulative_p1_htr_budget2": "0.9772"
+   "cumulative_opt": "1.000000",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.856720",
+   "cumulative_p1_htr_budget2": "0.977200",
+   "cumulative_opt_stated": "0.856720",
+   "cumulative_p1_stated": "0.977200",
+   "cumulative_opt_htr_budget2_le12": "0.955039"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c5 6e",
    "subsets": "2c5 6e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "1.0000",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.8365",
-   "cumulative_p1_htr_budget2": "0.9715"
+   "cumulative_opt": "1.000000",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.836480",
+   "cumulative_p1_htr_budget2": "0.971480",
+   "cumulative_opt_stated": "0.836480",
+   "cumulative_p1_stated": "0.971480",
+   "cumulative_opt_htr_budget2_le12": "0.930120"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c5 8e",
    "subsets": "2c5 8e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "1.0000",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.8296",
-   "cumulative_p1_htr_budget2": "0.9709"
+   "cumulative_opt": "1.000000",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.829560",
+   "cumulative_p1_htr_budget2": "0.970920",
+   "cumulative_opt_stated": "0.829560",
+   "cumulative_p1_stated": "0.970920",
+   "cumulative_opt_htr_budget2_le12": "0.959128"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c4 0e",
    "subsets": "2c4 0e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9883",
-   "cumulative_p1": "0.9982",
-   "cumulative_opt_htr_budget2": "0.8840",
-   "cumulative_p1_htr_budget2": "0.9869"
+   "cumulative_opt": "0.988320",
+   "cumulative_p1": "0.998240",
+   "cumulative_opt_htr_budget2": "0.884040",
+   "cumulative_p1_htr_budget2": "0.986920",
+   "cumulative_opt_stated": "0.884040",
+   "cumulative_p1_stated": "0.986920",
+   "cumulative_opt_htr_budget2_le12": "0.940963"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c4 2e",
    "subsets": "2c4 2e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9857",
-   "cumulative_p1": "0.9981",
-   "cumulative_opt_htr_budget2": "0.8970",
-   "cumulative_p1_htr_budget2": "0.9882"
+   "cumulative_opt": "0.985720",
+   "cumulative_p1": "0.998120",
+   "cumulative_opt_htr_budget2": "0.896960",
+   "cumulative_p1_htr_budget2": "0.988240",
+   "cumulative_opt_stated": "0.896960",
+   "cumulative_p1_stated": "0.988240",
+   "cumulative_opt_htr_budget2_le12": "0.939943"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c4 4e",
    "subsets": "2c4 4e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9847",
-   "cumulative_p1": "0.9986",
-   "cumulative_opt_htr_budget2": "0.8727",
-   "cumulative_p1_htr_budget2": "0.9858"
+   "cumulative_opt": "0.984680",
+   "cumulative_p1": "0.998560",
+   "cumulative_opt_htr_budget2": "0.872720",
+   "cumulative_p1_htr_budget2": "0.985840",
+   "cumulative_opt_stated": "0.872720",
+   "cumulative_p1_stated": "0.985840",
+   "cumulative_opt_htr_budget2_le12": "0.940403"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c4 6e",
    "subsets": "2c4 6e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9858",
-   "cumulative_p1": "0.9985",
-   "cumulative_opt_htr_budget2": "0.8799",
-   "cumulative_p1_htr_budget2": "0.9856"
+   "cumulative_opt": "0.985760",
+   "cumulative_p1": "0.998520",
+   "cumulative_opt_htr_budget2": "0.879880",
+   "cumulative_p1_htr_budget2": "0.985560",
+   "cumulative_opt_stated": "0.879880",
+   "cumulative_p1_stated": "0.985560",
+   "cumulative_opt_htr_budget2_le12": "0.934692"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c4 8e",
    "subsets": "2c4 8e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9810",
-   "cumulative_p1": "0.9985",
-   "cumulative_opt_htr_budget2": "0.8950",
-   "cumulative_p1_htr_budget2": "0.9933"
+   "cumulative_opt": "0.981040",
+   "cumulative_p1": "0.998520",
+   "cumulative_opt_htr_budget2": "0.895040",
+   "cumulative_p1_htr_budget2": "0.993320",
+   "cumulative_opt_stated": "0.895040",
+   "cumulative_p1_stated": "0.993320",
+   "cumulative_opt_htr_budget2_le12": "0.983501"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c3 0e",
    "subsets": "0c3 0e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9747",
-   "cumulative_p1": "0.9971",
-   "cumulative_opt_htr_budget2": "0.9264",
-   "cumulative_p1_htr_budget2": "0.9928"
+   "cumulative_opt": "0.974680",
+   "cumulative_p1": "0.997080",
+   "cumulative_opt_htr_budget2": "0.926360",
+   "cumulative_p1_htr_budget2": "0.992800",
+   "cumulative_opt_stated": "0.926360",
+   "cumulative_p1_stated": "0.992800",
+   "cumulative_opt_htr_budget2_le12": "1.000000"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c3 2e",
    "subsets": "0c3 2e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9312",
-   "cumulative_p1": "0.9964",
-   "cumulative_opt_htr_budget2": "0.8560",
-   "cumulative_p1_htr_budget2": "0.9880"
+   "cumulative_opt": "0.931240",
+   "cumulative_p1": "0.996360",
+   "cumulative_opt_htr_budget2": "0.856040",
+   "cumulative_p1_htr_budget2": "0.988040",
+   "cumulative_opt_stated": "0.856040",
+   "cumulative_p1_stated": "0.988040",
+   "cumulative_opt_htr_budget2_le12": "0.990164"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c3 4e",
    "subsets": "0c3 4e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.8434",
-   "cumulative_p1": "0.9727",
-   "cumulative_opt_htr_budget2": "0.7262",
-   "cumulative_p1_htr_budget2": "0.9523"
+   "cumulative_opt": "0.843360",
+   "cumulative_p1": "0.972720",
+   "cumulative_opt_htr_budget2": "0.726160",
+   "cumulative_p1_htr_budget2": "0.952280",
+   "cumulative_opt_stated": "0.726160",
+   "cumulative_p1_stated": "0.952280",
+   "cumulative_opt_htr_budget2_le12": "0.992063"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c3 6e",
    "subsets": "0c3 6e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9430",
-   "cumulative_p1": "0.9978",
-   "cumulative_opt_htr_budget2": "0.8794",
-   "cumulative_p1_htr_budget2": "0.9896"
+   "cumulative_opt": "0.943000",
+   "cumulative_p1": "0.997840",
+   "cumulative_opt_htr_budget2": "0.879440",
+   "cumulative_p1_htr_budget2": "0.989560",
+   "cumulative_opt_stated": "0.879440",
+   "cumulative_p1_stated": "0.989560",
+   "cumulative_opt_htr_budget2_le12": "0.986971"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c3 8e",
    "subsets": "0c3 8e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9877",
-   "cumulative_p1": "0.9980",
-   "cumulative_opt_htr_budget2": "0.9287",
-   "cumulative_p1_htr_budget2": "0.9944"
+   "cumulative_opt": "0.987720",
+   "cumulative_p1": "0.998000",
+   "cumulative_opt_htr_budget2": "0.928680",
+   "cumulative_p1_htr_budget2": "0.994440",
+   "cumulative_opt_stated": "0.928680",
+   "cumulative_p1_stated": "0.994440",
+   "cumulative_opt_htr_budget2_le12": "1.000000"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4a2 0e",
    "subsets": "4a2 0e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.6934",
-   "cumulative_p1": "0.9068",
-   "cumulative_opt_htr_budget2": "0.3759",
-   "cumulative_p1_htr_budget2": "0.6485"
+   "cumulative_opt": "0.693360",
+   "cumulative_p1": "0.906840",
+   "cumulative_opt_htr_budget2": "0.375920",
+   "cumulative_p1_htr_budget2": "0.648480",
+   "cumulative_opt_stated": "0.375920",
+   "cumulative_p1_stated": "0.648480",
+   "cumulative_opt_htr_budget2_le12": "0.516383"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4a2 2e",
    "subsets": "4a2 2e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.8713",
-   "cumulative_p1": "0.9810",
-   "cumulative_opt_htr_budget2": "0.7682",
-   "cumulative_p1_htr_budget2": "0.9627"
+   "cumulative_opt": "0.871280",
+   "cumulative_p1": "0.981040",
+   "cumulative_opt_htr_budget2": "0.768200",
+   "cumulative_p1_htr_budget2": "0.962720",
+   "cumulative_opt_stated": "0.768200",
+   "cumulative_p1_stated": "0.962720",
+   "cumulative_opt_htr_budget2_le12": "0.796176"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4a2 4e",
    "subsets": "4a2 4e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.6785",
-   "cumulative_p1": "0.8886",
-   "cumulative_opt_htr_budget2": "0.6594",
-   "cumulative_p1_htr_budget2": "0.8768"
+   "cumulative_opt": "0.678520",
+   "cumulative_p1": "0.888640",
+   "cumulative_opt_htr_budget2": "0.659360",
+   "cumulative_p1_htr_budget2": "0.876800",
+   "cumulative_opt_stated": "0.659360",
+   "cumulative_p1_stated": "0.876800",
+   "cumulative_opt_htr_budget2_le12": "0.717189"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4a1 0e",
    "subsets": "4a1 0e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9570",
-   "cumulative_p1": "0.9927",
-   "cumulative_opt_htr_budget2": "0.7012",
-   "cumulative_p1_htr_budget2": "0.9213"
+   "cumulative_opt": "0.957040",
+   "cumulative_p1": "0.992680",
+   "cumulative_opt_htr_budget2": "0.701240",
+   "cumulative_p1_htr_budget2": "0.921320",
+   "cumulative_opt_stated": "0.701240",
+   "cumulative_p1_stated": "0.921320",
+   "cumulative_opt_htr_budget2_le12": "0.720113"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4a1 2e",
    "subsets": "4a1 2e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.8632",
-   "cumulative_p1": "0.9793",
-   "cumulative_opt_htr_budget2": "0.7647",
-   "cumulative_p1_htr_budget2": "0.9536"
+   "cumulative_opt": "0.863240",
+   "cumulative_p1": "0.979320",
+   "cumulative_opt_htr_budget2": "0.764720",
+   "cumulative_p1_htr_budget2": "0.953640",
+   "cumulative_opt_stated": "0.764720",
+   "cumulative_p1_stated": "0.953640",
+   "cumulative_opt_htr_budget2_le12": "0.757878"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4a1 4e",
    "subsets": "4a1 4e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.8975",
-   "cumulative_p1": "0.9852",
-   "cumulative_opt_htr_budget2": "0.6944",
-   "cumulative_p1_htr_budget2": "0.9223"
+   "cumulative_opt": "0.897520",
+   "cumulative_p1": "0.985200",
+   "cumulative_opt_htr_budget2": "0.694440",
+   "cumulative_p1_htr_budget2": "0.922280",
+   "cumulative_opt_stated": "0.694440",
+   "cumulative_p1_stated": "0.922280",
+   "cumulative_opt_htr_budget2_le12": "0.686647"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c3 0e",
    "subsets": "2c3 0e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9989",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.8783",
-   "cumulative_p1_htr_budget2": "0.9876"
+   "cumulative_opt": "0.998920",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.878320",
+   "cumulative_p1_htr_budget2": "0.987560",
+   "cumulative_opt_stated": "0.878320",
+   "cumulative_p1_stated": "0.987560",
+   "cumulative_opt_htr_budget2_le12": "0.901466"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c3 2e",
    "subsets": "2c3 2e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.8979",
-   "cumulative_p1": "0.9878",
-   "cumulative_opt_htr_budget2": "0.7964",
-   "cumulative_p1_htr_budget2": "0.9642"
+   "cumulative_opt": "0.897880",
+   "cumulative_p1": "0.987840",
+   "cumulative_opt_htr_budget2": "0.796400",
+   "cumulative_p1_htr_budget2": "0.964200",
+   "cumulative_opt_stated": "0.796400",
+   "cumulative_p1_stated": "0.964200",
+   "cumulative_opt_htr_budget2_le12": "0.798144"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c3 4e",
    "subsets": "2c3 4e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.8316",
-   "cumulative_p1": "0.9752",
-   "cumulative_opt_htr_budget2": "0.7658",
-   "cumulative_p1_htr_budget2": "0.9557"
+   "cumulative_opt": "0.831640",
+   "cumulative_p1": "0.975240",
+   "cumulative_opt_htr_budget2": "0.765800",
+   "cumulative_p1_htr_budget2": "0.955720",
+   "cumulative_opt_stated": "0.765800",
+   "cumulative_p1_stated": "0.955720",
+   "cumulative_opt_htr_budget2_le12": "0.793057"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c3 6e",
    "subsets": "2c3 6e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.7810",
-   "cumulative_p1": "0.9647",
-   "cumulative_opt_htr_budget2": "0.7330",
-   "cumulative_p1_htr_budget2": "0.9474"
+   "cumulative_opt": "0.781040",
+   "cumulative_p1": "0.964720",
+   "cumulative_opt_htr_budget2": "0.732960",
+   "cumulative_p1_htr_budget2": "0.947400",
+   "cumulative_opt_stated": "0.732960",
+   "cumulative_p1_stated": "0.947400",
+   "cumulative_opt_htr_budget2_le12": "0.750824"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 2c3 8e",
    "subsets": "2c3 8e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9990",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.8585",
-   "cumulative_p1_htr_budget2": "0.9846"
+   "cumulative_opt": "0.999040",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.858480",
+   "cumulative_p1_htr_budget2": "0.984600",
+   "cumulative_opt_stated": "0.858480",
+   "cumulative_p1_stated": "0.984600",
+   "cumulative_opt_htr_budget2_le12": "0.876976"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c4 0e",
    "subsets": "0c4 0e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "1.0000",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.8356",
-   "cumulative_p1_htr_budget2": "0.9558"
+   "cumulative_opt": "1.000000",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.872360",
+   "cumulative_p1_htr_budget2": "0.974080",
+   "cumulative_opt_stated": "0.872360",
+   "cumulative_p1_stated": "0.974080",
+   "cumulative_opt_htr_budget2_le12": "0.913279"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c4 2e",
    "subsets": "0c4 2e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "1.0000",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.8919",
-   "cumulative_p1_htr_budget2": "0.9796"
+   "cumulative_opt": "1.000000",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.888640",
+   "cumulative_p1_htr_budget2": "0.979160",
+   "cumulative_opt_stated": "0.888640",
+   "cumulative_p1_stated": "0.979160",
+   "cumulative_opt_htr_budget2_le12": "0.938076"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c4 4e",
    "subsets": "0c4 4e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "1.0000",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.8449",
-   "cumulative_p1_htr_budget2": "0.9707"
+   "cumulative_opt": "1.000000",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.861960",
+   "cumulative_p1_htr_budget2": "0.975120",
+   "cumulative_opt_stated": "0.861960",
+   "cumulative_p1_stated": "0.975120",
+   "cumulative_opt_htr_budget2_le12": "0.924486"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c4 6e",
    "subsets": "0c4 6e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "1.0000",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.8339",
-   "cumulative_p1_htr_budget2": "0.9711"
+   "cumulative_opt": "1.000000",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.837080",
+   "cumulative_p1_htr_budget2": "0.972680",
+   "cumulative_opt_stated": "0.837080",
+   "cumulative_p1_stated": "0.972680",
+   "cumulative_opt_htr_budget2_le12": "0.927711"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 0c4 8e",
    "subsets": "0c4 8e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "1.0000",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.8070",
-   "cumulative_p1_htr_budget2": "0.9628"
+   "cumulative_opt": "1.000000",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.807000",
+   "cumulative_p1_htr_budget2": "0.962800",
+   "cumulative_opt_stated": "0.807000",
+   "cumulative_p1_stated": "0.962800",
+   "cumulative_opt_htr_budget2_le12": "0.963519"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4c3 0e",
    "subsets": "4c3 0e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.7649",
-   "cumulative_p1": "0.9569",
-   "cumulative_opt_htr_budget2": "0.7483",
-   "cumulative_p1_htr_budget2": "0.9484"
+   "cumulative_opt": "0.764880",
+   "cumulative_p1": "0.956920",
+   "cumulative_opt_htr_budget2": "0.748320",
+   "cumulative_p1_htr_budget2": "0.948440",
+   "cumulative_opt_stated": "0.748320",
+   "cumulative_p1_stated": "0.948440",
+   "cumulative_opt_htr_budget2_le12": "0.772589"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4c3 2e",
    "subsets": "4c3 2e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.7461",
-   "cumulative_p1": "0.9508",
-   "cumulative_opt_htr_budget2": "0.7244",
-   "cumulative_p1_htr_budget2": "0.9406"
+   "cumulative_opt": "0.746080",
+   "cumulative_p1": "0.950840",
+   "cumulative_opt_htr_budget2": "0.724400",
+   "cumulative_p1_htr_budget2": "0.940640",
+   "cumulative_opt_stated": "0.724400",
+   "cumulative_p1_stated": "0.940640",
+   "cumulative_opt_htr_budget2_le12": "0.735628"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4c3 4e",
    "subsets": "4c3 4e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.7066",
-   "cumulative_p1": "0.9342",
-   "cumulative_opt_htr_budget2": "0.6782",
-   "cumulative_p1_htr_budget2": "0.9202"
+   "cumulative_opt": "0.706640",
+   "cumulative_p1": "0.934200",
+   "cumulative_opt_htr_budget2": "0.678200",
+   "cumulative_p1_htr_budget2": "0.920240",
+   "cumulative_opt_stated": "0.678200",
+   "cumulative_p1_stated": "0.920240",
+   "cumulative_opt_htr_budget2_le12": "0.697021"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4c4 0e",
    "subsets": "4c4 0e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.8654",
-   "cumulative_p1": "0.9802",
-   "cumulative_opt_htr_budget2": "0.6693",
-   "cumulative_p1_htr_budget2": "0.9278"
+   "cumulative_opt": "0.865400",
+   "cumulative_p1": "0.980240",
+   "cumulative_opt_htr_budget2": "0.669280",
+   "cumulative_p1_htr_budget2": "0.927760",
+   "cumulative_opt_stated": "0.669280",
+   "cumulative_p1_stated": "0.927760",
+   "cumulative_opt_htr_budget2_le12": "0.870662"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4c4 2e",
    "subsets": "4c4 2e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9073",
-   "cumulative_p1": "0.9872",
-   "cumulative_opt_htr_budget2": "0.7056",
-   "cumulative_p1_htr_budget2": "0.9375"
+   "cumulative_opt": "0.907280",
+   "cumulative_p1": "0.987160",
+   "cumulative_opt_htr_budget2": "0.705640",
+   "cumulative_p1_htr_budget2": "0.937520",
+   "cumulative_opt_stated": "0.705640",
+   "cumulative_p1_stated": "0.937520",
+   "cumulative_opt_htr_budget2_le12": "0.856423"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4c4 4e",
    "subsets": "4c4 4e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9139",
-   "cumulative_p1": "0.9891",
-   "cumulative_opt_htr_budget2": "0.7072",
-   "cumulative_p1_htr_budget2": "0.9371"
+   "cumulative_opt": "0.913880",
+   "cumulative_p1": "0.989080",
+   "cumulative_opt_htr_budget2": "0.707160",
+   "cumulative_p1_htr_budget2": "0.937080",
+   "cumulative_opt_stated": "0.707160",
+   "cumulative_p1_stated": "0.937080",
+   "cumulative_opt_htr_budget2_le12": "0.852321"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4b2 0e",
    "subsets": "4b2 0e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9160",
-   "cumulative_p1": "0.9857",
-   "cumulative_opt_htr_budget2": "0.7488",
-   "cumulative_p1_htr_budget2": "0.9415"
+   "cumulative_opt": "0.915960",
+   "cumulative_p1": "0.985680",
+   "cumulative_opt_htr_budget2": "0.748760",
+   "cumulative_p1_htr_budget2": "0.941480",
+   "cumulative_opt_stated": "0.748760",
+   "cumulative_p1_stated": "0.941480",
+   "cumulative_opt_htr_budget2_le12": "0.801771"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4b2 2e",
    "subsets": "4b2 2e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9438",
-   "cumulative_p1": "0.9923",
-   "cumulative_opt_htr_budget2": "0.6721",
-   "cumulative_p1_htr_budget2": "0.9087"
+   "cumulative_opt": "0.943760",
+   "cumulative_p1": "0.992320",
+   "cumulative_opt_htr_budget2": "0.672120",
+   "cumulative_p1_htr_budget2": "0.908680",
+   "cumulative_opt_stated": "0.672120",
+   "cumulative_p1_stated": "0.908680",
+   "cumulative_opt_htr_budget2_le12": "0.666565"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4b2 4e",
    "subsets": "4b2 4e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "0.9314",
-   "cumulative_p1": "0.9900",
-   "cumulative_opt_htr_budget2": "0.7776",
-   "cumulative_p1_htr_budget2": "0.9549"
+   "cumulative_opt": "0.931400",
+   "cumulative_p1": "0.989960",
+   "cumulative_opt_htr_budget2": "0.777600",
+   "cumulative_p1_htr_budget2": "0.954880",
+   "cumulative_opt_stated": "0.777600",
+   "cumulative_p1_stated": "0.954880",
+   "cumulative_opt_htr_budget2_le12": "0.767712"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4b5 0e",
    "subsets": "4b5 0e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "1.0000",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.7464",
-   "cumulative_p1_htr_budget2": "0.9385"
+   "cumulative_opt": "1.000000",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.746360",
+   "cumulative_p1_htr_budget2": "0.938520",
+   "cumulative_opt_stated": "0.746360",
+   "cumulative_p1_stated": "0.938520",
+   "cumulative_opt_htr_budget2_le12": "0.928270"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4b5 2e",
    "subsets": "4b5 2e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "1.0000",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.7878",
-   "cumulative_p1_htr_budget2": "0.9511"
+   "cumulative_opt": "1.000000",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.787800",
+   "cumulative_p1_htr_budget2": "0.951080",
+   "cumulative_opt_stated": "0.787800",
+   "cumulative_p1_stated": "0.951080",
+   "cumulative_opt_htr_budget2_le12": "0.909449"
   },
   {
    "checklist": "Daichi cheat sheet (D18340): 4b5 4e",
    "subsets": "4b5 4e",
    "step": "1",
    "step_description": "the listed routes",
-   "cumulative_opt": "1.0000",
-   "cumulative_p1": "1.0000",
-   "cumulative_opt_htr_budget2": "0.7739",
-   "cumulative_p1_htr_budget2": "0.9430"
+   "cumulative_opt": "1.000000",
+   "cumulative_p1": "1.000000",
+   "cumulative_opt_htr_budget2": "0.773920",
+   "cumulative_p1_htr_budget2": "0.943000",
+   "cumulative_opt_stated": "0.773920",
+   "cumulative_p1_stated": "0.943000",
+   "cumulative_opt_htr_budget2_le12": "0.890909"
+  },
+  {
+   "checklist": "Daichi cheat sheet with the 4a3 8-move trigger (D18340): 4c3 0e",
+   "subsets": "4c3 0e",
+   "step": "1",
+   "step_description": "the listed routes and the trigger",
+   "cumulative_opt": "0.764880",
+   "cumulative_p1": "0.956920",
+   "cumulative_opt_htr_budget2": "0.753200",
+   "cumulative_p1_htr_budget2": "0.952240",
+   "cumulative_opt_stated": "0.753200",
+   "cumulative_p1_stated": "0.952240",
+   "cumulative_opt_htr_budget2_le12": "0.776325"
+  },
+  {
+   "checklist": "Daichi cheat sheet with the 4a3 8-move trigger (D18340): 4c3 4e",
+   "subsets": "4c3 4e",
+   "step": "1",
+   "step_description": "the listed routes and the trigger",
+   "cumulative_opt": "0.706640",
+   "cumulative_p1": "0.934200",
+   "cumulative_opt_htr_budget2": "0.679400",
+   "cumulative_p1_htr_budget2": "0.920920",
+   "cumulative_opt_stated": "0.679400",
+   "cumulative_p1_stated": "0.920920",
+   "cumulative_opt_htr_budget2_le12": "0.699052"
   },
   {
    "checklist": "Fanti 4b2 4e split (D10034), class alone: 2qt (4b2 > 4a1 > HTR, any switch)",
    "subsets": "4b2 4e",
    "step": "1",
    "step_description": "2qt (4b2 > 4a1 > HTR, any switch)",
-   "cumulative_opt": "0.3625",
-   "cumulative_p1": "0.6682",
-   "cumulative_opt_htr_budget2": "0.3555",
-   "cumulative_p1_htr_budget2": "0.6602"
+   "cumulative_opt": "0.362520",
+   "cumulative_p1": "0.668240",
+   "cumulative_opt_htr_budget2": "0.355480",
+   "cumulative_p1_htr_budget2": "0.660200",
+   "cumulative_opt_stated": "0.355480",
+   "cumulative_p1_stated": "0.660200",
+   "cumulative_opt_htr_budget2_le12": "0.357840"
   },
   {
    "checklist": "Fanti 4b2 4e split (D10034), class alone: 4qt via 2c3",
    "subsets": "4b2 4e",
    "step": "1",
    "step_description": "4qt via 2c3",
-   "cumulative_opt": "0.7785",
-   "cumulative_p1": "0.9600",
-   "cumulative_opt_htr_budget2": "0.5535",
-   "cumulative_p1_htr_budget2": "0.8191"
+   "cumulative_opt": "0.778480",
+   "cumulative_p1": "0.960000",
+   "cumulative_opt_htr_budget2": "0.553520",
+   "cumulative_p1_htr_budget2": "0.819080",
+   "cumulative_opt_stated": "0.553520",
+   "cumulative_p1_stated": "0.819080",
+   "cumulative_opt_htr_budget2_le12": "0.453078"
   },
   {
    "checklist": "Fanti 4b2 4e split (D10034), class alone: 4qt via 4a1 > 0c0",
    "subsets": "4b2 4e",
    "step": "1",
    "step_description": "4qt via 4a1 > 0c0",
-   "cumulative_opt": "0.4886",
-   "cumulative_p1": "0.8430",
-   "cumulative_opt_htr_budget2": "0.1589",
-   "cumulative_p1_htr_budget2": "0.3760"
+   "cumulative_opt": "0.488640",
+   "cumulative_p1": "0.843040",
+   "cumulative_opt_htr_budget2": "0.158880",
+   "cumulative_p1_htr_budget2": "0.376000",
+   "cumulative_opt_stated": "0.158880",
+   "cumulative_p1_stated": "0.376000",
+   "cumulative_opt_htr_budget2_le12": "0.139257"
   },
   {
    "checklist": "Fanti 4b2 4e split (D10034), cumulative",
    "subsets": "4b2 4e",
    "step": "1",
    "step_description": "2qt (4b2 > 4a1 > HTR, any switch)",
-   "cumulative_opt": "0.3625",
-   "cumulative_p1": "0.6682",
-   "cumulative_opt_htr_budget2": "0.3555",
-   "cumulative_p1_htr_budget2": "0.6602"
+   "cumulative_opt": "0.362520",
+   "cumulative_p1": "0.668240",
+   "cumulative_opt_htr_budget2": "0.355480",
+   "cumulative_p1_htr_budget2": "0.660200",
+   "cumulative_opt_stated": "0.355480",
+   "cumulative_p1_stated": "0.660200",
+   "cumulative_opt_htr_budget2_le12": "0.357840"
   },
   {
    "checklist": "Fanti 4b2 4e split (D10034), cumulative",
    "subsets": "4b2 4e",
    "step": "2",
    "step_description": "4qt via 2c3",
-   "cumulative_opt": "0.9314",
-   "cumulative_p1": "0.9900",
-   "cumulative_opt_htr_budget2": "0.7776",
-   "cumulative_p1_htr_budget2": "0.9549"
+   "cumulative_opt": "0.931400",
+   "cumulative_p1": "0.989960",
+   "cumulative_opt_htr_budget2": "0.777600",
+   "cumulative_p1_htr_budget2": "0.954880",
+   "cumulative_opt_stated": "0.777600",
+   "cumulative_p1_stated": "0.954880",
+   "cumulative_opt_htr_budget2_le12": "0.767712"
   },
   {
    "checklist": "Fanti 4b2 4e split (D10034), cumulative",
    "subsets": "4b2 4e",
    "step": "3",
    "step_description": "4qt via 4a1 > 0c0",
-   "cumulative_opt": "0.9758",
-   "cumulative_p1": "0.9983",
-   "cumulative_opt_htr_budget2": "0.8021",
-   "cumulative_p1_htr_budget2": "0.9633"
+   "cumulative_opt": "0.975800",
+   "cumulative_p1": "0.998280",
+   "cumulative_opt_htr_budget2": "0.802120",
+   "cumulative_p1_htr_budget2": "0.963280",
+   "cumulative_opt_stated": "0.802120",
+   "cumulative_p1_stated": "0.963280",
+   "cumulative_opt_htr_budget2_le12": "0.795470"
   }
  ],
+ "daichi_cmp": {
+  "all": {
+   "ahead": "all of 4a1 and 4b2; 0c0 2e to 6e; 2c3 0e and 8e",
+   "level": "2c4 except 8e; 4a2 2e; 2c3 2e; 0c4 0e to 4e",
+   "behind": "all of 2c5, 0c3, 4c3, 4c4 and 4b5; 0c0 0e and 8e; 2c4 8e; 4a2 0e and 4e; 2c3 4e and 6e; 0c4 6e and 8e"
+  },
+  "le12": {
+   "ahead": "all of 4a1 and 4b2; 0c0 2e to 6e; 4a2 0e and 2e; 2c3 0e and 8e; 0c4 0e and 4e",
+   "level": "all of 2c4 and 0c3; 2c3 2e; 0c4 2e, 6e and 8e; 4c4 4e",
+   "behind": "all of 2c5, 4c3 and 4b5; 0c0 0e and 8e; 4a2 4e; 2c3 4e and 6e; 4c4 0e and 2e"
+  }
+ },
+ "daichi_level_pts": 1.0,
+ "daichi_n12": {
+  "min": 317,
+  "min_at": "4c4 0e",
+  "max": 24814,
+  "small": [
+   "2c5 0e",
+   "2c5 2e",
+   "2c5 4e",
+   "2c5 6e",
+   "2c5 8e",
+   "0c3 2e",
+   "0c3 4e",
+   "0c3 6e",
+   "0c4 6e",
+   "0c4 8e",
+   "4c4 0e",
+   "4c4 2e",
+   "4c4 4e",
+   "4b5 0e",
+   "4b5 2e",
+   "4b5 4e"
+  ],
+  "small_text": "all of 2c5, 4c4 and 4b5; 0c3 2e to 6e; 0c4 6e and 8e"
+ },
+ "daichi_range": {
+  "all": [
+   0.37592,
+   "4a2 0e",
+   0.92868,
+   "0c3 8e"
+  ],
+  "le12": [
+   0.516383,
+   "4a2 0e",
+   1.0,
+   "0c3 0e"
+  ]
+ },
+ "daichi_le12_4q5q_min": 0.852321,
  "q8w": {
   "0c0 0e|1|0": {
    "group": "0c0 0e",
@@ -50108,8 +50411,8 @@
    "author": "Evan / Yura Riabov",
    "claim": "[D11196, Evan] this isn't the worst practice but it's pretty rare for switching after doing more than 2 moves to actually be useful, unless you're variationmaxing [D11235, Yura] More like 3 imo [D11237, Evan] ehh the only thing I do this for regularly is the b side of 4c3 [D11238] 4c4 and 0c4 ofc bu",
    "number_claimed": "pretty rare",
-   "verdict": "CORRECTS",
-   "evidence": "All DRs: the shortest-HTR optimal readings all need a switch after more than 2 moves in 28.2% of states (after more than 3: 12.5%); with HTRs up to 2 over the shortest allowed: 13.2% / 5.1% (another 12.8% have no optimal reading within that budget). Per subset in c11_c13.tsv."
+   "verdict": "PARTLY",
+   "evidence": "All DRs: the shortest-HTR optimal readings all need a switch after more than 2 moves in 28.2% of states (after more than 3: 12.5%); with HTRs up to 2 over the shortest allowed: 13.2% / 5.1% (another 12.8% have no optimal reading within that budget). Per subset in c11_c13.tsv. Evan's own exceptions (D11237, D11238) are the b side of 4c3, 4c4 and 0c4, and 'switching U2 F2 U reductions for some subsets', a switch after exactly 3 moves: needed (budget 2) on 2c3 6.8%, 4b2 5.6%, 2c4 7.9%, 2c5 10.9%, all 8.1%. With them what is left is the switch after 4 or more, where Yura's 'More like 3' puts the line too."
   },
   "C14": {
    "id": "C14",
@@ -50126,8 +50429,8 @@
    "author": "Yura Riabov",
    "claim": "depends on if dr uses niss or not, but if not then pre-dr part can end in 1 of 4 moves, so inverting it should bring down the mean by 2/3(chance of dr solution ending in 1 of 4 moves) * 1/4(chance of that move being the right one), so yeah, should be 1/6 \u2026 [T4605, Noah Swor] iirc someone said it mak",
    "number_claimed": "1/6 move mean improvement (or 1/6 of DRs)",
-   "verdict": "CORRECTS",
-   "evidence": "Turning the DR's last move the other way (X -> X*R2): shorter by one move in 32.5% of states (exact over all DR states from the first study's h8 table: 32.47%), never by more; mean gain 0.325 move. Neither 1/6 move nor 1/6 of DRs: about 1/3."
+   "verdict": "PARTLY",
+   "evidence": "Turning the DR's last move the other way (X -> X*R2): shorter by one move in 32.5% of states (exact over all DR states from the first study's h8 table: 32.47%), never by more; mean gain 0.325 move. As a number the 1/6 is low by half (about 1/3). As Yura left it after Lichi Fang's objection (T4607: several optimal finishes; T4608 'also true'; T4610 'at least an order of numbers', not 'more than a half move'), it holds."
   },
   "C16": {
    "id": "C16",
@@ -50135,8 +50438,8 @@
    "author": "trangium / Yura Riabov",
    "claim": "[T11127] (tbf, a qt break from DR only makes it around 0.5 worse, rather than 1 as you might expect) [T7157, Yura] you know that qt break is dr plus one move that can be inverted, right?",
    "number_claimed": "~0.5 move",
-   "verdict": "PARTLY",
-   "evidence": "A qt break costs 1 + min(opt(X), opt(X*R2)) - opt(X) = 0.675 moves on average (trangium: ~0.5)."
+   "verdict": "AGREES",
+   "evidence": "With DR moves only after the extra move a qt break costs 1 + min(opt(X), opt(X*R2)) - opt(X) = 0.675 moves on average. Doc 15's QT-break column, the one such stat on the server, is solved with any moves (961 of its 3,060 listed solutions are not 'R or R', then DR moves') and averages +0.55 over the plain optimum on its 47 rows (trangium: ~0.5)."
   },
   "C17": {
    "id": "C17",
@@ -50423,8 +50726,8 @@
    "author": "wen / Lichi Fang",
    "claim": "[D3669, wen] Anyone else feel like for 4q 2c, the optimals are most often reasonably explained with something like a direct HTR, or 1q then switch and 3q, and hardly ever with 2q switch 2q? I feel like I have seen very few 4q optimals that use such a pathway [D3670, Lichi] does it naturally follow f",
    "number_claimed": "hardly ever 2q switch 2q",
-   "verdict": "CORRECTS",
-   "evidence": "2c4: share of states where an optimal is reached through each route shape using an HTR at most 2 moves over the shortest NISS HTR: 3+(1) | ht 66.5%, 1+(3) | ht 66.5%, 4 | ht 54.0%, 2+(2) | ht 30.8%, 4+(2) | ht 3.3%, 2+(4) | ht 3.3%, 5+(1) | ht 3.0%. (Without an HTR limit every shape that a finish can be read in ties, ~94%.)"
+   "verdict": "AGREES",
+   "evidence": "2c4: share of states where an optimal is reached through each route shape using an HTR at most 2 moves over the shortest NISS HTR: 3+(1) | ht 66.5%, 1+(3) | ht 66.5%, 4 | ht 54.0%, 2+(2) | ht 30.8%, 4+(2) | ht 3.3%, 2+(4) | ht 3.3%, 5+(1) | ht 3.0%. (Without an HTR limit every shape that a finish can be read in ties, ~94%.) Through 2+(2) and neither 4 nor 1+(3) / 3+(1): 4.7%; through 4 or 1+(3) / 3+(1): 84.1%. wen's question is how the optimals are explained: 2 switch 2 is the only one of the three that finds one on 4.7%, so 'hardly ever' holds."
   },
   "C49": {
    "id": "C49",
@@ -50469,7 +50772,7 @@
    "claim": "[T4099, Yura] Iirc for 4b5 the best possible htr is 11 moves without switching, so no [T4100, Lewis] No, the maximum it takes is 12 moves linearly, and 11 moves using NISS. [T11594, Daichi] 0c3 4e and 4c4 0e have 13 move optimal HTR cases [D16295, Zagros] there are 6qt optimal 4c4 htr cases. Like no",
    "number_claimed": "max 12 linear / 11 NISS vs 13 (0c3 4e, 4c4 0e)",
    "verdict": "ANSWERED",
-   "evidence": "Longest shortest linear HTR on one side (exact over cosets): 13 (['0c3 4e', '4c4 0e']); longest over states of min(normal, inverse) in the sample 13, longest NISS 12 (sample)."
+   "evidence": "Longest shortest linear HTR on one side (exact over cosets): 13 (['0c3 4e', '4c4 0e']); longest over states of min(normal, inverse) in the sample 13, longest NISS 12 (sample; 12 exact over every DR state, out/checks/niss_exact.tsv). Doc 15, the source Lewis named ('See HTR subset stats'), has 13-move linear HTRs on its 3qt 4E row (7.6% of its states), 12 at most elsewhere, and 11 as its longest NISS HTR."
   },
   "C54": {
    "id": "C54",
@@ -50495,8 +50798,8 @@
    "author": "beef beans",
    "claim": "[D11716] 4a1 4e which is +15 optimal: D' R2 U L2 D R2 L2 F2 R2 L2 U R2 D' R2 F2 [D11720] pretty sure 15 is gods number for 4a1 4e",
    "number_claimed": "15",
-   "verdict": "CORRECTS",
-   "evidence": "4a1 4e longest optimal (exact): 17."
+   "verdict": "PARTLY",
+   "evidence": "4a1 4e longest optimal (exact): 17 with the E slice solved, 15 leaving the slice (out/checks/lsdist48.tsv). The metric is not named in D11720; the example of D11716 is 15 with the slice solved and 15 leaving it (out/witness_extra.json, X4)."
   },
   "C57": {
    "id": "C57",
@@ -51269,6 +51572,2189 @@
   "reg": 0.0,
   "zz": 0.0,
   "five": 0.06100000000000001
+ },
+ "d15x": {
+  "rows": {
+   "0qt 2E": {
+    "sol": {
+     "14": 0.016,
+     "13": 0.172,
+     "12": 0.469,
+     "11": 0.239,
+     "10": 0.08199999999999999,
+     "9": 0.017,
+     "8": 0.003,
+     "7": 0.002
+    },
+    "mean_sol": 11.728,
+    "qtbreak": {
+     "14": 0.044000000000000004,
+     "13": 0.361,
+     "12": 0.40700000000000003,
+     "11": 0.14400000000000002,
+     "10": 0.038,
+     "9": 0.004,
+     "8": 0.002
+    },
+    "mean_qtbreak": 12.209,
+    "noe": {
+     "13": 0.021,
+     "12": 0.263,
+     "11": 0.34600000000000003,
+     "10": 0.262,
+     "9": 0.081,
+     "8": 0.022000000000000002,
+     "7": 0.003,
+     "6": 0.001,
+     "5": 0.001
+    },
+    "mean_noe": 10.792,
+    "lin": {
+     "6": 0.524,
+     "5": 0.47600000000000003
+    },
+    "mean_lin": 5.524,
+    "niss": {
+     "6": 0.19,
+     "5": 0.726,
+     "4": 0.061,
+     "3": 0.02,
+     "2": 0.003
+    },
+    "mean_niss": 5.08
+   },
+   "0qt4E": {
+    "sol": {
+     "14": 0.07,
+     "13": 0.363,
+     "12": 0.387,
+     "11": 0.126,
+     "10": 0.046,
+     "9": 0.008
+    },
+    "mean_sol": 12.261,
+    "qtbreak": {
+     "15": 0.005,
+     "14": 0.185,
+     "13": 0.47100000000000003,
+     "12": 0.24100000000000002,
+     "11": 0.079,
+     "10": 0.019
+    },
+    "mean_qtbreak": 12.739,
+    "noe": {
+     "14": 0.005,
+     "13": 0.16899999999999998,
+     "12": 0.418,
+     "11": 0.282,
+     "10": 0.095,
+     "9": 0.025,
+     "8": 0.006
+    },
+    "mean_noe": 11.608,
+    "lin": {
+     "7": 0.312,
+     "6": 0.41600000000000004,
+     "5": 0.223,
+     "4": 0.049
+    },
+    "mean_lin": 5.991,
+    "niss": {
+     "7": 0.024,
+     "6": 0.315,
+     "5": 0.449,
+     "4": 0.192,
+     "3": 0.018000000000000002,
+     "2": 0.002
+    },
+    "mean_niss": 5.129
+   },
+   "0qt6E": {
+    "sol": {
+     "15": 0.005,
+     "14": 0.255,
+     "13": 0.452,
+     "12": 0.222,
+     "11": 0.049,
+     "10": 0.013000000000000001,
+     "9": 0.004
+    },
+    "mean_sol": 12.89,
+    "qtbreak": {
+     "15": 0.05,
+     "14": 0.483,
+     "13": 0.33799999999999997,
+     "12": 0.099,
+     "11": 0.023,
+     "10": 0.006,
+     "9": 0.001
+    },
+    "mean_qtbreak": 13.416,
+    "noe": {
+     "15": 0.001,
+     "14": 0.064,
+     "13": 0.366,
+     "12": 0.38,
+     "11": 0.133,
+     "10": 0.05,
+     "9": 0.006
+    },
+    "mean_noe": 12.246,
+    "lin": {
+     "8": 0.494,
+     "7": 0.506
+    },
+    "mean_lin": 7.494,
+    "niss": {
+     "8": 0.016,
+     "7": 0.32,
+     "6": 0.349,
+     "5": 0.21100000000000002,
+     "4": 0.077,
+     "3": 0.024,
+     "2": 0.003
+    },
+    "mean_niss": 5.903
+   },
+   "0qt8E": {
+    "sol": {
+     "15": 0.006,
+     "14": 0.26899999999999996,
+     "13": 0.325,
+     "12": 0.28,
+     "11": 0.092,
+     "10": 0.019,
+     "9": 0.008,
+     "8": 0.001
+    },
+    "mean_sol": 12.723,
+    "qtbreak": {
+     "15": 0.04,
+     "14": 0.37,
+     "13": 0.377,
+     "12": 0.16,
+     "11": 0.042,
+     "10": 0.008,
+     "9": 0.003
+    },
+    "mean_qtbreak": 13.17,
+    "noe": {
+     "15": 0.003,
+     "14": 0.038,
+     "13": 0.315,
+     "12": 0.265,
+     "11": 0.284,
+     "10": 0.066,
+     "9": 0.02,
+     "8": 0.009000000000000001
+    },
+    "mean_noe": 11.888,
+    "lin": {
+     "6": 1.0
+    },
+    "mean_lin": 6.0,
+    "niss": {
+     "6": 0.5429999999999999,
+     "5": 0.317,
+     "4": 0.10099999999999999,
+     "3": 0.032,
+     "2": 0.006999999999999999
+    },
+    "mean_niss": 5.357
+   },
+   "1qt 4C": {
+    "sol": {
+     "15": 0.02,
+     "14": 0.26,
+     "13": 0.48100000000000004,
+     "12": 0.188,
+     "11": 0.040999999999999995,
+     "10": 0.009000000000000001,
+     "9": 0.001
+    },
+    "mean_sol": 12.999,
+    "qtbreak": {
+     "15": 0.09300000000000001,
+     "14": 0.486,
+     "13": 0.32799999999999996,
+     "12": 0.076,
+     "11": 0.015,
+     "10": 0.002
+    },
+    "mean_qtbreak": 13.56,
+    "noe": {
+     "15": 0.006999999999999999,
+     "14": 0.147,
+     "13": 0.43799999999999994,
+     "12": 0.27899999999999997,
+     "11": 0.096,
+     "10": 0.025,
+     "9": 0.006999999999999999,
+     "8": 0.001
+    },
+    "mean_noe": 12.582,
+    "lin": {
+     "10": 0.155,
+     "9": 0.33799999999999997,
+     "8": 0.33799999999999997,
+     "7": 0.16899999999999998
+    },
+    "mean_lin": 8.479,
+    "niss": {
+     "10": 0.005,
+     "9": 0.051,
+     "8": 0.26,
+     "7": 0.436,
+     "6": 0.22399999999999998,
+     "5": 0.024
+    },
+    "mean_niss": 7.105
+   },
+   "1qt 4C2E": {
+    "sol": {
+     "15": 0.003,
+     "14": 0.11800000000000001,
+     "13": 0.45899999999999996,
+     "12": 0.304,
+     "11": 0.092,
+     "10": 0.02,
+     "9": 0.004
+    },
+    "mean_sol": 12.56,
+    "qtbreak": {
+     "15": 0.027000000000000003,
+     "14": 0.34600000000000003,
+     "13": 0.429,
+     "12": 0.154,
+     "11": 0.036000000000000004,
+     "10": 0.008
+    },
+    "mean_qtbreak": 13.15,
+    "noe": {
+     "15": 0.001,
+     "14": 0.022000000000000002,
+     "13": 0.313,
+     "12": 0.402,
+     "11": 0.19,
+     "10": 0.055,
+     "9": 0.013000000000000001,
+     "8": 0.003,
+     "7": 0.001
+    },
+    "mean_noe": 12.004,
+    "lin": {
+     "8": 0.228,
+     "7": 0.516,
+     "6": 0.256
+    },
+    "mean_lin": 6.972,
+    "niss": {
+     "8": 0.023,
+     "7": 0.38299999999999995,
+     "6": 0.517,
+     "5": 0.068,
+     "4": 0.009000000000000001
+    },
+    "mean_niss": 6.343
+   },
+   "1qt 4C4E": {
+    "sol": {
+     "15": 0.001,
+     "14": 0.092,
+     "13": 0.373,
+     "12": 0.332,
+     "11": 0.122,
+     "10": 0.063,
+     "9": 0.011000000000000001,
+     "8": 0.005,
+     "6": 0.001
+    },
+    "mean_sol": 12.253,
+    "qtbreak": {
+     "15": 0.013999999999999999,
+     "14": 0.207,
+     "13": 0.41700000000000004,
+     "12": 0.22,
+     "11": 0.10300000000000001,
+     "10": 0.032,
+     "9": 0.006,
+     "6": 0.001
+    },
+    "mean_qtbreak": 12.682,
+    "noe": {
+     "14": 0.017,
+     "13": 0.195,
+     "12": 0.36,
+     "11": 0.247,
+     "10": 0.11699999999999999,
+     "9": 0.046,
+     "8": 0.012,
+     "7": 0.004,
+     "6": 0.002
+    },
+    "mean_noe": 11.53,
+    "lin": {
+     "8": 0.062,
+     "7": 0.371,
+     "6": 0.271,
+     "5": 0.127,
+     "4": 0.087,
+     "3": 0.052000000000000005,
+     "2": 0.027000000000000003,
+     "1": 0.003
+    },
+    "mean_lin": 5.915,
+    "niss": {
+     "8": 0.001,
+     "7": 0.122,
+     "6": 0.32299999999999995,
+     "5": 0.233,
+     "4": 0.16699999999999998,
+     "3": 0.09699999999999999,
+     "2": 0.047,
+     "1": 0.01
+    },
+    "mean_niss": 5.028
+   },
+   "2qt (a) 4C": {
+    "sol": {
+     "15": 0.003,
+     "14": 0.264,
+     "13": 0.428,
+     "12": 0.228,
+     "11": 0.068,
+     "10": 0.008,
+     "9": 0.001
+    },
+    "mean_sol": 12.878,
+    "qtbreak": {
+     "15": 0.062,
+     "14": 0.42100000000000004,
+     "13": 0.35700000000000004,
+     "12": 0.135,
+     "11": 0.023,
+     "10": 0.002
+    },
+    "mean_qtbreak": 13.358,
+    "noe": {
+     "14": 0.128,
+     "13": 0.377,
+     "12": 0.331,
+     "11": 0.113,
+     "10": 0.042,
+     "9": 0.008,
+     "8": 0.001
+    },
+    "mean_noe": 12.408,
+    "lin": {
+     "9": 0.16699999999999998,
+     "8": 0.342,
+     "7": 0.322,
+     "6": 0.16899999999999998
+    },
+    "mean_lin": 7.507,
+    "niss": {
+     "9": 0.004,
+     "8": 0.10800000000000001,
+     "7": 0.401,
+     "6": 0.389,
+     "5": 0.068,
+     "4": 0.027000000000000003,
+     "3": 0.002,
+     "2": 0.001
+    },
+    "mean_niss": 6.497
+   },
+   "2qt (a) 4C2E": {
+    "sol": {
+     "15": 0.004,
+     "14": 0.166,
+     "13": 0.47200000000000003,
+     "12": 0.24600000000000002,
+     "11": 0.075,
+     "10": 0.027000000000000003,
+     "9": 0.006999999999999999,
+     "8": 0.002,
+     "7": 0.001
+    },
+    "mean_sol": 12.653,
+    "qtbreak": {
+     "15": 0.040999999999999995,
+     "14": 0.38799999999999996,
+     "13": 0.37799999999999995,
+     "12": 0.136,
+     "11": 0.04,
+     "10": 0.013000000000000001,
+     "9": 0.003,
+     "7": 0.001
+    },
+    "mean_qtbreak": 13.197,
+    "noe": {
+     "14": 0.044000000000000004,
+     "13": 0.35,
+     "12": 0.37799999999999995,
+     "11": 0.14800000000000002,
+     "10": 0.054000000000000006,
+     "9": 0.018000000000000002,
+     "8": 0.006,
+     "7": 0.002
+    },
+    "mean_noe": 12.094,
+    "lin": {
+     "8": 0.057999999999999996,
+     "7": 0.324,
+     "6": 0.447,
+     "5": 0.125,
+     "4": 0.036000000000000004,
+     "3": 0.01
+    },
+    "mean_lin": 6.213,
+    "niss": {
+     "8": 0.002,
+     "7": 0.131,
+     "6": 0.499,
+     "5": 0.248,
+     "4": 0.1,
+     "3": 0.02
+    },
+    "mean_niss": 5.627
+   },
+   "2qt (a) 4C4E": {
+    "sol": {
+     "15": 0.002,
+     "14": 0.203,
+     "13": 0.469,
+     "12": 0.242,
+     "11": 0.067,
+     "10": 0.012,
+     "9": 0.004,
+     "8": 0.001
+    },
+    "mean_sol": 12.774,
+    "qtbreak": {
+     "15": 0.067,
+     "14": 0.435,
+     "13": 0.35200000000000004,
+     "12": 0.12,
+     "11": 0.018000000000000002,
+     "10": 0.006,
+     "9": 0.001,
+     "8": 0.001
+    },
+    "mean_qtbreak": 13.386,
+    "noe": {
+     "14": 0.064,
+     "13": 0.384,
+     "12": 0.35700000000000004,
+     "11": 0.135,
+     "10": 0.045,
+     "9": 0.013000000000000001,
+     "8": 0.002
+    },
+    "mean_noe": 12.24,
+    "lin": {
+     "9": 0.11599999999999999,
+     "8": 0.41100000000000003,
+     "7": 0.33399999999999996,
+     "6": 0.102,
+     "5": 0.027000000000000003,
+     "4": 0.01
+    },
+    "mean_lin": 7.457,
+    "niss": {
+     "8": 0.133,
+     "7": 0.48200000000000004,
+     "6": 0.262,
+     "5": 0.08800000000000001,
+     "4": 0.032,
+     "3": 0.003
+    },
+    "mean_niss": 6.587
+   },
+   "2qt (b) 4C": {
+    "sol": {
+     "16": 0.016,
+     "15": 0.27,
+     "14": 0.428,
+     "13": 0.237,
+     "12": 0.04,
+     "11": 0.009000000000000001
+    },
+    "mean_sol": 13.958,
+    "qtbreak": {
+     "16": 0.061,
+     "15": 0.376,
+     "14": 0.415,
+     "13": 0.12300000000000001,
+     "12": 0.024,
+     "11": 0.001
+    },
+    "mean_qtbreak": 14.324,
+    "noe": {
+     "16": 0.013999999999999999,
+     "15": 0.22,
+     "14": 0.415,
+     "13": 0.276,
+     "12": 0.059000000000000004,
+     "11": 0.015,
+     "10": 0.001
+    },
+    "mean_noe": 13.805,
+    "lin": {
+     "12": 0.175,
+     "11": 0.33,
+     "10": 0.33899999999999997,
+     "9": 0.156
+    },
+    "mean_lin": 10.524,
+    "niss": {
+     "10": 0.054000000000000006,
+     "9": 0.187,
+     "8": 0.309,
+     "7": 0.23600000000000002,
+     "6": 0.133,
+     "5": 0.052000000000000005,
+     "4": 0.02,
+     "3": 0.008,
+     "2": 0.001
+    },
+    "mean_niss": 7.511
+   },
+   "2qt (b) 4C2E": {
+    "sol": {
+     "16": 0.006,
+     "15": 0.147,
+     "14": 0.462,
+     "13": 0.271,
+     "12": 0.096,
+     "11": 0.015,
+     "10": 0.003
+    },
+    "mean_sol": 13.639,
+    "qtbreak": {
+     "17": 0.001,
+     "16": 0.057,
+     "15": 0.331,
+     "14": 0.428,
+     "13": 0.14300000000000002,
+     "12": 0.033,
+     "11": 0.006999999999999999
+    },
+    "mean_qtbreak": 14.218,
+    "noe": {
+     "16": 0.004,
+     "15": 0.091,
+     "14": 0.35600000000000004,
+     "13": 0.36200000000000004,
+     "12": 0.133,
+     "11": 0.043,
+     "10": 0.009000000000000001,
+     "9": 0.002
+    },
+    "mean_noe": 13.296,
+    "lin": {
+     "11": 0.17,
+     "10": 0.316,
+     "9": 0.395,
+     "8": 0.11900000000000001
+    },
+    "mean_lin": 9.537,
+    "niss": {
+     "10": 0.039,
+     "9": 0.17600000000000002,
+     "8": 0.33799999999999997,
+     "7": 0.268,
+     "6": 0.10800000000000001,
+     "5": 0.051,
+     "4": 0.017,
+     "3": 0.003
+    },
+    "mean_niss": 7.534
+   },
+   "2qt (b) 4C4E": {
+    "sol": {
+     "16": 0.001,
+     "15": 0.04,
+     "14": 0.318,
+     "13": 0.373,
+     "12": 0.18899999999999997,
+     "11": 0.067,
+     "10": 0.009000000000000001,
+     "9": 0.002,
+     "7": 0.001
+    },
+    "mean_sol": 13.037,
+    "qtbreak": {
+     "16": 0.006999999999999999,
+     "15": 0.168,
+     "14": 0.391,
+     "13": 0.3,
+     "12": 0.10400000000000001,
+     "11": 0.023,
+     "10": 0.005,
+     "9": 0.001,
+     "8": 0.001
+    },
+    "mean_qtbreak": 13.574,
+    "noe": {
+     "16": 0.001,
+     "15": 0.023,
+     "14": 0.231,
+     "13": 0.33799999999999997,
+     "12": 0.255,
+     "11": 0.11599999999999999,
+     "10": 0.027999999999999997,
+     "9": 0.005,
+     "8": 0.002,
+     "6": 0.001
+    },
+    "mean_noe": 12.672,
+    "lin": {
+     "11": 0.027000000000000003,
+     "10": 0.129,
+     "9": 0.204,
+     "8": 0.32,
+     "7": 0.174,
+     "6": 0.113,
+     "5": 0.033
+    },
+    "mean_lin": 8.044,
+    "niss": {
+     "10": 0.002,
+     "9": 0.069,
+     "8": 0.285,
+     "7": 0.304,
+     "6": 0.21100000000000002,
+     "5": 0.109,
+     "4": 0.013999999999999999,
+     "3": 0.004,
+     "2": 0.002
+    },
+    "mean_niss": 6.932
+   },
+   "3qt 2C": {
+    "sol": {
+     "15": 0.052000000000000005,
+     "14": 0.44299999999999995,
+     "13": 0.39399999999999996,
+     "12": 0.092,
+     "11": 0.017,
+     "10": 0.002
+    },
+    "mean_sol": 13.415,
+    "qtbreak": {
+     "16": 0.003,
+     "15": 0.249,
+     "14": 0.532,
+     "13": 0.188,
+     "12": 0.026000000000000002,
+     "11": 0.002
+    },
+    "mean_qtbreak": 14.009,
+    "noe": {
+     "16": 0.006,
+     "15": 0.107,
+     "14": 0.344,
+     "13": 0.348,
+     "12": 0.145,
+     "11": 0.04,
+     "10": 0.006999999999999999,
+     "9": 0.002,
+     "8": 0.001
+    },
+    "mean_noe": 13.317,
+    "lin": {
+     "10": 0.494,
+     "9": 0.506
+    },
+    "mean_lin": 9.494,
+    "niss": {
+     "10": 0.019,
+     "9": 0.28300000000000003,
+     "8": 0.462,
+     "7": 0.171,
+     "6": 0.057999999999999996,
+     "5": 0.006999999999999999
+    },
+    "mean_niss": 8.013
+   },
+   "3qt 2C2E": {
+    "sol": {
+     "15": 0.001,
+     "14": 0.12,
+     "13": 0.456,
+     "12": 0.317,
+     "11": 0.08199999999999999,
+     "10": 0.018000000000000002,
+     "9": 0.004,
+     "8": 0.002
+    },
+    "mean_sol": 12.561,
+    "qtbreak": {
+     "15": 0.021,
+     "14": 0.341,
+     "13": 0.45299999999999996,
+     "12": 0.145,
+     "11": 0.031,
+     "10": 0.006,
+     "9": 0.003
+    },
+    "mean_qtbreak": 13.146,
+    "noe": {
+     "14": 0.028999999999999998,
+     "13": 0.31,
+     "12": 0.42200000000000004,
+     "11": 0.184,
+     "10": 0.039,
+     "9": 0.009000000000000001,
+     "8": 0.003,
+     "7": 0.003,
+     "6": 0.001
+    },
+    "mean_noe": 12.046,
+    "lin": {
+     "8": 0.027999999999999997,
+     "7": 0.565,
+     "6": 0.34700000000000003,
+     "5": 0.06
+    },
+    "mean_lin": 6.561,
+    "niss": {
+     "7": 0.304,
+     "6": 0.535,
+     "5": 0.153,
+     "4": 0.008
+    },
+    "mean_niss": 6.135
+   },
+   "3qt 2C4E": {
+    "sol": {
+     "15": 0.011000000000000001,
+     "14": 0.252,
+     "13": 0.45299999999999996,
+     "12": 0.22,
+     "11": 0.055,
+     "10": 0.009000000000000001
+    },
+    "mean_sol": 12.917,
+    "qtbreak": {
+     "15": 0.111,
+     "14": 0.446,
+     "13": 0.32299999999999995,
+     "12": 0.10400000000000001,
+     "11": 0.012,
+     "10": 0.004
+    },
+    "mean_qtbreak": 13.528,
+    "noe": {
+     "15": 0.002,
+     "14": 0.11599999999999999,
+     "13": 0.441,
+     "12": 0.28300000000000003,
+     "11": 0.133,
+     "10": 0.023,
+     "9": 0.002
+    },
+    "mean_noe": 12.494,
+    "lin": {
+     "9": 0.053,
+     "8": 0.41,
+     "7": 0.386,
+     "6": 0.128,
+     "5": 0.023
+    },
+    "mean_lin": 7.342,
+    "niss": {
+     "8": 0.12300000000000001,
+     "7": 0.465,
+     "6": 0.325,
+     "5": 0.083,
+     "4": 0.004
+    },
+    "mean_niss": 6.62
+   },
+   "3qt 2C6E": {
+    "sol": {
+     "15": 0.016,
+     "14": 0.375,
+     "13": 0.43700000000000006,
+     "12": 0.141,
+     "11": 0.023,
+     "10": 0.008
+    },
+    "mean_sol": 13.196,
+    "qtbreak": {
+     "16": 0.001,
+     "15": 0.187,
+     "14": 0.516,
+     "13": 0.237,
+     "12": 0.047,
+     "11": 0.011000000000000001,
+     "10": 0.001
+    },
+    "mean_qtbreak": 13.821,
+    "noe": {
+     "15": 0.002,
+     "14": 0.175,
+     "13": 0.488,
+     "12": 0.244,
+     "11": 0.07200000000000001,
+     "10": 0.013000000000000001,
+     "9": 0.006
+    },
+    "mean_noe": 12.728,
+    "lin": {
+     "9": 0.265,
+     "8": 0.532,
+     "7": 0.203
+    },
+    "mean_lin": 8.062,
+    "niss": {
+     "9": 0.006,
+     "8": 0.249,
+     "7": 0.491,
+     "6": 0.205,
+     "5": 0.04,
+     "4": 0.009000000000000001
+    },
+    "mean_niss": 6.949
+   },
+   "3qt 2C8E": {
+    "sol": {
+     "15": 0.08199999999999999,
+     "14": 0.46799999999999997,
+     "13": 0.355,
+     "12": 0.079,
+     "11": 0.013999999999999999,
+     "10": 0.002
+    },
+    "mean_sol": 13.519,
+    "qtbreak": {
+     "16": 0.01,
+     "15": 0.33299999999999996,
+     "14": 0.484,
+     "13": 0.14800000000000002,
+     "12": 0.022000000000000002,
+     "11": 0.003
+    },
+    "mean_qtbreak": 14.152,
+    "noe": {
+     "15": 0.03,
+     "14": 0.366,
+     "13": 0.452,
+     "12": 0.125,
+     "11": 0.023,
+     "10": 0.004
+    },
+    "mean_noe": 13.243,
+    "lin": {
+     "10": 0.501,
+     "9": 0.499
+    },
+    "mean_lin": 9.501,
+    "niss": {
+     "10": 0.012,
+     "9": 0.297,
+     "8": 0.451,
+     "7": 0.185,
+     "6": 0.044000000000000004,
+     "5": 0.011000000000000001
+    },
+    "mean_niss": 8.015
+   },
+   "3qt 4C": {
+    "sol": {
+     "15": 0.062,
+     "14": 0.39899999999999997,
+     "13": 0.369,
+     "12": 0.136,
+     "11": 0.027999999999999997,
+     "10": 0.004,
+     "9": 0.002
+    },
+    "mean_sol": 13.311,
+    "qtbreak": {
+     "16": 0.004,
+     "15": 0.217,
+     "14": 0.48200000000000004,
+     "13": 0.235,
+     "12": 0.053,
+     "11": 0.006999999999999999,
+     "10": 0.002
+    },
+    "mean_qtbreak": 13.855,
+    "noe": {
+     "15": 0.034,
+     "14": 0.322,
+     "13": 0.392,
+     "12": 0.196,
+     "11": 0.044000000000000004,
+     "10": 0.01,
+     "9": 0.002
+    },
+    "mean_noe": 13.068,
+    "lin": {
+     "10": 0.247,
+     "9": 0.402,
+     "8": 0.35100000000000003
+    },
+    "mean_lin": 8.896,
+    "niss": {
+     "9": 0.268,
+     "8": 0.555,
+     "7": 0.142,
+     "6": 0.031,
+     "5": 0.004
+    },
+    "mean_niss": 8.052
+   },
+   "3qt 4C2E": {
+    "sol": {
+     "15": 0.098,
+     "14": 0.41700000000000004,
+     "13": 0.353,
+     "12": 0.10300000000000001,
+     "11": 0.022000000000000002,
+     "10": 0.004,
+     "9": 0.003
+    },
+    "mean_sol": 13.442,
+    "qtbreak": {
+     "16": 0.011000000000000001,
+     "15": 0.315,
+     "14": 0.442,
+     "13": 0.183,
+     "12": 0.039,
+     "11": 0.006999999999999999,
+     "10": 0.003
+    },
+    "mean_qtbreak": 14.043,
+    "noe": {
+     "15": 0.05,
+     "14": 0.34700000000000003,
+     "13": 0.39299999999999996,
+     "12": 0.165,
+     "11": 0.033,
+     "10": 0.009000000000000001,
+     "9": 0.003
+    },
+    "mean_noe": 13.177,
+    "lin": {
+     "10": 0.10099999999999999,
+     "9": 0.424,
+     "8": 0.366,
+     "7": 0.109
+    },
+    "mean_lin": 8.517,
+    "niss": {
+     "9": 0.114,
+     "8": 0.439,
+     "7": 0.341,
+     "6": 0.085,
+     "5": 0.015,
+     "4": 0.006
+    },
+    "mean_niss": 7.534
+   },
+   "3qt 4C4E": {
+    "sol": {
+     "16": 0.002,
+     "15": 0.11,
+     "14": 0.447,
+     "13": 0.32799999999999996,
+     "12": 0.09300000000000001,
+     "11": 0.018000000000000002,
+     "10": 0.002
+    },
+    "mean_sol": 13.538,
+    "qtbreak": {
+     "16": 0.017,
+     "15": 0.332,
+     "14": 0.44299999999999995,
+     "13": 0.175,
+     "12": 0.028999999999999998,
+     "11": 0.004
+    },
+    "mean_qtbreak": 14.121,
+    "noe": {
+     "16": 0.002,
+     "15": 0.066,
+     "14": 0.369,
+     "13": 0.385,
+     "12": 0.14400000000000002,
+     "11": 0.027000000000000003,
+     "10": 0.005,
+     "9": 0.002
+    },
+    "mean_noe": 13.286,
+    "lin": {
+     "11": 0.057999999999999996,
+     "10": 0.281,
+     "9": 0.409,
+     "8": 0.207,
+     "7": 0.045
+    },
+    "mean_lin": 9.1,
+    "niss": {
+     "10": 0.01,
+     "9": 0.201,
+     "8": 0.439,
+     "7": 0.272,
+     "6": 0.068,
+     "5": 0.01
+    },
+    "mean_niss": 7.783
+   },
+   "3qt Fake HTR": {
+    "sol": {
+     "16": 0.003,
+     "15": 0.076,
+     "14": 0.35700000000000004,
+     "13": 0.41,
+     "12": 0.127,
+     "11": 0.025,
+     "10": 0.002
+    },
+    "mean_sol": 13.335,
+    "qtbreak": {
+     "16": 0.002,
+     "15": 0.151,
+     "14": 0.46299999999999997,
+     "13": 0.265,
+     "12": 0.10099999999999999,
+     "11": 0.013000000000000001,
+     "10": 0.004,
+     "9": 0.001
+    },
+    "mean_qtbreak": 13.628,
+    "noe": {
+     "17": 0.001,
+     "16": 0.046,
+     "15": 0.321,
+     "14": 0.35600000000000004,
+     "13": 0.204,
+     "12": 0.062,
+     "11": 0.009000000000000001,
+     "10": 0.001
+    },
+    "mean_noe": 14.057,
+    "lin": {
+     "10": 1.0
+    },
+    "mean_lin": 10.0,
+    "niss": {
+     "10": 0.091,
+     "9": 0.305,
+     "8": 0.344,
+     "7": 0.203,
+     "6": 0.057
+    },
+    "mean_niss": 8.17
+   },
+   "3qt 2E": {
+    "sol": {
+     "16": 0.049,
+     "15": 0.415,
+     "14": 0.371,
+     "13": 0.133,
+     "12": 0.026000000000000002,
+     "11": 0.006
+    },
+    "mean_sol": 14.31,
+    "qtbreak": {
+     "17": 0.001,
+     "16": 0.16,
+     "15": 0.521,
+     "14": 0.248,
+     "13": 0.057,
+     "12": 0.013000000000000001
+    },
+    "mean_qtbreak": 14.761,
+    "noe": {
+     "16": 0.044000000000000004,
+     "15": 0.396,
+     "14": 0.376,
+     "13": 0.14400000000000002,
+     "12": 0.033,
+     "11": 0.006999999999999999
+    },
+    "mean_noe": 14.253,
+    "lin": {
+     "11": 0.152,
+     "10": 0.688,
+     "9": 0.16
+    },
+    "mean_lin": 9.992,
+    "niss": {
+     "10": 0.27,
+     "9": 0.444,
+     "8": 0.20600000000000002,
+     "7": 0.071,
+     "6": 0.009000000000000001
+    },
+    "mean_niss": 8.895
+   },
+   "3qt 4E": {
+    "sol": {
+     "16": 0.146,
+     "15": 0.49200000000000005,
+     "14": 0.28600000000000003,
+     "13": 0.063,
+     "12": 0.012,
+     "11": 0.001
+    },
+    "mean_sol": 14.694,
+    "qtbreak": {
+     "17": 0.009000000000000001,
+     "16": 0.34299999999999997,
+     "15": 0.483,
+     "14": 0.142,
+     "13": 0.021,
+     "12": 0.002
+    },
+    "mean_qtbreak": 15.171,
+    "noe": {
+     "16": 0.134,
+     "15": 0.47700000000000004,
+     "14": 0.298,
+     "13": 0.077,
+     "12": 0.012,
+     "11": 0.002
+    },
+    "mean_noe": 14.638,
+    "lin": {
+     "13": 0.076,
+     "12": 0.551,
+     "11": 0.284,
+     "10": 0.08900000000000001
+    },
+    "mean_lin": 11.614,
+    "niss": {
+     "11": 0.027000000000000003,
+     "10": 0.26899999999999996,
+     "9": 0.41,
+     "8": 0.22399999999999998,
+     "7": 0.055999999999999994,
+     "6": 0.013999999999999999
+    },
+    "mean_niss": 8.945
+   },
+   "3qt 6E": {
+    "sol": {
+     "16": 0.037000000000000005,
+     "15": 0.37200000000000005,
+     "14": 0.418,
+     "13": 0.147,
+     "12": 0.019,
+     "11": 0.006,
+     "10": 0.001
+    },
+    "mean_sol": 14.239,
+    "qtbreak": {
+     "16": 0.19699999999999998,
+     "15": 0.491,
+     "14": 0.249,
+     "13": 0.054000000000000006,
+     "12": 0.005,
+     "11": 0.004
+    },
+    "mean_qtbreak": 14.809,
+    "noe": {
+     "16": 0.033,
+     "15": 0.35700000000000004,
+     "14": 0.41,
+     "13": 0.162,
+     "12": 0.03,
+     "11": 0.006999999999999999,
+     "10": 0.001
+    },
+    "mean_noe": 14.176,
+    "lin": {
+     "11": 0.165,
+     "10": 0.647,
+     "9": 0.188
+    },
+    "mean_lin": 9.977,
+    "niss": {
+     "11": 0.003,
+     "10": 0.29,
+     "9": 0.406,
+     "8": 0.205,
+     "7": 0.079,
+     "6": 0.017
+    },
+    "mean_niss": 8.882
+   },
+   "3qt 8E": {
+    "sol": {
+     "17": 0.001,
+     "16": 0.055,
+     "15": 0.341,
+     "14": 0.364,
+     "13": 0.174,
+     "12": 0.055,
+     "11": 0.01
+    },
+    "mean_sol": 14.14,
+    "qtbreak": {
+     "17": 0.005,
+     "16": 0.198,
+     "15": 0.418,
+     "14": 0.281,
+     "13": 0.083,
+     "12": 0.013999999999999999,
+     "11": 0.001
+    },
+    "mean_qtbreak": 14.715,
+    "noe": {
+     "17": 0.001,
+     "16": 0.052000000000000005,
+     "15": 0.336,
+     "14": 0.33799999999999997,
+     "13": 0.187,
+     "12": 0.068,
+     "11": 0.017,
+     "10": 0.001
+    },
+    "mean_noe": 14.065,
+    "lin": {
+     "11": 0.6579999999999999,
+     "10": 0.342
+    },
+    "mean_lin": 10.658,
+    "niss": {
+     "11": 0.069,
+     "10": 0.29600000000000004,
+     "9": 0.327,
+     "8": 0.204,
+     "7": 0.081,
+     "6": 0.023
+    },
+    "mean_niss": 8.999
+   },
+   "4qt 2C": {
+    "sol": {
+     "15": 0.054000000000000006,
+     "14": 0.368,
+     "13": 0.4,
+     "12": 0.133,
+     "11": 0.038,
+     "10": 0.006999999999999999
+    },
+    "mean_sol": 13.246,
+    "qtbreak": {
+     "15": 0.134,
+     "14": 0.478,
+     "13": 0.28,
+     "12": 0.09,
+     "11": 0.017,
+     "10": 0.001
+    },
+    "mean_qtbreak": 13.619,
+    "noe": {
+     "15": 0.034,
+     "14": 0.28,
+     "13": 0.409,
+     "12": 0.19899999999999998,
+     "11": 0.062,
+     "10": 0.013999999999999999,
+     "9": 0.002
+    },
+    "mean_noe": 12.975,
+    "lin": {
+     "9": 0.254,
+     "8": 0.406,
+     "7": 0.34
+    },
+    "mean_lin": 7.914,
+    "niss": {
+     "9": 0.054000000000000006,
+     "8": 0.375,
+     "7": 0.5379999999999999,
+     "6": 0.033
+    },
+    "mean_niss": 7.45
+   },
+   "4qt 2C2E": {
+    "sol": {
+     "16": 0.002,
+     "15": 0.10099999999999999,
+     "14": 0.46299999999999997,
+     "13": 0.322,
+     "12": 0.08900000000000001,
+     "11": 0.021,
+     "10": 0.002
+    },
+    "mean_sol": 13.534,
+    "qtbreak": {
+     "16": 0.019,
+     "15": 0.345,
+     "14": 0.44799999999999995,
+     "13": 0.145,
+     "12": 0.035,
+     "11": 0.006999999999999999,
+     "10": 0.001
+    },
+    "mean_qtbreak": 14.143,
+    "noe": {
+     "16": 0.002,
+     "15": 0.059000000000000004,
+     "14": 0.377,
+     "13": 0.375,
+     "12": 0.149,
+     "11": 0.031,
+     "10": 0.006999999999999999
+    },
+    "mean_noe": 13.269,
+    "lin": {
+     "10": 0.17300000000000001,
+     "9": 0.48700000000000004,
+     "8": 0.297,
+     "7": 0.043
+    },
+    "mean_lin": 8.79,
+    "niss": {
+     "10": 0.01,
+     "9": 0.239,
+     "8": 0.531,
+     "7": 0.196,
+     "6": 0.024
+    },
+    "mean_niss": 8.015
+   },
+   "4qt 2C4E": {
+    "sol": {
+     "16": 0.002,
+     "15": 0.14400000000000002,
+     "14": 0.46799999999999997,
+     "13": 0.315,
+     "12": 0.057,
+     "11": 0.012,
+     "10": 0.002
+    },
+    "mean_sol": 13.675,
+    "qtbreak": {
+     "16": 0.045,
+     "15": 0.39899999999999997,
+     "14": 0.401,
+     "13": 0.126,
+     "12": 0.026000000000000002,
+     "11": 0.003
+    },
+    "mean_qtbreak": 14.302,
+    "noe": {
+     "16": 0.002,
+     "15": 0.08199999999999999,
+     "14": 0.41,
+     "13": 0.376,
+     "12": 0.105,
+     "11": 0.022000000000000002,
+     "10": 0.003
+    },
+    "mean_noe": 13.422,
+    "lin": {
+     "11": 0.01,
+     "10": 0.218,
+     "9": 0.439,
+     "8": 0.267,
+     "7": 0.066
+    },
+    "mean_lin": 8.839,
+    "niss": {
+     "10": 0.013999999999999999,
+     "9": 0.235,
+     "8": 0.488,
+     "7": 0.242,
+     "6": 0.021
+    },
+    "mean_niss": 7.979
+   },
+   "4qt 2C6E": {
+    "sol": {
+     "16": 0.002,
+     "15": 0.172,
+     "14": 0.466,
+     "13": 0.29,
+     "12": 0.065,
+     "11": 0.003,
+     "9": 0.002
+    },
+    "mean_sol": 13.737,
+    "qtbreak": {
+     "16": 0.053,
+     "15": 0.425,
+     "14": 0.391,
+     "13": 0.11900000000000001,
+     "12": 0.01,
+     "10": 0.001,
+     "9": 0.001
+    },
+    "mean_qtbreak": 14.383,
+    "noe": {
+     "16": 0.001,
+     "15": 0.10800000000000001,
+     "14": 0.42,
+     "13": 0.33899999999999997,
+     "12": 0.113,
+     "11": 0.015,
+     "10": 0.002,
+     "9": 0.002
+    },
+    "mean_noe": 13.482,
+    "lin": {
+     "10": 0.267,
+     "9": 0.532,
+     "8": 0.201
+    },
+    "mean_lin": 9.066,
+    "niss": {
+     "10": 0.018000000000000002,
+     "9": 0.298,
+     "8": 0.47700000000000004,
+     "7": 0.187,
+     "6": 0.02
+    },
+    "mean_niss": 8.107
+   },
+   "4qt 2C8E": {
+    "sol": {
+     "16": 0.016,
+     "15": 0.275,
+     "14": 0.475,
+     "13": 0.195,
+     "12": 0.03,
+     "11": 0.009000000000000001
+    },
+    "mean_sol": 14.025,
+    "qtbreak": {
+     "17": 0.002,
+     "16": 0.126,
+     "15": 0.507,
+     "14": 0.294,
+     "13": 0.061,
+     "12": 0.01
+    },
+    "mean_qtbreak": 14.684,
+    "noe": {
+     "16": 0.01,
+     "15": 0.21100000000000002,
+     "14": 0.447,
+     "13": 0.26,
+     "12": 0.057999999999999996,
+     "11": 0.013999999999999999
+    },
+    "mean_noe": 13.813,
+    "lin": {
+     "11": 0.251,
+     "10": 0.419,
+     "9": 0.33
+    },
+    "mean_lin": 9.921,
+    "niss": {
+     "10": 0.052000000000000005,
+     "9": 0.275,
+     "8": 0.44299999999999995,
+     "7": 0.203,
+     "6": 0.027000000000000003
+    },
+    "mean_niss": 8.122
+   },
+   "4qt Fake HTR": {
+    "sol": {
+     "15": 0.008,
+     "14": 0.136,
+     "13": 0.473,
+     "12": 0.289,
+     "11": 0.08,
+     "10": 0.012,
+     "9": 0.002
+    },
+    "mean_sol": 12.659,
+    "qtbreak": {
+     "15": 0.006999999999999999,
+     "14": 0.231,
+     "13": 0.475,
+     "12": 0.204,
+     "11": 0.071,
+     "10": 0.011000000000000001,
+     "9": 0.001
+    },
+    "mean_qtbreak": 12.862,
+    "noe": {
+     "15": 0.013000000000000001,
+     "14": 0.251,
+     "13": 0.475,
+     "12": 0.203,
+     "11": 0.054000000000000006,
+     "10": 0.003,
+     "9": 0.001
+    },
+    "mean_noe": 12.953,
+    "lin": {
+     "9": 1.0
+    },
+    "mean_lin": 9.0,
+    "niss": {
+     "8": 0.345,
+     "7": 0.54,
+     "6": 0.115
+    },
+    "mean_niss": 7.23
+   },
+   "4qt 2E": {
+    "sol": {
+     "16": 0.001,
+     "15": 0.051,
+     "14": 0.516,
+     "13": 0.34700000000000003,
+     "12": 0.064,
+     "11": 0.019,
+     "10": 0.002
+    },
+    "mean_sol": 13.513,
+    "qtbreak": {
+     "16": 0.005,
+     "15": 0.316,
+     "14": 0.502,
+     "13": 0.145,
+     "12": 0.027999999999999997,
+     "11": 0.004
+    },
+    "mean_qtbreak": 14.113,
+    "noe": {
+     "15": 0.011000000000000001,
+     "14": 0.431,
+     "13": 0.43200000000000005,
+     "12": 0.092,
+     "11": 0.03,
+     "10": 0.004
+    },
+    "mean_noe": 13.289,
+    "lin": {
+     "10": 0.495,
+     "9": 0.505
+    },
+    "mean_lin": 9.495,
+    "niss": {
+     "10": 0.001,
+     "9": 0.261,
+     "8": 0.565,
+     "7": 0.156,
+     "6": 0.017
+    },
+    "mean_niss": 8.073
+   },
+   "4qt 4E": {
+    "sol": {
+     "16": 0.001,
+     "15": 0.051,
+     "14": 0.516,
+     "13": 0.34700000000000003,
+     "12": 0.064,
+     "11": 0.019,
+     "10": 0.002
+    },
+    "mean_sol": 13.513,
+    "qtbreak": {
+     "16": 0.005,
+     "15": 0.316,
+     "14": 0.502,
+     "13": 0.145,
+     "12": 0.027999999999999997,
+     "11": 0.004
+    },
+    "mean_qtbreak": 14.113,
+    "noe": {
+     "15": 0.011000000000000001,
+     "14": 0.431,
+     "13": 0.43200000000000005,
+     "12": 0.092,
+     "11": 0.03,
+     "10": 0.004
+    },
+    "mean_noe": 13.289,
+    "lin": {
+     "10": 0.495,
+     "9": 0.505
+    },
+    "mean_lin": 9.495,
+    "niss": {
+     "10": 0.001,
+     "9": 0.261,
+     "8": 0.565,
+     "7": 0.156,
+     "6": 0.017
+    },
+    "mean_niss": 8.073
+   },
+   "4qt 6E": {
+    "sol": {
+     "15": 0.18899999999999997,
+     "14": 0.556,
+     "13": 0.213,
+     "12": 0.038,
+     "11": 0.004
+    },
+    "mean_sol": 13.888,
+    "qtbreak": {
+     "16": 0.055999999999999994,
+     "15": 0.52,
+     "14": 0.34700000000000003,
+     "13": 0.07,
+     "12": 0.006999999999999999
+    },
+    "mean_qtbreak": 14.548,
+    "noe": {
+     "15": 0.079,
+     "14": 0.565,
+     "13": 0.294,
+     "12": 0.054000000000000006,
+     "11": 0.006999999999999999,
+     "10": 0.001
+    },
+    "mean_noe": 13.652,
+    "lin": {
+     "10": 1.0
+    },
+    "mean_lin": 10.0,
+    "niss": {
+     "10": 0.005,
+     "9": 0.28800000000000003,
+     "8": 0.542,
+     "7": 0.147,
+     "6": 0.018000000000000002
+    },
+    "mean_niss": 8.115
+   },
+   "4qt 8E": {
+    "sol": {
+     "16": 0.011000000000000001,
+     "15": 0.31,
+     "14": 0.531,
+     "13": 0.126,
+     "12": 0.02,
+     "11": 0.002
+    },
+    "mean_sol": 14.16,
+    "qtbreak": {
+     "17": 0.001,
+     "16": 0.126,
+     "15": 0.624,
+     "14": 0.215,
+     "13": 0.032,
+     "12": 0.002
+    },
+    "mean_qtbreak": 14.843,
+    "noe": {
+     "16": 0.001,
+     "15": 0.22899999999999998,
+     "14": 0.539,
+     "13": 0.19,
+     "12": 0.038,
+     "11": 0.003
+    },
+    "mean_noe": 13.956,
+    "lin": {
+     "11": 1.0
+    },
+    "mean_lin": 11.0,
+    "niss": {
+     "10": 0.002,
+     "9": 0.146,
+     "8": 0.586,
+     "7": 0.22899999999999998,
+     "6": 0.037000000000000005
+    },
+    "mean_niss": 7.847
+   },
+   "4qt 4C": {
+    "sol": {
+     "16": 0.07,
+     "15": 0.47600000000000003,
+     "14": 0.345,
+     "13": 0.098,
+     "12": 0.011000000000000001
+    },
+    "mean_sol": 14.496,
+    "qtbreak": {
+     "17": 0.003,
+     "16": 0.249,
+     "15": 0.545,
+     "14": 0.17300000000000001,
+     "13": 0.03
+    },
+    "mean_qtbreak": 15.022,
+    "noe": {
+     "16": 0.055,
+     "15": 0.439,
+     "14": 0.37,
+     "13": 0.11699999999999999,
+     "12": 0.019
+    },
+    "mean_noe": 14.394,
+    "lin": {
+     "11": 0.659,
+     "10": 0.341
+    },
+    "mean_lin": 10.659,
+    "niss": {
+     "11": 0.001,
+     "10": 0.29,
+     "9": 0.435,
+     "8": 0.217,
+     "7": 0.051,
+     "6": 0.006
+    },
+    "mean_niss": 8.955
+   },
+   "4qt 4C2E": {
+    "sol": {
+     "16": 0.07,
+     "15": 0.47600000000000003,
+     "14": 0.345,
+     "13": 0.098,
+     "12": 0.011000000000000001
+    },
+    "mean_sol": 14.496,
+    "qtbreak": {
+     "17": 0.003,
+     "16": 0.249,
+     "15": 0.545,
+     "14": 0.17300000000000001,
+     "13": 0.03
+    },
+    "mean_qtbreak": 15.022,
+    "noe": {
+     "16": 0.055,
+     "15": 0.439,
+     "14": 0.37,
+     "13": 0.11699999999999999,
+     "12": 0.019
+    },
+    "mean_noe": 14.394,
+    "lin": {
+     "11": 0.659,
+     "10": 0.341
+    },
+    "mean_lin": 10.659,
+    "niss": {
+     "11": 0.001,
+     "10": 0.29,
+     "9": 0.435,
+     "8": 0.217,
+     "7": 0.051,
+     "6": 0.006
+    },
+    "mean_niss": 8.955
+   },
+   "4qt 4C4E": {
+    "sol": {
+     "16": 0.034,
+     "15": 0.452,
+     "14": 0.402,
+     "13": 0.091,
+     "12": 0.02,
+     "11": 0.001
+    },
+    "mean_sol": 14.386,
+    "qtbreak": {
+     "17": 0.002,
+     "16": 0.24,
+     "15": 0.524,
+     "14": 0.18899999999999997,
+     "13": 0.040999999999999995,
+     "12": 0.004
+    },
+    "mean_qtbreak": 14.961,
+    "noe": {
+     "16": 0.027000000000000003,
+     "15": 0.39799999999999996,
+     "14": 0.42700000000000005,
+     "13": 0.12300000000000001,
+     "12": 0.023,
+     "11": 0.002
+    },
+    "mean_noe": 14.277,
+    "lin": {
+     "11": 0.4,
+     "10": 0.479,
+     "9": 0.121
+    },
+    "mean_lin": 10.279,
+    "niss": {
+     "11": 0.009000000000000001,
+     "10": 0.298,
+     "9": 0.436,
+     "8": 0.22,
+     "7": 0.033,
+     "6": 0.004
+    },
+    "mean_niss": 9.018
+   },
+   "5qt 2C": {
+    "sol": {
+     "16": 0.034,
+     "15": 0.452,
+     "14": 0.402,
+     "13": 0.091,
+     "12": 0.02,
+     "11": 0.001
+    },
+    "mean_sol": 14.386,
+    "qtbreak": {
+     "17": 0.002,
+     "16": 0.24,
+     "15": 0.524,
+     "14": 0.18899999999999997,
+     "13": 0.040999999999999995,
+     "12": 0.004
+    },
+    "mean_qtbreak": 14.961,
+    "noe": {
+     "16": 0.027000000000000003,
+     "15": 0.39799999999999996,
+     "14": 0.42700000000000005,
+     "13": 0.12300000000000001,
+     "12": 0.023,
+     "11": 0.002
+    },
+    "mean_noe": 14.277,
+    "lin": {
+     "11": 0.4,
+     "10": 0.479,
+     "9": 0.121
+    },
+    "mean_lin": 10.279,
+    "niss": {
+     "11": 0.009000000000000001,
+     "10": 0.298,
+     "9": 0.436,
+     "8": 0.22,
+     "7": 0.033,
+     "6": 0.004
+    },
+    "mean_niss": 9.018
+   },
+   "5qt 2C2E": {
+    "sol": {
+     "16": 0.037000000000000005,
+     "15": 0.342,
+     "14": 0.441,
+     "13": 0.147,
+     "12": 0.031,
+     "11": 0.002
+    },
+    "mean_sol": 14.201,
+    "qtbreak": {
+     "16": 0.17,
+     "15": 0.507,
+     "14": 0.26,
+     "13": 0.057999999999999996,
+     "12": 0.005
+    },
+    "mean_qtbreak": 14.779,
+    "noe": {
+     "16": 0.033,
+     "15": 0.292,
+     "14": 0.445,
+     "13": 0.187,
+     "12": 0.039,
+     "11": 0.004
+    },
+    "mean_noe": 14.081,
+    "lin": {
+     "12": 0.026000000000000002,
+     "11": 0.268,
+     "10": 0.573,
+     "9": 0.133
+    },
+    "mean_lin": 10.187,
+    "niss": {
+     "11": 0.032,
+     "10": 0.293,
+     "9": 0.565,
+     "8": 0.11
+    },
+    "mean_niss": 9.247
+   },
+   "5qt 2C4E": {
+    "sol": {
+     "17": 0.001,
+     "16": 0.047,
+     "15": 0.35600000000000004,
+     "14": 0.431,
+     "13": 0.133,
+     "12": 0.025,
+     "11": 0.006,
+     "9": 0.001
+    },
+    "mean_sol": 14.247,
+    "qtbreak": {
+     "17": 0.003,
+     "16": 0.18899999999999997,
+     "15": 0.511,
+     "14": 0.237,
+     "13": 0.05,
+     "12": 0.008,
+     "11": 0.001,
+     "10": 0.001
+    },
+    "mean_qtbreak": 14.825,
+    "noe": {
+     "17": 0.001,
+     "16": 0.040999999999999995,
+     "15": 0.297,
+     "14": 0.44799999999999995,
+     "13": 0.166,
+     "12": 0.039,
+     "11": 0.006999999999999999,
+     "9": 0.001
+    },
+    "mean_noe": 14.112,
+    "lin": {
+     "12": 0.048,
+     "11": 0.32799999999999996,
+     "10": 0.478,
+     "9": 0.146
+    },
+    "mean_lin": 10.278,
+    "niss": {
+     "11": 0.032,
+     "10": 0.284,
+     "9": 0.55,
+     "8": 0.134
+    },
+    "mean_niss": 9.214
+   },
+   "5qt 2C6E": {
+    "sol": {
+     "17": 0.001,
+     "16": 0.066,
+     "15": 0.431,
+     "14": 0.374,
+     "13": 0.106,
+     "12": 0.021,
+     "11": 0.001
+    },
+    "mean_sol": 14.415,
+    "qtbreak": {
+     "17": 0.008,
+     "16": 0.261,
+     "15": 0.517,
+     "14": 0.175,
+     "13": 0.034,
+     "12": 0.005
+    },
+    "mean_qtbreak": 15.019,
+    "noe": {
+     "17": 0.001,
+     "16": 0.055999999999999994,
+     "15": 0.36200000000000004,
+     "14": 0.397,
+     "13": 0.157,
+     "12": 0.026000000000000002,
+     "11": 0.001
+    },
+    "mean_noe": 14.265,
+    "lin": {
+     "12": 0.182,
+     "11": 0.251,
+     "10": 0.503,
+     "9": 0.064
+    },
+    "mean_lin": 10.551,
+    "niss": {
+     "11": 0.044000000000000004,
+     "10": 0.292,
+     "9": 0.562,
+     "8": 0.102
+    },
+    "mean_niss": 9.278
+   },
+   "5qt 2C8E": {
+    "sol": {
+     "17": 0.003,
+     "16": 0.076,
+     "15": 0.47200000000000003,
+     "14": 0.35100000000000003,
+     "13": 0.087,
+     "12": 0.01,
+     "11": 0.001
+    },
+    "mean_sol": 14.523,
+    "qtbreak": {
+     "17": 0.013999999999999999,
+     "16": 0.311,
+     "15": 0.506,
+     "14": 0.141,
+     "13": 0.026000000000000002,
+     "12": 0.002
+    },
+    "mean_qtbreak": 15.14,
+    "noe": {
+     "17": 0.003,
+     "16": 0.066,
+     "15": 0.409,
+     "14": 0.38799999999999996,
+     "13": 0.115,
+     "12": 0.018000000000000002,
+     "11": 0.001
+    },
+    "mean_noe": 14.396,
+    "lin": {
+     "12": 0.24600000000000002,
+     "11": 0.253,
+     "10": 0.501
+    },
+    "mean_lin": 10.745,
+    "niss": {
+     "11": 0.027999999999999997,
+     "10": 0.27899999999999997,
+     "9": 0.5579999999999999,
+     "8": 0.135
+    },
+    "mean_niss": 9.2
+   },
+   "5qt 4C": {
+    "sol": {
+     "17": 0.003,
+     "16": 0.076,
+     "15": 0.47200000000000003,
+     "14": 0.35100000000000003,
+     "13": 0.087,
+     "12": 0.01,
+     "11": 0.001
+    },
+    "mean_sol": 14.523,
+    "qtbreak": {
+     "17": 0.013999999999999999,
+     "16": 0.311,
+     "15": 0.506,
+     "14": 0.141,
+     "13": 0.026000000000000002,
+     "12": 0.002
+    },
+    "mean_qtbreak": 15.14,
+    "noe": {
+     "17": 0.003,
+     "16": 0.066,
+     "15": 0.409,
+     "14": 0.38799999999999996,
+     "13": 0.115,
+     "12": 0.018000000000000002,
+     "11": 0.001
+    },
+    "mean_noe": 14.396,
+    "lin": {
+     "12": 0.24600000000000002,
+     "11": 0.253,
+     "10": 0.501
+    },
+    "mean_lin": 10.745,
+    "niss": {
+     "11": 0.027999999999999997,
+     "10": 0.27899999999999997,
+     "9": 0.5579999999999999,
+     "8": 0.135
+    },
+    "mean_niss": 9.2
+   },
+   "5qt 4C2E": {
+    "sol": {
+     "16": 0.008,
+     "15": 0.44,
+     "14": 0.415,
+     "13": 0.114,
+     "12": 0.021,
+     "11": 0.001,
+     "10": 0.001
+    },
+    "mean_sol": 14.293,
+    "qtbreak": {
+     "16": 0.17600000000000002,
+     "15": 0.5529999999999999,
+     "14": 0.226,
+     "13": 0.039,
+     "12": 0.005,
+     "11": 0.001
+    },
+    "mean_qtbreak": 14.853,
+    "noe": {
+     "16": 0.001,
+     "15": 0.359,
+     "14": 0.457,
+     "13": 0.153,
+     "12": 0.022000000000000002,
+     "11": 0.006999999999999999,
+     "9": 0.001
+    },
+    "mean_noe": 14.138,
+    "lin": {
+     "11": 0.022000000000000002,
+     "10": 0.726,
+     "9": 0.252
+    },
+    "mean_lin": 9.77,
+    "niss": {
+     "10": 0.21100000000000002,
+     "9": 0.682,
+     "8": 0.107
+    },
+    "mean_niss": 9.104
+   },
+   "5qt 4C4E": {
+    "sol": {
+     "16": 0.012,
+     "15": 0.415,
+     "14": 0.446,
+     "13": 0.111,
+     "12": 0.013000000000000001,
+     "11": 0.003
+    },
+    "mean_sol": 14.293,
+    "qtbreak": {
+     "16": 0.172,
+     "15": 0.585,
+     "14": 0.207,
+     "13": 0.027999999999999997,
+     "12": 0.006999999999999999,
+     "11": 0.001
+    },
+    "mean_qtbreak": 14.884,
+    "noe": {
+     "16": 0.008,
+     "15": 0.341,
+     "14": 0.47600000000000003,
+     "13": 0.151,
+     "12": 0.02,
+     "11": 0.004
+    },
+    "mean_noe": 14.154,
+    "lin": {
+     "11": 0.4,
+     "10": 0.519,
+     "9": 0.081
+    },
+    "mean_lin": 10.319,
+    "niss": {
+     "11": 0.002,
+     "10": 0.257,
+     "9": 0.626,
+     "8": 0.115
+    },
+    "mean_niss": 9.146
+   }
+  },
+  "n_rows": 47,
+  "maxlin": 13,
+  "maxlin_rows": [
+   "3qt 4E"
+  ],
+  "maxlin_elsewhere": 12,
+  "maxniss": 11,
+  "qtbreak_mean_diff": 0.5484893617021276,
+  "qtbreak_solutions": 3060,
+  "qtbreak_not_dr_moves": 961
  },
  "lsmax": {
   "0c0 0e": 13,

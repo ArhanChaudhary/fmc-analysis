@@ -3,7 +3,7 @@
 
 A unit is a paragraph, a list item or a table row of the source text.  Each "quoted string" in a unit must be found,
 word for word, in one of the messages the unit cites ([[N123]]: table msg of kb.sqlite, column content) or, failing
-that, in one of the documents of the study (the route sheets, Aedan Bryant's and Levi Gibson's sheets, rodneykinney's DR Finish Move Counts, the DR Bounding docs and the Hitchhiker's Guide to HTR).  Differences in
+that, in one of the documents of the study (the route sheets, Aedan Bryant's and Levi Gibson's sheets, rodneykinney's DR Finish Move Counts, the DR Bounding docs, the Hitchhiker's Guide to HTR and Daichi's cheat sheet, research/notes/daichi_cheat_sheet.txt).  Differences in
 quote characters, ligatures and line breaks are ignored; a quotation may have … in it for a cut.
 A quotation repeated further down without its link is looked up among all messages the text cites.
 Double quotes are kept for quotations only (terms and column names are in italics), so anything not found is an error.
@@ -14,7 +14,8 @@ import links
 DOCS = [p for g in ('1Vo6XzCFtJ-HEAuaBmk_pac-sJ3TbxEBb7BKsRJ_2wpA',
                          '1fPCjS1ZQlP_Munut9MQkSbsL3CEdtT3LC5h3R8OMHGw', '17iChOoeB205t3wHTXMLrjM9si2vtxRgFeYR2z3pn1i0', '1tv8rwo2GF9IWuywFTnde_YlikIPBQvHqW9pysNG6BPM')
         for p in sorted(glob.glob('/data/fmc/kb/docs/gsheet/' + g + '/*.csv'))] + [
-        '/data/fmc/kb/docs/gdoc/' + g + '.md' for g in ('1q7rig4GEo26GunBMtuagZdGyzyjCGlduH84CHLpGLSA', '13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0', '1_NMlyPh2Ifd1E0ivos-15Sp-by-KPxoOsj9JD4pJuHI')]
+        '/data/fmc/kb/docs/gdoc/' + g + '.md' for g in ('1q7rig4GEo26GunBMtuagZdGyzyjCGlduH84CHLpGLSA', '13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0', '1_NMlyPh2Ifd1E0ivos-15Sp-by-KPxoOsj9JD4pJuHI')] + [
+        os.path.join(B, '..', '..', 'notes', 'daichi_cheat_sheet.txt')]     # the image of D18340, transcribed
 def norm(t):
     t = t.replace('ﬁ', 'fi').replace('ﬂ', 'fl').replace('ﬀ', 'ff').replace('ﬃ', 'ffi').replace('/quotesingle.ts1', "'")
     t = t.replace('’', "'").replace('‘', "'").replace('“', '"').replace('”', '"').replace('\\', '').replace('`', '').replace('*', '')

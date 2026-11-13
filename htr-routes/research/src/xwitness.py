@@ -10,6 +10,11 @@
   X2  a 0c3 4e whose shortest linear HTR is 13 on both sides and whose shortest NISS HTR is 12 (Lewis Isom: "12
       moves linearly, and 11 moves using NISS"), the lengths confirmed by nissy (`solve htr-drud -L`, `-N`), and an
       HTR of each length found by nissy replayed on the sticker model.
+  X3  a 4c4 0e whose shortest linear HTR is 13 on normal and 10 on inverse (the first such state of the sample): the
+      13 Daichi named for 4c4 0e and the 10 that Jay's "guaranteed 11" misses, on one DR.  Lengths from the states
+      file and from nissy on each side (`solve htr-drud` on the scramble and on its inverse), both HTRs replayed.
+  X4  Levi Gibson's "4a1 4e which is +15 optimal" (D11716): its optimum with the E slice solved (exact table) and
+      leaving the slice (nissy `solve drudslice`, the solution replayed: everything but the E-slice edges home).
 usage: xwitness.py"""
 import json, os, subprocess, sys, csv, itertools
 from common import R, OUT
@@ -124,6 +129,35 @@ check(sticker.in_htr(sB) and nn == 12, ('X2 niss', nis))
 check(int(st['htrN']) == 13 and int(st['htrI']) == 13 and int(st['htrNiss']) == 12, 'X2 states row')
 out['X2'] = dict(subset='0c3 4e', scramble=scr, optimal=t['d'], optimal_finish=t['all'][0],
                  nissy_linear=lin, nissy_niss=nis, htr_normal=int(st['htrN']), htr_inverse=int(st['htrI']), htr_niss=int(st['htrNiss']))
+# ------------------------------------------------------------------ X3
+st = next(x for x in csv.DictReader(open(f'{R}/out/big/run1/states_4c4_0e.tsv'), delimiter='\t') if int(x['htrN']) == 13 and int(x['htrI']) == 10)
+t = trace([f"#{st['c']},{st['e']},{st['s']}"])[0]
+scr = ' '.join(inv_seq(t['all'][0].split()))
+X = do(SOLVED, scr)
+check(do(X, t['all'][0]) == SOLVED and len(t['all'][0].split()) == t['d'], 'X3 optimal')
+check(sticker.label(X) in ('4a4 0e', '4b4 0e'), ('X3 label', sticker.label(X)))
+def nissy_plain(step, s):
+    p = subprocess.run([NISSY, 'solve', step, s], capture_output=True, text=True, env=ENV)
+    return p.stdout.strip().split('\n')[0]
+ln = nissy_plain('htr-drud', scr); li = nissy_plain('htr-drud', ' '.join(inv_seq(scr.split())))
+mn, _x, nn_ = parse(ln); mi, _x, ni_ = parse(li)
+check(sticker.in_htr(do(X, ' '.join(mn))) and nn_ == len(mn) == 13, ('X3 normal', ln))
+check(sticker.in_htr(do(do(SOLVED, ' '.join(inv_seq(scr.split()))), ' '.join(mi))) and ni_ == len(mi) == 10, ('X3 inverse', li))
+out['X3'] = dict(subset='4c4 0e', scramble=scr, optimal=t['d'], optimal_finish=t['all'][0], htr_normal=int(st['htrN']), htr_inverse=int(st['htrI']),
+                 htr_niss=int(st['htrNiss']), nissy_normal=' '.join(mn), nissy_inverse=' '.join(mi))
+
+# ------------------------------------------------------------------ X4
+scr = "D' R2 U L2 D R2 L2 F2 R2 L2 U R2 D' R2 F2"          # D11716
+t = trace([scr])[0]
+X = do(SOLVED, scr)
+check(sticker.label(X) == '4a1 4e', ('X4 label', sticker.label(X)))
+check(do(X, t['all'][0]) == SOLVED and len(t['all'][0].split()) == t['d'], 'X4 optimal')
+lsl = nissy_plain('drudslice', scr)
+ml, _x, nl_ = parse(lsl)
+Y = do(X, ' '.join(ml))
+slice_edge = lambda p: p[1] == 0 and abs(p[0]) == 1 and abs(p[2]) == 1
+check(nl_ == len(ml) and all(Y[i] == i for i, (p, nrm) in enumerate(sticker.ST) if not slice_edge(p)), ('X4 leave slice', lsl))
+out['X4'] = dict(subset='4a1 4e', scramble=scr, optimal=t['d'], optimal_finish=t['all'][0], leave_slice=nl_, leave_slice_solution=' '.join(ml))
 out['checks'] = checks[0]; out['failed'] = bad
 json.dump(out, open(f'{OUT}/witness_extra.json', 'w'), indent=1)
 print(json.dumps(out, indent=1)[:3000])

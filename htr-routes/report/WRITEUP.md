@@ -159,12 +159,12 @@ FakeMMAP asked whether "the typical bound is M \geq 11, rather than M \geq 7" ([
 
 That's one or two above the trivial bound, and it reaches the optimum in only 3.9% of 2c3 cases. The per-subset tables rodneykinney asked for ([9 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491873063531188324)) are in section 9 and appendix A.
 
-**Hand checklists graded.** Zagros's eight-step 4b2 order finds the optimal on 71.3% with budget-2 HTRs and a finish within +1 on 93.4%. On 4b2 4e, the share each approach finds the optimal on:
+**Hand checklists graded.** Zagros's eight-step 4b2 order finds the optimal on 71.0% with budget-2 HTRs and a finish within +1 on 93.4%; with the HTR limits as Zagros stated them (none on step 2, "even if it's long"), 74.3% and 95.0%. On 4b2 4e, the share each approach finds the optimal on:
 
 | Approach | Optimal found |
 |---|---|
-| Yura Riabov's order (trigger, then regress to 2c3), after two steps | 62.3% |
-| same, after three steps | 72.9% |
+| Yura Riabov's order (trigger, then regress to 2c3 2e or 4e), after two steps | 60.3% |
+| same, after three steps | 71.5% |
 | reduce to 1q first, every reduction of at most 4 moves | 52.5% |
 | same, at most 5 moves | 68.6% |
 
@@ -186,13 +186,13 @@ R L F2 B2 R' L'   // the type of finish that beats the DR-move optimum there
 
 **What it confirms or corrects**
 
-**Confirmed: the routes.** The first route of the budget-2 checklist is what Daichi's cheat sheet says: switch after 4b2 on 4c3 and 0c4, go through 2c3 on 2c4 and 2c5, 4a2 4e switch on 0c3. Graded against my first three routes, Daichi's sheet finds the optimal more often, about as often or less often on these subsets (section 10):
+**Confirmed: the routes.** The first route of the budget-2 checklist is what Daichi's cheat sheet says: switch after 4b2 on 4c3 and 0c4, go through 2c3 on 2c4 and 2c5, 4a2 4e switch on 0c3. Daichi built the sheet from finishes of 12 or less ("based on the sub13 DR route stats", [12 Jun 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1515177158870569101)). Graded against my first three routes with budget-2 HTRs, on those DRs and on all DRs, the sheet finds the optimal more often, about as often or less often on these subsets (section 10):
 
-| Daichi's sheet | Where |
-|---|---|
-| more often | 4b2, 4a1, 2c3 0e and 8e, 0c0 2e to 6e |
-| about as often | 2c4 0e to 6e, 4a2 2e, 0c4 2e |
-| less often | all of 2c5, 0c3, 4c3, 4c4 and 4b5; 0c4 except 2e; 4a2 0e and 4e; 2c3 2e to 6e |
+| Daichi's sheet | DRs with an optimal of 12 or less | All DRs |
+|---|---|---|
+| more often | all of 4a1 and 4b2; 0c0 2e to 6e; 4a2 0e and 2e; 2c3 0e and 8e; 0c4 0e and 4e | all of 4a1 and 4b2; 0c0 2e to 6e; 2c3 0e and 8e |
+| about as often | all of 2c4 and 0c3; 2c3 2e; 0c4 2e, 6e and 8e; 4c4 4e | 2c4 except 8e; 4a2 2e; 2c3 2e; 0c4 0e to 4e |
+| less often | all of 2c5, 4c3 and 4b5; 0c0 0e and 8e; 4a2 4e; 2c3 4e and 6e; 4c4 0e and 2e | all of 2c5, 0c3, 4c3, 4c4 and 4b5; 0c0 0e and 8e; 2c4 8e; 4a2 0e and 4e; 2c3 4e and 6e; 0c4 6e and 8e |
 
 **Confirmed: uniform states are the right model.** Take the DRs cubelib finds on 10,000 random scrambles (every EO-first DR of at most 11 moves, 6,840,923 of them). Corner-subset shares are within 0.4 points of uniform and mean optimal finishes within 0.05 moves. Per corner subset, every checklist share, bounding share and HTR headline of this section moves by under a point, with two exceptions (share of DRs):
 
@@ -209,24 +209,24 @@ The first route is the same on every corner subset, and the first three are the 
 
 **Explained: the quoted extra-qt numbers.** They depend on whether you ask about every optimal, some optimal or one optimal from a solver; rodneykinney's 57% and Lichi Fang's "over 60%" fit different readings, and both fit (section 7).
 
-**Corrected, with the first study's table: the last DR move.** Turning it the other way gives a finish one move shorter on 32.5% of DRs, never more than one, so about a third of a move on average, not the 1/6 Yura Riabov estimated in 2024 (Yura called it "very rough"). It doesn't change which routes to try (section 7).
+**Settled, with the first study's table: the last DR move.** Turning it the other way gives a finish one move shorter on 32.5% of DRs, never more than one, so about a third of a move on average. Yura Riabov's quick 1/6 from 2024 is low by half, for the reason Lichi Fang gave at the time (a DR has several optimal finishes); Yura's own ceiling, half a move, holds. It doesn't change which routes to try (section 7).
 
-**Corrected** (errata, each with an example). Levi Gibson's "check all sub-5 reductions … gets optimal like 75% of the time, and it gets optimal +1 the rest of the time", with bounding alone and every reduction of at most 4, share of DRs where it finds the optimal and a finish within +1:
+**Corrected** (errata, each with an example). Levi Gibson's "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time" ([28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311670582601060354)), with bounding alone and every reduction of at most 4, share of DRs where it finds the optimal and a finish within +1:
 
 | Subset | Optimal | Within +1 |
 |---|---|---|
 | 4a2 (the one Levi Gibson had just named) | 76.6% | 93.6% |
 | 2c3 | 48.1% | 78.8% |
 
-So on 4a2 the 75% holds, but +1 doesn't cover the rest. The other corrections:
+So on 4a2 the 75% holds, but +1 doesn't cover the rest. Yura Riabov expected that split at the time ("i think it could be very good for 4a2 but for 2c3 trigger knowledge covers most cases", [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311671177948823554)). The other corrections:
 
-- 4c4 0e has 10-move linear HTRs.
-- The longest shortest HTR is 13 linear and 12 with NISS, both exact over every DR state.
+- 4c4 0e has 10-move linear HTRs, as Aedan Bryant's sheet showed.
+- The longest shortest HTR is 13 linear, which Aedan Bryant's sheet has on one row, and 12 with NISS, both exact over every DR state.
 - In FakeMMAP's reduction bound and multi-qt lower bounds: the index of $\alpha$ ($\alpha_{i+1}$, not $\alpha_i$) and, when R is read as the smallest term, the signs of term 2 (proved in Lean, with counterexamples).
 
-**Depends: switching after more than 2 moves.** Evan's "pretty rare" for it to be useful: with HTRs up to two over the shortest allowed (budget 2) the optimal needs it on 13.2% of DRs, about one in eight (7.8% of 4b2, 9.1% of 2c3), and after 4 or more moves on 5.1%; through its shortest HTR only it's 28.2%, an upper bound. Yura Riabov's "more like 3" holds outside 0c4, 4c4 and 2c5 (section 11).
+**Depends: switching after more than 2 moves.** Evan's "pretty rare" for it to be useful: with HTRs up to two over the shortest allowed (budget 2) the optimal needs it on 13.2% of DRs, about one in eight (7.8% of 4b2, 9.1% of 2c3), and after 4 or more moves on 5.1%; through its shortest HTR only it's 28.2%, an upper bound. Most of the gap is the switch after exactly 3 moves (8.1% of DRs), which Evan excepted in the same thread ("switching U2 F2 U reductions for some subsets can be useful but is also uncommon I feel", [3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368159998848274462)), so Evan and Yura Riabov's "more like 3" end up close; past 3 moves it's rare outside 0c4, 4c4 and 2c5 (section 11).
 
-**Confirmed**: Levi Gibson's "pretty sure 15 is gods number for 4a1 4e" is right for the leave slice, which is what Levi Gibson measures (15, exact); the full finish can need 17.
+**Depends: God's number for 4a1 4e.** Levi Gibson's "pretty sure 15 is gods number for 4a1 4e" doesn't name the metric. Leaving the slice, as Levi Gibson's stat sheets do, the longest optimal is 15 (exact); with the E slice solved it's 17 (section 11).
 
 ---
 
@@ -238,15 +238,16 @@ The questions, in the words of the people who asked them, and where each is answ
 
 - Daichi built the cheat sheet "to filter routes to check rather than DRs itself" ([12 Jun 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1515177158870569101)); JTuu asked for the data behind it ("did you post the raw stats somewhere?", [13 Jun 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1515419517873033256)). *Answer*: section 4 gives the routes in order, each with the share of DRs where the routes so far find the optimal, so the shares add up (cumulative).
 - Does the bad-edge count change which routes are good, not only the corner subset? And how often do you go through, say, 4b2 4e rather than 4b2 2e? *Answer*: section 4.
-- wen ([8 Nov 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1171788784279494688)): "Anyone else feel like for 4q 2c, the optimals are most often reasonably explained with something like a direct HTR, or 1q then switch and 3q, and hardly ever with 2q switch 2q?" *Answer*: on 2c4, with HTRs at most 2 over the shortest, the optimal is reached by:
+- wen ([8 Nov 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1171788784279494688)): "Anyone else feel like for 4q 2c, the optimals are most often reasonably explained with something like a direct HTR, or 1q then switch and 3q, and hardly ever with 2q switch 2q?", "I feel like I have seen very few 4q optimals that use such a pathway". *Answer*: on 2c4, with HTRs at most 2 over the shortest, the optimal is reached by:
 
   | Route shape | Finds the optimal |
   |---|---|
   | 3 qts then switch (or 1 then 3) | 66.5% |
   | direct HTR | 54.0% |
   | 2 switch 2 | 30.8% |
+  | 2 switch 2 and neither of the other two | 4.7% |
 
-  wen's order is right; "hardly ever" is too strong.
+  wen's order is right. The shapes overlap: 2 switch 2 can be read into an optimal on 30.8% of 2c4, but it's the only one of the three that finds it on 4.7%, so "hardly ever" holds for what you need to check.
 - Yura Riabov, on 4b2 4e ([4 Jul 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1258421085251178608)): "4b2 4e is basically the best 4q subset"; rogo ([4 Jul 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1258442750953525399)): "the first approach apart from R U2 F2 R to check should still be 'reduce to 1qt 4e and niss trace for short htrs' i think?" *Answer*: section 10.
 
 **HTRs and the optimal (section 6)**
@@ -1319,7 +1320,7 @@ The first of these doesn't need the sample. A search over the whole DR group giv
 | 4b5 | 31.4% | 39.2% | 23.7% | 5.8% | 96.9% | 8.0% | 4.11 |
 | all DRs | 32.9% | 31.8% | 22.5% | 12.8% | 65.2% | 29.7% | 4.59 |
 
-Some optimal goes through a shortest HTR on only a third of DRs. On the other two thirds you have to find an HTR at least a move longer than the shortest to get the optimal, and on 35.3% at least two longer. That's why the checklists need budget 2 (section 4). On 0c3 a shortest HTR is used most often (53.5%); on 2c4 and 4b5 about as often as on 4b2. *Post-HTR moves* is the rest of that optimal: 4.59 moves on average, more on low-qt subsets, as tseitsei89 described ([29 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466457851286524068)).
+Some optimal goes through a shortest HTR on only a third of DRs. On the other two thirds you have to find an HTR at least a move longer than the shortest to get the optimal, and on 35.3% at least two longer. That's why the checklists need budget 2 (section 4). On 0c3 a shortest HTR is used most often (53.5%); on 2c4 and 4b5 about as often as on 4b2. *Post-HTR moves* is the rest of that optimal: 4.59 moves on average, more on low-qt subsets.
 
 **Nine-move HTRs.** On 65.2% of all DRs every optimal finish needs an HTR of 9 moves or more in every reading. On 29.7% of DRs that's the case even though the DR has an HTR of 8 or less. By the length L of a DR's shortest NISS HTR, the share of DRs where some optimal uses an HTR of exactly L moves (all DRs, sampled; the rows cover 99.2% of DRs, the rest having a shortest NISS HTR of 3, 11 or 0 to 2):
 
@@ -1415,15 +1416,17 @@ Every subset × edges, for all DRs and for those with an optimal of 13 or less a
 | 4b5 | 14.28 | 13.96 | 32.5% | 35.5% | 42.3% | 22.1% |
 | all DRs | 13.58 | 13.26 | 32.5% | 35.1% | 19.7% | 10.3% |
 
-X·R2 is one move shorter on a third of DRs and never more than one shorter, in every subset alike; the first study had this exactly (*A third of the time the other DR is one shorter*). Yura Riabov's estimate in 2024 was 1/6 of a move ("so yeah, should be 1/6", [6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248337792673779803)), from "2/3(chance of dr solution ending in 1 of 4 moves) * 1/4(chance of that move being the right one)". Yura called it "very rough" and added "i doubt it will be more than a half move difference with 1 move inverted" ([6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372741602545674)). The half-move ceiling holds; the 1/6 is half the real gain of 0.325.
+X·R2 is one move shorter on a third of DRs and never more than one shorter, in every subset alike; the first study had this exactly (*A third of the time the other DR is one shorter*). Yura Riabov's quick estimate in 2024 was 1/6 of a move: "depends on if dr uses niss or not, but if not then pre-dr part can end in 1 of 4 moves, so inverting it should bring down the mean by 2/3(chance of dr solution ending in 1 of 4 moves) * 1/4(chance of that move being the right one), so yeah, should be 1/6" ([6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248337792673779803)). Lichi Fang asked at once "is it assuming that there is only one optimal finish? Like would it make a difference if a DR has several optimal finishes starting with different move?" ([6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372233726857299)). Yura answered "also true" ([6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372374785753248)) and "I knew that this is very rough but i think it gives at least an order of numbers, i doubt it will be more than a half move difference with 1 move inverted" ([6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372741602545674)). Lichi Fang's point is the missing factor: with several optimal finishes, one of them starts with the right half turn on 32.5% of DRs. So the 1/6 is half the real gain of 0.325, and the order of magnitude and the half-move ceiling both hold.
 
 Example, replayed. Think of the first line as the end of a DR on U/D whose last move was a quarter turn of R. Turning that move the other way is the same as adding R2 at the end:
 
 ```
-R2 D R2 F2 R2 D L2 D B2 R2 D2 B2 U // as written: 13 optimal
+R2 D R2 F2 R2 D L2 D B2 R2 D2 B2 U // 4b2 2e, as written: 13 optimal
 R2 D R2 F2 R2 D L2 D B2 R2 D2 B2 U R2 // R2 added: 12 optimal
 B2 U' R2 L2 D L2 U L2 U2 R2 U' F2 // its optimal finish
 ```
+
+*Lean-checked*: both optima, the printed finish and the subset (`dr_optima_correct`, `dr_solutions_valid`, `labels_htr_routes`, in the study's folder lean/FakeBound, Corrections/Examples.lean). The share and the mean gain are exact over all DR states (32.47%, counted over the first study's table by two separate programs), not proved in Lean.
 
 For routes the variation changes nothing in kind: every route's share goes up by about the same amount, and no checklist gains a route. It's worth its 0.32 moves on every subset, so write both finishes' DRs down, but don't let it change which routes you try.
 
@@ -1585,7 +1588,7 @@ Levi Gibson's verdicts against those rows, one row per corner subset:
 
 On 4c3, Levi Gibson's reason was the b side ("On the b corners side there are sooooo many finecky ways to reduce to 4a1 in very few moves"); these numbers count both sides together.
 
-**Levi Gibson's 75 to 80%.** Asked how many reductions to check, Levi Gibson wrote "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time" ([28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311670582601060354)), "sub-5" being "4 or less" ([29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051485760163880)). Later, asked "Would it be around 80 percent?" ([29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051034906038323)): "yeah something like that I'd guess" ([29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051081831780434)), "for 2c3 that is" ([29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051112253329439)), adding "The only thing it really misses is a bunch of half turns into a 5-move trigger, so check that in addition to bounding" ([29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051209158525018)). The subsets Levi Gibson named for full bounding were 4a2 and 2c3 ("I don't use it fully for any subsets other than 4a2 and 2c3", [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311671487379279872)). Bounding alone, every reduction of at most R moves. Each row is a target and R; each cell is the share of the subset's DRs where it is found:
+**Levi Gibson's 75 to 80%.** Asked how many reductions to check, Levi Gibson wrote "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time", then "If I REALLY want to solve a DR optimally I'll check all sub-6 reductions" ([28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311670582601060354)), "sub-5" being "4 or less" ([29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051485760163880)). Later, asked "Would it be around 80 percent?" ([29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051034906038323)): "yeah something like that I'd guess" ([29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051081831780434)), "for 2c3 that is" ([29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051112253329439)), adding "The only thing it really misses is a bunch of half turns into a 5-move trigger, so check that in addition to bounding" ([29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051209158525018)). The subsets Levi Gibson named for full bounding were 4a2 and 2c3 ("I don't use it fully for any subsets other than 4a2 and 2c3", [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311671487379279872)). Bounding alone, every reduction of at most R moves. Each row is a target and R; each cell is the share of the subset's DRs where it is found:
 
 | | 2c3 | 4a2 |
 |---|---|---|
@@ -1595,7 +1598,7 @@ On 4c3, Levi Gibson's reason was the b side ("On the b corners side there are so
 | Within +1, R ≤ 4 | 78.8% | 93.6% |
 | Optimal, R ≤ 5 | 71.1% | 80.0% |
 
-On 4a2 the 75% holds (Levi Gibson had just written "for the 4a2 subset I use full DR Bounding", [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311669869900464138)), but within +1 it's only the share in the *Within +1* row, not every DR. For 2c3 both halves are off for bounding alone: the optimal comes from a reduction of 4 or less on under half of 2c3, and on 21.2% not even +1 does. Levi Gibson does add the triggers ("For 2c3 2e and 4e I do full DR Bounding + checking the 5-move triggers, and that seems to catch everything", [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311674286389334026)); I haven't measured that combination. There's an example in the errata: a 2c3 2e where the best any reduction of at most 4 gives is +2.
+On 4a2 the 75% holds (Levi Gibson had just written "for the 4a2 subset I use full DR Bounding", [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311669869900464138)), but within +1 it's only the share in the *Within +1* row, not every DR. For 2c3 both halves are off for bounding alone: the optimal comes from a reduction of 4 or less on under half of 2c3, and on 21.2% not even +1 does. Yura Riabov expected that split in the same exchange: "i think it could be very good for 4a2 but for 2c3 trigger knowledge covers most cases" ([28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311671177948823554)), and of 2c3 2e, "<3 half turns> U R2 U R2 U <5 half turns> often enough, and bounding won't catch that i think" ([28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311673888832487506)). Levi Gibson agreed ("missing lots of half turns into a trigger is the blind spot that DR Bounding has", [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311674439833751573)) and does add the triggers ("For 2c3 2e and 4e I do full DR Bounding + checking the 5-move triggers, and that seems to catch everything", [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311674286389334026)); I haven't measured that combination. There's an example in the errata: a 2c3 2e where the best any reduction of at most 4 gives is +2.
 
 **JTuu's simulation** for Kai Cui's question ([3 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1313597166270550137)): 2,000 2c3 2e states with Tzak's definitions, "4 move reduction to 4c4e just means you can strip off <=4 moves total from either end and be left with a single qt" ([3 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1313620671607345254)) and "7 move linear htr means if you drop 7 moves on either end, are you left with just half turns" ([3 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1313620835046789282)). That's the one-quarter-turn reading. JTuu's result ([4 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1313766061325156462)) against mine on uniform 2c3 2e states, same definitions. Each row is an option; JTuu's column is quoted, mine is the share of DRs:
 
@@ -1844,17 +1847,17 @@ How often the bounds beat the trivial one, size-weighted over all subsets, as a 
 
 I translate each checklist into route classes as closely as the route names allow and grade it on the same sample: the share of DRs where its steps so far find an optimal finish, and a finish within +1, with HTRs at most two over the shortest (budget 2), and with no HTR limit. Steps that depend on how many setup moves come before a trigger are graded as their whole route class, which flatters them a little. Sampled, 25,000 per subset × edges.
 
-**Zagros's 4b2 order** ([29 Dec 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1455301984415514719)): "1. check shortest HTR on normal by settings up to triggers and reasonable extensions", "2. check more linear 2qt HTRs by just reducing to 4a1 and doing the HTR even if it's long", and on to "8. if it is seriously my only DR and I have nothing, try 2+2 HTRs". Steps 1 and 2 are graded together; 6 (the inverse) and 7 are already inside the others, since both sides are always graded. Each row is a step; each cell is the cumulative share of 4b2 DRs found after it:
+**Zagros's 4b2 order** ([29 Dec 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1455301984415514719)): "1. check shortest HTR on normal by settings up to triggers and reasonable extensions", "2. check more linear 2qt HTRs by just reducing to 4a1 and doing the HTR even if it's long", "3. check shortest 4qt htr on normal if like <9 moves exists", "5. write shortest regressions to 2c3 2e or 4e", and on to "8. if it is seriously my only DR and I have nothing, try 2+2 HTRs". Steps 1 and 2 are graded together; 6 (the inverse) and 7 are already inside the others, since both sides are always graded. The last two columns take each step's HTR limit as Zagros stated it: none on steps 1 and 2 ("even if it's long"), under 9 moves on step 3, budget 2 on the rest. Each row is a step; each cell is the cumulative share of 4b2 DRs found after it:
 
-| Step | What | Optimal (budget 2) | Within +1 (budget 2) | Optimal, no HTR limit |
-|---|---|---|---|---|
-| 1 | S1+S2 linear 2qt 4b2 4a1 HTR (normal or inverse) | 37.6% | 67.2% | 45.0% |
-| 2 | S3 linear 4qt HTR of <= 8 moves | 45.4% | 75.7% | 54.3% |
-| 3 | S4 reduce to 4a1, switch (4b2 4a1 (HTR)) | 50.8% | 80.8% | 54.3% |
-| 4 | S5 regress to 2c3, switch (4b2 2c3 (...)) | 64.2% | 90.4% | 95.5% |
-| 5 | S8 2+2: any 4qt route switching after the 2nd qt | 71.3% | 93.4% | >99.9% |
+| Step | What | Optimal (budget 2) | Within +1 (budget 2) | Optimal, no HTR limit | Optimal, HTR limits as stated | Within +1, HTR limits as stated |
+|---|---|---|---|---|---|---|
+| 1 | S1+S2 linear 2qt 4b2 4a1 HTR (normal or inverse) | 37.6% | 67.2% | 45.0% | 45.0% | 74.8% |
+| 2 | S3 linear 4qt HTR of <= 8 moves | 45.4% | 75.7% | 54.3% | 54.3% | 83.0% |
+| 3 | S4 reduce to 4a1, switch (4b2 4a1 (HTR)) | 50.8% | 80.8% | 54.3% | 54.3% | 83.0% |
+| 4 | S5 regress to 2c3 2e or 4e, switch (4b2 2c3 (...)) | 63.8% | 90.1% | 94.2% | 67.1% | 92.0% |
+| 5 | S8 2+2: any 4qt route switching after the 2nd qt | 71.0% | 93.4% | 99.7% | 74.3% | 95.0% |
 
-Zagros: "if I simply follow the system I have in my mind for each subset without getting distracted then it just produces optimal in 15 minutes like 80% of the time" ([29 Dec 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1455302363953758427)). Done fully on 4b2 with near-shortest HTRs, it finds the optimal on 71.3% and +1 on 93.4%; with HTRs of any length every 4b2 is covered. Zagros's 80% is about real attempts, where time is the limit, so I can't check it here, but nothing in the numbers contradicts it. After the first, the step that adds the most is table step 4 (Zagros's step 5, the regression to 2c3), 13.4 points.
+Zagros: "if I simply follow the system I have in my mind for each subset without getting distracted then it just produces optimal in 15 minutes like 80% of the time" ([29 Dec 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1455302363953758427)). Done fully on 4b2 with near-shortest HTRs, it finds the optimal on 71.0% and +1 on 93.4%; with the HTR limits as Zagros stated them, on 74.3% and +1 on 95.0%; with HTRs of any length on every step, on 99.7%. Zagros's 80% is about real attempts, where time is the limit, so I can't check it here, but nothing in the numbers contradicts it. After the first, the step that adds the most is table step 4 (Zagros's step 5, the regression to 2c3), 13.0 points.
 
 **4b2 4e: regress to 2c3 first, or reduce to 1q first?** The thread:
 
@@ -1863,30 +1866,30 @@ Zagros: "if I simply follow the system I have in my mind for each subset without
 - Adri agreed the label was the confusing part ([4 Jul 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1258454166830055454)): "I agree that's why calling it the best 4qt subset seems confusing".
 - Jay ([4 Jul 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1258586844883451964)): "if you think of this subset as one where you only try to solve with U R2 F2 U, you're gonna miss optimal the vast majority of the time".
 
-Yura Riabov's order, with the first step as a trigger with at most two setup moves (the setup limit is Yura's "1-2 moves"); each row is a step, each cell a cumulative share of 4b2 4e:
+Asked "do you go to 2c3 2e or 4e or both", Yura Riabov answered "whatever is shortest" ([4 Jul 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1258421801248096336), [4 Jul 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1258421850074124349)), so step 2 is the regression to 2c3 2e or 4e. Yura's order, with the first step as a trigger with at most two setup moves (the setup limit is Yura's "1-2 moves"); each row is a step, each cell a cumulative share of 4b2 4e:
 
 | Step | What | Optimal (budget 2) | Within +1 (budget 2) | Optimal, no HTR limit |
 |---|---|---|---|---|
 | 1 | S1 linear 2qt trigger with <= 2 setup moves (HTR <= 6) | 8.6% | 16.1% | 8.6% |
-| 2 | S2 regress to 2c3 (2e or 4e), then 2c3 linear or switch (4qt) | 62.3% | 88.4% | 82.2% |
-| 3 | S3 reduce to 4a1 and switch | 72.9% | 94.0% | 93.1% |
+| 2 | S2 regress to 2c3 2e or 4e, then 2c3 linear or switch (4qt) | 60.3% | 86.5% | 80.7% |
+| 3 | S3 reduce to 4a1 and switch | 71.5% | 93.3% | 92.1% |
 
 The other start, reducing to 1q and NISS-tracing, is DR bounding. On 4b2 4e, one row per start, share finding the optimal (budget-2 HTRs for the routes; bounding on 4,000 states, section 8):
 
 | Start | Optimal found |
 |---|---|
-| Yura Riabov's first two steps | 62.3% |
+| Yura Riabov's first two steps (a ceiling, see below) | 60.3% |
 | every reduction to 1q of at most 3 moves | 40.4% |
 | every reduction to 1q of at most 4 moves | 52.5% |
 | every reduction to 1q of at most 5 moves | 68.6% |
 
-So the regression to 2c3 beats every reduction up to 4, and is a little behind every reduction up to 5 (about 1,919 of them). The 4a1 switch adds 10.6 points after it. Jay is right too: the 2qt trigger alone (with at most two setup moves) finds 8.6%. On 4b2 4e every optimal uses 4 quarter turns on 63.7% of states, as Yura Riabov's [*Hitchhiker’s Guide to HTR*](https://docs.google.com/document/d/1_NMlyPh2Ifd1E0ivos-15Sp-by-KPxoOsj9JD4pJuHI) says ("it’s optimal with 4q more than half of the time").
+Yura also kept the setup short ("doing more than 1 half turn before reduction isn't worth it", [4 Jul 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1258421925969924177)), which the route can't see, so 60.3% is a ceiling for the order as stated. So the regression to 2c3 beats every reduction up to 4, and is a little behind every reduction up to 5 (about 1,919 of them). The 4a1 switch adds 11.2 points after it. Jay is right too: the 2qt trigger alone (with at most two setup moves) finds 8.6%. On 4b2 4e every optimal uses 4 quarter turns on 63.7% of states, as Yura Riabov's [*Hitchhiker’s Guide to HTR*](https://docs.google.com/document/d/1_NMlyPh2Ifd1E0ivos-15Sp-by-KPxoOsj9JD4pJuHI) says ("it’s optimal with 4q more than half of the time").
 
-Fanti's split ([2 Feb 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1335799386914951218); probably read off *allcases*, since it matches its cells): "40% of opt 4b2 4e solutions use 2qt, 45% regress to 2c3", "only about 8% go to 0c0 2e/4e". Read as a checklist in that order, one row per step, cumulative shares of 4b2 4e:
+Fanti's split ([2 Feb 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1335799386914951218); read off *allcases*, as Fanti said the next day: "i took the stats from here", [3 Feb 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1336154204997161041)): "40% of opt 4b2 4e solutions use 2qt, 45% regress to 2c3", "only about 8% go to 0c0 2e/4e". Read as a checklist in that order, one row per step, cumulative shares of 4b2 4e:
 
 | Step | What | Optimal (budget 2) | Within +1 (budget 2) | Optimal, no HTR limit |
 |---|---|---|---|---|
-| 1 | 2qt (4b2 4a1 HTR, any switch) | 35.5% | 66.0% | 36.2% |
+| 1 | 2qt (4b2 4a1 HTR, any switch) | 35.5% | 66.0% | 36.3% |
 | 2 | 4qt via 2c3 | 77.8% | 95.5% | 93.1% |
 | 3 | 4qt via 4a1 0c0 | 80.2% | 96.3% | 97.6% |
 
@@ -1902,70 +1905,70 @@ Fanti's split ([2 Feb 2025](https://discord.com/channels/1007840975726575667/100
 
 Levi Gibson's reply for 4a2 0e, "you don’t have to try reductions to 4a1 4e because the average optimal solution length for that path is like 17.2 to slice" ([11 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1360460016330739854)), fits. On 4a2 0e one optimal picked at random is a 2qt path on only 2.6% of states, and steps 1 and 2 together find the optimal on 32.2% of 4a2 0e and 2e pooled. After the first, the step that adds the most is step 2 (S2 reduce to 4a1 4e, switch, 18.9 points). Next is step 4, the 4b3 regression with the switch, which is the first route of my 4a2 0e and 2e checklists.
 
-**Jay's and rodneykinney's 3qt 2c0e checks.** Jay counted "11 total things" to check for every two half turns followed by a quarter turn ([16 Nov 2022](https://discord.com/channels/1007840975726575667/1007841335434285126/1042617188370087988)); rodneykinney: "I would count 9 cases" ([17 Nov 2022](https://discord.com/channels/1007840975726575667/1007841335434285126/1042817953072152596)), and later "You can check just F and R2 F" ([17 Nov 2022](https://discord.com/channels/1007840975726575667/1007841335434285126/1042825807892054106)). As a route class (one qt to 4b2 4e, switch, then 4a1 and HTR, any setup) it finds the optimal on 46.3% of 2c3 0e and +1 on 81.8%. The setup counts themselves aren't graded.
+**Jay's and rodneykinney's 3qt 2c0e checks.** Jay counted "11 total things" to check for every two half turns followed by a quarter turn ([16 Nov 2022](https://discord.com/channels/1007840975726575667/1007841335434285126/1042617188370087988)); rodneykinney: "I would count 9 cases" ([17 Nov 2022](https://discord.com/channels/1007840975726575667/1007841335434285126/1042817953072152596)), and later, with "some mind-bending inverse-prediction gymnastics", "You can check just F and R2 F" ([17 Nov 2022](https://discord.com/channels/1007840975726575667/1007841335434285126/1042825509274402906), [17 Nov 2022](https://discord.com/channels/1007840975726575667/1007841335434285126/1042825807892054106)). As a route class (one qt to 4b2 4e, switch, then 4a1 and HTR, any setup) it finds the optimal on 46.3% of 2c3 0e and +1 on 81.8%. The setup counts themselves aren't graded.
 
-**Daichi's cheat sheet** ([12 Jun 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1515146431542067290)), every listed route of each subset × edges together, against my checklist. Each row is a subset × edges and the share where the sheet's routes find the optimal (or +1), then the share of my first three routes:
+**Daichi's cheat sheet** ([12 Jun 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1515146431542067290)), every listed route of each subset × edges together, against my checklist. Two rows need reading. The 0c4 row is "all: 4b2 switch (2e could be linear, except for 0c4 8e)", and the 2e there is the 4b2's, as in the next row ("all: 4b2 switch (prioritize 2e over 4e)" for 4c4) and in Daichi's "like, 0c4 says just check 4b2 switches" ([12 Jun 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1515079996304130158)); so on 0c4 0e to 6e a linear route through 4b2 2e counts as well. The 4c3 row, "all: 3q, but always switch after 4b2 4e (except for the 4a3 0/4e 8 move trigger I think?)", is graded without the bracket. With it, counting linear routes through 4b2 4e on the 4a3 side with an HTR of 8 or less, 4c3 0e goes from 74.8% to 75.3% and 4c3 4e from 67.8% to 67.9%.
 
-| Subset | Optimal (budget 2) | Within +1 (budget 2) | Optimal, no HTR limit | My 3 classes (budget 2) | My classes to match |
-|---|---|---|---|---|---|
-| 0c0 0e | 84.5% | 95.2% | 91.8% | 92.6% | 3 |
-| 0c0 2e | 71.5% | 93.4% | 95.9% | 70.2% | 4 |
-| 0c0 4e | 65.1% | 90.8% | 94.4% | 61.5% | 6 |
-| 0c0 6e | 61.2% | 89.4% | 94.5% | 60.2% | 4 |
-| 0c0 8e | 70.1% | 91.7% | 77.9% | 77.1% | 2 |
-| 2c5 0e | 81.6% | 96.5% | >99.9% | 89.6% | 2 |
-| 2c5 2e | 86.1% | 97.8% | >99.9% | 91.0% | 2 |
-| 2c5 4e | 85.7% | 97.7% | >99.9% | 91.9% | 2 |
-| 2c5 6e | 83.7% | 97.2% | >99.9% | 90.6% | 2 |
-| 2c5 8e | 83.0% | 97.1% | >99.9% | 91.0% | 2 |
-| 2c4 0e | 88.4% | 98.7% | 98.8% | 88.6% | 3 |
-| 2c4 2e | 89.7% | 98.8% | 98.6% | 89.9% | 3 |
-| 2c4 4e | 87.3% | 98.6% | 98.5% | 87.6% | 3 |
-| 2c4 6e | 88.0% | 98.6% | 98.6% | 88.5% | 3 |
-| 2c4 8e | 89.5% | 99.3% | 98.1% | 91.5% | 2 |
-| 0c3 0e | 92.6% | 99.3% | 97.5% | 96.6% | 2 |
-| 0c3 2e | 85.6% | 98.8% | 93.1% | 92.1% | 2 |
-| 0c3 4e | 72.6% | 95.2% | 84.3% | 85.8% | 2 |
-| 0c3 6e | 87.9% | 99.0% | 94.3% | 94.6% | 2 |
-| 0c3 8e | 92.9% | 99.4% | 98.8% | 96.1% | 2 |
-| 4a2 0e | 37.6% | 64.8% | 69.3% | 44.4% | 2 |
-| 4a2 2e | 76.8% | 96.3% | 87.1% | 76.8% | 4 |
-| 4a2 4e | 65.9% | 87.7% | 67.8% | 79.1% | 2 |
-| 4a1 0e | 70.1% | 92.1% | 95.7% | 54.6% | 6 |
-| 4a1 2e | 76.5% | 95.4% | 86.3% | 70.5% | 4 |
-| 4a1 4e | 69.4% | 92.2% | 89.8% | 60.6% | 5 |
-| 2c3 0e | 87.8% | 98.8% | 99.9% | 75.1% | 8 |
-| 2c3 2e | 79.6% | 96.4% | 89.8% | 80.2% | 2 |
-| 2c3 4e | 76.6% | 95.6% | 83.2% | 78.1% | 2 |
-| 2c3 6e | 73.3% | 94.7% | 78.1% | 76.7% | 2 |
-| 2c3 8e | 85.9% | 98.5% | 99.9% | 74.5% | 8 |
-| 0c4 0e | 83.6% | 95.6% | >99.9% | 87.6% | 2 |
-| 0c4 2e | 89.2% | 98.0% | >99.9% | 89.1% | 4 |
-| 0c4 4e | 84.5% | 97.1% | >99.9% | 86.1% | 2 |
-| 0c4 6e | 83.4% | 97.1% | >99.9% | 85.4% | 2 |
-| 0c4 8e | 80.7% | 96.3% | >99.9% | 87.1% | 2 |
-| 4c3 0e | 74.8% | 94.8% | 76.5% | 83.3% | 2 |
-| 4c3 2e | 72.4% | 94.1% | 74.6% | 75.1% | 3 |
-| 4c3 4e | 67.8% | 92.0% | 70.7% | 74.4% | 2 |
-| 4c4 0e | 66.9% | 92.8% | 86.5% | 76.7% | 2 |
-| 4c4 2e | 70.6% | 93.8% | 90.7% | 78.7% | 2 |
-| 4c4 4e | 70.7% | 93.7% | 91.4% | 78.2% | 2 |
-| 4b2 0e | 74.9% | 94.2% | 91.6% | 61.0% | 6 |
-| 4b2 2e | 67.2% | 90.9% | 94.4% | 59.0% | 6 |
-| 4b2 4e | 77.8% | 95.5% | 93.1% | 66.8% | 6 |
-| 4b5 0e | 74.6% | 93.8% | >99.9% | 92.6% | 2 |
-| 4b5 2e | 78.8% | 95.1% | >99.9% | 93.6% | 2 |
-| 4b5 4e | 77.4% | 94.3% | >99.9% | 93.9% | 2 |
+Daichi built the sheet from short finishes: "it's to filter routes to check rather than DRs itself, based on the sub13 DR route stats" ([12 Jun 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1515177158870569101)). So the last two columns grade it on the DRs with an optimal of 12 or less, against the same first three routes of mine (chosen on all DRs). Each row is a subset × edges: the share where the sheet's routes find the optimal (or +1), the share of my first three routes and how many of my routes it takes to match the sheet, then the sheet and my first three on optimal ≤ 12 only, all with budget-2 HTRs unless the column says otherwise:
 
-The last two columns are my first three budget-2 routes and how many of my routes it takes to match the sheet. The sheet against my first three:
+| Subset | Optimal (budget 2) | Within +1 (budget 2) | Optimal, no HTR limit | My 3 classes (budget 2) | My classes to match | Optimal ≤ 12 only: sheet (budget 2) | Optimal ≤ 12 only: my 3 classes (budget 2) |
+|---|---|---|---|---|---|---|---|
+| 0c0 0e | 84.5% | 95.2% | 91.8% | 92.6% | 3 | 84.4% | 92.5% |
+| 0c0 2e | 71.5% | 93.4% | 95.9% | 70.2% | 4 | 70.1% | 68.9% |
+| 0c0 4e | 65.1% | 90.8% | 94.4% | 61.5% | 6 | 63.9% | 59.4% |
+| 0c0 6e | 61.2% | 89.4% | 94.5% | 60.2% | 4 | 67.4% | 65.0% |
+| 0c0 8e | 70.1% | 91.7% | 77.9% | 77.1% | 3 | 73.8% | 86.3% |
+| 2c5 0e | 81.6% | 96.6% | >99.9% | 89.6% | 2 | 92.2% | >99.9% |
+| 2c5 2e | 86.1% | 97.8% | >99.9% | 91.0% | 2 | 95.7% | >99.9% |
+| 2c5 4e | 85.7% | 97.7% | >99.9% | 91.9% | 2 | 95.5% | >99.9% |
+| 2c5 6e | 83.6% | 97.1% | >99.9% | 90.6% | 2 | 93.0% | >99.9% |
+| 2c5 8e | 83.0% | 97.1% | >99.9% | 91.0% | 2 | 95.9% | >99.9% |
+| 2c4 0e | 88.4% | 98.7% | 98.8% | 88.6% | 3 | 94.1% | 94.3% |
+| 2c4 2e | 89.7% | 98.8% | 98.6% | 89.9% | 3 | 94.0% | 93.7% |
+| 2c4 4e | 87.3% | 98.6% | 98.5% | 87.6% | 3 | 94.0% | 94.3% |
+| 2c4 6e | 88.0% | 98.6% | 98.6% | 88.5% | 3 | 93.5% | 93.1% |
+| 2c4 8e | 89.5% | 99.3% | 98.1% | 91.5% | 2 | 98.4% | 98.4% |
+| 0c3 0e | 92.6% | 99.3% | 97.5% | 96.6% | 2 | >99.9% | >99.9% |
+| 0c3 2e | 85.6% | 98.8% | 93.1% | 92.1% | 2 | 99.0% | 99.1% |
+| 0c3 4e | 72.6% | 95.2% | 84.3% | 85.8% | 2 | 99.2% | >99.9% |
+| 0c3 6e | 87.9% | 99.0% | 94.3% | 94.6% | 2 | 98.7% | 98.9% |
+| 0c3 8e | 92.9% | 99.4% | 98.8% | 96.1% | 2 | >99.9% | >99.9% |
+| 4a2 0e | 37.6% | 64.8% | 69.3% | 44.4% | 2 | 51.6% | 39.0% |
+| 4a2 2e | 76.8% | 96.3% | 87.1% | 76.8% | 4 | 79.6% | 68.8% |
+| 4a2 4e | 65.9% | 87.7% | 67.9% | 79.1% | 2 | 71.7% | 75.0% |
+| 4a1 0e | 70.1% | 92.1% | 95.7% | 54.6% | 6 | 72.0% | 58.0% |
+| 4a1 2e | 76.5% | 95.4% | 86.3% | 70.5% | 4 | 75.8% | 69.4% |
+| 4a1 4e | 69.4% | 92.2% | 89.8% | 60.6% | 5 | 68.7% | 60.5% |
+| 2c3 0e | 87.8% | 98.8% | 99.9% | 75.1% | 8 | 90.1% | 77.0% |
+| 2c3 2e | 79.6% | 96.4% | 89.8% | 80.2% | 2 | 79.8% | 80.6% |
+| 2c3 4e | 76.6% | 95.6% | 83.2% | 78.1% | 2 | 79.3% | 81.1% |
+| 2c3 6e | 73.3% | 94.7% | 78.1% | 76.7% | 2 | 75.1% | 79.1% |
+| 2c3 8e | 85.8% | 98.5% | 99.9% | 74.5% | 8 | 87.7% | 80.6% |
+| 0c4 0e | 87.2% | 97.4% | >99.9% | 87.6% | 3 | 91.3% | 90.2% |
+| 0c4 2e | 88.9% | 97.9% | >99.9% | 89.1% | 3 | 93.8% | 94.7% |
+| 0c4 4e | 86.2% | 97.5% | >99.9% | 86.1% | 4 | 92.4% | 89.6% |
+| 0c4 6e | 83.7% | 97.3% | >99.9% | 85.4% | 2 | 92.8% | 93.3% |
+| 0c4 8e | 80.7% | 96.3% | >99.9% | 87.1% | 2 | 96.4% | 96.4% |
+| 4c3 0e | 74.8% | 94.8% | 76.5% | 83.3% | 2 | 77.3% | 90.3% |
+| 4c3 2e | 72.4% | 94.1% | 74.6% | 75.1% | 3 | 73.6% | 82.5% |
+| 4c3 4e | 67.8% | 92.0% | 70.7% | 74.4% | 2 | 69.7% | 82.0% |
+| 4c4 0e | 66.9% | 92.8% | 86.5% | 76.7% | 2 | 87.1% | 95.6% |
+| 4c4 2e | 70.6% | 93.8% | 90.7% | 78.7% | 2 | 85.6% | 91.2% |
+| 4c4 4e | 70.7% | 93.7% | 91.4% | 78.2% | 2 | 85.2% | 87.3% |
+| 4b2 0e | 74.9% | 94.1% | 91.6% | 61.0% | 6 | 80.2% | 61.8% |
+| 4b2 2e | 67.2% | 90.9% | 94.4% | 59.0% | 6 | 66.7% | 57.3% |
+| 4b2 4e | 77.8% | 95.5% | 93.1% | 66.8% | 6 | 76.8% | 64.9% |
+| 4b5 0e | 74.6% | 93.9% | >99.9% | 92.6% | 2 | 92.8% | >99.9% |
+| 4b5 2e | 78.8% | 95.1% | >99.9% | 93.6% | 2 | 90.9% | >99.9% |
+| 4b5 4e | 77.4% | 94.3% | >99.9% | 93.9% | 2 | 89.1% | >99.9% |
 
-| Sheet is | On |
-|---|---|
-| ahead | 4b2, 4a1, 2c3 0e and 8e, 0c0 2e to 6e (where it lists several routes) |
-| about level | 2c4 0e to 6e, 4a2 2e, 0c4 2e |
-| behind | all of 2c5, 0c3, 4c3, 4c4 and 4b5; 0c4 except 2e; 4a2 0e and 4e; 2c3 2e to 6e; 2c4 8e; 0c0 0e and 8e |
+The sheet against my first three, from those columns. *Level* means under 1 point apart, or within two standard errors of the difference on the same DRs. The sample has fewer short DRs on some subsets, so those rows are rougher: under 1,000 per subset × edges on all of 2c5, 4c4 and 4b5; 0c3 2e to 6e; 0c4 6e and 8e, and as few as 317 on 4c4 0e. Each row is a verdict, each cell the subsets × edges that get it:
 
-Daichi aimed it at sub-13 finishes, so its routes favour the short ones, which is what you want in an attempt anyway.
+| Sheet is | DRs with an optimal of 12 or less | All DRs |
+|---|---|---|
+| ahead | all of 4a1 and 4b2; 0c0 2e to 6e; 4a2 0e and 2e; 2c3 0e and 8e; 0c4 0e and 4e | all of 4a1 and 4b2; 0c0 2e to 6e; 2c3 0e and 8e |
+| level | all of 2c4 and 0c3; 2c3 2e; 0c4 2e, 6e and 8e; 4c4 4e | 2c4 except 8e; 4a2 2e; 2c3 2e; 0c4 0e to 4e |
+| behind | all of 2c5, 4c3 and 4b5; 0c0 0e and 8e; 4a2 4e; 2c3 4e and 6e; 4c4 0e and 2e | all of 2c5, 0c3, 4c3, 4c4 and 4b5; 0c0 0e and 8e; 2c4 8e; 4a2 0e and 4e; 2c3 4e and 6e; 0c4 6e and 8e |
 
 ---
 
@@ -1977,10 +1980,10 @@ Everything said on the server that the numbers can settle, by theme. Questions a
 
 | Claim | Who | Verdict |
 |---|---|---|
-| "It doesn't capture EVERYTHING, but I decided that checking these will capture a great portion of those" (the cheat sheet) | Daichi [12 Jun 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1515177158870569101) | **True**: the sheet's routes find the optimal on 37.6% (4a2 0e) to 92.9% (0c3 8e) with budget-2 HTRs (section 10). |
-| "40% of opt 4b2 4e solutions use 2qt, 45% regress to 2c3", "only about 8% go to 0c0 2e/4e" | Fanti [2 Feb 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1335799386914951218) | **Depends**: these are *allcases*' own cells for 4b2 4e (39.5%, 44.8%, 8.4%; Fanti names no source, but the numbers match), so Fanti read the sheet right. One leave-slice optimal picked at random among the optimal finishes (5,000 states) gives 33.5%, 46.8% and 9.9%: the sheet picks the fewer-qt optimal more often than chance when there are ties (section 5). |
+| "it's to filter routes to check rather than DRs itself, based on the sub13 DR route stats", "It doesn't capture EVERYTHING, but I decided that checking these will capture a great portion of those" (the cheat sheet) | Daichi [12 Jun 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1515177158870569101) | **True**: on DRs with an optimal of 12 or less, the ones the sheet was built from, its routes find the optimal on 51.6% (4a2 0e) to >99.9% (0c3 0e) with budget-2 HTRs, and on 85.2% or more of every 4qt and 5qt subset × edges. On all DRs it's 37.6% (4a2 0e) to 92.9% (0c3 8e) (section 10). |
+| "40% of opt 4b2 4e solutions use 2qt, 45% regress to 2c3", "only about 8% go to 0c0 2e/4e" | Fanti [2 Feb 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1335799386914951218) | **Depends**: these are *allcases*' own cells for 4b2 4e (39.5%, 44.8%, 8.4%), where Fanti took them from ("i took the stats from here", [3 Feb 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1336154204997161041)), so Fanti read the sheet right. One leave-slice optimal picked at random among the optimal finishes (5,000 states) gives 33.5%, 46.8% and 9.9%: the sheet picks the fewer-qt optimal more often than chance when there are ties (section 5). |
 | "optimal for 4b2 0e goes through 4c3 4% of the time? wtf" (read off *allcases*) | Evan [29 Oct 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1300996305778380810) | **True** in kind: one leave-slice optimal at random (5,000 states) passes 4c3 on 6.1% of 4b2 0e; the sheet's lower figure fits its preference for fewer qts. |
-| "Only 1/3 of 2q 4b2e cases use 2qt for optimal wtf" | mrauo [8 Dec 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1315341544206631054) | **Withdrawn**: it read the 4a2 2e row; Zagros said so at once ([8 Dec 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1315341879910600775), [8 Dec 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1315341893856657430)) and mrauo agreed ("Okey I was so confused hahaha", [8 Dec 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1315342166221918269)). Section 5. |
+| "Only 1/3 of 2q 4b2e cases use 2qt for optimal wtf" | mrauo [8 Dec 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1315341544206631054) | **Withdrawn**: that's the 4a2 2e row; Zagros said so at once ([8 Dec 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1315341879910600775), [8 Dec 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1315341893856657430)) and mrauo agreed ("Okey I was so confused hahaha", [8 Dec 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1315342166221918269)). Section 5. |
 | "Much more common with the 3q 4c subset and high edge count (6 or 8) for 3q 2c" (DRs whose only optimals use 5qt) | Jakob Jernsletten [25 Apr 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1233064302634860554) | **True**: every optimal uses 5qt on 27.4% of 4c3, 21.9% of 2c3 6e and 52.8% of 2c3 8e, against 10.2% of 2c3 2e. |
 | "2c3 rarely needs 5q for optimal, so I don't usually check 5q on 2c3", after pointing to the *Extra Quarter-Turn Stats* sheet ("Theres the stat sheet for that") | Levi Gibson [29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1312044914921439253), [29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1312044531805458514) | **Depends** on the edges, read as the sheet does (every leave-slice optimal needs 5qt): 11.2% of all 2c3, 5.1% of 2e and 10.6% of 4e, but 49.5% of 0e and 47.0% of 8e. |
 | "So, ~25% of 4c3 requires 5qt to get optimal !!!?!?"; "Yes, this is correct" | Lichi Fang [29 Oct 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1301009545031585802), Levi Gibson [29 Oct 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1301010011912409129) | **True**: every leave-slice optimal uses 5qt on 25.3% of 4c3 (full finish 27.4%). |
@@ -1994,7 +1997,7 @@ Everything said on the server that the numbers can settle, by theme. Questions a
 |---|---|---|
 | "57% of the time, the optimal solution uses 4QT for a  2QT corner case" | rodneykinney [13 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1063355084697784371) | **Depends** on which optimal: 53.9% every optimal, 80.7% some optimal, 69.0% one at random (leave slice 56.3%). |
 | "over 60% the optimal solution for htr subset 2qt(a) 4c4e … use 4qt rather than 2qt" (first nissy optimal) | Lichi Fang [6 Aug 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1137835695721939094) | **True**: one optimal at random 77.6%, every optimal 63.7%. |
-| "so yeah, should be 1/6" (mean gain from inverting the last DR move), "very rough" | Yura Riabov [6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248337792673779803), [6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372741602545674) | **Corrected**: 0.325 moves, about 1/3 [a]. Yura's ceiling, "i doubt it will be more than a half move difference with 1 move inverted" ([6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372741602545674)), is **True**. |
+| "depends on if dr uses niss or not, but if not then pre-dr part can end in 1 of 4 moves, so inverting it should bring down the mean by 2/3(chance of dr solution ending in 1 of 4 moves) * 1/4(chance of that move being the right one), so yeah, should be 1/6"; then "I knew that this is very rough but i think it gives at least an order of numbers, i doubt it will be more than a half move difference with 1 move inverted" | Yura Riabov [6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248337792673779803), [6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372741602545674) | **Depends**: as a number it's low by half (0.325 moves, about 1/3, exact over every DR state); as an order of magnitude with a ceiling of half a move, which is how Yura left it, it holds. Lichi Fang had the missing factor at once ("would it make a difference if a DR has several optimal finishes starting with different move?", [6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372233726857299); Yura: "also true", [6 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1248372374785753248)): some optimal starts with the right half turn on 32.5% of DRs. |
 | "but inverting last move before dr will always reduce optimal by 1" (the 18-move states) | Yura Riabov [24 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1364979172774252674) | **True**, exact: every 18-move DR state is 17 after its last side half turn either way; torchlight's finding as Jay reported it ([28 Mar 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1355356897414348904): "i think torchlight figured out that for all those cases any of R2 L2 F2 B2 (UD oriented DR) would take the case from 18 to 17") is also true. |
 | "a qt break from DR only makes it around 0.5 worse, rather than 1 as you might expect" | trangium [6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469487095407186093) | **True**, roughly: 0.68 on average. |
 
@@ -2006,29 +2009,29 @@ Everything said on the server that the numbers can settle, by theme. Questions a
 | "If you skip 4qt entirely there's only 7 cases (with my method/jacks method, with hyper parity I think there's more)" | Jay [14 Oct 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1030639402952699904) | **True**: 0c0 4a1 4a2 4b2 0c3 2c3 4c3, seven corner subsets with at most 3qt. |
 | "2cxe I think it's at least worth noting if it's 0/2/4e (all 7 optimal w/o NISS) 6e (8) or 8e (9)" | Jay [2 Jan 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1191918611724505168) | **True**: the shortest linear HTR is 7 moves on 0e, 7 on 2e, 7 on 4e, 8 on 6e and 9 on 8e. |
 | "4qt 2C is 6 moves to HTR at best using NISS (7 without)"; "10 linearly, 6 with NISS", "for the other type of fake htr its 9 linearly and 6 with NISS" | Jay [29 May 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1112914561524314236); Lewis Isom [23 Jun 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1254409343991025766) | **True**: 2c4 0e 7/6, 0c4 0e 9/6, 0c3 0e 10/6 (linear exact; the NISS minimum over every DR state of the three is 6, 6 and 6, exact too). |
-| "Interesting that it seems 4qt 4C0E is the only HTR subset that is guaranteed 11 moves without NISS" | Jay [29 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1069455768782385294) | **Corrected**: 4c4 0e has linear HTRs of 10, and 0c4 8e is the subset that always needs 11 [b]. Lewis Isom noticed the 10 in 2024 ([23 Jan 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1199494282223038485)). |
-| "No, the maximum it takes is 12 moves linearly, and 11 moves using NISS." | Lewis Isom [23 Jan 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1199490255921877022) | **Corrected**: 13 linearly, on both sides for some DRs, and 12 with NISS, which is the longest over every DR state (exact) [c]. Daichi's "0c3 4e and 4c4 0e have 13 move optimal HTR cases" ([14 May 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1504408526444040192)) is **True** (13 and 13, exact). |
+| "Interesting that it seems 4qt 4C0E is the only HTR subset that is guaranteed 11 moves without NISS (I'm pretty sure 2C6E 5qt will be 10)" | Jay [29 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1069455768782385294) | **Corrected**: 4c4 0e has linear HTRs of 10, and 0c4 8e is the subset that always needs 11 [a]. Aedan Bryant's sheet had the 10 (34.1% of its "4qt 4C" states); Lewis Isom pointed it out in 2024 ([23 Jan 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1199494282223038485)). |
+| "No, the maximum it takes is 12 moves linearly, and 11 moves using NISS. See HTR subset stats under fmc-stats for more info." | Lewis Isom [23 Jan 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1199490255921877022) | **Corrected**: 13 linearly, on both sides for some DRs, and 12 with NISS, which is the longest over every DR state (exact) [b]. Aedan Bryant's sheet, the source named, has the 13 on its "3qt 4E" row (7.6% of its states); its longest NISS HTR is 11, the 12s being about 3 DRs in a million. Daichi's "0c3 4e and 4c4 0e have 13 move optimal HTR cases" ([14 May 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1504408526444040192)) is **True** (13 and 13, exact). |
 | "5/6" (of HTRs that are fake) | zakimoshi [19 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1153601303801495632) | **True**, exact: 480/576 of the corner arrangements with no bad corner are fake (Lean-checked). |
 | "the *expected value* is 10.13 -- the average number of moves to solve a random HTR state" | DougCube [13 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1416567970334773378) | **True**, exact over the 663,552 HTR states (half turns only). |
 | "This should be it" (the share of each corner subset, in 210ths) | Daichi [6 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1391490386509172888) | **True**, exact. |
 | "2c4 0e for example is actually really good a lot of the time" | Jay [27 Oct 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1300230075458916444) | **True**: it has the lowest mean optimal of the 2c4 cases, exact 13.218 against 13.531 to 14.015. |
 | "2с4 is 13.5ish on average optimal, 4b2 2e is 12.5ish iirc" | Yura Riabov [25 Feb 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1476183753410744443) | **True**, exact: 13.647 and 12.611. |
 | "9 moves from DR to HTR is quite a lot so usually the solution from those will also be too long to be optimal. And especially here you have so many shorter HTRs to check."; "If you have checked all shorter HTRs and you have no other DRs to check you might as well start checking 9 move HTRs." | tseitsei89 [12 Oct 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1426922640462970924), [12 Oct 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1426926451680215131) | **Open**: it's about each 9-move HTR you write, which I didn't measure. For context only: on 65.2% of DRs every optimal needs an HTR of 9 or more, on 29.7% although a shorter HTR exists (section 6). |
-| "this isn't the worst practice but it's pretty rare for switching after doing more than 2 moves to actually be useful, unless you're variationmaxing" | Evan [2 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368063770576027648) | **Depends** on the subset and on which HTRs you allow: with HTRs up to two over the shortest (budget 2), the optimal needs a switch after more than 2 moves on 13.2% of DRs (7.8% of 4b2, 9.1% of 2c3, 20.0% of 2c5) and after 4 or more on 5.1%. Through the shortest HTR only it's 28.2%, an upper bound. Yura Riabov's "More like 3 imo" in the same thread fits better (*Switching late*, below). |
+| "this isn't the worst practice but it's pretty rare for switching after doing more than 2 moves to actually be useful, unless you're variationmaxing" | Evan [2 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368063770576027648) | **Depends** on the subset and on which HTRs you allow: with HTRs up to two over the shortest (budget 2), the optimal needs a switch after more than 2 moves on 13.2% of DRs (7.8% of 4b2, 9.1% of 2c3, 20.0% of 2c5) and after 4 or more on 5.1%. Through the shortest HTR only it's 28.2%, an upper bound. Evan's own exceptions cover most of the rest (*Switching late*, below). |
 | "More like 3 imo"; "i almost never do this but i think it is useful"; "i really don't like switching after more than 2 moves or for badish cases, which is why i'm worse at finishes than i could be" | Yura Riabov [3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368155824371007488), [3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368162064148725770), [3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368162218579071158) | **True** for most subsets. Switch after 4 or more moves: 5.5% of 2c3, 4.9% of 4b2, 2.7% of 4a1, 3.5% of 0c0 (9.7% outside 4c3, 4c4 and 0c4). Large only on 0c4 (32.4%), 4c4 (30.4%) and 2c5 (23.5%). |
-| "pretty sure 15 is gods number for 4a1 4e" | Levi Gibson [29 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1377633973039009822) | **Depends** on the metric: Levi Gibson's stats are leave-slice ("E Slice is not a thing in this simulation", [13 Oct 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1295060662908751912)), and the longest leave-slice optimal of a 4a1 4e is 15, exact over all 286,654,464 of them; the longest full finish (E slice solved) is 17. |
+| "pretty sure 15 is gods number for 4a1 4e" | Levi Gibson [29 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1377633973039009822) | **Depends** on the metric, which Levi Gibson didn't name: the example given just before ([29 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1377633430887727174)) is 15 with the slice solved and 15 leaving it. Leaving the slice, as Levi Gibson's stat sheets do ("E Slice is not a thing in this simulation", [13 Oct 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1295060662908751912)), the longest optimal of a 4a1 4e is 15, exact over all 286,654,464 of them; with the E slice solved it's 17, for example `B2 R2 U B2 F2 R2 B2 F2 R2 U F2 R2 D' U' F2 R2 D'`. |
 
 **Bounding** (sections 8 and 9)
 
 | Claim | Who | Verdict |
 |---|---|---|
-| "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time" | Levi Gibson [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311670582601060354) | **Corrected** [d]: bounding alone, every reduction of at most 4. On 4a2, the subset named just before ("for the 4a2 subset I use full DR Bounding", [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311669869900464138)): optimal 76.6%, so the 75% holds there, but within +1 only 93.6%. On 2c3: optimal 48.1% (52.1% of 2c3 2e), within +1 78.8%. Levi Gibson used it with 5-move triggers on 2c3 ([28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311674286389334026)), which I didn't measure; the later "yeah something like that I'd guess" for 80% on 2c3 ([29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051081831780434)) was a guess. |
+| "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time", then "If I REALLY want to solve a DR optimally I'll check all sub-6 reductions" | Levi Gibson [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311670582601060354) | **Corrected** [c]: bounding alone, every reduction of at most 4. On 4a2, the subset named just before ("for the 4a2 subset I use full DR Bounding", [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311669869900464138)): optimal 76.6%, so the 75% holds there, but within +1 only 93.6%. On 2c3: optimal 48.1% (52.1% of 2c3 2e), within +1 78.8%. With every reduction of at most 5 (the "sub-6") it's 80.0% on 4a2 and 71.1% on 2c3. Yura Riabov said as much in the same exchange ("i think it could be very good for 4a2 but for 2c3 trigger knowledge covers most cases", [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311671177948823554)). Levi Gibson used it with 5-move triggers on 2c3 ([28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311674286389334026)), which I didn't measure; the later "yeah something like that I'd guess" for 80% on 2c3 ([29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051081831780434)) was a guess. |
 | JTuu's simulation: "Findable: 1293/2000 (64.65%)" (linear 7 or bounding 4) … "Findable: 1721/2000 (86.05%)" (8 and 5) | JTuu [4 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1313766061325156462) | **Open**: same definitions, uniform states give 5.8 to 9.4 points less; the states were probably drawn differently, or with the last DR move inverted, which Kai Cui's generator did (section 8). |
 | "Bounding update: after lots and lots of solves this is how I use it" (per-subset verdicts) | Levi Gibson [8 May 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1370092390362382348) | **Depends** on the subset: right for 0c0, 4a2 0e, 4a1 (bound 4a1 4e, not 0e/2e) and 2c3 2e/4e; on 4b2 0e and 2e bounding with reductions of 4 already beats three routes, more than "just check the really short ones" suggests; on 2c3 6e and on 4c3 ("Bounding is actually REALLY good for 4c3") the routes are well ahead (section 8). |
 | "half of all 3QT cases and a quarter of all 4QT cases can immediately be reduced to 2QT by applying a U move to the normal and/or inverse", amended to "2/3 of 3QT cases and 1/6 of 4QT cases" | rodneykinney [11 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1062756177424961546), [11 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1062823846954160128) | 3qt: **True**, exact: one bare qt on normal or inverse does it for 66.1% of 3qt corner arrangements (Lean-checked). 4qt: **Open**: one bare qt never does it (exact); it takes a qt on each side, the "and" of "and/or", which rodneykinney's 1/6 counted from optimal corner solutions ([11 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1062820653113290773), [11 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1062821731091349525)) and this study did not. |
-| R from [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491531409959948369), "the biggest possible length of a reduction to 1q you have to check" | FakeMMAP [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491531394667773962) | **True** as written, safe but loose: R, "the max of the following", is never too short, proved for every finish (Lean `Rmax_sound`), but only because term 1, about M − 1, is among the terms; in the sample it was never too short in 1,914,809 cases at the optimum. C is the subset's shortest linear HTR, as FakeMMAP defined it (Lean `term5_sound`, `labels_keep`). Read as the smallest term, it is sound (Lean `Rmin_sound`) once the $\alpha$ index and term 2's signs are fixed [e]. Section 9. |
-| The multi-qt lower bounds of [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491533155201716475), with "I don't know how useful these bounds really are, I have to put in the numbers to see if there are situations where the typical bound is M \geq 11, rather than M \geq 7 lol." | FakeMMAP [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491533155201716475), [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491533429198553178) | **Corrected** [e]: the sum needs $\alpha_{i+1}$; as written the bounds fail in 923 cases, and with $\alpha_{i+1}$ they are proved valid (Lean `lower_free`, `lower_A`, `lower_B`, `lower_C`). Section 9 gives the typical bound values FakeMMAP asked about. |
-| "it just produces optimal in 15 minutes like 80% of the time" (following the system) | Zagros [29 Dec 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1455302363953758427) | **Open**: time isn't modelled; the 4b2 order done fully gives 71.3% with budget-2 HTRs (section 10). |
+| R from [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491531409959948369), "the biggest possible length of a reduction to 1q you have to check" | FakeMMAP [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491531394667773962) | **True** as written, safe but loose: R, "the max of the following", is never too short, proved for every finish (Lean `Rmax_sound`), but only because term 1, about M − 1, is among the terms; in the sample it was never too short in 1,914,809 cases at the optimum. C is the subset's shortest linear HTR, as FakeMMAP defined it (Lean `term5_sound`, `labels_keep`). Read as the smallest term, it is sound (Lean `Rmin_sound`) once the $\alpha$ index and term 2's signs are fixed [d]. Section 9. |
+| The multi-qt lower bounds of [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491533155201716475), with "I don't know how useful these bounds really are, I have to put in the numbers to see if there are situations where the typical bound is M \geq 11, rather than M \geq 7 lol." | FakeMMAP [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491533155201716475), [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491533429198553178) | **Corrected** [d]: the sum needs $\alpha_{i+1}$; as written the bounds fail in 923 cases, and with $\alpha_{i+1}$ they are proved valid (Lean `lower_free`, `lower_A`, `lower_B`, `lower_C`). Section 9 gives the typical bound values FakeMMAP asked about. |
+| "if I simply follow the system I have in my mind for each subset without getting distracted then it just produces optimal in 15 minutes like 80% of the time" | Zagros [29 Dec 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1455302363953758427) | **Open**: time isn't modelled, and the message before spells out only the 4b2 order ("for example, for a 4b2:", [29 Dec 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1455301984415514719)). Done fully, that order finds the optimal on 71.0% of 4b2 with budget-2 HTRs, and on 74.3% with the HTR limits Zagros stated (none on step 2, "even if it's long") (section 10). |
 
 Letters refer to the errata.
 
@@ -2036,13 +2039,14 @@ Letters refer to the errata.
 
 With HTRs up to two moves over the DR's shortest NISS HTR (budget 2, the write-up's default), every optimal reading within the budget switches after 3 or more moves on 13.2% of DRs, about one in eight, and after 4 or more on 5.1% (sampled, 25,000 per subset × edges; another 12.8% have no optimal reading within the budget and aren't counted). So overall a switch after more than 2 moves is needed on one DR in eight, on 4b2 and 2c3 on about one in twelve (table below), and after more than 3 it is rare. Through the shortest HTR that any reading of any optimal finish reaches, every reading that reaches it switches after 3 or more moves on 28.2% of DRs. That one is an upper bound on how often a late switch is needed for the optimal: on some of these DRs another reading, with a longer HTR, is linear or switches early.
 
-Evan named exceptions in the same thread ("the b side of 4c3", "4c4 and 0c4 ofc but those are pretty rare", [3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368159205072175145), [3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368159998848274462)). Leaving out all of 4c3, 4c4 and 0c4 it's still 11.3% with budget 2 (24.0% through the shortest HTR). Yura Riabov's "More like 3 imo" ([3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368155824371007488)) fits much better: after 4 or more moves it's small except on 0c4, 4c4 and 2c5.
+Evan named the exceptions in the same thread: "ehh the only thing I do this for regularly is the b side of 4c3" and "4c4 and 0c4 ofc but those are pretty rare, and switching U2 F2 U reductions for some subsets can be useful but is also uncommon I feel" ([3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368159205072175145), [3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368159998848274462)). The last one is a switch after exactly 3 moves, and that's most of what's left: on 2c3, 4b2 and 2c4 the optimal needs one on 6.8%, 5.6% and 7.9% of DRs, and a switch after 4 or more on 2.3%, 2.2% and 3.7% (table below). Leaving out all of 4c3, 4c4 and 0c4, a switch after more than 2 moves is still needed on 11.3% with budget 2 (24.0% through the shortest HTR), and after 4 or more on 3.9%. So with Evan's own exceptions the two are close: Yura Riabov's "More like 3 imo" ([3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368155824371007488)) puts the line one move later, and past it a late switch is rare except on 0c4, 4c4 and 2c5.
 
 Each row is how late the switch is and which HTRs are allowed; each cell is the share of that corner subset's DRs where the optimal needs it:
 
 | Switch needed after | HTRs allowed | 2c3 | 4b2 | 2c4 | 2c5 |
 |---|---|---|---|---|---|
 | more than 2 moves | up to 2 over the shortest (budget 2) | 9.1% | 7.8% | 11.6% | 20.0% |
+| exactly 3 moves | up to 2 over the shortest (budget 2) | 6.8% | 5.6% | 7.9% | 10.9% |
 | more than 2 moves | the shortest only (upper bound) | 17.9% | 16.1% | 24.1% | 43.5% |
 | 4 or more moves | up to 2 over the shortest (budget 2) | 2.3% | 2.2% | 3.7% | 9.0% |
 | 4 or more moves | the shortest only (upper bound) | 5.5% | 4.9% | 8.7% | 23.5% |
@@ -4658,7 +4662,7 @@ Within +1, where the first quarter turn goes most often, same columns as in sect
   - Formula.lean: the smallest term is sound (`Rmin_sound`) and so is the largest, the formula as written (`Rmax_sound`).
   - Counter.lean: the counterexamples to the printed forms (`printed_term2_fails`, `literal_min_fails`, `witness_0c3`, `alpha_i_fails`), that the smallest term isn't always the exact worst case (`Rmin_not_tight`), and where C goes (`C_placement`).
   - Subset.lean, on the cube: half turns keep the subset × bad edges (`half_turns_keep_subset_data`, `labels_keep`), FakeMMAP's $C = 5$ and 6 (`fake_C_examples`), and $\alpha$ of the two counterexample paths (`counter_alphas`).
-- *Corrections* (lean/FakeBound/Corrections/Examples.lean), the errata examples and the late-switch example of section 11: the optimal finish of every DR state in a, c, d and e and in the late-switch example (`dr_optima_correct`, from the first study's proved table) and the printed finishes of a, e and the late-switch example (`dr_solutions_valid`); the HTR lengths and printed HTRs of b and c (`htr_4c4`, `htr_13`); the subset names of a, d, e and the late-switch example (`labels_htr_routes`); e's index example end to end (`index_example`, `index_example_arith`) and the C example (`C_example`). In the Lean files the examples keep their first labels: `htr-routes d` is the late-switch example, `htr-routes e` is errata d and `htr-routes f` is errata e. Each errata item says how much of its example is Lean-checked.
+- *Corrections* (lean/FakeBound/Corrections/Examples.lean), the errata examples, the last-move example of section 7 and the late-switch example of section 11: the optimal finish of every DR state in errata b (the 0c3 4e), c and d, in the last-move example and in the late-switch example (`dr_optima_correct`, from the first study's proved table) and the printed finishes of errata d, the last-move example and the late-switch example (`dr_solutions_valid`); the HTR lengths and printed HTRs of errata a and b (`htr_4c4`, `htr_13`); the subset names of errata c and d, the last-move example and the late-switch example (`labels_htr_routes`); errata d's index example end to end (`index_example`, `index_example_arith`) and the C example (`C_example`). In the Lean files the examples keep their first labels: `htr-routes a` is the last-move example, `htr-routes b` is errata a, `htr-routes c` is errata b, `htr-routes d` is the late-switch example, `htr-routes e` is errata c and `htr-routes f` is errata d. Each errata item says how much of its example is Lean-checked. Errata b's second example (the 4c4 0e), and the 17-move 4a1 4e and Levi Gibson's 15-move example in section 11, are from the exact table and nissy, replayed on the sticker model, not Lean.
 
 **Computed, not proved**: every share and mean from the samples (25,000 states per subset × edges, 4,000 for bounding), the exact model of section 9 (an enumeration in Python), the shortest NISS HTRs (the Rust tool's search, cross-checked with nissy and by the second program, which also searched the whole group), which finishes are optimal and how they read (the Rust tool, cross-checked on the sticker model, with nissy and by the second program), the reduction counts, and the counts over the first study's exact table, such as the gain from the last DR move. Those last ones are exact, but the counting is a plain program over a proved table, not a Lean theorem.
 

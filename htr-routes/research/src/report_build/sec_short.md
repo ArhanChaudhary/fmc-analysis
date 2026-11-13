@@ -99,11 +99,11 @@ FakeMMAP asked whether "the typical bound is M \geq 11, rather than M \geq 7" ([
 
 That's one or two above the trivial bound, and it reaches the optimum in only {= CELL('lb_shares', '2c3', 'Bound reaches the optimum') =} of 2c3 cases. The per-subset tables rodneykinney asked for ([[T11512]]) are in section 9 and appendix A.
 
-**Hand checklists graded.** Zagros's eight-step 4b2 order finds the optimal on {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_opt_htr_budget2') =} with budget-2 HTRs and a finish within +1 on {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_p1_htr_budget2') =}. On 4b2 4e, the share each approach finds the optimal on:
+**Hand checklists graded.** Zagros's eight-step 4b2 order finds the optimal on {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_opt_htr_budget2') =} with budget-2 HTRs and a finish within +1 on {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_p1_htr_budget2') =}; with the HTR limits as Zagros stated them (none on step 2, "even if it's long"), {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_opt_stated') =} and {= GR('Zagros 4b2 order (D15884)', 5, 'cumulative_p1_stated') =}. On 4b2 4e, the share each approach finds the optimal on:
 
 | Approach | Optimal found |
 |---|---|
-| Yura Riabov's order (trigger, then regress to 2c3), after two steps | {= GR('Yura 4b2 4e order (D6409-D6416)', 2, 'cumulative_opt_htr_budget2') =} |
+| Yura Riabov's order (trigger, then regress to 2c3 2e or 4e), after two steps | {= GR('Yura 4b2 4e order (D6409-D6416)', 2, 'cumulative_opt_htr_budget2') =} |
 | same, after three steps | {= GR('Yura 4b2 4e order (D6409-D6416)', 3, 'cumulative_opt_htr_budget2') =} |
 | reduce to 1q first, every reduction of at most 4 moves | {= pc(Q8('4b2 4e', '1', '4', 'found_opt')) =} |
 | same, at most 5 moves | {= pc(Q8('4b2 4e', '1', '5', 'found_opt')) =} |
@@ -126,13 +126,13 @@ R L F2 B2 R' L'   // the type of finish that beats the DR-move optimum there
 
 **What it confirms or corrects**
 
-**Confirmed: the routes.** The first route of the budget-2 checklist is what Daichi's cheat sheet says: switch after 4b2 on 4c3 and 0c4, go through 2c3 on 2c4 and 2c5, 4a2 4e switch on 0c3. Graded against my first three routes, Daichi's sheet finds the optimal more often, about as often or less often on these subsets (section 10):
+**Confirmed: the routes.** The first route of the budget-2 checklist is what Daichi's cheat sheet says: switch after 4b2 on 4c3 and 0c4, go through 2c3 on 2c4 and 2c5, 4a2 4e switch on 0c3. Daichi built the sheet from finishes of 12 or less ("based on the sub13 DR route stats", [[D18343]]). Graded against my first three routes with budget-2 HTRs, on those DRs and on all DRs, the sheet finds the optimal more often, about as often or less often on these subsets (section 10):
 
-| Daichi's sheet | Where |
-|---|---|
-| more often | 4b2, 4a1, 2c3 0e and 8e, 0c0 2e to 6e |
-| about as often | 2c4 0e to 6e, 4a2 2e, 0c4 2e |
-| less often | all of 2c5, 0c3, 4c3, 4c4 and 4b5; 0c4 except 2e; 4a2 0e and 4e; 2c3 2e to 6e |
+| Daichi's sheet | DRs with an optimal of 12 or less | All DRs |
+|---|---|---|
+| more often | {= E['daichi_cmp']['le12']['ahead'] =} | {= E['daichi_cmp']['all']['ahead'] =} |
+| about as often | {= E['daichi_cmp']['le12']['level'] =} | {= E['daichi_cmp']['all']['level'] =} |
+| less often | {= E['daichi_cmp']['le12']['behind'] =} | {= E['daichi_cmp']['all']['behind'] =} |
 
 **Confirmed: uniform states are the right model.** Take the DRs cubelib finds on {= n(E['gaps']['n_scr']) =} random scrambles (every EO-first DR of at most 11 moves, {= n(E['gaps']['n_dr11']) =} of them). Corner-subset shares are within {= f1(E['gaps']['share_maxdiff']) =} points of uniform and mean optimal finishes within {= f2(E['gaps']['mean_maxdiff']) =} moves. Per corner subset, every checklist share, bounding share and HTR headline of this section moves by under a point, with two exceptions (share of DRs):
 
@@ -149,21 +149,21 @@ The first route is the same on every corner subset, and the first three are the 
 
 **Explained: the quoted extra-qt numbers.** They depend on whether you ask about every optimal, some optimal or one optimal from a solver; rodneykinney's 57% and Lichi Fang's "over 60%" fit different readings, and both fit (section 7).
 
-**Corrected, with the first study's table: the last DR move.** Turning it the other way gives a finish one move shorter on {= pc(Q5('all', 'share_variation_shorter')) =} of DRs, never more than one, so about a third of a move on average, not the 1/6 Yura Riabov estimated in 2024 (Yura called it "very rough"). It doesn't change which routes to try (section 7).
+**Settled, with the first study's table: the last DR move.** Turning it the other way gives a finish one move shorter on {= pc(Q5('all', 'share_variation_shorter')) =} of DRs, never more than one, so about a third of a move on average. Yura Riabov's quick 1/6 from 2024 is low by half, for the reason Lichi Fang gave at the time (a DR has several optimal finishes); Yura's own ceiling, half a move, holds. It doesn't change which routes to try (section 7).
 
-**Corrected** (errata, each with an example). Levi Gibson's "check all sub-5 reductions … gets optimal like 75% of the time, and it gets optimal +1 the rest of the time", with bounding alone and every reduction of at most 4, share of DRs where it finds the optimal and a finish within +1:
+**Corrected** (errata, each with an example). Levi Gibson's "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time" ([[D9108]]), with bounding alone and every reduction of at most 4, share of DRs where it finds the optimal and a finish within +1:
 
 | Subset | Optimal | Within +1 |
 |---|---|---|
 | 4a2 (the one Levi Gibson had just named) | {= pc(Q8('4a2', '1', '4', 'found_opt')) =} | {= pc(Q8('4a2', '1', '4', 'found_p1')) =} |
 | 2c3 | {= pc(Q8('2c3', '1', '4', 'found_opt')) =} | {= pc(Q8('2c3', '1', '4', 'found_p1')) =} |
 
-So on 4a2 the 75% holds, but +1 doesn't cover the rest. The other corrections:
+So on 4a2 the 75% holds, but +1 doesn't cover the rest. Yura Riabov expected that split at the time ("i think it could be very good for 4a2 but for 2c3 trigger knowledge covers most cases", [[D9112]]). The other corrections:
 
-- 4c4 0e has 10-move linear HTRs.
-- The longest shortest HTR is 13 linear and {= NXMAX() =} with NISS, both exact over every DR state.
+- 4c4 0e has 10-move linear HTRs, as Aedan Bryant's sheet showed.
+- The longest shortest HTR is 13 linear, which Aedan Bryant's sheet has on one row, and {= NXMAX() =} with NISS, both exact over every DR state.
 - In FakeMMAP's reduction bound and multi-qt lower bounds: the index of $\alpha$ ($\alpha_{i+1}$, not $\alpha_i$) and, when R is read as the smallest term, the signs of term 2 (proved in Lean, with counterexamples).
 
-**Depends: switching after more than 2 moves.** Evan's "pretty rare" for it to be useful: with HTRs up to two over the shortest allowed (budget 2) the optimal needs it on {= pc(C11('all', 'budget2_needs_switch_after_gt2')) =} of DRs, about one in eight ({= pc(C11('4b2', 'budget2_needs_switch_after_gt2')) =} of 4b2, {= pc(C11('2c3', 'budget2_needs_switch_after_gt2')) =} of 2c3), and after 4 or more moves on {= pc(C11('all', 'budget2_needs_switch_after_gt3')) =}; through its shortest HTR only it's {= pc(C11('all', 'shortest_htr_needs_switch_after_gt2')) =}, an upper bound. Yura Riabov's "more like 3" holds outside 0c4, 4c4 and 2c5 (section 11).
+**Depends: switching after more than 2 moves.** Evan's "pretty rare" for it to be useful: with HTRs up to two over the shortest allowed (budget 2) the optimal needs it on {= pc(C11('all', 'budget2_needs_switch_after_gt2')) =} of DRs, about one in eight ({= pc(C11('4b2', 'budget2_needs_switch_after_gt2')) =} of 4b2, {= pc(C11('2c3', 'budget2_needs_switch_after_gt2')) =} of 2c3), and after 4 or more moves on {= pc(C11('all', 'budget2_needs_switch_after_gt3')) =}; through its shortest HTR only it's {= pc(C11('all', 'shortest_htr_needs_switch_after_gt2')) =}, an upper bound. Most of the gap is the switch after exactly 3 moves ({= EX3('all') =} of DRs), which Evan excepted in the same thread ("switching U2 F2 U reductions for some subsets can be useful but is also uncommon I feel", [[D11238]]), so Evan and Yura Riabov's "more like 3" end up close; past 3 moves it's rare outside 0c4, 4c4 and 2c5 (section 11).
 
-**Confirmed**: Levi Gibson's "pretty sure 15 is gods number for 4a1 4e" is right for the leave slice, which is what Levi Gibson measures ({= E['lsmax']['4a1 4e'] =}, exact); the full finish can need 17.
+**Depends: God's number for 4a1 4e.** Levi Gibson's "pretty sure 15 is gods number for 4a1 4e" doesn't name the metric. Leaving the slice, as Levi Gibson's stat sheets do, the longest optimal is {= E['lsmax']['4a1 4e'] =} (exact); with the E slice solved it's {= WIT('W07', 'optimal') =} (section 11).

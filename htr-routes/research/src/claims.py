@@ -114,11 +114,14 @@ def c11(g):
             f"(random optimal {pct(float(r['random_opt_ends_qt_ht_qt']))})")
 put('C11', 'PARTLY', c11('2c4') + '; ' + c11('2c3') + f". Either end with qt-half turn-qt: 2c4 {pct(float(C11T['2c4']['either_end_qt_ht_qt']))}, 2c3 {pct(float(C11T['2c3']['either_end_qt_ht_qt']))}. beef beans' 94.9% (2c4) / 72.5% (2c3) "
     "sit near the loose readings (any qt-half turn-qt), far above the strict R U2 R' shape (41% / 35% some optimal, 14% / 12% a random optimal); 25,000 states per subset.")
-put('C13', 'AGREES' if float(C11T['all']['budget2_needs_switch_after_gt2']) < 0.1 else 'CORRECTS',
+def ex3(g): return float(C11T[g]['budget2_needs_switch_after_gt2']) - float(C11T[g]['budget2_needs_switch_after_gt3'])
+put('C13', 'AGREES' if float(C11T['all']['budget2_needs_switch_after_gt2']) < 0.05 else 'PARTLY',
     f"All DRs: the shortest-HTR optimal readings all need a switch after more than 2 moves in {pct(float(C11T['all']['shortest_htr_needs_switch_after_gt2']))} of states "
     f"(after more than 3: {pct(float(C11T['all']['shortest_htr_needs_switch_after_gt3']))}); with HTRs up to 2 over the shortest allowed: "
     f"{pct(float(C11T['all']['budget2_needs_switch_after_gt2']))} / {pct(float(C11T['all']['budget2_needs_switch_after_gt3']))} "
-    f"(another {pct(float(C11T['all']['no_optimal_within_budget2']))} have no optimal reading within that budget). Per subset in c11_c13.tsv.")
+    f"(another {pct(float(C11T['all']['no_optimal_within_budget2']))} have no optimal reading within that budget). Per subset in c11_c13.tsv. "
+    f"Evan's own exceptions (D11237, D11238) are the b side of 4c3, 4c4 and 0c4, and 'switching U2 F2 U reductions for some subsets', a switch after exactly 3 moves: "
+    f"needed (budget 2) on {', '.join(f'{g} {pct(ex3(g))}' for g in ('2c3', '4b2', '2c4', '2c5', 'all'))}. With them what is left is the switch after 4 or more, where Yura's 'More like 3' puts the line too.")
 e9 = share('all', lambda t: t['best_any'] >= 9)
 put('C12', 'OPEN', f"The claim is about each 9-move HTR a solver writes, which is not measured here. What is measured: all DR states: every optimal finish needs an HTR of 9+ moves (its shortest HTR over all NISS readings) in {pct(e9)} of states; "
     f"2c3 2e {pct(share('2c3 2e', lambda t: t['best_any'] >= 9))}, 4b2 4e {pct(share('4b2 4e', lambda t: t['best_any'] >= 9))}, 4c3 {pct(share('4c3', lambda t: t['best_any'] >= 9))}, "
@@ -127,10 +130,15 @@ put('C12', 'OPEN', f"The claim is about each 9-move HTR a solver writes, which i
     f"(about the same as for 6-8 moves). So 9-move HTRs are often the only way to an optimal, but the share of written 9-move HTRs that extend to an optimal is not computed.")
 put('C14', 'AGREES', f"2c3 2e: some optimal has <2 half turns before its first quarter turn, read on normal or inverse: {pct(share('2c3 2e', lambda t: np.minimum(t['ht_first_n'], t['ht_first_i']) < 2))}; "
     f"normal side only {pct(share('2c3 2e', lambda t: t['ht_first_n'] < 2))}; 3+ needed {pct(share('2c3 2e', lambda t: np.minimum(t['ht_first_n'], t['ht_first_i']) >= 3))}.")
-put('C15', 'CORRECTS', f"Turning the DR's last move the other way (X -> X*R2): shorter by one move in {pct(share('all', lambda t: t['dvar'] < t['d']))} of states "
+put('C15', 'PARTLY', f"Turning the DR's last move the other way (X -> X*R2): shorter by one move in {pct(share('all', lambda t: t['dvar'] < t['d']))} of states "
     f"(exact over all DR states from the first study's h8 table: 32.47%), never by more; mean gain {share('all', lambda t: t['d'] - np.minimum(t['d'], t['dvar'])):.3f} move. "
-    f"Neither 1/6 move nor 1/6 of DRs: about 1/3.")
-put('C16', 'PARTLY', f"A qt break costs 1 + min(opt(X), opt(X*R2)) - opt(X) = {share('all', lambda t: 1 + np.minimum(t['d'], t['dvar']) - t['d']):.3f} moves on average (trangium: ~0.5).")
+    f"As a number the 1/6 is low by half (about 1/3). As Yura left it after Lichi Fang's objection (T4607: several optimal finishes; T4608 'also true'; "
+    f"T4610 'at least an order of numbers', not 'more than a half move'), it holds.")
+import sheet15
+S15 = sheet15.summary()
+put('C16', 'AGREES', f"With DR moves only after the extra move a qt break costs 1 + min(opt(X), opt(X*R2)) - opt(X) = {share('all', lambda t: 1 + np.minimum(t['d'], t['dvar']) - t['d']):.3f} moves on average. "
+    f"Doc 15's QT-break column, the one such stat on the server, is solved with any moves ({S15['qtbreak_not_dr_moves']:,} of its {S15['qtbreak_solutions']:,} listed solutions are not 'R or R', then DR moves') "
+    f"and averages +{S15['qtbreak_mean_diff']:.2f} over the plain optimum on its {S15['n_rows']} rows (trangium: ~0.5).")
 h8 = collections.Counter()
 for r in csv.DictReader(open('/data/fmc/judging-a-dr/research/out/hand/h8_last_move.csv')):
     if r['depth'] == '18': h8[(r['subset'], r['depth_after_side_half_turn'])] += int(r['count'])
@@ -209,16 +217,43 @@ def budget_shares(g, lv, budget):
         for _, c in seen: acc[c] += w
     return {c: v / W for c, v in acc.items()}
 q48 = budget_shares('2c4', 'Q', 2)
-put('C48', 'AGREES' if q48.get('2+(2) | ht', 0) < 0.2 else 'CORRECTS', '2c4: share of states where an optimal is reached through each route shape using an HTR at most 2 moves over the shortest NISS HTR: ' +
-    ', '.join(f'{c} {pct(v)}' for c, v in sorted(q48.items(), key=lambda x: -x[1])[:7]) + '. (Without an HTR limit every shape that a finish can be read in ties, ~94%.)')
+def shape_only(g, budget, one, others):
+    """(share of states where an optimal is reached, HTR within the budget, through shape `one` and through none of
+    `others`; share reached through at least one of `others`).  Shapes are the Q-level classes."""
+    K = keys(); a = b = W = 0.0
+    for s_ in grp(g):
+        rt = Routes(s_); niss = ST[s_]['htrNiss']; w = SIZE[s_] / rt.n; W += SIZE[s_]
+        m = (rt.delta == 0) & (rt.htr <= niss[rt.state] + budget)
+        u, inv = np.unique(rt.rid[m], return_inverse=True)
+        q = np.array([level_of(K[int(x)], 'Q') if K[int(x)][0] == 'H' else '' for x in u])[inv]
+        st_ = rt.state[m]
+        h1 = np.zeros(rt.n, bool); h1[st_[q == one]] = True
+        h2 = np.zeros(rt.n, bool); h2[st_[np.isin(q, others)]] = True
+        a += w * (h1 & ~h2).sum(); b += w * h2.sum()
+    return a / W, b / W
+# wen (D3669) asked how the optimals are explained, so the share that counts is where 2 switch 2 is the only one of
+# the three shapes that finds the optimal, not where it can be read into one
+o22, d13 = shape_only('2c4', 2, '2+(2) | ht', ['4 | ht', '1+(3) | ht', '3+(1) | ht'])
+put('C48', 'AGREES' if o22 < 0.1 else 'PARTLY', '2c4: share of states where an optimal is reached through each route shape using an HTR at most 2 moves over the shortest NISS HTR: ' +
+    ', '.join(f'{c} {pct(v)}' for c, v in sorted(q48.items(), key=lambda x: -x[1])[:7]) + '. (Without an HTR limit every shape that a finish can be read in ties, ~94%.)'
+    f" Through 2+(2) and neither 4 nor 1+(3) / 3+(1): {pct(o22)}; through 4 or 1+(3) / 3+(1): {pct(d13)}. wen's question is how the optimals are explained: 2 switch 2 is the only one of the three that finds one on {pct(o22)}, so 'hardly ever' holds.")
 put('C49', 'AGREES' if [mins[f'2c4 {e}e'] for e in (0, 2, 4, 6, 8)] == [7, 7, 7, 8, 9] else 'CORRECTS', f"Shortest linear HTR 2c4 0/2/4/6/8e (exact): {[mins[f'2c4 {e}e'] for e in (0, 2, 4, 6, 8)]}.")
 put('C51', 'AGREES' if mins['4c4 0e'] == 11 and mins['2c5 6e'] == 9 else 'CORRECTS', f"Exact: 4c4 0e {mins['4c4 0e']}, 2c5 6e {mins['2c5 6e']}; subsets with minimum >= 11: {[s for s, v in mins.items() if v >= 11]}.")
 nm = lambda s: int(ST[s]['htrNiss'].min())
 put('C52', 'PARTLY', f"Shortest linear HTR (exact) / shortest NISS HTR (minimum over 25,000 states): 2c4 0e {mins['2c4 0e']}/{nm('2c4 0e')}, 0c4 0e {mins['0c4 0e']}/{nm('0c4 0e')}, 0c3 0e {mins['0c3 0e']}/{nm('0c3 0e')}.")
 maxlin = max(max(H48[s]) for s in SUBS)
 put('C53', 'ANSWERED', f"Longest shortest linear HTR on one side (exact over cosets): {maxlin} ({[s for s in SUBS if max(H48[s]) == maxlin]}); "
-    f"longest over states of min(normal, inverse) in the sample {max(int(np.minimum(ST[s]['htrN'], ST[s]['htrI']).max()) for s in SUBS)}, longest NISS {max(int(ST[s]['htrNiss'].max()) for s in SUBS)} (sample).")
-put('C56', 'AGREES' if max(exact_dist('4a1 4e')) == 15 else 'CORRECTS', f"4a1 4e longest optimal (exact): {max(exact_dist('4a1 4e'))}.")
+    f"longest over states of min(normal, inverse) in the sample {max(int(np.minimum(ST[s]['htrN'], ST[s]['htrI']).max()) for s in SUBS)}, longest NISS {max(int(ST[s]['htrNiss'].max()) for s in SUBS)} (sample; 12 exact over every DR state, out/checks/niss_exact.tsv). "
+    f"Doc 15, the source Lewis named ('See HTR subset stats'), has {S15['maxlin']}-move linear HTRs on its {', '.join(S15['maxlin_rows'])} row ({pct(S15['rows'][S15['maxlin_rows'][0]]['lin'][str(S15['maxlin'])])} of its states), "
+    f"{S15['maxlin_elsewhere']} at most elsewhere, and {S15['maxniss']} as its longest NISS HTR.")
+import json as _json
+_X4 = _json.load(open(f'{OUT}/witness_extra.json'))['X4']          # xwitness.py runs before this
+LSMAX = collections.defaultdict(int)
+for l in open(f'{OUT}/checks/lsdist48.tsv'):
+    a_, b_, c_ = l.split('\t'); LSMAX[a_] = max(LSMAX[a_], int(b_))
+put('C56', 'AGREES' if max(exact_dist('4a1 4e')) == 15 else 'PARTLY' if LSMAX['4a1 4e'] == 15 else 'CORRECTS',
+    f"4a1 4e longest optimal (exact): {max(exact_dist('4a1 4e'))} with the E slice solved, {LSMAX['4a1 4e']} leaving the slice (out/checks/lsdist48.tsv). "
+    f"The metric is not named in D11720; the example of D11716 is {_X4['optimal']} with the slice solved and {_X4['leave_slice']} leaving it (out/witness_extra.json, X4).")
 put('C59', 'AGREES', f"Mean optimal (exact) 2c4 {exact_mean('2c4'):.3f}, 0c3 {exact_mean('0c3'):.3f}, 0c4 {exact_mean('0c4'):.3f}.")
 put('C61', 'AGREES', f"2c3: 3+ half turns needed before the first qt on both sides {pct(share('2c3', lambda t: np.minimum(t['ht_first_n'], t['ht_first_i']) >= 3))}.")
 dch = [r for k, rs in GR.items() if k.startswith('Daichi') for r in rs]

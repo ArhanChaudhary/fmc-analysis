@@ -198,18 +198,60 @@ write('variation', ['Subset', 'Mean optimal (moves)', 'Mean, last move either wa
         pc(q5[g]['share_ge15']), pc(q5[g]['share_ge15_with_variation'])] for g in CGROUPS + ['all']])
 # ------------------------------------------------------------------ Q6
 gr = T('q6_grading.tsv'); E['q6'] = gr
-def grade(name, label):
-    rows = [[r['step'], r['step_description'].replace('~', ''), pc(r['cumulative_opt_htr_budget2']), pc(r['cumulative_p1_htr_budget2']), pc(r['cumulative_opt'])] for r in gr if r['checklist'] == name]
-    write(label, ['Step', 'What', 'Optimal (budget 2)', 'Within +1 (budget 2)', 'Optimal, no HTR limit'], rows)
-grade('Zagros 4b2 order (D15884)', 'grade_zagros'); grade('Yura 4b2 4e order (D6409-D6416)', 'grade_yura'); grade('rogo/Adri 4b2 4e order (D6422-D6424)', 'grade_rogo')
+def grade(name, label, stated=False):
+    """stated: two more columns, each step with the HTR limit its author stated (budget 2 where none is stated)"""
+    rows = [[r['step'], r['step_description'].replace('~', ''), pc(r['cumulative_opt_htr_budget2']), pc(r['cumulative_p1_htr_budget2']), pc(r['cumulative_opt'])]
+            + ([pc(r['cumulative_opt_stated']), pc(r['cumulative_p1_stated'])] if stated else []) for r in gr if r['checklist'] == name]
+    write(label, ['Step', 'What', 'Optimal (budget 2)', 'Within +1 (budget 2)', 'Optimal, no HTR limit']
+          + (['Optimal, HTR limits as stated', 'Within +1, HTR limits as stated'] if stated else []), rows)
+grade('Zagros 4b2 order (D15884)', 'grade_zagros', True); grade('Yura 4b2 4e order (D6409-D6416)', 'grade_yura'); grade('rogo/Adri 4b2 4e order (D6422-D6424)', 'grade_rogo')
 grade('Lewis 4a2 0e/2e list (T6743)', 'grade_lewis'); grade('Fanti 4b2 4e split (D10034), cumulative', 'grade_fanti')
-dch = [r for r in gr if r['checklist'].startswith('Daichi')]
+dch = [r for r in gr if r['checklist'].startswith('Daichi cheat sheet (D18340): ')]
+# Daichi's sheet against my first three budget-2 routes, on all DRs and on those with an optimal of 12 or less (the
+# sheet's own "sub13"), same states (grade.py, out/q6_daichi_vs_mine.tsv).  Level: under a point apart, or under two
+# standard errors of the paired difference; otherwise ahead or behind.
+DVM = {r['subset']: r for r in T('q6_daichi_vs_mine.tsv')}
+LEVEL_PTS = 1.0
 rows = []
 for r in dch:
-    s_ = r['subsets']; a = lst(s_, '2')
+    s_ = r['subsets']; a = lst(s_, '2'); v = DVM[s_]
+    assert abs(float(v['sheet']) - float(r['cumulative_opt_htr_budget2'])) < 2e-6 and abs(float(v['sheet_le12']) - float(r['cumulative_opt_htr_budget2_le12'])) < 2e-6 and abs(float(v['mine3']) - float(a[2]['cumulative'])) < 1e-4, s_
     k = next((i + 1 for i, x in enumerate(a) if float(x['cumulative']) >= float(r['cumulative_opt_htr_budget2'])), None)
-    rows.append([s_, pc(r['cumulative_opt_htr_budget2']), pc(r['cumulative_p1_htr_budget2']), pc(r['cumulative_opt']), pc(a[2]['cumulative']), str(k) if k else '> 8'])
-write('grade_daichi', ['Subset', 'Optimal (budget 2)', 'Within +1 (budget 2)', 'Optimal, no HTR limit', 'My 3 classes (budget 2)', 'My classes to match'], rows)
+    rows.append([s_, pc(r['cumulative_opt_htr_budget2']), pc(r['cumulative_p1_htr_budget2']), pc(r['cumulative_opt']), pc(a[2]['cumulative']), str(k) if k else '> 8',
+                 pc(v['sheet_le12']), pc(v['mine3_le12'])])
+write('grade_daichi', ['Subset', 'Optimal (budget 2)', 'Within +1 (budget 2)', 'Optimal, no HTR limit', 'My 3 classes (budget 2)', 'My classes to match',
+                       'Optimal ≤ 12 only: sheet (budget 2)', 'Optimal ≤ 12 only: my 3 classes (budget 2)'], rows)
+def _verdict(v, suf):
+    d = (float(v['sheet' + suf]) - float(v['mine3' + suf])) * 100
+    if abs(d) < LEVEL_PTS or abs(d) < 2 * float(v['se_diff' + suf]) * 100: return 'level'
+    return 'ahead' if d > 0 else 'behind'
+def _and(xs): return xs[0] if len(xs) == 1 else ', '.join(xs[:-1]) + ' and ' + xs[-1]
+def _subsets_text(subs):
+    """subset x edges in CGROUPS order, compressed: 'all of 4a1 and 4b2; 0c0 2e to 6e; 0c4 except 2e; 2c3 0e and 8e'"""
+    full, part = [], []
+    for g in CGROUPS:
+        al = [s for s in SUBS if CORNER(s) == g]; mine = [s for s in al if s in subs]
+        if not mine: continue
+        if mine == al: full.append(g); continue
+        ix = [al.index(s) for s in mine]; ed = [s.split()[1] for s in mine]
+        if len(al) >= 4 and len(mine) == len(al) - 1: part.append(f"{g} except {next(s.split()[1] for s in al if s not in mine)}")
+        elif len(mine) >= 3 and ix == list(range(ix[0], ix[0] + len(ix))): part.append(f'{g} {ed[0]} to {ed[-1]}')
+        else: part.append(f'{g} {_and(ed)}')
+    return '; '.join((['all of ' + _and(full)] if full else []) + part)
+E['daichi_cmp'] = {}
+for suf, key in (('', 'all'), ('_le12', 'le12')):
+    vv = {s: _verdict(DVM[s], suf) for s in SUBS}
+    E['daichi_cmp'][key] = {c: _subsets_text([s for s in SUBS if vv[s] == c]) for c in ('ahead', 'level', 'behind')}
+E['daichi_level_pts'] = LEVEL_PTS
+_n12 = {s: int(DVM[s]['n_le12']) for s in SUBS}
+E['daichi_n12'] = dict(min=min(_n12.values()), min_at=min(_n12, key=_n12.get), max=max(_n12.values()),
+                       small=[s for s in SUBS if _n12[s] < 1000])
+E['daichi_range'] = {k: [min(float(DVM[s][c]) for s in SUBS), min(SUBS, key=lambda s: float(DVM[s][c])),
+                         max(float(DVM[s][c]) for s in SUBS), max(SUBS, key=lambda s: float(DVM[s][c]))] for k, c in (('all', 'sheet'), ('le12', 'sheet_le12'))}
+E['daichi_n12']['small_text'] = _subsets_text(E['daichi_n12']['small'])
+# the sheet on DRs with an optimal of 12 or less, lowest share over the 4qt and 5qt corner subsets (the last digit of
+# the name is the corner qt count)
+E['daichi_le12_4q5q_min'] = min(float(DVM[s]['sheet_le12']) for s in SUBS if CORNER(s)[-1] in '45')
 # ------------------------------------------------------------------ Q8
 V = {(r['group'], r['q'], r['R']): r for r in T('q8_bounding_stated.tsv')}
 V1 = {(r['group'], r['q'], r['R']): r for r in T('q8_bounding_v2.tsv')}
@@ -315,6 +357,10 @@ def _acsplit(start):
             if len(p) > 3 and p[3].startswith('0qt 0c') and p[3] != '0qt 0c0e': zz += sh
     return dict(two=two, reg=reg, zz=zz, five=five)
 E['ac_4b2_4e'] = _acsplit('2qt(a) 4c4e'); E['ac_4a1_4e'] = _acsplit('1qt 4c4e')
+# Aedan Bryant's HTR Subset Stats (doc 15) as it stands in the kb: its length distributions per row, the means of
+# its QT-break column against the plain optimum, and how its QT-break solutions are written (sheet15.py)
+import sheet15
+E['d15x'] = sheet15.summary()
 ls = collections.defaultdict(dict)
 for l in open(f'{OUT}/checks/lsdist48.tsv'):
     a_, b_, c_ = l.split('\t'); ls[a_][int(b_)] = int(c_)

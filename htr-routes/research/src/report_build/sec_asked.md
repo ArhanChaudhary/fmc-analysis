@@ -4,15 +4,16 @@ The questions, in the words of the people who asked them, and where each is answ
 
 - Daichi built the cheat sheet "to filter routes to check rather than DRs itself" ([[D18343]]); JTuu asked for the data behind it ("did you post the raw stats somewhere?", [[D18363]]). *Answer*: section 4 gives the routes in order, each with the share of DRs where the routes so far find the optimal, so the shares add up (cumulative).
 - Does the bad-edge count change which routes are good, not only the corner subset? And how often do you go through, say, 4b2 4e rather than 4b2 2e? *Answer*: section 4.
-- wen ([[D3669]]): "Anyone else feel like for 4q 2c, the optimals are most often reasonably explained with something like a direct HTR, or 1q then switch and 3q, and hardly ever with 2q switch 2q?" *Answer*: on 2c4, with HTRs at most 2 over the shortest, the optimal is reached by:
+- wen ([[D3669]]): "Anyone else feel like for 4q 2c, the optimals are most often reasonably explained with something like a direct HTR, or 1q then switch and 3q, and hardly ever with 2q switch 2q?", "I feel like I have seen very few 4q optimals that use such a pathway". *Answer*: on 2c4, with HTRs at most 2 over the shortest, the optimal is reached by:
 
   | Route shape | Finds the optimal |
   |---|---|
   | 3 qts then switch (or 1 then 3) | {= E['claims']['C48']['evidence'].split('3+(1) | ht ')[1].split(',')[0] =} |
   | direct HTR | {= E['claims']['C48']['evidence'].split('4 | ht ')[1].split(',')[0] =} |
   | 2 switch 2 | {= E['claims']['C48']['evidence'].split('2+(2) | ht ')[1].split(',')[0] =} |
+  | 2 switch 2 and neither of the other two | {= EV('C48', 'neither 4 nor 1+(3) / 3+(1): ', ';') =} |
 
-  wen's order is right; "hardly ever" is too strong.
+  wen's order is right. The shapes overlap: 2 switch 2 can be read into an optimal on {= E['claims']['C48']['evidence'].split('2+(2) | ht ')[1].split(',')[0] =} of 2c4, but it's the only one of the three that finds it on {= EV('C48', 'neither 4 nor 1+(3) / 3+(1): ', ';') =}, so "hardly ever" holds for what you need to check.
 - Yura Riabov, on 4b2 4e ([[D6409]]): "4b2 4e is basically the best 4q subset"; rogo ([[D6422]]): "the first approach apart from R U2 F2 R to check should still be 'reduce to 1qt 4e and niss trace for short htrs' i think?" *Answer*: section 10.
 
 **HTRs and the optimal (section 6)**

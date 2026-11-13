@@ -1,0 +1,32 @@
+Daichi's cheat sheet, the image attached to D18340 ("to summarize, I think this is meta", 12 Jun 2026; the file is
+/data/fmc/assets/attachments/1515146431542067290_0_image.png, its OCR in kb/data/ocr.jsonl). Transcribed from the
+image line by line; report_build/check_quotes.py reads this file as one of the study's documents.
+
+0c0:   0e: yay!
+     2-8e: 2q
+     2-6e: 4q through 4b2 2e
+
+4a1:   0e: 3q, or 5q (2c3->4b2 2e)
+     2-4e: any 3q (except for 4a2, 0c0 6/8e)
+       4e: obviously, 1q
+
+4a2: 0-2e: 1q switch or 4a1->4b2 4q route
+       4e: 2q only
+
+4b2:  all: 2q or 4q through 2c3
+
+2c3:   0e: 4b2 4e switch, 0c0 4e (5q), 2c3 2/4e to 4b2 2e (5q) (only through 4b2)
+       8e: 4b2 4e switch, 0c0 4e (5q), 2c3 2/4e to 4b2 2e (5q) (through 4b2/2c4)
+     2-6e: 3q
+
+4c3:  all: 3q, but always switch after 4b2 4e (except for the 4a3 0/4e 8 move trigger I think?)
+
+2c4: 0-6e: linear or 2c3 switches (4b2 2e  switch could be good too)
+       8e: 2c3 or 4b2 2e switch
+
+bad cases for all edge counts:
+0c3:  all: 4a2 4e switch
+0c4:  all: 4b2 switch (2e could be linear, except for 0c4 8e)
+4c4:  all: 4b2 switch (prioritize 2e over 4e)
+2c5:  all: 2c3 2/4e switch or linear
+4b5:  all: 2c4 0~4e switch or linear

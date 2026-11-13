@@ -195,3 +195,16 @@ def V9():
     return (int(re.search(r'as printed \(term 2 signs, alpha_i\) below the need: (\d+)', t).group(1)),
             int(re.search(r'at the optimum: (\d+)', t).group(1)))
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}
+# Aedan Bryant's sheet as it stands in the kb (xtables.py, E['d15x']), and the exact NISS HTR table's total
+def D15(label, col, k=None):
+    """a cell of the sheet's row `label`: the share of its states with length k in column col ('lin', 'niss', 'sol',
+    'qtbreak', 'noe'), or the column's mean when k is None"""
+    r = E['d15x']['rows'][label]
+    return pc(r[col][str(k)]) if k is not None else r['mean_' + col]
+def NXTOT(g='all'): return sum(int(r['states']) for r in _nx(g))
+def PERMILLION(x): return str(int(round(float(x) * 1e6)))
+ENV = {k: v for k, v in globals().items() if not k.startswith('_')}
+def EX3(g):
+    """share of g's DRs whose optimal (budget-2 HTRs) needs a switch after exactly 3 moves: after more than 2, not after 4 or more"""
+    return pc(float(C11(g, 'budget2_needs_switch_after_gt2')) - float(C11(g, 'budget2_needs_switch_after_gt3')))
+ENV = {k: v for k, v in globals().items() if not k.startswith('_')}

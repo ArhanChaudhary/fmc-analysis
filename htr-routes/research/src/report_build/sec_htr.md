@@ -16,7 +16,7 @@ The first of these doesn't need the sample. A search over the whole DR group giv
 
 {{htr_vs_opt}}
 
-Some optimal goes through a shortest HTR on only a third of DRs. On the other two thirds you have to find an HTR at least a move longer than the shortest to get the optimal, and on {= pc(float(Q3('all', 'opt_htr_plus2')) + float(Q3('all', 'opt_htr_plus3more'))) =} at least two longer. That's why the checklists need budget 2 (section 4). On 0c3 a shortest HTR is used most often ({= pc(Q3('0c3', 'opt_uses_shortest_niss')) =}); on 2c4 and 4b5 about as often as on 4b2. *Post-HTR moves* is the rest of that optimal: {= f2(Q3('all', 'mean_post_htr_longest_in_an_optimal')) =} moves on average, more on low-qt subsets, as tseitsei89 described ([[T10862]]).
+Some optimal goes through a shortest HTR on only a third of DRs. On the other two thirds you have to find an HTR at least a move longer than the shortest to get the optimal, and on {= pc(float(Q3('all', 'opt_htr_plus2')) + float(Q3('all', 'opt_htr_plus3more'))) =} at least two longer. That's why the checklists need budget 2 (section 4). On 0c3 a shortest HTR is used most often ({= pc(Q3('0c3', 'opt_uses_shortest_niss')) =}); on 2c4 and 4b5 about as often as on 4b2. *Post-HTR moves* is the rest of that optimal: {= f2(Q3('all', 'mean_post_htr_longest_in_an_optimal')) =} moves on average, more on low-qt subsets.
 
 **Nine-move HTRs.** On {= pc(Q3('all', 'every_opt_htr_ge9')) =} of all DRs every optimal finish needs an HTR of 9 moves or more in every reading. On {= pc(float(Q3('all', 'every_opt_htr_ge9')) - float(Q3('all', 'niss_htr_ge9'))) =} of DRs that's the case even though the DR has an HTR of 8 or less. By the length L of a DR's shortest NISS HTR, the share of DRs where some optimal uses an HTR of exactly L moves (all DRs, sampled; the rows cover {= pc(E['bylen_cov']) =} of DRs, the rest having a shortest NISS HTR of {= ', '.join(E['bylen_out']) =} or 0 to 2):
 
@@ -76,15 +76,17 @@ Every subset × edges, for all DRs and for those with an optimal of 13 or less a
 
 {{variation}}
 
-X·R2 is one move shorter on a third of DRs and never more than one shorter, in every subset alike; the first study had this exactly (*A third of the time the other DR is one shorter*). Yura Riabov's estimate in 2024 was 1/6 of a move ("so yeah, should be 1/6", [[T4606]]), from "2/3(chance of dr solution ending in 1 of 4 moves) * 1/4(chance of that move being the right one)". Yura called it "very rough" and added "i doubt it will be more than a half move difference with 1 move inverted" ([[T4610]]). The half-move ceiling holds; the 1/6 is half the real gain of {= f3(Q5('all', 'mean_gain')) =}.
+X·R2 is one move shorter on a third of DRs and never more than one shorter, in every subset alike; the first study had this exactly (*A third of the time the other DR is one shorter*). Yura Riabov's quick estimate in 2024 was 1/6 of a move: "depends on if dr uses niss or not, but if not then pre-dr part can end in 1 of 4 moves, so inverting it should bring down the mean by 2/3(chance of dr solution ending in 1 of 4 moves) * 1/4(chance of that move being the right one), so yeah, should be 1/6" ([[T4606]]). Lichi Fang asked at once "is it assuming that there is only one optimal finish? Like would it make a difference if a DR has several optimal finishes starting with different move?" ([[T4607]]). Yura answered "also true" ([[T4608]]) and "I knew that this is very rough but i think it gives at least an order of numbers, i doubt it will be more than a half move difference with 1 move inverted" ([[T4610]]). Lichi Fang's point is the missing factor: with several optimal finishes, one of them starts with the right half turn on {= pc(Q5('all', 'share_variation_shorter')) =} of DRs. So the 1/6 is half the real gain of {= f3(Q5('all', 'mean_gain')) =}, and the order of magnitude and the half-move ceiling both hold.
 
 Example, replayed. Think of the first line as the end of a DR on U/D whose last move was a quarter turn of R. Turning that move the other way is the same as adding R2 at the end:
 
 ```
-{= WIT('W06', 'scramble') =} // as written: {= WIT('W06', 'optimal') =} optimal
+{= WIT('W06', 'scramble') =} // {= WIT('W06', 'subset') =}, as written: {= WIT('W06', 'optimal') =} optimal
 {= WIT('W06', 'variation_scramble') =} // R2 added: {= WIT('W06', 'variation_optimal') =} optimal
 {= WIT('W06', 'variation_finish') =} // its optimal finish
 ```
+
+*Lean-checked*: both optima, the printed finish and the subset (`dr_optima_correct`, `dr_solutions_valid`, `labels_htr_routes`, in the study's folder lean/FakeBound, Corrections/Examples.lean). The share and the mean gain are exact over all DR states ({= pc(LM()[0] / LM()[1], 2) =}, counted over the first study's table by two separate programs), not proved in Lean.
 
 For routes the variation changes nothing in kind: every route's share goes up by about the same amount, and no checklist gains a route. It's worth its {= f2(Q5('all', 'mean_gain')) =} moves on every subset, so write both finishes' DRs down, but don't let it change which routes you try.
 

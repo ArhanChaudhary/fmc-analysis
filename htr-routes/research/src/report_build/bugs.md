@@ -13,27 +13,9 @@ Every scramble and move sequence below was replayed on a sticker-level cube. Eac
 
 ---
 
-**a. "so yeah, should be 1/6"** (Yura Riabov, [[T4606]], on how much turning the last DR move the other way improves the finish).
+**a. "Interesting that it seems 4qt 4C0E is the only HTR subset that is guaranteed 11 moves without NISS (I'm pretty sure 2C6E 5qt will be 10)"** (Jay, [[T619]], while filling in the last cases of the [*HTR subset WIP*](https://docs.google.com/document/d/1cQb_UMFvcVr4-SOR42u8gNMP9Ovx6WXxxUA5tolY8v0) doc; the bracket was settled soon after: "Turns out a 9 mover for 5qt 2C6E actually exists", [[T620]]).
 
-Over all DRs the better of X and X·R2 is {= f3(Q5('all', 'mean_gain')) =} moves shorter on average: X·R2 is one move shorter on {= pc(Q5('all', 'share_variation_shorter')) =} of DRs and never more than one, so the gain is about 1/3 of a move, twice the estimate. Yura Riabov called the estimate "very rough" and said "i doubt it will be more than a half move difference with 1 move inverted" ([[T4610]]); that ceiling holds. The first study had the exact third.
-
-Example. Think of the first line as the end of a DR on U/D whose last move was the quarter turn R. Turning that move the other way (R') gives the same state followed by R2, the second line:
-
-```
-{= WIT('W06', 'scramble') =} // 4b2 2e, optimal {= WIT('W06', 'optimal') =}
-{= WIT('W06', 'variation_scramble') =} // with R2 appended, optimal {= WIT('W06', 'variation_optimal') =}
-```
-
-```
-{= WIT('W06', 'optimal_finish') =} // optimal finish of the first
-{= WIT('W06', 'variation_finish') =} // optimal finish of the second
-```
-
-*Lean-checked*: both optima, both finishes and the subset (`dr_optima_correct`, `dr_solutions_valid`, `labels_htr_routes`). The share and the mean gain are exact over all DR states ({= pc(LM()[0] / LM()[1], 2) =}, counted over the first study's table by two separate programs), not proved in Lean.
-
-**b. "Interesting that it seems 4qt 4C0E is the only HTR subset that is guaranteed 11 moves without NISS"** (Jay, [[T619]]).
-
-Over all 29,400 HTR cosets: 4c4 0e ("4qt 4C0E") has linear HTRs of {= MINLIN('4c4 0e') =} moves, and the one subset whose shortest linear HTR is always {= MINLIN('0c4 8e') =} or more is 0c4 8e (fake HTR corners with 8 bad edges). Lewis Isom noticed the 10 in Aedan Bryant's sheet in 2024 ([[T4104]]: "also under 4qt 4c0e the trigger given is 11 moves but stats say 10 is possible").
+Over all 29,400 HTR cosets: 4c4 0e ("4qt 4C0E") has linear HTRs of {= MINLIN('4c4 0e') =} moves, and the one subset whose shortest linear HTR is always {= MINLIN('0c4 8e') =} or more is 0c4 8e (fake HTR corners with 8 bad edges). Jay's doc, as it stands, lists that one at {= MINLIN('0c4 8e') =} too. The 10 was in Aedan Bryant's sheet (Aedan on Discord; [*HTR Subset Stats*](https://docs.google.com/spreadsheets/d/17iChOoeB205t3wHTXMLrjM9si2vtxRgFeYR2z3pn1i0), started the next day, [[T621]]): {= D15('4qt 4C', 'lin', 10) =} of its "4qt 4C" states have one. Lewis Isom pointed that out in 2024 ([[T4104]]: "also under 4qt 4c0e the trigger given is 11 moves but stats say 10 is possible").
 
 Example, with the linear HTR nissy finds on inverse:
 
@@ -44,9 +26,9 @@ Example, with the linear HTR nissy finds on inverse:
 
 *Lean-checked*, all of it: the subset, the 10-move linear HTR on inverse and that the printed one is valid, and that 0c4 8e is the only subset × edges whose shortest linear HTR is never below 11 (`htr_4c4`).
 
-**c. "No, the maximum it takes is 12 moves linearly, and 11 moves using NISS."** (Lewis Isom, [[T4100]], answering whether DR to HTR takes at most 9.)
+**b. "No, the maximum it takes is 12 moves linearly, and 11 moves using NISS. See HTR subset stats under fmc-stats for more info."** (Lewis Isom, [[T4100]], answering whether DR to HTR takes at most 9, from Aedan Bryant's sheet.)
 
-Both are one short. 0c3 4e and 4c4 0e have HTR cosets whose shortest linear HTR is {= MAXLIN('0c3 4e') =}, and some DRs need 13 on both sides. With NISS the longest is {= NXMAX() =}: a search over every DR state finds {= n(NXN(12)) =} states that need 12 (all 0c3 4e or 2c5) and none that needs more. Daichi had the 13 right later ([[T11594]]: "0c3 4e and 4c4 0e have 13 move optimal HTR cases").
+Both are one short. The sheet is a sample of 1,000 states per subset. Its own "3qt 4E" row (0c3 4e) already has {= E['d15x']['maxlin'] =}-move linear HTRs, on {= D15('3qt 4E', 'lin', E['d15x']['maxlin']) =} of its states, and {= E['d15x']['maxlin_elsewhere'] =} is its longest everywhere else. Its longest NISS HTR is {= E['d15x']['maxniss'] =} because the {= NXMAX() =}s are too rare to sample: a search over every DR state finds {= n(NXN(12)) =} states that need {= NXMAX() =} (all 0c3 4e or 2c5), about {= PERMILLION(NXN(12) / NXTOT()) =} in a million, and none that needs more. Linearly, 0c3 4e and 4c4 0e have HTR cosets whose shortest linear HTR is {= MAXLIN('0c3 4e') =}, and some DRs need 13 on both sides. Lewis Isom doubted the sheet for other reasons a few minutes later ("its kinda hard to know what the correct info is imo", [[T4104]]). Daichi named both 13s in 2026 ([[T11594]]: "0c3 4e and 4c4 0e have 13 move optimal HTR cases").
 
 Example, with nissy's shortest HTRs:
 
@@ -56,9 +38,17 @@ Example, with nissy's shortest HTRs:
 {= WXX('X2', 'nissy_niss') =} // shortest with NISS
 ```
 
-*Lean-checked*: the optimum, the subset, the 13-move shortest linear HTR on each side, and that both printed HTRs are valid (`dr_optima_correct`, `htr_13`). That no NISS HTR of 11 exists is from nissy and two independent searches, and the 12 as the longest over every DR state from a search over the whole DR group; neither is Lean.
+And a 4c4 0e with {= WXX('X3', 'htr_normal') =} on one side. On the other side it has the {= WXX('X3', 'htr_inverse') =} of item a:
 
-**d. "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time"** (Levi Gibson, [[D9108]]; "sub-5" is "4 or less", [[D9221]]).
+```
+{= WXX('X3', 'scramble') =} // 4c4 0e, optimal {= WXX('X3', 'optimal') =}
+{= WXX('X3', 'nissy_normal') =} ({= WXX('X3', 'htr_normal') =}) // shortest linear HTR on normal
+({= WXX('X3', 'nissy_inverse') =}) ({= WXX('X3', 'htr_inverse') =}) // shortest linear HTR on inverse
+```
+
+*Lean-checked*, for the 0c3 4e: the optimum, the subset, the 13-move shortest linear HTR on each side, and that both printed HTRs are valid (`dr_optima_correct`, `htr_13`). That no NISS HTR of 11 exists is from nissy and two independent searches, and the 12 as the longest over every DR state from a search over the whole DR group; neither is Lean. The 4c4 0e's lengths are from the exact table, the sample's search and nissy, not Lean.
+
+**c. "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time", then "If I REALLY want to solve a DR optimally I'll check all sub-6 reductions"** (Levi Gibson, beef beans on Discord, [[D9108]]; "sub-5" is "4 or less", [[D9221]]).
 
 Just before, Levi Gibson wrote "for the 4a2 subset I use full DR Bounding" ([[D9106]]), and a few minutes later "I don't use it fully for any subsets other than 4a2 and 2c3" ([[D9113]]). So: write every reduction to 1q of at most 4 moves, on normal, on inverse and split by NISS, and finish each reduced state optimally, with any number of quarter turns (sampled, 4,000 states per subset × edges).
 
@@ -69,7 +59,9 @@ Just before, Levi Gibson wrote "for the 4a2 subset I use full DR Bounding" ([[D9
 | 2c3 2e | {= pc(Q8('2c3 2e', '1', '4', 'found_opt')) =} | {= pc(Q8('2c3 2e', '1', '4', 'found_p1')) =} | {= n(round(float(Q8('2c3 2e', '1', '4', 'mean_reductions_le_R')))) =} |
 | 2c3 4e | {= pc(Q8('2c3 4e', '1', '4', 'found_opt')) =} | {= pc(Q8('2c3 4e', '1', '4', 'found_p1')) =} | {= n(round(float(Q8('2c3 4e', '1', '4', 'mean_reductions_le_R')))) =} |
 
-On 4a2 the 75% holds, but "+1 the rest of the time" doesn't. On 2c3 both fall short. On 2c3 2e and 4e Levi Gibson adds triggers: "For 2c3 2e and 4e I do full DR Bounding + checking the 5-move triggers, and that seems to catch everything" ([[D9117]]). The triggers aren't measured here, so this corrects the share for bounding alone. Levi Gibson's later answer to "Would it be around 80 percent?" for 2c3 was a guess ("yeah something like that I'd guess", [[D9209]]), with the advice to check "a bunch of half turns into a 5-move trigger" as well ([[D9212]]).
+On 4a2 the 75% holds, but "+1 the rest of the time" doesn't. On 2c3 both fall short. With every reduction of at most 5, the "sub-6" of the second sentence, it's {= pc(Q8('4a2', '1', '5', 'found_opt')) =} on 4a2 and {= pc(Q8('2c3', '1', '5', 'found_opt')) =} on 2c3.
+
+Yura Riabov called the split in the same exchange: "i think it could be very good for 4a2 but for 2c3 trigger knowledge covers most cases" ([[D9112]]), and of 2c3 2e, "<3 half turns> U R2 U R2 U <5 half turns> often enough, and bounding won't catch that i think" ([[D9116]]). Levi Gibson agreed that "missing lots of half turns into a trigger is the blind spot that DR Bounding has" ([[D9118]]), and on 2c3 2e and 4e adds triggers: "For 2c3 2e and 4e I do full DR Bounding + checking the 5-move triggers, and that seems to catch everything" ([[D9117]]). The triggers aren't measured here, so this corrects the share for bounding alone. Levi Gibson's later answer to "Would it be around 80 percent?" for 2c3 was a guess ("yeah something like that I'd guess", [[D9209]]), with the advice to check "a bunch of half turns into a 5-move trigger" as well ([[D9212]]).
 
 Example, {= WXX('X1', 'optimal') =} optimal. I enumerated all {= WXX('X1', 'reductions_le4') =} different states reached by a reduction to 4a1 4e of at most 4 moves on the sticker model and finished each optimally from the exact table: the best total is {= WXX('X1', 'best_with_reduction_le4') =}, optimal + 2. The optimal needs a 5-move reduction:
 
@@ -81,7 +73,7 @@ Example, {= WXX('X1', 'optimal') =} optimal. I enumerated all {= WXX('X1', 'redu
 
 *Lean-checked*: the optimum and the subset (`dr_optima_correct`, `labels_htr_routes`). The enumeration of the reductions and their finishes is computed (twice, independently), not Lean.
 
-**e. FakeMMAP's reduction bound and its multi-qt lower bounds** ([[T11502]]: "R is the max of the following", five families of terms, the sums "over all i's such that i, i+1 are both in S"; [[T11503]]: "M \geq \frac{|S|(R'+1)-N+\sum_{i edge} \alpha_i}{|S|-1}").
+**d. FakeMMAP's reduction bound and its multi-qt lower bounds** ([[T11502]]: "R is the max of the following", five families of terms, the sums "over all i's such that i, i+1 are both in S"; [[T11503]]: "M \geq \frac{|S|(R'+1)-N+\sum_{i edge} \alpha_i}{|S|-1}").
 
 Of the lower bounds FakeMMAP wrote "I don't know how useful these bounds really are, I have to put in the numbers to see if there are situations where the typical bound is M \geq 11, rather than M \geq 7 lol." ([[T11504]]); this is that test (the write-up's section 9 gives the typical values). R as written is safe to use: the largest term is never too short, proved for every finish (`Rmax_sound`, lean/FakeBound/FakeBound/Formula.lean), but only because term 1, about M − 1, is among the terms, so it's loose. Two things in the formulas are wrong, each proved in Lean with a counterexample.
 
