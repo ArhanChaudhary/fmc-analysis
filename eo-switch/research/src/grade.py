@@ -20,7 +20,7 @@ for rid, (c, e), src, text, f, k in rules.RULES:
     for pn, w in POPS:
         g = grade(m, sw, k, w)
         score = g['prec'] * g['total_hit'] * m.sum() if pn == 'P1' else float('nan')
-        out.append(f"{rid}\t{c}c{e}e\t{src}\t{text}\tDR<={k}\t{pn}\t{g['base']:.4f}\t{g['share']:.4f}\t{g['prec']:.4f}\t{g['recall']:.4f}\t{g['lost']:.4f}\t{g['total_hit']:.4f}\t{score:.0f}")
+        out.append(f"{rid}\t{c}c{e}e\t{src}\t{text}\tDR<={k}\t{pn}\t{g['base']:.9f}\t{g['share']:.9f}\t{g['prec']:.9f}\t{g['recall']:.9f}\t{g['lost']:.9f}\t{g['total_hit']:.9f}\t{score:.0f}")
 open(os.path.join(pop.OUT, 'grades.tsv'), 'w').write('\n'.join(out) + '\n')
 import csv
 rows = list(csv.DictReader(open(os.path.join(pop.OUT, 'grades.tsv')), delimiter='\t'))

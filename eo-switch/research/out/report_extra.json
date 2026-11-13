@@ -1255,375 +1255,375 @@
  },
  "grade": {
   "44-caycala-3p": {
-   "share_switched": 0.0344,
-   "precision": 0.8177,
-   "recall": 0.146,
-   "target_states_discarded": 0.1643,
-   "p3": 0.817
+   "share_switched": 0.034353741,
+   "precision": 0.817656766,
+   "recall": 0.145992929,
+   "target_states_discarded": 0.164314059,
+   "p3": 0.81701608
   },
   "44-caycala-6": {
-   "share_switched": 0.0362,
-   "precision": 0.7997,
-   "recall": 0.1506,
-   "target_states_discarded": 0.1634,
-   "p3": 0.7973
+   "share_switched": 0.03622449,
+   "precision": 0.799687011,
+   "recall": 0.150559811,
+   "target_states_discarded": 0.163435374,
+   "p3": 0.797263442
   },
   "44-3pairs": {
-   "share_switched": 0.0357,
-   "precision": 0.7992,
-   "recall": 0.1484,
-   "target_states_discarded": 0.1639,
-   "p3": 0.7973
+   "share_switched": 0.035714286,
+   "precision": 0.799206349,
+   "recall": 0.148350029,
+   "target_states_discarded": 0.163860544,
+   "p3": 0.797338291
   },
   "44-daichi-4": {
-   "share_switched": 0.9065,
-   "precision": 0.6388,
-   "recall": 0.9745,
-   "target_states_discarded": 0.0152,
-   "p3": 0.6353
+   "share_switched": 0.906462585,
+   "precision": 0.638774234,
+   "recall": 0.974478844,
+   "target_states_discarded": 0.015164399,
+   "p3": 0.635252833
   },
   "44-always-4": {
    "share_switched": 1.0,
-   "precision": 0.5942,
+   "precision": 0.594189342,
    "recall": 1.0,
    "target_states_discarded": 0.0,
-   "p3": 0.5904
+   "p3": 0.590401232
   },
   "44-armthenpairs": {
-   "share_switched": 0.2163,
-   "precision": 0.508,
-   "recall": 0.5712,
-   "target_states_discarded": 0.0825,
-   "p3": 0.5089
+   "share_switched": 0.216326531,
+   "precision": 0.507992662,
+   "recall": 0.571154979,
+   "target_states_discarded": 0.082511338,
+   "p3": 0.508922387
   },
   "44-rodney-case": {
-   "share_switched": 0.252,
-   "precision": 0.4931,
-   "recall": 0.646,
-   "target_states_discarded": 0.0681,
-   "p3": 0.4945
+   "share_switched": 0.252040816,
+   "precision": 0.493139901,
+   "recall": 0.645992929,
+   "target_states_discarded": 0.068112245,
+   "p3": 0.494536023
   },
   "44-tetrad": {
-   "share_switched": 0.252,
-   "precision": 0.4931,
-   "recall": 0.646,
-   "target_states_discarded": 0.0681,
-   "p3": 0.4945
+   "share_switched": 0.252040816,
+   "precision": 0.493139901,
+   "recall": 0.645992929,
+   "target_states_discarded": 0.068112245,
+   "p3": 0.494536023
   },
   "44-caycala-5-strict": {
-   "share_switched": 0.1978,
-   "precision": 0.4918,
-   "recall": 0.5056,
-   "target_states_discarded": 0.0951,
-   "p3": 0.4915
+   "share_switched": 0.197789116,
+   "precision": 0.49183147,
+   "recall": 0.505598114,
+   "target_states_discarded": 0.095124717,
+   "p3": 0.49153098
   },
   "44-rodney-case+0p": {
-   "share_switched": 0.2537,
-   "precision": 0.4914,
-   "recall": 0.6481,
-   "target_states_discarded": 0.0677,
-   "p3": 0.4929
+   "share_switched": 0.253741497,
+   "precision": 0.49139857,
+   "recall": 0.648055392,
+   "target_states_discarded": 0.06771542,
+   "p3": 0.492923831
   },
   "44-complex": {
-   "share_switched": 0.199,
-   "precision": 0.4862,
-   "recall": 0.5028,
-   "target_states_discarded": 0.0957,
-   "p3": 0.4846
+   "share_switched": 0.198979592,
+   "precision": 0.486182336,
+   "recall": 0.502799057,
+   "target_states_discarded": 0.095663265,
+   "p3": 0.484592285
   },
   "44-2pairs": {
-   "share_switched": 0.2602,
-   "precision": 0.4642,
-   "recall": 0.6277,
-   "target_states_discarded": 0.0716,
-   "p3": 0.4661
+   "share_switched": 0.260204082,
+   "precision": 0.46416122,
+   "recall": 0.627725398,
+   "target_states_discarded": 0.071626984,
+   "p3": 0.466118983
   },
   "44-tseitsei": {
-   "share_switched": 0.2765,
-   "precision": 0.463,
-   "recall": 0.6654,
-   "target_states_discarded": 0.0644,
-   "p3": 0.4648
+   "share_switched": 0.276530612,
+   "precision": 0.46299713,
+   "recall": 0.66543901,
+   "target_states_discarded": 0.064370748,
+   "p3": 0.464830338
   },
   "44-caycala-5": {
-   "share_switched": 0.2947,
-   "precision": 0.4557,
-   "recall": 0.698,
-   "target_states_discarded": 0.0581,
-   "p3": 0.4548
-  },
-  "44-jay": {
-   "share_switched": 0.2857,
-   "precision": 0.454,
-   "recall": 0.6741,
-   "target_states_discarded": 0.0627,
-   "p3": 0.4552
+   "share_switched": 0.294727891,
+   "precision": 0.455664551,
+   "recall": 0.697996464,
+   "target_states_discarded": 0.058106576,
+   "p3": 0.454777163
   },
   "44-wen": {
-   "share_switched": 0.2935,
-   "precision": 0.454,
-   "recall": 0.6927,
-   "target_states_discarded": 0.0591,
-   "p3": 0.4549
+   "share_switched": 0.293537415,
+   "precision": 0.454036307,
+   "recall": 0.692692988,
+   "target_states_discarded": 0.059126984,
+   "p3": 0.45488153
+  },
+  "44-jay": {
+   "share_switched": 0.285714286,
+   "precision": 0.453968254,
+   "recall": 0.674130819,
+   "target_states_discarded": 0.062698413,
+   "p3": 0.455170514
   },
   "44-fanti": {
-   "share_switched": 0.3524,
-   "precision": 0.4257,
-   "recall": 0.7796,
-   "target_states_discarded": 0.0424,
-   "p3": 0.4262
+   "share_switched": 0.352380952,
+   "precision": 0.425675676,
+   "recall": 0.779611078,
+   "target_states_discarded": 0.042403628,
+   "p3": 0.426186372
   },
   "44-3anypairs": {
-   "share_switched": 0.3197,
-   "precision": 0.3873,
-   "recall": 0.6435,
-   "target_states_discarded": 0.0686,
-   "p3": 0.3866
+   "share_switched": 0.319699546,
+   "precision": 0.387268375,
+   "recall": 0.643488509,
+   "target_states_discarded": 0.068594104,
+   "p3": 0.386579229
   },
   "44-yura-good": {
-   "share_switched": 0.3469,
-   "precision": 0.3358,
-   "recall": 0.6055,
-   "target_states_discarded": 0.0759,
-   "p3": 0.3353
+   "share_switched": 0.346938776,
+   "precision": 0.335784314,
+   "recall": 0.605480259,
+   "target_states_discarded": 0.075907029,
+   "p3": 0.335330207
   },
   "44-yura-decent": {
-   "share_switched": 0.6082,
-   "precision": 0.2674,
-   "recall": 0.8453,
-   "target_states_discarded": 0.0298,
-   "p3": 0.2656
+   "share_switched": 0.608163265,
+   "precision": 0.267431022,
+   "recall": 0.845315262,
+   "target_states_discarded": 0.029761905,
+   "p3": 0.265563015
   },
   "44-yura-nottrash": {
-   "share_switched": 0.8653,
-   "precision": 0.2184,
-   "recall": 0.9823,
-   "target_states_discarded": 0.0034,
-   "p3": 0.217
+   "share_switched": 0.865306122,
+   "precision": 0.218422432,
+   "recall": 0.982321744,
+   "target_states_discarded": 0.003401361,
+   "p3": 0.217000748
   },
   "44-wen-reject": {
-   "share_switched": 0.8837,
-   "precision": 0.2113,
-   "recall": 0.9702,
-   "target_states_discarded": 0.0057,
-   "p3": 0.2095
+   "share_switched": 0.883673469,
+   "precision": 0.211252245,
+   "recall": 0.970241603,
+   "target_states_discarded": 0.005725624,
+   "p3": 0.209533849
   },
   "42-rodney": {
-   "share_switched": 0.1827,
-   "precision": 0.5928,
-   "recall": 0.5796,
-   "target_states_discarded": 0.0786,
-   "p3": 0.603
+   "share_switched": 0.182738095,
+   "precision": 0.592833876,
+   "recall": 0.579617834,
+   "target_states_discarded": 0.078571429,
+   "p3": 0.602963671
   },
   "42-jay": {
-   "share_switched": 0.2226,
-   "precision": 0.5695,
-   "recall": 0.6783,
-   "target_states_discarded": 0.0601,
-   "p3": 0.5754
+   "share_switched": 0.222619048,
+   "precision": 0.569518717,
+   "recall": 0.678343949,
+   "target_states_discarded": 0.060119048,
+   "p3": 0.575442739
   },
   "42-tseitsei": {
-   "share_switched": 0.2226,
-   "precision": 0.5695,
-   "recall": 0.6783,
-   "target_states_discarded": 0.0601,
-   "p3": 0.5754
+   "share_switched": 0.222619048,
+   "precision": 0.569518717,
+   "recall": 0.678343949,
+   "target_states_discarded": 0.060119048,
+   "p3": 0.575442739
   },
   "42-15": {
-   "share_switched": 0.2226,
-   "precision": 0.5695,
-   "recall": 0.6783,
-   "target_states_discarded": 0.0601,
-   "p3": 0.5754
+   "share_switched": 0.222619048,
+   "precision": 0.569518717,
+   "recall": 0.678343949,
+   "target_states_discarded": 0.060119048,
+   "p3": 0.575442739
   },
   "42-rodney-case": {
-   "share_switched": 0.2714,
-   "precision": 0.4254,
-   "recall": 0.6178,
-   "target_states_discarded": 0.0714,
-   "p3": 0.4369
+   "share_switched": 0.271428571,
+   "precision": 0.425438596,
+   "recall": 0.617834395,
+   "target_states_discarded": 0.071428571,
+   "p3": 0.43688071
   },
   "42-caycala": {
-   "share_switched": 0.3179,
-   "precision": 0.4045,
-   "recall": 0.6879,
-   "target_states_discarded": 0.0583,
-   "p3": 0.4105
+   "share_switched": 0.317857143,
+   "precision": 0.404494382,
+   "recall": 0.687898089,
+   "target_states_discarded": 0.058333333,
+   "p3": 0.410476243
   },
   "42-fanti": {
-   "share_switched": 0.4393,
-   "precision": 0.3767,
-   "recall": 0.8854,
-   "target_states_discarded": 0.0214,
-   "p3": 0.3819
+   "share_switched": 0.439285714,
+   "precision": 0.376693767,
+   "recall": 0.885350318,
+   "target_states_discarded": 0.021428571,
+   "p3": 0.381861958
   },
   "42-noah": {
-   "share_switched": 0.2714,
-   "precision": 0.3509,
-   "recall": 0.5096,
-   "target_states_discarded": 0.0917,
-   "p3": 0.3562
+   "share_switched": 0.271428571,
+   "precision": 0.350877193,
+   "recall": 0.50955414,
+   "target_states_discarded": 0.091666667,
+   "p3": 0.356202401
   },
   "42-yura": {
-   "share_switched": 0.6857,
-   "precision": 0.2474,
-   "recall": 0.9076,
-   "target_states_discarded": 0.0173,
-   "p3": 0.2482
+   "share_switched": 0.685714286,
+   "precision": 0.247395833,
+   "recall": 0.907643312,
+   "target_states_discarded": 0.017261905,
+   "p3": 0.2482435
   },
   "32-wen": {
-   "share_switched": 0.8214,
-   "precision": 0.712,
-   "recall": 0.9493,
-   "target_states_discarded": 0.0312,
-   "p3": 0.7115
+   "share_switched": 0.821428571,
+   "precision": 0.711956522,
+   "recall": 0.949275362,
+   "target_states_discarded": 0.03125,
+   "p3": 0.711505527
   },
   "32-always": {
    "share_switched": 1.0,
-   "precision": 0.6161,
+   "precision": 0.616071429,
    "recall": 1.0,
    "target_states_discarded": 0.0,
-   "p3": 0.6169
+   "p3": 0.616911295
   },
   "32-fanti-6": {
    "share_switched": 0.5,
-   "precision": 0.3438,
-   "recall": 0.8953,
-   "target_states_discarded": 0.0201,
-   "p3": 0.347
+   "precision": 0.34375,
+   "recall": 0.895348837,
+   "target_states_discarded": 0.020089286,
+   "p3": 0.347042034
   },
   "78-lewis": {
-   "share_switched": 0.0663,
-   "precision": 0.6154,
-   "recall": 0.249,
-   "target_states_discarded": 0.1231,
-   "p3": 0.6071
+   "share_switched": 0.066326531,
+   "precision": 0.615384615,
+   "recall": 0.248962656,
+   "target_states_discarded": 0.123129252,
+   "p3": 0.607148686
   },
   "78-rodney": {
-   "share_switched": 0.1633,
-   "precision": 0.5896,
-   "recall": 0.5871,
-   "target_states_discarded": 0.0677,
-   "p3": 0.588
+   "share_switched": 0.163265306,
+   "precision": 0.589583333,
+   "recall": 0.587136929,
+   "target_states_discarded": 0.067687075,
+   "p3": 0.587950546
   },
   "78-caycala": {
-   "share_switched": 0.2296,
-   "precision": 0.5259,
-   "recall": 0.7365,
-   "target_states_discarded": 0.0432,
-   "p3": 0.521
+   "share_switched": 0.229591837,
+   "precision": 0.525925926,
+   "recall": 0.736514523,
+   "target_states_discarded": 0.043197279,
+   "p3": 0.520952821
   },
   "78-tseitsei-c": {
-   "share_switched": 0.2262,
-   "precision": 0.5248,
-   "recall": 0.7241,
-   "target_states_discarded": 0.0452,
-   "p3": 0.523
+   "share_switched": 0.226190476,
+   "precision": 0.52481203,
+   "recall": 0.72406639,
+   "target_states_discarded": 0.045238095,
+   "p3": 0.523008388
   },
   "78-fanti": {
-   "share_switched": 0.2347,
-   "precision": 0.5145,
-   "recall": 0.7365,
-   "target_states_discarded": 0.0432,
-   "p3": 0.5105
+   "share_switched": 0.234693878,
+   "precision": 0.514492754,
+   "recall": 0.736514523,
+   "target_states_discarded": 0.043197279,
+   "p3": 0.510469543
   },
   "78-tseitsei-a": {
-   "share_switched": 0.2415,
-   "precision": 0.4915,
-   "recall": 0.7241,
-   "target_states_discarded": 0.0452,
-   "p3": 0.4918
+   "share_switched": 0.241496599,
+   "precision": 0.491549296,
+   "recall": 0.72406639,
+   "target_states_discarded": 0.045238095,
+   "p3": 0.491822274
   },
   "78-tseitsei-b": {
-   "share_switched": 0.2031,
-   "precision": 0.4305,
-   "recall": 0.5332,
-   "target_states_discarded": 0.0765,
-   "p3": 0.4296
+   "share_switched": 0.203061224,
+   "precision": 0.430485762,
+   "recall": 0.533195021,
+   "target_states_discarded": 0.076530612,
+   "p3": 0.429570747
   },
   "88-tree": {
-   "share_switched": 0.1625,
-   "precision": 0.4029,
-   "recall": 0.4518,
-   "target_states_discarded": 0.0794,
-   "p3": 0.3912
+   "share_switched": 0.162458472,
+   "precision": 0.402862986,
+   "recall": 0.451834862,
+   "target_states_discarded": 0.079401993,
+   "p3": 0.391216557
   },
   "88-tree-6p": {
    "share_switched": 0.2,
-   "precision": 0.3887,
-   "recall": 0.5367,
-   "target_states_discarded": 0.0671,
-   "p3": 0.3771
+   "precision": 0.388704319,
+   "recall": 0.536697248,
+   "target_states_discarded": 0.067109635,
+   "p3": 0.377116894
   },
   "88-lewis": {
-   "share_switched": 0.0668,
-   "precision": 0.3831,
-   "recall": 0.1766,
-   "target_states_discarded": 0.1193,
-   "p3": 0.3319
+   "share_switched": 0.066777409,
+   "precision": 0.383084577,
+   "recall": 0.176605505,
+   "target_states_discarded": 0.119269103,
+   "p3": 0.331896552
   },
   "22-doc319": {
-   "share_switched": 0.2321,
-   "precision": 0.5962,
-   "recall": 0.5849,
-   "target_states_discarded": 0.0982,
-   "p3": 0.6034
+   "share_switched": 0.232142857,
+   "precision": 0.596153846,
+   "recall": 0.58490566,
+   "target_states_discarded": 0.098214286,
+   "p3": 0.603389831
   },
   "46-tseitsei": {
-   "share_switched": 0.0041,
-   "precision": 0.7917,
-   "recall": 0.07,
-   "target_states_discarded": 0.0429,
-   "p3": 0.7737
+   "share_switched": 0.004081633,
+   "precision": 0.791666667,
+   "recall": 0.069981584,
+   "target_states_discarded": 0.042942177,
+   "p3": 0.773717498
   },
   "46-rodney-table": {
-   "share_switched": 0.0105,
-   "precision": 0.6129,
-   "recall": 0.14,
-   "target_states_discarded": 0.0397,
-   "p3": 0.6241
+   "share_switched": 0.010544218,
+   "precision": 0.612903226,
+   "recall": 0.139963168,
+   "target_states_discarded": 0.039710884,
+   "p3": 0.624113475
   },
   "46-jzp": {
-   "share_switched": 0.0061,
-   "precision": 0.6111,
-   "recall": 0.081,
-   "target_states_discarded": 0.0424,
-   "p3": 0.5845
+   "share_switched": 0.006122449,
+   "precision": 0.611111111,
+   "recall": 0.081031308,
+   "target_states_discarded": 0.042431973,
+   "p3": 0.584481175
   },
   "46-radek": {
-   "share_switched": 0.0182,
-   "precision": 0.5234,
-   "recall": 0.2063,
-   "target_states_discarded": 0.0366,
-   "p3": 0.524
+   "share_switched": 0.018197279,
+   "precision": 0.523364486,
+   "recall": 0.20626151,
+   "target_states_discarded": 0.03664966,
+   "p3": 0.523957685
   },
   "34-rodney": {
-   "share_switched": 0.1071,
-   "precision": 0.3373,
-   "recall": 0.3632,
-   "target_states_discarded": 0.0634,
-   "p3": 0.3341
+   "share_switched": 0.107142857,
+   "precision": 0.337301587,
+   "recall": 0.363247863,
+   "target_states_discarded": 0.06335034,
+   "p3": 0.334092817
   },
   "34-fanti": {
-   "share_switched": 0.2372,
-   "precision": 0.2599,
-   "recall": 0.6197,
-   "target_states_discarded": 0.0378,
-   "p3": 0.2638
+   "share_switched": 0.237244898,
+   "precision": 0.259856631,
+   "recall": 0.61965812,
+   "target_states_discarded": 0.037840136,
+   "p3": 0.2637601
   },
   "36-fanti": {
-   "share_switched": 0.0472,
-   "precision": 0.2838,
-   "recall": 0.2763,
-   "target_states_discarded": 0.0351,
-   "p3": 0.2763
+   "share_switched": 0.047193878,
+   "precision": 0.283783784,
+   "recall": 0.276315789,
+   "target_states_discarded": 0.035076531,
+   "p3": 0.276321538
   },
   "36-jay": {
-   "share_switched": 0.1837,
-   "precision": 0.1319,
+   "share_switched": 0.183673469,
+   "precision": 0.131944444,
    "recall": 0.5,
-   "target_states_discarded": 0.0242,
-   "p3": 0.123
+   "target_states_discarded": 0.024234694,
+   "p3": 0.122996402
   }
  },
  "pop": {
