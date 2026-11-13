@@ -39,6 +39,7 @@ for h in (re.findall(r'(?m)^## (.+)$', doc) if SRC == 'writeup.md' else []):
     rows.append(f'| [{h}](#{anchor(h)}) | {DESC[key]} |')
 doc = doc.replace('{{CONTENTS}}', '\n'.join(rows))
 assert '{{' not in doc and '[[' not in doc, re.findall(r'\{\{[^}]*\}\}|\[\[[^\]]*\]\]', doc)[:5]
+import routefmt; doc = routefmt.page(doc)   # routes as `4b2 2c3 (4b2 4a1 0c0)`
 open(ROOT + 'report/' + ('BUGS.md' if SRC == 'bugs.md' else 'WRITEUP.md'), 'w').write(doc)
 print(len(doc.split('\n')), 'lines', len(doc), 'bytes; links:', len(used))
 if pending:

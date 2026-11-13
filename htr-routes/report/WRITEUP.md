@@ -85,7 +85,7 @@ The same three get a finish within +1 on 84.3% (4a1) to 99.6% (4b5). After the t
 | 2c4 0e | go linear first | 1 route | 70.1% | 42.7% |
 | 2c3 6e (same on 0e and 8e) | switch at 4b2 first | 1 route | 66.1% | 40.9% |
 | 4a2 0e | start with the 4b3 regression | 1 route | 29.1% | 4.0% |
-| 4a1 0e | start with `4a1 > 0c0 > (4a1 > 0c0)` | 3 routes | 54.6% | 33.9% |
+| 4a1 0e | start with `4a1 0c0 (4a1 0c0)` | 3 routes | 54.6% | 33.9% |
 
 On 2c5, 0c3, 0c4, 4c3, 4c4 and 4b2 the pooled list loses at most 4.2 points (section 4).
 
@@ -351,7 +351,7 @@ By the DR-move optimum (uniform, weighted by exact subset size). Each row is a D
 | 16 | 1.1% | 841 | 35.7% |
 | 17 | 0.007% | 13 | 43.1% |
 
-**Corner path, route.** Read a finish move by move and write down the corner subset at the start and after each quarter turn, until the cube is in HTR (corners and edges). `4b2 > 2c3 > 4b2 > 4a1 > 0c0` is a 4b2 that regresses to 2c3, comes back to 4b2, then goes 4a1 and HTR. The moves up to that point are the finish's HTR, the rest its post-HTR part. A *route* (route class) is the chain plus where the NISS switch is: `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` means one qt on the first side to 2c3, then switch, and the rest on the other side, where the subsets are read on that side. That's the notation of Daichi's cheat sheet; the list of routes comes from the data, not from a list picked in advance. Edge counts are dropped from route names in the tables (they are in the files).
+**Corner path, route.** Read a finish move by move and write down the corner subset at the start and after each quarter turn, until the cube is in HTR (corners and edges). `4b2 2c3 4b2 4a1 0c0` is a 4b2 that regresses to 2c3, comes back to 4b2, then goes 4a1 and HTR. The moves up to that point are the finish's HTR, the rest its post-HTR part. A *route* (route class) is the chain plus where the NISS switch is: `4b2 2c3 (4b2 4a1 0c0)` means one qt on the first side to 2c3, then switch, and the rest on the other side, where the subsets are read on that side. Routes are the kind Daichi's cheat sheet lists; the list of routes comes from the data, not from a list picked in advance. Edge counts are dropped from route names in the tables (they are in the files); where a route does carry them, its states are separated by arrows, `2c3 2e → 4b2 2e → 4a1 4e → 0c0`.
 
 **NISS readings.** A finish S of a state X can be found as A on normal and then B on inverse whenever $S = A \cdot B^{-1}$; and the other way, B on inverse first. So every finish of $n$ moves has $2(n + 1)$ readings, one per split and side. A route *works* on a state if some reading of some optimal finish (or +1 finish, at +1) follows it. Both sides are always available: a linear route on the inverse is a reading too.
 
@@ -375,54 +375,54 @@ Each row is a subset × edges and the first three routes of its budget-2 checkli
 
 | Subset | Try first | Then | Then |
 |---|---|---|---|
-| 0c0 0e | `0c0 > 4a1 > 0c0` | `0c0` | `0c0 \| qt` |
-| 0c0 2e | `0c0 > 4a1 > 0c0` | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) | `0c0 > 4a1 > (0c0)` |
-| 0c0 4e | `0c0 > 4a1 > 0c0` | `0c0 > 4a1 > (0c0)` | `0c0 > 4a1 > 4b2 > 4a1 > 0c0` |
-| 0c0 6e | `0c0 > 4a1 > (0c0)` | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `0c0 > 4a1 > 4b2 > 4a1 > (0c0)`) |
-| 0c0 8e | `0c0 > 4a1 > (0c0)` | `0c0 > 4a1 > 0c0` | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) |
-| 2c5 0e | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > (4a1 > 0c0)`) | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` |
-| 2c5 2e | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > (4a1 > 0c0)`) | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) |
-| 2c5 4e | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > (4a1 > 0c0)`) | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) |
-| 2c5 6e | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > (4a1 > 0c0)`) | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) |
-| 2c5 8e | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > (4a1 > 0c0)`) | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` |
-| 2c4 0e | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > 4a1 > (0c0)`) | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) |
-| 2c4 2e | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > 4a1 > (0c0)`) | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) |
-| 2c4 4e | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > 4a1 > (0c0)`) | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) |
-| 2c4 6e | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > 4a1 > (0c0)`) | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) |
-| 2c4 8e | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > 4a1 > (0c0)`) | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` |
-| 0c3 0e | `0c3 > 4a2 > (4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > (0c0)`) | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `0c3 > 4a2 > (4a1 > 4b2 > 4a1 > 0c0)`) | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4b3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) |
-| 0c3 2e | `0c3 > 4a2 > (4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > (0c0)`) | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `0c3 > 4a2 > (4a1 > 4b2 > 4a1 > 0c0)`) | `0c3 > 4a2 > 4a1 > 0c0` |
-| 0c3 4e | `0c3 > 4a2 > (4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > (0c0)`) | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `0c3 > 4a2 > (4a1 > 4b2 > 4a1 > 0c0)`) | `0c3 > 4a2 > 4b3 > (4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > 4b2 > (4a1 > 0c0)`) |
-| 0c3 6e | `0c3 > 4a2 > (4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > (0c0)`) | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `0c3 > 4a2 > (4a1 > 4b2 > 4a1 > 0c0)`) | `0c3 > 4a2 > 4a1 > 0c0` |
-| 0c3 8e | `0c3 > 4a2 > (4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > (0c0)`) | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `0c3 > 4a2 > (4a1 > 4b2 > 4a1 > 0c0)`) | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `0c3 > 4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) |
-| 4a2 0e | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `4a2 > 4a1 > (4b2 > 4a1 > 0c0)`) | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | `4a2 > 4a1 > (0c0)` |
-| 4a2 2e | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `4a2 > 4a1 > (4b2 > 4a1 > 0c0)`) | `4a2 > 4a1 > (0c0)` | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` |
-| 4a2 4e | `4a2 > 4a1 > 0c0` | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `4a2 > 4a1 > (4b2 > 4a1 > 0c0)`) | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` |
-| 4a1 0e | `4a1 > 0c0 > (4a1 > 0c0)` (mirror: `4a1 > 4a2 > 4a1 > (0c0)`) | `4a1 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `4a1 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)`) | `4a1 > 0c0 > 4a1 > (0c0)` (mirror: `4a1 > 4a2 > (4a1 > 0c0)`) |
-| 4a1 2e | `4a1 > 4b2 > 4a1 > 0c0` | `4a1 > 0c0 > 4a1 > 0c0` | `4a1 > 0c0 > (4a1 > 0c0)` (mirror: `4a1 > 4a2 > 4a1 > (0c0)`) |
-| 4a1 4e | `4a1 > 0c0` | `4a1 > 4b2 > 4a1 > 0c0` | `4a1 > 0c0 > (4a1 > 0c0)` (mirror: `4a1 > 4a2 > 4a1 > (0c0)`) |
-| 2c3 0e | `2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a1 > (0c0)`) | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | `2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) |
-| 2c3 2e | `2c3 > 4b2 > 4a1 > 0c0` | `2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a1 > (0c0)`) | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) |
-| 2c3 4e | `2c3 > 4b2 > 4a1 > 0c0` | `2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a1 > (0c0)`) | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) |
-| 2c3 6e | `2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a1 > (0c0)`) | `2c3 > 4b2 > 4a1 > 0c0` | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) |
-| 2c3 8e | `2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a1 > (0c0)`) | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) |
-| 0c4 0e | `0c4 > 4a3 > 4b2 > (4a1 > 0c0)` | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` | `0c4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > 4a1 > (0c0)`) |
-| 0c4 2e | `0c4 > 4a3 > 4b2 > (4a1 > 0c0)` | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `0c4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) |
-| 0c4 4e | `0c4 > 4a3 > 4b2 > (4a1 > 0c0)` | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` | `0c4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > 4a1 > (0c0)`) |
-| 0c4 6e | `0c4 > 4a3 > 4b2 > (4a1 > 0c0)` | `0c4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > 4a1 > (0c0)`) | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `0c4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) |
-| 0c4 8e | `0c4 > 4a3 > 4b2 > (4a1 > 0c0)` | `0c4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > 4a1 > (0c0)`) | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `0c4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) |
-| 4c3 0e | `4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4b3 > 4a2 > 4a1 > (0c0)`) | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b3 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)`) |
-| 4c3 2e | `4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4b3 > 4a2 > 4a1 > (0c0)`) | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)`) | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b3 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) |
-| 4c3 4e | `4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4b3 > 4a2 > 4a1 > (0c0)`) | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)`) | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b3 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) |
-| 4c4 0e | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4a4 > 0c3 > 4a2 > (4a1 > 0c0)`) | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b4 > 2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)`) | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4a4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) |
-| 4c4 2e | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4a4 > 0c3 > 4a2 > (4a1 > 0c0)`) | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b4 > 4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)`) | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b4 > 2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)`) |
-| 4c4 4e | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4a4 > 0c3 > 4a2 > (4a1 > 0c0)`) | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b4 > 4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)`) | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b4 > 2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)`) |
-| 4b2 0e | `4b2 > 4a1 > 0c0` | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `4b2 > 4a1 > 0c0 > (4a1 > 0c0)`) | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) |
-| 4b2 2e | `4b2 > 4a1 > 0c0` | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `4b2 > 2c3 > (4b2 > 4a1 > 0c0)`) | `4b2 > 4a1 > (0c0)` |
-| 4b2 4e | `4b2 > 4a1 > 0c0` | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` |
-| 4b5 0e | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` |
-| 4b5 2e | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` |
-| 4b5 4e | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` |
+| 0c0 0e | `0c0 4a1 0c0` | `0c0` | `0c0 \| qt` |
+| 0c0 2e | `0c0 4a1 0c0` | `0c0 4a1 0c0 4a1 (0c0)` (mirror: `0c0 4a1 (4a2 4a1 0c0)`) | `0c0 4a1 (0c0)` |
+| 0c0 4e | `0c0 4a1 0c0` | `0c0 4a1 (0c0)` | `0c0 4a1 4b2 4a1 0c0` |
+| 0c0 6e | `0c0 4a1 (0c0)` | `0c0 4a1 0c0 4a1 (0c0)` (mirror: `0c0 4a1 (4a2 4a1 0c0)`) | `0c0 4a1 (0c0 4a1 0c0)` (mirror: `0c0 4a1 4b2 4a1 (0c0)`) |
+| 0c0 8e | `0c0 4a1 (0c0)` | `0c0 4a1 0c0` | `0c0 4a1 0c0 4a1 (0c0)` (mirror: `0c0 4a1 (4a2 4a1 0c0)`) |
+| 2c5 0e | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) | `2c5 2c4 2c3 4b2 4a1 0c0` |
+| 2c5 2e | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | `2c5 2c4 2c3 4b2 4a1 0c0` | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) |
+| 2c5 4e | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | `2c5 2c4 2c3 4b2 4a1 0c0` | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) |
+| 2c5 6e | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | `2c5 2c4 2c3 4b2 4a1 0c0` | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) |
+| 2c5 8e | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | `2c5 2c4 2c3 4b2 4a1 (0c0)` (mirror: `2c5 2c4 (2c3 4b2 4a1 0c0)`) | `2c5 2c4 2c3 4b2 4a1 0c0` |
+| 2c4 0e | `2c4 2c3 4b2 4a1 0c0` | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) |
+| 2c4 2e | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | `2c4 2c3 4b2 4a1 0c0` | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) |
+| 2c4 4e | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | `2c4 2c3 4b2 4a1 0c0` | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) |
+| 2c4 6e | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | `2c4 2c3 4b2 4a1 0c0` | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) |
+| 2c4 8e | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) | `2c4 2c3 4b2 4a1 0c0` |
+| 0c3 0e | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | `0c3 4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4b3 2c4 (2c3 4b2 4a1 0c0)`) |
+| 0c3 2e | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | `0c3 4a2 4a1 0c0` |
+| 0c3 4e | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | `0c3 4a2 4b3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4a1 4b2 (4a1 0c0)`) |
+| 0c3 6e | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | `0c3 4a2 4a1 0c0` |
+| 0c3 8e | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | `0c3 4a4 4b5 2c4 2c3 4b2 (4a1 0c0)` (mirror: `0c3 4a4 4b5 (2c4 2c3 4b2 4a1 0c0)`) |
+| 4a2 0e | `4a2 4b3 4a2 4a1 (0c0)` (mirror: `4a2 4a1 (4b2 4a1 0c0)`) | `4a2 4a1 4b2 4a1 0c0` | `4a2 4a1 (0c0)` |
+| 4a2 2e | `4a2 4b3 4a2 4a1 (0c0)` (mirror: `4a2 4a1 (4b2 4a1 0c0)`) | `4a2 4a1 (0c0)` | `4a2 4a1 4b2 4a1 0c0` |
+| 4a2 4e | `4a2 4a1 0c0` | `4a2 4b3 4a2 4a1 (0c0)` (mirror: `4a2 4a1 (4b2 4a1 0c0)`) | `4a2 4a1 4b2 4a1 0c0` |
+| 4a1 0e | `4a1 0c0 (4a1 0c0)` (mirror: `4a1 4a2 4a1 (0c0)`) | `4a1 4b2 2c3 4b2 4a1 (0c0)` (mirror: `4a1 4b2 (2c3 4b2 4a1 0c0)`) | `4a1 0c0 4a1 (0c0)` (mirror: `4a1 4a2 (4a1 0c0)`) |
+| 4a1 2e | `4a1 4b2 4a1 0c0` | `4a1 0c0 4a1 0c0` | `4a1 0c0 (4a1 0c0)` (mirror: `4a1 4a2 4a1 (0c0)`) |
+| 4a1 4e | `4a1 0c0` | `4a1 4b2 4a1 0c0` | `4a1 0c0 (4a1 0c0)` (mirror: `4a1 4a2 4a1 (0c0)`) |
+| 2c3 0e | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) | `2c3 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 4a1 (0c0)`) |
+| 2c3 2e | `2c3 4b2 4a1 0c0` | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) |
+| 2c3 4e | `2c3 4b2 4a1 0c0` | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) |
+| 2c3 6e | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | `2c3 4b2 4a1 0c0` | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) |
+| 2c3 8e | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) | `2c3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 (4a1 0c0)`) |
+| 0c4 0e | `0c4 4a3 4b2 (4a1 0c0)` | `0c4 4a3 4b2 4a1 0c0` | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) |
+| 0c4 2e | `0c4 4a3 4b2 (4a1 0c0)` | `0c4 4a3 4b2 4a1 0c0` | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `0c4 4a3 (2c4 2c3 4b2 4a1 0c0)`) |
+| 0c4 4e | `0c4 4a3 4b2 (4a1 0c0)` | `0c4 4a3 4b2 4a1 0c0` | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) |
+| 0c4 6e | `0c4 4a3 4b2 (4a1 0c0)` | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `0c4 4a3 (2c4 2c3 4b2 4a1 0c0)`) |
+| 0c4 8e | `0c4 4a3 4b2 (4a1 0c0)` | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `0c4 4a3 (2c4 2c3 4b2 4a1 0c0)`) |
+| 4c3 0e | `4a3 4b2 (4a1 0c0)` (mirror: `4b3 4a2 4a1 (0c0)`) | `4a3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b3 2c4 2c3 4b2 (4a1 0c0)`) | `4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4a3 0c4 4a3 4b2 (4a1 0c0)`) |
+| 4c3 2e | `4a3 4b2 (4a1 0c0)` (mirror: `4b3 4a2 4a1 (0c0)`) | `4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4a3 0c4 4a3 4b2 (4a1 0c0)`) | `4a3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b3 2c4 2c3 4b2 (4a1 0c0)`) |
+| 4c3 4e | `4a3 4b2 (4a1 0c0)` (mirror: `4b3 4a2 4a1 (0c0)`) | `4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4a3 0c4 4a3 4b2 (4a1 0c0)`) | `4a3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b3 2c4 2c3 4b2 (4a1 0c0)`) |
+| 4c4 0e | `4b4 4a3 4b2 (4a1 0c0)` (mirror: `4a4 0c3 4a2 (4a1 0c0)`) | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b4 2c5 4b4 4a3 (4a2 4a1 0c0)`) | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `4a4 4a3 4b2 2c3 4b2 4a1 (0c0)`) |
+| 4c4 2e | `4b4 4a3 4b2 (4a1 0c0)` (mirror: `4a4 0c3 4a2 (4a1 0c0)`) | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b4 4a3 0c4 4a3 4b2 (4a1 0c0)`) | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b4 2c5 4b4 4a3 (4a2 4a1 0c0)`) |
+| 4c4 4e | `4b4 4a3 4b2 (4a1 0c0)` (mirror: `4a4 0c3 4a2 (4a1 0c0)`) | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b4 4a3 0c4 4a3 4b2 (4a1 0c0)`) | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b4 2c5 4b4 4a3 (4a2 4a1 0c0)`) |
+| 4b2 0e | `4b2 4a1 0c0` | `4b2 2c3 4b2 (4a1 0c0)` (mirror: `4b2 4a1 0c0 (4a1 0c0)`) | `4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b2 2c3 4b2 4a1 (0c0)`) |
+| 4b2 2e | `4b2 4a1 0c0` | `4b2 2c3 4b2 4a1 (0c0)` (mirror: `4b2 2c3 (4b2 4a1 0c0)`) | `4b2 4a1 (0c0)` |
+| 4b2 4e | `4b2 4a1 0c0` | `4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b2 2c3 4b2 4a1 (0c0)`) | `4b2 2c3 4b2 4a1 0c0` |
+| 4b5 0e | `4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b5 2c4 4b3 4a2 (4a1 0c0)`) | `4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 4a1 (0c0)`) | `4b5 2c4 2c3 4b2 4a1 0c0` |
+| 4b5 2e | `4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 4a1 (0c0)`) | `4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b5 2c4 4b3 4a2 (4a1 0c0)`) | `4b5 2c4 2c3 4b2 4a1 0c0` |
+| 4b5 4e | `4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 4a1 (0c0)`) | `4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b5 2c4 4b3 4a2 (4a1 0c0)`) | `4b5 2c4 2c3 4b2 4a1 0c0` |
 
 How far those routes get, same rows: the share of DRs where the first 1, 2, 3 or 5 routes find an optimal finish, and where the first three find a finish within +1:
 
@@ -501,28 +501,28 @@ Every subset × edges where the own list gains at least a point somewhere (optim
 |---|---|---|---|---|---|---|
 | 0c0 0e | same | 1 | +0.0 | +41.7 | +49.9 | +50.4 |
 | 0c0 4e | same | 1 | +0.0 | +0.0 | +2.0 | +0.7 |
-| 0c0 6e | `0c0 > 4a1 > (0c0)` | 6 | +22.7 | +11.5 | +5.3 | +3.6 |
-| 0c0 8e | `0c0 > 4a1 > (0c0)` | 2 | +6.9 | +0.0 | +0.0 | +0.4 |
+| 0c0 6e | `0c0 4a1 (0c0)` | 6 | +22.7 | +11.5 | +5.3 | +3.6 |
+| 0c0 8e | `0c0 4a1 (0c0)` | 2 | +6.9 | +0.0 | +0.0 | +0.4 |
 | 2c5 0e | same | 1 | +0.0 | +4.2 | +0.0 | +0.0 |
 | 2c5 8e | same | 1 | +0.0 | +1.8 | +0.1 | +0.1 |
-| 2c4 0e | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 2 | +27.4 | +0.0 | +0.0 | +0.1 |
+| 2c4 0e | `2c4 2c3 4b2 4a1 0c0` | 2 | +27.4 | +0.0 | +0.0 | +0.1 |
 | 2c4 8e | same | 1 | +0.0 | +6.5 | +0.0 | +0.3 |
 | 0c3 0e | same | 1 | +0.0 | +0.0 | +2.4 | +0.6 |
 | 0c3 8e | same | 1 | +0.0 | +0.0 | +1.2 | +1.5 |
-| 4a2 0e | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 3 | +25.1 | +7.4 | +0.0 | +2.5 |
-| 4a2 2e | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 2 | +8.3 | +0.0 | +0.0 | +1.8 |
-| 4a2 4e | `4a2 > 4a1 > 0c0` | 4 | +10.4 | +9.6 | +7.5 | +0.0 |
-| 4a1 0e | `4a1 > 0c0 > (4a1 > 0c0)` | 14 | +24.3 | +12.6 | +20.7 | +17.0 |
+| 4a2 0e | `4a2 4b3 4a2 4a1 (0c0)` | 3 | +25.1 | +7.4 | +0.0 | +2.5 |
+| 4a2 2e | `4a2 4b3 4a2 4a1 (0c0)` | 2 | +8.3 | +0.0 | +0.0 | +1.8 |
+| 4a2 4e | `4a2 4a1 0c0` | 4 | +10.4 | +9.6 | +7.5 | +0.0 |
+| 4a1 0e | `4a1 0c0 (4a1 0c0)` | 14 | +24.3 | +12.6 | +20.7 | +17.0 |
 | 4a1 2e | same | 1 | +0.0 | +2.1 | +13.8 | +1.4 |
-| 4a1 4e | `4a1 > 0c0` | 2 | +11.5 | +15.4 | +0.0 | +0.0 |
-| 2c3 0e | `2c3 > 4b2 > (4a1 > 0c0)` | 14 | +26.8 | +20.6 | +8.1 | +5.3 |
-| 2c3 6e | `2c3 > 4b2 > (4a1 > 0c0)` | 2 | +25.2 | +0.0 | +0.0 | +0.0 |
-| 2c3 8e | `2c3 > 4b2 > (4a1 > 0c0)` | 13 | +26.0 | +20.8 | +7.2 | +2.9 |
+| 4a1 4e | `4a1 0c0` | 2 | +11.5 | +15.4 | +0.0 | +0.0 |
+| 2c3 0e | `2c3 4b2 (4a1 0c0)` | 14 | +26.8 | +20.6 | +8.1 | +5.3 |
+| 2c3 6e | `2c3 4b2 (4a1 0c0)` | 2 | +25.2 | +0.0 | +0.0 | +0.0 |
+| 2c3 8e | `2c3 4b2 (4a1 0c0)` | 13 | +26.0 | +20.8 | +7.2 | +2.9 |
 | 0c4 0e | same | 1 | +0.0 | +2.3 | +0.0 | +0.0 |
 | 0c4 6e | same | 1 | +0.0 | +0.0 | +1.3 | +0.5 |
 | 4c3 0e | same | 1 | +0.0 | +0.3 | +0.0 | +0.0 |
 | 4b2 0e | same | 1 | +0.0 | +1.0 | +2.9 | +0.1 |
-| 4b5 0e | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 2 | +4.7 | +0.0 | +0.0 | +0.0 |
+| 4b5 0e | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 2 | +4.7 | +0.0 | +0.0 | +0.0 |
 
 *Pooled list's first route: place in own list* is where the pooled list's first route lands in the subset × edges list (computed to 60 routes). The same rows within +1, own minus pooled, in points:
 
@@ -612,21 +612,21 @@ Where knowing the edge count changes what to try first. Each row is a subset × 
 
 | Subset × edges | Own list starts with | After | Own list finds the optimal | Pooled list finds the optimal | Note |
 |---|---|---|---|---|---|
-| 0c0 0e | `0c0 > 4a1 > 0c0`, then `0c0` (the DR is already HTR) | 2 routes | 84.4% | 42.7% | the pooled order never tries it |
-| 0c0 6e | `0c0 > 4a1 > (0c0)`, switching before the last qt | 1 route | 40.8% | 18.1% | pooled first route is only 6th here |
+| 0c0 0e | `0c0 4a1 0c0`, then `0c0` (the DR is already HTR) | 2 routes | 84.4% | 42.7% | the pooled order never tries it |
+| 0c0 6e | `0c0 4a1 (0c0)`, switching before the last qt | 1 route | 40.8% | 18.1% | pooled first route is only 6th here |
 | 0c0 8e | the same switch first | 1 route | 53.5% | 46.6% | |
-| 2c4 0e | linear, `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 1 route | 70.1% | 42.7% | pooled switches at 2c3 |
-| 2c3 0e | switch at 4b2, `2c3 > 4b2 > (4a1 > 0c0)` | 1 route | 46.3% | 19.5% | |
+| 2c4 0e | linear, `2c4 2c3 4b2 4a1 0c0` | 1 route | 70.1% | 42.7% | pooled switches at 2c3 |
+| 2c3 0e | switch at 4b2, `2c3 4b2 (4a1 0c0)` | 1 route | 46.3% | 19.5% | |
 | 2c3 6e | the same | 1 route | 66.1% | 40.9% | |
 | 2c3 8e | the same | 1 route | 46.3% | 20.3% | |
-| 4a2 0e | the 4b3 regression `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 1 route | 29.1% | 4.0% | |
+| 4a2 0e | the 4b3 regression `4a2 4b3 4a2 4a1 (0c0)` | 1 route | 29.1% | 4.0% | |
 | 4a2 2e | the same | 1 route | 42.2% | 34.0% | |
-| 4a2 4e | linear, `4a2 > 4a1 > 0c0` | 3 routes | 79.1% | 71.6% | |
-| 4a1 0e | `4a1 > 0c0 > (4a1 > 0c0)` | 3 routes | 54.6% | 33.9% | pooled first route is 14th |
-| 4a1 4e | the 1qt route `4a1 > 0c0` | 2 routes | 50.3% | 34.9% | |
+| 4a2 4e | linear, `4a2 4a1 0c0` | 3 routes | 79.1% | 71.6% | |
+| 4a1 0e | `4a1 0c0 (4a1 0c0)` | 3 routes | 54.6% | 33.9% | pooled first route is 14th |
+| 4a1 4e | the 1qt route `4a1 0c0` | 2 routes | 50.3% | 34.9% | |
 | 4a1 2e | the pooled first route, but a different third | 3 routes | 70.5% | 56.6% | |
 
-On 2c3 2e and 4e the linear route stays first. On 4a2 the pooled first route, `4a2 > 4a1 > (0c0)`, is first on none of the three edge counts.
+On 2c3 2e and 4e the linear route stays first. On 4a2 the pooled first route, `4a2 4a1 (0c0)`, is first on none of the three edge counts.
 
 Where it doesn't matter: on 2c5, 0c3, 0c4, 4c3, 4c4 and 4b2 the first route is the same for every edge count, and the own list gains at most 4.2 points at any step. The pooled list is fine there, and on 2c4 2e to 8e too.
 
@@ -634,18 +634,18 @@ Where it doesn't matter: on 2c5, 0c3, 0c4, 4c3, 4c4 and 4b2 the first route is t
 
 | Subset | Try first | Then | Then |
 |---|---|---|---|
-| 0c0 | `0c0 > 4a1 > 0c0` | `0c0 > 4a1 > (0c0)` | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) |
-| 2c5 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > (4a1 > 0c0)`) | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) |
-| 2c4 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > 4a1 > (0c0)`) | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) |
-| 0c3 | `0c3 > 4a2 > (4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > (0c0)`) | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `0c3 > 4a2 > (4a1 > 4b2 > 4a1 > 0c0)`) | `0c3 > 4a2 > 4b3 > (4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > 4b2 > (4a1 > 0c0)`) |
-| 4a2 | `4a2 > 4a1 > (0c0)` | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `4a2 > 4a1 > (4b2 > 4a1 > 0c0)`) | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` |
-| 4a1 | `4a1 > 4b2 > 4a1 > 0c0` | `4a1 > 0c0 > (4a1 > 0c0)` (mirror: `4a1 > 4a2 > 4a1 > (0c0)`) | `4a1 > 0c0` |
-| 2c3 | `2c3 > 4b2 > 4a1 > 0c0` | `2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a1 > (0c0)`) | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) |
-| 0c4 | `0c4 > 4a3 > 4b2 > (4a1 > 0c0)` | `0c4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > 4a1 > (0c0)`) | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` |
-| 4c3 | `4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4b3 > 4a2 > 4a1 > (0c0)`) | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)`) | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b3 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) |
-| 4c4 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4a4 > 0c3 > 4a2 > (4a1 > 0c0)`) | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b4 > 4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)`) | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b4 > 2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)`) |
-| 4b2 | `4b2 > 4a1 > 0c0` | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `4b2 > 2c3 > (4b2 > 4a1 > 0c0)`) | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` |
-| 4b5 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` |
+| 0c0 | `0c0 4a1 0c0` | `0c0 4a1 (0c0)` | `0c0 4a1 0c0 4a1 (0c0)` (mirror: `0c0 4a1 (4a2 4a1 0c0)`) |
+| 2c5 | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | `2c5 2c4 2c3 4b2 4a1 0c0` | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) |
+| 2c4 | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | `2c4 2c3 4b2 4a1 0c0` | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) |
+| 0c3 | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | `0c3 4a2 4b3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4a1 4b2 (4a1 0c0)`) |
+| 4a2 | `4a2 4a1 (0c0)` | `4a2 4b3 4a2 4a1 (0c0)` (mirror: `4a2 4a1 (4b2 4a1 0c0)`) | `4a2 4a1 4b2 4a1 0c0` |
+| 4a1 | `4a1 4b2 4a1 0c0` | `4a1 0c0 (4a1 0c0)` (mirror: `4a1 4a2 4a1 (0c0)`) | `4a1 0c0` |
+| 2c3 | `2c3 4b2 4a1 0c0` | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) |
+| 0c4 | `0c4 4a3 4b2 (4a1 0c0)` | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) | `0c4 4a3 4b2 4a1 0c0` |
+| 4c3 | `4a3 4b2 (4a1 0c0)` (mirror: `4b3 4a2 4a1 (0c0)`) | `4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4a3 0c4 4a3 4b2 (4a1 0c0)`) | `4a3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b3 2c4 2c3 4b2 (4a1 0c0)`) |
+| 4c4 | `4b4 4a3 4b2 (4a1 0c0)` (mirror: `4a4 0c3 4a2 (4a1 0c0)`) | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b4 4a3 0c4 4a3 4b2 (4a1 0c0)`) | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b4 2c5 4b4 4a3 (4a2 4a1 0c0)`) |
+| 4b2 | `4b2 4a1 0c0` | `4b2 2c3 4b2 4a1 (0c0)` (mirror: `4b2 2c3 (4b2 4a1 0c0)`) | `4b2 2c3 4b2 4a1 0c0` |
+| 4b5 | `4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 4a1 (0c0)`) | `4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b5 2c4 4b3 4a2 (4a1 0c0)`) | `4b5 2c4 2c3 4b2 4a1 0c0` |
 
 The shares, same rows: the DRs where the first 1, 2, 3 or 5 routes find the optimal, where the same three find a finish within +1, and for comparison three routes with no limit on HTR length:
 
@@ -664,7 +664,7 @@ The shares, same rows: the DRs where the first 1, 2, 3 or 5 routes find the opti
 | 4b2 | 37.6% | 53.3% | 62.6% | 71.4% | 88.0% | 97.2% |
 | 4b5 | 64.7% | 87.4% | 93.7% | 93.9% | 99.6% | 99.5% |
 
-How to read a row, with 4c3 (the pooled row; 4c3 2e and 4e start the same way). Try `4a3 > 4b2 > (4a1 > 0c0)` first: on the 4a3 side, one qt to 4b2, switch, and on the other side 4a1 and HTR. The same moves read the other way round are its mirror, `4b3 > 4a2 > 4a1 > (0c0)`: start on the 4b3 side, qt to 4a2, qt to 4a1, switch for the last qt. Every split of a finish has a mirror like this, and the table names both. As classes they aren't the same, since each also collects other finishes (only 646 of 21,552 mirror pairs cover exactly the same states), so the share is for the reading named first. With HTRs up to two over the shortest, that route alone finds the optimal on 64.3% of 4c3. Then the b side, `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)`, then the regression through 2c3 on the a side. The b-side route through 4a2 read linearly, `4b3 > 4a2 > 4a1 > 0c0`, is fifth.
+How to read a row, with 4c3 (the pooled row; 4c3 2e and 4e start the same way). Try `4a3 4b2 (4a1 0c0)` first: on the 4a3 side, one qt to 4b2, switch, and on the other side 4a1 and HTR. The same moves read the other way round are its mirror, `4b3 4a2 4a1 (0c0)`: start on the 4b3 side, qt to 4a2, qt to 4a1, switch for the last qt. Every split of a finish has a mirror like this, and the table names both. As classes they aren't the same, since each also collects other finishes (only 646 of 21,552 mirror pairs cover exactly the same states), so the share is for the reading named first. With HTRs up to two over the shortest, that route alone finds the optimal on 64.3% of 4c3. Then the b side, `4b3 2c4 2c3 (4b2 4a1 0c0)`, then the regression through 2c3 on the a side. The b-side route through 4a2 read linearly, `4b3 4a2 4a1 0c0`, is fifth.
 
 There are more in the [worked examples](examples.html); here's one, replayed:
 
@@ -679,7 +679,7 @@ What the pooled table says, subset by subset. Each row is a corner subset, the s
 | Corner subset | Optimal found | After | What to try |
 |---|---|---|---|
 | 0c3 | 89.3% | 3 routes | `4a2 4e`, then switch |
-| 0c4 | 86.3% | 3 routes | `4a3 > 4b2`, switch |
+| 0c4 | 86.3% | 3 routes | `4a3 4b2`, switch |
 | 2c4 | 88.4% | 3 routes | down the 2c chain to 2c3, switch at 2c3 (or one step earlier), or linear |
 | 2c5 | 91.4% | 3 routes | the same |
 | 4b5 | 93.7% | 3 routes | the same |
@@ -692,7 +692,7 @@ What the pooled table says, subset by subset. Each row is a corner subset, the s
 
 - **0c3, 0c4, 2c4, 2c5, 4b5** are the easy ones for a checklist, and the routes are what Daichi's cheat sheet says.
 - **4c3, 4c4, 2c3** need four or five routes for 80%.
-- **4b2, 4a1, 0c0** are where checklists struggle, and where bounding does better (section 8). On 4b2 the 2qt route `4b2 > 4a1 > 0c0` comes first but alone finds only 37.6%; the regressions through 2c3 come next.
+- **4b2, 4a1, 0c0** are where checklists struggle, and where bounding does better (section 8). On 4b2 the 2qt route `4b2 4a1 0c0` comes first but alone finds only 37.6%; the regressions through 2c3 come next.
 - **Within +1** the same three routes reach 86.4% on 0c0, 84.3% on 4a1, 88.0% on 4b2, and 90% or more on the other 9. If you only need a finish within one move of optimal, three routes are enough nearly everywhere. (At +1 a route counts if any of its finishes within +1 has an HTR within the budget, which may be shorter than on its optimal finishes.)
 
 **The budget.** The same checklists built for budget 0 (only the shortest HTRs), 1, 2 and no limit. Each row is a corner subset; each cell is the share where the first route finds the optimal with that budget:
@@ -733,11 +733,11 @@ With only the shortest HTRs, no subset gets past 53% with three routes: you have
 
 **Cheap and marginal routes.** After the third route, each further route adds at most 8.4 points, and less than 3 points in 91.7% of the checklists (subsets × edges and corner subsets, budget 2). Routes 4 to 8 only pay at the margin. If you have time for more on 0c0, 4a1 and 4b2, a second DR or bounding (section 8) is probably the better use of it.
 
-**Edge counts along the route.** It also matters how often you go through, say, 4b2 4e rather than 4b2 2e. Every state on a route has its own bad-edge count (counted as for the subset × edges groups), so a corner route splits into edge paths. From 2c3 2e, `2c3 > 4b2 > 4a1 > 0c0` is one of
+**Edge counts along the route.** It also matters how often you go through, say, 4b2 4e rather than 4b2 2e. Every state on a route has its own bad-edge count (counted as for the subset × edges groups), so a corner route splits into edge paths. From 2c3 2e, `2c3 4b2 4a1 0c0` is one of
 
 ```
-2c3 2e > 4b2 2e > 4a1 4e > 0c0
-2c3 2e > 4b2 4e > 4a1 4e > 0c0
+2c3 2e → 4b2 2e → 4a1 4e → 0c0
+2c3 2e → 4b2 4e → 4a1 4e → 0c0
 ```
 
 Below, a DR *can pass* an intermediate subset if some route (after a qt, before HTR) that finds its optimal with budget 2 goes through it. One DR can pass several, so the edge columns add up to more than 100%. First the reverse view, over all DRs. Each row is an intermediate subset and a target: the share of DRs that can pass it, then, of those, the share that can pass it with each edge count.
@@ -975,7 +975,7 @@ Each reading on the cases they were talking about:
 
 The 57% fits a random leave-slice optimal or *every optimal*. Both quotes fit.
 
-On 4b2 4e no optimal uses only 2 qts on 63.7% of states, and on those the 2qt route never gives the optimal. In this one no optimal finish follows the 2qt route `4b2 > 4a1 > 0c0` in any reading:
+On 4b2 4e no optimal uses only 2 qts on 63.7% of states, and on those the 2qt route never gives the optimal. In this one no optimal finish follows the 2qt route `4b2 4a1 0c0` in any reading:
 
 ```
 F2 D F2 D L2 D2 L2 F2 L2 D L2 U // 4b2 4e, 12 optimal
@@ -1097,7 +1097,7 @@ What it says:
 | 4b2 | 58.0% | 88.8% |
 | 2c3 | 48.1% | 86.2% |
 
-So at R ≤ 6, 4a1 and 4b2 overtake 4a2. On 2c5 and 4b5 no reduction of 5 or less reaches 4a1 4e at all (it takes at least 6), and 4c4 and 2c4 are close to that.
+So at R ≤ 6, 4a1, 4b2 and 2c3 overtake 4a2. On 2c5 and 4b5 no reduction of 5 or less reaches 4a1 4e at all (it takes at least 6), and 4c4 and 2c4 are close to that.
 
 **Each extra move of reduction costs a lot.** The number of reductions grows 7.3 to 11.0 times from 5 to 6 moves. The mean number of reductions per DR, over all DRs:
 
@@ -1240,7 +1240,7 @@ The Lean theorems cited here are in the study's folder lean/FakeBound (Lean 4, n
 
 *Fixed 12 Nov 2026.* Until then this section said C must be the shortest NISS HTR. That was wrong: it modelled C as bounding every finish minus one middle section, which is a NISS HTR of the DR itself and not FakeMMAP's constraint.
 
-**How I tested it.** First $\alpha_i$ for every corner path that occurs: the fewest half turns section i needs over every corner arrangement following the path. For 4a3 > 4b2 > 4a1 > HTR that's 0,3,1,0, FakeMMAP's $\alpha_1 = 3$, and the study's Lean certificate re-derives every $\alpha$ (appendix B). Then for every sampled state, every corner path of its optimal (or +1, or ≤ 10, 11, 12) finishes, and the shortest reduction such a finish needs. I compared that need with R four ways:
+**How I tested it.** First $\alpha_i$ for every corner path that occurs: the fewest half turns section i needs over every corner arrangement following the path. For 4a3 4b2 4a1 HTR that's 0,3,1,0, FakeMMAP's $\alpha_1 = 3$, and the study's Lean certificate re-derives every $\alpha$ (appendix B). Then for every sampled state, every corner path of its optimal (or +1, or ≤ 10, 11, 12) finishes, and the shortest reduction such a finish needs. I compared that need with R four ways:
 
 1. the formula of [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491531409959948369) as written, the largest of its terms;
 2. the same without term 1;
@@ -1275,7 +1275,7 @@ Same rows: the longest reduction any finish needed, and the share of cases where
 
 | Corner path | $\alpha$ per section | Finish | Section lengths | 1q reduction per window |
 |---|---|---|---|---|
-| 4b2 > 4a3 > 4b2 > 4a1 > 0c0 | 0, 0, 3, 1, 0 | 14 | 2, 1, 3, 1, 3 | 10, 9, 9, 9 |
+| 4b2 4a3 4b2 4a1 0c0 | 0, 0, 3, 1, 0 | 14 | 2, 1, 3, 1, 3 | 10, 9, 9, 9 |
 
 So a 9-move reduction is needed. With $\alpha_i$ the smallest term is 8, whatever A, B and C are, and the first bound of [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491533155201716475) claims $28 \geq 29$. (c) has a real DR on which the lower bound fails.
 
@@ -1295,7 +1295,7 @@ $$\frac{(|S|-1)M-(N-|S|)+\sum_{i\ \mathrm{edge}} \alpha_i}{|S|}.$$
 
 | Corner path | $\alpha$ per section | Finish | Section lengths | 1q reduction per window |
 |---|---|---|---|---|
-| 4a1 > 0c0 > 4a1 > 0c0 | 0 | 10 | 0, 3, 0, 4 | 6, 6, 5 |
+| 4a1 0c0 4a1 0c0 | 0 | 10 | 0, 3, 0, 4 | 6, 6, 5 |
 
 Term 2 as printed with $S = \{0, 2\}$ gives 4, whatever A, B and C are; derived, it gives 5. With the printed $\alpha_i$ as well it's still 4 (`literal_min_fails`). On the sample, the smallest term with term 2 and the index exactly as printed is too short on 9.2% of cases at the optimum.
 
@@ -1310,7 +1310,7 @@ Its finish, read as the tables above:
 
 | Corner path | $\alpha$ per section | Finish | Section lengths | 1q reduction per window |
 |---|---|---|---|---|
-| 0c3 > 4a2 > 4a1 > HTR | 0, 3, 3, 0 | 14 | 2, 3, 3, 3 | 8, 7, 7 |
+| 0c3 4a2 4a1 HTR | 0, 3, 3, 0 | 14 | 2, 3, 3, 3 | 8, 7, 7 |
 
 Term 2 with $S = \{0, 2\}$ as printed gives 6.5, so 6. Derived, it gives 7.5, so 7. The arithmetic from the sections on is checked in Lean (`witness_0c3`); the state's optimum and its paths come from the exact table and the sample, not from Lean.
 
@@ -1368,7 +1368,7 @@ Its finish, read as the tables above:
 
 | Corner path | $\alpha$ per section | Finish | Section lengths | 1q reduction per window |
 |---|---|---|---|---|
-| 0c4 > 4a3 > 4b2 > 4a1 > HTR ($N = 4$) | 0, 1, 3, 1, 0 | 14 | 2, 1, 3, 1, 3 | 10, 9, 9, 9 |
+| 0c4 4a3 4b2 4a1 HTR ($N = 4$) | 0, 1, 3, 1, 0 | 14 | 2, 1, 3, 1, 3 | 10, 9, 9, 9 |
 
 So every reduction shorter than $R' = 9$ fails. With $S = \{0, 2, 3\}$:
 
@@ -1442,10 +1442,10 @@ I translate each checklist into route classes as closely as the route names allo
 
 | Step | What | Optimal (budget 2) | Within +1 (budget 2) | Optimal, no HTR limit |
 |---|---|---|---|---|
-| 1 | S1+S2 linear 2qt 4b2 > 4a1 > HTR (normal or inverse) | 37.6% | 67.2% | 45.0% |
+| 1 | S1+S2 linear 2qt 4b2 4a1 HTR (normal or inverse) | 37.6% | 67.2% | 45.0% |
 | 2 | S3 linear 4qt HTR of <= 8 moves | 45.4% | 75.7% | 54.3% |
-| 3 | S4 reduce to 4a1, switch (4b2 > 4a1 > (HTR)) | 50.8% | 80.8% | 54.3% |
-| 4 | S5 regress to 2c3, switch (4b2 > 2c3 > (...)) | 64.2% | 90.4% | 95.5% |
+| 3 | S4 reduce to 4a1, switch (4b2 4a1 (HTR)) | 50.8% | 80.8% | 54.3% |
+| 4 | S5 regress to 2c3, switch (4b2 2c3 (...)) | 64.2% | 90.4% | 95.5% |
 | 5 | S8 2+2: any 4qt route switching after the 2nd qt | 71.3% | 93.4% | >99.9% |
 
 Zagros: "if I simply follow the system I have in my mind for each subset without getting distracted then it just produces optimal in 15 minutes like 80% of the time" ([29 Dec 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1455302363953758427)). Done fully on 4b2 with near-shortest HTRs, it finds the optimal on 71.3% and +1 on 93.4%; with HTRs of any length every 4b2 is covered. Zagros's 80% is about real attempts, where time is the limit, so I can't check it here, but nothing in the numbers contradicts it. After the first, the step that adds the most is table step 4 (Zagros's step 5, the regression to 2c3), 13.4 points.
@@ -1480,19 +1480,19 @@ Fanti's split ([2 Feb 2025](https://discord.com/channels/1007840975726575667/100
 
 | Step | What | Optimal (budget 2) | Within +1 (budget 2) | Optimal, no HTR limit |
 |---|---|---|---|---|
-| 1 | 2qt (4b2 > 4a1 > HTR, any switch) | 35.5% | 66.0% | 36.2% |
+| 1 | 2qt (4b2 4a1 HTR, any switch) | 35.5% | 66.0% | 36.2% |
 | 2 | 4qt via 2c3 | 77.8% | 95.5% | 93.1% |
-| 3 | 4qt via 4a1 > 0c0 | 80.2% | 96.3% | 97.6% |
+| 3 | 4qt via 4a1 0c0 | 80.2% | 96.3% | 97.6% |
 
 **Lewis Isom's 4a2 0e/2e list** ([11 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1360414689019957449)): "1) Linear 2qt HTRs on both sides. This means the first qt makes 4a1 4e.", "2) Write down all the +1's and +2's to 4a1 4e, and NISS them.", then the U M2 U checks, the regression to 4c3, and to 0c3. One row per step, cumulative shares of 4a2 0e and 2e pooled:
 
 | Step | What | Optimal (budget 2) | Within +1 (budget 2) | Optimal, no HTR limit |
 |---|---|---|---|---|
-| 1 | S1 linear 2qt 4a2 > 4a1 4e > HTR | 13.3% | 36.8% | 32.4% |
+| 1 | S1 linear 2qt 4a2 → 4a1 4e → HTR | 13.3% | 36.8% | 32.4% |
 | 2 | S2 reduce to 4a1 4e, switch | 32.2% | 62.2% | 32.4% |
 | 3 | S3 4qt linear through 4a2 4e again (qt, slice, qt) | 37.7% | 67.9% | 73.0% |
-| 4 | S4 regress to 4b3 (2e/4e), switch, 4a3 > 4b2 > 4a1 | 52.7% | 81.1% | 73.6% |
-| 5 | S5 regress to 0c3, then 0c3 > 4a2 > 4a1 (linear or NISS) | 53.4% | 81.6% | 73.6% |
+| 4 | S4 regress to 4b3 (2e/4e), switch, 4a3 4b2 4a1 | 52.7% | 81.1% | 73.6% |
+| 5 | S5 regress to 0c3, then 0c3 4a2 4a1 (linear or NISS) | 53.4% | 81.6% | 73.6% |
 
 Levi Gibson's reply for 4a2 0e, "you don’t have to try reductions to 4a1 4e because the average optimal solution length for that path is like 17.2 to slice" ([11 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1360460016330739854)), fits. On 4a2 0e one optimal picked at random is a 2qt path on only 2.6% of states, and steps 1 and 2 together find the optimal on 32.2% of 4a2 0e and 2e pooled. After the first, the step that adds the most is step 2 (S2 reduce to 4a1 4e, switch, 18.9 points). Next is step 4, the 4b3 regression with the switch, which is the first route of my 4a2 0e and 2e checklists.
 
@@ -1715,7 +1715,7 @@ What does shift is the bad-edge mix inside a corner subset. With each scramble o
 |  | each scramble once | 64.4 ± 0.4 | 87.2 ± 0.3 | 93.7 ± 0.2 | 99.5 ± 0.1 | yes |
 
 - **The first route is the same on every corner subset**, and on 47 of 48 subset × edges with each DR once (47 with each scramble once). The one change in each is a near-tie in a cell of a few hundred DRs.
-- **The first three routes are the same, in the same order, everywhere except 0c4.** There the real greedy list brings in `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` in place of `0c4 > 4a3 > 4b2 > 4a1 > 0c0` (third with each DR once, second with each scramble once). The uniform three routes on the same real DRs find 0.05 and 0.16 points less. On 0c4 every route after the first adds about a point, so this is a tie, not a new route to learn.
+- **The first three routes are the same, in the same order, everywhere except 0c4.** There the real greedy list brings in `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` in place of `0c4 4a3 4b2 4a1 0c0` (third with each DR once, second with each scramble once). The uniform three routes on the same real DRs find 0.05 and 0.16 points less. On 0c4 every route after the first adds about a point, so this is a tie, not a new route to learn.
 - **0c0 is the one corner subset that moves** (first row of the table below). 0c0 is half a percent of DRs. Everywhere else no checklist number moves by more than 1.0 point.
 - **Per subset × edges** the cells flagged are 0c0 8e, 0c3 0e, 2c3 0e, all 0e or 8e cells holding few DRs (two of them below).
 
@@ -1769,384 +1769,384 @@ The 0c3 one is the only flagged headline. Every other headline moves by at most 
 
 | Subset | # | Class | Optimal, cumulative | Within +1, cumulative |
 |---|---|---|---|---|
-| 0c0 0e | 1 | `0c0 > 4a1 > 0c0` | 42.5% | 48.2% |
+| 0c0 0e | 1 | `0c0 4a1 0c0` | 42.5% | 48.2% |
 |  | 2 | `0c0` | 84.4% | 95.1% |
 |  | 3 | `0c0 \| qt` | 92.6% | 98.3% |
-|  | 4 | `0c0 > 4a1 > 0c0 \| qt` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 4b2 > 4a1 > 0c0)`) | 92.9% | 98.5% |
-|  | 5 | `0c0 > 4a1 > (0c0)` | 93.0% | 98.6% |
-| 0c0 2e | 1 | `0c0 > 4a1 > 0c0` | 60.5% | 83.7% |
-|  | 2 | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) | 65.7% | 88.3% |
-|  | 3 | `0c0 > 4a1 > (0c0)` | 70.2% | 92.3% |
-|  | 4 | `0c0 > 4a1 > 4b2 > 4a1 > 0c0` | 72.3% | 93.8% |
-|  | 5 | `0c0 > 4a1 > 0c0 > (4a1 > 0c0)` (mirror: `0c0 > 4a1 > 0c0 \| qt`) | 73.0% | 94.1% |
-|  | 6 | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `0c0 > 4a1 > 4b2 > 4a1 > (0c0)`) | 73.8% | 94.3% |
-|  | 7 | `0c0 > 4a1 > 0c0 \| qt` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 4b2 > 4a1 > 0c0)`) | 74.1% | 95.0% |
-|  | 8 | `0c0 > 4a1 > 4b2 > (4a1 > 0c0)` | 74.3% | 95.2% |
-| 0c0 4e | 1 | `0c0 > 4a1 > 0c0` | 44.9% | 70.0% |
-|  | 2 | `0c0 > 4a1 > (0c0)` | 57.8% | 83.6% |
-|  | 3 | `0c0 > 4a1 > 4b2 > 4a1 > 0c0` | 61.5% | 88.1% |
-|  | 4 | `0c0 > 4a1 > 4b2 > (4a1 > 0c0)` | 63.6% | 89.9% |
-|  | 5 | `0c0 > 4a1 > 0c0 > 4a1 > 0c0` | 65.1% | 90.5% |
-|  | 6 | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) | 66.4% | 91.3% |
-|  | 7 | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `0c0 > 4a1 > 4b2 > 4a1 > (0c0)`) | 67.5% | 91.9% |
-|  | 8 | `0c0 > 4a1 > 0c0 > (4a1 > 0c0)` (mirror: `0c0 > 4a1 > 0c0 \| qt`) | 68.4% | 92.1% |
-| 0c0 6e | 1 | `0c0 > 4a1 > (0c0)` | 40.8% | 70.7% |
-|  | 2 | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) | 53.7% | 83.9% |
-|  | 3 | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `0c0 > 4a1 > 4b2 > 4a1 > (0c0)`) | 60.2% | 88.0% |
-|  | 4 | `0c0 > 4a1 > 4b2 > (4a1 > 0c0)` | 64.0% | 90.3% |
-|  | 5 | `0c0 > 4a1 > 0c0 > 4a1 > 0c0` | 65.7% | 91.1% |
-|  | 6 | `0c0 > 4a1 > 0c0` | 66.8% | 92.0% |
-|  | 7 | `0c0 > 4a1 > 0c0 > (4a1 > 0c0)` (mirror: `0c0 > 4a1 > 0c0 \| qt`) | 67.4% | 92.2% |
-|  | 8 | `0c0 > 4a1 > 4b2 > 4a1 > 0c0` | 67.8% | 92.2% |
-| 0c0 8e | 1 | `0c0 > 4a1 > (0c0)` | 53.5% | 78.7% |
-|  | 2 | `0c0 > 4a1 > 0c0` | 70.1% | 91.7% |
-|  | 3 | `0c0 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 0c0)`) | 77.1% | 95.0% |
-|  | 4 | `0c0 > 4a1 > 4b2 > (4a1 > 0c0)` | 77.8% | 95.4% |
-|  | 5 | `0c0 > 4a1 > 4b2 > 4a1 > 0c0` | 78.3% | 95.7% |
-|  | 6 | `0c0 > 4a1 > 0c0 > (4a1 > 0c0)` (mirror: `0c0 > 4a1 > 0c0 \| qt`) | 78.5% | 95.8% |
-|  | 7 | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `0c0 > 4a1 > 4b2 > 4a1 > (0c0)`) | 78.7% | 95.8% |
-|  | 8 | `0c0 > 4a1 > 0c0 \| qt` (mirror: `0c0 > 4a1 > (4a2 > 4a1 > 4b2 > 4a1 > 0c0)`) | 78.8% | 96.0% |
-| 2c5 0e | 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > (4a1 > 0c0)`) | 77.8% | 95.5% |
-|  | 2 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 86.5% | 98.0% |
-|  | 3 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 89.6% | 98.7% |
-|  | 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 91.4% | 99.1% |
-|  | 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 91.8% | 99.2% |
-|  | 6 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 91.9% | 99.3% |
-|  | 7 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 92.0% | 99.3% |
-|  | 8 | `2c5 > 4b4 > 2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)`) | 92.1% | 99.3% |
-| 2c5 2e | 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > (4a1 > 0c0)`) | 74.8% | 94.2% |
-|  | 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | 97.7% |
-|  | 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 91.0% | 98.7% |
-|  | 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 92.4% | 99.1% |
-|  | 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 92.9% | 99.4% |
-|  | 6 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 93.1% | 99.4% |
-|  | 7 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 93.2% | 99.5% |
-|  | 8 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 93.2% | 99.5% |
-| 2c5 4e | 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > (4a1 > 0c0)`) | 71.5% | 92.8% |
-|  | 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | 97.8% |
-|  | 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 91.9% | 99.0% |
-|  | 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 93.2% | 99.4% |
-|  | 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 93.4% | 99.5% |
-|  | 6 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 93.6% | 99.5% |
-|  | 7 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 93.7% | 99.6% |
-|  | 8 | `2c5 > 4b4 > 2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)`) | 93.8% | 99.6% |
-| 2c5 6e | 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > (4a1 > 0c0)`) | 73.0% | 93.3% |
-|  | 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | 97.3% |
-|  | 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 90.6% | 98.7% |
-|  | 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 92.4% | 99.3% |
-|  | 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 92.7% | 99.4% |
-|  | 6 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 92.9% | 99.5% |
-|  | 7 | `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 93.0% | 99.5% |
-|  | 8 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 93.2% | 99.5% |
-| 2c5 8e | 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > (4a1 > 0c0)`) | 77.6% | 94.9% |
-|  | 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 86.0% | 97.6% |
-|  | 3 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 91.0% | 98.9% |
-|  | 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 92.2% | 99.3% |
-|  | 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 92.5% | 99.4% |
-|  | 6 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 92.7% | 99.4% |
-|  | 7 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c5 > 4b4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 92.9% | 99.5% |
-|  | 8 | `2c5 > 4b4 > 4a3 > 4b2 > 4a1 > (0c0)` (mirror: `2c5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)`) | 93.0% | 99.5% |
-| 2c4 0e | 1 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 70.1% | 91.8% |
-|  | 2 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > 4a1 > (0c0)`) | 85.9% | 98.0% |
-|  | 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | 88.6% | 98.7% |
-|  | 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 88.8% | 98.8% |
-|  | 5 | `2c4 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `2c4 > 2c3 > (4b2 > 4a1 > 0c0)`) | 88.9% | 98.8% |
-|  | 6 | `2c4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b5 > 4a4 > 4a3 > (4a2 > 4a1 > 0c0)`) | 89.0% | 98.8% |
-|  | 7 | `2c4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 2c3 > 4b2 > 4a1 > 0c0 > 4a1 > (0c0)`) | 89.1% | 98.8% |
-|  | 8 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 2c3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 89.2% | 98.8% |
-| 2c4 2e | 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > 4a1 > (0c0)`) | 67.7% | 91.3% |
-|  | 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | 97.8% |
-|  | 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | 89.9% | 98.9% |
-|  | 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 2c3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 90.5% | 99.0% |
-|  | 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 90.8% | 99.1% |
-|  | 6 | `2c4 > 4b3 > 4a2 > 4a1 > 0c0` | 91.0% | 99.1% |
-|  | 7 | `2c4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b5 > 4a4 > 4a3 > (4a2 > 4a1 > 0c0)`) | 91.2% | 99.1% |
-|  | 8 | `2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b5 > 2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | 91.3% | 99.1% |
-| 2c4 4e | 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > 4a1 > (0c0)`) | 62.0% | 88.0% |
-|  | 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | 97.0% |
-|  | 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | 87.6% | 98.7% |
-|  | 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 88.1% | 98.8% |
-|  | 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 2c3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 88.4% | 98.8% |
-|  | 6 | `2c4 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `2c4 > 2c3 > (4b2 > 4a1 > 0c0)`) | 88.7% | 98.9% |
-|  | 7 | `2c4 > 4b3 > 4a2 > 4a1 > 0c0` | 88.9% | 98.9% |
-|  | 8 | `2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b5 > 2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | 89.1% | 98.9% |
-| 2c4 6e | 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > 4a1 > (0c0)`) | 73.8% | 94.2% |
-|  | 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | 97.3% |
-|  | 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | 88.5% | 98.6% |
-|  | 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 2c3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 89.2% | 98.8% |
-|  | 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 89.6% | 98.8% |
-|  | 6 | `2c4 > 4b3 > 4a2 > 4a1 > 0c0` | 90.0% | 98.9% |
-|  | 7 | `2c4 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `2c4 > 2c3 > (4b2 > 4a1 > 0c0)`) | 90.1% | 98.9% |
-|  | 8 | `2c4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b5 > 4a4 > 4a3 > (4a2 > 4a1 > 0c0)`) | 90.3% | 98.9% |
-| 2c4 8e | 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > 4a1 > (0c0)`) | 77.7% | 95.3% |
-|  | 2 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | 89.5% | 99.3% |
-|  | 3 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 91.5% | 99.4% |
-|  | 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 92.3% | 99.5% |
-|  | 5 | `2c4 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `2c4 > 2c3 > (4b2 > 4a1 > 0c0)`) | 92.9% | 99.6% |
-|  | 6 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 2c3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 93.3% | 99.6% |
-|  | 7 | `2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b5 > 2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | 93.5% | 99.6% |
-|  | 8 | `2c4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c4 > 4b5 > 4a4 > 4a3 > (4a2 > 4a1 > 0c0)`) | 93.7% | 99.6% |
-| 0c3 0e | 1 | `0c3 > 4a2 > (4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > (0c0)`) | 85.5% | 97.3% |
-|  | 2 | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `0c3 > 4a2 > (4a1 > 4b2 > 4a1 > 0c0)`) | 94.2% | 99.5% |
-|  | 3 | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4b3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 96.6% | 99.8% |
-|  | 4 | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 96.9% | 99.8% |
-|  | 5 | `0c3 > 4a2 > (4b3 > 4a2 > 4a1 > 0c0)` (mirror: `0c3 > 4a4 > 0c3 > 4a2 > 4a1 > (0c0)`) | 97.2% | 99.8% |
-|  | 6 | `0c3 > 4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 97.3% | 99.8% |
-|  | 7 | `0c3 > 4a2 > 4b3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)`) | 97.4% | 99.9% |
-|  | 8 | `0c3 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 97.4% | 99.9% |
-| 0c3 2e | 1 | `0c3 > 4a2 > (4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > (0c0)`) | 80.8% | 97.5% |
-|  | 2 | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `0c3 > 4a2 > (4a1 > 4b2 > 4a1 > 0c0)`) | 91.3% | 99.3% |
-|  | 3 | `0c3 > 4a2 > 4a1 > 0c0` | 92.1% | 99.5% |
-|  | 4 | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4b3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 92.5% | 99.6% |
-|  | 5 | `0c3 > 4a2 > (4b3 > 4a2 > 4a1 > 0c0)` (mirror: `0c3 > 4a4 > 0c3 > 4a2 > 4a1 > (0c0)`) | 92.8% | 99.6% |
-|  | 6 | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `0c3 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) | 93.0% | 99.6% |
-|  | 7 | `0c3 > 4a2 > 4b3 > (4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > 4b2 > (4a1 > 0c0)`) | 93.2% | 99.6% |
-|  | 8 | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `0c3 > 4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) | 93.3% | 99.6% |
-| 0c3 4e | 1 | `0c3 > 4a2 > (4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > (0c0)`) | 67.2% | 94.5% |
-|  | 2 | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `0c3 > 4a2 > (4a1 > 4b2 > 4a1 > 0c0)`) | 85.1% | 98.7% |
-|  | 3 | `0c3 > 4a2 > 4b3 > (4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > 4b2 > (4a1 > 0c0)`) | 85.8% | 98.7% |
-|  | 4 | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `0c3 > 4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) | 86.4% | 98.9% |
-|  | 5 | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4b3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 86.8% | 98.9% |
-|  | 6 | `0c3 > 4a2 > (4b3 > 4a2 > 4a1 > 0c0)` (mirror: `0c3 > 4a4 > 0c3 > 4a2 > 4a1 > (0c0)`) | 87.2% | 98.9% |
-|  | 7 | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `0c3 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) | 87.4% | 99.0% |
-|  | 8 | `0c3 > 4a2 > 4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4b3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 87.5% | 99.0% |
-| 0c3 6e | 1 | `0c3 > 4a2 > (4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > (0c0)`) | 82.6% | 98.0% |
-|  | 2 | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `0c3 > 4a2 > (4a1 > 4b2 > 4a1 > 0c0)`) | 93.9% | 99.5% |
-|  | 3 | `0c3 > 4a2 > 4a1 > 0c0` | 94.6% | 99.7% |
-|  | 4 | `0c3 > 4a2 > (4b3 > 4a2 > 4a1 > 0c0)` (mirror: `0c3 > 4a4 > 0c3 > 4a2 > 4a1 > (0c0)`) | 94.9% | 99.7% |
-|  | 5 | `0c3 > 4a2 > 4b3 > (4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > 4b2 > (4a1 > 0c0)`) | 95.2% | 99.7% |
-|  | 6 | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `0c3 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) | 95.3% | 99.7% |
-|  | 7 | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4b3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 95.4% | 99.7% |
-|  | 8 | `0c3 > 4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 95.5% | 99.7% |
-| 0c3 8e | 1 | `0c3 > 4a2 > (4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > (0c0)`) | 87.3% | 98.0% |
-|  | 2 | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `0c3 > 4a2 > (4a1 > 4b2 > 4a1 > 0c0)`) | 94.8% | 99.5% |
-|  | 3 | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `0c3 > 4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) | 96.1% | 99.7% |
-|  | 4 | `0c3 > 4a2 > 4b3 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `0c3 > 4a4 > 4b5 > (2c4 > 4b3 > 4a2 > 4a1 > 0c0)`) | 96.5% | 99.7% |
-|  | 5 | `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 96.8% | 99.7% |
-|  | 6 | `0c3 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 97.0% | 99.7% |
-|  | 7 | `0c3 > 4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)`) | 97.1% | 99.8% |
-|  | 8 | `0c3 > 4a2 > 4b3 > (4b2 > 4a1 > 0c0)` (mirror: `0c3 > 4a2 > 4a1 > 4b2 > (4a1 > 0c0)`) | 97.2% | 99.8% |
-| 4a2 0e | 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `4a2 > 4a1 > (4b2 > 4a1 > 0c0)`) | 29.1% | 46.4% |
-|  | 2 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 40.4% | 56.4% |
-|  | 3 | `4a2 > 4a1 > (0c0)` | 44.4% | 68.2% |
-|  | 4 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 48.2% | 73.3% |
-|  | 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `4a2 > 4a1 > 4a2 > 4a1 > (0c0)`) | 50.3% | 74.6% |
-|  | 6 | `4a2 > 4b3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4a2 > 4b3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 52.1% | 75.5% |
-|  | 7 | `4a2 > 4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a2 > 4a1 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)`) | 52.8% | 75.8% |
-|  | 8 | `4a2 > 4b3 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `4a2 > 4b3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 53.1% | 75.9% |
-| 4a2 2e | 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `4a2 > 4a1 > (4b2 > 4a1 > 0c0)`) | 42.2% | 77.2% |
-|  | 2 | `4a2 > 4a1 > (0c0)` | 67.8% | 92.0% |
-|  | 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | 95.7% |
-|  | 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `4a2 > 4a1 > 4a2 > 4a1 > (0c0)`) | 79.6% | 96.9% |
-|  | 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | 97.6% |
-|  | 6 | `4a2 > 4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.4% | 97.8% |
-|  | 7 | `4a2 > 4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a2 > 4a1 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)`) | 83.1% | 98.0% |
-|  | 8 | `4a2 > 4b3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4a2 > 4b3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 83.6% | 98.1% |
-| 4a2 4e | 1 | `4a2 > 4a1 > 0c0` | 60.9% | 83.9% |
-|  | 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` (mirror: `4a2 > 4a1 > (4b2 > 4a1 > 0c0)`) | 72.2% | 91.1% |
-|  | 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | 93.6% |
-|  | 4 | `4a2 > 4a1 > (0c0)` | 83.7% | 95.9% |
-|  | 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `4a2 > 4a1 > 4a2 > 4a1 > (0c0)`) | 85.3% | 96.5% |
-|  | 6 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 86.1% | 96.9% |
-|  | 7 | `4a2 > 4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a2 > 4a1 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)`) | 86.3% | 96.9% |
-|  | 8 | `4a2 > 4b3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4a2 > 4b3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 86.4% | 97.0% |
-| 4a1 0e | 1 | `4a1 > 0c0 > (4a1 > 0c0)` (mirror: `4a1 > 4a2 > 4a1 > (0c0)`) | 33.5% | 56.5% |
-|  | 2 | `4a1 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `4a1 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)`) | 46.5% | 71.3% |
-|  | 3 | `4a1 > 0c0 > 4a1 > (0c0)` (mirror: `4a1 > 4a2 > (4a1 > 0c0)`) | 54.6% | 84.2% |
-|  | 4 | `4a1 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 61.1% | 87.8% |
-|  | 5 | `4a1 > 0c0 > 4a1 > 0c0` | 66.5% | 90.7% |
-|  | 6 | `4a1 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a1 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 70.5% | 92.4% |
-|  | 7 | `4a1 > 4b2 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `4a1 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)`) | 71.7% | 92.9% |
-|  | 8 | `4a1 > 4b2 > 4a1 > 0c0 > (4a1 > 0c0)` (mirror: `4a1 > 4b2 > 4a1 > (4b2 > 4a1 > 0c0)`) | 72.2% | 92.9% |
-| 4a1 2e | 1 | `4a1 > 4b2 > 4a1 > 0c0` | 38.8% | 67.5% |
-|  | 2 | `4a1 > 0c0 > 4a1 > 0c0` | 58.8% | 85.8% |
-|  | 3 | `4a1 > 0c0 > (4a1 > 0c0)` (mirror: `4a1 > 4a2 > 4a1 > (0c0)`) | 70.5% | 91.7% |
-|  | 4 | `4a1 > 0c0 > 4a1 > (0c0)` (mirror: `4a1 > 4a2 > (4a1 > 0c0)`) | 76.7% | 95.4% |
-|  | 5 | `4a1 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4a1 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 78.2% | 96.0% |
-|  | 6 | `4a1 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a1 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 79.0% | 96.2% |
-|  | 7 | `4a1 > 0c0 > 4a1 > (4b2 > 4a1 > 0c0)` (mirror: `4a1 > 4a2 > 4a1 > 4b2 > (4a1 > 0c0)`) | 79.4% | 96.4% |
-|  | 8 | `4a1 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 79.8% | 96.5% |
-| 4a1 4e | 1 | `4a1 > 0c0` | 33.6% | 57.1% |
-|  | 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | 78.3% |
-|  | 3 | `4a1 > 0c0 > (4a1 > 0c0)` (mirror: `4a1 > 4a2 > 4a1 > (0c0)`) | 60.6% | 86.2% |
-|  | 4 | `4a1 > 0c0 > 4a1 > (0c0)` (mirror: `4a1 > 4a2 > (4a1 > 0c0)`) | 66.6% | 91.1% |
-|  | 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | 92.2% |
-|  | 6 | `4a1 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a1 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 70.1% | 92.5% |
-|  | 7 | `4a1 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4a1 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 70.5% | 92.7% |
-|  | 8 | `4a1 > 0c0 \| qt` (mirror: `4a1 > 4b2 > (4a1 > 4b2 > 4a1 > 0c0)`) | 70.7% | 93.1% |
-| 2c3 0e | 1 | `2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a1 > (0c0)`) | 46.3% | 81.8% |
-|  | 2 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 67.0% | 93.7% |
-|  | 3 | `2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 75.1% | 95.9% |
-|  | 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 81.4% | 97.5% |
-|  | 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a3 > 4b2 > (4a1 > 0c0)`) | 85.5% | 98.4% |
-|  | 6 | `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.7% | 98.5% |
-|  | 7 | `2c3 > 4b2 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a3 > 4b2 > (4a1 > 0c0)`) | 87.4% | 98.7% |
-|  | 8 | `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 88.1% | 98.8% |
-| 2c3 2e | 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | 89.6% |
-|  | 2 | `2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a1 > (0c0)`) | 79.6% | 96.4% |
-|  | 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 80.2% | 96.6% |
-|  | 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 80.6% | 96.7% |
-|  | 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a3 > 4b2 > (4a1 > 0c0)`) | 80.8% | 96.7% |
-|  | 6 | `2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 81.0% | 96.8% |
-|  | 7 | `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 81.2% | 96.8% |
-|  | 8 | `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 81.2% | 96.8% |
-| 2c3 4e | 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | 82.1% |
-|  | 2 | `2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a1 > (0c0)`) | 76.6% | 95.6% |
-|  | 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 78.1% | 96.1% |
-|  | 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 79.1% | 96.4% |
-|  | 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a3 > 4b2 > (4a1 > 0c0)`) | 79.9% | 96.6% |
-|  | 6 | `2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 80.6% | 96.9% |
-|  | 7 | `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 80.9% | 97.0% |
-|  | 8 | `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 81.2% | 97.0% |
-| 2c3 6e | 1 | `2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a1 > (0c0)`) | 66.1% | 91.8% |
-|  | 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | 94.7% |
-|  | 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 76.7% | 95.8% |
-|  | 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a3 > 4b2 > (4a1 > 0c0)`) | 78.3% | 96.3% |
-|  | 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 79.8% | 96.7% |
-|  | 6 | `2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 80.8% | 96.9% |
-|  | 7 | `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 81.2% | 97.0% |
-|  | 8 | `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 81.6% | 97.1% |
-| 2c3 8e | 1 | `2c3 > 4b2 > (4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a1 > (0c0)`) | 46.3% | 81.2% |
-|  | 2 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 67.2% | 93.2% |
-|  | 3 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 74.5% | 95.7% |
-|  | 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a3 > 4b2 > (4a1 > 0c0)`) | 78.3% | 96.8% |
-|  | 5 | `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 81.3% | 97.5% |
-|  | 6 | `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 83.4% | 98.0% |
-|  | 7 | `2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 85.5% | 98.4% |
-|  | 8 | `2c3 > 4b2 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `2c3 > 4b2 > 4a3 > 4b2 > (4a1 > 0c0)`) | 85.9% | 98.4% |
-| 0c4 0e | 1 | `0c4 > 4a3 > 4b2 > (4a1 > 0c0)` | 83.2% | 95.4% |
-|  | 2 | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` | 86.8% | 97.3% |
-|  | 3 | `0c4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > 4a1 > (0c0)`) | 87.6% | 97.5% |
-|  | 4 | `0c4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 88.0% | 97.7% |
-|  | 5 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `0c4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) | 88.3% | 97.7% |
-|  | 6 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)`) | 88.4% | 97.7% |
-|  | 7 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 88.5% | 97.7% |
-| 0c4 2e | 1 | `0c4 > 4a3 > 4b2 > (4a1 > 0c0)` | 86.5% | 97.3% |
-|  | 2 | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` | 88.0% | 97.7% |
-|  | 3 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `0c4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) | 89.1% | 98.1% |
-|  | 4 | `0c4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.9% | 98.2% |
-|  | 5 | `0c4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > 4a1 > (0c0)`) | 90.6% | 98.5% |
-|  | 6 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)`) | 91.0% | 98.5% |
-|  | 7 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 91.2% | 98.6% |
-|  | 8 | `0c4 > 4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > (4a1 > 4b2 > 4a1 > 0c0)`) | 91.2% | 98.6% |
-| 0c4 4e | 1 | `0c4 > 4a3 > 4b2 > (4a1 > 0c0)` | 83.5% | 96.8% |
-|  | 2 | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` | 85.1% | 97.2% |
-|  | 3 | `0c4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > 4a1 > (0c0)`) | 86.1% | 97.5% |
-|  | 4 | `0c4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 87.1% | 97.7% |
-|  | 5 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `0c4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) | 87.8% | 97.9% |
-|  | 6 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)`) | 88.3% | 98.0% |
-|  | 7 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 88.6% | 98.1% |
-|  | 8 | `0c4 > 4a3 > 4b2 > (4a1 > 4b2 > 4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b4 > 4a3 > 4b2 > (4a1 > 0c0)`) | 88.6% | 98.1% |
-| 0c4 6e | 1 | `0c4 > 4a3 > 4b2 > (4a1 > 0c0)` | 81.8% | 96.6% |
-|  | 2 | `0c4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > 4a1 > (0c0)`) | 83.7% | 97.3% |
-|  | 3 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `0c4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) | 85.4% | 97.8% |
-|  | 4 | `0c4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 86.5% | 98.0% |
-|  | 5 | `0c4 > 4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 87.3% | 98.2% |
-|  | 6 | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` | 87.7% | 98.2% |
-|  | 7 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 88.0% | 98.3% |
-|  | 8 | `0c4 > 4a3 > 4b2 > (4a1 > 0c0 > 4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 88.1% | 98.3% |
-| 0c4 8e | 1 | `0c4 > 4a3 > 4b2 > (4a1 > 0c0)` | 80.3% | 96.2% |
-|  | 2 | `0c4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > 4a1 > (0c0)`) | 86.2% | 98.0% |
-|  | 3 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `0c4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)`) | 87.1% | 98.2% |
-|  | 4 | `0c4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 87.9% | 98.4% |
-|  | 5 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `0c4 > 4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)`) | 88.1% | 98.4% |
-|  | 6 | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` | 88.3% | 98.4% |
-| 4c3 0e | 1 | `4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4b3 > 4a2 > 4a1 > (0c0)`) | 70.8% | 90.7% |
-|  | 2 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b3 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 78.4% | 94.5% |
-|  | 3 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)`) | 83.3% | 96.2% |
-|  | 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | 97.0% |
-|  | 5 | `4b3 > 4a2 > 4a1 > 0c0` | 88.6% | 98.5% |
-|  | 6 | `4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `4b3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 90.2% | 98.8% |
-|  | 7 | `4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 91.5% | 99.1% |
-|  | 8 | `4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 92.3% | 99.2% |
-| 4c3 2e | 1 | `4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4b3 > 4a2 > 4a1 > (0c0)`) | 66.2% | 90.6% |
-|  | 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)`) | 72.0% | 93.0% |
-|  | 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b3 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 75.1% | 94.3% |
-|  | 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | 95.7% |
-|  | 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | 96.2% |
-|  | 6 | `4a3 > 4b2 > 4a1 > 0c0` | 81.8% | 96.8% |
-|  | 7 | `4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `4b3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 83.2% | 97.3% |
-|  | 8 | `4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 84.4% | 97.5% |
-| 4c3 4e | 1 | `4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4b3 > 4a2 > 4a1 > (0c0)`) | 62.3% | 88.3% |
-|  | 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)`) | 70.2% | 92.2% |
-|  | 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b3 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)`) | 74.4% | 93.9% |
-|  | 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | 94.9% |
-|  | 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | 95.8% |
-|  | 6 | `4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 81.3% | 96.3% |
-|  | 7 | `4b3 > 4a2 > 4a1 > 0c0` | 82.9% | 97.2% |
-|  | 8 | `4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `4b3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 84.4% | 97.5% |
-| 4c4 0e | 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4a4 > 0c3 > 4a2 > (4a1 > 0c0)`) | 65.2% | 92.0% |
-|  | 2 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b4 > 2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)`) | 72.4% | 95.0% |
-|  | 3 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4a4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 76.7% | 96.3% |
-|  | 4 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b4 > 4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)`) | 80.0% | 97.0% |
-|  | 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 81.9% | 97.4% |
-|  | 6 | `4a4 > 4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `4b4 > 4a3 > 0c4 > (4a3 > 4b2 > 4a1 > 0c0)`) | 82.9% | 97.6% |
-|  | 7 | `4b4 > 2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 83.5% | 97.6% |
-|  | 8 | `4b4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `4a4 > 4a3 > 4b2 > 4a1 > (0c0)`) | 84.1% | 97.8% |
-| 4c4 2e | 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4a4 > 0c3 > 4a2 > (4a1 > 0c0)`) | 67.9% | 92.4% |
-|  | 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b4 > 4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)`) | 75.4% | 95.5% |
-|  | 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b4 > 2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)`) | 78.7% | 96.4% |
-|  | 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4a4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 80.8% | 96.9% |
-|  | 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 82.1% | 97.2% |
-|  | 6 | `4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 83.3% | 97.4% |
-|  | 7 | `4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.2% | 97.6% |
-|  | 8 | `4b4 > 2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 85.2% | 97.7% |
-| 4c4 4e | 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4a4 > 0c3 > 4a2 > (4a1 > 0c0)`) | 68.4% | 92.5% |
-|  | 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b4 > 4a3 > 0c4 > 4a3 > 4b2 > (4a1 > 0c0)`) | 74.8% | 95.1% |
-|  | 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b4 > 2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)`) | 78.2% | 95.9% |
-|  | 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4a4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 80.2% | 96.5% |
-|  | 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4a4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 81.5% | 96.7% |
-|  | 6 | `4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 82.6% | 97.0% |
-|  | 7 | `4b4 > 4a3 > (4a2 > 4a1 > 0c0)` (mirror: `4a4 > 4a3 > 4b2 > 4a1 > (0c0)`) | 83.6% | 97.4% |
-|  | 8 | `4b4 > 2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.6% | 97.5% |
-| 4b2 0e | 1 | `4b2 > 4a1 > 0c0` | 36.5% | 64.3% |
-|  | 2 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `4b2 > 4a1 > 0c0 > (4a1 > 0c0)`) | 51.1% | 78.4% |
-|  | 3 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 61.0% | 85.5% |
-|  | 4 | `4b2 > 4a1 > (0c0)` | 68.1% | 91.5% |
-|  | 5 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 72.4% | 93.1% |
-|  | 6 | `4b2 > 4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4b2 > 4a1 > 0c0 > (4a1 > 0c0)`) | 75.5% | 94.4% |
-|  | 7 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `4b2 > 2c3 > (4b2 > 4a1 > 0c0)`) | 77.9% | 95.3% |
-|  | 8 | `4b2 > 4a1 > 4b2 > (4a1 > 0c0)` (mirror: `4b2 > 4a1 > 0c0 > (4a1 > 0c0)`) | 78.4% | 95.5% |
-| 4b2 2e | 1 | `4b2 > 4a1 > 0c0` | 45.9% | 76.5% |
-|  | 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `4b2 > 2c3 > (4b2 > 4a1 > 0c0)`) | 53.7% | 83.2% |
-|  | 3 | `4b2 > 4a1 > (0c0)` | 59.0% | 86.3% |
-|  | 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | 88.8% |
-|  | 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `4b2 > 4a1 > 0c0 > (4a1 > 0c0)`) | 66.3% | 90.1% |
-|  | 6 | `4b2 > 4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4b2 > 4a1 > 0c0 > (4a1 > 0c0)`) | 67.3% | 90.5% |
-|  | 7 | `4b2 > 4a1 > 0c0 > 4a1 > (0c0)` (mirror: `4b2 > 2c3 > (4b2 > 4a1 > 0c0)`) | 68.2% | 91.3% |
-|  | 8 | `4b2 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `4b2 > 4a1 > 4a2 > 4a1 > (0c0)`) | 68.6% | 91.5% |
-| 4b2 4e | 1 | `4b2 > 4a1 > 0c0` | 30.3% | 59.1% |
-|  | 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b2 > 2c3 > 4b2 > 4a1 > (0c0)`) | 53.3% | 82.2% |
-|  | 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | 89.1% |
-|  | 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `4b2 > 4a1 > 0c0 > (4a1 > 0c0)`) | 71.7% | 91.1% |
-|  | 5 | `4b2 > 4a1 > (0c0)` | 76.0% | 94.9% |
-|  | 6 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `4b2 > 2c3 > (4b2 > 4a1 > 0c0)`) | 77.8% | 95.5% |
-|  | 7 | `4b2 > 4a3 > 4b2 > (4a1 > 0c0)` (mirror: `4b2 > 4a1 > 0c0 > (4a1 > 0c0)`) | 79.3% | 96.0% |
-|  | 8 | `4b2 > 4a1 > (0c0 > 4a1 > 0c0)` (mirror: `4b2 > 4a1 > 4a2 > 4a1 > (0c0)`) | 80.5% | 96.5% |
-| 4b5 0e | 1 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | 60.8% | 86.9% |
-|  | 2 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 84.2% | 97.4% |
-|  | 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 92.6% | 99.4% |
-|  | 4 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` (mirror: `4b5 > 4a4 > 4a3 > 4b2 > 4a1 > (0c0)`) | 92.8% | 99.4% |
-|  | 5 | `4b5 > 2c4 > 4b3 > 4a2 > 4a1 > 0c0` | 93.0% | 99.4% |
-|  | 6 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)`) | 93.2% | 99.5% |
-|  | 7 | `4b5 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 > 4a1 > (0c0)`) | 93.2% | 99.5% |
-|  | 8 | `4b5 > 4a4 > 4a3 > 4b2 > 4a1 > 0c0` | 93.3% | 99.5% |
-| 4b5 2e | 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 62.6% | 88.0% |
-|  | 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | 85.1% | 98.0% |
-|  | 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | 99.6% |
-|  | 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)`) | 93.7% | 99.6% |
-|  | 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` (mirror: `4b5 > 4a4 > 4a3 > 4b2 > 4a1 > (0c0)`) | 93.8% | 99.7% |
-|  | 6 | `4b5 > 4a4 > 4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)`) | 93.8% | 99.7% |
-|  | 7 | `4b5 > 4a4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > 4b2 > 2c3 > 4b2 > (4a1 > 0c0)`) | 93.9% | 99.7% |
-|  | 8 | `4b5 > 2c4 > 2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b5 > 4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 93.9% | 99.7% |
-| 4b5 4e | 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)`) | 67.0% | 90.5% |
-|  | 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 4b3 > 4a2 > (4a1 > 0c0)`) | 89.6% | 99.1% |
-|  | 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | 99.6% |
-|  | 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)`) | 94.0% | 99.7% |
-|  | 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` (mirror: `4b5 > 4a4 > 4a3 > 4b2 > 4a1 > (0c0)`) | 94.0% | 99.7% |
-|  | 6 | `4b5 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0 > 4a1 > (0c0)`) | 94.1% | 99.7% |
-|  | 7 | `4b5 > 4a4 > 4a3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` (mirror: `4b5 > 4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)`) | 94.1% | 99.7% |
-|  | 8 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > (0c0)` (mirror: `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)`) | 94.2% | 99.7% |
+|  | 4 | `0c0 4a1 0c0 \| qt` (mirror: `0c0 4a1 (4a2 4a1 4b2 4a1 0c0)`) | 92.9% | 98.5% |
+|  | 5 | `0c0 4a1 (0c0)` | 93.0% | 98.6% |
+| 0c0 2e | 1 | `0c0 4a1 0c0` | 60.5% | 83.7% |
+|  | 2 | `0c0 4a1 0c0 4a1 (0c0)` (mirror: `0c0 4a1 (4a2 4a1 0c0)`) | 65.7% | 88.3% |
+|  | 3 | `0c0 4a1 (0c0)` | 70.2% | 92.3% |
+|  | 4 | `0c0 4a1 4b2 4a1 0c0` | 72.3% | 93.8% |
+|  | 5 | `0c0 4a1 0c0 (4a1 0c0)` (mirror: `0c0 4a1 0c0 \| qt`) | 73.0% | 94.1% |
+|  | 6 | `0c0 4a1 (0c0 4a1 0c0)` (mirror: `0c0 4a1 4b2 4a1 (0c0)`) | 73.8% | 94.3% |
+|  | 7 | `0c0 4a1 0c0 \| qt` (mirror: `0c0 4a1 (4a2 4a1 4b2 4a1 0c0)`) | 74.1% | 95.0% |
+|  | 8 | `0c0 4a1 4b2 (4a1 0c0)` | 74.3% | 95.2% |
+| 0c0 4e | 1 | `0c0 4a1 0c0` | 44.9% | 70.0% |
+|  | 2 | `0c0 4a1 (0c0)` | 57.8% | 83.6% |
+|  | 3 | `0c0 4a1 4b2 4a1 0c0` | 61.5% | 88.1% |
+|  | 4 | `0c0 4a1 4b2 (4a1 0c0)` | 63.6% | 89.9% |
+|  | 5 | `0c0 4a1 0c0 4a1 0c0` | 65.1% | 90.5% |
+|  | 6 | `0c0 4a1 0c0 4a1 (0c0)` (mirror: `0c0 4a1 (4a2 4a1 0c0)`) | 66.4% | 91.3% |
+|  | 7 | `0c0 4a1 (0c0 4a1 0c0)` (mirror: `0c0 4a1 4b2 4a1 (0c0)`) | 67.5% | 91.9% |
+|  | 8 | `0c0 4a1 0c0 (4a1 0c0)` (mirror: `0c0 4a1 0c0 \| qt`) | 68.4% | 92.1% |
+| 0c0 6e | 1 | `0c0 4a1 (0c0)` | 40.8% | 70.7% |
+|  | 2 | `0c0 4a1 0c0 4a1 (0c0)` (mirror: `0c0 4a1 (4a2 4a1 0c0)`) | 53.7% | 83.9% |
+|  | 3 | `0c0 4a1 (0c0 4a1 0c0)` (mirror: `0c0 4a1 4b2 4a1 (0c0)`) | 60.2% | 88.0% |
+|  | 4 | `0c0 4a1 4b2 (4a1 0c0)` | 64.0% | 90.3% |
+|  | 5 | `0c0 4a1 0c0 4a1 0c0` | 65.7% | 91.1% |
+|  | 6 | `0c0 4a1 0c0` | 66.8% | 92.0% |
+|  | 7 | `0c0 4a1 0c0 (4a1 0c0)` (mirror: `0c0 4a1 0c0 \| qt`) | 67.4% | 92.2% |
+|  | 8 | `0c0 4a1 4b2 4a1 0c0` | 67.8% | 92.2% |
+| 0c0 8e | 1 | `0c0 4a1 (0c0)` | 53.5% | 78.7% |
+|  | 2 | `0c0 4a1 0c0` | 70.1% | 91.7% |
+|  | 3 | `0c0 4a1 0c0 4a1 (0c0)` (mirror: `0c0 4a1 (4a2 4a1 0c0)`) | 77.1% | 95.0% |
+|  | 4 | `0c0 4a1 4b2 (4a1 0c0)` | 77.8% | 95.4% |
+|  | 5 | `0c0 4a1 4b2 4a1 0c0` | 78.3% | 95.7% |
+|  | 6 | `0c0 4a1 0c0 (4a1 0c0)` (mirror: `0c0 4a1 0c0 \| qt`) | 78.5% | 95.8% |
+|  | 7 | `0c0 4a1 (0c0 4a1 0c0)` (mirror: `0c0 4a1 4b2 4a1 (0c0)`) | 78.7% | 95.8% |
+|  | 8 | `0c0 4a1 0c0 \| qt` (mirror: `0c0 4a1 (4a2 4a1 4b2 4a1 0c0)`) | 78.8% | 96.0% |
+| 2c5 0e | 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | 77.8% | 95.5% |
+|  | 2 | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) | 86.5% | 98.0% |
+|  | 3 | `2c5 2c4 2c3 4b2 4a1 0c0` | 89.6% | 98.7% |
+|  | 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 (4a1 0c0)`) | 91.4% | 99.1% |
+|  | 5 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 2c3 4b2 4a1 (0c0)`) | 91.8% | 99.2% |
+|  | 6 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 2c3 4b2 (4a1 0c0)`) | 91.9% | 99.3% |
+|  | 7 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 2c3 4b2 (4a1 0c0)`) | 92.0% | 99.3% |
+|  | 8 | `2c5 4b4 2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 2c5 2c4 2c3 (4b2 4a1 0c0)`) | 92.1% | 99.3% |
+| 2c5 2e | 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | 74.8% | 94.2% |
+|  | 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.2% | 97.7% |
+|  | 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) | 91.0% | 98.7% |
+|  | 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 (4a1 0c0)`) | 92.4% | 99.1% |
+|  | 5 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 2c3 4b2 4a1 (0c0)`) | 92.9% | 99.4% |
+|  | 6 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 2c3 4b2 (4a1 0c0)`) | 93.1% | 99.4% |
+|  | 7 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 2c3 4b2 (4a1 0c0)`) | 93.2% | 99.5% |
+|  | 8 | `2c5 2c4 2c3 4b2 4a1 (0c0)` (mirror: `2c5 2c4 (2c3 4b2 4a1 0c0)`) | 93.2% | 99.5% |
+| 2c5 4e | 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | 71.5% | 92.8% |
+|  | 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.0% | 97.8% |
+|  | 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) | 91.9% | 99.0% |
+|  | 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 (4a1 0c0)`) | 93.2% | 99.4% |
+|  | 5 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 2c3 4b2 (4a1 0c0)`) | 93.4% | 99.5% |
+|  | 6 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 2c3 4b2 4a1 (0c0)`) | 93.6% | 99.5% |
+|  | 7 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 2c3 4b2 (4a1 0c0)`) | 93.7% | 99.6% |
+|  | 8 | `2c5 4b4 2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 2c5 2c4 2c3 (4b2 4a1 0c0)`) | 93.8% | 99.6% |
+| 2c5 6e | 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | 73.0% | 93.3% |
+|  | 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 84.1% | 97.3% |
+|  | 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) | 90.6% | 98.7% |
+|  | 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 (4a1 0c0)`) | 92.4% | 99.3% |
+|  | 5 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 2c3 4b2 (4a1 0c0)`) | 92.7% | 99.4% |
+|  | 6 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 2c3 4b2 (4a1 0c0)`) | 92.9% | 99.5% |
+|  | 7 | `2c5 4b4 4a3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 2c4 (2c3 4b2 4a1 0c0)`) | 93.0% | 99.5% |
+|  | 8 | `2c5 2c4 2c3 4b2 4a1 (0c0)` (mirror: `2c5 2c4 (2c3 4b2 4a1 0c0)`) | 93.2% | 99.5% |
+| 2c5 8e | 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | 77.6% | 94.9% |
+|  | 2 | `2c5 2c4 2c3 4b2 4a1 (0c0)` (mirror: `2c5 2c4 (2c3 4b2 4a1 0c0)`) | 86.0% | 97.6% |
+|  | 3 | `2c5 2c4 2c3 4b2 4a1 0c0` | 91.0% | 98.9% |
+|  | 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 (4a1 0c0)`) | 92.2% | 99.3% |
+|  | 5 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 2c3 4b2 4a1 (0c0)`) | 92.5% | 99.4% |
+|  | 6 | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) | 92.7% | 99.4% |
+|  | 7 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 2c3 4b2 (4a1 0c0)`) | 92.9% | 99.5% |
+|  | 8 | `2c5 4b4 4a3 4b2 4a1 (0c0)` (mirror: `2c5 2c4 (4b3 4a2 4a1 0c0)`) | 93.0% | 99.5% |
+| 2c4 0e | 1 | `2c4 2c3 4b2 4a1 0c0` | 70.1% | 91.8% |
+|  | 2 | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | 85.9% | 98.0% |
+|  | 3 | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) | 88.6% | 98.7% |
+|  | 4 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c4 4b5 2c4 2c3 4b2 (4a1 0c0)`) | 88.8% | 98.8% |
+|  | 5 | `2c4 2c3 4b2 4a1 (0c0)` (mirror: `2c4 2c3 (4b2 4a1 0c0)`) | 88.9% | 98.8% |
+|  | 6 | `2c4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b5 4a4 4a3 (4a2 4a1 0c0)`) | 89.0% | 98.8% |
+|  | 7 | `2c4 2c5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c4 2c3 4b2 4a1 0c0 4a1 (0c0)`) | 89.1% | 98.8% |
+|  | 8 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c4 2c3 4b2 2c3 4b2 4a1 (0c0)`) | 89.2% | 98.8% |
+| 2c4 2e | 1 | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | 67.7% | 91.3% |
+|  | 2 | `2c4 2c3 4b2 4a1 0c0` | 86.3% | 97.8% |
+|  | 3 | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) | 89.9% | 98.9% |
+|  | 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c4 2c3 4b2 2c3 4b2 4a1 (0c0)`) | 90.5% | 99.0% |
+|  | 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c4 4b5 2c4 2c3 4b2 (4a1 0c0)`) | 90.8% | 99.1% |
+|  | 6 | `2c4 4b3 4a2 4a1 0c0` | 91.0% | 99.1% |
+|  | 7 | `2c4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b5 4a4 4a3 (4a2 4a1 0c0)`) | 91.2% | 99.1% |
+|  | 8 | `2c4 2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c4 4b5 2c4 4b3 4a2 (4a1 0c0)`) | 91.3% | 99.1% |
+| 2c4 4e | 1 | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | 62.0% | 88.0% |
+|  | 2 | `2c4 2c3 4b2 4a1 0c0` | 82.0% | 97.0% |
+|  | 3 | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) | 87.6% | 98.7% |
+|  | 4 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c4 4b5 2c4 2c3 4b2 (4a1 0c0)`) | 88.1% | 98.8% |
+|  | 5 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c4 2c3 4b2 2c3 4b2 4a1 (0c0)`) | 88.4% | 98.8% |
+|  | 6 | `2c4 2c3 4b2 4a1 (0c0)` (mirror: `2c4 2c3 (4b2 4a1 0c0)`) | 88.7% | 98.9% |
+|  | 7 | `2c4 4b3 4a2 4a1 0c0` | 88.9% | 98.9% |
+|  | 8 | `2c4 2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c4 4b5 2c4 4b3 4a2 (4a1 0c0)`) | 89.1% | 98.9% |
+| 2c4 6e | 1 | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | 73.8% | 94.2% |
+|  | 2 | `2c4 2c3 4b2 4a1 0c0` | 84.1% | 97.3% |
+|  | 3 | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) | 88.5% | 98.6% |
+|  | 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c4 2c3 4b2 2c3 4b2 4a1 (0c0)`) | 89.2% | 98.8% |
+|  | 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c4 4b5 2c4 2c3 4b2 (4a1 0c0)`) | 89.6% | 98.8% |
+|  | 6 | `2c4 4b3 4a2 4a1 0c0` | 90.0% | 98.9% |
+|  | 7 | `2c4 2c3 4b2 4a1 (0c0)` (mirror: `2c4 2c3 (4b2 4a1 0c0)`) | 90.1% | 98.9% |
+|  | 8 | `2c4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b5 4a4 4a3 (4a2 4a1 0c0)`) | 90.3% | 98.9% |
+| 2c4 8e | 1 | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | 77.7% | 95.3% |
+|  | 2 | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) | 89.5% | 99.3% |
+|  | 3 | `2c4 2c3 4b2 4a1 0c0` | 91.5% | 99.4% |
+|  | 4 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c4 4b5 2c4 2c3 4b2 (4a1 0c0)`) | 92.3% | 99.5% |
+|  | 5 | `2c4 2c3 4b2 4a1 (0c0)` (mirror: `2c4 2c3 (4b2 4a1 0c0)`) | 92.9% | 99.6% |
+|  | 6 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `2c4 2c3 4b2 2c3 4b2 4a1 (0c0)`) | 93.3% | 99.6% |
+|  | 7 | `2c4 2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c4 4b5 2c4 4b3 4a2 (4a1 0c0)`) | 93.5% | 99.6% |
+|  | 8 | `2c4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b5 4a4 4a3 (4a2 4a1 0c0)`) | 93.7% | 99.6% |
+| 0c3 0e | 1 | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | 85.5% | 97.3% |
+|  | 2 | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | 94.2% | 99.5% |
+|  | 3 | `0c3 4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4b3 2c4 (2c3 4b2 4a1 0c0)`) | 96.6% | 99.8% |
+|  | 4 | `0c3 4a4 4b5 2c4 2c3 4b2 4a1 0c0` | 96.9% | 99.8% |
+|  | 5 | `0c3 4a2 (4b3 4a2 4a1 0c0)` (mirror: `0c3 4a4 0c3 4a2 4a1 (0c0)`) | 97.2% | 99.8% |
+|  | 6 | `0c3 4a4 4b5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `0c3 4a4 4b5 2c4 2c3 4b2 (4a1 0c0)`) | 97.3% | 99.8% |
+|  | 7 | `0c3 4a2 4b3 2c4 (2c3 4b2 4a1 0c0)` (mirror: `0c3 4a4 4b5 2c4 2c3 (4b2 4a1 0c0)`) | 97.4% | 99.9% |
+|  | 8 | `0c3 4a4 (2c5 2c4 2c3 4b2 4a1 0c0)` (mirror: `0c3 4a4 4b5 2c4 2c3 4b2 4a1 (0c0)`) | 97.4% | 99.9% |
+| 0c3 2e | 1 | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | 80.8% | 97.5% |
+|  | 2 | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | 91.3% | 99.3% |
+|  | 3 | `0c3 4a2 4a1 0c0` | 92.1% | 99.5% |
+|  | 4 | `0c3 4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4b3 2c4 (2c3 4b2 4a1 0c0)`) | 92.5% | 99.6% |
+|  | 5 | `0c3 4a2 (4b3 4a2 4a1 0c0)` (mirror: `0c3 4a4 0c3 4a2 4a1 (0c0)`) | 92.8% | 99.6% |
+|  | 6 | `0c3 4a4 4b5 2c4 2c3 4b2 4a1 (0c0)` (mirror: `0c3 4a4 (2c5 2c4 2c3 4b2 4a1 0c0)`) | 93.0% | 99.6% |
+|  | 7 | `0c3 4a2 4b3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4a1 4b2 (4a1 0c0)`) | 93.2% | 99.6% |
+|  | 8 | `0c3 4a4 4b5 2c4 2c3 4b2 (4a1 0c0)` (mirror: `0c3 4a4 4b5 (2c4 2c3 4b2 4a1 0c0)`) | 93.3% | 99.6% |
+| 0c3 4e | 1 | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | 67.2% | 94.5% |
+|  | 2 | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | 85.1% | 98.7% |
+|  | 3 | `0c3 4a2 4b3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4a1 4b2 (4a1 0c0)`) | 85.8% | 98.7% |
+|  | 4 | `0c3 4a4 4b5 2c4 2c3 4b2 (4a1 0c0)` (mirror: `0c3 4a4 4b5 (2c4 2c3 4b2 4a1 0c0)`) | 86.4% | 98.9% |
+|  | 5 | `0c3 4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4b3 2c4 (2c3 4b2 4a1 0c0)`) | 86.8% | 98.9% |
+|  | 6 | `0c3 4a2 (4b3 4a2 4a1 0c0)` (mirror: `0c3 4a4 0c3 4a2 4a1 (0c0)`) | 87.2% | 98.9% |
+|  | 7 | `0c3 4a4 4b5 2c4 2c3 4b2 4a1 (0c0)` (mirror: `0c3 4a4 (2c5 2c4 2c3 4b2 4a1 0c0)`) | 87.4% | 99.0% |
+|  | 8 | `0c3 4a2 4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4b3 2c4 (2c3 4b2 4a1 0c0)`) | 87.5% | 99.0% |
+| 0c3 6e | 1 | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | 82.6% | 98.0% |
+|  | 2 | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | 93.9% | 99.5% |
+|  | 3 | `0c3 4a2 4a1 0c0` | 94.6% | 99.7% |
+|  | 4 | `0c3 4a2 (4b3 4a2 4a1 0c0)` (mirror: `0c3 4a4 0c3 4a2 4a1 (0c0)`) | 94.9% | 99.7% |
+|  | 5 | `0c3 4a2 4b3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4a1 4b2 (4a1 0c0)`) | 95.2% | 99.7% |
+|  | 6 | `0c3 4a4 4b5 2c4 2c3 4b2 4a1 (0c0)` (mirror: `0c3 4a4 (2c5 2c4 2c3 4b2 4a1 0c0)`) | 95.3% | 99.7% |
+|  | 7 | `0c3 4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4b3 2c4 (2c3 4b2 4a1 0c0)`) | 95.4% | 99.7% |
+|  | 8 | `0c3 4a4 4b5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `0c3 4a4 4b5 2c4 2c3 4b2 (4a1 0c0)`) | 95.5% | 99.7% |
+| 0c3 8e | 1 | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | 87.3% | 98.0% |
+|  | 2 | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | 94.8% | 99.5% |
+|  | 3 | `0c3 4a4 4b5 2c4 2c3 4b2 (4a1 0c0)` (mirror: `0c3 4a4 4b5 (2c4 2c3 4b2 4a1 0c0)`) | 96.1% | 99.7% |
+|  | 4 | `0c3 4a2 4b3 2c4 2c3 4b2 (4a1 0c0)` (mirror: `0c3 4a4 4b5 (2c4 4b3 4a2 4a1 0c0)`) | 96.5% | 99.7% |
+|  | 5 | `0c3 4a4 4b5 2c4 2c3 4b2 4a1 0c0` | 96.8% | 99.7% |
+|  | 6 | `0c3 4a4 (2c5 2c4 2c3 4b2 4a1 0c0)` (mirror: `0c3 4a4 4b5 2c4 2c3 4b2 4a1 (0c0)`) | 97.0% | 99.7% |
+|  | 7 | `0c3 4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `0c3 4a4 4b5 2c4 2c3 (4b2 4a1 0c0)`) | 97.1% | 99.8% |
+|  | 8 | `0c3 4a2 4b3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4a1 4b2 (4a1 0c0)`) | 97.2% | 99.8% |
+| 4a2 0e | 1 | `4a2 4b3 4a2 4a1 (0c0)` (mirror: `4a2 4a1 (4b2 4a1 0c0)`) | 29.1% | 46.4% |
+|  | 2 | `4a2 4a1 4b2 4a1 0c0` | 40.4% | 56.4% |
+|  | 3 | `4a2 4a1 (0c0)` | 44.4% | 68.2% |
+|  | 4 | `4a2 4a1 4b2 (4a1 0c0)` | 48.2% | 73.3% |
+|  | 5 | `4a2 4a1 (0c0 4a1 0c0)` (mirror: `4a2 4a1 4a2 4a1 (0c0)`) | 50.3% | 74.6% |
+|  | 6 | `4a2 4b3 (4b2 2c3 4b2 4a1 0c0)` (mirror: `4a2 4b3 2c4 2c3 4b2 4a1 (0c0)`) | 52.1% | 75.5% |
+|  | 7 | `4a2 4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4a2 4a1 4b2 2c3 (4b2 4a1 0c0)`) | 52.8% | 75.8% |
+|  | 8 | `4a2 4b3 2c4 2c3 4b2 (4a1 0c0)` (mirror: `4a2 4b3 2c4 (2c3 4b2 4a1 0c0)`) | 53.1% | 75.9% |
+| 4a2 2e | 1 | `4a2 4b3 4a2 4a1 (0c0)` (mirror: `4a2 4a1 (4b2 4a1 0c0)`) | 42.2% | 77.2% |
+|  | 2 | `4a2 4a1 (0c0)` | 67.8% | 92.0% |
+|  | 3 | `4a2 4a1 4b2 4a1 0c0` | 76.8% | 95.7% |
+|  | 4 | `4a2 4a1 (0c0 4a1 0c0)` (mirror: `4a2 4a1 4a2 4a1 (0c0)`) | 79.6% | 96.9% |
+|  | 5 | `4a2 4a1 4b2 (4a1 0c0)` | 81.4% | 97.6% |
+|  | 6 | `4a2 4b3 2c4 2c3 4b2 4a1 0c0` | 82.4% | 97.8% |
+|  | 7 | `4a2 4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4a2 4a1 4b2 2c3 (4b2 4a1 0c0)`) | 83.1% | 98.0% |
+|  | 8 | `4a2 4b3 (4b2 2c3 4b2 4a1 0c0)` (mirror: `4a2 4b3 2c4 2c3 4b2 4a1 (0c0)`) | 83.6% | 98.1% |
+| 4a2 4e | 1 | `4a2 4a1 0c0` | 60.9% | 83.9% |
+|  | 2 | `4a2 4b3 4a2 4a1 (0c0)` (mirror: `4a2 4a1 (4b2 4a1 0c0)`) | 72.2% | 91.1% |
+|  | 3 | `4a2 4a1 4b2 4a1 0c0` | 79.1% | 93.6% |
+|  | 4 | `4a2 4a1 (0c0)` | 83.7% | 95.9% |
+|  | 5 | `4a2 4a1 (0c0 4a1 0c0)` (mirror: `4a2 4a1 4a2 4a1 (0c0)`) | 85.3% | 96.5% |
+|  | 6 | `4a2 4a1 4b2 (4a1 0c0)` | 86.1% | 96.9% |
+|  | 7 | `4a2 4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4a2 4a1 4b2 2c3 (4b2 4a1 0c0)`) | 86.3% | 96.9% |
+|  | 8 | `4a2 4b3 (4b2 2c3 4b2 4a1 0c0)` (mirror: `4a2 4b3 2c4 2c3 4b2 4a1 (0c0)`) | 86.4% | 97.0% |
+| 4a1 0e | 1 | `4a1 0c0 (4a1 0c0)` (mirror: `4a1 4a2 4a1 (0c0)`) | 33.5% | 56.5% |
+|  | 2 | `4a1 4b2 2c3 4b2 4a1 (0c0)` (mirror: `4a1 4b2 (2c3 4b2 4a1 0c0)`) | 46.5% | 71.3% |
+|  | 3 | `4a1 0c0 4a1 (0c0)` (mirror: `4a1 4a2 (4a1 0c0)`) | 54.6% | 84.2% |
+|  | 4 | `4a1 4b2 2c3 4b2 4a1 0c0` | 61.1% | 87.8% |
+|  | 5 | `4a1 0c0 4a1 0c0` | 66.5% | 90.7% |
+|  | 6 | `4a1 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4a1 4b2 2c3 4b2 (4a1 0c0)`) | 70.5% | 92.4% |
+|  | 7 | `4a1 4b2 4a1 0c0 4a1 (0c0)` (mirror: `4a1 4b2 (2c3 4b2 4a1 0c0)`) | 71.7% | 92.9% |
+|  | 8 | `4a1 4b2 4a1 0c0 (4a1 0c0)` (mirror: `4a1 4b2 4a1 (4b2 4a1 0c0)`) | 72.2% | 92.9% |
+| 4a1 2e | 1 | `4a1 4b2 4a1 0c0` | 38.8% | 67.5% |
+|  | 2 | `4a1 0c0 4a1 0c0` | 58.8% | 85.8% |
+|  | 3 | `4a1 0c0 (4a1 0c0)` (mirror: `4a1 4a2 4a1 (0c0)`) | 70.5% | 91.7% |
+|  | 4 | `4a1 0c0 4a1 (0c0)` (mirror: `4a1 4a2 (4a1 0c0)`) | 76.7% | 95.4% |
+|  | 5 | `4a1 4b2 (2c3 4b2 4a1 0c0)` (mirror: `4a1 4b2 2c3 4b2 4a1 (0c0)`) | 78.2% | 96.0% |
+|  | 6 | `4a1 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4a1 4b2 2c3 4b2 (4a1 0c0)`) | 79.0% | 96.2% |
+|  | 7 | `4a1 0c0 4a1 (4b2 4a1 0c0)` (mirror: `4a1 4a2 4a1 4b2 (4a1 0c0)`) | 79.4% | 96.4% |
+|  | 8 | `4a1 4b2 2c3 4b2 4a1 0c0` | 79.8% | 96.5% |
+| 4a1 4e | 1 | `4a1 0c0` | 33.6% | 57.1% |
+|  | 2 | `4a1 4b2 4a1 0c0` | 50.3% | 78.3% |
+|  | 3 | `4a1 0c0 (4a1 0c0)` (mirror: `4a1 4a2 4a1 (0c0)`) | 60.6% | 86.2% |
+|  | 4 | `4a1 0c0 4a1 (0c0)` (mirror: `4a1 4a2 (4a1 0c0)`) | 66.6% | 91.1% |
+|  | 5 | `4a1 0c0 4a1 0c0` | 69.5% | 92.2% |
+|  | 6 | `4a1 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4a1 4b2 2c3 4b2 (4a1 0c0)`) | 70.1% | 92.5% |
+|  | 7 | `4a1 4b2 (2c3 4b2 4a1 0c0)` (mirror: `4a1 4b2 2c3 4b2 4a1 (0c0)`) | 70.5% | 92.7% |
+|  | 8 | `4a1 0c0 \| qt` (mirror: `4a1 4b2 (4a1 4b2 4a1 0c0)`) | 70.7% | 93.1% |
+| 2c3 0e | 1 | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | 46.3% | 81.8% |
+|  | 2 | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) | 67.0% | 93.7% |
+|  | 3 | `2c3 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 4a1 (0c0)`) | 75.1% | 95.9% |
+|  | 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 (4a1 0c0)`) | 81.4% | 97.5% |
+|  | 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c3 4b2 4a3 4b2 (4a1 0c0)`) | 85.5% | 98.4% |
+|  | 6 | `2c3 2c4 2c3 4b2 4a1 0c0` | 86.7% | 98.5% |
+|  | 7 | `2c3 4b2 4a1 (0c0 4a1 0c0)` (mirror: `2c3 4b2 4a3 4b2 (4a1 0c0)`) | 87.4% | 98.7% |
+|  | 8 | `2c3 4b2 2c3 4b2 4a1 0c0` | 88.1% | 98.8% |
+| 2c3 2e | 1 | `2c3 4b2 4a1 0c0` | 66.5% | 89.6% |
+|  | 2 | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | 79.6% | 96.4% |
+|  | 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) | 80.2% | 96.6% |
+|  | 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 (4a1 0c0)`) | 80.6% | 96.7% |
+|  | 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c3 4b2 4a3 4b2 (4a1 0c0)`) | 80.8% | 96.7% |
+|  | 6 | `2c3 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 4a1 (0c0)`) | 81.0% | 96.8% |
+|  | 7 | `2c3 2c4 2c3 4b2 4a1 0c0` | 81.2% | 96.8% |
+|  | 8 | `2c3 4b2 2c3 4b2 4a1 0c0` | 81.2% | 96.8% |
+| 2c3 4e | 1 | `2c3 4b2 4a1 0c0` | 55.3% | 82.1% |
+|  | 2 | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | 76.6% | 95.6% |
+|  | 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) | 78.1% | 96.1% |
+|  | 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 (4a1 0c0)`) | 79.1% | 96.4% |
+|  | 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c3 4b2 4a3 4b2 (4a1 0c0)`) | 79.9% | 96.6% |
+|  | 6 | `2c3 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 4a1 (0c0)`) | 80.6% | 96.9% |
+|  | 7 | `2c3 4b2 2c3 4b2 4a1 0c0` | 80.9% | 97.0% |
+|  | 8 | `2c3 2c4 2c3 4b2 4a1 0c0` | 81.2% | 97.0% |
+| 2c3 6e | 1 | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | 66.1% | 91.8% |
+|  | 2 | `2c3 4b2 4a1 0c0` | 73.3% | 94.7% |
+|  | 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) | 76.7% | 95.8% |
+|  | 4 | `2c3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c3 4b2 4a3 4b2 (4a1 0c0)`) | 78.3% | 96.3% |
+|  | 5 | `2c3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 (4a1 0c0)`) | 79.8% | 96.7% |
+|  | 6 | `2c3 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 4a1 (0c0)`) | 80.8% | 96.9% |
+|  | 7 | `2c3 2c4 2c3 4b2 4a1 0c0` | 81.2% | 97.0% |
+|  | 8 | `2c3 4b2 2c3 4b2 4a1 0c0` | 81.6% | 97.1% |
+| 2c3 8e | 1 | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | 46.3% | 81.2% |
+|  | 2 | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) | 67.2% | 93.2% |
+|  | 3 | `2c3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 (4a1 0c0)`) | 74.5% | 95.7% |
+|  | 4 | `2c3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c3 4b2 4a3 4b2 (4a1 0c0)`) | 78.3% | 96.8% |
+|  | 5 | `2c3 2c4 2c3 4b2 4a1 0c0` | 81.3% | 97.5% |
+|  | 6 | `2c3 4b2 2c3 4b2 4a1 0c0` | 83.4% | 98.0% |
+|  | 7 | `2c3 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 4a1 (0c0)`) | 85.5% | 98.4% |
+|  | 8 | `2c3 4b2 4a1 (0c0 4a1 0c0)` (mirror: `2c3 4b2 4a3 4b2 (4a1 0c0)`) | 85.9% | 98.4% |
+| 0c4 0e | 1 | `0c4 4a3 4b2 (4a1 0c0)` | 83.2% | 95.4% |
+|  | 2 | `0c4 4a3 4b2 4a1 0c0` | 86.8% | 97.3% |
+|  | 3 | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) | 87.6% | 97.5% |
+|  | 4 | `0c4 4a3 4b2 2c3 (4b2 4a1 0c0)` | 88.0% | 97.7% |
+|  | 5 | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `0c4 4a3 (2c4 2c3 4b2 4a1 0c0)`) | 88.3% | 97.7% |
+|  | 6 | `0c4 4a3 4b2 2c3 4b2 (4a1 0c0)` (mirror: `0c4 4a3 4b2 (2c3 4b2 4a1 0c0)`) | 88.4% | 97.7% |
+|  | 7 | `0c4 4a3 4b2 2c3 4b2 4a1 0c0` | 88.5% | 97.7% |
+| 0c4 2e | 1 | `0c4 4a3 4b2 (4a1 0c0)` | 86.5% | 97.3% |
+|  | 2 | `0c4 4a3 4b2 4a1 0c0` | 88.0% | 97.7% |
+|  | 3 | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `0c4 4a3 (2c4 2c3 4b2 4a1 0c0)`) | 89.1% | 98.1% |
+|  | 4 | `0c4 4a3 4b2 2c3 (4b2 4a1 0c0)` | 89.9% | 98.2% |
+|  | 5 | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) | 90.6% | 98.5% |
+|  | 6 | `0c4 4a3 4b2 2c3 4b2 (4a1 0c0)` (mirror: `0c4 4a3 4b2 (2c3 4b2 4a1 0c0)`) | 91.0% | 98.5% |
+|  | 7 | `0c4 4a3 4b2 2c3 4b2 4a1 0c0` | 91.2% | 98.6% |
+|  | 8 | `0c4 4a3 0c4 4a3 4b2 (4a1 0c0)` (mirror: `0c4 4a3 4b2 (4a1 4b2 4a1 0c0)`) | 91.2% | 98.6% |
+| 0c4 4e | 1 | `0c4 4a3 4b2 (4a1 0c0)` | 83.5% | 96.8% |
+|  | 2 | `0c4 4a3 4b2 4a1 0c0` | 85.1% | 97.2% |
+|  | 3 | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) | 86.1% | 97.5% |
+|  | 4 | `0c4 4a3 4b2 2c3 (4b2 4a1 0c0)` | 87.1% | 97.7% |
+|  | 5 | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `0c4 4a3 (2c4 2c3 4b2 4a1 0c0)`) | 87.8% | 97.9% |
+|  | 6 | `0c4 4a3 4b2 2c3 4b2 (4a1 0c0)` (mirror: `0c4 4a3 4b2 (2c3 4b2 4a1 0c0)`) | 88.3% | 98.0% |
+|  | 7 | `0c4 4a3 4b2 2c3 4b2 4a1 0c0` | 88.6% | 98.1% |
+|  | 8 | `0c4 4a3 4b2 (4a1 4b2 4a1 0c0)` (mirror: `0c4 4a3 4b4 4a3 4b2 (4a1 0c0)`) | 88.6% | 98.1% |
+| 0c4 6e | 1 | `0c4 4a3 4b2 (4a1 0c0)` | 81.8% | 96.6% |
+|  | 2 | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) | 83.7% | 97.3% |
+|  | 3 | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `0c4 4a3 (2c4 2c3 4b2 4a1 0c0)`) | 85.4% | 97.8% |
+|  | 4 | `0c4 4a3 4b2 2c3 (4b2 4a1 0c0)` | 86.5% | 98.0% |
+|  | 5 | `0c4 4a3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `0c4 4a3 4b2 2c3 4b2 (4a1 0c0)`) | 87.3% | 98.2% |
+|  | 6 | `0c4 4a3 4b2 4a1 0c0` | 87.7% | 98.2% |
+|  | 7 | `0c4 4a3 4b2 2c3 4b2 4a1 0c0` | 88.0% | 98.3% |
+|  | 8 | `0c4 4a3 4b2 (4a1 0c0 4a1 0c0)` (mirror: `0c4 4a3 4b2 2c3 4b2 (4a1 0c0)`) | 88.1% | 98.3% |
+| 0c4 8e | 1 | `0c4 4a3 4b2 (4a1 0c0)` | 80.3% | 96.2% |
+|  | 2 | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) | 86.2% | 98.0% |
+|  | 3 | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `0c4 4a3 (2c4 2c3 4b2 4a1 0c0)`) | 87.1% | 98.2% |
+|  | 4 | `0c4 4a3 4b2 2c3 (4b2 4a1 0c0)` | 87.9% | 98.4% |
+|  | 5 | `0c4 4a3 4b2 2c3 4b2 (4a1 0c0)` (mirror: `0c4 4a3 4b2 (2c3 4b2 4a1 0c0)`) | 88.1% | 98.4% |
+|  | 6 | `0c4 4a3 4b2 4a1 0c0` | 88.3% | 98.4% |
+| 4c3 0e | 1 | `4a3 4b2 (4a1 0c0)` (mirror: `4b3 4a2 4a1 (0c0)`) | 70.8% | 90.7% |
+|  | 2 | `4a3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b3 2c4 2c3 4b2 (4a1 0c0)`) | 78.4% | 94.5% |
+|  | 3 | `4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4a3 0c4 4a3 4b2 (4a1 0c0)`) | 83.3% | 96.2% |
+|  | 4 | `4b3 2c4 2c3 4b2 4a1 0c0` | 86.3% | 97.0% |
+|  | 5 | `4b3 4a2 4a1 0c0` | 88.6% | 98.5% |
+|  | 6 | `4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `4b3 2c4 (2c3 4b2 4a1 0c0)`) | 90.2% | 98.8% |
+|  | 7 | `4a3 4b2 2c3 4b2 4a1 0c0` | 91.5% | 99.1% |
+|  | 8 | `4a3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `4b3 2c4 2c3 4b2 4a1 (0c0)`) | 92.3% | 99.2% |
+| 4c3 2e | 1 | `4a3 4b2 (4a1 0c0)` (mirror: `4b3 4a2 4a1 (0c0)`) | 66.2% | 90.6% |
+|  | 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4a3 0c4 4a3 4b2 (4a1 0c0)`) | 72.0% | 93.0% |
+|  | 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b3 2c4 2c3 4b2 (4a1 0c0)`) | 75.1% | 94.3% |
+|  | 4 | `4b3 4a2 4a1 0c0` | 77.9% | 95.7% |
+|  | 5 | `4b3 2c4 2c3 4b2 4a1 0c0` | 80.1% | 96.2% |
+|  | 6 | `4a3 4b2 4a1 0c0` | 81.8% | 96.8% |
+|  | 7 | `4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `4b3 2c4 (2c3 4b2 4a1 0c0)`) | 83.2% | 97.3% |
+|  | 8 | `4a3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `4b3 2c4 2c3 4b2 4a1 (0c0)`) | 84.4% | 97.5% |
+| 4c3 4e | 1 | `4a3 4b2 (4a1 0c0)` (mirror: `4b3 4a2 4a1 (0c0)`) | 62.3% | 88.3% |
+|  | 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4a3 0c4 4a3 4b2 (4a1 0c0)`) | 70.2% | 92.2% |
+|  | 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b3 2c4 2c3 4b2 (4a1 0c0)`) | 74.4% | 93.9% |
+|  | 4 | `4b3 2c4 2c3 4b2 4a1 0c0` | 77.6% | 94.9% |
+|  | 5 | `4a3 4b2 4a1 0c0` | 79.6% | 95.8% |
+|  | 6 | `4a3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `4b3 2c4 2c3 4b2 4a1 (0c0)`) | 81.3% | 96.3% |
+|  | 7 | `4b3 4a2 4a1 0c0` | 82.9% | 97.2% |
+|  | 8 | `4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `4b3 2c4 (2c3 4b2 4a1 0c0)`) | 84.4% | 97.5% |
+| 4c4 0e | 1 | `4b4 4a3 4b2 (4a1 0c0)` (mirror: `4a4 0c3 4a2 (4a1 0c0)`) | 65.2% | 92.0% |
+|  | 2 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b4 2c5 4b4 4a3 (4a2 4a1 0c0)`) | 72.4% | 95.0% |
+|  | 3 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `4a4 4a3 4b2 2c3 4b2 4a1 (0c0)`) | 76.7% | 96.3% |
+|  | 4 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b4 4a3 0c4 4a3 4b2 (4a1 0c0)`) | 80.0% | 97.0% |
+|  | 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` (mirror: `4a4 4b5 2c4 2c3 4b2 4a1 (0c0)`) | 81.9% | 97.4% |
+|  | 6 | `4a4 4b5 2c4 2c3 4b2 (4a1 0c0)` (mirror: `4b4 4a3 0c4 (4a3 4b2 4a1 0c0)`) | 82.9% | 97.6% |
+|  | 7 | `4b4 2c5 2c4 2c3 4b2 4a1 0c0` | 83.5% | 97.6% |
+|  | 8 | `4b4 4a3 (4a2 4a1 0c0)` (mirror: `4a4 4a3 4b2 4a1 (0c0)`) | 84.1% | 97.8% |
+| 4c4 2e | 1 | `4b4 4a3 4b2 (4a1 0c0)` (mirror: `4a4 0c3 4a2 (4a1 0c0)`) | 67.9% | 92.4% |
+|  | 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b4 4a3 0c4 4a3 4b2 (4a1 0c0)`) | 75.4% | 95.5% |
+|  | 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b4 2c5 4b4 4a3 (4a2 4a1 0c0)`) | 78.7% | 96.4% |
+|  | 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `4a4 4a3 4b2 2c3 4b2 4a1 (0c0)`) | 80.8% | 96.9% |
+|  | 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` (mirror: `4a4 4b5 2c4 2c3 4b2 4a1 (0c0)`) | 82.1% | 97.2% |
+|  | 6 | `4a4 4b5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `4b4 4a3 4b2 2c3 4b2 4a1 (0c0)`) | 83.3% | 97.4% |
+|  | 7 | `4a4 4b5 2c4 2c3 4b2 4a1 0c0` | 84.2% | 97.6% |
+|  | 8 | `4b4 2c5 2c4 2c3 4b2 4a1 0c0` | 85.2% | 97.7% |
+| 4c4 4e | 1 | `4b4 4a3 4b2 (4a1 0c0)` (mirror: `4a4 0c3 4a2 (4a1 0c0)`) | 68.4% | 92.5% |
+|  | 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b4 4a3 0c4 4a3 4b2 (4a1 0c0)`) | 74.8% | 95.1% |
+|  | 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b4 2c5 4b4 4a3 (4a2 4a1 0c0)`) | 78.2% | 95.9% |
+|  | 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `4a4 4a3 4b2 2c3 4b2 4a1 (0c0)`) | 80.2% | 96.5% |
+|  | 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` (mirror: `4a4 4b5 2c4 2c3 4b2 4a1 (0c0)`) | 81.5% | 96.7% |
+|  | 6 | `4a4 4b5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `4b4 4a3 4b2 2c3 4b2 4a1 (0c0)`) | 82.6% | 97.0% |
+|  | 7 | `4b4 4a3 (4a2 4a1 0c0)` (mirror: `4a4 4a3 4b2 4a1 (0c0)`) | 83.6% | 97.4% |
+|  | 8 | `4b4 2c5 2c4 2c3 4b2 4a1 0c0` | 84.6% | 97.5% |
+| 4b2 0e | 1 | `4b2 4a1 0c0` | 36.5% | 64.3% |
+|  | 2 | `4b2 2c3 4b2 (4a1 0c0)` (mirror: `4b2 4a1 0c0 (4a1 0c0)`) | 51.1% | 78.4% |
+|  | 3 | `4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b2 2c3 4b2 4a1 (0c0)`) | 61.0% | 85.5% |
+|  | 4 | `4b2 4a1 (0c0)` | 68.1% | 91.5% |
+|  | 5 | `4b2 2c3 4b2 4a1 0c0` | 72.4% | 93.1% |
+|  | 6 | `4b2 4a3 4b2 (4a1 0c0)` (mirror: `4b2 4a1 0c0 (4a1 0c0)`) | 75.5% | 94.4% |
+|  | 7 | `4b2 2c3 4b2 4a1 (0c0)` (mirror: `4b2 2c3 (4b2 4a1 0c0)`) | 77.9% | 95.3% |
+|  | 8 | `4b2 4a1 4b2 (4a1 0c0)` (mirror: `4b2 4a1 0c0 (4a1 0c0)`) | 78.4% | 95.5% |
+| 4b2 2e | 1 | `4b2 4a1 0c0` | 45.9% | 76.5% |
+|  | 2 | `4b2 2c3 4b2 4a1 (0c0)` (mirror: `4b2 2c3 (4b2 4a1 0c0)`) | 53.7% | 83.2% |
+|  | 3 | `4b2 4a1 (0c0)` | 59.0% | 86.3% |
+|  | 4 | `4b2 2c3 4b2 4a1 0c0` | 63.3% | 88.8% |
+|  | 5 | `4b2 2c3 4b2 (4a1 0c0)` (mirror: `4b2 4a1 0c0 (4a1 0c0)`) | 66.3% | 90.1% |
+|  | 6 | `4b2 4a3 4b2 (4a1 0c0)` (mirror: `4b2 4a1 0c0 (4a1 0c0)`) | 67.3% | 90.5% |
+|  | 7 | `4b2 4a1 0c0 4a1 (0c0)` (mirror: `4b2 2c3 (4b2 4a1 0c0)`) | 68.2% | 91.3% |
+|  | 8 | `4b2 4a1 (0c0 4a1 0c0)` (mirror: `4b2 4a1 4a2 4a1 (0c0)`) | 68.6% | 91.5% |
+| 4b2 4e | 1 | `4b2 4a1 0c0` | 30.3% | 59.1% |
+|  | 2 | `4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b2 2c3 4b2 4a1 (0c0)`) | 53.3% | 82.2% |
+|  | 3 | `4b2 2c3 4b2 4a1 0c0` | 66.8% | 89.1% |
+|  | 4 | `4b2 2c3 4b2 (4a1 0c0)` (mirror: `4b2 4a1 0c0 (4a1 0c0)`) | 71.7% | 91.1% |
+|  | 5 | `4b2 4a1 (0c0)` | 76.0% | 94.9% |
+|  | 6 | `4b2 2c3 4b2 4a1 (0c0)` (mirror: `4b2 2c3 (4b2 4a1 0c0)`) | 77.8% | 95.5% |
+|  | 7 | `4b2 4a3 4b2 (4a1 0c0)` (mirror: `4b2 4a1 0c0 (4a1 0c0)`) | 79.3% | 96.0% |
+|  | 8 | `4b2 4a1 (0c0 4a1 0c0)` (mirror: `4b2 4a1 4a2 4a1 (0c0)`) | 80.5% | 96.5% |
+| 4b5 0e | 1 | `4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b5 2c4 4b3 4a2 (4a1 0c0)`) | 60.8% | 86.9% |
+|  | 2 | `4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 4a1 (0c0)`) | 84.2% | 97.4% |
+|  | 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 92.6% | 99.4% |
+|  | 4 | `4b5 2c4 (4b3 4a2 4a1 0c0)` (mirror: `4b5 4a4 4a3 4b2 4a1 (0c0)`) | 92.8% | 99.4% |
+|  | 5 | `4b5 2c4 4b3 4a2 4a1 0c0` | 93.0% | 99.4% |
+|  | 6 | `4b5 2c4 2c3 4b2 (4a1 0c0)` (mirror: `4b5 2c4 2c3 (4b2 4a1 0c0)`) | 93.2% | 99.5% |
+|  | 7 | `4b5 4a4 (2c5 2c4 2c3 4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 4a1 0c0 4a1 (0c0)`) | 93.2% | 99.5% |
+|  | 8 | `4b5 4a4 4a3 4b2 4a1 0c0` | 93.3% | 99.5% |
+| 4b5 2e | 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 4a1 (0c0)`) | 62.6% | 88.0% |
+|  | 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b5 2c4 4b3 4a2 (4a1 0c0)`) | 85.1% | 98.0% |
+|  | 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.6% | 99.6% |
+|  | 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` (mirror: `4b5 2c4 2c3 (4b2 4a1 0c0)`) | 93.7% | 99.6% |
+|  | 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` (mirror: `4b5 4a4 4a3 4b2 4a1 (0c0)`) | 93.8% | 99.7% |
+|  | 6 | `4b5 4a4 4a3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 (2c3 4b2 4a1 0c0)`) | 93.8% | 99.7% |
+|  | 7 | `4b5 4a4 4a3 (2c4 2c3 4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 2c3 4b2 (4a1 0c0)`) | 93.9% | 99.7% |
+|  | 8 | `4b5 2c4 2c3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b5 4a4 4b5 2c4 (2c3 4b2 4a1 0c0)`) | 93.9% | 99.7% |
+| 4b5 4e | 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 4a1 (0c0)`) | 67.0% | 90.5% |
+|  | 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b5 2c4 4b3 4a2 (4a1 0c0)`) | 89.6% | 99.1% |
+|  | 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.9% | 99.6% |
+|  | 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` (mirror: `4b5 2c4 2c3 (4b2 4a1 0c0)`) | 94.0% | 99.7% |
+|  | 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` (mirror: `4b5 4a4 4a3 4b2 4a1 (0c0)`) | 94.0% | 99.7% |
+|  | 6 | `4b5 4a4 (2c5 2c4 2c3 4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 4a1 0c0 4a1 (0c0)`) | 94.1% | 99.7% |
+|  | 7 | `4b5 4a4 4a3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `4b5 4a4 4b5 2c4 2c3 (4b2 4a1 0c0)`) | 94.1% | 99.7% |
+|  | 8 | `4b5 2c4 2c3 4b2 4a1 (0c0)` (mirror: `4b5 2c4 (2c3 4b2 4a1 0c0)`) | 94.2% | 99.7% |
 
 **Edge-path checklists, computer only**: per subset × edges, the budget-2 checklist built over routes read with the bad-edge count at every step (section 4), against the corner-only one. An answer key, not a list to check in an attempt. Sampled, 25,000 per subset × edges. First the corner-only checklist: each row is a subset × edges, each cell the share where the first 1, 2, 3 or 5 corner routes find the optimal:
 
@@ -2205,54 +2205,54 @@ The edge-path checklist, same rows: the share after 1, 2, 3 and 5 edge paths, th
 
 | Subset | Optimal found, 1 edge path | 2 paths | 3 paths | 5 paths | First edge path | Edge paths to match the first corner route |
 |---|---|---|---|---|---|---|
-| 0c0 0e | 42.5% | 84.4% | 92.6% | 93.0% | `0c0 0e > 4a1 4e > 0c0 0e` | 1 |
-| 0c0 2e | 60.5% | 65.3% | 68.8% | 71.2% | `0c0 2e > 4a1 4e > 0c0 0e` | 1 |
-| 0c0 4e | 44.9% | 57.8% | 60.8% | 63.5% | `0c0 4e > 4a1 4e > 0c0 0e` | 1 |
-| 0c0 6e | 40.8% | 47.2% | 52.0% | 60.2% | `0c0 6e > 4a1 4e > (0c0 0e)` | 1 |
-| 0c0 8e | 53.5% | 70.1% | 76.8% | 78.1% | `0c0 8e > 4a1 4e > (0c0 0e)` | 1 |
-| 2c5 0e | 63.9% | 71.1% | 76.4% | 83.3% | `2c5 0e > 2c4 4e > 2c3 2e > (4b2 2e > 4a1 4e > 0c0 0e)` (mirror: `2c5 0e > 2c4 4e > 2c3 2e > 4b2 2e > (4a1 4e > 0c0 0e)`) | 4 |
-| 2c5 2e | 29.4% | 42.3% | 51.8% | 65.3% | `2c5 2e > 2c4 4e > 2c3 4e > (4b2 2e > 4a1 4e > 0c0 0e)` (mirror: `2c5 2e > 2c4 4e > 2c3 6e > 4b2 4e > (4a1 4e > 0c0 0e)`) | 8 |
-| 2c5 4e | 23.9% | 36.4% | 45.3% | 59.8% | `2c5 4e > 2c4 4e > 2c3 2e > (4b2 2e > 4a1 4e > 0c0 0e)` (mirror: `2c5 4e > 2c4 4e > 2c3 8e > 4b2 4e > (4a1 4e > 0c0 0e)`) | 8 |
-| 2c5 6e | 23.7% | 36.8% | 45.9% | 60.7% | `2c5 6e > 2c4 4e > 2c3 4e > (4b2 2e > 4a1 4e > 0c0 0e)` (mirror: `2c5 6e > 4b4 2e > 4a3 4e > 4b2 4e > (4a1 4e > 0c0 0e)`) | 8 |
-| 2c5 8e | 57.9% | 71.9% | 79.6% | 87.2% | `2c5 8e > 2c4 4e > 2c3 2e > (4b2 2e > 4a1 4e > 0c0 0e)` (mirror: `2c5 8e > 2c4 4e > 2c3 2e > 4b2 2e > (4a1 4e > 0c0 0e)`) | 3 |
-| 2c4 0e | 59.8% | 77.8% | 84.4% | 88.4% | `2c4 0e > 2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e` | 2 |
-| 2c4 2e | 37.3% | 56.3% | 66.7% | 77.8% | `2c4 2e > 2c3 4e > (4b2 2e > 4a1 4e > 0c0 0e)` (mirror: `2c4 2e > 4b3 4e > 4a2 2e > 4a1 4e > (0c0 0e)`) | 4 |
-| 2c4 4e | 30.1% | 49.1% | 64.0% | 77.1% | `2c4 4e > 2c3 4e > (4b2 2e > 4a1 4e > 0c0 0e)` (mirror: `2c4 4e > 4b3 4e > 4a2 2e > 4a1 4e > (0c0 0e)`) | 3 |
-| 2c4 6e | 39.3% | 59.4% | 67.4% | 76.9% | `2c4 6e > 2c3 4e > (4b2 2e > 4a1 4e > 0c0 0e)` (mirror: `2c4 6e > 4b3 2e > 4a2 2e > 4a1 4e > (0c0 0e)`) | 5 |
-| 2c4 8e | 73.2% | 86.4% | 89.1% | 91.8% | `2c4 8e > 2c3 4e > (4b2 2e > 4a1 4e > 0c0 0e)` (mirror: `2c4 8e > 4b3 4e > 4a2 2e > 4a1 4e > (0c0 0e)`) | 2 |
-| 0c3 0e | 85.5% | 92.8% | 94.4% | 96.4% | `0c3 0e > 4a2 4e > (4a1 4e > 0c0 0e)` (mirror: `0c3 0e > 4a2 4e > 4a1 4e > (0c0 0e)`) | 1 |
-| 0c3 2e | 80.8% | 86.8% | 90.0% | 91.9% | `0c3 2e > 4a2 4e > (4a1 4e > 0c0 0e)` (mirror: `0c3 2e > 4a2 4e > 4a1 4e > (0c0 0e)`) | 1 |
-| 0c3 4e | 67.2% | 77.8% | 81.2% | 84.1% | `0c3 4e > 4a2 4e > (4a1 4e > 0c0 0e)` (mirror: `0c3 4e > 4a2 4e > 4a1 4e > (0c0 0e)`) | 2 |
-| 0c3 6e | 82.6% | 89.5% | 92.4% | 94.4% | `0c3 6e > 4a2 4e > (4a1 4e > 0c0 0e)` (mirror: `0c3 6e > 4a2 4e > 4a1 4e > (0c0 0e)`) | 1 |
-| 0c3 8e | 87.3% | 92.4% | 94.8% | 96.0% | `0c3 8e > 4a2 4e > (4a1 4e > 0c0 0e)` (mirror: `0c3 8e > 4a2 4e > 4a1 4e > (0c0 0e)`) | 1 |
-| 4a2 0e | 27.9% | 38.2% | 42.2% | 48.4% | `4a2 0e > 4b3 4e > 4a2 4e > 4a1 4e > (0c0 0e)` (mirror: `4a2 0e > 4a1 4e > (4b2 2e > 4a1 4e > 0c0 0e)`) | 2 |
-| 4a2 2e | 34.0% | 60.0% | 67.3% | 75.3% | `4a2 2e > 4a1 4e > (0c0 0e)` | 2 |
-| 4a2 4e | 60.9% | 68.8% | 73.6% | 80.4% | `4a2 4e > 4a1 4e > 0c0 0e` | 1 |
-| 4a1 0e | 33.5% | 42.6% | 50.3% | 61.2% | `4a1 0e > 0c0 4e > (4a1 4e > 0c0 0e)` (mirror: `4a1 0e > 0c0 4e > 4a1 4e > (0c0 0e)`) | 1 |
-| 4a1 2e | 35.4% | 50.4% | 59.5% | 71.8% | `4a1 2e > 4b2 2e > 4a1 4e > 0c0 0e` | 2 |
-| 4a1 4e | 33.6% | 44.4% | 52.5% | 62.3% | `4a1 4e > 0c0 0e` | 1 |
-| 2c3 0e | 46.3% | 58.5% | 66.3% | 76.2% | `2c3 0e > 4b2 4e > (4a1 4e > 0c0 0e)` (mirror: `2c3 0e > 4b2 4e > 4a1 4e > (0c0 0e)`) | 1 |
-| 2c3 2e | 50.9% | 66.5% | 76.8% | 79.8% | `2c3 2e > 4b2 2e > 4a1 4e > 0c0 0e` | 2 |
-| 2c3 4e | 46.2% | 66.8% | 73.2% | 76.9% | `2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e` | 2 |
-| 2c3 6e | 55.8% | 66.1% | 70.1% | 74.5% | `2c3 6e > 4b2 2e > (4a1 4e > 0c0 0e)` (mirror: `2c3 6e > 4b2 2e > 4a1 4e > (0c0 0e)`) | 2 |
-| 2c3 8e | 46.3% | 57.1% | 63.6% | 71.5% | `2c3 8e > 4b2 4e > (4a1 4e > 0c0 0e)` (mirror: `2c3 8e > 4b2 4e > 4a1 4e > (0c0 0e)`) | 1 |
-| 0c4 0e | 75.0% | 83.2% | 86.8% | 87.9% | `0c4 0e > 4a3 4e > 4b2 2e > (4a1 4e > 0c0 0e)` | 2 |
-| 0c4 2e | 70.1% | 84.7% | 86.5% | 88.1% | `0c4 2e > 4a3 2e > 4b2 2e > (4a1 4e > 0c0 0e)` (mirror: `0c4 2e > 4a3 2e > 4b2 4e > (4a1 4e > 0c0 0e)`) | 3 |
-| 0c4 4e | 60.5% | 80.9% | 82.6% | 84.4% | `0c4 4e > 4a3 4e > 4b2 2e > (4a1 4e > 0c0 0e)` (mirror: `0c4 4e > 4a3 0e > 4b2 4e > (4a1 4e > 0c0 0e)`) | 4 |
-| 0c4 6e | 65.0% | 80.0% | 81.8% | 83.7% | `0c4 6e > 4a3 2e > 4b2 2e > (4a1 4e > 0c0 0e)` (mirror: `0c4 6e > 4a3 4e > 4b2 0e > (4a1 4e > 0c0 0e)`) | 3 |
-| 0c4 8e | 79.0% | 85.9% | 86.7% | 87.4% | `0c4 8e > 4a3 4e > 4b2 2e > (4a1 4e > 0c0 0e)` | 2 |
-| 4c3 0e | 70.8% | 75.9% | 79.8% | 85.2% | `4a3 0e > 4b2 4e > (4a1 4e > 0c0 0e)` (mirror: `4b3 0e > 4a2 4e > 4a1 4e > (0c0 0e)`) | 1 |
-| 4c3 2e | 58.4% | 66.2% | 69.3% | 72.6% | `4b3 2e > 4a2 4e > 4a1 4e > (0c0 0e)` (mirror: `4a3 2e > 4b2 2e > (4a1 4e > 0c0 0e)`) | 2 |
-| 4c3 4e | 53.1% | 62.2% | 64.5% | 68.5% | `4b3 4e > 4a2 4e > 4a1 4e > (0c0 0e)` (mirror: `4a3 4e > 4b2 2e > (4a1 4e > 0c0 0e)`) | 3 |
-| 4c4 0e | 59.3% | 65.2% | 68.3% | 71.8% | `4b4 0e > 4a3 4e > 4b2 2e > (4a1 4e > 0c0 0e)` (mirror: `4a4 0e > 4a3 4e > 4b2 2e > (4a1 4e > 0c0 0e)`) | 2 |
-| 4c4 2e | 37.9% | 57.5% | 63.4% | 68.8% | `4b4 2e > 4a3 2e > 4b2 2e > (4a1 4e > 0c0 0e)` (mirror: `4a4 2e > 0c3 2e > 4a2 2e > (4a1 4e > 0c0 0e)`) | 5 |
-| 4c4 4e | 31.6% | 56.3% | 61.9% | 68.3% | `4b4 4e > 4a3 4e > 4b2 2e > (4a1 4e > 0c0 0e)` (mirror: `4a4 4e > 4a3 2e > 4b2 4e > (4a1 4e > 0c0 0e)`) | 6 |
-| 4b2 0e | 36.5% | 49.7% | 57.8% | 69.5% | `4b2 0e > 4a1 4e > 0c0 0e` | 1 |
-| 4b2 2e | 45.9% | 52.0% | 55.1% | 60.3% | `4b2 2e > 4a1 4e > 0c0 0e` | 1 |
-| 4b2 4e | 30.3% | 42.6% | 50.8% | 61.1% | `4b2 4e > 4a1 4e > 0c0 0e` | 1 |
-| 4b5 0e | 42.3% | 65.1% | 77.7% | 86.1% | `4b5 0e > 2c4 4e > 2c3 2e > (4b2 2e > 4a1 4e > 0c0 0e)` (mirror: `4b5 0e > 2c4 4e > 2c3 4e > 4b2 2e > (4a1 4e > 0c0 0e)`) | 2 |
-| 4b5 2e | 26.4% | 42.1% | 51.1% | 63.6% | `4b5 2e > 2c4 4e > (2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e)` (mirror: `4b5 2e > 2c4 4e > 2c3 2e > 4b2 2e > 4a1 4e > (0c0 0e)`) | 5 |
-| 4b5 4e | 24.3% | 39.9% | 49.9% | 61.3% | `4b5 4e > 2c4 4e > (2c3 4e > 4b2 2e > 4a1 4e > 0c0 0e)` (mirror: `4b5 4e > 2c4 8e > 4b3 4e > 4a2 2e > 4a1 4e > (0c0 0e)`) | 7 |
+| 0c0 0e | 42.5% | 84.4% | 92.6% | 93.0% | `0c0 0e → 4a1 4e → 0c0 0e` | 1 |
+| 0c0 2e | 60.5% | 65.3% | 68.8% | 71.2% | `0c0 2e → 4a1 4e → 0c0 0e` | 1 |
+| 0c0 4e | 44.9% | 57.8% | 60.8% | 63.5% | `0c0 4e → 4a1 4e → 0c0 0e` | 1 |
+| 0c0 6e | 40.8% | 47.2% | 52.0% | 60.2% | `0c0 6e → 4a1 4e → (0c0 0e)` | 1 |
+| 0c0 8e | 53.5% | 70.1% | 76.8% | 78.1% | `0c0 8e → 4a1 4e → (0c0 0e)` | 1 |
+| 2c5 0e | 63.9% | 71.1% | 76.4% | 83.3% | `2c5 0e → 2c4 4e → 2c3 2e → (4b2 2e → 4a1 4e → 0c0 0e)` (mirror: `2c5 0e → 2c4 4e → 2c3 2e → 4b2 2e → (4a1 4e → 0c0 0e)`) | 4 |
+| 2c5 2e | 29.4% | 42.3% | 51.8% | 65.3% | `2c5 2e → 2c4 4e → 2c3 4e → (4b2 2e → 4a1 4e → 0c0 0e)` (mirror: `2c5 2e → 2c4 4e → 2c3 6e → 4b2 4e → (4a1 4e → 0c0 0e)`) | 8 |
+| 2c5 4e | 23.9% | 36.4% | 45.3% | 59.8% | `2c5 4e → 2c4 4e → 2c3 2e → (4b2 2e → 4a1 4e → 0c0 0e)` (mirror: `2c5 4e → 2c4 4e → 2c3 8e → 4b2 4e → (4a1 4e → 0c0 0e)`) | 8 |
+| 2c5 6e | 23.7% | 36.8% | 45.9% | 60.7% | `2c5 6e → 2c4 4e → 2c3 4e → (4b2 2e → 4a1 4e → 0c0 0e)` (mirror: `2c5 6e → 4b4 2e → 4a3 4e → 4b2 4e → (4a1 4e → 0c0 0e)`) | 8 |
+| 2c5 8e | 57.9% | 71.9% | 79.6% | 87.2% | `2c5 8e → 2c4 4e → 2c3 2e → (4b2 2e → 4a1 4e → 0c0 0e)` (mirror: `2c5 8e → 2c4 4e → 2c3 2e → 4b2 2e → (4a1 4e → 0c0 0e)`) | 3 |
+| 2c4 0e | 59.8% | 77.8% | 84.4% | 88.4% | `2c4 0e → 2c3 4e → 4b2 2e → 4a1 4e → 0c0 0e` | 2 |
+| 2c4 2e | 37.3% | 56.3% | 66.7% | 77.8% | `2c4 2e → 2c3 4e → (4b2 2e → 4a1 4e → 0c0 0e)` (mirror: `2c4 2e → 4b3 4e → 4a2 2e → 4a1 4e → (0c0 0e)`) | 4 |
+| 2c4 4e | 30.1% | 49.1% | 64.0% | 77.1% | `2c4 4e → 2c3 4e → (4b2 2e → 4a1 4e → 0c0 0e)` (mirror: `2c4 4e → 4b3 4e → 4a2 2e → 4a1 4e → (0c0 0e)`) | 3 |
+| 2c4 6e | 39.3% | 59.4% | 67.4% | 76.9% | `2c4 6e → 2c3 4e → (4b2 2e → 4a1 4e → 0c0 0e)` (mirror: `2c4 6e → 4b3 2e → 4a2 2e → 4a1 4e → (0c0 0e)`) | 5 |
+| 2c4 8e | 73.2% | 86.4% | 89.1% | 91.8% | `2c4 8e → 2c3 4e → (4b2 2e → 4a1 4e → 0c0 0e)` (mirror: `2c4 8e → 4b3 4e → 4a2 2e → 4a1 4e → (0c0 0e)`) | 2 |
+| 0c3 0e | 85.5% | 92.8% | 94.4% | 96.4% | `0c3 0e → 4a2 4e → (4a1 4e → 0c0 0e)` (mirror: `0c3 0e → 4a2 4e → 4a1 4e → (0c0 0e)`) | 1 |
+| 0c3 2e | 80.8% | 86.8% | 90.0% | 91.9% | `0c3 2e → 4a2 4e → (4a1 4e → 0c0 0e)` (mirror: `0c3 2e → 4a2 4e → 4a1 4e → (0c0 0e)`) | 1 |
+| 0c3 4e | 67.2% | 77.8% | 81.2% | 84.1% | `0c3 4e → 4a2 4e → (4a1 4e → 0c0 0e)` (mirror: `0c3 4e → 4a2 4e → 4a1 4e → (0c0 0e)`) | 2 |
+| 0c3 6e | 82.6% | 89.5% | 92.4% | 94.4% | `0c3 6e → 4a2 4e → (4a1 4e → 0c0 0e)` (mirror: `0c3 6e → 4a2 4e → 4a1 4e → (0c0 0e)`) | 1 |
+| 0c3 8e | 87.3% | 92.4% | 94.8% | 96.0% | `0c3 8e → 4a2 4e → (4a1 4e → 0c0 0e)` (mirror: `0c3 8e → 4a2 4e → 4a1 4e → (0c0 0e)`) | 1 |
+| 4a2 0e | 27.9% | 38.2% | 42.2% | 48.4% | `4a2 0e → 4b3 4e → 4a2 4e → 4a1 4e → (0c0 0e)` (mirror: `4a2 0e → 4a1 4e → (4b2 2e → 4a1 4e → 0c0 0e)`) | 2 |
+| 4a2 2e | 34.0% | 60.0% | 67.3% | 75.3% | `4a2 2e → 4a1 4e → (0c0 0e)` | 2 |
+| 4a2 4e | 60.9% | 68.8% | 73.6% | 80.4% | `4a2 4e → 4a1 4e → 0c0 0e` | 1 |
+| 4a1 0e | 33.5% | 42.6% | 50.3% | 61.2% | `4a1 0e → 0c0 4e → (4a1 4e → 0c0 0e)` (mirror: `4a1 0e → 0c0 4e → 4a1 4e → (0c0 0e)`) | 1 |
+| 4a1 2e | 35.4% | 50.4% | 59.5% | 71.8% | `4a1 2e → 4b2 2e → 4a1 4e → 0c0 0e` | 2 |
+| 4a1 4e | 33.6% | 44.4% | 52.5% | 62.3% | `4a1 4e → 0c0 0e` | 1 |
+| 2c3 0e | 46.3% | 58.5% | 66.3% | 76.2% | `2c3 0e → 4b2 4e → (4a1 4e → 0c0 0e)` (mirror: `2c3 0e → 4b2 4e → 4a1 4e → (0c0 0e)`) | 1 |
+| 2c3 2e | 50.9% | 66.5% | 76.8% | 79.8% | `2c3 2e → 4b2 2e → 4a1 4e → 0c0 0e` | 2 |
+| 2c3 4e | 46.2% | 66.8% | 73.2% | 76.9% | `2c3 4e → 4b2 2e → 4a1 4e → 0c0 0e` | 2 |
+| 2c3 6e | 55.8% | 66.1% | 70.1% | 74.5% | `2c3 6e → 4b2 2e → (4a1 4e → 0c0 0e)` (mirror: `2c3 6e → 4b2 2e → 4a1 4e → (0c0 0e)`) | 2 |
+| 2c3 8e | 46.3% | 57.1% | 63.6% | 71.5% | `2c3 8e → 4b2 4e → (4a1 4e → 0c0 0e)` (mirror: `2c3 8e → 4b2 4e → 4a1 4e → (0c0 0e)`) | 1 |
+| 0c4 0e | 75.0% | 83.2% | 86.8% | 87.9% | `0c4 0e → 4a3 4e → 4b2 2e → (4a1 4e → 0c0 0e)` | 2 |
+| 0c4 2e | 70.1% | 84.7% | 86.5% | 88.1% | `0c4 2e → 4a3 2e → 4b2 2e → (4a1 4e → 0c0 0e)` (mirror: `0c4 2e → 4a3 2e → 4b2 4e → (4a1 4e → 0c0 0e)`) | 3 |
+| 0c4 4e | 60.5% | 80.9% | 82.6% | 84.4% | `0c4 4e → 4a3 4e → 4b2 2e → (4a1 4e → 0c0 0e)` (mirror: `0c4 4e → 4a3 0e → 4b2 4e → (4a1 4e → 0c0 0e)`) | 4 |
+| 0c4 6e | 65.0% | 80.0% | 81.8% | 83.7% | `0c4 6e → 4a3 2e → 4b2 2e → (4a1 4e → 0c0 0e)` (mirror: `0c4 6e → 4a3 4e → 4b2 0e → (4a1 4e → 0c0 0e)`) | 3 |
+| 0c4 8e | 79.0% | 85.9% | 86.7% | 87.4% | `0c4 8e → 4a3 4e → 4b2 2e → (4a1 4e → 0c0 0e)` | 2 |
+| 4c3 0e | 70.8% | 75.9% | 79.8% | 85.2% | `4a3 0e → 4b2 4e → (4a1 4e → 0c0 0e)` (mirror: `4b3 0e → 4a2 4e → 4a1 4e → (0c0 0e)`) | 1 |
+| 4c3 2e | 58.4% | 66.2% | 69.3% | 72.6% | `4b3 2e → 4a2 4e → 4a1 4e → (0c0 0e)` (mirror: `4a3 2e → 4b2 2e → (4a1 4e → 0c0 0e)`) | 2 |
+| 4c3 4e | 53.1% | 62.2% | 64.5% | 68.5% | `4b3 4e → 4a2 4e → 4a1 4e → (0c0 0e)` (mirror: `4a3 4e → 4b2 2e → (4a1 4e → 0c0 0e)`) | 3 |
+| 4c4 0e | 59.3% | 65.2% | 68.3% | 71.8% | `4b4 0e → 4a3 4e → 4b2 2e → (4a1 4e → 0c0 0e)` (mirror: `4a4 0e → 4a3 4e → 4b2 2e → (4a1 4e → 0c0 0e)`) | 2 |
+| 4c4 2e | 37.9% | 57.5% | 63.4% | 68.8% | `4b4 2e → 4a3 2e → 4b2 2e → (4a1 4e → 0c0 0e)` (mirror: `4a4 2e → 0c3 2e → 4a2 2e → (4a1 4e → 0c0 0e)`) | 5 |
+| 4c4 4e | 31.6% | 56.3% | 61.9% | 68.3% | `4b4 4e → 4a3 4e → 4b2 2e → (4a1 4e → 0c0 0e)` (mirror: `4a4 4e → 4a3 2e → 4b2 4e → (4a1 4e → 0c0 0e)`) | 6 |
+| 4b2 0e | 36.5% | 49.7% | 57.8% | 69.5% | `4b2 0e → 4a1 4e → 0c0 0e` | 1 |
+| 4b2 2e | 45.9% | 52.0% | 55.1% | 60.3% | `4b2 2e → 4a1 4e → 0c0 0e` | 1 |
+| 4b2 4e | 30.3% | 42.6% | 50.8% | 61.1% | `4b2 4e → 4a1 4e → 0c0 0e` | 1 |
+| 4b5 0e | 42.3% | 65.1% | 77.7% | 86.1% | `4b5 0e → 2c4 4e → 2c3 2e → (4b2 2e → 4a1 4e → 0c0 0e)` (mirror: `4b5 0e → 2c4 4e → 2c3 4e → 4b2 2e → (4a1 4e → 0c0 0e)`) | 2 |
+| 4b5 2e | 26.4% | 42.1% | 51.1% | 63.6% | `4b5 2e → 2c4 4e → (2c3 4e → 4b2 2e → 4a1 4e → 0c0 0e)` (mirror: `4b5 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → (0c0 0e)`) | 5 |
+| 4b5 4e | 24.3% | 39.9% | 49.9% | 61.3% | `4b5 4e → 2c4 4e → (2c3 4e → 4b2 2e → 4a1 4e → 0c0 0e)` (mirror: `4b5 4e → 2c4 8e → 4b3 4e → 4a2 2e → 4a1 4e → (0c0 0e)`) | 7 |
 
 **Edge counts along the route**, per starting subset × edges (section 4), one table per intermediate subset. Each row is a starting subset × edges whose optimal (budget 2) can pass the intermediate subset: the share that can pass it at all, then the share that can pass it with each edge count (one DR can pass with several, so they add up to more; shares under 0.5% left out, starting cells under 0.5% not listed; 4a3 and 4b3 together as 4c3).
 
@@ -2506,195 +2506,195 @@ Through 4c3 (4a3 or 4b3), same columns:
 
 | Subset | # | Class | Optimal, cumulative |
 |---|---|---|---|
-| 0c0 0e | 1 | `0c0 > 4a1 > 0c0` | 49.4% |
+| 0c0 0e | 1 | `0c0 4a1 0c0` | 49.4% |
 |  | 2 | `0c0` | 91.2% |
 |  | 3 | `0c0 \| qt` | 99.5% |
-|  | 4 | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` | 99.8% |
-| 0c0 2e | 1 | `0c0 > 4a1 > 0c0` | 70.1% |
-|  | 2 | `0c0 > 4a1 > 0c0 > 4a1 > 0c0` | 93.2% |
-|  | 3 | `0c0 > 4a1 > 4b2 > 4a1 > 0c0` | 99.5% |
-|  | 4 | `0c0 > 4a1 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` | 99.9% |
-| 0c0 4e | 1 | `0c0 > 4a1 > 0c0` | 60.5% |
-|  | 2 | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` | 87.4% |
-|  | 3 | `0c0 > 4a1 > 0c0 > 4a1 > 0c0` | 98.2% |
-|  | 4 | `0c0 > 4a1 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 99.8% |
-| 0c0 6e | 1 | `0c0 > 4a1 > 0c0 > 4a1 > 0c0` | 54.3% |
-|  | 2 | `0c0 > 4a1 > 0c0` | 80.2% |
-|  | 3 | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` | 96.5% |
-|  | 4 | `0c0 > 4a1 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` | 99.6% |
-| 0c0 8e | 1 | `0c0 > 4a1 > 0c0` | 77.9% |
-|  | 2 | `0c0 > 4a1 > 0c0 > 4a1 > 0c0` | 93.8% |
-|  | 3 | `0c0 > 4a1 > (0c0 > 4a1 > 0c0)` | 98.9% |
-|  | 4 | `0c0 > 4a1 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` | >99.9% |
-| 2c5 0e | 1 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% |
-|  | 2 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 97.1% |
-|  | 3 | `2c5 > 2c4 > 2c3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` | 98.4% |
-|  | 4 | `2c5 > 4b4 > 4a3 > 4b2 > 4a1 > 0c0` | 99.7% |
-| 2c5 2e | 1 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 94.9% |
-|  | 2 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 97.7% |
-|  | 3 | `2c5 > 2c4 > 2c3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` | 98.7% |
-|  | 4 | `2c5 > 4b4 > 4a3 > 4b2 > 4a1 > 0c0` | 99.7% |
-| 2c5 4e | 1 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 95.7% |
-|  | 2 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 98.0% |
-|  | 3 | `2c5 > 4b4 > 4a3 > 4b2 > 4a1 > 0c0` | 98.9% |
-|  | 4 | `2c5 > 2c4 > 2c3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` | 99.8% |
-| 2c5 6e | 1 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 94.8% |
-|  | 2 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 97.3% |
-|  | 3 | `2c5 > 4b4 > 4a3 > 4b2 > 4a1 > 0c0` | 98.6% |
-|  | 4 | `2c5 > 2c4 > 2c3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` | 99.5% |
-| 2c5 8e | 1 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 95.2% |
-|  | 2 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 97.9% |
-|  | 3 | `2c5 > 2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 99.0% |
-|  | 4 | `2c5 > 4b4 > 4a3 > 4b2 > 4a1 > 0c0` | 99.8% |
-| 2c4 0e | 1 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 96.2% |
-|  | 2 | `2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 98.0% |
-|  | 3 | `2c4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 98.8% |
-|  | 4 | `2c4 > 2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 99.6% |
-| 2c4 2e | 1 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 94.9% |
-|  | 2 | `2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 97.8% |
-|  | 3 | `2c4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 98.9% |
-|  | 4 | `2c4 > 2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 99.5% |
-| 2c4 4e | 1 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.8% |
-|  | 2 | `2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 97.6% |
-|  | 3 | `2c4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 98.9% |
-|  | 4 | `2c4 > 2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 99.6% |
-| 2c4 6e | 1 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 94.3% |
-|  | 2 | `2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 97.7% |
-|  | 3 | `2c4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 99.0% |
-|  | 4 | `2c4 > 2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 99.6% |
-| 2c4 8e | 1 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 95.2% |
-|  | 2 | `2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 97.4% |
-|  | 3 | `2c4 > 4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 98.9% |
-|  | 4 | `2c4 > 2c3 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 99.4% |
-| 0c3 0e | 1 | `0c3 > 4a2 > 4a1 > 0c0` | 85.6% |
-|  | 2 | `0c3 > 4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 94.5% |
-|  | 3 | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > 0c0` | 99.9% |
-|  | 4 | `0c3 > 4a2 > 4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | >99.9% |
-| 0c3 2e | 1 | `0c3 > 4a2 > 4a1 > 0c0` | 83.1% |
-|  | 2 | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > 0c0` | 94.2% |
-|  | 3 | `0c3 > 4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 99.5% |
-|  | 4 | `0c3 > 4a2 > 4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 99.8% |
-| 0c3 4e | 1 | `0c3 > 4a2 > 4a1 > 0c0` | 68.4% |
-|  | 2 | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > 0c0` | 91.9% |
-|  | 3 | `0c3 > 4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 99.2% |
-|  | 4 | `0c3 > 4a2 > 4b3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` | 99.7% |
-| 0c3 6e | 1 | `0c3 > 4a2 > 4a1 > 0c0` | 84.9% |
-|  | 2 | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > 0c0` | 96.9% |
-|  | 3 | `0c3 > 4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 99.6% |
-|  | 4 | `0c3 > 4a2 > 4a1 > 0c0 > 4a1 > 0c0` | 99.9% |
-| 0c3 8e | 1 | `0c3 > 4a2 > 4a1 > 0c0` | 87.3% |
-|  | 2 | `0c3 > 4a2 > 4b3 > 4a2 > 4a1 > 0c0` | 95.4% |
-|  | 3 | `0c3 > 4a4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 99.8% |
-|  | 4 | `0c3 > 4a2 > 4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | >99.9% |
-| 4a2 0e | 1 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 56.9% |
-|  | 2 | `4a2 > 4b3 > 4a2 > 4a1 > 0c0` | 84.0% |
-|  | 3 | `4a2 > 4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 98.6% |
-|  | 4 | `4a2 > 0c3 > 4a2 > 4a1 > 0c0` | 99.2% |
-| 4a2 2e | 1 | `4a2 > 4b3 > 4a2 > 4a1 > 0c0` | 52.4% |
-|  | 2 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 74.1% |
-|  | 3 | `4a2 > 4a1 > 0c0` | 91.3% |
-|  | 4 | `4a2 > 4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 99.3% |
-| 4a2 4e | 1 | `4a2 > 4a1 > 0c0` | 67.8% |
-|  | 2 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 88.0% |
-|  | 3 | `4a2 > 4b3 > 4a2 > 4a1 > 0c0` | 96.2% |
-|  | 4 | `4a2 > 4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 99.8% |
-| 4a1 0e | 1 | `4a1 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 67.1% |
-|  | 2 | `4a1 > 0c0 > 4a1 > 0c0` | 94.7% |
-|  | 3 | `4a1 > 0c0 > 4a1 > 0c0 > 4a1 > 0c0` | 98.8% |
-|  | 4 | `4a1 > 4b2 > 4a1 > 0c0 > 4a1 > 0c0` | 99.8% |
-| 4a1 2e | 1 | `4a1 > 0c0 > 4a1 > 0c0` | 86.5% |
-|  | 2 | `4a1 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 96.6% |
-|  | 3 | `4a1 > 0c0 > (4a1 > 0c0 > 4a1 > 0c0)` | 98.7% |
-|  | 4 | `4a1 > 4b2 > 4a1 > 0c0 > 4a1 > 0c0` | >99.9% |
-| 4a1 4e | 1 | `4a1 > 0c0 > 4a1 > 0c0` | 74.0% |
-|  | 2 | `4a1 > 0c0` | 89.8% |
-|  | 3 | `4a1 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 97.7% |
-|  | 4 | `4a1 > 0c0 > (4a1 > 0c0 > 4a1 > 0c0)` | 99.2% |
-| 2c3 0e | 1 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 72.6% |
-|  | 2 | `2c3 > 4b2 > 4a1 > 0c0` | 93.2% |
-|  | 3 | `2c3 > 4b2 > (4a1 > 0c0 > 4a1 > 0c0)` | 98.8% |
-|  | 4 | `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 99.7% |
-| 2c3 2e | 1 | `2c3 > 4b2 > 4a1 > 0c0` | 89.8% |
-|  | 2 | `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 98.1% |
-|  | 3 | `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 99.9% |
-|  | 4 | `2c3 > 4b2 > 4a1 > 4b2 > 4a1 > 0c0` | >99.9% |
-| 2c3 4e | 1 | `2c3 > 4b2 > 4a1 > 0c0` | 83.2% |
-|  | 2 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 97.2% |
-|  | 3 | `2c3 > 4b2 > (4a1 > 0c0 > 4a1 > 0c0)` | 99.5% |
-|  | 4 | `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | >99.9% |
-| 2c3 6e | 1 | `2c3 > 4b2 > 4a1 > 0c0` | 78.1% |
-|  | 2 | `2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 96.7% |
-|  | 3 | `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 99.7% |
-|  | 4 | `2c3 > 4b2 > 4a1 > 4b2 > 4a1 > 0c0` | 99.9% |
-| 2c3 8e | 1 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.9% |
-|  | 2 | `2c3 > 4b2 > 4a1 > 0c0` | 95.5% |
-|  | 3 | `2c3 > 4b2 > (4a1 > 0c0 > 4a1 > 0c0)` | 99.1% |
-|  | 4 | `2c3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 99.7% |
-| 0c4 0e | 1 | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` | 94.4% |
-|  | 2 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | >99.9% |
-| 0c4 2e | 1 | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` | 92.0% |
-|  | 2 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | >99.9% |
-|  | 3 | `0c4 > 4a3 > 4b2 > 4a1 > 4b2 > 4a1 > 0c0` | >99.9% |
-|  | 4 | `0c4 > 4a3 > 0c4 > 4a3 > 4b2 > 4a1 > 0c0` | >99.9% |
-| 0c4 4e | 1 | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` | 90.1% |
-|  | 2 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 99.9% |
-|  | 3 | `0c4 > 4a3 > 0c4 > 4a3 > 4b2 > 4a1 > 0c0` | >99.9% |
-|  | 4 | `0c4 > 4a3 > 4b2 > 4a1 > 4b2 > 4a1 > 0c0` | >99.9% |
-| 0c4 6e | 1 | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` | 87.1% |
-|  | 2 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 99.8% |
-|  | 3 | `0c4 > 4a3 > 0c4 > 4a3 > 4b2 > 4a1 > 0c0` | >99.9% |
-|  | 4 | `0c4 > 4a3 > 4b2 > 4a1 > 4b2 > 4a1 > 0c0` | >99.9% |
-| 0c4 8e | 1 | `0c4 > 4a3 > 4b2 > 4a1 > 0c0` | 93.1% |
-|  | 2 | `0c4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 99.9% |
-|  | 3 | `0c4 > 4a3 > 0c4 > 4a3 > 4b2 > 4a1 > 0c0` | >99.9% |
-| 4c3 0e | 1 | `4a3 > 4b2 > 4a1 > 0c0` | 76.5% |
-|  | 2 | `4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 97.5% |
-|  | 3 | `4a3 > 0c4 > 4a3 > 4b2 > 4a1 > 0c0` | 99.4% |
-|  | 4 | `4b3 > 4a2 > (4b3 > 4a2 > 4a1 > 0c0)` | 99.6% |
-| 4c3 2e | 1 | `4a3 > 4b2 > 4a1 > 0c0` | 74.6% |
-|  | 2 | `4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 96.8% |
-|  | 3 | `4a3 > 0c4 > 4a3 > 4b2 > 4a1 > 0c0` | 99.1% |
-|  | 4 | `4b3 > 4a2 > (4b3 > 4a2 > 4a1 > 0c0)` | 99.4% |
-| 4c3 4e | 1 | `4a3 > 4b2 > 4a1 > 0c0` | 70.7% |
-|  | 2 | `4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 96.4% |
-|  | 3 | `4a3 > 0c4 > 4a3 > 4b2 > 4a1 > 0c0` | 98.8% |
-|  | 4 | `4b3 > 4a2 > (4b3 > 4a2 > 4a1 > 0c0)` | 99.3% |
-| 4c4 0e | 1 | `4b4 > 4a3 > 4b2 > 4a1 > 0c0` | 67.7% |
-|  | 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 93.2% |
-|  | 3 | `4b4 > 2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 99.2% |
-|  | 4 | `4b4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 99.7% |
-| 4c4 2e | 1 | `4b4 > 4a3 > 4b2 > 4a1 > 0c0` | 72.1% |
-|  | 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 94.3% |
-|  | 3 | `4b4 > 2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 99.2% |
-|  | 4 | `4b4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 99.9% |
-| 4c4 4e | 1 | `4b4 > 4a3 > 4b2 > 4a1 > 0c0` | 73.8% |
-|  | 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 94.0% |
-|  | 3 | `4b4 > 2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 99.2% |
-|  | 4 | `4b4 > 4a3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 99.9% |
-| 4b2 0e | 1 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 68.2% |
-|  | 2 | `4b2 > 4a1 > 0c0` | 91.6% |
-|  | 3 | `4b2 > 4a3 > 4b2 > 4a1 > 0c0` | 95.7% |
-|  | 4 | `4b2 > 4a1 > 4b2 > 4a1 > 0c0` | 97.7% |
-| 4b2 2e | 1 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 68.8% |
-|  | 2 | `4b2 > 4a1 > 0c0` | 94.4% |
-|  | 3 | `4b2 > 4a1 > 4b2 > 4a1 > 0c0` | 97.7% |
-|  | 4 | `4b2 > 4a3 > 4b2 > 4a1 > 0c0` | 98.9% |
-| 4b2 4e | 1 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 77.8% |
-|  | 2 | `4b2 > 4a1 > 0c0` | 93.1% |
-|  | 3 | `4b2 > 4a1 > 4b2 > 4a1 > 0c0` | 97.0% |
-|  | 4 | `4b2 > 4a3 > 4b2 > 4a1 > 0c0` | 98.5% |
-| 4b5 0e | 1 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 98.1% |
-|  | 2 | `4b5 > 2c4 > 2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 98.9% |
-|  | 3 | `4b5 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 99.4% |
-|  | 4 | `4b5 > 2c4 > 4b3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` | 99.8% |
-| 4b5 2e | 1 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 98.0% |
-|  | 2 | `4b5 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 98.8% |
-|  | 3 | `4b5 > 2c4 > 2c3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` | 99.4% |
-|  | 4 | `4b5 > 2c4 > (2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0)` | 99.8% |
-| 4b5 4e | 1 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 98.1% |
-|  | 2 | `4b5 > 4a4 > (2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 98.9% |
-|  | 3 | `4b5 > 2c4 > 2c3 > (4b2 > 2c3 > 4b2 > 4a1 > 0c0)` | 99.5% |
-|  | 4 | `4b5 > 2c4 > (2c3 > 4b2 > 2c3 > 4b2 > 4a1 > 0c0)` | 99.7% |
+|  | 4 | `0c0 4a1 (0c0 4a1 0c0)` | 99.8% |
+| 0c0 2e | 1 | `0c0 4a1 0c0` | 70.1% |
+|  | 2 | `0c0 4a1 0c0 4a1 0c0` | 93.2% |
+|  | 3 | `0c0 4a1 4b2 4a1 0c0` | 99.5% |
+|  | 4 | `0c0 4a1 (4b2 2c3 4b2 4a1 0c0)` | 99.9% |
+| 0c0 4e | 1 | `0c0 4a1 0c0` | 60.5% |
+|  | 2 | `0c0 4a1 (0c0 4a1 0c0)` | 87.4% |
+|  | 3 | `0c0 4a1 0c0 4a1 0c0` | 98.2% |
+|  | 4 | `0c0 4a1 4b2 2c3 4b2 4a1 0c0` | 99.8% |
+| 0c0 6e | 1 | `0c0 4a1 0c0 4a1 0c0` | 54.3% |
+|  | 2 | `0c0 4a1 0c0` | 80.2% |
+|  | 3 | `0c0 4a1 (0c0 4a1 0c0)` | 96.5% |
+|  | 4 | `0c0 4a1 (4b2 2c3 4b2 4a1 0c0)` | 99.6% |
+| 0c0 8e | 1 | `0c0 4a1 0c0` | 77.9% |
+|  | 2 | `0c0 4a1 0c0 4a1 0c0` | 93.8% |
+|  | 3 | `0c0 4a1 (0c0 4a1 0c0)` | 98.9% |
+|  | 4 | `0c0 4a1 (4b2 2c3 4b2 4a1 0c0)` | >99.9% |
+| 2c5 0e | 1 | `2c5 2c4 2c3 4b2 4a1 0c0` | 93.6% |
+|  | 2 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 97.1% |
+|  | 3 | `2c5 2c4 2c3 (4b2 2c3 4b2 4a1 0c0)` | 98.4% |
+|  | 4 | `2c5 4b4 4a3 4b2 4a1 0c0` | 99.7% |
+| 2c5 2e | 1 | `2c5 2c4 2c3 4b2 4a1 0c0` | 94.9% |
+|  | 2 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 97.7% |
+|  | 3 | `2c5 2c4 2c3 (4b2 2c3 4b2 4a1 0c0)` | 98.7% |
+|  | 4 | `2c5 4b4 4a3 4b2 4a1 0c0` | 99.7% |
+| 2c5 4e | 1 | `2c5 2c4 2c3 4b2 4a1 0c0` | 95.7% |
+|  | 2 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 98.0% |
+|  | 3 | `2c5 4b4 4a3 4b2 4a1 0c0` | 98.9% |
+|  | 4 | `2c5 2c4 2c3 (4b2 2c3 4b2 4a1 0c0)` | 99.8% |
+| 2c5 6e | 1 | `2c5 2c4 2c3 4b2 4a1 0c0` | 94.8% |
+|  | 2 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 97.3% |
+|  | 3 | `2c5 4b4 4a3 4b2 4a1 0c0` | 98.6% |
+|  | 4 | `2c5 2c4 2c3 (4b2 2c3 4b2 4a1 0c0)` | 99.5% |
+| 2c5 8e | 1 | `2c5 2c4 2c3 4b2 4a1 0c0` | 95.2% |
+|  | 2 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 97.9% |
+|  | 3 | `2c5 2c4 2c3 4b2 (2c3 4b2 4a1 0c0)` | 99.0% |
+|  | 4 | `2c5 4b4 4a3 4b2 4a1 0c0` | 99.8% |
+| 2c4 0e | 1 | `2c4 2c3 4b2 4a1 0c0` | 96.2% |
+|  | 2 | `2c4 2c3 4b2 (2c3 4b2 4a1 0c0)` | 98.0% |
+|  | 3 | `2c4 4b5 2c4 2c3 4b2 4a1 0c0` | 98.8% |
+|  | 4 | `2c4 2c3 2c4 2c3 4b2 4a1 0c0` | 99.6% |
+| 2c4 2e | 1 | `2c4 2c3 4b2 4a1 0c0` | 94.9% |
+|  | 2 | `2c4 2c3 4b2 (2c3 4b2 4a1 0c0)` | 97.8% |
+|  | 3 | `2c4 4b5 2c4 2c3 4b2 4a1 0c0` | 98.9% |
+|  | 4 | `2c4 2c3 2c4 (2c3 4b2 4a1 0c0)` | 99.5% |
+| 2c4 4e | 1 | `2c4 2c3 4b2 4a1 0c0` | 93.8% |
+|  | 2 | `2c4 2c3 4b2 (2c3 4b2 4a1 0c0)` | 97.6% |
+|  | 3 | `2c4 4b5 2c4 2c3 4b2 4a1 0c0` | 98.9% |
+|  | 4 | `2c4 2c3 2c4 2c3 4b2 4a1 0c0` | 99.6% |
+| 2c4 6e | 1 | `2c4 2c3 4b2 4a1 0c0` | 94.3% |
+|  | 2 | `2c4 2c3 4b2 (2c3 4b2 4a1 0c0)` | 97.7% |
+|  | 3 | `2c4 4b5 2c4 2c3 4b2 4a1 0c0` | 99.0% |
+|  | 4 | `2c4 2c3 2c4 (2c3 4b2 4a1 0c0)` | 99.6% |
+| 2c4 8e | 1 | `2c4 2c3 4b2 4a1 0c0` | 95.2% |
+|  | 2 | `2c4 2c3 4b2 (2c3 4b2 4a1 0c0)` | 97.4% |
+|  | 3 | `2c4 4b5 2c4 2c3 4b2 4a1 0c0` | 98.9% |
+|  | 4 | `2c4 2c3 2c4 (2c3 4b2 4a1 0c0)` | 99.4% |
+| 0c3 0e | 1 | `0c3 4a2 4a1 0c0` | 85.6% |
+|  | 2 | `0c3 4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 94.5% |
+|  | 3 | `0c3 4a2 4b3 4a2 4a1 0c0` | 99.9% |
+|  | 4 | `0c3 4a2 4b3 2c4 2c3 4b2 4a1 0c0` | >99.9% |
+| 0c3 2e | 1 | `0c3 4a2 4a1 0c0` | 83.1% |
+|  | 2 | `0c3 4a2 4b3 4a2 4a1 0c0` | 94.2% |
+|  | 3 | `0c3 4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 99.5% |
+|  | 4 | `0c3 4a2 4b3 2c4 2c3 4b2 4a1 0c0` | 99.8% |
+| 0c3 4e | 1 | `0c3 4a2 4a1 0c0` | 68.4% |
+|  | 2 | `0c3 4a2 4b3 4a2 4a1 0c0` | 91.9% |
+|  | 3 | `0c3 4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 99.2% |
+|  | 4 | `0c3 4a2 4b3 (4b2 2c3 4b2 4a1 0c0)` | 99.7% |
+| 0c3 6e | 1 | `0c3 4a2 4a1 0c0` | 84.9% |
+|  | 2 | `0c3 4a2 4b3 4a2 4a1 0c0` | 96.9% |
+|  | 3 | `0c3 4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 99.6% |
+|  | 4 | `0c3 4a2 4a1 0c0 4a1 0c0` | 99.9% |
+| 0c3 8e | 1 | `0c3 4a2 4a1 0c0` | 87.3% |
+|  | 2 | `0c3 4a2 4b3 4a2 4a1 0c0` | 95.4% |
+|  | 3 | `0c3 4a4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 99.8% |
+|  | 4 | `0c3 4a2 4b3 2c4 2c3 4b2 4a1 0c0` | >99.9% |
+| 4a2 0e | 1 | `4a2 4a1 4b2 4a1 0c0` | 56.9% |
+|  | 2 | `4a2 4b3 4a2 4a1 0c0` | 84.0% |
+|  | 3 | `4a2 4b3 2c4 2c3 4b2 4a1 0c0` | 98.6% |
+|  | 4 | `4a2 0c3 4a2 4a1 0c0` | 99.2% |
+| 4a2 2e | 1 | `4a2 4b3 4a2 4a1 0c0` | 52.4% |
+|  | 2 | `4a2 4a1 (0c0 4a1 0c0)` | 74.1% |
+|  | 3 | `4a2 4a1 0c0` | 91.3% |
+|  | 4 | `4a2 4b3 2c4 2c3 4b2 4a1 0c0` | 99.3% |
+| 4a2 4e | 1 | `4a2 4a1 0c0` | 67.8% |
+|  | 2 | `4a2 4a1 (0c0 4a1 0c0)` | 88.0% |
+|  | 3 | `4a2 4b3 4a2 4a1 0c0` | 96.2% |
+|  | 4 | `4a2 4b3 2c4 2c3 4b2 4a1 0c0` | 99.8% |
+| 4a1 0e | 1 | `4a1 4b2 2c3 4b2 4a1 0c0` | 67.1% |
+|  | 2 | `4a1 0c0 4a1 0c0` | 94.7% |
+|  | 3 | `4a1 0c0 4a1 0c0 4a1 0c0` | 98.8% |
+|  | 4 | `4a1 4b2 4a1 0c0 4a1 0c0` | 99.8% |
+| 4a1 2e | 1 | `4a1 0c0 4a1 0c0` | 86.5% |
+|  | 2 | `4a1 4b2 2c3 4b2 4a1 0c0` | 96.6% |
+|  | 3 | `4a1 0c0 (4a1 0c0 4a1 0c0)` | 98.7% |
+|  | 4 | `4a1 4b2 4a1 0c0 4a1 0c0` | >99.9% |
+| 4a1 4e | 1 | `4a1 0c0 4a1 0c0` | 74.0% |
+|  | 2 | `4a1 0c0` | 89.8% |
+|  | 3 | `4a1 4b2 2c3 4b2 4a1 0c0` | 97.7% |
+|  | 4 | `4a1 0c0 (4a1 0c0 4a1 0c0)` | 99.2% |
+| 2c3 0e | 1 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 72.6% |
+|  | 2 | `2c3 4b2 4a1 0c0` | 93.2% |
+|  | 3 | `2c3 4b2 (4a1 0c0 4a1 0c0)` | 98.8% |
+|  | 4 | `2c3 2c4 2c3 4b2 4a1 0c0` | 99.7% |
+| 2c3 2e | 1 | `2c3 4b2 4a1 0c0` | 89.8% |
+|  | 2 | `2c3 4b2 2c3 4b2 4a1 0c0` | 98.1% |
+|  | 3 | `2c3 2c4 2c3 4b2 4a1 0c0` | 99.9% |
+|  | 4 | `2c3 4b2 4a1 4b2 4a1 0c0` | >99.9% |
+| 2c3 4e | 1 | `2c3 4b2 4a1 0c0` | 83.2% |
+|  | 2 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 97.2% |
+|  | 3 | `2c3 4b2 (4a1 0c0 4a1 0c0)` | 99.5% |
+|  | 4 | `2c3 2c4 2c3 4b2 4a1 0c0` | >99.9% |
+| 2c3 6e | 1 | `2c3 4b2 4a1 0c0` | 78.1% |
+|  | 2 | `2c3 4b2 2c3 4b2 4a1 0c0` | 96.7% |
+|  | 3 | `2c3 2c4 2c3 4b2 4a1 0c0` | 99.7% |
+|  | 4 | `2c3 4b2 4a1 4b2 4a1 0c0` | 99.9% |
+| 2c3 8e | 1 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 75.9% |
+|  | 2 | `2c3 4b2 4a1 0c0` | 95.5% |
+|  | 3 | `2c3 4b2 (4a1 0c0 4a1 0c0)` | 99.1% |
+|  | 4 | `2c3 2c4 2c3 4b2 4a1 0c0` | 99.7% |
+| 0c4 0e | 1 | `0c4 4a3 4b2 4a1 0c0` | 94.4% |
+|  | 2 | `0c4 4a3 4b2 2c3 4b2 4a1 0c0` | >99.9% |
+| 0c4 2e | 1 | `0c4 4a3 4b2 4a1 0c0` | 92.0% |
+|  | 2 | `0c4 4a3 4b2 2c3 4b2 4a1 0c0` | >99.9% |
+|  | 3 | `0c4 4a3 4b2 4a1 4b2 4a1 0c0` | >99.9% |
+|  | 4 | `0c4 4a3 0c4 4a3 4b2 4a1 0c0` | >99.9% |
+| 0c4 4e | 1 | `0c4 4a3 4b2 4a1 0c0` | 90.1% |
+|  | 2 | `0c4 4a3 4b2 2c3 4b2 4a1 0c0` | 99.9% |
+|  | 3 | `0c4 4a3 0c4 4a3 4b2 4a1 0c0` | >99.9% |
+|  | 4 | `0c4 4a3 4b2 4a1 4b2 4a1 0c0` | >99.9% |
+| 0c4 6e | 1 | `0c4 4a3 4b2 4a1 0c0` | 87.1% |
+|  | 2 | `0c4 4a3 4b2 2c3 4b2 4a1 0c0` | 99.8% |
+|  | 3 | `0c4 4a3 0c4 4a3 4b2 4a1 0c0` | >99.9% |
+|  | 4 | `0c4 4a3 4b2 4a1 4b2 4a1 0c0` | >99.9% |
+| 0c4 8e | 1 | `0c4 4a3 4b2 4a1 0c0` | 93.1% |
+|  | 2 | `0c4 4a3 4b2 2c3 4b2 4a1 0c0` | 99.9% |
+|  | 3 | `0c4 4a3 0c4 4a3 4b2 4a1 0c0` | >99.9% |
+| 4c3 0e | 1 | `4a3 4b2 4a1 0c0` | 76.5% |
+|  | 2 | `4a3 4b2 2c3 4b2 4a1 0c0` | 97.5% |
+|  | 3 | `4a3 0c4 4a3 4b2 4a1 0c0` | 99.4% |
+|  | 4 | `4b3 4a2 (4b3 4a2 4a1 0c0)` | 99.6% |
+| 4c3 2e | 1 | `4a3 4b2 4a1 0c0` | 74.6% |
+|  | 2 | `4a3 4b2 2c3 4b2 4a1 0c0` | 96.8% |
+|  | 3 | `4a3 0c4 4a3 4b2 4a1 0c0` | 99.1% |
+|  | 4 | `4b3 4a2 (4b3 4a2 4a1 0c0)` | 99.4% |
+| 4c3 4e | 1 | `4a3 4b2 4a1 0c0` | 70.7% |
+|  | 2 | `4a3 4b2 2c3 4b2 4a1 0c0` | 96.4% |
+|  | 3 | `4a3 0c4 4a3 4b2 4a1 0c0` | 98.8% |
+|  | 4 | `4b3 4a2 (4b3 4a2 4a1 0c0)` | 99.3% |
+| 4c4 0e | 1 | `4b4 4a3 4b2 4a1 0c0` | 67.7% |
+|  | 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 93.2% |
+|  | 3 | `4b4 2c5 2c4 2c3 4b2 4a1 0c0` | 99.2% |
+|  | 4 | `4b4 4a3 4b2 2c3 4b2 4a1 0c0` | 99.7% |
+| 4c4 2e | 1 | `4b4 4a3 4b2 4a1 0c0` | 72.1% |
+|  | 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 94.3% |
+|  | 3 | `4b4 2c5 2c4 2c3 4b2 4a1 0c0` | 99.2% |
+|  | 4 | `4b4 4a3 4b2 2c3 4b2 4a1 0c0` | 99.9% |
+| 4c4 4e | 1 | `4b4 4a3 4b2 4a1 0c0` | 73.8% |
+|  | 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 94.0% |
+|  | 3 | `4b4 2c5 2c4 2c3 4b2 4a1 0c0` | 99.2% |
+|  | 4 | `4b4 4a3 4b2 2c3 4b2 4a1 0c0` | 99.9% |
+| 4b2 0e | 1 | `4b2 2c3 4b2 4a1 0c0` | 68.2% |
+|  | 2 | `4b2 4a1 0c0` | 91.6% |
+|  | 3 | `4b2 4a3 4b2 4a1 0c0` | 95.7% |
+|  | 4 | `4b2 4a1 4b2 4a1 0c0` | 97.7% |
+| 4b2 2e | 1 | `4b2 2c3 4b2 4a1 0c0` | 68.8% |
+|  | 2 | `4b2 4a1 0c0` | 94.4% |
+|  | 3 | `4b2 4a1 4b2 4a1 0c0` | 97.7% |
+|  | 4 | `4b2 4a3 4b2 4a1 0c0` | 98.9% |
+| 4b2 4e | 1 | `4b2 2c3 4b2 4a1 0c0` | 77.8% |
+|  | 2 | `4b2 4a1 0c0` | 93.1% |
+|  | 3 | `4b2 4a1 4b2 4a1 0c0` | 97.0% |
+|  | 4 | `4b2 4a3 4b2 4a1 0c0` | 98.5% |
+| 4b5 0e | 1 | `4b5 2c4 2c3 4b2 4a1 0c0` | 98.1% |
+|  | 2 | `4b5 2c4 2c3 4b2 (2c3 4b2 4a1 0c0)` | 98.9% |
+|  | 3 | `4b5 4a4 (2c5 2c4 2c3 4b2 4a1 0c0)` | 99.4% |
+|  | 4 | `4b5 2c4 4b3 (4b2 2c3 4b2 4a1 0c0)` | 99.8% |
+| 4b5 2e | 1 | `4b5 2c4 2c3 4b2 4a1 0c0` | 98.0% |
+|  | 2 | `4b5 4a4 (2c5 2c4 2c3 4b2 4a1 0c0)` | 98.8% |
+|  | 3 | `4b5 2c4 2c3 (4b2 2c3 4b2 4a1 0c0)` | 99.4% |
+|  | 4 | `4b5 2c4 (2c3 4b2 2c3 4b2 4a1 0c0)` | 99.8% |
+| 4b5 4e | 1 | `4b5 2c4 2c3 4b2 4a1 0c0` | 98.1% |
+|  | 2 | `4b5 4a4 (2c5 2c4 2c3 4b2 4a1 0c0)` | 98.9% |
+|  | 3 | `4b5 2c4 2c3 (4b2 2c3 4b2 4a1 0c0)` | 99.5% |
+|  | 4 | `4b5 2c4 (2c3 4b2 2c3 4b2 4a1 0c0)` | 99.7% |
 
 **rodneykinney's table** for FakeMMAP's bound: per subset × edges and target M, "reduce to 1q in at most R moves" with nothing read off the DR (A, B and C the subset's shortest linear HTR, worst case over the subset's corner paths). Each row is a subset × edges and a target M; the three columns are reduction lengths in moves: the formula of FakeMMAP's message without its first term, the exact model of section 9 (*computer only*), and the longest reduction any sampled finish of at most M needed. Sampled, 25,000 per subset × edges; a blank row means no sampled finish reaches that M.
 

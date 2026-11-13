@@ -4,7 +4,7 @@ Examples to play along with [the write-up](index.html). Find the finish yourself
 
 These are 200 DR states, the first 10 of the study's uniform sample in each of the 20 most common subsets with their edge counts (together 93% of all DR states). Nothing is hand-picked, so they're as hard or as easy as real DRs of that subset. Each scramble is a random DR followed by DR moves to the state, so it doesn't give the finish away.
 
-**How to read it.** Finishes stay in DR (U, D, R2, L2, F2, B2); optimal means the shortest such finish, E slice solved. A route class like `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` is the corner subset at the start and after each quarter turn until HTR, in the first study's names (4a3 and 4b3 by side: they swap on inverse); the part in brackets is done on the other side after a NISS switch. A class ending in `| qt` has a quarter turn after HTR (an HTR-breaking finish); every other class finishes in half turns from HTR. The checklist of each subset is the one in the write-up (greedy order, HTR budget 2, target optimal), with the share of the subset's 25,000 sampled states it covers after each class. A class *finds an optimal here* if some optimal finish can be read in that class with an HTR at most 2 moves longer than this DR's shortest NISS HTR (first of the two columns), or with any HTR (second). The HTR length counts the moves on both sides until HTR. NISS is written as usual, inverse moves in brackets; "normal first" says which side you start on:
+**How to read it.** Finishes stay in DR (U, D, R2, L2, F2, B2); optimal means the shortest such finish, E slice solved. A route class like `4b2 2c3 (4b2 4a1 0c0)` is the corner subset at the start and after each quarter turn until HTR, in the first study's names (4a3 and 4b3 by side: they swap on inverse); the part in brackets is done on the other side after a NISS switch. A class ending in `| qt` has a quarter turn after HTR (an HTR-breaking finish); every other class finishes in half turns from HTR. The checklist of each subset is the one in the write-up (greedy order, HTR budget 2, target optimal), with the share of the subset's 25,000 sampled states it covers after each class. A class *finds an optimal here* if some optimal finish can be read in that class with an HTR at most 2 moves longer than this DR's shortest NISS HTR (first of the two columns), or with any HTR (second). The HTR length counts the moves on both sides until HTR. NISS is written as usual, inverse moves in brackets; "normal first" says which side you start on:
 
 ```
 R2 U (D F2)   // R2 U on normal, then D F2 on the inverse
@@ -44,11 +44,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.0% | no | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 92.9% | no | no |
 
 - Class 1: normal first: `U L2 U`, then on inverse `(B2 U B2 D' B2 D' L2 U2 R2 B2 L2 R2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U L2 U R2 L2 B2 R2 U2 L2 D B2 D B2 U' B2`.
 - Class 2: linear on normal: `U R2 U' F2 D L2 U' B2 R2 U' R2 L2 B2 U2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U R2 U' F2 D L2 U' B2 R2 U' R2 L2 B2 U2 R2`.
@@ -72,11 +72,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.2% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.0% | no | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 92.9% | no | no |
 
 - Class 1: inverse first: `(D' B2 L2 D)`, then on normal `R2 U' B2 D' F2 U' D2 R2 L2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 U' B2 D' F2 U' D2 R2 L2 B2 D' L2 B2 D`.
 - Class 2: linear on the inverse: `(R2 U' L2 D B2 D' F2 D L2 B2 U' L2 D2 R2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 D2 L2 U B2 L2 D' F2 D B2 D' L2 U R2`.
@@ -100,11 +100,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.0% | no | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 92.9% | no | no |
 
 - Class 1: inverse first: `(D R2 D')`, then on normal `B2 D F2 U' F2 U' R2 B2 D2 R2 F2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `B2 D F2 U' F2 U' R2 B2 D2 R2 F2 D R2 D'`.
 - Class 2: linear on the inverse: `(D' R2 D B2 D' R2 D F2 D B2 R2 U2 F2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `L2 F2 U2 R2 B2 D' F2 D' R2 D B2 D' R2 D`.
@@ -128,11 +128,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes | yes |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.2% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.0% | no | no |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | yes | yes |
+| 5 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 92.9% | no | no |
 
 - Class 1: normal first: `U2 R2 F2 U' B2 U'`, then on inverse `(U R2 D' L2 U F2 R2 U2 L2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U2 R2 F2 U' B2 U' L2 U2 R2 F2 U' L2 D R2 U'`.
 - Class 2: linear on normal: `U2 R2 F2 U' B2 U' L2 U2 R2 F2 U' L2 D R2 U'`. HTR after 15 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U2 R2 F2 U' B2 U' L2 U2 R2 F2 U' L2 D R2 U'`.
@@ -155,11 +155,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.2% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.0% | no | no |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 92.9% | no | no |
 
 - Class 1: inverse first: `(F2 D B2 D)`, then on normal `B2 U F2 U B2 U R2 D2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U F2 U B2 U R2 D2 B2 D' B2 D' F2`.
 - Class 2: linear on the inverse: `(F2 D B2 D B2 D2 R2 U' B2 U' F2 U' B2)`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U F2 U B2 U R2 D2 B2 D' B2 D' F2`.
@@ -182,11 +182,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | yes | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.0% | yes | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | no |
+| 5 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 92.9% | no | no |
 
 - Class 1: normal first: `R2 F2 U B2 U'`, then on inverse `(R2 D B2 R2 U L2 U D2 F2)`. HTR after 12 moves (within the budget); the whole finish, as read on normal: `R2 F2 U B2 U' F2 D2 U' L2 U' R2 B2 D' R2`.
 - Class 2: linear on the inverse: `(R2 U R2 F2 D L2 U' B2 D R2 D U2 F2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 F2 U2 D' R2 D' B2 U L2 D' F2 R2 U' R2`.
@@ -209,11 +209,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | yes | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.0% | yes | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 92.9% | no | no |
 
 - Class 1: normal first: `U B2 D'`, then on inverse `(R2 U R2 U B2 U B2 D2 B2 L2 B2 F2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U B2 D' F2 B2 L2 B2 D2 B2 U' B2 U' R2 U' R2`.
 - Class 2: linear on normal: `R2 U' R2 U' R2 B2 D' B2 D R2 D B2 R2 F2 D2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 U' R2 U' R2 B2 D' B2 D R2 D B2 R2 F2 D2`.
@@ -237,11 +237,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | yes | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.0% | yes | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | no |
+| 5 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 92.9% | no | no |
 
 - Class 1: inverse first: `(D F2 L2 U')`, then on normal `F2 D F2 L2 U L2 D F2 L2 U2 F2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `F2 D F2 L2 U L2 D F2 L2 U2 F2 U L2 F2 D'`.
 - Class 2: linear on the inverse: `(U B2 U F2 D' B2 R2 D' B2 D' B2 F2 L2 U2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U2 L2 F2 B2 D B2 D R2 B2 D F2 U' B2 U'`.
@@ -264,11 +264,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.0% | no | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | no |
+| 5 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 92.9% | no | no |
 
 - Class 1: normal first: `D2 R2 D R2 U'`, then on inverse `(R2 B2 D R2 U' F2 U R2 B2)`. HTR after 12 moves (within the budget); the whole finish, as read on normal: `D2 R2 D R2 U' B2 R2 U' F2 U R2 D' B2 R2`.
 - Class 2: linear on normal: `D2 F2 D' B2 D F2 U' R2 U F2 U' R2 B2 R2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `D2 F2 D' B2 D F2 U' R2 U F2 U' R2 B2 R2`.
@@ -291,11 +291,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | no | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 74.8% | no | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.0% | no | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | no |
+| 5 | `2c5 4b4 (4b5 2c4 2c3 4b2 4a1 0c0)` | 92.9% | no | no |
 
 - Class 1: normal first: `B2 U' F2 L2 U`, then on inverse `(F2 L2 R2 D' R2 U' L2 D R2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U' F2 L2 U R2 D' L2 U R2 D R2 L2 F2`.
 - Class 2: linear on normal: `B2 U' F2 L2 U R2 D' L2 U R2 D R2 L2 F2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `B2 U' F2 L2 U R2 D' L2 U R2 D R2 L2 F2`.
@@ -322,11 +322,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | yes |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 71.5% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.0% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.9% | no | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 93.2% | no | yes |
+| 5 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `R2 D' L2 F2 D'`, then on inverse `(L2 U' F2 U L2 U R2 D2 L2 F2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 D' L2 F2 D' F2 L2 D2 R2 U' L2 U' F2 U L2`.
 - Class 2: linear on normal: `F2 R2 U L2 F2 D' L2 D R2 D' R2 B2 D' L2 D2`. HTR after 13 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 R2 U L2 F2 D' L2 D R2 D' R2 B2 D' L2 D2`.
@@ -350,11 +350,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no | no |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | no |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no | no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | yes | yes |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 71.5% | no | no |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.0% | no | no |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.9% | no | no |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 93.2% | yes | yes |
+| 5 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 93.4% | no | no |
 
 - Class 4: inverse first: `(U F2 D)`, then on normal `U L2 D R2 U2 B2 D' L2 F2 U2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U L2 D R2 U2 B2 D' L2 F2 U2 B2 D' F2 U'`.
 
@@ -375,11 +375,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | no |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 71.5% | no | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.0% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.9% | yes | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 93.2% | no | no |
+| 5 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `L2 B2 U' R2 L2 B2 U`, then on inverse `(U L2 B2 D' F2 D F2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 U' R2 L2 B2 U F2 D' F2 D B2 L2 U'`.
 - Class 2: linear on the inverse: `(U L2 B2 D' F2 D F2 U' B2 L2 R2 U B2 L2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 U' R2 L2 B2 U F2 D' F2 D B2 L2 U'`.
@@ -402,11 +402,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | no |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 71.5% | no | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.0% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.9% | yes | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 93.2% | no | no |
+| 5 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `F2 U L2 F2 D'`, then on inverse `(R2 U L2 F2 U' F2 U' B2 U2 B2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U L2 F2 D' B2 U2 B2 U F2 U F2 L2 U' R2`.
 - Class 2: linear on normal: `U' R2 B2 D2 R2 U B2 R2 D' L2 F2 U' B2 D B2`. HTR after 14 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U' R2 B2 D2 R2 U B2 R2 D' L2 F2 U' B2 D B2`.
@@ -429,11 +429,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | no |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 71.5% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.0% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.9% | no | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 93.2% | no | no |
+| 5 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `U B2 U'`, then on inverse `(D2 L2 D' B2 D R2 D L2 F2 D2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U B2 U' R2 D2 F2 L2 D' R2 D' B2 D L2 D2`.
 - Class 2: linear on normal: `U B2 U' R2 D2 F2 L2 D' R2 D' B2 D L2 D2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U B2 U' R2 D2 F2 L2 D' R2 D' B2 D L2 D2`.
@@ -456,11 +456,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | yes | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | no |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 71.5% | no | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.0% | yes | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.9% | yes | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 93.2% | no | no |
+| 5 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 93.4% | no | no |
 
 - Class 1: inverse first: `(L2 U' R2 B2 D)`, then on normal `R2 U F2 L2 D L2 D' R2 F2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 U F2 L2 D L2 D' R2 F2 D' B2 R2 U L2`.
 - Class 2: linear on normal: `R2 U' R2 U' L2 D B2 U' R2 D F2 D2 B2 U2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 U' R2 U' L2 D B2 U' R2 D F2 D2 B2 U2`.
@@ -483,11 +483,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no | no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | yes |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 71.5% | no | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.0% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.9% | no | no |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 93.2% | no | yes |
+| 5 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `D' R2 U`, then on inverse `(B2 U2 B2 U F2 D F2 L2 U R2 U2 F2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D' R2 U F2 U2 R2 U' L2 F2 D' F2 U' B2 U2 B2`.
 - Class 2: linear on normal: `D' R2 U F2 U2 R2 U' L2 F2 D' F2 U' B2 U2 B2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D' R2 U F2 U2 R2 U' L2 F2 D' F2 U' B2 U2 B2`.
@@ -510,11 +510,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | yes | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | no |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 71.5% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.0% | yes | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.9% | yes | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 93.2% | no | no |
+| 5 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `L2 U F2 D`, then on inverse `(B2 U L2 B2 D' F2 U L2 F2 U2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `L2 U F2 D U2 F2 L2 U' F2 D B2 L2 U' B2`.
 - Class 2: linear on normal: `U' F2 D' B2 U B2 D' B2 D' L2 B2 R2 U2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U' F2 D' B2 U B2 D' B2 D' L2 B2 R2 U2 R2`.
@@ -537,11 +537,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no | no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | yes |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 71.5% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.0% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.9% | no | no |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 93.2% | no | yes |
+| 5 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 93.4% | no | no |
 
 - Class 1: inverse first: `(U B2 U')`, then on normal `F2 D F2 D' R2 F2 U L2 D2 R2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 D F2 D' R2 F2 U L2 D2 R2 B2 U B2 U'`.
 - Class 2: linear on the inverse: `(U B2 U' B2 R2 D2 L2 U' F2 R2 D F2 D' F2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 D F2 D' R2 F2 U L2 D2 R2 B2 U B2 U'`.
@@ -564,11 +564,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | no |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 71.5% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 86.0% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 91.9% | yes | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 93.2% | no | no |
+| 5 | `2c5 4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `F2 R2 D F2 U`, then on inverse `(U L2 U L2 U B2 L2 U2 R2 F2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 R2 D F2 U F2 R2 U2 L2 B2 U' L2 U' L2 U'`.
 - Class 2: linear on normal: `F2 R2 U R2 U2 R2 U' B2 U' B2 D F2 U R2 L2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 R2 U R2 U2 R2 U' B2 U' B2 D F2 U R2 L2`.
@@ -595,11 +595,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes | yes |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 84.1% | yes | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 90.6% | no | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | yes | yes |
+| 5 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 92.7% | no | no |
 
 - Class 1: normal first: `U' R2 U`, then on inverse `(D' R2 D R2 B2 U' R2 D2 B2 F2 L2 B2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U' R2 U B2 L2 F2 B2 D2 R2 U B2 R2 D' R2 D`.
 - Class 2: linear on normal: `D B2 U F2 R2 U F2 L2 D F2 U' B2 D2 L2 F2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `D B2 U F2 R2 U F2 L2 D F2 U' B2 D2 L2 F2`.
@@ -623,11 +623,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes | yes |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 84.1% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 90.6% | no | no |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | yes | yes |
+| 5 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(U2 R2 U' B2 U)`, then on normal `B2 U F2 U' F2 U' F2 D2 F2 L2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `B2 U F2 U' F2 U' F2 D2 F2 L2 U' B2 U R2 U2`.
 - Class 2: linear on the inverse: `(U2 R2 U' B2 U L2 F2 D2 F2 U F2 U F2 U' B2)`. HTR after 14 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U F2 U' F2 U' F2 D2 F2 L2 U' B2 U R2 U2`.
@@ -650,11 +650,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 84.1% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 90.6% | no | no |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(F2 D' R2 F2 U)`, then on normal `U' R2 U B2 U' L2 B2 U2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U' R2 U B2 U' L2 B2 U2 F2 U' F2 R2 D F2`.
 - Class 2: linear on the inverse: `(F2 D' R2 F2 U F2 U2 B2 L2 U B2 U' R2 U)`. HTR after 14 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U' R2 U B2 U' L2 B2 U2 F2 U' F2 R2 D F2`.
@@ -677,11 +677,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | yes | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 84.1% | yes | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 90.6% | yes | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | no |
+| 5 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 92.7% | no | no |
 
 - Class 1: normal first: `L2 U' L2 D'`, then on inverse `(L2 F2 D' B2 L2 D' F2 U R2 F2)`. HTR after 12 moves (within the budget); the whole finish, as read on normal: `L2 U' L2 D' F2 R2 U' F2 D L2 B2 D F2 L2`.
 - Class 2: linear on normal: `R2 F2 U B2 U' R2 D R2 D' L2 U' L2 F2 R2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 F2 U B2 U' R2 D R2 D' L2 U' L2 F2 R2`.
@@ -704,11 +704,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes | yes |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 84.1% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 90.6% | no | no |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | yes | yes |
+| 5 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(B2 D2 L2 D R2 U')`, then on normal `U' L2 F2 D R2 U' B2 U2 R2`. HTR after 12 moves (within the budget); the whole finish, as read on normal: `U' L2 F2 D R2 U' B2 U2 R2 U R2 D' L2 D2 B2`.
 - Class 2: linear on the inverse: `(B2 D2 L2 D R2 U' R2 U2 B2 U R2 D' F2 L2 U)`. HTR after 15 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U' L2 F2 D R2 U' B2 U2 R2 U R2 D' L2 D2 B2`.
@@ -731,11 +731,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 84.1% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 90.6% | no | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | no |
+| 5 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(L2 F2 D R2 D)`, then on normal `U R2 U' B2 U' R2 D2 B2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U R2 U' B2 U' R2 D2 B2 R2 D' R2 D' F2 L2`.
 - Class 2: linear on normal: `U R2 U' B2 U' R2 D2 B2 R2 D' R2 D' F2 L2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U R2 U' B2 U' R2 D2 B2 R2 D' R2 D' F2 L2`.
@@ -758,11 +758,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 84.1% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 90.6% | no | no |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(R2 U' B2 D)`, then on normal `U' B2 L2 U' R2 U L2 F2 U2 L2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U' B2 L2 U' R2 U L2 F2 U2 L2 B2 D' B2 U R2`.
 - Class 2: linear on the inverse: `(D B2 L2 D F2 U2 B2 L2 U F2 U' F2 L2 U' F2)`. HTR after 14 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U L2 F2 U F2 U' L2 B2 U2 F2 D' L2 B2 D'`.
@@ -785,11 +785,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes | yes |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 84.1% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 90.6% | no | no |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | yes | yes |
+| 5 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(D2 F2 U R2 F2 U)`, then on normal `D' L2 D' L2 D' F2 R2 U2 R2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `D' L2 D' L2 D' F2 R2 U2 R2 U' F2 R2 U' F2 D2`.
 - Class 2: linear on the inverse: `(D2 F2 U R2 F2 U R2 U2 R2 F2 D L2 D L2 D)`. HTR after 15 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `D' L2 D' L2 D' F2 R2 U2 R2 U' F2 R2 U' F2 D2`.
@@ -812,11 +812,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | yes | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 84.1% | no | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 90.6% | yes | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | no |
+| 5 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(U F2 L2 D')`, then on normal `U L2 B2 D R2 D R2 B2 U2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U L2 B2 D R2 D R2 B2 U2 L2 D L2 F2 U'`.
 - Class 2: linear on normal: `L2 D' L2 U B2 U' R2 D' F2 U2 R2 F2 U' B2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 D' L2 U B2 U' R2 D' F2 U2 R2 F2 U' B2`.
@@ -839,11 +839,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
+| 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 84.1% | yes | yes |
+| 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 90.6% | no | yes |
+| 4 | `2c5 4b4 4a3 (4a2 4a1 0c0)` | 92.4% | no | no |
+| 5 | `2c5 4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 92.7% | no | no |
 
 - Class 1: normal first: `R2 U B2 R2 D'`, then on inverse `(F2 D' F2 U' F2 D' L2 D2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 U B2 R2 D' R2 D2 L2 D F2 U F2 D F2`.
 - Class 2: linear on normal: `U F2 R2 U F2 U' R2 B2 D' L2 U' F2 U2 L2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U F2 R2 U F2 U' R2 B2 D' L2 U' F2 U2 L2`.
@@ -872,11 +872,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | yes | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 86.3% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 89.9% | yes | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 90.5% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 90.8% | no | no |
 
 - Class 1: inverse first: `(U)`, then on normal `L2 U2 R2 F2 U' F2 U' F2 U' L2 D2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `L2 U2 R2 F2 U' F2 U' F2 U' L2 D2 R2 U'`.
 - Class 2: linear on the inverse: `(U R2 D2 L2 U F2 U F2 U F2 R2 U2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `L2 U2 R2 F2 U' F2 U' F2 U' L2 D2 R2 U'`.
@@ -899,11 +899,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 86.3% | no | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 89.9% | no | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 90.5% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 90.8% | no | no |
 
 - Class 1: inverse first: `(U)`, then on normal `B2 U F2 D L2 D' R2 D2 B2 D2 B2`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `B2 U F2 D L2 D' R2 D2 B2 D2 B2 U'`.
 - Class 2: linear on the inverse: `(U B2 D2 B2 D2 R2 D L2 D' F2 U' B2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U F2 D L2 D' R2 D2 B2 D2 B2 U'`.
@@ -926,11 +926,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 86.3% | no | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 89.9% | no | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 90.5% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 90.8% | no | no |
 
 - Class 1: normal first: `L2 U`, then on inverse `(B2 R2 D L2 D' L2 F2 U F2 R2 D2 L2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `L2 U L2 D2 R2 F2 U' F2 L2 D L2 D' R2 B2`.
 - Class 2: linear on normal: `U L2 U B2 R2 U L2 F2 L2 F2 D' R2 U2 L2`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U L2 U B2 R2 U L2 F2 L2 F2 D' R2 U2 L2`.
@@ -953,11 +953,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 86.3% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 89.9% | no | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 90.5% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 90.8% | no | no |
 
 - Class 1: normal first: `U2 F2 U`, then on inverse `(B2 R2 D B2 U' L2 F2 U F2 U2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U2 F2 U R2 U2 F2 U' F2 L2 U B2 D' R2 B2`.
 - Class 2: linear on normal: `B2 U2 R2 D B2 U R2 D' R2 U L2 F2 B2 U2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U2 R2 D B2 U R2 D' R2 U L2 F2 B2 U2`.
@@ -980,11 +980,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | yes | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 86.3% | no | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 89.9% | yes | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 90.5% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 90.8% | no | no |
 
 - Class 1: normal first: `U'`, then on inverse `(U L2 F2 U B2 R2 U' F2 U2 L2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `U' L2 U2 F2 U R2 B2 U' F2 L2 U'`.
 - Class 2: linear on normal: `U' L2 U2 F2 U R2 B2 U' F2 L2 U'`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' L2 U2 F2 U R2 B2 U' F2 L2 U'`.
@@ -1007,11 +1007,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | no | no |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no | no |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | no |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 67.7% | no | no |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 86.3% | no | no |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 89.9% | no | no |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 90.5% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 90.8% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -1032,11 +1032,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | no | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | yes | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 67.7% | no | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 86.3% | no | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 89.9% | yes | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 90.5% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 90.8% | no | no |
 
 - Class 1: inverse first: `(F2 R2 D')`, then on normal `F2 U' B2 U R2 B2 R2 L2 D L2 F2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U' B2 U R2 B2 R2 L2 D L2 F2 D R2 F2`.
 - Class 2: linear on normal: `F2 U' B2 U R2 B2 R2 L2 D L2 F2 D R2 F2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U' B2 U R2 B2 R2 L2 D L2 F2 D R2 F2`.
@@ -1059,11 +1059,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 86.3% | no | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 89.9% | no | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 90.5% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 90.8% | no | no |
 
 - Class 1: inverse first: `(B2 F2 D)`, then on normal `F2 U L2 D' R2 U B2 U2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `F2 U L2 D' R2 U B2 U2 R2 D' F2 B2`.
 - Class 2: linear on the inverse: `(B2 F2 D R2 U2 B2 U' R2 D L2 U' F2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U L2 D' R2 U B2 U2 R2 D' F2 B2`.
@@ -1086,11 +1086,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 86.3% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 89.9% | no | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 90.5% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 90.8% | no | no |
 
 - Class 1: normal first: `R2 U`, then on inverse `(B2 R2 U' B2 R2 U' F2 U' F2 D2 F2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 U F2 D2 F2 U F2 U R2 B2 U R2 B2`.
 - Class 2: linear on the inverse: `(R2 U' B2 D B2 U' F2 R2 U' D2 F2 L2 F2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `F2 L2 F2 D2 U R2 F2 U B2 D' B2 U R2`.
@@ -1113,11 +1113,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 86.3% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 89.9% | no | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 90.5% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 90.8% | no | no |
 
 - Class 1: normal first: `U`, then on inverse `(B2 U2 F2 R2 U B2 D R2 U' L2 U2 B2 L2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U B2 L2 B2 U2 L2 U R2 D' B2 U' R2 F2 U2 B2`.
 - Class 2: linear on normal: `D L2 U2 R2 D L2 U F2 R2 D L2 B2 D2 R2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D L2 U2 R2 D L2 U F2 R2 D L2 B2 D2 R2 F2`.
@@ -1144,11 +1144,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | no | no |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no | no |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | no |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 62.0% | no | no |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 82.0% | no | no |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 87.6% | no | no |
+| 4 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 88.1% | no | no |
+| 5 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 88.4% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -1169,11 +1169,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | yes | yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 82.0% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 87.6% | yes | yes |
+| 4 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 88.1% | no | no |
+| 5 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 88.4% | no | no |
 
 - Class 1: normal first: `F2 L2 U`, then on inverse `(R2 D' R2 U R2 B2 D' F2 D2 B2 D2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 L2 U D2 B2 D2 F2 D B2 R2 U' R2 D R2`.
 - Class 2: linear on the inverse: `(R2 U' B2 U B2 L2 D L2 D L2 F2 U2 L2 U2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U2 L2 U2 F2 L2 D' L2 D' L2 B2 U' B2 U R2`.
@@ -1196,11 +1196,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 82.0% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 87.6% | no | yes |
+| 4 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 88.1% | no | no |
+| 5 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 88.4% | no | no |
 
 - Class 1: inverse first: `(U2 R2 U')`, then on normal `B2 U F2 L2 D B2 U' B2 D2 F2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U F2 L2 D B2 U' B2 D2 F2 R2 U R2 U2`.
 - Class 2: linear on normal: `U2 F2 D' L2 U R2 D' F2 D' F2 D2 R2 F2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U2 F2 D' L2 U R2 D' F2 D' F2 D2 R2 F2 R2`.
@@ -1223,11 +1223,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | no | no |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no | no |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | no |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | yes |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 62.0% | no | no |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 82.0% | no | no |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 87.6% | no | no |
+| 4 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 88.1% | no | yes |
+| 5 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 88.4% | no | no |
 
 - Class 4: inverse first: `(D' B2 D')`, then on normal `U' F2 U' L2 U L2 B2 D B2 U2 R2`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' F2 U' L2 U L2 B2 D B2 U2 R2 D B2 D`.
 
@@ -1248,11 +1248,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | yes | yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 82.0% | no | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 87.6% | yes | yes |
+| 4 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 88.1% | no | no |
+| 5 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 88.4% | no | no |
 
 - Class 1: inverse first: `(L2 F2 D')`, then on normal `U F2 D F2 L2 D' U2 B2 U2 B2 L2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U F2 D F2 L2 D' U2 B2 U2 B2 L2 D F2 L2`.
 - Class 2: linear on normal: `L2 D' R2 L2 F2 L2 U R2 F2 D L2 D' F2 R2`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 D' R2 L2 F2 L2 U R2 F2 D L2 D' F2 R2`.
@@ -1275,11 +1275,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 82.0% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 87.6% | no | yes |
+| 4 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 88.1% | no | no |
+| 5 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 88.4% | no | no |
 
 - Class 1: inverse first: `(U)`, then on normal `R2 U L2 D' F2 D' B2 L2 B2 U2 R2 L2 F2`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `R2 U L2 D' F2 D' B2 L2 B2 U2 R2 L2 F2 U'`.
 - Class 2: linear on the inverse: `(R2 U B2 D R2 U' R2 U' B2 L2 B2 F2 U2 L2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `L2 U2 F2 B2 L2 B2 U R2 U R2 D' B2 U' R2`.
@@ -1302,11 +1302,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | no | no |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no | no |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | no |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | yes |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | yes |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 62.0% | no | no |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 82.0% | no | no |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 87.6% | no | no |
+| 4 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 88.1% | no | yes |
+| 5 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 88.4% | no | yes |
 
 - Class 4: inverse first: `(U' L2 D')`, then on normal `L2 B2 U' B2 U L2 U' L2 U R2`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 U' B2 U L2 U' L2 U R2 D L2 U`.
 - Class 5: inverse first: `(U')`, then on normal `L2 B2 U' B2 U L2 U' L2 U R2 D L2`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 U' B2 U L2 U' L2 U R2 D L2 U`.
@@ -1328,11 +1328,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 82.0% | no | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 87.6% | no | yes |
+| 4 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 88.1% | no | no |
+| 5 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 88.4% | no | no |
 
 - Class 1: inverse first: `(D)`, then on normal `L2 B2 D' B2 U B2 L2 D F2 B2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `L2 B2 D' B2 U B2 L2 D F2 B2 R2 D'`.
 - Class 2: linear on the inverse: `(D R2 B2 F2 D' L2 B2 U' B2 D B2 L2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 D' B2 U B2 L2 D F2 B2 R2 D'`.
@@ -1355,11 +1355,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | yes |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | yes |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 82.0% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 87.6% | no | yes |
+| 4 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 88.1% | no | yes |
+| 5 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 88.4% | no | yes |
 
 - Class 1: inverse first: `(F2 D')`, then on normal `L2 U' F2 D B2 R2 U L2 U2 F2 L2 F2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `L2 U' F2 D B2 R2 U L2 U2 F2 L2 F2 R2 D F2`.
 - Class 2: linear on the inverse: `(F2 U' R2 D L2 D' L2 D F2 U2 B2 F2 R2 F2 R2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `R2 F2 R2 F2 B2 U2 F2 D' L2 D L2 D' R2 U F2`.
@@ -1384,11 +1384,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 82.0% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 87.6% | no | yes |
+| 4 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 88.1% | no | no |
+| 5 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 88.4% | no | no |
 
 - Class 1: normal first: `B2 U'`, then on inverse `(B2 U2 R2 U' R2 U' R2 U' R2 F2 D2 R2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U' B2 R2 D2 F2 R2 U R2 U R2 U R2 U2 B2`.
 - Class 2: linear on normal: `B2 U' L2 U F2 D' L2 D R2 B2 D2 F2 D2 L2 B2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 U' L2 U F2 D' L2 D R2 B2 D2 F2 D2 L2 B2`.
@@ -1415,11 +1415,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | yes |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | yes |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 73.8% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 84.1% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 89.2% | no | yes |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 89.6% | no | yes |
 
 - Class 1: inverse first: `(U2 R2 D)`, then on normal `R2 U' F2 U B2 R2 U F2 R2 B2 L2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 U' F2 U B2 R2 U F2 R2 B2 L2 F2 D' R2 U2`.
 - Class 2: linear on normal: `R2 D' R2 D L2 B2 D L2 F2 U B2 D2 R2 F2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 D' R2 D L2 B2 D L2 F2 U B2 D2 R2 F2 L2`.
@@ -1444,11 +1444,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 73.8% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 84.1% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 89.2% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 89.6% | no | no |
 
 - Class 1: inverse first: `(B2 D')`, then on normal `F2 U2 R2 U F2 U B2 U B2 R2 U2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 U2 R2 U F2 U B2 U B2 R2 U2 B2 D B2`.
 - Class 2: linear on the inverse: `(B2 D L2 F2 U F2 U' B2 U' D2 F2 L2 D2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `L2 D2 L2 F2 D2 U B2 U F2 U' F2 L2 D' B2`.
@@ -1471,11 +1471,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | no | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | yes | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | yes |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 73.8% | no | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 84.1% | no | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 88.5% | yes | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 89.2% | no | yes |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 89.6% | yes | yes |
 
 - Class 1: normal first: `B2 L2 D'`, then on inverse `(B2 U R2 U B2 R2 B2 D2 L2 D' F2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 L2 D' F2 D L2 D2 B2 R2 B2 U' R2 U' B2`.
 - Class 2: linear on the inverse: `(B2 U R2 U B2 R2 B2 D2 L2 D' F2 D L2 B2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 L2 D' F2 D L2 D2 B2 R2 B2 U' R2 U' B2`.
@@ -1500,11 +1500,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | yes | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 73.8% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 84.1% | no | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 88.5% | yes | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 89.2% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 89.6% | no | no |
 
 - Class 1: normal first: `U2 F2 U'`, then on inverse `(D' B2 D' B2 L2 D2 B2 D R2 D2 B2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U2 F2 U' B2 D2 R2 D' B2 D2 L2 B2 D B2 D`.
 - Class 2: linear on normal: `U2 F2 U' B2 D2 R2 D' B2 D2 L2 B2 D B2 D`. HTR after 14 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U2 F2 U' B2 D2 R2 D' B2 D2 L2 B2 D B2 D`.
@@ -1527,11 +1527,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 73.8% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 84.1% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 89.2% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 89.6% | no | no |
 
 - Class 1: normal first: `D2 B2 L2 U'`, then on inverse `(U F2 R2 D L2 D B2 F2 D2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D2 B2 L2 U' R2 D2 F2 B2 D' L2 D' R2 F2 U'`.
 - Class 2: linear on the inverse: `(U F2 R2 D L2 D B2 F2 D2 R2 U L2 B2 D2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `D2 B2 L2 U' R2 D2 F2 B2 D' L2 D' R2 F2 U'`.
@@ -1554,11 +1554,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | no | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 73.8% | no | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 84.1% | no | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 89.2% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 89.6% | no | no |
 
 - Class 1: inverse first: `(D')`, then on normal `F2 D2 L2 B2 U' B2 D L2 D' F2 L2 D2 R2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 D2 L2 B2 U' B2 D L2 D' F2 L2 D2 R2 D`.
 - Class 2: linear on the inverse: `(D' R2 D2 L2 F2 D L2 D' B2 U B2 L2 D2 F2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 D2 L2 B2 U' B2 D L2 D' F2 L2 D2 R2 D`.
@@ -1581,11 +1581,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | no | no |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | no |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | no |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 73.8% | no | no |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 84.1% | no | no |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 88.5% | no | no |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 89.2% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 89.6% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -1606,11 +1606,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | yes |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | yes |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 73.8% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 84.1% | no | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 89.2% | no | yes |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 89.6% | no | yes |
 
 - Class 1: inverse first: `(U)`, then on normal `B2 L2 D F2 L2 D R2 F2 D B2 U2 R2 F2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 L2 D F2 L2 D R2 F2 D B2 U2 R2 F2 B2 U'`.
 - Class 2: linear on the inverse: `(U2 F2 D' L2 D' B2 D' B2 F2 U2 L2 D' L2 U2 F2)`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U2 L2 D L2 U2 F2 B2 D B2 D L2 D F2 U2`.
@@ -1635,11 +1635,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | no | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 73.8% | no | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 84.1% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 89.2% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 89.6% | no | no |
 
 - Class 1: normal first: `L2 B2 R2 U'`, then on inverse `(R2 U R2 D' R2 B2 U' F2 D2 L2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 R2 U' L2 D2 F2 U B2 R2 D R2 U' R2`.
 - Class 2: linear on normal: `D' L2 U R2 F2 U F2 B2 L2 D R2 D2 L2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D' L2 U R2 F2 U F2 B2 L2 D R2 D2 L2 F2`.
@@ -1662,11 +1662,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes | yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
+| 1 | `2c4 2c3 (4b2 4a1 0c0)` | 73.8% | yes | yes |
+| 2 | `2c4 2c3 4b2 4a1 0c0` | 84.1% | yes | yes |
+| 3 | `2c4 2c3 4b2 (4a1 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 4b5 (2c4 2c3 4b2 4a1 0c0)` | 89.2% | no | no |
+| 5 | `2c4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 89.6% | no | no |
 
 - Class 1: inverse first: `(D2 R2 U')`, then on normal `F2 B2 R2 U' R2 U B2 D' B2 L2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `F2 B2 R2 U' R2 U B2 D' B2 L2 U R2 D2`.
 - Class 2: linear on the inverse: `(D2 R2 U' L2 B2 D B2 U' R2 U R2 B2 F2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 B2 R2 U' R2 U B2 D' B2 L2 U R2 D2`.
@@ -1695,11 +1695,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes | yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
+| 1 | `4a2 4b3 4a2 4a1 (0c0)` | 42.2% | yes | yes |
+| 2 | `4a2 4a1 (0c0)` | 67.8% | no | no |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 76.8% | no | no |
+| 4 | `4a2 4a1 (0c0 4a1 0c0)` | 79.6% | no | no |
+| 5 | `4a2 4a1 4b2 (4a1 0c0)` | 81.4% | no | no |
 
 - Class 1: inverse first: `(U' B2 L2 B2 D' B2 U')`, then on normal `D F2 U2 F2 R2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `D F2 U2 F2 R2 U B2 D B2 L2 B2 U`.
 
@@ -1720,11 +1720,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes | yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
+| 1 | `4a2 4b3 4a2 4a1 (0c0)` | 42.2% | yes | yes |
+| 2 | `4a2 4a1 (0c0)` | 67.8% | no | no |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 76.8% | no | no |
+| 4 | `4a2 4a1 (0c0 4a1 0c0)` | 79.6% | no | no |
+| 5 | `4a2 4a1 4b2 (4a1 0c0)` | 81.4% | no | no |
 
 - Class 1: normal first: `F2 U' F2 B2 U' B2 D`, then on inverse `(F2 U B2 U2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `F2 U' F2 B2 U' B2 D L2 U2 B2 U' F2`.
 
@@ -1745,11 +1745,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no | yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | yes | yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | yes |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | yes |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | yes |
+| 1 | `4a2 4b3 4a2 4a1 (0c0)` | 42.2% | no | yes |
+| 2 | `4a2 4a1 (0c0)` | 67.8% | yes | yes |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 76.8% | no | yes |
+| 4 | `4a2 4a1 (0c0 4a1 0c0)` | 79.6% | no | yes |
+| 5 | `4a2 4a1 4b2 (4a1 0c0)` | 81.4% | no | yes |
 
 - Class 1: normal first: `U B2 R2 F2 D' B2 R2 U`, then on inverse `(L2 R2 U R2 D2 B2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U B2 R2 F2 D' B2 R2 U B2 D2 R2 U' R2 L2`.
 - Class 2: normal first: `U2 B2 R2 F2 L2 U`, then on inverse `(U D2 L2 U2 B2 R2 B2 L2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `U2 B2 R2 F2 L2 U L2 B2 R2 B2 U2 L2 D2 U'`.
@@ -1774,11 +1774,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes | yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
+| 1 | `4a2 4b3 4a2 4a1 (0c0)` | 42.2% | yes | yes |
+| 2 | `4a2 4a1 (0c0)` | 67.8% | no | no |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 76.8% | no | no |
+| 4 | `4a2 4a1 (0c0 4a1 0c0)` | 79.6% | no | no |
+| 5 | `4a2 4a1 4b2 (4a1 0c0)` | 81.4% | no | no |
 
 - Class 1: inverse first: `(F2 U' B2 F2 U F2 U')`, then on normal `B2 D F2 D2 F2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `B2 D F2 D2 F2 R2 U F2 U' F2 B2 U F2`.
 
@@ -1799,11 +1799,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes | yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
+| 1 | `4a2 4b3 4a2 4a1 (0c0)` | 42.2% | yes | yes |
+| 2 | `4a2 4a1 (0c0)` | 67.8% | no | no |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 76.8% | no | no |
+| 4 | `4a2 4a1 (0c0 4a1 0c0)` | 79.6% | no | no |
+| 5 | `4a2 4a1 4b2 (4a1 0c0)` | 81.4% | no | no |
 
 - Class 1: normal first: `U' F2 D2 F2 R2 U' F2 L2 U'`, then on inverse `(U R2 B2 U2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U' F2 D2 F2 R2 U' F2 L2 U' B2 U2 B2 R2 U'`.
 
@@ -1824,11 +1824,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no | yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | yes | yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
+| 1 | `4a2 4b3 4a2 4a1 (0c0)` | 42.2% | no | yes |
+| 2 | `4a2 4a1 (0c0)` | 67.8% | yes | yes |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 76.8% | no | no |
+| 4 | `4a2 4a1 (0c0 4a1 0c0)` | 79.6% | no | no |
+| 5 | `4a2 4a1 4b2 (4a1 0c0)` | 81.4% | no | no |
 
 - Class 1: inverse first: `(L2 D B2 L2 F2 U R2 U')`, then on normal `U2 R2 U' L2 D2 F2`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U2 R2 U' L2 D2 F2 U R2 U' F2 L2 B2 D' L2`.
 - Class 2: normal first: `B2 L2 U2 F2 D'`, then on inverse `(F2 D F2 L2 F2 R2 F2 U2 B2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `B2 L2 U2 F2 D' B2 U2 F2 R2 F2 L2 F2 D' F2`.
@@ -1850,11 +1850,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no | no |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
+| 1 | `4a2 4b3 4a2 4a1 (0c0)` | 42.2% | no | no |
+| 2 | `4a2 4a1 (0c0)` | 67.8% | no | no |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 76.8% | no | no |
+| 4 | `4a2 4a1 (0c0 4a1 0c0)` | 79.6% | no | no |
+| 5 | `4a2 4a1 4b2 (4a1 0c0)` | 81.4% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -1875,11 +1875,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no | no |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
+| 1 | `4a2 4b3 4a2 4a1 (0c0)` | 42.2% | no | no |
+| 2 | `4a2 4a1 (0c0)` | 67.8% | no | no |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 76.8% | no | no |
+| 4 | `4a2 4a1 (0c0 4a1 0c0)` | 79.6% | no | no |
+| 5 | `4a2 4a1 4b2 (4a1 0c0)` | 81.4% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -1900,11 +1900,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no | no |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | yes |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | yes | yes |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | yes |
+| 1 | `4a2 4b3 4a2 4a1 (0c0)` | 42.2% | no | no |
+| 2 | `4a2 4a1 (0c0)` | 67.8% | no | no |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 76.8% | no | yes |
+| 4 | `4a2 4a1 (0c0 4a1 0c0)` | 79.6% | yes | yes |
+| 5 | `4a2 4a1 4b2 (4a1 0c0)` | 81.4% | no | yes |
 
 - Class 3: linear on normal: `L2 U' B2 D L2 F2 R2 U' F2 D' R2 L2 D2 R2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U' B2 D L2 F2 R2 U' F2 D' R2 L2 D2 R2`.
 - Class 4: normal first: `R2 D`, then on inverse `(L2 D' F2 U B2 F2 D L2 D2 B2 R2 F2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `R2 D F2 R2 B2 D2 L2 D' F2 B2 U' F2 D L2`.
@@ -1927,11 +1927,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes | yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | yes | yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | yes |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | yes | yes |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | yes | yes |
+| 1 | `4a2 4b3 4a2 4a1 (0c0)` | 42.2% | yes | yes |
+| 2 | `4a2 4a1 (0c0)` | 67.8% | yes | yes |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 76.8% | no | yes |
+| 4 | `4a2 4a1 (0c0 4a1 0c0)` | 79.6% | yes | yes |
+| 5 | `4a2 4a1 4b2 (4a1 0c0)` | 81.4% | yes | yes |
 
 - Class 1: normal first: `R2 F2 U' F2 R2 F2 U' F2 D`, then on inverse `(U' L2 D2 R2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 F2 U' F2 R2 F2 U' F2 D B2 R2 D2 L2 U`.
 - Class 2: normal first: `D`, then on inverse `(R2 U2 B2 L2 U2 F2 U F2 R2 F2 R2 U2 B2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `D B2 U2 R2 F2 R2 F2 U' F2 U2 L2 B2 U2 R2`.
@@ -1960,11 +1960,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no | no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes | yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
+| 1 | `4a2 4a1 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 4b3 4a2 4a1 (0c0)` | 72.2% | no | no |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 79.1% | no | no |
+| 4 | `4a2 4a1 (0c0)` | 83.7% | yes | yes |
+| 5 | `4a2 4a1 (0c0 4a1 0c0)` | 85.3% | no | no |
 
 - Class 1: linear on normal: `B2 U2 R2 D' R2 B2 D2 L2 F2 U' L2 F2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U2 R2 D' R2 B2 D2 L2 F2 U' L2 F2 L2`.
 - Class 4: normal first: `B2 U2 R2 D'`, then on inverse `(L2 F2 L2 U F2 L2 D2 B2 R2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 U2 R2 D' R2 B2 D2 L2 F2 U' L2 F2 L2`.
@@ -1986,11 +1986,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | no | no |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | yes | yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | yes | yes |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | no | no |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | yes | yes |
+| 1 | `4a2 4a1 0c0` | 60.9% | no | no |
+| 2 | `4a2 4b3 4a2 4a1 (0c0)` | 72.2% | yes | yes |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 79.1% | yes | yes |
+| 4 | `4a2 4a1 (0c0)` | 83.7% | no | no |
+| 5 | `4a2 4a1 (0c0 4a1 0c0)` | 85.3% | yes | yes |
 
 - Class 2: inverse first: `(D' B2 F2 D F2 U')`, then on normal `D F2 L2 B2 R2 F2 U2 F2`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `D F2 L2 B2 R2 F2 U2 F2 U F2 D' F2 B2 D`.
 - Class 3: linear on normal: `D' B2 U F2 L2 B2 U' R2 U' B2 R2 F2 D2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `D' B2 U F2 L2 B2 U' R2 U' B2 R2 F2 D2 R2`.
@@ -2013,11 +2013,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no | no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | no | yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
+| 1 | `4a2 4a1 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 4b3 4a2 4a1 (0c0)` | 72.2% | no | no |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 79.1% | no | no |
+| 4 | `4a2 4a1 (0c0)` | 83.7% | no | yes |
+| 5 | `4a2 4a1 (0c0 4a1 0c0)` | 85.3% | no | no |
 
 - Class 1: linear on the inverse: `(R2 U B2 L2 U2 R2 D L2 F2 R2 F2 U2 B2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `B2 U2 F2 R2 F2 L2 D' R2 U2 L2 B2 U' R2`.
 - Class 4: normal first: `B2 U2 F2 R2 F2 L2 D'`, then on inverse `(R2 U B2 L2 U2 R2)`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U2 F2 R2 F2 L2 D' R2 U2 L2 B2 U' R2`.
@@ -2039,11 +2039,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | yes | yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | yes | yes |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes | yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | yes |
+| 1 | `4a2 4a1 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 4b3 4a2 4a1 (0c0)` | 72.2% | yes | yes |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 79.1% | yes | yes |
+| 4 | `4a2 4a1 (0c0)` | 83.7% | yes | yes |
+| 5 | `4a2 4a1 (0c0 4a1 0c0)` | 85.3% | no | yes |
 
 - Class 1: linear on normal: `U2 R2 B2 U R2 U2 R2 F2 D B2 U2 B2 L2 U2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U2 R2 B2 U R2 U2 R2 F2 D B2 U2 B2 L2 U2 R2`.
 - Class 2: inverse first: `(L2 F2 D U B2 U')`, then on normal `D2 R2 B2 U' R2 B2 D2 L2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D2 R2 B2 U' R2 B2 D2 L2 F2 U B2 U' D' F2 L2`.
@@ -2068,11 +2068,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | no | no |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | yes | yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | no | no |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
+| 1 | `4a2 4a1 0c0` | 60.9% | no | no |
+| 2 | `4a2 4b3 4a2 4a1 (0c0)` | 72.2% | yes | yes |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 79.1% | no | no |
+| 4 | `4a2 4a1 (0c0)` | 83.7% | no | no |
+| 5 | `4a2 4a1 (0c0 4a1 0c0)` | 85.3% | no | no |
 
 - Class 2: normal first: `U R2 U2 L2 B2 U R2 U`, then on inverse `(F2 D L2 D2 L2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U R2 U2 L2 B2 U R2 U B2 L2 D2 L2 D' F2`.
 
@@ -2093,11 +2093,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no | no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes | yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | yes |
+| 1 | `4a2 4a1 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 4b3 4a2 4a1 (0c0)` | 72.2% | no | no |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 79.1% | no | no |
+| 4 | `4a2 4a1 (0c0)` | 83.7% | yes | yes |
+| 5 | `4a2 4a1 (0c0 4a1 0c0)` | 85.3% | no | yes |
 
 - Class 1: linear on the inverse: `(D F2 L2 U2 L2 D' B2 D2 B2 R2 F2 U2 R2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `R2 U2 F2 R2 B2 D2 B2 D L2 U2 L2 F2 D'`.
 - Class 4: normal first: `F2 R2 F2 U'`, then on inverse `(L2 R2 D' F2 L2 U2 B2 F2 L2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `F2 R2 F2 U' L2 F2 B2 U2 L2 F2 D R2 L2`.
@@ -2120,11 +2120,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no | no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes | yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
+| 1 | `4a2 4a1 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 4b3 4a2 4a1 (0c0)` | 72.2% | no | no |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 79.1% | no | no |
+| 4 | `4a2 4a1 (0c0)` | 83.7% | yes | yes |
+| 5 | `4a2 4a1 (0c0 4a1 0c0)` | 85.3% | no | no |
 
 - Class 1: linear on the inverse: `(F2 U' R2 F2 D2 F2 U' B2 F2 D2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `D2 F2 B2 U F2 D2 F2 R2 U F2`.
 - Class 4: normal first: `D2 F2 B2 U`, then on inverse `(F2 U' R2 F2 D2 F2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `D2 F2 B2 U F2 D2 F2 R2 U F2`.
@@ -2146,11 +2146,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no | no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes | yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
+| 1 | `4a2 4a1 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 4b3 4a2 4a1 (0c0)` | 72.2% | no | no |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 79.1% | no | no |
+| 4 | `4a2 4a1 (0c0)` | 83.7% | yes | yes |
+| 5 | `4a2 4a1 (0c0 4a1 0c0)` | 85.3% | no | no |
 
 - Class 1: linear on normal: `R2 D2 B2 D' L2 U2 L2 F2 D' R2 B2 R2 F2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `R2 D2 B2 D' L2 U2 L2 F2 D' R2 B2 R2 F2`.
 - Class 4: normal first: `R2 D2 B2 D'`, then on inverse `(F2 R2 B2 R2 D F2 L2 U2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `R2 D2 B2 D' L2 U2 L2 F2 D' R2 B2 R2 F2`.
@@ -2172,11 +2172,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no | no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes | yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
+| 1 | `4a2 4a1 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 4b3 4a2 4a1 (0c0)` | 72.2% | no | no |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 79.1% | no | no |
+| 4 | `4a2 4a1 (0c0)` | 83.7% | yes | yes |
+| 5 | `4a2 4a1 (0c0 4a1 0c0)` | 85.3% | no | no |
 
 - Class 1: linear on the inverse: `(U' B2 U2 B2 L2 D R2 B2 R2 U2 L2 U2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `U2 L2 U2 R2 B2 R2 D' L2 B2 U2 B2 U`.
 - Class 4: normal first: `U2 R2 U'`, then on inverse `(D2 L2 B2 R2 D' L2 D2 R2 F2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `U2 R2 U' F2 R2 D2 L2 D R2 B2 L2 D2`.
@@ -2198,11 +2198,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | no | no |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | yes | yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | no | no |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
+| 1 | `4a2 4a1 0c0` | 60.9% | no | no |
+| 2 | `4a2 4b3 4a2 4a1 (0c0)` | 72.2% | yes | yes |
+| 3 | `4a2 4a1 4b2 4a1 0c0` | 79.1% | no | no |
+| 4 | `4a2 4a1 (0c0)` | 83.7% | no | no |
+| 5 | `4a2 4a1 (0c0 4a1 0c0)` | 85.3% | no | no |
 
 - Class 2: inverse first: `(D' L2 R2 D' R2 D')`, then on normal `F2 L2 D L2 F2 D2 L2 F2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `F2 L2 D L2 F2 D2 L2 F2 D R2 D R2 L2 D`.
 
@@ -2229,11 +2229,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a1 > 0c0` | 33.6% | no | no |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | no |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | no |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | no |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | no |
+| 1 | `4a1 0c0` | 33.6% | no | no |
+| 2 | `4a1 4b2 4a1 0c0` | 50.3% | no | no |
+| 3 | `4a1 0c0 (4a1 0c0)` | 60.6% | no | no |
+| 4 | `4a1 0c0 4a1 (0c0)` | 66.6% | no | no |
+| 5 | `4a1 0c0 4a1 0c0` | 69.5% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -2254,11 +2254,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a1 > 0c0` | 33.6% | no | no |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | yes | yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
+| 1 | `4a1 0c0` | 33.6% | no | no |
+| 2 | `4a1 4b2 4a1 0c0` | 50.3% | yes | yes |
+| 3 | `4a1 0c0 (4a1 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 0c0 4a1 (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 0c0 4a1 0c0` | 69.5% | no | yes |
 
 - Class 2: linear on the inverse: `(U' B2 L2 B2 U R2 U' B2 U2 L2 D2 R2 B2 L2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `L2 B2 R2 D2 L2 U2 B2 U R2 U' B2 L2 B2 U`.
 - Class 3: normal first: `D2 B2 U2 F2 L2 D`, then on inverse `(D' F2 L2 F2 D B2 F2 L2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D2 B2 U2 F2 L2 D L2 F2 B2 D' F2 L2 F2 D`.
@@ -2282,11 +2282,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a1 > 0c0` | 33.6% | yes | yes |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
+| 1 | `4a1 0c0` | 33.6% | yes | yes |
+| 2 | `4a1 4b2 4a1 0c0` | 50.3% | no | yes |
+| 3 | `4a1 0c0 (4a1 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 0c0 4a1 (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 0c0 4a1 0c0` | 69.5% | no | yes |
 
 - Class 1: linear on normal: `R2 U2 B2 U D2 R2 B2 R2 B2 R2 U2 L2 U2`. HTR after 4 moves (within the budget); the whole finish, as read on normal: `R2 U2 B2 U D2 R2 B2 R2 B2 R2 U2 L2 U2`.
 - Class 2: linear on the inverse: `(L2 D2 B2 L2 D U' L2 B2 D' B2 U2 B2 R2)`. HTR after 9 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 U2 B2 D B2 L2 U D' L2 B2 D2 L2`.
@@ -2311,11 +2311,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a1 > 0c0` | 33.6% | no | no |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | yes | yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
+| 1 | `4a1 0c0` | 33.6% | no | no |
+| 2 | `4a1 4b2 4a1 0c0` | 50.3% | no | yes |
+| 3 | `4a1 0c0 (4a1 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 0c0 4a1 (0c0)` | 66.6% | yes | yes |
+| 5 | `4a1 0c0 4a1 0c0` | 69.5% | no | yes |
 
 - Class 2: linear on the inverse: `(L2 U F2 L2 F2 L2 R2 U' R2 D2 R2 U' F2)`. HTR after 12 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U R2 D2 R2 U R2 L2 F2 L2 F2 U' L2`.
 - Class 3: normal first: `F2 U`, then on inverse `(L2 U F2 L2 F2 L2 R2 U' R2 D2 R2)`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U R2 D2 R2 U R2 L2 F2 L2 F2 U' L2`.
@@ -2339,11 +2339,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a1 > 0c0` | 33.6% | yes | yes |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | yes | yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
+| 1 | `4a1 0c0` | 33.6% | yes | yes |
+| 2 | `4a1 4b2 4a1 0c0` | 50.3% | yes | yes |
+| 3 | `4a1 0c0 (4a1 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 0c0 4a1 (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 0c0 4a1 0c0` | 69.5% | no | yes |
 
 - Class 1: linear on the inverse: `(D2 F2 L2 R2 D' U2 B2 U2 L2 U2 R2)`. HTR after 5 moves (within the budget); the whole finish, as read on normal: `R2 U2 L2 U2 B2 U2 D R2 L2 F2 D2`.
 - Class 2: linear on the inverse: `(D2 F2 R2 D' U B2 U' L2 U2 B2 R2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `R2 B2 U2 L2 U B2 U' D R2 F2 D2`.
@@ -2368,11 +2368,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a1 > 0c0` | 33.6% | yes | yes |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | no |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | no |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | no |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | no |
+| 1 | `4a1 0c0` | 33.6% | yes | yes |
+| 2 | `4a1 4b2 4a1 0c0` | 50.3% | no | no |
+| 3 | `4a1 0c0 (4a1 0c0)` | 60.6% | no | no |
+| 4 | `4a1 0c0 4a1 (0c0)` | 66.6% | no | no |
+| 5 | `4a1 0c0 4a1 0c0` | 69.5% | no | no |
 
 - Class 1: linear on the inverse: `(L2 D F2 L2 B2 D2 B2 F2 L2 D2 U2)`. HTR after 2 moves (within the budget); the whole finish, as read on normal: `U2 D2 L2 F2 B2 D2 B2 L2 F2 D' L2`.
 
@@ -2393,11 +2393,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a1 > 0c0` | 33.6% | yes | yes |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
+| 1 | `4a1 0c0` | 33.6% | yes | yes |
+| 2 | `4a1 4b2 4a1 0c0` | 50.3% | no | yes |
+| 3 | `4a1 0c0 (4a1 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 0c0 4a1 (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 0c0 4a1 0c0` | 69.5% | no | yes |
 
 - Class 1: linear on the inverse: `(R2 U2 L2 R2 F2 U' D2 B2 L2 U2 R2 U2 R2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `R2 U2 R2 U2 L2 B2 D2 U F2 R2 L2 U2 R2`.
 - Class 2: linear on normal: `R2 U2 R2 B2 U D B2 R2 U' B2 U2 F2 R2`. HTR after 9 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `R2 U2 R2 B2 U D B2 R2 U' B2 U2 F2 R2`.
@@ -2422,11 +2422,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a1 > 0c0` | 33.6% | yes | yes |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
+| 1 | `4a1 0c0` | 33.6% | yes | yes |
+| 2 | `4a1 4b2 4a1 0c0` | 50.3% | no | yes |
+| 3 | `4a1 0c0 (4a1 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 0c0 4a1 (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 0c0 4a1 0c0` | 69.5% | no | yes |
 
 - Class 1: linear on the inverse: `(L2 B2 U2 L2 U' L2 U2 F2 R2 U2 B2 L2 R2)`. HTR after 5 moves (within the budget); the whole finish, as read on normal: `R2 L2 B2 U2 R2 F2 U2 L2 U L2 U2 B2 L2`.
 - Class 2: linear on normal: `R2 D B2 L2 B2 D B2 U L2 U2 B2 L2 F2`. HTR after 8 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 D B2 L2 B2 D B2 U L2 U2 B2 L2 F2`.
@@ -2451,11 +2451,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a1 > 0c0` | 33.6% | no | no |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | yes | yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | yes | yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
+| 1 | `4a1 0c0` | 33.6% | no | no |
+| 2 | `4a1 4b2 4a1 0c0` | 50.3% | yes | yes |
+| 3 | `4a1 0c0 (4a1 0c0)` | 60.6% | yes | yes |
+| 4 | `4a1 0c0 4a1 (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 0c0 4a1 0c0` | 69.5% | no | yes |
 
 - Class 2: linear on normal: `U2 R2 U' B2 L2 F2 D L2 D' L2 B2 L2 D2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U2 R2 U' B2 L2 F2 D L2 D' L2 B2 L2 D2`.
 - Class 3: inverse first: `(D)`, then on normal `U2 F2 L2 D F2 B2 U' F2 R2 B2 D2 B2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `U2 F2 L2 D F2 B2 U' F2 R2 B2 D2 B2 D'`.
@@ -2479,11 +2479,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a1 > 0c0` | 33.6% | no | no |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | yes | yes |
+| 1 | `4a1 0c0` | 33.6% | no | no |
+| 2 | `4a1 4b2 4a1 0c0` | 50.3% | no | yes |
+| 3 | `4a1 0c0 (4a1 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 0c0 4a1 (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 0c0 4a1 0c0` | 69.5% | yes | yes |
 
 - Class 2: linear on normal: `D' L2 F2 L2 D' F2 U2 F2 B2 U' F2 B2 R2`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D' L2 F2 L2 D' F2 U2 F2 B2 U' F2 B2 R2`.
 - Class 3: inverse first: `(R2 B2 F2 U)`, then on normal `D' L2 F2 L2 D' F2 U2 F2 B2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D' L2 F2 L2 D' F2 U2 F2 B2 U' F2 B2 R2`.
@@ -2513,11 +2513,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 80.2% | no | no |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 80.6% | no | no |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on normal: `B2 U F2 L2 U' R2 D' U2 B2 D2 B2 R2`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `B2 U F2 L2 U' R2 D' U2 B2 D2 B2 R2`.
 - Class 2: normal first: `B2 U`, then on inverse `(R2 B2 D2 B2 D U2 R2 U L2 F2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U F2 L2 U' R2 U2 D' B2 D2 B2 R2`.
@@ -2539,11 +2539,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 80.2% | no | no |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 80.6% | no | no |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on the inverse: `(F2 R2 D' L2 D F2 U F2 L2 F2 D2 B2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `B2 D2 F2 L2 F2 U' F2 D' L2 D R2 F2`.
 - Class 2: normal first: `B2 D2 F2 L2 F2 U'`, then on inverse `(F2 R2 D' L2 D F2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 D2 F2 L2 F2 U' F2 D' L2 D R2 F2`.
@@ -2565,11 +2565,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | no | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 66.5% | no | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 80.2% | no | no |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 80.6% | no | no |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on the inverse: `(U2 L2 U F2 L2 R2 U' B2 R2 U' L2 U2 B2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U2 L2 U R2 B2 U R2 L2 F2 U' L2 U2`.
 - Class 2: inverse first: `(U2 L2 U)`, then on normal `B2 U2 L2 U R2 B2 U R2 L2 F2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U2 L2 U R2 B2 U R2 L2 F2 U' L2 U2`.
@@ -2591,11 +2591,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | yes |
+| 1 | `2c3 4b2 4a1 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 80.2% | no | yes |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 80.6% | no | yes |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 80.8% | no | yes |
 
 - Class 1: linear on the inverse: `(D2 F2 U R2 U' R2 U B2 F2 U2 L2 D2 R2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `R2 D2 L2 U2 F2 B2 U' R2 U R2 U' F2 D2`.
 - Class 2: inverse first: `(D2 F2 U')`, then on normal `U2 R2 F2 B2 U' L2 U' R2 U2 L2`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U2 R2 F2 B2 U' L2 U' R2 U2 L2 U F2 D2`.
@@ -2620,11 +2620,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | yes | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 79.6% | yes | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 80.2% | no | no |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 80.6% | no | no |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on the inverse: `(U' F2 D B2 R2 D F2 R2 F2 U2 F2 D2 R2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `R2 D2 F2 U2 F2 R2 F2 D' R2 B2 D' F2 U`.
 - Class 2: inverse first: `(U2 F2 D)`, then on normal `B2 L2 U L2 U' F2 R2 B2 R2 U2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 L2 U L2 U' F2 R2 B2 R2 U2 D' F2 U2`.
@@ -2646,11 +2646,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 80.2% | no | no |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 80.6% | no | no |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on normal: `U' R2 U' R2 U' D2 R2 B2 U2 L2 F2`. HTR after 5 moves (within the budget); the whole finish, as read on normal: `U' R2 U' R2 U' D2 R2 B2 U2 L2 F2`.
 - Class 2: normal first: `D`, then on inverse `(F2 D2 F2 L2 D F2 U' B2 U2 F2)`. HTR after 8 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D F2 U2 B2 U F2 D' L2 F2 D2 F2`.
@@ -2672,11 +2672,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 80.2% | no | no |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 80.6% | no | no |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on normal: `U R2 U' L2 B2 U B2 U2 R2 F2 R2 D2`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `U R2 U' L2 B2 U B2 U2 R2 F2 R2 D2`.
 - Class 2: inverse first: `(D2 R2 F2 R2 U2 B2 U')`, then on normal `U R2 U' L2 B2`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U R2 U' L2 B2 U B2 U2 R2 F2 R2 D2`.
@@ -2698,11 +2698,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 80.2% | no | yes |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 80.6% | no | yes |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on the inverse: `(D R2 F2 U L2 U' L2 B2 F2 U2 R2 F2 D2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `D2 F2 R2 U2 F2 B2 L2 U L2 U' F2 R2 D'`.
 - Class 2: inverse first: `(D)`, then on normal `D2 F2 R2 U2 F2 B2 L2 U L2 U' F2 R2`. HTR after 11 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `D2 F2 R2 U2 F2 B2 L2 U L2 U' F2 R2 D'`.
@@ -2726,11 +2726,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 80.2% | no | yes |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 80.6% | no | yes |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on the inverse: `(U F2 D R2 D' B2 L2 B2 U2 B2 U2 F2 L2)`. HTR after 5 moves (within the budget); the whole finish, as read on normal: `L2 F2 U2 B2 U2 B2 L2 B2 D R2 D' F2 U'`.
 - Class 2: inverse first: `(U')`, then on normal `R2 B2 U2 F2 D B2 D R2 L2 F2 R2 D2`. HTR after 8 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 U2 F2 D B2 D R2 L2 F2 R2 D2 U`.
@@ -2754,11 +2754,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 80.2% | no | no |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 80.6% | no | no |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on the inverse: `(R2 U' F2 D2 B2 U' B2 U B2 F2 U2 B2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 U2 F2 B2 U' B2 U B2 D2 F2 U R2`.
 - Class 2: inverse first: `(R2 U')`, then on normal `B2 U2 F2 B2 U' B2 U B2 D2 F2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U2 F2 B2 U' B2 U B2 D2 F2 U R2`.
@@ -2784,11 +2784,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no | no |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | no | no |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | yes |
+| 1 | `2c3 4b2 4a1 0c0` | 55.3% | no | no |
+| 2 | `2c3 4b2 (4a1 0c0)` | 76.6% | no | no |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 78.1% | no | yes |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.1% | no | yes |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 79.9% | no | yes |
 
 - Class 3: normal first: `B2 U'`, then on inverse `(D2 F2 R2 F2 U F2 D L2 U R2 U' B2)`. HTR after 13 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U' B2 U R2 U' L2 D' F2 U' F2 R2 F2 D2`.
 - Class 4: normal first: `B2 U' B2 U`, then on inverse `(D2 F2 R2 F2 U F2 D L2 U R2)`. HTR after 13 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U' B2 U R2 U' L2 D' F2 U' F2 R2 F2 D2`.
@@ -2811,11 +2811,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | yes | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 55.3% | yes | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 76.6% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 78.1% | no | no |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.1% | no | no |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 79.9% | no | no |
 
 - Class 1: linear on the inverse: `(U2 L2 U' B2 L2 D' B2 U L2 B2 U2 L2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `L2 U2 B2 L2 U' B2 D L2 B2 U L2 U2`.
 - Class 2: inverse first: `(U2 L2 U')`, then on normal `L2 U2 B2 L2 U' B2 D L2 B2`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U2 B2 L2 U' B2 D L2 B2 U L2 U2`.
@@ -2837,11 +2837,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | yes | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 55.3% | yes | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 76.6% | yes | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 78.1% | no | yes |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.1% | no | yes |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 79.9% | no | no |
 
 - Class 1: linear on normal: `D' R2 F2 B2 D L2 F2 U' R2 U2 R2 F2 B2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `D' R2 F2 B2 D L2 F2 U' R2 U2 R2 F2 B2`.
 - Class 2: inverse first: `(U2 L2 D')`, then on normal `D L2 U2 R2 U F2 L2 B2 D2 F2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `D L2 U2 R2 U F2 L2 B2 D2 F2 D L2 U2`.
@@ -2865,11 +2865,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 55.3% | no | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 76.6% | yes | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 78.1% | no | no |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.1% | no | yes |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 79.9% | no | no |
 
 - Class 1: linear on the inverse: `(B2 D L2 D R2 B2 L2 U2 L2 U B2 F2 D2)`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D2 F2 B2 U' L2 U2 L2 B2 R2 D' L2 D' B2`.
 - Class 2: normal first: `D'`, then on inverse `(R2 F2 D' R2 U' F2 D2 F2 R2 D2 F2 L2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `D' L2 F2 D2 R2 F2 D2 F2 U R2 D F2 R2`.
@@ -2892,11 +2892,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | yes |
+| 1 | `2c3 4b2 4a1 0c0` | 55.3% | no | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 76.6% | yes | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 78.1% | no | yes |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.1% | no | no |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 79.9% | no | yes |
 
 - Class 1: linear on normal: `F2 U D2 B2 L2 F2 R2 U B2 D' R2 F2 U2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U D2 B2 L2 F2 R2 U B2 D' R2 F2 U2`.
 - Class 2: normal first: `F2 U`, then on inverse `(U2 F2 R2 D B2 U' R2 F2 L2 B2 D2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `F2 U D2 B2 L2 F2 R2 U B2 D' R2 F2 U2`.
@@ -2920,11 +2920,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | yes | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 55.3% | yes | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 76.6% | yes | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 78.1% | no | no |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.1% | no | no |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 79.9% | no | no |
 
 - Class 1: linear on the inverse: `(F2 D2 U R2 D' L2 B2 D' R2 D2 R2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `R2 D2 R2 D B2 L2 D R2 U' D2 F2`.
 - Class 2: normal first: `R2 D2 R2 D`, then on inverse `(F2 D2 U R2 D' L2 B2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `R2 D2 R2 D B2 L2 D R2 U' D2 F2`.
@@ -2946,11 +2946,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | yes | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 55.3% | yes | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 76.6% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 78.1% | no | no |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.1% | no | no |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 79.9% | no | no |
 
 - Class 1: linear on normal: `B2 L2 U' R2 U B2 L2 D F2 D2 L2 F2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 L2 U' R2 U B2 L2 D F2 D2 L2 F2`.
 - Class 2: inverse first: `(F2 L2 D2 F2 D')`, then on normal `B2 L2 U' R2 U B2 L2`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 L2 U' R2 U B2 L2 D F2 D2 L2 F2`.
@@ -2972,11 +2972,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 55.3% | no | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 76.6% | yes | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 78.1% | no | no |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.1% | no | yes |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 79.9% | no | no |
 
 - Class 1: linear on normal: `U' F2 D2 F2 R2 B2 L2 U B2 U2 B2 U R2`. HTR after 12 moves (7 over the shortest NISS HTR); the whole finish, as read on normal: `U' F2 D2 F2 R2 B2 L2 U B2 U2 B2 U R2`.
 - Class 2: normal first: `U'`, then on inverse `(R2 U' B2 U2 B2 U' L2 B2 R2 F2 D2 F2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `U' F2 D2 F2 R2 B2 L2 U B2 U2 B2 U R2`.
@@ -2999,11 +2999,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no | yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | yes |
+| 1 | `2c3 4b2 4a1 0c0` | 55.3% | no | yes |
+| 2 | `2c3 4b2 (4a1 0c0)` | 76.6% | yes | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 78.1% | no | yes |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.1% | no | no |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 79.9% | no | yes |
 
 - Class 1: linear on the inverse: `(R2 D F2 U' L2 F2 R2 F2 R2 U' L2 U2 B2 U2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U2 B2 U2 L2 U R2 F2 R2 F2 L2 U F2 D' R2`.
 - Class 2: inverse first: `(R2 D')`, then on normal `R2 U2 F2 D' R2 D R2 L2 F2 U2 F2 B2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `R2 U2 F2 D' R2 D R2 L2 F2 U2 F2 B2 D R2`.
@@ -3027,11 +3027,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no | no |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | no | no |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
+| 1 | `2c3 4b2 4a1 0c0` | 55.3% | no | no |
+| 2 | `2c3 4b2 (4a1 0c0)` | 76.6% | no | no |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 78.1% | no | yes |
+| 4 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.1% | no | yes |
+| 5 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 79.9% | no | no |
 
 - Class 3: inverse first: `(R2 D')`, then on normal `D B2 U' B2 U' B2 U R2 L2 D2 R2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D B2 U' B2 U' B2 U R2 L2 D2 R2 D R2`.
 - Class 4: normal first: `D B2 U'`, then on inverse `(R2 D' R2 D2 L2 R2 U' B2 U B2)`. HTR after 12 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `D B2 U' B2 U' B2 U R2 L2 D2 R2 D R2`.
@@ -3057,11 +3057,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes | yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | no |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | no |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | no |
+| 1 | `2c3 4b2 (4a1 0c0)` | 66.1% | yes | yes |
+| 2 | `2c3 4b2 4a1 0c0` | 73.3% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 76.7% | no | no |
+| 4 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 78.3% | no | no |
+| 5 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.8% | no | no |
 
 - Class 1: normal first: `L2 F2 U'`, then on inverse `(U2 F2 U L2 D B2 R2 B2 F2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `L2 F2 U' F2 B2 R2 B2 D' L2 U' F2 U2`.
 - Class 2: linear on normal: `L2 F2 U' F2 B2 R2 B2 D' L2 U' F2 U2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 F2 U' F2 B2 R2 B2 D' L2 U' F2 U2`.
@@ -3083,11 +3083,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | no | no |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | no |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | yes |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
+| 1 | `2c3 4b2 (4a1 0c0)` | 66.1% | no | no |
+| 2 | `2c3 4b2 4a1 0c0` | 73.3% | no | no |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 76.7% | no | yes |
+| 4 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 78.3% | no | yes |
+| 5 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.8% | no | yes |
 
 - Class 3: normal first: `F2 L2 U`, then on inverse `(U L2 D F2 D L2 B2 D R2 D2)`. HTR after 11 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `F2 L2 U D2 R2 D' B2 L2 D' F2 D' L2 U'`.
 - Class 4: inverse first: `(U L2 D)`, then on normal `U' R2 U' F2 L2 D L2 F2 D2 F2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' R2 U' F2 L2 D L2 F2 D2 F2 D' L2 U'`.
@@ -3110,11 +3110,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes | yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | yes | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | yes |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
+| 1 | `2c3 4b2 (4a1 0c0)` | 66.1% | yes | yes |
+| 2 | `2c3 4b2 4a1 0c0` | 73.3% | yes | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 76.7% | no | yes |
+| 4 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 78.3% | no | yes |
+| 5 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.8% | no | yes |
 
 - Class 1: inverse first: `(L2 U)`, then on normal `B2 L2 D2 B2 U' L2 D U2 B2 R2 B2 L2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `B2 L2 D2 B2 U' L2 D U2 B2 R2 B2 L2 U' L2`.
 - Class 2: linear on the inverse: `(L2 U L2 B2 R2 B2 U F2 D' R2 D2 F2 U2 B2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `B2 U2 F2 D2 R2 D F2 U' B2 R2 B2 L2 U' L2`.
@@ -3139,11 +3139,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes | yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | yes |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
+| 1 | `2c3 4b2 (4a1 0c0)` | 66.1% | yes | yes |
+| 2 | `2c3 4b2 4a1 0c0` | 73.3% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 76.7% | no | yes |
+| 4 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 78.3% | no | yes |
+| 5 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.8% | no | yes |
 
 - Class 1: inverse first: `(U')`, then on normal `F2 R2 D2 R2 D' F2 D U2 L2 F2 R2 F2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `F2 R2 D2 R2 D' F2 D U2 L2 F2 R2 F2 U`.
 - Class 2: linear on the inverse: `(U' F2 R2 F2 L2 D' U2 F2 D R2 D2 R2 F2)`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 R2 D2 R2 D' F2 U2 D L2 F2 R2 F2 U`.
@@ -3168,11 +3168,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | no | yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | yes | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | no |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
+| 1 | `2c3 4b2 (4a1 0c0)` | 66.1% | no | yes |
+| 2 | `2c3 4b2 4a1 0c0` | 73.3% | yes | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 76.7% | no | yes |
+| 4 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 78.3% | no | no |
+| 5 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.8% | no | yes |
 
 - Class 1: normal first: `L2 U`, then on inverse `(B2 L2 D U2 L2 B2 U R2 F2 L2 B2 R2)`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U R2 B2 L2 F2 R2 U' B2 L2 U2 D' L2 B2`.
 - Class 2: linear on the inverse: `(D' L2 R2 B2 U' R2 U' B2 L2 B2 R2 F2 U2 L2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `L2 U2 F2 R2 B2 L2 B2 U R2 U B2 R2 L2 D`.
@@ -3196,11 +3196,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | no | yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | yes | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | no |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | no |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | no |
+| 1 | `2c3 4b2 (4a1 0c0)` | 66.1% | no | yes |
+| 2 | `2c3 4b2 4a1 0c0` | 73.3% | yes | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 76.7% | no | no |
+| 4 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 78.3% | no | no |
+| 5 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.8% | no | no |
 
 - Class 1: normal first: `B2 D'`, then on inverse `(D2 F2 L2 D2 R2 U' B2 D' L2 B2 F2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 D' F2 B2 L2 D B2 U R2 D2 L2 F2 D2`.
 - Class 2: linear on normal: `B2 D' F2 B2 L2 D B2 U R2 D2 L2 F2 D2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 D' F2 B2 L2 D B2 U R2 D2 L2 F2 D2`.
@@ -3222,11 +3222,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes | yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | no |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | no |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | no |
+| 1 | `2c3 4b2 (4a1 0c0)` | 66.1% | yes | yes |
+| 2 | `2c3 4b2 4a1 0c0` | 73.3% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 76.7% | no | no |
+| 4 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 78.3% | no | no |
+| 5 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.8% | no | no |
 
 - Class 1: inverse first: `(B2 R2 U)`, then on normal `D' F2 U' B2 R2 U2 L2 U2 L2`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `D' F2 U' B2 R2 U2 L2 U2 L2 U' R2 B2`.
 - Class 2: linear on normal: `D' F2 U' B2 R2 U2 L2 U2 L2 U' R2 B2`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D' F2 U' B2 R2 U2 L2 U2 L2 U' R2 B2`.
@@ -3248,11 +3248,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes | yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | yes |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
+| 1 | `2c3 4b2 (4a1 0c0)` | 66.1% | yes | yes |
+| 2 | `2c3 4b2 4a1 0c0` | 73.3% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 76.7% | no | yes |
+| 4 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 78.3% | no | yes |
+| 5 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.8% | no | yes |
 
 - Class 1: normal first: `U2 R2 L2 U`, then on inverse `(F2 L2 U R2 U B2 F2 D2 B2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U2 R2 L2 U L2 B2 D2 F2 B2 U' R2 U' L2 F2`.
 - Class 2: linear on normal: `U' F2 B2 R2 D' L2 F2 R2 F2 D' B2 R2 F2 R2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' F2 B2 R2 D' L2 F2 R2 F2 D' B2 R2 F2 R2`.
@@ -3277,11 +3277,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | no | no |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | no |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | yes |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
+| 1 | `2c3 4b2 (4a1 0c0)` | 66.1% | no | no |
+| 2 | `2c3 4b2 4a1 0c0` | 73.3% | no | no |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 76.7% | no | yes |
+| 4 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 78.3% | no | yes |
+| 5 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.8% | no | yes |
 
 - Class 3: normal first: `F2 U'`, then on inverse `(U' B2 D L2 U2 L2 U R2 D B2 R2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U' R2 B2 D' R2 U' L2 U2 L2 D' B2 U`.
 - Class 4: inverse first: `(U' B2 D)`, then on normal `F2 U' R2 B2 D' R2 U' L2 U2 L2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U' R2 B2 D' R2 U' L2 U2 L2 D' B2 U`.
@@ -3304,11 +3304,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes | yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | yes | yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | yes | yes |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
+| 1 | `2c3 4b2 (4a1 0c0)` | 66.1% | yes | yes |
+| 2 | `2c3 4b2 4a1 0c0` | 73.3% | no | yes |
+| 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 76.7% | yes | yes |
+| 4 | `2c3 2c4 2c3 (4b2 4a1 0c0)` | 78.3% | yes | yes |
+| 5 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 79.8% | no | yes |
 
 - Class 1: normal first: `L2 D`, then on inverse `(U2 L2 U B2 U' B2 L2 U2 F2 R2 D2 F2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `L2 D F2 D2 R2 F2 U2 L2 B2 U B2 U' L2 U2`.
 - Class 2: linear on normal: `L2 U' B2 U2 L2 F2 L2 D F2 U2 B2 U R2 D2`. HTR after 12 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U' B2 U2 L2 F2 L2 D F2 U2 B2 U R2 D2`.
@@ -3339,11 +3339,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes | yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | yes | yes |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | yes |
+| 1 | `4a3 4b2 (4a1 0c0)` | 66.2% | yes | yes |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 72.0% | no | yes |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 75.1% | no | yes |
+| 4 | `4b3 4a2 4a1 0c0` | 77.9% | yes | yes |
+| 5 | `4b3 2c4 2c3 4b2 4a1 0c0` | 80.1% | no | yes |
 
 - Class 1: normal first: `U2 L2 D'`, then on inverse `(D2 F2 U B2 L2 D B2 U2 L2 F2 R2 B2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U2 L2 D' B2 R2 F2 L2 U2 B2 D' L2 B2 U' F2 D2`.
 - Class 2: inverse first: `(B2 D' B2 D')`, then on normal `R2 D' B2 L2 U' R2 D' R2 D2 R2 F2`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 D' B2 L2 U' R2 D' R2 D2 R2 F2 D B2 D B2`.
@@ -3368,11 +3368,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no | yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | yes | yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | yes | yes |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | yes |
+| 1 | `4a3 4b2 (4a1 0c0)` | 66.2% | no | yes |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 72.0% | yes | yes |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 75.1% | no | yes |
+| 4 | `4b3 4a2 4a1 0c0` | 77.9% | yes | yes |
+| 5 | `4b3 2c4 2c3 4b2 4a1 0c0` | 80.1% | no | yes |
 
 - Class 1: normal first: `U2 F2 U2 R2 F2 L2 D'`, then on inverse `(R2 U F2 U L2 F2 U2 B2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U2 F2 U2 R2 F2 L2 D' B2 U2 F2 L2 U' F2 U' R2`.
 - Class 2: inverse first: `(D' F2 R2 U)`, then on normal `D L2 U' R2 U R2 B2 R2 L2 D2 B2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `D L2 U' R2 U R2 B2 R2 L2 D2 B2 U' R2 F2 D`.
@@ -3397,11 +3397,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no | no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | no |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | yes | yes |
+| 1 | `4a3 4b2 (4a1 0c0)` | 66.2% | no | no |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 72.0% | no | yes |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 75.1% | no | yes |
+| 4 | `4b3 4a2 4a1 0c0` | 77.9% | no | no |
+| 5 | `4b3 2c4 2c3 4b2 4a1 0c0` | 80.1% | yes | yes |
 
 - Class 2: inverse first: `(L2 U' B2 R2 D)`, then on normal `U2 B2 U' F2 U F2 D' F2`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U2 B2 U' F2 U F2 D' F2 D' R2 B2 U L2`.
 - Class 3: normal first: `U2 B2 U' F2 U`, then on inverse `(L2 U' B2 R2 D F2 D F2)`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U2 B2 U' F2 U F2 D' F2 D' R2 B2 U L2`.
@@ -3424,11 +3424,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes | yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | no |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | yes |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | no |
+| 1 | `4a3 4b2 (4a1 0c0)` | 66.2% | yes | yes |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 72.0% | no | no |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 75.1% | no | no |
+| 4 | `4b3 4a2 4a1 0c0` | 77.9% | no | yes |
+| 5 | `4b3 2c4 2c3 4b2 4a1 0c0` | 80.1% | no | no |
 
 - Class 1: normal first: `U`, then on inverse `(U2 R2 U R2 D R2 F2 D2 L2 R2 F2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `U F2 R2 L2 D2 F2 R2 D' R2 U' R2 U2`.
 - Class 4: linear on the inverse: `(U2 R2 U R2 D R2 F2 D2 L2 R2 F2 U')`. HTR after 12 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `U F2 R2 L2 D2 F2 R2 D' R2 U' R2 U2`.
@@ -3450,11 +3450,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes | yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | no |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | yes |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | no |
+| 1 | `4a3 4b2 (4a1 0c0)` | 66.2% | yes | yes |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 72.0% | no | no |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 75.1% | no | no |
+| 4 | `4b3 4a2 4a1 0c0` | 77.9% | no | yes |
+| 5 | `4b3 2c4 2c3 4b2 4a1 0c0` | 80.1% | no | no |
 
 - Class 1: inverse first: `(U2 F2 D')`, then on normal `D' F2 U2 F2 L2 B2 U' B2 R2 D2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D' F2 U2 F2 L2 B2 U' B2 R2 D2 R2 D F2 U2`.
 - Class 4: linear on normal: `U' R2 U2 R2 F2 L2 U F2 U2 L2 U' B2 D2 B2`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' R2 U2 R2 F2 L2 U F2 U2 L2 U' B2 D2 B2`.
@@ -3476,11 +3476,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes | yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | yes | yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | yes | yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | yes | yes |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | yes | yes |
+| 1 | `4a3 4b2 (4a1 0c0)` | 66.2% | yes | yes |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 72.0% | yes | yes |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 75.1% | yes | yes |
+| 4 | `4b3 4a2 4a1 0c0` | 77.9% | yes | yes |
+| 5 | `4b3 2c4 2c3 4b2 4a1 0c0` | 80.1% | yes | yes |
 
 - Class 1: normal first: `D'`, then on inverse `(B2 R2 U L2 D2 L2 U2 F2 U' B2 R2 U2 F2 L2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D' L2 F2 U2 R2 B2 U F2 U2 L2 D2 L2 U' R2 B2`.
 - Class 2: inverse first: `(B2 U B2 D')`, then on normal `U' F2 D F2 D' F2 R2 U2 B2 L2 F2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U' F2 D F2 D' F2 R2 U2 B2 L2 F2 D B2 U' B2`.
@@ -3505,11 +3505,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no | no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | no |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | yes |
+| 1 | `4a3 4b2 (4a1 0c0)` | 66.2% | no | no |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 72.0% | no | yes |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 75.1% | no | yes |
+| 4 | `4b3 4a2 4a1 0c0` | 77.9% | no | no |
+| 5 | `4b3 2c4 2c3 4b2 4a1 0c0` | 80.1% | no | yes |
 
 - Class 2: normal first: `R2 U R2 U`, then on inverse `(B2 D F2 U' B2 L2 D' B2 L2 D2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 U R2 U D2 L2 B2 D L2 B2 U F2 D' B2`.
 - Class 3: inverse first: `(B2 D F2 U')`, then on normal `R2 U R2 U D2 L2 B2 D L2 B2`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `R2 U R2 U D2 L2 B2 D L2 B2 U F2 D' B2`.
@@ -3532,11 +3532,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no | no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | yes | yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | no |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | yes |
+| 1 | `4a3 4b2 (4a1 0c0)` | 66.2% | no | no |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 72.0% | yes | yes |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 75.1% | no | yes |
+| 4 | `4b3 4a2 4a1 0c0` | 77.9% | no | no |
+| 5 | `4b3 2c4 2c3 4b2 4a1 0c0` | 80.1% | no | yes |
 
 - Class 2: inverse first: `(L2 U' B2 D')`, then on normal `L2 U' B2 D R2 D' R2 F2 R2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `L2 U' B2 D R2 D' R2 F2 R2 F2 D B2 U L2`.
 - Class 3: normal first: `L2 U' B2 D`, then on inverse `(L2 U' B2 D' F2 R2 F2 R2 D R2)`. HTR after 13 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U' B2 D R2 D' R2 F2 R2 F2 D B2 U L2`.
@@ -3559,11 +3559,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes | yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | no |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | yes |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | no |
+| 1 | `4a3 4b2 (4a1 0c0)` | 66.2% | yes | yes |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 72.0% | no | no |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 75.1% | no | no |
+| 4 | `4b3 4a2 4a1 0c0` | 77.9% | no | yes |
+| 5 | `4b3 2c4 2c3 4b2 4a1 0c0` | 80.1% | no | no |
 
 - Class 1: normal first: `R2 U2 B2 U'`, then on inverse `(D' B2 U B2 U2 R2 F2 L2 B2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `R2 U2 B2 U' B2 L2 F2 R2 U2 B2 U' B2 D`.
 - Class 4: linear on the inverse: `(D' B2 U B2 U2 R2 F2 L2 B2 U B2 U2 R2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 U2 B2 U' B2 L2 F2 R2 U2 B2 U' B2 D`.
@@ -3585,11 +3585,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no | no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | no |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | no |
+| 1 | `4a3 4b2 (4a1 0c0)` | 66.2% | no | no |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 72.0% | no | no |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 75.1% | no | yes |
+| 4 | `4b3 4a2 4a1 0c0` | 77.9% | no | no |
+| 5 | `4b3 2c4 2c3 4b2 4a1 0c0` | 80.1% | no | no |
 
 - Class 3: normal first: `U2 F2 L2 U' F2 D`, then on inverse `(F2 U' B2 U' R2 U' B2 F2)`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U2 F2 L2 U' F2 D F2 B2 U R2 U B2 U F2`.
 
@@ -3614,11 +3614,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no | no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | yes | yes |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | yes |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | no |
+| 1 | `4a3 4b2 (4a1 0c0)` | 62.3% | no | no |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 70.2% | no | yes |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 74.4% | yes | yes |
+| 4 | `4b3 2c4 2c3 4b2 4a1 0c0` | 77.6% | no | yes |
+| 5 | `4a3 4b2 4a1 0c0` | 79.6% | no | no |
 
 - Class 2: normal first: `L2 B2 U' B2 U`, then on inverse `(R2 U' R2 U' R2 F2 D' F2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 U' B2 U F2 D F2 R2 U R2 U R2`.
 - Class 3: inverse first: `(R2 F2 D L2 U')`, then on normal `L2 U F2 U' R2 U R2 L2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `L2 U F2 U' R2 U R2 L2 U L2 D' F2 R2`.
@@ -3641,11 +3641,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no | yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | no |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | no |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | yes |
+| 1 | `4a3 4b2 (4a1 0c0)` | 62.3% | no | yes |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 70.2% | no | no |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 74.4% | no | no |
+| 4 | `4b3 2c4 2c3 4b2 4a1 0c0` | 77.6% | no | no |
+| 5 | `4a3 4b2 4a1 0c0` | 79.6% | no | yes |
 
 - Class 1: inverse first: `(D2 L2 B2 D)`, then on normal `F2 L2 D' F2 R2 U' B2 U2 R2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 L2 D' F2 R2 U' B2 U2 R2 D' B2 L2 D2`.
 - Class 5: linear on the inverse: `(D2 L2 B2 D R2 U2 B2 U R2 F2 D L2 F2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 L2 D' F2 R2 U' B2 U2 R2 D' B2 L2 D2`.
@@ -3667,11 +3667,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | yes | yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | no |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | no |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | yes |
+| 1 | `4a3 4b2 (4a1 0c0)` | 62.3% | yes | yes |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 70.2% | no | no |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 74.4% | no | no |
+| 4 | `4b3 2c4 2c3 4b2 4a1 0c0` | 77.6% | no | no |
+| 5 | `4a3 4b2 4a1 0c0` | 79.6% | no | yes |
 
 - Class 1: normal first: `R2 L2 U`, then on inverse `(U' L2 F2 U' F2 L2 D2 L2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `R2 L2 U L2 D2 L2 F2 U F2 L2 U`.
 - Class 5: linear on normal: `R2 L2 U L2 D2 L2 F2 U F2 L2 U`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `R2 L2 U L2 D2 L2 F2 U F2 L2 U`.
@@ -3693,11 +3693,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | yes | yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | yes |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | yes | yes |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | yes | yes |
+| 1 | `4a3 4b2 (4a1 0c0)` | 62.3% | yes | yes |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 70.2% | no | yes |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 74.4% | no | yes |
+| 4 | `4b3 2c4 2c3 4b2 4a1 0c0` | 77.6% | yes | yes |
+| 5 | `4a3 4b2 4a1 0c0` | 79.6% | yes | yes |
 
 - Class 1: normal first: `B2 L2 U`, then on inverse `(D2 B2 L2 U L2 D R2 F2 U2 L2 B2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `B2 L2 U B2 L2 U2 F2 R2 D' L2 U' L2 B2 D2`.
 - Class 2: inverse first: `(D' B2 R2 U')`, then on normal `L2 D' L2 U R2 F2 U B2 R2 L2`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 D' L2 U R2 F2 U B2 R2 L2 U R2 B2 D`.
@@ -3722,11 +3722,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no | no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | yes | yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | yes |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | yes |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | no |
+| 1 | `4a3 4b2 (4a1 0c0)` | 62.3% | no | no |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 70.2% | yes | yes |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 74.4% | no | yes |
+| 4 | `4b3 2c4 2c3 4b2 4a1 0c0` | 77.6% | no | yes |
+| 5 | `4a3 4b2 4a1 0c0` | 79.6% | no | no |
 
 - Class 2: inverse first: `(L2 D B2 L2 U')`, then on normal `U B2 U' L2 D F2 L2 D2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U B2 U' L2 D F2 L2 D2 U L2 B2 D' L2`.
 - Class 3: normal first: `U B2 U`, then on inverse `(L2 U R2 B2 U F2 R2 U' R2 D2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U B2 U D2 R2 U R2 F2 U' B2 R2 U' L2`.
@@ -3749,11 +3749,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | yes | yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | no |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | no |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | yes |
+| 1 | `4a3 4b2 (4a1 0c0)` | 62.3% | yes | yes |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 70.2% | no | no |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 74.4% | no | no |
+| 4 | `4b3 2c4 2c3 4b2 4a1 0c0` | 77.6% | no | no |
+| 5 | `4a3 4b2 4a1 0c0` | 79.6% | no | yes |
 
 - Class 1: inverse first: `(F2 U')`, then on normal `L2 F2 U' L2 F2 U L2 D2 F2 R2 L2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `L2 F2 U' L2 F2 U L2 D2 F2 R2 L2 U F2`.
 - Class 5: linear on the inverse: `(B2 U F2 D2 R2 D R2 B2 L2 B2 D B2 R2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 D' B2 L2 B2 R2 D' R2 D2 F2 U' B2`.
@@ -3775,11 +3775,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no | no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | yes |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | no |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | no |
+| 1 | `4a3 4b2 (4a1 0c0)` | 62.3% | no | no |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 70.2% | no | no |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 74.4% | no | yes |
+| 4 | `4b3 2c4 2c3 4b2 4a1 0c0` | 77.6% | no | no |
+| 5 | `4a3 4b2 4a1 0c0` | 79.6% | no | no |
 
 - Class 3: normal first: `B2 D' F2 D'`, then on inverse `(F2 U' R2 D' L2 B2 U B2 F2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 D' F2 D' F2 B2 U' B2 L2 D R2 U F2`.
 
@@ -3800,11 +3800,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no | no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | yes |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | yes |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | no |
+| 1 | `4a3 4b2 (4a1 0c0)` | 62.3% | no | no |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 70.2% | no | yes |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 74.4% | no | yes |
+| 4 | `4b3 2c4 2c3 4b2 4a1 0c0` | 77.6% | no | yes |
+| 5 | `4a3 4b2 4a1 0c0` | 79.6% | no | no |
 
 - Class 2: inverse first: `(U B2 U')`, then on normal `D' L2 D2 F2 L2 U B2 U F2`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D' L2 D2 F2 L2 U B2 U F2 U B2 U'`.
 - Class 3: normal first: `D' L2 D2 F2 L2 U`, then on inverse `(U B2 U' F2 U' B2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D' L2 D2 F2 L2 U B2 U F2 U B2 U'`.
@@ -3827,11 +3827,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no | no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | yes | yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | yes |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | yes | yes |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | no |
+| 1 | `4a3 4b2 (4a1 0c0)` | 62.3% | no | no |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 70.2% | yes | yes |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 74.4% | no | yes |
+| 4 | `4b3 2c4 2c3 4b2 4a1 0c0` | 77.6% | yes | yes |
+| 5 | `4a3 4b2 4a1 0c0` | 79.6% | no | no |
 
 - Class 2: normal first: `L2 U R2 F2 U`, then on inverse `(U R2 U B2 R2 U' F2 D2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `L2 U R2 F2 U R2 D2 F2 U R2 B2 U' R2 U'`.
 - Class 3: inverse first: `(L2 F2 D F2 U2 F2 U')`, then on normal `D' R2 U F2 U' F2 B2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D' R2 U F2 U' F2 B2 U F2 U2 F2 D' F2 L2`.
@@ -3854,11 +3854,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | yes | yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | no |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | no |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | yes |
+| 1 | `4a3 4b2 (4a1 0c0)` | 62.3% | yes | yes |
+| 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 70.2% | no | no |
+| 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 74.4% | no | no |
+| 4 | `4b3 2c4 2c3 4b2 4a1 0c0` | 77.6% | no | no |
+| 5 | `4a3 4b2 4a1 0c0` | 79.6% | no | yes |
 
 - Class 1: inverse first: `(L2 R2 D')`, then on normal `L2 B2 D L2 B2 D F2 L2 U2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `L2 B2 D L2 B2 D F2 L2 U2 R2 D R2 L2`.
 - Class 5: linear on the inverse: `(L2 R2 D' R2 U2 L2 F2 D' B2 L2 D' B2 L2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 D L2 B2 D F2 L2 U2 R2 D R2 L2`.
@@ -3886,11 +3886,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | no | no |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | yes |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 67.9% | no | no |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 75.4% | no | yes |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.7% | no | yes |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.8% | no | yes |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 82.1% | no | yes |
 
 - Class 2: inverse first: `(D L2 D')`, then on normal `D2 F2 R2 U' F2 U' B2 U L2 D' L2 F2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D2 F2 R2 U' F2 U' B2 U L2 D' L2 F2 D L2 D'`.
 - Class 3: inverse first: `(F2 U B2 U' L2 U)`, then on normal `U F2 U' L2 B2 U2 R2 U' R2`. HTR after 14 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U F2 U' L2 B2 U2 R2 U' R2 U' L2 U B2 U' F2`.
@@ -3914,11 +3914,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | no |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 67.9% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 75.4% | no | yes |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.7% | no | yes |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.8% | no | yes |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 82.1% | no | no |
 
 - Class 1: normal first: `U B2 U`, then on inverse `(U' L2 F2 D2 R2 U L2 R2 F2 R2 U2 R2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U B2 U R2 U2 R2 F2 R2 L2 U' R2 D2 F2 L2 U`.
 - Class 2: inverse first: `(R2 D' B2 U')`, then on normal `R2 D' B2 U' R2 B2 U' L2 U B2 L2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `R2 D' B2 U' R2 B2 U' L2 U B2 L2 U B2 D R2`.
@@ -3942,11 +3942,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | yes |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 67.9% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 75.4% | no | yes |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.7% | no | yes |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.8% | no | no |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 82.1% | no | yes |
 
 - Class 1: inverse first: `(D' L2 D2 F2 U)`, then on normal `B2 U' L2 B2 D B2 L2 U2 F2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U' L2 B2 D B2 L2 U2 F2 L2 U' F2 D2 L2 D`.
 - Class 2: normal first: `F2 B2 D F2 D'`, then on inverse `(D F2 D B2 D' L2 F2 U' R2 F2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 B2 D F2 D' F2 R2 U F2 L2 D B2 D' F2 D'`.
@@ -3970,11 +3970,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | no |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 67.9% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 75.4% | no | no |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.7% | no | no |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.8% | no | yes |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 82.1% | no | no |
 
 - Class 1: inverse first: `(D2 F2 R2 U L2 D)`, then on normal `U' F2 L2 U B2 L2 U2 B2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U' F2 L2 U B2 L2 U2 B2 L2 D' L2 U' R2 F2 D2`.
 - Class 4: inverse first: `(D')`, then on normal `U L2 U L2 U' L2 B2 D' F2 R2 D B2 R2 L2`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U L2 U L2 U' L2 B2 D' F2 R2 D B2 R2 L2 D`.
@@ -3996,11 +3996,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | no | no |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | yes |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 67.9% | no | no |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 75.4% | no | yes |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.7% | no | yes |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.8% | no | no |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 82.1% | no | yes |
 
 - Class 2: inverse first: `(U' B2 F2 L2 D)`, then on normal `D R2 U F2 U' R2 U B2 R2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D R2 U F2 U' R2 U B2 R2 D' L2 F2 B2 U`.
 - Class 3: inverse first: `(U' B2 F2 L2 D R2 B2 U')`, then on normal `D R2 U F2 U' R2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D R2 U F2 U' R2 U B2 R2 D' L2 F2 B2 U`.
@@ -4023,11 +4023,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | no | no |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | no |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 67.9% | no | no |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 75.4% | no | yes |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.7% | no | yes |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.8% | no | yes |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 82.1% | no | no |
 
 - Class 2: normal first: `U F2 U`, then on inverse `(U L2 B2 U L2 D' F2 U L2 R2 F2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U F2 U F2 R2 L2 U' F2 D L2 U' B2 L2 U'`.
 - Class 3: normal first: `U F2 U F2 R2 L2 U'`, then on inverse `(U L2 B2 U L2 D' F2)`. HTR after 13 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U F2 U F2 R2 L2 U' F2 D L2 U' B2 L2 U'`.
@@ -4050,11 +4050,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | no |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 67.9% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 75.4% | no | no |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.7% | no | no |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.8% | no | no |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 82.1% | no | no |
 
 - Class 1: inverse first: `(U F2 D)`, then on normal `F2 U2 L2 U' R2 U' L2 F2 U2 F2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `F2 U2 L2 U' R2 U' L2 F2 U2 F2 D' F2 U'`.
 
@@ -4075,11 +4075,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | no | no |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | yes | yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | yes |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 67.9% | no | no |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 75.4% | no | yes |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.7% | no | yes |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.8% | yes | yes |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 82.1% | no | yes |
 
 - Class 2: inverse first: `(D F2 D)`, then on normal `F2 U2 F2 U' B2 U L2 D' R2 D F2 L2`. HTR after 13 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U2 F2 U' B2 U L2 D' R2 D F2 L2 D' F2 D'`.
 - Class 3: inverse first: `(D F2 D L2 F2 D')`, then on normal `F2 U2 F2 U' B2 U L2 D' R2`. HTR after 14 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U2 F2 U' B2 U L2 D' R2 D F2 L2 D' F2 D'`.
@@ -4103,11 +4103,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | yes | yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | yes | yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | yes | yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | yes | yes |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 67.9% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 75.4% | yes | yes |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.7% | yes | yes |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.8% | yes | yes |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 82.1% | yes | yes |
 
 - Class 1: inverse first: `(B2 R2 U' B2 D')`, then on normal `L2 U' R2 F2 U R2 U2 F2 R2 F2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `L2 U' R2 F2 U R2 U2 F2 R2 F2 L2 D B2 U R2 B2`.
 - Class 2: normal first: `U R2 U`, then on inverse `(B2 D' F2 D' R2 B2 U' B2 U' R2 U2 L2 F2)`. HTR after 12 moves (within the budget); the whole finish, as read on normal: `U R2 U F2 L2 U2 R2 U B2 U B2 R2 D F2 D B2`.
@@ -4132,11 +4132,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | no |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 67.9% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 75.4% | no | no |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.7% | no | no |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.8% | no | no |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 82.1% | no | no |
 
 - Class 1: normal first: `L2 F2 U B2 D`, then on inverse `(B2 D' F2 R2 U' B2 U2 B2 L2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `L2 F2 U B2 D L2 B2 U2 B2 U R2 F2 D B2`.
 
@@ -4161,11 +4161,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 74.8% | no | no |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.2% | no | no |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.2% | no | no |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 81.5% | no | no |
 
 - Class 1: normal first: `U L2 U`, then on inverse `(F2 L2 R2 D2 B2 U' L2 D B2 U2 L2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U L2 U L2 U2 B2 D' L2 U B2 D2 R2 L2 F2`.
 
@@ -4186,11 +4186,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 74.8% | no | no |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.2% | no | no |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.2% | no | no |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 81.5% | no | no |
 
 - Class 1: inverse first: `(B2 D' B2 U)`, then on normal `R2 F2 U2 R2 U F2 D' R2 F2 U2 F2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 F2 U2 R2 U F2 D' R2 F2 U2 F2 U' B2 D B2`.
 
@@ -4211,11 +4211,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | yes | yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 74.8% | no | yes |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.2% | no | no |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.2% | yes | yes |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 81.5% | no | no |
 
 - Class 1: inverse first: `(L2 D' L2 B2 D')`, then on normal `R2 B2 D' F2 D B2 D2 F2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 B2 D' F2 D B2 D2 F2 L2 D B2 L2 D L2`.
 - Class 2: normal first: `U' B2 U`, then on inverse `(D L2 U2 B2 U L2 U B2 R2 U B2)`. HTR after 13 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' B2 U B2 U' R2 B2 U' L2 U' B2 U2 L2 D'`.
@@ -4238,11 +4238,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 74.8% | no | yes |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.2% | no | yes |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.2% | no | yes |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 81.5% | no | no |
 
 - Class 1: inverse first: `(L2 B2 U' B2 D')`, then on normal `U L2 F2 U2 R2 D' F2 D2 B2 R2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U L2 F2 U2 R2 D' F2 D2 B2 R2 D B2 U B2 L2`.
 - Class 2: normal first: `B2 R2 U' B2 U'`, then on inverse `(U' B2 D' R2 F2 U' L2 B2 U' L2)`. HTR after 14 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `B2 R2 U' B2 U' L2 U B2 L2 U F2 R2 D B2 U`.
@@ -4266,11 +4266,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | yes |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 74.8% | no | yes |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.2% | no | yes |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.2% | no | yes |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 81.5% | no | yes |
 
 - Class 1: inverse first: `(L2 U' B2 F2 L2 D)`, then on normal `U R2 U' R2 B2 R2 B2 D2 L2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U R2 U' R2 B2 R2 B2 D2 L2 D' L2 F2 B2 U L2`.
 - Class 2: normal first: `U2 R2 U L2 U`, then on inverse `(L2 D' F2 U L2 F2 D B2 U' B2)`. HTR after 14 moves (7 over the shortest NISS HTR); the whole finish, as read on normal: `U2 R2 U L2 U B2 U B2 D' F2 L2 U' F2 D L2`.
@@ -4295,11 +4295,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | yes |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 74.8% | yes | yes |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.2% | no | yes |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.2% | no | yes |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 81.5% | no | yes |
 
 - Class 1: normal first: `R2 F2 L2 B2 U' L2 U'`, then on inverse `(R2 U' B2 D R2 D2 L2 F2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 F2 L2 B2 U' L2 U' F2 L2 D2 R2 D' B2 U R2`.
 - Class 2: inverse first: `(U R2 U')`, then on normal `U' L2 U' B2 U B2 R2 U F2 U2 F2 B2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U' L2 U' B2 U B2 R2 U F2 U2 F2 B2 U R2 U'`.
@@ -4324,11 +4324,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | yes |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 74.8% | no | yes |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.2% | no | yes |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.2% | no | no |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 81.5% | no | yes |
 
 - Class 1: normal first: `U2 F2 D' B2 U'`, then on inverse `(F2 U F2 R2 D' F2 L2 D2 F2 L2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U2 F2 D' B2 U' L2 F2 D2 L2 F2 D R2 F2 U' F2`.
 - Class 2: inverse first: `(U F2 L2 U')`, then on normal `F2 R2 U' F2 U' F2 U F2 D' R2 F2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 R2 U' F2 U' F2 U F2 D' R2 F2 U L2 F2 U'`.
@@ -4352,11 +4352,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | no | no |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 68.4% | no | no |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 74.8% | no | no |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.2% | no | no |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.2% | no | no |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 81.5% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -4377,11 +4377,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 74.8% | no | no |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.2% | no | no |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.2% | no | no |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 81.5% | no | no |
 
 - Class 1: normal first: `R2 U L2 U'`, then on inverse `(U2 B2 R2 D' F2 L2 R2 U R2 D2 L2 B2)`. HTR after 12 moves (within the budget); the whole finish, as read on normal: `R2 U L2 U' B2 L2 D2 R2 U' R2 L2 F2 D R2 B2 U2`.
 
@@ -4402,11 +4402,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
+| 1 | `4b4 4a3 4b2 (4a1 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 74.8% | no | no |
+| 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 78.2% | no | no |
+| 4 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 80.2% | no | no |
+| 5 | `4b4 4a3 (2c4 2c3 4b2 4a1 0c0)` | 81.5% | no | no |
 
 - Class 1: normal first: `R2 U R2 D'`, then on inverse `(F2 D' F2 U' L2 F2 L2 R2 U2 L2 F2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `R2 U R2 D' F2 L2 U2 R2 L2 F2 L2 U F2 D F2`.
 
@@ -4433,11 +4433,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | no | no |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | no |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | yes |
+| 1 | `4b2 4a1 0c0` | 45.9% | no | no |
+| 2 | `4b2 2c3 4b2 4a1 (0c0)` | 53.7% | no | yes |
+| 3 | `4b2 4a1 (0c0)` | 59.0% | no | no |
+| 4 | `4b2 2c3 4b2 4a1 0c0` | 63.3% | no | yes |
+| 5 | `4b2 2c3 4b2 (4a1 0c0)` | 66.3% | no | yes |
 
 - Class 2: inverse first: `(R2 D R2 F2 R2 D L2 D)`, then on normal `U' B2 D2 R2 B2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' B2 D2 R2 B2 D' L2 D' R2 F2 R2 D' R2`.
 - Class 4: linear on normal: `R2 B2 U' R2 L2 D L2 U L2 U2 R2 U' F2`. HTR after 12 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 U' R2 L2 D L2 U L2 U2 R2 U' F2`.
@@ -4460,11 +4460,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes | yes |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | yes | yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | yes | yes |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | yes | yes |
+| 1 | `4b2 4a1 0c0` | 45.9% | yes | yes |
+| 2 | `4b2 2c3 4b2 4a1 (0c0)` | 53.7% | yes | yes |
+| 3 | `4b2 4a1 (0c0)` | 59.0% | yes | yes |
+| 4 | `4b2 2c3 4b2 4a1 0c0` | 63.3% | no | yes |
+| 5 | `4b2 2c3 4b2 (4a1 0c0)` | 66.3% | yes | yes |
 
 - Class 1: linear on normal: `U2 L2 B2 U' L2 F2 B2 D B2 R2 F2 D2 F2 D2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `U2 L2 B2 U' L2 F2 B2 D B2 R2 F2 D2 F2 D2`.
 - Class 2: normal first: `U F2 U' F2 B2 R2 U`, then on inverse `(D' B2 R2 D2 R2 F2 R2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `U F2 U' F2 B2 R2 U R2 F2 R2 D2 R2 B2 D`.
@@ -4489,11 +4489,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | no | no |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | no |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | yes |
+| 1 | `4b2 4a1 0c0` | 45.9% | no | no |
+| 2 | `4b2 2c3 4b2 4a1 (0c0)` | 53.7% | no | yes |
+| 3 | `4b2 4a1 (0c0)` | 59.0% | no | no |
+| 4 | `4b2 2c3 4b2 4a1 0c0` | 63.3% | no | yes |
+| 5 | `4b2 2c3 4b2 (4a1 0c0)` | 66.3% | no | yes |
 
 - Class 2: normal first: `R2 B2 D F2 U' B2 U'`, then on inverse `(F2 U2 L2 F2 D' B2)`. HTR after 12 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 D F2 U' B2 U' B2 D F2 L2 U2 F2`.
 - Class 4: linear on normal: `R2 B2 D F2 U' B2 U' B2 D F2 L2 U2 F2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 D F2 U' B2 U' B2 D F2 L2 U2 F2`.
@@ -4516,11 +4516,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes | yes |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | yes | yes |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | yes |
+| 1 | `4b2 4a1 0c0` | 45.9% | yes | yes |
+| 2 | `4b2 2c3 4b2 4a1 (0c0)` | 53.7% | no | yes |
+| 3 | `4b2 4a1 (0c0)` | 59.0% | yes | yes |
+| 4 | `4b2 2c3 4b2 4a1 0c0` | 63.3% | no | yes |
+| 5 | `4b2 2c3 4b2 (4a1 0c0)` | 66.3% | no | yes |
 
 - Class 1: linear on the inverse: `(F2 D B2 U2 L2 R2 U F2 U2 L2 U2 L2 B2 U2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `U2 B2 L2 U2 L2 U2 F2 U' R2 L2 U2 B2 D' F2`.
 - Class 2: normal first: `U D L2 F2 R2 D2 B2 U`, then on inverse `(F2 U R2 U2 B2 F2)`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U D L2 F2 R2 D2 B2 U F2 B2 U2 R2 U' F2`.
@@ -4545,11 +4545,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes | yes |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | yes |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | yes |
+| 1 | `4b2 4a1 0c0` | 45.9% | yes | yes |
+| 2 | `4b2 2c3 4b2 4a1 (0c0)` | 53.7% | no | yes |
+| 3 | `4b2 4a1 (0c0)` | 59.0% | no | yes |
+| 4 | `4b2 2c3 4b2 4a1 0c0` | 63.3% | no | yes |
+| 5 | `4b2 2c3 4b2 (4a1 0c0)` | 66.3% | no | yes |
 
 - Class 1: linear on normal: `L2 B2 L2 U R2 L2 B2 U' F2 U2 R2 U2 B2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `L2 B2 L2 U R2 L2 B2 U' F2 U2 R2 U2 B2`.
 - Class 2: normal first: `F2 U F2 D R2 L2 B2 U`, then on inverse `(L2 B2 L2 U L2)`. HTR after 12 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U F2 D R2 L2 B2 U L2 U' L2 B2 L2`.
@@ -4574,11 +4574,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes | yes |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | yes |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | yes | yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | yes |
+| 1 | `4b2 4a1 0c0` | 45.9% | yes | yes |
+| 2 | `4b2 2c3 4b2 4a1 (0c0)` | 53.7% | no | yes |
+| 3 | `4b2 4a1 (0c0)` | 59.0% | no | yes |
+| 4 | `4b2 2c3 4b2 4a1 0c0` | 63.3% | yes | yes |
+| 5 | `4b2 2c3 4b2 (4a1 0c0)` | 66.3% | no | yes |
 
 - Class 1: linear on the inverse: `(B2 U2 B2 D B2 F2 R2 D B2 F2 R2 U2 B2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 U2 R2 F2 B2 D' R2 F2 B2 D' B2 U2 B2`.
 - Class 2: normal first: `F2 U' L2 U L2 B2 L2 B2 D'`, then on inverse `(F2 D L2 F2)`. HTR after 11 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U' L2 U L2 B2 L2 B2 D' F2 L2 D' F2`.
@@ -4603,11 +4603,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | no | no |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | no |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | no |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | no |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | no |
+| 1 | `4b2 4a1 0c0` | 45.9% | no | no |
+| 2 | `4b2 2c3 4b2 4a1 (0c0)` | 53.7% | no | no |
+| 3 | `4b2 4a1 (0c0)` | 59.0% | no | no |
+| 4 | `4b2 2c3 4b2 4a1 0c0` | 63.3% | no | no |
+| 5 | `4b2 2c3 4b2 (4a1 0c0)` | 66.3% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -4628,11 +4628,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes | yes |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | no |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | yes |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | no |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | no |
+| 1 | `4b2 4a1 0c0` | 45.9% | yes | yes |
+| 2 | `4b2 2c3 4b2 4a1 (0c0)` | 53.7% | no | no |
+| 3 | `4b2 4a1 (0c0)` | 59.0% | no | yes |
+| 4 | `4b2 2c3 4b2 4a1 0c0` | 63.3% | no | no |
+| 5 | `4b2 2c3 4b2 (4a1 0c0)` | 66.3% | no | no |
 
 - Class 1: linear on the inverse: `(L2 U L2 D' F2 R2 D2 F2 L2 U2 B2 R2)`. HTR after 4 moves (within the budget); the whole finish, as read on normal: `R2 B2 U2 L2 F2 D2 R2 F2 D L2 U' L2`.
 - Class 3: normal first: `R2 B2 U2 L2 F2 D2 R2 F2 D`, then on inverse `(L2 U L2)`. HTR after 11 moves (7 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 U2 L2 F2 D2 R2 F2 D L2 U' L2`.
@@ -4654,11 +4654,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | no | no |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | yes | yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | no |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | yes |
+| 1 | `4b2 4a1 0c0` | 45.9% | no | no |
+| 2 | `4b2 2c3 4b2 4a1 (0c0)` | 53.7% | yes | yes |
+| 3 | `4b2 4a1 (0c0)` | 59.0% | no | no |
+| 4 | `4b2 2c3 4b2 4a1 0c0` | 63.3% | no | yes |
+| 5 | `4b2 2c3 4b2 (4a1 0c0)` | 66.3% | no | yes |
 
 - Class 2: inverse first: `(U' R2 D B2 U')`, then on normal `L2 U' F2 R2 L2 D2`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `L2 U' F2 R2 L2 D2 U B2 D' R2 U`.
 - Class 4: linear on the inverse: `(U' R2 D B2 D2 U' L2 R2 F2 U L2)`. HTR after 10 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U' F2 R2 L2 U D2 B2 D' R2 U`.
@@ -4681,11 +4681,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes | yes |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | no |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | yes |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | no |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | no |
+| 1 | `4b2 4a1 0c0` | 45.9% | yes | yes |
+| 2 | `4b2 2c3 4b2 4a1 (0c0)` | 53.7% | no | no |
+| 3 | `4b2 4a1 (0c0)` | 59.0% | no | yes |
+| 4 | `4b2 2c3 4b2 4a1 0c0` | 63.3% | no | no |
+| 5 | `4b2 2c3 4b2 (4a1 0c0)` | 66.3% | no | no |
 
 - Class 1: linear on the inverse: `(F2 D' F2 U L2 F2 D2 R2 B2 D2 L2)`. HTR after 4 moves (within the budget); the whole finish, as read on normal: `L2 D2 B2 R2 D2 F2 L2 U' F2 D F2`.
 - Class 3: normal first: `L2 D2 B2 R2 D2 F2 L2 U'`, then on inverse `(F2 D' F2)`. HTR after 10 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `L2 D2 B2 R2 D2 F2 L2 U' F2 D F2`.
@@ -4711,11 +4711,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | yes | yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
+| 1 | `4b2 4a1 0c0` | 30.3% | no | no |
+| 2 | `4b2 2c3 (4b2 4a1 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 2c3 4b2 4a1 0c0` | 66.8% | no | yes |
+| 4 | `4b2 2c3 4b2 (4a1 0c0)` | 71.7% | yes | yes |
+| 5 | `4b2 4a1 (0c0)` | 76.0% | no | no |
 
 - Class 2: normal first: `U'`, then on inverse `(F2 D F2 D L2 D2 L2 F2 L2 D L2)`. HTR after 11 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U' L2 D' L2 F2 L2 D2 L2 D' F2 D' F2`.
 - Class 3: linear on normal: `U' L2 D' L2 F2 L2 D2 L2 D' F2 D' F2`. HTR after 11 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U' L2 D' L2 F2 L2 D2 L2 D' F2 D' F2`.
@@ -4738,11 +4738,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | yes | yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | yes | yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
+| 1 | `4b2 4a1 0c0` | 30.3% | no | no |
+| 2 | `4b2 2c3 (4b2 4a1 0c0)` | 53.3% | yes | yes |
+| 3 | `4b2 2c3 4b2 4a1 0c0` | 66.8% | yes | yes |
+| 4 | `4b2 2c3 4b2 (4a1 0c0)` | 71.7% | no | yes |
+| 5 | `4b2 4a1 (0c0)` | 76.0% | no | no |
 
 - Class 2: normal first: `D`, then on inverse `(B2 F2 L2 U' R2 D R2 U' R2 U2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `D L2 U2 R2 U R2 D' R2 U L2 F2 B2`.
 - Class 3: linear on normal: `D L2 U2 R2 U R2 D' R2 U L2 F2 B2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `D L2 U2 R2 U R2 D' R2 U L2 F2 B2`.
@@ -4765,11 +4765,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | yes | yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
+| 1 | `4b2 4a1 0c0` | 30.3% | no | no |
+| 2 | `4b2 2c3 (4b2 4a1 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 2c3 4b2 4a1 0c0` | 66.8% | no | yes |
+| 4 | `4b2 2c3 4b2 (4a1 0c0)` | 71.7% | yes | yes |
+| 5 | `4b2 4a1 (0c0)` | 76.0% | no | no |
 
 - Class 2: normal first: `F2 U`, then on inverse `(D' R2 D B2 L2 B2 L2 D F2 U2 F2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U F2 U2 F2 D' L2 B2 L2 B2 D' R2 D`.
 - Class 3: linear on the inverse: `(D' R2 D B2 L2 B2 L2 D F2 U2 F2 U' F2)`. HTR after 12 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U F2 U2 F2 D' L2 B2 L2 B2 D' R2 D`.
@@ -4792,11 +4792,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | yes | yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
+| 1 | `4b2 4a1 0c0` | 30.3% | no | no |
+| 2 | `4b2 2c3 (4b2 4a1 0c0)` | 53.3% | yes | yes |
+| 3 | `4b2 2c3 4b2 4a1 0c0` | 66.8% | no | yes |
+| 4 | `4b2 2c3 4b2 (4a1 0c0)` | 71.7% | no | yes |
+| 5 | `4b2 4a1 (0c0)` | 76.0% | no | no |
 
 - Class 2: inverse first: `(U')`, then on normal `D' F2 U F2 R2 D' F2 U2 R2 B2 L2`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `D' F2 U F2 R2 D' F2 U2 R2 B2 L2 U`.
 - Class 3: linear on normal: `D' F2 U F2 R2 D' F2 U2 R2 B2 L2 U`. HTR after 12 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `D' F2 U F2 R2 D' F2 U2 R2 B2 L2 U`.
@@ -4819,11 +4819,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | yes | yes |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | yes |
+| 1 | `4b2 4a1 0c0` | 30.3% | yes | yes |
+| 2 | `4b2 2c3 (4b2 4a1 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 2c3 4b2 4a1 0c0` | 66.8% | no | yes |
+| 4 | `4b2 2c3 4b2 (4a1 0c0)` | 71.7% | no | yes |
+| 5 | `4b2 4a1 (0c0)` | 76.0% | no | yes |
 
 - Class 1: linear on the inverse: `(L2 U' L2 B2 D' L2 D2 B2 D2 B2 L2 F2)`. HTR after 5 moves (within the budget); the whole finish, as read on normal: `F2 L2 B2 D2 B2 D2 L2 D B2 L2 U L2`.
 - Class 2: normal first: `F2 L2 B2 L2 U`, then on inverse `(L2 D' B2 R2 D R2 D')`. HTR after 12 moves (7 over the shortest NISS HTR); the whole finish, as read on normal: `F2 L2 B2 L2 U D R2 D' R2 B2 D L2`.
@@ -4848,11 +4848,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | yes | yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
+| 1 | `4b2 4a1 0c0` | 30.3% | no | no |
+| 2 | `4b2 2c3 (4b2 4a1 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 2c3 4b2 4a1 0c0` | 66.8% | yes | yes |
+| 4 | `4b2 2c3 4b2 (4a1 0c0)` | 71.7% | no | yes |
+| 5 | `4b2 4a1 (0c0)` | 76.0% | no | no |
 
 - Class 2: inverse first: `(D2 F2 R2 U')`, then on normal `R2 D' L2 U B2 U F2 L2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 D' L2 U B2 U F2 L2 U R2 F2 D2`.
 - Class 3: linear on normal: `R2 D' L2 U B2 U F2 L2 U R2 F2 D2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `R2 D' L2 U B2 U F2 L2 U R2 F2 D2`.
@@ -4875,11 +4875,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | yes | yes |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | no |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | no |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | no |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | yes | yes |
+| 1 | `4b2 4a1 0c0` | 30.3% | yes | yes |
+| 2 | `4b2 2c3 (4b2 4a1 0c0)` | 53.3% | no | no |
+| 3 | `4b2 2c3 4b2 4a1 0c0` | 66.8% | no | no |
+| 4 | `4b2 2c3 4b2 (4a1 0c0)` | 71.7% | no | no |
+| 5 | `4b2 4a1 (0c0)` | 76.0% | yes | yes |
 
 - Class 1: linear on normal: `B2 U2 F2 L2 D B2 R2 D' U2 R2 L2 B2 U2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 U2 F2 L2 D B2 R2 D' U2 R2 L2 B2 U2`.
 - Class 5: normal first: `B2 U2 F2 L2 D`, then on inverse `(U2 B2 L2 R2 D U2 R2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U2 F2 L2 D B2 R2 U2 D' R2 L2 B2 U2`.
@@ -4901,11 +4901,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | yes | yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
+| 1 | `4b2 4a1 0c0` | 30.3% | no | no |
+| 2 | `4b2 2c3 (4b2 4a1 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 2c3 4b2 4a1 0c0` | 66.8% | no | yes |
+| 4 | `4b2 2c3 4b2 (4a1 0c0)` | 71.7% | yes | yes |
+| 5 | `4b2 4a1 (0c0)` | 76.0% | no | no |
 
 - Class 2: inverse first: `(U)`, then on normal `B2 R2 U' F2 D' R2 L2 D2 R2 D L2 B2`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 R2 U' F2 D' R2 L2 D2 R2 D L2 B2 U'`.
 - Class 3: linear on the inverse: `(U B2 L2 D' R2 D2 L2 R2 D F2 U R2 B2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 R2 U' F2 D' R2 L2 D2 R2 D L2 B2 U'`.
@@ -4928,11 +4928,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | yes | yes |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | yes |
+| 1 | `4b2 4a1 0c0` | 30.3% | yes | yes |
+| 2 | `4b2 2c3 (4b2 4a1 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 2c3 4b2 4a1 0c0` | 66.8% | no | yes |
+| 4 | `4b2 2c3 4b2 (4a1 0c0)` | 71.7% | no | yes |
+| 5 | `4b2 4a1 (0c0)` | 76.0% | no | yes |
 
 - Class 1: linear on normal: `D B2 L2 B2 R2 U R2 U2 R2 F2 L2 F2 R2 D2`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `D B2 L2 B2 R2 U R2 U2 R2 F2 L2 F2 R2 D2`.
 - Class 2: inverse first: `(F2 D')`, then on normal `U2 L2 U B2 D R2 U' F2 R2 D2 L2 F2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U2 L2 U B2 D R2 U' F2 R2 D2 L2 F2 D F2`.
@@ -4957,11 +4957,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
+| 1 | `4b2 4a1 0c0` | 30.3% | no | no |
+| 2 | `4b2 2c3 (4b2 4a1 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 2c3 4b2 4a1 0c0` | 66.8% | no | yes |
+| 4 | `4b2 2c3 4b2 (4a1 0c0)` | 71.7% | no | yes |
+| 5 | `4b2 4a1 (0c0)` | 76.0% | no | no |
 
 - Class 2: normal first: `R2 F2 D`, then on inverse `(D2 B2 D' F2 D F2 L2 R2 D B2)`. HTR after 12 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `R2 F2 D B2 D' R2 L2 F2 D' F2 D B2 D2`.
 - Class 3: linear on normal: `R2 F2 D B2 D' R2 L2 F2 D' F2 D B2 D2`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `R2 F2 D B2 D' R2 L2 F2 D' F2 D B2 D2`.
@@ -4990,11 +4990,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | no |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 62.6% | no | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 85.1% | no | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.6% | no | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 93.8% | no | no |
 
 - Class 1: inverse first: `(R2 B2 U')`, then on normal `F2 B2 U B2 U' F2 D R2 D U2 L2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 B2 U B2 U' F2 D R2 D U2 L2 U B2 R2`.
 - Class 2: normal first: `F2 B2 U B2 D'`, then on inverse `(R2 B2 D' B2 U R2 U D2 L2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 B2 U B2 D' L2 D2 U' R2 U' B2 D B2 R2`.
@@ -5018,11 +5018,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | yes |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 62.6% | no | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 85.1% | yes | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.6% | yes | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 93.8% | no | yes |
 
 - Class 1: normal first: `D'`, then on inverse `(F2 U2 R2 D L2 U B2 U' L2 F2 U' R2 F2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D' F2 R2 U F2 L2 U B2 U' L2 D' R2 U2 F2`.
 - Class 2: normal first: `U' R2 B2 D`, then on inverse `(F2 U R2 D' R2 U' B2 L2 D2 L2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U' R2 B2 D L2 D2 L2 B2 U R2 D R2 U' F2`.
@@ -5047,11 +5047,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no | no |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | yes |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 62.6% | no | no |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 85.1% | yes | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.6% | no | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 93.8% | no | yes |
 
 - Class 2: normal first: `F2 U B2 U`, then on inverse `(U2 F2 U' R2 D F2 D' R2 F2 D2 B2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `F2 U B2 U B2 D2 F2 R2 D F2 D' R2 U F2 U2`.
 - Class 3: linear on normal: `F2 U B2 U B2 D2 F2 R2 D F2 D' R2 U F2 U2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U B2 U B2 D2 F2 R2 D F2 D' R2 U F2 U2`.
@@ -5075,11 +5075,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | no |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 62.6% | yes | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 85.1% | no | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.6% | no | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 93.8% | no | no |
 
 - Class 1: inverse first: `(R2 F2 D')`, then on normal `U' B2 R2 U B2 U' L2 U' L2 U2 F2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U' B2 R2 U B2 U' L2 U' L2 U2 F2 D F2 R2`.
 - Class 2: inverse first: `(R2 F2 D' F2 U2 L2 U)`, then on normal `U' B2 R2 U B2 U' L2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U' B2 R2 U B2 U' L2 U' L2 U2 F2 D F2 R2`.
@@ -5103,11 +5103,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | no |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 62.6% | yes | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 85.1% | no | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.6% | no | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 93.8% | no | no |
 
 - Class 1: inverse first: `(U')`, then on normal `B2 U' B2 L2 D' B2 U F2 U' F2 R2 U2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U' B2 L2 D' B2 U F2 U' F2 R2 U2 R2 U`.
 - Class 2: inverse first: `(U' R2 U2 R2 F2 U)`, then on normal `B2 U' B2 L2 D' B2 U F2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U' B2 L2 D' B2 U F2 U' F2 R2 U2 R2 U`.
@@ -5131,11 +5131,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | yes |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 62.6% | no | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 85.1% | yes | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.6% | yes | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 93.8% | no | yes |
 
 - Class 1: normal first: `F2 L2 U2 R2 B2 D'`, then on inverse `(U' R2 U B2 U' L2 U R2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 L2 U2 R2 B2 D' R2 U' L2 U B2 U' R2 U`.
 - Class 2: inverse first: `(D' L2 F2 U)`, then on normal `L2 U' L2 D B2 D' R2 U2 L2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `L2 U' L2 D B2 D' R2 U2 L2 F2 U' F2 L2 D`.
@@ -5160,11 +5160,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | yes | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | no |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 62.6% | no | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 85.1% | yes | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.6% | yes | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 93.7% | yes | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 93.8% | no | no |
 
 - Class 1: normal first: `D'`, then on inverse `(R2 B2 U' L2 U' F2 L2 U' B2 R2 D' B2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D' B2 D R2 B2 U L2 F2 U L2 U B2 R2`.
 - Class 2: normal first: `D' B2 D`, then on inverse `(R2 B2 U' L2 U' F2 L2 U' B2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `D' B2 D R2 B2 U L2 F2 U L2 U B2 R2`.
@@ -5188,11 +5188,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | no |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 62.6% | yes | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 85.1% | no | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.6% | no | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 93.8% | no | no |
 
 - Class 1: inverse first: `(D')`, then on normal `U' F2 L2 U R2 D' B2 U' B2 D2 B2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U' F2 L2 U R2 D' B2 U' B2 D2 B2 R2 D`.
 - Class 2: inverse first: `(D' R2 B2 D2 B2 U)`, then on normal `U' F2 L2 U R2 D' B2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' F2 L2 U R2 D' B2 U' B2 D2 B2 R2 D`.
@@ -5216,11 +5216,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | yes |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 62.6% | yes | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 85.1% | no | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.6% | yes | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 93.8% | no | yes |
 
 - Class 1: inverse first: `(U)`, then on normal `B2 U' B2 D R2 U' L2 B2 D R2 U2 F2 B2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U' B2 D R2 U' L2 B2 D R2 U2 F2 B2 R2 U'`.
 - Class 2: normal first: `B2 L2 D L2 U`, then on inverse `(F2 U R2 B2 D F2 U L2 D2 B2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 L2 D L2 U B2 D2 L2 U' F2 D' B2 R2 U' F2`.
@@ -5245,11 +5245,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | yes | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | no |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 62.6% | yes | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 85.1% | yes | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.6% | yes | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 93.7% | yes | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 93.8% | no | no |
 
 - Class 1: normal first: `U'`, then on inverse `(L2 U' L2 U R2 U' F2 U' L2 B2 D2 L2 F2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U' F2 L2 D2 B2 L2 U F2 U R2 U' L2 U L2`.
 - Class 2: inverse first: `(U2 R2 D' R2 D)`, then on normal `U R2 D B2 U' L2 F2 L2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U R2 D B2 U' L2 F2 L2 B2 D' R2 D R2 U2`.
@@ -5277,11 +5277,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | yes |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 67.0% | yes | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.9% | no | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 94.0% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 94.0% | no | yes |
 
 - Class 1: normal first: `D`, then on inverse `(R2 D' F2 R2 U L2 U' R2 U F2 L2 U2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D R2 U2 L2 F2 U' R2 U L2 U' R2 F2 D R2`.
 - Class 2: normal first: `U R2 U'`, then on inverse `(D' F2 L2 R2 U' B2 D F2 R2 D2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U R2 U' R2 D2 R2 F2 D' B2 U R2 L2 F2 D`.
@@ -5306,11 +5306,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no | no |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | yes | yes |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 67.0% | no | no |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.9% | no | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 94.0% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 94.0% | yes | yes |
 
 - Class 2: inverse first: `(U' R2 U2 F2 D)`, then on normal `F2 U' B2 U L2 D B2 L2 D2 L2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `F2 U' B2 U L2 D B2 L2 D2 L2 D' F2 U2 R2 U`.
 - Class 3: linear on the inverse: `(U' R2 U2 F2 D L2 D2 L2 B2 D' L2 U' B2 U F2)`. HTR after 14 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U' B2 U L2 D B2 L2 D2 L2 D' F2 U2 R2 U`.
@@ -5334,11 +5334,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | no | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | no |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 67.0% | yes | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 89.6% | no | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.9% | no | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 94.0% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 94.0% | no | no |
 
 - Class 1: normal first: `L2 U`, then on inverse `(D' B2 R2 U' L2 B2 U' F2 U' L2 D2 B2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `L2 U R2 B2 D2 L2 U F2 U B2 L2 U R2 B2 D`.
 - Class 2: normal first: `L2 U' F2 U2 B2 L2 D'`, then on inverse `(U R2 B2 U B2 D' F2 R2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U' F2 U2 B2 L2 D' R2 F2 D B2 U' B2 R2 U'`.
@@ -5362,11 +5362,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | yes |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 67.0% | yes | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.9% | no | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 94.0% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 94.0% | no | yes |
 
 - Class 1: normal first: `U'`, then on inverse `(U B2 U R2 B2 U B2 D L2 U2 B2 L2 R2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U' R2 L2 B2 U2 L2 D' B2 U' B2 R2 U' B2 U'`.
 - Class 2: inverse first: `(U' F2 D)`, then on normal `F2 U' B2 U' F2 L2 D' L2 B2 D2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 U' B2 U' F2 L2 D' L2 B2 D2 B2 D' F2 U`.
@@ -5391,11 +5391,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | yes | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | no |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 67.0% | no | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.9% | no | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 94.0% | yes | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 94.0% | no | no |
 
 - Class 1: normal first: `U`, then on inverse `(F2 U' F2 D' R2 D' F2 D2 B2 D R2 F2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U F2 R2 D' B2 D2 F2 D R2 D F2 U F2`.
 - Class 2: normal first: `U F2 R2 D'`, then on inverse `(F2 U' F2 D' R2 D' F2 D2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U F2 R2 D' B2 D2 F2 D R2 D F2 U F2`.
@@ -5419,11 +5419,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | yes | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | yes | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | no |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 67.0% | no | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.9% | yes | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 94.0% | yes | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 94.0% | no | no |
 
 - Class 1: normal first: `D`, then on inverse `(R2 F2 U R2 D' L2 U L2 R2 F2 U' F2 R2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D R2 F2 U F2 R2 L2 U' L2 D R2 U' F2 R2`.
 - Class 2: normal first: `D B2 D'`, then on inverse `(B2 D' F2 U R2 F2 U B2 R2 F2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D B2 D' R2 F2 R2 B2 U' F2 R2 U' F2 D B2`.
@@ -5447,11 +5447,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no | no |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | yes | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | yes |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 67.0% | no | no |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.9% | no | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 94.0% | yes | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 94.0% | no | yes |
 
 - Class 2: normal first: `U' F2 U`, then on inverse `(U B2 D' L2 R2 F2 U B2 U2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U' F2 U R2 U2 B2 U' F2 R2 L2 D B2 U'`.
 - Class 3: linear on normal: `U' F2 U R2 U2 B2 U' F2 R2 L2 D B2 U'`. HTR after 13 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U' F2 U R2 U2 B2 U' F2 R2 L2 D B2 U'`.
@@ -5475,11 +5475,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | yes | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | no |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 67.0% | yes | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.9% | no | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 94.0% | yes | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 94.0% | no | no |
 
 - Class 1: normal first: `F2 U'`, then on inverse `(D' R2 B2 U B2 U' F2 R2 U' B2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `F2 U' R2 B2 U R2 F2 U B2 U' B2 R2 D`.
 - Class 2: normal first: `F2 U' R2 B2 U`, then on inverse `(D' R2 B2 U B2 U' F2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `F2 U' R2 B2 U R2 F2 U B2 U' B2 R2 D`.
@@ -5503,11 +5503,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | no | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | yes | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | no |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 67.0% | no | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 89.6% | no | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.9% | yes | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 94.0% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 94.0% | no | no |
 
 - Class 1: normal first: `D2 L2 F2 U'`, then on inverse `(F2 D R2 U' L2 D B2 L2 D B2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D2 L2 F2 U' B2 D' L2 B2 D' L2 U R2 D' F2`.
 - Class 2: normal first: `D2 L2 F2 U' B2 D'`, then on inverse `(F2 D R2 U' L2 D B2 L2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D2 L2 F2 U' B2 D' L2 B2 D' L2 U R2 D' F2`.
@@ -5531,11 +5531,11 @@ Each row is the next class of the subset's checklist: the share of the subset's 
 
 | # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
 |---:|---|---:|---|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes | yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | no | yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no | yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | no |
+| 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 67.0% | yes | yes |
+| 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 89.6% | no | yes |
+| 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 93.9% | no | yes |
+| 4 | `4b5 2c4 2c3 4b2 (4a1 0c0)` | 94.0% | no | yes |
+| 5 | `4b5 2c4 (4b3 4a2 4a1 0c0)` | 94.0% | no | no |
 
 - Class 1: normal first: `F2 L2 U`, then on inverse `(U' F2 D B2 U' L2 U' B2 R2 U2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 L2 U R2 U2 R2 B2 U L2 U B2 D' F2 U`.
 - Class 2: normal first: `F2 L2 U R2 U2 R2 B2 U`, then on inverse `(U' F2 D B2 U' L2)`. HTR after 13 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 L2 U R2 U2 R2 B2 U L2 U B2 D' F2 U`.

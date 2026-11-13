@@ -291,6 +291,8 @@ The bounding lines give the shortest reduction that keeps an optimal finish: mov
 
 """
 page = head + '\n'.join(parts)
+sys.path.insert(0, os.path.join(HERE, 'report_build')); import routefmt
+page = routefmt.page(page)   # routes as `4b2 2c3 (4b2 4a1 0c0)`
 open(PAGE, 'w').write(page)
 print(f'{PAGE}: {n} states; {REPLAYED[0]:,} sticker-model checks, {len(MISMATCH)} mismatches; '
       f'1q reduction vs bounding run: {red_agree[1]}/{red_agree[0]} equal (of {n} states)')
