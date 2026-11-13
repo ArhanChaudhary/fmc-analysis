@@ -79,6 +79,17 @@ if compgen -G "tables/*.md" > /dev/null; then
     done
 fi
 
+# search: a page with the box (site/search.md, site/search.js) and an index of every listed page, section by section
+# (scripts/search-index.py; unlisted studies stay out of it, so the index can't lead to them)
+render site/search.md search.html ./ --variable is-home --variable is-search
+cp site/search.js "$output/"
+listed=()
+for writeup in */report/WRITEUP.md; do
+    study=${writeup%%/*}
+    [ -L "$study" ] || [ -f "$study/UNLISTED" ] || listed+=("$study")
+done
+python3 scripts/search-index.py "$output" "${listed[@]}"
+
 cp site/style.css "$output/"
 # a table cell left empty after the row's first filled cell shows a dash (site/tables.lua); that is right for a
 # value that doesn't apply, wrong for one a writer lost, so every such table is listed above

@@ -25,8 +25,15 @@ $if(has-errata)$
     <a href="errata.html"$if(is-errata)$ class="here"$endif$>Errata</a>
 $endif$
 $endif$
+    <a href="$root$search.html"$if(is-search)$ class="here"$endif$>Search</a>
     <a href="https://github.com/ArhanChaudhary/fmc-analysis">Source</a>
   </nav>
+$if(is-search)$
+$else$
+  <form class="search" role="search" action="$root$search.html">
+    <input type="search" name="q" placeholder="Search the site" aria-label="Search the site">
+  </form>
+$endif$
 </header>
 <div class="layout$if(is-home)$ home$elseif(toc)$$else$ notoc$endif$">
 $if(is-home)$

@@ -83,3 +83,20 @@ main .c-xl { min-width: 26rem; }
 .guide td code { white-space: normal; }
 .guide td p { margin: 0 0 .55rem; }
 .guide td p:last-child { margin-bottom: 0; }
+
+/* search: the box in the header, and the search page (site/search.md, site/search.js) */
+header.top form.search { margin-left: auto; }
+header.top form.search input { width: 12rem; max-width: 100%; }
+input[type=search] { font: inherit; color: var(--fg); background: var(--soft); border: 1px solid var(--line);
+  border-radius: 6px; padding: .3rem .6rem; }
+input[type=search]:focus { outline: 2px solid var(--link); outline-offset: -1px; }
+form.searchpage input { width: 100%; font-size: 1.05rem; padding: .5rem .7rem; }
+.search-info { color: var(--muted); font-size: .9rem; }
+ol.results { list-style: none; padding: 0; margin: 0; }
+ol.results li { margin: 0 0 1.1rem; }
+ol.results li > a { font-weight: 600; }
+ol.results .where { color: var(--muted); font-size: .85rem; }
+ol.results .snip { font-size: .92rem; overflow-wrap: anywhere; }
+mark { background: #ffe58a; color: inherit; border-radius: 2px; }
+@media (prefers-color-scheme: dark) { mark { background: #6b5a12; } }
+@media (max-width: 40rem) { header.top form.search { margin-left: 0; width: 100%; } header.top form.search input { width: 100%; } }
