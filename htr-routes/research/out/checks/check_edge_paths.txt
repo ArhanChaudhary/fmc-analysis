@@ -1,0 +1,28 @@
+states 25235 (the first 25000 of 2c4 2e, the first 5 of every other subset x edges)
+states: 25235
+nissy optimum = edgepaths optimum: 25235
+finish count = htrtools count: 25235
+finishes replayed: 322155
+edge-path sets and HTR lengths equal: 25235
+failures: 0
+
+2c4 2e: share of DRs with some optimal finish of each form (forms with >= 1% on all states)
+form	sticker, checked states	edgepaths, same states	edgepaths, all 25000
+2c4 2e > 2c3 4e > 4b2 2e > 4a1 4e > HTR	0.4088	0.4088	0.4088
+2c4 2e > 2c3 2e > 4b2 2e > 4a1 4e > HTR	0.3948	0.3948	0.3948
+2c4 2e > 2c3 4e > 4b2 4e > 4a1 4e > HTR	0.3127	0.3127	0.3127
+2c4 2e > 2c3 2e > 4b2 4e > 4a1 4e > HTR	0.2139	0.2139	0.2139
+2c4 2e > 4b3 4e > 4a2 4e > 4a1 4e > HTR	0.1465	0.1465	0.1465
+2c4 2e > 4b3 2e > 4a2 4e > 4a1 4e > HTR	0.1202	0.1202	0.1202
+2c4 2e > 2c3 6e > 4b2 2e > 4a1 4e > HTR	0.1048	0.1048	0.1048
+2c4 2e > 2c3 6e > 4b2 4e > 4a1 4e > HTR	0.0921	0.0921	0.0921
+2c4 2e > 2c3 4e > 4b2 0e > 4a1 4e > HTR	0.0310	0.0310	0.0310
+2c4 2e > 2c3 4e > 4b2 4e > 2c3 4e > 4b2 2e > 4a1 4e > HTR	0.0182	0.0182	0.0182
+2c4 2e > 2c3 4e > 4b2 4e > 2c3 2e > 4b2 2e > 4a1 4e > HTR	0.0176	0.0176	0.0176
+2c4 2e > 4b5 2e > 2c4 4e > 2c3 4e > 4b2 2e > 4a1 4e > HTR	0.0164	0.0164	0.0164
+2c4 2e > 2c5 4e > 2c4 4e > 2c3 2e > 4b2 2e > 4a1 4e > HTR	0.0126	0.0126	0.0126
+2c4 2e > 4b5 4e > 2c4 4e > 2c3 2e > 4b2 2e > 4a1 4e > HTR	0.0124	0.0124	0.0124
+2c4 2e > 2c3 2e > 4b2 2e > 4a1 4e > 0c0 0e > 4a1 4e > HTR	0.0117	0.0117	0.0117
+2c4 2e > 4b5 2e > 2c4 2e > 2c3 2e > 4b2 2e > 4a1 4e > HTR	0.0115	0.0115	0.0115
+2c4 2e > 4b5 2e > 2c4 4e > 2c3 2e > 4b2 2e > 4a1 4e > HTR	0.0112	0.0112	0.0112
+2c4 2e > 2c3 2e > 4b2 2e > 2c3 2e > 4b2 2e > 4a1 4e > HTR	0.0110	0.0110	0.0110

@@ -151,3 +151,25 @@ def ESA(tg, which, i): return pc(E['es']['all'][tg][which][i])
 def ESM(k, tg='opt'): return str(E['es']['all'][tg]['match1'].get(str(k), 0))
 def ESL(f, tg='opt'): return [k.split('|')[0] for k, v in E['es']['ref'].items() if k.endswith('|' + tg) and f(v)]
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}
+# edge paths of the finish, read forward (edge_paths.py, xedgepaths.py)
+def _ep(): return _j('edge_paths_extra.json')
+_EPX = []
+def EPX():
+    if not _EPX: _EPX.append(_ep())
+    return _EPX[0]
+def EPP(s, path, tg='opt'):
+    """share of DRs of subset x edges s with a finish of form `path` ('2c4 2e > 2c3 2e > ... > HTR'); 0 if under 0.1%"""
+    r = [r for r in _tsv('edge_paths.tsv') if r['subset'] == s and r['target'] == tg and r['path'] == path]
+    return pc(r[0]['share']) if r else '0%'
+def EPT(s, rank, col='share', tg='opt'):
+    v = EPX()['top'][f'{s}|{tg}|{rank}'][col]
+    return v if col == 'path' else pc(v)
+def EPS1(s, nxt, e='any', tg='opt'): return pc(EPX()['step1'][f'{s}|{tg}|{nxt}'][e])
+def EPS2(s, first, nxt, e='any', tg='opt'): return pc(EPX()['step2'][f'{s}|{tg}|{first}|{nxt}'][e])
+def EPN80(s, tg='opt'): return str(EPX()['need80'][f'{s}|{tg}'])
+def EPM(s, col): return EPX()['meta'][s][col]
+def EPW(*path):
+    v = EPX()['witness']
+    for p in path: v = v[p]
+    return v
+ENV = {k: v for k, v in globals().items() if not k.startswith('_')}

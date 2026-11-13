@@ -22,6 +22,7 @@ mod model;
 mod routes;
 mod cmds;
 mod bounding;
+mod edgepaths;
 
 const USAGE: &str = "\
 usage: htrtools <command> ...
@@ -44,6 +45,7 @@ usage: htrtools <command> ...
   lsdist <ls_depth.u8>                            leave-slice distance histogram per 48-subset over every DR state
   alpha                                           stdin: corner paths (subset indices a-b-c); FakeMMAP's section bounds
   redcount2 <exact.u8> <n> <seed> <rmax> <out>    reductions to 1q / 2q a solver writes, by length (coset tables)
+  edgepaths <exact.u8> <statesdir> <outdir> <subsets>  linear normal-side edge paths of every finish <= opt + 1
   nisshtr <exact.u8>                              stdin: DR scrambles; subset, labels, optimum, shortest linear HTR (normal, inverse), NISS HTR
 Threads: RAYON_NUM_THREADS.";
 
@@ -75,6 +77,7 @@ fn main() {
         ["redcount2", ex, n, seed, r, out] => {
             bounding::redcount2(ex, n.parse().unwrap(), seed.parse().unwrap(), r.parse().unwrap(), out)
         }
+        ["edgepaths", ex, st, out, subs] => edgepaths::edgepaths(ex, st, out, subs),
         ["tie", ex, n, seed, out] => cmds::tie(ex, n.parse().unwrap(), seed.parse().unwrap(), out),
         _ => {
             eprintln!("{}", USAGE);

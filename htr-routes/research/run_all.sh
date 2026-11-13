@@ -42,6 +42,12 @@ $CAP python3 routes_analysis.py      # Q1, Q2, Q5 per route class
 python3 checklist_cost.py            # Q2 with HTR budgets (the main checklist), mirror aliases
 python3 edge_gain.py                # what the edge count is worth: own vs pooled checklists
 $CAP python3 edge_steps.py           # edge counts along the route (H keys), edge-path checklists
+$CAP ../htrtools/target/release/htrtools edgepaths $D/lean_exact_table.u8 ../out/big/run1 ../out/big/edgepaths \
+    $(ls ../out/big/run1/states_*.tsv | sed 's#.*/states_##; s#\.tsv##' | paste -sd,)   # forms of the finish read forward
+$CAP python3 edge_paths.py           # forms, first / second quarter-turn splits (out/edge_paths*.tsv)
+$CAP python3 check_edge_paths.py ../out/big/edgepaths ../out/big/run1 ../htrtools/target/release/htrtools $D/lean_exact_table.u8 2c4_2e 25000
+$CAP python3 edge_paths_witness.py ../out/big/edgepaths ../out/big/run1 ../htrtools/target/release/htrtools $D/lean_exact_table.u8
+python3 xedgepaths.py                # its tables (report/data/edge_paths_*.md)
 python3 alias_check.py               # mirror pairs cover the same states
 python3 check_redcount7.py           # reduction counts vs brute force, r <= 7
 python3 compare_docs.py doc171       # doc 171 (full finish and leave slice)

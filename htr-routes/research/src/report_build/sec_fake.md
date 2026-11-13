@@ -94,7 +94,7 @@ Its finish, read as the tables above:
 |---|---|---|---|---|
 | 0c3 > 4a2 > 4a1 > HTR | 0, 3, 3, 0 | {= WIT('W14', 'optimal') =} | {= ', '.join(map(str, SECTIONS(WIT('W14', 'optimal_finish')))) =} | {= ', '.join(map(str, WINDOWS(WIT('W14', 'optimal_finish')))) =} |
 
-Term 2 with $S = \{0, 2\}$ as printed gives {= f1(T2(14, 3, [0, 2], [0, 3, 3, 0])) =}, so 6. Derived, it gives {= f1(T2(14, 3, [0, 2], [0, 3, 3, 0], True)) =}, so 7. The arithmetic from the sections on is checked in Lean (`witness_0c3`); the state's optimum and its paths come from the exact table and the sample, not from Lean.
+Term 2 with $S = \{0, 2\}$ as printed gives {= f1(T2(14, 3, [0, 2], [0, 3, 3, 0])) =}, so 6. Derived, it gives {= f1(T2(14, 3, [0, 2], [0, 3, 3, 0], True)) =}, so 7. The arithmetic from the sections on is checked in Lean (`witness_0c3`); the state's optimum and its paths come from the exact table and two independent enumerations, not from Lean.
 
 The other choices are readings, not corrections:
 

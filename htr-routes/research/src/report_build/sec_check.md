@@ -2,11 +2,65 @@
 
 This is the main table. There's a checklist for every subset × edges, not just per corner subset, because the bad-edge count changes which routes are good (how much is measured below). Sampled, {= n(25000) =} states per subset × edges. Brackets are the part after the NISS switch, and a route ends at HTR (`0c0`). All 8 routes with their cumulative shares at the optimum and at +1, plus the no-limit lists, are in appendix A.
 
-Each row is a subset × edges and the first three routes of its budget-2 checklist, in the order to try them:
+One table per corner subset. You check the corner route; the edge counts show what you'll pass on the way. Each row is a subset × edges and one of the first three routes of its budget-2 checklist, in the order to try them. Every share is of all the DRs of that subset × edges:
 
-{{checklist_edges}}
+- *Route finds the optimal*: the route alone finds an optimal finish, with an HTR at most two over the shortest.
+- *Most common edge path*: the same route with the edge count at every step, the one that finds the optimal on the most DRs; *Along that path* is how many.
+- *Forks at*: the first step where no one edge count carries 80% of the route's DRs, counted in quarter turns from the start across both sides. The last columns are the DRs where the route finds the optimal with that edge count there. A DR can have it with two, so they overlap. *none* means one edge count carries 80% or more at every step; – means the route doesn't fork or the subset has no such edge count.
 
-How far those routes get, same rows: the share of DRs where the first 1, 2, 3 or 5 routes find an optimal finish, and where the first three find a finish within +1:
+The mirror of each route (the same moves started on the other side) is in the full lists in appendix A.
+
+0c0:
+
+{{checklist_edges_0c0}}
+
+2c5:
+
+{{checklist_edges_2c5}}
+
+2c4:
+
+{{checklist_edges_2c4}}
+
+0c3:
+
+{{checklist_edges_0c3}}
+
+4a2:
+
+{{checklist_edges_4a2}}
+
+4a1:
+
+{{checklist_edges_4a1}}
+
+2c3:
+
+{{checklist_edges_2c3}}
+
+0c4:
+
+{{checklist_edges_0c4}}
+
+4c3 (the start is 4a3 or 4b3, whichever side the route starts on):
+
+{{checklist_edges_4c3}}
+
+4c4 (4a4 or 4b4 the same way):
+
+{{checklist_edges_4c4}}
+
+4b2:
+
+{{checklist_edges_4b2}}
+
+4b5:
+
+{{checklist_edges_4b5}}
+
+On 2c4 2e, 4e and 6e every one of the first three routes forks at the first quarter turn: 2c3 4e a bit more often than 2c3 2e, 2c3 6e much less. On 2c4 0e and 8e the 2c3 is always 2c3 4e. The forward reading of the optimal finish, with no route or budget, is further down (*Edge paths of the finish*).
+
+How far those routes get, same subsets × edges: the share of DRs where the first 1, 2, 3 or 5 routes find an optimal finish, and where the first three find a finish within +1:
 
 {{checklist_edges_shares}}
 
@@ -181,5 +235,50 @@ Two more replayed examples, the first route on 2c4 and the 4b2 regression. The f
 {= WIT('W03', 'normal_moves') =} // to 2c3, switch
 ({= WIT('W03', 'inverse_moves') =}) // then inverse
 ```
+
+**Edge paths of the finish.** Everything above reads routes with NISS. The other question is what the optimal finish itself looks like, written forward, with the edge count at every step. Call that its *form*: the subset × edges at the start and after each quarter turn, up to the first state in HTR, like 2c4 2e > 2c3 2e > 4b2 2e > 4a1 4e > HTR. Definitions:
+
+- The form is read off the finish on normal, start to end, with no NISS and no inverse reading. What happens after HTR doesn't count.
+- A DR *has* a form if some optimal finish has it, with any HTR length. Budget 2 doesn't fit here: a linear HTR is usually more than two moves longer than the shortest NISS HTR, so with budget 2 the top form on 2c4 2e drops from {= EPT('2c4 2e', 1) =} to {= EPP('2c4 2e', EPT('2c4 2e', 1, 'path'), 'opt2') =}.
+- One DR usually has several optimal finishes with different forms: {= f2(EPM('2c4 2e', 'mean_forms')) =} forms per DR on average on 2c4 2e, and only {= pc(EPM('2c4 2e', 'one_form')) =} have just one. So the shares in a row overlap and add up to more than 100%.
+- Sampled, {= n(25000) =} DRs per subset × edges. A 40% share carries a standard error of about {= SE(0.4, 25000) =} points.
+
+One 2c4 2e DR, two optimal finishes, two forms, replayed:
+
+```
+{= EPW('scramble') =} // 2c4 2e, {= EPW('optimal') =} optimal
+{= EPW('forms', 0, 'steps', 0, 'moves') =} // {= EPW('forms', 0, 'steps', 0, 'reaches') =}
+{= EPW('forms', 0, 'steps', 1, 'moves') =} // {= EPW('forms', 0, 'steps', 1, 'reaches') =}
+{= EPW('forms', 0, 'steps', 2, 'moves') =} // {= EPW('forms', 0, 'steps', 2, 'reaches') =}
+{= EPW('forms', 0, 'steps', 3, 'moves') =} // {= EPW('forms', 0, 'steps', 3, 'reaches') =} in {= EPW('forms', 0, 'htr_length') =}
+{= EPW('forms', 0, 'after_htr') =} // solved
+```
+
+```
+{= EPW('scramble') =} // the same DR
+{= EPW('forms', 1, 'steps', 0, 'moves') =} // {= EPW('forms', 1, 'steps', 0, 'reaches') =}
+{= EPW('forms', 1, 'steps', 1, 'moves') =} // {= EPW('forms', 1, 'steps', 1, 'reaches') =}
+{= EPW('forms', 1, 'steps', 2, 'moves') =} // {= EPW('forms', 1, 'steps', 2, 'reaches') =}
+{= EPW('forms', 1, 'steps', 3, 'moves') =} // {= EPW('forms', 1, 'steps', 3, 'reaches') =} in {= EPW('forms', 1, 'htr_length') =}
+{= EPW('forms', 1, 'after_htr') =} // solved
+```
+
+The most common forms. Each row is a subset × edges and one of its three most common forms: the share of DRs with an optimal finish of that form, the share with at least one of the forms down to that rank, and how many forms (most common first) it takes to cover 80% of DRs:
+
+{{edge_paths_top}}
+
+- Every form ends 4a1 4e > HTR: the last quarter turn into HTR always comes from 4a1 4e.
+- On 2c4 2e the top two forms, {= EPT('2c4 2e', 1, 'path') =} ({= EPT('2c4 2e', 1) =}) and {= EPT('2c4 2e', 2, 'path') =} ({= EPT('2c4 2e', 2) =}), differ only in the 2c3.
+- Where the finish has the most ways to go, the forms spread out: on 4c4 4e the top three cover only {= EPT('4c4 4e', 3, 'union') =}.
+
+**Where the first quarter turn goes.** This answers *from 2c4, how often 2c3 2e vs 2c3 4e vs 2c3 6e*. Each row is a starting subset × edges and the corner subset its first quarter turn most often goes to. The first share is the DRs with an optimal finish that can go there; the others are the DRs that can go there with each edge count. A DR that can go there with two edge counts is counted in both. – means the subset has no such edge count; 0% means none in the sample:
+
+{{edge_paths_step1}}
+
+So from 2c4 2e the first quarter turn can reach 2c3 on {= EPS1('2c4 2e', '2c3') =} of DRs: 2c3 2e on {= EPS1('2c4 2e', '2c3', '2e') =}, 2c3 4e on {= EPS1('2c4 2e', '2c3', '4e') =}, 2c3 6e on {= EPS1('2c4 2e', '2c3', '6e') =}. On 2c4 4e it's {= EPS1('2c4 4e', '2c3', '2e') =}, {= EPS1('2c4 4e', '2c3', '4e') =} and {= EPS1('2c4 4e', '2c3', '6e') =}. From 2c4 0e and 2c4 8e it's 2c3 4e on every sampled DR, so there's nothing to choose. (The few 2c4 0e and 8e DRs that can pass 2c3 2e in the *can pass* table above reach it later in the route, not with the first quarter turn.) Every other corner subset the first quarter turn can reach, down to 0.5%, is in appendix A.
+
+The same split one step later, on the route. Of the 2c4 2e DRs whose optimal finish can go to 2c3 2e, {= EPS2('2c4 2e', '2c3 2e', '4b2', '2e') =} can go on to 4b2 2e and {= EPS2('2c4 2e', '2c3 2e', '4b2', '4e') =} to 4b2 4e. Through 2c3 4e it's {= EPS2('2c4 2e', '2c3 4e', '4b2', '2e') =} and {= EPS2('2c4 2e', '2c3 4e', '4b2', '4e') =}, plus {= EPS2('2c4 2e', '2c3 4e', '4b2', '0e') =} to 4b2 0e. A DR that starts on 2c3 is the table's own 2c3 rows: from 2c3 2e, 4b2 2e on {= EPS1('2c3 2e', '4b2', '2e') =} and 4b2 4e on {= EPS1('2c3 2e', '4b2', '4e') =}. Appendix A has every second step taken by at least 10% of the DRs that took the first step, the forms down to 2%, and the same tables within +1.
+
+**How this fits the checklist.** The checklist ranks corner routes, because that's what you check by hand; its tables and these say what the edge counts do along the way. Take 2c4 2e, whose first route is {= BUD('2c4 2e', '2', 1, 'class') =}. Its first step is a qt to 2c3 on the side you start on. Read forward from that side, that's the first step of the forms above, so the split is the same kind: 2c3 4e a bit more often than 2c3 2e, 2c3 6e much less. The numbers differ because they count different things. The checklist table counts DRs where that one route finds the optimal within budget 2 ({= pc(EPX()['ck']['2c4 2e|1']['2e']) =} through 2c3 2e, {= pc(EPX()['ck']['2c4 2e|1']['4e']) =} through 2c3 4e). The table here counts DRs where any optimal finish, with any HTR length, goes there ({= EPS1('2c4 2e', '2c3', '2e') =} and {= EPS1('2c4 2e', '2c3', '4e') =}). (A DR and its inverse are in the same subset × edges everywhere except 4c3 and 4c4, where a and b swap, so the table holds on either side.) After the switch the route is read on inverse, and the later columns describe the finish written forward, not the inverse side. Neither edge count is common enough to aim for, so as above: check the corner route and take whatever edge count you land on.
 
 **The last DR move** shifts every route about equally and changes no checklist (section 7).

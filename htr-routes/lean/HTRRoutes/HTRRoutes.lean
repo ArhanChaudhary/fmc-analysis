@@ -10,4 +10,6 @@ import HTRRoutes.Model
 import HTRRoutes.HtrTheorems
 import HTRRoutes.CornerTheorems
 import HTRRoutes.CosetTheorems
+import HTRRoutes.QtCosets
+import HTRRoutes.QtCosetTheorems
 import HTRRoutes.Audit

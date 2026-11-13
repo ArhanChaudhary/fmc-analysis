@@ -96,7 +96,7 @@ On 2c5, 0c3, 0c4, 4c3, 4c4 and 4b2 the pooled list loses at most 4.2 points (sec
 | 2c3 2e | 69.2% | 46.3% |
 | 2c3 0e | 58.3% | 88.6% |
 
-The 4a1 before HTR is 4a1 4e, the 4a2 is 4a2 4e (94.6%), and 2c3 is 4e, 2e or 6e. Aiming for one edge count at each step doesn't give a better checklist, though: the first edge path finds 39.4% of DRs against 61.3% for the first corner route, because on 2c5 2e to 6e, 4b5 2e and 4e, and 4c4 2e and 4e one corner route is many edge paths. Per-step edge checklists are computer only (section 4).
+The 4a1 before HTR is always 4a1 4e (proved in Lean), the 4a2 is 4a2 4e (94.6%), and 2c3 is 4e, 2e or 6e. Aiming for one edge count at each step doesn't give a better checklist, though: the first edge path finds 39.4% of DRs against 61.3% for the first corner route, because on 2c5 2e to 6e, 4b5 2e and 4e, and 4c4 2e and 4e one corner route is many edge paths. Per-step edge checklists are computer only (section 4).
 
 **The HTR budget is what a checklist is really about, not the route.** A NISS reading of a finish is also a linear finish, so *some optimal follows this route* barely separates routes. The share of a corner subset's DRs the best single route covers, lowest to highest corner subset, per budget:
 
@@ -359,7 +359,7 @@ By the DR-move optimum (uniform, weighted by exact subset size). Each row is a D
 
 **Checklist.** For a subset × edges (or a corner subset with its edge counts pooled by their exact sizes), the routes in greedy order: first the route that works on the most states, then the one that adds the most states not yet covered, and so on. The cumulative share after k routes is the share of DRs where at least one of the first k finds an optimal finish (or within +1). Greedy is close to the best possible set (tested with no HTR limit): among the top 25 to 40 routes, the best set of 1 to 4 routes beats greedy by at most 0.5 points in 2,192 of 2,208 cases, and by 1.8 points at worst.
 
-**Reduction (bounding).** A reduction to 1q is a pair of sequences, P on normal and U on inverse, each empty or ending in a quarter turn, after which the state (inverse of U, then the scramble, then P) is 4a1 4e, so one more quarter turn and half turns finish it. Its length is |P| + |U|. A reduction to 2q ends in a state that a finish with exactly two quarter turns solves (4a2, 4b2, or 0c0 with bad edges). Bounding with threshold R means writing every reduction of length at most R and finishing each reduced state as well as it can be finished. *Bounding finds the optimal* means that some reduction of length at most R plus the optimal finish of the reduced state is an optimal finish of the DR. That is the best a solver can get from those reductions; the bound arithmetic in the bounding docs only decides the order and when to stop.
+**Reduction (bounding).** A reduction to 1q is a pair of sequences, P on normal and U on inverse, each empty or ending in a quarter turn, after which the state (inverse of U, then the scramble, then P) is 4a1 4e, so one more quarter turn and half turns finish it (4a1 4e is exactly the set of DRs one quarter turn and half turns finish, proved in Lean over all 29,400 HTR cosets: `qt1_is_4a1_4e`). Its length is |P| + |U|. A reduction to 2q ends in a state that needs exactly two quarter turns: 4a2, 4b2, or 0c0 that isn't HTR, which is 0c0 with bad edges and the U D' kind of 0c0 0e (`qt2_cosets`). Bounding with threshold R means writing every reduction of length at most R and finishing each reduced state as well as it can be finished. *Bounding finds the optimal* means that some reduction of length at most R plus the optimal finish of the reduced state is an optimal finish of the DR. That is the best a solver can get from those reductions; the bound arithmetic in the bounding docs only decides the order and when to stop.
 
 **The last DR move.** If the DR ends in a quarter turn of a side face (R, say), R' is also a DR, and its state is X·R2. *With the last move either way* takes the better of X and X·R2, as in the first study.
 
@@ -371,60 +371,221 @@ By the DR-move optimum (uniform, weighted by exact subset size). Each row is a D
 
 This is the main table. There's a checklist for every subset × edges, not just per corner subset, because the bad-edge count changes which routes are good (how much is measured below). Sampled, 25,000 states per subset × edges. Brackets are the part after the NISS switch, and a route ends at HTR (`0c0`). All 8 routes with their cumulative shares at the optimum and at +1, plus the no-limit lists, are in appendix A.
 
-Each row is a subset × edges and the first three routes of its budget-2 checklist, in the order to try them:
+One table per corner subset. You check the corner route; the edge counts show what you'll pass on the way. Each row is a subset × edges and one of the first three routes of its budget-2 checklist, in the order to try them. Every share is of all the DRs of that subset × edges:
 
-| Subset | Try first | Then | Then |
-|---|---|---|---|
-| 0c0 0e | `0c0 4a1 0c0` | `0c0` | `0c0 \| qt` |
-| 0c0 2e | `0c0 4a1 0c0` | `0c0 4a1 0c0 4a1 (0c0)` (mirror: `0c0 4a1 (4a2 4a1 0c0)`) | `0c0 4a1 (0c0)` |
-| 0c0 4e | `0c0 4a1 0c0` | `0c0 4a1 (0c0)` | `0c0 4a1 4b2 4a1 0c0` |
-| 0c0 6e | `0c0 4a1 (0c0)` | `0c0 4a1 0c0 4a1 (0c0)` (mirror: `0c0 4a1 (4a2 4a1 0c0)`) | `0c0 4a1 (0c0 4a1 0c0)` (mirror: `0c0 4a1 4b2 4a1 (0c0)`) |
-| 0c0 8e | `0c0 4a1 (0c0)` | `0c0 4a1 0c0` | `0c0 4a1 0c0 4a1 (0c0)` (mirror: `0c0 4a1 (4a2 4a1 0c0)`) |
-| 2c5 0e | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) | `2c5 2c4 2c3 4b2 4a1 0c0` |
-| 2c5 2e | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | `2c5 2c4 2c3 4b2 4a1 0c0` | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) |
-| 2c5 4e | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | `2c5 2c4 2c3 4b2 4a1 0c0` | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) |
-| 2c5 6e | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | `2c5 2c4 2c3 4b2 4a1 0c0` | `2c5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c5 2c4 2c3 4b2 4a1 (0c0)`) |
-| 2c5 8e | `2c5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c5 4b4 4a3 4b2 (4a1 0c0)`) | `2c5 2c4 2c3 4b2 4a1 (0c0)` (mirror: `2c5 2c4 (2c3 4b2 4a1 0c0)`) | `2c5 2c4 2c3 4b2 4a1 0c0` |
-| 2c4 0e | `2c4 2c3 4b2 4a1 0c0` | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) |
-| 2c4 2e | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | `2c4 2c3 4b2 4a1 0c0` | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) |
-| 2c4 4e | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | `2c4 2c3 4b2 4a1 0c0` | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) |
-| 2c4 6e | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | `2c4 2c3 4b2 4a1 0c0` | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) |
-| 2c4 8e | `2c4 2c3 (4b2 4a1 0c0)` (mirror: `2c4 4b3 4a2 4a1 (0c0)`) | `2c4 2c3 4b2 (4a1 0c0)` (mirror: `2c4 4b3 4a2 (4a1 0c0)`) | `2c4 2c3 4b2 4a1 0c0` |
-| 0c3 0e | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | `0c3 4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4b3 2c4 (2c3 4b2 4a1 0c0)`) |
-| 0c3 2e | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | `0c3 4a2 4a1 0c0` |
-| 0c3 4e | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | `0c3 4a2 4b3 (4b2 4a1 0c0)` (mirror: `0c3 4a2 4a1 4b2 (4a1 0c0)`) |
-| 0c3 6e | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | `0c3 4a2 4a1 0c0` |
-| 0c3 8e | `0c3 4a2 (4a1 0c0)` (mirror: `0c3 4a2 4a1 (0c0)`) | `0c3 4a2 4b3 4a2 4a1 (0c0)` (mirror: `0c3 4a2 (4a1 4b2 4a1 0c0)`) | `0c3 4a4 4b5 2c4 2c3 4b2 (4a1 0c0)` (mirror: `0c3 4a4 4b5 (2c4 2c3 4b2 4a1 0c0)`) |
-| 4a2 0e | `4a2 4b3 4a2 4a1 (0c0)` (mirror: `4a2 4a1 (4b2 4a1 0c0)`) | `4a2 4a1 4b2 4a1 0c0` | `4a2 4a1 (0c0)` |
-| 4a2 2e | `4a2 4b3 4a2 4a1 (0c0)` (mirror: `4a2 4a1 (4b2 4a1 0c0)`) | `4a2 4a1 (0c0)` | `4a2 4a1 4b2 4a1 0c0` |
-| 4a2 4e | `4a2 4a1 0c0` | `4a2 4b3 4a2 4a1 (0c0)` (mirror: `4a2 4a1 (4b2 4a1 0c0)`) | `4a2 4a1 4b2 4a1 0c0` |
-| 4a1 0e | `4a1 0c0 (4a1 0c0)` (mirror: `4a1 4a2 4a1 (0c0)`) | `4a1 4b2 2c3 4b2 4a1 (0c0)` (mirror: `4a1 4b2 (2c3 4b2 4a1 0c0)`) | `4a1 0c0 4a1 (0c0)` (mirror: `4a1 4a2 (4a1 0c0)`) |
-| 4a1 2e | `4a1 4b2 4a1 0c0` | `4a1 0c0 4a1 0c0` | `4a1 0c0 (4a1 0c0)` (mirror: `4a1 4a2 4a1 (0c0)`) |
-| 4a1 4e | `4a1 0c0` | `4a1 4b2 4a1 0c0` | `4a1 0c0 (4a1 0c0)` (mirror: `4a1 4a2 4a1 (0c0)`) |
-| 2c3 0e | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) | `2c3 2c4 (2c3 4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 4a1 (0c0)`) |
-| 2c3 2e | `2c3 4b2 4a1 0c0` | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) |
-| 2c3 4e | `2c3 4b2 4a1 0c0` | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) |
-| 2c3 6e | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | `2c3 4b2 4a1 0c0` | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) |
-| 2c3 8e | `2c3 4b2 (4a1 0c0)` (mirror: `2c3 4b2 4a1 (0c0)`) | `2c3 4b2 (2c3 4b2 4a1 0c0)` (mirror: `2c3 2c4 2c3 4b2 4a1 (0c0)`) | `2c3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `2c3 4b2 2c3 4b2 (4a1 0c0)`) |
-| 0c4 0e | `0c4 4a3 4b2 (4a1 0c0)` | `0c4 4a3 4b2 4a1 0c0` | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) |
-| 0c4 2e | `0c4 4a3 4b2 (4a1 0c0)` | `0c4 4a3 4b2 4a1 0c0` | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `0c4 4a3 (2c4 2c3 4b2 4a1 0c0)`) |
-| 0c4 4e | `0c4 4a3 4b2 (4a1 0c0)` | `0c4 4a3 4b2 4a1 0c0` | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) |
-| 0c4 6e | `0c4 4a3 4b2 (4a1 0c0)` | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `0c4 4a3 (2c4 2c3 4b2 4a1 0c0)`) |
-| 0c4 8e | `0c4 4a3 4b2 (4a1 0c0)` | `0c4 4a3 (4a2 4a1 0c0)` (mirror: `0c4 4a3 4b2 4a1 (0c0)`) | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` (mirror: `0c4 4a3 (2c4 2c3 4b2 4a1 0c0)`) |
-| 4c3 0e | `4a3 4b2 (4a1 0c0)` (mirror: `4b3 4a2 4a1 (0c0)`) | `4a3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b3 2c4 2c3 4b2 (4a1 0c0)`) | `4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4a3 0c4 4a3 4b2 (4a1 0c0)`) |
-| 4c3 2e | `4a3 4b2 (4a1 0c0)` (mirror: `4b3 4a2 4a1 (0c0)`) | `4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4a3 0c4 4a3 4b2 (4a1 0c0)`) | `4a3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b3 2c4 2c3 4b2 (4a1 0c0)`) |
-| 4c3 4e | `4a3 4b2 (4a1 0c0)` (mirror: `4b3 4a2 4a1 (0c0)`) | `4b3 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4a3 0c4 4a3 4b2 (4a1 0c0)`) | `4a3 4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b3 2c4 2c3 4b2 (4a1 0c0)`) |
-| 4c4 0e | `4b4 4a3 4b2 (4a1 0c0)` (mirror: `4a4 0c3 4a2 (4a1 0c0)`) | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b4 2c5 4b4 4a3 (4a2 4a1 0c0)`) | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` (mirror: `4a4 4a3 4b2 2c3 4b2 4a1 (0c0)`) |
-| 4c4 2e | `4b4 4a3 4b2 (4a1 0c0)` (mirror: `4a4 0c3 4a2 (4a1 0c0)`) | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b4 4a3 0c4 4a3 4b2 (4a1 0c0)`) | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b4 2c5 4b4 4a3 (4a2 4a1 0c0)`) |
-| 4c4 4e | `4b4 4a3 4b2 (4a1 0c0)` (mirror: `4a4 0c3 4a2 (4a1 0c0)`) | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b4 4a3 0c4 4a3 4b2 (4a1 0c0)`) | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b4 2c5 4b4 4a3 (4a2 4a1 0c0)`) |
-| 4b2 0e | `4b2 4a1 0c0` | `4b2 2c3 4b2 (4a1 0c0)` (mirror: `4b2 4a1 0c0 (4a1 0c0)`) | `4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b2 2c3 4b2 4a1 (0c0)`) |
-| 4b2 2e | `4b2 4a1 0c0` | `4b2 2c3 4b2 4a1 (0c0)` (mirror: `4b2 2c3 (4b2 4a1 0c0)`) | `4b2 4a1 (0c0)` |
-| 4b2 4e | `4b2 4a1 0c0` | `4b2 2c3 (4b2 4a1 0c0)` (mirror: `4b2 2c3 4b2 4a1 (0c0)`) | `4b2 2c3 4b2 4a1 0c0` |
-| 4b5 0e | `4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b5 2c4 4b3 4a2 (4a1 0c0)`) | `4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 4a1 (0c0)`) | `4b5 2c4 2c3 4b2 4a1 0c0` |
-| 4b5 2e | `4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 4a1 (0c0)`) | `4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b5 2c4 4b3 4a2 (4a1 0c0)`) | `4b5 2c4 2c3 4b2 4a1 0c0` |
-| 4b5 4e | `4b5 2c4 (2c3 4b2 4a1 0c0)` (mirror: `4b5 2c4 2c3 4b2 4a1 (0c0)`) | `4b5 2c4 2c3 (4b2 4a1 0c0)` (mirror: `4b5 2c4 4b3 4a2 (4a1 0c0)`) | `4b5 2c4 2c3 4b2 4a1 0c0` |
+- *Route finds the optimal*: the route alone finds an optimal finish, with an HTR at most two over the shortest.
+- *Most common edge path*: the same route with the edge count at every step, the one that finds the optimal on the most DRs; *Along that path* is how many.
+- *Forks at*: the first step where no one edge count carries 80% of the route's DRs, counted in quarter turns from the start across both sides. The last columns are the DRs where the route finds the optimal with that edge count there. A DR can have it with two, so they overlap. *none* means one edge count carries 80% or more at every step; – means the route doesn't fork or the subset has no such edge count.
 
-How far those routes get, same rows: the share of DRs where the first 1, 2, 3 or 5 routes find an optimal finish, and where the first three find a finish within +1:
+The mirror of each route (the same moves started on the other side) is in the full lists in appendix A.
+
+0c0:
+
+| Edges | Try | Corner route | Route finds the optimal | Most common edge path | Along that path | Forks at | 0e there | 2e there | 4e there | 6e there | 8e there |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0e | 1 | `0c0 4a1 0c0` | 42.5% | `0c0 0e → 4a1 4e → HTR` | 42.5% | none | – | – | – | – | – |
+| 0e | 2 | already HTR | 41.8% | already HTR | 41.8% | none | – | – | – | – | – |
+| 0e | 3 | already HTR \| qt | 20.5% | already HTR \| qt | 20.5% | none | – | – | – | – | – |
+| 2e | 1 | `0c0 4a1 0c0` | 60.5% | `0c0 2e → 4a1 4e → HTR` | 60.5% | none | – | – | – | – | – |
+| 2e | 2 | `0c0 4a1 0c0 4a1 (0c0)` | 6.9% | `0c0 2e → 4a1 2e → 0c0 2e → 4a1 4e → (HTR)` | 4.2% | 4a1, qt 1 | 0% | 4.3% | 3.6% | – | – |
+| 2e | 3 | `0c0 4a1 (0c0)` | 27.0% | `0c0 2e → 4a1 4e → (HTR)` | 27.0% | none | – | – | – | – | – |
+| 4e | 1 | `0c0 4a1 0c0` | 44.9% | `0c0 4e → 4a1 4e → HTR` | 44.9% | none | – | – | – | – | – |
+| 4e | 2 | `0c0 4a1 (0c0)` | 21.8% | `0c0 4e → 4a1 4e → (HTR)` | 21.8% | none | – | – | – | – | – |
+| 4e | 3 | `0c0 4a1 4b2 4a1 0c0` | 6.1% | `0c0 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR` | 4.8% | none | – | – | – | – | – |
+| 6e | 1 | `0c0 4a1 (0c0)` | 40.8% | `0c0 6e → 4a1 4e → (HTR)` | 40.8% | none | – | – | – | – | – |
+| 6e | 2 | `0c0 4a1 0c0 4a1 (0c0)` | 18.8% | `0c0 6e → 4a1 2e → 0c0 6e → 4a1 4e → (HTR)` | 6.7% | 4a1, qt 1 | 0% | 9.9% | 11.5% | – | – |
+| 6e | 3 | `0c0 4a1 (0c0 4a1 0c0)` | 11.1% | `0c0 6e → 4a1 2e → (0c0 4e → 4a1 4e → HTR)` | 7.7% | 0c0, qt 2, inverse | 0% | 3.2% | 8.5% | 0% | 0% |
+| 8e | 1 | `0c0 4a1 (0c0)` | 53.5% | `0c0 8e → 4a1 4e → (HTR)` | 53.5% | none | – | – | – | – | – |
+| 8e | 2 | `0c0 4a1 0c0` | 46.6% | `0c0 8e → 4a1 4e → HTR` | 46.6% | none | – | – | – | – | – |
+| 8e | 3 | `0c0 4a1 0c0 4a1 (0c0)` | 13.1% | `0c0 8e → 4a1 4e → 0c0 8e → 4a1 4e → (HTR)` | 12.6% | none | – | – | – | – | – |
+
+2c5:
+
+| Edges | Try | Corner route | Route finds the optimal | Most common edge path | Along that path | Forks at | 0e there | 2e there | 4e there | 6e there | 8e there |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0e | 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 77.8% | `2c5 0e → 2c4 4e → 2c3 2e → (4b2 2e → 4a1 4e → HTR)` | 63.9% | none | – | – | – | – | – |
+| 0e | 2 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 37.1% | `2c5 0e → 2c4 4e → (2c3 2e → 4b2 2e → 4a1 4e → HTR)` | 19.0% | 2c3, qt 2, inverse | 0% | 21.9% | 20.1% | 2.0% | 0% |
+| 0e | 3 | `2c5 2c4 2c3 4b2 4a1 0c0` | 32.3% | `2c5 0e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR` | 22.7% | none | – | – | – | – | – |
+| 2e | 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 74.8% | `2c5 2e → 2c4 4e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 29.4% | 2c4, qt 1 | 0% | 30.9% | 46.7% | 29.7% | 0% |
+| 2e | 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 51.7% | `2c5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR` | 23.3% | 2c4, qt 1 | 0% | 27.3% | 30.7% | 10.4% | 0% |
+| 2e | 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 40.7% | `2c5 2e → 2c4 4e → (2c3 4e → 4b2 2e → 4a1 4e → HTR)` | 13.4% | 2c4, qt 1 | 0% | 18.8% | 26.0% | 8.5% | 0% |
+| 4e | 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 71.5% | `2c5 4e → 2c4 4e → 2c3 2e → (4b2 2e → 4a1 4e → HTR)` | 23.9% | 2c4, qt 1 | 3.6% | 26.7% | 42.5% | 26.4% | 3.2% |
+| 4e | 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 52.8% | `2c5 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR` | 18.5% | 2c4, qt 1 | 5.8% | 18.9% | 33.4% | 9.6% | 0.68% |
+| 4e | 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 43.0% | `2c5 4e → 2c4 4e → (2c3 4e → 4b2 2e → 4a1 4e → HTR)` | 16.8% | 2c4, qt 1 | 4.8% | 15.5% | 28.1% | 7.8% | 0.56% |
+| 6e | 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 73.0% | `2c5 6e → 2c4 4e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 23.7% | 2c4, qt 1 | 0% | 30.7% | 42.8% | 31.3% | 0% |
+| 6e | 2 | `2c5 2c4 2c3 4b2 4a1 0c0` | 47.0% | `2c5 6e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR` | 18.1% | 2c4, qt 1 | 0% | 14.9% | 30.4% | 13.5% | 0% |
+| 6e | 3 | `2c5 2c4 (2c3 4b2 4a1 0c0)` | 41.2% | `2c5 6e → 2c4 4e → (2c3 4e → 4b2 2e → 4a1 4e → HTR)` | 15.8% | 2c4, qt 1 | 0% | 16.8% | 28.1% | 9.8% | 0% |
+| 8e | 1 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 77.6% | `2c5 8e → 2c4 4e → 2c3 2e → (4b2 2e → 4a1 4e → HTR)` | 57.9% | none | – | – | – | – | – |
+| 8e | 2 | `2c5 2c4 2c3 4b2 4a1 (0c0)` | 44.9% | `2c5 8e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → (HTR)` | 22.2% | 2c3, qt 2 | 0% | 34.6% | 2.8% | 16.6% | 0% |
+| 8e | 3 | `2c5 2c4 2c3 4b2 4a1 0c0` | 35.9% | `2c5 8e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR` | 34.2% | none | – | – | – | – | – |
+
+2c4:
+
+| Edges | Try | Corner route | Route finds the optimal | Most common edge path | Along that path | Forks at | 0e there | 2e there | 4e there | 6e there | 8e there |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0e | 1 | `2c4 2c3 4b2 4a1 0c0` | 70.1% | `2c4 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR` | 59.8% | none | – | – | – | – | – |
+| 0e | 2 | `2c4 2c3 (4b2 4a1 0c0)` | 42.7% | `2c4 0e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 39.8% | none | – | – | – | – | – |
+| 0e | 3 | `2c4 2c3 4b2 (4a1 0c0)` | 15.5% | `2c4 0e → 2c3 4e → 4b2 2e → (4a1 4e → HTR)` | 14.4% | none | – | – | – | – | – |
+| 2e | 1 | `2c4 2c3 (4b2 4a1 0c0)` | 67.7% | `2c4 2e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 37.3% | 2c3, qt 1 | 0% | 35.2% | 42.9% | 6.7% | 0% |
+| 2e | 2 | `2c4 2c3 4b2 4a1 0c0` | 56.1% | `2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR` | 24.0% | 2c3, qt 1 | 0% | 29.9% | 34.7% | 4.6% | 0% |
+| 2e | 3 | `2c4 2c3 4b2 (4a1 0c0)` | 28.2% | `2c4 2e → 2c3 4e → 4b2 2e → (4a1 4e → HTR)` | 14.6% | 2c3, qt 1 | 0% | 14.6% | 18.4% | 13.6% | 0% |
+| 4e | 1 | `2c4 2c3 (4b2 4a1 0c0)` | 62.0% | `2c4 4e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 30.1% | 2c3, qt 1 | 0.030% | 32.9% | 36.4% | 6.3% | 0.13% |
+| 4e | 2 | `2c4 2c3 4b2 4a1 0c0` | 49.9% | `2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR` | 29.1% | 2c3, qt 1 | 0.030% | 25.5% | 30.7% | 4.6% | 0.060% |
+| 4e | 3 | `2c4 2c3 4b2 (4a1 0c0)` | 31.5% | `2c4 4e → 2c3 4e → 4b2 2e → (4a1 4e → HTR)` | 21.0% | 2c3, qt 1 | 0.65% | 13.6% | 23.6% | 12.1% | 0.72% |
+| 6e | 1 | `2c4 2c3 (4b2 4a1 0c0)` | 73.8% | `2c4 6e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 39.3% | 2c3, qt 1 | 0% | 40.2% | 45.9% | 8.5% | 0% |
+| 6e | 2 | `2c4 2c3 4b2 4a1 0c0` | 42.1% | `2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR` | 19.2% | 2c3, qt 1 | 0% | 22.9% | 21.5% | 6.1% | 0% |
+| 6e | 3 | `2c4 2c3 4b2 (4a1 0c0)` | 32.3% | `2c4 6e → 2c3 4e → 4b2 2e → (4a1 4e → HTR)` | 17.6% | 2c3, qt 1 | 0% | 17.2% | 21.2% | 13.7% | 0% |
+| 8e | 1 | `2c4 2c3 (4b2 4a1 0c0)` | 77.7% | `2c4 8e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 73.2% | none | – | – | – | – | – |
+| 8e | 2 | `2c4 2c3 4b2 (4a1 0c0)` | 38.3% | `2c4 8e → 2c3 4e → 4b2 2e → (4a1 4e → HTR)` | 35.4% | none | – | – | – | – | – |
+| 8e | 3 | `2c4 2c3 4b2 4a1 0c0` | 32.8% | `2c4 8e → 2c3 4e → 4b2 2e → 4a1 4e → HTR` | 32.2% | none | – | – | – | – | – |
+
+0c3:
+
+| Edges | Try | Corner route | Route finds the optimal | Most common edge path | Along that path | Forks at | 0e there | 2e there | 4e there | 6e there | 8e there |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0e | 1 | `0c3 4a2 (4a1 0c0)` | 85.5% | `0c3 0e → 4a2 4e → (4a1 4e → HTR)` | 85.5% | none | – | – | – | – | – |
+| 0e | 2 | `0c3 4a2 4b3 4a2 4a1 (0c0)` | 18.6% | `0c3 0e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → (HTR)` | 14.8% | 4b3, qt 2 | 0% | 10.4% | 14.8% | – | – |
+| 0e | 3 | `0c3 4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 3.7% | `0c3 0e → 4a4 4e → 4b5 2e → 2c4 2e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 1.9% | 2c3, qt 4 | 0% | 1.6% | 2.4% | 0% | 0% |
+| 2e | 1 | `0c3 4a2 (4a1 0c0)` | 80.8% | `0c3 2e → 4a2 4e → (4a1 4e → HTR)` | 80.8% | none | – | – | – | – | – |
+| 2e | 2 | `0c3 4a2 4b3 4a2 4a1 (0c0)` | 17.0% | `0c3 2e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → (HTR)` | 9.4% | 4a2, qt 1 | 0% | 10.5% | 10.2% | – | – |
+| 2e | 3 | `0c3 4a2 4a1 0c0` | 55.0% | `0c3 2e → 4a2 4e → 4a1 4e → HTR` | 54.9% | none | – | – | – | – | – |
+| 4e | 1 | `0c3 4a2 (4a1 0c0)` | 67.2% | `0c3 4e → 4a2 4e → (4a1 4e → HTR)` | 67.2% | none | – | – | – | – | – |
+| 4e | 2 | `0c3 4a2 4b3 4a2 4a1 (0c0)` | 22.9% | `0c3 4e → 4a2 2e → 4b3 2e → 4a2 4e → 4a1 4e → (HTR)` | 12.8% | 4a2, qt 1 | 2.5% | 15.7% | 9.2% | – | – |
+| 4e | 3 | `0c3 4a2 4b3 (4b2 4a1 0c0)` | 15.0% | `0c3 4e → 4a2 2e → 4b3 2e → (4b2 2e → 4a1 4e → HTR)` | 6.8% | 4a2, qt 1 | 1.7% | 10.4% | 4.3% | – | – |
+| 6e | 1 | `0c3 4a2 (4a1 0c0)` | 82.6% | `0c3 6e → 4a2 4e → (4a1 4e → HTR)` | 82.6% | none | – | – | – | – | – |
+| 6e | 2 | `0c3 4a2 4b3 4a2 4a1 (0c0)` | 17.8% | `0c3 6e → 4a2 2e → 4b3 2e → 4a2 4e → 4a1 4e → (HTR)` | 9.4% | 4a2, qt 1 | 0% | 12.0% | 10.2% | – | – |
+| 6e | 3 | `0c3 4a2 4a1 0c0` | 57.7% | `0c3 6e → 4a2 4e → 4a1 4e → HTR` | 57.7% | none | – | – | – | – | – |
+| 8e | 1 | `0c3 4a2 (4a1 0c0)` | 87.3% | `0c3 8e → 4a2 4e → (4a1 4e → HTR)` | 87.3% | none | – | – | – | – | – |
+| 8e | 2 | `0c3 4a2 4b3 4a2 4a1 (0c0)` | 15.4% | `0c3 8e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → (HTR)` | 10.1% | 4b3, qt 2 | 0% | 9.2% | 10.1% | – | – |
+| 8e | 3 | `0c3 4a4 4b5 2c4 2c3 4b2 (4a1 0c0)` | 1.8% | `0c3 8e → 4a4 4e → 4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → (4a1 4e → HTR)` | 1.2% | 2c4, qt 3 | 0% | 0% | 1.3% | 0.51% | 0% |
+
+4a2:
+
+| Edges | Try | Corner route | Route finds the optimal | Most common edge path | Along that path | Forks at | 0e there | 2e there | 4e there |
+|---|---|---|---|---|---|---|---|---|---|
+| 0e | 1 | `4a2 4b3 4a2 4a1 (0c0)` | 29.1% | `4a2 0e → 4b3 4e → 4a2 4e → 4a1 4e → (HTR)` | 27.9% | none | – | – | – |
+| 0e | 2 | `4a2 4a1 4b2 4a1 0c0` | 18.9% | `4a2 0e → 4a1 4e → 4b2 2e → 4a1 4e → HTR` | 15.5% | none | – | – | – |
+| 0e | 3 | `4a2 4a1 (0c0)` | 4.0% | `4a2 0e → 4a1 4e → (HTR)` | 4.0% | none | – | – | – |
+| 2e | 1 | `4a2 4b3 4a2 4a1 (0c0)` | 42.2% | `4a2 2e → 4b3 2e → 4a2 4e → 4a1 4e → (HTR)` | 29.8% | 4b3, qt 1 | 0% | 32.3% | 21.5% |
+| 2e | 2 | `4a2 4a1 (0c0)` | 34.0% | `4a2 2e → 4a1 4e → (HTR)` | 34.0% | none | – | – | – |
+| 2e | 3 | `4a2 4a1 4b2 4a1 0c0` | 22.2% | `4a2 2e → 4a1 2e → 4b2 2e → 4a1 4e → HTR` | 15.5% | 4a1, qt 1 | 0% | 16.1% | 9.3% |
+| 4e | 1 | `4a2 4a1 0c0` | 60.9% | `4a2 4e → 4a1 4e → HTR` | 60.9% | none | – | – | – |
+| 4e | 2 | `4a2 4b3 4a2 4a1 (0c0)` | 20.6% | `4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → (HTR)` | 14.0% | 4b3, qt 1 | 0.94% | 9.2% | 14.1% |
+| 4e | 3 | `4a2 4a1 4b2 4a1 0c0` | 18.6% | `4a2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR` | 9.3% | 4a1, qt 1 | 0.030% | 9.5% | 10.3% |
+
+4a1:
+
+| Edges | Try | Corner route | Route finds the optimal | Most common edge path | Along that path | Forks at | 0e there | 2e there | 4e there | 6e there | 8e there |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0e | 1 | `4a1 0c0 (4a1 0c0)` | 33.5% | `4a1 0e → 0c0 4e → (4a1 4e → HTR)` | 33.5% | none | – | – | – | – | – |
+| 0e | 2 | `4a1 4b2 2c3 4b2 4a1 (0c0)` | 16.2% | `4a1 0e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → (HTR)` | 6.8% | 2c3, qt 2 | 0% | 10.2% | 3.6% | 5.3% | 0% |
+| 0e | 3 | `4a1 0c0 4a1 (0c0)` | 21.9% | `4a1 0e → 0c0 4e → 4a1 4e → (HTR)` | 21.9% | none | – | – | – | – | – |
+| 2e | 1 | `4a1 4b2 4a1 0c0` | 38.8% | `4a1 2e → 4b2 2e → 4a1 4e → HTR` | 35.4% | none | – | – | – | – | – |
+| 2e | 2 | `4a1 0c0 4a1 0c0` | 31.8% | `4a1 2e → 0c0 4e → 4a1 4e → HTR` | 24.0% | 0c0, qt 1 | 0% | 9.5% | 24.0% | 0.17% | 0% |
+| 2e | 3 | `4a1 0c0 (4a1 0c0)` | 28.2% | `4a1 2e → 0c0 4e → (4a1 4e → HTR)` | 14.9% | 0c0, qt 1 | 0% | 14.7% | 14.9% | 0.51% | 0% |
+| 4e | 1 | `4a1 0c0` | 33.6% | `4a1 4e → HTR` | 33.6% | none | – | – | – | – | – |
+| 4e | 2 | `4a1 4b2 4a1 0c0` | 22.1% | `4a1 4e → 4b2 2e → 4a1 4e → HTR` | 14.5% | 4b2, qt 1 | 0.42% | 14.5% | 9.3% | – | – |
+| 4e | 3 | `4a1 0c0 (4a1 0c0)` | 18.1% | `4a1 4e → 0c0 4e → (4a1 4e → HTR)` | 10.8% | 0c0, qt 1 | 3.1% | 5.1% | 10.8% | 0.13% | 0.070% |
+
+2c3:
+
+| Edges | Try | Corner route | Route finds the optimal | Most common edge path | Along that path | Forks at | 0e there | 2e there | 4e there | 6e there | 8e there |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0e | 1 | `2c3 4b2 (4a1 0c0)` | 46.3% | `2c3 0e → 4b2 4e → (4a1 4e → HTR)` | 46.3% | none | – | – | – | – | – |
+| 0e | 2 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 30.1% | `2c3 0e → 4b2 4e → (2c3 2e → 4b2 2e → 4a1 4e → HTR)` | 14.0% | 2c3, qt 2, inverse | 0% | 16.8% | 16.8% | 0.98% | 0% |
+| 0e | 3 | `2c3 2c4 (2c3 4b2 4a1 0c0)` | 19.3% | `2c3 0e → 2c4 4e → (2c3 4e → 4b2 2e → 4a1 4e → HTR)` | 9.5% | 2c3, qt 2, inverse | 0% | 10.8% | 9.7% | 0.57% | 0% |
+| 2e | 1 | `2c3 4b2 4a1 0c0` | 66.5% | `2c3 2e → 4b2 2e → 4a1 4e → HTR` | 50.9% | 4b2, qt 1 | 0% | 50.9% | 28.1% | – | – |
+| 2e | 2 | `2c3 4b2 (4a1 0c0)` | 37.0% | `2c3 2e → 4b2 2e → (4a1 4e → HTR)` | 30.1% | none | – | – | – | – | – |
+| 2e | 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 1.7% | `2c3 2e → 4b2 2e → (2c3 4e → 4b2 2e → 4a1 4e → HTR)` | 0.56% | 4b2, qt 1 | 0% | 0.84% | 0.91% | – | – |
+| 4e | 1 | `2c3 4b2 4a1 0c0` | 55.3% | `2c3 4e → 4b2 2e → 4a1 4e → HTR` | 46.2% | none | – | – | – | – | – |
+| 4e | 2 | `2c3 4b2 (4a1 0c0)` | 50.0% | `2c3 4e → 4b2 2e → (4a1 4e → HTR)` | 40.8% | none | – | – | – | – | – |
+| 4e | 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 4.3% | `2c3 4e → 4b2 4e → (2c3 4e → 4b2 2e → 4a1 4e → HTR)` | 1.2% | 4b2, qt 1 | 0.15% | 1.8% | 2.5% | – | – |
+| 6e | 1 | `2c3 4b2 (4a1 0c0)` | 66.1% | `2c3 6e → 4b2 2e → (4a1 4e → HTR)` | 55.8% | none | – | – | – | – | – |
+| 6e | 2 | `2c3 4b2 4a1 0c0` | 40.9% | `2c3 6e → 4b2 2e → 4a1 4e → HTR` | 26.3% | 4b2, qt 1 | 0% | 26.3% | 20.4% | – | – |
+| 6e | 3 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 8.9% | `2c3 6e → 4b2 4e → (2c3 4e → 4b2 2e → 4a1 4e → HTR)` | 2.5% | 4b2, qt 1 | 0% | 3.7% | 5.4% | – | – |
+| 8e | 1 | `2c3 4b2 (4a1 0c0)` | 46.3% | `2c3 8e → 4b2 4e → (4a1 4e → HTR)` | 46.3% | none | – | – | – | – | – |
+| 8e | 2 | `2c3 4b2 (2c3 4b2 4a1 0c0)` | 31.9% | `2c3 8e → 4b2 4e → (2c3 4e → 4b2 2e → 4a1 4e → HTR)` | 16.0% | 2c3, qt 2, inverse | 0% | 14.1% | 20.9% | 0.96% | 0% |
+| 8e | 3 | `2c3 4b2 2c3 (4b2 4a1 0c0)` | 20.9% | `2c3 8e → 4b2 4e → 2c3 2e → (4b2 2e → 4a1 4e → HTR)` | 12.6% | 2c3, qt 2 | 0% | 15.7% | 7.0% | 0.89% | 0.010% |
+
+0c4:
+
+| Edges | Try | Corner route | Route finds the optimal | Most common edge path | Along that path | Forks at | 0e there | 2e there | 4e there | 6e there | 8e there |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0e | 1 | `0c4 4a3 4b2 (4a1 0c0)` | 83.2% | `0c4 0e → 4a3 4e → 4b2 2e → (4a1 4e → HTR)` | 75.0% | none | – | – | – | – | – |
+| 0e | 2 | `0c4 4a3 4b2 4a1 0c0` | 50.3% | `0c4 0e → 4a3 4e → 4b2 2e → 4a1 4e → HTR` | 49.7% | none | – | – | – | – | – |
+| 0e | 3 | `0c4 4a3 (4a2 4a1 0c0)` | 22.9% | `0c4 0e → 4a3 4e → (4a2 4e → 4a1 4e → HTR)` | 22.9% | none | – | – | – | – | – |
+| 2e | 1 | `0c4 4a3 4b2 (4a1 0c0)` | 86.5% | `0c4 2e → 4a3 2e → 4b2 2e → (4a1 4e → HTR)` | 70.1% | none | – | – | – | – | – |
+| 2e | 2 | `0c4 4a3 4b2 4a1 0c0` | 40.8% | `0c4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR` | 27.5% | 4a3, qt 1 | 0% | 28.1% | 18.4% | – | – |
+| 2e | 3 | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` | 3.9% | `0c4 2e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → (HTR)` | 1.3% | 4a3, qt 1 | 0% | 1.5% | 2.6% | – | – |
+| 4e | 1 | `0c4 4a3 4b2 (4a1 0c0)` | 83.5% | `0c4 4e → 4a3 4e → 4b2 2e → (4a1 4e → HTR)` | 60.5% | 4a3, qt 1 | 15.7% | 65.9% | 66.2% | – | – |
+| 4e | 2 | `0c4 4a3 4b2 4a1 0c0` | 33.5% | `0c4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR` | 18.4% | 4a3, qt 1 | 2.0% | 17.6% | 18.7% | – | – |
+| 4e | 3 | `0c4 4a3 (4a2 4a1 0c0)` | 27.3% | `0c4 4e → 4a3 2e → (4a2 4e → 4a1 4e → HTR)` | 16.7% | 4a3, qt 1 | 3.1% | 16.7% | 12.7% | – | – |
+| 6e | 1 | `0c4 4a3 4b2 (4a1 0c0)` | 81.8% | `0c4 6e → 4a3 2e → 4b2 2e → (4a1 4e → HTR)` | 65.0% | none | – | – | – | – | – |
+| 6e | 2 | `0c4 4a3 (4a2 4a1 0c0)` | 35.2% | `0c4 6e → 4a3 4e → (4a2 4e → 4a1 4e → HTR)` | 21.1% | 4a3, qt 1 | 0% | 20.8% | 21.2% | – | – |
+| 6e | 3 | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` | 5.1% | `0c4 6e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → (HTR)` | 0.73% | 4a3, qt 1 | 0% | 2.4% | 3.0% | – | – |
+| 8e | 1 | `0c4 4a3 4b2 (4a1 0c0)` | 80.3% | `0c4 8e → 4a3 4e → 4b2 2e → (4a1 4e → HTR)` | 79.0% | none | – | – | – | – | – |
+| 8e | 2 | `0c4 4a3 (4a2 4a1 0c0)` | 36.9% | `0c4 8e → 4a3 4e → (4a2 4e → 4a1 4e → HTR)` | 36.9% | none | – | – | – | – | – |
+| 8e | 3 | `0c4 4a3 4b2 2c3 4b2 4a1 (0c0)` | 4.2% | `0c4 8e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → (HTR)` | 1.6% | 2c3, qt 3 | 0% | 0% | 2.8% | 1.8% | 0% |
+
+4c3 (the start is 4a3 or 4b3, whichever side the route starts on):
+
+| Edges | Try | Corner route | Route finds the optimal | Most common edge path | Along that path | Forks at | 0e there | 2e there | 4e there | 6e there | 8e there |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0e | 1 | `4a3 4b2 (4a1 0c0)` | 70.8% | `4a3 0e → 4b2 4e → (4a1 4e → HTR)` | 70.8% | none | – | – | – | – | – |
+| 0e | 2 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 13.2% | `4a3 0e → 4b2 4e → 2c3 2e → (4b2 2e → 4a1 4e → HTR)` | 8.7% | 2c3, qt 2 | 0% | 10.4% | 3.3% | 0.32% | 0% |
+| 0e | 3 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 14.2% | `4b3 0e → 2c4 4e → 2c3 2e → (4b2 2e → 4a1 4e → HTR)` | 9.8% | 4b2, qt 3, inverse | 0% | 11.2% | 4.1% | – | – |
+| 2e | 1 | `4a3 4b2 (4a1 0c0)` | 66.2% | `4a3 2e → 4b2 2e → (4a1 4e → HTR)` | 53.8% | none | – | – | – | – | – |
+| 2e | 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 11.5% | `4b3 2e → 2c4 4e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 3.1% | 2c4, qt 1 | 0% | 3.7% | 5.4% | 3.3% | 0% |
+| 2e | 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 6.9% | `4a3 2e → 4b2 4e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 2.6% | 4b2, qt 1 | 0% | 2.8% | 4.3% | – | – |
+| 4e | 1 | `4a3 4b2 (4a1 0c0)` | 62.3% | `4a3 4e → 4b2 2e → (4a1 4e → HTR)` | 45.9% | 4b2, qt 1 | 2.5% | 45.9% | 22.9% | – | – |
+| 4e | 2 | `4b3 2c4 2c3 (4b2 4a1 0c0)` | 14.0% | `4b3 4e → 2c4 4e → 2c3 2e → (4b2 2e → 4a1 4e → HTR)` | 4.0% | 2c4, qt 1 | 0.53% | 3.7% | 7.6% | 3.2% | 0.40% |
+| 4e | 3 | `4a3 4b2 2c3 (4b2 4a1 0c0)` | 9.5% | `4a3 4e → 4b2 4e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 3.0% | 4b2, qt 1 | 0.39% | 2.6% | 6.7% | – | – |
+
+4c4 (4a4 or 4b4 the same way):
+
+| Edges | Try | Corner route | Route finds the optimal | Most common edge path | Along that path | Forks at | 0e there | 2e there | 4e there | 6e there | 8e there |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0e | 1 | `4b4 4a3 4b2 (4a1 0c0)` | 65.2% | `4b4 0e → 4a3 4e → 4b2 2e → (4a1 4e → HTR)` | 59.3% | none | – | – | – | – | – |
+| 0e | 2 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 13.1% | `4a4 0e → 4b5 4e → 2c4 2e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 4.1% | 2c4, qt 2 | 0% | 7.4% | 2.4% | 5.9% | 0% |
+| 0e | 3 | `4b4 2c5 (2c4 2c3 4b2 4a1 0c0)` | 10.7% | `4b4 0e → 2c5 4e → (2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR)` | 4.1% | 2c4, qt 2, inverse | 1.6% | 2.7% | 6.7% | 0.63% | 0.010% |
+| 2e | 1 | `4b4 4a3 4b2 (4a1 0c0)` | 67.9% | `4b4 2e → 4a3 2e → 4b2 2e → (4a1 4e → HTR)` | 37.9% | 4a3, qt 1 | 0% | 43.6% | 38.6% | – | – |
+| 2e | 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 13.6% | `4a4 2e → 4b5 2e → 2c4 4e → (2c3 4e → 4b2 2e → 4a1 4e → HTR)` | 2.7% | 4b5, qt 1 | 0% | 6.9% | 7.5% | – | – |
+| 2e | 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 11.7% | `4a4 2e → 4b5 4e → 2c4 4e → 2c3 2e → (4b2 2e → 4a1 4e → HTR)` | 2.0% | 4b5, qt 1 | 0% | 6.1% | 6.1% | – | – |
+| 4e | 1 | `4b4 4a3 4b2 (4a1 0c0)` | 68.4% | `4b4 4e → 4a3 4e → 4b2 2e → (4a1 4e → HTR)` | 31.6% | 4a3, qt 1 | 5.9% | 34.2% | 38.4% | – | – |
+| 4e | 2 | `4a4 4b5 2c4 (2c3 4b2 4a1 0c0)` | 11.8% | `4a4 4e → 4b5 2e → 2c4 4e → (2c3 4e → 4b2 2e → 4a1 4e → HTR)` | 2.1% | 4b5, qt 1 | 0.80% | 5.4% | 6.1% | – | – |
+| 4e | 3 | `4a4 4b5 2c4 2c3 (4b2 4a1 0c0)` | 10.8% | `4a4 4e → 4b5 4e → 2c4 4e → 2c3 2e → (4b2 2e → 4a1 4e → HTR)` | 1.4% | 4b5, qt 1 | 0.70% | 4.8% | 5.9% | – | – |
+
+4b2:
+
+| Edges | Try | Corner route | Route finds the optimal | Most common edge path | Along that path | Forks at | 0e there | 2e there | 4e there | 6e there | 8e there |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0e | 1 | `4b2 4a1 0c0` | 36.5% | `4b2 0e → 4a1 4e → HTR` | 36.5% | none | – | – | – | – | – |
+| 0e | 2 | `4b2 2c3 4b2 (4a1 0c0)` | 20.2% | `4b2 0e → 2c3 4e → 4b2 2e → (4a1 4e → HTR)` | 18.2% | none | – | – | – | – | – |
+| 0e | 3 | `4b2 2c3 (4b2 4a1 0c0)` | 19.0% | `4b2 0e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 14.7% | 4b2, qt 2, inverse | 0.10% | 14.7% | 5.1% | – | – |
+| 2e | 1 | `4b2 4a1 0c0` | 45.9% | `4b2 2e → 4a1 4e → HTR` | 45.9% | none | – | – | – | – | – |
+| 2e | 2 | `4b2 2c3 4b2 4a1 (0c0)` | 11.9% | `4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → (HTR)` | 2.9% | 2c3, qt 1 | 0% | 2.7% | 6.0% | 4.2% | 0% |
+| 2e | 3 | `4b2 4a1 (0c0)` | 14.5% | `4b2 2e → 4a1 4e → (HTR)` | 14.5% | none | – | – | – | – | – |
+| 4e | 1 | `4b2 4a1 0c0` | 30.3% | `4b2 4e → 4a1 4e → HTR` | 30.3% | none | – | – | – | – | – |
+| 4e | 2 | `4b2 2c3 (4b2 4a1 0c0)` | 28.6% | `4b2 4e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 15.0% | 2c3, qt 1 | 0.010% | 12.8% | 17.5% | 1.7% | 0.010% |
+| 4e | 3 | `4b2 2c3 4b2 4a1 0c0` | 29.1% | `4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR` | 14.2% | 2c3, qt 1 | 0% | 12.2% | 18.9% | 1.3% | 0% |
+
+4b5:
+
+| Edges | Try | Corner route | Route finds the optimal | Most common edge path | Along that path | Forks at | 0e there | 2e there | 4e there | 6e there | 8e there |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0e | 1 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 60.8% | `4b5 0e → 2c4 4e → 2c3 2e → (4b2 2e → 4a1 4e → HTR)` | 42.3% | none | – | – | – | – | – |
+| 0e | 2 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 56.1% | `4b5 0e → 2c4 4e → (2c3 4e → 4b2 2e → 4a1 4e → HTR)` | 34.9% | 2c3, qt 2, inverse | 0% | 28.5% | 35.2% | 3.1% | 0% |
+| 0e | 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 34.1% | `4b5 0e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR` | 28.3% | none | – | – | – | – | – |
+| 2e | 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 62.6% | `4b5 2e → 2c4 4e → (2c3 4e → 4b2 2e → 4a1 4e → HTR)` | 26.4% | 2c4, qt 1 | 0% | 27.0% | 43.5% | 14.3% | 0% |
+| 2e | 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 61.3% | `4b5 2e → 2c4 4e → 2c3 4e → (4b2 2e → 4a1 4e → HTR)` | 18.5% | 2c4, qt 1 | 0% | 24.1% | 34.7% | 22.4% | 0% |
+| 2e | 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 46.5% | `4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR` | 22.0% | 2c4, qt 1 | 0% | 16.5% | 31.5% | 7.9% | 0% |
+| 4e | 1 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 67.0% | `4b5 4e → 2c4 4e → (2c3 4e → 4b2 2e → 4a1 4e → HTR)` | 24.3% | 2c4, qt 1 | 9.3% | 26.3% | 44.3% | 14.9% | 1.1% |
+| 4e | 2 | `4b5 2c4 2c3 (4b2 4a1 0c0)` | 64.6% | `4b5 4e → 2c4 4e → 2c3 2e → (4b2 2e → 4a1 4e → HTR)` | 19.8% | 2c4, qt 1 | 3.5% | 22.8% | 37.1% | 21.6% | 2.5% |
+| 4e | 3 | `4b5 2c4 2c3 4b2 4a1 0c0` | 38.8% | `4b5 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR` | 11.5% | 2c4, qt 1 | 4.5% | 14.2% | 20.6% | 7.2% | 0.38% |
+
+On 2c4 2e, 4e and 6e every one of the first three routes forks at the first quarter turn: 2c3 4e a bit more often than 2c3 2e, 2c3 6e much less. On 2c4 0e and 8e the 2c3 is always 2c3 4e. The forward reading of the optimal finish, with no route or budget, is further down (*Edge paths of the finish*).
+
+How far those routes get, same subsets × edges: the share of DRs where the first 1, 2, 3 or 5 routes find an optimal finish, and where the first three find a finish within +1:
 
 | Subset | Optimal found, 1 route | Optimal found, 2 routes | Optimal found, 3 routes | Optimal found, 5 routes | Within +1, same 3 routes |
 |---|---|---|---|---|---|
@@ -811,6 +972,245 @@ D // to 2c3, switch
 (B2 L2 U F2 D' R2 U L2 B2 L2 D2 B2 R2) // then inverse
 ```
 
+**Edge paths of the finish.** Everything above reads routes with NISS. The other question is what the optimal finish itself looks like, written forward, with the edge count at every step. Call that its *form*: the subset × edges at the start and after each quarter turn, up to the first state in HTR, like 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR. Definitions:
+
+- The form is read off the finish on normal, start to end, with no NISS and no inverse reading. What happens after HTR doesn't count.
+- A DR *has* a form if some optimal finish has it, with any HTR length. Budget 2 doesn't fit here: a linear HTR is usually more than two moves longer than the shortest NISS HTR, so with budget 2 the top form on 2c4 2e drops from 40.9% to 12.6%.
+- One DR usually has several optimal finishes with different forms: 2.43 forms per DR on average on 2c4 2e, and only 45.1% have just one. So the shares in a row overlap and add up to more than 100%.
+- Sampled, 25,000 DRs per subset × edges. A 40% share carries a standard error of about 0.3 points.
+
+One 2c4 2e DR, two optimal finishes, two forms, replayed:
+
+```
+R2 U2 B2 D L2 D' R2 U R2 F2 U R2 // 2c4 2e, 12 optimal
+B2 R2 U // 2c3 2e
+B2 U' // 4b2 2e
+L2 D // 4a1 4e
+L2 U' // HTR in 9
+F2 U2 R2 // solved
+```
+
+```
+R2 U2 B2 D L2 D' R2 U R2 F2 U R2 // the same DR
+R2 U' // 2c3 4e
+F2 R2 U' // 4b2 2e
+R2 D // 4a1 4e
+L2 D' // HTR in 9
+B2 U2 R2 // solved
+```
+
+The most common forms. Each row is a subset × edges and one of its three most common forms: the share of DRs with an optimal finish of that form, the share with at least one of the forms down to that rank, and how many forms (most common first) it takes to cover 80% of DRs:
+
+| Subset × edges | Rank | Form of the finish | DRs with an optimal finish of this form | DRs with one of the forms so far | Forms needed for 80% of DRs |
+|---|---|---|---|---|---|
+| 0c0 0e | 1 | already HTR | 50.1% | 50.1% | 2 |
+| 0c0 0e | 2 | 0c0 0e → 4a1 4e → HTR | 49.5% | 99.6% | 2 |
+| 0c0 0e | 3 | 0c0 0e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 1.2% | 99.9% | 2 |
+| 0c0 2e | 1 | 0c0 2e → 4a1 4e → HTR | 70.6% | 70.6% | 2 |
+| 0c0 2e | 2 | 0c0 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 25.1% | 83.1% | 2 |
+| 0c0 2e | 3 | 0c0 2e → 4a1 4e → 0c0 2e → 4a1 4e → HTR | 19.9% | 88.0% | 2 |
+| 0c0 4e | 1 | 0c0 4e → 4a1 4e → HTR | 60.7% | 60.7% | 3 |
+| 0c0 4e | 2 | 0c0 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 26.3% | 74.3% | 3 |
+| 0c0 4e | 3 | 0c0 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 25.4% | 83.7% | 3 |
+| 0c0 6e | 1 | 0c0 6e → 4a1 4e → HTR | 45.0% | 45.0% | 3 |
+| 0c0 6e | 2 | 0c0 6e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 34.8% | 67.6% | 3 |
+| 0c0 6e | 3 | 0c0 6e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 32.7% | 80.8% | 3 |
+| 0c0 8e | 1 | 0c0 8e → 4a1 4e → HTR | 77.9% | 77.9% | 2 |
+| 0c0 8e | 2 | 0c0 8e → 4a1 4e → 0c0 8e → 4a1 4e → HTR | 26.0% | 88.9% | 2 |
+| 0c0 8e | 3 | 0c0 8e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 25.7% | 93.5% | 2 |
+| 2c5 0e | 1 | 2c5 0e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 56.5% | 56.5% | 3 |
+| 2c5 0e | 2 | 2c5 0e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 38.7% | 71.6% | 3 |
+| 2c5 0e | 3 | 2c5 0e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 36.4% | 80.4% | 3 |
+| 2c5 2e | 1 | 2c5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 43.3% | 43.3% | 7 |
+| 2c5 2e | 2 | 2c5 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 24.2% | 55.6% | 7 |
+| 2c5 2e | 3 | 2c5 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 23.1% | 62.6% | 7 |
+| 2c5 4e | 1 | 2c5 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 34.7% | 34.7% | 8 |
+| 2c5 4e | 2 | 2c5 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 34.2% | 53.1% | 8 |
+| 2c5 4e | 3 | 2c5 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 19.2% | 61.5% | 8 |
+| 2c5 6e | 1 | 2c5 6e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 38.4% | 38.4% | 8 |
+| 2c5 6e | 2 | 2c5 6e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 28.1% | 52.7% | 8 |
+| 2c5 6e | 3 | 2c5 6e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 19.1% | 60.8% | 8 |
+| 2c5 8e | 1 | 2c5 8e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 69.8% | 69.8% | 3 |
+| 2c5 8e | 2 | 2c5 8e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 32.1% | 78.6% | 3 |
+| 2c5 8e | 3 | 2c5 8e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 31.0% | 84.4% | 3 |
+| 2c4 0e | 1 | 2c4 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 78.9% | 78.9% | 2 |
+| 2c4 0e | 2 | 2c4 0e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 45.1% | 94.6% | 2 |
+| 2c4 0e | 3 | 2c4 0e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 7.0% | 95.9% | 2 |
+| 2c4 2e | 1 | 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 40.9% | 40.9% | 4 |
+| 2c4 2e | 2 | 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 39.5% | 65.6% | 4 |
+| 2c4 2e | 3 | 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 31.3% | 77.2% | 4 |
+| 2c4 4e | 1 | 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 49.1% | 49.1% | 4 |
+| 2c4 4e | 2 | 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 36.3% | 70.2% | 4 |
+| 2c4 4e | 3 | 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 20.2% | 76.8% | 4 |
+| 2c4 6e | 1 | 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 39.7% | 39.7% | 5 |
+| 2c4 6e | 2 | 2c4 6e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 35.4% | 61.5% | 5 |
+| 2c4 6e | 3 | 2c4 6e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 25.4% | 70.6% | 5 |
+| 2c4 8e | 1 | 2c4 8e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 77.1% | 77.1% | 2 |
+| 2c4 8e | 2 | 2c4 8e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 36.4% | 87.8% | 2 |
+| 2c4 8e | 3 | 2c4 8e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 19.2% | 94.1% | 2 |
+| 0c3 0e | 1 | 0c3 0e → 4a2 4e → 4a1 4e → HTR | 85.6% | 85.6% | 1 |
+| 0c3 0e | 2 | 0c3 0e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 12.1% | 90.8% | 1 |
+| 0c3 0e | 3 | 0c3 0e → 4a2 4e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 9.7% | 92.0% | 1 |
+| 0c3 2e | 1 | 0c3 2e → 4a2 4e → 4a1 4e → HTR | 81.8% | 81.8% | 1 |
+| 0c3 2e | 2 | 0c3 2e → 4a2 2e → 4a1 4e → HTR | 14.2% | 83.1% | 1 |
+| 0c3 2e | 3 | 0c3 2e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 7.2% | 86.2% | 1 |
+| 0c3 4e | 1 | 0c3 4e → 4a2 4e → 4a1 4e → HTR | 62.5% | 62.5% | 5 |
+| 0c3 4e | 2 | 0c3 4e → 4a2 2e → 4a1 4e → HTR | 15.1% | 68.4% | 5 |
+| 0c3 4e | 3 | 0c3 4e → 4a2 2e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 11.7% | 77.5% | 5 |
+| 0c3 6e | 1 | 0c3 6e → 4a2 4e → 4a1 4e → HTR | 83.9% | 83.9% | 1 |
+| 0c3 6e | 2 | 0c3 6e → 4a2 2e → 4a1 4e → HTR | 13.8% | 84.9% | 1 |
+| 0c3 6e | 3 | 0c3 6e → 4a2 2e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 7.2% | 89.5% | 1 |
+| 0c3 8e | 1 | 0c3 8e → 4a2 4e → 4a1 4e → HTR | 87.3% | 87.3% | 1 |
+| 0c3 8e | 2 | 0c3 8e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 9.0% | 91.8% | 1 |
+| 0c3 8e | 3 | 0c3 8e → 4a2 4e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 8.6% | 93.1% | 1 |
+| 4a2 0e | 1 | 4a2 0e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 46.9% | 46.9% | 4 |
+| 4a2 0e | 2 | 4a2 0e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 43.8% | 72.8% | 4 |
+| 4a2 0e | 3 | 4a2 0e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 24.9% | 79.7% | 4 |
+| 4a2 2e | 1 | 4a2 2e → 4a1 4e → HTR | 34.2% | 34.2% | 6 |
+| 4a2 2e | 2 | 4a2 2e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 30.2% | 57.2% | 6 |
+| 4a2 2e | 3 | 4a2 2e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 25.2% | 69.5% | 6 |
+| 4a2 4e | 1 | 4a2 4e → 4a1 4e → HTR | 67.9% | 67.9% | 3 |
+| 4a2 4e | 2 | 4a2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 18.3% | 79.4% | 3 |
+| 4a2 4e | 3 | 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 14.7% | 83.8% | 3 |
+| 4a1 0e | 1 | 4a1 0e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 37.2% | 37.2% | 4 |
+| 4a1 0e | 2 | 4a1 0e → 0c0 4e → 4a1 4e → HTR | 36.5% | 63.9% | 4 |
+| 4a1 0e | 3 | 4a1 0e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 26.6% | 74.8% | 4 |
+| 4a1 2e | 1 | 4a1 2e → 4b2 2e → 4a1 4e → HTR | 47.4% | 47.4% | 3 |
+| 4a1 2e | 2 | 4a1 2e → 0c0 4e → 4a1 4e → HTR | 34.3% | 66.7% | 3 |
+| 4a1 2e | 3 | 4a1 2e → 0c0 2e → 4a1 4e → HTR | 31.7% | 80.4% | 3 |
+| 4a1 4e | 1 | 4a1 4e → HTR | 34.3% | 34.3% | 5 |
+| 4a1 4e | 2 | 4a1 4e → 4b2 2e → 4a1 4e → HTR | 26.1% | 52.8% | 5 |
+| 4a1 4e | 3 | 4a1 4e → 4b2 4e → 4a1 4e → HTR | 23.5% | 65.2% | 5 |
+| 2c3 0e | 1 | 2c3 0e → 4b2 4e → 4a1 4e → HTR | 46.9% | 46.9% | 5 |
+| 2c3 0e | 2 | 2c3 0e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 29.0% | 64.3% | 5 |
+| 2c3 0e | 3 | 2c3 0e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 23.3% | 72.2% | 5 |
+| 2c3 2e | 1 | 2c3 2e → 4b2 2e → 4a1 4e → HTR | 68.3% | 68.3% | 2 |
+| 2c3 2e | 2 | 2c3 2e → 4b2 4e → 4a1 4e → HTR | 49.0% | 89.8% | 2 |
+| 2c3 2e | 3 | 2c3 2e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 7.1% | 91.2% | 2 |
+| 2c3 4e | 1 | 2c3 4e → 4b2 2e → 4a1 4e → HTR | 64.5% | 64.5% | 2 |
+| 2c3 4e | 2 | 2c3 4e → 4b2 4e → 4a1 4e → HTR | 34.2% | 81.0% | 2 |
+| 2c3 4e | 3 | 2c3 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 8.6% | 83.4% | 2 |
+| 2c3 6e | 1 | 2c3 6e → 4b2 2e → 4a1 4e → HTR | 55.8% | 55.8% | 3 |
+| 2c3 6e | 2 | 2c3 6e → 4b2 4e → 4a1 4e → HTR | 44.7% | 78.1% | 3 |
+| 2c3 6e | 3 | 2c3 6e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 12.3% | 82.1% | 3 |
+| 2c3 8e | 1 | 2c3 8e → 4b2 4e → 4a1 4e → HTR | 47.2% | 47.2% | 5 |
+| 2c3 8e | 2 | 2c3 8e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 29.4% | 63.7% | 5 |
+| 2c3 8e | 3 | 2c3 8e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 29.1% | 75.0% | 5 |
+| 0c4 0e | 1 | 0c4 0e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 84.2% | 84.2% | 1 |
+| 0c4 0e | 2 | 0c4 0e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 32.8% | 94.4% | 1 |
+| 0c4 0e | 3 | 0c4 0e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 21.3% | 97.1% | 1 |
+| 0c4 2e | 1 | 0c4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 60.9% | 60.9% | 3 |
+| 0c4 2e | 2 | 0c4 2e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 38.5% | 77.5% | 3 |
+| 0c4 2e | 3 | 0c4 2e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 37.4% | 87.4% | 3 |
+| 0c4 4e | 1 | 0c4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 52.2% | 52.2% | 3 |
+| 0c4 4e | 2 | 0c4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 50.6% | 79.4% | 3 |
+| 0c4 4e | 3 | 0c4 4e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 17.7% | 83.2% | 3 |
+| 0c4 6e | 1 | 0c4 6e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 50.5% | 50.5% | 3 |
+| 0c4 6e | 2 | 0c4 6e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 46.4% | 73.8% | 3 |
+| 0c4 6e | 3 | 0c4 6e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 28.4% | 81.5% | 3 |
+| 0c4 8e | 1 | 0c4 8e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 91.5% | 91.5% | 1 |
+| 0c4 8e | 2 | 0c4 8e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 25.6% | 95.3% | 1 |
+| 0c4 8e | 3 | 0c4 8e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 16.0% | 96.8% | 1 |
+| 4c3 0e | 1 | 4a3 0e → 4b2 4e → 4a1 4e → HTR | 38.4% | 38.4% | 3 |
+| 4c3 0e | 2 | 4b3 0e → 4a2 4e → 4a1 4e → HTR | 38.1% | 76.5% | 3 |
+| 4c3 0e | 3 | 4a3 0e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 18.4% | 84.0% | 3 |
+| 4c3 2e | 1 | 4b3 2e → 4a2 4e → 4a1 4e → HTR | 34.7% | 34.7% | 6 |
+| 4c3 2e | 2 | 4a3 2e → 4b2 2e → 4a1 4e → HTR | 31.8% | 66.5% | 6 |
+| 4c3 2e | 3 | 4a3 2e → 4b2 4e → 4a1 4e → HTR | 14.1% | 72.3% | 6 |
+| 4c3 4e | 1 | 4b3 4e → 4a2 4e → 4a1 4e → HTR | 32.4% | 32.4% | 7 |
+| 4c3 4e | 2 | 4a3 4e → 4b2 2e → 4a1 4e → HTR | 26.3% | 58.7% | 7 |
+| 4c3 4e | 3 | 4a3 4e → 4b2 4e → 4a1 4e → HTR | 15.4% | 67.1% | 7 |
+| 4c4 0e | 1 | 4b4 0e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 31.2% | 31.2% | 9 |
+| 4c4 0e | 2 | 4a4 0e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 30.7% | 61.9% | 9 |
+| 4c4 0e | 3 | 4a4 0e → 4b5 4e → 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 9.2% | 66.3% | 9 |
+| 4c4 2e | 1 | 4b4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 21.1% | 21.1% | 16 |
+| 4c4 2e | 2 | 4a4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 17.0% | 38.1% | 16 |
+| 4c4 2e | 3 | 4b4 2e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 16.6% | 47.9% | 16 |
+| 4c4 4e | 1 | 4b4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 18.2% | 18.2% | 18 |
+| 4c4 4e | 2 | 4b4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 17.2% | 30.8% | 18 |
+| 4c4 4e | 3 | 4a4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 14.7% | 45.6% | 18 |
+| 4b2 0e | 1 | 4b2 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 54.3% | 54.3% | 2 |
+| 4b2 0e | 2 | 4b2 0e → 4a1 4e → HTR | 45.1% | 82.1% | 2 |
+| 4b2 0e | 3 | 4b2 0e → 4a1 4e → 0c0 2e → 4a1 4e → HTR | 19.9% | 88.2% | 2 |
+| 4b2 2e | 1 | 4b2 2e → 4a1 4e → HTR | 54.8% | 54.8% | 3 |
+| 4b2 2e | 2 | 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 31.6% | 70.9% | 3 |
+| 4b2 2e | 3 | 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 25.5% | 80.4% | 3 |
+| 4b2 4e | 1 | 4b2 4e → 4a1 4e → HTR | 36.3% | 36.3% | 4 |
+| 4b2 4e | 2 | 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 34.7% | 61.1% | 4 |
+| 4b2 4e | 3 | 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 27.4% | 73.9% | 4 |
+| 4b5 0e | 1 | 4b5 0e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 58.0% | 58.0% | 3 |
+| 4b5 0e | 2 | 4b5 0e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 47.4% | 78.1% | 3 |
+| 4b5 0e | 3 | 4b5 0e → 2c4 4e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 29.2% | 85.7% | 3 |
+| 4b5 2e | 1 | 4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 42.6% | 42.6% | 7 |
+| 4b5 2e | 2 | 4b5 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 28.2% | 56.4% | 7 |
+| 4b5 2e | 3 | 4b5 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 20.9% | 65.8% | 7 |
+| 4b5 4e | 1 | 4b5 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 31.0% | 31.0% | 10 |
+| 4b5 4e | 2 | 4b5 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 30.2% | 48.2% | 10 |
+| 4b5 4e | 3 | 4b5 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 17.8% | 56.9% | 10 |
+
+- Every form ends 4a1 4e → HTR: the last quarter turn into HTR always comes from 4a1 4e.
+- On 2c4 2e the top two forms, 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR (40.9%) and 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR (39.5%), differ only in the 2c3.
+- Where the finish has the most ways to go, the forms spread out: on 4c4 4e the top three cover only 45.6%.
+
+**Where the first quarter turn goes.** This answers *from 2c4, how often 2c3 2e vs 2c3 4e vs 2c3 6e*. Each row is a starting subset × edges and the corner subset its first quarter turn most often goes to. The first share is the DRs with an optimal finish that can go there; the others are the DRs that can go there with each edge count. A DR that can go there with two edge counts is counted in both. – means the subset has no such edge count; 0% means none in the sample:
+
+| From | First quarter turn to | DRs that can go there, any edge count | with 0e (DRs) | with 2e (DRs) | with 4e (DRs) | with 6e (DRs) | with 8e (DRs) |
+|---|---|---|---|---|---|---|---|
+| 0c0 0e | 4a1 | 49.9% | 0% | 0% | 49.9% | – | – |
+| 0c0 2e | 4a1 | >99.9% | 0% | 34.3% | 92.2% | – | – |
+| 0c0 4e | 4a1 | >99.9% | 2.1% | 44.6% | 86.7% | – | – |
+| 0c0 6e | 4a1 | >99.9% | 0% | 60.8% | 76.7% | – | – |
+| 0c0 8e | 4a1 | >99.9% | 0% | 0% | >99.9% | – | – |
+| 2c5 0e | 2c4 | 86.2% | 0% | 0% | 86.2% | 0% | 0% |
+| 2c5 2e | 2c4 | 89.5% | 0% | 47.1% | 60.1% | 32.2% | 0% |
+| 2c5 4e | 2c4 | 90.8% | 10.1% | 38.2% | 61.6% | 29.5% | 3.5% |
+| 2c5 6e | 2c4 | 89.8% | 0% | 39.2% | 61.6% | 38.1% | 0% |
+| 2c5 8e | 2c4 | 89.7% | 0% | 0% | 89.7% | 0% | 0% |
+| 2c4 0e | 2c3 | 96.3% | 0% | 0% | 96.3% | 0% | 0% |
+| 2c4 2e | 2c3 | 90.7% | 0% | 50.3% | 61.1% | 18.5% | 0% |
+| 2c4 4e | 2c3 | 89.2% | 1.0% | 47.3% | 57.5% | 17.9% | 1.1% |
+| 2c4 6e | 2c3 | 86.8% | 0% | 49.9% | 52.7% | 21.8% | 0% |
+| 2c4 8e | 2c3 | 89.8% | 0% | 0% | 89.8% | 0% | 0% |
+| 0c3 0e | 4a2 | 94.8% | 0% | 0% | 94.8% | – | – |
+| 0c3 2e | 4a2 | 95.7% | 0% | 27.5% | 88.1% | – | – |
+| 0c3 4e | 4a2 | 93.5% | 2.9% | 34.6% | 72.5% | – | – |
+| 0c3 6e | 4a2 | 97.0% | 0% | 26.4% | 89.9% | – | – |
+| 0c3 8e | 4a2 | 96.5% | 0% | 0% | 96.5% | – | – |
+| 4a2 0e | 4a1 | 69.5% | 0% | 0% | 69.5% | – | – |
+| 4a2 2e | 4a1 | 82.8% | 0% | 45.3% | 60.7% | – | – |
+| 4a2 4e | 4a1 | 93.0% | 2.0% | 25.6% | 79.7% | – | – |
+| 4a1 0e | 4b2 | 78.8% | 0% | 0% | 78.8% | – | – |
+| 4a1 2e | 4b2 | 71.6% | 0% | 58.6% | 31.1% | – | – |
+| 4a1 4e | 4b2 | 59.1% | 2.8% | 35.6% | 37.0% | – | – |
+| 2c3 0e | 4b2 | 89.3% | 0% | 0% | 89.3% | – | – |
+| 2c3 2e | 4b2 | 97.6% | 0% | 74.6% | 56.8% | – | – |
+| 2c3 4e | 4b2 | 96.2% | 8.6% | 72.4% | 49.1% | – | – |
+| 2c3 6e | 4b2 | 94.7% | 0% | 66.9% | 62.3% | – | – |
+| 2c3 8e | 4b2 | 89.4% | 0% | 0% | 89.4% | – | – |
+| 0c4 0e | 4a3 | >99.9% | – | – | – | – | – |
+| 0c4 2e | 4a3 | >99.9% | – | – | – | – | – |
+| 0c4 4e | 4a3 | >99.9% | – | – | – | – | – |
+| 0c4 6e | 4a3 | >99.9% | – | – | – | – | – |
+| 0c4 8e | 4a3 | >99.9% | – | – | – | – | – |
+| 4c3 0e | 4b2 | 48.8% | 0% | 0% | 48.8% | – | – |
+| 4c3 2e | 4b2 | 48.9% | 0% | 38.9% | 26.1% | – | – |
+| 4c3 4e | 4b2 | 48.2% | 3.1% | 32.4% | 29.0% | – | – |
+| 4c4 0e | 4a3 | 77.3% | – | – | – | – | – |
+| 4c4 2e | 4a3 | 77.1% | – | – | – | – | – |
+| 4c4 4e | 4a3 | 79.3% | – | – | – | – | – |
+| 4b2 0e | 4a1 | 66.0% | 0% | 0% | 66.0% | – | – |
+| 4b2 2e | 4a1 | 72.9% | 0% | 19.0% | 65.4% | – | – |
+| 4b2 4e | 2c3 | 72.3% | 0.70% | 37.1% | 48.3% | 13.1% | 0.78% |
+| 4b5 0e | 2c4 | 94.5% | 0% | 0% | 94.5% | 0% | 0% |
+| 4b5 2e | 2c4 | 95.6% | 0% | 43.4% | 67.2% | 35.3% | 0% |
+| 4b5 4e | 2c4 | 95.3% | 11.4% | 39.5% | 63.4% | 32.9% | 3.3% |
+
+So from 2c4 2e the first quarter turn can reach 2c3 on 90.7% of DRs: 2c3 2e on 50.3%, 2c3 4e on 61.1%, 2c3 6e on 18.5%. On 2c4 4e it's 47.3%, 57.5% and 17.9%. From 2c4 0e and 2c4 8e it's 2c3 4e on every sampled DR, so there's nothing to choose. (The few 2c4 0e and 8e DRs that can pass 2c3 2e in the *can pass* table above reach it later in the route, not with the first quarter turn.) Every other corner subset the first quarter turn can reach, down to 0.5%, is in appendix A.
+
+The same split one step later, on the route. Of the 2c4 2e DRs whose optimal finish can go to 2c3 2e, 79.5% can go on to 4b2 2e and 43.8% to 4b2 4e. Through 2c3 4e it's 68.3% and 55.3%, plus 5.5% to 4b2 0e. A DR that starts on 2c3 is the table's own 2c3 rows: from 2c3 2e, 4b2 2e on 74.6% and 4b2 4e on 56.8%. Appendix A has every second step taken by at least 10% of the DRs that took the first step, the forms down to 2%, and the same tables within +1.
+
+**How this fits the checklist.** The checklist ranks corner routes, because that's what you check by hand; its tables and these say what the edge counts do along the way. Take 2c4 2e, whose first route is `2c4 2c3 (4b2 4a1 0c0)`. Its first step is a qt to 2c3 on the side you start on. Read forward from that side, that's the first step of the forms above, so the split is the same kind: 2c3 4e a bit more often than 2c3 2e, 2c3 6e much less. The numbers differ because they count different things. The checklist table counts DRs where that one route finds the optimal within budget 2 (35.2% through 2c3 2e, 42.9% through 2c3 4e). The table here counts DRs where any optimal finish, with any HTR length, goes there (50.3% and 61.1%). (A DR and its inverse are in the same subset × edges everywhere except 4c3 and 4c4, where a and b swap, so the table holds on either side.) After the switch the route is read on inverse, and the later columns describe the finish written forward, not the inverse side. Neither edge count is common enough to aim for, so as above: check the corner route and take whatever edge count you land on.
+
 **The last DR move** shifts every route about equally and changes no checklist (section 7).
 
 ---
@@ -1049,7 +1449,7 @@ Each row is a subset; each cell is the share of DRs where some reduction to 1q o
 | 4b5 | 0% | 0% | 0% | 10.3% | 48.1% |
 | all DRs | 14.1% | 24.9% | 40.6% | 59.3% | 78.3% |
 
-How many reductions that is, the mean number of reductions of at most R moves per DR, same rows. Counts for R = 7 aren't reported: the table that counts them was checked against brute force only up to 5 moves on every subset and up to 7 on 40 states of 0c0, so for R ≤ 7 the table above gives the share only (that comes from the exact search).
+How many reductions that is, the mean number of reductions of at most R moves per DR, same rows. Counts for R = 7 aren't reported; for R = 7 the table above gives the share only (that comes from the exact search). The counting table equals a brute-force enumeration of every pair of sequences up to 5 moves on 4,800 states, and up to 7 moves on 520 (40 of 0c0, and 10 of every subset × edges), so the counts up to 6 are checked on every subset.
 
 | Subset | Reductions on average, R ≤ 3 | R ≤ 4 | R ≤ 5 | R ≤ 6 |
 |---|---|---|---|---|
@@ -1312,7 +1712,7 @@ Its finish, read as the tables above:
 |---|---|---|---|---|
 | 0c3 4a2 4a1 HTR | 0, 3, 3, 0 | 14 | 2, 3, 3, 3 | 8, 7, 7 |
 
-Term 2 with $S = \{0, 2\}$ as printed gives 6.5, so 6. Derived, it gives 7.5, so 7. The arithmetic from the sections on is checked in Lean (`witness_0c3`); the state's optimum and its paths come from the exact table and the sample, not from Lean.
+Term 2 with $S = \{0, 2\}$ as printed gives 6.5, so 6. Derived, it gives 7.5, so 7. The arithmetic from the sections on is checked in Lean (`witness_0c3`); the state's optimum and its paths come from the exact table and two independent enumerations, not from Lean.
 
 The other choices are readings, not corrections:
 
@@ -2502,6 +2902,1331 @@ Through 4c3 (4a3 or 4b3), same columns:
 | 4b5 2e | 59.8% | 6.1% | 37.1% | 40.8% | – | – |
 | 4b5 4e | 65.4% | 2.0% | 42.6% | 44.8% | – | – |
 
+**Edge paths of the finish** (section 4): the optimal finish written forward on normal, with the subset × edges at the start and after each quarter turn up to HTR, any HTR length. A DR has a form if some optimal finish has it, so the shares of one subset × edges add up to more than 100%. Sampled, 25,000 per subset × edges.
+
+Every form that at least 2% of DRs have. Each row is a subset × edges and one form: the share of DRs with an optimal finish of that form, and the share with at least one of the forms down to that rank:
+
+| Subset × edges | Rank | Form of the finish | DRs with an optimal finish of this form | DRs with one of the forms so far |
+|---|---|---|---|---|
+| 0c0 0e | 1 | already HTR | 50.1% | 50.1% |
+| 0c0 0e | 2 | 0c0 0e → 4a1 4e → HTR | 49.5% | 99.6% |
+| 0c0 2e | 1 | 0c0 2e → 4a1 4e → HTR | 70.6% | 70.6% |
+| 0c0 2e | 2 | 0c0 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 25.1% | 83.1% |
+| 0c0 2e | 3 | 0c0 2e → 4a1 4e → 0c0 2e → 4a1 4e → HTR | 19.9% | 88.0% |
+| 0c0 2e | 4 | 0c0 2e → 4a1 2e → 0c0 2e → 4a1 4e → HTR | 19.3% | 91.9% |
+| 0c0 2e | 5 | 0c0 2e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 16.1% | 94.2% |
+| 0c0 2e | 6 | 0c0 2e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 15.3% | 97.9% |
+| 0c0 2e | 7 | 0c0 2e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 13.0% | 98.3% |
+| 0c0 2e | 8 | 0c0 2e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 6.4% | 99.3% |
+| 0c0 4e | 1 | 0c0 4e → 4a1 4e → HTR | 60.7% | 60.7% |
+| 0c0 4e | 2 | 0c0 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 26.3% | 74.3% |
+| 0c0 4e | 3 | 0c0 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 25.4% | 83.7% |
+| 0c0 4e | 4 | 0c0 4e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 16.3% | 87.4% |
+| 0c0 4e | 5 | 0c0 4e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 15.2% | 90.3% |
+| 0c0 4e | 6 | 0c0 4e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 14.2% | 93.0% |
+| 0c0 4e | 7 | 0c0 4e → 4a1 4e → 0c0 4e → 4a1 4e → HTR | 12.8% | 95.2% |
+| 0c0 4e | 8 | 0c0 4e → 4a1 2e → 0c0 2e → 4a1 4e → HTR | 12.7% | 97.1% |
+| 0c0 4e | 9 | 0c0 4e → 4a1 4e → 0c0 2e → 4a1 4e → HTR | 5.5% | 97.8% |
+| 0c0 4e | 10 | 0c0 4e → 4a1 2e → 4b2 4e → 4a1 4e → HTR | 4.3% | 98.1% |
+| 0c0 6e | 1 | 0c0 6e → 4a1 4e → HTR | 45.0% | 45.0% |
+| 0c0 6e | 2 | 0c0 6e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 34.8% | 67.6% |
+| 0c0 6e | 3 | 0c0 6e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 32.7% | 80.8% |
+| 0c0 6e | 4 | 0c0 6e → 4a1 4e → 0c0 2e → 4a1 4e → HTR | 23.2% | 86.1% |
+| 0c0 6e | 5 | 0c0 6e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 21.2% | 90.5% |
+| 0c0 6e | 6 | 0c0 6e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 20.2% | 92.1% |
+| 0c0 6e | 7 | 0c0 6e → 4a1 2e → 4b2 4e → 4a1 4e → HTR | 12.0% | 93.4% |
+| 0c0 6e | 8 | 0c0 6e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 9.0% | 94.6% |
+| 0c0 6e | 9 | 0c0 6e → 4a1 4e → 0c0 4e → 4a1 4e → HTR | 8.0% | 95.1% |
+| 0c0 6e | 10 | 0c0 6e → 4a1 2e → 0c0 6e → 4a1 4e → HTR | 5.9% | 95.7% |
+| 0c0 6e | 11 | 0c0 6e → 4a1 4e → 0c0 6e → 4a1 4e → HTR | 5.9% | 96.2% |
+| 0c0 6e | 12 | 0c0 6e → 4a1 2e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.5% | 97.0% |
+| 0c0 6e | 13 | 0c0 6e → 4a1 4e → 4b2 0e → 4a1 4e → HTR | 3.9% | 97.0% |
+| 0c0 6e | 14 | 0c0 6e → 4a1 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 3.5% | 97.6% |
+| 0c0 6e | 15 | 0c0 6e → 4a1 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.9% | 97.9% |
+| 0c0 6e | 16 | 0c0 6e → 4a1 2e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 2.2% | 98.2% |
+| 0c0 8e | 1 | 0c0 8e → 4a1 4e → HTR | 77.9% | 77.9% |
+| 0c0 8e | 2 | 0c0 8e → 4a1 4e → 0c0 8e → 4a1 4e → HTR | 26.0% | 88.9% |
+| 0c0 8e | 3 | 0c0 8e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 25.7% | 93.5% |
+| 0c0 8e | 4 | 0c0 8e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 22.3% | 96.3% |
+| 0c0 8e | 5 | 0c0 8e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 9.7% | 97.8% |
+| 0c0 8e | 6 | 0c0 8e → 4a1 4e → 0c0 4e → 4a1 4e → HTR | 6.2% | 98.1% |
+| 0c0 8e | 7 | 0c0 8e → 4a1 4e → 4a2 4e → 4a1 4e → HTR | 4.9% | 98.9% |
+| 0c0 8e | 8 | 0c0 8e → 4a1 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.1% | 99.4% |
+| 2c5 0e | 1 | 2c5 0e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 56.5% | 56.5% |
+| 2c5 0e | 2 | 2c5 0e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 38.7% | 71.6% |
+| 2c5 0e | 3 | 2c5 0e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 36.4% | 80.4% |
+| 2c5 0e | 4 | 2c5 0e → 4b4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 26.1% | 89.0% |
+| 2c5 0e | 5 | 2c5 0e → 4b4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 14.4% | 91.4% |
+| 2c5 0e | 6 | 2c5 0e → 2c4 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 13.9% | 92.6% |
+| 2c5 0e | 7 | 2c5 0e → 2c4 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 13.1% | 94.0% |
+| 2c5 0e | 8 | 2c5 0e → 4b4 4e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 8.7% | 95.0% |
+| 2c5 0e | 9 | 2c5 0e → 2c4 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 3.6% | 95.1% |
+| 2c5 0e | 10 | 2c5 0e → 4b4 4e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 3.2% | 95.3% |
+| 2c5 0e | 11 | 2c5 0e → 4b4 4e → 2c5 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.6% | 95.7% |
+| 2c5 0e | 12 | 2c5 0e → 4b4 4e → 4a3 2e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.2% | 96.0% |
+| 2c5 0e | 13 | 2c5 0e → 4b4 4e → 4a3 2e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.2% | 96.4% |
+| 2c5 2e | 1 | 2c5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 43.3% | 43.3% |
+| 2c5 2e | 2 | 2c5 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 24.2% | 55.6% |
+| 2c5 2e | 3 | 2c5 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 23.1% | 62.6% |
+| 2c5 2e | 4 | 2c5 2e → 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 20.8% | 68.3% |
+| 2c5 2e | 5 | 2c5 2e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 19.4% | 72.7% |
+| 2c5 2e | 6 | 2c5 2e → 2c4 6e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 16.0% | 77.5% |
+| 2c5 2e | 7 | 2c5 2e → 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 13.0% | 80.4% |
+| 2c5 2e | 8 | 2c5 2e → 4b4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 11.7% | 83.3% |
+| 2c5 2e | 9 | 2c5 2e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 11.4% | 84.8% |
+| 2c5 2e | 10 | 2c5 2e → 4b4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 10.9% | 87.3% |
+| 2c5 2e | 11 | 2c5 2e → 4b4 2e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 9.5% | 88.8% |
+| 2c5 2e | 12 | 2c5 2e → 2c4 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 9.4% | 89.9% |
+| 2c5 2e | 13 | 2c5 2e → 2c4 6e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 8.9% | 91.0% |
+| 2c5 2e | 14 | 2c5 2e → 4b4 4e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 6.8% | 91.9% |
+| 2c5 2e | 15 | 2c5 2e → 4b4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 6.5% | 92.6% |
+| 2c5 2e | 16 | 2c5 2e → 2c4 6e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 5.6% | 93.2% |
+| 2c5 2e | 17 | 2c5 2e → 2c4 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 5.0% | 93.5% |
+| 2c5 2e | 18 | 2c5 2e → 4b4 2e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 3.7% | 93.9% |
+| 2c5 2e | 19 | 2c5 2e → 2c4 6e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 3.7% | 94.2% |
+| 2c5 2e | 20 | 2c5 2e → 2c4 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 3.5% | 94.5% |
+| 2c5 2e | 21 | 2c5 2e → 4b4 4e → 4a3 0e → 4b2 4e → 4a1 4e → HTR | 3.5% | 94.9% |
+| 2c5 2e | 22 | 2c5 2e → 2c4 2e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 2.8% | 95.1% |
+| 2c5 2e | 23 | 2c5 2e → 2c4 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 2.8% | 95.4% |
+| 2c5 2e | 24 | 2c5 2e → 2c4 2e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 2.6% | 95.6% |
+| 2c5 2e | 25 | 2c5 2e → 2c4 6e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 2.6% | 95.8% |
+| 2c5 2e | 26 | 2c5 2e → 4b4 2e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 2.5% | 96.0% |
+| 2c5 4e | 1 | 2c5 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 34.7% | 34.7% |
+| 2c5 4e | 2 | 2c5 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 34.2% | 53.1% |
+| 2c5 4e | 3 | 2c5 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 19.2% | 61.5% |
+| 2c5 4e | 4 | 2c5 4e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 16.2% | 66.7% |
+| 2c5 4e | 5 | 2c5 4e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 16.0% | 70.1% |
+| 2c5 4e | 6 | 2c5 4e → 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 13.4% | 74.6% |
+| 2c5 4e | 7 | 2c5 4e → 2c4 6e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 12.8% | 77.9% |
+| 2c5 4e | 8 | 2c5 4e → 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 11.8% | 80.2% |
+| 2c5 4e | 9 | 2c5 4e → 4b4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 10.0% | 82.4% |
+| 2c5 4e | 10 | 2c5 4e → 4b4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 9.7% | 84.6% |
+| 2c5 4e | 11 | 2c5 4e → 4b4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 9.4% | 86.3% |
+| 2c5 4e | 12 | 2c5 4e → 2c4 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 8.4% | 88.3% |
+| 2c5 4e | 13 | 2c5 4e → 2c4 6e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 8.4% | 89.3% |
+| 2c5 4e | 14 | 2c5 4e → 2c4 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 7.3% | 90.1% |
+| 2c5 4e | 15 | 2c5 4e → 4b4 2e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 7.2% | 91.2% |
+| 2c5 4e | 16 | 2c5 4e → 2c4 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 6.1% | 91.9% |
+| 2c5 4e | 17 | 2c5 4e → 2c4 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 5.3% | 92.5% |
+| 2c5 4e | 18 | 2c5 4e → 2c4 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 4.8% | 93.0% |
+| 2c5 4e | 19 | 2c5 4e → 2c4 6e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 4.7% | 93.6% |
+| 2c5 4e | 20 | 2c5 4e → 4b4 2e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 3.2% | 93.9% |
+| 2c5 4e | 21 | 2c5 4e → 2c4 8e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 3.0% | 94.5% |
+| 2c5 4e | 22 | 2c5 4e → 2c4 0e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 2.9% | 94.9% |
+| 2c5 4e | 23 | 2c5 4e → 4b4 4e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 2.8% | 95.2% |
+| 2c5 4e | 24 | 2c5 4e → 2c4 6e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 2.8% | 95.5% |
+| 2c5 4e | 25 | 2c5 4e → 4b4 4e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 2.3% | 95.6% |
+| 2c5 4e | 26 | 2c5 4e → 4b4 0e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 2.3% | 95.9% |
+| 2c5 4e | 27 | 2c5 4e → 2c4 6e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 2.3% | 96.1% |
+| 2c5 4e | 28 | 2c5 4e → 2c4 2e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 2.1% | 96.3% |
+| 2c5 4e | 29 | 2c5 4e → 4b4 2e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 2.0% | 96.5% |
+| 2c5 6e | 1 | 2c5 6e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 38.4% | 38.4% |
+| 2c5 6e | 2 | 2c5 6e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 28.1% | 52.7% |
+| 2c5 6e | 3 | 2c5 6e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 19.1% | 60.8% |
+| 2c5 6e | 4 | 2c5 6e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 18.1% | 66.4% |
+| 2c5 6e | 5 | 2c5 6e → 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 17.3% | 72.4% |
+| 2c5 6e | 6 | 2c5 6e → 2c4 6e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 15.9% | 76.4% |
+| 2c5 6e | 7 | 2c5 6e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 14.3% | 79.0% |
+| 2c5 6e | 8 | 2c5 6e → 2c4 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 13.1% | 81.3% |
+| 2c5 6e | 9 | 2c5 6e → 2c4 6e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 12.8% | 83.8% |
+| 2c5 6e | 10 | 2c5 6e → 4b4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 12.6% | 86.8% |
+| 2c5 6e | 11 | 2c5 6e → 4b4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 10.3% | 88.8% |
+| 2c5 6e | 12 | 2c5 6e → 2c4 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 8.9% | 90.0% |
+| 2c5 6e | 13 | 2c5 6e → 4b4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 8.2% | 91.3% |
+| 2c5 6e | 14 | 2c5 6e → 4b4 2e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 7.0% | 92.3% |
+| 2c5 6e | 15 | 2c5 6e → 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 5.0% | 92.8% |
+| 2c5 6e | 16 | 2c5 6e → 2c4 6e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 4.6% | 93.3% |
+| 2c5 6e | 17 | 2c5 6e → 4b4 4e → 4a3 0e → 4b2 4e → 4a1 4e → HTR | 4.4% | 93.8% |
+| 2c5 6e | 18 | 2c5 6e → 2c4 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 4.3% | 94.2% |
+| 2c5 6e | 19 | 2c5 6e → 4b4 2e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 4.2% | 94.5% |
+| 2c5 6e | 20 | 2c5 6e → 4b4 4e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 4.0% | 94.8% |
+| 2c5 6e | 21 | 2c5 6e → 2c4 6e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 3.8% | 95.3% |
+| 2c5 6e | 22 | 2c5 6e → 2c4 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 3.2% | 95.6% |
+| 2c5 6e | 23 | 2c5 6e → 2c4 2e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 2.8% | 95.9% |
+| 2c5 6e | 24 | 2c5 6e → 4b4 2e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 2.5% | 96.0% |
+| 2c5 8e | 1 | 2c5 8e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 69.8% | 69.8% |
+| 2c5 8e | 2 | 2c5 8e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 32.1% | 78.6% |
+| 2c5 8e | 3 | 2c5 8e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 31.0% | 84.4% |
+| 2c5 8e | 4 | 2c5 8e → 4b4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 23.1% | 90.9% |
+| 2c5 8e | 5 | 2c5 8e → 4b4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 15.8% | 93.2% |
+| 2c5 8e | 6 | 2c5 8e → 2c4 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 15.7% | 94.9% |
+| 2c5 8e | 7 | 2c5 8e → 2c4 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 13.5% | 95.9% |
+| 2c5 8e | 8 | 2c5 8e → 4b4 4e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 6.1% | 96.3% |
+| 2c5 8e | 9 | 2c5 8e → 4b4 4e → 4a3 2e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.2% | 96.6% |
+| 2c4 0e | 1 | 2c4 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 78.9% | 78.9% |
+| 2c4 0e | 2 | 2c4 0e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 45.1% | 94.6% |
+| 2c4 0e | 3 | 2c4 0e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 7.0% | 95.9% |
+| 2c4 0e | 4 | 2c4 0e → 2c3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.4% | 96.5% |
+| 2c4 0e | 5 | 2c4 0e → 2c3 4e → 4b2 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 2.0% | 96.5% |
+| 2c4 2e | 1 | 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 40.9% | 40.9% |
+| 2c4 2e | 2 | 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 39.5% | 65.6% |
+| 2c4 2e | 3 | 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 31.3% | 77.2% |
+| 2c4 2e | 4 | 2c4 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 21.4% | 82.5% |
+| 2c4 2e | 5 | 2c4 2e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 14.6% | 87.0% |
+| 2c4 2e | 6 | 2c4 2e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 12.0% | 89.9% |
+| 2c4 2e | 7 | 2c4 2e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 10.5% | 92.6% |
+| 2c4 2e | 8 | 2c4 2e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 9.2% | 94.3% |
+| 2c4 2e | 9 | 2c4 2e → 2c3 4e → 4b2 0e → 4a1 4e → HTR | 3.1% | 94.8% |
+| 2c4 4e | 1 | 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 49.1% | 49.1% |
+| 2c4 4e | 2 | 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 36.3% | 70.2% |
+| 2c4 4e | 3 | 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 20.2% | 76.8% |
+| 2c4 4e | 4 | 2c4 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 13.8% | 80.3% |
+| 2c4 4e | 5 | 2c4 4e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 12.7% | 84.6% |
+| 2c4 4e | 6 | 2c4 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 10.8% | 88.2% |
+| 2c4 4e | 7 | 2c4 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 10.7% | 91.0% |
+| 2c4 4e | 8 | 2c4 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 8.2% | 92.6% |
+| 2c4 4e | 9 | 2c4 4e → 2c3 4e → 4b2 0e → 4a1 4e → HTR | 2.4% | 92.9% |
+| 2c4 4e | 10 | 2c4 4e → 4b3 0e → 4a2 4e → 4a1 4e → HTR | 2.1% | 93.3% |
+| 2c4 4e | 11 | 2c4 4e → 4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.1% | 93.7% |
+| 2c4 6e | 1 | 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 39.7% | 39.7% |
+| 2c4 6e | 2 | 2c4 6e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 35.4% | 61.5% |
+| 2c4 6e | 3 | 2c4 6e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 25.4% | 70.6% |
+| 2c4 6e | 4 | 2c4 6e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 18.6% | 76.0% |
+| 2c4 6e | 5 | 2c4 6e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 18.6% | 83.2% |
+| 2c4 6e | 6 | 2c4 6e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 15.8% | 87.8% |
+| 2c4 6e | 7 | 2c4 6e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 12.8% | 91.4% |
+| 2c4 6e | 8 | 2c4 6e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 10.2% | 93.5% |
+| 2c4 6e | 9 | 2c4 6e → 2c3 4e → 4b2 0e → 4a1 4e → HTR | 4.3% | 94.1% |
+| 2c4 6e | 10 | 2c4 6e → 4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.4% | 94.6% |
+| 2c4 6e | 11 | 2c4 6e → 2c3 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.4% | 94.8% |
+| 2c4 8e | 1 | 2c4 8e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 77.1% | 77.1% |
+| 2c4 8e | 2 | 2c4 8e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 36.4% | 87.8% |
+| 2c4 8e | 3 | 2c4 8e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 19.2% | 94.1% |
+| 2c4 8e | 4 | 2c4 8e → 4b3 4e → 4a2 2e → 4a1 4e → HTR | 6.0% | 95.2% |
+| 2c4 8e | 5 | 2c4 8e → 2c3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.6% | 95.6% |
+| 2c4 8e | 6 | 2c4 8e → 4b5 4e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.2% | 96.0% |
+| 2c4 8e | 7 | 2c4 8e → 2c5 4e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.1% | 96.4% |
+| 2c4 8e | 8 | 2c4 8e → 2c3 4e → 4b2 2e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 2.1% | 96.7% |
+| 0c3 0e | 1 | 0c3 0e → 4a2 4e → 4a1 4e → HTR | 85.6% | 85.6% |
+| 0c3 0e | 2 | 0c3 0e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 12.1% | 90.8% |
+| 0c3 0e | 3 | 0c3 0e → 4a2 4e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 9.7% | 92.0% |
+| 0c3 0e | 4 | 0c3 0e → 4a4 4e → 4b5 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 9.1% | 95.5% |
+| 0c3 0e | 5 | 0c3 0e → 4a2 4e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 8.1% | 96.0% |
+| 0c3 0e | 6 | 0c3 0e → 4a2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 5.4% | 96.0% |
+| 0c3 0e | 7 | 0c3 0e → 4a4 4e → 4b5 2e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 3.9% | 97.3% |
+| 0c3 0e | 8 | 0c3 0e → 4a2 4e → 4b3 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.1% | 97.8% |
+| 0c3 0e | 9 | 0c3 0e → 4a2 4e → 4b3 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.1% | 98.4% |
+| 0c3 0e | 10 | 0c3 0e → 4a4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 2.6% | 98.8% |
+| 0c3 0e | 11 | 0c3 0e → 4a4 4e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 2.4% | 99.3% |
+| 0c3 0e | 12 | 0c3 0e → 4a4 4e → 4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.4% | 99.4% |
+| 0c3 2e | 1 | 0c3 2e → 4a2 4e → 4a1 4e → HTR | 81.8% | 81.8% |
+| 0c3 2e | 2 | 0c3 2e → 4a2 2e → 4a1 4e → HTR | 14.2% | 83.1% |
+| 0c3 2e | 3 | 0c3 2e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 7.2% | 86.2% |
+| 0c3 2e | 4 | 0c3 2e → 4a2 2e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 6.3% | 89.4% |
+| 0c3 2e | 5 | 0c3 2e → 4a2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 4.1% | 90.8% |
+| 0c3 2e | 6 | 0c3 2e → 4a2 2e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 3.9% | 91.8% |
+| 0c3 2e | 7 | 0c3 2e → 4a2 2e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 3.4% | 92.4% |
+| 0c3 2e | 8 | 0c3 2e → 4a2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 2.4% | 92.4% |
+| 0c3 2e | 9 | 0c3 2e → 4a2 2e → 4b3 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.3% | 93.0% |
+| 0c3 2e | 10 | 0c3 2e → 4a4 4e → 4b5 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.1% | 93.7% |
+| 0c3 4e | 1 | 0c3 4e → 4a2 4e → 4a1 4e → HTR | 62.5% | 62.5% |
+| 0c3 4e | 2 | 0c3 4e → 4a2 2e → 4a1 4e → HTR | 15.1% | 68.4% |
+| 0c3 4e | 3 | 0c3 4e → 4a2 2e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 11.7% | 77.5% |
+| 0c3 4e | 4 | 0c3 4e → 4a2 2e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 7.8% | 79.6% |
+| 0c3 4e | 5 | 0c3 4e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 6.6% | 83.3% |
+| 0c3 4e | 6 | 0c3 4e → 4a2 2e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 6.2% | 84.5% |
+| 0c3 4e | 7 | 0c3 4e → 4a2 4e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 5.1% | 85.8% |
+| 0c3 4e | 8 | 0c3 4e → 4a4 4e → 4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.7% | 87.1% |
+| 0c3 4e | 9 | 0c3 4e → 4a2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 4.6% | 88.2% |
+| 0c3 4e | 10 | 0c3 4e → 4a4 2e → 4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 3.5% | 89.0% |
+| 0c3 4e | 11 | 0c3 4e → 4a2 2e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 3.5% | 89.5% |
+| 0c3 4e | 12 | 0c3 4e → 4a4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 3.2% | 90.2% |
+| 0c3 4e | 13 | 0c3 4e → 4a2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 2.9% | 90.7% |
+| 0c3 4e | 14 | 0c3 4e → 4a2 2e → 4b3 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.5% | 91.1% |
+| 0c3 4e | 15 | 0c3 4e → 4a4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 2.5% | 91.5% |
+| 0c3 4e | 16 | 0c3 4e → 4a2 2e → 4b3 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.4% | 91.8% |
+| 0c3 4e | 17 | 0c3 4e → 4a2 4e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 2.3% | 92.1% |
+| 0c3 4e | 18 | 0c3 4e → 4a2 2e → 4b3 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.2% | 92.3% |
+| 0c3 4e | 19 | 0c3 4e → 4a4 4e → 4b5 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.2% | 92.7% |
+| 0c3 4e | 20 | 0c3 4e → 4a4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 2.1% | 93.1% |
+| 0c3 4e | 21 | 0c3 4e → 4a2 2e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 2.1% | 93.2% |
+| 0c3 6e | 1 | 0c3 6e → 4a2 4e → 4a1 4e → HTR | 83.9% | 83.9% |
+| 0c3 6e | 2 | 0c3 6e → 4a2 2e → 4a1 4e → HTR | 13.8% | 84.9% |
+| 0c3 6e | 3 | 0c3 6e → 4a2 2e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 7.2% | 89.5% |
+| 0c3 6e | 4 | 0c3 6e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 7.1% | 91.8% |
+| 0c3 6e | 5 | 0c3 6e → 4a2 2e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 4.8% | 93.3% |
+| 0c3 6e | 6 | 0c3 6e → 4a2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 4.6% | 94.6% |
+| 0c3 6e | 7 | 0c3 6e → 4a2 2e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 3.7% | 95.3% |
+| 0c3 6e | 8 | 0c3 6e → 4a4 2e → 4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.9% | 96.0% |
+| 0c3 6e | 9 | 0c3 6e → 4a2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 2.1% | 96.0% |
+| 0c3 8e | 1 | 0c3 8e → 4a2 4e → 4a1 4e → HTR | 87.3% | 87.3% |
+| 0c3 8e | 2 | 0c3 8e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 9.0% | 91.8% |
+| 0c3 8e | 3 | 0c3 8e → 4a2 4e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 8.6% | 93.1% |
+| 0c3 8e | 4 | 0c3 8e → 4a4 4e → 4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 7.9% | 95.9% |
+| 0c3 8e | 5 | 0c3 8e → 4a2 4e → 4b3 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 7.4% | 97.0% |
+| 0c3 8e | 6 | 0c3 8e → 4a2 4e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 7.0% | 98.0% |
+| 0c3 8e | 7 | 0c3 8e → 4a4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 3.8% | 98.8% |
+| 0c3 8e | 8 | 0c3 8e → 4a2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 3.6% | 98.8% |
+| 0c3 8e | 9 | 0c3 8e → 4a4 4e → 4b5 2e → 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.0% | 99.2% |
+| 4a2 0e | 1 | 4a2 0e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 46.9% | 46.9% |
+| 4a2 0e | 2 | 4a2 0e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 43.8% | 72.8% |
+| 4a2 0e | 3 | 4a2 0e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 24.9% | 79.7% |
+| 4a2 0e | 4 | 4a2 0e → 4a1 4e → 0c0 4e → 4a1 4e → HTR | 18.8% | 84.5% |
+| 4a2 0e | 5 | 4a2 0e → 4b3 4e → 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 11.6% | 88.3% |
+| 4a2 0e | 6 | 4a2 0e → 4b3 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 10.9% | 90.4% |
+| 4a2 0e | 7 | 4a2 0e → 4b3 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 7.4% | 91.9% |
+| 4a2 0e | 8 | 4a2 0e → 4b3 4e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 6.4% | 93.3% |
+| 4a2 0e | 9 | 4a2 0e → 4b3 4e → 2c4 6e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 6.1% | 94.5% |
+| 4a2 0e | 10 | 4a2 0e → 4b3 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.7% | 95.2% |
+| 4a2 0e | 11 | 4a2 0e → 4a1 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 4.8% | 96.0% |
+| 4a2 0e | 12 | 4a2 0e → 4b3 4e → 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.7% | 96.7% |
+| 4a2 0e | 13 | 4a2 0e → 4a1 4e → HTR | 4.0% | 97.2% |
+| 4a2 0e | 14 | 4a2 0e → 4b3 4e → 2c4 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 4.0% | 97.8% |
+| 4a2 0e | 15 | 4a2 0e → 4a1 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.6% | 98.4% |
+| 4a2 0e | 16 | 4a2 0e → 4b3 4e → 2c4 6e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.5% | 98.7% |
+| 4a2 0e | 17 | 4a2 0e → 4a1 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 3.3% | 99.0% |
+| 4a2 0e | 18 | 4a2 0e → 0c3 4e → 4a2 4e → 4a1 4e → HTR | 2.6% | 99.4% |
+| 4a2 2e | 1 | 4a2 2e → 4a1 4e → HTR | 34.2% | 34.2% |
+| 4a2 2e | 2 | 4a2 2e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 30.2% | 57.2% |
+| 4a2 2e | 3 | 4a2 2e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 25.2% | 69.5% |
+| 4a2 2e | 4 | 4a2 2e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 16.7% | 74.7% |
+| 4a2 2e | 5 | 4a2 2e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 16.3% | 79.6% |
+| 4a2 2e | 6 | 4a2 2e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 15.0% | 82.9% |
+| 4a2 2e | 7 | 4a2 2e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 12.7% | 86.1% |
+| 4a2 2e | 8 | 4a2 2e → 4a1 4e → 0c0 2e → 4a1 4e → HTR | 10.3% | 88.2% |
+| 4a2 2e | 9 | 4a2 2e → 4a1 2e → 0c0 2e → 4a1 4e → HTR | 10.2% | 89.9% |
+| 4a2 2e | 10 | 4a2 2e → 4b3 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 5.5% | 91.2% |
+| 4a2 2e | 11 | 4a2 2e → 4a1 2e → 4b2 4e → 4a1 4e → HTR | 5.4% | 92.0% |
+| 4a2 2e | 12 | 4a2 2e → 4b3 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.3% | 92.9% |
+| 4a2 2e | 13 | 4a2 2e → 4b3 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 5.2% | 93.8% |
+| 4a2 2e | 14 | 4a2 2e → 4b3 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.4% | 94.4% |
+| 4a2 2e | 15 | 4a2 2e → 4a1 4e → 0c0 4e → 4a1 4e → HTR | 3.4% | 94.8% |
+| 4a2 2e | 16 | 4a2 2e → 4b3 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.3% | 95.4% |
+| 4a2 2e | 17 | 4a2 2e → 4b3 4e → 2c4 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 3.2% | 95.9% |
+| 4a2 2e | 18 | 4a2 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 2.8% | 95.9% |
+| 4a2 2e | 19 | 4a2 2e → 4b3 4e → 4a2 2e → 4a1 4e → HTR | 2.7% | 96.0% |
+| 4a2 2e | 20 | 4a2 2e → 4a1 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.2% | 96.3% |
+| 4a2 2e | 21 | 4a2 2e → 4b3 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.1% | 96.5% |
+| 4a2 4e | 1 | 4a2 4e → 4a1 4e → HTR | 67.9% | 67.9% |
+| 4a2 4e | 2 | 4a2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 18.3% | 79.4% |
+| 4a2 4e | 3 | 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 14.7% | 83.8% |
+| 4a2 4e | 4 | 4a2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 13.5% | 87.8% |
+| 4a2 4e | 5 | 4a2 4e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 9.5% | 90.6% |
+| 4a2 4e | 6 | 4a2 4e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 9.4% | 92.3% |
+| 4a2 4e | 7 | 4a2 4e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 6.7% | 92.4% |
+| 4a2 4e | 8 | 4a2 4e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 6.4% | 93.8% |
+| 4a2 4e | 9 | 4a2 4e → 4a1 2e → 0c0 2e → 4a1 4e → HTR | 5.4% | 94.6% |
+| 4a2 4e | 10 | 4a2 4e → 4a1 4e → 0c0 2e → 4a1 4e → HTR | 2.7% | 95.1% |
+| 4a2 4e | 11 | 4a2 4e → 4b3 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.4% | 95.6% |
+| 4a2 4e | 12 | 4a2 4e → 4a1 2e → 4b2 4e → 4a1 4e → HTR | 2.4% | 95.9% |
+| 4a2 4e | 13 | 4a2 4e → 4b3 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.3% | 96.3% |
+| 4a1 0e | 1 | 4a1 0e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 37.2% | 37.2% |
+| 4a1 0e | 2 | 4a1 0e → 0c0 4e → 4a1 4e → HTR | 36.5% | 63.9% |
+| 4a1 0e | 3 | 4a1 0e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 26.6% | 74.8% |
+| 4a1 0e | 4 | 4a1 0e → 4b2 4e → 4a1 4e → HTR | 24.8% | 84.4% |
+| 4a1 0e | 5 | 4a1 0e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 23.7% | 89.8% |
+| 4a1 0e | 6 | 4a1 0e → 0c0 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 11.2% | 92.2% |
+| 4a1 0e | 7 | 4a1 0e → 4b2 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 6.8% | 93.1% |
+| 4a1 0e | 8 | 4a1 0e → 0c0 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 5.7% | 94.3% |
+| 4a1 0e | 9 | 4a1 0e → 4b2 4e → 4a1 0e → 0c0 4e → 4a1 4e → HTR | 5.5% | 95.4% |
+| 4a1 0e | 10 | 4a1 0e → 4b2 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 5.4% | 96.0% |
+| 4a1 0e | 11 | 4a1 0e → 0c0 4e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 5.3% | 96.8% |
+| 4a1 0e | 12 | 4a1 0e → 0c0 4e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 4.7% | 97.2% |
+| 4a1 0e | 13 | 4a1 0e → 0c0 4e → 4a1 2e → 0c0 2e → 4a1 4e → HTR | 3.6% | 97.6% |
+| 4a1 0e | 14 | 4a1 0e → 4b2 4e → 4a1 4e → 0c0 2e → 4a1 4e → HTR | 3.6% | 97.9% |
+| 4a1 0e | 15 | 4a1 0e → 4b2 4e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 3.5% | 98.2% |
+| 4a1 0e | 16 | 4a1 0e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 2.9% | 98.5% |
+| 4a1 0e | 17 | 4a1 0e → 4b2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 2.4% | 98.8% |
+| 4a1 2e | 1 | 4a1 2e → 4b2 2e → 4a1 4e → HTR | 47.4% | 47.4% |
+| 4a1 2e | 2 | 4a1 2e → 0c0 4e → 4a1 4e → HTR | 34.3% | 66.7% |
+| 4a1 2e | 3 | 4a1 2e → 0c0 2e → 4a1 4e → HTR | 31.7% | 80.4% |
+| 4a1 2e | 4 | 4a1 2e → 4b2 4e → 4a1 4e → HTR | 12.4% | 83.8% |
+| 4a1 2e | 5 | 4a1 2e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 9.0% | 86.3% |
+| 4a1 2e | 6 | 4a1 2e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 8.8% | 88.5% |
+| 4a1 2e | 7 | 4a1 2e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 8.1% | 90.2% |
+| 4a1 2e | 8 | 4a1 2e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 5.7% | 91.3% |
+| 4a1 2e | 9 | 4a1 2e → 4a2 4e → 4a1 4e → HTR | 5.6% | 92.7% |
+| 4a1 2e | 10 | 4a1 2e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.1% | 93.6% |
+| 4a1 2e | 11 | 4a1 2e → 4b2 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 4.9% | 94.1% |
+| 4a1 2e | 12 | 4a1 2e → 0c0 6e → 4a1 4e → HTR | 3.9% | 94.8% |
+| 4a1 2e | 13 | 4a1 2e → 0c0 4e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 3.2% | 95.4% |
+| 4a1 2e | 14 | 4a1 2e → 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.6% | 95.7% |
+| 4a1 2e | 15 | 4a1 2e → 4b2 4e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 2.5% | 96.0% |
+| 4a1 2e | 16 | 4a1 2e → 0c0 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 2.4% | 96.2% |
+| 4a1 2e | 17 | 4a1 2e → 4b2 4e → 4a1 2e → 0c0 2e → 4a1 4e → HTR | 2.4% | 96.5% |
+| 4a1 2e | 18 | 4a1 2e → 4b2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 2.3% | 96.7% |
+| 4a1 2e | 19 | 4a1 2e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.2% | 97.0% |
+| 4a1 2e | 20 | 4a1 2e → 0c0 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 2.1% | 97.3% |
+| 4a1 4e | 1 | 4a1 4e → HTR | 34.3% | 34.3% |
+| 4a1 4e | 2 | 4a1 4e → 4b2 2e → 4a1 4e → HTR | 26.1% | 52.8% |
+| 4a1 4e | 3 | 4a1 4e → 4b2 4e → 4a1 4e → HTR | 23.5% | 65.2% |
+| 4a1 4e | 4 | 4a1 4e → 0c0 2e → 4a1 4e → HTR | 22.2% | 76.8% |
+| 4a1 4e | 5 | 4a1 4e → 0c0 4e → 4a1 4e → HTR | 19.1% | 83.8% |
+| 4a1 4e | 6 | 4a1 4e → 0c0 0e → 4a1 4e → HTR | 13.8% | 86.8% |
+| 4a1 4e | 7 | 4a1 4e → 4a2 4e → 4a1 4e → HTR | 7.9% | 88.9% |
+| 4a1 4e | 8 | 4a1 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 7.6% | 91.1% |
+| 4a1 4e | 9 | 4a1 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 6.8% | 92.7% |
+| 4a1 4e | 10 | 4a1 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 5.7% | 93.8% |
+| 4a1 4e | 11 | 4a1 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 4.6% | 94.6% |
+| 4a1 4e | 12 | 4a1 4e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.5% | 95.0% |
+| 4a1 4e | 13 | 4a1 4e → 4b2 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 2.5% | 95.2% |
+| 4a1 4e | 14 | 4a1 4e → 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.0% | 95.5% |
+| 2c3 0e | 1 | 2c3 0e → 4b2 4e → 4a1 4e → HTR | 46.9% | 46.9% |
+| 2c3 0e | 2 | 2c3 0e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 29.0% | 64.3% |
+| 2c3 0e | 3 | 2c3 0e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 23.3% | 72.2% |
+| 2c3 0e | 4 | 2c3 0e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 21.3% | 79.2% |
+| 2c3 0e | 5 | 2c3 0e → 4b2 4e → 4a1 2e → 0c0 2e → 4a1 4e → HTR | 20.4% | 83.9% |
+| 2c3 0e | 6 | 2c3 0e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 14.7% | 86.9% |
+| 2c3 0e | 7 | 2c3 0e → 4b2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 14.5% | 89.7% |
+| 2c3 0e | 8 | 2c3 0e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 14.1% | 92.1% |
+| 2c3 0e | 9 | 2c3 0e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 14.0% | 93.6% |
+| 2c3 0e | 10 | 2c3 0e → 4b2 4e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 13.0% | 95.5% |
+| 2c3 0e | 11 | 2c3 0e → 4b2 4e → 4a1 4e → 0c0 2e → 4a1 4e → HTR | 7.7% | 96.2% |
+| 2c3 0e | 12 | 2c3 0e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 6.2% | 96.7% |
+| 2c3 0e | 13 | 2c3 0e → 2c4 4e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 5.2% | 97.3% |
+| 2c3 0e | 14 | 2c3 0e → 4b2 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 4.3% | 97.6% |
+| 2c3 0e | 15 | 2c3 0e → 4b2 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 4.1% | 98.1% |
+| 2c3 0e | 16 | 2c3 0e → 4b2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 3.9% | 98.2% |
+| 2c3 0e | 17 | 2c3 0e → 4b2 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 3.9% | 98.6% |
+| 2c3 0e | 18 | 2c3 0e → 2c4 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 3.8% | 98.9% |
+| 2c3 0e | 19 | 2c3 0e → 2c4 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 3.7% | 99.2% |
+| 2c3 0e | 20 | 2c3 0e → 4b2 4e → 4a1 4e → 0c0 4e → 4a1 4e → HTR | 2.8% | 99.4% |
+| 2c3 2e | 1 | 2c3 2e → 4b2 2e → 4a1 4e → HTR | 68.3% | 68.3% |
+| 2c3 2e | 2 | 2c3 2e → 4b2 4e → 4a1 4e → HTR | 49.0% | 89.8% |
+| 2c3 2e | 3 | 2c3 2e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 7.1% | 91.2% |
+| 2c3 2e | 4 | 2c3 2e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 6.3% | 92.4% |
+| 2c3 2e | 5 | 2c3 2e → 4b2 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 5.9% | 92.8% |
+| 2c3 2e | 6 | 2c3 2e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.0% | 93.5% |
+| 2c3 2e | 7 | 2c3 2e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.5% | 94.4% |
+| 2c3 2e | 8 | 2c3 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.3% | 95.3% |
+| 2c3 2e | 9 | 2c3 2e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 4.2% | 95.9% |
+| 2c3 2e | 10 | 2c3 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.6% | 96.3% |
+| 2c3 2e | 11 | 2c3 2e → 4b2 4e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 3.5% | 96.6% |
+| 2c3 2e | 12 | 2c3 2e → 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.8% | 96.9% |
+| 2c3 2e | 13 | 2c3 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.4% | 97.1% |
+| 2c3 2e | 14 | 2c3 2e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.2% | 97.3% |
+| 2c3 2e | 15 | 2c3 2e → 4b2 2e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 2.1% | 97.4% |
+| 2c3 4e | 1 | 2c3 4e → 4b2 2e → 4a1 4e → HTR | 64.5% | 64.5% |
+| 2c3 4e | 2 | 2c3 4e → 4b2 4e → 4a1 4e → HTR | 34.2% | 81.0% |
+| 2c3 4e | 3 | 2c3 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 8.6% | 83.4% |
+| 2c3 4e | 4 | 2c3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 8.3% | 85.1% |
+| 2c3 4e | 5 | 2c3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 6.8% | 86.6% |
+| 2c3 4e | 6 | 2c3 4e → 4b2 0e → 4a1 4e → HTR | 6.8% | 88.5% |
+| 2c3 4e | 7 | 2c3 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 6.7% | 90.1% |
+| 2c3 4e | 8 | 2c3 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 5.7% | 91.1% |
+| 2c3 4e | 9 | 2c3 4e → 4b2 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 4.7% | 91.4% |
+| 2c3 4e | 10 | 2c3 4e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 4.2% | 92.2% |
+| 2c3 4e | 11 | 2c3 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 4.0% | 92.9% |
+| 2c3 4e | 12 | 2c3 4e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.0% | 93.4% |
+| 2c3 4e | 13 | 2c3 4e → 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.7% | 93.7% |
+| 2c3 4e | 14 | 2c3 4e → 4b2 2e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 2.6% | 93.9% |
+| 2c3 4e | 15 | 2c3 4e → 4b2 4e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 2.6% | 94.4% |
+| 2c3 4e | 16 | 2c3 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.6% | 94.9% |
+| 2c3 4e | 17 | 2c3 4e → 4b2 2e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 2.3% | 95.3% |
+| 2c3 4e | 18 | 2c3 4e → 4b2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 2.3% | 95.7% |
+| 2c3 4e | 19 | 2c3 4e → 4b2 2e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 2.3% | 96.0% |
+| 2c3 4e | 20 | 2c3 4e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.1% | 96.2% |
+| 2c3 4e | 21 | 2c3 4e → 4b2 4e → 4a1 2e → 0c0 2e → 4a1 4e → HTR | 2.0% | 96.5% |
+| 2c3 6e | 1 | 2c3 6e → 4b2 2e → 4a1 4e → HTR | 55.8% | 55.8% |
+| 2c3 6e | 2 | 2c3 6e → 4b2 4e → 4a1 4e → HTR | 44.7% | 78.1% |
+| 2c3 6e | 3 | 2c3 6e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 12.3% | 82.1% |
+| 2c3 6e | 4 | 2c3 6e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 9.7% | 84.6% |
+| 2c3 6e | 5 | 2c3 6e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 8.9% | 86.3% |
+| 2c3 6e | 6 | 2c3 6e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 7.7% | 87.6% |
+| 2c3 6e | 7 | 2c3 6e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 5.8% | 88.9% |
+| 2c3 6e | 8 | 2c3 6e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.1% | 90.0% |
+| 2c3 6e | 9 | 2c3 6e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 4.4% | 90.8% |
+| 2c3 6e | 10 | 2c3 6e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.9% | 91.3% |
+| 2c3 6e | 11 | 2c3 6e → 4b2 2e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 3.9% | 91.8% |
+| 2c3 6e | 12 | 2c3 6e → 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.5% | 92.4% |
+| 2c3 6e | 13 | 2c3 6e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 3.4% | 93.1% |
+| 2c3 6e | 14 | 2c3 6e → 4b2 2e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 3.2% | 93.5% |
+| 2c3 6e | 15 | 2c3 6e → 4b2 2e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 3.1% | 93.7% |
+| 2c3 6e | 16 | 2c3 6e → 4b2 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 3.0% | 93.8% |
+| 2c3 6e | 17 | 2c3 6e → 4b2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 2.8% | 94.1% |
+| 2c3 6e | 18 | 2c3 6e → 4b2 4e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 2.8% | 94.5% |
+| 2c3 6e | 19 | 2c3 6e → 4b2 4e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 2.7% | 94.8% |
+| 2c3 6e | 20 | 2c3 6e → 4b2 2e → 4a1 4e → 0c0 4e → 4a1 4e → HTR | 2.6% | 95.0% |
+| 2c3 6e | 21 | 2c3 6e → 4b2 4e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 2.4% | 95.1% |
+| 2c3 6e | 22 | 2c3 6e → 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.3% | 95.5% |
+| 2c3 6e | 23 | 2c3 6e → 4b2 2e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 2.1% | 95.6% |
+| 2c3 6e | 24 | 2c3 6e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.0% | 95.9% |
+| 2c3 8e | 1 | 2c3 8e → 4b2 4e → 4a1 4e → HTR | 47.2% | 47.2% |
+| 2c3 8e | 2 | 2c3 8e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 29.4% | 63.7% |
+| 2c3 8e | 3 | 2c3 8e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 29.1% | 75.0% |
+| 2c3 8e | 4 | 2c3 8e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 19.9% | 79.5% |
+| 2c3 8e | 5 | 2c3 8e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 17.1% | 84.8% |
+| 2c3 8e | 6 | 2c3 8e → 4b2 4e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 16.9% | 88.2% |
+| 2c3 8e | 7 | 2c3 8e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 15.1% | 91.1% |
+| 2c3 8e | 8 | 2c3 8e → 4b2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 10.7% | 92.5% |
+| 2c3 8e | 9 | 2c3 8e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 9.3% | 93.9% |
+| 2c3 8e | 10 | 2c3 8e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 7.7% | 94.8% |
+| 2c3 8e | 11 | 2c3 8e → 2c4 4e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 7.0% | 95.6% |
+| 2c3 8e | 12 | 2c3 8e → 2c4 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 5.6% | 96.4% |
+| 2c3 8e | 13 | 2c3 8e → 4b2 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 5.5% | 97.0% |
+| 2c3 8e | 14 | 2c3 8e → 4b2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 5.5% | 97.3% |
+| 2c3 8e | 15 | 2c3 8e → 2c4 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 4.8% | 97.9% |
+| 2c3 8e | 16 | 2c3 8e → 2c4 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 4.0% | 98.2% |
+| 2c3 8e | 17 | 2c3 8e → 2c4 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 3.4% | 98.6% |
+| 2c3 8e | 18 | 2c3 8e → 4b2 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 3.4% | 98.9% |
+| 2c3 8e | 19 | 2c3 8e → 4b2 4e → 4a1 4e → 0c0 4e → 4a1 4e → HTR | 3.2% | 99.2% |
+| 2c3 8e | 20 | 2c3 8e → 4b2 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 2.1% | 99.3% |
+| 2c3 8e | 21 | 2c3 8e → 4b2 4e → 4a1 2e → 4b2 4e → 4a1 4e → HTR | 2.1% | 99.4% |
+| 0c4 0e | 1 | 0c4 0e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 84.2% | 84.2% |
+| 0c4 0e | 2 | 0c4 0e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 32.8% | 94.4% |
+| 0c4 0e | 3 | 0c4 0e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 21.3% | 97.1% |
+| 0c4 0e | 4 | 0c4 0e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 19.7% | 99.3% |
+| 0c4 0e | 5 | 0c4 0e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 6.3% | 99.7% |
+| 0c4 0e | 6 | 0c4 0e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 6.3% | 99.8% |
+| 0c4 0e | 7 | 0c4 0e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 5.5% | >99.9% |
+| 0c4 2e | 1 | 0c4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 60.9% | 60.9% |
+| 0c4 2e | 2 | 0c4 2e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 38.5% | 77.5% |
+| 0c4 2e | 3 | 0c4 2e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 37.4% | 87.4% |
+| 0c4 2e | 4 | 0c4 2e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 21.4% | 91.6% |
+| 0c4 2e | 5 | 0c4 2e → 4a3 2e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 10.6% | 93.3% |
+| 0c4 2e | 6 | 0c4 2e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 9.8% | 95.0% |
+| 0c4 2e | 7 | 0c4 2e → 4a3 2e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 8.1% | 95.8% |
+| 0c4 2e | 8 | 0c4 2e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 6.9% | 96.6% |
+| 0c4 2e | 9 | 0c4 2e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 5.4% | 97.4% |
+| 0c4 2e | 10 | 0c4 2e → 4a3 2e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 5.2% | 98.0% |
+| 0c4 2e | 11 | 0c4 2e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 5.0% | 98.3% |
+| 0c4 2e | 12 | 0c4 2e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 4.4% | 98.6% |
+| 0c4 2e | 13 | 0c4 2e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.9% | 98.7% |
+| 0c4 2e | 14 | 0c4 2e → 4a3 2e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.5% | 99.0% |
+| 0c4 2e | 15 | 0c4 2e → 4a3 2e → 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.5% | 99.3% |
+| 0c4 2e | 16 | 0c4 2e → 4a3 4e → 4b2 0e → 4a1 4e → HTR | 3.4% | 99.6% |
+| 0c4 2e | 17 | 0c4 2e → 4a3 2e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 3.3% | 99.8% |
+| 0c4 4e | 1 | 0c4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 52.2% | 52.2% |
+| 0c4 4e | 2 | 0c4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 50.6% | 79.4% |
+| 0c4 4e | 3 | 0c4 4e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 17.7% | 83.2% |
+| 0c4 4e | 4 | 0c4 4e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 17.0% | 86.8% |
+| 0c4 4e | 5 | 0c4 4e → 4a3 0e → 4b2 4e → 4a1 4e → HTR | 13.9% | 90.1% |
+| 0c4 4e | 6 | 0c4 4e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 8.1% | 91.3% |
+| 0c4 4e | 7 | 0c4 4e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 8.1% | 92.8% |
+| 0c4 4e | 8 | 0c4 4e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 7.7% | 93.7% |
+| 0c4 4e | 9 | 0c4 4e → 4a3 2e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 7.3% | 94.6% |
+| 0c4 4e | 10 | 0c4 4e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 7.2% | 95.7% |
+| 0c4 4e | 11 | 0c4 4e → 4a3 2e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 7.1% | 96.6% |
+| 0c4 4e | 12 | 0c4 4e → 4a3 2e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 6.1% | 97.5% |
+| 0c4 4e | 13 | 0c4 4e → 4a3 2e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 3.7% | 97.8% |
+| 0c4 4e | 14 | 0c4 4e → 4a3 2e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.5% | 98.2% |
+| 0c4 4e | 15 | 0c4 4e → 4a3 0e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.4% | 98.9% |
+| 0c4 4e | 16 | 0c4 4e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.8% | 99.1% |
+| 0c4 4e | 17 | 0c4 4e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.6% | 99.3% |
+| 0c4 4e | 18 | 0c4 4e → 4a3 2e → 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.3% | 99.5% |
+| 0c4 6e | 1 | 0c4 6e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 50.5% | 50.5% |
+| 0c4 6e | 2 | 0c4 6e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 46.4% | 73.8% |
+| 0c4 6e | 3 | 0c4 6e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 28.4% | 81.5% |
+| 0c4 6e | 4 | 0c4 6e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 21.5% | 86.3% |
+| 0c4 6e | 5 | 0c4 6e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 16.0% | 90.3% |
+| 0c4 6e | 6 | 0c4 6e → 4a3 2e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 10.3% | 92.1% |
+| 0c4 6e | 7 | 0c4 6e → 4a3 2e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 8.2% | 93.1% |
+| 0c4 6e | 8 | 0c4 6e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 8.0% | 94.6% |
+| 0c4 6e | 9 | 0c4 6e → 4a3 2e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 7.7% | 95.6% |
+| 0c4 6e | 10 | 0c4 6e → 4a3 4e → 4b2 0e → 4a1 4e → HTR | 6.3% | 96.3% |
+| 0c4 6e | 11 | 0c4 6e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 6.2% | 96.9% |
+| 0c4 6e | 12 | 0c4 6e → 4a3 2e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.6% | 97.7% |
+| 0c4 6e | 13 | 0c4 6e → 4a3 2e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.4% | 98.0% |
+| 0c4 6e | 14 | 0c4 6e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 4.6% | 98.3% |
+| 0c4 6e | 15 | 0c4 6e → 4a3 2e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.7% | 98.8% |
+| 0c4 6e | 16 | 0c4 6e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 2.9% | 99.0% |
+| 0c4 6e | 17 | 0c4 6e → 4a3 4e → 4b2 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.7% | 99.2% |
+| 0c4 6e | 18 | 0c4 6e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.3% | 99.3% |
+| 0c4 8e | 1 | 0c4 8e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 91.5% | 91.5% |
+| 0c4 8e | 2 | 0c4 8e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 25.6% | 95.3% |
+| 0c4 8e | 3 | 0c4 8e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 16.0% | 96.8% |
+| 0c4 8e | 4 | 0c4 8e → 4a3 4e → 4b2 2e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 8.3% | 97.5% |
+| 0c4 8e | 5 | 0c4 8e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 8.2% | 97.8% |
+| 0c4 8e | 6 | 0c4 8e → 4a3 4e → 4b2 2e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 6.9% | 98.3% |
+| 0c4 8e | 7 | 0c4 8e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 6.9% | 98.6% |
+| 0c4 8e | 8 | 0c4 8e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 6.4% | 99.0% |
+| 0c4 8e | 9 | 0c4 8e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 5.1% | 99.6% |
+| 0c4 8e | 10 | 0c4 8e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 4.9% | 99.9% |
+| 0c4 8e | 11 | 0c4 8e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.1% | 99.9% |
+| 0c4 8e | 12 | 0c4 8e → 4a3 4e → 4b2 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 2.1% | 99.9% |
+| 4c3 0e | 1 | 4a3 0e → 4b2 4e → 4a1 4e → HTR | 38.4% | 38.4% |
+| 4c3 0e | 2 | 4b3 0e → 4a2 4e → 4a1 4e → HTR | 38.1% | 76.5% |
+| 4c3 0e | 3 | 4a3 0e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 18.4% | 84.0% |
+| 4c3 0e | 4 | 4b3 0e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 16.3% | 90.5% |
+| 4c3 0e | 5 | 4a3 0e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 9.7% | 92.3% |
+| 4c3 0e | 6 | 4b3 0e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 8.7% | 94.1% |
+| 4c3 0e | 7 | 4b3 0e → 4a2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 6.8% | 96.0% |
+| 4c3 0e | 8 | 4a3 0e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 5.7% | 96.4% |
+| 4c3 0e | 9 | 4b3 0e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.6% | 96.9% |
+| 4c3 0e | 10 | 4b3 0e → 4a2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 3.9% | 97.1% |
+| 4c3 0e | 11 | 4a3 0e → 0c4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 3.2% | 97.8% |
+| 4c3 0e | 12 | 4a3 0e → 4b2 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 2.7% | 98.2% |
+| 4c3 0e | 13 | 4a3 0e → 4b2 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 2.6% | 98.4% |
+| 4c3 0e | 14 | 4b3 0e → 2c4 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 2.2% | 98.7% |
+| 4c3 2e | 1 | 4b3 2e → 4a2 4e → 4a1 4e → HTR | 34.7% | 34.7% |
+| 4c3 2e | 2 | 4a3 2e → 4b2 2e → 4a1 4e → HTR | 31.8% | 66.5% |
+| 4c3 2e | 3 | 4a3 2e → 4b2 4e → 4a1 4e → HTR | 14.1% | 72.3% |
+| 4c3 2e | 4 | 4b3 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 9.6% | 76.1% |
+| 4c3 2e | 5 | 4a3 2e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 9.1% | 78.8% |
+| 4c3 2e | 6 | 4a3 2e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 8.7% | 81.7% |
+| 4c3 2e | 7 | 4a3 2e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 8.1% | 83.6% |
+| 4c3 2e | 8 | 4b3 2e → 4a2 2e → 4a1 4e → HTR | 6.8% | 85.7% |
+| 4c3 2e | 9 | 4a3 2e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 6.0% | 86.9% |
+| 4c3 2e | 10 | 4b3 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.8% | 88.4% |
+| 4c3 2e | 11 | 4a3 2e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.6% | 89.6% |
+| 4c3 2e | 12 | 4b3 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 4.6% | 90.8% |
+| 4c3 2e | 13 | 4b3 2e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 3.7% | 91.8% |
+| 4c3 2e | 14 | 4a3 2e → 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.5% | 92.3% |
+| 4c3 2e | 15 | 4b3 2e → 4a2 4e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 3.4% | 92.6% |
+| 4c3 2e | 16 | 4b3 2e → 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 3.1% | 93.2% |
+| 4c3 2e | 17 | 4a3 2e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.9% | 93.5% |
+| 4c3 2e | 18 | 4b3 2e → 2c4 6e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.8% | 94.1% |
+| 4c3 2e | 19 | 4b3 2e → 4a2 2e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 2.8% | 94.8% |
+| 4c3 2e | 20 | 4b3 2e → 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.7% | 95.2% |
+| 4c3 2e | 21 | 4b3 2e → 4a2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 2.6% | 95.5% |
+| 4c3 2e | 22 | 4b3 2e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.2% | 95.8% |
+| 4c3 2e | 23 | 4a3 2e → 0c4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 2.0% | 96.2% |
+| 4c3 4e | 1 | 4b3 4e → 4a2 4e → 4a1 4e → HTR | 32.4% | 32.4% |
+| 4c3 4e | 2 | 4a3 4e → 4b2 2e → 4a1 4e → HTR | 26.3% | 58.7% |
+| 4c3 4e | 3 | 4a3 4e → 4b2 4e → 4a1 4e → HTR | 15.4% | 67.1% |
+| 4c3 4e | 4 | 4a3 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 9.6% | 71.4% |
+| 4c3 4e | 5 | 4a3 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 9.2% | 74.4% |
+| 4c3 4e | 6 | 4b3 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 8.9% | 78.7% |
+| 4c3 4e | 7 | 4b3 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 7.9% | 81.6% |
+| 4c3 4e | 8 | 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 7.9% | 83.3% |
+| 4c3 4e | 9 | 4a3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 7.2% | 84.7% |
+| 4c3 4e | 10 | 4b3 4e → 4a2 2e → 4a1 4e → HTR | 6.5% | 87.0% |
+| 4c3 4e | 11 | 4a3 4e → 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.9% | 87.7% |
+| 4c3 4e | 12 | 4b3 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.8% | 88.9% |
+| 4c3 4e | 13 | 4a3 4e → 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 3.5% | 89.4% |
+| 4c3 4e | 14 | 4b3 4e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.2% | 90.0% |
+| 4c3 4e | 15 | 4b3 4e → 4a2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 3.1% | 90.9% |
+| 4c3 4e | 16 | 4a3 4e → 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.1% | 91.3% |
+| 4c3 4e | 17 | 4b3 4e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 3.0% | 91.9% |
+| 4c3 4e | 18 | 4b3 4e → 4a2 2e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 2.6% | 92.5% |
+| 4c3 4e | 19 | 4b3 4e → 4a2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 2.6% | 92.7% |
+| 4c3 4e | 20 | 4b3 4e → 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 2.5% | 93.1% |
+| 4c3 4e | 21 | 4b3 4e → 2c4 6e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.4% | 93.6% |
+| 4c3 4e | 22 | 4b3 4e → 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.3% | 94.0% |
+| 4c3 4e | 23 | 4b3 4e → 2c4 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.3% | 94.7% |
+| 4c4 0e | 1 | 4b4 0e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 31.2% | 31.2% |
+| 4c4 0e | 2 | 4a4 0e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 30.7% | 61.9% |
+| 4c4 0e | 3 | 4a4 0e → 4b5 4e → 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 9.2% | 66.3% |
+| 4c4 0e | 4 | 4a4 0e → 4b5 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 9.1% | 69.4% |
+| 4c4 0e | 5 | 4b4 0e → 2c5 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 8.5% | 73.3% |
+| 4c4 0e | 6 | 4b4 0e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 8.2% | 75.6% |
+| 4c4 0e | 7 | 4b4 0e → 2c5 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 7.7% | 77.8% |
+| 4c4 0e | 8 | 4b4 0e → 2c5 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 7.4% | 79.7% |
+| 4c4 0e | 9 | 4a4 0e → 4b5 4e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 6.7% | 81.2% |
+| 4c4 0e | 10 | 4a4 0e → 4b5 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.9% | 82.4% |
+| 4c4 0e | 11 | 4a4 0e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.8% | 83.6% |
+| 4c4 0e | 12 | 4b4 0e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.5% | 84.9% |
+| 4c4 0e | 13 | 4a4 0e → 0c3 4e → 4a2 4e → 4a1 4e → HTR | 5.5% | 86.3% |
+| 4c4 0e | 14 | 4b4 0e → 2c5 4e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 5.5% | 87.3% |
+| 4c4 0e | 15 | 4b4 0e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.2% | 88.2% |
+| 4c4 0e | 16 | 4b4 0e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 5.1% | 89.0% |
+| 4c4 0e | 17 | 4a4 0e → 4b5 4e → 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.8% | 89.8% |
+| 4c4 0e | 18 | 4a4 0e → 4b5 4e → 2c4 6e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 4.8% | 90.3% |
+| 4c4 0e | 19 | 4b4 0e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.5% | 90.7% |
+| 4c4 0e | 20 | 4b4 0e → 2c5 4e → 2c4 6e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 4.5% | 91.4% |
+| 4c4 0e | 21 | 4a4 0e → 4b5 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.3% | 91.9% |
+| 4c4 0e | 22 | 4a4 0e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 3.9% | 92.4% |
+| 4c4 0e | 23 | 4b4 0e → 2c5 4e → 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 3.9% | 92.8% |
+| 4c4 0e | 24 | 4a4 0e → 4b5 4e → 2c4 6e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.6% | 93.3% |
+| 4c4 0e | 25 | 4a4 0e → 4b5 4e → 2c4 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.4% | 93.6% |
+| 4c4 0e | 26 | 4a4 0e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 3.2% | 94.1% |
+| 4c4 0e | 27 | 4a4 0e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.1% | 94.6% |
+| 4c4 0e | 28 | 4a4 0e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.1% | 95.0% |
+| 4c4 0e | 29 | 4a4 0e → 4b5 4e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 3.0% | 95.2% |
+| 4c4 0e | 30 | 4b4 0e → 2c5 4e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.9% | 95.5% |
+| 4c4 0e | 31 | 4b4 0e → 2c5 4e → 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 2.9% | 95.8% |
+| 4c4 0e | 32 | 4b4 0e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.7% | 96.1% |
+| 4c4 0e | 33 | 4a4 0e → 4b5 4e → 2c4 6e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 2.7% | 96.5% |
+| 4c4 0e | 34 | 4b4 0e → 2c5 4e → 2c4 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.7% | 96.8% |
+| 4c4 0e | 35 | 4b4 0e → 2c5 4e → 2c4 6e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.6% | 97.1% |
+| 4c4 0e | 36 | 4a4 0e → 4b5 4e → 2c4 2e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 2.3% | 97.4% |
+| 4c4 0e | 37 | 4a4 0e → 4b5 4e → 2c4 6e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 2.0% | 97.6% |
+| 4c4 2e | 1 | 4b4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 21.1% | 21.1% |
+| 4c4 2e | 2 | 4a4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 17.0% | 38.1% |
+| 4c4 2e | 3 | 4b4 2e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 16.6% | 47.9% |
+| 4c4 2e | 4 | 4a4 2e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 11.4% | 55.0% |
+| 4c4 2e | 5 | 4b4 2e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 9.0% | 57.9% |
+| 4c4 2e | 6 | 4a4 2e → 4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 7.8% | 62.0% |
+| 4c4 2e | 7 | 4a4 2e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 7.4% | 64.7% |
+| 4c4 2e | 8 | 4b4 2e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 6.5% | 66.5% |
+| 4c4 2e | 9 | 4a4 2e → 0c3 4e → 4a2 4e → 4a1 4e → HTR | 6.0% | 69.0% |
+| 4c4 2e | 10 | 4a4 2e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 5.6% | 70.7% |
+| 4c4 2e | 11 | 4a4 2e → 4b5 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.2% | 72.5% |
+| 4c4 2e | 12 | 4b4 2e → 2c5 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 5.1% | 74.4% |
+| 4c4 2e | 13 | 4a4 2e → 0c3 6e → 4a2 4e → 4a1 4e → HTR | 5.1% | 76.2% |
+| 4c4 2e | 14 | 4a4 2e → 0c3 2e → 4a2 4e → 4a1 4e → HTR | 4.7% | 77.9% |
+| 4c4 2e | 15 | 4b4 2e → 2c5 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.7% | 79.2% |
+| 4c4 2e | 16 | 4a4 2e → 4b5 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.5% | 80.3% |
+| 4c4 2e | 17 | 4a4 2e → 4b5 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 4.4% | 81.3% |
+| 4c4 2e | 18 | 4b4 2e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.3% | 82.5% |
+| 4c4 2e | 19 | 4a4 2e → 4b5 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.7% | 83.4% |
+| 4c4 2e | 20 | 4b4 2e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.7% | 84.4% |
+| 4c4 2e | 21 | 4a4 2e → 4b5 4e → 2c4 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 3.2% | 85.0% |
+| 4c4 2e | 22 | 4a4 2e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.9% | 85.7% |
+| 4c4 2e | 23 | 4b4 2e → 4a3 2e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.8% | 86.2% |
+| 4c4 2e | 24 | 4b4 2e → 4a3 2e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.7% | 86.8% |
+| 4c4 2e | 25 | 4b4 2e → 4a3 2e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.7% | 87.3% |
+| 4c4 2e | 26 | 4a4 2e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.7% | 87.8% |
+| 4c4 2e | 27 | 4a4 2e → 4b5 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.5% | 88.2% |
+| 4c4 2e | 28 | 4b4 2e → 2c5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.5% | 88.8% |
+| 4c4 2e | 29 | 4b4 2e → 2c5 4e → 2c4 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.3% | 89.3% |
+| 4c4 2e | 30 | 4b4 2e → 2c5 6e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.2% | 89.9% |
+| 4c4 2e | 31 | 4a4 2e → 4b5 2e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.1% | 90.2% |
+| 4c4 2e | 32 | 4a4 2e → 4a3 2e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.1% | 90.5% |
+| 4c4 2e | 33 | 4b4 2e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.1% | 90.8% |
+| 4c4 2e | 34 | 4a4 2e → 4b5 2e → 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 2.0% | 91.1% |
+| 4c4 2e | 35 | 4b4 2e → 2c5 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.0% | 91.5% |
+| 4c4 2e | 36 | 4b4 2e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.0% | 91.8% |
+| 4c4 2e | 37 | 4a4 2e → 4b5 4e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 2.0% | 92.0% |
+| 4c4 4e | 1 | 4b4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 18.2% | 18.2% |
+| 4c4 4e | 2 | 4b4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 17.2% | 30.8% |
+| 4c4 4e | 3 | 4a4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 14.7% | 45.6% |
+| 4c4 4e | 4 | 4a4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 13.7% | 56.1% |
+| 4c4 4e | 5 | 4b4 4e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 8.1% | 59.1% |
+| 4c4 4e | 6 | 4a4 4e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 7.2% | 62.7% |
+| 4c4 4e | 7 | 4a4 4e → 4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 6.6% | 65.9% |
+| 4c4 4e | 8 | 4b4 4e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 5.2% | 67.2% |
+| 4c4 4e | 9 | 4a4 4e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 4.5% | 68.5% |
+| 4c4 4e | 10 | 4b4 4e → 2c5 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 4.3% | 70.2% |
+| 4c4 4e | 11 | 4b4 4e → 2c5 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 4.0% | 71.6% |
+| 4c4 4e | 12 | 4a4 4e → 0c3 6e → 4a2 4e → 4a1 4e → HTR | 3.9% | 73.2% |
+| 4c4 4e | 13 | 4b4 4e → 4a3 0e → 4b2 4e → 4a1 4e → HTR | 3.8% | 74.7% |
+| 4c4 4e | 14 | 4a4 4e → 4b5 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.8% | 76.0% |
+| 4c4 4e | 15 | 4a4 4e → 0c3 4e → 4a2 4e → 4a1 4e → HTR | 3.7% | 77.4% |
+| 4c4 4e | 16 | 4a4 4e → 0c3 2e → 4a2 4e → 4a1 4e → HTR | 3.6% | 78.5% |
+| 4c4 4e | 17 | 4a4 4e → 4b5 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.4% | 79.4% |
+| 4c4 4e | 18 | 4a4 4e → 4a3 0e → 4b2 4e → 4a1 4e → HTR | 3.4% | 80.6% |
+| 4c4 4e | 19 | 4a4 4e → 4b5 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.1% | 81.5% |
+| 4c4 4e | 20 | 4a4 4e → 4b5 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 3.1% | 82.2% |
+| 4c4 4e | 21 | 4a4 4e → 4b5 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 3.1% | 82.8% |
+| 4c4 4e | 22 | 4b4 4e → 2c5 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.8% | 83.7% |
+| 4c4 4e | 23 | 4b4 4e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.6% | 84.2% |
+| 4c4 4e | 24 | 4b4 4e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.5% | 84.7% |
+| 4c4 4e | 25 | 4b4 4e → 4a3 4e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.5% | 85.4% |
+| 4c4 4e | 26 | 4b4 4e → 4a3 4e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.5% | 85.9% |
+| 4c4 4e | 27 | 4b4 4e → 4a3 2e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.5% | 86.4% |
+| 4c4 4e | 28 | 4b4 4e → 4a3 2e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.4% | 86.8% |
+| 4c4 4e | 29 | 4b4 4e → 4a3 2e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.3% | 87.2% |
+| 4c4 4e | 30 | 4b4 4e → 2c5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.1% | 87.7% |
+| 4c4 4e | 31 | 4b4 4e → 2c5 6e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.0% | 88.1% |
+| 4b2 0e | 1 | 4b2 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 54.3% | 54.3% |
+| 4b2 0e | 2 | 4b2 0e → 4a1 4e → HTR | 45.1% | 82.1% |
+| 4b2 0e | 3 | 4b2 0e → 4a1 4e → 0c0 2e → 4a1 4e → HTR | 19.9% | 88.2% |
+| 4b2 0e | 4 | 4b2 0e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 10.2% | 91.3% |
+| 4b2 0e | 5 | 4b2 0e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 7.7% | 92.7% |
+| 4b2 0e | 6 | 4b2 0e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 7.7% | 93.8% |
+| 4b2 0e | 7 | 4b2 0e → 2c3 4e → 4b2 0e → 4a1 4e → HTR | 7.6% | 94.7% |
+| 4b2 0e | 8 | 4b2 0e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 7.2% | 95.6% |
+| 4b2 0e | 9 | 4b2 0e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 6.5% | 96.6% |
+| 4b2 0e | 10 | 4b2 0e → 2c3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 5.1% | 97.1% |
+| 4b2 0e | 11 | 4b2 0e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 3.2% | 97.7% |
+| 4b2 0e | 12 | 4b2 0e → 4a1 4e → 0c0 4e → 4a1 4e → HTR | 3.0% | 98.1% |
+| 4b2 0e | 13 | 4b2 0e → 2c3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 2.1% | 98.3% |
+| 4b2 2e | 1 | 4b2 2e → 4a1 4e → HTR | 54.8% | 54.8% |
+| 4b2 2e | 2 | 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 31.6% | 70.9% |
+| 4b2 2e | 3 | 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 25.5% | 80.4% |
+| 4b2 2e | 4 | 4b2 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 14.0% | 84.0% |
+| 4b2 2e | 5 | 4b2 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 11.6% | 85.6% |
+| 4b2 2e | 6 | 4b2 2e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 8.0% | 87.4% |
+| 4b2 2e | 7 | 4b2 2e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 7.7% | 89.1% |
+| 4b2 2e | 8 | 4b2 2e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 7.5% | 90.9% |
+| 4b2 2e | 9 | 4b2 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 7.5% | 92.1% |
+| 4b2 2e | 10 | 4b2 2e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 6.2% | 93.3% |
+| 4b2 2e | 11 | 4b2 2e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 6.1% | 94.1% |
+| 4b2 2e | 12 | 4b2 2e → 4a1 2e → 0c0 2e → 4a1 4e → HTR | 6.0% | 95.1% |
+| 4b2 2e | 13 | 4b2 2e → 4a1 4e → 0c0 4e → 4a1 4e → HTR | 5.2% | 96.0% |
+| 4b2 2e | 14 | 4b2 2e → 4a1 4e → 0c0 2e → 4a1 4e → HTR | 4.8% | 96.8% |
+| 4b2 2e | 15 | 4b2 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 3.2% | 97.2% |
+| 4b2 2e | 16 | 4b2 2e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 3.2% | 97.5% |
+| 4b2 2e | 17 | 4b2 2e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 2.9% | 97.9% |
+| 4b2 2e | 18 | 4b2 2e → 2c3 4e → 4b2 0e → 4a1 4e → HTR | 2.4% | 98.2% |
+| 4b2 4e | 1 | 4b2 4e → 4a1 4e → HTR | 36.3% | 36.3% |
+| 4b2 4e | 2 | 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 34.7% | 61.1% |
+| 4b2 4e | 3 | 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 27.4% | 73.9% |
+| 4b2 4e | 4 | 4b2 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 21.0% | 80.8% |
+| 4b2 4e | 5 | 4b2 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 15.3% | 84.6% |
+| 4b2 4e | 6 | 4b2 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 7.9% | 86.8% |
+| 4b2 4e | 7 | 4b2 4e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 7.8% | 88.7% |
+| 4b2 4e | 8 | 4b2 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 7.4% | 90.2% |
+| 4b2 4e | 9 | 4b2 4e → 4a1 2e → 0c0 2e → 4a1 4e → HTR | 7.0% | 91.6% |
+| 4b2 4e | 10 | 4b2 4e → 4a1 4e → 0c0 2e → 4a1 4e → HTR | 6.5% | 92.8% |
+| 4b2 4e | 11 | 4b2 4e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 6.4% | 93.6% |
+| 4b2 4e | 12 | 4b2 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 5.9% | 94.6% |
+| 4b2 4e | 13 | 4b2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 5.6% | 95.3% |
+| 4b2 4e | 14 | 4b2 4e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 5.0% | 96.0% |
+| 4b2 4e | 15 | 4b2 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 3.2% | 96.6% |
+| 4b2 4e | 16 | 4b2 4e → 4a1 4e → 0c0 4e → 4a1 4e → HTR | 3.1% | 97.1% |
+| 4b2 4e | 17 | 4b2 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 2.3% | 97.5% |
+| 4b5 0e | 1 | 4b5 0e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 58.0% | 58.0% |
+| 4b5 0e | 2 | 4b5 0e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 47.4% | 78.1% |
+| 4b5 0e | 3 | 4b5 0e → 2c4 4e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 29.2% | 85.7% |
+| 4b5 0e | 4 | 4b5 0e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 26.5% | 90.8% |
+| 4b5 0e | 5 | 4b5 0e → 4a4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 15.2% | 93.9% |
+| 4b5 0e | 6 | 4b5 0e → 2c4 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 12.6% | 95.1% |
+| 4b5 0e | 7 | 4b5 0e → 4a4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 9.3% | 96.3% |
+| 4b5 0e | 8 | 4b5 0e → 2c4 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 7.4% | 97.0% |
+| 4b5 0e | 9 | 4b5 0e → 4a4 4e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 3.5% | 97.3% |
+| 4b5 0e | 10 | 4b5 0e → 2c4 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 3.2% | 97.5% |
+| 4b5 2e | 1 | 4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 42.6% | 42.6% |
+| 4b5 2e | 2 | 4b5 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 28.2% | 56.4% |
+| 4b5 2e | 3 | 4b5 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 20.9% | 65.8% |
+| 4b5 2e | 4 | 4b5 2e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 16.3% | 70.8% |
+| 4b5 2e | 5 | 4b5 2e → 2c4 6e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 13.5% | 75.2% |
+| 4b5 2e | 6 | 4b5 2e → 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 13.1% | 77.9% |
+| 4b5 2e | 7 | 4b5 2e → 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 12.4% | 81.2% |
+| 4b5 2e | 8 | 4b5 2e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 12.1% | 83.6% |
+| 4b5 2e | 9 | 4b5 2e → 2c4 6e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 9.2% | 85.2% |
+| 4b5 2e | 10 | 4b5 2e → 2c4 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 7.5% | 86.2% |
+| 4b5 2e | 11 | 4b5 2e → 2c4 6e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 6.8% | 87.5% |
+| 4b5 2e | 12 | 4b5 2e → 2c4 4e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 6.8% | 88.4% |
+| 4b5 2e | 13 | 4b5 2e → 2c4 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 6.5% | 89.3% |
+| 4b5 2e | 14 | 4b5 2e → 2c4 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 6.1% | 90.0% |
+| 4b5 2e | 15 | 4b5 2e → 2c4 6e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 5.9% | 90.7% |
+| 4b5 2e | 16 | 4b5 2e → 4a4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 5.9% | 91.6% |
+| 4b5 2e | 17 | 4b5 2e → 2c4 2e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 5.9% | 92.4% |
+| 4b5 2e | 18 | 4b5 2e → 4a4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 5.9% | 93.2% |
+| 4b5 2e | 19 | 4b5 2e → 2c4 2e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 4.5% | 93.6% |
+| 4b5 2e | 20 | 4b5 2e → 4a4 2e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 3.8% | 94.2% |
+| 4b5 2e | 21 | 4b5 2e → 4a4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 3.8% | 94.8% |
+| 4b5 2e | 22 | 4b5 2e → 2c4 6e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 3.6% | 95.1% |
+| 4b5 2e | 23 | 4b5 2e → 2c4 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 2.9% | 95.3% |
+| 4b5 2e | 24 | 4b5 2e → 2c4 4e → 4b3 0e → 4a2 4e → 4a1 4e → HTR | 2.9% | 95.6% |
+| 4b5 2e | 25 | 4b5 2e → 4a4 4e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 2.9% | 96.0% |
+| 4b5 2e | 26 | 4b5 2e → 2c4 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 2.8% | 96.2% |
+| 4b5 2e | 27 | 4b5 2e → 2c4 6e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 2.6% | 96.5% |
+| 4b5 2e | 28 | 4b5 2e → 2c4 2e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 2.2% | 96.7% |
+| 4b5 2e | 29 | 4b5 2e → 2c4 2e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 2.1% | 96.9% |
+| 4b5 2e | 30 | 4b5 2e → 2c4 6e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 2.0% | 97.0% |
+| 4b5 4e | 1 | 4b5 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 31.0% | 31.0% |
+| 4b5 4e | 2 | 4b5 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 30.2% | 48.2% |
+| 4b5 4e | 3 | 4b5 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 17.8% | 56.9% |
+| 4b5 4e | 4 | 4b5 4e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 15.5% | 61.1% |
+| 4b5 4e | 5 | 4b5 4e → 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 15.0% | 66.2% |
+| 4b5 4e | 6 | 4b5 4e → 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 12.3% | 69.4% |
+| 4b5 4e | 7 | 4b5 4e → 2c4 6e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 12.1% | 73.8% |
+| 4b5 4e | 8 | 4b5 4e → 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 12.1% | 77.3% |
+| 4b5 4e | 9 | 4b5 4e → 2c4 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 10.7% | 79.7% |
+| 4b5 4e | 10 | 4b5 4e → 2c4 4e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 10.4% | 81.4% |
+| 4b5 4e | 11 | 4b5 4e → 2c4 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 9.6% | 84.0% |
+| 4b5 4e | 12 | 4b5 4e → 2c4 6e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 8.2% | 85.6% |
+| 4b5 4e | 13 | 4b5 4e → 2c4 2e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 7.1% | 86.4% |
+| 4b5 4e | 14 | 4b5 4e → 2c4 6e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 6.8% | 87.7% |
+| 4b5 4e | 15 | 4b5 4e → 2c4 4e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 6.3% | 88.4% |
+| 4b5 4e | 16 | 4b5 4e → 4a4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 6.1% | 89.5% |
+| 4b5 4e | 17 | 4b5 4e → 2c4 6e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 5.6% | 90.3% |
+| 4b5 4e | 18 | 4b5 4e → 4a4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 5.5% | 91.2% |
+| 4b5 4e | 19 | 4b5 4e → 2c4 4e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 5.3% | 91.8% |
+| 4b5 4e | 20 | 4b5 4e → 2c4 2e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 5.3% | 92.4% |
+| 4b5 4e | 21 | 4b5 4e → 4a4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 5.1% | 93.2% |
+| 4b5 4e | 22 | 4b5 4e → 2c4 2e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 4.3% | 93.7% |
+| 4b5 4e | 23 | 4b5 4e → 2c4 4e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 4.2% | 94.1% |
+| 4b5 4e | 24 | 4b5 4e → 4a4 2e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 3.5% | 94.7% |
+| 4b5 4e | 25 | 4b5 4e → 2c4 6e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 3.5% | 95.0% |
+| 4b5 4e | 26 | 4b5 4e → 2c4 0e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 3.0% | 95.4% |
+| 4b5 4e | 27 | 4b5 4e → 2c4 8e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 2.7% | 95.9% |
+| 4b5 4e | 28 | 4b5 4e → 2c4 6e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 2.3% | 96.2% |
+| 4b5 4e | 29 | 4b5 4e → 2c4 2e → 2c3 6e → 4b2 4e → 4a1 4e → HTR | 2.1% | 96.4% |
+
+Where the first quarter turn goes, every corner subset it reaches on at least 0.5% of DRs. Each row is a starting subset × edges and a corner subset after the first quarter turn: the share of DRs whose optimal finish can go there, then with each edge count (– where the subset has no such edge count):
+
+| From | First quarter turn to | DRs that can go there, any edge count | with 0e (DRs) | with 2e (DRs) | with 4e (DRs) | with 6e (DRs) | with 8e (DRs) |
+|---|---|---|---|---|---|---|---|
+| 0c0 0e | 4a1 | 49.9% | 0% | 0% | 49.9% | – | – |
+| 0c0 2e | 4a1 | >99.9% | 0% | 34.3% | 92.2% | – | – |
+| 0c0 4e | 4a1 | >99.9% | 2.1% | 44.6% | 86.7% | – | – |
+| 0c0 6e | 4a1 | >99.9% | 0% | 60.8% | 76.7% | – | – |
+| 0c0 8e | 4a1 | >99.9% | 0% | 0% | >99.9% | – | – |
+| 2c5 0e | 2c4 | 86.2% | 0% | 0% | 86.2% | 0% | 0% |
+| 2c5 0e | 4b4 | 41.1% | – | – | – | – | – |
+| 2c5 2e | 2c4 | 89.5% | 0% | 47.1% | 60.1% | 32.2% | 0% |
+| 2c5 2e | 4b4 | 36.1% | – | – | – | – | – |
+| 2c5 4e | 2c4 | 90.8% | 10.1% | 38.2% | 61.6% | 29.5% | 3.5% |
+| 2c5 4e | 4b4 | 33.4% | – | – | – | – | – |
+| 2c5 6e | 2c4 | 89.8% | 0% | 39.2% | 61.6% | 38.1% | 0% |
+| 2c5 6e | 4b4 | 35.0% | – | – | – | – | – |
+| 2c5 8e | 2c4 | 89.7% | 0% | 0% | 89.7% | 0% | 0% |
+| 2c5 8e | 4b4 | 35.6% | – | – | – | – | – |
+| 2c4 0e | 2c3 | 96.3% | 0% | 0% | 96.3% | 0% | 0% |
+| 2c4 0e | 4b3 | 11.3% | – | – | – | – | – |
+| 2c4 0e | 4b5 | 6.7% | 0% | 0% | 6.7% | – | – |
+| 2c4 0e | 2c5 | 4.9% | 0% | 0% | 4.9% | 0% | 0% |
+| 2c4 2e | 2c3 | 90.7% | 0% | 50.3% | 61.1% | 18.5% | 0% |
+| 2c4 2e | 4b3 | 26.3% | – | – | – | – | – |
+| 2c4 2e | 4b5 | 9.8% | 0% | 5.7% | 4.9% | – | – |
+| 2c4 2e | 2c5 | 5.5% | 0% | 1.2% | 3.2% | 1.3% | 0% |
+| 2c4 4e | 2c3 | 89.2% | 1.0% | 47.3% | 57.5% | 17.9% | 1.1% |
+| 2c4 4e | 4b3 | 27.3% | – | – | – | – | – |
+| 2c4 4e | 4b5 | 10.5% | 0.68% | 5.4% | 5.1% | – | – |
+| 2c4 4e | 2c5 | 5.6% | 0.10% | 1.4% | 3.0% | 1.2% | 0.10% |
+| 2c4 6e | 2c3 | 86.8% | 0% | 49.9% | 52.7% | 21.8% | 0% |
+| 2c4 6e | 4b3 | 32.1% | – | – | – | – | – |
+| 2c4 6e | 4b5 | 10.5% | 0% | 6.1% | 5.2% | – | – |
+| 2c4 6e | 2c5 | 4.8% | 0% | 1.3% | 2.6% | 1.1% | 0% |
+| 2c4 8e | 2c3 | 89.8% | 0% | 0% | 89.8% | 0% | 0% |
+| 2c4 8e | 4b3 | 24.8% | – | – | – | – | – |
+| 2c4 8e | 4b5 | 10.0% | 0% | 0% | 10.0% | – | – |
+| 2c4 8e | 2c5 | 5.0% | 0% | 0% | 5.0% | 0% | 0% |
+| 0c3 0e | 4a2 | 94.8% | 0% | 0% | 94.8% | – | – |
+| 0c3 0e | 4a4 | 16.2% | – | – | – | – | – |
+| 0c3 2e | 4a2 | 95.7% | 0% | 27.5% | 88.1% | – | – |
+| 0c3 2e | 4a4 | 17.7% | – | – | – | – | – |
+| 0c3 4e | 4a2 | 93.5% | 2.9% | 34.6% | 72.5% | – | – |
+| 0c3 4e | 4a4 | 26.5% | – | – | – | – | – |
+| 0c3 6e | 4a2 | 97.0% | 0% | 26.4% | 89.9% | – | – |
+| 0c3 6e | 4a4 | 14.0% | – | – | – | – | – |
+| 0c3 8e | 4a2 | 96.5% | 0% | 0% | 96.5% | – | – |
+| 0c3 8e | 4a4 | 13.4% | – | – | – | – | – |
+| 4a2 0e | 4a1 | 69.5% | 0% | 0% | 69.5% | – | – |
+| 4a2 0e | 4b3 | 62.9% | – | – | – | – | – |
+| 4a2 0e | 0c3 | 2.9% | 0% | 0% | 2.9% | 0% | 0% |
+| 4a2 2e | 4a1 | 82.8% | 0% | 45.3% | 60.7% | – | – |
+| 4a2 2e | 4b3 | 50.9% | – | – | – | – | – |
+| 4a2 2e | 0c3 | 2.5% | 0% | 0.96% | 0.47% | 1.1% | 0% |
+| 4a2 4e | 4a1 | 93.0% | 2.0% | 25.6% | 79.7% | – | – |
+| 4a2 4e | 4b3 | 30.8% | – | – | – | – | – |
+| 4a2 4e | 0c3 | 0.94% | 0.010% | 0.26% | 0.42% | 0.25% | 0.020% |
+| 4a1 0e | 4b2 | 78.8% | 0% | 0% | 78.8% | – | – |
+| 4a1 0e | 0c0 | 48.8% | 0% | 0% | 48.8% | 0% | 0% |
+| 4a1 0e | 4a2 | 4.6% | 0% | 0% | 4.6% | – | – |
+| 4a1 2e | 4b2 | 71.6% | 0% | 58.6% | 31.1% | – | – |
+| 4a1 2e | 0c0 | 61.7% | 0% | 33.9% | 37.9% | 5.7% | 0% |
+| 4a1 2e | 4a2 | 9.2% | 0% | 2.3% | 7.2% | – | – |
+| 4a1 4e | 4b2 | 59.1% | 2.8% | 35.6% | 37.0% | – | – |
+| 4a1 4e | 0c0 | 51.9% | 13.8% | 23.7% | 21.8% | 3.2% | 1.1% |
+| 4a1 4e | HTR | 34.3% | – | – | – | – | – |
+| 4a1 4e | 4a2 | 10.6% | 0.12% | 1.6% | 9.1% | – | – |
+| 2c3 0e | 4b2 | 89.3% | 0% | 0% | 89.3% | – | – |
+| 2c3 0e | 2c4 | 40.3% | 0% | 0% | 40.3% | 0% | 0% |
+| 2c3 2e | 4b2 | 97.6% | 0% | 74.6% | 56.8% | – | – |
+| 2c3 2e | 2c4 | 15.7% | 0% | 4.8% | 9.5% | 3.4% | 0% |
+| 2c3 4e | 4b2 | 96.2% | 8.6% | 72.4% | 49.1% | – | – |
+| 2c3 4e | 2c4 | 21.3% | 1.4% | 6.8% | 11.5% | 5.0% | 0.36% |
+| 2c3 6e | 4b2 | 94.7% | 0% | 66.9% | 62.3% | – | – |
+| 2c3 6e | 2c4 | 26.0% | 0% | 8.8% | 15.2% | 6.9% | 0% |
+| 2c3 8e | 4b2 | 89.4% | 0% | 0% | 89.4% | – | – |
+| 2c3 8e | 2c4 | 40.6% | 0% | 0% | 40.6% | 0% | 0% |
+| 0c4 0e | 4a3 | >99.9% | – | – | – | – | – |
+| 0c4 2e | 4a3 | >99.9% | – | – | – | – | – |
+| 0c4 4e | 4a3 | >99.9% | – | – | – | – | – |
+| 0c4 6e | 4a3 | >99.9% | – | – | – | – | – |
+| 0c4 8e | 4a3 | >99.9% | – | – | – | – | – |
+| 4c3 0e | 4b2 | 48.8% | 0% | 0% | 48.8% | – | – |
+| 4c3 0e | 4a2 | 41.9% | 0% | 0% | 41.9% | – | – |
+| 4c3 0e | 2c4 | 24.1% | 0% | 0% | 24.1% | 0% | 0% |
+| 4c3 0e | 0c4 | 5.0% | 0% | 0% | 5.0% | 0% | 0% |
+| 4c3 0e | 4b4 | 1.7% | – | – | – | – | – |
+| 4c3 0e | 4a4 | 0.94% | – | – | – | – | – |
+| 4c3 2e | 4b2 | 48.9% | 0% | 38.9% | 26.1% | – | – |
+| 4c3 2e | 4a2 | 40.4% | 0% | 11.4% | 36.4% | – | – |
+| 4c3 2e | 2c4 | 26.2% | 0% | 10.8% | 16.0% | 7.3% | 0% |
+| 4c3 2e | 0c4 | 6.2% | 0% | 1.9% | 3.9% | 1.2% | 0% |
+| 4c3 2e | 4b4 | 2.4% | – | – | – | – | – |
+| 4c3 2e | 4a4 | 1.2% | – | – | – | – | – |
+| 4c3 4e | 4b2 | 48.2% | 3.1% | 32.4% | 29.0% | – | – |
+| 4c3 4e | 4a2 | 39.6% | 0.63% | 10.8% | 34.4% | – | – |
+| 4c3 4e | 2c4 | 27.5% | 2.7% | 9.2% | 17.5% | 6.7% | 0.73% |
+| 4c3 4e | 0c4 | 6.5% | 0.31% | 1.9% | 3.7% | 1.2% | 0.11% |
+| 4c3 4e | 4b4 | 2.5% | – | – | – | – | – |
+| 4c3 4e | 4a4 | 1.1% | – | – | – | – | – |
+| 4c4 0e | 4a3 | 77.3% | – | – | – | – | – |
+| 4c4 0e | 4b5 | 29.0% | 0% | 0% | 29.0% | – | – |
+| 4c4 0e | 2c5 | 26.1% | 0% | 0% | 26.1% | 0% | 0% |
+| 4c4 0e | 0c3 | 6.9% | 0% | 0% | 6.9% | 0% | 0% |
+| 4c4 2e | 4a3 | 77.1% | – | – | – | – | – |
+| 4c4 2e | 4b5 | 27.5% | 0% | 18.0% | 16.1% | – | – |
+| 4c4 2e | 2c5 | 22.6% | 0% | 7.1% | 14.3% | 6.6% | 0% |
+| 4c4 2e | 0c3 | 13.7% | 0% | 4.8% | 6.4% | 5.2% | 0% |
+| 4c4 4e | 4a3 | 79.3% | – | – | – | – | – |
+| 4c4 4e | 4b5 | 25.9% | 2.2% | 15.1% | 14.8% | – | – |
+| 4c4 4e | 2c5 | 22.2% | 0.54% | 6.1% | 14.3% | 5.6% | 0.69% |
+| 4c4 4e | 0c3 | 11.5% | 0.65% | 3.6% | 4.2% | 4.0% | 0.72% |
+| 4b2 0e | 4a1 | 66.0% | 0% | 0% | 66.0% | – | – |
+| 4b2 0e | 2c3 | 62.5% | 0% | 0% | 62.5% | 0% | 0% |
+| 4b2 0e | 4a3 | 15.0% | – | – | – | – | – |
+| 4b2 2e | 4a1 | 72.9% | 0% | 19.0% | 65.4% | – | – |
+| 4b2 2e | 2c3 | 61.9% | 0% | 33.9% | 37.7% | 13.6% | 0% |
+| 4b2 2e | 4a3 | 8.3% | – | – | – | – | – |
+| 4b2 4e | 2c3 | 72.3% | 0.70% | 37.1% | 48.3% | 13.1% | 0.78% |
+| 4b2 4e | 4a1 | 60.1% | 1.3% | 19.5% | 47.3% | – | – |
+| 4b2 4e | 4a3 | 8.7% | – | – | – | – | – |
+| 4b5 0e | 2c4 | 94.5% | 0% | 0% | 94.5% | 0% | 0% |
+| 4b5 0e | 4a4 | 29.5% | – | – | – | – | – |
+| 4b5 2e | 2c4 | 95.6% | 0% | 43.4% | 67.2% | 35.3% | 0% |
+| 4b5 2e | 4a4 | 26.3% | – | – | – | – | – |
+| 4b5 4e | 2c4 | 95.3% | 11.4% | 39.5% | 63.4% | 32.9% | 3.3% |
+| 4b5 4e | 4a4 | 26.8% | – | – | – | – | – |
+
+The second quarter turn, on the route. Each row is a starting subset × edges, a first step that at least 20% of its DRs can take, and a corner subset the second quarter turn reaches on at least 10% of those. The last six columns are shares *of the DRs that can take the first step*: that can go on to the corner subset, then with each edge count, in the same optimal finish:
+
+| From | First quarter turn to | DRs that can go there | Second quarter turn to | Of those, can go on to it (any edge count) | with 0e (of those) | with 2e (of those) | with 4e (of those) | with 6e (of those) | with 8e (of those) |
+|---|---|---|---|---|---|---|---|---|---|
+| 0c0 2e | 4a1 2e | 34.3% | 0c0 | 69.2% | 0% | 57.6% | 19.5% | 0% | 0% |
+| 0c0 2e | 4a1 2e | 34.3% | 4b2 | 51.2% | 0% | 48.3% | 7.3% | – | – |
+| 0c0 2e | 4a1 4e | 92.2% | 0c0 | 38.0% | 27.3% | 22.1% | 1.1% | 0.050% | 0% |
+| 0c0 2e | 4a1 4e | 92.2% | 4b2 | 22.9% | 0.070% | 14.7% | 19.0% | – | – |
+| 0c0 4e | 4a1 2e | 44.6% | 0c0 | 57.2% | 0% | 29.2% | 38.0% | 0.58% | 0% |
+| 0c0 4e | 4a1 2e | 44.6% | 4b2 | 68.1% | 0% | 62.7% | 15.1% | – | – |
+| 0c0 4e | 4a1 4e | 86.7% | 0c0 | 32.4% | 17.5% | 6.5% | 15.7% | 0.070% | 0.30% |
+| 0c0 4e | 4a1 4e | 86.7% | 4b2 | 40.9% | 0.63% | 31.1% | 19.2% | – | – |
+| 0c0 6e | 4a1 2e | 60.8% | 0c0 | 62.3% | 0% | 2.3% | 55.4% | 11.6% | 0% |
+| 0c0 6e | 4a1 2e | 60.8% | 4b2 | 70.2% | 0% | 60.1% | 29.9% | – | – |
+| 0c0 6e | 4a1 4e | 76.7% | 0c0 | 46.2% | 11.7% | 31.1% | 10.7% | 9.5% | 1.7% |
+| 0c0 6e | 4a1 4e | 76.7% | 4b2 | 43.2% | 6.5% | 29.2% | 34.7% | – | – |
+| 0c0 8e | 4a1 4e | >99.9% | 0c0 | 38.9% | 25.7% | 0.86% | 7.2% | 0.90% | 26.2% |
+| 0c0 8e | 4a1 4e | >99.9% | 4b2 | 31.6% | 0% | 27.6% | 11.2% | – | – |
+| 2c5 0e | 2c4 4e | 86.2% | 2c3 | 98.8% | 0% | 82.6% | 47.1% | 28.2% | 0% |
+| 2c5 0e | 4b4 4e | 41.1% | 2c5 | 18.6% | 0.64% | 11.7% | 5.7% | 8.1% | 0% |
+| 2c5 0e | 4b4 4e | 41.1% | 4a3 | 93.7% | – | – | – | – | – |
+| 2c5 2e | 2c4 2e | 47.1% | 2c3 | 99.5% | 0% | 54.9% | 70.6% | 11.2% | 0% |
+| 2c5 2e | 2c4 4e | 60.1% | 2c3 | 99.2% | 0.50% | 49.0% | 78.7% | 10.2% | 0.73% |
+| 2c5 2e | 2c4 6e | 32.2% | 2c3 | 99.0% | 0% | 66.4% | 52.6% | 18.7% | 0% |
+| 2c5 2e | 4b4 2e | 22.9% | 2c5 | 16.5% | 0% | 5.4% | 11.8% | 3.6% | 0% |
+| 2c5 2e | 4b4 2e | 22.9% | 4a3 | 93.2% | – | – | – | – | – |
+| 2c5 2e | 4b4 4e | 22.6% | 2c5 | 16.0% | 0.25% | 4.2% | 12.8% | 2.0% | 0.49% |
+| 2c5 2e | 4b4 4e | 22.6% | 4a3 | 93.0% | – | – | – | – | – |
+| 2c5 4e | 2c4 2e | 38.2% | 2c3 | 99.6% | 0% | 60.1% | 62.8% | 9.9% | 0% |
+| 2c5 4e | 2c4 4e | 61.6% | 2c3 | 99.4% | 0.13% | 67.3% | 60.1% | 15.2% | 0.16% |
+| 2c5 4e | 2c4 6e | 29.5% | 2c3 | 99.1% | 0% | 61.1% | 56.7% | 16.3% | 0% |
+| 2c5 4e | 4b4 4e | 20.7% | 2c5 | 15.5% | 0.080% | 5.3% | 9.6% | 4.2% | 0.19% |
+| 2c5 4e | 4b4 4e | 20.7% | 4a3 | 93.9% | – | – | – | – | – |
+| 2c5 6e | 2c4 2e | 39.2% | 2c3 | 99.3% | 0% | 69.5% | 54.2% | 11.2% | 0% |
+| 2c5 6e | 2c4 4e | 61.6% | 2c3 | 99.2% | 0.69% | 58.7% | 69.5% | 11.6% | 1.0% |
+| 2c5 6e | 2c4 6e | 38.1% | 2c3 | 99.1% | 0% | 64.1% | 53.4% | 12.2% | 0% |
+| 2c5 6e | 4b4 4e | 24.1% | 2c5 | 14.9% | 0.48% | 3.0% | 10.5% | 3.7% | 0.73% |
+| 2c5 6e | 4b4 4e | 24.1% | 4a3 | 94.6% | – | – | – | – | – |
+| 2c5 8e | 2c4 4e | 89.7% | 2c3 | 99.1% | 0% | 88.5% | 35.3% | 30.0% | 0% |
+| 2c5 8e | 4b4 4e | 35.6% | 2c5 | 12.5% | 0% | 6.5% | 4.2% | 5.6% | 0.63% |
+| 2c5 8e | 4b4 4e | 35.6% | 4a3 | 97.0% | – | – | – | – | – |
+| 2c4 0e | 2c3 4e | 96.3% | 4b2 | 99.4% | 0.14% | 83.5% | 47.3% | – | – |
+| 2c4 2e | 2c3 2e | 50.3% | 4b2 | 99.5% | 0% | 79.5% | 43.8% | – | – |
+| 2c4 2e | 2c3 4e | 61.1% | 4b2 | 99.0% | 5.5% | 68.3% | 55.3% | – | – |
+| 2c4 4e | 2c3 2e | 47.3% | 4b2 | 99.5% | 0% | 78.2% | 44.6% | – | – |
+| 2c4 4e | 2c3 4e | 57.5% | 4b2 | 99.0% | 4.2% | 87.4% | 29.2% | – | – |
+| 2c4 6e | 2c3 2e | 49.9% | 4b2 | 99.5% | 0% | 72.7% | 53.4% | – | – |
+| 2c4 6e | 2c3 4e | 52.7% | 4b2 | 98.9% | 9.2% | 77.2% | 40.7% | – | – |
+| 2c4 6e | 2c3 6e | 21.8% | 4b2 | 97.6% | 0% | 62.5% | 55.4% | – | – |
+| 2c4 6e | 4b3 4e | 20.3% | 2c4 | 11.4% | 2.2% | 3.1% | 4.9% | 2.5% | 0.33% |
+| 2c4 6e | 4b3 4e | 20.3% | 4a2 | 94.5% | 0.20% | 5.2% | 92.6% | – | – |
+| 2c4 8e | 2c3 4e | 89.8% | 4b2 | 99.5% | 0.72% | 87.9% | 41.8% | – | – |
+| 2c4 8e | 4b3 4e | 24.8% | 2c4 | 15.6% | 0.24% | 5.9% | 7.6% | 3.7% | 1.7% |
+| 2c4 8e | 4b3 4e | 24.8% | 4a2 | 93.8% | 0% | 31.2% | 78.4% | – | – |
+| 0c3 0e | 4a2 4e | 94.8% | 4a1 | 95.0% | 0% | 0.080% | 95.0% | – | – |
+| 0c3 0e | 4a2 4e | 94.8% | 4b3 | 20.3% | – | – | – | – | – |
+| 0c3 2e | 4a2 2e | 27.5% | 4a1 | 72.0% | 0% | 16.7% | 60.2% | – | – |
+| 0c3 2e | 4a2 2e | 27.5% | 4b3 | 51.3% | – | – | – | – | – |
+| 0c3 2e | 4a2 4e | 88.1% | 4a1 | 96.3% | 0% | 5.1% | 93.1% | – | – |
+| 0c3 2e | 4a2 4e | 88.1% | 4b3 | 13.8% | – | – | – | – | – |
+| 0c3 4e | 4a2 2e | 34.6% | 4a1 | 73.3% | 0% | 26.4% | 57.2% | – | – |
+| 0c3 4e | 4a2 2e | 34.6% | 4b3 | 60.7% | – | – | – | – | – |
+| 0c3 4e | 4a2 4e | 72.5% | 4a1 | 93.7% | 0.13% | 7.0% | 89.8% | – | – |
+| 0c3 4e | 4a2 4e | 72.5% | 4b3 | 19.3% | – | – | – | – | – |
+| 0c3 6e | 4a2 2e | 26.4% | 4a1 | 77.0% | 0% | 21.5% | 61.4% | – | – |
+| 0c3 6e | 4a2 2e | 26.4% | 4b3 | 45.3% | – | – | – | – | – |
+| 0c3 6e | 4a2 4e | 89.9% | 4a1 | 97.1% | 0% | 5.6% | 93.6% | – | – |
+| 0c3 6e | 4a2 4e | 89.9% | 4b3 | 11.9% | – | – | – | – | – |
+| 0c3 8e | 4a2 4e | 96.5% | 4a1 | 95.2% | 0% | 0.020% | 95.2% | – | – |
+| 0c3 8e | 4a2 4e | 96.5% | 4b3 | 20.8% | – | – | – | – | – |
+| 4a2 0e | 4a1 4e | 69.5% | 0c0 | 27.9% | 0.070% | 1.3% | 27.2% | 0% | 0% |
+| 4a2 0e | 4a1 4e | 69.5% | 4b2 | 90.3% | 0.12% | 74.9% | 40.7% | – | – |
+| 4a2 0e | 4b3 4e | 62.9% | 2c4 | 56.8% | 0.62% | 37.8% | 24.9% | 21.4% | 0% |
+| 4a2 0e | 4b3 4e | 62.9% | 4a2 | 71.3% | 1.9% | 1.6% | 70.2% | – | – |
+| 4a2 2e | 4a1 2e | 45.3% | 0c0 | 43.0% | 0% | 22.5% | 28.1% | 0.31% | 0% |
+| 4a2 2e | 4a1 2e | 45.3% | 4b2 | 79.7% | 0% | 70.9% | 19.1% | – | – |
+| 4a2 2e | 4a1 4e | 60.7% | 0c0 | 24.1% | 4.6% | 17.0% | 5.6% | 0.18% | 0% |
+| 4a2 2e | 4a1 4e | 60.7% | 4b2 | 51.5% | 3.4% | 29.4% | 30.5% | – | – |
+| 4a2 2e | 4b3 2e | 34.5% | 2c4 | 42.8% | 0% | 18.3% | 25.2% | 9.0% | 0% |
+| 4a2 2e | 4b3 2e | 34.5% | 4a2 | 76.5% | 0% | 8.0% | 73.4% | – | – |
+| 4a2 2e | 4b3 4e | 29.2% | 2c4 | 55.3% | 12.3% | 12.2% | 38.2% | 6.3% | 1.1% |
+| 4a2 2e | 4b3 4e | 29.2% | 4a2 | 64.0% | 0.010% | 12.2% | 57.6% | – | – |
+| 4a2 4e | 4a1 2e | 25.6% | 0c0 | 39.4% | 0% | 21.1% | 25.1% | 0.23% | 0% |
+| 4a2 4e | 4a1 2e | 25.6% | 4b2 | 81.7% | 0% | 75.3% | 15.7% | – | – |
+| 4a2 4e | 4a1 4e | 79.7% | 0c0 | 12.8% | 8.5% | 3.4% | 2.2% | 0.020% | 0.090% |
+| 4a2 4e | 4a1 4e | 79.7% | 4b2 | 28.7% | 0.10% | 18.1% | 13.2% | – | – |
+| 4a1 0e | 0c0 4e | 48.8% | 4a1 | >99.9% | 0.67% | 34.3% | 85.2% | – | – |
+| 4a1 0e | 4b2 4e | 78.8% | 2c3 | 79.9% | 0% | 64.2% | 35.5% | 14.1% | 0% |
+| 4a1 0e | 4b2 4e | 78.8% | 4a1 | 45.2% | 8.7% | 8.1% | 36.6% | – | – |
+| 4a1 2e | 0c0 2e | 33.9% | 4a1 | >99.9% | 0% | 7.6% | 98.4% | – | – |
+| 4a1 2e | 0c0 4e | 37.9% | 4a1 | >99.9% | 0.34% | 9.9% | 96.9% | – | – |
+| 4a1 2e | 4b2 2e | 58.6% | 2c3 | 29.9% | 0% | 16.9% | 16.3% | 3.2% | 0% |
+| 4a1 2e | 4b2 2e | 58.6% | 4a1 | 88.1% | 0% | 9.2% | 85.3% | – | – |
+| 4a1 2e | 4b2 4e | 31.1% | 2c3 | 58.4% | 0.10% | 22.4% | 43.4% | 2.9% | 0.19% |
+| 4a1 2e | 4b2 4e | 31.1% | 4a1 | 60.0% | 0.22% | 22.5% | 43.0% | – | – |
+| 4a1 4e | 0c0 2e | 23.7% | 4a1 | >99.9% | 0% | 6.0% | 98.5% | – | – |
+| 4a1 4e | 0c0 4e | 21.8% | 4a1 | >99.9% | 0.020% | 15.8% | 93.8% | – | – |
+| 4a1 4e | 4b2 2e | 35.6% | 2c3 | 32.2% | 0% | 17.3% | 17.5% | 3.3% | 0% |
+| 4a1 4e | 4b2 2e | 35.6% | 4a1 | 82.4% | 0% | 4.6% | 80.3% | – | – |
+| 4a1 4e | 4b2 4e | 37.0% | 2c3 | 44.2% | 0.010% | 23.7% | 24.6% | 4.3% | 0% |
+| 4a1 4e | 4b2 4e | 37.0% | 4a1 | 72.7% | 0.14% | 1.7% | 71.9% | – | – |
+| 2c3 0e | 2c4 4e | 40.3% | 2c3 | 93.5% | 2.4% | 73.7% | 40.4% | 7.3% | 0% |
+| 2c3 0e | 2c4 4e | 40.3% | 4b3 | 20.5% | – | – | – | – | – |
+| 2c3 0e | 4b2 4e | 89.3% | 2c3 | 55.6% | 0.75% | 40.6% | 29.2% | 9.0% | 0% |
+| 2c3 0e | 4b2 4e | 89.3% | 4a1 | 79.7% | 0% | 41.2% | 58.7% | – | – |
+| 2c3 2e | 4b2 2e | 74.6% | 2c3 | 19.3% | 0% | 12.3% | 8.8% | 0.71% | 0% |
+| 2c3 2e | 4b2 2e | 74.6% | 4a1 | 94.8% | 0% | 5.1% | 93.6% | – | – |
+| 2c3 2e | 4b2 4e | 56.8% | 2c3 | 24.1% | 0% | 12.1% | 14.3% | 0.83% | 0.060% |
+| 2c3 2e | 4b2 4e | 56.8% | 4a1 | 90.9% | 0.37% | 3.8% | 89.5% | – | – |
+| 2c3 4e | 4b2 2e | 72.4% | 2c3 | 22.6% | 0% | 12.1% | 12.7% | 1.9% | 0% |
+| 2c3 4e | 4b2 2e | 72.4% | 4a1 | 93.7% | 0% | 7.8% | 91.6% | – | – |
+| 2c3 4e | 4b2 4e | 49.1% | 2c3 | 38.9% | 0% | 18.4% | 24.6% | 2.7% | 0.010% |
+| 2c3 4e | 4b2 4e | 49.1% | 4a1 | 80.5% | 0.16% | 13.2% | 73.4% | – | – |
+| 2c3 6e | 4b2 2e | 66.9% | 2c3 | 29.1% | 0% | 15.5% | 14.6% | 5.3% | 0% |
+| 2c3 6e | 4b2 2e | 66.9% | 4a1 | 90.8% | 0% | 12.3% | 87.0% | – | – |
+| 2c3 6e | 4b2 4e | 62.3% | 2c3 | 40.9% | 0.050% | 20.4% | 25.0% | 4.6% | 0.11% |
+| 2c3 6e | 4b2 4e | 62.3% | 4a1 | 81.2% | 0.99% | 9.7% | 76.5% | – | – |
+| 2c3 8e | 2c4 4e | 40.6% | 2c3 | 89.7% | 0% | 53.0% | 47.0% | 18.9% | 2.6% |
+| 2c3 8e | 2c4 4e | 40.6% | 4b3 | 28.2% | – | – | – | – | – |
+| 2c3 8e | 4b2 4e | 89.4% | 2c3 | 64.4% | 0% | 46.0% | 36.5% | 8.0% | 1.2% |
+| 2c3 8e | 4b2 4e | 89.4% | 4a1 | 70.8% | 0.10% | 29.3% | 56.4% | – | – |
+| 0c4 0e | 4a3 4e | >99.9% | 4b2 | >99.9% | 0% | 90.1% | 37.8% | – | – |
+| 0c4 2e | 4a3 2e | 74.0% | 4b2 | >99.9% | 0% | 89.1% | 37.4% | – | – |
+| 0c4 2e | 4a3 4e | 65.8% | 4b2 | >99.9% | 6.8% | 63.2% | 71.9% | – | – |
+| 0c4 4e | 4a3 2e | 64.2% | 4b2 | 99.9% | 0% | 85.9% | 40.5% | – | – |
+| 0c4 4e | 4a3 4e | 67.5% | 4b2 | 99.9% | 1.6% | 84.5% | 42.1% | – | – |
+| 0c4 6e | 4a3 2e | 68.1% | 4b2 | 99.8% | 0% | 79.9% | 51.9% | – | – |
+| 0c4 6e | 4a3 4e | 70.8% | 4b2 | 99.9% | 12.3% | 69.7% | 60.9% | – | – |
+| 0c4 8e | 4a3 4e | >99.9% | 4b2 | >99.9% | 0.57% | 97.5% | 29.1% | – | – |
+| 4c3 0e | 2c4 4e | 24.1% | 2c3 | 98.3% | 0% | 86.1% | 21.2% | 16.3% | 0% |
+| 4c3 0e | 4a2 4e | 41.9% | 4a1 | 99.9% | 0% | 20.6% | 91.5% | – | – |
+| 4c3 0e | 4b2 4e | 48.8% | 2c3 | 54.5% | 0% | 43.5% | 20.6% | 10.3% | 0% |
+| 4c3 0e | 4b2 4e | 48.8% | 4a1 | 79.1% | 0% | 0% | 79.1% | – | – |
+| 4c3 2e | 4a2 4e | 36.4% | 4a1 | 99.7% | 0.45% | 6.2% | 97.9% | – | – |
+| 4c3 2e | 4b2 2e | 38.9% | 2c3 | 45.2% | 0% | 27.0% | 24.9% | 4.9% | 0% |
+| 4c3 2e | 4b2 2e | 38.9% | 4a1 | 82.5% | 0% | 2.0% | 81.9% | – | – |
+| 4c3 2e | 4b2 4e | 26.1% | 2c3 | 66.7% | 0.12% | 29.7% | 49.1% | 4.1% | 0.15% |
+| 4c3 2e | 4b2 4e | 26.1% | 4a1 | 56.5% | 0% | 3.0% | 54.8% | – | – |
+| 4c3 4e | 4a2 4e | 34.4% | 4a1 | 99.8% | 0.030% | 11.6% | 95.7% | – | – |
+| 4c3 4e | 4b2 2e | 32.4% | 2c3 | 46.0% | 0% | 28.1% | 25.8% | 5.0% | 0% |
+| 4c3 4e | 4b2 2e | 32.4% | 4a1 | 82.0% | 0% | 1.7% | 81.4% | – | – |
+| 4c3 4e | 4b2 4e | 29.0% | 2c3 | 68.3% | 0.010% | 40.0% | 41.6% | 6.9% | 0.030% |
+| 4c3 4e | 4b2 4e | 29.0% | 4a1 | 55.1% | 0.10% | 2.4% | 53.7% | – | – |
+| 4c4 0e | 2c5 4e | 26.1% | 2c4 | 96.2% | 1.5% | 55.4% | 55.1% | 38.4% | 0% |
+| 4c4 0e | 2c5 4e | 26.1% | 4b4 | 14.4% | – | – | – | – | – |
+| 4c4 0e | 4a3 4e | 77.3% | 4b2 | 99.0% | 0.050% | 89.9% | 31.2% | – | – |
+| 4c4 0e | 4b5 4e | 29.0% | 2c4 | 99.5% | 3.1% | 72.0% | 37.2% | 47.1% | 0% |
+| 4c4 2e | 4a3 2e | 51.4% | 4b2 | 99.3% | 0% | 82.6% | 37.8% | – | – |
+| 4c4 2e | 4a3 4e | 48.0% | 4b2 | 99.2% | 6.8% | 65.0% | 55.9% | – | – |
+| 4c4 4e | 4a3 2e | 40.8% | 4b2 | 99.4% | 0% | 84.2% | 38.3% | – | – |
+| 4c4 4e | 4a3 4e | 48.6% | 4b2 | 99.5% | 2.2% | 75.9% | 45.8% | – | – |
+| 4b2 0e | 2c3 4e | 62.5% | 4b2 | 99.0% | 14.2% | 90.7% | 13.9% | – | – |
+| 4b2 0e | 4a1 4e | 66.0% | 0c0 | 41.0% | 11.7% | 30.6% | 4.6% | 1.4% | 0.020% |
+| 4b2 0e | 4a1 4e | 66.0% | 4b2 | 22.8% | 0.63% | 13.4% | 12.8% | – | – |
+| 4b2 2e | 2c3 2e | 33.9% | 4b2 | 99.6% | 0% | 76.5% | 42.3% | – | – |
+| 4b2 2e | 2c3 4e | 37.7% | 4b2 | 99.3% | 6.7% | 85.5% | 23.9% | – | – |
+| 4b2 2e | 4a1 4e | 65.4% | 0c0 | 29.8% | 17.7% | 7.4% | 8.2% | 0.18% | 0.57% |
+| 4b2 2e | 4a1 4e | 65.4% | 4b2 | 13.8% | 0.57% | 9.7% | 5.7% | – | – |
+| 4b2 4e | 2c3 2e | 37.1% | 4b2 | 99.7% | 0% | 75.3% | 42.6% | – | – |
+| 4b2 4e | 2c3 4e | 48.3% | 4b2 | 99.5% | 2.3% | 73.3% | 45.8% | – | – |
+| 4b2 4e | 4a1 4e | 47.3% | 0c0 | 29.9% | 13.6% | 13.7% | 6.8% | 0.48% | 0.12% |
+| 4b2 4e | 4a1 4e | 47.3% | 4b2 | 21.4% | 0.17% | 12.3% | 11.7% | – | – |
+| 4b5 0e | 2c4 4e | 94.5% | 2c3 | 92.8% | 0% | 73.1% | 51.4% | 20.4% | 0% |
+| 4b5 0e | 2c4 4e | 94.5% | 4b3 | 33.8% | – | – | – | – | – |
+| 4b5 0e | 4a4 4e | 29.5% | 4a3 | 88.5% | – | – | – | – | – |
+| 4b5 0e | 4a4 4e | 29.5% | 4b5 | 12.2% | 1.4% | 10.2% | 1.5% | – | – |
+| 4b5 2e | 2c4 2e | 43.4% | 2c3 | 92.8% | 0% | 57.2% | 58.1% | 9.4% | 0% |
+| 4b5 2e | 2c4 2e | 43.4% | 4b3 | 22.2% | – | – | – | – | – |
+| 4b5 2e | 2c4 4e | 67.2% | 2c3 | 94.3% | 0.58% | 52.1% | 68.3% | 8.2% | 0.46% |
+| 4b5 2e | 2c4 4e | 67.2% | 4b3 | 22.6% | – | – | – | – | – |
+| 4b5 2e | 2c4 6e | 35.3% | 2c3 | 86.7% | 0% | 56.7% | 43.2% | 12.8% | 0% |
+| 4b5 2e | 2c4 6e | 35.3% | 4b3 | 32.6% | – | – | – | – | – |
+| 4b5 4e | 2c4 2e | 39.5% | 2c3 | 92.9% | 0% | 55.6% | 59.4% | 9.4% | 0% |
+| 4b5 4e | 2c4 2e | 39.5% | 4b3 | 22.4% | – | – | – | – | – |
+| 4b5 4e | 2c4 4e | 63.4% | 2c3 | 90.5% | 0.10% | 61.0% | 52.5% | 13.8% | 0.18% |
+| 4b5 4e | 2c4 4e | 63.4% | 4b3 | 32.2% | – | – | – | – | – |
+| 4b5 4e | 2c4 6e | 32.9% | 2c3 | 84.9% | 0% | 53.8% | 45.0% | 12.3% | 0% |
+| 4b5 4e | 2c4 6e | 32.9% | 4b3 | 34.0% | – | – | – | – | – |
+
+Within +1: the same forms, counting every finish up to one move over the optimal. Each row is a subset × edges and one of its three most common forms, with the same columns as in section 4:
+
+| Subset × edges | Rank | Form of the finish | DRs with a finish within +1 of this form | DRs with one of the forms so far | Forms needed for 80% of DRs |
+|---|---|---|---|---|---|
+| 0c0 0e | 1 | already HTR | 50.1% | 50.1% | 2 |
+| 0c0 0e | 2 | 0c0 0e → 4a1 4e → HTR | 49.8% | 99.9% | 2 |
+| 0c0 0e | 3 | 0c0 0e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 5.2% | >99.9% | 2 |
+| 0c0 2e | 1 | 0c0 2e → 4a1 4e → HTR | 92.4% | 92.4% | 1 |
+| 0c0 2e | 2 | 0c0 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 64.8% | 96.7% | 1 |
+| 0c0 2e | 3 | 0c0 2e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 59.2% | 98.2% | 1 |
+| 0c0 4e | 1 | 0c0 4e → 4a1 4e → HTR | 87.0% | 87.0% | 1 |
+| 0c0 4e | 2 | 0c0 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 70.5% | 95.0% | 1 |
+| 0c0 4e | 3 | 0c0 4e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 59.5% | 98.2% | 1 |
+| 0c0 6e | 1 | 0c0 6e → 4a1 4e → HTR | 76.9% | 76.9% | 2 |
+| 0c0 6e | 2 | 0c0 6e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 70.8% | 92.3% | 2 |
+| 0c0 6e | 3 | 0c0 6e → 4a1 2e → 0c0 4e → 4a1 4e → HTR | 65.7% | 97.0% | 2 |
+| 0c0 8e | 1 | 0c0 8e → 4a1 4e → HTR | 95.6% | 95.6% | 1 |
+| 0c0 8e | 2 | 0c0 8e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 65.9% | 99.5% | 1 |
+| 0c0 8e | 3 | 0c0 8e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 65.7% | 99.6% | 1 |
+| 2c5 0e | 1 | 2c5 0e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 85.7% | 85.7% | 1 |
+| 2c5 0e | 2 | 2c5 0e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 72.2% | 92.6% | 1 |
+| 2c5 0e | 3 | 2c5 0e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 69.1% | 95.5% | 1 |
+| 2c5 2e | 1 | 2c5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 75.7% | 75.7% | 2 |
+| 2c5 2e | 2 | 2c5 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 54.2% | 81.3% | 2 |
+| 2c5 2e | 3 | 2c5 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 49.8% | 87.5% | 2 |
+| 2c5 4e | 1 | 2c5 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 67.0% | 67.0% | 2 |
+| 2c5 4e | 2 | 2c5 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 66.1% | 80.7% | 2 |
+| 2c5 4e | 3 | 2c5 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 46.3% | 86.8% | 2 |
+| 2c5 6e | 1 | 2c5 6e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 72.6% | 72.6% | 2 |
+| 2c5 6e | 2 | 2c5 6e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 61.0% | 82.3% | 2 |
+| 2c5 6e | 3 | 2c5 6e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 46.7% | 87.0% | 2 |
+| 2c5 8e | 1 | 2c5 8e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 92.2% | 92.2% | 1 |
+| 2c5 8e | 2 | 2c5 8e → 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 68.1% | 95.2% | 1 |
+| 2c5 8e | 3 | 2c5 8e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 65.9% | 96.8% | 1 |
+| 2c4 0e | 1 | 2c4 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 95.0% | 95.0% | 1 |
+| 2c4 0e | 2 | 2c4 0e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 74.4% | 99.3% | 1 |
+| 2c4 0e | 3 | 2c4 0e → 2c3 4e → 4b2 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 44.9% | 99.3% | 1 |
+| 2c4 2e | 1 | 2c4 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 73.7% | 73.7% | 2 |
+| 2c4 2e | 2 | 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 71.0% | 90.0% | 2 |
+| 2c4 2e | 3 | 2c4 2e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 66.0% | 94.6% | 2 |
+| 2c4 4e | 1 | 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 79.6% | 79.6% | 2 |
+| 2c4 4e | 2 | 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 68.4% | 92.6% | 2 |
+| 2c4 4e | 3 | 2c4 4e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 49.4% | 94.9% | 2 |
+| 2c4 6e | 1 | 2c4 6e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 74.2% | 74.2% | 2 |
+| 2c4 6e | 2 | 2c4 6e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 68.2% | 88.8% | 2 |
+| 2c4 6e | 3 | 2c4 6e → 2c3 2e → 4b2 4e → 4a1 4e → HTR | 57.1% | 92.2% | 2 |
+| 2c4 8e | 1 | 2c4 8e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 95.8% | 95.8% | 1 |
+| 2c4 8e | 2 | 2c4 8e → 2c3 4e → 4b2 4e → 4a1 4e → HTR | 72.9% | 98.2% | 1 |
+| 2c4 8e | 3 | 2c4 8e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 46.1% | 99.6% | 1 |
+| 0c3 0e | 1 | 0c3 0e → 4a2 4e → 4a1 4e → HTR | 97.3% | 97.3% | 1 |
+| 0c3 0e | 2 | 0c3 0e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 77.1% | 99.3% | 1 |
+| 0c3 0e | 3 | 0c3 0e → 4a2 4e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 74.9% | 99.6% | 1 |
+| 0c3 2e | 1 | 0c3 2e → 4a2 4e → 4a1 4e → HTR | 97.6% | 97.6% | 1 |
+| 0c3 2e | 2 | 0c3 2e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 69.3% | 98.3% | 1 |
+| 0c3 2e | 3 | 0c3 2e → 4a2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 64.8% | 98.3% | 1 |
+| 0c3 4e | 1 | 0c3 4e → 4a2 4e → 4a1 4e → HTR | 90.6% | 90.6% | 1 |
+| 0c3 4e | 2 | 0c3 4e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 56.0% | 91.7% | 1 |
+| 0c3 4e | 3 | 0c3 4e → 4a2 4e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 53.8% | 92.0% | 1 |
+| 0c3 6e | 1 | 0c3 6e → 4a2 4e → 4a1 4e → HTR | 98.4% | 98.4% | 1 |
+| 0c3 6e | 2 | 0c3 6e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 71.5% | 99.0% | 1 |
+| 0c3 6e | 3 | 0c3 6e → 4a2 4e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 66.6% | 99.0% | 1 |
+| 0c3 8e | 1 | 0c3 8e → 4a2 4e → 4a1 4e → HTR | 98.1% | 98.1% | 1 |
+| 0c3 8e | 2 | 0c3 8e → 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 76.0% | 99.5% | 1 |
+| 0c3 8e | 3 | 0c3 8e → 4a2 4e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 75.1% | 99.7% | 1 |
+| 4a2 0e | 1 | 4a2 0e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 77.8% | 77.8% | 2 |
+| 4a2 0e | 2 | 4a2 0e → 4a1 4e → 4b2 2e → 4a1 4e → HTR | 76.4% | 92.8% | 2 |
+| 4a2 0e | 3 | 4a2 0e → 4a1 4e → 4b2 4e → 4a1 4e → HTR | 54.8% | 96.0% | 2 |
+| 4a2 2e | 1 | 4a2 2e → 4a1 2e → 4b2 2e → 4a1 4e → HTR | 65.9% | 65.9% | 2 |
+| 4a2 2e | 2 | 4a2 2e → 4a1 4e → HTR | 65.4% | 87.2% | 2 |
+| 4a2 2e | 3 | 4a2 2e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 59.6% | 93.0% | 2 |
+| 4a2 4e | 1 | 4a2 4e → 4a1 4e → HTR | 88.9% | 88.9% | 1 |
+| 4a2 4e | 2 | 4a2 4e → 4b3 4e → 4a2 4e → 4a1 4e → HTR | 53.7% | 93.4% | 1 |
+| 4a2 4e | 3 | 4a2 4e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 48.7% | 93.7% | 1 |
+| 4a1 0e | 1 | 4a1 0e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 71.2% | 71.2% | 2 |
+| 4a1 0e | 2 | 4a1 0e → 0c0 4e → 4a1 4e → HTR | 69.5% | 90.5% | 2 |
+| 4a1 0e | 3 | 4a1 0e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 61.3% | 94.6% | 2 |
+| 4a1 2e | 1 | 4a1 2e → 4b2 2e → 4a1 4e → HTR | 79.1% | 79.1% | 2 |
+| 4a1 2e | 2 | 4a1 2e → 0c0 4e → 4a1 4e → HTR | 66.6% | 90.6% | 2 |
+| 4a1 2e | 3 | 4a1 2e → 0c0 2e → 4a1 4e → HTR | 63.0% | 96.3% | 2 |
+| 4a1 4e | 1 | 4a1 4e → HTR | 58.5% | 58.5% | 3 |
+| 4a1 4e | 2 | 4a1 4e → 4b2 2e → 4a1 4e → HTR | 57.5% | 79.3% | 3 |
+| 4a1 4e | 3 | 4a1 4e → 4b2 4e → 4a1 4e → HTR | 54.9% | 88.8% | 3 |
+| 2c3 0e | 1 | 2c3 0e → 4b2 4e → 4a1 4e → HTR | 82.7% | 82.7% | 1 |
+| 2c3 0e | 2 | 2c3 0e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 68.5% | 92.4% | 1 |
+| 2c3 0e | 3 | 2c3 0e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 60.1% | 95.0% | 1 |
+| 2c3 2e | 1 | 2c3 2e → 4b2 2e → 4a1 4e → HTR | 90.6% | 90.6% | 1 |
+| 2c3 2e | 2 | 2c3 2e → 4b2 4e → 4a1 4e → HTR | 78.3% | 98.8% | 1 |
+| 2c3 2e | 3 | 2c3 2e → 4b2 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 46.6% | 98.8% | 1 |
+| 2c3 4e | 1 | 2c3 4e → 4b2 2e → 4a1 4e → HTR | 88.8% | 88.8% | 1 |
+| 2c3 4e | 2 | 2c3 4e → 4b2 4e → 4a1 4e → HTR | 65.2% | 96.7% | 1 |
+| 2c3 4e | 3 | 2c3 4e → 4b2 2e → 4a1 4e → 0c0 0e → 4a1 4e → HTR | 41.8% | 96.8% | 1 |
+| 2c3 6e | 1 | 2c3 6e → 4b2 2e → 4a1 4e → HTR | 86.0% | 86.0% | 1 |
+| 2c3 6e | 2 | 2c3 6e → 4b2 4e → 4a1 4e → HTR | 79.2% | 96.5% | 1 |
+| 2c3 6e | 3 | 2c3 6e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 42.7% | 96.9% | 1 |
+| 2c3 8e | 1 | 2c3 8e → 4b2 4e → 4a1 4e → HTR | 82.0% | 82.0% | 1 |
+| 2c3 8e | 2 | 2c3 8e → 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 66.6% | 91.1% | 1 |
+| 2c3 8e | 3 | 2c3 8e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 66.0% | 94.9% | 1 |
+| 0c4 0e | 1 | 0c4 0e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 96.8% | 96.8% | 1 |
+| 0c4 0e | 2 | 0c4 0e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 77.5% | 97.6% | 1 |
+| 0c4 0e | 3 | 0c4 0e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 68.7% | 98.2% | 1 |
+| 0c4 2e | 1 | 0c4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 87.5% | 87.5% | 1 |
+| 0c4 2e | 2 | 0c4 2e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 72.8% | 95.0% | 1 |
+| 0c4 2e | 3 | 0c4 2e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 72.3% | 97.8% | 1 |
+| 0c4 4e | 1 | 0c4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 82.9% | 82.9% | 1 |
+| 0c4 4e | 2 | 0c4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 81.4% | 95.8% | 1 |
+| 0c4 4e | 3 | 0c4 4e → 4a3 2e → 4b2 4e → 4a1 4e → HTR | 47.9% | 96.8% | 1 |
+| 0c4 6e | 1 | 0c4 6e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 83.1% | 83.1% | 1 |
+| 0c4 6e | 2 | 0c4 6e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 80.5% | 94.8% | 1 |
+| 0c4 6e | 3 | 0c4 6e → 4a3 4e → 4b2 4e → 4a1 4e → HTR | 63.9% | 96.9% | 1 |
+| 0c4 8e | 1 | 0c4 8e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 99.2% | 99.2% | 1 |
+| 0c4 8e | 2 | 0c4 8e → 4a3 4e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 84.1% | 99.7% | 1 |
+| 0c4 8e | 3 | 0c4 8e → 4a3 4e → 4b2 2e → 2c3 6e → 4b2 2e → 4a1 4e → HTR | 57.3% | 99.8% | 1 |
+| 4c3 0e | 1 | 4a3 0e → 4b2 4e → 4a1 4e → HTR | 47.9% | 47.9% | 2 |
+| 4c3 0e | 2 | 4b3 0e → 4a2 4e → 4a1 4e → HTR | 47.8% | 95.7% | 2 |
+| 4c3 0e | 3 | 4a3 0e → 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 36.9% | 97.4% | 2 |
+| 4c3 2e | 1 | 4b3 2e → 4a2 4e → 4a1 4e → HTR | 46.1% | 46.1% | 2 |
+| 4c3 2e | 2 | 4a3 2e → 4b2 2e → 4a1 4e → HTR | 45.4% | 91.5% | 2 |
+| 4c3 2e | 3 | 4a3 2e → 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 31.6% | 92.6% | 2 |
+| 4c3 4e | 1 | 4b3 4e → 4a2 4e → 4a1 4e → HTR | 45.2% | 45.2% | 2 |
+| 4c3 4e | 2 | 4a3 4e → 4b2 2e → 4a1 4e → HTR | 40.8% | 85.9% | 2 |
+| 4c3 4e | 3 | 4a3 4e → 4b2 4e → 4a1 4e → HTR | 31.3% | 91.5% | 2 |
+| 4c4 0e | 1 | 4b4 0e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 45.6% | 45.6% | 2 |
+| 4c4 0e | 2 | 4a4 0e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 45.4% | 91.0% | 2 |
+| 4c4 0e | 3 | 4a4 0e → 4a3 4e → 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 28.8% | 91.7% | 2 |
+| 4c4 2e | 1 | 4b4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 38.0% | 38.0% | 4 |
+| 4c4 2e | 2 | 4b4 2e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 34.4% | 44.9% | 4 |
+| 4c4 2e | 3 | 4a4 2e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 34.3% | 79.2% | 4 |
+| 4c4 4e | 1 | 4b4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 34.9% | 34.9% | 4 |
+| 4c4 4e | 2 | 4b4 4e → 4a3 2e → 4b2 2e → 4a1 4e → HTR | 33.4% | 45.1% | 4 |
+| 4c4 4e | 3 | 4a4 4e → 4a3 4e → 4b2 2e → 4a1 4e → HTR | 31.1% | 76.1% | 4 |
+| 4b2 0e | 1 | 4b2 0e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 82.5% | 82.5% | 1 |
+| 4b2 0e | 2 | 4b2 0e → 4a1 4e → HTR | 73.8% | 96.4% | 1 |
+| 4b2 0e | 3 | 4b2 0e → 4a1 4e → 0c0 2e → 4a1 4e → HTR | 54.5% | 98.0% | 1 |
+| 4b2 2e | 1 | 4b2 2e → 4a1 4e → HTR | 84.0% | 84.0% | 1 |
+| 4b2 2e | 2 | 4b2 2e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 69.9% | 93.0% | 1 |
+| 4b2 2e | 3 | 4b2 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 62.1% | 96.2% | 1 |
+| 4b2 4e | 1 | 4b2 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 67.1% | 67.1% | 2 |
+| 4b2 4e | 2 | 4b2 4e → 4a1 4e → HTR | 66.9% | 88.2% | 2 |
+| 4b2 4e | 3 | 4b2 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 59.2% | 93.8% | 2 |
+| 4b5 0e | 1 | 4b5 0e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 87.1% | 87.1% | 1 |
+| 4b5 0e | 2 | 4b5 0e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 80.9% | 95.3% | 1 |
+| 4b5 0e | 3 | 4b5 0e → 2c4 4e → 4b3 2e → 4a2 4e → 4a1 4e → HTR | 65.5% | 97.6% | 1 |
+| 4b5 2e | 1 | 4b5 2e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 76.6% | 76.6% | 2 |
+| 4b5 2e | 2 | 4b5 2e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 63.1% | 85.0% | 2 |
+| 4b5 2e | 3 | 4b5 2e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 50.4% | 90.4% | 2 |
+| 4b5 4e | 1 | 4b5 4e → 2c4 4e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 66.1% | 66.1% | 2 |
+| 4b5 4e | 2 | 4b5 4e → 2c4 4e → 2c3 4e → 4b2 2e → 4a1 4e → HTR | 65.1% | 80.0% | 2 |
+| 4b5 4e | 3 | 4b5 4e → 2c4 2e → 2c3 2e → 4b2 2e → 4a1 4e → HTR | 47.3% | 85.9% | 2 |
+
+Within +1, where the first quarter turn goes most often, same columns as in section 4:
+
+| From | First quarter turn to | DRs that can go there, any edge count | with 0e (DRs) | with 2e (DRs) | with 4e (DRs) | with 6e (DRs) | with 8e (DRs) |
+|---|---|---|---|---|---|---|---|
+| 0c0 0e | 4a1 | 49.9% | 0% | 0% | 49.9% | – | – |
+| 0c0 2e | 4a1 | >99.9% | 0% | 72.3% | 99.1% | – | – |
+| 0c0 4e | 4a1 | >99.9% | 12.0% | 80.4% | 97.8% | – | – |
+| 0c0 6e | 4a1 | >99.9% | 0% | 87.9% | 94.6% | – | – |
+| 0c0 8e | 4a1 | >99.9% | 0% | 0% | >99.9% | – | – |
+| 2c5 0e | 2c4 | 96.7% | 0% | 0% | 96.7% | 0% | 0% |
+| 2c5 2e | 2c4 | 97.2% | 0% | 74.8% | 85.3% | 59.4% | 0% |
+| 2c5 4e | 2c4 | 97.7% | 24.2% | 68.0% | 85.1% | 57.1% | 10.0% |
+| 2c5 6e | 2c4 | 97.6% | 0% | 69.0% | 87.0% | 68.3% | 0% |
+| 2c5 8e | 2c4 | 97.4% | 0% | 0% | 97.4% | 0% | 0% |
+| 2c4 0e | 2c3 | 99.5% | 0% | 0% | 99.5% | 0% | 0% |
+| 2c4 2e | 2c3 | 98.2% | 0% | 79.2% | 87.3% | 44.0% | 0% |
+| 2c4 4e | 2c3 | 98.0% | 4.7% | 77.3% | 84.8% | 43.2% | 4.9% |
+| 2c4 6e | 2c3 | 97.0% | 0% | 79.1% | 83.5% | 48.7% | 0% |
+| 2c4 8e | 2c3 | 98.3% | 0% | 0% | 98.3% | 0% | 0% |
+| 0c3 0e | 4a2 | 99.7% | 0% | 0% | 99.7% | – | – |
+| 0c3 2e | 4a2 | 99.9% | 0% | 60.9% | 98.7% | – | – |
+| 0c3 4e | 4a2 | 99.6% | 10.4% | 57.6% | 92.5% | – | – |
+| 0c3 6e | 4a2 | >99.9% | 0% | 60.1% | 99.1% | – | – |
+| 0c3 8e | 4a2 | 99.8% | 0% | 0% | 99.8% | – | – |
+| 4a2 0e | 4a1 | 91.1% | 0% | 0% | 91.1% | – | – |
+| 4a2 2e | 4a1 | 96.8% | 0% | 79.5% | 88.3% | – | – |
+| 4a2 4e | 4a1 | 99.1% | 6.4% | 51.5% | 94.1% | – | – |
+| 4a1 0e | 4b2 | 94.5% | 0% | 0% | 94.5% | – | – |
+| 4a1 2e | 4b2 | 93.7% | 0% | 87.9% | 69.9% | – | – |
+| 4a1 4e | 4b2 | 88.2% | 12.7% | 71.3% | 72.6% | – | – |
+| 2c3 0e | 4b2 | 98.4% | 0% | 0% | 98.4% | – | – |
+| 2c3 2e | 4b2 | 99.7% | 0% | 93.3% | 85.8% | – | – |
+| 2c3 4e | 4b2 | 99.6% | 25.4% | 91.6% | 81.1% | – | – |
+| 2c3 6e | 4b2 | 99.4% | 0% | 91.2% | 89.5% | – | – |
+| 2c3 8e | 4b2 | 98.2% | 0% | 0% | 98.2% | – | – |
+| 0c4 0e | 4a3 | >99.9% | – | – | – | – | – |
+| 0c4 2e | 4a3 | >99.9% | – | – | – | – | – |
+| 0c4 4e | 4a3 | >99.9% | – | – | – | – | – |
+| 0c4 6e | 4a3 | >99.9% | – | – | – | – | – |
+| 0c4 8e | 4a3 | >99.9% | – | – | – | – | – |
+| 4c3 0e | 4b2 | 49.9% | 0% | 0% | 49.9% | – | – |
+| 4c3 2e | 4b2 | 50.2% | 0% | 47.6% | 41.8% | – | – |
+| 4c3 4e | 4b2 | 49.5% | 8.8% | 43.3% | 42.1% | – | – |
+| 4c4 0e | 4a3 | 95.7% | – | – | – | – | – |
+| 4c4 2e | 4a3 | 94.4% | – | – | – | – | – |
+| 4c4 4e | 4a3 | 95.5% | – | – | – | – | – |
+| 4b2 0e | 2c3 | 90.0% | 0% | 0% | 90.0% | 0% | 0% |
+| 4b2 2e | 4a1 | 93.3% | 0% | 51.1% | 90.0% | – | – |
+| 4b2 4e | 2c3 | 93.6% | 4.1% | 71.6% | 80.8% | 39.5% | 4.7% |
+| 4b5 0e | 2c4 | 99.2% | 0% | 0% | 99.2% | 0% | 0% |
+| 4b5 2e | 2c4 | 99.3% | 0% | 73.7% | 89.9% | 65.6% | 0% |
+| 4b5 4e | 2c4 | 99.3% | 30.3% | 71.5% | 88.0% | 62.0% | 10.3% |
+
 **Checklists with no HTR limit**, first four routes, one row per route with the cumulative share finding the optimal. With no limit the routes overlap so much that these lists tell you more about which readings exist than about what to try:
 
 | Subset | # | Class | Optimal, cumulative |
@@ -2878,9 +4603,10 @@ Through 4c3 (4a3 or 4b3), same columns:
 
 - The optimal distribution of every subset equals the first study's and Joba's in all 473 cells; DougCube's 663,552 HTR states give mean 10.13432557 exactly; Joba's DR-to-HTR lengths per subset agree.
 - An independent sticker model (a 54-sticker cube built from geometry, with its own subset labels, HTR test and NISS reading) re-reads every optimal finish of 1,240 states (1,000 random DR scrambles and 5 per subset × edges from the sample): every finish replayed, every route and HTR length of every reading equal to the tool's. nissy 2.0.8 lists the same optimal finishes for all 1,240.
-- Reduction counts from the coset tables equal a brute-force enumeration of every pair of sequences for reductions of up to 5 moves on 4,800 states (the first 100 of every subset × edges), and up to 7 moves on 40 states of 0c0 (the brute force for 7 moves was stopped there), which is why counts for 7 moves are not reported. Which reductions find the optimal comes from an exact search, not from the counts.
+- The forms of the finish read forward (section 4, *Edge paths of the finish*), on all 25,000 sampled DRs of 2c4 2e and 5 of every other subset × edges: nissy lists every optimal finish, at the optimum the tool found; with both orders of commuting moves, that's the tool's count of optimal finishes on every DR; every finish is replayed on the sticker model and its form read there; and the set of forms of every DR, with the shortest HTR of each, equals the tool's. So the 2c4 2e shares are recomputed from the sticker model alone. The +1 forms aren't checked this way.
+- Reduction counts from the coset tables equal a brute-force enumeration of every pair of sequences for reductions of up to 5 moves on 4,800 states (the first 100 of every subset × edges), and up to 7 moves on 520 states (40 of 0c0, and 10 of every subset × edges, by a second, separate program). Which reductions find the optimal comes from an exact search, not from the counts.
 - The leave-slice maximum of 4a1 4e (15) is a count over the first study's exact leave-slice table, every state.
-- A Lean 4 certificate in the study's folder recomputes the small exact tables from its own cube model and proves they equal the study's: the 663,552 HTR states, the corner quarter-turn counts and subsets of all 40,320 corner arrangements, the shortest linear HTR of every subset (all 29,400 HTR cosets), FakeMMAP's $\alpha$ for every corner path used, the *5/6 fake* count, the bare-qt reductions of 3qt and 4qt cases, and the 2qt(a)/(b) labels of Aedan Bryant's and the *Extra Quarter-Turn Stats* sheets from their own example triggers.
+- A Lean 4 certificate in the study's folder recomputes the small exact tables from its own cube model and proves they equal the study's: the 663,552 HTR states, the corner quarter-turn counts and subsets of all 40,320 corner arrangements, the shortest linear HTR of every subset (all 29,400 HTR cosets), which cosets are one quarter turn from HTR (exactly 4a1 4e) and two, FakeMMAP's $\alpha$ for every corner path used, the *5/6 fake* count, the bare-qt reductions of 3qt and 4qt cases, and the 2qt(a)/(b) labels of Aedan Bryant's and the *Extra Quarter-Turn Stats* sheets from their own example triggers.
 - Every move sequence in this write-up, the errata and the worked examples is replayed on the sticker model (the examples page states its count).
 
 **Formally verified.** Two Lean 4 libraries in the study's folder, no Mathlib, no `sorry`. What they prove for this study:

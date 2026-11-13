@@ -27,7 +27,7 @@ Same rows, in moves: the mean gain over all DRs, and the mean optimum in DR move
 
 {{g2_means}}
 
-By the DR-move optimum (uniform, weighted by exact subset size). Each row is a DR-move optimum: its share of DR states, how many were sampled, and the share of those with a shorter finish outside DR:
+By the DR-move optimum (uniform, weighted by exact subset size). Each row is a DR-move optimum: its share of all DR states (exact, from the first study's table), how many were sampled, and the share of those with a shorter finish outside DR:
 
 {{g2_bylen}}
 

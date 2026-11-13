@@ -10,7 +10,7 @@ by ` > ` (states may also be HTR or `(...)`) is rewritten too, except inside dou
 blockquotes, so what members wrote stays as they wrote it."""
 import re
 
-_STATE = r'\(?\d[a-c]\d(?: \de)?\)?'
+_STATE = r'\(?(?:\d[a-c]\d(?: \de)?|HTR)\)?'
 _ROUTE = re.compile(rf'^{_STATE}(?: > {_STATE})+(?: \\?\| (?:qt|ht))?$')
 _EDGE = re.compile(r'\d[a-c]\d \de')
 

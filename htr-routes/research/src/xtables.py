@@ -495,8 +495,12 @@ for r in _rows:
     w = SIZE[r[0]] / _n[r[0]]; d = int(r[5]); _W[d] += w; _C[d] += 1; _G[d - int(r[9])] += w
     if int(r[9]) < d: _S[d] += w
 _tot = sum(_W.values())
-write('g2_bylen', ['DR-move optimum', 'Share of DR states', 'Sampled', 'A shorter finish outside DR exists'],
-      [[d, pc(_W[d] / _tot), f'{_C[d]:,}', pc(_S[d] / _W[d])] for d in sorted(_W) if d >= 8])
+# the share of DR states with each optimum is exact (the first study's table, out/checks/dist48.tsv), not the sample's
+_X = collections.Counter()
+for r in T('checks/dist48.tsv'): _X[int(r['depth'])] += int(r['states'])
+_xtot = sum(_X.values())
+write('g2_bylen', ['DR-move optimum', 'Share of DR states (exact)', 'Sampled', 'A shorter finish outside DR exists'],
+      [[d, pc(_X[d] / _xtot), f'{_C[d]:,}', pc(_S[d] / _W[d])] for d in sorted(_W) if d >= 8])
 GA['g2_le12'] = sum(_S[d] for d in _W if d <= 12) / sum(_W[d] for d in _W if d <= 12)
 GA['g2_at'] = {str(d): _S[d] / _W[d] for d in _W}
 GA['g2_by1_of_shorter'] = _G[1] / sum(v for k, v in _G.items() if k > 0)

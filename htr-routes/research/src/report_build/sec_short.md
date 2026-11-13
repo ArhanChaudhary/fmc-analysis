@@ -36,7 +36,7 @@ On 2c5, 0c3, 0c4, 4c3, 4c4 and 4b2 the pooled list loses at most {= EGMAX(('2c5'
 | 2c3 2e | {= ESV('2c3 2e', '4b2 2e') =} | {= ESV('2c3 2e', '4b2 4e') =} |
 | 2c3 0e | {= ESV('2c3 0e', '4b2 2e') =} | {= ESV('2c3 0e', '4b2 4e') =} |
 
-The 4a1 before HTR is 4a1 4e, the 4a2 is 4a2 4e ({= ESR('4a2', '4e') =}), and 2c3 is 4e, 2e or 6e. Aiming for one edge count at each step doesn't give a better checklist, though: the first edge path finds {= ESA('opt', 'edge', 0) =} of DRs against {= ESA('opt', 'corner', 0) =} for the first corner route, because on 2c5 2e to 6e, 4b5 2e and 4e, and 4c4 2e and 4e one corner route is many edge paths. Per-step edge checklists are computer only (section 4).
+The 4a1 before HTR is always 4a1 4e (proved in Lean), the 4a2 is 4a2 4e ({= ESR('4a2', '4e') =}), and 2c3 is 4e, 2e or 6e. Aiming for one edge count at each step doesn't give a better checklist, though: the first edge path finds {= ESA('opt', 'edge', 0) =} of DRs against {= ESA('opt', 'corner', 0) =} for the first corner route, because on 2c5 2e to 6e, 4b5 2e and 4e, and 4c4 2e and 4e one corner route is many edge paths. Per-step edge checklists are computer only (section 4).
 
 **The HTR budget is what a checklist is really about, not the route.** A NISS reading of a finish is also a linear finish, so *some optimal follows this route* barely separates routes. The share of a corner subset's DRs the best single route covers, lowest to highest corner subset, per budget:
 

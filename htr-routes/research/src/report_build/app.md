@@ -34,6 +34,28 @@ Through 4c3 (4a3 or 4b3), same columns:
 
 {{edge_via_4c3}}
 
+**Edge paths of the finish** (section 4): the optimal finish written forward on normal, with the subset × edges at the start and after each quarter turn up to HTR, any HTR length. A DR has a form if some optimal finish has it, so the shares of one subset × edges add up to more than 100%. Sampled, {= n(25000) =} per subset × edges.
+
+Every form that at least 2% of DRs have. Each row is a subset × edges and one form: the share of DRs with an optimal finish of that form, and the share with at least one of the forms down to that rank:
+
+{{edge_paths_full}}
+
+Where the first quarter turn goes, every corner subset it reaches on at least 0.5% of DRs. Each row is a starting subset × edges and a corner subset after the first quarter turn: the share of DRs whose optimal finish can go there, then with each edge count (– where the subset has no such edge count):
+
+{{edge_paths_step1_full}}
+
+The second quarter turn, on the route. Each row is a starting subset × edges, a first step that at least 20% of its DRs can take, and a corner subset the second quarter turn reaches on at least 10% of those. The last six columns are shares *of the DRs that can take the first step*: that can go on to the corner subset, then with each edge count, in the same optimal finish:
+
+{{edge_paths_step2}}
+
+Within +1: the same forms, counting every finish up to one move over the optimal. Each row is a subset × edges and one of its three most common forms, with the same columns as in section 4:
+
+{{edge_paths_top_p1}}
+
+Within +1, where the first quarter turn goes most often, same columns as in section 4:
+
+{{edge_paths_step1_p1}}
+
 **Checklists with no HTR limit**, first four routes, one row per route with the cumulative share finding the optimal. With no limit the routes overlap so much that these lists tell you more about which readings exist than about what to try:
 
 {{checklist_nolimit}}
@@ -61,9 +83,10 @@ Through 4c3 (4a3 or 4b3), same columns:
 
 - The optimal distribution of every subset equals the first study's and Joba's in all {= E['cells473'] =} cells; DougCube's 663,552 HTR states give mean 10.13432557 exactly; Joba's DR-to-HTR lengths per subset agree.
 - An independent sticker model (a 54-sticker cube built from geometry, with its own subset labels, HTR test and NISS reading) re-reads every optimal finish of 1,240 states (1,000 random DR scrambles and 5 per subset × edges from the sample): every finish replayed, every route and HTR length of every reading equal to the tool's. nissy 2.0.8 lists the same optimal finishes for all 1,240.
-- Reduction counts from the coset tables equal a brute-force enumeration of every pair of sequences for reductions of up to 5 moves on 4,800 states (the first 100 of every subset × edges), and up to 7 moves on 40 states of 0c0 (the brute force for 7 moves was stopped there), which is why counts for 7 moves are not reported. Which reductions find the optimal comes from an exact search, not from the counts.
+- The forms of the finish read forward (section 4, *Edge paths of the finish*), on all 25,000 sampled DRs of 2c4 2e and 5 of every other subset × edges: nissy lists every optimal finish, at the optimum the tool found; with both orders of commuting moves, that's the tool's count of optimal finishes on every DR; every finish is replayed on the sticker model and its form read there; and the set of forms of every DR, with the shortest HTR of each, equals the tool's. So the 2c4 2e shares are recomputed from the sticker model alone. The +1 forms aren't checked this way.
+- Reduction counts from the coset tables equal a brute-force enumeration of every pair of sequences for reductions of up to 5 moves on 4,800 states (the first 100 of every subset × edges), and up to 7 moves on 520 states (40 of 0c0, and 10 of every subset × edges, by a second, separate program). Which reductions find the optimal comes from an exact search, not from the counts.
 - The leave-slice maximum of 4a1 4e (15) is a count over the first study's exact leave-slice table, every state.
-- A Lean 4 certificate in the study's folder recomputes the small exact tables from its own cube model and proves they equal the study's: the 663,552 HTR states, the corner quarter-turn counts and subsets of all 40,320 corner arrangements, the shortest linear HTR of every subset (all 29,400 HTR cosets), FakeMMAP's $\alpha$ for every corner path used, the *5/6 fake* count, the bare-qt reductions of 3qt and 4qt cases, and the 2qt(a)/(b) labels of Aedan Bryant's and the *Extra Quarter-Turn Stats* sheets from their own example triggers.
+- A Lean 4 certificate in the study's folder recomputes the small exact tables from its own cube model and proves they equal the study's: the 663,552 HTR states, the corner quarter-turn counts and subsets of all 40,320 corner arrangements, the shortest linear HTR of every subset (all 29,400 HTR cosets), which cosets are one quarter turn from HTR (exactly 4a1 4e) and two, FakeMMAP's $\alpha$ for every corner path used, the *5/6 fake* count, the bare-qt reductions of 3qt and 4qt cases, and the 2qt(a)/(b) labels of Aedan Bryant's and the *Extra Quarter-Turn Stats* sheets from their own example triggers.
 - Every move sequence in this write-up, the errata and the worked examples is replayed on the sticker model (the examples page states its count).
 
 **Formally verified.** Two Lean 4 libraries in the study's folder, no Mathlib, no `sorry`. What they prove for this study:

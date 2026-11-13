@@ -56,7 +56,7 @@ U R2 U B2 U' B2 U F2 U' R2 U B2 U (13) // shortest linear HTR, either side
 U R2 U2 F2 U' F2 R2 U (B2 U L2 U) (12) // shortest with NISS
 ```
 
-*Lean-checked*: the optimum, the subset, the 13-move shortest linear HTR on each side, and that both printed HTRs are valid (`dr_optima_correct`, `htr_13`). That no NISS HTR of 11 exists is from nissy and the study's search, not Lean.
+*Lean-checked*: the optimum, the subset, the 13-move shortest linear HTR on each side, and that both printed HTRs are valid (`dr_optima_correct`, `htr_13`). That no NISS HTR of 11 exists is from nissy and two independent searches, not Lean.
 
 **d. "this isn't the worst practice but it's pretty rare for switching after doing more than 2 moves to actually be useful, unless you're variationmaxing"** (Evan, [2 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368063770576027648)).
 
@@ -80,7 +80,7 @@ B2 D2 F2 U' // on normal
 (F2 U' L2 U' F2 R2 F2 L2) // then on inverse
 ```
 
-With a single optimal finish the upper bound is exact: here the late switch is needed. *Lean-checked*: the optimum, the finish and the subset (`dr_optima_correct`, `dr_solutions_valid`, `labels_htr_routes`). That it's the only optimal finish, and the HTR lengths of its readings, come from the study's enumeration (nissy also finds one optimal), not Lean.
+With a single optimal finish the upper bound is exact: here the late switch is needed. *Lean-checked*: the optimum, the finish and the subset (`dr_optima_correct`, `dr_solutions_valid`, `labels_htr_routes`). That it's the only optimal finish, and the HTR lengths of its readings, come from two independent enumerations (nissy also finds one optimal), not Lean.
 
 **e. "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time"** (Levi Gibson, [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311670582601060354); "sub-5" is "4 or less", [29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051485760163880)).
 
@@ -103,7 +103,7 @@ B2 U F2 L2 U' // reduction on normal
 R2 U2 D' B2 D2 B2 R2 // then the rest
 ```
 
-*Lean-checked*: the optimum and the subset (`dr_optima_correct`, `labels_htr_routes`). The enumeration of the reductions and their finishes is computed, not Lean.
+*Lean-checked*: the optimum and the subset (`dr_optima_correct`, `labels_htr_routes`). The enumeration of the reductions and their finishes is computed (twice, independently), not Lean.
 
 **f. FakeMMAP's reduction bound and its multi-qt lower bounds** ([8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491531409959948369): "R is the max of the following", five families of terms, the sums "over all i's such that i, i+1 are both in S"; [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491533155201716475): "M \geq \frac{|S|(R'+1)-N+\sum_{i edge} \alpha_i}{|S|-1}").
 
@@ -132,7 +132,7 @@ F2 D2 R2 D' R2 U2 B2 D' L2 U2 F2 U L2 R2 // 0c3 2e, optimal 14
 R2 L2 U' F2 U2 L2 D B2 U2 R2 D R2 D2 F2 // optimal finish
 ```
 
-Its sections are 2, 3, 3, 3, so its 1q reductions are 8, 7, 7 and a 7-move reduction is needed. Term 2 as printed with S = {0, 2} gives 6.5, so 6; derived, 7.5, so 7. *Lean-checked*: the arithmetic from the sections on (`witness_0c3`). The state's optimum and its paths come from the exact table and the study's enumeration, not Lean.
+Its sections are 2, 3, 3, 3, so its 1q reductions are 8, 7, 7 and a 7-move reduction is needed. Term 2 as printed with S = {0, 2} gives 6.5, so 6; derived, 7.5, so 7. *Lean-checked*: the arithmetic from the sections on (`witness_0c3`). The state's optimum and its paths come from the exact table and two independent enumerations, not Lean.
 
 *Fixed 12 Nov 2026.* Until then this entry also said that C, "the shortest possible HTR in the subset", must be the shortest NISS HTR. That was wrong. C bounds the middle of the finish, a linear HTR of a DR in the same subset (half turns keep the subset, proved in Lean: `labels_keep`), so FakeMMAP's linear C is right (section 9 of the write-up). The mistake was to bound the finish minus one middle section instead, which is a NISS HTR of the DR itself. Dropping the middle of the optimal finish leaves a 4-move NISS HTR, below the subset's shortest linear HTR of 5 (Lean-checked: `C_example`, `dr_optima_correct`):
 

@@ -6,6 +6,7 @@ import HTRRoutes.Model
 import HTRRoutes.HtrTheorems
 import HTRRoutes.CornerTheorems
 import HTRRoutes.CosetTheorems
+import HTRRoutes.QtCosetTheorems
 namespace HTRRoutes
 -- A
 #print axioms model_size
@@ -38,4 +39,7 @@ namespace HTRRoutes
 #print axioms htr48_facts
 #print axioms name_map_matches_study
 #print axioms two_qt_letters
+-- E
+#print axioms qt1_is_4a1_4e
+#print axioms qt2_cosets
 end HTRRoutes

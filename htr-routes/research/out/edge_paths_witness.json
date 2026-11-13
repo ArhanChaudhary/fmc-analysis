@@ -1,0 +1,56 @@
+{
+ "state": "2c4 2e, sample index 173",
+ "scramble": "R2 U2 B2 D L2 D' R2 U R2 F2 U R2",
+ "optimal": 12,
+ "optimal_finishes": 2,
+ "forms": [
+  {
+   "form": "2c4 2e > 2c3 2e > 4b2 2e > 4a1 4e > HTR",
+   "finish": "B2 R2 U B2 U' L2 D L2 U' F2 U2 R2",
+   "steps": [
+    {
+     "moves": "B2 R2 U",
+     "reaches": "2c3 2e"
+    },
+    {
+     "moves": "B2 U'",
+     "reaches": "4b2 2e"
+    },
+    {
+     "moves": "L2 D",
+     "reaches": "4a1 4e"
+    },
+    {
+     "moves": "L2 U'",
+     "reaches": "HTR"
+    }
+   ],
+   "after_htr": "F2 U2 R2",
+   "htr_length": 9
+  },
+  {
+   "form": "2c4 2e > 2c3 4e > 4b2 2e > 4a1 4e > HTR",
+   "finish": "R2 U' F2 R2 U' R2 D L2 D' B2 U2 R2",
+   "steps": [
+    {
+     "moves": "R2 U'",
+     "reaches": "2c3 4e"
+    },
+    {
+     "moves": "F2 R2 U'",
+     "reaches": "4b2 2e"
+    },
+    {
+     "moves": "R2 D",
+     "reaches": "4a1 4e"
+    },
+    {
+     "moves": "L2 D'",
+     "reaches": "HTR"
+    }
+   ],
+   "after_htr": "B2 U2 R2",
+   "htr_length": 9
+  }
+ ]
+}
