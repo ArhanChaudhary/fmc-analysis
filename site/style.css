@@ -25,6 +25,7 @@ header.top nav a.here { color: var(--fg); border-bottom-color: var(--here); }
 .layout { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); gap: 2rem;
   max-width: 96rem; margin: 0 auto; padding: 1rem; }
 .layout.home { grid-template-columns: minmax(0, 1fr); max-width: 52rem; }
+.layout.notoc { grid-template-columns: minmax(0, 1fr); max-width: 64rem; }   /* a page with no sections: no empty contents box */
 aside.toc { position: sticky; top: 3.6rem; align-self: start; max-height: calc(100vh - 4.2rem);
   overflow-y: auto; font-size: .88rem; padding-right: .5rem; }
 aside.toc summary { cursor: pointer; font-weight: 650; margin-bottom: .4rem; }
@@ -55,10 +56,10 @@ main code { background: var(--code); padding: .1em .3em; border-radius: 4px; fon
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 main pre { background: var(--code); padding: .8rem 1rem; border-radius: 6px; overflow-x: auto; line-height: 1.45; }
 main pre code { background: none; padding: 0; font-size: .86rem; }
-/* tables never get squeezed: columns keep a readable width and the table scrolls sideways when it does not fit.
+/* tables take the full width of the column and never get squeezed: columns keep a readable width and the table scrolls sideways when it does not fit.
    The width classes are set by site/tables.lua from the longest cell of each column. */
 .tablewrap { overflow-x: auto; margin: 1rem 0; -webkit-overflow-scrolling: touch; }
-main table { border-collapse: collapse; margin: 0; font-size: .9rem; }
+main table { border-collapse: collapse; margin: 0; font-size: .9rem; width: 100%; }   /* fill the column; scroll only when the content is wider */
 main th, main td { border: 1px solid var(--line); padding: .35rem .6rem; vertical-align: top; overflow-wrap: normal; word-break: normal; }
 main th { background: var(--soft); text-align: left; }
 main td code { white-space: normal; }          /* move sequences break between moves */
