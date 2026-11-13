@@ -43,6 +43,9 @@ for writeup in */report/WRITEUP.md; do
     [ -L "$study" ] && continue
     mkdir -p "$output/$study"
     pages=()
+    # a study folder with a file named UNLISTED is built but not linked from the front page, and asks
+    # search engines not to index it: reachable only by its address
+    [ -f "$study/UNLISTED" ] && pages+=(--variable noindex)
     [ -f "$study/report/EXAMPLES.md" ] && pages+=(--variable has-examples)
     [ -f "$study/report/BUGS.md" ] && pages+=(--variable has-errata)
     render "$study/report/WRITEUP.md" "$study/index.html" ../ --variable study "${pages[@]}" --variable is-writeup
@@ -57,8 +60,12 @@ for writeup in */report/WRITEUP.md; do
         render "$study/report/BUGS.md" "$study/errata.html" ../ --variable study "${pages[@]}" --variable is-errata
         cp "$study/report/BUGS.md" "$output/$study/"
     fi
-    # every study must be reachable from the front page
-    grep -q "href=\"$study/\"" "$output/index.html" || { echo "build-pages: site/index.md does not link to $study/" >&2; exit 1; }
+    # every study must be reachable from the front page, and an unlisted one must not be
+    if [ -f "$study/UNLISTED" ]; then
+        if grep -q "href=\"$study/\"" "$output/index.html"; then echo "build-pages: $study/ is UNLISTED but site/index.md links to it" >&2; exit 1; fi
+    else
+        grep -q "href=\"$study/\"" "$output/index.html" || { echo "build-pages: site/index.md does not link to $study/" >&2; exit 1; }
+    fi
 done
 
 # reference tables: single pages under tables/, each too small for a study, listed on the front page
