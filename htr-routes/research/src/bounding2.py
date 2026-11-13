@@ -198,7 +198,7 @@ def main():
     rod.write('subset\tM_minus_opt_or_M\tR_no_term1_worst_case\tR_min_terms_worst_case\tR_exact_worst_case\tR_no_term1_mean_with_own_A_B\tR_exact_mean_with_own_A_B\tR_needed_p90\tR_needed_max\tpaths_used\n')
     c11 = open(f'{OUT}/c11_c13.tsv', 'w')
     c11.write('group\tn\tsome_opt_ends_qt_ht_qt\teither_end_qt_ht_qt\trandom_opt_ends_qt_ht_qt\tsome_opt_ends_RU2Rp\teither_end_RU2Rp\trandom_opt_ends_RU2Rp\t'
-              'shortest_htr_needs_switch_after_gt2\tshortest_htr_needs_switch_after_gt3\tbudget2_needs_switch_after_gt2\tbudget2_needs_switch_after_gt3\n')
+              'shortest_htr_needs_switch_after_gt2\tshortest_htr_needs_switch_after_gt3\tbudget2_needs_switch_after_gt2\tbudget2_needs_switch_after_gt3\tno_optimal_within_budget2\n')
 
     acc8 = collections.defaultdict(lambda: collections.defaultdict(list))
     acc11 = collections.defaultdict(list)
@@ -212,8 +212,11 @@ def main():
                                int(r['rur_end_normal']), int(r['rur_either_end']), float(r['rur_frac_canon']),
                                int(r['linear_at_best'] == '0' and int(r['minfirst_at_best']) > 2),
                                int(r['linear_at_best'] == '0' and int(r['minfirst_at_best']) > 3),
-                               int(r['linear_at_b2'] == '0' and int(r['minfirst_at_b2']) > 2),
-                               int(r['linear_at_b2'] == '0' and int(r['minfirst_at_b2']) > 3)])
+                               # 99 = no optimal reading has an HTR within budget 2: not a late switch (it was
+                               # counted as one until 13 Nov 2026, which added that 12.8% to both columns)
+                               int(r['linear_at_b2'] == '0' and 2 < int(r['minfirst_at_b2']) < 99),
+                               int(r['linear_at_b2'] == '0' and 3 < int(r['minfirst_at_b2']) < 99),
+                               int(r['linear_at_b2'] == '0' and int(r['minfirst_at_b2']) == 99)])
         for tg in TARGETS:
             sigs = set()
             per = []

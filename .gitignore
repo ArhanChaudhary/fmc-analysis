@@ -44,3 +44,4 @@ __pycache__/
 !/gaps/research/big/g2/real.out
 /gaps/research/src/htrreal/target/
 htr-routes/research/htfirst/target/
+htr-routes/research/verify/vhtr/target/

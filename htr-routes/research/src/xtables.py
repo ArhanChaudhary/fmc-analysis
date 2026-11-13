@@ -327,6 +327,9 @@ def _late(col, excl):
     return sum(float(c[s_][col]) * _w[s_] for s_ in ss) / sum(_w[s_] for s_ in ss)
 E['late_excl_gt2'] = _late('shortest_htr_needs_switch_after_gt2', ('0c4', '4c4', '4c3'))
 E['late_excl_gt3'] = _late('shortest_htr_needs_switch_after_gt3', ('0c4', '4c4', '4c3'))
+# the same among readings with an HTR within budget 2 (DRs with no optimal reading within the budget are not counted)
+E['late_b2_excl_gt2'] = _late('budget2_needs_switch_after_gt2', ('0c4', '4c4', '4c3'))
+E['late_b2_excl_gt3'] = _late('budget2_needs_switch_after_gt3', ('0c4', '4c4', '4c3'))
 # which T11503 bound fails in each counterexample: the first (|S|(R'+1)...), or the A / B / C versions
 def _cov(lo, hi, minimal):
     """covering sets as in bounding.py: S of {lo..hi} with lo, hi in S, no two consecutive missing; minimal ones"""

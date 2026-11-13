@@ -48,7 +48,7 @@ The 4a1 before HTR is always 4a1 4e (proved in Lean), the 4a2 is 4a2 4e ({= ESR(
 
 (section 4).
 
-**Linear vs NISS HTR** (rodneykinney asked in 2023, [[T624]]). Over all DRs the shortest NISS HTR is as long as the shortest linear one (better side) on {= pc(Q3('all', 'niss_eq_linear')) =}, 1 shorter on {= pc(Q3('all', 'niss_shorter_by_1')) =} and 2 or more shorter on {= pc(Q3('all', 'niss_shorter_by_2plus')) =}. On 0c3 it's 2+ shorter on {= pc(Q3('0c3', 'niss_shorter_by_2plus')) =} (section 6).
+**Linear vs NISS HTR** (rodneykinney asked in 2023, [[T624]]). Over all DRs the shortest NISS HTR is as long as the shortest linear one (better side) on {= pc(NXD('all', 0)) =}, 1 shorter on {= pc(NXD('all', 1)) =} and 2 or more shorter on {= pc(NXD('all', 2)) =}. On 0c3 it's 2+ shorter on {= pc(NXD('0c3', 2)) =}. These four are exact, over every DR state (section 6).
 
 **The optimal rarely goes through a shortest HTR.** The shortest HTR that any optimal uses, against the DR's shortest NISS HTR, as a share of all DRs:
 
@@ -161,8 +161,9 @@ The first route is the same on every corner subset, and the first three are the 
 So on 4a2 the 75% holds, but +1 doesn't cover the rest. The other corrections:
 
 - 4c4 0e has 10-move linear HTRs.
-- The longest shortest HTR is 13 linear and 12 with NISS.
-- The optimal through its shortest HTR needs a switch after more than 2 moves on {= pc(E['late_excl_gt2']) =} of the DRs outside the subsets Evan named as exceptions, an upper bound on how often a late switch is needed (Yura Riabov's "more like 3" holds outside 0c4, 4c4 and 2c5).
+- The longest shortest HTR is 13 linear and {= NXMAX() =} with NISS, both exact over every DR state.
 - In FakeMMAP's reduction bound and multi-qt lower bounds: the index of $\alpha$ ($\alpha_{i+1}$, not $\alpha_i$) and, when R is read as the smallest term, the signs of term 2 (proved in Lean, with counterexamples).
+
+**Depends: switching after more than 2 moves.** Evan's "pretty rare" for it to be useful: with HTRs up to two over the shortest allowed (budget 2) the optimal needs it on {= pc(C11('all', 'budget2_needs_switch_after_gt2')) =} of DRs, about one in eight ({= pc(C11('4b2', 'budget2_needs_switch_after_gt2')) =} of 4b2, {= pc(C11('2c3', 'budget2_needs_switch_after_gt2')) =} of 2c3), and after 4 or more moves on {= pc(C11('all', 'budget2_needs_switch_after_gt3')) =}; through its shortest HTR only it's {= pc(C11('all', 'shortest_htr_needs_switch_after_gt2')) =}, an upper bound. Yura Riabov's "more like 3" holds outside 0c4, 4c4 and 2c5 (section 11).
 
 **Confirmed**: Levi Gibson's "pretty sure 15 is gods number for 4a1 4e" is right for the leave slice, which is what Levi Gibson measures ({= E['lsmax']['4a1 4e'] =}, exact); the full finish can need 17.

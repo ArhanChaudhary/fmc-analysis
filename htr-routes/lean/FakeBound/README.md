@@ -30,7 +30,7 @@ A finish with N quarter turns is s_0 Q_1 s_1 … Q_N s_N, with sections of half 
 | `half_turns_keep_subset_data`, `labels_keep` | Subset | Over all 40,320 corner and 40,320 U/D-edge arrangements and the six half turns, applied before or after: the bad-corner and qt counts, the shape, the 14-name subset, the bad-edge count, and both subset names (`label48`, `label`) are unchanged. |
 | `fake_C_examples` | Subset | C(2c3 2e) = 5 and C(4b2 0e) = 6, FakeMMAP's examples. |
 | `counter_alphas` | Subset | α of the two paths used above, computed from the cube. |
-| `dr_optima_correct` | Corrections | The 16 DR-finish optima in judging-a-dr B2/B4/B5 and htr-routes a/c/d/e/f are exact (DRBound's `exact_optimal`). |
+| `dr_optima_correct` | Corrections | The 16 DR-finish optima in judging-a-dr B2/B4/B5 and htr-routes a/c/d/e/f are exact (labels as in the Lean files: "d" is the late-switch example, now in the write-up's section 11; "e" and "f" are errata d and e on the page) (DRBound's `exact_optimal`). |
 | `dr_solutions_valid` | Corrections | The 5 printed optimal finishes solve their states, with the stated lengths. |
 | `htr_13`, `htr_4c4`, `labels_judging`, `labels_htr_routes`, `C_example` | Corrections | HTR lengths (shortest linear, from HTRRoutes' coset BFS), validity of the printed linear and NISS HTRs, and the subset names in judging-a-dr A1/B1/B2/B4/B5 and htr-routes a–f. |
 | `index_example`, `index_example_arith` | Corrections | htr-routes f end to end: corner path, α = 0,1,3,1,0, sections 2,1,3,1,3, reductions 10,9,9,9; T11503 with α_i claims 28 ≥ 29. |

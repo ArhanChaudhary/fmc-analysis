@@ -117,7 +117,8 @@ put('C11', 'PARTLY', c11('2c4') + '; ' + c11('2c3') + f". Either end with qt-hal
 put('C13', 'AGREES' if float(C11T['all']['budget2_needs_switch_after_gt2']) < 0.1 else 'CORRECTS',
     f"All DRs: the shortest-HTR optimal readings all need a switch after more than 2 moves in {pct(float(C11T['all']['shortest_htr_needs_switch_after_gt2']))} of states "
     f"(after more than 3: {pct(float(C11T['all']['shortest_htr_needs_switch_after_gt3']))}); with HTRs up to 2 over the shortest allowed: "
-    f"{pct(float(C11T['all']['budget2_needs_switch_after_gt2']))} / {pct(float(C11T['all']['budget2_needs_switch_after_gt3']))}. Per subset in c11_c13.tsv.")
+    f"{pct(float(C11T['all']['budget2_needs_switch_after_gt2']))} / {pct(float(C11T['all']['budget2_needs_switch_after_gt3']))} "
+    f"(another {pct(float(C11T['all']['no_optimal_within_budget2']))} have no optimal reading within that budget). Per subset in c11_c13.tsv.")
 e9 = share('all', lambda t: t['best_any'] >= 9)
 put('C12', 'OPEN', f"The claim is about each 9-move HTR a solver writes, which is not measured here. What is measured: all DR states: every optimal finish needs an HTR of 9+ moves (its shortest HTR over all NISS readings) in {pct(e9)} of states; "
     f"2c3 2e {pct(share('2c3 2e', lambda t: t['best_any'] >= 9))}, 4b2 4e {pct(share('4b2 4e', lambda t: t['best_any'] >= 9))}, 4c3 {pct(share('4c3', lambda t: t['best_any'] >= 9))}, "

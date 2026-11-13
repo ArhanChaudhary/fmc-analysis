@@ -79,7 +79,7 @@ $$\frac{(|S|-1)M-(N-|S|)+\sum_{i\ \mathrm{edge}} \alpha_i}{|S|}.$$
 |---|---|---|---|---|
 | 4a1 > 0c0 > 4a1 > 0c0 | 0 | 10 | 0, 3, 0, 4 | 6, 6, 5 |
 
-Term 2 as printed with $S = \{0, 2\}$ gives 4, whatever A, B and C are; derived, it gives 5. With the printed $\alpha_i$ as well it's still 4 (`literal_min_fails`). On the sample, the smallest term with term 2 and the index exactly as printed is too short on {= pc(Q9('opt', 'insuff_min_terms_as_written')) =} of cases at the optimum (172,497 of the 1,914,809 cases, 9.0%, before weighting).
+Term 2 as printed with $S = \{0, 2\}$ gives 4, whatever A, B and C are; derived, it gives 5. With the printed $\alpha_i$ as well it's still 4 (`literal_min_fails`). On the sample, the smallest term with term 2 and the index exactly as printed is too short on {= pc(Q9('opt', 'insuff_min_terms_as_written')) =} of cases at the optimum ({= n(V9()[0]) =} of the {= n(V9()[1]) =} cases, {= pc(V9()[0] / V9()[1]) =}, before weighting).
 
 A real DR where it bites, replayed ($N = 3$; every optimal finish takes the path in the table):
 

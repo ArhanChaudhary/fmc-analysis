@@ -46,7 +46,7 @@ D F2 R2 U2 B2 U' F2 U' F2 U L2 B2 U' R2 U' // 4c4 0e
 
 **c. "No, the maximum it takes is 12 moves linearly, and 11 moves using NISS."** (Lewis Isom, [23 Jan 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1199490255921877022), answering whether DR to HTR takes at most 9.)
 
-Both are one short. 0c3 4e and 4c4 0e have HTR cosets whose shortest linear HTR is 13, and in the sample some DRs need 13 on both sides and 12 with NISS. Daichi had the 13 right later ([14 May 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1504408526444040192): "0c3 4e and 4c4 0e have 13 move optimal HTR cases").
+Both are one short. 0c3 4e and 4c4 0e have HTR cosets whose shortest linear HTR is 13, and some DRs need 13 on both sides. With NISS the longest is 12: a search over every DR state finds 64,128 states that need 12 (all 0c3 4e or 2c5) and none that needs more. Daichi had the 13 right later ([14 May 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1504408526444040192): "0c3 4e and 4c4 0e have 13 move optimal HTR cases").
 
 Example, with nissy's shortest HTRs:
 
@@ -56,33 +56,9 @@ U R2 U B2 U' B2 U F2 U' R2 U B2 U (13) // shortest linear HTR, either side
 U R2 U2 F2 U' F2 R2 U (B2 U L2 U) (12) // shortest with NISS
 ```
 
-*Lean-checked*: the optimum, the subset, the 13-move shortest linear HTR on each side, and that both printed HTRs are valid (`dr_optima_correct`, `htr_13`). That no NISS HTR of 11 exists is from nissy and two independent searches, not Lean.
+*Lean-checked*: the optimum, the subset, the 13-move shortest linear HTR on each side, and that both printed HTRs are valid (`dr_optima_correct`, `htr_13`). That no NISS HTR of 11 exists is from nissy and two independent searches, and the 12 as the longest over every DR state from a search over the whole DR group; neither is Lean.
 
-**d. "this isn't the worst practice but it's pretty rare for switching after doing more than 2 moves to actually be useful, unless you're variationmaxing"** (Evan, [2 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368063770576027648)).
-
-The optimal through its shortest HTR needs a switch after more than 2 moves on 28.2% of DRs (sampled, 25,000 per subset × edges). That is: take the shortest HTR that any reading of any optimal finish reaches; every reading that reaches it switches after 3 or more moves. It's an upper bound on how often a late switch is needed for the optimal. On some of these DRs another optimal finish, with a longer HTR, may be readable linearly or with an early switch, which isn't measured here.
-
-Evan named exceptions in the same thread ("the b side of 4c3", "4c4 and 0c4 ofc but those are pretty rare", [3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368159205072175145), [3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368159998848274462)). Leaving out all of 4c3, 4c4 and 0c4 it's still 24.0%. Yura Riabov's "More like 3 imo" ([3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368155824371007488)) fits much better: after 4 or more moves it's small except on 0c4, 4c4 and 2c5.
-
-| Switch needed after | 2c3 | 4b2 | 2c4 | 2c5 |
-|---|---|---|---|---|
-| more than 2 moves | 17.9% | 16.1% | 24.1% | 43.5% |
-| 4 or more moves | 5.5% | 4.9% | 8.7% | 23.5% |
-
-Yura Riabov added "i almost never do this but i think it is useful" and "i really don't like switching after more than 2 moves or for badish cases, which is why i'm worse at finishes than i could be" ([3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368162064148725770), [3 May 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1368162218579071158)).
-
-Example with a single optimal finish (12). Its shortest HTR in any reading is 8 moves, and every reading with that HTR switches after 4 moves:
-
-```
-F2 U' L2 U' F2 R2 F2 L2 U F2 D2 B2 // 2c3 2e
-B2 D2 F2 U' L2 F2 R2 F2 U L2 U F2 // the only optimal finish
-B2 D2 F2 U' // on normal
-(F2 U' L2 U' F2 R2 F2 L2) // then on inverse
-```
-
-With a single optimal finish the upper bound is exact: here the late switch is needed. *Lean-checked*: the optimum, the finish and the subset (`dr_optima_correct`, `dr_solutions_valid`, `labels_htr_routes`). That it's the only optimal finish, and the HTR lengths of its readings, come from two independent enumerations (nissy also finds one optimal), not Lean.
-
-**e. "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time"** (Levi Gibson, [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311670582601060354); "sub-5" is "4 or less", [29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051485760163880)).
+**d. "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time"** (Levi Gibson, [28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311670582601060354); "sub-5" is "4 or less", [29 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1312051485760163880)).
 
 Just before, Levi Gibson wrote "for the 4a2 subset I use full DR Bounding" ([28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311669869900464138)), and a few minutes later "I don't use it fully for any subsets other than 4a2 and 2c3" ([28 Nov 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1311671487379279872)). So: write every reduction to 1q of at most 4 moves, on normal, on inverse and split by NISS, and finish each reduced state optimally, with any number of quarter turns (sampled, 4,000 states per subset × edges).
 
@@ -105,7 +81,7 @@ R2 U2 D' B2 D2 B2 R2 // then the rest
 
 *Lean-checked*: the optimum and the subset (`dr_optima_correct`, `labels_htr_routes`). The enumeration of the reductions and their finishes is computed (twice, independently), not Lean.
 
-**f. FakeMMAP's reduction bound and its multi-qt lower bounds** ([8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491531409959948369): "R is the max of the following", five families of terms, the sums "over all i's such that i, i+1 are both in S"; [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491533155201716475): "M \geq \frac{|S|(R'+1)-N+\sum_{i edge} \alpha_i}{|S|-1}").
+**e. FakeMMAP's reduction bound and its multi-qt lower bounds** ([8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491531409959948369): "R is the max of the following", five families of terms, the sums "over all i's such that i, i+1 are both in S"; [8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491533155201716475): "M \geq \frac{|S|(R'+1)-N+\sum_{i edge} \alpha_i}{|S|-1}").
 
 Of the lower bounds FakeMMAP wrote "I don't know how useful these bounds really are, I have to put in the numbers to see if there are situations where the typical bound is M \geq 11, rather than M \geq 7 lol." ([8 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1491533429198553178)); this is that test (the write-up's section 9 gives the typical values). R as written is safe to use: the largest term is never too short, proved for every finish (`Rmax_sound`, lean/FakeBound/FakeBound/Formula.lean), but only because term 1, about M − 1, is among the terms, so it's loose. Two things in the formulas are wrong, each proved in Lean with a counterexample.
 

@@ -49088,8 +49088,9 @@
    "random_opt_ends_RU2Rp": "0.0006",
    "shortest_htr_needs_switch_after_gt2": "0.0014",
    "shortest_htr_needs_switch_after_gt3": "0.0000",
-   "budget2_needs_switch_after_gt2": "0.0696",
-   "budget2_needs_switch_after_gt3": "0.0696"
+   "budget2_needs_switch_after_gt2": "0.0000",
+   "budget2_needs_switch_after_gt3": "0.0000",
+   "no_optimal_within_budget2": "0.0696"
   },
   "0c0 2e": {
    "group": "0c0 2e",
@@ -49102,8 +49103,9 @@
    "random_opt_ends_RU2Rp": "0.0213",
    "shortest_htr_needs_switch_after_gt2": "0.0576",
    "shortest_htr_needs_switch_after_gt3": "0.0060",
-   "budget2_needs_switch_after_gt2": "0.2674",
-   "budget2_needs_switch_after_gt3": "0.2553"
+   "budget2_needs_switch_after_gt2": "0.0130",
+   "budget2_needs_switch_after_gt3": "0.0010",
+   "no_optimal_within_budget2": "0.2543"
   },
   "0c0 4e": {
    "group": "0c0 4e",
@@ -49116,8 +49118,9 @@
    "random_opt_ends_RU2Rp": "0.0487",
    "shortest_htr_needs_switch_after_gt2": "0.0955",
    "shortest_htr_needs_switch_after_gt3": "0.0348",
-   "budget2_needs_switch_after_gt2": "0.3475",
-   "budget2_needs_switch_after_gt3": "0.3202"
+   "budget2_needs_switch_after_gt2": "0.0328",
+   "budget2_needs_switch_after_gt3": "0.0055",
+   "no_optimal_within_budget2": "0.3147"
   },
   "0c0 6e": {
    "group": "0c0 6e",
@@ -49130,8 +49133,9 @@
    "random_opt_ends_RU2Rp": "0.0505",
    "shortest_htr_needs_switch_after_gt2": "0.2199",
    "shortest_htr_needs_switch_after_gt3": "0.0673",
-   "budget2_needs_switch_after_gt2": "0.4270",
-   "budget2_needs_switch_after_gt3": "0.3460"
+   "budget2_needs_switch_after_gt2": "0.1076",
+   "budget2_needs_switch_after_gt3": "0.0266",
+   "no_optimal_within_budget2": "0.3194"
   },
   "0c0 8e": {
    "group": "0c0 8e",
@@ -49144,8 +49148,9 @@
    "random_opt_ends_RU2Rp": "0.0154",
    "shortest_htr_needs_switch_after_gt2": "0.1287",
    "shortest_htr_needs_switch_after_gt3": "0.0343",
-   "budget2_needs_switch_after_gt2": "0.2692",
-   "budget2_needs_switch_after_gt3": "0.2215"
+   "budget2_needs_switch_after_gt2": "0.0580",
+   "budget2_needs_switch_after_gt3": "0.0103",
+   "no_optimal_within_budget2": "0.2112"
   },
   "2c5 0e": {
    "group": "2c5 0e",
@@ -49158,8 +49163,9 @@
    "random_opt_ends_RU2Rp": "0.1840",
    "shortest_htr_needs_switch_after_gt2": "0.5470",
    "shortest_htr_needs_switch_after_gt3": "0.2819",
-   "budget2_needs_switch_after_gt2": "0.3648",
-   "budget2_needs_switch_after_gt3": "0.2027"
+   "budget2_needs_switch_after_gt2": "0.2885",
+   "budget2_needs_switch_after_gt3": "0.1264",
+   "no_optimal_within_budget2": "0.0763"
   },
   "2c5 2e": {
    "group": "2c5 2e",
@@ -49172,8 +49178,9 @@
    "random_opt_ends_RU2Rp": "0.1704",
    "shortest_htr_needs_switch_after_gt2": "0.4296",
    "shortest_htr_needs_switch_after_gt3": "0.2444",
-   "budget2_needs_switch_after_gt2": "0.2491",
-   "budget2_needs_switch_after_gt3": "0.1531"
+   "budget2_needs_switch_after_gt2": "0.1853",
+   "budget2_needs_switch_after_gt3": "0.0893",
+   "no_optimal_within_budget2": "0.0638"
   },
   "2c5 4e": {
    "group": "2c5 4e",
@@ -49186,8 +49193,9 @@
    "random_opt_ends_RU2Rp": "0.1748",
    "shortest_htr_needs_switch_after_gt2": "0.4164",
    "shortest_htr_needs_switch_after_gt3": "0.2190",
-   "budget2_needs_switch_after_gt2": "0.2506",
-   "budget2_needs_switch_after_gt3": "0.1433"
+   "budget2_needs_switch_after_gt2": "0.1904",
+   "budget2_needs_switch_after_gt3": "0.0832",
+   "no_optimal_within_budget2": "0.0602"
   },
   "2c5 6e": {
    "group": "2c5 6e",
@@ -49200,8 +49208,9 @@
    "random_opt_ends_RU2Rp": "0.1757",
    "shortest_htr_needs_switch_after_gt2": "0.4718",
    "shortest_htr_needs_switch_after_gt3": "0.2566",
-   "budget2_needs_switch_after_gt2": "0.2875",
-   "budget2_needs_switch_after_gt3": "0.1668"
+   "budget2_needs_switch_after_gt2": "0.2235",
+   "budget2_needs_switch_after_gt3": "0.1028",
+   "no_optimal_within_budget2": "0.0640"
   },
   "2c5 8e": {
    "group": "2c5 8e",
@@ -49214,8 +49223,9 @@
    "random_opt_ends_RU2Rp": "0.1873",
    "shortest_htr_needs_switch_after_gt2": "0.5234",
    "shortest_htr_needs_switch_after_gt3": "0.2563",
-   "budget2_needs_switch_after_gt2": "0.3464",
-   "budget2_needs_switch_after_gt3": "0.1842"
+   "budget2_needs_switch_after_gt2": "0.2778",
+   "budget2_needs_switch_after_gt3": "0.1156",
+   "no_optimal_within_budget2": "0.0686"
   },
   "2c4 0e": {
    "group": "2c4 0e",
@@ -49228,8 +49238,9 @@
    "random_opt_ends_RU2Rp": "0.1507",
    "shortest_htr_needs_switch_after_gt2": "0.1138",
    "shortest_htr_needs_switch_after_gt3": "0.0322",
-   "budget2_needs_switch_after_gt2": "0.1700",
-   "budget2_needs_switch_after_gt3": "0.1230"
+   "budget2_needs_switch_after_gt2": "0.0626",
+   "budget2_needs_switch_after_gt3": "0.0156",
+   "no_optimal_within_budget2": "0.1074"
   },
   "2c4 2e": {
    "group": "2c4 2e",
@@ -49242,8 +49253,9 @@
    "random_opt_ends_RU2Rp": "0.1309",
    "shortest_htr_needs_switch_after_gt2": "0.2097",
    "shortest_htr_needs_switch_after_gt3": "0.0726",
-   "budget2_needs_switch_after_gt2": "0.1780",
-   "budget2_needs_switch_after_gt3": "0.1086"
+   "budget2_needs_switch_after_gt2": "0.0984",
+   "budget2_needs_switch_after_gt3": "0.0290",
+   "no_optimal_within_budget2": "0.0796"
   },
   "2c4 4e": {
    "group": "2c4 4e",
@@ -49256,8 +49268,9 @@
    "random_opt_ends_RU2Rp": "0.1454",
    "shortest_htr_needs_switch_after_gt2": "0.2439",
    "shortest_htr_needs_switch_after_gt3": "0.0901",
-   "budget2_needs_switch_after_gt2": "0.2214",
-   "budget2_needs_switch_after_gt3": "0.1414"
+   "budget2_needs_switch_after_gt2": "0.1202",
+   "budget2_needs_switch_after_gt3": "0.0402",
+   "no_optimal_within_budget2": "0.1012"
   },
   "2c4 6e": {
    "group": "2c4 6e",
@@ -49270,8 +49283,9 @@
    "random_opt_ends_RU2Rp": "0.1268",
    "shortest_htr_needs_switch_after_gt2": "0.2644",
    "shortest_htr_needs_switch_after_gt3": "0.0930",
-   "budget2_needs_switch_after_gt2": "0.2118",
-   "budget2_needs_switch_after_gt3": "0.1250"
+   "budget2_needs_switch_after_gt2": "0.1230",
+   "budget2_needs_switch_after_gt3": "0.0362",
+   "no_optimal_within_budget2": "0.0888"
   },
   "2c4 8e": {
    "group": "2c4 8e",
@@ -49284,8 +49298,9 @@
    "random_opt_ends_RU2Rp": "0.1162",
    "shortest_htr_needs_switch_after_gt2": "0.3568",
    "shortest_htr_needs_switch_after_gt3": "0.1338",
-   "budget2_needs_switch_after_gt2": "0.2452",
-   "budget2_needs_switch_after_gt3": "0.1200"
+   "budget2_needs_switch_after_gt2": "0.1873",
+   "budget2_needs_switch_after_gt3": "0.0620",
+   "no_optimal_within_budget2": "0.0579"
   },
   "0c3 0e": {
    "group": "0c3 0e",
@@ -49298,8 +49313,9 @@
    "random_opt_ends_RU2Rp": "0.0234",
    "shortest_htr_needs_switch_after_gt2": "0.1887",
    "shortest_htr_needs_switch_after_gt3": "0.0636",
-   "budget2_needs_switch_after_gt2": "0.0496",
-   "budget2_needs_switch_after_gt3": "0.0388"
+   "budget2_needs_switch_after_gt2": "0.0239",
+   "budget2_needs_switch_after_gt3": "0.0131",
+   "no_optimal_within_budget2": "0.0257"
   },
   "0c3 2e": {
    "group": "0c3 2e",
@@ -49312,8 +49328,9 @@
    "random_opt_ends_RU2Rp": "0.0393",
    "shortest_htr_needs_switch_after_gt2": "0.2443",
    "shortest_htr_needs_switch_after_gt3": "0.0668",
-   "budget2_needs_switch_after_gt2": "0.1227",
-   "budget2_needs_switch_after_gt3": "0.0765"
+   "budget2_needs_switch_after_gt2": "0.0573",
+   "budget2_needs_switch_after_gt3": "0.0111",
+   "no_optimal_within_budget2": "0.0654"
   },
   "0c3 4e": {
    "group": "0c3 4e",
@@ -49326,8 +49343,9 @@
    "random_opt_ends_RU2Rp": "0.0588",
    "shortest_htr_needs_switch_after_gt2": "0.2611",
    "shortest_htr_needs_switch_after_gt3": "0.0652",
-   "budget2_needs_switch_after_gt2": "0.2253",
-   "budget2_needs_switch_after_gt3": "0.1381"
+   "budget2_needs_switch_after_gt2": "0.1049",
+   "budget2_needs_switch_after_gt3": "0.0177",
+   "no_optimal_within_budget2": "0.1204"
   },
   "0c3 6e": {
    "group": "0c3 6e",
@@ -49340,8 +49358,9 @@
    "random_opt_ends_RU2Rp": "0.0299",
    "shortest_htr_needs_switch_after_gt2": "0.2413",
    "shortest_htr_needs_switch_after_gt3": "0.0572",
-   "budget2_needs_switch_after_gt2": "0.1064",
-   "budget2_needs_switch_after_gt3": "0.0536"
+   "budget2_needs_switch_after_gt2": "0.0620",
+   "budget2_needs_switch_after_gt3": "0.0093",
+   "no_optimal_within_budget2": "0.0444"
   },
   "0c3 8e": {
    "group": "0c3 8e",
@@ -49354,8 +49373,9 @@
    "random_opt_ends_RU2Rp": "0.0233",
    "shortest_htr_needs_switch_after_gt2": "0.1620",
    "shortest_htr_needs_switch_after_gt3": "0.0418",
-   "budget2_needs_switch_after_gt2": "0.0519",
-   "budget2_needs_switch_after_gt3": "0.0322"
+   "budget2_needs_switch_after_gt2": "0.0253",
+   "budget2_needs_switch_after_gt3": "0.0056",
+   "no_optimal_within_budget2": "0.0266"
   },
   "4a2 0e": {
    "group": "4a2 0e",
@@ -49368,8 +49388,9 @@
    "random_opt_ends_RU2Rp": "0.1055",
    "shortest_htr_needs_switch_after_gt2": "0.1751",
    "shortest_htr_needs_switch_after_gt3": "0.0811",
-   "budget2_needs_switch_after_gt2": "0.5142",
-   "budget2_needs_switch_after_gt3": "0.4795"
+   "budget2_needs_switch_after_gt2": "0.0549",
+   "budget2_needs_switch_after_gt3": "0.0202",
+   "no_optimal_within_budget2": "0.4593"
   },
   "4a2 2e": {
    "group": "4a2 2e",
@@ -49382,8 +49403,9 @@
    "random_opt_ends_RU2Rp": "0.0871",
    "shortest_htr_needs_switch_after_gt2": "0.2695",
    "shortest_htr_needs_switch_after_gt3": "0.0838",
-   "budget2_needs_switch_after_gt2": "0.2922",
-   "budget2_needs_switch_after_gt3": "0.1926"
+   "budget2_needs_switch_after_gt2": "0.1397",
+   "budget2_needs_switch_after_gt3": "0.0400",
+   "no_optimal_within_budget2": "0.1526"
   },
   "4a2 4e": {
    "group": "4a2 4e",
@@ -49396,8 +49418,9 @@
    "random_opt_ends_RU2Rp": "0.0504",
    "shortest_htr_needs_switch_after_gt2": "0.1429",
    "shortest_htr_needs_switch_after_gt3": "0.0514",
-   "budget2_needs_switch_after_gt2": "0.1748",
-   "budget2_needs_switch_after_gt3": "0.1445"
+   "budget2_needs_switch_after_gt2": "0.0434",
+   "budget2_needs_switch_after_gt3": "0.0132",
+   "no_optimal_within_budget2": "0.1313"
   },
   "4a1 0e": {
    "group": "4a1 0e",
@@ -49410,8 +49433,9 @@
    "random_opt_ends_RU2Rp": "0.0970",
    "shortest_htr_needs_switch_after_gt2": "0.1908",
    "shortest_htr_needs_switch_after_gt3": "0.0780",
-   "budget2_needs_switch_after_gt2": "0.3470",
-   "budget2_needs_switch_after_gt3": "0.2892"
+   "budget2_needs_switch_after_gt2": "0.0851",
+   "budget2_needs_switch_after_gt3": "0.0273",
+   "no_optimal_within_budget2": "0.2619"
   },
   "4a1 2e": {
    "group": "4a1 2e",
@@ -49424,8 +49448,9 @@
    "random_opt_ends_RU2Rp": "0.0834",
    "shortest_htr_needs_switch_after_gt2": "0.1084",
    "shortest_htr_needs_switch_after_gt3": "0.0248",
-   "budget2_needs_switch_after_gt2": "0.2492",
-   "budget2_needs_switch_after_gt3": "0.2058"
+   "budget2_needs_switch_after_gt2": "0.0541",
+   "budget2_needs_switch_after_gt3": "0.0108",
+   "no_optimal_within_budget2": "0.1950"
   },
   "4a1 4e": {
    "group": "4a1 4e",
@@ -49438,8 +49463,9 @@
    "random_opt_ends_RU2Rp": "0.0493",
    "shortest_htr_needs_switch_after_gt2": "0.0942",
    "shortest_htr_needs_switch_after_gt3": "0.0253",
-   "budget2_needs_switch_after_gt2": "0.3257",
-   "budget2_needs_switch_after_gt3": "0.2948"
+   "budget2_needs_switch_after_gt2": "0.0368",
+   "budget2_needs_switch_after_gt3": "0.0060",
+   "no_optimal_within_budget2": "0.2888"
   },
   "2c3 0e": {
    "group": "2c3 0e",
@@ -49452,8 +49478,9 @@
    "random_opt_ends_RU2Rp": "0.0986",
    "shortest_htr_needs_switch_after_gt2": "0.2806",
    "shortest_htr_needs_switch_after_gt3": "0.1128",
-   "budget2_needs_switch_after_gt2": "0.2381",
-   "budget2_needs_switch_after_gt3": "0.1490"
+   "budget2_needs_switch_after_gt2": "0.1309",
+   "budget2_needs_switch_after_gt3": "0.0418",
+   "no_optimal_within_budget2": "0.1072"
   },
   "2c3 2e": {
    "group": "2c3 2e",
@@ -49466,8 +49493,9 @@
    "random_opt_ends_RU2Rp": "0.1212",
    "shortest_htr_needs_switch_after_gt2": "0.0979",
    "shortest_htr_needs_switch_after_gt3": "0.0237",
-   "budget2_needs_switch_after_gt2": "0.2356",
-   "budget2_needs_switch_after_gt3": "0.1954"
+   "budget2_needs_switch_after_gt2": "0.0492",
+   "budget2_needs_switch_after_gt3": "0.0090",
+   "no_optimal_within_budget2": "0.1863"
   },
   "2c3 4e": {
    "group": "2c3 4e",
@@ -49480,8 +49508,9 @@
    "random_opt_ends_RU2Rp": "0.1225",
    "shortest_htr_needs_switch_after_gt2": "0.1681",
    "shortest_htr_needs_switch_after_gt3": "0.0516",
-   "budget2_needs_switch_after_gt2": "0.2698",
-   "budget2_needs_switch_after_gt3": "0.2059"
+   "budget2_needs_switch_after_gt2": "0.0858",
+   "budget2_needs_switch_after_gt3": "0.0219",
+   "no_optimal_within_budget2": "0.1840"
   },
   "2c3 6e": {
    "group": "2c3 6e",
@@ -49494,8 +49523,9 @@
    "random_opt_ends_RU2Rp": "0.1037",
    "shortest_htr_needs_switch_after_gt2": "0.2718",
    "shortest_htr_needs_switch_after_gt3": "0.0878",
-   "budget2_needs_switch_after_gt2": "0.3184",
-   "budget2_needs_switch_after_gt3": "0.2167"
+   "budget2_needs_switch_after_gt2": "0.1403",
+   "budget2_needs_switch_after_gt3": "0.0386",
+   "no_optimal_within_budget2": "0.1781"
   },
   "2c3 8e": {
    "group": "2c3 8e",
@@ -49508,8 +49538,9 @@
    "random_opt_ends_RU2Rp": "0.1067",
    "shortest_htr_needs_switch_after_gt2": "0.2640",
    "shortest_htr_needs_switch_after_gt3": "0.1005",
-   "budget2_needs_switch_after_gt2": "0.2481",
-   "budget2_needs_switch_after_gt3": "0.1647"
+   "budget2_needs_switch_after_gt2": "0.1194",
+   "budget2_needs_switch_after_gt3": "0.0360",
+   "no_optimal_within_budget2": "0.1287"
   },
   "0c4 0e": {
    "group": "0c4 0e",
@@ -49522,8 +49553,9 @@
    "random_opt_ends_RU2Rp": "0.1730",
    "shortest_htr_needs_switch_after_gt2": "0.5732",
    "shortest_htr_needs_switch_after_gt3": "0.2610",
-   "budget2_needs_switch_after_gt2": "0.3941",
-   "budget2_needs_switch_after_gt3": "0.2635"
+   "budget2_needs_switch_after_gt2": "0.2794",
+   "budget2_needs_switch_after_gt3": "0.1488",
+   "no_optimal_within_budget2": "0.1148"
   },
   "0c4 2e": {
    "group": "0c4 2e",
@@ -49536,8 +49568,9 @@
    "random_opt_ends_RU2Rp": "0.1541",
    "shortest_htr_needs_switch_after_gt2": "0.6495",
    "shortest_htr_needs_switch_after_gt3": "0.3361",
-   "budget2_needs_switch_after_gt2": "0.4106",
-   "budget2_needs_switch_after_gt3": "0.2531"
+   "budget2_needs_switch_after_gt2": "0.3230",
+   "budget2_needs_switch_after_gt3": "0.1654",
+   "no_optimal_within_budget2": "0.0876"
   },
   "0c4 4e": {
    "group": "0c4 4e",
@@ -49550,8 +49583,9 @@
    "random_opt_ends_RU2Rp": "0.1732",
    "shortest_htr_needs_switch_after_gt2": "0.6780",
    "shortest_htr_needs_switch_after_gt3": "0.3246",
-   "budget2_needs_switch_after_gt2": "0.4978",
-   "budget2_needs_switch_after_gt3": "0.2938"
+   "budget2_needs_switch_after_gt2": "0.3843",
+   "budget2_needs_switch_after_gt3": "0.1802",
+   "no_optimal_within_budget2": "0.1136"
   },
   "0c4 6e": {
    "group": "0c4 6e",
@@ -49564,8 +49598,9 @@
    "random_opt_ends_RU2Rp": "0.1543",
    "shortest_htr_needs_switch_after_gt2": "0.6940",
    "shortest_htr_needs_switch_after_gt3": "0.3214",
-   "budget2_needs_switch_after_gt2": "0.5089",
-   "budget2_needs_switch_after_gt3": "0.2912"
+   "budget2_needs_switch_after_gt2": "0.3897",
+   "budget2_needs_switch_after_gt3": "0.1720",
+   "no_optimal_within_budget2": "0.1192"
   },
   "0c4 8e": {
    "group": "0c4 8e",
@@ -49578,8 +49613,9 @@
    "random_opt_ends_RU2Rp": "0.1573",
    "shortest_htr_needs_switch_after_gt2": "0.6802",
    "shortest_htr_needs_switch_after_gt3": "0.1837",
-   "budget2_needs_switch_after_gt2": "0.6154",
-   "budget2_needs_switch_after_gt3": "0.2362"
+   "budget2_needs_switch_after_gt2": "0.4980",
+   "budget2_needs_switch_after_gt3": "0.1188",
+   "no_optimal_within_budget2": "0.1174"
   },
   "4c3 0e": {
    "group": "4c3 0e",
@@ -49592,8 +49628,9 @@
    "random_opt_ends_RU2Rp": "0.0725",
    "shortest_htr_needs_switch_after_gt2": "0.2301",
    "shortest_htr_needs_switch_after_gt3": "0.0879",
-   "budget2_needs_switch_after_gt2": "0.1315",
-   "budget2_needs_switch_after_gt3": "0.0762"
+   "budget2_needs_switch_after_gt2": "0.0828",
+   "budget2_needs_switch_after_gt3": "0.0275",
+   "no_optimal_within_budget2": "0.0487"
   },
   "4c3 2e": {
    "group": "4c3 2e",
@@ -49606,8 +49643,9 @@
    "random_opt_ends_RU2Rp": "0.1185",
    "shortest_htr_needs_switch_after_gt2": "0.3128",
    "shortest_htr_needs_switch_after_gt3": "0.1211",
-   "budget2_needs_switch_after_gt2": "0.2784",
-   "budget2_needs_switch_after_gt3": "0.1782"
+   "budget2_needs_switch_after_gt2": "0.1483",
+   "budget2_needs_switch_after_gt3": "0.0481",
+   "no_optimal_within_budget2": "0.1301"
   },
   "4c3 4e": {
    "group": "4c3 4e",
@@ -49620,8 +49658,9 @@
    "random_opt_ends_RU2Rp": "0.1174",
    "shortest_htr_needs_switch_after_gt2": "0.3009",
    "shortest_htr_needs_switch_after_gt3": "0.1130",
-   "budget2_needs_switch_after_gt2": "0.2647",
-   "budget2_needs_switch_after_gt3": "0.1707"
+   "budget2_needs_switch_after_gt2": "0.1427",
+   "budget2_needs_switch_after_gt3": "0.0487",
+   "no_optimal_within_budget2": "0.1220"
   },
   "4c4 0e": {
    "group": "4c4 0e",
@@ -49634,8 +49673,9 @@
    "random_opt_ends_RU2Rp": "0.1695",
    "shortest_htr_needs_switch_after_gt2": "0.5810",
    "shortest_htr_needs_switch_after_gt3": "0.3487",
-   "budget2_needs_switch_after_gt2": "0.4510",
-   "budget2_needs_switch_after_gt3": "0.3126"
+   "budget2_needs_switch_after_gt2": "0.3170",
+   "budget2_needs_switch_after_gt3": "0.1786",
+   "no_optimal_within_budget2": "0.1340"
   },
   "4c4 2e": {
    "group": "4c4 2e",
@@ -49648,8 +49688,9 @@
    "random_opt_ends_RU2Rp": "0.1597",
    "shortest_htr_needs_switch_after_gt2": "0.5125",
    "shortest_htr_needs_switch_after_gt3": "0.3067",
-   "budget2_needs_switch_after_gt2": "0.3258",
-   "budget2_needs_switch_after_gt3": "0.2173"
+   "budget2_needs_switch_after_gt2": "0.2253",
+   "budget2_needs_switch_after_gt3": "0.1168",
+   "no_optimal_within_budget2": "0.1005"
   },
   "4c4 4e": {
    "group": "4c4 4e",
@@ -49662,8 +49703,9 @@
    "random_opt_ends_RU2Rp": "0.1600",
    "shortest_htr_needs_switch_after_gt2": "0.4946",
    "shortest_htr_needs_switch_after_gt3": "0.2995",
-   "budget2_needs_switch_after_gt2": "0.3353",
-   "budget2_needs_switch_after_gt3": "0.2314"
+   "budget2_needs_switch_after_gt2": "0.2282",
+   "budget2_needs_switch_after_gt3": "0.1243",
+   "no_optimal_within_budget2": "0.1071"
   },
   "4b2 0e": {
    "group": "4b2 0e",
@@ -49676,8 +49718,9 @@
    "random_opt_ends_RU2Rp": "0.0917",
    "shortest_htr_needs_switch_after_gt2": "0.2395",
    "shortest_htr_needs_switch_after_gt3": "0.0765",
-   "budget2_needs_switch_after_gt2": "0.3300",
-   "budget2_needs_switch_after_gt3": "0.2454"
+   "budget2_needs_switch_after_gt2": "0.1208",
+   "budget2_needs_switch_after_gt3": "0.0362",
+   "no_optimal_within_budget2": "0.2092"
   },
   "4b2 2e": {
    "group": "4b2 2e",
@@ -49690,8 +49733,9 @@
    "random_opt_ends_RU2Rp": "0.1227",
    "shortest_htr_needs_switch_after_gt2": "0.1352",
    "shortest_htr_needs_switch_after_gt3": "0.0408",
-   "budget2_needs_switch_after_gt2": "0.3707",
-   "budget2_needs_switch_after_gt3": "0.3210"
+   "budget2_needs_switch_after_gt2": "0.0654",
+   "budget2_needs_switch_after_gt3": "0.0157",
+   "no_optimal_within_budget2": "0.3053"
   },
   "4b2 4e": {
    "group": "4b2 4e",
@@ -49704,8 +49748,9 @@
    "random_opt_ends_RU2Rp": "0.0920",
    "shortest_htr_needs_switch_after_gt2": "0.1804",
    "shortest_htr_needs_switch_after_gt3": "0.0553",
-   "budget2_needs_switch_after_gt2": "0.2616",
-   "budget2_needs_switch_after_gt3": "0.2012"
+   "budget2_needs_switch_after_gt2": "0.0879",
+   "budget2_needs_switch_after_gt3": "0.0274",
+   "no_optimal_within_budget2": "0.1738"
   },
   "4b5 0e": {
    "group": "4b5 0e",
@@ -49718,8 +49763,9 @@
    "random_opt_ends_RU2Rp": "0.1670",
    "shortest_htr_needs_switch_after_gt2": "0.3720",
    "shortest_htr_needs_switch_after_gt3": "0.1682",
-   "budget2_needs_switch_after_gt2": "0.2826",
-   "budget2_needs_switch_after_gt3": "0.1543"
+   "budget2_needs_switch_after_gt2": "0.2162",
+   "budget2_needs_switch_after_gt3": "0.0880",
+   "no_optimal_within_budget2": "0.0663"
   },
   "4b5 2e": {
    "group": "4b5 2e",
@@ -49732,8 +49778,9 @@
    "random_opt_ends_RU2Rp": "0.1501",
    "shortest_htr_needs_switch_after_gt2": "0.2975",
    "shortest_htr_needs_switch_after_gt3": "0.1562",
-   "budget2_needs_switch_after_gt2": "0.1927",
-   "budget2_needs_switch_after_gt3": "0.1211"
+   "budget2_needs_switch_after_gt2": "0.1331",
+   "budget2_needs_switch_after_gt3": "0.0615",
+   "no_optimal_within_budget2": "0.0596"
   },
   "4b5 4e": {
    "group": "4b5 4e",
@@ -49746,8 +49793,9 @@
    "random_opt_ends_RU2Rp": "0.1453",
    "shortest_htr_needs_switch_after_gt2": "0.3293",
    "shortest_htr_needs_switch_after_gt3": "0.1663",
-   "budget2_needs_switch_after_gt2": "0.2040",
-   "budget2_needs_switch_after_gt3": "0.1211"
+   "budget2_needs_switch_after_gt2": "0.1484",
+   "budget2_needs_switch_after_gt3": "0.0655",
+   "no_optimal_within_budget2": "0.0556"
   },
   "0c0": {
    "group": "0c0",
@@ -49760,8 +49808,9 @@
    "random_opt_ends_RU2Rp": "0.0417",
    "shortest_htr_needs_switch_after_gt2": "0.1144",
    "shortest_htr_needs_switch_after_gt3": "0.0351",
-   "budget2_needs_switch_after_gt2": "0.3423",
-   "budget2_needs_switch_after_gt3": "0.3063"
+   "budget2_needs_switch_after_gt2": "0.0453",
+   "budget2_needs_switch_after_gt3": "0.0093",
+   "no_optimal_within_budget2": "0.2970"
   },
   "2c5": {
    "group": "2c5",
@@ -49774,8 +49823,9 @@
    "random_opt_ends_RU2Rp": "0.1743",
    "shortest_htr_needs_switch_after_gt2": "0.4355",
    "shortest_htr_needs_switch_after_gt3": "0.2348",
-   "budget2_needs_switch_after_gt2": "0.2617",
-   "budget2_needs_switch_after_gt3": "0.1523"
+   "budget2_needs_switch_after_gt2": "0.1995",
+   "budget2_needs_switch_after_gt3": "0.0901",
+   "no_optimal_within_budget2": "0.0622"
   },
   "2c4": {
    "group": "2c4",
@@ -49788,8 +49838,9 @@
    "random_opt_ends_RU2Rp": "0.1375",
    "shortest_htr_needs_switch_after_gt2": "0.2405",
    "shortest_htr_needs_switch_after_gt3": "0.0866",
-   "budget2_needs_switch_after_gt2": "0.2089",
-   "budget2_needs_switch_after_gt3": "0.1296"
+   "budget2_needs_switch_after_gt2": "0.1160",
+   "budget2_needs_switch_after_gt3": "0.0367",
+   "no_optimal_within_budget2": "0.0929"
   },
   "0c3": {
    "group": "0c3",
@@ -49802,8 +49853,9 @@
    "random_opt_ends_RU2Rp": "0.0467",
    "shortest_htr_needs_switch_after_gt2": "0.2503",
    "shortest_htr_needs_switch_after_gt3": "0.0634",
-   "budget2_needs_switch_after_gt2": "0.1697",
-   "budget2_needs_switch_after_gt3": "0.1018"
+   "budget2_needs_switch_after_gt2": "0.0819",
+   "budget2_needs_switch_after_gt3": "0.0140",
+   "no_optimal_within_budget2": "0.0877"
   },
   "4a2": {
    "group": "4a2",
@@ -49816,8 +49868,9 @@
    "random_opt_ends_RU2Rp": "0.0688",
    "shortest_htr_needs_switch_after_gt2": "0.2017",
    "shortest_htr_needs_switch_after_gt3": "0.0670",
-   "budget2_needs_switch_after_gt2": "0.2382",
-   "budget2_needs_switch_after_gt3": "0.1760"
+   "budget2_needs_switch_after_gt2": "0.0878",
+   "budget2_needs_switch_after_gt3": "0.0256",
+   "no_optimal_within_budget2": "0.1504"
   },
   "4a1": {
    "group": "4a1",
@@ -49830,8 +49883,9 @@
    "random_opt_ends_RU2Rp": "0.0663",
    "shortest_htr_needs_switch_after_gt2": "0.1035",
    "shortest_htr_needs_switch_after_gt3": "0.0266",
-   "budget2_needs_switch_after_gt2": "0.2913",
-   "budget2_needs_switch_after_gt3": "0.2540"
+   "budget2_needs_switch_after_gt2": "0.0461",
+   "budget2_needs_switch_after_gt3": "0.0088",
+   "no_optimal_within_budget2": "0.2452"
   },
   "2c3": {
    "group": "2c3",
@@ -49844,8 +49898,9 @@
    "random_opt_ends_RU2Rp": "0.1174",
    "shortest_htr_needs_switch_after_gt2": "0.1787",
    "shortest_htr_needs_switch_after_gt3": "0.0551",
-   "budget2_needs_switch_after_gt2": "0.2723",
-   "budget2_needs_switch_after_gt3": "0.2046"
+   "budget2_needs_switch_after_gt2": "0.0910",
+   "budget2_needs_switch_after_gt3": "0.0233",
+   "no_optimal_within_budget2": "0.1813"
   },
   "0c4": {
    "group": "0c4",
@@ -49858,8 +49913,9 @@
    "random_opt_ends_RU2Rp": "0.1643",
    "shortest_htr_needs_switch_after_gt2": "0.6737",
    "shortest_htr_needs_switch_after_gt3": "0.3236",
-   "budget2_needs_switch_after_gt2": "0.4806",
-   "budget2_needs_switch_after_gt3": "0.2827"
+   "budget2_needs_switch_after_gt2": "0.3716",
+   "budget2_needs_switch_after_gt3": "0.1737",
+   "no_optimal_within_budget2": "0.1090"
   },
   "4c3": {
    "group": "4c3",
@@ -49872,8 +49928,9 @@
    "random_opt_ends_RU2Rp": "0.1166",
    "shortest_htr_needs_switch_after_gt2": "0.3043",
    "shortest_htr_needs_switch_after_gt3": "0.1160",
-   "budget2_needs_switch_after_gt2": "0.2671",
-   "budget2_needs_switch_after_gt3": "0.1714"
+   "budget2_needs_switch_after_gt2": "0.1436",
+   "budget2_needs_switch_after_gt3": "0.0478",
+   "no_optimal_within_budget2": "0.1236"
   },
   "4c4": {
    "group": "4c4",
@@ -49886,8 +49943,9 @@
    "random_opt_ends_RU2Rp": "0.1602",
    "shortest_htr_needs_switch_after_gt2": "0.5052",
    "shortest_htr_needs_switch_after_gt3": "0.3042",
-   "budget2_needs_switch_after_gt2": "0.3343",
-   "budget2_needs_switch_after_gt3": "0.2273"
+   "budget2_needs_switch_after_gt2": "0.2294",
+   "budget2_needs_switch_after_gt3": "0.1224",
+   "no_optimal_within_budget2": "0.1049"
   },
   "4b2": {
    "group": "4b2",
@@ -49900,8 +49958,9 @@
    "random_opt_ends_RU2Rp": "0.1060",
    "shortest_htr_needs_switch_after_gt2": "0.1614",
    "shortest_htr_needs_switch_after_gt3": "0.0493",
-   "budget2_needs_switch_after_gt2": "0.3135",
-   "budget2_needs_switch_after_gt3": "0.2572"
+   "budget2_needs_switch_after_gt2": "0.0785",
+   "budget2_needs_switch_after_gt3": "0.0223",
+   "no_optimal_within_budget2": "0.2349"
   },
   "4b5": {
    "group": "4b5",
@@ -49914,8 +49973,9 @@
    "random_opt_ends_RU2Rp": "0.1481",
    "shortest_htr_needs_switch_after_gt2": "0.3160",
    "shortest_htr_needs_switch_after_gt3": "0.1618",
-   "budget2_needs_switch_after_gt2": "0.2011",
-   "budget2_needs_switch_after_gt3": "0.1220"
+   "budget2_needs_switch_after_gt2": "0.1434",
+   "budget2_needs_switch_after_gt3": "0.0643",
+   "no_optimal_within_budget2": "0.0577"
   },
   "all": {
    "group": "all",
@@ -49928,8 +49988,9 @@
    "random_opt_ends_RU2Rp": "0.1296",
    "shortest_htr_needs_switch_after_gt2": "0.2817",
    "shortest_htr_needs_switch_after_gt3": "0.1250",
-   "budget2_needs_switch_after_gt2": "0.2605",
-   "budget2_needs_switch_after_gt3": "0.1792"
+   "budget2_needs_switch_after_gt2": "0.1323",
+   "budget2_needs_switch_after_gt3": "0.0510",
+   "no_optimal_within_budget2": "0.1282"
   }
  },
  "claims": {
@@ -50048,7 +50109,7 @@
    "claim": "[D11196, Evan] this isn't the worst practice but it's pretty rare for switching after doing more than 2 moves to actually be useful, unless you're variationmaxing [D11235, Yura] More like 3 imo [D11237, Evan] ehh the only thing I do this for regularly is the b side of 4c3 [D11238] 4c4 and 0c4 ofc bu",
    "number_claimed": "pretty rare",
    "verdict": "CORRECTS",
-   "evidence": "All DRs: the shortest-HTR optimal readings all need a switch after more than 2 moves in 28.2% of states (after more than 3: 12.5%); with HTRs up to 2 over the shortest allowed: 26.1% / 17.9%. Per subset in c11_c13.tsv."
+   "evidence": "All DRs: the shortest-HTR optimal readings all need a switch after more than 2 moves in 28.2% of states (after more than 3: 12.5%); with HTRs up to 2 over the shortest allowed: 13.2% / 5.1% (another 12.8% have no optimal reading within that budget). Per subset in c11_c13.tsv."
   },
   "C14": {
    "id": "C14",
@@ -50363,7 +50424,7 @@
    "claim": "[D3669, wen] Anyone else feel like for 4q 2c, the optimals are most often reasonably explained with something like a direct HTR, or 1q then switch and 3q, and hardly ever with 2q switch 2q? I feel like I have seen very few 4q optimals that use such a pathway [D3670, Lichi] does it naturally follow f",
    "number_claimed": "hardly ever 2q switch 2q",
    "verdict": "CORRECTS",
-   "evidence": "2c4: share of states where an optimal is reached through each route shape using an HTR at most 2 moves over the shortest NISS HTR: 1+(3) | ht 66.5%, 3+(1) | ht 66.5%, 4 | ht 54.0%, 2+(2) | ht 30.8%, 4+(2) | ht 3.3%, 2+(4) | ht 3.3%, 1+(5) | ht 3.0%. (Without an HTR limit every shape that a finish can be read in ties, ~94%.)"
+   "evidence": "2c4: share of states where an optimal is reached through each route shape using an HTR at most 2 moves over the shortest NISS HTR: 3+(1) | ht 66.5%, 1+(3) | ht 66.5%, 4 | ht 54.0%, 2+(2) | ht 30.8%, 4+(2) | ht 3.3%, 2+(4) | ht 3.3%, 5+(1) | ht 3.0%. (Without an HTR limit every shape that a finish can be read in ties, ~94%.)"
   },
   "C49": {
    "id": "C49",
@@ -51361,6 +51422,8 @@
  },
  "late_excl_gt2": 0.23991323214285715,
  "late_excl_gt3": 0.0970366875,
+ "late_b2_excl_gt2": 0.11306846428571429,
+ "late_b2_excl_gt3": 0.03927775,
  "t11503_kinds": {
   "first": 904,
   "B": 19

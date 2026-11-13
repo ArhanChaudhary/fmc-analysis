@@ -18,6 +18,7 @@ awk -F'\t' '{split($3,a," "); n[$1]+=a[2]} END{for(k in n) print k"\t"n[k]}' $O/
 run $V s18 > $O/check_18.txt                               # every 18-move state: side half turns give 17
 run $V lastmove > $O/lastmove.txt                          # exact share with X R2 one shorter
 run $V nissall - > $O/niss_all.txt 2> $O/niss_all.log      # shortest NISS HTR of every DR state
+awk -F'\t' '/^subset\tniss_htr/{p=1} p && NF==4' $O/niss_all.txt > $B/out/checks/niss_exact.tsv   # read by the page build
 run $V lsall $B/out/checks/lsdist48.tsv > $O/ls_all.txt 2> $O/ls_all.log   # leave-slice optimum of every state
 
 for out in cmp_routes check_bound4 check_bound2 check_redcount_r7; do : > $O/$out.txt; done

@@ -10,6 +10,8 @@ So, for rodneykinney's question ([[T624]]):
 - On 0c3 and 0c4 (fake HTR corners) it saves two or more on {= pc(Q3('0c3', 'niss_shorter_by_2plus')) =} and {= pc(Q3('0c4', 'niss_shorter_by_2plus')) =}.
 - The two linear sides tie on {= pc(Q3('all', 'normal_eq_inverse')) =} of DRs and differ by two or more on {= pc(Q3('all', 'normal_inverse_differ_by_2plus')) =}.
 
+The first of these doesn't need the sample. A search over the whole DR group gives the shortest NISS HTR of every one of the 19,508,428,800 DR states (*computed, not proved in Lean*): it equals the shortest linear HTR on {= pc(NXD('all', 0)) =}, is one shorter on {= pc(NXD('all', 1)) =} and two or more shorter on {= pc(NXD('all', 2)) =} ({= pc(NXD('0c3', 2)) =} of 0c3, {= pc(NXD('0c4', 2)) =} of 0c4). No DR needs more than {= NXMAX() =} moves to HTR with NISS, and only {= n(NXN(12)) =} states need {= NXMAX() =}, all of them 0c3 4e or 2c5.
+
 **Which HTR the optimal uses.** For each DR, the shortest HTR among all readings of all its optimal finishes, against the DR's shortest NISS HTR (sampled, 25,000 per subset × edges, edges pooled by size; optimal finishes, NISS readings). Each row is a subset: the first four columns split its DRs by how much longer that HTR is than the shortest, then the 9-move columns and the mean number of moves after HTR:
 
 {{htr_vs_opt}}

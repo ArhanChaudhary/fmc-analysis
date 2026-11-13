@@ -988,6 +988,7 @@ fn cmd_b2(t: &Table, l: &Labels, states: &str, b2: &str, cell: &str, from: usize
     }
     let col = |n: &str| hdr.iter().position(|h| h == n).unwrap();
     let (cb, cl, cm, cc) = (col("best_any"), col("linear_at_best"), col("minfirst_at_best"), col("cells"));
+    let (clb, cmb) = (col("linear_at_b2"), col("minfirst_at_b2"));
     let idx: Vec<usize> = (from..from + n).collect();
     let res: Vec<(usize, Vec<String>, usize)> = idx.par_iter().map(|&i| {
         let x = st_of(&rows[i]);
@@ -995,6 +996,8 @@ fn cmd_b2(t: &Table, l: &Labels, states: &str, b2: &str, cell: &str, from: usize
         let d = t.d(&x) as usize;
         let mut bad = vec![];
         let mut best = (99u8, false, 99usize);
+        let niss = l.niss(&x);
+        let mut b2x = (false, 99usize);      // among readings with an HTR within 2 of the shortest NISS HTR
         let mut mine: HashMap<(usize, String), (usize, usize)> = HashMap::new();
         for off in 0..2usize {
             for f in finishes(t, &x, d + off) {
@@ -1004,6 +1007,9 @@ fn cmd_b2(t: &Table, l: &Labels, states: &str, b2: &str, cell: &str, from: usize
                         if r.htr < best.0 { best = (r.htr, false, 99); }
                         if r.htr == best.0 {
                             match r.sw_after { None => best.1 = true, Some(m) => best.2 = best.2.min(m) }
+                        }
+                        if r.htr <= niss + 2 {
+                            match r.sw_after { None => b2x.0 = true, Some(m) => b2x.1 = b2x.1.min(m) }
                         }
                     }}
                 }
@@ -1028,6 +1034,8 @@ fn cmd_b2(t: &Table, l: &Labels, states: &str, b2: &str, cell: &str, from: usize
         if th[cb].parse::<u8>().unwrap() != best.0 { bad.push(format!("best_any {} vs {}", best.0, th[cb])); }
         if (th[cl] == "1") != best.1 { bad.push(format!("linear_at_best {} vs {}", best.1, th[cl])); }
         if th[cm].parse::<usize>().unwrap() != best.2 { bad.push(format!("minfirst_at_best {} vs {}", best.2, th[cm])); }
+        if (th[clb] == "1") != b2x.0 { bad.push(format!("linear_at_b2 {} vs {}", b2x.0, th[clb])); }
+        if th[cmb].parse::<usize>().unwrap() != b2x.1 { bad.push(format!("minfirst_at_b2 {} vs {}", b2x.1, th[cmb])); }
         let mut tc: HashMap<(usize, String), (usize, usize)> = HashMap::new();
         for c in th[cc].split(';') {
             let p: Vec<&str> = c.split(':').collect();

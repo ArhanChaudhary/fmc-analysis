@@ -173,3 +173,25 @@ def EPW(*path):
     for p in path: v = v[p]
     return v
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}
+# exact over every DR state: the shortest NISS HTR (verify/vhtr nissall -> out/checks/niss_exact.tsv)
+def _nx(g): return [r for r in _tsv('checks/niss_exact.tsv') if g == 'all' or r['subset'] == g or r['subset'].split()[0] == g]
+def NXD(g, k):
+    """share of the DR states of g ('all', a corner subset or a subset x edges) whose shortest NISS HTR is k moves
+    shorter than the shortest linear HTR on the better side (k = 0, 1; k = 2 means 2 or more)"""
+    rs = _nx(g)
+    return sum(int(r['states']) for r in rs if (int(r['linear_minus_niss']) == k if k < 2 else int(r['linear_minus_niss']) >= 2)) / sum(int(r['states']) for r in rs)
+def NXMAX(g='all'): return max(int(r['niss_htr']) for r in _nx(g))
+def NXMIN(g): return min(int(r['niss_htr']) for r in _nx(g))
+def NXN(k, g='all'): return sum(int(r['states']) for r in _nx(g) if int(r['niss_htr']) == k)
+def LM():
+    """(pairs with X m one move shorter than X, all pairs) over every DR state X and side half turn m, exact
+    (research/verify/out/lastmove.txt)"""
+    m = re.search(r'half turns: (\d+); one shorter: (\d+)', open(O + '../verify/out/lastmove.txt').read())
+    return int(m.group(2)), int(m.group(1))
+def V9():
+    """(cases where the smallest term as printed is too short, all cases) at the optimum, unweighted, from the
+    independent recount of section 9 (research/verify/out/recount_t11503.txt)"""
+    t = open(O + '../verify/out/recount_t11503.txt').read()
+    return (int(re.search(r'as printed \(term 2 signs, alpha_i\) below the need: (\d+)', t).group(1)),
+            int(re.search(r'at the optimum: (\d+)', t).group(1)))
+ENV = {k: v for k, v in globals().items() if not k.startswith('_')}

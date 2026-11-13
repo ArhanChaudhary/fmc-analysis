@@ -29,7 +29,7 @@ Example. Think of the first line as the end of a DR on U/D whose last move was t
 {= WIT('W06', 'variation_finish') =} // optimal finish of the second
 ```
 
-*Lean-checked*: both optima, both finishes and the subset (`dr_optima_correct`, `dr_solutions_valid`, `labels_htr_routes`). The share and the mean gain are exact over all DR states (32.47%, counted over the first study's table by two separate programs), not proved in Lean.
+*Lean-checked*: both optima, both finishes and the subset (`dr_optima_correct`, `dr_solutions_valid`, `labels_htr_routes`). The share and the mean gain are exact over all DR states ({= pc(LM()[0] / LM()[1], 2) =}, counted over the first study's table by two separate programs), not proved in Lean.
 
 **b. "Interesting that it seems 4qt 4C0E is the only HTR subset that is guaranteed 11 moves without NISS"** (Jay, [[T619]]).
 
@@ -46,7 +46,7 @@ Example, with the linear HTR nissy finds on inverse:
 
 **c. "No, the maximum it takes is 12 moves linearly, and 11 moves using NISS."** (Lewis Isom, [[T4100]], answering whether DR to HTR takes at most 9.)
 
-Both are one short. 0c3 4e and 4c4 0e have HTR cosets whose shortest linear HTR is {= MAXLIN('0c3 4e') =}, and in the sample some DRs need 13 on both sides and 12 with NISS. Daichi had the 13 right later ([[T11594]]: "0c3 4e and 4c4 0e have 13 move optimal HTR cases").
+Both are one short. 0c3 4e and 4c4 0e have HTR cosets whose shortest linear HTR is {= MAXLIN('0c3 4e') =}, and some DRs need 13 on both sides. With NISS the longest is {= NXMAX() =}: a search over every DR state finds {= n(NXN(12)) =} states that need 12 (all 0c3 4e or 2c5) and none that needs more. Daichi had the 13 right later ([[T11594]]: "0c3 4e and 4c4 0e have 13 move optimal HTR cases").
 
 Example, with nissy's shortest HTRs:
 
@@ -56,33 +56,9 @@ Example, with nissy's shortest HTRs:
 {= WXX('X2', 'nissy_niss') =} // shortest with NISS
 ```
 
-*Lean-checked*: the optimum, the subset, the 13-move shortest linear HTR on each side, and that both printed HTRs are valid (`dr_optima_correct`, `htr_13`). That no NISS HTR of 11 exists is from nissy and two independent searches, not Lean.
+*Lean-checked*: the optimum, the subset, the 13-move shortest linear HTR on each side, and that both printed HTRs are valid (`dr_optima_correct`, `htr_13`). That no NISS HTR of 11 exists is from nissy and two independent searches, and the 12 as the longest over every DR state from a search over the whole DR group; neither is Lean.
 
-**d. "this isn't the worst practice but it's pretty rare for switching after doing more than 2 moves to actually be useful, unless you're variationmaxing"** (Evan, [[D11196]]).
-
-The optimal through its shortest HTR needs a switch after more than 2 moves on {= pc(C11('all', 'shortest_htr_needs_switch_after_gt2')) =} of DRs (sampled, {= n(25000) =} per subset × edges). That is: take the shortest HTR that any reading of any optimal finish reaches; every reading that reaches it switches after 3 or more moves. It's an upper bound on how often a late switch is needed for the optimal. On some of these DRs another optimal finish, with a longer HTR, may be readable linearly or with an early switch, which isn't measured here.
-
-Evan named exceptions in the same thread ("the b side of 4c3", "4c4 and 0c4 ofc but those are pretty rare", [[D11237]], [[D11238]]). Leaving out all of 4c3, 4c4 and 0c4 it's still {= pc(E['late_excl_gt2']) =}. Yura Riabov's "More like 3 imo" ([[D11235]]) fits much better: after 4 or more moves it's small except on 0c4, 4c4 and 2c5.
-
-| Switch needed after | 2c3 | 4b2 | 2c4 | 2c5 |
-|---|---|---|---|---|
-| more than 2 moves | {= pc(C11('2c3', 'shortest_htr_needs_switch_after_gt2')) =} | {= pc(C11('4b2', 'shortest_htr_needs_switch_after_gt2')) =} | {= pc(C11('2c4', 'shortest_htr_needs_switch_after_gt2')) =} | {= pc(C11('2c5', 'shortest_htr_needs_switch_after_gt2')) =} |
-| 4 or more moves | {= pc(C11('2c3', 'shortest_htr_needs_switch_after_gt3')) =} | {= pc(C11('4b2', 'shortest_htr_needs_switch_after_gt3')) =} | {= pc(C11('2c4', 'shortest_htr_needs_switch_after_gt3')) =} | {= pc(C11('2c5', 'shortest_htr_needs_switch_after_gt3')) =} |
-
-Yura Riabov added "i almost never do this but i think it is useful" and "i really don't like switching after more than 2 moves or for badish cases, which is why i'm worse at finishes than i could be" ([[D11239]], [[D11240]]).
-
-Example with a single optimal finish ({= WIT('W12', 'optimal') =}). Its shortest HTR in any reading is {= WIT('W12', 'shortest_htr_in_any_reading_of_any_optimal') =} moves, and every reading with that HTR switches after {= WIT('W12', 'readings_with_it', 0, 'moves_before_switch') =} moves:
-
-```
-{= WIT('W12', 'scramble') =} // 2c3 2e
-{= WIT('W12', 'optimal_finish') =} // the only optimal finish
-{= ' '.join(WIT('W12', 'optimal_finish').split()[:4]) =} // on normal
-({= INV(' '.join(WIT('W12', 'optimal_finish').split()[4:])) =}) // then on inverse
-```
-
-With a single optimal finish the upper bound is exact: here the late switch is needed. *Lean-checked*: the optimum, the finish and the subset (`dr_optima_correct`, `dr_solutions_valid`, `labels_htr_routes`). That it's the only optimal finish, and the HTR lengths of its readings, come from two independent enumerations (nissy also finds one optimal), not Lean.
-
-**e. "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time"** (Levi Gibson, [[D9108]]; "sub-5" is "4 or less", [[D9221]]).
+**d. "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time"** (Levi Gibson, [[D9108]]; "sub-5" is "4 or less", [[D9221]]).
 
 Just before, Levi Gibson wrote "for the 4a2 subset I use full DR Bounding" ([[D9106]]), and a few minutes later "I don't use it fully for any subsets other than 4a2 and 2c3" ([[D9113]]). So: write every reduction to 1q of at most 4 moves, on normal, on inverse and split by NISS, and finish each reduced state optimally, with any number of quarter turns (sampled, 4,000 states per subset × edges).
 
@@ -105,7 +81,7 @@ Example, {= WXX('X1', 'optimal') =} optimal. I enumerated all {= WXX('X1', 'redu
 
 *Lean-checked*: the optimum and the subset (`dr_optima_correct`, `labels_htr_routes`). The enumeration of the reductions and their finishes is computed (twice, independently), not Lean.
 
-**f. FakeMMAP's reduction bound and its multi-qt lower bounds** ([[T11502]]: "R is the max of the following", five families of terms, the sums "over all i's such that i, i+1 are both in S"; [[T11503]]: "M \geq \frac{|S|(R'+1)-N+\sum_{i edge} \alpha_i}{|S|-1}").
+**e. FakeMMAP's reduction bound and its multi-qt lower bounds** ([[T11502]]: "R is the max of the following", five families of terms, the sums "over all i's such that i, i+1 are both in S"; [[T11503]]: "M \geq \frac{|S|(R'+1)-N+\sum_{i edge} \alpha_i}{|S|-1}").
 
 Of the lower bounds FakeMMAP wrote "I don't know how useful these bounds really are, I have to put in the numbers to see if there are situations where the typical bound is M \geq 11, rather than M \geq 7 lol." ([[T11504]]); this is that test (the write-up's section 9 gives the typical values). R as written is safe to use: the largest term is never too short, proved for every finish (`Rmax_sound`, lean/FakeBound/FakeBound/Formula.lean), but only because term 1, about M − 1, is among the terms, so it's loose. Two things in the formulas are wrong, each proved in Lean with a counterexample.
 
@@ -123,7 +99,7 @@ Example for the index, corner path 0c4 > 4a3 > 4b2 > 4a1 > HTR, $N = 4$, $\alpha
 
 Its sections of half turns are {= ', '.join(map(str, SECTIONS(WIT('W13', 'optimal_finish')))) =}, its 1q reductions {= ', '.join(map(str, WINDOWS(WIT('W13', 'optimal_finish')))) =}, so all reductions shorter than R' = {= min(WINDOWS(WIT('W13', 'optimal_finish'))) =} fail. With $S = \{0, 2, 3\}$ the bound as written gives $M \geq {= f1(LB11503(9, 4, [0, 2, 3], [0, 1, 3, 1, 0])) =}$, so 15; with $\alpha_{i+1}$, {= f1(LB11503(9, 4, [0, 2, 3], [0, 1, 3, 1, 0], True)) =}, so 14, the optimum. *Lean-checked end to end*: the optimum, the finish, the subset, the corner path, $\alpha$, the sections, the reductions and both inequalities (`dr_optima_correct`, `dr_solutions_valid`, `labels_htr_routes`, `index_example`, `index_example_arith`, Corrections/Examples.lean).
 
-*Term 2's signs, when R is the smallest term.* Every term is an upper bound on the reduction a finish needs, so the bound the derivation gives is the smallest term. With $\alpha_{i+1}$ and term 2 as derived it's sound for every finish (`Rmin_sound`, FakeBound/Formula.lean; it isn't always the exact worst case, `Rmin_not_tight`). Term 2 as printed, "\frac{(|S|-1)M-(N-|S|)+\sum_{i edge} \alpha_i}{|S|}", that is $\frac{(|S|-1)M-(N-|S|)+\sum_{i\ \mathrm{edge}} \alpha_i}{|S|}$, has both signs flipped: the derivation gives $\frac{(|S|-1)M + (N-|S|) - \sum \alpha}{|S|}$, and so does FakeMMAP's own first lower bound ([[T11503]]) solved for R'. With the printed term 2 the smallest term is too short: on a 10-move finish with sections 0, 3, 0, 4 (path 4a1 > 0c0 > 4a1 > 0c0) the reductions are 6, 6, 5, but printed term 2 with $S = \{0, 2\}$ gives 4, whatever A, B and C are, and still 4 with the printed $\alpha_i$ as well (`printed_term2_fails`, `literal_min_fails`, FakeBound/Counter.lean). In the sample it's too short on {= pc(Q9('opt', 'insuff_min_terms_as_written')) =} of cases at the optimum (each subset × edges weighted by its size; 172,497 of the 1,914,809 cases, 9.0%, before weighting).
+*Term 2's signs, when R is the smallest term.* Every term is an upper bound on the reduction a finish needs, so the bound the derivation gives is the smallest term. With $\alpha_{i+1}$ and term 2 as derived it's sound for every finish (`Rmin_sound`, FakeBound/Formula.lean; it isn't always the exact worst case, `Rmin_not_tight`). Term 2 as printed, "\frac{(|S|-1)M-(N-|S|)+\sum_{i edge} \alpha_i}{|S|}", that is $\frac{(|S|-1)M-(N-|S|)+\sum_{i\ \mathrm{edge}} \alpha_i}{|S|}$, has both signs flipped: the derivation gives $\frac{(|S|-1)M + (N-|S|) - \sum \alpha}{|S|}$, and so does FakeMMAP's own first lower bound ([[T11503]]) solved for R'. With the printed term 2 the smallest term is too short: on a 10-move finish with sections 0, 3, 0, 4 (path 4a1 > 0c0 > 4a1 > 0c0) the reductions are 6, 6, 5, but printed term 2 with $S = \{0, 2\}$ gives 4, whatever A, B and C are, and still 4 with the printed $\alpha_i$ as well (`printed_term2_fails`, `literal_min_fails`, FakeBound/Counter.lean). In the sample it's too short on {= pc(Q9('opt', 'insuff_min_terms_as_written')) =} of cases at the optimum (each subset × edges weighted by its size; {= n(V9()[0]) =} of the {= n(V9()[1]) =} cases, {= pc(V9()[0] / V9()[1]) =}, before weighting).
 
 Example for the signs. Every optimal finish of this one takes the path 0c3 > 4a2 > 4a1 > HTR ($N = 3$, $\alpha = 0, 3, 3, 0$):
 
