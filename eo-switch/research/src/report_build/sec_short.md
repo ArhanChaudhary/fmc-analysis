@@ -10,7 +10,7 @@ The question is whether there are switch guidelines, checkable at the table, tha
 
 The three rules hold on every one of the {= n(1082565) =} cases ✓.
 
-**4c4e: count the half turns to two bars.** A 4c4e is one quarter turn from DR when each ring has a bar and the two holes (the U/D edges in the E slice) are on one R or L face. The count is the fewest half turns that get there, U and D turns free. One row per count, with its share of 4c4e, its sub-7 rate and the share of all of 4c4e's sub-7 cases it holds (section 4.3):
+**4c4e: count the half turns to two bars.** The two-bar target is rodneykinney's (*DR - 4c4e Theory*, section 4); what is new is counting the half turns to it exactly, with U and D turns free, and measuring what the count is worth. A 4c4e is one quarter turn from DR when each ring has a bar and the two holes (the U/D edges in the E slice) are on one R or L face. The count is the fewest half turns that get there, U and D turns free. One row per count, with its share of 4c4e, its sub-7 rate and the share of all of 4c4e's sub-7 cases it holds (section 4.3):
 
 | Half turns to two bars | Verdict | Share of 4c4e | Sub-7 rate | Share of 4c4e's sub-7s |
 |---|---|---|---|---|
