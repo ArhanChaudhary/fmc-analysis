@@ -1,24 +1,24 @@
 # Decision cards
 
-Six questions that come up mid-attempt, one card each, by stage. Each card opens with the answer as a rule you can use at the table, then the numbers behind it and the study section they come from. Everything is measured, not guessed: exact counts or large uniform samples, the same data as the studies. The questions:
+Six questions that come up mid-attempt, one card each, grouped by stage. Every card starts with the short answer, something you can actually use at the table, and then shows the numbers behind it and which study they're from. Nothing here is a guess: it's all exact counts or big uniform samples, same data as the studies.
 
 - EO: [Should I add some partial EOs to my list?](#should-i-add-some-partial-eos-to-my-list) · [Should I stop looking for EOs and move to the next stage?](#should-i-stop-looking-for-eos-and-move-to-the-next-stage)
 - EO to DR: [Should I switch this EO?](#should-i-switch-this-eo) · [Should I add some random moves to this EO?](#should-i-add-some-random-moves-to-this-eo)
 - DR to HTR: [Should I continue checking variants of this route?](#should-i-continue-checking-variants-of-this-route) · [Should I NISS in the middle of this route?](#should-i-niss-in-the-middle-of-this-route)
 
-**How to read the cards.** *What you check* is what you can see in an attempt. Where a number counts every DR or every finish that exists, a search you can't do by hand, it says **computer only**: that's the answer key, and what carries over to an attempt is the comparison, not the length. Shares are of uniformly random scrambles or states unless a line says otherwise. None of these cards has a clock in it: they say what the next thing is worth, not how long it takes you. Routes are written as in the HTR study: subsets after each quarter turn, the part in brackets on the other side, `4b2 2c3 (4b2 4a1 0c0)`.
+**How to read these.** *What you check* is the stuff you can see during an attempt. Some numbers count every DR or every finish that exists, which nobody can search by hand. Those are marked **computer only**: treat them as the answer key, and use the comparison, not the move count. Shares are over uniformly random scrambles or states unless I say otherwise. There's no clock in any of this: the cards tell you what the next thing is worth, not how long it'll take you. Routes are written like in the HTR study, the subsets after each qt with the bracket on the other side: `4b2 2c3 (4b2 4a1 0c0)`.
 
-November 2026. A date in brackets is a link to that message on the FMC solvers Discord.
+November 2026. A date in brackets links to that message on the FMC solvers Discord.
 
 ## EO
 
 ### Should I add some partial EOs to my list?
 
-**Yes: the slice-EO skips, once your EOs of 4 or less are written, and before the 5-movers.** A partial EO on the server is a slice EO, with one or two slices' edges oriented and the rest fixed later ("Doing partial EO saves ~3 moves in the EO step", sqAree, [23 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1464341592952537128)). It leads to a DR-1s (one slice to fix) or a DR-2s 8fe.
+**Yeah, the slice EO skips: after your EOs of 4 or less, before the 5-movers.** By partial EO I mean what people here mean by it, a slice EO: one or two slices oriented and the rest fixed later ("Doing partial EO saves ~3 moves in the EO step", sqAree, [23 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1464341592952537128)). That gets you a DR-1s (one slice to fix) or a DR-2s 8fe.
 
-*What you check:* whether an EO axis has a slice skip on either side, and then the DR-1s length. Judge a DR-1s of $N$ like a normal DR of about $N + 2$.
+*What you check:* whether an axis has a slice skip on either side, and then how long the DR-1s is. Rule of thumb: a DR-1s of $N$ is about as good as a normal DR of $N + 2$.
 
-How much one is worth. On 500 real scrambles, the number of each kind of thing you'd finish, on average, for one to give the best solution any normal DR of 12 or less gives on its scramble (DR-xs, [section 7.2](is-dr-xs-worth-it/#72-what-each-one-is-worth)). Each row is what you finish:
+How much one is worth. On 500 real scrambles I counted how many of each thing you'd have to finish, on average, before one of them gives the best solution that any normal DR of 12 or less gives on that scramble (DR-xs, [section 7.2](is-dr-xs-worth-it/#72-what-each-one-is-worth)):
 
 | What you finish | One in this many gets the scramble's best |
 |---|---:|
@@ -29,9 +29,9 @@ How much one is worth. On 500 real scrambles, the number of each kind of thing y
 | a 10-move DR | 202 |
 | an 11-move DR | 952 |
 
-So a DR-1s of 7 is about a DR of 9 and a DR-1s of 8 about a DR of 10. On average a DR-1s costs 2.27 more moves in the finish than a DR ([section 5.2](is-dr-xs-worth-it/#52-by-subset)).
+So a DR-1s of 7 is roughly a 9-move DR, and a DR-1s of 8 roughly a 10. On average the finish of a DR-1s is 2.27 moves longer than a DR's ([section 5.2](is-dr-xs-worth-it/#52-by-subset)).
 
-What they add next to 5-move EOs. Same scrambles, starting from the EOs of 4 or less and their DRs of 10 or less; each row adds one set of things to finish, and the number is how much shorter the average best solution gets ([section 7.4](is-dr-xs-worth-it/#74-against-5-move-eos)):
+Against 5-move EOs. Same scrambles, starting from the EOs of 4 or less and their DRs of 10 or less. Each row adds one more pile of stuff to finish, and the number is how much shorter the average best solution gets ([section 7.4](is-dr-xs-worth-it/#74-against-5-move-eos)):
 
 | Added on top of the EOs of 4 or less | Average best solution shorter by, moves |
 |---|---:|
@@ -40,17 +40,17 @@ What they add next to 5-move EOs. Same scrambles, starting from the EOs of 4 or 
 | every 5-move EO | 0.71 |
 | both | 0.91 |
 
-The 5-movers give more, but they are about 253 more EOs per scramble, and the slice EOs take far less looking. Skips are common: 68.7953% of scrambles have one on normal, 79.3147% counting inverse (exact). They clump, though: 2.25 per scramble on average over both sides, and 21% of scrambles have none ([section 6.1](is-dr-xs-worth-it/#61-how-often-there-is-a-slice-eo-skip)). The finishes behind the two tables are the best of the method's form, **computer only**; the order is what you use.
+The 5-movers give more, but that's about 253 more EOs per scramble, and skips are way less looking. They're common too: 68.7953% of scrambles have one on normal, 79.3147% counting inverse (exact). They do clump, though: 2.25 per scramble on average over both sides, but 21% of scrambles have none at all ([section 6.1](is-dr-xs-worth-it/#61-how-often-there-is-a-slice-eo-skip)). The finishes behind both tables are the best the method allows, **computer only**. What you take from them is the order.
 
-A DR-2s 8fe is a different story: a skip isn't how you get one ([section 6.3](is-dr-xs-worth-it/#63-to-a-dr-2s-8fe-the-same-problem-as-a-dr)).
+DR-2s 8fe is a different story: skips aren't how you get those ([section 6.3](is-dr-xs-worth-it/#63-to-a-dr-2s-8fe-the-same-problem-as-a-dr)).
 
 ### Should I stop looking for EOs and move to the next stage?
 
-**Once your EOs of 4 or less give a DR of 9 or better, move on: the 5-movers beat it on 11.0% of those scrambles. At 10 they beat it on 44.5%, at 11 on 90.8%.** That's counting EOs on both sides and NISS EOs; with normal EOs only the 5-movers help less often at each row, and 9 or better is still where they stop paying (table below).
+**Once your EOs of 4 or less give you a DR of 9 or better, move on: the 5-movers only beat it on 11.0% of those scrambles. If your best is 10 they beat it 44.5% of the time, at 11 it's 90.8%.** That's counting inverse and NISS EOs too. With normal EOs only, the 5-movers help less often in every row, and 9 or better is still where they stop being worth it (second table).
 
-*What you check:* the best DR you have through your EOs of 4 or less.
+*What you check:* the best DR you've got through your EOs of 4 or less.
 
-On 50,000 uniformly random scrambles, take the best DR through every EO of 4 or less (EO plus EO-keeping turns, total length, either of the two other axes; all three EO axes), and ask what the EOs of exactly 5 add, then the EOs of 6. Each row is the best DR the short EOs give:
+On 50,000 uniformly random scrambles I took the best DR through every EO of 4 or less (EO plus EO-keeping moves, total length, either of the other two axes, all three EO axes), then looked at what the EOs of exactly 5 add, and then the 6s. Each row is the best DR the short EOs gave:
 
 | Best DR through your EOs of 4 or less | Share of scrambles | 5-move EOs give a shorter DR | Average shortening from the 5-movers, moves | Then 6-move EOs give a shorter DR still |
 |---|---:|---:|---:|---:|
@@ -61,7 +61,7 @@ On 50,000 uniformly random scrambles, take the best DR through every EO of 4 or 
 | 12 or more | 1.0% | 100.0% | 2.06 | 42.0% |
 | no EO of 4 or less | 4.0% | 99.7% | – | 45.3% |
 
-The same with normal EOs only (no inverse, no NISS):
+Same thing with normal EOs only (no inverse, no NISS):
 
 | Best DR through your EOs of 4 or less | Share of scrambles | 5-move EOs give a shorter DR | Average shortening from the 5-movers, moves | Then 6-move EOs give a shorter DR still |
 |---|---:|---:|---:|---:|
@@ -72,31 +72,31 @@ The same with normal EOs only (no inverse, no NISS):
 | 12 or more | 3.6% | 98.4% | 1.62 | 40.7% |
 | no EO of 4 or less | 21.5% | 97.8% | – | 49.7% |
 
-Read the rows as "what's still out there": the DRs counted are the best that exist through each EO, **computer only**. By hand you find some of them, so your best is often a move worse than the row you're in, and the row one move better is closer to your odds. Two more numbers that help decide when you've seen enough EOs ([section 4.1](eo-to-dr/#41-how-many-eos-how-short), [section 3.3](eo-to-dr/#33-how-many-drs)):
+Read each row as "what's still out there". The DRs counted are the best that exist through each EO, **computer only**. By hand you find some of them, so your best is often a move worse than the row you're in, and the row one move better is closer to your actual odds. Two more numbers that help decide when you've seen enough EOs ([section 4.1](eo-to-dr/#41-how-many-eos-how-short), [section 3.3](eo-to-dr/#33-how-many-drs)):
 
-- A scramble has 15.3 normal EOs of 4 or less on average over the three axes (median 12, counted the way nissy's `-a` lists them), and 43.9 with inverse and NISS EOs. 21.5% of scrambles have no normal EO of 4 or less.
+- A scramble has 15.3 normal EOs of 4 or less on average over the three axes (median 12, counted the way nissy's `-a` lists them), and 43.9 with inverse and NISS EOs. 21.5% of scrambles have no normal EO of 4 or less at all.
 - For a DR in 10, one EO of 4 or less is worth about ten 5-movers: 25 EOs of at most 4 give 4.0 DRs of 10 or less on average, 200 EOs of exactly 5 give 3.5. For a DR in 11 the 5-movers win (17.3 against 23.7).
 
 ## EO to DR
 
 ### Should I switch this EO?
 
-**For 4c4e, count the half turns to two bars with U and D turns free: 0 or 1, switch (certain); 2, switch; 3, your call; 4 or 5, discard. For the other DRMs, use the pair card below.** Switch means: after EO + RZP, go to the inverse, keep the EO and look for a DR there. Sub-7 means a DR in 6 or less on the switched side.
+**On 4c4e, count the half turns to two bars, U and D moves free: 0 or 1, switch (it's guaranteed); 2, switch; 3, your call; 4 or 5, discard. For every other DRM use the pair card below.** Switching here means: after EO + RZP, go to inverse, keep the EO and look for DR there. Sub-7 means a DR in 6 or less on the switched side.
 
-*What you check:* on 4c4e, the two rings and the count when you have 2 or more pairs; otherwise the card's pairs, side pairs, ARM or corner case on the switched case ([section 4.4](eo-switch/#44-reading-the-count)).
+*What you check:* on 4c4e, the two rings and the count if you've got 2 or more pairs. Otherwise the card's pairs, side pairs, ARM or corner case on the switched case ([section 4.4](eo-switch/#44-reading-the-count)).
 
-4c4e by the half turns to two bars, exact over all 4c4e cases ([section 4.3](eo-switch/#43-the-bands)). Each row is a count:
+4c4e by half turns to two bars, exact over every 4c4e case ([section 4.3](eo-switch/#43-the-bands)):
 
 | Half turns to two bars | Verdict | Share of 4c4e | Sub-7 rate |
 |---|---|---:|---:|
-| 0 or 1 | **switch**, certain | 1.0% | 100% |
+| 0 or 1 | **switch**, guaranteed | 1.0% | 100% |
 | 2 | **switch** | 13.2% | 72.1% |
 | 3 | **your call** | 51.0% | 16.0% |
 | 4 or 5 | **discard** | 34.8% | 1.7% |
 
-By hand you can read the switch end, not the discard end: with 2 or more pairs you can read the count (2 or fewer is 12.4% of 4c4e at 74.1%), and with 0 or 1 pair the reading only says "3 or more", so use the card. The two bars as the target come from Andrew's 2019 video and rodneykinney's *DR - 4c4e Theory*; the exact count and its bands are the study's ([section 4](eo-switch/#4-two-rings-count-the-half-turns-4c4e)).
+By hand you can read the switch end, not the discard end. With 2+ pairs you can read the count (2 or fewer is 12.4% of 4c4e, and those are sub-7 74.1% of the time). With 0 or 1 pair the reading only tells you "3 or more", so just use the card. Two bars as the target isn't new: it's in Andrew's 2019 video and rodneykinney's *DR - 4c4e Theory*. The exact count and the bands are what the study adds ([section 4](eo-switch/#4-two-rings-count-the-half-turns-4c4e)).
 
-The pair card for every DRM, exact over all its cases ([section 6](eo-switch/#6-the-switch-cards-drm-by-drm)). Each row is one verdict group of a DRM's card: what to check on the switched case, the share of the DRM in the group, and its sub-7 rate:
+The pair card for every DRM, exact over all its cases ([section 6](eo-switch/#6-the-switch-cards-drm-by-drm)). Each row is a verdict group: what you check on the switched case, how much of the DRM lands there, and how often it's sub-7:
 
 | DRM | Verdict | What the switched case shows | Share of the DRM | Sub-7 rate |
 |---|---|---|---|---|
@@ -128,15 +128,15 @@ The pair card for every DRM, exact over all its cases ([section 6](eo-switch/#6-
 | 6c6e | **your call** | JZP, or 5 or 6 pairs | 1.3% | 39.0% |
 |  | **discard** | anything else | 98.7% | 5.2% |
 
-These hold after any RZP: the switched case is exactly uniform whatever path made it, so the tables apply as they are ([section 8](eo-switch/#8-real-rzps-does-the-uniform-table-apply-after-a-switch)). After the switch, checking the other DR axis adds more than turning the EO's last move the other way: 5.9 points against 2.1 on 4c4e.
+These hold after any RZP. The switched case is exactly uniform no matter how you got there, so the tables apply as they are ([section 8](eo-switch/#8-real-rzps-does-the-uniform-table-apply-after-a-switch)). Also, after switching, checking the other DR axis is worth more than flipping the EO's last move: 5.9 points against 2.1 on 4c4e.
 
 ### Should I add some random moves to this EO?
 
-**Yes, when the EO leaves room for them: with every option checked, an EO-solved cube has a DR within 7 more moves 79.6% of the time, within 6 25.7%, within 5 4.4%. So toward a DR in 10, an EO of 3 or less is usually worth it, an EO of 4 depends on its case, and an EO of 5 needs one of the good cases.** Random moves are an RZP, setup moves to a DR trigger ("Doing random moves, but in polish it abreviates to rzp", Yura Riabov, [23 Nov 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1177348166576783443)). Keep the EO while you do it: among routes through an EO of at most 5, turns that break the EO reach the optimal DR where no EO-keeping one does on 4 of 50,000 scrambles ([section 1](eo-to-dr/#1-the-short-version)).
+**Yeah, if the EO leaves room for them. With every option checked, an EO-solved cube has a DR in 7 more moves or less 79.6% of the time, in 6 or less 25.7%, in 5 or less 4.4%. So if you want a DR in 10: an EO of 3 or less is usually worth RZPing, a 4-mover depends on its case, and a 5-mover needs one of the good cases.** Random moves = RZP, setup moves into a DR trigger ("Doing random moves, but in polish it abreviates to rzp", Yura Riabov, [23 Nov 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1177348166576783443)). Keep the EO while you do it: among routes through EOs of 5 or less, breaking the EO reaches the optimal DR where nothing EO-keeping does on 4 of 50,000 scrambles ([section 1](eo-to-dr/#1-the-short-version)).
 
-*What you check:* the EO's length, and its case (bad corners and edges out of place) on each DR axis, normal and inverse, before any random moves.
+*What you check:* how long the EO is, and its case (bad corners and edges out of place) on each DR axis, normal and inverse, before you add anything.
 
-With every option (two DR axes, normal or inverse, the EO's last turn either way, all keeping the EO), the chance of a DR within 5, 6 or 7 more moves is 4.4%, 25.7% and 79.6%; on one DR axis alone it's 5.9% for 6 and 30.6% for 7 ([section 5.1](eo-to-dr/#51-the-typical-eo-to-dr-with-each-option)). By the case you start from ([section 5.2](eo-to-dr/#52-by-case)), the named good cases first, then the common ones. Each row is the case on the DR axis you look at; the middle columns use every option, the last one that axis alone:
+With every option (two DR axes, normal or inverse, the EO's last move either way, all keeping EO), the odds of a DR in 5, 6 or 7 more moves are 4.4%, 25.7% and 79.6%. On one DR axis alone it's 5.9% for 6 and 30.6% for 7 ([section 5.1](eo-to-dr/#51-the-typical-eo-to-dr-with-each-option)). Here it is by the case you start from ([section 5.2](eo-to-dr/#52-by-case)), the good named cases first and then the common ones. Each row is the case on the DR axis you're looking at. The middle columns use every option, the last one that axis alone:
 
 | Case on the DR axis | Share of EO-solved states | DR in ≤ 5 more | DR in ≤ 6 more | DR in ≤ 7 more | DR in ≤ 6 more, that axis alone |
 |---|---:|---:|---:|---:|---:|
@@ -157,17 +157,17 @@ With every option (two DR axes, normal or inverse, the EO's last turn either way
 | 6c8e | 4.0% | 2.7% | 19.7% | 77.4% | 3.2% |
 | 3c6e | 2.3% | 4.1% | 25.2% | 80.8% | 4.8% |
 
-The case decides more than the RZP does: a natural 4c4e or 4c2e has a DR within 6 more about half the time with every option, a 6c6e one time in four. A 6-move RZP has a much harder target than a 4- or 5-move one: on real attempts, after a switch, the chance of a DR in 5 after a 6-move RZP is 3.2 to 10.3 times smaller than the chance of a DR in 6 after a 5-move one, depending on the DRM ([section 8](eo-switch/#8-real-rzps-does-the-uniform-table-apply-after-a-switch)). The DR lengths are optimal DRs after the EO, **computer only**; the case is what you read.
+The case matters more than the RZP does: a natural 4c4e or 4c2e gets a DR in 6 more about half the time with every option, a 6c6e about one time in four. And a 6-move RZP is a much tougher target than a 4 or 5. On real attempts, after a switch, a DR in 5 after a 6-move RZP is 3.2 to 10.3 times rarer than a DR in 6 after a 5-move one, depending on the DRM ([section 8](eo-switch/#8-real-rzps-does-the-uniform-table-apply-after-a-switch)). The DR lengths are optimal DRs after the EO, **computer only**. The case is the part you can actually read.
 
 ## DR to HTR
 
 ### Should I continue checking variants of this route?
 
-**Yes, at least until the HTRs you're getting on it are 2 moves longer than the shortest HTR you know for the DR. On every subset, one route checked that far finds the optimal more often than three routes checked with their shortest HTRs only.** A variant here is another way of following the same route (another setup, another quarter turn), which usually means a longer HTR.
+**Yes, at least until the HTRs you're getting are 2 moves longer than the shortest one you know for that DR. On every subset, one route checked that far finds optimal more often than three routes where you only look at their shortest HTRs.** By variant I mean another way to follow the same route (different setup, different qt), which usually means a longer HTR.
 
-*What you check:* the subset (the first route per subset is below) and the length of the HTRs you've found on it.
+*What you check:* the subset (first route per subset is in the table) and how long the HTRs you've found on it are.
 
-For each corner subset, the share of DRs where the first route of the HTR study's checklist finds the optimal, as you let its HTRs get longer, against trying more routes ([section 4](htr-routes/#4-the-checklists-subset-by-subset); 25,000 uniformly random DR states per subset × edges, pooled by the exact subset sizes). *Up to 1 longer* means HTRs at most one move longer than the DR's shortest NISS HTR. Each row is a corner subset (4c3 is 4a3 on one side and 4b3 on the other, 4c4 is 4a4/4b4; a route names the side it starts on):
+For each corner subset, how often the first route of the HTR study's checklist finds optimal as you let its HTRs get longer, against trying more routes instead ([section 4](htr-routes/#4-the-checklists-subset-by-subset); 25,000 uniformly random DR states per subset × edges, pooled by exact subset size). *Up to 1 longer* means HTRs at most a move longer than the DR's shortest NISS HTR. 4c3 is 4a3 on one side and 4b3 on the other, 4c4 is 4a4/4b4, and a route uses the letter of the side it starts on:
 
 | Subset | First route | Shortest HTRs only | Up to 1 longer | Up to 2 longer | Any HTR length | Three routes, shortest HTRs only | Two routes, up to 2 longer |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -184,21 +184,23 @@ For each corner subset, the share of DRs where the first route of the HTR study'
 | 2c5 | `2c5 2c4 2c3 (4b2 4a1 0c0)` | 20.0% | 48.1% | 72.8% | 95.3% | 30.8% | 85.5% |
 | 4b5 | `4b5 2c4 (2c3 4b2 4a1 0c0)` | 14.2% | 39.7% | 64.7% | 89.5% | 31.1% | 87.4% |
 
-So on 0c4 the first route with HTRs up to 2 longer finds the optimal on 83.8%, and three routes with shortest HTRs only on 37.5%. That's because the optimal finish rarely goes through a shortest HTR: over all DRs, the shortest HTR any optimal uses is a shortest NISS HTR on only 32.9%, 1 longer on 31.8% and 2 longer on 22.5% ([section 6](htr-routes/#6-shortest-htr-against-the-optimal)). Past 2 longer the first route still has more to give (*Any HTR length*), but through ever longer HTRs, with more of them to write at each length; the second route checked to 2 longer adds the difference between *Two routes, up to 2 longer* and *Up to 2 longer*. Where to stop is the time question this card doesn't answer. Which finish the route gives is the answer key, **computer only**; the budget is the habit you can keep.
+So on 0c4 the first route with HTRs up to 2 longer finds optimal on 83.8%, and three routes with only their shortest HTRs on 37.5%. The reason is that optimal rarely goes through a shortest HTR. Over all DRs, the shortest HTR that any optimal uses is a shortest NISS HTR on only 32.9%, 1 longer on 31.8% and 2 longer on 22.5% ([section 6](htr-routes/#6-shortest-htr-against-the-optimal)).
+
+Past 2 longer the first route still has more in it (the *Any HTR length* column), but the HTRs keep getting longer and there are more of them to write at each length. Going to the second route instead, checked to 2 longer, gets you the gap between *Two routes, up to 2 longer* and *Up to 2 longer*. Where exactly to stop is a time question, and this card doesn't answer that. Which finish a route gives is the answer key, **computer only**. The "+2" is the habit you can actually keep.
 
 ### Should I NISS in the middle of this route?
 
-**It depends on the subset and on where you are on the route:**
+**Depends on the subset and where you are on the route:**
 
 - **Switch** on 4a2 at 4a1; on 0c3 at 4a2; on 4c3, 0c4, 4c4 at 4b2; on 2c4, 2c5 at 2c3; on 4b5 at 2c4.
 - **Keep going on normal** on 0c0, 4a1, 4b2.
-- **About even** on 2c3: either works about as often, and checking both is what pays.
+- **About even** on 2c3: both work about as often, so check both.
 
-A switch after more than 2 moves on one side is needed on about one DR in eight (13.2%, below).
+A switch after more than 2 moves on one side is needed on about one DR in eight (13.2%, more below).
 
-*What you check:* the subset you started from and the subset you're at now on normal.
+*What you check:* which subset you started from, and which subset you're at now on normal.
 
-Follow the first route of each subset on normal. After each quarter turn, the share of the subset's DRs where an optimal finish keeps going on normal with no switch, where one switches right there, and where either does (HTRs up to 2 longer than the shortest, 25,000 uniformly random DR states per subset × edges; data of [section 4](htr-routes/#4-the-checklists-subset-by-subset)). *Better* is the way that's ahead by 5 points or more. Each row is a point on a route:
+I followed each subset's first route on normal. After each qt, here's how often an optimal finish keeps going on normal with no switch, how often one switches right there, and how often either one works (HTRs up to 2 longer than the shortest, 25,000 uniformly random DR states per subset × edges; same data as [section 4](htr-routes/#4-the-checklists-subset-by-subset)). *Better* is whichever way is ahead by 5 points or more. Each row is a point on a route:
 
 | Subset | Where you are, on normal | Quarter turns so far | Keep going on normal finds the optimal | Switch now finds the optimal | Either | Better |
 |---|---|---:|---:|---:|---:|---|
@@ -220,8 +222,10 @@ Follow the first route of each subset on normal. After each quarter turn, the sh
 | 2c5 | `2c5 2c4 2c3` | 2 | 50.7% | 72.8% | 85.6% | switch |
 | 4b5 | `4b5 2c4` | 1 | 43.9% | 67.5% | 80.9% | switch |
 
-The *Either* column is the case for checking both: on 2c3 after one quarter turn, keeping going finds it on 54.5% and switching on 53.5%, but one or the other on 78.7%. Late switches: with HTRs up to 2 longer, the optimal needs a switch after more than 2 moves on 13.2% of DRs (7.8% of 4b2, 9.1% of 2c3), and after 4 or more on 5.1% ([section 11](htr-routes/#11-the-claims-checked)). Which finishes exist is **computer only**; where to switch is what you use.
+The *Either* column is the argument for checking both. On 2c3 after one qt, keeping going finds it 54.5% of the time and switching 53.5%, but one or the other 78.7%.
+
+Late switches: with HTRs up to 2 longer, optimal needs a switch after more than 2 moves on 13.2% of DRs (7.8% of 4b2, 9.1% of 2c3), and after 4 or more on 5.1% ([section 11](htr-routes/#11-the-claims-checked)). Which finishes exist is **computer only**. Where to switch is the part you use.
 
 ---
 
-Sources: the studies linked from each card ([DR-xs](is-dr-xs-worth-it/), [EO to DR](eo-to-dr/), [EO switch](eo-switch/), [HTR routes](htr-routes/)). The two tables made for this page (when to stop looking for EOs, and switching mid-route) are computed from those studies' data by the scripts in the repository's `cards/` folder.
+Sources: the studies linked from each card ([DR-xs](is-dr-xs-worth-it/), [EO to DR](eo-to-dr/), [EO switch](eo-switch/), [HTR routes](htr-routes/)). The two tables made for this page (when to stop looking for EOs, and switching mid-route) come from those studies' data, computed by the scripts in the repo's `cards/` folder.

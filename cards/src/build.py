@@ -109,7 +109,7 @@ def t_mid_rule():
     for s, where, q in sw: at.setdefault(where, []).append(s)
     lines = ['- **Switch** ' + '; '.join(f"on {', '.join(v)} at {k}" for k, v in at.items()) + '.']
     if keep: lines.append(f"- **Keep going on normal** on {', '.join(keep)}.")
-    if even: lines.append(f"- **About even** on {', '.join(even)}: either works about as often, and checking both is what pays.")
+    if even: lines.append(f"- **About even** on {', '.join(even)}: both work about as often, so check both.")
     return '\n'.join(lines)
 
 def include(path): return open(f'{ROOT}/{path}').read().strip('\n')
