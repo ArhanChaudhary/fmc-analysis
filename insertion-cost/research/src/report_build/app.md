@@ -9,65 +9,65 @@ The full tables behind section 6: every even skeleton length from 10 to 30, ever
 - *one alg*: one alg for the whole leftover;
 - *best of the two*: the shorter of two comms and one alg on each skeleton, over the skeletons where two comms was run.
 
-A block is left out when nothing of that length exists (no alg of 8 or fewer does a 5c, and so on). The *Skeletons* column is the size of the sample behind each row. *Mean added* is over the skeletons where something fits; the shares are of all skeletons.
+A block is left out when nothing of that length exists (no alg of 8 or fewer does a 5c, and so on). The *Skeletons* column is the size of the sample behind each row. *Mean moves added* is over the skeletons where something fits; the *Adds k or less* shares are of all skeletons. Each table below is one leftover, one row per cap, model and skeleton length.
 
-**3c**
+**3c**: one row per cap, model and skeleton length.
 
 {{app_cost_3c}}
 
-**2tc**
+**2tc**: one row per cap, model and skeleton length.
 
 {{app_cost_2tc}}
 
-**3tc**
+**3tc**: one row per cap, model and skeleton length.
 
 {{app_cost_3tc}}
 
-**Pure 2c2c**
+**Pure 2c2c**: one row per cap, model and skeleton length.
 
 {{app_cost_2c2c-pure}}
 
-**Twisted 2c2c**
+**Twisted 2c2c**: one row per cap, model and skeleton length.
 
 {{app_cost_2c2c-twisted}}
 
-**3c1t**
+**3c1t**: one row per cap, model and skeleton length.
 
 {{app_cost_3c1t}}
 
-**5c**
+**5c**: one row per cap, model and skeleton length.
 
 {{app_cost_5c}}
 
-**3c3c** (two separate corner 3-cycles)
+**3c3c** (two separate corner 3-cycles): one row per cap, model and skeleton length.
 
 {{app_cost_3c3c}}
 
-**3e**
+**3e**: one row per cap, model and skeleton length.
 
 {{app_cost_3e}}
 
-**2fe** (two edges flipped in place)
+**2fe** (two edges flipped in place): one row per cap, model and skeleton length.
 
 {{app_cost_2f}}
 
-**2e2e** (two swaps, no flip)
+**2e2e** (two swaps, no flip): one row per cap, model and skeleton length.
 
 {{app_cost_2e2e}}
 
-**Flipped 2e2e** (two swaps, each with a flip)
+**Flipped 2e2e** (two swaps, each with a flip): one row per cap, model and skeleton length.
 
 {{app_cost_2e2e-flipped}}
 
-**3e1f** (a flipped 3-cycle and one flipped edge)
+**3e1f** (a flipped 3-cycle and one flipped edge): one row per cap, model and skeleton length.
 
 {{app_cost_3e1f}}
 
-**5e**
+**5e**: one row per cap, model and skeleton length.
 
 {{app_cost_5e}}
 
-**3e3e** (two separate edge 3-cycles)
+**3e3e** (two separate edge 3-cycles): one row per cap, model and skeleton length.
 
 {{app_cost_3e3e}}
 
@@ -83,11 +83,11 @@ Every corner 3-cycle and every edge 3-cycle, grouped into classes: two cases are
 
 *Pieces* reads `A>B`: the piece from A ends at B. `+1` and `+2` are a clockwise and a counter-clockwise twist of the corner as it arrives (for edges `+1` is a flip).
 
-**Corner 3-cycles: {= STATES('3c') =} cases in {= NCLASS('3c') =} classes.**
+**Corner 3-cycles: {= STATES('3c') =} cases in {= NCLASS('3c') =} classes.** One row per class, with how many algs of each length it has.
 
 {{classes_3c}}
 
-**Edge 3-cycles: {= STATES('3e') =} cases in {= NCLASS('3e') =} classes.**
+**Edge 3-cycles: {= STATES('3e') =} cases in {= NCLASS('3e') =} classes.** One row per class, same columns.
 
 {{classes_3e}}
 
@@ -103,9 +103,9 @@ Every corner 3-cycle and every edge 3-cycle, grouped into classes: two cases are
 
 **One skeleton (everything in sections 6 to 9).** For a skeleton and a leftover I work out the state an insertion has to produce at each spot, then put in every alg within the cap for that state and cancel. For two comms, every first comm at every spot (every 3-cycle that leaves a 3-cycle) gets followed by every second comm at every spot of the result. The program only skips work where a bound proves nothing better can come out, so the minimum is exact for its cap.
 
-**Samples.** A random skeleton is n moves, each uniform among the moves that do not turn the face just turned (and that keep opposite-face pairs in the fixed order), and a leftover drawn uniformly from its type. The sizes are in section 3 and in each table; the odd lengths of section 7 have samples of their own, made the same way. Two standard errors of a mean:
+**Samples.** A random skeleton is $n$ moves, each uniform among the moves that do not turn the face just turned (and that keep opposite-face pairs in the fixed order), and a leftover drawn uniformly from its type. The sizes are in section 3 and in each table; the odd lengths of section 7 have samples of their own, made the same way. Two standard errors of a mean, one row per sample:
 
-| Leftover | Cap | Skeletons | ± |
+| Leftover | Cap | Skeletons | ± two standard errors, moves |
 |---|---:|---:|---:|
 | 5c | 8 | 20,000 | {= SE2('5c') =} |
 | 5c | 10 | 2,000 | {= SE2('5c', L=10) =} |
@@ -113,7 +113,7 @@ Every corner 3-cycle and every edge 3-cycle, grouped into classes: two cases are
 | 2tc | 10 | 200 | {= SE2('2tc', L=10) =} |
 | 5c | 12 | 100 | {= SE2('5c', L=12, src='two12') =} |
 
-**Exchange rates (section 7).** The chance of a total of N or less from a skeleton of length n is the share of sampled skeletons of that length whose best insertion adds N − n or less. Every whole length from 10 to 30 is its own sample. The length of equal chance is read off between two whole lengths on the log-odds, and the length of equal expected total between two whole lengths on the mean.
+**Exchange rates (section 7).** The chance of a total of $N$ or less from a skeleton of length $n$ is the share of sampled skeletons of that length whose best insertion adds $N - n$ or less. Every whole length from 10 to 30 is its own sample. The length of equal chance is read off between two whole lengths on the log-odds, and the length of equal expected total between two whole lengths on the mean.
 
 **What checks what.**
 

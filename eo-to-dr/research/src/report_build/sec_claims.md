@@ -2,20 +2,20 @@
 
 Statements the numbers can settle, by theme. Questions and guesses are in section 2, not here. Each verdict is one of **True**, **Corrected**, **Depends** (true under one reading or convention, not another), **Open** (the numbers here do not settle it) and **Withdrawn** (taken back at the time by whoever said it), and is no stronger than what was measured: scramble-level numbers are on {= n(X('n')) =} uniformly random scrambles, EO to DR numbers exact unless marked. Every correction has an example written out under the tables (letters in brackets).
 
-**Scramble to DR**
+**Scramble to DR.** One claim per row, who said it, and the verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
 | "Only 6.2% of axes are 8 moves or less away from DR if you don't allow NISS"; "43% of scrambles being 9 moves or better away from DR" | Louis [[T5965]], [[T5959]] (restated for one axis, [[T5964]]) | **True**: exact, {= A1('fixed', 'p_le8') =} and {= A1('fixed', 'p_le9') =} on one fixed axis, linear. Over three axes and both sides it is {= A1('six', 'p_le8') =} and {= A1('six', 'p_le9') =} (3.1). |
 | "5.9% of axes are 6 moves or fewer away from DR linearly if EO is solved (and you don't break it)" | Louis [[T5975]] | **True**: {= CT('plain', 'p_le6') =}, exact. |
 | "well sub-10 is not possible for superflip" | wen [[D20021]] | **True**: 10 on every axis, normal and inverse, and 10 with NISS [b]. |
-| DR skip: "1 in 2^11 * 3^7 * 12! / 8! or something like that", a passing answer in a joke thread | bpaul [[D796]] | **Corrected**, lightly: the order of the four slice edges does not matter, so 12!/8! is 12!/(8!·4!) = {= str(math.comb(12, 4)) =}; 1 in {= COSETS() =} on a given axis, about 1 in {= COSETS3() =} on some axis [i]. |
+| DR skip: "1 in 2^11 * 3^7 * 12! / 8! or something like that", a passing answer in a joke thread | bpaul [[D796]] | **Corrected**, lightly: the order of the four slice edges does not matter, so $12!/8!$ is $12!/(8!\cdot 4!) = {= str(math.comb(12, 4)) =}$; 1 in {= COSETS() =} on a given axis, about 1 in {= COSETS3() =} on some axis [i]. |
 | From 4 four-move and 45 five-move EOs with RZPs in 5, "you can expect 4 DRs in 11 and 10 DRs in 12" | Tom Nelson [[T463]] | **Depends** on what is counted. Tom counted DRs through a few RZP types ([[T525]]: "I just counted R, R U2 R and R U R"). Every route through those EOs gives about {= f'{4 * A["a3_gains"]["normal_N11"]["drs_per_eo_le4"] + 45 * A["a3_gains"]["normal_N11"]["drs_per_5move_eo"]:.1f}' =} (EO, DR axis) pairs in 11 and {= f'{4 * A["a3_gains"]["normal_N12"]["drs_per_eo_le4"] + 45 * A["a3_gains"]["normal_N12"]["drs_per_5move_eo"]:.1f}' =} in 12 on average (3.3), so Tom Nelson's figures are a lower bound on what exists, as Tom Nelson's own caveats say ([[T464]]). |
 | "I see people checking ~50 EOs, so finding 6 DRs with <= 11 moves sounds realistic" | Rodney Kinney [[T461]] | **Depends** on the EOs: 50 EOs of 5 turns give about {= f'{50 * A["a3_gains"]["normal_N11"]["drs_per_5move_eo"]:.1f}' =} routes in 11 on average, 50 of at most 4 about {= f'{50 * A["a3_gains"]["normal_N11"]["drs_per_eo_le4"]:.0f}' =} (3.3). What exists, not what is found. |
 | "150 4e4c's in 5 is ~7 10 move DRs and 1 9 move DR" | Tom Nelson [[D3167]] | **True** as arithmetic on the exact table: an RZP in 5 then a DR in 5 or fewer is 150 × {= pc(CASELE(4, 4, 5)) =} = {= f'{150 * CASELE(4, 4, 5):.1f}' =}, in 4 or fewer 150 × {= pc(CASELE(4, 4, 4)) =} = {= f'{150 * CASELE(4, 4, 4):.1f}' =} (4c4e straight off an EO, one axis, EO kept). zakimoshi's caveat ([[D3170]], "This kinda implies that everything is unrelated to each other") stands: RZPs of one scramble are not independent, and RZPs are not covered here (section 7). |
 | One of 300 EOs gives a DR in 5 or less "92.71%" (binomial, `1 - (1 - p)^300`, from the one-axis table) | DougCube [[T9951]] | **Open**: the arithmetic is right, for one DR axis per EO (JTuu, [[T9960]]: "oh, it's only UD dr"; DougCube, [[T9963]]: "oh sorry, I forgot to stipulate that"). DougCube flagged the assumption ([[T9953]]: "assuming each of the EOs are statistically independent of each other"; [[T9956]]: "by limiting to 5-move or less EO, then it becomes coupled and are not independent"; [[T9957]]: "if instead, it's any length EO, then I think these computations should hold very well"). How dependent the EOs of one scramble are for EO to DR alone is not measured here; for whole routes, see 3.3. |
 
-**EO to DR**
+**EO to DR.** One claim per row, who said it, and the verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
@@ -35,11 +35,11 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | 3c6e: "it’s 1/7 for 7 moves instead of 1/3 for 4e4c, 8c8e, 8e7c, 2e4c etc" | Noah Swor [[D6979]] | **Depends** on what "7 moves" means, and the message was about 3c6e RZPs (mrauo, [[D6977]]: "Is it worth to switch from 3c6e rzp in 5?"), while these numbers are for EO-solved states, a different population. The 1/3 figures fit a DR in 6 or fewer with the EO's last turn either way (4c4e {= C6ONEIN('4c4e', 'switch_last_p_le6') =}, 7c8e {= C6ONEIN('7c8e', 'switch_last_p_le6') =}); on that reading 3c6e is {= C6ONEIN('3c6e', 'switch_last_p_le6') =}, not 1 in 7. Without the switch it is {= C6ONEIN('3c6e', 'plain_p_le6') =} in 6 and {= C6ONEIN('3c6e', 'plain_p_le7') =} in 7. |
 | RZP to DR on normal and inverse: "i'm certain there's zero correlation"; "it's the opposite for rzp to DR because if it's bad then it's more likely to be better after switching"; "Regression to the mean" | Jay [[D848]]; Tom Nelson [[D847]]; Rodney Kinney [[D851]] | **Depends**, and both are nearly right for EOs: {= NI('all', 'correlation') =} overall, almost all of it because both sides have the same case; within a case at most {= NIRANGE()[1] =}; and a bad normal side is no reason to skip the inverse (5.2). Measured for EO-solved states, not RZPs. |
 
-**Scramble to EO**
+**Scramble to EO.** One claim per row, who said it, and the verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
-| EO skip: "also 1/2048 for fixed axis", "103741/70963200 for any axis"; "9335 (~0.1458%, 1 in 686) had solved EO already" on 6,406,775 scrambles | torchlight [[D3530]]; Minkowski [[D3289]] | **True**: exact {= LAY('states_some_axis_eo_solved') =}/70963200; Minkowski's sample is within its error. |
+| EO skip: "also 1/2048 for fixed axis", "103741/70963200 for any axis"; "9335 (~0.1458%, 1 in 686) had solved EO already" on 6,406,775 scrambles | torchlight [[D3530]]; Minkowski [[D3289]] | **True**: exact ${= LAY('states_some_axis_eo_solved') =}/70963200$; Minkowski's sample is within its error. |
 | The sum of bad edges over the three axes peaks at 18: "18    16978144    23.925280%" | torchlight [[T8139]] | **True**, exact. |
 | "13.907% that's sort of lucky I guess" (all three axes with 0, 2, 4 or 8 bad) | jisu101 [[D20495]] | **True**: {= LAY('p_all_axes_in_0_2_4_8') =}. |
 | "6/6/4 or 6/6/8 is more likely than 6/6/6"; "6/6/6 is more common than 4 on UD / 6 on LR / 6 on FB" | Yura Riabov [[T4163]]; torchlight [[D3303]] | **True**, sorted and ordered: {= LAY('sorted_6/6/4') =} and {= LAY('sorted_6/6/6') =} sorted; {= LAY('ordered_6/6/4') =} and {= LAY('ordered_6/6/6') =} ordered. |
@@ -55,7 +55,7 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | More 3-move than 4-move EOs: "so the chance is 0" | Kai Cui [[T5752]] | **Withdrawn** at the time: kalindumaxxer answered "i literally got one" ([[T5753]]), Kai Cui "oh bruh" ([[T5754]]) and, after Yura Riabov's `U (R2 U)` ([[T5758]]), "nvm then" ([[T5760]]) and "probably quite rare" ([[T5764]]). Counting every EO (nissy `-a`), it happens on {= MORE3('niss') =} of scrambles with NISS, never linearly in the sample [e]. kalindumaxxer asked "exluding htr equivalent variants" ([[T5750]]); that convention is not counted here. |
 | "I remember something like 200ish <=5 movers and 17 <=4 movers"; "the median for 4 or less is more like 14" | wen [[T4633]]; Lichi Fang [[T4636]] | **Depends** on the counting. They are about what Cale's sheet of official scrambles shows (NISS, all axes, nissy's listing). On uniform scrambles with every EO counted (nissy `-a`), all axes: normal only, at most 5 {= B4('linear (normal)', 'all three axes', 5, 'mean_le') =} and at most 4 {= B4('linear (normal)', 'all three axes', 4, 'mean_le') =} (median {= B4('linear (normal)', 'all three axes', 4, 'median_le') =}); with inverse and NISS EOs {= B4('NISS (normal, inverse, both)', 'all three axes', 5, 'mean_le') =} and {= B4('NISS (normal, inverse, both)', 'all three axes', 4, 'mean_le') =} (median {= B4('NISS (normal, inverse, both)', 'all three axes', 4, 'median_le') =}). nissy's default listing shows about half (4.1). |
 | "virtually all scrambles have some EO in 5" | Lewis Isom [[D6036]] | **True**: none of at most 5 on {= B4('linear (normal)', 'all three axes', 5, 'p_none_le') =} linearly, {= B4('NISS (normal, inverse, both)', 'all three axes', 5, 'p_none_le') =} with NISS [d]. |
-| 12 bad on one axis: "1 in 2048"; 10 bad: "About 3% it seems", "close to 10% on a real scramble" | Aneurin [[D1295]]; wen [[T5364]], [[T5370]] | **True**: exact 1/2048; {= B5P(10) =} on one axis, {= LAYP(lambda t: 10 in t) =} on some axis. |
+| 12 bad on one axis: "1 in 2048"; 10 bad: "About 3% it seems", "close to 10% on a real scramble" | Aneurin [[D1295]]; wen [[T5364]], [[T5370]] | **True**: exact $1/2048$; {= B5P(10) =} on one axis, {= LAYP(lambda t: 10 in t) =} on some axis. |
 
 The examples. Every move sequence here was replayed on the sticker model (appendix B).
 
@@ -166,7 +166,7 @@ The last turn. The EO (U/D) leaves 4c4e for R/L, 6 to DR; with the last turn swi
 {= WXX('X2', 'scramble') =}  // scramble
 ```
 
-Every order of the four slice edges in the slice is the same DR, so the placements count as C(12,4) = {= str(math.comb(12, 4)) =}, not 12!/8! = {= n(math.perm(12, 4)) =}. The cosets of DR on one axis number 2^11 · 3^7 · {= str(math.comb(12, 4)) =} = {= COSETS() =}, the denominator of DougCube's "Going to DR" tab.
+Every order of the four slice edges in the slice is the same DR, so the placements count as $\binom{12}{4} = {= str(math.comb(12, 4)) =}$, not $12!/8!$ = {= n(math.perm(12, 4)) =}. The cosets of DR on one axis number $2^{11}\cdot 3^7\cdot {= str(math.comb(12, 4)) =}$ = {= COSETS() =}, the denominator of DougCube's "Going to DR" tab.
 
 **[j] A 4c6e after an EO.** The EO ({= WXX('X4', 'eo_axis') =}) leaves 4c6e for DR on {= WXX('X4', 'dr_axis') =}; the shortest DR keeping the EO is {= WXX('X4', 'plain') =}, the most common length for 4c6e.
 

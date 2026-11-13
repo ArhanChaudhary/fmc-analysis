@@ -10,7 +10,7 @@ So, for rodneykinney's question ([[T624]]):
 - On 0c3 and 0c4 (fake HTR corners) it saves two or more on {= pc(Q3('0c3', 'niss_shorter_by_2plus')) =} and {= pc(Q3('0c4', 'niss_shorter_by_2plus')) =}.
 - The two linear sides tie on {= pc(Q3('all', 'normal_eq_inverse')) =} of DRs and differ by two or more on {= pc(Q3('all', 'normal_inverse_differ_by_2plus')) =}.
 
-**Which HTR the optimal uses.** For each DR, the shortest HTR among all readings of all its optimal finishes, against the DR's shortest NISS HTR (sampled, 25,000 per subset × edges, edges pooled by size; optimal finishes, NISS readings):
+**Which HTR the optimal uses.** For each DR, the shortest HTR among all readings of all its optimal finishes, against the DR's shortest NISS HTR (sampled, 25,000 per subset × edges, edges pooled by size; optimal finishes, NISS readings). Each row is a subset: the first four columns split its DRs by how much longer that HTR is than the shortest, then the 9-move columns and the mean number of moves after HTR:
 
 {{htr_vs_opt}}
 

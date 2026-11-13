@@ -1,4 +1,4 @@
-| Skeleton length | An 8-mover is as good as anything up to 10 | A 9-mover beats every 8-mover and no 10-mover beats it | A 10-mover beats every 8- and 9-mover | No alg of up to 10 moves fits | When a 10-mover beats every 8- and 9-mover: by one move only | An 11- or 12-mover beats everything up to 10 | Skeletons where an 8-mover fits | Mean added on those skeletons, cap 8 | Same skeletons, cap 9 | Same skeletons, cap 10 | Same skeletons, cap 12 |
+| Skeleton length | An 8-mover is as good as anything up to 10 | A 9-mover beats every 8-mover and no 10-mover beats it | A 10-mover beats every 8- and 9-mover | No alg of up to 10 moves fits | When a 10-mover beats every 8- and 9-mover: by one move only | An 11- or 12-mover beats everything up to 10 | Skeletons where an 8-mover fits | Mean added on those skeletons, cap 8 | Same skeletons, cap 9: mean added | Same skeletons, cap 10: mean added | Same skeletons, cap 12: mean added |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 10 | 91% | 4.1% | 5.3% | <0.01% | 80% | 4.7% | 19,151 | 6.44 | 6.43 | 6.37 | 6.32 |
 | 14 | 93% | 2.1% | 5.0% | 0 | 78% | 5.3% | 19,655 | 6.20 | 6.19 | 6.13 | 6.07 |

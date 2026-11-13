@@ -94,11 +94,11 @@ def build():
           '**What\'s listed.** Every route here starts from a slice-EO skip or a one-move slice EO and then keeps the EO of that axis (the tutorial\'s route), or, for a DR-2s 8fe, may also start from a normal EO of 4 moves or fewer. Each scramble shows at most six DR-1s of 8 moves or less and at most two DR-2s 8fe of 9 or less, the shortest first, drawn at random among equals. Nothing is picked by how it finishes.', '',
           '### How to read the tables', '',
           '- **Skips**: the slice-EO skips of the scramble, on normal and on inverse, as slice, axis, and whether the four edges are all oriented or all misoriented.',
-          '- **Route**: the moves to the DR-xs. Brackets mean the whole route is on inverse.',
-          '- **Kind**: DR-1s or DR-2s 8fe. **From**: the slice EO the route starts from (for an 8fe possibly a normal EO).',
-          '- **Subset**: the corner subset, as in "4a2-1s". **Turns to DR**: the fewest face turns from that state to a real DR (a DR-1s: 2 to 6, a DR-2s 8fe: 4).',
+          '- **Route**: the moves to the DR-xs. Brackets mean the whole route is on inverse. **Length**: its moves.',
+          '- **Kind**: DR-1s or DR-2s 8fe. **Starts from**: the slice EO the route starts from (for an 8fe possibly a normal EO).',
+          '- **Corner subset**: as in "4a2-1s". **Fewest turns to a real DR**: the fewest face turns from that state to a real DR (a DR-1s: 2 to 6, a DR-2s 8fe: 4).',
           '- **Finish** (answers): the best finish of the method\'s form, setup, slice(s), DR finish. For the 8fe the setup is searched up to 3 moves from either end.',
-          '- **Solution** (answers): the whole solution for the scramble with all cancelling done, and its length. A route on inverse is turned around for you.',
+          '- **Solution** (answers): the whole solution for the scramble with all cancelling done; its length is the last column. A route on inverse is turned around for you.',
           '- **Normal DRs** (answers): the best solution through any normal DR of 10, 11 and 12 moves or less on that scramble, each finished optimally (first study).', '',
           '### The scrambles', '']
     stats = collections.Counter()
@@ -112,13 +112,16 @@ def build():
         if not rows:
             L += [f"No DR-1s of 8 moves or less and no DR-2s 8fe of 9 or less here. The shortest normal DR is {b['shortest_dr']} moves; the best solution through a normal DR of 12 or less is {b['best']}.", '']
             stats['none'] += 1; continue
-        L += ['| # | Route | Moves | Kind | From | Subset | Turns to DR |', '|---:|---|---:|---|---|---|---:|']
+        L += ['Each row is one route to a DR-xs on this scramble, shortest first; the last column is how far that DR-xs is from a real DR.', '',
+              '| # | Route | Length, moves | Kind | Starts from | Corner subset | Fewest turns to a real DR |', '|---:|---|---:|---|---|---|---:|']
         for j, r in enumerate(rows, 1):
             L.append(f"| {j} | {route(r)} | {r['length']} | {'DR-1s' if r['class'] == '1' else 'DR-2s 8fe'} | {frm(r)} | {r['subset']} | {r['turns_to_dr']} |")
         n1 = sum(1 for r in one[k]); n8 = len(eight[k])
         L += ['', f"Shown: {len(r1)} of the {n1} DR-1s of 8 or less and {len(r8)} of the {n8} DR-2s 8fe of 9 or less. Shortest normal DR: {b['shortest_dr']} moves.", '',
-              '<details>', f'<summary>Answers for scramble {k}</summary>', '', '| # | Finish | Solution |', '|---:|---:|---|']
-        for j, r in enumerate(rows, 1): L.append(f"| {j} | {r['finish']} | `{r['solution']}` ({r['total']}) |")
+              '<details>', f'<summary>Answers for scramble {k}</summary>', '',
+              'Each row is the route with the same number above: the best finish of the method\'s form from it, then the whole solution written out for the scramble.', '',
+              '| # | Finish, moves | Solution | Solution length, moves |', '|---:|---:|---|---:|']
+        for j, r in enumerate(rows, 1): L.append(f"| {j} | {r['finish']} | `{r['solution']}` | {r['total']} |")
         best = min(int(r['total']) for r in rows); c10, c11, c12 = classic(b, 10), classic(b, 11), classic(b, 12)
         cl = lambda v: 'none' if v == 99 else str(v)
         verdict = ('shorter than every normal DR of 12 or less gives' if best < c12 else 'as short as the best through a normal DR of 12 or less' if best == c12 else
@@ -127,8 +130,8 @@ def build():
         stats[verdict] += 1
         L += ['', f"Best of these: **{best}**, {verdict}. Normal DRs on this scramble: {cl(c10)} through one of 10 or less, {cl(c11)} through 11 or less, {cl(c12)} through 12 or less.", '', '</details>', '']
     L += ['### The tally', '', f'Of the hundred above: ' + '; '.join(f'{v} {"have none listed" if k == "none" else "where the best shown is " + k}' for k, v in stats.most_common()) + '.', '',
-          'Over all 500 scrambles and every DR-xs of the kinds listed, not just the ones shown (write-up, section 7). How often one of them is as good as the best normal-DR solution of its scramble:', '',
-          open(R + 'report/data/real_yield.md').read().strip(), '', 'And what finishing them does to the result:', '', open(R + 'report/data/real_result.md').read().strip(), '',
+          'Over all 500 scrambles and every DR-xs of the kinds listed, not just the ones shown (write-up, section 7). How often one of them is as good as the best normal-DR solution of its scramble; each row is a kind of thing to finish, and the last column is the same share turned around:', '',
+          open(R + 'report/data/real_yield.md').read().strip(), '', 'And what finishing them does to the result, over the scrambles with a normal DR of 10 or less; each row is a set of things you finish:', '', open(R + 'report/data/real_result.md').read().strip(), '',
           'Every finish is the best of its form, the answer key, not what you find in an hour.', '']
     open(PAGE, 'w').write('\n'.join(L))
     print('wrote', PAGE, len(L), 'lines;', dict(stats))
@@ -139,8 +142,8 @@ def verify():
         scr = re.search(r'^```\n(.+?) // scramble\n```$', body, flags=re.M).group(1); assert scr == SCR[int(k) - 1]
         x = cube.do(cube.SOLVED, scr)
         routes = re.findall(r'^\| (\d+) \| `(\(?)([^`)]*)\)?` \| (\d+) \| (DR-1s|DR-2s 8fe) \|', body, flags=re.M)
-        sols = dict(re.findall(r'^\| (\d+) \| \d+ \| `([^`]+)` \(\d+\) \|', body, flags=re.M))
-        lens = dict(re.findall(r'^\| (\d+) \| \d+ \| `[^`]+` \((\d+)\) \|', body, flags=re.M))
+        sols = dict(re.findall(r'^\| (\d+) \| \d+ \| `([^`]+)` \| \d+ \|', body, flags=re.M))
+        lens = dict(re.findall(r'^\| (\d+) \| \d+ \| `[^`]+` \| (\d+) \|', body, flags=re.M))
         for j, par, mv, ln, kind in routes:
             side = cube.inverse(x) if par else x
             w = cube.do(side, mv); ks = kinds_of(w)

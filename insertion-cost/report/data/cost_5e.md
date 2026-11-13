@@ -1,4 +1,4 @@
-| Cap | Skeleton length | Skeletons | Mean added | 4 or less | 5 or less | 6 or less | 7 or less | 8 or less | 9 or less | 10 or less | 11 or less | 12 or less | Nothing fits |
+| Cap | Skeleton length | Skeletons | Mean moves added | Adds 4 or less | Adds 5 or less | Adds 6 or less | Adds 7 or less | Adds 8 or less | Adds 9 or less | Adds 10 or less | Adds 11 or less | Adds 12 or less | Nothing fits |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 8 | 10 | 20,000 | 11.72 | 0.06% | 0.29% | 1.1% | 3.2% | 8.1% | 11% | 16% | 24% | 34% | 41% |
 | 8 | 14 | 20,000 | 11.40 | 0.17% | 0.62% | 1.8% | 5.1% | 12% | 16% | 23% | 33% | 45% | 30% |

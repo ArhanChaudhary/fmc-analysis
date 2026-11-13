@@ -15,12 +15,14 @@ Standard errors are clustered by scramble, since DRs of one scramble aren't inde
 
 **What this doesn't model.** It's cubelib's EO-first list: no CO-first or direct DR, no EO longer than 5. A DR and its twin with the last move turned the other way count once. And each DR counts, not each DR a solver would *pick*: if you keep a DR for its subset or its short HTR, you're selecting on the state, and selection on features inside a subset (pairs, corner case) isn't modelled.
 
-**Subset mix.** Largest difference from uniform, over corner subsets:
+**Subset mix.** Largest difference from uniform, over corner subsets. Each row is a DR length limit:
 
 | DRs of at most | Share of a corner subset | Mean optimal finish of a corner subset |
 |---|---|---|
 | 11 moves | {= f1(E['gaps']['share_maxdiff']) =} points | {= f2(E['gaps']['mean_maxdiff']) =} moves |
 | 10 moves (2 to 4 times larger standard errors) | {= f1(E['gaps']['share_maxdiff10']) =} points | {= f2(E['gaps']['mean_maxdiff10']) =} moves |
+
+Per corner subset, the share of all DRs it holds and its mean optimal finish in moves, uniform and on real DRs (± standard error):
 
 {{real_subsets}}
 
@@ -28,7 +30,7 @@ What does shift is the bad-edge mix inside a corner subset. With each scramble o
 
 **Why it's so close (an argument, not a proof).** The EO and DR search only sees orientations and which slice each edge is in. Given those, the rest of the scramble is uniformly random, and for a fixed move sequence the map from scramble to DR state is one-to-one. So each DR found is uniform among the DR states that agree with what the search saw. That information does fix part of the HTR structure, which is why the bad-edge mix can differ, but inside such a class every DR state is equally likely. The measurements agree.
 
-**The checklists (section 4) on real DRs**, budget 2, greedy on each population: cumulative share finding the optimal after 1 / 2 / 3 routes, then the same three within +1.
+**The checklists (section 4) on real DRs**, budget 2, greedy on each population. Each corner subset has three rows, uniform and the two real weightings; the cells are the percentage of DRs where the first 1, 2 or 3 routes find the optimal, then the same three within +1, and whether the real list's first three routes are the uniform ones in the same order.
 
 {{real_checklist}}
 
@@ -37,11 +39,11 @@ What does shift is the bad-edge mix inside a corner subset. With each scramble o
 - **0c0 is the one corner subset that moves** (first row of the table below). 0c0 is half a percent of DRs. Everywhere else no checklist number moves by more than {= f1(E['gaps']['chk_maxdiff_ex0c0']) =} point.
 - **Per subset × edges** the cells flagged are {= ', '.join(E['gaps']['cell_flag_list']) =}, all 0e or 8e cells holding few DRs (two of them below).
 
-**The other headlines of section 1**:
+**The other headlines of section 1**, one row per headline, each a percentage of DRs (± standard error):
 
 {{real_headlines}}
 
-The numbers that move, against uniform:
+The numbers that move, against uniform, as a share of DRs:
 
 | Number | Uniform | Each DR once | Each scramble once |
 |---|---|---|---|

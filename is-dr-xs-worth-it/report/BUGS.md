@@ -18,9 +18,9 @@ Section A is what's wrong in the docs, B what's wrong in things said in the chan
 ## A. The docs
 
 **A1. EO Meta Comparison (Rodney): the fix costs it assumes.**
-The doc says "we assume 1 slice can be fixed in 3 moves, and 2 slices can be fixed in 5 moves", and its tables are the standard table shifted by those amounts. Here are the exact counts, from the state alone and with one turn of the slice cancelling into the move before it, which is how Rodney counts the 3 ("one ht, one qt, and -1 cancellation on the slice", [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560296978137485322)):
+The doc says "we assume 1 slice can be fixed in 3 moves, and 2 slices can be fixed in 5 moves", and its tables are the standard table shifted by those amounts. Here are the exact counts, from the state alone and with one turn of the slice cancelling into the move before it, which is how Rodney counts the 3 ("one ht, one qt, and -1 cancellation on the slice", [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560296978137485322)). Each row is a step; the columns are its fewest, most and average face turns:
 
-| | Fewest | Most | Average from the state | Average, one slice turn cancelling |
+| Step | Fewest turns | Most turns | Average turns from the state | Average turns, one slice turn cancelling |
 |---|---:|---:|---:|---:|
 | DR-1s to DR | 2 | 6 | 5.17 | 4.17 |
 | DR-2s to DR | 4 | 9 | 6.83 | 5.83 |
@@ -31,7 +31,9 @@ So in Rodney's own way of counting, the 3 and the 5 are each about a move short 
 **A2. Simon's slice-DR doc: the table for step 3.**
 "Num Cases out of 70" at 2, 3, 4, 5, 6 moves is given as 1, 4, 9, 40, 16, with "~4.9 moves on average". Taking the better direction of the last trigger move like the doc does, I get 1, 4, 13, 36, 16: thirteen layouts have a 4-turn fix, not nine. The average stays 4.9. The thirteen, with the corners on F/B, the fixing slice `R L` and the last trigger move a quarter turn of U or D:
 
-| Flipped edges at | Turns as it is | Turns with the last move the other way | Fix as it is |
+Each row is one layout; the two middle columns are its fewest turns to a real DR as the layout stands and after turning the last trigger move the other way.
+
+| Flipped edges at | Turns to DR as it is | Turns to DR with the last move the other way | Fix as it is |
 |---|---:|---:|---|
 | BL DB UB FR | 4 | 5 | `L2 F R L` |
 | BL DB UF BR | 4 | 5 | `D2 B R L` |
@@ -58,9 +60,9 @@ It is a DR-2s, not a DR-1s: four flipped edges, all of one slice, with the cente
 trangium said they could not get that line to work ([19 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474238124333858836)) and proposed "FB-colored misoriented, others oriented" instead: that one is right, it gives a DR-1s whose four flipped edges belong to one slice. count quackula's 12-bad notes say the same for green/blue: "This is a DR-2s 4fe." The other five lines of Rodney's list are right.
 
 **B2. "I would guess the distribution is basically flat", and 3 moves as the median** for DR-1s to DR (Rodney, [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560294279010717737), [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560296978137485322)).
-Of the 70 layouts:
+Of the 70 layouts, how many need each number of turns:
 
-| Turns to DR | 2 | 3 | 4 | 5 | 6 |
+| Turns to a real DR | 2 | 3 | 4 | 5 | 6 |
 |---|---:|---:|---:|---:|---:|
 | layouts | 1 | 2 | 9 | 30 | 28 |
 
@@ -74,9 +76,9 @@ F2 U2 L2 B R L // shortest fix, 6 turns
 Right after a trigger, with the slice free to merge into its last move, the best case is 0 extra turns, but most layouts still need 5.
 
 **B3. "If you have 8 bad edges, where all the good edges belong to the same slice, then you can orient the corners that correspond to the good edges along any axis and you are guaranteed an extra-good dr-xs"** (Rodney, [20 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1474455821978042472)).
-Take the EO axis as F/B and the four good edges as the E-slice edges, so the corners in question are the white/yellow ones.
+Take the EO axis as F/B and the four good edges as the E-slice edges, so the corners in question are the white/yellow ones. Each row is where their white or yellow faces go:
 
-| Corners on | You get | Extra-good? |
+| Corners oriented on | You get | Extra-good? |
 |---|---|---|
 | U/D | a DR-2s with all eight edges flipped and the centers right | yes: no flipped edge to place |
 | R/L | a DR-2s with no edge flipped | yes: no flipped edge to place |
@@ -84,7 +86,7 @@ Take the EO axis as F/B and the four good edges as the E-slice edges, so the cor
 
 So "any axis" holds for two of the three. A flipped edge "belongs to" its home slice here, the slice it sits in when solved (as in the write-up, 5.4). On F/B, by the slice they belong to, the four flipped edges split like this over the 70 layouts:
 
-| Split | 2-2 | 3-1 | 4-0 |
+| Split between their home slices | 2-2 | 3-1 | 4-0 |
 |---|---:|---:|---:|
 | layouts | 36 | 32 | 2 |
 

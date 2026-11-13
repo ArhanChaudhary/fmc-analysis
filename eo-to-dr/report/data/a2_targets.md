@@ -1,4 +1,4 @@
-| DR from the scramble | Exact or sampled | ≤ 8 | ≤ 9 | ≤ 10 | ≤ 11 | ≤ 12 | No such EO | Mean (where there is one) |
+| DR from the scramble | Exact or sampled | DR in ≤ 8 | DR in ≤ 9 | DR in ≤ 10 | DR in ≤ 11 | DR in ≤ 12 | Scrambles with no such EO | Mean turns (where there is one) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | Optimal DR, best of 3 axes, normal | sampled, 50,000 | 16.5% | 76.5% | >99.9% | 100.0% | 100.0% | 0% | 9.05 |
 | Optimal DR, best of 6 (normal or inverse) | sampled, 50,000 | 28.4% | 91.5% | 100.0% | 100.0% | 100.0% | 0% | 8.76 |

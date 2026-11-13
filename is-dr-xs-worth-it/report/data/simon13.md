@@ -1,4 +1,6 @@
-| Flipped edges at | Turns as it is | Turns with the last move the other way | Fix as it is |
+Each row is one layout; the two middle columns are its fewest turns to a real DR as the layout stands and after turning the last trigger move the other way.
+
+| Flipped edges at | Turns to DR as it is | Turns to DR with the last move the other way | Fix as it is |
 |---|---:|---:|---|
 | BL DB UB FR | 4 | 5 | `L2 F R L` |
 | BL DB UF BR | 4 | 5 | `D2 B R L` |

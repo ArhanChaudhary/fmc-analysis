@@ -1,4 +1,4 @@
-| Insertion Finder page | Skeleton | Insertion Finder | Why it is not compared |
+| Insertion Finder page | Skeleton | Insertion Finder, moves | Why it is not compared |
 |---|---|---:|---|
 | [11 to 5C3E](https://333.fm/if/ecd00cdacaf79153d38d420319fa5623) | 11 moves | 22 | corners and edges both left |
 | [11 to 2C2E](https://333.fm/if/731052d4eb815222020c8362d3584ec4) | 11 moves | 20 | a parity leftover (two corners and two edges) |

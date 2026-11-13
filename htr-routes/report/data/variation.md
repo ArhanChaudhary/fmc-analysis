@@ -1,4 +1,4 @@
-| Subset | Mean optimal | Last move either way | One shorter | Same | Optimal 15+ | 15+ either way |
+| Subset | Mean optimal (moves) | Mean, last move either way (moves) | One shorter | Same | Optimal 15+ | 15+ either way |
 |---|---|---|---|---|---|---|
 | 0c0 | 12.28 | 11.94 | 34.2% | 31.6% | 0.27% | 0.030% |
 | 2c5 | 14.33 | 14.00 | 33.3% | 33.5% | 44.9% | 26.8% |

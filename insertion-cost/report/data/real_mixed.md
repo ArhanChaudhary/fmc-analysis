@@ -1,4 +1,4 @@
-| Leftover | Real skeletons | Cap 8: something fits on | Cap 8 | Cap 10 | Cap 12 | Cap 12 comm-plus-alg search not finished for |
+| Leftover | Real skeletons | Cap 8: something fits on | Cap 8: mean added | Cap 10: mean added | Cap 12: mean added | Cap 12 comm-plus-alg search not finished for |
 |---|---:|---:|---:|---:|---:|---:|
 | 3c | 89 | 89 of 89 | 5.08 | 4.88 | 4.67 | 0 |
 | 2tc and 3tc | 2 | 2 of 2 | 10.00 | 10.00 | 9.00 | 0 |

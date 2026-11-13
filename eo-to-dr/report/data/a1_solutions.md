@@ -1,4 +1,4 @@
-| Length | Mean number of DR solutions | Median | At least one | Most on one scramble |
+| DR length, turns | DR solutions per scramble, mean | Median | Scrambles with at least one | Most on one scramble |
 |---|---:|---:|---:|---:|
 | 6 | 0.004 | 0 | 0.13% | 12 |
 | 7 | 0.061 | 0 | 1.8% | 56 |

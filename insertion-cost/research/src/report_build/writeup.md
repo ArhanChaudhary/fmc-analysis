@@ -41,7 +41,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
   - **caps 10 and 12** count every sequence of that length, far more than any list a person knows;
   - **the best pair of comms** for a two-comm leftover means following up every first comm at every spot.
 
-  Those are **computer only**, Insertion Finder's job: the answer key, not something to do in an attempt, and each place says so. The hand version of the best pair is to take the best first comm, and the ones a move worse when there's time (8.4), which gets within {= f2(max(float(CELL('greedy', r, 'First comms within 1 move')) - float(CELL('greedy', r, 'Best pair of comms')) for r in ('2tc', '3tc', 'pure 2c2c', 'twisted 2c2c', '3c1t', '5c', '3c3c'))) =} of a move of it. The rest is for the attempt: the odds and exchange rates for choosing a skeleton (section 7), the search rules of section 8 (every other move, the ends, opposite-face pairs), and the case facts of sections 4 and 5.
+  Those are **computer only**, Insertion Finder's job: the answer key, not something to do in an attempt, and each place says so. The hand version of the best pair is to take the best first comm, and the ones a move worse when there's time (8.4), which gets within {= f2(max(float(CELL('greedy', r, 'First comms within 1 move: mean added')) - float(CELL('greedy', r, 'Best pair of comms: mean added')) for r in ('2tc', '3tc', 'pure 2c2c', 'twisted 2c2c', '3c1t', '5c', '3c3c'))) =} of a move of it. The rest is for the attempt: the odds and exchange rates for choosing a skeleton (section 7), the search rules of section 8 (every other move, the ends, opposite-face pairs), and the case facts of sections 4 and 5.
 
 ---
 
@@ -67,7 +67,7 @@ The questions, in the words of the people who asked them. Most got an estimate o
 - Cuber4 ([[N5649]]): "What can I expect in terms of moves added from different insertions?" argonblue ([[N5650]]): "Sebastiano’s tutorial has a chart. it’s highly dependent on your skill level, luck, and the particular skeleton".
 - jisu101 ([[N6504]], [[N6505]]): "if you can't find a 3c, what is generally better", "2c2c, 3c1t, or 5c?"
 
-And one disagreement that was left standing. compLex ([[N4852]]) asked: "how many moves do you expect to add with 3c, 3c1t, and 2c2c skeletons, respectively?"
+And one disagreement that was left standing. compLex ([[N4852]]) asked: "how many moves do you expect to add with 3c, 3c1t, and 2c2c skeletons, respectively?" One row per answer, in moves added:
 
 | Who | 3c | 3c1t | 2c2c |
 |---|---|---|---|
@@ -86,9 +86,9 @@ Sections 6 and 7 answer these. In short: the tutorial's corner rows and cpaul's 
 
 ## 3. What an insertion is here
 
-**The setup.** A skeleton is a sequence of n moves that solves the scramble except for a *leftover*: a 3c, a 5c and so on. There are n + 1 places to insert, before the first move, between any two, and after the last. At each place exactly one cube state has to be produced by the inserted alg (it is the leftover carried through the moves that follow), so the only freedom is which alg for that state, and where.
+**The setup.** A skeleton is a sequence of $n$ moves that solves the scramble except for a *leftover*: a 3c, a 5c and so on. There are $n + 1$ places to insert, before the first move, between any two, and after the last. At each place exactly one cube state has to be produced by the inserted alg (it is the leftover carried through the moves that follow), so the only freedom is which alg for that state, and where.
 
-**The cost** of an insertion is what it adds: the length of the solution with the alg in it and all cancelling done, minus n. An `(8-2)` costs +6. Cancelling is done the way you do it on paper: moves on the same face merge (`R R` is `R2`, `R R'` is nothing), moves on opposite faces commute, and it repeats as far as it goes, so an alg can also cancel into moves two or three deep, and moves on either side of it can meet through it.
+**The cost** of an insertion is what it adds: the length of the solution with the alg in it and all cancelling done, minus $n$. An `(8-2)` costs +6. Cancelling is done the way you do it on paper: moves on the same face merge (`R R` is `R2`, `R R'` is nothing), moves on opposite faces commute, and it repeats as far as it goes, so an alg can also cancel into moves two or three deep, and moves on either side of it can meet through it.
 
 **Why there has to be a cap.** If an alg of any length were allowed, the best insertion would be the optimal solution of the whole scramble written as one alg at one spot. Nobody means that by an insertion. So every number here is for a cap on the length of each inserted alg, and I give three:
 
@@ -116,14 +116,17 @@ Unless a table says otherwise, a number for a two-comm leftover is the best of *
 - The same real move sequences with a random leftover on them cost what random sequences cost (the same for a 3c, within a tenth of a move for a 5c), so the tables aren't skewed by how skeletons are written.
 - The skeletons people post, with their own leftover, come out most of a move cheaper than the tables with 8-movers. Selection is part of that: for a 3c, the skeletons posted with their insertion are {= SUBD('from the server, an insertion written out', '3c') =} from random and the {= SUBN('the last two together', '3c') =} less-picked ones {= SUBD('the last two together', '3c') =}. For edges the posted skeletons are further from the random tables (6.6, 9.2).
 
-**How many.** Sample sizes per skeleton length; each table also says which.
+**How many.** Sample sizes per skeleton length, one row per run; each table also says which.
 
 | What was run | Skeletons per length |
 |---|---|
-| cap 8, every type, each even length from 10 to 30 | {= NSK('5c') =} ({= NSK('2tc') =} for 2tc, 2fe and the two kinds of 2e2e) |
+| cap 8, every type but 2tc, 2fe and the two kinds of 2e2e, each even length from 10 to 30 | {= NSK('5c') =} |
+| the same for 2tc, 2fe and the two kinds of 2e2e | {= NSK('2tc') =} |
 | the same for the corner types of section 7 (3c, 2tc, 3tc, both 2c2c, 3c1t, 5c) at every odd length from 11 to 29 | the same size |
 | cap 10, a 3c or a 3e, and one alg | {= NSK('3c', L=10) =} |
-| cap 10, two comms (the search is slow there) | {= NSK('5c', L=10) =} for 5c and 3c3c, {= NSK('3c1t', L=10) =} for 2c2c, 3c1t and 3tc, {= NSK('2tc', L=10) =} for 2tc |
+| cap 10, two comms (the search is slow there), 5c and 3c3c | {= NSK('5c', L=10) =} |
+| the same for 2c2c, 3c1t and 3tc | {= NSK('3c1t', L=10) =} |
+| the same for 2tc | {= NSK('2tc', L=10) =} |
 | cap 12, two comms, skeletons of 20 moves, for {= CAP12RUN() =} (not for {= CAP12NOT() =}) | {= NSK('5c', L=12, src='two12') =} |
 | cap 10, a comm plus an alg, skeletons of 20 moves | {= NSK('5c', L=10, model='mixed', src='mixed') =} |
 

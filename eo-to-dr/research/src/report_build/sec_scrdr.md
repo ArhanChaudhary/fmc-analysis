@@ -6,15 +6,17 @@ Everything in this section is on {= n(X('n')) =} uniformly random scrambles (app
 
 ### 3.1 The shortest DR
 
+Each row is one way of reaching DR from the scramble; the *DR in ≤* columns are the share of scrambles with a DR that short.
+
 {{a1}}
 
 *One fixed axis* is DR on one given axis with turns after the scramble only, exact over every coset; it is DougCube's table (the "Going to DR" tab of [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo)) and Louis's 6.2% and 43% ([[T5957]], [[T5959]], restated for one axis, linear, in [[T5964]]). *Best of 3 axes, normal*: the fewest turns to DR on any axis, turns after the scramble only. *Inverse*: the same on the inverse scramble. *Best of 6*: the better of those two, the six tries of 3 axes on each side. *NISS*: turns on both sides, counted together, best of 3 axes.
 
 What it says:
 
-**Three axes are worth {= f2(A['a1'][A1N['fixed']]['mean'] - A['a1'][A1N['lin']]['mean']) =} turns, the inverse another {= f2(A['a1'][A1N['lin']]['mean'] - A['a1'][A1N['six']]['mean']) =}, NISS another {= f2(A['a1'][A1N['six']]['mean'] - A['a1'][A1N['niss']]['mean']) =}.**
+**Three axes are worth {= f2(A['a1'][A1N['fixed']]['mean'] - A['a1'][A1N['lin']]['mean']) =} turns, the inverse another {= f2(A['a1'][A1N['lin']]['mean'] - A['a1'][A1N['six']]['mean']) =}, NISS another {= f2(A['a1'][A1N['six']]['mean'] - A['a1'][A1N['niss']]['mean']) =}.** Each row adds one option to the row above; the *DR in ≤* columns are the share of scrambles:
 
-| Allowed | Mean | In 10 or better | In 9 or better | In 8 or better |
+| Allowed | Mean, turns | DR in ≤ 10 | DR in ≤ 9 | DR in ≤ 8 |
 |---|---|---|---|---|
 | One axis | {= A1('fixed', 'mean') =} | | | |
 | Best of three, one side (linear) | {= A1('lin', 'mean') =} | {= A1('lin', 'p_le10') =} | {= A1('lin', 'p_le9') =} | {= A1('lin', 'p_le8') =} |
@@ -27,7 +29,7 @@ What it says:
 - **The longest linear DR** seen on one side is {= A1('lin', 'max') =} (on {= A1COUNT('lin', 11) =} scrambles).
 - **The superflip** is one of the scrambles with no sub-10 DR, and not a special one: 10 on every axis, normal and inverse, and 10 with NISS [b].
 
-How many DR solutions a scramble has, normal side, all three axes (each canonical move sequence that reaches DR for the first time at its last turn counts once, as `nissy solve dr -a` lists them; a solution and the same with its last turn the other way count as two):
+How many DR solutions a scramble has, normal side, all three axes (each canonical move sequence that reaches DR for the first time at its last turn counts once, as `nissy solve dr -a` lists them; a solution and the same with its last turn the other way count as two). Each row is a DR length:
 
 {{a1_solutions}}
 
@@ -37,7 +39,7 @@ So the median scramble has {= CELL('a1_solutions', '9', 'Median') =} DRs of 9 on
 
 A human DR goes through an EO: an EO, then turns that keep it, to DR on one of the two other axes. Any DR solution contains an EO in that sense: cut it after its last quarter turn of an axis that is not the DR axis, and what comes before is an EO on that axis (Joba said the same of DR solutions in general, [[T9930]]). So the question is how long that EO is.
 
-The shortest EO inside an optimal normal DR, over all optimal DRs of the scramble and both EO axes, normal side, {= n(X('n')) =} scrambles:
+The shortest EO inside an optimal normal DR, over all optimal DRs of the scramble and both EO axes, normal side, {= n(X('n')) =} scrambles. Each column is an EO length in turns; the cell is the share of scrambles whose shortest such EO has that length:
 
 {{estar}}
 
@@ -45,19 +47,23 @@ The optimal DR starts with an EO of at most 5 turns on {= EST(5) =} of scrambles
 
 What EO-breaking turns add to a short EO: among routes through EOs of at most 5, a continuation with any turns reaches the optimal DR where no EO-keeping one does on {= BRK(5) =} of {= n(X('n')) =} scrambles ({= BRK(4) =} for EOs of at most 4, {= BRK(6) =} for at most 6).
 
-What the best route through a short EO gives, against the optimal (normal EOs for the optimal normal DR; normal or inverse EOs for the best of six; all EOs, normal, inverse and NISS, for the NISS optimum and for the best of six; a NISS EO takes its DR on the better of the two sides):
+What the best route through a short EO gives, against the optimal (normal EOs for the optimal normal DR; normal or inverse EOs for the best of six; all EOs, normal, inverse and NISS, for the NISS optimum and for the best of six; a NISS EO takes its DR on the better of the two sides). Each row is a kind of EO and a maximum EO length; the cells are shares of all scrambles:
 
 {{a2}}
 
-*Has such an EO*: the scramble has an EO of that length or shorter of that kind on some axis. *Best route = optimal*: the best EO, then EO-keeping turns, is as short as the optimal DR it is compared with. *Shorter than it*: possible only when NISS EOs are compared with the linear best of six. *Mean loss* is over the scrambles that have such an EO.
+The same rows, by how many turns the best route loses to the optimal (shares of all scrambles; the mean is over the scrambles that have such an EO):
 
-The same as odds of a DR of a given length from the scramble, which is what a solver aims at:
+{{a2_loss}}
+
+*Scrambles with such an EO*: the scramble has an EO of that length or shorter of that kind on some axis. *As short as the optimal*: the best EO, then EO-keeping turns, is as short as the optimal DR it is compared with. *Shorter than the optimal*: possible only when NISS EOs are compared with the linear best of six. *Mean extra turns* is over the scrambles that have such an EO.
+
+The same as odds of a DR of a given length from the scramble, which is what a solver aims at. Each row is a route; the *DR in ≤* columns are the share of scrambles where it's that short:
 
 {{a2_targets}}
 
-The two targets people ask about most, as the share of scrambles with such a route:
+The two targets people ask about most, as the share of scrambles with such a route. Each row adds EOs to the row above:
 
-| EOs | DR in 10 or better | In 11 or better |
+| EOs | DR in ≤ 10 | DR in ≤ 11 |
 |---|---|---|
 | Normal, at most 5 turns | {= XP('route_n5_le10') =} | {= XP('route_n5_le11') =} |
 | Adding the inverse EOs | {= XP('route_b5_le10') =} | {= XP('route_b5_le11') =} |
@@ -68,11 +74,15 @@ A route through an EO of at most 5 (all kinds) is 9 or better on {= XP('route_x5
 
 ### 3.3 How many DRs
 
-For every EO of at most k turns and each of its two DR axes, is the EO plus the best DR after it (EO kept; for a NISS EO on the better side) at most N turns? A scramble's count is the number of such (EO, DR axis) pairs. Like 3.2 these are **computer only**: they need the best DR after every EO on both axes, and say how many DRs exist, not how many a solver finds. Cells: the mean number of pairs per scramble, and in brackets the share of scrambles with none. {= n(X('n')) =} scrambles. EOs counted as in nissy's `-a` listing (both directions of the last turn).
+For every EO of at most k turns and each of its two DR axes, is the EO plus the best DR after it (EO kept; for a NISS EO on the better side) at most N turns? A scramble's count is the number of such (EO, DR axis) pairs. Like 3.2 these are **computer only**: they need the best DR after every EO on both axes, and say how many DRs exist, not how many a solver finds. {= n(X('n')) =} scrambles; EOs counted as in nissy's `-a` listing (both directions of the last turn). Each row is a kind of EO, its axes and maximum length; the *Pairs* columns are the mean number of pairs per scramble with EO plus DR at most that many turns:
 
 {{a3}}
 
-Per EO it's a small number, and it drops fast with the EO's length. Expected (EO, DR axis) pairs per EO, normal EOs, all three axes. Each yield is a ratio of sums (all pairs over all EOs of the kind, over the {= n(X('n')) =} scrambles), and the column for EOs of at most 4 includes those of 0 to 3 turns:
+The same rows as the share of scrambles with no such pair:
+
+{{a3_none}}
+
+Per EO it's a small number, and it drops fast with the EO's length. Expected (EO, DR axis) pairs per EO, normal EOs, all three axes. Each yield is a ratio of sums (all pairs over all EOs of the kind, over the {= n(X('n')) =} scrambles), and the column for EOs of at most 4 includes those of 0 to 3 turns. Each row is a target for EO plus DR:
 
 {{a3_yield}}
 

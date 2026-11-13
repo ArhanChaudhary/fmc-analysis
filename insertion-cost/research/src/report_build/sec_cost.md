@@ -2,7 +2,7 @@
 
 ## 6. What each type costs
 
-How to read the tables of this section. A row is one skeleton length. *Mean added* is the average of what the best insertion adds, over the skeletons where something fits. The columns *k or less* are the share of all skeletons whose best insertion adds k moves or fewer. *Nothing fits* is the share with no alg within the cap at any spot. Everything is for random skeletons (section 3), and the first column is the cap. The cap-8 rows are what checking every spot with 8-movers gives, a target for the attempt; the cap-10 and cap-12 rows count every alg of that length and are **computer only**, the answer key for a full alg list.
+How to read the tables of this section. A row is one cap and one skeleton length. *Mean moves added* is the average of what the best insertion adds, over the skeletons where something fits. The columns *Adds k or less* are the share of all skeletons whose best insertion adds k moves or fewer. *Nothing fits* is the share with no alg within the cap at any spot. Everything is for random skeletons (section 3), and the first column is the cap. The cap-8 rows are what checking every spot with 8-movers gives, a target for the attempt; the cap-10 and cap-12 rows count every alg of that length and are **computer only**, the answer key for a full alg list.
 
 ### 6.1 A 3c
 
@@ -14,12 +14,12 @@ How to read the tables of this section. A row is one skeleton length. *Mean adde
 
   | +6 or better | +5 or better | +4 or better | +3 or better |
   |---:|---:|---:|---:|
-  | {= CELL('cost_3c', ('8', '20'), '6 or less') =} | {= CELL('cost_3c', ('8', '20'), '5 or less') =} | {= CELL('cost_3c', ('8', '20'), '4 or less') =} | {= CELL('cost_3c', ('8', '20'), '3 or less') =} |
+  | {= CELL('cost_3c', ('8', '20'), 'Adds 6 or less') =} | {= CELL('cost_3c', ('8', '20'), 'Adds 5 or less') =} | {= CELL('cost_3c', ('8', '20'), 'Adds 4 or less') =} | {= CELL('cost_3c', ('8', '20'), 'Adds 3 or less') =} |
 
-- **Length matters, slowly.** From {= CELL('cost_3c', ('8', '10'), 'Mean added') =} at 10 moves to {= CELL('cost_3c', ('8', '30'), 'Mean added') =} at 30: ten more moves of skeleton take {= PERTEN('3c') =} off the insertion. That's the tutorial's "longer skeletons give more spots where you can insert an algorithm, and so better chance of cancellations", in numbers. The tutorial adds "but you shouldn’t choose a long skeleton instead of a short one because of this!", and the number agrees: ten moves of skeleton buy less than half a move of insertion.
+- **Length matters, slowly.** From {= CELL('cost_3c', ('8', '10'), 'Mean moves added') =} at 10 moves to {= CELL('cost_3c', ('8', '30'), 'Mean moves added') =} at 30: ten more moves of skeleton take {= PERTEN('3c') =} off the insertion. That's the tutorial's "longer skeletons give more spots where you can insert an algorithm, and so better chance of cancellations", in numbers. The tutorial adds "but you shouldn’t choose a long skeleton instead of a short one because of this!", and the number agrees: ten moves of skeleton buy less than half a move of insertion.
 - **zakk drewji's 24 to 3c**: DougCube's "typically a (8-2/30)" ([[N3243]]) is the single most likely outcome, {= EXACT('3c', 24, 6) =} of skeletons. {= CH('3c', 24, 30) =} get 30 or better and {= CH('3c', 24, 28) =} get 28 or better.
 - **No 8-mover at all** is rare but real: {= CELL('cost_3c', ('8', '20'), 'Nothing fits') =} of 20-move skeletons and {= CELL('cost_3c', ('8', '10'), 'Nothing fits') =} of 10-move ones have no spot where an 8-mover solves the three corners (one is written out below). That is the 19-move skeleton of [[N4549]] ("its not even an 8-0 its an 9-0"). An 8-0 as the best there is: {= CELL('one_cancel', '20', '8-0') =} at 20 moves.
-- **Longer algs give little on a 3c**: {= CELL('cost_3c', ('10', '20'), 'Mean added') =} at cap 10 and {= CELL('cost_3c', ('12', '20'), 'Mean added') =} at cap 12, against {= CELL('cost_3c', ('8', '20'), 'Mean added') =}. Section 8.2 has how often a longer alg is the best.
+- **Longer algs give little on a 3c**: {= CELL('cost_3c', ('10', '20'), 'Mean moves added') =} at cap 10 and {= CELL('cost_3c', ('12', '20'), 'Mean moves added') =} at cap 12, against {= CELL('cost_3c', ('8', '20'), 'Mean moves added') =}. Section 8.2 has how often a longer alg is the best.
 
 A 20-move skeleton with no 8-mover at any spot:
 
@@ -29,46 +29,50 @@ A 20-move skeleton with no 8-mover at any spot:
 
 {{dr17}}
 
-- **Random moves**: +5 or better {= CELL('dr17', ('random moves', '8'), '5 or less') =}, +6 or better {= CELL('dr17', ('random moves', '8'), '6 or less') =}, +7 or better {= CELL('dr17', ('random moves', '8'), '7 or less') =} with 8-movers.
-- **Keeping EO changes nothing**, and DR moves by themselves change next to nothing ({= CELL('dr17', ('EO in 4, DR in 10, then DR moves; any 3c', '8'), 'Mean added') =} against {= CELL('dr17', ('random moves', '8'), 'Mean added') =}).
-- **What a DR leaves does matter, a little**: with a 3c that DR moves can leave, 8-movers give {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Mean added') =}, +6 or better only {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), '6 or less') =} of the time, and no 8-mover anywhere on {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Nothing fits') =}. Oriented corners have few 8-movers (section 5). With 10-movers the gap nearly closes ({= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '10'), 'Mean added') =} against {= CELL('dr17', ('random moves', '10'), 'Mean added') =}).
+- **Random moves**: +5 or better {= CELL('dr17', ('random moves', '8'), 'Adds 5 or less') =}, +6 or better {= CELL('dr17', ('random moves', '8'), 'Adds 6 or less') =}, +7 or better {= CELL('dr17', ('random moves', '8'), 'Adds 7 or less') =} with 8-movers.
+- **Keeping EO changes nothing**, and DR moves by themselves change next to nothing ({= CELL('dr17', ('EO in 4, DR in 10, then DR moves; any 3c', '8'), 'Mean moves added') =} against {= CELL('dr17', ('random moves', '8'), 'Mean moves added') =}).
+- **What a DR leaves does matter, a little**: with a 3c that DR moves can leave, 8-movers give {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Mean moves added') =}, +6 or better only {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Adds 6 or less') =} of the time, and no 8-mover anywhere on {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Nothing fits') =}. Oriented corners have few 8-movers (section 5). With 10-movers the gap nearly closes ({= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '10'), 'Mean moves added') =} against {= CELL('dr17', ('random moves', '10'), 'Mean moves added') =}).
 - That is the old line in the Fokianos and Raposio guide, "there is the feeling that 8 move commutators cancel less moves on average on DR skeletons compared to regular ones, although we don’t think this has been proved yet", and trig0n's "after DR you often get something like 8-1" ([[D1572]]): in this model it is true, by {= DRGAP() =} of a move, and it comes from which corners are left, not from the moves. These are modelled skeletons, not DR solves; a real DR skeleton may differ.
 
 ### 6.2 Two comms: 2tc, 2c2c, 3tc, 3c1t, 5c
 
 For these, cap 8 means two 8-move comms, the second allowed inside the first; no alg of 8 moves or fewer does any of them in one go.
 
-Each number is the **best pair**, every first comm at every spot followed by the best second: **computer only** as a search. By hand you take the best first comm and then the best second, which costs {= f2(float(CELL('greedy', '5c', 'Best first comm only')) - float(CELL('greedy', '5c', 'Best pair of comms'))) =} more on a 5c; also following the first comms a move worse gets within {= f2(max(float(CELL('greedy', r, 'First comms within 1 move')) - float(CELL('greedy', r, 'Best pair of comms')) for r in ('2tc', '3tc', 'pure 2c2c', 'twisted 2c2c', '3c1t', '5c', '3c3c'))) =} of the best pair on every type (8.4). So read the cap-8 rows as a careful hand search, a few hundredths optimistic.
+Each number is the **best pair**, every first comm at every spot followed by the best second: **computer only** as a search. By hand you take the best first comm and then the best second, which costs {= f2(float(CELL('greedy', '5c', 'Best first comm only: mean added')) - float(CELL('greedy', '5c', 'Best pair of comms: mean added'))) =} more on a 5c; also following the first comms a move worse gets within {= f2(max(float(CELL('greedy', r, 'First comms within 1 move: mean added')) - float(CELL('greedy', r, 'Best pair of comms: mean added')) for r in ('2tc', '3tc', 'pure 2c2c', 'twisted 2c2c', '3c1t', '5c', '3c3c'))) =} of the best pair on every type (8.4). So read the cap-8 rows as a careful hand search, a few hundredths optimistic.
 
 Cap 10 is the best of two comms of up to 10 moves and one alg of up to 10 for the whole leftover. All on random skeletons; the *Skeletons* column says how many each row rests on, and at cap 10 that is few, so read those rows to the nearest percent or so.
 
-**2tc** (two corners twisted in place):
+**2tc** (two corners twisted in place), one row per cap and skeleton length, columns as in the 3c table.
 
 {{cost_2tc}}
 
-**Twisted 2c2c:**
+**Twisted 2c2c**, one row per cap and skeleton length, columns as in the 3c table.
 
 {{cost_2c2c-twisted}}
 
-**Pure 2c2c:**
+**Pure 2c2c**, one row per cap and skeleton length, columns as in the 3c table.
 
 {{cost_2c2c-pure}}
 
-**3tc** (three corners twisted the same way):
+**3tc** (three corners twisted the same way), one row per cap and skeleton length, columns as in the 3c table.
 
 {{cost_3tc}}
 
-**3c1t:**
+**3c1t**, one row per cap and skeleton length, columns as in the 3c table.
 
 {{cost_3c1t}}
 
-**5c:**
+**5c**, one row per cap and skeleton length, columns as in the 3c table.
 
 {{cost_5c}}
 
-**Mean added on random skeletons, next to what was estimated. Every computed cell has the number of skeletons behind it in brackets. *not run*: cap 12 with two comms was not run for a 2tc.**
+**Mean added on random skeletons, next to what was estimated. One row per leftover; the last four columns are the computed means, in moves. *not run*: cap 12 with two comms was not run for a 2tc.**
 
 {{estimates}}
+
+**The samples behind those means: how many random skeletons each one rests on, and at 16 moves on how many of them an 8-mover fits.**
+
+{{estimates_n}}
 
 The cap-12 column is on {= NSK('5c', L=12, src='two12') =} skeletons that are not the skeletons of the cap-8 column, so do not read a step off this table: those {= NSK('5c', L=12, src='two12') =} 5c skeletons average {= PAIR('5c', '8') =} with 8-movers, not {= M('5c') =}. The table of 6.3 has every cap on the same skeletons.
 
@@ -93,7 +97,7 @@ The cap-12 column is on {= NSK('5c', L=12, src='two12') =} skeletons that are no
 
 {{first_choices}}
 
-- **For the two kinds of 2c2c the number is the same**, {= FC('2c2c-pure') =} each: any three of the four corners, either direction (jisu101's point, [[N6508]], [[N6509]]), with three ways to twist. They still cost {= M('2c2c-twisted') =} and {= M('2c2c-pure') =} with 8-movers, and the {= GAP2C2C('Two comms, nesting allowed') =} between them comes from comms that interact. When the two comms do not touch, a pure and a twisted 2c2c cost the same, {= CELL('nesting', 'pure 2c2c', 'The two not touching') =} and {= CELL('nesting', 'twisted 2c2c', 'The two not touching') =} (6.5). With nesting forbidden the twisted one is {= GAP2C2C('No nesting') =} cheaper ({= CELL('nesting', 'twisted 2c2c', 'No nesting') =} against {= CELL('nesting', 'pure 2c2c', 'No nesting') =}): its second comm cancels into the first more often without sitting inside it. Nesting is the other {= GAP2C2CNEST() =}: the best pair is nested on {= CELL('nesting', 'twisted 2c2c', 'Best needs nesting') =} of twisted 2c2c skeletons and {= CELL('nesting', 'pure 2c2c', 'Best needs nesting') =} of pure ones.
+- **For the two kinds of 2c2c the number is the same**, {= FC('2c2c-pure') =} each: any three of the four corners, either direction (jisu101's point, [[N6508]], [[N6509]]), with three ways to twist. They still cost {= M('2c2c-twisted') =} and {= M('2c2c-pure') =} with 8-movers, and the {= GAP2C2C('Nesting allowed: mean added') =} between them comes from comms that interact. When the two comms do not touch, a pure and a twisted 2c2c cost the same, {= CELL('nesting', 'pure 2c2c', 'The two not touching: mean added') =} and {= CELL('nesting', 'twisted 2c2c', 'The two not touching: mean added') =} (6.5). With nesting forbidden the twisted one is {= GAP2C2C('No nesting: mean added') =} cheaper ({= CELL('nesting', 'twisted 2c2c', 'No nesting: mean added') =} against {= CELL('nesting', 'pure 2c2c', 'No nesting: mean added') =}): its second comm cancels into the first more often without sitting inside it. Nesting is the other {= GAP2C2CNEST() =}: the best pair is nested on {= CELL('nesting', 'twisted 2c2c', 'Best needs nesting') =} of twisted 2c2c skeletons and {= CELL('nesting', 'pure 2c2c', 'Best needs nesting') =} of pure ones.
 - **Across types it isn't the same.** More choices for the first comm means better odds of a good one, and the costs come in that order:
 
   | | 2tc | 2c2c | 3tc | 3c1t | 5c | 3c3c |
@@ -126,13 +130,17 @@ These are averages over {= PAIRN('5c') =} or {= PAIRN('3c') =} skeletons, compar
 
 ### 6.4 One alg for the whole leftover
 
-**One alg for the whole leftover, random skeletons of 20 moves (*Skeletons*: the sample). How often an alg within the cap fits at some spot, what it adds on the skeletons where it fits, and what two 8-move comms add on those same skeletons (for the edge rows: two 3e algs of 8 moves or fewer, which do not always fit).**
+**One alg for the whole leftover, random skeletons of 20 moves (*Skeletons*: the sample). How often an alg within the cap fits at some spot, what it adds on the skeletons where it fits, and what two 8-move comms add on those same skeletons (for the edge rows: two 3e algs of 8 moves or fewer, which do not always fit). One row per leftover; this table is algs of up to 10 moves, the next one up to 12.**
 
 {{direct}}
 
-- **Pure 2c2c**: a 10-move alg fits somewhere on {= CELL('direct', 'pure 2c2c', 'Alg of 10 or less: fits somewhere') =} of skeletons and then costs {= CELL('direct', 'pure 2c2c', 'Alg of 10 or less: mean added') =}. Two 8-move comms cost {= CELL('direct', 'pure 2c2c', 'Two 8-move comms on the skeletons where an alg of 10 or less fits') =} on those same skeletons ({= M('2c2c-pure') =} over all of them), so where it fits the alg is {= f2(float(CELL('direct', 'pure 2c2c', 'Two 8-move comms on the skeletons where an alg of 10 or less fits')) - float(CELL('direct', 'pure 2c2c', 'Alg of 10 or less: mean added'))) =} better.
-- **2tc**: the 12-move two-twist is there on every skeleton, and costs {= CELL('direct', '2tc', 'Alg of 12 or less: mean added') =}. Two comms cost {= CELL('direct', '2tc', 'Two 8-move comms on the skeletons where an alg of 12 or less fits') =}. The tutorial already says of the 2tc and 3tc algs: "But this is usually not the best way". For the 2tc it is worse by {= f2(float(CELL('direct', '2tc', 'Alg of 12 or less: mean added')) - float(CELL('direct', '2tc', 'Two 8-move comms on the skeletons where an alg of 12 or less fits'))) =}.
-- **5c, 3c1t**: one alg of up to 12 moves alone is no better than two 8-move comms on the skeletons where it fits ({= CELL('direct', '5c', 'Alg of 12 or less: mean added') =} against {= CELL('direct', '5c', 'Two 8-move comms on the skeletons where an alg of 12 or less fits') =} for a 5c, {= CELL('direct', '3c1t', 'Alg of 12 or less: mean added') =} against {= CELL('direct', '3c1t', 'Two 8-move comms on the skeletons where an alg of 12 or less fits') =} for a 3c1t), but on some skeletons it is the best, which is where the gain of 6.3 comes from.
+**The same with algs of up to 12 moves.**
+
+{{direct_12}}
+
+- **Pure 2c2c**: a 10-move alg fits somewhere on {= CELL('direct', 'pure 2c2c', 'Alg of 10 or less: fits somewhere') =} of skeletons and then costs {= CELL('direct', 'pure 2c2c', 'Alg of 10 or less: mean added') =}. Two 8-move comms cost {= CELL('direct', 'pure 2c2c', 'Two 8-move comms on the skeletons where an alg of 10 or less fits: mean added') =} on those same skeletons ({= M('2c2c-pure') =} over all of them), so where it fits the alg is {= f2(float(CELL('direct', 'pure 2c2c', 'Two 8-move comms on the skeletons where an alg of 10 or less fits: mean added')) - float(CELL('direct', 'pure 2c2c', 'Alg of 10 or less: mean added'))) =} better.
+- **2tc**: the 12-move two-twist is there on every skeleton, and costs {= CELL('direct_12', '2tc', 'Alg of 12 or less: mean added') =}. Two comms cost {= CELL('direct_12', '2tc', 'Two 8-move comms on the skeletons where an alg of 12 or less fits: mean added') =}. The tutorial already says of the 2tc and 3tc algs: "But this is usually not the best way". For the 2tc it is worse by {= f2(float(CELL('direct_12', '2tc', 'Alg of 12 or less: mean added')) - float(CELL('direct_12', '2tc', 'Two 8-move comms on the skeletons where an alg of 12 or less fits: mean added'))) =}.
+- **5c, 3c1t**: one alg of up to 12 moves alone is no better than two 8-move comms on the skeletons where it fits ({= CELL('direct_12', '5c', 'Alg of 12 or less: mean added') =} against {= CELL('direct_12', '5c', 'Two 8-move comms on the skeletons where an alg of 12 or less fits: mean added') =} for a 5c, {= CELL('direct_12', '3c1t', 'Alg of 12 or less: mean added') =} against {= CELL('direct_12', '3c1t', 'Two 8-move comms on the skeletons where an alg of 12 or less fits: mean added') =} for a 3c1t), but on some skeletons it is the best, which is where the gain of 6.3 comes from.
 
 ### 6.5 Nesting
 
@@ -154,16 +162,16 @@ The second comm may go inside the first. How much that is worth, with 8-movers o
 
 For the next two, cap 8 is the best of two 3e algs of 8 moves or fewer and one alg of 8 or fewer for the whole leftover (both have 6-movers), and cap 10 is the same with algs of up to 10 moves. Random skeletons; the *Skeletons* column is the sample behind each row.
 
-**2e2e** (two swaps, no flip):
+**2e2e** (two swaps, no flip), one row per cap and skeleton length, columns as in the 3c table.
 
 {{cost_2e2e}}
 
-**5e:**
+**5e**, one row per cap and skeleton length, columns as in the 3c table.
 
 {{cost_5e}}
 
-- **With algs of 8 or fewer, nothing fits on {= CELL('cost_3e', ('8', '20'), 'Nothing fits') =} of random 20-move skeletons.** When something fits it is good ({= CELL('cost_3e', ('8', '20'), 'Mean added') =}). That is FakeMMAP's "huge variance" ([[N2876]]).
-- **With every alg up to 10, a 3e costs {= CELL('cost_3e', ('10', '20'), 'Mean added') =}**, about what a 3c costs. The tutorial's 7 is a move above that, and its footnote says why the number moves: "Warning: this varies a lot! If edges are oriented early in the solve, you have better chances of finding a good insertion (6 or 8 movers)."
+- **With algs of 8 or fewer, nothing fits on {= CELL('cost_3e', ('8', '20'), 'Nothing fits') =} of random 20-move skeletons.** When something fits it is good ({= CELL('cost_3e', ('8', '20'), 'Mean moves added') =}). That is FakeMMAP's "huge variance" ([[N2876]]).
+- **With every alg up to 10, a 3e costs {= CELL('cost_3e', ('10', '20'), 'Mean moves added') =}**, about what a 3c costs. The tutorial's 7 is a move above that, and its footnote says why the number moves: "Warning: this varies a lot! If edges are oriented early in the solve, you have better chances of finding a good insertion (6 or 8 movers)."
 - **Whether a short alg fits depends on how the three edges sit.** A 6-mover needs them oriented on all three axes and an alg of 8 or fewer on at least two (section 5); on these random skeletons the leftover is oriented on two or three axes {= EOSHARE('rand_n', (2, 3)) =} of the time. So read the cap-8 rows as what the short algs give when nothing in the solve has arranged that, and the cap-10 and cap-12 rows as what a full alg list gives on any skeleton. The {= RL('by_type', '3e') =} real 3e skeletons of section 9 are far cheaper than any row here, and how their edges are oriented does not explain it (9.2).
 - **2e2e and 5e** at cap 10: {= M('2e2e', L=10) =} and {= M('5e', L=10) =} ({= NSK('2e2e', L=10) =} and {= NSK('5e', L=10) =} skeletons). A 2e2e is the cheap one, and a 5e costs {= DIFF('5c', '5e', L=10) =} less than a 5c at the same cap ({= NSK('5e', L=10) =} 5e skeletons against {= NSK('5c', L=10) =} 5c skeletons). The other edge types are in Appendix A.
 
@@ -173,21 +181,21 @@ For the next two, cap 8 is the best of two 3e algs of 8 moves or fewer and one a
 
 ### 7.1 The chance of a result
 
-The chance of a final solution of N or less from a skeleton of a given type and length, 8-movers, random skeletons. Every cell is its own sample of {= NSK('5c') =} skeletons ({= NSK('2tc') =} for a 2tc), at the odd lengths too. A cell under 0.05% is fewer than ten skeletons of the {= NSK('5c') =} (for a 2tc, one or two of the {= NSK('2tc') =}), so the smallest cells are rough. Two-comm types are at their best pair of comms; a hand search that takes only the best first comm comes out a little longer (8.4), so treat their cells as a ceiling.
+The chance of a final solution of $N$ or less from a skeleton of a given type and length, 8-movers, random skeletons. Every cell is its own sample of {= NSK('5c') =} skeletons ({= NSK('2tc') =} for a 2tc), at the odd lengths too. A cell under 0.05% is fewer than ten skeletons of the {= NSK('5c') =} (for a 2tc, one or two of the {= NSK('2tc') =}), so the smallest cells are rough. Two-comm types are at their best pair of comms; a hand search that takes only the best first comm comes out a little longer (8.4), so treat their cells as a ceiling.
 
-**28 or less:**
+**28 or less.** Chance of a final 28 or less, one row per skeleton length, one column per leftover:
 
 {{chance_28}}
 
-**26 or less:**
+**26 or less.** Chance of a final 26 or less, same layout:
 
 {{chance_26}}
 
-**30 or less:**
+**30 or less.** Chance of a final 30 or less, same layout:
 
 {{chance_30}}
 
-**24 or less:**
+**24 or less.** Chance of a final 24 or less, same layout:
 
 {{chance_24}}
 

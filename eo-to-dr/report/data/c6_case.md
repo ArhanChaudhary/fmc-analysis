@@ -1,4 +1,4 @@
-| Case on the DR axis | Share of EO-solved states | 1 in | Mean, one axis | ≤ 6: one axis | ≤ 6: last EO turn either way | ≤ 6: better of 2 DR axes | ≤ 6: normal or inverse | ≤ 6: all of these |
+| Case on the DR axis | Share of EO-solved states | Odds | Mean turns, one axis | DR in ≤ 6: one axis | DR in ≤ 6: last EO turn either way | DR in ≤ 6: better of 2 DR axes | DR in ≤ 6: normal or inverse | DR in ≤ 6: all of these |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | 6c6e | 12.7% | 1 in 7.8 | 7.73 | 5.6% | 9.4% | 10.6% | 10.8% | 25.1% |
 | 5c6e | 11.6% | 1 in 8.6 | 7.69 | 6.1% | 10.2% | 11.7% | 11.9% | 27.2% |

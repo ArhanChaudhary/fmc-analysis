@@ -1,4 +1,4 @@
-| Headline | Uniform (± SE) | Each DR once | Each scramble once |
+| Headline | Uniform (± SE) | Each DR once (± SE) | Each scramble once (± SE) |
 |---|---|---|---|
 | Shortest NISS HTR = shortest linear, all DRs (section 6) | 55.8 ± 0.1 | 56.2 ± 0.2 | 55.8 ± 0.2 |
 | NISS HTR 1 shorter, all DRs | 32.3 ± 0.1 | 32.0 ± 0.1 | 32.3 ± 0.1 |

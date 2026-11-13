@@ -1,4 +1,4 @@
-| On a scramble | Share of the 500 | Average number |
+| On a scramble | Share of the 500 that have one | Average number per scramble |
 |---|---:|---:|
 | a normal DR of 9 moves or less | 66% | 6.1 |
 | a normal DR of 10 or less | 98% | 69.7 |

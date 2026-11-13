@@ -36,9 +36,9 @@ Example: the superflip, with a 7-move NISS EO on it from alkamaass ([[D6033]]); 
 ```
 
 **3. DR-6e4c: "Similar efficiency to 4c4e and 4c2e in theory but many of the optimal solutions aren't findable with just setups to R U2 L"** (Jay, [[D584]], answering jellobean's "How good would you say … the Dr-6e4c case", [[D583]]).
-The optimal DR alone already differs. Over all EO-solved states, one axis, EO kept:
+The optimal DR alone already differs. Over all EO-solved states, one axis, EO kept; each row is a case:
 
-| Case | At most 6 from DR | Mean |
+| Case | DR in ≤ 6 | Mean, turns |
 |---|---|---|
 | 4c6e (Cale's 6e4c) | {= C6('4c6e', 'plain_p_le6') =} | {= C6('4c6e', 'plain_mean') =} |
 | 4c4e | {= C6('4c4e', 'plain_p_le6') =} | {= C6('4c4e', 'plain_mean') =} |

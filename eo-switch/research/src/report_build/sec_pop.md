@@ -1,6 +1,6 @@
 ## 6. Real RZPs: does the uniform table apply after a switch?
 
-Every table on the server counts each case once. Real cases come from RZPs, and torchlight pointed out why that matters: "if the EO isn't already 4c4e, it means that the 4c4e case you get from RZP is 1 move away from something that is not 4c4e", "the 4c4e cases that can go out of 4c4e in more ways will thus be more likely to show up" ([[T4250]]). KrzychXyz asked whether natural 4c4e is therefore better ([[T4265]]). Here's the sub-7 rate by DRM, uniform against the cases RZPs reach (exact counts over every 5-move RZP from a uniform EO-solved cube) and against the real attempts:
+Every table on the server counts each case once. Real cases come from RZPs, and torchlight pointed out why that matters: "if the EO isn't already 4c4e, it means that the 4c4e case you get from RZP is 1 move away from something that is not 4c4e", "the 4c4e cases that can go out of 4c4e in more ways will thus be more likely to show up" ([[T4250]]). KrzychXyz asked whether natural 4c4e is therefore better ([[T4265]]). Here's the sub-7 rate by DRM, uniform against the cases RZPs reach (exact counts over every 5-move RZP from a uniform EO-solved cube) and against the real attempts. One row per DRM; the last column is how many real attempts the RZP-to-5 rate rests on:
 
 {{populations}}
 
@@ -12,7 +12,7 @@ The real attempts agree. In {= n(E['uniform_cells']) =} cells (12 DRMs × RZP to
 
 **RZP length.** The last column of the table is the real attempts with a 6-move RZP, where the target is DR in 5. The rates fall by a factor of {= f1(min(POP(d, 3) / POP(d, 4) for d in E['pop'])) =} to {= f1(max(POP(d, 3) / POP(d, 4) for d in E['pop'])) =}, which is why solvers use a shorter cut for 6-move RZPs. The cards give DR in 5 and DR in 7 for every cell (section 4).
 
-**The last turns after a switch.** Turning the RZP's last move the other way never changes the switched case: in {= n(E['last_rzp'][0]) =} of {= n(E['last_rzp'][1]) =} pairs of real attempts that differ only in that, the switched case is the same. The reason: on the inverse that move becomes the first premove, and a premove from the DR group (R and R' differ by R2) doesn't change which pieces are twisted or which places hold E-slice edges relative to home. So Jay's idea of looking at the case when you "flip" the RZP ([[T6694]]) doesn't help after a switch. The EO's last turn still counts, but much less than without a switch, because the RZP sits between it and the inverse. On the real attempts at a total of 5:
+**The last turns after a switch.** Turning the RZP's last move the other way never changes the switched case: in {= n(E['last_rzp'][0]) =} of {= n(E['last_rzp'][1]) =} pairs of real attempts that differ only in that, the switched case is the same. The reason: on the inverse that move becomes the first premove, and a premove from the DR group (R and R' differ by R2) doesn't change which pieces are twisted or which places hold E-slice edges relative to home. So Jay's idea of looking at the case when you "flip" the RZP ([[T6694]]) doesn't help after a switch. The EO's last turn still counts, but much less than without a switch, because the RZP sits between it and the inverse. On the real attempts at a total of 5, one row per DRM, the sub-7 rate after a switch, then with each option added:
 
 {{options}}
 

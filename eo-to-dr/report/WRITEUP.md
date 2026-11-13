@@ -9,7 +9,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 - **Cale's [*DR setup stats*](https://docs.google.com/spreadsheets/d/11bTZ4Y7_6qKlIWo4a4TLW45M2ZkctQZAVxgQqEtlUs0)** (posted by Aneurin, [5 Oct 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1027339996308443176): "This has a bunch of useful stats for dr"), the per-case EO to DR table everyone uses: every EO-solved state on one DR axis, "I used the moveset <U, D, R, L, F2, B2>, so sequences that break EO like F R B2 R' F' aren't considered", average 7.80, with a tab per case. Cale's second sheet does the same "if you can change the direction of the last move(s) of EO" ([*DR setup stats (switching last move of EO)*](https://docs.google.com/spreadsheets/d/1_2PmFv1KyBX335SjSb4oweS0sx804fIhbuP50D-gBj4), made at Tom Nelson's request, [5 Jun 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1115138822192234527), [9 Jun 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1116937004282822726)).
 - **Louis's [*DRM/ARM average optimals*](https://docs.google.com/spreadsheets/d/13fSwUROzP0hZQV1Cn96GndWbPy4UrsHiYTaWFSeWtJs)**: "I've generated every possible EO->DR case of increasing lengths" and sorted them by DRM and ARM ([27 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1222749709039435839)); its last tab is the EO to DR distribution. **Rodney Kinney**'s *DRM corner variant+pair stats* is built on it ([13 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383068446736257125): "and I did some work on the DRM/ARM stats and came up with something cool."). Separately: **KrzychXyz**'s sheet of every case sorted by DRM ("all DR cases (from EO) grouped by subsets, sorted by optimal", [8 Jun 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1249110563011825778)), and **Evan**'s [*arm/pairs*](https://docs.google.com/spreadsheets/d/1YZYyokxYXwDdBTgN7ojpPAFHKKz48hCyNO2l6-iwmVk) tables ("this stat is in my arm/pairs sheet", [11 Aug 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1404504939190812763)).
 - **FakeMMAP**'s counts of the same 1,082,565 states, "not allowing EO-breaking moves" ([16 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1141304202065367170)), and **torchlight**'s table that "allows breaking EO" ([16 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1141354103138693243)): EO-breaking turns change almost nothing. DougCube confirmed the counts two years later: "that matches the table I just generated:" ([15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417261933916196945)).
-- **DougCube's [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo)** (posted [2 Mar 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1345852930544369684)): fixed-axis EO (mean 4.609), DR from a scramble on one fixed axis ("Going to DR", mean 9.5245, at most 12), and, added after August 2025, "NISS-EO on any axis. Credit: Joba". **Joba** computed that NISS EO table over all 12!·2^11 edge states: "On average, eo can be solved in 3.455 moves." ([27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410262132783714485)).
+- **DougCube's [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo)** (posted [2 Mar 2025](https://discord.com/channels/1007840975726575667/1077216728683135046/1345852930544369684)): fixed-axis EO (mean 4.609), DR from a scramble on one fixed axis ("Going to DR", mean 9.5245, at most 12), and, added after August 2025, "NISS-EO on any axis. Credit: Joba". **Joba** computed that NISS EO table over all $12!\cdot 2^{11}$ edge states: "On average, eo can be solved in 3.455 moves." ([27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410262132783714485)).
 - **Shota**'s table of the shortest linear EO against the number of bad edges ([11 Sep 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1283314529916420116): "here's a table that also takes into account the optimal move counts") and Shota's [*Full EO*](https://docs.google.com/spreadsheets/d/1K38k5BQUV5PQh4ZmeJGNfrRZbnuhVePp4CLqyCIelm4) sheet of every one-axis EO case (linked by KrzychXyz in [27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410290372118319134)).
 - **Tronto's** EO-solved scrambles, about 250 ("like 250") ([9 Apr 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1227179797512192033), [9 Apr 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1227180109698433074)), with optimal solutions with and without EO-breaking moves: "optimal average: 16.64" against "eofbfin average: 16.70" ([9 Apr 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1227181234061447240)). That's EO to solved, not EO to DR, but it's the only earlier measurement of what keeping the EO costs over the whole solve.
 - **The server's own counts**: Louis's "Only 6.2% of axes are 8 moves or less away from DR if you don't allow NISS" ([9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326956621435506808)); torchlight's exact bad-edge counts on the three axes ([25 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1155803699025813594), [12 Oct 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1162060161507151983)); wen's "200ish <=5 movers and 17 <=4 movers" from memory ([12 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1250363326324543500)); Cale's sheet of EO counts on official scrambles, with about 4% having no EO of at most 4 ([13 Jul 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1128898843254194188); wen, [6 Aug 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1270547867097890827)); Rodney Kinney's 1,000 optimal EO to DR solutions (*Multi-Axis DR*, [18 Dec 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1186454920828825711)).
@@ -63,9 +63,9 @@ New stuff first, then what the numbers confirm or correct. Scramble-level lines 
 
 **What is new here**
 
-**How often there's a short DR from the scramble** (optimal DR, 3.1):
+**How often there's a short DR from the scramble** (optimal DR, 3.1). Each row is what you allow; the middle columns are the share of scrambles with a DR that short:
 
-| Allowed | DR in 9 or better | In 8 or better | Mean |
+| Allowed | DR in ≤ 9 | DR in ≤ 8 | Mean, turns |
 |---|---|---|---|
 | One fixed axis | | | 9.52 |
 | Linear, one side (3 axes) | 76.5% | 16.5% | 9.05 |
@@ -78,9 +78,9 @@ NISS beats the best of six linear tries on 27.0% of scrambles. The best of six w
 - **The optimal DR usually starts with a long EO.** Its shortest EO (over every optimal DR of the scramble, normal side) is at most 4 turns on 22.1% of scrambles, at most 5 on 41.1%, and 7 or more on 37.2% (3.2) [c].
 - **EO-breaking turns hardly ever help.** Among routes through an EO of at most 5, a continuation with any turns reaches the optimal DR where no EO-keeping one does on 4 of 50,000 scrambles (9 for EOs of at most 4, 3 for at most 6). **Computer only**, the answer key. What it means in an attempt: the optimal DR usually isn't behind any EO you write, so judge your DR against the route numbers below, not against the optimum.
 
-**Through the EOs people write down** (each EO with its best EO-keeping DR on either DR axis; a NISS EO takes the DR on the better side; 3.2):
+**Through the EOs people write down** (each EO with its best EO-keeping DR on either DR axis; a NISS EO takes the DR on the better side; 3.2). Each row is a set of EOs; the columns are the share of scrambles where one of them leads to a DR that short:
 
-| EOs | DR in 10 or better | In 11 or better |
+| EOs | DR in ≤ 10 | DR in ≤ 11 |
 |---|---|---|
 | Every EO of at most 5 turns, normal, inverse and NISS | 97.7% | >99.9% |
 | Normal EOs only | 77.7% | 97.3% |
@@ -88,37 +88,37 @@ NISS beats the best of six linear tries on 27.0% of scrambles. The best of six w
 
 A route in 9 or better exists on 64.6% of scrambles. **Computer only**: that's every EO of at most 5 (646.4 per scramble on average with NISS, 203.2 normal only), each with its best DR on both axes, which nobody writes out and solves in an hour. It says what's there to find. By hand, read the case each EO leaves on both DR axes and keep the EOs whose case has good odds (5.2).
 
-**"Would you rather have 25 4 move eos or 200 5 move eos"** (Somebodyidk, [5 Jan 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1457758593762857091)). On average (3.3):
+**"Would you rather have 25 4 move eos or 200 5 move eos"** (Somebodyidk, [5 Jan 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1457758593762857091)). On average (3.3), the number of DRs that short you'd get from each pile of EOs:
 
-| | DRs in 10 or better | DRs in 11 or better |
+| EOs | DRs in ≤ 10 | DRs in ≤ 11 |
 |---|---|---|
 | 25 EOs of at most 4 | 4.0 | 17.3 |
 | 200 EOs of exactly 5 | 3.5 | 23.7 |
 
 So the 25 win for a DR in 10 and the 200 for a DR in 11: a 5-move EO gives about a tenth as many DRs in 10 as an EO of at most 4. The counts are of DRs that exist after each EO (its best DR on both axes), **computer only**; what carries to an attempt is the ratio, one 4-mover worth about ten 5-movers for a DR in 10.
 
-**EO to DR with every option is 7, not 8** (5.1). Two DR axes, normal or inverse, and the EO's last turn either way, all keeping the EO:
+**EO to DR with every option is 7, not 8** (5.1). Two DR axes, normal or inverse, and the EO's last turn either way, all keeping the EO. Each row is what you check after the EO; the columns are the mean turns to DR and how often it's short:
 
-| | Mean | DR in 6 or fewer | In 7 or fewer |
-|---|---|---|---|
-| Every option | 6.898 | 25.7% (1 in 3.89) | 79.6% |
-| One axis alone | 7.803 | 1 in 16.89 | |
+| Options checked | Mean, turns | DR in ≤ 6 | DR in ≤ 6, odds | DR in ≤ 7 |
+|---|---|---|---|---|
+| Every option | 6.898 | 25.7% | 1 in 3.89 | 79.6% |
+| One axis alone | 7.803 | | 1 in 16.89 | |
 
 (The every-option row is sampled.) The lengths are optimal DRs after the EO, the answer key. What you use in an attempt is the list of options to check after each EO, and the case on each DR axis, which you can read at the table and which gives the odds of each (5.2).
 
-- **The other DR axis of the same EO is worth more than switching the EO's last turn**: exact, at most 6 on 11.3% against 9.5%, and about as much as checking the inverse (11.2%). DanielEgdal set out to compute the two-axis numbers in 2023 and thought it "pretty much infeasible" ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156572910304112743)); FakeMMAP showed the state space is about 5·10^9 ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156574602508644474)), and DanielEgdal ran it until it stalled at 3·10^8 ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156656635566104657)). They're exact here (5.1).
+- **The other DR axis of the same EO is worth more than switching the EO's last turn**: exact, at most 6 on 11.3% against 9.5%, and about as much as checking the inverse (11.2%). DanielEgdal set out to compute the two-axis numbers in 2023 and thought it "pretty much infeasible" ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156572910304112743)). FakeMMAP showed the state space is about $5\cdot 10^9$ ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156574602508644474)), and DanielEgdal ran it until it stalled at $3\cdot 10^8$ ([27 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1156656635566104657)). They're exact here (5.1).
 - **Normal and inverse after an EO are related almost only through the case.** The DR lengths on the two sides correlate 0.1684 over all states, and at most 0.063 within a case. Once you know the case, the inverse is nearly a fresh draw (5.2).
 
-**EO counts per scramble** (all three axes, counted the way nissy's `-a` lists them; 4.1):
+**EO counts per scramble** (all three axes, counted the way nissy's `-a` lists them; 4.1). Each row is the kind of EO counted; the last two columns are the share of scrambles with none that short:
 
-| EOs counted | Of at most 4: mean (median) | No EO of at most 4 | None of at most 5 |
-|---|---|---|---|
-| Normal | 15.3 (12) | 21.5% | |
-| With inverse and NISS EOs | 43.9 (36) | | 0.012% [d] |
+| EOs counted | EOs of ≤ 4, mean | EOs of ≤ 4, median | Scrambles with no EO of ≤ 4 | Scrambles with no EO of ≤ 5 |
+|---|---|---|---|---|
+| Normal | 15.3 | 12 | 21.5% | |
+| With inverse and NISS EOs | 43.9 | 36 | | 0.012% [d] |
 
-**Shortest EO over three axes without NISS** (sampled, 1,000,000 states; 4.1):
+**Shortest EO over three axes without NISS** (sampled, 1,000,000 states; 4.1). Each row is a side rule; the last column is the share of states with an EO that short:
 
-| | Mean | EO in 3 or fewer |
+| EOs allowed | Mean, turns | EO in ≤ 3 |
 |---|---|---|
 | Linear | 3.881 | 29.3% |
 | Normal or inverse | 3.601 | 43.6% |
@@ -134,21 +134,21 @@ So the 25 win for a DR in 10 and the 200 for a DR in 11: a 5-move EO gives about
 ep = rand() % FACTORIAL12;  // the edge permutation of the drawn state
 ```
 
-rand() gives 4.48 times 12! values, so the lowest 48.3% of edge-permutation indices come up 25% more often than the rest. The inverse side is where the drawn state is, and that's where it shows, on 50,000 of its scrambles:
+rand() gives 4.48 times $12!$ values, so the lowest 48.3% of edge-permutation indices come up 25% more often than the rest. The inverse side is where the drawn state is, and that's where it shows, on 50,000 of its scrambles. Each row is one measure, on nissy's scrambles and on uniform ones:
 
-| | nissy's scrambles | Uniform states |
+| Measure | nissy's scrambles | Uniform states |
 |---|---|---|
 | Inverse, mean to DR (best of 3 axes) | 8.87 | 9.05 |
 | Normal, the same (barely moved) | 9.02 | 9.05 |
 | Best of six at most 8 | 34.8% | 28.4% |
 
-The twisted-corner counts are off too (chi² 33.2 and 34.9 on 7 degrees of freedom, p = 2·10^-5 and 1·10^-5); I haven't found the cause. This study draws its own uniform states (appendix B).
+The twisted-corner counts are off too ($\chi^2$ 33.2 and 34.9 on 7 degrees of freedom, p = $2\cdot 10^{-5}$ and $1\cdot 10^{-5}$); I haven't found the cause. This study draws its own uniform states (appendix B).
 
 **What it confirms or corrects**
 
-**The known tables reproduce exactly:**
+**The known tables reproduce exactly.** Each row is an earlier table or count, the number it gave where it gave one, and the number here:
 
-| Table | Theirs | Here |
+| Table | Their number | Here |
 |---|---|---|
 | Cale's and FakeMMAP's 1,082,565 EO-solved states | | mean 7.803 |
 | torchlight's EO-breaking version (EO-breaking turns change almost nothing, as torchlight's table showed in 2023) | | 7.797 |
@@ -212,7 +212,9 @@ Everything in this section is on 50,000 uniformly random scrambles (appendix B s
 
 ### 3.1 The shortest DR
 
-| Shortest DR from the scramble | Exact or sampled | Mean | ≤ 8 | ≤ 9 | ≤ 10 | ≤ 11 | Longest |
+Each row is one way of reaching DR from the scramble; the *DR in ≤* columns are the share of scrambles with a DR that short.
+
+| Shortest DR from the scramble | Exact or sampled | Mean, turns | DR in ≤ 8 | DR in ≤ 9 | DR in ≤ 10 | DR in ≤ 11 | Longest, turns |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | One fixed axis, normal | exact, all 2,217,093,120 cosets | 9.52 | 6.2% | 43.3% | 97.4% | >99.9% | 12 |
 | One fixed axis, normal (each of the 3 axes) | sampled, 150,000 axes | 9.53 | 6.2% | 43.1% | 97.4% | 100.0% | 11 |
@@ -225,9 +227,9 @@ Everything in this section is on 50,000 uniformly random scrambles (appendix B s
 
 What it says:
 
-**Three axes are worth 0.47 turns, the inverse another 0.29, NISS another 0.30.**
+**Three axes are worth 0.47 turns, the inverse another 0.29, NISS another 0.30.** Each row adds one option to the row above; the *DR in ≤* columns are the share of scrambles:
 
-| Allowed | Mean | In 10 or better | In 9 or better | In 8 or better |
+| Allowed | Mean, turns | DR in ≤ 10 | DR in ≤ 9 | DR in ≤ 8 |
 |---|---|---|---|---|
 | One axis | 9.52 | | | |
 | Best of three, one side (linear) | 9.05 | >99.9% | 76.5% | 16.5% |
@@ -240,9 +242,9 @@ What it says:
 - **The longest linear DR** seen on one side is 11 (on 12 scrambles).
 - **The superflip** is one of the scrambles with no sub-10 DR, and not a special one: 10 on every axis, normal and inverse, and 10 with NISS [b].
 
-How many DR solutions a scramble has, normal side, all three axes (each canonical move sequence that reaches DR for the first time at its last turn counts once, as `nissy solve dr -a` lists them; a solution and the same with its last turn the other way count as two):
+How many DR solutions a scramble has, normal side, all three axes (each canonical move sequence that reaches DR for the first time at its last turn counts once, as `nissy solve dr -a` lists them; a solution and the same with its last turn the other way count as two). Each row is a DR length:
 
-| Length | Mean number of DR solutions | Median | At least one | Most on one scramble |
+| DR length, turns | DR solutions per scramble, mean | Median | Scrambles with at least one | Most on one scramble |
 |---|---:|---:|---:|---:|
 | 6 | 0.004 | 0 | 0.13% | 12 |
 | 7 | 0.061 | 0 | 1.8% | 56 |
@@ -258,9 +260,9 @@ So the median scramble has 4 DRs of 9 on the normal side and 82 of 10. Its optim
 
 A human DR goes through an EO: an EO, then turns that keep it, to DR on one of the two other axes. Any DR solution contains an EO in that sense: cut it after its last quarter turn of an axis that is not the DR axis, and what comes before is an EO on that axis (Joba said the same of DR solutions in general, [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417015142771724410)). So the question is how long that EO is.
 
-The shortest EO inside an optimal normal DR, over all optimal DRs of the scramble and both EO axes, normal side, 50,000 scrambles:
+The shortest EO inside an optimal normal DR, over all optimal DRs of the scramble and both EO axes, normal side, 50,000 scrambles. Each column is an EO length in turns; the cell is the share of scrambles whose shortest such EO has that length:
 
-| Shortest EO inside an optimal DR (turns) | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | Mean |
+| Shortest EO inside an optimal DR (turns) | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | Mean, turns |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | Share of scrambles | 0.16% | 0.26% | 2.0% | 6.5% | 13.2% | 19.0% | 21.7% | 22.7% | 14.3% | 0.14% | 5.77 |
 
@@ -268,32 +270,53 @@ The optimal DR starts with an EO of at most 5 turns on 41.1% of scrambles, at mo
 
 What EO-breaking turns add to a short EO: among routes through EOs of at most 5, a continuation with any turns reaches the optimal DR where no EO-keeping one does on 4 of 50,000 scrambles (9 for EOs of at most 4, 3 for at most 6).
 
-What the best route through a short EO gives, against the optimal (normal EOs for the optimal normal DR; normal or inverse EOs for the best of six; all EOs, normal, inverse and NISS, for the NISS optimum and for the best of six; a NISS EO takes its DR on the better of the two sides):
+What the best route through a short EO gives, against the optimal (normal EOs for the optimal normal DR; normal or inverse EOs for the best of six; all EOs, normal, inverse and NISS, for the NISS optimum and for the best of six; a NISS EO takes its DR on the better of the two sides). Each row is a kind of EO and a maximum EO length; the cells are shares of all scrambles:
 
-| EOs used | Compared with | EO length | Has such an EO | Best route = optimal | Shorter than it | 1 longer | 2 longer | 3+ longer | Mean loss (where there is an EO) |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| normal | optimal normal DR (3 axes) | ≤ 3 | 29.3% | 8.9% | 0% | 12.4% | 6.6% | 1.3% | 1.02 |
-| normal | optimal normal DR (3 axes) | ≤ 4 | 78.5% | 22.1% | 0% | 32.3% | 19.6% | 4.5% | 1.09 |
-| normal | optimal normal DR (3 axes) | ≤ 5 | 99.5% | 41.1% | 0% | 41.5% | 15.1% | 1.9% | 0.78 |
-| normal | optimal normal DR (3 axes) | ≤ 6 | 100.0% | 62.8% | 0% | 32.4% | 4.7% | 0.11% | 0.42 |
-| normal or inverse, DR on that side | optimal DR, best of 6 | ≤ 3 | 43.3% | 11.7% | 0% | 18.3% | 10.9% | 2.5% | 1.10 |
-| normal or inverse, DR on that side | optimal DR, best of 6 | ≤ 4 | 88.3% | 26.0% | 0% | 36.7% | 21.1% | 4.5% | 1.05 |
-| normal or inverse, DR on that side | optimal DR, best of 6 | ≤ 5 | 99.9% | 45.6% | 0% | 41.5% | 11.9% | 1.0% | 0.68 |
-| normal or inverse, DR on that side | optimal DR, best of 6 | ≤ 6 | 100.0% | 67.8% | 0% | 29.3% | 2.9% | 0.042% | 0.35 |
-| normal, inverse or NISS | optimal NISS DR | ≤ 3 | 49.6% | 9.3% | 0% | 19.9% | 16.0% | 4.4% | 1.32 |
-| normal, inverse or NISS | optimal NISS DR | ≤ 4 | 96.0% | 23.2% | 0% | 41.8% | 26.0% | 5.0% | 1.14 |
-| normal, inverse or NISS | optimal NISS DR | ≤ 5 | >99.9% | 43.1% | 0% | 44.8% | 11.4% | 0.68% | 0.70 |
-| normal, inverse or NISS | optimal NISS DR | ≤ 6 | 100.0% | 66.1% | 0% | 30.7% | 3.1% | 0.044% | 0.37 |
-| normal, inverse or NISS | optimal DR, best of 6 | ≤ 3 | 49.6% | 14.2% | 0.78% | 21.0% | 11.3% | 2.4% | 1.01 |
-| normal, inverse or NISS | optimal DR, best of 6 | ≤ 4 | 96.0% | 33.0% | 2.5% | 40.5% | 17.3% | 2.6% | 0.84 |
-| normal, inverse or NISS | optimal DR, best of 6 | ≤ 5 | >99.9% | 53.9% | 5.8% | 34.6% | 5.5% | 0.28% | 0.40 |
-| normal, inverse or NISS | optimal DR, best of 6 | ≤ 6 | 100.0% | 70.1% | 11.2% | 17.8% | 1.0% | 0.0040% | 0.07 |
+| EOs used | Compared with | EO length, turns | Scrambles with such an EO | Best route as short as the optimal | Best route shorter than the optimal |
+|---|---:|---:|---:|---:|---:|
+| normal | optimal normal DR (3 axes) | ≤ 3 | 29.3% | 8.9% | 0% |
+| normal | optimal normal DR (3 axes) | ≤ 4 | 78.5% | 22.1% | 0% |
+| normal | optimal normal DR (3 axes) | ≤ 5 | 99.5% | 41.1% | 0% |
+| normal | optimal normal DR (3 axes) | ≤ 6 | 100.0% | 62.8% | 0% |
+| normal or inverse, DR on that side | optimal DR, best of 6 | ≤ 3 | 43.3% | 11.7% | 0% |
+| normal or inverse, DR on that side | optimal DR, best of 6 | ≤ 4 | 88.3% | 26.0% | 0% |
+| normal or inverse, DR on that side | optimal DR, best of 6 | ≤ 5 | 99.9% | 45.6% | 0% |
+| normal or inverse, DR on that side | optimal DR, best of 6 | ≤ 6 | 100.0% | 67.8% | 0% |
+| normal, inverse or NISS | optimal NISS DR | ≤ 3 | 49.6% | 9.3% | 0% |
+| normal, inverse or NISS | optimal NISS DR | ≤ 4 | 96.0% | 23.2% | 0% |
+| normal, inverse or NISS | optimal NISS DR | ≤ 5 | >99.9% | 43.1% | 0% |
+| normal, inverse or NISS | optimal NISS DR | ≤ 6 | 100.0% | 66.1% | 0% |
+| normal, inverse or NISS | optimal DR, best of 6 | ≤ 3 | 49.6% | 14.2% | 0.78% |
+| normal, inverse or NISS | optimal DR, best of 6 | ≤ 4 | 96.0% | 33.0% | 2.5% |
+| normal, inverse or NISS | optimal DR, best of 6 | ≤ 5 | >99.9% | 53.9% | 5.8% |
+| normal, inverse or NISS | optimal DR, best of 6 | ≤ 6 | 100.0% | 70.1% | 11.2% |
 
-*Has such an EO*: the scramble has an EO of that length or shorter of that kind on some axis. *Best route = optimal*: the best EO, then EO-keeping turns, is as short as the optimal DR it is compared with. *Shorter than it*: possible only when NISS EOs are compared with the linear best of six. *Mean loss* is over the scrambles that have such an EO.
+The same rows, by how many turns the best route loses to the optimal (shares of all scrambles; the mean is over the scrambles that have such an EO):
 
-The same as odds of a DR of a given length from the scramble, which is what a solver aims at:
+| EOs used | Compared with | EO length, turns | Best route 1 turn longer | 2 turns longer | 3 or more turns longer | Mean extra turns (where there is an EO) |
+|---|---:|---:|---:|---:|---:|---:|
+| normal | optimal normal DR (3 axes) | ≤ 3 | 12.4% | 6.6% | 1.3% | 1.02 |
+| normal | optimal normal DR (3 axes) | ≤ 4 | 32.3% | 19.6% | 4.5% | 1.09 |
+| normal | optimal normal DR (3 axes) | ≤ 5 | 41.5% | 15.1% | 1.9% | 0.78 |
+| normal | optimal normal DR (3 axes) | ≤ 6 | 32.4% | 4.7% | 0.11% | 0.42 |
+| normal or inverse, DR on that side | optimal DR, best of 6 | ≤ 3 | 18.3% | 10.9% | 2.5% | 1.10 |
+| normal or inverse, DR on that side | optimal DR, best of 6 | ≤ 4 | 36.7% | 21.1% | 4.5% | 1.05 |
+| normal or inverse, DR on that side | optimal DR, best of 6 | ≤ 5 | 41.5% | 11.9% | 1.0% | 0.68 |
+| normal or inverse, DR on that side | optimal DR, best of 6 | ≤ 6 | 29.3% | 2.9% | 0.042% | 0.35 |
+| normal, inverse or NISS | optimal NISS DR | ≤ 3 | 19.9% | 16.0% | 4.4% | 1.32 |
+| normal, inverse or NISS | optimal NISS DR | ≤ 4 | 41.8% | 26.0% | 5.0% | 1.14 |
+| normal, inverse or NISS | optimal NISS DR | ≤ 5 | 44.8% | 11.4% | 0.68% | 0.70 |
+| normal, inverse or NISS | optimal NISS DR | ≤ 6 | 30.7% | 3.1% | 0.044% | 0.37 |
+| normal, inverse or NISS | optimal DR, best of 6 | ≤ 3 | 21.0% | 11.3% | 2.4% | 1.01 |
+| normal, inverse or NISS | optimal DR, best of 6 | ≤ 4 | 40.5% | 17.3% | 2.6% | 0.84 |
+| normal, inverse or NISS | optimal DR, best of 6 | ≤ 5 | 34.6% | 5.5% | 0.28% | 0.40 |
+| normal, inverse or NISS | optimal DR, best of 6 | ≤ 6 | 17.8% | 1.0% | 0.0040% | 0.07 |
 
-| DR from the scramble | Exact or sampled | ≤ 8 | ≤ 9 | ≤ 10 | ≤ 11 | ≤ 12 | No such EO | Mean (where there is one) |
+*Scrambles with such an EO*: the scramble has an EO of that length or shorter of that kind on some axis. *As short as the optimal*: the best EO, then EO-keeping turns, is as short as the optimal DR it is compared with. *Shorter than the optimal*: possible only when NISS EOs are compared with the linear best of six. *Mean extra turns* is over the scrambles that have such an EO.
+
+The same as odds of a DR of a given length from the scramble, which is what a solver aims at. Each row is a route; the *DR in ≤* columns are the share of scrambles where it's that short:
+
+| DR from the scramble | Exact or sampled | DR in ≤ 8 | DR in ≤ 9 | DR in ≤ 10 | DR in ≤ 11 | DR in ≤ 12 | Scrambles with no such EO | Mean turns (where there is one) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | Optimal DR, best of 3 axes, normal | sampled, 50,000 | 16.5% | 76.5% | >99.9% | 100.0% | 100.0% | 0% | 9.05 |
 | Optimal DR, best of 6 (normal or inverse) | sampled, 50,000 | 28.4% | 91.5% | 100.0% | 100.0% | 100.0% | 0% | 8.76 |
@@ -311,9 +334,9 @@ The same as odds of a DR of a given length from the scramble, which is what a so
 | Through any EO of ≤ 5 (normal, inverse, NISS; a NISS EO takes the DR on the better side) | sampled, 50,000 | 18.2% | 64.6% | 97.7% | >99.9% | >99.9% | 0.012% | 9.16 |
 | Through any EO of ≤ 6 (normal, inverse, NISS; a NISS EO takes the DR on the better side) | sampled, 50,000 | 28.4% | 82.7% | 99.9% | 100.0% | 100.0% | 0% | 8.84 |
 
-The two targets people ask about most, as the share of scrambles with such a route:
+The two targets people ask about most, as the share of scrambles with such a route. Each row adds EOs to the row above:
 
-| EOs | DR in 10 or better | In 11 or better |
+| EOs | DR in ≤ 10 | DR in ≤ 11 |
 |---|---|---|
 | Normal, at most 5 turns | 77.7% | 97.3% |
 | Adding the inverse EOs | 90.3% | 99.5% |
@@ -324,26 +347,43 @@ A route through an EO of at most 5 (all kinds) is 9 or better on 64.6% of scramb
 
 ### 3.3 How many DRs
 
-For every EO of at most k turns and each of its two DR axes, is the EO plus the best DR after it (EO kept; for a NISS EO on the better side) at most N turns? A scramble's count is the number of such (EO, DR axis) pairs. Like 3.2 these are **computer only**: they need the best DR after every EO on both axes, and say how many DRs exist, not how many a solver finds. Cells: the mean number of pairs per scramble, and in brackets the share of scrambles with none. 50,000 scrambles. EOs counted as in nissy's `-a` listing (both directions of the last turn).
+For every EO of at most k turns and each of its two DR axes, is the EO plus the best DR after it (EO kept; for a NISS EO on the better side) at most N turns? A scramble's count is the number of such (EO, DR axis) pairs. Like 3.2 these are **computer only**: they need the best DR after every EO on both axes, and say how many DRs exist, not how many a solver finds. 50,000 scrambles; EOs counted as in nissy's `-a` listing (both directions of the last turn). Each row is a kind of EO, its axes and maximum length; the *Pairs* columns are the mean number of pairs per scramble with EO plus DR at most that many turns:
 
-| EOs | EO axes | EO length | EOs per scramble | Total ≤ 9 | Total ≤ 10 | Total ≤ 11 | Total ≤ 12 |
+| EOs | EO axes | EO length, turns | EOs per scramble | Pairs, total ≤ 9 | Pairs, total ≤ 10 | Pairs, total ≤ 11 | Pairs, total ≤ 12 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| normal | F/B only | ≤ 4 | 5.1 | 0.1 (92%) | 0.8 (77%) | 3.5 (62%) | 8.5 (59%) |
-| normal | F/B only | ≤ 5 | 67.4 | 0.3 (86%) | 1.9 (57%) | 11.0 (27%) | 46.8 (16%) |
-| normal | all three | ≤ 4 | 15.3 | 0.4 (80%) | 2.5 (47%) | 10.6 (25%) | 25.6 (22%) |
-| normal | all three | ≤ 5 | 203.2 | 0.9 (67%) | 5.7 (22%) | 32.9 (3%) | 140.7 (0.62%) |
-| normal or inverse | F/B only | ≤ 4 | 10.1 | 0.3 (86%) | 1.6 (64%) | 7.0 (47%) | 17.0 (43%) |
-| normal or inverse | F/B only | ≤ 5 | 135.0 | 0.6 (77%) | 3.8 (39%) | 21.8 (11%) | 93.6 (6%) |
-| normal or inverse | all three | ≤ 4 | 30.4 | 0.9 (67%) | 4.9 (31%) | 21.1 (14%) | 51.0 (12%) |
-| normal or inverse | all three | ≤ 5 | 406.0 | 1.7 (50%) | 11.4 (10%) | 65.6 (0.51%) | 281.2 (0.11%) |
-| normal, inverse or NISS (DR on the better side) | F/B only | ≤ 4 | 14.6 | 0.5 (81%) | 2.8 (51%) | 11.7 (32%) | 25.6 (29%) |
-| normal, inverse or NISS (DR on the better side) | F/B only | ≤ 5 | 215.4 | 1.1 (66%) | 7.6 (21%) | 43.4 (3%) | 177.6 (1%) |
-| normal, inverse or NISS (DR on the better side) | all three | ≤ 4 | 43.9 | 1.5 (58%) | 8.4 (18%) | 35.0 (5%) | 76.6 (4%) |
-| normal, inverse or NISS (DR on the better side) | all three | ≤ 5 | 646.4 | 3.3 (35%) | 22.7 (2%) | 130.1 (0.042%) | 532.2 (0.012%) |
+| normal | F/B only | ≤ 4 | 5.1 | 0.1 | 0.8 | 3.5 | 8.5 |
+| normal | F/B only | ≤ 5 | 67.4 | 0.3 | 1.9 | 11.0 | 46.8 |
+| normal | all three | ≤ 4 | 15.3 | 0.4 | 2.5 | 10.6 | 25.6 |
+| normal | all three | ≤ 5 | 203.2 | 0.9 | 5.7 | 32.9 | 140.7 |
+| normal or inverse | F/B only | ≤ 4 | 10.1 | 0.3 | 1.6 | 7.0 | 17.0 |
+| normal or inverse | F/B only | ≤ 5 | 135.0 | 0.6 | 3.8 | 21.8 | 93.6 |
+| normal or inverse | all three | ≤ 4 | 30.4 | 0.9 | 4.9 | 21.1 | 51.0 |
+| normal or inverse | all three | ≤ 5 | 406.0 | 1.7 | 11.4 | 65.6 | 281.2 |
+| normal, inverse or NISS (DR on the better side) | F/B only | ≤ 4 | 14.6 | 0.5 | 2.8 | 11.7 | 25.6 |
+| normal, inverse or NISS (DR on the better side) | F/B only | ≤ 5 | 215.4 | 1.1 | 7.6 | 43.4 | 177.6 |
+| normal, inverse or NISS (DR on the better side) | all three | ≤ 4 | 43.9 | 1.5 | 8.4 | 35.0 | 76.6 |
+| normal, inverse or NISS (DR on the better side) | all three | ≤ 5 | 646.4 | 3.3 | 22.7 | 130.1 | 532.2 |
 
-Per EO it's a small number, and it drops fast with the EO's length. Expected (EO, DR axis) pairs per EO, normal EOs, all three axes. Each yield is a ratio of sums (all pairs over all EOs of the kind, over the 50,000 scrambles), and the column for EOs of at most 4 includes those of 0 to 3 turns:
+The same rows as the share of scrambles with no such pair:
 
-| Total (EO + DR) | Per EO of ≤ 4 | Per EO of exactly 5 | 25 EOs of ≤ 4 | 200 EOs of exactly 5 |
+| EOs | EO axes | EO length, turns | No pair, total ≤ 9 | No pair, total ≤ 10 | No pair, total ≤ 11 | No pair, total ≤ 12 |
+|---|---:|---:|---:|---:|---:|---:|
+| normal | F/B only | ≤ 4 | 92% | 77% | 62% | 59% |
+| normal | F/B only | ≤ 5 | 86% | 57% | 27% | 16% |
+| normal | all three | ≤ 4 | 80% | 47% | 25% | 22% |
+| normal | all three | ≤ 5 | 67% | 22% | 3% | 0.62% |
+| normal or inverse | F/B only | ≤ 4 | 86% | 64% | 47% | 43% |
+| normal or inverse | F/B only | ≤ 5 | 77% | 39% | 11% | 6% |
+| normal or inverse | all three | ≤ 4 | 67% | 31% | 14% | 12% |
+| normal or inverse | all three | ≤ 5 | 50% | 10% | 0.51% | 0.11% |
+| normal, inverse or NISS (DR on the better side) | F/B only | ≤ 4 | 81% | 51% | 32% | 29% |
+| normal, inverse or NISS (DR on the better side) | F/B only | ≤ 5 | 66% | 21% | 3% | 1% |
+| normal, inverse or NISS (DR on the better side) | all three | ≤ 4 | 58% | 18% | 5% | 4% |
+| normal, inverse or NISS (DR on the better side) | all three | ≤ 5 | 35% | 2% | 0.042% | 0.012% |
+
+Per EO it's a small number, and it drops fast with the EO's length. Expected (EO, DR axis) pairs per EO, normal EOs, all three axes. Each yield is a ratio of sums (all pairs over all EOs of the kind, over the 50,000 scrambles), and the column for EOs of at most 4 includes those of 0 to 3 turns. Each row is a target for EO plus DR:
+
+| Total turns (EO + DR) | Pairs per EO of ≤ 4 | Pairs per EO of exactly 5 | Pairs from 25 EOs of ≤ 4 | Pairs from 200 EOs of exactly 5 |
 |---|---:|---:|---:|---:|
 | ≤ 9 | 0.028 | 0.0023 | 0.7 | 0.5 |
 | ≤ 10 | 0.161 | 0.0174 | 4.0 | 3.5 |
@@ -365,31 +405,42 @@ Two more measurements of what each kind of EO adds, normal EOs:
 
 How many EOs a scramble has, on the same 50,000 uniformly random scrambles. An EO of length L is a move sequence that solves EO on its axis for the first time at its L-th turn, so its last turn is a quarter turn of that axis, and the two directions of that last turn count as two EOs. That's nissy's `solve eo -a` listing, and my counts match nissy's on 30 scrambles (appendix B).
 
-nissy without `-a` drops the EOs that end in `F'` or `B'` (or the matching turns of the other axes), so it lists about half as many; the counts quoted on the server are mostly of that kind. A NISS EO has turns on both sides, each side ending in a quarter turn of the axis. Cells: mean per scramble, with the median in brackets.
+nissy without `-a` drops the EOs that end in `F'` or `B'` (or the matching turns of the other axes), so it lists about half as many; the counts quoted on the server are mostly of that kind. A NISS EO has turns on both sides, each side ending in a quarter turn of the axis. Each row is a kind of EO and its axes; the cells are the mean number of EOs per scramble up to that length:
 
-| EOs | Axes | ≤ 3: mean | ≤ 4: mean (median) | ≤ 5: mean (median) | ≤ 6: mean | None ≤ 4 | None ≤ 5 | Most ≤ 5 on one scramble |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| normal | F/B only | 0.39 | 5.1 (0) | 67 (32) | 900 | 58.7% | 14.6% | 476 |
-| normal | all three | 1.15 | 15.3 (12) | 203 (172) | 2,709 | 21.5% | 0.48% | 1,216 |
-| normal or inverse | F/B only | 0.76 | 10.1 (4) | 135 (78) | 1,802 | 43.1% | 5.2% | 824 |
-| normal or inverse | all three | 2.27 | 30.4 (24) | 406 (342) | 5,415 | 11.7% | 0.094% | 2,320 |
-| normal, inverse or NISS | F/B only | 0.98 | 14.6 (8) | 215 (162) | 3,147 | 28.9% | 0.95% | 1,204 |
-| normal, inverse or NISS | all three | 2.95 | 43.9 (36) | 646 (574) | 9,443 | 4.0% | 0.012% | 2,998 |
+| EOs | Axes | EOs of ≤ 3, mean | EOs of ≤ 4, mean | EOs of ≤ 5, mean | EOs of ≤ 6, mean |
+|---|---:|---:|---:|---:|---:|
+| normal | F/B only | 0.39 | 5.1 | 67 | 900 |
+| normal | all three | 1.15 | 15.3 | 203 | 2,709 |
+| normal or inverse | F/B only | 0.76 | 10.1 | 135 | 1,802 |
+| normal or inverse | all three | 2.27 | 30.4 | 406 | 5,415 |
+| normal, inverse or NISS | F/B only | 0.98 | 14.6 | 215 | 3,147 |
+| normal, inverse or NISS | all three | 2.95 | 43.9 | 646 | 9,443 |
+
+The same rows: medians, the share of scrambles with no EO that short, and the most on one scramble:
+
+| EOs | Axes | EOs of ≤ 4, median | EOs of ≤ 5, median | Scrambles with no EO of ≤ 4 | Scrambles with no EO of ≤ 5 | Most EOs of ≤ 5 on one scramble |
+|---|---:|---:|---:|---:|---:|---:|
+| normal | F/B only | 0 | 32 | 58.7% | 14.6% | 476 |
+| normal | all three | 12 | 172 | 21.5% | 0.48% | 1,216 |
+| normal or inverse | F/B only | 4 | 78 | 43.1% | 5.2% | 824 |
+| normal or inverse | all three | 24 | 342 | 11.7% | 0.094% | 2,320 |
+| normal, inverse or NISS | F/B only | 8 | 162 | 28.9% | 0.95% | 1,204 |
+| normal, inverse or NISS | all three | 36 | 574 | 4.0% | 0.012% | 2,998 |
 
 The columns up to 4 turns are lists you can actually write; the 5- and 6-turn counts, hundreds to thousands per scramble, are nissy's `-a` listings, **computer only**, there to compare scrambles, not to write out. The one-axis normal row is also exact over the 2,048 orientations of one axis: at most 5 turns, mean 67.4 in the sample against 67.7 exact.
 
-The shortest EO of a scramble, over the three axes:
+The shortest EO of a scramble, over the three axes. Each row is a side rule; the *EO in ≤* columns are the share of scrambles with an EO that short:
 
-| Shortest EO | Exact or sampled | Mean | ≤ 2 | ≤ 3 | ≤ 4 | ≤ 5 | Longest seen |
+| Shortest EO | Exact or sampled | Mean, turns | EO in ≤ 2 | EO in ≤ 3 | EO in ≤ 4 | EO in ≤ 5 | Longest seen, turns |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | One fixed axis, normal | exact, 2,048 EO states | 4.609 | 1.4% | 11.2% | 41.5% | 85.4% | 7 |
 | Best of 3 axes, normal | sampled, 1,000,000 | 3.881 | 4.0% | 29.3% | 78.5% | 99.5% | 7 |
 | Best of 3 axes, normal or inverse | sampled, 1,000,000 | 3.601 | 7.5% | 43.6% | 88.1% | 99.9% | 7 |
 | Best of 3 axes with NISS | sampled, 1,000,000 | 3.455 | 8.1% | 49.6% | 96.0% | >99.9% | 6 |
 
-The fixed-axis row is exact (DougCube's 4.609 in [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo)). The NISS row reproduces Joba's exact 3.455 ([27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410262132783714485)) to within the sample's error, and Joba's table also gives the rarest case, one the sample never hit: 7 turns even with NISS ("Distance 7: 1792" of all 12!·2^11 edge states).
+The fixed-axis row is exact (DougCube's 4.609 in [*Tables of Distinct Positions*](https://docs.google.com/spreadsheets/d/1p5goyNTGe_rlIqVslV4bJJzHNmKETUlrU-ndj9EIWAo)). The NISS row reproduces Joba's exact 3.455 ([27 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1410262132783714485)) to within the sample's error, and Joba's table also gives the rarest case, one the sample never hit: 7 turns even with NISS ("Distance 7: 1792" of all $12!\cdot 2^{11}$ edge states).
 
-What's new is the middle two rows, linear on all three axes and normal or inverse, and the odds at each length. (The 50,000 scrambles of section 3 agree within sampling error: an EO of at most 4, normal or inverse, on 88.3% of them against 88.1% here.) The short ones:
+What's new is the middle two rows, linear on all three axes and normal or inverse, and the odds at each length. (The 50,000 scrambles of section 3 agree within sampling error: an EO of at most 4, normal or inverse, on 88.3% of them against 88.1% here.) The short ones, as the share of scrambles with an EO of that length or shorter on some axis:
 
 | EO on some axis | Linear | With the inverse | With NISS |
 |---|---|---|---|
@@ -408,22 +459,22 @@ Odd scrambles, from the 50,000:
 
 ### 4.2 Bad edges on the three axes
 
-Exact over all 12!·2^11 edge states (34,650 ways to place the E-, M- and S-slice pieces times 2,048 flip patterns; within a slice the order does not matter). torchlight computed the sorted triples in 2023 (the speedsolving post on bad-edge counts, and [25 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1155803699025813594)). The table here is the same; on top of it I add the ordered triples, the layouts by axis and the EO odds by bad-edge count. The most common sorted triples:
+Exact over all $12!\cdot 2^{11}$ edge states (34,650 ways to place the E-, M- and S-slice pieces times 2,048 flip patterns; within a slice the order does not matter). torchlight computed the sorted triples in 2023 (the speedsolving post on bad-edge counts, and [25 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1155803699025813594)). The table here is the same; on top of it I add the ordered triples, the layouts by axis and the EO odds by bad-edge count. The most common sorted triples; each row is a set of bad-edge counts on the three axes, in any order:
 
 | Bad edges on the three axes (sorted) | Probability (exact) | As a percentage |
 |---|---:|---:|
-| 4/6/6 | 218033/1478400 | 14.7% |
-| 6/6/8 | 218033/1478400 | 14.7% |
-| 4/6/8 | 8539/61600 | 13.9% |
-| 6/6/6 | 815891/8870400 | 9.2% |
-| 4/4/6 | 43721/492800 | 8.9% |
-| 6/8/8 | 43721/492800 | 8.9% |
-| 4/4/8 | 1101/30800 | 3.6% |
-| 4/8/8 | 1101/30800 | 3.6% |
+| 4/6/6 | $218033/1478400$ | 14.7% |
+| 6/6/8 | $218033/1478400$ | 14.7% |
+| 4/6/8 | $8539/61600$ | 13.9% |
+| 6/6/6 | $815891/8870400$ | 9.2% |
+| 4/4/6 | $43721/492800$ | 8.9% |
+| 6/8/8 | $43721/492800$ | 8.9% |
+| 4/4/8 | $1101/30800$ | 3.6% |
+| 4/8/8 | $1101/30800$ | 3.6% |
 
 All 65 are in appendix A. A few facts that come out exactly:
 
-- all 12 edges good on one given axis: probability 1/2048; on some axis: 103741/70963200 (0.15%);
+- all 12 edges good on one given axis: probability $1/2048$; on some axis: $103741/70963200$ (0.15%);
 - 12/12/12 is 1 in 70,963,200;
 - some axis has 10 bad on 9.2% of scrambles;
 - no two axes differ by more than 8;
@@ -431,17 +482,42 @@ All 65 are in appendix A. A few facts that come out exactly:
 
 Uneven triples are rarer than independent axes would make them: 2/10/10 has probability 0.0015%, against 0.010% if the axes were independent, 6.5 times less.
 
-The chance of a short EO on one axis, by its number of bad edges. The last column, the shortest normal EO of each of the 2,048 states, is Shota's table ([11 Sep 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1283314529916420116)) and agrees with Shota's *Full EO* sheet; the new part is the odds with the inverse and with NISS. The normal columns are exact over the 2,048 states of one axis. The inverse and NISS columns are sampled, 1,000,000 random states times 3 axes, so ±0.1 point or better, except the rare 0-, 10- and 12-bad rows, which rest on about 1,400 to 97,000 axes:
+The chance of a short EO on one axis, by its number of bad edges. The last column, the shortest normal EO of each of the 2,048 states, is Shota's table ([11 Sep 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1283314529916420116)) and agrees with Shota's *Full EO* sheet; the new part is the odds with the inverse and with NISS. The normal columns are exact over the 2,048 states of one axis. The inverse and NISS columns are sampled, 1,000,000 random states times 3 axes, so ±0.1 point or better, except the rare 0-, 10- and 12-bad rows, which rest on about 1,400 to 97,000 axes. Each row is a number of bad edges on the axis; the *EO in ≤* columns are the share of such axes with an EO that short:
 
-| Bad edges | Share of axes | Normal ≤ 3 | Normal ≤ 4 | Normal ≤ 5 | Normal or inverse ≤ 4 | Normal or inverse ≤ 5 | NISS ≤ 3 | NISS ≤ 4 | NISS ≤ 5 | Shortest normal EO: length: states | Sampled axes (NISS columns) |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 0 | 1/2048 | 100.0% | 100.0% | 100.0% | 100.0% | 100.0% | 100.0% | 100.0% | 100.0% | 0:1 | 1,427 |
-| 2 | 66/2048 | 60.6% | 93.9% | 100.0% | 99.6% | 100.0% | 85.3% | >99.9% | 100.0% | 3:40, 4:22, 5:4 | 97,018 |
-| 4 | 495/2048 | 32.3% | 88.1% | 99.4% | 98.6% | >99.9% | 57.0% | 99.3% | 100.0% | 1:2, 2:24, 3:134, 4:276, 5:56, 6:3 | 725,919 |
-| 6 | 924/2048 | 0.87% | 22.5% | 82.7% | 39.9% | 97.0% | 6.2% | 63.3% | 99.6% | 3:8, 4:200, 5:556, 6:160 | 1,352,539 |
-| 8 | 495/2048 | 4.2% | 28.9% | 86.3% | 49.5% | 98.1% | 10.7% | 61.4% | 99.6% | 2:1, 3:20, 4:122, 5:284, 6:68 | 725,001 |
-| 10 | 66/2048 | 0% | 0% | 0% | 0% | 0% | 0.40% | 11.8% | 79.5% | 6:54, 7:12 | 96,607 |
-| 12 | 1/2048 | 0% | 0% | 0% | 0% | 0% | 0.74% | 19.5% | 85.8% | 7:1 | 1,489 |
+| Bad edges | Share of axes | Normal EO in ≤ 3 | Normal EO in ≤ 4 | Normal EO in ≤ 5 | Normal or inverse EO in ≤ 4 | Normal or inverse EO in ≤ 5 |
+|---|---:|---:|---:|---:|---:|---:|
+| 0 | $1/2048$ | 100.0% | 100.0% | 100.0% | 100.0% | 100.0% |
+| 2 | $66/2048$ | 60.6% | 93.9% | 100.0% | 99.6% | 100.0% |
+| 4 | $495/2048$ | 32.3% | 88.1% | 99.4% | 98.6% | >99.9% |
+| 6 | $924/2048$ | 0.87% | 22.5% | 82.7% | 39.9% | 97.0% |
+| 8 | $495/2048$ | 4.2% | 28.9% | 86.3% | 49.5% | 98.1% |
+| 10 | $66/2048$ | 0% | 0% | 0% | 0% | 0% |
+| 12 | $1/2048$ | 0% | 0% | 0% | 0% | 0% |
+
+With NISS, same rows:
+
+| Bad edges | NISS EO in ≤ 3 | NISS EO in ≤ 4 | NISS EO in ≤ 5 | Sampled axes (NISS columns) |
+|---|---:|---:|---:|---:|
+| 0 | 100.0% | 100.0% | 100.0% | 1,427 |
+| 2 | 85.3% | >99.9% | 100.0% | 97,018 |
+| 4 | 57.0% | 99.3% | 100.0% | 725,919 |
+| 6 | 6.2% | 63.3% | 99.6% | 1,352,539 |
+| 8 | 10.7% | 61.4% | 99.6% | 725,001 |
+| 10 | 0.40% | 11.8% | 79.5% | 96,607 |
+| 12 | 0.74% | 19.5% | 85.8% | 1,489 |
+
+Shota's table: each row is a length of the shortest normal EO, each column a number of bad edges, and the cell is how many of the 2,048 edge-orientation states have it (– for none):
+
+| Shortest normal EO, turns | 0 bad | 2 bad | 4 bad | 6 bad | 8 bad | 10 bad | 12 bad |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 0 | 1 | – | – | – | – | – | – |
+| 1 | – | – | 2 | – | – | – | – |
+| 2 | – | – | 24 | – | 1 | – | – |
+| 3 | – | 40 | 134 | 8 | 20 | – | – |
+| 4 | – | 22 | 276 | 200 | 122 | – | – |
+| 5 | – | 4 | 56 | 556 | 284 | – | – |
+| 6 | – | – | 3 | 160 | 68 | 54 | – |
+| 7 | – | – | – | – | – | 12 | 1 |
 
 This table is for the attempt: the bad edges on each axis are what you see when you look for EO, and the row gives the odds of a short EO on that axis.
 
@@ -467,7 +543,9 @@ How it's set up:
 
 ### 5.1 The typical EO to DR, with each option
 
-| After the EO: DR with | Exact or sampled | Mean | ≤ 4 | ≤ 5 | ≤ 6 | ≤ 7 | ≤ 8 | 1 in … for ≤ 6 |
+Each row is what you allow after the EO; the *DR in ≤* columns are the share of EO-solved states with a DR that short, and the last column is the same for 6 as odds.
+
+| After the EO: DR with | Exact or sampled | Mean, turns | DR in ≤ 4 | DR in ≤ 5 | DR in ≤ 6 | DR in ≤ 7 | DR in ≤ 8 | DR in ≤ 6: 1 in |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | one DR axis, EO kept, normal (the known table) | exact, 1,082,565 states | 7.803 | 0.11% | 0.87% | 5.9% | 30.6% | 82.4% | 16.89 |
 | one DR axis, any turns (EO may break) | exact, 1,082,565 states | 7.797 | 0.11% | 0.87% | 5.9% | 30.8% | 82.8% | 16.82 |
@@ -486,9 +564,9 @@ Zagros asked ([30 Jun 2025](https://discord.com/channels/1007840975726575667/100
 
 - **The other DR axis** of the same EO is worth more than switching the EO's last turn: at most 6 on 11.3% of EOs against 9.5%, mean 7.401 against 7.542. Checking the inverse is worth about the same as the other axis (11.2%).
 - **All of the EO-keeping options together** (two axes, normal or inverse, last turn either way): mean 6.898, at most 6 on 25.7% (1 in 3.89, against 1 in 16.89 for one axis), at most 7 on 79.6%. So once you use every option, the typical EO is 7 from DR, not 8.
-- **EO-breaking turns change almost nothing** (exact; torchlight's table). On top of all the EO-keeping options they add 0.003 turns on average [f]. One axis:
+- **EO-breaking turns change almost nothing** (exact; torchlight's table). On top of all the EO-keeping options they add 0.003 turns on average [f]. One axis, with and without them:
 
-| | Mean | At most 6 |
+| Turns after the EO | Mean, turns | DR in ≤ 6 |
 |---|---|---|
 | Keeping the EO | 7.803 | 5.92% |
 | Any turns | 7.797 | 5.94% |
@@ -507,9 +585,9 @@ And an EO-breaking turn: 8 keeping the EO, 7 breaking it.
 
 ### 5.2 By case
 
-The case after the EO, on the DR axis you're looking at, in the server's naming: bad corners, then edges out of place for that DR (slice edges outside the slice and as many others inside it), with 6c and 8c not split into 3+3 and 6+0 (Cale's sheet splits them). Below are the 16 most common cases. The share of EOs and the mean are exact; the other columns are the chance of a DR of at most 6 with each option (exact for one axis, the switch and the better of two axes; sampled, 10,000,000 states, for the inverse and all together):
+The case after the EO, on the DR axis you're looking at, in the server's naming: bad corners, then edges out of place for that DR (slice edges outside the slice and as many others inside it), with 6c and 8c not split into 3+3 and 6+0 (Cale's sheet splits them). Below are the 16 most common cases. The share of EOs and the mean are exact; the other columns are the chance of a DR of at most 6 with each option (exact for one axis, the switch and the better of two axes; sampled, 10,000,000 states, for the inverse and all together). Each row is a case; the *DR in ≤ 6* columns are the chance with each option:
 
-| Case on the DR axis | Share of EO-solved states | 1 in | Mean, one axis | ≤ 6: one axis | ≤ 6: last EO turn either way | ≤ 6: better of 2 DR axes | ≤ 6: normal or inverse | ≤ 6: all of these |
+| Case on the DR axis | Share of EO-solved states | Odds | Mean turns, one axis | DR in ≤ 6: one axis | DR in ≤ 6: last EO turn either way | DR in ≤ 6: better of 2 DR axes | DR in ≤ 6: normal or inverse | DR in ≤ 6: all of these |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | 6c6e | 12.7% | 1 in 7.8 | 7.73 | 5.6% | 9.4% | 10.6% | 10.8% | 25.1% |
 | 5c6e | 11.6% | 1 in 8.6 | 7.69 | 6.1% | 10.2% | 11.7% | 11.9% | 27.2% |
@@ -534,9 +612,9 @@ This table is for the attempt: the case is what you read at the table (twisted c
 
 Over all EO-solved states, the DR lengths on normal and on the inverse (same axis, EO kept) have correlation 0.1684: a bad normal side does make a bad inverse a little more likely. Almost all of that is the case. The inverse of a position has the same case on the same axis (as many twisted corners, as many slice edges out of the slice), and within one case the correlation is between -0.015 and 0.063 in each of the 35 cases with 1,000 or more samples (appendix A). Small, but not zero: the largest (0.0628 for 8c2e, 0.0282 for 6c8e, 0.0167 for 6c6e) are in cases that lump together sub-cases the inversion keeps (6c is 3+3 or 6+0, 8c is 4+4 or 7+1).
 
-So both are nearly right: once you know the case, the inverse is close to a fresh draw from that case (Jay), and a long normal side is no reason to expect a long inverse, so switching after a bad one pays (Tom Nelson and Rodney Kinney). The chance the inverse is at most 6:
+So both are nearly right: once you know the case, the inverse is close to a fresh draw from that case (Jay), and a long normal side is no reason to expect a long inverse, so switching after a bad one pays (Tom Nelson and Rodney Kinney). The chance the inverse is at most 6, given the normal side's length (same axis, EO kept):
 
-| Normal side | Inverse at most 6 |
+| Normal side, turns | Inverse DR in ≤ 6 |
 |---|---|
 | 9 | 3.2% |
 | 6 | 11.2% |
@@ -548,20 +626,20 @@ So both are nearly right: once you know the case, the inverse is close to a fres
 
 Statements the numbers can settle, by theme. Questions and guesses are in section 2, not here. Each verdict is one of **True**, **Corrected**, **Depends** (true under one reading or convention, not another), **Open** (the numbers here do not settle it) and **Withdrawn** (taken back at the time by whoever said it), and is no stronger than what was measured: scramble-level numbers are on 50,000 uniformly random scrambles, EO to DR numbers exact unless marked. Every correction has an example written out under the tables (letters in brackets).
 
-**Scramble to DR**
+**Scramble to DR.** One claim per row, who said it, and the verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
 | "Only 6.2% of axes are 8 moves or less away from DR if you don't allow NISS"; "43% of scrambles being 9 moves or better away from DR" | Louis [9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326956621435506808), [9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326954809827262576) (restated for one axis, [9 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1326956179103940748)) | **True**: exact, 6.2% and 43.3% on one fixed axis, linear. Over three axes and both sides it is 28.4% and 91.5% (3.1). |
 | "5.9% of axes are 6 moves or fewer away from DR linearly if EO is solved (and you don't break it)" | Louis [10 Jan 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1327214655453663253) | **True**: 5.9%, exact. |
 | "well sub-10 is not possible for superflip" | wen [9 Sep 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1547202526749786114) | **True**: 10 on every axis, normal and inverse, and 10 with NISS [b]. |
-| DR skip: "1 in 2^11 * 3^7 * 12! / 8! or something like that", a passing answer in a joke thread | bpaul [24 Jan 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1067539508649791558) | **Corrected**, lightly: the order of the four slice edges does not matter, so 12!/8! is 12!/(8!·4!) = 495; 1 in 2,217,093,120 on a given axis, about 1 in 739 million on some axis [i]. |
+| DR skip: "1 in 2^11 * 3^7 * 12! / 8! or something like that", a passing answer in a joke thread | bpaul [24 Jan 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1067539508649791558) | **Corrected**, lightly: the order of the four slice edges does not matter, so $12!/8!$ is $12!/(8!\cdot 4!) = 495$; 1 in 2,217,093,120 on a given axis, about 1 in 739 million on some axis [i]. |
 | From 4 four-move and 45 five-move EOs with RZPs in 5, "you can expect 4 DRs in 11 and 10 DRs in 12" | Tom Nelson [9 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1062115508641599498) | **Depends** on what is counted. Tom counted DRs through a few RZP types ([11 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1062872328960229487): "I just counted R, R U2 R and R U R"). Every route through those EOs gives about 8.1 (EO, DR axis) pairs in 11 and 34.3 in 12 on average (3.3), so Tom Nelson's figures are a lower bound on what exists, as Tom Nelson's own caveats say ([9 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1062118696950169742)). |
 | "I see people checking ~50 EOs, so finding 6 DRs with <= 11 moves sounds realistic" | Rodney Kinney [9 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1062022602262065182) | **Depends** on the EOs: 50 EOs of 5 turns give about 5.9 routes in 11 on average, 50 of at most 4 about 35 (3.3). What exists, not what is found. |
 | "150 4e4c's in 5 is ~7 10 move DRs and 1 9 move DR" | Tom Nelson [20 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1153957932375998534) | **True** as arithmetic on the exact table: an RZP in 5 then a DR in 5 or fewer is 150 × 4.3% = 6.5, in 4 or fewer 150 × 0.82% = 1.2 (4c4e straight off an EO, one axis, EO kept). zakimoshi's caveat ([20 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1153959223818989629), "This kinda implies that everything is unrelated to each other") stands: RZPs of one scramble are not independent, and RZPs are not covered here (section 7). |
 | One of 300 EOs gives a DR in 5 or less "92.71%" (binomial, `1 - (1 - p)^300`, from the one-axis table) | DougCube [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417264063553081415) | **Open**: the arithmetic is right, for one DR axis per EO (JTuu, [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417265136581873664): "oh, it's only UD dr"; DougCube, [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417265956362915975): "oh sorry, I forgot to stipulate that"). DougCube flagged the assumption ([15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417264352293027912): "assuming each of the EOs are statistically independent of each other"; [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417264724143374489): "by limiting to 5-move or less EO, then it becomes coupled and are not independent"; [15 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1417264810105639034): "if instead, it's any length EO, then I think these computations should hold very well"). How dependent the EOs of one scramble are for EO to DR alone is not measured here; for whole routes, see 3.3. |
 
-**EO to DR**
+**EO to DR.** One claim per row, who said it, and the verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
@@ -581,11 +659,11 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | 3c6e: "it’s 1/7 for 7 moves instead of 1/3 for 4e4c, 8c8e, 8e7c, 2e4c etc" | Noah Swor [3 Aug 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1269374128155267147) | **Depends** on what "7 moves" means, and the message was about 3c6e RZPs (mrauo, [3 Aug 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1269372746723491851): "Is it worth to switch from 3c6e rzp in 5?"), while these numbers are for EO-solved states, a different population. The 1/3 figures fit a DR in 6 or fewer with the EO's last turn either way (4c4e 1 in 3.6, 7c8e 1 in 4.1); on that reading 3c6e is 1 in 12.8, not 1 in 7. Without the switch it is 1 in 20.6 in 6 and 1 in 3.7 in 7. |
 | RZP to DR on normal and inverse: "i'm certain there's zero correlation"; "it's the opposite for rzp to DR because if it's bad then it's more likely to be better after switching"; "Regression to the mean" | Jay [11 Feb 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1074182849965596824); Tom Nelson [11 Feb 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1074181270952747120); Rodney Kinney [11 Feb 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1074187563704782908) | **Depends**, and both are nearly right for EOs: 0.1684 overall, almost all of it because both sides have the same case; within a case at most 0.063; and a bad normal side is no reason to skip the inverse (5.2). Measured for EO-solved states, not RZPs. |
 
-**Scramble to EO**
+**Scramble to EO.** One claim per row, who said it, and the verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
-| EO skip: "also 1/2048 for fixed axis", "103741/70963200 for any axis"; "9335 (~0.1458%, 1 in 686) had solved EO already" on 6,406,775 scrambles | torchlight [12 Oct 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1162060161507151983); Minkowski [25 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1155752261566349332) | **True**: exact 103741/70963200; Minkowski's sample is within its error. |
+| EO skip: "also 1/2048 for fixed axis", "103741/70963200 for any axis"; "9335 (~0.1458%, 1 in 686) had solved EO already" on 6,406,775 scrambles | torchlight [12 Oct 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1162060161507151983); Minkowski [25 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1155752261566349332) | **True**: exact $103741/70963200$; Minkowski's sample is within its error. |
 | The sum of bad edges over the three axes peaks at 18: "18    16978144    23.925280%" | torchlight [14 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383629578248917003) | **True**, exact. |
 | "13.907% that's sort of lucky I guess" (all three axes with 0, 2, 4 or 8 bad) | jisu101 [3 Nov 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1567141993912737856) | **True**: 9868829/70963200 = 13.906967%. |
 | "6/6/4 or 6/6/8 is more likely than 6/6/6"; "6/6/6 is more common than 4 on UD / 6 on LR / 6 on FB" | Yura Riabov [1 Feb 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1202771755161354291); torchlight [25 Sep 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1155834425523843143) | **True**, sorted and ordered: 218033/1478400 = 14.747903% and 815891/8870400 = 9.197905% sorted; 218033/4435200 = 4.915968% and 815891/8870400 = 9.197905% ordered. |
@@ -601,7 +679,7 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | More 3-move than 4-move EOs: "so the chance is 0" | Kai Cui [7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315061840354607256) | **Withdrawn** at the time: kalindumaxxer answered "i literally got one" ([7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315061928632258621)), Kai Cui "oh bruh" ([7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315061947477004338)) and, after Yura Riabov's `U (R2 U)` ([7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315062162749657159)), "nvm then" ([7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315062202729758750)) and "probably quite rare" ([7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315062624492322927)). Counting every EO (nissy `-a`), it happens on 0.018% of scrambles with NISS, never linearly in the sample [e]. kalindumaxxer asked "exluding htr equivalent variants" ([7 Dec 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1315059156046184611)); that convention is not counted here. |
 | "I remember something like 200ish <=5 movers and 17 <=4 movers"; "the median for 4 or less is more like 14" | wen [12 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1250363326324543500); Lichi Fang [12 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1250367613356347464) | **Depends** on the counting. They are about what Cale's sheet of official scrambles shows (NISS, all axes, nissy's listing). On uniform scrambles with every EO counted (nissy `-a`), all axes: normal only, at most 5 203.2 and at most 4 15.3 (median 12); with inverse and NISS EOs 646.4 and 43.9 (median 36). nissy's default listing shows about half (4.1). |
 | "virtually all scrambles have some EO in 5" | Lewis Isom [17 Jun 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1252391829085622393) | **True**: none of at most 5 on 0.48% linearly, 0.012% with NISS [d]. |
-| 12 bad on one axis: "1 in 2048"; 10 bad: "About 3% it seems", "close to 10% on a real scramble" | Aneurin [13 Apr 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1096002839890907156); wen [9 Aug 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1271343483147522069), [9 Aug 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1271354315990110292) | **True**: exact 1/2048; 3.2% on one axis, 9.2% on some axis. |
+| 12 bad on one axis: "1 in 2048"; 10 bad: "About 3% it seems", "close to 10% on a real scramble" | Aneurin [13 Apr 2023](https://discord.com/channels/1007840975726575667/1007841273111117924/1096002839890907156); wen [9 Aug 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1271343483147522069), [9 Aug 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1271354315990110292) | **True**: exact $1/2048$; 3.2% on one axis, 9.2% on some axis. |
 
 The examples. Every move sequence here was replayed on the sticker model (appendix B).
 
@@ -712,7 +790,7 @@ D L' B R (B' D' B' R2 U B R2 U)                                  // EO, then DR 
 R2 L2 F2 B2  // scramble
 ```
 
-Every order of the four slice edges in the slice is the same DR, so the placements count as C(12,4) = 495, not 12!/8! = 11,880. The cosets of DR on one axis number 2^11 · 3^7 · 495 = 2,217,093,120, the denominator of DougCube's "Going to DR" tab.
+Every order of the four slice edges in the slice is the same DR, so the placements count as $\binom{12}{4} = 495$, not $12!/8!$ = 11,880. The cosets of DR on one axis number $2^{11}\cdot 3^7\cdot 495$ = 2,217,093,120, the denominator of DougCube's "Going to DR" tab.
 
 **[j] A 4c6e after an EO.** The EO (F/B) leaves 4c6e for DR on R/L; the shortest DR keeping the EO is 8, the most common length for 4c6e.
 
@@ -741,53 +819,143 @@ One case shows nothing about averages: the averages are in the row above and in 
 
 ## Appendix A: full tables
 
-**EO to DR by case**, all 40 cases. Each cell: mean turns to DR, then the chance of at most 6. One axis, any turns and the last turn either way are exact over all 1,082,565 EO-solved states; the better of two DR axes is exact (read by the case on the first axis); normal or inverse and all EO-keeping options together are sampled (10,000,000 states; the last column gives how many fell in each case, and the cases marked *few* rest on about 300 to 1,000).
+**EO to DR by case**, all 40 cases, in three tables: how common each case is, the mean turns to DR with each option, and the chance of a DR in 6 or fewer with each option. One axis, any turns and the last turn either way are exact over all 1,082,565 EO-solved states; the better of two DR axes is exact (read by the case on the first axis); normal or inverse and all EO-keeping options together are sampled (10,000,000 states; the last column gives how many fell in each case, and the cases marked *few* rest on about 300 to 1,000).
 
-| Case on the DR axis | Share of EO-solved states | 1 in | One axis, EO kept | Any turns | Last EO turn either way, EO kept | Better of 2 DR axes | Normal or inverse | All EO-keeping options | States sampled (last two columns) |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 6c6e | 12.7% | 1 in 7.8 | 7.73 / 5.6% | 7.73 / 5.6% | 7.47 / 9.4% | 7.39 / 10.6% | 7.35 / 10.8% | 6.89 / 25.1% | 1,274,785 |
-| 5c6e | 11.6% | 1 in 8.6 | 7.69 / 6.1% | 7.69 / 6.1% | 7.42 / 10.2% | 7.34 / 11.7% | 7.29 / 11.9% | 6.83 / 27.2% | 1,157,431 |
-| 6c4e | 9.6% | 1 in 10.5 | 7.97 / 3.0% | 7.96 / 3.0% | 7.71 / 5.3% | 7.51 / 8.5% | 7.59 / 5.9% | 7.01 / 20.5% | 957,958 |
-| 4c6e | 8.7% | 1 in 11.5 | 7.85 / 4.6% | 7.84 / 4.6% | 7.58 / 7.7% | 7.43 / 10.3% | 7.45 / 9.0% | 6.92 / 24.2% | 868,439 |
-| 5c4e | 8.7% | 1 in 11.5 | 7.60 / 7.2% | 7.59 / 7.3% | 7.33 / 12.2% | 7.26 / 13.6% | 7.21 / 14.0% | 6.75 / 31.4% | 869,787 |
-| 7c6e | 7.0% | 1 in 14.4 | 7.82 / 4.0% | 7.82 / 4.0% | 7.57 / 6.8% | 7.46 / 8.6% | 7.46 / 7.9% | 6.98 / 20.9% | 694,211 |
-| 4c4e | 6.5% | 1 in 15.3 | 7.19 / 19.2% | 7.18 / 19.3% | 6.90 / 28.1% | 6.95 / 25.4% | 6.71 / 34.8% | 6.37 / 51.1% | 652,018 |
-| 7c4e | 5.2% | 1 in 19.2 | 8.10 / 2.2% | 8.09 / 2.2% | 7.84 / 3.8% | 7.61 / 6.6% | 7.73 / 4.4% | 7.13 / 16.1% | 520,005 |
-| 6c8e | 4.0% | 1 in 25.1 | 7.90 / 3.2% | 7.90 / 3.2% | 7.63 / 5.6% | 7.49 / 8.1% | 7.53 / 6.3% | 7.00 / 19.7% | 397,422 |
-| 5c8e | 3.6% | 1 in 27.6 | 8.08 / 1.4% | 8.08 / 1.4% | 7.82 / 2.6% | 7.59 / 6.2% | 7.73 / 2.8% | 7.12 / 15.5% | 362,239 |
-| 4c8e | 2.7% | 1 in 36.8 | 8.48 / 0.27% | 8.48 / 0.27% | 8.24 / 0.49% | 7.79 / 4.6% | 8.17 / 0.54% | 7.32 / 11.4% | 272,394 |
-| 3c6e | 2.3% | 1 in 43.2 | 7.84 / 4.8% | 7.84 / 4.8% | 7.58 / 7.8% | 7.41 / 10.9% | 7.45 / 9.3% | 6.89 / 25.2% | 232,084 |
-| 7c8e | 2.2% | 1 in 46.0 | 7.25 / 16.4% | 7.25 / 16.4% | 6.98 / 24.4% | 7.07 / 20.5% | 6.80 / 30.3% | 6.51 / 43.8% | 218,132 |
-| 6c2e | 1.8% | 1 in 54.9 | 8.27 / 0.16% | 8.25 / 0.16% | 8.05 / 0.33% | 7.68 / 5.8% | 7.97 / 0.33% | 7.21 / 14.1% | 182,237 |
-| 8c6e | 1.8% | 1 in 56.2 | 8.08 / 1.2% | 8.07 / 1.2% | 7.86 / 2.1% | 7.61 / 5.8% | 7.74 / 2.4% | 7.16 / 14.4% | 177,952 |
-| 3c4e | 1.7% | 1 in 57.5 | 7.45 / 9.9% | 7.43 / 10.1% | 7.18 / 15.9% | 7.11 / 18.2% | 7.06 / 19.0% | 6.60 / 39.6% | 173,359 |
-| 5c2e | 1.7% | 1 in 60.4 | 7.86 / 2.3% | 7.82 / 2.5% | 7.63 / 4.3% | 7.42 / 9.5% | 7.53 / 4.5% | 6.94 / 22.3% | 165,385 |
-| 8c4e | 1.3% | 1 in 74.9 | 8.42 / 0.72% | 8.39 / 0.72% | 8.17 / 1.2% | 7.78 / 4.6% | 8.06 / 1.4% | 7.32 / 11.2% | 133,037 |
-| 4c2e | 1.2% | 1 in 80.5 | 7.16 / 18.7% | 7.15 / 19.2% | 6.89 / 27.2% | 6.92 / 26.2% | 6.72 / 33.8% | 6.37 / 51.9% | 125,012 |
-| 2c6e | 1.2% | 1 in 86.3 | 8.27 / 0.13% | 8.27 / 0.13% | 8.05 / 0.26% | 7.67 / 6.0% | 7.96 / 0.25% | 7.21 / 14.4% | 115,310 |
-| 7c2e | 0.99% | 1 in 100.7 | 8.55 / 0.30% | 8.53 / 0.30% | 8.30 / 0.60% | 7.85 / 4.2% | 8.23 / 0.60% | 7.38 / 10.6% | 99,427 |
-| 2c4e | 0.87% | 1 in 115.1 | 7.54 / 6.2% | 7.53 / 6.2% | 7.28 / 10.7% | 7.18 / 15.1% | 7.19 / 11.9% | 6.68 / 33.5% | 86,873 |
-| 3c8e | 0.72% | 1 in 138.1 | 8.56 / 0.41% | 8.56 / 0.41% | 8.33 / 0.77% | 7.84 / 4.3% | 8.23 / 0.75% | 7.38 / 10.4% | 72,416 |
-| 8c8e | 0.56% | 1 in 179.8 | 7.23 / 14.5% | 7.23 / 14.5% | 6.98 / 23.5% | 7.05 / 19.2% | 6.83 / 26.9% | 6.55 / 42.5% | 55,365 |
-| 2c8e | 0.36% | 1 in 276.2 | 8.95 / 0% | 8.94 / 0% | 8.76 / 0% | 8.05 / 3.2% | 8.71 / 0% | 7.58 / 7.8% | 36,388 |
-| 3c2e | 0.33% | 1 in 302.1 | 6.16 / 61.6% | 6.16 / 61.6% | 5.88 / 77.0% | 6.09 / 66.0% | 5.70 / 85.5% | 5.49 / 93.4% | 32,985 |
-| 8c2e | 0.25% | 1 in 393.4 | 8.77 / 0% | 8.74 / 0% | 8.54 / 0% | 7.98 / 3.2% | 8.43 / 0% | 7.50 / 8.5% | 25,531 |
-| 2c2e | 0.17% | 1 in 604.1 | 6.88 / 23.7% | 6.88 / 23.7% | 6.65 / 35.9% | 6.67 / 34.5% | 6.56 / 41.5% | 6.21 / 63.7% | 16,832 |
-| 6c0e | 0.057% | 1 in 1,757.4 | 8.96 / 0% | 8.78 / 0% | 8.82 / 0% | 7.96 / 4.8% | 8.78 / 0% | 7.44 / 12.0% | 5,686 |
-| 5c0e | 0.052% | 1 in 1,933.2 | 8.04 / 0% | 7.80 / 0% | 7.93 / 0% | 7.59 / 6.3% | 7.84 / 0% | 7.16 / 15.1% | 5,255 |
-| 4c0e | 0.039% | 1 in 2,577.5 | 7.39 / 7.6% | 7.19 / 15.2% | 7.13 / 13.3% | 7.08 / 17.2% | 7.03 / 14.3% | 6.61 / 36.7% | 3,983 |
-| 7c0e | 0.031% | 1 in 3,221.9 | 8.76 / 0% | 8.43 / 0% | 8.55 / 0% | 8.06 / 2.8% | 8.53 / 0% | 7.63 / 6.9% | 3,140 |
-| 0c6e | 0.021% | 1 in 4,832.9 | 8.21 / 0% | 8.21 / 0% | 8.05 / 0% | 7.77 / 4.5% | 7.90 / 0% | 7.39 / 10.4% | 2,048 |
-| 0c4e | 0.015% | 1 in 6,443.8 | 6.45 / 47.6% | 6.45 / 47.6% | 6.17 / 64.3% | 6.35 / 53.1% | 6.05 / 72.1% | 5.78 / 84.4% | 1,575 |
-| 3c0e | 0.010% | 1 in 9,665.8 | 7.29 / 0% | 7.00 / 0% | 7.07 / 0% | 6.99 / 13.5% | 7.10 / 0% | 6.64 / 30.6% | 1,019 (few) |
-| 8c0e | 0.0079% | 1 in 12,588.0 | 8.98 / 1.2% | 8.77 / 2.3% | 8.79 / 1.2% | 8.12 / 3.4% | 8.59 / 2.4% | 7.64 / 6.5% | about 794 (few) |
-| 0c8e | 0.0065% | 1 in 15,465.2 | 8.94 / 1.4% | 8.94 / 1.4% | 8.77 / 1.4% | 8.23 / 3.0% | 8.63 / 3.0% | 7.77 / 5.6% | about 647 (few) |
-| 2c0e | 0.0052% | 1 in 19,331.5 | 6.00 / 71.4% | 5.86 / 71.4% | 5.71 / 85.7% | 5.89 / 77.1% | 5.55 / 92.9% | 5.27 / 98.5% | about 517 (few) |
-| 0c2e | 0.0030% | 1 in 33,830.2 | 5.75 / 100.0% | 5.75 / 100.0% | 5.62 / 100.0% | 5.68 / 100.0% | 5.57 / 100.0% | 5.39 / 100.0% | about 296 (few) |
+Each row is a case: its share of EO-solved states, and how many of the sampled states fell in it.
 
-**Normal against inverse after an EO**, by case (sampled, 10,000,000 states, same DR axis, EO kept). Cases with fewer than 1,000 samples have noisy correlations.
+| Case on the DR axis | Share of EO-solved states | Odds | States sampled (normal or inverse, all EO-keeping options) |
+|---|---:|---:|---:|
+| 6c6e | 12.7% | 1 in 7.8 | 1,274,785 |
+| 5c6e | 11.6% | 1 in 8.6 | 1,157,431 |
+| 6c4e | 9.6% | 1 in 10.5 | 957,958 |
+| 4c6e | 8.7% | 1 in 11.5 | 868,439 |
+| 5c4e | 8.7% | 1 in 11.5 | 869,787 |
+| 7c6e | 7.0% | 1 in 14.4 | 694,211 |
+| 4c4e | 6.5% | 1 in 15.3 | 652,018 |
+| 7c4e | 5.2% | 1 in 19.2 | 520,005 |
+| 6c8e | 4.0% | 1 in 25.1 | 397,422 |
+| 5c8e | 3.6% | 1 in 27.6 | 362,239 |
+| 4c8e | 2.7% | 1 in 36.8 | 272,394 |
+| 3c6e | 2.3% | 1 in 43.2 | 232,084 |
+| 7c8e | 2.2% | 1 in 46.0 | 218,132 |
+| 6c2e | 1.8% | 1 in 54.9 | 182,237 |
+| 8c6e | 1.8% | 1 in 56.2 | 177,952 |
+| 3c4e | 1.7% | 1 in 57.5 | 173,359 |
+| 5c2e | 1.7% | 1 in 60.4 | 165,385 |
+| 8c4e | 1.3% | 1 in 74.9 | 133,037 |
+| 4c2e | 1.2% | 1 in 80.5 | 125,012 |
+| 2c6e | 1.2% | 1 in 86.3 | 115,310 |
+| 7c2e | 0.99% | 1 in 100.7 | 99,427 |
+| 2c4e | 0.87% | 1 in 115.1 | 86,873 |
+| 3c8e | 0.72% | 1 in 138.1 | 72,416 |
+| 8c8e | 0.56% | 1 in 179.8 | 55,365 |
+| 2c8e | 0.36% | 1 in 276.2 | 36,388 |
+| 3c2e | 0.33% | 1 in 302.1 | 32,985 |
+| 8c2e | 0.25% | 1 in 393.4 | 25,531 |
+| 2c2e | 0.17% | 1 in 604.1 | 16,832 |
+| 6c0e | 0.057% | 1 in 1,757.4 | 5,686 |
+| 5c0e | 0.052% | 1 in 1,933.2 | 5,255 |
+| 4c0e | 0.039% | 1 in 2,577.5 | 3,983 |
+| 7c0e | 0.031% | 1 in 3,221.9 | 3,140 |
+| 0c6e | 0.021% | 1 in 4,832.9 | 2,048 |
+| 0c4e | 0.015% | 1 in 6,443.8 | 1,575 |
+| 3c0e | 0.010% | 1 in 9,665.8 | 1,019 (few) |
+| 8c0e | 0.0079% | 1 in 12,588.0 | about 794 (few) |
+| 0c8e | 0.0065% | 1 in 15,465.2 | about 647 (few) |
+| 2c0e | 0.0052% | 1 in 19,331.5 | about 517 (few) |
+| 0c2e | 0.0030% | 1 in 33,830.2 | about 296 (few) |
 
-| Case | States sampled | Correlation normal/inverse | Inverse ≤ 6 when normal is 6 | when normal is 8 | Inverse ≤ 6 overall |
+Mean turns to DR, one column per option:
+
+| Case on the DR axis | Mean turns: one axis, EO kept | Mean turns: any turns | Mean turns: last EO turn either way, EO kept | Mean turns: better of 2 DR axes | Mean turns: normal or inverse | Mean turns: all EO-keeping options |
+|---|---:|---:|---:|---:|---:|---:|
+| 6c6e | 7.73 | 7.73 | 7.47 | 7.39 | 7.35 | 6.89 |
+| 5c6e | 7.69 | 7.69 | 7.42 | 7.34 | 7.29 | 6.83 |
+| 6c4e | 7.97 | 7.96 | 7.71 | 7.51 | 7.59 | 7.01 |
+| 4c6e | 7.85 | 7.84 | 7.58 | 7.43 | 7.45 | 6.92 |
+| 5c4e | 7.60 | 7.59 | 7.33 | 7.26 | 7.21 | 6.75 |
+| 7c6e | 7.82 | 7.82 | 7.57 | 7.46 | 7.46 | 6.98 |
+| 4c4e | 7.19 | 7.18 | 6.90 | 6.95 | 6.71 | 6.37 |
+| 7c4e | 8.10 | 8.09 | 7.84 | 7.61 | 7.73 | 7.13 |
+| 6c8e | 7.90 | 7.90 | 7.63 | 7.49 | 7.53 | 7.00 |
+| 5c8e | 8.08 | 8.08 | 7.82 | 7.59 | 7.73 | 7.12 |
+| 4c8e | 8.48 | 8.48 | 8.24 | 7.79 | 8.17 | 7.32 |
+| 3c6e | 7.84 | 7.84 | 7.58 | 7.41 | 7.45 | 6.89 |
+| 7c8e | 7.25 | 7.25 | 6.98 | 7.07 | 6.80 | 6.51 |
+| 6c2e | 8.27 | 8.25 | 8.05 | 7.68 | 7.97 | 7.21 |
+| 8c6e | 8.08 | 8.07 | 7.86 | 7.61 | 7.74 | 7.16 |
+| 3c4e | 7.45 | 7.43 | 7.18 | 7.11 | 7.06 | 6.60 |
+| 5c2e | 7.86 | 7.82 | 7.63 | 7.42 | 7.53 | 6.94 |
+| 8c4e | 8.42 | 8.39 | 8.17 | 7.78 | 8.06 | 7.32 |
+| 4c2e | 7.16 | 7.15 | 6.89 | 6.92 | 6.72 | 6.37 |
+| 2c6e | 8.27 | 8.27 | 8.05 | 7.67 | 7.96 | 7.21 |
+| 7c2e | 8.55 | 8.53 | 8.30 | 7.85 | 8.23 | 7.38 |
+| 2c4e | 7.54 | 7.53 | 7.28 | 7.18 | 7.19 | 6.68 |
+| 3c8e | 8.56 | 8.56 | 8.33 | 7.84 | 8.23 | 7.38 |
+| 8c8e | 7.23 | 7.23 | 6.98 | 7.05 | 6.83 | 6.55 |
+| 2c8e | 8.95 | 8.94 | 8.76 | 8.05 | 8.71 | 7.58 |
+| 3c2e | 6.16 | 6.16 | 5.88 | 6.09 | 5.70 | 5.49 |
+| 8c2e | 8.77 | 8.74 | 8.54 | 7.98 | 8.43 | 7.50 |
+| 2c2e | 6.88 | 6.88 | 6.65 | 6.67 | 6.56 | 6.21 |
+| 6c0e | 8.96 | 8.78 | 8.82 | 7.96 | 8.78 | 7.44 |
+| 5c0e | 8.04 | 7.80 | 7.93 | 7.59 | 7.84 | 7.16 |
+| 4c0e | 7.39 | 7.19 | 7.13 | 7.08 | 7.03 | 6.61 |
+| 7c0e | 8.76 | 8.43 | 8.55 | 8.06 | 8.53 | 7.63 |
+| 0c6e | 8.21 | 8.21 | 8.05 | 7.77 | 7.90 | 7.39 |
+| 0c4e | 6.45 | 6.45 | 6.17 | 6.35 | 6.05 | 5.78 |
+| 3c0e | 7.29 | 7.00 | 7.07 | 6.99 | 7.10 | 6.64 |
+| 8c0e | 8.98 | 8.77 | 8.79 | 8.12 | 8.59 | 7.64 |
+| 0c8e | 8.94 | 8.94 | 8.77 | 8.23 | 8.63 | 7.77 |
+| 2c0e | 6.00 | 5.86 | 5.71 | 5.89 | 5.55 | 5.27 |
+| 0c2e | 5.75 | 5.75 | 5.62 | 5.68 | 5.57 | 5.39 |
+
+Chance of a DR in 6 or fewer, one column per option:
+
+| Case on the DR axis | DR in ≤ 6: one axis, EO kept | DR in ≤ 6: any turns | DR in ≤ 6: last EO turn either way, EO kept | DR in ≤ 6: better of 2 DR axes | DR in ≤ 6: normal or inverse | DR in ≤ 6: all EO-keeping options |
+|---|---:|---:|---:|---:|---:|---:|
+| 6c6e | 5.6% | 5.6% | 9.4% | 10.6% | 10.8% | 25.1% |
+| 5c6e | 6.1% | 6.1% | 10.2% | 11.7% | 11.9% | 27.2% |
+| 6c4e | 3.0% | 3.0% | 5.3% | 8.5% | 5.9% | 20.5% |
+| 4c6e | 4.6% | 4.6% | 7.7% | 10.3% | 9.0% | 24.2% |
+| 5c4e | 7.2% | 7.3% | 12.2% | 13.6% | 14.0% | 31.4% |
+| 7c6e | 4.0% | 4.0% | 6.8% | 8.6% | 7.9% | 20.9% |
+| 4c4e | 19.2% | 19.3% | 28.1% | 25.4% | 34.8% | 51.1% |
+| 7c4e | 2.2% | 2.2% | 3.8% | 6.6% | 4.4% | 16.1% |
+| 6c8e | 3.2% | 3.2% | 5.6% | 8.1% | 6.3% | 19.7% |
+| 5c8e | 1.4% | 1.4% | 2.6% | 6.2% | 2.8% | 15.5% |
+| 4c8e | 0.27% | 0.27% | 0.49% | 4.6% | 0.54% | 11.4% |
+| 3c6e | 4.8% | 4.8% | 7.8% | 10.9% | 9.3% | 25.2% |
+| 7c8e | 16.4% | 16.4% | 24.4% | 20.5% | 30.3% | 43.8% |
+| 6c2e | 0.16% | 0.16% | 0.33% | 5.8% | 0.33% | 14.1% |
+| 8c6e | 1.2% | 1.2% | 2.1% | 5.8% | 2.4% | 14.4% |
+| 3c4e | 9.9% | 10.1% | 15.9% | 18.2% | 19.0% | 39.6% |
+| 5c2e | 2.3% | 2.5% | 4.3% | 9.5% | 4.5% | 22.3% |
+| 8c4e | 0.72% | 0.72% | 1.2% | 4.6% | 1.4% | 11.2% |
+| 4c2e | 18.7% | 19.2% | 27.2% | 26.2% | 33.8% | 51.9% |
+| 2c6e | 0.13% | 0.13% | 0.26% | 6.0% | 0.25% | 14.4% |
+| 7c2e | 0.30% | 0.30% | 0.60% | 4.2% | 0.60% | 10.6% |
+| 2c4e | 6.2% | 6.2% | 10.7% | 15.1% | 11.9% | 33.5% |
+| 3c8e | 0.41% | 0.41% | 0.77% | 4.3% | 0.75% | 10.4% |
+| 8c8e | 14.5% | 14.5% | 23.5% | 19.2% | 26.9% | 42.5% |
+| 2c8e | 0% | 0% | 0% | 3.2% | 0% | 7.8% |
+| 3c2e | 61.6% | 61.6% | 77.0% | 66.0% | 85.5% | 93.4% |
+| 8c2e | 0% | 0% | 0% | 3.2% | 0% | 8.5% |
+| 2c2e | 23.7% | 23.7% | 35.9% | 34.5% | 41.5% | 63.7% |
+| 6c0e | 0% | 0% | 0% | 4.8% | 0% | 12.0% |
+| 5c0e | 0% | 0% | 0% | 6.3% | 0% | 15.1% |
+| 4c0e | 7.6% | 15.2% | 13.3% | 17.2% | 14.3% | 36.7% |
+| 7c0e | 0% | 0% | 0% | 2.8% | 0% | 6.9% |
+| 0c6e | 0% | 0% | 0% | 4.5% | 0% | 10.4% |
+| 0c4e | 47.6% | 47.6% | 64.3% | 53.1% | 72.1% | 84.4% |
+| 3c0e | 0% | 0% | 0% | 13.5% | 0% | 30.6% |
+| 8c0e | 1.2% | 2.3% | 1.2% | 3.4% | 2.4% | 6.5% |
+| 0c8e | 1.4% | 1.4% | 1.4% | 3.0% | 3.0% | 5.6% |
+| 2c0e | 71.4% | 71.4% | 85.7% | 77.1% | 92.9% | 98.5% |
+| 0c2e | 100.0% | 100.0% | 100.0% | 100.0% | 100.0% | 100.0% |
+
+**Normal against inverse after an EO**, by case (sampled, 10,000,000 states, same DR axis, EO kept). Cases with fewer than 1,000 samples have noisy correlations. Each row is a case; the last three columns are the chance the inverse is at most 6:
+
+| Case | States sampled | Correlation, normal against inverse | Inverse DR in ≤ 6 when normal is 6 | Inverse DR in ≤ 6 when normal is 8 | Inverse DR in ≤ 6, any normal |
 |---|---:|---:|---:|---:|---:|
 | all | 10,000,000 | 0.1684 | 11.2% | 5.3% | 5.9% |
 | 0c4e | 1,575 | -0.0148 | 45.4% | – | 46.0% |
@@ -826,75 +994,75 @@ One case shows nothing about averages: the averages are in the row above and in 
 | 8c6e | 177,952 | 0.0063 | 1.5% | 1.2% | 1.2% |
 | 8c8e | 55,365 | 0.0032 | 14.4% | 14.4% | 14.5% |
 
-**Bad edges on the three axes**, all 65 sorted triples, exact over all 70,963,200 classes of edge states (orientation and slice placement):
+**Bad edges on the three axes**, all 65 sorted triples, exact over all 70,963,200 classes of edge states (orientation and slice placement). Each row is a set of bad-edge counts on the three axes, in any order:
 
 | Bad edges on the three axes (sorted) | Probability (exact) | As a percentage |
 |---|---:|---:|
-| 4/6/6 | 218033/1478400 | 14.7% |
-| 6/6/8 | 218033/1478400 | 14.7% |
-| 4/6/8 | 8539/61600 | 13.9% |
-| 6/6/6 | 815891/8870400 | 9.2% |
-| 4/4/6 | 43721/492800 | 8.9% |
-| 6/8/8 | 43721/492800 | 8.9% |
-| 4/4/8 | 1101/30800 | 3.6% |
-| 4/8/8 | 1101/30800 | 3.6% |
-| 2/4/6 | 3177/123200 | 2.6% |
-| 6/8/10 | 3177/123200 | 2.6% |
-| 4/4/4 | 1483843/70963200 | 2.1% |
-| 8/8/8 | 1483843/70963200 | 2.1% |
-| 2/6/6 | 9829/492800 | 2.0% |
-| 6/6/10 | 9829/492800 | 2.0% |
-| 2/6/8 | 249/15400 | 1.6% |
-| 4/6/10 | 249/15400 | 1.6% |
-| 2/4/4 | 2627/246400 | 1.1% |
-| 8/8/10 | 2627/246400 | 1.1% |
-| 2/4/8 | 1017/123200 | 0.83% |
-| 4/8/10 | 1017/123200 | 0.83% |
-| 2/8/8 | 257/70400 | 0.37% |
-| 4/4/10 | 257/70400 | 0.37% |
-| 2/2/4 | 261/123200 | 0.21% |
-| 8/10/10 | 261/123200 | 0.21% |
-| 2/2/6 | 3851/1971200 | 0.20% |
-| 6/10/10 | 3851/1971200 | 0.20% |
-| 2/6/10 | 1333/985600 | 0.14% |
-| 2/4/10 | 3/5600 | 0.054% |
-| 2/8/10 | 3/5600 | 0.054% |
-| 2/2/8 | 647/1478400 | 0.044% |
-| 4/10/10 | 647/1478400 | 0.044% |
-| 0/4/6 | 51/123200 | 0.041% |
-| 6/8/12 | 51/123200 | 0.041% |
-| 0/6/6 | 157/492800 | 0.032% |
-| 6/6/12 | 157/492800 | 0.032% |
-| 0/6/8 | 13/61600 | 0.021% |
-| 4/6/12 | 13/61600 | 0.021% |
-| 0/4/4 | 393/1971200 | 0.020% |
-| 8/8/12 | 393/1971200 | 0.020% |
-| 2/2/2 | 6301/35481600 | 0.018% |
-| 10/10/10 | 6301/35481600 | 0.018% |
-| 0/2/4 | 1/11200 | 0.0089% |
-| 0/4/8 | 1/11200 | 0.0089% |
-| 4/8/12 | 1/11200 | 0.0089% |
-| 8/10/12 | 1/11200 | 0.0089% |
-| 0/2/6 | 23/369600 | 0.0062% |
-| 6/10/12 | 23/369600 | 0.0062% |
-| 0/8/8 | 417/7884800 | 0.0053% |
-| 4/4/12 | 417/7884800 | 0.0053% |
-| 2/2/10 | 61/3942400 | 0.0015% |
-| 2/10/10 | 61/3942400 | 0.0015% |
-| 0/2/2 | 1/70400 | 0.0014% |
-| 10/10/12 | 1/70400 | 0.0014% |
-| 0/2/8 | 1/123200 | 0.0008% |
-| 4/10/12 | 1/123200 | 0.0008% |
-| 0/0/4 | 3/1971200 | 0.0002% |
-| 8/12/12 | 3/1971200 | 0.0002% |
-| 0/0/2 | 1/1478400 | 0.0001% |
-| 0/0/6 | 1/1478400 | 0.0001% |
-| 6/12/12 | 1/1478400 | 0.0001% |
-| 10/12/12 | 1/1478400 | 0.0001% |
-| 0/0/8 | 1/23654400 | < 0.0001% |
-| 4/12/12 | 1/23654400 | < 0.0001% |
-| 0/0/0 | 1/70963200 | < 0.0001% |
-| 12/12/12 | 1/70963200 | < 0.0001% |
+| 4/6/6 | $218033/1478400$ | 14.7% |
+| 6/6/8 | $218033/1478400$ | 14.7% |
+| 4/6/8 | $8539/61600$ | 13.9% |
+| 6/6/6 | $815891/8870400$ | 9.2% |
+| 4/4/6 | $43721/492800$ | 8.9% |
+| 6/8/8 | $43721/492800$ | 8.9% |
+| 4/4/8 | $1101/30800$ | 3.6% |
+| 4/8/8 | $1101/30800$ | 3.6% |
+| 2/4/6 | $3177/123200$ | 2.6% |
+| 6/8/10 | $3177/123200$ | 2.6% |
+| 4/4/4 | $1483843/70963200$ | 2.1% |
+| 8/8/8 | $1483843/70963200$ | 2.1% |
+| 2/6/6 | $9829/492800$ | 2.0% |
+| 6/6/10 | $9829/492800$ | 2.0% |
+| 2/6/8 | $249/15400$ | 1.6% |
+| 4/6/10 | $249/15400$ | 1.6% |
+| 2/4/4 | $2627/246400$ | 1.1% |
+| 8/8/10 | $2627/246400$ | 1.1% |
+| 2/4/8 | $1017/123200$ | 0.83% |
+| 4/8/10 | $1017/123200$ | 0.83% |
+| 2/8/8 | $257/70400$ | 0.37% |
+| 4/4/10 | $257/70400$ | 0.37% |
+| 2/2/4 | $261/123200$ | 0.21% |
+| 8/10/10 | $261/123200$ | 0.21% |
+| 2/2/6 | $3851/1971200$ | 0.20% |
+| 6/10/10 | $3851/1971200$ | 0.20% |
+| 2/6/10 | $1333/985600$ | 0.14% |
+| 2/4/10 | $3/5600$ | 0.054% |
+| 2/8/10 | $3/5600$ | 0.054% |
+| 2/2/8 | $647/1478400$ | 0.044% |
+| 4/10/10 | $647/1478400$ | 0.044% |
+| 0/4/6 | $51/123200$ | 0.041% |
+| 6/8/12 | $51/123200$ | 0.041% |
+| 0/6/6 | $157/492800$ | 0.032% |
+| 6/6/12 | $157/492800$ | 0.032% |
+| 0/6/8 | $13/61600$ | 0.021% |
+| 4/6/12 | $13/61600$ | 0.021% |
+| 0/4/4 | $393/1971200$ | 0.020% |
+| 8/8/12 | $393/1971200$ | 0.020% |
+| 2/2/2 | $6301/35481600$ | 0.018% |
+| 10/10/10 | $6301/35481600$ | 0.018% |
+| 0/2/4 | $1/11200$ | 0.0089% |
+| 0/4/8 | $1/11200$ | 0.0089% |
+| 4/8/12 | $1/11200$ | 0.0089% |
+| 8/10/12 | $1/11200$ | 0.0089% |
+| 0/2/6 | $23/369600$ | 0.0062% |
+| 6/10/12 | $23/369600$ | 0.0062% |
+| 0/8/8 | $417/7884800$ | 0.0053% |
+| 4/4/12 | $417/7884800$ | 0.0053% |
+| 2/2/10 | $61/3942400$ | 0.0015% |
+| 2/10/10 | $61/3942400$ | 0.0015% |
+| 0/2/2 | $1/70400$ | 0.0014% |
+| 10/10/12 | $1/70400$ | 0.0014% |
+| 0/2/8 | $1/123200$ | 0.0008% |
+| 4/10/12 | $1/123200$ | 0.0008% |
+| 0/0/4 | $3/1971200$ | 0.0002% |
+| 8/12/12 | $3/1971200$ | 0.0002% |
+| 0/0/2 | $1/1478400$ | 0.0001% |
+| 0/0/6 | $1/1478400$ | 0.0001% |
+| 6/12/12 | $1/1478400$ | 0.0001% |
+| 10/12/12 | $1/1478400$ | 0.0001% |
+| 0/0/8 | $1/23654400$ | < 0.0001% |
+| 4/12/12 | $1/23654400$ | < 0.0001% |
+| 0/0/0 | $1/70963200$ | < 0.0001% |
+| 12/12/12 | $1/70963200$ | < 0.0001% |
 
 ## Appendix B: how it was computed, and what checks it
 
@@ -907,9 +1075,9 @@ One case shows nothing about averages: the averages are in the row above and in 
     co = rand() % POW3TO7;
     cp = rand() % FACTORIAL8;
 
-and prints a solution of it as the scramble. glibc's `rand()` takes 2^31 values, 4.48 times 12!, so `rand() % FACTORIAL12` gives the lowest 231,477,248 edge-permutation indices (48.3% of them) one chance more than the rest: they are 25% more likely. The other three draws are over ranges small enough that the same bias is negligible. Since the scramble solves the drawn state, the drawn state is the inverse of the scramble, and that is where the effect shows: on 50,000 nissy scrambles the inverse side is shorter to DR, the normal side barely moved:
+and prints a solution of it as the scramble. glibc's `rand()` takes $2^{31}$ values, 4.48 times $12!$, so `rand() % FACTORIAL12` gives the lowest 231,477,248 edge-permutation indices (48.3% of them) one chance more than the rest: they are 25% more likely. The other three draws are over ranges small enough that the same bias is negligible. Since the scramble solves the drawn state, the drawn state is the inverse of the scramble, and that is where the effect shows: on 50,000 nissy scrambles the inverse side is shorter to DR, the normal side barely moved. Each row is one way of reaching DR; the *DR in ≤* columns are the share of scrambles:
 
-| Shortest DR (50,000 scrambles each) | Mean, uniform | Mean, nissy scramble | ≤ 8, uniform | ≤ 8, nissy scramble | ≤ 9, uniform | ≤ 9, nissy scramble |
+| Shortest DR (50,000 scrambles each) | Mean turns, uniform | Mean turns, nissy scramble | DR in ≤ 8, uniform | DR in ≤ 8, nissy scramble | DR in ≤ 9, uniform | DR in ≤ 9, nissy scramble |
 |---|---:|---:|---:|---:|---:|---:|
 | One fixed axis, normal (each of the 3 axes) | 9.53 | 9.50 | 6.2% | 6.7% | 43.1% | 45.1% |
 | Best of 3 axes, normal | 9.05 | 9.02 | 16.5% | 17.8% | 76.5% | 78.5% |
@@ -917,53 +1085,53 @@ and prints a solution of it as the scramble. glibc's `rand()` takes 2^31 values,
 | Best of 6: 3 axes, normal or inverse | 8.76 | 8.65 | 28.4% | 34.8% | 91.5% | 95.0% |
 | NISS: 3 axes, moves on both sides | 8.46 | 8.40 | 47.5% | 52.3% | 99.1% | 99.4% |
 
-The number of twisted corners per axis is also off on nissy's scrambles, on 7 degrees of freedom; I haven't found the cause:
+The number of twisted corners per axis is also off on nissy's scrambles, on 7 degrees of freedom; I haven't found the cause. Each row is an axis, with the test statistic and its p-value:
 
-| Axis | chi² | p |
+| Axis | $\chi^2$ | p-value |
 |---|---|---|
-| R/L | 33.2 | 2·10^-5 |
-| U/D | 34.9 | 1·10^-5 |
+| R/L | 33.2 | $2\cdot 10^{-5}$ |
+| U/D | 34.9 | $1\cdot 10^{-5}$ |
 | F/B | 17.8 | 0.01 |
 
-The test of every scramble set (twisted corners, bad edges and slice pieces in their slice, on each axis):
+The test of every scramble set (twisted corners, bad edges and slice pieces in their slice, on each axis). Each row is one scramble set, axis and count:
 
-| Scrambles | Axis | What is counted | chi² (df) |
-|---|---:|---:|---:|
-| this study (uniform states) (50,000) | RL | twisted corners | 9.8 (7) |
-| this study (uniform states) (50,000) | RL | bad edges | 5.8 (6) |
-| this study (uniform states) (50,000) | RL | slice pieces in slice | 1.0 (4) |
-| this study (uniform states) (50,000) | UD | twisted corners | 4.1 (7) |
-| this study (uniform states) (50,000) | UD | bad edges | 1.4 (6) |
-| this study (uniform states) (50,000) | UD | slice pieces in slice | 2.8 (4) |
-| this study (uniform states) (50,000) | FB | twisted corners | 7.5 (7) |
-| this study (uniform states) (50,000) | FB | bad edges | 4.5 (6) |
-| this study (uniform states) (50,000) | FB | slice pieces in slice | 3.2 (4) |
-| nissy 2.0.8 `scramble` (50,000) | RL | twisted corners | 33.2 (7) |
-| nissy 2.0.8 `scramble` (50,000) | RL | bad edges | 1.3 (6) |
-| nissy 2.0.8 `scramble` (50,000) | RL | slice pieces in slice | 0.8 (4) |
-| nissy 2.0.8 `scramble` (50,000) | UD | twisted corners | 34.9 (7) |
-| nissy 2.0.8 `scramble` (50,000) | UD | bad edges | 13.5 (6) |
-| nissy 2.0.8 `scramble` (50,000) | UD | slice pieces in slice | 13.5 (4) |
-| nissy 2.0.8 `scramble` (50,000) | FB | twisted corners | 17.8 (7) |
-| nissy 2.0.8 `scramble` (50,000) | FB | bad edges | 11.0 (6) |
-| nissy 2.0.8 `scramble` (50,000) | FB | slice pieces in slice | 2.3 (4) |
-| judging-a-dr's 500 (500) | RL | twisted corners | 4.8 (6) |
-| judging-a-dr's 500 (500) | RL | bad edges | 3.3 (4) |
-| judging-a-dr's 500 (500) | RL | slice pieces in slice | 1.5 (3) |
-| judging-a-dr's 500 (500) | UD | twisted corners | 6.8 (6) |
-| judging-a-dr's 500 (500) | UD | bad edges | 1.5 (4) |
-| judging-a-dr's 500 (500) | UD | slice pieces in slice | 2.4 (3) |
-| judging-a-dr's 500 (500) | FB | twisted corners | 3.7 (6) |
-| judging-a-dr's 500 (500) | FB | bad edges | 1.6 (4) |
-| judging-a-dr's 500 (500) | FB | slice pieces in slice | 2.9 (3) |
+| Scrambles | Axis | What is counted | $\chi^2$ | Degrees of freedom |
+|---|---:|---:|---:|---:|
+| this study (uniform states) (50,000) | RL | twisted corners | 9.8 | 7 |
+| this study (uniform states) (50,000) | RL | bad edges | 5.8 | 6 |
+| this study (uniform states) (50,000) | RL | slice pieces in slice | 1.0 | 4 |
+| this study (uniform states) (50,000) | UD | twisted corners | 4.1 | 7 |
+| this study (uniform states) (50,000) | UD | bad edges | 1.4 | 6 |
+| this study (uniform states) (50,000) | UD | slice pieces in slice | 2.8 | 4 |
+| this study (uniform states) (50,000) | FB | twisted corners | 7.5 | 7 |
+| this study (uniform states) (50,000) | FB | bad edges | 4.5 | 6 |
+| this study (uniform states) (50,000) | FB | slice pieces in slice | 3.2 | 4 |
+| nissy 2.0.8 `scramble` (50,000) | RL | twisted corners | 33.2 | 7 |
+| nissy 2.0.8 `scramble` (50,000) | RL | bad edges | 1.3 | 6 |
+| nissy 2.0.8 `scramble` (50,000) | RL | slice pieces in slice | 0.8 | 4 |
+| nissy 2.0.8 `scramble` (50,000) | UD | twisted corners | 34.9 | 7 |
+| nissy 2.0.8 `scramble` (50,000) | UD | bad edges | 13.5 | 6 |
+| nissy 2.0.8 `scramble` (50,000) | UD | slice pieces in slice | 13.5 | 4 |
+| nissy 2.0.8 `scramble` (50,000) | FB | twisted corners | 17.8 | 7 |
+| nissy 2.0.8 `scramble` (50,000) | FB | bad edges | 11.0 | 6 |
+| nissy 2.0.8 `scramble` (50,000) | FB | slice pieces in slice | 2.3 | 4 |
+| judging-a-dr's 500 (500) | RL | twisted corners | 4.8 | 6 |
+| judging-a-dr's 500 (500) | RL | bad edges | 3.3 | 4 |
+| judging-a-dr's 500 (500) | RL | slice pieces in slice | 1.5 | 3 |
+| judging-a-dr's 500 (500) | UD | twisted corners | 6.8 | 6 |
+| judging-a-dr's 500 (500) | UD | bad edges | 1.5 | 4 |
+| judging-a-dr's 500 (500) | UD | slice pieces in slice | 2.4 | 3 |
+| judging-a-dr's 500 (500) | FB | twisted corners | 3.7 | 6 |
+| judging-a-dr's 500 (500) | FB | bad edges | 1.6 | 4 |
+| judging-a-dr's 500 (500) | FB | slice pieces in slice | 2.9 | 3 |
 
-The study's own scrambles pass every test. A separate set of 500 scrambles from nissy's scrambler shows the same effect:
+The study's own scrambles pass every test. A separate set of 500 scrambles from nissy's scrambler shows the same effect. Each row is a mean number of turns to DR; z is how many standard errors those scrambles sit from the uniform sample:
 
-| Mean to DR | Those scrambles | Uniform sample | z |
-|---|---|---|---|
-| Inverse, best of 3 | 8.894 ± 0.031 | 9.05 | -4.8 |
-| Best of six | 8.672 ± 0.030 | 8.76 | -3.0 |
-| Normal side (unaffected) | 9.054 | 9.05 | |
+| Mean to DR | Those scrambles, mean turns | Standard error | Uniform sample, mean turns | z |
+|---|---|---|---|---|
+| Inverse, best of 3 | 8.894 | 0.031 | 9.05 | -4.8 |
+| Best of six | 8.672 | 0.030 | 8.76 | -3.0 |
+| Normal side (unaffected) | 9.054 | | 9.05 | |
 
 **Per scramble** (`eodrtools scr`): the exact DR distance on each axis, normal and inverse; the NISS DR (pre-turns on one side, stopping where they can no longer win); the number of DR solutions of each length up to 12 on the normal side; the shortest EO inside an optimal DR; every EO of up to 6 turns on each axis, normal, inverse and NISS, each with the exact EO-keeping DR distance on both DR axes; from these the best route through an EO of each length, the (EO, DR axis) counts and the optimal EOs. About 30 minutes on four cores for the 50,000.
 
@@ -973,9 +1141,9 @@ The study's own scrambles pass every test. A separate set of 500 scrambles from 
 
 **What checks it.**
 
-- Every table mapping against nissy 2.0.8: 19,000 of 19,000 positions agree, over 16 mappings (DR from a scramble on each axis, EO-keeping DR for all six pairs of EO axis and DR axis, any-turn DR from EO-solved states, optimal EO per axis, NISS EO over all axes):
+- Every table mapping against nissy 2.0.8: 19,000 of 19,000 positions agree, over 16 mappings (DR from a scramble on each axis, EO-keeping DR for all six pairs of EO axis and DR axis, any-turn DR from EO-solved states, optimal EO per axis, NISS EO over all axes). Each row is one mapping:
 
-| What | nissy step | Positions | Agree |
+| Table checked | nissy step | Positions compared | Positions that agree |
 |---|---:|---:|---:|
 | dr | drrl | 1,000 | 1,000 |
 | dr | drud | 1,000 | 1,000 |
@@ -994,9 +1162,9 @@ The study's own scrambles pass every test. A separate set of 500 scrambles from 
 | eodr | drrl-eofb | 1,000 | 1,000 |
 | eodr | drud-eofb | 1,000 | 1,000 |
 
-- Counts against nissy on the first 30 scrambles (DR solutions of 9 and 10, EOs linear and NISS, `nissy -a`), and the NISS DR against `nissy solve dr -N` on 40 scrambles where NISS beats linear:
+- Counts against nissy on the first 30 scrambles (DR solutions of 9 and 10, EOs linear and NISS, `nissy -a`), and the NISS DR against `nissy solve dr -N` on 40 scrambles where NISS beats linear. Each row is one count:
 
-| Count | Scrambles | Agree |
+| Count checked | Scrambles compared | Scrambles that agree |
 |---|---:|---:|
 | drud count of exactly 9 | 30 | 30 |
 | drud count of exactly 10 | 30 | 30 |
@@ -1011,7 +1179,7 @@ The study's own scrambles pass every test. A separate set of 500 scrambles from 
 | dr best of 6 (nissy dr -L) | 30 | 30 |
 | dr NISS (nissy dr -N), scrambles where NISS <= 7 beats linear | 40 | 40 |
 
-- The known tables come out exactly: the EO-solved part of the EO-keeping table is FakeMMAP's and Cale's 1, 2, 17, …, 3114 (mean 7.803); the any-turn version gives torchlight's 7.797; one-axis EO 4.609; DougCube's one-axis DR from a scramble, mean 9.52. The sample agrees with the exact one-axis table (mean 9.53 on 150,000 axes; chi² 5.94 on 6 df), and with the DR-xs study's 2,000,000 scrambles (best of three, chi² 9.85 on 6 df; best of six, 9.47 on 5).
+- The known tables come out exactly: the EO-solved part of the EO-keeping table is FakeMMAP's and Cale's 1, 2, 17, …, 3114 (mean 7.803); the any-turn version gives torchlight's 7.797; one-axis EO 4.609; DougCube's one-axis DR from a scramble, mean 9.52. The sample agrees with the exact one-axis table (mean 9.53 on 150,000 axes; $\chi^2$ 5.94 on 6 df), and with the DR-xs study's 2,000,000 scrambles (best of three, $\chi^2$ 9.85 on 6 df; best of six, 9.47 on 5).
 - The sampled EO to DR rows agree with the exact ones where both exist (one axis: 7.8026 sampled against 7.8031 exact).
 - Every solution in the per-scramble tables (NISS DR, optimal DR with its EO split, the best routes through EOs of at most 4, 5 and 6) is replayed on the sticker model, a separate implementation that reads EO and DR off the stickers; so is every example in this write-up (47 checks) and every move sequence on the examples page.
 - The optimal solutions of the first three scrambles with no sub-10 DR (nissy `solve optimal`, about 3.5 GB) are replayed and solve the cube.

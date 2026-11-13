@@ -31,7 +31,7 @@ def main():
         s = stats(rows); s['firsts_per_spot'] = sum(int(r['firsts']) for r in rows) / len(rows) / (n + 1)
         J[f"{typ}_n{n}_L{L}" + ('_full' if full else '')] = s
     # table: two comms the way people do them, 20 moves, 8-movers
-    L = ['| Leftover | Skeletons | Best pair of comms | Best first comm only | Best first comm only: loses | Best first comm only: no second comm fits | First comms within 1 move | Within 1 move: loses | First comms within 2 moves | Within 2 moves: loses |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|']
+    L = ['| Leftover | Skeletons | Best pair of comms: mean added | Best first comm only: mean added | Best first comm only: loses | Best first comm only: no second comm fits | First comms within 1 move: mean added | Within 1 move: loses | First comms within 2 moves: mean added | Within 2 moves: loses |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|']
     for typ in ['2tc', '3tc', '2c2c-pure', '2c2c-twisted', '3c1t', '5c', '3c3c']:
         s = J.get(f'{typ}_n20_L8')
         if not s: continue
@@ -39,7 +39,7 @@ def main():
         L.append(f"| {SHOW[typ]} | {s['n']:,} | {f2(s['exact'])} | {f2(s['g0'])} | {ls('g0')} | {s['g0_none']} | {f2(s['g1'])} | {ls('g1')} | {f2(s['g2'])} | {ls('g2')} |")
     write('greedy', L)
     # how good the best first comm is: 5c by length, next to the best comm of a 3c of that length
-    L = ['| Skeleton length | 5c: best first comm, mean added | 8-3 or better | 8-4 or better | 8-5 or better | 3c: best comm, mean added | 3c: 8-3 or better | 3c: 8-4 or better |', '|---:|---:|---:|---:|---:|---:|---:|---:|']
+    L = ['| Skeleton length | 5c: best first comm, mean added | 5c: 8-3 or better | 5c: 8-4 or better | 5c: 8-5 or better | 3c: best comm, mean added | 3c: 8-3 or better | 3c: 8-4 or better |', '|---:|---:|---:|---:|---:|---:|---:|---:|']
     for n in (12, 14, 16, 18, 20, 24):
         s = J.get(f'5c_n{n}_L8')
         if not s: continue

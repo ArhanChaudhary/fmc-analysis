@@ -10,6 +10,8 @@ It builds on tseitsei89's DR-Xs tutorial and trangium's stats in it. What it add
 - the same 500 scrambles as the first study, with every DR-1s and DR-2s 8fe on them;
 - the claims check.
 
+Each row is a file or folder of the study and what's in it:
+
 | Where | What |
 |---|---|
 | [report/WRITEUP.md](report/WRITEUP.md) | the write-up |
@@ -21,7 +23,7 @@ It builds on tseitsei89's DR-Xs tutorial and trangium's stats in it. What it add
 
 ## How the numbers are made
 
-Everything starts from one sticker-level model of the cube built from geometry (`research/src/cube.py`). No permutation is typed in by hand anywhere; the Rust tools read tables exported from it.
+Everything starts from one sticker-level model of the cube built from geometry (`research/src/cube.py`). No permutation is typed in by hand anywhere; the Rust tools read tables exported from it. Each row is one step, the script that does it and what it writes:
 
 | Step | Script | Output |
 |---|---|---|
@@ -30,9 +32,9 @@ Everything starts from one sticker-level model of the cube built from geometry (
 | Slice-EO skip odds, turns to a slice EO | `seo_skip.py`, `seo_dist.py` | `out/seo_skip.txt` |
 | From an edge-orientation pattern to a kind | `patterns.py` | printed table |
 | Searches over all cosets, per move rule and target | `run_bfs.sh` (`xstools bfs`) | `out/bfs/*.u8` (2.2 GB each), `*.hist` |
-| From a slice-EO skip to the nearest DR-1s / 8fe / DR | `seo_hist.py` | `out/seo_hist.json` |
+| From a slice-EO skip to the nearest DR-1s, 8fe and DR | `seo_hist.py` | `out/seo_hist.json` |
 | Finish of random DR-1s and DR-2s 8fe states | `xstools sample1s`, `sample8fe` | `out/sample1s.tsv`, `out/sample1s_labels.tsv`, `out/sample8fe.tsv` |
-| Shortest DR / DR-1s / 8fe / any DR-xs of random scrambles | `xstools nearest` | `out/nearest.tsv` |
+| Shortest DR, DR-1s, 8fe and any DR-xs of random scrambles | `xstools nearest` | `out/nearest.tsv` |
 | Every DR-1s and DR-2s 8fe on 500 scrambles, with solutions | `xstools attempts`, `verify_attempts.py` | `out/attempts_1s.tsv`, `out/attempts_8fe.tsv` |
 | The server's worked examples against the classification | `check_examples.py` | printed |
 | Example scrambles for the claims | `witness.py` | `out/witness.json` |

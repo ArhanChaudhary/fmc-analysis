@@ -1,4 +1,4 @@
-| Shortest | A shortest alg | Pieces (from > to, + twist) | States in the class | Algs of 6 | Algs of 7 | Algs of 8 | Algs of 9 | Algs of 10 | Algs of 11 | Algs of 12 |
+| Shortest alg, moves | A shortest alg | Pieces (from > to, + twist) | States in the class | 6-move algs | 7-move algs | 8-move algs | 9-move algs | 10-move algs | 11-move algs | 12-move algs |
 |---:|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
 | 6 | `F' B L2 F B' U2` | UL>DL UR>UL DL>UR | 24 | 4 | 8 | 44 | 68 | 748 | 1924 | 9974 |
 | 7 | `L F B' U2 F' B L` | FL>BL UR>FL BL>UR | 48 |  | 1 | 14 | 48 | 188 | 561 | 3450 |

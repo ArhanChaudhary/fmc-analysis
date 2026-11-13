@@ -1,6 +1,8 @@
 Corners oriented on F/B (so the slice turn that fixes is `R L`, and the places inside that slice are UF, UB, DF, DB). The other choice of faces is the same table with the cube turned. "Scramble" gives a DR-1s with that layout: it is a DR followed by the fix backwards.
 
-| Flipped edges at | Turns to DR | A shortest fix | Scramble |
+Each row is one layout of the four flipped edges, sorted by how many face turns its shortest fix takes.
+
+| Flipped edges at | Fewest turns to a real DR | A shortest fix | Scramble |
 |---|---:|---|---|
 | DB DF UB UF | 2 | `R L` | `U R2 F2 D' B2 U2 L2 D R' L'` |
 | BL DF UF BR | 3 | `B R L` | `U R2 F2 D' B2 U2 L2 D R' L' B'` |
@@ -75,7 +77,9 @@ Corners oriented on F/B (so the slice turn that fixes is `R L`, and the places i
 
 **With the last trigger move free to go either way.** If the move before was a quarter turn of U or D, turning it the other way moves the layout by a `U2` or `D2`. Taking the better of the two, the count is 1, 4, 13, 36, 16 layouts at 2 to 6 turns. The 13 at 4:
 
-| Flipped edges at | Turns as it is | Turns with the last move the other way | Fix as it is |
+Each row is one layout; the two middle columns are its fewest turns to a real DR as the layout stands and after turning the last trigger move the other way.
+
+| Flipped edges at | Turns to DR as it is | Turns to DR with the last move the other way | Fix as it is |
 |---|---:|---:|---|
 | BL DB UB FR | 4 | 5 | `L2 F R L` |
 | BL DB UF BR | 4 | 5 | `D2 B R L` |

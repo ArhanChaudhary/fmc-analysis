@@ -1,4 +1,4 @@
-| Total (EO + DR) | Per EO of ≤ 4 | Per EO of exactly 5 | 25 EOs of ≤ 4 | 200 EOs of exactly 5 |
+| Total turns (EO + DR) | Pairs per EO of ≤ 4 | Pairs per EO of exactly 5 | Pairs from 25 EOs of ≤ 4 | Pairs from 200 EOs of exactly 5 |
 |---|---:|---:|---:|---:|
 | ≤ 9 | 0.028 | 0.0023 | 0.7 | 0.5 |
 | ≤ 10 | 0.161 | 0.0174 | 4.0 | 3.5 |

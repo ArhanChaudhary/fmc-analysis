@@ -1,4 +1,4 @@
-| What | nissy step | Positions | Agree |
+| Table checked | nissy step | Positions compared | Positions that agree |
 |---|---:|---:|---:|
 | dr | drrl | 1,000 | 1,000 |
 | dr | drud | 1,000 | 1,000 |

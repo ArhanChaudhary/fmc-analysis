@@ -24,7 +24,7 @@ Below is what was said in the channels that the numbers go against, each with an
 argonblue was answering jisu101's "if you can't find a 3c, what is generally better", "2c2c, 3c1t, or 5c?" ([1 Aug 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1533125109978632212), [1 Aug 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1533125157483315321)). jisu101 replied right away ([1 Aug 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1533125667565080657), [1 Aug 2026](https://discord.com/channels/1007840975726575667/1077216728683135046/1533125708480516218)): "True but so does 2c2c, you can pick literally any comm with 3 of the 4 corners", "and you can do it in both directions", which points the right way.
 With 8-movers on 20-move random skeletons the order by cost is the order of the table below, cheapest first. So a 2c2c is the cheaper leftover, by 0.77 to 1.17 over a 3c1t: 2c2c > 3c1t > 5c. Counted per spot, a 2c2c has 24 first comms that leave a 3c and a 3c1t has 9, which is jisu101's point. Longer algs keep the 2c2c ahead of the 3c1t. Mean added on random skeletons, and what the posted skeletons give:
 
-| Leftover | 8-movers | Cap 10 | Cap 12 | Posted skeletons | Posted: mean added |
+| Leftover | Random, 8-movers: mean added | Random, cap 10: mean added | Random, cap 12: mean added | Posted skeletons | Posted, 8-movers: mean added |
 |---|---:|---:|---:|---:|---:|
 | twisted 2c2c | 8.73 | 8.66 | 8.30 | 10 | 8.30 |
 | pure 2c2c | 9.13 | 8.48 | 7.87 | 3 | 9.00 |
@@ -110,7 +110,7 @@ Counting spots from 0 (before the first move), the 8-3 is at spot 16. Checking t
 **A3. "sub-22 for 3C skeleton", "sub-20 for every other skeleton"** for sub-30 (sequesteredcuber, [8 Jul 2023](https://discord.com/channels/1007840975726575667/1077216728683135046/1127188954995769364)).
 Two moves apart is too close. With 8-movers on random skeletons:
 
-| Skeleton | Sub-30 |
+| Skeleton | Chance of sub-30 |
 |---|---:|
 | 3c in 21 | 99.6% |
 | 5c in 19 | 48% |

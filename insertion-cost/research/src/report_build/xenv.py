@@ -67,12 +67,12 @@ def WORSE(typ, k, n=20, L=8):
     c = _c(typ, n, L, None, 'sample'); return fmt(c['n'] - iv.count_le(c, k - 1), c['n'])
 def DIFF(a, b, n=20, L=8): return f2(iv.mean(_c(a, n, L, None, 'sample')) - iv.mean(_c(b, n, L, None, 'sample')))
 def DIFFL(typ, L1, L2, n=20): return f2(iv.mean(_c(typ, n, L1, None, 'sample')) - iv.mean(_c(typ, n, L2, None, 'sample')))
-_PK = {'8': 'Cap 8, where something fits', '10': 'Cap 10', '10m': 'Cap 10 with a comm plus an alg', '12': 'Cap 12'}
+_PK = {'8': 'Cap 8: mean added where something fits', '10': 'Cap 10: mean added', '10m': 'Cap 10, a comm plus an alg: mean added', '12': 'Cap 12: mean added'}
 def PAIR(typ, key): return CELL('caps_paired', SHOW[typ], _PK[key])
 def PAIRD(typ, a, b): return f2(float(PAIR(typ, a)) - float(PAIR(typ, b)))
 def PAIRN(typ): return CELL('caps_paired', SHOW[typ], 'Skeletons')
-def NEST(typ): return f2(float(CELL('nesting', SHOW[typ], 'No nesting')) - float(CELL('nesting', SHOW[typ], 'Two comms, nesting allowed')))
-def APART(typ): return f2(float(CELL('nesting', SHOW[typ], 'The two not touching')) - float(CELL('nesting', SHOW[typ], 'Two comms, nesting allowed')))
+def NEST(typ): return f2(float(CELL('nesting', SHOW[typ], 'No nesting: mean added')) - float(CELL('nesting', SHOW[typ], 'Nesting allowed: mean added')))
+def APART(typ): return f2(float(CELL('nesting', SHOW[typ], 'The two not touching: mean added')) - float(CELL('nesting', SHOW[typ], 'Nesting allowed: mean added')))
 def CH(typ, n, T, L=8): return num(100 * iv.chance(typ, n, L, T))
 def EXACT(typ, n, k, L=8):
     c = _c(typ, n, L, None, 'sample'); return fmt(c['h'].get(str(k), 0), c['n'])
@@ -112,27 +112,27 @@ def GE(n, k):
     """Share of 3c skeletons of length n whose best 8-mover insertion cancels k moves or more."""
     c = _c('3c', int(n), 8, 'one', 'sample'); return fmt(iv.count_le(c, 8 - k), c['n'])
 def ONEIN(n, col): return f"{100 / _pc(CELL('one_longer', n, col)):.0f}"
-_NEAR = 'Best is 8-3 or better and missed: next to two opposite-face moves'
+_NEAR = 'Of those, next to two opposite-face moves'; _MISS = 'Best is 8-3 or better and every other move missed it: walks'
 def SKIPN():
     tot = 0
-    for x in COL('one_skip', _NEAR): tot += int(x.split(' of ')[1])
+    for x in COL('one_skip_good', _MISS): tot += int(x)
     return f'{tot:,}'
 def SKIPNEAR(n=None):
     """Misses of a best of 8-3 or better that sit next to two opposite-face moves: at one length, or over all lengths."""
-    if n is not None: return CELL('one_skip', str(n), _NEAR)
-    a = b = 0
-    for x in COL('one_skip', _NEAR): a += int(x.split(' of ')[0]); b += int(x.split(' of ')[1])
+    if n is not None: return f"{CELL('one_skip_good', str(n), _NEAR)} of {CELL('one_skip_good', str(n), _MISS)}"
+    a = sum(int(x) for x in COL('one_skip_good', _NEAR)); b = sum(int(x) for x in COL('one_skip_good', _MISS))
     return 'every one' if a == b else f'{a:,} of {b:,}'
 def SKIPALL(n=20): return CELL('one_skip', str(n), 'All misses of every other move: next to two opposite-face moves')
 def SKIPWORST():
     """The best insertion that every other move ever missed, over all lengths of the table: '8-4'."""
-    ks = [int(m) for x in COL('one_skip', 'Best is 8-3 or better and missed: the best was') for m in re.findall(r'8-(\d+) \(', x)]
+    head, rows = _table('one_skip_good')
+    ks = [int(re.search(r'the best was 8-(\d+)$', h).group(1)) for h in head if h.startswith('Of those, the best was') and any(int(r[head.index(h)]) for r in rows)]
     return f'8-{max(ks)}'
 TENSKIP = _j('ten_skip.json')
 def TS(n, key): return f"{TENSKIP[str(n)][key]:,}"
 def TSP(n, a, b): return fmt(TENSKIP[str(n)][a], TENSKIP[str(n)][b])
 def GAP2C2C(col): return f2(float(CELL('nesting', 'pure 2c2c', col)) - float(CELL('nesting', 'twisted 2c2c', col)))
-def GAP2C2CNEST(): return f2(float(GAP2C2C('Two comms, nesting allowed')) - float(GAP2C2C('No nesting')))
+def GAP2C2CNEST(): return f2(float(GAP2C2C('Nesting allowed: mean added')) - float(GAP2C2C('No nesting: mean added')))
 # ---- greedy (the first comm of a two-comm leftover)
 def G(typ, key, n=20, L=8): return GREEDY[f'{typ}_n{n}_L{L}'][key]
 # ---- real skeletons
@@ -174,7 +174,7 @@ def IFBETTER():
     """The pages where the search at cap 12 is shorter than Insertion Finder's result, as text."""
     head, rows = _table('if_pages'); out = []
     for r in rows:
-        a, b = int(r[head.index('Insertion Finder')]), int(r[head.index('Cap 12')].split(' ')[0]); assert b <= a, r
+        a, b = int(r[head.index('Insertion Finder, moves')]), int(r[head.index('Cap 12, moves')]); assert b <= a, r
         if b < a: out.append(f"{re.match(r'\[([^\]]+)\]', r[0]).group(1)}: {b} against {a}")
     words = ['no', 'one', 'two', 'three', 'four']
     return f"{words[len(out)]} page{'s' if len(out) != 1 else ''}" + (f" ({'; '.join(out)})" if out else '')
@@ -199,8 +199,9 @@ def IFN(what):
     a, b = len(_table('if_pages')[1]), len(_table('if_pages_not')[1])
     return {'all': a + b, 'compared': a, 'not': b}[what]
 def NOTESGE3(row):
-    head, rows = _table('real_notes'); r = next(x for x in rows if x[0] == row)
-    n = int(r[1]); k = sum(int(c.split(' ')[0]) for c in r[5:9])
+    head, rows = _table('real_notes'); col = head.index(row[0].upper() + row[1:] + ': insertions')
+    n = int(rows[0][col]); assert rows[0][0] == 'all of them'
+    k = sum(int(r[col]) for r in rows if r[0] in ('8-3', '8-4', '8-5', '8-6 or more'))
     return fmt(k, n)
 def NEGSHARE():
     c = iv.cell('3c', 20, 8, 'one'); return fmt(sum(v for k, v in c['h'].items() if int(k) < 0), c['n'])
@@ -225,7 +226,7 @@ def REALTHIRDS():
 def IFP(label, col):
     """The length in a cell of the Insertion Finder table, for the page whose label is given ('16 to 3C1T')."""
     head, rows = _table('if_pages'); r = next(x for x in rows if x[0].startswith(f'[{label}]'))
-    return r[head.index(col)].split(' ')[0]
+    return r[head.index(col + ', moves')]
 def NCLASS(t): return str(len(_table(f'classes_{t}')[1]))
 def ALGLEN(key): return str(FACTS['algs'][key]['moves'])
 CHECKS = _j('checks.json')
@@ -251,21 +252,21 @@ def SUBD(name, typ): return f"{REAL['subsets'][name][typ]['diff']:+.2f}"
 def D16RANGE():
     v = [iv.mean(_c(t, 16, 8, None, 'sample')) - iv.mean(_c(t, 20, 8, None, 'sample')) for t in ('2tc', '2c2c-twisted', '2c2c-pure', '3tc', '3c1t', '5c')]
     return f'{min(v):.2f} to {max(v):.2f}'
-def DRGAP(): return f2(float(CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Mean added')) - float(CELL('dr17', ('random moves', '8'), 'Mean added')))
+def DRGAP(): return f2(float(CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Mean moves added')) - float(CELL('dr17', ('random moves', '8'), 'Mean moves added')))
 def GV(key):
     """Verdict cells of the claims table that depend on the greedy runs."""
     if key == 'first83':
-        return (f"**Yes for an 8-3**: there on {CELL('greedy_first', '20', '8-3 or better')} of 20-move 5c skeletons and {CELL('greedy_first', '16', '8-3 or better')} of 16-move ones. "
-                f"An 8-4 or better: {CELL('greedy_first', '20', '8-4 or better')} and {CELL('greedy_first', '16', '8-4 or better')} (8.4).")
+        return (f"**Yes for an 8-3**: there on {CELL('greedy_first', '20', '5c: 8-3 or better')} of 20-move 5c skeletons and {CELL('greedy_first', '16', '5c: 8-3 or better')} of 16-move ones. "
+                f"An 8-4 or better: {CELL('greedy_first', '20', '5c: 8-4 or better')} and {CELL('greedy_first', '16', '5c: 8-4 or better')} (8.4).")
     if key == 'subopt':
         return (f"**True**: on a 20-move 5c, the best first comm followed by the best second misses the best pair on {GLOSS('5c', 0)} of skeletons (8.4) [f].")
     if key == 'greedy':
-        return (f"**What the settings give**, with pure comms on a 20-move 5c: {CELL('greedy', '5c', 'Best first comm only')} at greedy 0 (longer than the best pair on {GLOSS('5c', 0)} of skeletons), "
-                f"{CELL('greedy', '5c', 'First comms within 1 move')} at greedy 1 ({GLOSS('5c', 1)}), {CELL('greedy', '5c', 'Best pair of comms')} for the best pair. What is findable is not measured.")
+        return (f"**What the settings give**, with pure comms on a 20-move 5c: {CELL('greedy', '5c', 'Best first comm only: mean added')} at greedy 0 (longer than the best pair on {GLOSS('5c', 0)} of skeletons), "
+                f"{CELL('greedy', '5c', 'First comms within 1 move: mean added')} at greedy 1 ({GLOSS('5c', 1)}), {CELL('greedy', '5c', 'Best pair of comms: mean added')} for the best pair. What is findable is not measured.")
     if key == 'morealgs':
         return (f"**It can happen, and it is uncommon**: on {G10('n')} random 20-move 5c skeletons, greedy 0 with every 3c alg of up to 10 moves is longer than greedy 0 with 8-movers on {G10('worse')} and shorter on {G10('better')} [l]. tave_789's line is the reason: in each of those the longer list has a better first comm, and it is the wrong one to follow.")
     if key == 'bugs':
         return (f"on a 20-move 5c the best first comm followed by the best second misses the best pair of 8-movers on {GLOSS('5c', 0)} of skeletons; also following the first comms that are one move worse, on {GLOSS('5c', 1)}. "
-                f"On average {CELL('greedy', '5c', 'Best first comm only')}, {CELL('greedy', '5c', 'First comms within 1 move')} and {CELL('greedy', '5c', 'Best pair of comms')}. One where the best first comm is the wrong one:")
+                f"On average {CELL('greedy', '5c', 'Best first comm only: mean added')}, {CELL('greedy', '5c', 'First comms within 1 move: mean added')} and {CELL('greedy', '5c', 'Best pair of comms: mean added')}. One where the best first comm is the wrong one:")
     raise KeyError(key)
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}

@@ -1,10 +1,11 @@
 # Is DR-xs worth it?
 
-What leaving slices unsolved at DR costs you, how often you get the chance, and what it buys on real scrambles. Whatever can be counted exactly, I counted exactly: all 768 kinds of DR-xs state and all 2,217,093,120 cosets of the DR group. The rest is sampled or run on real scrambles:
+What leaving slices unsolved at DR costs you, how often you get the chance, and what it buys on real scrambles. Whatever can be counted exactly, I counted exactly: all 768 kinds of DR-xs state and all 2,217,093,120 cosets of the DR group. The rest is sampled or run on real scrambles. Each row is one thing measured and the sample behind it:
 
-| What | On what |
+| What was measured | Sample |
 |---|---|
-| Finishes | 200,000 random DR-1s states, 5,000 DR-2s 8fe |
+| Finishes of DR-1s | 200,000 random states |
+| Finishes of DR-2s 8fe | 5,000 random states |
 | The shortest DR-xs of a scramble | 2,000,000 random scrambles |
 | Every DR-1s and DR-2s 8fe, found and finished | 500 real scrambles |
 
@@ -37,7 +38,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
   - the shortest DR-xs of a scramble and the distances from a skip are exact searches;
   - section 7 finishes tens of thousands of DR-xs.
 
-  What carries over to an attempt are the rules they give, all things you can see at the table: a DR-1s in N is worth about a DR in N + 2.3, the order to check things in (7.2), which skips can lead to a DR-1s (6.2) and which DR-1s are the good ones (5.4).
+  What carries over to an attempt are the rules they give, all things you can see at the table: a DR-1s in $N$ is worth about a DR in $N + 2.3$, the order to check things in (7.2), which skips can lead to a DR-1s (6.2) and which DR-1s are the good ones (5.4).
 
 ---
 
@@ -63,9 +64,9 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 First what nobody had before, each line with the sample and the move rule behind it; then what the numbers confirm or correct; then the verdict.
 
-- **A DR-1s of 7 is worth about a normal DR of 9, and a DR-1s of 8 about a normal DR of 10.** On 500 real scrambles I counted how often each one gets the best solution any normal DR of 12 or less gives on its scramble (7.2):
+- **A DR-1s of 7 is worth about a normal DR of 9, and a DR-1s of 8 about a normal DR of 10.** On 500 real scrambles I counted how often each one gets the best solution any normal DR of 12 or less gives on its scramble (7.2). Each row is one kind of thing to finish; the number is how many of them you finish, on average, for one to give the scramble's best:
 
-  | What you finish | Gets the scramble's best, one time in |
+  | What you finish | One in this many gets the scramble's best |
   |---|---:|
   | a DR-1s of 7 | 49 |
   | a normal DR of 9 or less | 41 |
@@ -76,9 +77,9 @@ First what nobody had before, each line with the sample and the move rule behind
   | a DR-1s of 6 or less | 12 |
 
   That's the "how likely various things are to give you, say, sub-11 dr or sub-8 dr-1s" trangium wanted ([23 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1475550291343577168)), minus the time per check. The finishes behind these odds are the best of the method's form, **computer only**; the ranking is what you use in an attempt.
-- **Slice EOs against 5-move EOs, the question left open.** Same scrambles, starting from the EOs of 4 or less and their DRs of 10 or less. What adding more does to the average result (7.4):
+- **Slice EOs against 5-move EOs, the question left open.** Same scrambles, starting from the EOs of 4 or less and their DRs of 10 or less. Each row adds one set of things to finish on top of those, and the number is how much shorter that makes the average best solution (7.4):
 
-  | Added on top | Average result better by |
+  | Added on top | Average best solution shorter by, moves |
   |---|---:|
   | every DR-1s of 8 or less from a slice EO, no normal EO added | 0.36 |
   | only the ones of 7 or less | 0.17 |
@@ -93,9 +94,9 @@ First what nobody had before, each line with the sample and the move rule behind
   - only the finish differs, +1.19.
 
   So a skip isn't how you get an 8fe. An oriented one leads to it only when the whole axis is oriented (0.78% of them, and that's just a normal EO). A misoriented one on an axis with 8 bad edges is the one separate way in, 9.19 moves on average.
-- **The whole trade in two numbers.** The shortest of each over 2,000,000 random scrambles (any moves, linear, three colours, normal and inverse), 6.4:
+- **The whole trade in two numbers.** The shortest of each over 2,000,000 random scrambles (any moves, linear, three colours, normal and inverse), 6.4. Each row is a target; the number is the average length of the shortest one on a scramble:
 
-  | Shortest on the scramble | Average |
+  | Shortest on the scramble | Average length, moves |
   |---|---:|
   | a real DR | 8.76 |
   | a DR-1s | 6.81 |
@@ -103,37 +104,39 @@ First what nobody had before, each line with the sample and the move rule behind
   | any DR-xs | 6.46 |
 
   So the shortest DR-1s comes 2.0 moves before the shortest real DR, and it costs 2.27 in the finish. On average that's close to even, so it pays when you find the short ones. These are searches over every route, **computer only**, the answer key.
-- **A DR-1s costs 2.27 more moves in the finish than a DR, and here are the odds.** Over 200,000 uniformly random ones, each finished as well as the method can (setup from either end, slice, optimal DR finish):
+- **A DR-1s costs 2.27 more moves in the finish than a DR, and here are the odds.** Over 200,000 uniformly random ones, each finished as well as the method can (setup from either end, slice, optimal DR finish). The first row is the average finish, the others the share that finish in that many moves or fewer:
 
-  | | DR-1s | DR |
+  | Finish | From a DR-1s | From a DR |
   |---|---:|---:|
-  | average finish | 15.85 | 13.58 |
+  | average finish, moves | 15.85 | 13.58 |
   | in 14 or less | 9.0% | 80% |
   | in 15 or less | 32% | 99% |
 
-  By subset the penalty is +2.04 to +2.53, a bit more on the low-qt subsets. At equal odds a DR-1s in N is a DR in about N + 2.3. A DR-2s 8fe (5,000 random states) costs 1.19, from +0.95 (4a1) to +1.41 (4c4), going up with the qt count (5.2, 5.3). These finishes use the optimal DR finish from a table, **computer only**. A finish you find by hand is longer, so take the N + 2.3 rule from it, not the lengths themselves.
-- **The one good kind of DR-1s** is the one a single slice turn fixes, seen from one side of the scramble or the other (2.8% of them): it finishes in 14.52 on average, 0.94 over a DR. Past that the layout doesn't matter much (5.4):
+  By subset the penalty is +2.04 to +2.53, a bit more on the low-qt subsets. At equal odds a DR-1s in $N$ is a DR in about $N + 2.3$. A DR-2s 8fe (5,000 random states) costs 1.19, from +0.95 (4a1) to +1.41 (4c4), going up with the qt count (5.2, 5.3). These finishes use the optimal DR finish from a table, **computer only**. A finish you find by hand is longer, so take the $N + 2.3$ rule from it, not the lengths themselves.
+- **The one good kind of DR-1s** is the one a single slice turn fixes, seen from one side of the scramble or the other (2.8% of them): it finishes in 14.52 on average, 0.94 over a DR. Past that the layout doesn't matter much (5.4). Average finish by how far the DR-1s is from a real DR:
 
-  | Turns to DR from the better side | 4 | 5 | 6 |
+  | Fewest turns to a real DR, from the better side | 4 | 5 | 6 |
   |---|---:|---:|---:|
-  | average finish | 15.74 | 15.96 | 16.12 |
+  | average finish, moves | 15.74 | 15.96 | 16.12 |
+
+  And by how the four flipped edges split between the two slices they belong to:
 
   | Split of the flipped edges | 3-1 | 2-2 | 4-0 |
   |---|---:|---:|---:|
-  | average finish | 16.05 | 15.78 | 15.10 |
+  | average finish, moves | 16.05 | 15.78 | 15.10 |
 
   The split is the same layout seen from the other side. The 4-0 is only good when its slice is the one that fixes; four in the other slice finish at +2.10, no better than an ordinary DR-1s.
 - **Setting up only on the side where you found the DR-1s loses 1.06 moves.** With the setup at most 4 moves on that side and any DR finish after it, the average is 16.91 and only 38% of states keep their best finish, even though the best solution has its slice within 4 moves of one end for at least 64%. Try the setup from both sides before you judge a DR-1s (5.5). This one is for the attempt.
-- **From an oriented skip on an axis that isn't the slice's own, a DR-1s is 7.68 moves away on average** without breaking that axis's EO (exact, over every coset with such a skip):
+- **From an oriented skip on an axis that isn't the slice's own, a DR-1s is 7.68 moves away on average** without breaking that axis's EO (exact, over every coset with such a skip). The share of these skips with a DR-1s that close:
 
-  | Within | 6 | 7 | 8 |
+  | Moves to the nearest DR-1s | 6 or less | 7 or less | 8 or less |
   |---|---:|---:|---:|
   | share of skips | 7.1% | 36% | 88% |
 
   From a full EO the nearest real DR on one axis is 7.80 under the same rule, so in route length a skip like this is an EO that cost nothing. The distances are the nearest DR-1s over every route, **computer only**. The hand version is tseitsei89's 8, occasionally 7 ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465952080756871423)): "I can usually find some DR-fe in 8 moves. Occasionally 7." (6.2)
-- **On 500 real scrambles, here's how many have a DR-1s** from a skip or a one-move slice EO by the plain tutorial route (7.1). I took every route, so it's a floor:
+- **On 500 real scrambles, here's how many have a DR-1s** from a skip or a one-move slice EO by the plain tutorial route (7.1). I took every route, so it's a floor. Each row is a length; the number is the share of the 500 scrambles that have a DR-1s that short:
 
-  | From a skip or a one-move slice EO | Scrambles that have one |
+  | DR-1s from a skip or a one-move slice EO | Share of the 500 scrambles that have one |
   |---|---:|
   | of 8 or less | 89% |
   | of 7 or less | 46% |
@@ -141,9 +144,9 @@ First what nobody had before, each line with the sample and the move rule behind
 
   There are 63.1 of them on average, nearly as many as the 69.7 normal DRs of 10 or less. **Computer only**: every route taken, which nobody does in an hour. It says how much is there, not how much you find.
 - **What finishing them does.** On top of every normal DR of 10 or less, every DR-1s of 8 or less takes the average result from 20.62 to 20.42. Every 11-move DR instead takes it to 20.04, with 10.3 times as many to finish (7.3). **Computer only**: every one of them finished as well as possible, the answer key. The part you can use by hand: the DR-1s of 7 or less come before the 10-move DRs, and the ones of 8 before the 11s.
-- **DR-1s to DR takes 2 to 6 turns, usually 5 or 6.** Of the 70 ways four flipped edges can sit:
+- **DR-1s to DR takes 2 to 6 turns, usually 5 or 6.** Of the 70 ways four flipped edges can sit, how many need each number of turns:
 
-  | Turns to DR | 2 | 3 | 4 | 5 | 6 |
+  | Turns to a real DR | 2 | 3 | 4 | 5 | 6 |
   |---|---:|---:|---:|---:|---:|
   | layouts | 1 | 2 | 9 | 30 | 28 |
 
@@ -170,9 +173,9 @@ First what nobody had before, each line with the sample and the move rule behind
 
 **The verdict:**
 
-- **So is it worth it?**
+- **So is it worth it?** Each row is a DR-xs you might have, and where it goes in the order you finish things:
 
-  | DR-xs | Where it goes |
+  | DR-xs you have | Where it goes |
   |---|---|
   | a DR-1s of 7 or less | yes, before your 10-move DRs. One is there on nearly half of scrambles |
   | a DR-1s of 8 | after the 10s and before the 11s, about 4.5 eleven-movers each |
@@ -214,9 +217,9 @@ Take a cube and one colour pair, say white/yellow. It is a DR-xs for that colour
 
 The other eight edges can be flipped (white or yellow on the side), any even number of them, and centers don't matter. That's the group FakeMMAP wrote down ([25 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1464948138707255550)): "<U, D, F2, B2, R2, L2, M, S>, aka DR-fe."
 
-How many slices it needs comes down to two things: where the corners' faces are relative to the centers, and how many edges are flipped. trangium's examples doc has the rule, and enumerating everything confirms it line for line:
+How many slices it needs comes down to two things: where the corners' faces are relative to the centers, and how many edges are flipped. trangium's examples doc has the rule, and enumerating everything confirms it line for line. Each row is one group of kinds with the same slice count, corner faces and slice-edge alignment; "Kinds of state" is how many of the 768 fall in it:
 
-| Slices needed | Corners oriented on | Slice edges against the centers | Flipped edges | Kinds | Turns to a real DR |
+| Slices needed | Corners oriented on | Slice edges against the centers | Possible numbers of flipped edges | Kinds of state | Turns to a real DR, fewest–most |
 |---:|---|---|---|---:|---|
 | 0 | the faces of their own colour | agree | 0 | 1 | 0 |
 | 1 | two other faces | agree | 4 | 140 | 2–6 |
@@ -224,7 +227,7 @@ How many slices it needs comes down to two things: where the corners' faces are 
 | 2 | the faces of their own colour | agree | 2, 4, 6 or 8 | 127 | 5–9 |
 | 3 | two other faces | agree | 0, 2, 6 or 8 | 116 | 8–10 |
 | 3 | the faces of their own colour | disagree | 0, 2, 4, 6 or 8 | 128 | 6–10 |
-| | | | | **768** | |
+| all | | | | **768** | |
 
 "Slice edges against the centers" is the tutorial's aligned and misaligned: do the four slice edges match the centers of their slice or not. Per colour there are 768 kinds of state, a kind being the faces, where the flipped edges are, and that one bit. Section 4 is an exact computation over these kinds, and section 6 uses them as targets.
 
@@ -243,25 +246,45 @@ Face turns with all cancelling done, using only moves that keep the DR-xs: any t
 
 ### 4.1 To a real DR
 
-| Slices needed | Kinds | 2 turns | 3 turns | 4 turns | 5 turns | 6 turns | 7 turns | 8 turns | 9 turns | 10 turns | Average |
-|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | 140 | 2 | 4 | 18 | 60 | 56 | 0 | 0 | 0 | 0 | 5.17 |
-| 2 | 383 | 0 | 0 | 2 | 32 | 99 | 172 | 54 | 24 | 0 | 6.83 |
-| 3 | 244 | 0 | 0 | 0 | 0 | 2 | 14 | 118 | 80 | 30 | 8.50 |
+Each row is a number of face turns; each column counts the kinds of DR-1s, DR-2s or DR-3s state whose shortest fix takes that many:
+
+| Turns to a real DR | Kinds of DR-1s state | Kinds of DR-2s state | Kinds of DR-3s state |
+|---:|---:|---:|---:|
+| 2 | 2 | 0 | 0 |
+| 3 | 4 | 0 | 0 |
+| 4 | 18 | 2 | 0 |
+| 5 | 60 | 32 | 0 |
+| 6 | 56 | 99 | 2 |
+| 7 | 0 | 172 | 14 |
+| 8 | 0 | 54 | 118 |
+| 9 | 0 | 24 | 80 |
+| 10 | 0 | 0 | 30 |
+| all | 140 | 383 | 244 |
+| average turns | 5.17 | 6.83 | 8.50 |
 
 This is the count from the state alone, with nothing to cancel against. It's over kinds, and if you didn't steer the DR-xs, every kind with the same number of slices is equally likely.
 
 ### 4.2 DR-1s to DR: all 70 layouts
 
-A DR-1s has exactly four flipped edges, and one slice turn fixes it once those four are in the slice that turn moves. Of the eight places they can be in, four are inside that slice and four outside it, so there are 70 layouts. With the corners on F/B, where the slice that fixes is `R L`:
+A DR-1s has exactly four flipped edges, and one slice turn fixes it once those four are in the slice that turn moves. Of the eight places they can be in, four are inside that slice and four outside it, so there are 70 layouts. Take the corners on F/B, where the slice that fixes is `R L`. Each row is how many of the four flipped edges already sit in that slice; the columns count its layouts by the turns their shortest fix takes:
 
-| Flipped edges already in the slice that fixes | Layouts | Turns to DR (number of layouts) | Shortest example: flipped at | Its fix |
-|---:|---:|---|---|---|
-| 4 | 1 | 2 turns (1) | DB DF UB UF | `R L` |
-| 3 | 16 | 5 turns (8), 6 turns (8) | BL DB DF UB | `B' U2 B R L` |
-| 2 | 36 | 3 turns (2), 4 turns (8), 5 turns (14), 6 turns (12) | BL DF UF BR | `B R L` |
-| 1 | 16 | 5 turns (8), 6 turns (8) | BL DB BR FR | `F' D2 B R L` |
-| 0 | 1 | 4 turns (1) | BL FL BR FR | `F B R L` |
+| Flipped edges already in the slice that fixes | Layouts | Layouts that take 2 turns | 3 turns | 4 turns | 5 turns | 6 turns |
+|---:|---:|---:|---:|---:|---:|---:|
+| 4 | 1 | 1 | 0 | 0 | 0 | 0 |
+| 3 | 16 | 0 | 0 | 0 | 8 | 8 |
+| 2 | 36 | 0 | 2 | 8 | 14 | 12 |
+| 1 | 16 | 0 | 0 | 0 | 8 | 8 |
+| 0 | 1 | 0 | 0 | 1 | 0 | 0 |
+
+And the shortest example of each row:
+
+| Flipped edges already in the slice that fixes | Shortest example: flipped edges at | Its fix |
+|---:|---|---|
+| 4 | DB DF UB UF | `R L` |
+| 3 | BL DB DF UB | `B' U2 B R L` |
+| 2 | BL DF UF BR | `B R L` |
+| 1 | BL DB BR FR | `F' D2 B R L` |
+| 0 | BL FL BR FR | `F B R L` |
 
 - **Daichi is right** that 6 is the most and 7 does not exist ([15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560145175714472097)). So is Rodney's bound ([15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560294279010717737)): "Worst case requires 2qt, with at most one half-turn before/between each qt, so 4 and then the slice."
 - **The distribution is not flat.** 83% of layouts need 5 or 6 turns, and the average is 5.17. The EO Meta Comparison doc's working assumption, "1 slice can be fixed in 3 moves", is 1.17 short with one slice turn cancelling (Rodney's way of counting, [15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560296978137485322)) and 2.17 from the state alone, and sqAree's "more than 5 moves most of the time" ([23 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1464341592952537128)) is the accurate one. That count isn't the cost, though: the setup moves are also finish moves and the slice gets moved around in the finish, so the cost that matters is the finish (section 5).
@@ -276,14 +299,31 @@ A DR-1s has exactly four flipped edges, and one slice turn fixes it once those f
 
 ### 4.3 The steps in between
 
-| Step | Kinds | Turns, counted from scratch | Right after a trigger (a side quarter turn), at best |
-|---|---:|---|---|
-| DR-3s to DR-2s | 244 | 2 (all) | 0 (all) |
-| DR-2s to DR-1s | 383 | 2 (209 kinds), 3 (102 kinds), 4 (72 kinds) | 0 (209 kinds), 3 (174 kinds) |
-| DR-1s to DR | 140 | 2 (2 kinds), 3 (4 kinds), 4 (18 kinds), 5 (60 kinds), 6 (56 kinds) | 0 (2 kinds), 3 (20 kinds), 4 (14 kinds), 5 (104 kinds) |
-| DR-2s to DR | 383 | 4 (2 kinds), 5 (32 kinds), 6 (99 kinds), 7 (172 kinds), 8 (54 kinds), 9 (24 kinds) | 2 (2 kinds), 3 (32 kinds), 4 (31 kinds), 5 (128 kinds), 6 (112 kinds), 8 (78 kinds) |
+Each row is a number of face turns; each column counts the kinds of state for that step whose shortest way through takes that many. Counted from scratch:
 
-The last column is the extra turns when your last move was a quarter turn of a side face, on the better of the two side axes: a slice about that axis merges with it (`R` then `R' L` is just `L`).
+| Turns, counted from scratch | DR-3s to DR-2s | DR-2s to DR-1s | DR-1s to DR | DR-2s to DR |
+|---:|---:|---:|---:|---:|
+| 2 | 244 | 209 | 2 | 0 |
+| 3 | 0 | 102 | 4 | 0 |
+| 4 | 0 | 72 | 18 | 2 |
+| 5 | 0 | 0 | 60 | 32 |
+| 6 | 0 | 0 | 56 | 99 |
+| 7 | 0 | 0 | 0 | 172 |
+| 8 | 0 | 0 | 0 | 54 |
+| 9 | 0 | 0 | 0 | 24 |
+| all kinds | 244 | 383 | 140 | 383 |
+
+And the extra turns when your last move was a quarter turn of a side face, on the better of the two side axes: a slice about that axis merges with it (`R` then `R' L` is just `L`):
+
+| Extra turns right after a trigger, at best | DR-3s to DR-2s | DR-2s to DR-1s | DR-1s to DR | DR-2s to DR |
+|---:|---:|---:|---:|---:|
+| 0 | 244 | 209 | 2 | 0 |
+| 2 | 0 | 0 | 0 | 2 |
+| 3 | 0 | 174 | 20 | 32 |
+| 4 | 0 | 0 | 14 | 31 |
+| 5 | 0 | 0 | 104 | 128 |
+| 6 | 0 | 0 | 0 | 112 |
+| 8 | 0 | 0 | 0 | 78 |
 
 - **A DR-3s is always a DR-2s for free** right after the trigger, as the tutorial says: "you can always go to DR-2s in 0 moves by inserting a slice move that cancels with your last DR move".
 - **DR-2s to DR-1s** is a slice with 0, 1 or 2 setup moves. Rodney's "DR-2s needs at most 2 moves to reach DR-1s" ([15 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1560294279010717737)) is right if you don't count the slice itself. Right after the trigger, with its last move on the better of the two side axes, it is free for 209 of the 383 kinds and costs 3 for the rest. On the other side axis it is free for 69.
@@ -304,62 +344,104 @@ The states are drawn uniformly: 200,000 DR-1s and 5,000 DR-2s 8fe. That's the ri
 
 ### 5.2 By subset
 
-The subset of a DR-xs is its corner subset, as in "4a2-1s". trangium's columns are the nissy optimal averages from the tutorial.
+The subset of a DR-xs is its corner subset, as in "4a2-1s". trangium's columns are the nissy optimal averages from the tutorial. Each row is a corner subset; "DR-1s minus DR" is how many moves longer a DR-1s of that subset finishes than a DR of the same subset:
 
-| Corner subset | Share of states | DR: average finish | DR-1s: average finish | DR-1s against DR | trangium's DR-1s (nissy optimal) | DR-2s 8fe: average finish | 8fe against DR | trangium's 8fe (nissy optimal) |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 0c0 | 0.48% | 12.28 | 14.78 | +2.50 |  | 13.03 | +0.75 |  |
-| 4a1 | 2.9% | 12.42 | 14.95 | +2.53 | 14.8 | 13.37 | +0.95 | 13.26 |
-| 4a2 | 2.9% | 13.35 | 15.78 | +2.43 | 15.6 | 14.29 | +0.94 |  |
-| 4b2 | 11% | 12.68 | 15.15 | +2.47 | 14.9 | 13.74 | +1.06 | 13.59 |
-| 2c3 | 15% | 12.92 | 15.35 | +2.43 | 15.2 | 13.99 | +1.07 | 13.80 |
-| 4c3 | 11% | 13.49 | 15.84 | +2.35 | 15.7 | 14.72 | +1.23 | 14.54 |
-| 0c3 | 1.4% | 14.46 | 16.67 | +2.21 |  | 15.70 | +1.24 |  |
-| 2c4 | 23% | 13.65 | 15.91 | +2.26 | 15.5 | 14.90 | +1.25 | 14.80 |
-| 0c4 | 0.95% | 13.67 | 15.85 | +2.17 |  | 14.89 | +1.22 |  |
-| 4c4 | 11% | 14.40 | 16.49 | +2.09 |  | 15.81 | +1.41 |  |
-| 2c5 | 7.6% | 14.33 | 16.36 | +2.04 |  | 15.62 | +1.29 |  |
-| 4b5 | 11% | 14.28 | 16.33 | +2.05 |  | 15.66 | +1.38 |  |
-| **all** | 100% | 13.58 | 15.85 | +2.27 |  | 14.77 | +1.19 |  |
+| Corner subset | Share of states | DR: average finish, moves | DR-1s: average finish, moves | DR-1s minus DR, moves | trangium's DR-1s, nissy optimal average |
+|---|---:|---:|---:|---:|---:|
+| 0c0 | 0.48% | 12.28 | 14.78 | +2.50 |  |
+| 4a1 | 2.9% | 12.42 | 14.95 | +2.53 | 14.8 |
+| 4a2 | 2.9% | 13.35 | 15.78 | +2.43 | 15.6 |
+| 4b2 | 11% | 12.68 | 15.15 | +2.47 | 14.9 |
+| 2c3 | 15% | 12.92 | 15.35 | +2.43 | 15.2 |
+| 4c3 | 11% | 13.49 | 15.84 | +2.35 | 15.7 |
+| 0c3 | 1.4% | 14.46 | 16.67 | +2.21 |  |
+| 2c4 | 23% | 13.65 | 15.91 | +2.26 | 15.5 |
+| 0c4 | 0.95% | 13.67 | 15.85 | +2.17 |  |
+| 4c4 | 11% | 14.40 | 16.49 | +2.09 |  |
+| 2c5 | 7.6% | 14.33 | 16.36 | +2.04 |  |
+| 4b5 | 11% | 14.28 | 16.33 | +2.05 |  |
+| **all** | 100% | 13.58 | 15.85 | +2.27 |  |
+
+The same for the DR-2s 8fe, where "8fe minus DR" is against the DR column above:
+
+| Corner subset | DR-2s 8fe: average finish, moves | 8fe minus DR, moves | trangium's 8fe, nissy optimal average |
+|---|---:|---:|---:|
+| 0c0 | 13.03 | +0.75 |  |
+| 4a1 | 13.37 | +0.95 | 13.26 |
+| 4a2 | 14.29 | +0.94 |  |
+| 4b2 | 13.74 | +1.06 | 13.59 |
+| 2c3 | 13.99 | +1.07 | 13.80 |
+| 4c3 | 14.72 | +1.23 | 14.54 |
+| 0c3 | 15.70 | +1.24 |  |
+| 2c4 | 14.90 | +1.25 | 14.80 |
+| 0c4 | 14.89 | +1.22 |  |
+| 4c4 | 15.81 | +1.41 |  |
+| 2c5 | 15.62 | +1.29 |  |
+| 4b5 | 15.66 | +1.38 |  |
+| **all** | 14.77 | +1.19 |  |
 
 - The penalty for a DR-1s is +2.27 overall. It's larger on the low-qt subsets (+2.53 for 4a1) than on the high ones (+2.05 for 4b5), so a DR-1s flattens the difference between subsets a little.
 - My DR-1s numbers are 0.1 to 0.4 above trangium's. trangium's are true optimals, which can leave the form, and trangium says of them that "lots of optimals are not findable" ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465944533656141878)). The DR column agrees with trangium's to within 0.05.
-- For DR-2s 8fe the penalty is +1.19, 0.1 to 0.2 above trangium's on each of the five subsets trangium measured. The 8fe sample is small for the rare subsets:
+- For DR-2s 8fe the penalty is +1.19, 0.1 to 0.2 above trangium's on each of the five subsets trangium measured. The 8fe sample is small for the rare subsets. The number of 8fe states sampled in each:
 
-  | Subset | 0c0 | 0c4 | 0c3 |
+  | Corner subset | 0c0 | 0c4 | 0c3 |
   |---|---:|---:|---:|
-  | states sampled | 35 | 45 | 50 |
+  | 8fe states sampled | 35 | 45 | 50 |
 
 ### 5.3 In odds
 
-| Finish in | 10 or less | 11 or less | 12 or less | 13 or less | 14 or less | 15 or less | 16 or less | 17 or less | 18 or less | Average |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| a DR | 0.74% | 3.6% | 15% | 44% | 80% | 99% | 99.9% | 99.9% | 100% | 13.58 |
-| a DR-2s 8fe | 0.06% | 0.30% | 2.6% | 12% | 39% | 73% | 97% | 99.9% | 100% | 14.77 |
-| a DR-1s | 0.01% | 0.07% | 0.40% | 2.0% | 9.0% | 32% | 73% | 98% | 100% | 15.85 |
-| a DR-1s that one slice turn fixes | 0.24% | 1.2% | 3.9% | 16% | 46% | 81% | 99% | 100% | 100% | 14.53 |
-| a DR-1s that needs 5 or 6 turns to DR | <0.01% | 0.03% | 0.27% | 1.5% | 7.4% | 29% | 71% | 98% | 100% | 15.92 |
+Each row is a finish length; each column is the share of states of that kind that finish in that many moves or fewer, and the last row is the average:
 
-And adding the length of what you did before, the chance of a solution in N or less:
+| Finish in, moves | DR | DR-2s 8fe | DR-1s | DR-1s that one slice turn fixes | DR-1s that needs 5 or 6 turns to DR |
+|---|---:|---:|---:|---:|---:|
+| 10 or less | 0.74% | 0.06% | 0.01% | 0.24% | <0.01% |
+| 11 or less | 3.6% | 0.30% | 0.07% | 1.2% | 0.03% |
+| 12 or less | 15% | 2.6% | 0.40% | 3.9% | 0.27% |
+| 13 or less | 44% | 12% | 2.0% | 16% | 1.5% |
+| 14 or less | 80% | 39% | 9.0% | 46% | 7.4% |
+| 15 or less | 99% | 73% | 32% | 81% | 29% |
+| 16 or less | 99.9% | 97% | 73% | 99% | 71% |
+| 17 or less | 99.9% | 99.9% | 98% | 100% | 98% |
+| 18 or less | 100% | 100% | 100% | 100% | 100% |
+| average finish, moves | 13.58 | 14.77 | 15.85 | 14.53 | 15.92 |
 
-| You have | 18 or less | 19 or less | 20 or less | 21 or less | 22 or less | 23 or less | 24 or less |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| a DR in 9 | 0.14% | 0.74% | 3.6% | 15% | 44% | 80% | 99% |
-| a DR in 10 | 0.03% | 0.14% | 0.74% | 3.6% | 15% | 44% | 80% |
-| a DR in 11 | <0.01% | 0.03% | 0.14% | 0.74% | 3.6% | 15% | 44% |
-| a DR in 12 | <0.01% | <0.01% | 0.03% | 0.14% | 0.74% | 3.6% | 15% |
-| a DR-1s in 6 | 0.40% | 2.0% | 9.0% | 32% | 73% | 98% | 100% |
-| a DR-1s in 7 | 0.07% | 0.40% | 2.0% | 9.0% | 32% | 73% | 98% |
-| a DR-1s in 8 | 0.01% | 0.07% | 0.40% | 2.0% | 9.0% | 32% | 73% |
-| a DR-1s in 9 | <0.01% | 0.01% | 0.07% | 0.40% | 2.0% | 9.0% | 32% |
-| a DR-2s 8fe in 7 | 0.30% | 2.6% | 12% | 39% | 73% | 97% | 99.9% |
-| a DR-2s 8fe in 8 | 0.06% | 0.30% | 2.6% | 12% | 39% | 73% | 97% |
-| a DR-2s 8fe in 9 | 0 of 5,000 | 0.06% | 0.30% | 2.6% | 12% | 39% | 73% |
-| a DR-2s 8fe in 10 | 0 of 5,000 | 0 of 5,000 | 0.06% | 0.30% | 2.6% | 12% | 39% |
+And adding the length of what you did before, the chance of a whole solution in $N$ moves or less. Each row is what you have and how long it took; each column is the share that ends in that many moves or fewer:
 
-Read the second table by finding equal rows:
+| You have | Solution in 18 or less | 19 or less | 20 or less | 21 or less |
+|---|---:|---:|---:|---:|
+| a DR in 9 | 0.14% | 0.74% | 3.6% | 15% |
+| a DR in 10 | 0.03% | 0.14% | 0.74% | 3.6% |
+| a DR in 11 | <0.01% | 0.03% | 0.14% | 0.74% |
+| a DR in 12 | <0.01% | <0.01% | 0.03% | 0.14% |
+| a DR-1s in 6 | 0.40% | 2.0% | 9.0% | 32% |
+| a DR-1s in 7 | 0.07% | 0.40% | 2.0% | 9.0% |
+| a DR-1s in 8 | 0.01% | 0.07% | 0.40% | 2.0% |
+| a DR-1s in 9 | <0.01% | 0.01% | 0.07% | 0.40% |
+| a DR-2s 8fe in 7 | 0.30% | 2.6% | 12% | 39% |
+| a DR-2s 8fe in 8 | 0.06% | 0.30% | 2.6% | 12% |
+| a DR-2s 8fe in 9 | 0 of 5,000 | 0.06% | 0.30% | 2.6% |
+| a DR-2s 8fe in 10 | 0 of 5,000 | 0 of 5,000 | 0.06% | 0.30% |
 
-| This | sits |
+The same rows, longer solutions:
+
+| You have | Solution in 22 or less | 23 or less | 24 or less |
+|---|---:|---:|---:|
+| a DR in 9 | 44% | 80% | 99% |
+| a DR in 10 | 15% | 44% | 80% |
+| a DR in 11 | 3.6% | 15% | 44% |
+| a DR in 12 | 0.74% | 3.6% | 15% |
+| a DR-1s in 6 | 73% | 98% | 100% |
+| a DR-1s in 7 | 32% | 73% | 98% |
+| a DR-1s in 8 | 9.0% | 32% | 73% |
+| a DR-1s in 9 | 2.0% | 9.0% | 32% |
+| a DR-2s 8fe in 7 | 73% | 97% | 99.9% |
+| a DR-2s 8fe in 8 | 39% | 73% | 97% |
+| a DR-2s 8fe in 9 | 12% | 39% | 73% |
+| a DR-2s 8fe in 10 | 2.6% | 12% | 39% |
+
+Read these two tables by finding rows that match. Each row below is one thing you can have, and the DRs it matches:
+
+| What you have | Where it sits |
 |---|---|
 | a DR-1s in 7 | between a DR in 9 and a DR in 10, about midway |
 | a DR-1s in 8 | between a DR in 10 and a DR in 11 |
@@ -367,14 +449,14 @@ Read the second table by finding equal rows:
 
 So:
 
-- **DR-1s in N is about a DR in N + 2.3**, at equal odds for finishes of 13 to 16 (2.27 on the average). Rodney's "+3/+4 penalty for -1/-2 slice" ([30 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466667769834508476)) is a bit hard on the DR-1s if you finish it well, and tseitsei89's later "in reality around 3 moves worse" ([7 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469596164188930221)) is what it turns into when you don't find the best finish (5.5).
-- **DR-2s 8fe in N is about a DR in N + 1.19.**
+- **DR-1s in $N$ is about a DR in $N + 2.3$**, at equal odds for finishes of 13 to 16 (2.27 on the average). Rodney's "+3/+4 penalty for -1/-2 slice" ([30 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466667769834508476)) is a bit hard on the DR-1s if you finish it well, and tseitsei89's later "in reality around 3 moves worse" ([7 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469596164188930221)) is what it turns into when you don't find the best finish (5.5).
+- **DR-2s 8fe in $N$ is about a DR in $N + 1.19$.**
 
 ### 5.4 Which DR-1s are the good ones
 
-People said two things you can see on a DR-1s matter: how far it is from a DR, and how the four flipped edges split between the two slices they belong to (Rodney, [28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466198780582826057): "3-1 is bad because it requires 2 QT", "2-2 requires 1 QT"). Those are the same thing seen from the two sides of the scramble: the four flipped edges all belong to one slice exactly when, on the other side, they all sit in one slice. So one table covers both, the fewest turns to a real DR from whichever side is better:
+People said two things you can see on a DR-1s matter: how far it is from a DR, and how the four flipped edges split between the two slices they belong to (Rodney, [28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1466198780582826057): "3-1 is bad because it requires 2 QT", "2-2 requires 1 QT"). Those are the same thing seen from the two sides of the scramble: the four flipped edges all belong to one slice exactly when, on the other side, they all sit in one slice. So one table covers both, the fewest turns to a real DR from whichever side is better. Each row is the DR-1s whose better side is that many turns from a real DR; "minus a DR's" is its average finish minus a random DR's:
 
-| Fewest turns to a real DR, from the better side | Share of DR-1s | Average finish | Against a DR | In 14 or less | In 15 or less |
+| Fewest turns to a real DR, from the better side | Share of DR-1s | Average finish, moves | Average finish minus a DR's, moves | Finish in 14 or less | Finish in 15 or less |
 |---:|---:|---:|---:|---:|---:|
 | 2 | 2.8% | 14.52 | +0.94 | 46% | 81% |
 | 3 | 5.5% | 15.15 | +1.57 | 25% | 59% |
@@ -398,7 +480,7 @@ How often a person finds these finishes isn't something I can compute. trangium'
 
 ### 5.6 DR-2s 8fe and the DR that ends in U R L
 
-The tutorial's cheapest way to a DR-2s 8fe is a normal DR that ends in something like `U R L`: do `D` instead and you're at an 8fe two moves earlier. An 8fe in N is worth a DR in N + 1.19, so the DR in N + 2 that ends that way is worth a DR in about N + 1.2. **The ending is worth about 0.8 of a move** with the best finish of this form, and 0.9 to 1.15 with trangium's optimal averages. trangium put it at "1 to 1.3 moves better" ([6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469483553963380829)) and count quackula at "one move better" ([6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469483105659392232)): about one move stands.
+The tutorial's cheapest way to a DR-2s 8fe is a normal DR that ends in something like `U R L`: do `D` instead and you're at an 8fe two moves earlier. An 8fe in $N$ is worth a DR in $N + 1.19$, so the DR in $N + 2$ that ends that way is worth a DR in about $N + 1.2$. **The ending is worth about 0.8 of a move** with the best finish of this form, and 0.9 to 1.15 with trangium's optimal averages. trangium put it at "1 to 1.3 moves better" ([6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469483553963380829)) and count quackula at "one move better" ([6 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1469483105659392232)): about one move stands.
 
 By subset the 8fe penalty runs from +0.95 (4a1) to +1.41 (4c4). Unlike the DR-1s penalty it goes up with the qt count, so the `U R L` ending is worth about a move on the low-qt subsets and about 0.6 on 4c4.
 
@@ -408,9 +490,9 @@ By subset the 8fe penalty runs from +0.95 (4a1) to +1.41 (4c4). Unlike the DR-1s
 
 ### 6.1 How often there is a slice-EO skip
 
-There are 9 pairs of a slice and an axis, each in two flavours (all oriented, all misoriented), on normal and on inverse. Whether a scramble has a skip only depends on which kind of edge sits where and on the orientations: 70,963,200 equally likely configurations. Counting all of them:
+There are 9 pairs of a slice and an axis, each in two flavours (all oriented, all misoriented), on normal and on inverse. Whether a scramble has a skip only depends on which kind of edge sits where and on the orientations: 70,963,200 equally likely configurations. Counting all of them: each row is a number of skips and each column the share of scrambles that have that many, for skips on normal or on both sides, any flavour or all-oriented only. The last row is an average count, not a share:
 
-| Slice-EO skips on the scramble | On normal | On normal or inverse | All-oriented only, normal | All-oriented only, normal or inverse |
+| Slice-EO skips on the scramble | Any skip, on normal | Any skip, on normal or inverse | All-oriented skips only, on normal | All-oriented skips only, on normal or inverse |
 |---|---:|---:|---:|---:|
 | at least one | 69% | 79% | 43% | 56% |
 | exactly 0 | 31% | 21% | 57% | 44% |
@@ -421,12 +503,12 @@ There are 9 pairs of a slice and an axis, each in two flavours (all oriented, al
 | average number | 1.12 | 2.25 | 0.56 | 1.12 |
 
 - **68.7953% of scrambles have at least one skip on normal, and 79.3147% have one on normal or inverse.** That's wen's question.
-- Each single skip (one slice, one axis, one flavour, one side) has chance 1/16, so 1/8 for a slice and an axis with either flavour, like tseitsei89 and count quackula worked out ([3 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1533722203646988318), [3 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1533721112813244467)). The skips are far from independent: the average is 2.25 per scramble over both sides, but 21% of scrambles have none.
+- Each single skip (one slice, one axis, one flavour, one side) has chance $1/16$, so $1/8$ for a slice and an axis with either flavour, like tseitsei89 and count quackula worked out ([3 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1533722203646988318), [3 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1533721112813244467)). The skips are far from independent: the average is 2.25 per scramble over both sides, but 21% of scrambles have none.
 - The tutorial's "often 1-2 on a scramble" is right.
 
-And for one given slice, the moves to a slice EO on some axis, over all 7,920 ways its four pieces can sit:
+And for one given slice, the moves to a slice EO on some axis, over all 7,920 ways its four pieces can sit. Each row is the kind of slice EO you'll take; the columns are the share of those placements that need that many moves:
 
-| Slice EO wanted | Skip | 1 move | 2 moves | 3 moves | 4 moves |
+| Slice EO wanted | Already there (a skip) | 1 move | 2 moves | 3 moves | 4 moves |
 |---|---:|---:|---:|---:|---:|
 | any axis, oriented or misoriented | 32.2% | 38.3% | 29.5% | 0 | 0 |
 | any axis, oriented only | 17.0% | 25.5% | 51.6% | 5.9% | 0 |
@@ -437,42 +519,65 @@ FakeMMAP's "never more than 2 moves away", "No matter which slice you pick" ([25
 
 ### 6.2 From a skip to a DR-1s
 
-After the slice EO the tutorial looks for rzp and DR "like normal", ignoring flipped edges and centers. Normal means no quarter turns of the EO axis's two faces, which keeps every edge's orientation for that axis. Under exactly that rule, here's the nearest DR-1s from every state with a skip, by the kind of skip. The distances are exact searches, **computer only**; which skips can give a DR-1s at all is something you check at the table by counting bad edges:
+After the slice EO the tutorial looks for rzp and DR "like normal", ignoring flipped edges and centers. Normal means no quarter turns of the EO axis's two faces, which keeps every edge's orientation for that axis. Under exactly that rule, here's the nearest DR-1s from every state with a skip, by the kind of skip. The distances are exact searches, **computer only**; which skips can give a DR-1s at all is something you check at the table by counting bad edges. Each row is a kind of skip, with whether a DR-1s can be reached at all and how far it is on average:
 
-| The skip | A route exists | In 5 or less (of all such skips) | In 6 or less | In 7 or less | In 8 or less | In 9 or less | Average when there is one |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| another axis than the slice's own, all oriented | always | 1.0% | 7.1% | 36% | 88% | 99.9% | 7.68 |
-| another axis, all misoriented | 55% | 0.48% | 3.2% | 17% | 45% | 55% | 7.80 |
-| the slice's own axis, all oriented | 55% | 0.93% | 6.0% | 26% | 51% | 55% | 7.47 |
-| the slice's own axis, all misoriented | never | | | | | | |
+| The skip | A route exists, share of such skips | Average moves, when there is one |
+|---|---:|---:|
+| another axis than the slice's own, all oriented | always | 7.68 |
+| another axis, all misoriented | 55% | 7.80 |
+| the slice's own axis, all oriented | 55% | 7.47 |
+| the slice's own axis, all misoriented | never | |
+
+And how often the nearest DR-1s is within that many moves, over all skips of the kind (the kind that never gets there is left out):
+
+| The skip | In 5 moves or less, share of all such skips | 6 or less | 7 or less | 8 or less | 9 or less |
+|---|---:|---:|---:|---:|---:|
+| another axis than the slice's own, all oriented | 1.0% | 7.1% | 36% | 88% | 99.9% |
+| another axis, all misoriented | 0.48% | 3.2% | 17% | 45% | 55% |
+| the slice's own axis, all oriented | 0.93% | 6.0% | 26% | 51% | 55% |
 
 - **Oriented, on an axis that is not the slice's own** (E-slice edges oriented on F/B, say): there's always a route. It's 7 or less for 36% of skips and 8 or less for 88%. For comparison, from a full EO the nearest real DR on one given axis is 7.80 moves away on average under the same rule. So in route length a skip like this is an EO that cost nothing, and in finish it's a DR-1s. That's the sense of Rodney's "sliceEO in N is as good as regular EO in N+3" ([3 Feb 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1468273993105805364)); with the finish penalty at 2.3 the 3 is a little generous to the normal EO, before you count how many of each you get to try.
 - **Misoriented on such an axis**: without breaking that axis's EO a route exists only when exactly four of the other eight edges are bad, so that the axis has 8 bad edges in all. That's 55% of these skips (70 in 128). trangium ([8 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1480310254129516617)): "you MUST have 8 bad on that axis for even a chance at dr-1s". Rodney's "55%" ([1 May 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1499635961015963751)) is this number.
 - **Oriented on the slice's own axis** (E-slice edges oriented on U/D): 55%, when as many M-slice pieces as S-slice pieces are bad. The same states can reach a real DR on that colour without U or D quarter turns, 9.19 moves away on average.
 - **Misoriented on the slice's own axis**: never, with or without the extra quarter turns below. Daichi's "misoriented sEOs are just worse overall" ([10 Aug 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1536429112736882828)) is right in both families.
 
-Allowing quarter turns of the EO axis when they miss the slice pieces (the tutorial's tip 2) fully opens the two half-open kinds of skip, misoriented on another axis and oriented on the slice's own, but doesn't shorten much. Allowing any move shortens it by a quarter move:
+Allowing quarter turns of the EO axis when they miss the slice pieces (the tutorial's tip 2) fully opens the two half-open kinds of skip, misoriented on another axis and oriented on the slice's own, but doesn't shorten much. Allowing any move shortens it by a quarter move. Each row is a kind of skip under one move rule, "strict" being the rule above:
 
-| The skip | A route exists | In 5 or less (of all such skips) | In 6 or less | In 7 or less | In 8 or less | In 9 or less | Average when there is one |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| another axis than the slice's own, all oriented, strict | always | 1.0% | 7.1% | 36% | 88% | 99.9% | 7.68 |
-| another axis than the slice's own, all oriented, quarter turns allowed when they miss the slice pieces | always | 1.1% | 8.0% | 41% | 91% | 99.9% | 7.59 |
-| another axis than the slice's own, all oriented, any turns | always | 1.3% | 10% | 51% | 97% | 99.9% | 7.41 |
-| another axis, all misoriented, strict | 55% | 0.48% | 3.2% | 17% | 45% | 55% | 7.80 |
-| another axis, all misoriented, quarter turns allowed when they miss the slice pieces | always | 0.52% | 3.8% | 22% | 68% | 98% | 8.08 |
-| another axis, all misoriented, any turns | always | 0.73% | 6.1% | 37% | 92% | 99.9% | 7.65 |
-| the slice's own axis, all oriented, strict | 55% | 0.93% | 6.0% | 26% | 51% | 55% | 7.47 |
-| the slice's own axis, all oriented, quarter turns allowed when they miss the slice pieces | always | 1.0% | 7.1% | 34% | 81% | 99.4% | 7.77 |
-| the slice's own axis, all oriented, any turns | always | 1.3% | 10% | 49% | 96% | 99.9% | 7.43 |
-| the slice's own axis, all misoriented, strict | never | | | | | | |
-| the slice's own axis, all misoriented, quarter turns allowed when they miss the slice pieces | never | | | | | | |
-| the slice's own axis, all misoriented, any turns | always | 0.26% | 2.8% | 24% | 85% | 99.9% | 7.88 |
+| The skip | Moves allowed | A route exists, share of such skips | Average moves, when there is one |
+|---|---|---:|---:|
+| another axis than the slice's own, all oriented | strict | always | 7.68 |
+| another axis than the slice's own, all oriented | quarter turns of the EO axis when they miss the slice pieces | always | 7.59 |
+| another axis than the slice's own, all oriented | any turns | always | 7.41 |
+| another axis, all misoriented | strict | 55% | 7.80 |
+| another axis, all misoriented | quarter turns of the EO axis when they miss the slice pieces | always | 8.08 |
+| another axis, all misoriented | any turns | always | 7.65 |
+| the slice's own axis, all oriented | strict | 55% | 7.47 |
+| the slice's own axis, all oriented | quarter turns of the EO axis when they miss the slice pieces | always | 7.77 |
+| the slice's own axis, all oriented | any turns | always | 7.43 |
+| the slice's own axis, all misoriented | strict | never | |
+| the slice's own axis, all misoriented | quarter turns of the EO axis when they miss the slice pieces | never | |
+| the slice's own axis, all misoriented | any turns | always | 7.88 |
+
+And how often it's within that many moves, same rows:
+
+| The skip | Moves allowed | In 5 moves or less, share of all such skips | 6 or less | 7 or less | 8 or less | 9 or less |
+|---|---|---:|---:|---:|---:|---:|
+| another axis than the slice's own, all oriented | strict | 1.0% | 7.1% | 36% | 88% | 99.9% |
+| another axis than the slice's own, all oriented | quarter turns of the EO axis when they miss the slice pieces | 1.1% | 8.0% | 41% | 91% | 99.9% |
+| another axis than the slice's own, all oriented | any turns | 1.3% | 10% | 51% | 97% | 99.9% |
+| another axis, all misoriented | strict | 0.48% | 3.2% | 17% | 45% | 55% |
+| another axis, all misoriented | quarter turns of the EO axis when they miss the slice pieces | 0.52% | 3.8% | 22% | 68% | 98% |
+| another axis, all misoriented | any turns | 0.73% | 6.1% | 37% | 92% | 99.9% |
+| the slice's own axis, all oriented | strict | 0.93% | 6.0% | 26% | 51% | 55% |
+| the slice's own axis, all oriented | quarter turns of the EO axis when they miss the slice pieces | 1.0% | 7.1% | 34% | 81% | 99.4% |
+| the slice's own axis, all oriented | any turns | 1.3% | 10% | 49% | 96% | 99.9% |
+| the slice's own axis, all misoriented | any turns | 0.26% | 2.8% | 24% | 85% | 99.9% |
 
 ### 6.3 To a DR-2s 8fe: the same problem as a DR
 
-**Getting to a DR-2s 8fe is getting to a DR with the pieces renamed.** An 8fe has its corners and slice edges placed like a DR on one pair of faces, in the colours of another pair. Move every piece a quarter turn around the third axis, leave the centres where they are, and flip every edge in its place: the 8fe turns into a real DR. Do that to any position, rename the faces of a move sequence by the same quarter turn, and reaching the 8fe turns into reaching the DR. Edges that are good for the third axis stay good, so an EO on that axis carries over too. Counted over every position with a full EO, with moves that keep it:
+**Getting to a DR-2s 8fe is getting to a DR with the pieces renamed.** An 8fe has its corners and slice edges placed like a DR on one pair of faces, in the colours of another pair. Move every piece a quarter turn around the third axis, leave the centres where they are, and flip every edge in its place: the 8fe turns into a real DR. Do that to any position, rename the faces of a move sequence by the same quarter turn, and reaching the 8fe turns into reaching the DR. Edges that are good for the third axis stay good, so an EO on that axis carries over too. Counted over every position with a full EO, with moves that keep it. Each row is a distance, and the two columns count the positions that far from the real DR and from the 8fe:
 
-| Moves from a full EO | Positions that far from the real DR | Positions that far from the DR-2s 8fe |
+| Moves from a full EO | Positions that many moves from the real DR | Positions that many moves from the DR-2s 8fe |
 |---:|---:|---:|
 | 0 | 1 | 1 |
 | 1 | 2 | 2 |
@@ -491,23 +596,31 @@ Allowing quarter turns of the EO axis when they miss the slice pieces (the tutor
 - **With any moves it is the same, target by target.** A scramble has twelve 8fe (two for each colour, on normal and on inverse) against six DRs, and each is as far away as a DR is. That's why the shortest 8fe of a scramble comes 0.33 of a move before its shortest DR in 6.4: there are twice as many, and none of them is closer. (Checked on 4,000 random positions: the distance to the 8fe is the distance of the renamed position to the DR every time.)
 - **What doesn't carry over is the finish.** The renaming doesn't take the solved cube to the solved cube, and the two slice turns are there to make up the difference: +1.19 (section 5).
 
-**So a slice-EO skip isn't what gets you an 8fe.** By the kind of skip, keeping that axis's EO:
+**So a slice-EO skip isn't what gets you an 8fe.** By the kind of skip, keeping that axis's EO: whether there's a route to an 8fe, and how long it is on average:
 
-| The skip | A route exists | In 5 or less (of all such skips) | In 6 or less | In 7 or less | In 8 or less | In 9 or less | Average when there is one |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| another axis than the slice's own, all oriented | 0.78% | <0.01% | 0.05% | 0.24% | 0.64% | 0.78% | 7.80 |
-| another axis, all misoriented | 55% | 0.02% | 0.14% | 1.1% | 8.1% | 35% | 9.19 |
-| the slice's own axis, all oriented | never | | | | | | |
-| the slice's own axis, all misoriented | 1.6% | 0.01% | 0.09% | 0.48% | 1.3% | 1.6% | 7.80 |
+| The skip | A route exists, share of such skips | Average moves, when there is one |
+|---|---:|---:|
+| another axis than the slice's own, all oriented | 0.78% | 7.80 |
+| another axis, all misoriented | 55% | 9.19 |
+| the slice's own axis, all oriented | never | |
+| the slice's own axis, all misoriented | 1.6% | 7.80 |
+
+And how often it's within that many moves, over all skips of the kind:
+
+| The skip | In 5 moves or less, share of all such skips | 6 or less | 7 or less | 8 or less | 9 or less |
+|---|---:|---:|---:|---:|---:|
+| another axis than the slice's own, all oriented | <0.01% | 0.05% | 0.24% | 0.64% | 0.78% |
+| another axis, all misoriented | 0.02% | 0.14% | 1.1% | 8.1% | 35% |
+| the slice's own axis, all misoriented | 0.01% | 0.09% | 0.48% | 1.3% | 1.6% |
 
 - **An oriented skip** leads to an 8fe only when the rest of the axis is oriented as well (0.78% of such skips, 1 in 128), and that's just a normal EO. The skip adds nothing.
 - **A misoriented skip on an axis with 8 bad edges** (the four slice edges and four of the other eight, 55% of misoriented skips) is the one separate way in. From there an 8fe is 9.19 moves away on average, against 7.80 from an EO, and you spend no moves on an EO first. It's 8 or less for 8.1% of those skips.
 
 ### 6.4 What exists, with any moves
 
-Any moves, linear on one side, over 2,000,000 random scrambles (three colours, normal and inverse). **Computer only**: the shortest of each over every route, the answer key for what exists:
+Any moves, linear on one side, over 2,000,000 random scrambles (three colours, normal and inverse). **Computer only**: the shortest of each over every route, the answer key for what exists. Each row is a target; the columns are the average length of the scramble's shortest one and the share of scrambles where it's that short:
 
-| Shortest on the scramble | Average | 6 or less | 7 or less | 8 or less | 9 or less |
+| Shortest on the scramble | Average length, moves | In 6 moves or less | 7 or less | 8 or less | 9 or less |
 |---|---:|---:|---:|---:|---:|
 | a real DR | 8.76 | 0.30% | 3.3% | 28% | 92% |
 | a DR-2s 8fe | 8.43 | 0.60% | 6.6% | 50% | 99.5% |
@@ -538,7 +651,9 @@ Like in the first study, every finish is the answer key, **computer only**, not 
 
 ### 7.1 What is there
 
-| On a scramble | Share of the 500 | Average number |
+Each row is a kind of thing to finish and a length; the columns are the share of the 500 scrambles that have at least one and how many there are on average:
+
+| On a scramble | Share of the 500 that have one | Average number per scramble |
 |---|---:|---:|
 | a normal DR of 9 moves or less | 66% | 6.1 |
 | a normal DR of 10 or less | 98% | 69.7 |
@@ -556,9 +671,9 @@ Like in the first study, every finish is the answer key, **computer only**, not 
 - **Nine scrambles in ten have a DR-1s of 8 or less** from a skip or a one-move slice EO, and there are 63.1 of them on average, nearly as many as there are normal DRs of 10 or less.
 - **Nearly half have one of 7 or less** (46%), and a 6 is there on 11%. tseitsei89's "I can usually find some DR-fe in 8 moves. Occasionally 7." ([28 Jan 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1465952080756871423)) was about what you find by hand; this is what's there by the plain route.
 - Skips alone carry most of it; one-move slice EOs add a little under a third.
-- **The 8fe rows** are a floor too, and you don't need a skip for one (6.3). There are 482 DR-2s 8fe of 8 moves or fewer on these scrambles. Where they start:
+- **The 8fe rows** are a floor too, and you don't need a skip for one (6.3). There are 482 DR-2s 8fe of 8 moves or fewer on these scrambles. By where the route starts:
 
-  | Start | How many |
+  | Where the route starts | DR-2s 8fe of 8 or less |
   |---|---:|
   | a misoriented slice-EO skip | 238 |
   | a one-move slice EO | 70 |
@@ -568,9 +683,9 @@ Like in the first study, every finish is the answer key, **computer only**, not 
 
 ### 7.2 What each one is worth
 
-For each kind of thing you could finish, how often its solution is as short as the best solution any normal DR of 12 or less gives on that scramble:
+For each kind of thing you could finish, how often its solution is as short as the best solution any normal DR of 12 or less gives on that scramble. The last column is the same share turned around, how many you finish for one to get there:
 
-| What you finish | Of them per scramble | Share that reach the best normal-DR solution of the scramble | One in |
+| What you finish | How many per scramble | Share that reach the scramble's best normal-DR solution | One in this many reaches it |
 |---|---:|---:|---:|
 | a DR-1s of 6 or less | 0.5 | 8.6% | 12 |
 | a DR-2s 8fe of 8 or less | 1.0 | 3.7% | 27 |
@@ -588,13 +703,13 @@ The table is sorted by that share. Rows 2 to 4 (a DR-2s 8fe of 8 or less, a norm
 - a DR-1s of 8 is worth 4.5 eleven-move DRs and 0.96 of a 10-move DR;
 - a DR-2s 8fe of 9 comes out a little better than a 10-move DR on these scrambles.
 
-That's kinder to DR-xs than the N + 2.3 of section 5, because on real scrambles the finish often cancels into the last move of the route (by 0.20 moves on average for a DR-1s).
+That's kinder to DR-xs than the $N + 2.3$ of section 5, because on real scrambles the finish often cancels into the last move of the route (by 0.20 moves on average for a DR-1s).
 
 ### 7.3 What it does to the result
 
-Over the 491.00 scrambles that have a normal DR of 10 or less (the first study's base), the best solution when you finish:
+Over the 491 scrambles that have a normal DR of 10 or less (the first study's base), the best solution when you finish. Each row is a set of things you finish; the columns are how many that is, the average best solution, and the share of these scrambles where it's 20 or less and 19 or less:
 
-| You finish | To finish, per scramble | Result, average | 20 or less | 19 or less |
+| You finish | Things to finish, per scramble | Average best solution, moves | Best solution in 20 or less | 19 or less |
 |---|---:|---:|---:|---:|
 | every normal DR of 10 or less | 71 | 20.62 | 45% | 18% |
 | normal DRs of 10 or less, and every DR-1s of 7 or less | 77 | 20.55 | 47% | 19% |
@@ -605,18 +720,18 @@ Over the 491.00 scrambles that have a normal DR of 10 or less (the first study's
 | every normal DR of 12 or less | 7,244 | 19.56 | 84% | 45% |
 | normal DRs of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 7,319 | 19.52 | 85% | 47% |
 
-- On top of every normal DR of 10 or less:
+- On top of every normal DR of 10 or less, which gives 20.62 on average. Each row adds one set, on top of the row above, except the 11-move DRs, which go on the normal DRs of 10 alone; the last column is how much the average drops from what it builds on:
 
-  | Add | More things to finish per scramble | Average result |
-  |---|---:|---|
-  | the DR-1s of 7 or less | 6 | from 20.62 to 20.55 |
-  | those of 8 | 58 | another 0.13 |
-  | the 11-move DRs (instead) | 662 | 0.58 better |
+  | Add | More things to finish per scramble | Average best solution after, moves | Shorter by, moves |
+  |---|---:|---:|---:|
+  | the DR-1s of 7 or less | 6 | 20.55 | 0.07 |
+  | those of 8 as well | 58 | 20.42 | 0.13 |
+  | the 11-move DRs (instead) | 662 | 20.04 | 0.58 |
 - Once every 11-mover is finished, DR-xs adds 0.09; once every 12-mover is, 0.04. Mostly DR-xs gets the same quality from fewer and shorter things to look at. Now and then it finds better, as the next table shows.
 
-Scramble by scramble, over all 500:
+Scramble by scramble, over all 500. Each row is a budget for the normal DRs; the columns are the share of scrambles where the best DR-xs solution is shorter, equal, or longer:
 
-| Against the best through a normal DR of | The best DR-xs solution is shorter | Equal | Longer or none |
+| Against the best through a normal DR of | Best DR-xs solution shorter, share of scrambles | Equal | Longer, or no DR-xs |
 |---|---:|---:|---:|
 | 10 moves or less | 16% | 22% | 62% |
 | 11 moves or less | 8.4% | 14% | 78% |
@@ -631,9 +746,9 @@ Counting EOs the way cubelib-cli does (every way to write one, with NISS):
 - a scramble has 17 EOs of 4 moves or less and 244 of 5 or less; 26 of the 500 have none of 4 or less;
 - the DRs of 10 or less that come from EOs of 4 or less are 49 per scramble, and the 5-move EOs bring that to 70.
 
-Over the 418 scrambles that have a DR of 10 or less from an EO of 4 or less:
+Over the 418 scrambles that have a DR of 10 or less from an EO of 4 or less, here's what each set of checks gives. Each row is what you check and finish; the columns are how many normal EOs and how many things to finish that is, and the average best solution:
 
-| You check and finish | Normal EOs to check, per scramble | To finish, per scramble | Result, average |
+| You check and finish | Normal EOs to check, per scramble | Things to finish, per scramble | Average best solution, moves |
 |---|---:|---:|---:|
 | EOs of 4 or less: every DR of 10 or less | 20 | 58 | 21.13 |
 | EOs of 4 or less: DRs of 10 or less, and every DR-1s of 7 or less from a slice EO | 20 | 65 | 20.96 |
@@ -642,9 +757,9 @@ Over the 418 scrambles that have a DR of 10 or less from an EO of 4 or less:
 | EOs of 5 or less: every DR of 10 or less | 273 | 82 | 20.42 |
 | EOs of 5 or less: DRs of 10 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less | 273 | 167 | 20.22 |
 
-And with the DRs of 11 as well (470 scrambles):
+And with the DRs of 11 as well (470 scrambles), same columns:
 
-| You check and finish | Normal EOs to check, per scramble | To finish, per scramble | Result, average |
+| You check and finish | Normal EOs to check, per scramble | Things to finish, per scramble | Average best solution, moves |
 |---|---:|---:|---:|
 | EOs of 4 or less: every DR of 11 or less | 18 | 532 | 20.65 |
 | EOs of 4 or less: DRs of 11 or less, and every DR-1s of 7 or less from a slice EO | 18 | 538 | 20.57 |
@@ -662,14 +777,16 @@ This fits tseitsei89's order, sub-5 EOs first, then the slice-EO skips, then the
 
 ### 7.5 Do real DR-xs finish like random ones?
 
-| Kind and length | Number on the 500 scrambles | Their average finish | Average finish of the uniform sample |
-|---|---:|---:|---:|
-| DR-1s in 6 | 228 | 16.04 | 15.85 |
-| DR-1s in 7 | 2,719 | 15.99 | 15.85 |
-| DR-1s in 8 | 28,554 | 15.93 | 15.85 |
-| DR-2s 8fe in 7 | 36 | 15.58 | 14.92 (same 3-move setup search) |
-| DR-2s 8fe in 8 | 444 | 15.00 | 14.92 (same 3-move setup search) |
-| DR-2s 8fe in 9 | 5,436 | 14.95 | 14.92 (same 3-move setup search) |
+Each row is a kind and route length on the 500 scrambles, against the uniform sample of section 5 finished with the same setup search:
+
+| Kind and length | Number on the 500 scrambles | Their average finish, moves | Average finish of the uniform sample, moves | Setup searched, real and sample alike |
+|---|---:|---:|---:|---|
+| DR-1s in 6 | 228 | 16.04 | 15.85 | any length from either end |
+| DR-1s in 7 | 2,719 | 15.99 | 15.85 | any length from either end |
+| DR-1s in 8 | 28,554 | 15.93 | 15.85 | any length from either end |
+| DR-2s 8fe in 7 | 36 | 15.58 | 14.92 | up to 3 moves from either end |
+| DR-2s 8fe in 8 | 444 | 15.00 | 14.92 | up to 3 moves from either end |
+| DR-2s 8fe in 9 | 5,436 | 14.95 | 14.92 | up to 3 moves from either end |
 
 Close to it. A DR-1s you reach in few moves finishes slightly worse than a random one, by a tenth of a move or two. The 8fe ones of 8 and 9 moves finish about like random ones under the same 3-move setup search; the few of 7 moves finish worse.
 
@@ -687,7 +804,7 @@ You see a slice-EO skip directly, but you still have to find a DR-1s from it the
 
 ## 8. The claims, checked
 
-Everything said that a computer can settle, and what the numbers say. Wherever something is refuted or a case is claimed to exist, there's a scramble.
+Everything said that a computer can settle, and what the numbers say. Wherever something is refuted or a case is claimed to exist, there's a scramble. Each row is one claim, who made it, and the verdict:
 
 | Claim | Who | Verdict |
 |---|---|---|
@@ -730,7 +847,9 @@ Everything said that a computer can settle, and what the numbers say. Wherever s
 
 Corners oriented on F/B (so the slice turn that fixes is `R L`, and the places inside that slice are UF, UB, DF, DB). The other choice of faces is the same table with the cube turned. "Scramble" gives a DR-1s with that layout: it is a DR followed by the fix backwards.
 
-| Flipped edges at | Turns to DR | A shortest fix | Scramble |
+Each row is one layout of the four flipped edges, sorted by how many face turns its shortest fix takes.
+
+| Flipped edges at | Fewest turns to a real DR | A shortest fix | Scramble |
 |---|---:|---|---|
 | DB DF UB UF | 2 | `R L` | `U R2 F2 D' B2 U2 L2 D R' L'` |
 | BL DF UF BR | 3 | `B R L` | `U R2 F2 D' B2 U2 L2 D R' L' B'` |
@@ -805,7 +924,9 @@ Corners oriented on F/B (so the slice turn that fixes is `R L`, and the places i
 
 **With the last trigger move free to go either way.** If the move before was a quarter turn of U or D, turning it the other way moves the layout by a `U2` or `D2`. Taking the better of the two, the count is 1, 4, 13, 36, 16 layouts at 2 to 6 turns. The 13 at 4:
 
-| Flipped edges at | Turns as it is | Turns with the last move the other way | Fix as it is |
+Each row is one layout; the two middle columns are its fewest turns to a real DR as the layout stands and after turning the last trigger move the other way.
+
+| Flipped edges at | Turns to DR as it is | Turns to DR with the last move the other way | Fix as it is |
 |---|---:|---:|---|
 | BL DB UB FR | 4 | 5 | `L2 F R L` |
 | BL DB UF BR | 4 | 5 | `D2 B R L` |
@@ -827,24 +948,31 @@ Corners oriented on F/B (so the slice turn that fixes is `R L`, and the places i
 
 The frame: the corners' colour is white/yellow (U/D), so the slice edges of the DR-xs are the E-slice edges; "M" and "S" are the edges belonging to the M and S slices. The orientation is for the axis in the first column, and the route keeps it (no quarter turns of that axis's faces). Each class of edges is all good or all bad. A percentage means it depends on where the pieces end up; without one it is guaranteed. Any other colour or axis is this table with the cube turned.
 
-| EO axis | Bad edges | Corners on U/D (their own faces) | Corners on R/L | Corners on F/B |
-|---|---|---|---|---|
-| F/B (not the slice's own) | none | DR, 0 flipped | DR-2s 8fe | DR-1s, 4 flipped, any split |
-| F/B (not the slice's own) | E | DR-3s, 0 flipped | DR-3s, 8 flipped | DR-2s, 4 flipped, any split |
-| F/B (not the slice's own) | M | DR-2s, 4 flipped, split 4-0 | DR-2s, 4 flipped, split 4-0 | DR-1s (51%), 4 flipped, split 2-2; DR-3s (49%), 0 to 8 flipped |
-| F/B (not the slice's own) | S | DR-2s, 4 flipped, split 4-0 | DR-2s, 4 flipped, split 4-0 | DR-1s (51%), 4 flipped, split 2-2; DR-3s (49%), 0 to 8 flipped |
-| F/B (not the slice's own) | E and M | DR-3s, 4 flipped, split 4-0 | DR-1s, 4 flipped, split 4-0 | DR-2s, 0 to 8 flipped |
-| F/B (not the slice's own) | E and S | DR-3s, 4 flipped, split 4-0 | DR-1s, 4 flipped, split 4-0 | DR-2s, 0 to 8 flipped |
-| F/B (not the slice's own) | M and S | DR-2s, 8 flipped, centers right (6 turns to DR; not the 8fe case) | DR-2s, 0 flipped (6 turns to DR) | DR-1s, 4 flipped, any split |
-| F/B (not the slice's own) | all twelve | DR-3s, 8 flipped | DR-3s, 0 flipped | DR-2s, 4 flipped, any split |
-| U/D (the slice's own) | none | DR (1.4%), 0 flipped; DR-2s (99%), 2 to 8 flipped | DR-1s, 4 flipped, split 4-0 | DR-1s, 4 flipped, split 4-0 |
-| U/D (the slice's own) | E | DR-3s, 0 to 8 flipped | DR-2s, 4 flipped, split 4-0 | DR-2s, 4 flipped, split 4-0 |
-| U/D (the slice's own) | M | DR-2s, 4 flipped, any split | DR-3s, 8 flipped | DR-3s, 0 flipped |
-| U/D (the slice's own) | S | DR-2s, 4 flipped, any split | DR-3s, 0 flipped | DR-3s, 8 flipped |
-| U/D (the slice's own) | E and M | DR-3s, 4 flipped, any split | DR-2s 8fe | DR-2s, 0 flipped (6 turns to DR) |
-| U/D (the slice's own) | E and S | DR-3s, 4 flipped, any split | DR-2s, 0 flipped (6 turns to DR) | DR-2s 8fe |
-| U/D (the slice's own) | M and S | DR (1.4%), 0 flipped; DR-2s (99%), 2 to 8 flipped | DR-1s, 4 flipped, split 4-0 | DR-1s, 4 flipped, split 4-0 |
-| U/D (the slice's own) | all twelve | DR-3s, 0 to 8 flipped | DR-2s, 4 flipped, split 4-0 | DR-2s, 4 flipped, split 4-0 |
+**EO axis F/B, not the slice's own.** Each row is which edges are bad for that axis; each column is where the corners' white or yellow faces end up, and the cell is the DR-xs you land on.
+
+| Bad edges | Corners on U/D (their own faces) | Corners on R/L | Corners on F/B |
+|---|---|---|---|
+| none | DR, 0 flipped | DR-2s 8fe | DR-1s, 4 flipped, any split |
+| E | DR-3s, 0 flipped | DR-3s, 8 flipped | DR-2s, 4 flipped, any split |
+| M | DR-2s, 4 flipped, split 4-0 | DR-2s, 4 flipped, split 4-0 | DR-1s (51%), 4 flipped, split 2-2; DR-3s (49%), 0 to 8 flipped |
+| S | DR-2s, 4 flipped, split 4-0 | DR-2s, 4 flipped, split 4-0 | DR-1s (51%), 4 flipped, split 2-2; DR-3s (49%), 0 to 8 flipped |
+| E and M | DR-3s, 4 flipped, split 4-0 | DR-1s, 4 flipped, split 4-0 | DR-2s, 0 to 8 flipped |
+| E and S | DR-3s, 4 flipped, split 4-0 | DR-1s, 4 flipped, split 4-0 | DR-2s, 0 to 8 flipped |
+| M and S | DR-2s, 8 flipped, centers right (6 turns to DR; not the 8fe case) | DR-2s, 0 flipped (6 turns to DR) | DR-1s, 4 flipped, any split |
+| all twelve | DR-3s, 8 flipped | DR-3s, 0 flipped | DR-2s, 4 flipped, any split |
+
+**EO axis U/D, the slice's own.** Each row is which edges are bad for that axis; each column is where the corners' white or yellow faces end up, and the cell is the DR-xs you land on.
+
+| Bad edges | Corners on U/D (their own faces) | Corners on R/L | Corners on F/B |
+|---|---|---|---|
+| none | DR (1.4%), 0 flipped; DR-2s (99%), 2 to 8 flipped | DR-1s, 4 flipped, split 4-0 | DR-1s, 4 flipped, split 4-0 |
+| E | DR-3s, 0 to 8 flipped | DR-2s, 4 flipped, split 4-0 | DR-2s, 4 flipped, split 4-0 |
+| M | DR-2s, 4 flipped, any split | DR-3s, 8 flipped | DR-3s, 0 flipped |
+| S | DR-2s, 4 flipped, any split | DR-3s, 0 flipped | DR-3s, 8 flipped |
+| E and M | DR-3s, 4 flipped, any split | DR-2s 8fe | DR-2s, 0 flipped (6 turns to DR) |
+| E and S | DR-3s, 4 flipped, any split | DR-2s, 0 flipped (6 turns to DR) | DR-2s 8fe |
+| M and S | DR (1.4%), 0 flipped; DR-2s (99%), 2 to 8 flipped | DR-1s, 4 flipped, split 4-0 | DR-1s, 4 flipped, split 4-0 |
+| all twelve | DR-3s, 0 to 8 flipped | DR-2s, 4 flipped, split 4-0 | DR-2s, 4 flipped, split 4-0 |
 
 ---
 

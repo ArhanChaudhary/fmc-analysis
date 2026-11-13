@@ -1,4 +1,4 @@
-| DRM | Uniform (the tables) | After an RZP of 5, same side | After an RZP of 5, switched | Real attempts, RZP to 5, switched | Real attempts, RZP to 6, switched, DR in 5 | Attempts (RZP to 5) |
+| DRM | Sub-7 rate, uniform (the tables) | Sub-7 rate after an RZP of 5, same side | Sub-7 rate after an RZP of 5, switched | Sub-7 rate, real attempts, RZP to 5, switched | DR in 5 or fewer, real attempts, RZP to 6, switched | Real attempts (RZP to 5) |
 |---|---|---|---|---|---|---|
 | 4c4e | 19.2% | 18.3% | 19.2% | 19.1% | 4.3% | 560,822 |
 | 4c2e | 18.7% | 17.9% | 18.7% | 19.1% | 3.3% | 112,330 |

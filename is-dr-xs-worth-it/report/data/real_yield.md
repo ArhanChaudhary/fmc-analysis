@@ -1,4 +1,4 @@
-| What you finish | Of them per scramble | Share that reach the best normal-DR solution of the scramble | One in |
+| What you finish | How many per scramble | Share that reach the scramble's best normal-DR solution | One in this many reaches it |
 |---|---:|---:|---:|
 | a DR-1s of 6 or less | 0.5 | 8.6% | 12 |
 | a DR-2s 8fe of 8 or less | 1.0 | 3.7% | 27 |

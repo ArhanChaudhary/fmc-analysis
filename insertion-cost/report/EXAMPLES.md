@@ -5375,9 +5375,9 @@ Solution: U2 R L' F2 B2 U R' D F' U' F2 R' U B U' F2 B2 D B2 D2 B' L F2 L' F B' 
 
 ## The tally
 
-Over the 20 skeletons of each kind above, next to the same numbers from the big samples of the write-up (20,000 random skeletons of 20 moves at 8 moves per insertion; fewer at 10, see the write-up).
+Over the 20 skeletons of each kind above, next to the same numbers from the big samples of the write-up (20,000 random skeletons of 20 moves at 8 moves per insertion; fewer at 10, see the write-up). One row per leftover; the counts are of the 20 skeletons.
 
-| Leftover | On this page: mean added, 8 moves or less | Nothing fits at 8 | Mean added, up to 10 | 10 beats 8 | Write-up, 20-move skeletons: 8 moves or less | Up to 10 |
+| Leftover | On this page: mean added, 8 moves or less | On this page: nothing fits at 8 | On this page: mean added, up to 10 | On this page: up to 10 beats 8 or less | Write-up, 20-move skeletons: mean added, 8 or less | Write-up: mean added, up to 10 |
 |---|---:|---:|---:|---:|---:|---:|
 | 3c | 6.05 | 0 of 20 | 6.00 | 1 of 20 | 5.90 | 5.85 |
 | 5c | 10.60 | 0 of 20 | 10.40 | 3 of 20 | 10.37 | 10.03 |

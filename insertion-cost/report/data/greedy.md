@@ -1,4 +1,4 @@
-| Leftover | Skeletons | Best pair of comms | Best first comm only | Best first comm only: loses | Best first comm only: no second comm fits | First comms within 1 move | Within 1 move: loses | First comms within 2 moves | Within 2 moves: loses |
+| Leftover | Skeletons | Best pair of comms: mean added | Best first comm only: mean added | Best first comm only: loses | Best first comm only: no second comm fits | First comms within 1 move: mean added | Within 1 move: loses | First comms within 2 moves: mean added | Within 2 moves: loses |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 2tc | 5,000 | 7.71 | 7.94 | 18% | 4 | 7.75 | 2.9% | 7.72 | 0.20% |
 | 3tc | 5,000 | 9.52 | 9.58 | 6.5% | 6 | 9.52 | 0.34% | 9.52 | 0 |

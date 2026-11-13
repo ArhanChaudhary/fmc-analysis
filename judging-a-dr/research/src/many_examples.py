@@ -321,20 +321,25 @@ def guide_list():
     assert len(lines) == 5 and '{=' not in ''.join(lines)
     return lines
 
-HEAD = ['| DR | Moves to DR | Length | Axis | Subset | True pairs | Corner case, normal / inverse | The list says | Same reads: in 10 / 11 / 12 |',
-        '|---:|---|---:|---|---|---:|---|---|---|']
-AHEAD = ['| DR | Shortest HTR, normal / inverse | Optimal finish | Solution |', '|---:|---|---:|---:|']
+HEAD = ['Each row is one DR you could have on the page:', '', '| DR | Moves to DR | Length, moves | Axis | Subset | True pairs |', '|---:|---|---:|---|---|---:|']
+RHEAD = ['The same DRs: the corner case on each side, what the list says, and the share of DR states with the same reads that finish in 10, 11 and 12 or less:', '',
+         '| DR | Corner case, normal | Corner case, inverse | The list says | Same reads: in 10 | Same reads: in 11 | Same reads: in 12 |', '|---:|---|---|---|---:|---:|---:|']
+AHEAD = ['Each row is a DR from above, with its true shortest HTR on each side and its optimal finish and solution, in moves:', '',
+         '| DR | Shortest HTR, normal | Shortest HTR, inverse | Optimal finish | Solution |', '|---:|---:|---:|---:|---:|']
 def block(k, scramble, recs, rows, names, solution):
     cnt = {}
     for r in recs: cnt[r['length']] = cnt.get(r['length'], 0) + 1
     out = [f'#### Scramble {k + 1}', '', '```', f'{scramble} // scramble', '```', ''] + HEAD
     for j, r in enumerate(rows):
-        out.append(f"| {j + 1} | `{niss(r['n'], r['i'])}` | {r['length']} | {r['axis']} | {r['cs']} {r['e']}e | {r['tp']} | {names[r['a']]} / {names[r['b']]} | {says(r)} | {odds(r)} |")
+        out.append(f"| {j + 1} | `{niss(r['n'], r['i'])}` | {r['length']} | {r['axis']} | {r['cs']} {r['e']}e | {r['tp']} |")
+    out += [''] + RHEAD
+    for j, r in enumerate(rows):
+        out.append(f"| {j + 1} | {names[r['a']]} | {names[r['b']]} | {says(r)} | {odds(r).replace(' / ', ' | ')} |")
     cap = max(cnt)
     out += ['', f"Shown: {len(rows)} of the {plural(len(recs), 'DR')} up to {cap} moves (" + '; '.join(f"{L} moves: {sum(r['length'] == L for r in rows)} of {cnt[L]}" for L in sorted(cnt)) + ').', '',
             '<details>', f'<summary>Answers for scramble {k + 1}</summary>', ''] + AHEAD
     for j, r in enumerate(rows):
-        out.append(f"| {j + 1} | {r['hn']} / {r['hi']} | {r['opt']} | {r['total']} |")
+        out.append(f"| {j + 1} | {r['hn']} | {r['hi']} | {r['opt']} | {r['total']} |")
     out += ['', verdict_line(rows, solution), '', '</details>', '']
     return out
 
@@ -368,8 +373,8 @@ def tally_run(run):
            ('every DR of 10 moves or less, and the 11- and 12-movers the list keeps', lambda x: (x['n9'] + x['n10'] + x['kept11'] + x['kept12'], min(x['best9'], x['best10'], x['best_kept11'], x['best_kept12']))),
            ('every DR up to 12 moves', lambda x: (x['n9'] + x['n10'] + x['n11'] + x['n12'], x['best']))]
     if n < len(run):
-        out += [f"{len(run) - n} of the {len(run)} scrambles have no DR of 10 moves or less of this kind. This table leaves them out, so every row is about the same {n} scrambles.", '']
-    out += ['| You finish | DRs to finish per scramble | Result, average | Scrambles where that is the best there is |', '|---|---:|---:|---:|']
+        out += [f"{len(run) - n} of the {len(run)} scrambles have no DR of 10 moves or less of this kind. This table leaves them out, so every row is about the same {n} scrambles. Each row is a set of DRs you finish, with how many that is and the best solution it gives.", '']
+    out += ['| You finish | DRs to finish per scramble | Best solution, average moves | Scrambles where that is the best there is |', '|---|---:|---:|---:|']
     v = [[f(x) for x in have] for _, f in pol]
     for (name, _), col in zip(pol, v):
         assert all(b < 99 for _, b in col)
@@ -378,7 +383,7 @@ def tally_run(run):
     out += ['', f"So the list on the 11-movers takes the DRs to finish from {c[2]:,.0f} to {c[1]:,.0f} per scramble and the average result from {r[2]:.2f} to {r[1]:.2f}. "
             f"On the 12-movers as well it takes {c[4]:,.0f} to {c[3]:,.0f}, and {r[4]:.2f} to {r[3]:.2f}.", '',
             'And by the length of the DR, over all ' + str(len(run)) + ' scrambles. "Reaches the best" means its solution is as short as the best one over all of that scramble\'s DRs up to 12 moves. '
-            'The list is meant for 11 moves and up; the first two rows show what it would do if you used it on shorter DRs too.', '',
+            'The list is meant for 11 moves and up; the first two rows show what it would do if you used it on shorter DRs too. Each row is a DR length:', '',
             '| DR length | DRs per scramble | Scrambles where one of them reaches the best | The list drops | Kept DRs that reach the best | Dropped DRs that reach the best |', '|---|---:|---:|---:|---:|---:|']
     for cl in CLASSES:
         N = sum(x[f'n{cl}'] for x in run); K = sum(x[f'kept{cl}'] for x in run); Rr = sum(x[f'reach{cl}'] for x in run); Rk = sum(x[f'reach_kept{cl}'] for x in run)
@@ -413,7 +418,7 @@ def build(rerun):
     per11 = avg(x['n9'] + x['n10'] + x['n11'] for x in run)
     out = [START, '', '## 100 scrambles: which DRs would you finish?', '',
            f"A hundred random-state scrambles, written the way FMC scrambles are, and for each one some of the DRs you could have on your page. "
-           "What you can read off each DR without solving is in the table. The answers are folded away under it: pick the DRs you'd finish, then open them.", '',
+           "What you can read off each DR without solving is in the two tables. The answers are folded away under it: pick the DRs you'd finish, then open them.", '',
            f"**Where the DRs come from.** cubelib-cli (the solver behind Mallard) lists every DR that goes EO first (EOs of up to 5 moves; it doesn't list longer ones), with NISS, and then DR on normal or on inverse without breaking the EO, on all three axes. "
            f"A scramble has far more of those than anyone writes down: {per11:,.0f} up to 11 moves on average over the {N_RUN} scrambles of the tally at the end. "
            f"Each scramble shows at most {SHOWN} of them: up to {SHOWN // 2} of 10 moves or less, shortest first, then 11-movers, drawn at random where there are more. Nothing was picked by how it finishes.", '',
@@ -425,14 +430,14 @@ def build(rerun):
            '- **Length**: the number of moves to DR. **Axis**: the axis the DR is on.',
            '- **Subset**: corner subset and number of bad edges, the way you already name it.',
            '- **True pairs**: a corner and an edge next to each other in one of the two layers of the DR axis, both touching stickers matching.',
-           "- **Corner case, normal / inverse**: where the bad corners sit on each side, by the names in the table below (the same names as in the write-up's corner case appendix). Normal is the cube after the scramble and the unbracketed moves, with the bracketed ones as premoves the usual way. Inverse is the other side.",
+           "- **Corner case, normal** and **inverse**: where the bad corners sit on each side, by the names in the table below (the same names as in the write-up's corner case appendix). Normal is the cube after the scramble and the unbracketed moves, with the bracketed ones as premoves the usual way. Inverse is the other side.",
            "- **The list says**: `keep` or `drop` for a DR of 11 moves or more. A DR of 10 moves or less says `look anyway`.",
-           '- **Same reads: in 10 / 11 / 12**: of all DR states with that subset, that many true pairs (five or more count as one) and those two corner cases, the share whose optimal finish is 10 or less / 11 or less / 12 or less. 0 means none. An 11-move DR needs one of the first two.',
-           '- **Shortest HTR, normal / inverse** (answers): the true shortest on each side.',
+           '- **Same reads: in 10, in 11, in 12**: of all DR states with that subset, that many true pairs (five or more count as one) and those two corner cases, the share whose optimal finish is 10 or less, 11 or less, 12 or less. 0 means none. An 11-move DR needs one of the first two.',
+           '- **Shortest HTR, normal** and **inverse** (answers): the true shortest on each side.',
            '- **Optimal finish** (answers): the optimal finish in DR moves of the DR as written.',
            "- **Solution** (answers): the shortest solution through that DR, which is DR + finish less whatever cancels where the finish meets the DR. R then R2 is R', so a last move that is better turned the other way saves a move.", '',
            '### The corner cases', '',
-           '"A qt takes it straight to" is the subset you are in after the right quarter turn of a layer, when one lowers the corner qt count with no setup. L is the range of optimal corner solutions.', '',
+           '"A qt takes it straight to" is the subset you are in after the right quarter turn of a layer, when one lowers the corner qt count with no setup. L is the range of optimal corner solutions. Each row is one corner case:', '',
            '| Corner case | Bad corners | L | A qt takes it straight to |', '|---|---|---|---|']
     for cs in pv.CS_ORDER:
         for k in sorted(pv.cases(cs), key=lambda k: int(names[k].split('-')[1])):
@@ -441,7 +446,7 @@ def build(rerun):
     out += ['', '### The scrambles', '']
     for k, ((s, recs, rows), sol) in enumerate(zip(pages, sols)): out += block(k, s, recs, rows, names, sol)
     out += ['### The tally', '',
-            'First the rows printed above, with every DR finished optimally:', ''] + tally_page(pages) + ['',
+            'First the rows printed above, with every DR finished optimally. Each row is one count over the 100 scrambles:', ''] + tally_page(pages) + ['',
             f'The page shows a handful of DRs per scramble. The same count over every DR up to {CAP} moves, for {N_RUN} scrambles (the 100 above are the first of them), '
             'says what there is to find and what the list does to it. Nobody finishes hundreds of DRs in an hour, so read the second column as the size of the haystack. '
             f'"The best there is" is the shortest solution over all of a scramble\'s DRs up to {CAP} moves, each finished optimally; the list is used on DRs of 11 moves and up only.', ''] + tally_run(run) + ['',
@@ -460,8 +465,11 @@ def verify():
     bad = 0; nrows = 0; nsol = 0; todo = []
     for num, body in zip(blocks[0::2], blocks[1::2]):
         scramble = re.search(r'^```\n(.+?) // scramble\n```$', body, re.M).group(1)
-        rows = re.findall(r"^\| (\d+) \| `([^`]+)` \| (\d+) \| (\S+) \| (\S+) (\d)e \| (\d+) \| (\S+) / (\S+) \| (look anyway|keep|drop) \| (.+?) \|$", body, re.M)
-        ans = re.findall(r'^\| (\d+) \| (\d+) / (\d+) \| (\d+) \| (\d+) \|$', body, re.M)
+        look = re.findall(r"^\| (\d+) \| `([^`]+)` \| (\d+) \| (\S+) \| (\S+) (\d)e \| (\d+) \|$", body, re.M)
+        reads = re.findall(r"^\| (\d+) \| (\S+) \| (\S+) \| (look anyway|keep|drop) \| (\S+) \| (\S+) \| (\S+) \|$", body, re.M)
+        assert len(look) == len(reads) and all(a[0] == b[0] for a, b in zip(look, reads)), num
+        rows = [a + b[1:4] + (' / '.join(b[4:]),) for a, b in zip(look, reads)]
+        ans = re.findall(r'^\| (\d+) \| (\d+) \| (\d+) \| (\d+) \| (\d+) \|$', body, re.M)
         best = re.search(r'^Best on the page: \*\*(\d+) moves\*\*, from DR (\d+)(?: \([^)]*\))?: `([^`]+)`\.', body, re.M)
         assert rows and len(rows) == len(ans) and best, num
         assert scramble.startswith(PAD + ' ') and scramble.endswith(' ' + PAD)

@@ -1,4 +1,4 @@
-| Leftover | Skeletons in the sample | Of them, all three ways have a solution | Two comms, nesting allowed | No nesting | The two not touching | Best needs nesting |
+| Leftover | Skeletons in the sample | Of them, all three ways have a solution | Nesting allowed: mean added | No nesting: mean added | The two not touching: mean added | Best needs nesting |
 |---|---:|---:|---:|---:|---:|---:|
 | 2tc | 5,000 | 5,000 | 7.71 | 7.74 | 8.05 | 2.3% |
 | 3tc | 20,000 | 20,000 | 9.50 | 9.51 | 9.66 | 0.88% |

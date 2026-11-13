@@ -2,80 +2,89 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
 
 **What is new here**
 
-- **Which 2c2c is the cheap one depends on your alg list.** It flips because only the pure one has 10-move algs; a twisted one has none under 12.
+- **Which 2c2c is the cheap one depends on your alg list.** It flips because only the pure one has 10-move algs; a twisted one has none under 12. Mean added on 20-move skeletons:
 
-  | Algs allowed | Twisted 2c2c | Pure 2c2c |
+  | Algs allowed | Twisted 2c2c: mean added | Pure 2c2c: mean added |
   |---|---:|---:|
   | 8-movers | {= M('2c2c-twisted') =} | {= M('2c2c-pure') =} |
   | every alg up to 10 moves ({= NSK('2c2c-pure', L=10) =} skeletons each) | {= M('2c2c-twisted', L=10) =} | {= M('2c2c-pure', L=10) =} |
 
   The cap-10 order is cpaul's ("9 for pure 2-2", "9.5 for 2-2 with a twist"), and it's **computer only** unless you've learned the 10-move pure 2c2c algs. With the 8-movers you actually insert by hand, the twisted one is cheaper.
 - **By cost a 2c2c beats a 3c1t, and a 3c1t beats a 5c.** That answers jisu101's "2c2c, 3c1t, or 5c?" ([[N6504]], [[N6505]]). A 2c2c is {= DIFF('3c1t', '2c2c-pure') =} to {= DIFF('3c1t', '2c2c-twisted') =} cheaper than a 3c1t (20 moves, 8-movers), so argonblue's "3c1t > 2c2c > 5c" has the first two swapped (a typical skeleton of each is example [a] in section 10). It's about a move on average, and the spread from one skeleton to the next is wider than that, so you won't really notice it solve by solve.
-- **wen's question, answered**: "Why is there even a difference if the number of possible first insertions is the same tbh" ([[N4862]]). For the two kinds of 2c2c the number really is the same, {= FC('2c2c-pure') =} first comms per spot, and when the two comms don't touch they cost the same ({= CELL('nesting', 'pure 2c2c', 'The two not touching') =} and {= CELL('nesting', 'twisted 2c2c', 'The two not touching') =}). The {= GAP2C2C('Two comms, nesting allowed') =} between them comes from comms that interact, {= GAP2C2CNEST() =} of it from nesting: the best twisted pair is nested on {= CELL('nesting', 'twisted 2c2c', 'Best needs nesting') =} of skeletons, the best pure pair on {= CELL('nesting', 'pure 2c2c', 'Best needs nesting') =}. Across types the number isn't the same, and the costs come in the same order (first line of the next block):
+- **wen's question, answered**: "Why is there even a difference if the number of possible first insertions is the same tbh" ([[N4862]]). For the two kinds of 2c2c the number really is the same, {= FC('2c2c-pure') =} first comms per spot, and when the two comms don't touch they cost the same ({= CELL('nesting', 'pure 2c2c', 'The two not touching: mean added') =} and {= CELL('nesting', 'twisted 2c2c', 'The two not touching: mean added') =}). The {= GAP2C2C('Nesting allowed: mean added') =} between them comes from comms that interact, {= GAP2C2CNEST() =} of it from nesting: the best twisted pair is nested on {= CELL('nesting', 'twisted 2c2c', 'Best needs nesting') =} of skeletons, the best pure pair on {= CELL('nesting', 'pure 2c2c', 'Best needs nesting') =}. Across types the number isn't the same, and the costs come in the same order (first line of the next block):
 
-  | | 2tc | 2c2c | 3tc | 3c1t | 5c |
-  |---|---:|---:|---:|---:|---:|
-  | First comms per spot | {= FC('2tc') =} | {= FC('2c2c-pure') =} | {= FC('3tc') =} | {= FC('3c1t') =} | {= FC('5c') =} |
+  | Leftover | First comms that leave a 3c, per spot |
+  |---|---:|
+  | 2tc | {= FC('2tc') =} |
+  | 2c2c | {= FC('2c2c-pure') =} |
+  | 3tc | {= FC('3tc') =} |
+  | 3c1t | {= FC('3c1t') =} |
+  | 5c | {= FC('5c') =} |
 
 - **A longer alg list is worth far more on two comms than on one.** Same skeletons under every cap ({= PAIRN('5c') =} of 20 moves per type):
 
-  | Leftover | Cap 8 | Cap 10 | Cap 12 |
+  | Leftover | Cap 8: mean added | Cap 10: mean added | Cap 12: mean added |
   |---|---:|---:|---:|
   | pure 2c2c | {= PAIR('2c2c-pure', '8') =} | {= PAIR('2c2c-pure', '10') =} | {= PAIR('2c2c-pure', '12') =} |
   | 5c | {= PAIR('5c', '8') =} | {= PAIR('5c', '10') =} | {= PAIR('5c', '12') =} |
   | 3tc | | {= PAIR('3tc', '10') =} | {= PAIR('3tc', '12') =} |
 
-  The 3tc's whole step from cap 10 to cap 12 comes from longer comms, since no 3tc alg is 12 moves or fewer. Where a 10-move pure 2c2c alg fits ({= CELL('direct', 'pure 2c2c', 'Alg of 10 or less: fits somewhere') =} of skeletons) it beats two 8-movers by {= f2(float(CELL('direct', 'pure 2c2c', 'Two 8-move comms on the skeletons where an alg of 10 or less fits')) - float(CELL('direct', 'pure 2c2c', 'Alg of 10 or less: mean added'))) =}. Caps 10 and 12 count every alg of that length, so these are **computer only**, the answer key for a full alg list. What carries over to an attempt is which algs are worth learning (the 10-move pure 2c2c algs, 6.3).
+  The 3tc's whole step from cap 10 to cap 12 comes from longer comms, since no 3tc alg is 12 moves or fewer. Where a 10-move pure 2c2c alg fits ({= CELL('direct', 'pure 2c2c', 'Alg of 10 or less: fits somewhere') =} of skeletons) it beats two 8-movers by {= f2(float(CELL('direct', 'pure 2c2c', 'Two 8-move comms on the skeletons where an alg of 10 or less fits: mean added')) - float(CELL('direct', 'pure 2c2c', 'Alg of 10 or less: mean added'))) =}. Caps 10 and 12 count every alg of that length, so these are **computer only**, the answer key for a full alg list. What carries over to an attempt is which algs are worth learning (the 10-move pure 2c2c algs, 6.3).
 - **Longer algs barely help a 3c.** At 20 moves it's {= M('3c') =} with 8-movers, {= M('3c', L=10) =} with every alg up to 10 moves and {= M('3c', L=12) =} up to 12. How often a longer alg is what wins, on 20-move skeletons:
 
   | What happens | Share of skeletons |
   |---|---:|
   | An 8-mover is as good as anything up to 10 | {= CELL('one_longer', '20', 'An 8-mover is as good as anything up to 10') =} |
   | A 9-mover is the best | {= CELL('one_longer', '20', 'A 9-mover beats every 8-mover and no 10-mover beats it') =} |
-  | A 10-mover is the only best (example [b]) | {= CELL('one_longer', '20', 'A 10-mover beats every 8- and 9-mover') =}, about one in {= ONEIN('20', 'A 10-mover beats every 8- and 9-mover') =} |
-  | ... and wins by a single move | {= CELL('one_longer', '20', 'When a 10-mover beats every 8- and 9-mover: by one move only') =} of those |
+  | A 10-mover is the only best (example [b]) | {= CELL('one_longer', '20', 'A 10-mover beats every 8- and 9-mover') =} |
+  | of those, the 10-mover wins by a single move | {= CELL('one_longer', '20', 'When a 10-mover beats every 8- and 9-mover: by one move only') =} |
 
-  So the tutorial's "extremely rarely" holds for 9-movers. Ben's "if its a setup to a regular comm then it wont cancel more than just inserting 8 movers" holds on all but {= fmt(FACT('ten_wins_only_conjugates'), FACT('ten_sample')) =} of 20-move skeletons, and those are an 8-mover put inside a turn of the skeleton (a `B'` done as `B2`, the comm, `B`; example [i]). For a hand search on a 3c, 8-movers are enough.
-- **The best first comm isn't always the one to follow.** On a 20-move 5c with 8-movers the best first comm is an 8-3 or better on {= CELL('greedy_first', '20', '8-3 or better') =} of skeletons (a 3c's best comm: {= CELL('greedy_first', '20', '3c: 8-3 or better') =}), but taking it and then the best second doesn't always give the best pair:
+  A 10-mover as the only best is about one skeleton in {= ONEIN('20', 'A 10-mover beats every 8- and 9-mover') =}. So the tutorial's "extremely rarely" holds for 9-movers. Ben's "if its a setup to a regular comm then it wont cancel more than just inserting 8 movers" holds on all but {= fmt(FACT('ten_wins_only_conjugates'), FACT('ten_sample')) =} of 20-move skeletons, and those are an 8-mover put inside a turn of the skeleton (a `B'` done as `B2`, the comm, `B`; example [i]). For a hand search on a 3c, 8-movers are enough.
+- **The best first comm isn't always the one to follow.** On a 20-move 5c with 8-movers the best first comm is an 8-3 or better on {= CELL('greedy_first', '20', '5c: 8-3 or better') =} of skeletons (a 3c's best comm: {= CELL('greedy_first', '20', '3c: 8-3 or better') =}), but taking it and then the best second doesn't always give the best pair:
 
-  | How you search | Misses the best pair on | Mean added |
+  | How you search | Misses the best pair on, share of skeletons | Mean moves added |
   |---|---:|---:|
-  | best first comm, then the best second | {= GLOSS('5c', 0) =} | {= CELL('greedy', '5c', 'Best first comm only') =} |
-  | also first comms one move worse (Insertion Finder's greedy 1) | {= GLOSS('5c', 1) =} | {= CELL('greedy', '5c', 'First comms within 1 move') =} |
+  | best first comm, then the best second | {= GLOSS('5c', 0) =} | {= CELL('greedy', '5c', 'Best first comm only: mean added') =} |
+  | also first comms one move worse (Insertion Finder's greedy 1) | {= GLOSS('5c', 1) =} | {= CELL('greedy', '5c', 'First comms within 1 move: mean added') =} |
   | also two moves worse (example [f]) | {= GLOSS('5c', 2) =} | |
-  | best pair of comms (computer) | | {= CELL('greedy', '5c', 'Best pair of comms') =} |
+  | best pair of comms (computer) | | {= CELL('greedy', '5c', 'Best pair of comms: mean added') =} |
 
   With every 3c alg up to 10 the best first comm misses the best pair on {= GLOSS('5c', 0, L=10) =}, and the longer list actually gives a longer result than 8-movers alone on {= G10('worse') =} of {= G10('n') =} skeletons (shorter on {= G10('better') =}). That's what bvcuber13 and Ben ran into on Insertion Finder; it happens, but not often (example [l]). The best pair is a computer number. Best first comm then best second is the hand search, and also following the first comms a move worse is the hand fix.
 - **Checking every other move** (3c, 8-movers):
 
-  | Which spots you check | Finds the best | Finds a best of 8-3 or better |
+  | Which spots you check | Finds the best, share of skeletons | Finds a best of 8-3 or better, share of those skeletons |
   |---|---:|---:|
-  | every other move | {= CELL('one_skip', '20', 'Every other move finds the best') =} | {= CELL('one_skip', '20', 'Best is 8-3 or better: every other move finds it') =} |
-  | every third move (example [j]) | | {= CELL('one_skip', '20', 'Best is 8-3 or better: every third move finds it') =} |
+  | every other move | {= CELL('one_skip', '20', 'Every other move finds the best') =} | {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every other move finds it') =} |
+  | every third move (example [j]) | | {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every third move finds it') =} |
 
-  Every other move loses {= CELL('one_skip', '20', 'Every other move: mean loss') =} of a move on average, and nothing better than an {= SKIPWORST() =} was missed on any of {= SKIPTOTAL() =} skeletons. Every miss of an 8-3 or better sits next to two moves on opposite faces ({= SKIPNEAR(20) =} at 20 moves): a full cancel reaches across the pair, so the shifted alg lands two spots over, not one. So check every other move and both sides of a parallel pair. notkevin's "guarantees" ([[N4772]]) is a bit too strong (example [c]).
+  Every other move loses {= CELL('one_skip', '20', 'Every other move: mean loss, moves') =} of a move on average, and nothing better than an {= SKIPWORST() =} was missed on any of {= SKIPTOTAL() =} skeletons. Every miss of an 8-3 or better sits next to two moves on opposite faces ({= SKIPNEAR(20) =} at 20 moves): a full cancel reaches across the pair, so the shifted alg lands two spots over, not one. So check every other move and both sides of a parallel pair. notkevin's "guarantees" ([[N4772]]) is a bit too strong (example [c]).
 - **paulduc03's question, answered**: after a case that needs 10 moves, "can I go 3 moves further instead of 2" ([[N5145]])? No, like DougCube said. That walk misses a best of 8-3 or better on {= TSP(20, 'rule_miss', 'walks') =} of walks against {= TSP(20, 'plain_miss', 'walks') =} for plain every other move, and every one of the {= FACT('ten_cases') =} 3-cycles that need 10 moves can be at a case with an 8-mover two moves later (example [k]).
 - **Exchange rates, 8-movers** (Fanti's question, [[N1324]]): how many moves shorter each skeleton has to be to give the same expected total as a 20-move 3c.
 
-  | 5c | 3c1t | 3tc | pure 2c2c | twisted 2c2c | 2tc |
-  |---:|---:|---:|---:|---:|---:|
-  | {= EXM('5c', 20) =} | {= EXM('3c1t', 20) =} | {= EXM('3tc', 20) =} | {= EXM('2c2c-pure', 20) =} | {= EXM('2c2c-twisted', 20) =} | {= EXM('2tc', 20) =} |
+  | Leftover | Shorter by, moves |
+  |---|---:|
+  | 5c | {= EXM('5c', 20) =} |
+  | 3c1t | {= EXM('3c1t', 20) =} |
+  | 3tc | {= EXM('3tc', 20) =} |
+  | pure 2c2c | {= EXM('2c2c-pure', 20) =} |
+  | twisted 2c2c | {= EXM('2c2c-twisted', 20) =} |
+  | 2tc | {= EXM('2tc', 20) =} |
 
-  For the same chance of a given result the rates are about the same, a bit lower when the 3c would need luck. asacuber's "maybe like 5-6" ([[N1325]]) for the 5c is right, at the 5 end. With algs up to 10 a 5c needs about {= EXR('5c', 10) =} and a pure 2c2c about {= EXR('2c2c-pure', 10) =} (**computer only**: that assumes every alg up to 10). The cap-8 rates are for the attempt, but they price a two-comm skeleton at its best pair. Taking just the best first comm by hand adds {= f2(float(CELL('greedy', '5c', 'Best first comm only')) - float(CELL('greedy', '5c', 'Best pair of comms'))) =} on a 5c and {= f2(float(CELL('greedy', 'twisted 2c2c', 'Best first comm only')) - float(CELL('greedy', 'twisted 2c2c', 'Best pair of comms'))) =} on a twisted 2c2c (8.4), so add that to the rate if you won't follow up more than the best first comm.
+  For the same chance of a given result the rates are about the same, a bit lower when the 3c would need luck. asacuber's "maybe like 5-6" ([[N1325]]) for the 5c is right, at the 5 end. With algs up to 10 a 5c needs about {= EXR('5c', 10) =} and a pure 2c2c about {= EXR('2c2c-pure', 10) =} (**computer only**: that assumes every alg up to 10). The cap-8 rates are for the attempt, but they price a two-comm skeleton at its best pair. Taking just the best first comm by hand adds {= f2(float(CELL('greedy', '5c', 'Best first comm only: mean added')) - float(CELL('greedy', '5c', 'Best pair of comms: mean added'))) =} on a 5c and {= f2(float(CELL('greedy', 'twisted 2c2c', 'Best first comm only: mean added')) - float(CELL('greedy', 'twisted 2c2c', 'Best pair of comms: mean added'))) =} on a twisted 2c2c (8.4), so add that to the rate if you won't follow up more than the best first comm.
 - **trig0n's 17 to 3c** ([[T73]]; nobody replied). Modelled 17-move sequences, 20,000 each, with 8-movers:
 
-  | The moves | Mean added | +6 or better | Nothing fits |
+  | The moves | Mean moves added | Adds 6 or less | Nothing fits |
   |---|---:|---:|---:|
-  | random moves | {= CELL('dr17', ('random moves', '8'), 'Mean added') =} | {= CELL('dr17', ('random moves', '8'), '6 or less') =} | |
-  | after EO | {= CELL('dr17', ('EO in 5, then moves that keep EO', '8'), 'Mean added') =} | | |
-  | DR moves | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; any 3c', '8'), 'Mean added') =} | | |
-  | DR moves, a 3c that DR moves can leave | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Mean added') =} | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), '6 or less') =} | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Nothing fits') =} |
+  | random moves | {= CELL('dr17', ('random moves', '8'), 'Mean moves added') =} | {= CELL('dr17', ('random moves', '8'), 'Adds 6 or less') =} | |
+  | after EO | {= CELL('dr17', ('EO in 5, then moves that keep EO', '8'), 'Mean moves added') =} | | |
+  | DR moves | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; any 3c', '8'), 'Mean moves added') =} | | |
+  | DR moves, a 3c that DR moves can leave | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Mean moves added') =} | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Adds 6 or less') =} | {= CELL('dr17', ('EO in 4, DR in 10, then DR moves; a 3c that DR moves can leave', '8'), 'Nothing fits') =} |
 
   So the DR guide's feeling that 8-movers cancel less on DR skeletons, which it says hasn't been proved, is true in this model, by {= DRGAP() =} of a move, and it comes from which corners are left, not from the moves. These are move sequences, not DR solves.
 - **Nesting matters on a 5c.** With 8-movers on 20-move skeletons the best pair of comms is nested on {= CELL('nesting', '5c', 'Best needs nesting') =} of 5c skeletons, and forbidding it costs {= NEST('5c') =}; two comms that don't touch at all cost {= APART('5c') =} more than the best. So the nested pair argonblue saw Insertion Finder return is no rarity (example [e]). With algs of up to 10 moves the best is a nested pair on {= NESTED10('5c') =} ({= NSK('5c', L=10) =} skeletons). Finding the best pair is a computer search; the hand version is Gezza Cubing's: on a 5c, also try the second comm inside the first (6.5).
 - **Real move sequences with a random leftover cost what random ones cost.** {= RL('covered') =} worked examples, {= RL('skeletons') =} distinct skeletons: {= RL('server') =} examples from the server and {= RL('kalbarczyk') =} from Kalbarczyk's example solves, searched the same way. With 8-movers:
 
-  | Leftover on the real moves | Real moves | Random moves |
+  | Leftover on the real moves | Real moves: mean added | Random moves: mean added |
   |---|---:|---:|
   | a random 3c (the same) | {= CP('3c', 8, 'real') =} | {= CP('3c', 8, 'rand') =} |
   | a random 5c (within a tenth of a move) | {= CP('5c', 8, 'real') =} | {= CP('5c', 8, 'rand') =} |
@@ -96,17 +105,17 @@ New stuff first, then what the numbers confirm. Everything is on random skeleton
 
 - **The tutorial's table holds.** The two-comm leftovers, 20 moves, 8-movers, next to the tutorial's corner rows:
 
-  | | 2tc | twisted 2c2c | pure 2c2c | 3tc | 3c1t | 5c |
+  | Source | 2tc | twisted 2c2c | pure 2c2c | 3tc | 3c1t | 5c |
   |---|---:|---:|---:|---:|---:|---:|
   | Best pair of 8-movers | {= M('2tc') =} | {= M('2c2c-twisted') =} | {= M('2c2c-pure') =} | {= M('3tc') =} | {= M('3c1t') =} | {= M('5c') =} |
   | The tutorial | two twisted 8 | | double swap 9/10 | three twisted 9 | 10 | 10/11 |
 
-  Every tutorial row is within about half a move; the 3tc is the one that's a full half move off. At 16 moves the six are {= D16RANGE() =} higher. These are best pairs of 8-movers, a computer number, but following the best first comm and the ones a move worse gets within {= f2(max(float(CELL('greedy', r, 'First comms within 1 move')) - float(CELL('greedy', r, 'Best pair of comms')) for r in ('2tc', '3tc', 'pure 2c2c', 'twisted 2c2c', '3c1t', '5c', '3c3c'))) =} of them (8.4), so they hold for a careful hand search too.
+  Every tutorial row is within about half a move; the 3tc is the one that's a full half move off. At 16 moves the six are {= D16RANGE() =} higher. These are best pairs of 8-movers, a computer number, but following the best first comm and the ones a move worse gets within {= f2(max(float(CELL('greedy', r, 'First comms within 1 move: mean added')) - float(CELL('greedy', r, 'Best pair of comms: mean added')) for r in ('2tc', '3tc', 'pure 2c2c', 'twisted 2c2c', '3c1t', '5c', '3c3c'))) =} of them (8.4), so they hold for a careful hand search too.
 - **A 3c costs +{= M('3c') =} on a 20-move skeleton with 8-movers.** +6 or better on {= P('3c', 6) =} of skeletons, +5 or better on {= P('3c', 5) =}, +4 or better on {= P('3c', 4) =}. It's {= M('3c', 10) =} at 10 moves and {= M('3c', 30) =} at 30, so length matters little. Everybody's +6 is right.
 - **The estimates people posted.** cpaul's 9 and 10 are right. Phuwish's are close (2tc {= M('2tc') =}, 5c {= M('5c') =}) except the 3tc: "mid to high 8" against {= M('3tc') =} with 8-movers, and algs up to 12 bring it to {= M('3tc', L=12, src='two12') =} ({= NSK('3tc', L=12, src='two12') =} skeletons). Baiqiang's are lower and, in Baiqiang's words, not averages; with algs up to 12 (**computer only**) a pure 2c2c averages {= M('2c2c-pure', L=12, src='two12') =} and a twisted one {= M('2c2c-twisted', L=12, src='two12') =} ({= NSK('2c2c-pure', L=12, src='two12') =} skeletons each), figures of that size.
 - **For sub-30, 8-movers.** How often each skeleton makes it:
 
-  | Skeleton | Makes it |
+  | Skeleton | Chance of sub-30 |
   |---|---:|
   | 3c in 21 (kyh's "very likely") | {= CH('3c', 21, 29) =} |
   | 3c in 23 (the tutorial's "probably") | {= CH('3c', 23, 29) =} |

@@ -1,15 +1,15 @@
 ## 10. The sheets, reproduced
 
-I recomputed every published number I could match to a definition: exact tables to their printed rounding, sampled ones within three standard errors of the exact value.
+I recomputed every published number I could match to a definition: exact tables to their printed rounding, sampled ones within three standard errors of the exact value. One row per source:
 
 {{reproduce}}
 
-{= n(E['repro']['match']) =} of {= n(E['repro']['n']) =} reproduce. The two that don't are both in **Evan's *arm/pairs***, far outside the sample's error:
+{= n(E['repro']['match']) =} of {= n(E['repro']['n']) =} reproduce. The two that don't are both in **Evan's *arm/pairs***, far outside the sample's error. Each row is a sub-7 rate as a fraction, on the sheet and exact:
 
-| Evan's *arm/pairs*, 4c4e | Sheet | Exact | Distance in standard errors |
+| Evan's *arm/pairs*, 4c4e | Sub-7 rate on the sheet | Sub-7 rate, exact | Distance in standard errors |
 |---|---|---|---|
-| 2 pairs | {= REP('4c4e 2 pairs sub-7', 'published', 'C13') =} | {= f3(REP('4c4e 2 pairs sub-7', 'ours', 'C13')) =} | {= REP('4c4e 2 pairs sub-7', 'verdict', 'C13').split('(')[1].rstrip(')') =} |
-| 3 pairs | {= REP('4c4e 3 pairs sub-7', 'published', 'C13') =} | {= f3(REP('4c4e 3 pairs sub-7', 'ours', 'C13')) =} | {= REP('4c4e 3 pairs sub-7', 'verdict', 'C13').split('(')[1].rstrip(')') =} |
+| 2 pairs | {= REP('4c4e 2 pairs sub-7', 'published', 'C13') =} | {= f3(REP('4c4e 2 pairs sub-7', 'ours', 'C13')) =} | ${= REP('4c4e 2 pairs sub-7', 'verdict', 'C13').split('(')[1].rstrip(')').replace('=', ' = ') =}$ |
+| 3 pairs | {= REP('4c4e 3 pairs sub-7', 'published', 'C13') =} | {= f3(REP('4c4e 3 pairs sub-7', 'ours', 'C13')) =} | ${= REP('4c4e 3 pairs sub-7', 'verdict', 'C13').split('(')[1].rstrip(')').replace('=', ' = ') =}$ |
 
 Its ARM 21 cell does match. None of the definitions I tried explains the gap (optimal with any turns, paired corners, edges with a pair).
 

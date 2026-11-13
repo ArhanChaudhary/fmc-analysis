@@ -79,9 +79,9 @@ It's tempting to say "half turns don't change the HTR subset, so only qts matter
 
 ## What to look at: seven levels
 
-All tables use the ten DR moves. "Cases" means positions that look the same at that level.
+All tables use the ten DR moves. "Cases" means positions that look the same at that level. Each row is a level, from least to most information:
 
-| Level | What you look at | Cases | Max |
+| Level | What you look at | Cases | Largest value, moves |
 |---|---|---:|---:|
 | HTR length | which corners and edges are bad | 29,400 | 13 |
 | Corner length L | corners | 40,320 | 13 |
@@ -108,7 +108,9 @@ Everything here is an exact count over all 19,508,428,800 DR states. "Bound" = t
 
 ### How close each level gets
 
-| Level | Average bound | Equal to optimal | Within 1 |
+Each row is a level; the columns are its average over all DR states and the share of states where it equals the optimal, or is within one move of it:
+
+| Level | Average bound, moves | Equal to optimal | Within 1 move |
 |---|---:|---:|---:|
 | HTR length (longer side) | 9.22 | 0.1% | 0.7% |
 | Corner length L | 8.86 | 0.1% | 0.8% |
@@ -266,20 +268,27 @@ If the formula says ≤ 12, optimal is below it 2.5% of the time. At ≤ 11, 0.6
 FakeMMAP's tables, in order:
 
 - the first one is HT only;
-- the next adds HTR-breaking finishes from a list of algs: ≤ 7 is proven, and 8/9/10 might secretly be 7-movers ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606), [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075));
+- the next adds HTR-breaking finishes from a list of algs: $\le 7$ is proven, and 8/9/10 might secretly be 7-movers ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606), [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075));
 - the newer OBL++ sheet, which FakeMMAP is "not mathematically 100% sure" about ([FakeMMAP, 10 Nov 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1569733928988704873)).
 
 Rodney's "Adv DR Bounding" sheet uses those optimals.
 
-Here are all three (the full table is Appendix C):
+Here are all three (the full table is Appendix C). Each row is a move set, how its values were found, and what came out:
 
 | Moves allowed | How | Result |
 |---|---|---|
 | Half turns | BFS over the 216 cases | same as FakeMMAP's listing, all 216 (proven in Lean) |
 | DR moves | same BFS with U and D qts | 214 the same, 2 shorter: "R-D − F-V R-V even" and its mirror "F-D − F-V R-V even" go from 9 to 8 (the count of 2 is proven in Lean) |
-| Any face turn (HTM) | every sequence of ≤ 10 moves is two sequences of ≤ 5 glued together, so I listed all 624,124 of those twice, matched the pairs that can land in HTR, and tested each hit | vs DR moves: 150 the same, 37 shorter by 1, 22 by 2, 6 by 3, 1 by 4. (vs half turns: 150 / 35 / 24 / 6 / 1.) |
+| Any face turn (HTM) | every sequence of $\le 10$ moves is two sequences of $\le 5$ glued together, so I listed all 624,124 of those twice, matched the pairs that can land in HTR, and tested each hit | shorter for some cases; the next table has the counts |
 
-DR-move values never go above 10, so anything shorter is ≤ 9 moves and a search that's complete to 10 can't miss it.
+How the any-move values compare. Each row is the move set compared against; the columns count the 216 cases by how much shorter any move makes them:
+
+| Compared with | The same | Shorter by 1 | By 2 | By 3 | By 4 |
+|---|---:|---:|---:|---:|---:|
+| DR moves | 150 | 37 | 22 | 6 | 1 |
+| half turns | 150 | 35 | 24 | 6 | 1 |
+
+DR-move values never go above 10, so anything shorter is $\le 9$ moves and a search that's complete to 10 can't miss it.
 
 The two that get shorter with quarter turns, explicitly (with half turns alone both cases need 9):
 
@@ -355,7 +364,7 @@ theorem Rung.bound_attained (ok : R.Checked) : ∀ (d : Nat) (g : State), g.Vali
 
 1. A two-page general lemma: if what you see after a move depends only on what you saw and the move, and one move changes the table by at most 1, then n moves change it by at most n. Plain induction on the number of moves, nothing about cubes in it.
 2. `R.Checked` is three brute-force checks, done by a program Lean runs:
-   - for each of the 8⁸ = 16,777,216 ways to fill eight positions, if it's a permutation, the case number is in range and the case move table agrees with actually doing each of the ten moves (once for corners, once for edges);
+   - for each of the $8^8 = 16{,}777{,}216$ ways to fill eight positions, if it's a permutation, the case number is in range and the case move table agrees with actually doing each of the ten moves (once for corners, once for edges);
    - on the E-slice, side turns flip the parity and the other moves don't;
    - for every table entry and every move the neighbour differs by at most 1, only the solved case has 0, and every positive entry has a neighbour that's one lower.
 3. The table isn't trusted. Lean builds it with its own BFS, but nothing is assumed about that BFS, only the checks are used. A wrong table or a wrong feature would fail a check and the file wouldn't compile.
@@ -363,9 +372,7 @@ theorem Rung.bound_attained (ok : R.Checked) : ∀ (d : Nat) (g : State), g.Vali
 
 **The optimal itself.** Same trick, one size up: take the table of *everything*, one entry per DR state, holding its optimal. That's 19.5 billion entries, so it's stored up to the 16 symmetries that keep the U/D axis, one byte per entry:
 
-| Corner classes | × Edge arrangements | × E-slice arrangements | = Entries |
-|---:|---:|---:|---:|
-| 2,768 | 40,320 | 12 | 1,339,269,120 |
+$$\underbrace{2{,}768}_{\text{corner classes}} \times \underbrace{40{,}320}_{\text{edge arrangements}} \times \underbrace{12}_{\text{E-slice arrangements}} = 1{,}339{,}269{,}120 \text{ entries}$$
 
 Lean builds it with its own BFS and then checks every entry against each of the ten moves for the same three things as before: a move changes the value by at most 1, only the solved cube has 0, and every positive entry has a move that goes down by 1. On top of that it checks
 
@@ -399,11 +406,13 @@ In the same run Lean counts the table, at depths 0 to 18:
 
 1, 10, 67, 456, 3079, 19948, 123074, 736850, 4185118, 22630733, 116767872, 552538680, 2176344160, 5627785188, 7172925794, 3608731814, 224058996, 1575608, 1352
 
-That's 19,508,428,800 in total, where an entry counts 16 / (number of symmetries fixing the representative of its corner class) times. Same numbers as the Rust BFS.
+That's 19,508,428,800 in total, where an entry counts $16/s$ times, $s$ being the number of symmetries fixing the representative of its corner class. Same numbers as the Rust BFS.
 
 The one step that is *not* formalised is that this weighting counts states: that an entry stands for exactly that many of them. It's the standard orbit count, but here it's a paper argument, not a Lean theorem. So "1,352 states at 18" is proven up to that step, and "some state needs 18, none needs more" is proven outright.
 
 **What's proven.** `R.Checked` for all seven levels, so all seven bounds, both sides. Plus the HT-only version of NISS@DR, that it equals FakeMMAP's 216 values, that exactly 2 of them get shorter with qts, the counterexample to Levi's formula, and the exact optimal of every DR state with its maximum of 18.
+
+The two biggest checks Lean runs, one per row:
 
 | Check | Entries read (against ten moves each) | Time | Memory |
 |---|---:|---|---|
@@ -428,7 +437,7 @@ Everything builds in under half an hour, in 3 GB of RAM if that last check is ru
 - **The 216 cases with any move**: a Python script, as described above, plus nissy for the disputed cells.
 - **The proof**: the Lean project builds its own tables from its own definitions. It shares nothing with the Rust code except the ten move tables and, for the exact table, the numbering of the symmetry-reduced states (so the two tables can be compared entry by entry).
 
-What agreed with what:
+What agreed with what. Each row is a check, with what it was checked against and the result:
 
 | Check | Result |
 |---|---|
@@ -436,7 +445,7 @@ What agreed with what:
 | Joba's optimal distribution, all 48 subsets ([Joba, 17 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1406633631165714492)) | same in every cell |
 | Subset sizes, qt class sizes ([Oskar, 10 Jun 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1249777335239184405), [Joba, 3 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1357402650441945299)), 4a3↔4b3 on inverse (wen's "HTR better smh (v2)" sheet) | same |
 | FakeMMAP's 216 values ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546077758189477989)) | same |
-| FakeMMAP's corner counts per qt, 24 / 144 / 720 / 1416 / 1776 / 960 of 5040 ([FakeMMAP, 26 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1144917908078723112), FakeMMAP asked someone to check them) | confirmed |
+| FakeMMAP's corner counts per qt from 0qt to 5qt, 24, 144, 720, 1416, 1776 and 960 of 5040 ([FakeMMAP, 26 Aug 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1144917908078723112), FakeMMAP asked someone to check them) | confirmed |
 | Lean's proven optimal table vs the Rust BFS | same in all 1,339,269,120 entries, and the same depth distribution |
 | Lean vs the Rust program, bound tables | same case counts (96, 420, 70, 5040, 630, 10080), same distribution of the corner and HTR tables, same bounds on the examples |
 | Rust vs the first C version | every output byte-identical |
@@ -580,9 +589,9 @@ For the big 3–5qt subsets. L = optimal corner solution. "Min" is the best case
 
 ## Appendix C: the 216 NISS@1qt cases
 
-Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E-parity). HT = half turns only (FakeMMAP's first BFS), DR = DR moves, Any = any of the 18 face turns. The sequence makes a state of the case in "Any" moves, so its inverse is an optimal solution.
+Labels are FakeMMAP's (corner case with cs sign, M-slice edges, S-slice edges, E-parity). The three optimal columns are for half turns only (FakeMMAP's first BFS), DR moves, and any of the 18 face turns. The sequence makes a state of the case in the any-move optimal, so its inverse is an optimal solution. Each row is one case:
 
-| Corners | F edges | R edges | E | HT | DR | Any | Sequence |
+| Corners | F edges | R edges | E-parity | Optimal, half turns | Optimal, DR moves | Optimal, any move | Sequence |
 |---|---|---|---|---:|---:|---:|---|
 | H-H + | F-H | R-H | even | 0 | 0 | 0 | ` ` |
 | R-D + | F-H | R-D | odd | 1 | 1 | 1 | ` L2` |

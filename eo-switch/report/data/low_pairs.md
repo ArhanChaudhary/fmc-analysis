@@ -1,4 +1,4 @@
-| DRM | Cell | States | Share of the DRM | Sub-7 (exact) | Band |
+| DRM | Pairs on the switched case | States | Share of the DRM | Sub-7 rate, exact | Band |
 |---|---|---|---|---|---|
 | 4c6e | 0 pairs | 12,800 | 13.6% | 0.12% | discard |
 |  | 1 pairs | 35,200 | 37.4% | 0.80% | discard |

@@ -2,14 +2,14 @@
 
 Statements the numbers can settle, by theme. Questions and guesses are in section 2 unless a number was given. Each verdict is one of **True**, **Corrected**, **Depends** (true under one reading, not another), **Open** (not settled here) and **Withdrawn** (taken back at the time). Exact over all cases unless marked. Every correction has an example in the errata.
 
-**4c4e**
+**4c4e.** One claim per row, with its verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
 | "02, 12, 30 and 40 for 4e4c are never worth switching" | Yura Riabov [[D7086]] | **True**: {= CL('D7086-never') =}. |
 | "02, 12, 03, 04 for 4e4c are like sub5 percent of sub7 dr" | Yura Riabov [[D7866]] | **True**, reading 03 and 04 as 30 and 40 (4c4e has no edge ARM above 2): 02 {= pc(EV('D7866-sub5', '02 ', ',')) =}, 12 {= pc(EV('D7866-sub5', '12 ', ';')) =}. |
 | "00, 10, 21, 32 and 42 are more than 20% sub7 DR for 4c4e iirc" | tseitsei89 [[D7872]] | **True**: {= CL('D7872-20') =}. |
-| "AR-3c-0/1/2e is the same as AR-1c-2/1/0e"; "not strictly symmetrical (AR-1c is not exactly the same as AR-3c : see 0.28 vs 0.29 for the 4c case." | rodneykinney [[T7438]]; Louis [[T7455]] | **True** to within a point, and Louis is right that it isn't exact: 30 against 12 {= EV('T7438-mirror', '30 ') =} / {= EV('T7438-mirror', '12 ', ';') =}, 31 against 11 {= EV('T7438-mirror', '31 ') =} / {= EV('T7438-mirror', '11 ', ';') =}, 32 against 10 {= EV('T7438-mirror', '32 ') =} / {= EV('T7438-mirror', '10 ') =}. |
+| "AR-3c-0/1/2e is the same as AR-1c-2/1/0e"; "not strictly symmetrical (AR-1c is not exactly the same as AR-3c : see 0.28 vs 0.29 for the 4c case." | rodneykinney [[T7438]]; Louis [[T7455]] | **True** to within a point, and Louis is right that it isn't exact: ARM 30 is {= EV('T7438-mirror', '30 ') =} against {= EV('T7438-mirror', '12 ', ';') =} for 12, 31 is {= EV('T7438-mirror', '31 ') =} against {= EV('T7438-mirror', '11 ', ';') =} for 11, 32 is {= EV('T7438-mirror', '32 ') =} against {= EV('T7438-mirror', '10 ') =} for 10. |
 | "10 total sets that can be sub 6 out of the 15 total sets (7/15 can be sub 5!)" | Jay [[T4256]] | **Corrected** [a]: 11 of the 15 ARM sets have a case of at most 5 moves; AR-4c1e (shortest {= EV('T4256-sets', '41:', ',') =}) is missing from Jay's list. The 7 for sub-5 is right. |
 | "For sure there aren't any 4-movers with 0 or 1 pairs, because any 4 moves from a solved cube always leaves at least 2 bad pairs." ("pairs" = bad pairs) | rodneykinney [[T597]], [[T596]] | **Depends** on what a pair is. Counting top and side pairs it is true (Radek B, [[T604]]: "0 or 1 top and side pairs => at best 5 moves", also **True**). Counting top pairs alone it is not: `{= WC('T597-4movers', 'dr') =}` is a {= WC('T597-4movers', 'length') =}-move 4c4e with no top pair, and Radek B listed its mirror `F2 B2 L` ([[T602]]). |
 | "you can also recognize that all the corners are on U and know that's the only 02 case that can be sub-7 :)", "whopping 5.60%"; "corners on U, edges on D", "then it goes up to 33%!!!" | Evan [[D12760]], [[D12761]]; caycala [[D12762]], [[D12763]] | **True**: {= pc(EV('D12760-02U', 'corners on one layer ')) =}, the rest 0%; with the bad edges on the other layer {= pc(EV('D12760-02U', 'on the other ')) =}. |
@@ -19,12 +19,12 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | "AR-0 can mean 4a-0, which is good, or 4b-0, which is bad (without pairs)" (and 4b-2 good, 4a-2 bad) | rodneykinney [[T8122]] | **True**: {= CL('T8122-a0b0') =}. |
 | "To catch this case, you can switch 4a-0 and 4d-2, but only if there also are no fake pairs" (the 0-pair `F2 B2 R` case Nico asked about, [[T8107]]) | rodneykinney [[T8123]] | **Depends**: the `F2 B2 R` case itself is 4a-0 with no fake pairs and is caught, but one U/D turn earlier, `D F2 B2 R` (0 pairs, no fake pairs, {= WC('T8123-0p', 'length') =} moves), is 4b-2 and is discarded. |
 | "It's simply:", "3-4 pairs: Always switch", "2 pairs: Switch unless 4b-0", "1 pair: Switch if 4d-2", "0 pairs: Don't switch" | rodneykinney [[T8108]] | **True** as a rule that beats "2+ pairs": {= pc(GR('44-rodney-case', 'share_switched')) =} switched at {= pc(GR('44-rodney-case', 'precision')) =}, against {= pc(GR('44-2pairs', 'precision')) =} (section 7). |
-| "If you're looking to reach DR in ≤ 6 moves, then look for an inverse state with at least three pairs. Otherwise, you can save yourself the time of performing the NISS." | rodneykinney, *Domino Setup Theory* | **Depends** on your cut: 3+ pairs is {= pc(GR('44-3pairs', 'precision')) =} but holds only {= pc(GR('44-3pairs', 'recall')) =} of the sub-7 cases, and 2 pairs on two edges is {= CELL('c44_bars', '2 pairs on 2 edge(s)', 'Sub-7 (exact)') =}. rodneykinney moved to 2+ pairs later ([[T3225]]). |
+| "If you're looking to reach DR in ≤ 6 moves, then look for an inverse state with at least three pairs. Otherwise, you can save yourself the time of performing the NISS." | rodneykinney, *Domino Setup Theory* | **Depends** on your cut: 3+ pairs is {= pc(GR('44-3pairs', 'precision')) =} but holds only {= pc(GR('44-3pairs', 'recall')) =} of the sub-7 cases, and 2 pairs on two edges is {= CELL('c44_bars', '2 pairs on 2 edge(s)', 'Sub-7 rate, exact') =}. rodneykinney moved to 2+ pairs later ([[T3225]]). |
 | "the only 3+ pairs case i wouldn’t switch for is 3 pairs with all white or all yellow corners" | caycala [[D13393]] | **True** in effect: the rule is {= pc(GR('44-caycala-3p', 'precision')) =} against {= pc(GR('44-3pairs', 'precision')) =} for 3+ pairs. |
 | "It seems like you should pretty much always switch a 4 move DR-4c4e." | Zagros [[D18940]] | **True** with DR in 7 as the target: {= pc(GR('44-always-4', 'precision')) =}; Daichi's refinement ([[D18953]]) is {= pc(GR('44-daichi-4', 'precision')) =} on {= pc(GR('44-daichi-4', 'share_switched')) =}. |
 | "This is not accounting side pairs but you can quickly confirm that 0 or 1 top and side pairs => at best 5 moves" | Radek B [[T604]] | **True**: {= CL('T604-5') =}. |
 
-**4c2e and 3c2e**
+**4c2e and 3c2e.** One claim per row, with its verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
@@ -36,14 +36,14 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | "3c2e is pretty much always worth NISSing, even as a 6 move rzp." | tseitsei89 [[D7286]] | **Depends** on the cut: after a 6-move RZP the target is DR in 5, and 3c2e is {= pc(EV('D7286-3c2e', 'DR <= 5 ')) =}. That is still the best of any DRM. |
 | "At the very least you will never miss a 5 mover by doing this" (switch 3c2e on a pair, a fake pair or a split pair) | wen [[D16512]] | **True**: the {= EV('D16512-wen', 'three: ', ',') =} cases with none of the three are all 6 or more. |
 
-**7c8e, 8c8e and the rest**
+**7c8e, 8c8e and the rest.** One claim per row, with its verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
 | "DR-7C8E AR-2C1E is over 70% chance of sub7 dr" | Yura Riabov [[D7800]] | **True**: {= pc(CL('D7800-7c8e21')) =}. tseitsei89's 7c8e 2c1e without a sub-7 ([[D11819]]) is one of {= CL('E7-counter').split()[0] =} such cases out of {= CL('E7-counter').split()[2] =}. |
 | "And for 7c8e in particular, half the cases are 0% chance of sub7 dr" | Yura Riabov [[D7887]] | **True** by ARM set: {= CL('D7884-half') =}, holding {= pc(CL('D7884-half', 'verdict').split('hold ')[1].split()[0]) =} of 7c8e cases. |
 | "all that i've memorized is that 1C0E is always 5-6 and 2C1E is the only one that can give sub 4" | Jay [[D5086]] | **True**: {= CL('D5086-7c8e') =}. |
-| "After revisiting the ARM stats I noticed that edge ARM =4 always has 0% chance for sub7." "And yes 3 seems to be much better than 2, but also only good if corner ARM >= 4" | tseitsei89 [[T9279]] | **True**: edge ARM 4 {= pc(EV('T9279-7c8e', 'edge ARM 4 ', ';')) =}; 3 against 2 {= pc(EV('T9279-7c8e', 'edge ARM 3 ', ' ')) =} / {= pc(EV('T9279-7c8e', 'vs 2 ', ';')) =}. |
+| "After revisiting the ARM stats I noticed that edge ARM =4 always has 0% chance for sub7." "And yes 3 seems to be much better than 2, but also only good if corner ARM >= 4" | tseitsei89 [[T9279]] | **True**: edge ARM 4 {= pc(EV('T9279-7c8e', 'edge ARM 4 ', ';')) =}; edge ARM 3 {= pc(EV('T9279-7c8e', 'edge ARM 3 ', ' ')) =} against edge ARM 2 {= pc(EV('T9279-7c8e', 'vs 2 ', ';')) =}. |
 | "7c8e is actually the exception because with 8 bad edges, every bad in-ARM corner forms a side pair anyway." | rodneykinney [[T9450]] | **True**: {= CL('T9450-7c8e-side') =}. |
 | "for 7c8e with 5p, 20/54 has a 0% chance of sub7"; "it's still 54% in general" | Daichi [[D15161]], Fanti [[D15170]] | **True**: {= CL('D15161-5p') =}. |
 | "also 78 4p has a weird silver lining with 11/12/33/41/62 where they're all just slightly worse", "20-23% sub7, though keep in mind only 21 can have sub-6 on 4p" | Fanti [[D15175]], [[D15176]] | **True**: {= CL('D15175-4p') =}. |
@@ -57,7 +57,7 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | "For example, 5c4e with 2 pairs has 40% chance of sub-8." | rodneykinney [[T9348]] | **Open**: any optimal DR gives {= pc(EV('T9348-5c4e', 'DR <= 7: ', ' ')) =}; rodneykinney's numbers may count only findable solutions. |
 | "Yes, that’s the conclusion" (the DRMs outside the top ten are not worth looking at) | rodneykinney [[T9480]], to zakimoshi [[T9479]] | **True** for the time it takes: some are better per case but very rare (0c2e and 2c0e have {= CL('T9480-rest', 'verdict').split('0c2e 1.000 (')[1].split()[0] =} and {= CL('T9480-rest', 'verdict').split('2c0e 0.714 (')[1].split()[0] =} sub-7 cases in all). |
 
-**Switching, NISS and the tables**
+**Switching, NISS and the tables.** One claim per row, with its verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|

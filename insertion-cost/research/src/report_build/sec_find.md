@@ -40,7 +40,7 @@ Flat. And spot by spot on the 20-move skeletons, with 8-movers:
 - **An 8-mover is as good as anything up to 10 moves on {= CELL('one_longer', '20', 'An 8-mover is as good as anything up to 10') =} of 20-move skeletons.**
 - **A 9-mover is the best on {= CELL('one_longer', '20', 'A 9-mover beats every 8-mover and no 10-mover beats it') =}** at 20 moves, and on short skeletons mostly because no 8-mover fits at all. The tutorial: "It happens extremely rarely that the best insertion is given by a 9 move commutator (or longer)". For 9-movers that's right.
 - **A 10-mover beats everything shorter on {= CELL('one_longer', '20', 'A 10-mover beats every 8- and 9-mover') =}**, about one skeleton in {= ONEIN('20', 'A 10-mover beats every 8- and 9-mover') =}, and an 11- or 12-mover beats everything up to 10 on {= CELL('one_longer', '20', 'An 11- or 12-mover beats everything up to 10') =}. That's not extremely rare (example [b] in section 10). notkevin's 15 to 3c ([[N2718]]), "optimal is 10-4 for a 21, 8-1 for a 22 using 8-movers only", is one of these.
-- **But you don't gain much**: when a 10-mover wins it's by a single move {= CELL('one_longer', '20', 'When a 10-mover beats every 8- and 9-mover: by one move only') =} of the time, so on the skeletons where an 8-mover fits the mean only goes from {= CELL('one_longer', '20', 'Mean added on those skeletons, cap 8') =} to {= CELL('one_longer', '20', 'Same skeletons, cap 10') =} to {= CELL('one_longer', '20', 'Same skeletons, cap 12') =}.
+- **But you don't gain much**: when a 10-mover wins it's by a single move {= CELL('one_longer', '20', 'When a 10-mover beats every 8- and 9-mover: by one move only') =} of the time, so on the skeletons where an 8-mover fits the mean only goes from {= CELL('one_longer', '20', 'Mean added on those skeletons, cap 8') =} to {= CELL('one_longer', '20', 'Same skeletons, cap 10: mean added') =} to {= CELL('one_longer', '20', 'Same skeletons, cap 12: mean added') =}.
 
 **Setups around a regular comm.** Ben ([[N5510]]): "if its a setup to a regular comm then it wont cancel more than just inserting 8 movers". {= FACTN('ten_movers_conjugates') =} of the {= FACTN('ten_movers') =} ten-move algs are a setup move, an 8-mover and the setup undone. When the setup cancels a whole move of the skeleton, that's the same solution as the 8-mover one spot over, like Ben says. On the {= FACT('ten_wins') =} skeletons (of {= FACTN('ten_sample') =}) where a 10-mover beats everything shorter:
 
@@ -65,8 +65,12 @@ Here's every second spot plus both ends, and every third spot plus both ends, ag
 
 {{one_skip}}
 
-- **Every other move finds the best insertion {= CELL('one_skip', '20', 'Every other move finds the best') =} of the time** at 20 moves, and loses {= CELL('one_skip', '20', 'Every other move: mean loss') =} of a move on average.
-- **When the best is an 8-3 or better it's found {= CELL('one_skip', '20', 'Best is 8-3 or better: every other move finds it') =} of the time**, so "guarantees" is a little too strong. alkamaass had already said the rule isn't thorough, with a miss of another kind. This one only joins the move on either side, so it cancels one move at each end (an 8-2, if it's an 8-mover):
+**The same walks on the skeletons whose best is an 8-3 or better: how often each rule finds it, and, counted in walks, what every other move missed and where.**
+
+{{one_skip_good}}
+
+- **Every other move finds the best insertion {= CELL('one_skip', '20', 'Every other move finds the best') =} of the time** at 20 moves, and loses {= CELL('one_skip', '20', 'Every other move: mean loss, moves') =} of a move on average.
+- **When the best is an 8-3 or better it's found {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every other move finds it') =} of the time**, so "guarantees" is a little too strong. alkamaass had already said the rule isn't thorough, with a miss of another kind. This one only joins the move on either side, so it cancels one move at each end (an 8-2, if it's an 8-mover):
 
   ```
   R (R blah blah B' ) B'   // alkamaass's example of what every other move can miss
@@ -75,7 +79,7 @@ Here's every second spot plus both ends, and every third spot plus both ends, ag
   The misses of an 8-3 or better are different. Every one of them sits next to two moves on opposite faces (`R L`, `U D'`), {= SKIPNEAR(20) =} at 20 moves: there a full cancel reaches across the pair, and the shifted alg lands two spots over, not one. The tutorial's footnote covers it: "when in a skeleton there are two consecutive parallel layers moves try swapping them too see if this gives better insertions". So check every other move, and both sides of a parallel pair. (Of all the misses, the 8-2s and worse included, {= SKIPALL(20) =} are next to such a pair.)
 - **What you miss is small**: when the best is 8-3 or better, the misses are 8-3s and a few 8-4s (fifth column). Nothing better than an {= SKIPWORST() =} was missed on any of {= SKIPTOTAL() =} skeletons.
 - notkevin's next line ([[N4773]]) is about two comms, which this table does not test: "(aka, the worst insertions you can miss with this without the second comm nesting is -4, where both comms only partially cancel on both sides)".
-- **Every third move doesn't work.** With a best of 8-3 or better, every third spot and both ends finds it only {= CELL('one_skip', '20', 'Best is 8-3 or better: every third move finds it') =} of the time.
+- **Every third move doesn't work.** With a best of 8-3 or better, every third spot and both ends finds it only {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every third move finds it') =} of the time.
 
 A skeleton where every other move misses the only 8-3:
 
@@ -87,18 +91,22 @@ And one where every third spot misses it:
 
 **Three spots on after a 10-move case.** paulduc03 asked something narrower ([[N5145]]): "When I check between 2 moves in my 3C skeleton, sometimes it happens that the most optimal way to solve the 3C is 10 moves. In this case, can I go 3 moves further instead of 2 and still make sur not to miss any insertion below 6 moves ?" DougCube ([[N5147]]): "I don't think that works."
 
-**3c, random skeletons, 20,000 per length. A spot *needs a 10-mover* when the shortest alg for the case at that spot has 10 moves; only spots with two more spots after them are counted. The walks check every other spot and both ends for 8-movers, once starting at spot 0 and once at spot 1, on the skeletons whose best is an 8-3 or better; the last column goes three spots on, not two, after every spot that needs a 10-mover.**
+**3c, random skeletons, 20,000 per length. A spot *needs a 10-mover* when the shortest alg for the case at that spot has 10 moves; only spots with two more spots after them are counted. One row per skeleton length: how many such spots there are, and how often the next spot or the one after has an 8-3 or better.**
 
 {{ten_skip}}
 
-- **DougCube is right.**
+**The walks check every other spot and both ends for 8-movers, once starting at spot 0 and once at spot 1, on the skeletons whose best is an 8-3 or better. One row per skeleton length: how many walks miss that best, plain and when going three spots on, not two, after every spot that needs a 10-mover.**
 
-  | After a spot whose case needs a 10-mover | 20-move skeletons |
-  |---|---:|
-  | the spot two further on holds an 8-3 or better | {= TSP(20, 'two', 'ten') =} ({= TS(20, 'two') =} of {= TS(20, 'ten') =} such spots) |
-  | the spot right after it holds one | {= TSP(20, 'next', 'ten') =} |
-  | walking a 20-move skeleton that way misses a best of 8-3 or better | {= TSP(20, 'rule_miss', 'walks') =} of walks |
-  | plain every other move misses it | {= TSP(20, 'plain_miss', 'walks') =} of walks |
+{{ten_skip_walks}}
+
+- **DougCube is right.** At 20 moves:
+
+  | After a spot whose case needs a 10-mover, 20-move skeletons | Share | How many | Out of |
+  |---|---:|---:|---:|
+  | the spot two further on holds an 8-3 or better (spots) | {= TSP(20, 'two', 'ten') =} | {= TS(20, 'two') =} | {= TS(20, 'ten') =} |
+  | the spot right after it holds one (spots) | {= TSP(20, 'next', 'ten') =} | | |
+  | walking a 20-move skeleton that way misses a best of 8-3 or better (walks) | {= TSP(20, 'rule_miss', 'walks') =} | | |
+  | plain every other move misses it (walks) | {= TSP(20, 'plain_miss', 'walks') =} | | |
 
 - **By cases, exactly.** {= FACT('ten_cases') =} of the {= STATES('3c') =} corner 3-cycles have a shortest alg of 10 moves.
   - One move on: for {= FACT('ten_cases_no8_after_one_move') =} of them no single move leads to a case with an 8-mover; for the other {= FACT('ten_cases_8_after_some_move') =}, {= FACT('ten_cases_moves_with_8')[0] =} of the 18 moves do.

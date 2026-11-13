@@ -1,4 +1,4 @@
-| Leftover | Real skeletons | Their mean length | Cap 8: something fits on | Cap 8: real, mean added | Cap 8: random skeletons of the same lengths | Cap 10: real | Cap 10: random | Cap 12: real |
+| Leftover | Real skeletons | Their mean length, moves | Cap 8: something fits on | Cap 8: real, mean added | Cap 8: random of the same lengths, mean added | Cap 10: real, mean added | Cap 10: random, mean added | Cap 12: real, mean added |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | 3c | 89 | 18.4 | 89 of 89 | 5.12 | 5.98 | 4.96 | 5.94 | 4.89 |
 | 2tc and 3tc | 2 | 13.0 | 2 of 2 | 10.00 | 10.25 | 10.00 | 10.11 | 9.00 |

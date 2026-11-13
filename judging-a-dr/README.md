@@ -2,9 +2,9 @@
 
 What a solver can read off a domino reduction (DR) before solving it, how much each read says about the
 finish, and which lower bounds hold. Everything is measured on the exact optimal finish of all
-19,508,428,800 DR states.
+19,508,428,800 DR states. The three reports, one per row:
 
-| | |
+| Report | What is in it |
 |---|---|
 | [`report/WRITEUP.md`](report/WRITEUP.md) | Judging a DR by hand: what the full BFS says. Start with its section 1, the short version. |
 | [`report/EXAMPLES.md`](report/EXAMPLES.md) | Eleven DRs read step by step, with the exact odds after each read and the real optimal. Then 100 random-state scrambles with the DRs you could have on the page: reads, what the prune list says, and the answers folded away. |
@@ -12,7 +12,9 @@ finish, and which lower bounds hold. Everything is measured on the exact optimal
 
 ## What is in this folder
 
-| Path | What |
+One row per folder:
+
+| Path | What is in it |
 |---|---|
 | `report/` | The three reports and the tables they include (`data/`). |
 | `lean/DRBound/` | Lean 4 proof (no Mathlib): the optimal finish of every DR state, the lower bounds, the 216 half-turn-only values. See its `README.md`. |

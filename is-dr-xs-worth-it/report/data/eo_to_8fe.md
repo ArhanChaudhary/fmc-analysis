@@ -1,4 +1,4 @@
-| Moves from a full EO | Positions that far from the real DR | Positions that far from the DR-2s 8fe |
+| Moves from a full EO | Positions that many moves from the real DR | Positions that many moves from the DR-2s 8fe |
 |---:|---:|---:|
 | 0 | 1 | 1 |
 | 1 | 2 | 2 |

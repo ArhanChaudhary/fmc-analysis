@@ -1,24 +1,32 @@
 ## Appendix A: full tables
 
-**4c4e by ARM and paired edges**: sub-7 share (cases in brackets).
+**4c4e by ARM and paired edges.** One row per ARM; each cell is the sub-7 rate of the ARM's cases with that many bad edges paired:
 
 {{c44_arm_paired}}
 
-**4c4e by pairs and paired edges** (bars against separate pairs):
+The number of states behind each cell of that table:
+
+{{c44_arm_paired_n}}
+
+**4c4e by pairs and paired edges** (bars against separate pairs). One row per count of pairs and of the edges they sit on:
 
 {{c44_bars}}
 
-**4c2e, inside *pairs + side pairs/2 is exactly 1***:
+**4c2e, inside *pairs + side pairs/2 is exactly 1*.** Each row splits that group by one feature value:
 
 {{c42_check}}
 
-**8c8e by pairs**:
+**8c8e by pairs**, one row per pair count:
 
 {{c88_pairs}}
 
-**EO to DR by DRM, with the free options** (every case once; from my EO-to-DR study's definitions, recomputed here):
+**EO to DR by DRM, with the free options** (every case once; from my EO-to-DR study's definitions, recomputed here). One row per DRM: the mean distance to DR and the share of cases with a DR in at most 5, 6 and 7:
 
 {{variants}}
+
+The share with a DR in at most 6 when one free option is allowed, one row per DRM:
+
+{{variants_options}}
 
 ## Appendix B: how it was computed, and what checks it
 

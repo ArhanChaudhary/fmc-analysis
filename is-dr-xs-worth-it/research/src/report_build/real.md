@@ -8,14 +8,16 @@ Like in the first study, every finish is the answer key, **computer only**, not 
 
 ### 7.1 What is there
 
+Each row is a kind of thing to finish and a length; the columns are the share of the 500 scrambles that have at least one and how many there are on average:
+
 {{real_there}}
 
 - **Nine scrambles in ten have a DR-1s of 8 or less** from a skip or a one-move slice EO, and there are {= TH('a DR-1s of 8 or less from a skip or a one-move slice EO', 1) =} of them on average, nearly as many as there are normal DRs of 10 or less.
 - **Nearly half have one of 7 or less** ({= TH('a DR-1s of 7 or less from a skip or a one-move slice EO') =}), and a 6 is there on {= TH('a DR-1s of 6 or less from a skip or a one-move slice EO') =}. tseitsei89's "I can usually find some DR-fe in 8 moves. Occasionally 7." ([[T10809]]) was about what you find by hand; this is what's there by the plain route.
 - Skips alone carry most of it; one-move slice EOs add a little under a third.
-- **The 8fe rows** are a floor too, and you don't need a skip for one (6.3). There are {= E8START(None, 8) =} DR-2s 8fe of 8 moves or fewer on these scrambles. Where they start:
+- **The 8fe rows** are a floor too, and you don't need a skip for one (6.3). There are {= E8START(None, 8) =} DR-2s 8fe of 8 moves or fewer on these scrambles. By where the route starts:
 
-  | Start | How many |
+  | Where the route starts | DR-2s 8fe of 8 or less |
   |---|---:|
   | a misoriented slice-EO skip | {= E8START('0', 8) =} |
   | a one-move slice EO | {= E8START('1', 8) =} |
@@ -25,7 +27,7 @@ Like in the first study, every finish is the answer key, **computer only**, not 
 
 ### 7.2 What each one is worth
 
-For each kind of thing you could finish, how often its solution is as short as the best solution any normal DR of 12 or less gives on that scramble:
+For each kind of thing you could finish, how often its solution is as short as the best solution any normal DR of 12 or less gives on that scramble. The last column is the same share turned around, how many you finish for one to get there:
 
 {{real_yield}}
 
@@ -35,24 +37,24 @@ The table is sorted by that share. Rows 2 to 4 (a DR-2s 8fe of 8 or less, a norm
 - a DR-1s of 8 is worth {= YX('1s8', 'dr11') =} eleven-move DRs and {= YX2('1s8', 'dr10') =} of a 10-move DR;
 - a DR-2s 8fe of 9 comes out a little better than a 10-move DR on these scrambles.
 
-That's kinder to DR-xs than the N + {= EXCH() =} of section 5, because on real scrambles the finish often cancels into the last move of the route (by {= RL('cancel_1s') =} moves on average for a DR-1s).
+That's kinder to DR-xs than the $N + {= EXCH() =}$ of section 5, because on real scrambles the finish often cancels into the last move of the route (by {= RL('cancel_1s') =} moves on average for a DR-1s).
 
 ### 7.3 What it does to the result
 
-Over the {= RL('H') =} scrambles that have a normal DR of 10 or less (the first study's base), the best solution when you finish:
+Over the {= RL('H', f='{:,.0f}') =} scrambles that have a normal DR of 10 or less (the first study's base), the best solution when you finish. Each row is a set of things you finish; the columns are how many that is, the average best solution, and the share of these scrambles where it's 20 or less and 19 or less:
 
 {{real_result}}
 
-- On top of every normal DR of 10 or less:
+- On top of every normal DR of 10 or less, which gives {= POL(0) =} on average. Each row adds one set, on top of the row above, except the 11-move DRs, which go on the normal DRs of 10 alone; the last column is how much the average drops from what it builds on:
 
-  | Add | More things to finish per scramble | Average result |
-  |---|---:|---|
-  | the DR-1s of 7 or less | {= POLN(1, 0) =} | from {= POL(0) =} to {= POL(1) =} |
-  | those of 8 | {= POLN(2, 1) =} | another {= POLD(1, 2) =} |
-  | the 11-move DRs (instead) | {= POLN(4, 0) =} | {= POLD(0, 4) =} better |
+  | Add | More things to finish per scramble | Average best solution after, moves | Shorter by, moves |
+  |---|---:|---:|---:|
+  | the DR-1s of 7 or less | {= POLN(1, 0) =} | {= POL(1) =} | {= POLD(0, 1) =} |
+  | those of 8 as well | {= POLN(2, 1) =} | {= POL(2) =} | {= POLD(1, 2) =} |
+  | the 11-move DRs (instead) | {= POLN(4, 0) =} | {= POL(4) =} | {= POLD(0, 4) =} |
 - Once every 11-mover is finished, DR-xs adds {= POLD(4, 5) =}; once every 12-mover is, {= POLD(6, 7) =}. Mostly DR-xs gets the same quality from fewer and shorter things to look at. Now and then it finds better, as the next table shows.
 
-Scramble by scramble, over all 500:
+Scramble by scramble, over all 500. Each row is a budget for the normal DRs; the columns are the share of scrambles where the best DR-xs solution is shorter, equal, or longer:
 
 {{real_head}}
 
@@ -65,11 +67,11 @@ Counting EOs the way cubelib-cli does (every way to write one, with NISS):
 - a scramble has {= EOV('eos4') =} EOs of 4 moves or less and {= EOV('eos5') =} of 5 or less; {= EOV('none4') =} of the 500 have none of 4 or less;
 - the DRs of 10 or less that come from EOs of 4 or less are {= EOV('drs10_4') =} per scramble, and the 5-move EOs bring that to {= EOV('drs10_5') =}.
 
-Over the {= RL('eo10', 'H', f='{:,}') =} scrambles that have a DR of 10 or less from an EO of 4 or less:
+Over the {= RL('eo10', 'H', f='{:,}') =} scrambles that have a DR of 10 or less from an EO of 4 or less, here's what each set of checks gives. Each row is what you check and finish; the columns are how many normal EOs and how many things to finish that is, and the average best solution:
 
 {{real_eo10}}
 
-And with the DRs of 11 as well ({= RL('eo11', 'H', f='{:,}') =} scrambles):
+And with the DRs of 11 as well ({= RL('eo11', 'H', f='{:,}') =} scrambles), same columns:
 
 {{real_eo11}}
 
@@ -81,6 +83,8 @@ And with the DRs of 11 as well ({= RL('eo11', 'H', f='{:,}') =} scrambles):
 This fits tseitsei89's order, sub-5 EOs first, then the slice-EO skips, then the 5-movers ([[T11014]]), on one condition: a skip and the DR-1s behind it have to be quick to find. The slice-EO routes give about half of what all the 5-move EOs give, for far fewer starts. What that costs in minutes is the part these tables can't tell you, and it's where the doubts were: zakimoshi's "isn't actually a very cost effective strategy time wise" ([[T11306]]), JTuu's "if it's even close, I feel like 5-move eos win for time management reasons" ([[D19528]]).
 
 ### 7.5 Do real DR-xs finish like random ones?
+
+Each row is a kind and route length on the 500 scrambles, against the uniform sample of section 5 finished with the same setup search:
 
 {{real_candidates}}
 

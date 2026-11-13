@@ -19,7 +19,7 @@ mkdir -p "$output"
 render() {
     local source=$1 page=$2 root=$3
     shift 3
-    pandoc --from gfm --to html5 --standalone --shift-heading-level-by=-1 --toc --toc-depth=2 \
+    pandoc --from gfm+tex_math_dollars --to html5 --katex=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/ --standalone --shift-heading-level-by=-1 --toc --toc-depth=2 \
         --lua-filter site/tables.lua --template site/template.html --variable "root=$root" "$@" \
         --output "$output/$page" "$source"
     # every in-page link must have a target (a broken one only shows when somebody clicks it)

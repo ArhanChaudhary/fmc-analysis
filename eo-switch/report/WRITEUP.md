@@ -59,9 +59,9 @@ The question is whether there are switch guidelines, checkable at the table, tha
 
 **What is new here**
 
-**4c4e: count paired edges, then look at edge ARM.** Of the two bad U/D edges on the switched side, how many have a pair?
+**4c4e: count paired edges, then look at edge ARM.** Of the two bad U/D edges on the switched side, how many have a pair? Each row is a group of switched 4c4e cases, with its share of 4c4e and its sub-7 rate:
 
-| Switched case (4c4e) | Verdict | Share of 4c4e | Sub-7 |
+| Switched case (4c4e) | Verdict | Share of 4c4e | Sub-7 rate |
 |---|---|---|---|
 | both bad edges paired | **switch** | 15.5% | 59.9% |
 | one paired, edge ARM 1 (the two bad edges in different slices) | **your call** | 32.5% | 20.0% |
@@ -69,9 +69,9 @@ The question is whether there are switch guidelines, checkable at the table, tha
 
 That settles 67.5% of 4c4e. ARM alone settles 31.2% (its full 15-row table), pairs alone 33.3%, and the full pairs × ARM table 49.6% (section 4.1).
 
-**The 4c4e your-call group, split.** With one paired edge and edge ARM 1, the corners decide:
+**The 4c4e your-call group, split.** With one paired edge and edge ARM 1, the corners decide. Each row is a corner group inside it:
 
-| Corners (one paired edge, edge ARM 1) | Sub-7 |
+| Corners (one paired edge, edge ARM 1) | Sub-7 rate |
 |---|---|
 | 4d (rare: 0.82% of 4c4e) | 88.9% |
 | 4b, ARM 21 | 33.0% |
@@ -79,9 +79,9 @@ That settles 67.5% of 4c4e. ARM alone settles 31.2% (its full 15-row table), pai
 
 That answers tseitsei89's "It would be really nice to find a way to filter out good 1 pair cases but there doesnt seem to be one currently" ([25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409607396103290960)).
 
-**A bar is worth half as much as two separate pairs.** In 4c4e:
+**A bar is worth half as much as two separate pairs.** In 4c4e, the sub-7 rate of two pairs on one edge against two pairs on the two edges:
 
-| Two pairs (4c4e) | Sub-7 |
+| Two pairs (4c4e) | Sub-7 rate |
 |---|---|
 | on one edge (a bar) | 26.6% |
 | on the two edges | 53.9% |
@@ -97,9 +97,9 @@ Both held on 20,000 of 20,000 random cubes (section 5).
 
 **7c8e: 3 pairs or fewer is a safe discard** (50.0% of 7c8e at 2.9%). With 4 pairs, edge ARM 1 is 30.3% and every other edge ARM 17.0% or less.
 
-**After a switch the RZP bias is gone.** torchlight was right that an RZP biases the case it reaches ([8 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1215720321995382867)):
+**After a switch the RZP bias is gone.** torchlight was right that an RZP biases the case it reaches ([8 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1215720321995382867)). The 4c4e sub-7 rate in three populations:
 
-| 4c4e | Sub-7 |
+| 4c4e population | Sub-7 rate |
 |---|---|
 | uniform | 19.2% |
 | end state of a 5-move RZP, same side | 18.3% |
@@ -107,18 +107,18 @@ Both held on 20,000 of 20,000 random cubes (section 5).
 
 The switched state is exactly uniform again, for every DRM, because the inverse of a cube with a given case is uniform over that case. So every exhaustive table is right for the cases you actually switch. On the 121,527,134 real attempts, no DRM × RZP length is more than 2.63 standard errors off the uniform rate (section 6).
 
-**After a switch the last-turn options are worth little.** Turning the RZP's last move the other way never changes the switched case (114,102 of 114,102 pairs of attempts). For 4c4e (section 6):
+**After a switch the last-turn options are worth little.** Turning the RZP's last move the other way never changes the switched case (114,102 of 114,102 pairs of attempts). For 4c4e (section 6), each row is an option; the points are its sub-7 rate minus the rate without it:
 
-| Option (4c4e) | Points added after a switch | Without a switch |
-|---|---|---|
-| EO's last turn | 2.1 (19.1% to 21.2%) | 8.8 |
-| other DR axis | 5.9 | |
+| Option (4c4e) | Sub-7 rate after a switch, without the option | With the option | Points added after a switch | Points added without a switch |
+|---|---|---|---|---|
+| EO's last turn | 19.1% | 21.2% | 2.1 | 8.8 |
+| other DR axis | | | 5.9 | |
 
 **RZP length moves every band.** After a 4-move RZP (DR in 7 is enough), every 4c4e case with a paired edge is around 50% or more, and only the no-pair group stays low (31.7%). After a 6-move RZP (DR in 5 needed), no common cell reaches 25%: 4c4e with both edges paired is 20.1% and 3c2e is 19.2% (section 4).
 
-**The low DRMs have no cheap rescue.** For 4c6e, 3c4e, 3c6e, 5c4e, 5c6e and 6c6e, no rule of up to three traceable features puts more than 23.9% of their sub-7 cases into a cell above 50%. The best small cells:
+**The low DRMs have no cheap rescue.** For 4c6e, 3c4e, 3c6e, 5c4e, 5c6e and 6c6e, no rule of up to three traceable features puts more than 23.9% of their sub-7 cases into a cell above 50%. The best small cells, with their sub-7 rates:
 
-| Cell | Sub-7 |
+| Cell | Sub-7 rate |
 |---|---|
 | 4c6e JZP (0.61% of 4c6e) | 61.1% |
 | 5c6e with 4 pairs | 37.9% |
@@ -132,7 +132,7 @@ The switched state is exactly uniform again, for every DRM, because the inverse 
 - **Confirmed: the rest of the switch list.** rodneykinney's 5-6 pairs for 7c8e (59.0%), "3c2e: just always switch" (tseitsei89, [25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409579685716689018): 61.6%), 1+ pairs for 2c2e (59.6%), JZP-only for 4c6e, and Yura Riabov's "trash" ARMs for 4c4e (all under 4%). The search found nothing cheap that does much better on those DRMs (section 9).
 - **Confirmed: the NISS predictors.** The ARM axis swap, R/L stickers on U/D for corner ARM, rodneykinney's corner-case flow chart and wen's pair tracing each held on every one of 20,000 sampled cubes. Louis's same-axis version, which Louis took back at the time, holds on only 10.4% (section 5).
 - **Confirmed: the published tables.** 152 of 154 published numbers reproduce. The two that don't are sampled cells in Evan's *arm/pairs*, low by 0.017 and 0.032 (section 10).
-- **Corrected** (errata, each with an example):
+- **Corrected** (errata, each with an example). One claim per row:
 
 | Claim | Who | What the numbers say |
 |---|---|---|
@@ -182,7 +182,7 @@ What's left open is in section 12.
 
 Everything is written for an F/B EO and a DR on U/D. Other axes are the same up to a rotation.
 
-**State, switched side.** What matters for the DR is the *case*: which corners are twisted and how, and which places hold the four E-slice edges (2,187 × 495 = 1,082,565 of them for one EO axis and one DR axis). After EO + RZP you have a case on normal. Switching means solving the DR on the inverse with the EO kept, so the case that matters is the inverse's, the *switched case*. All rules here are read on the switched case. Section 5 is about seeing it on normal.
+**State, switched side.** What matters for the DR is the *case*: which corners are twisted and how, and which places hold the four E-slice edges ($2187 \times 495 = 1{,}082{,}565$ of them for one EO axis and one DR axis). After EO + RZP you have a case on normal. Switching means solving the DR on the inverse with the EO kept, so the case that matters is the inverse's, the *switched case*. All rules here are read on the switched case. Section 5 is about seeing it on normal.
 
 **Sub-7.** A DR in at most 6 moves with turns that keep the EO (U, D, R, L, F2, B2), linear, on the switched side, the yardstick since "we are normally looking for rzp in 5 or less and dr in 11 or less. So sub-7 from 5 move rzp gives that" (tseitsei89, [6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436061424110538882)). For other RZP lengths the target moves: DR in 7 after a 4-move RZP, DR in 5 after a 6-move RZP. The cards give those columns too.
 
@@ -204,57 +204,122 @@ Everything is written for an F/B EO and a DR on U/D. Other axes are the same up 
 
 ## 4. The switch cards, DRM by DRM
 
-**The cards.** One line per DRM: what to check on the switched case, and how much of the DRM lands in each verdict, with its sub-7 rate. Exact over all cases of the DRM. A blank verdict means the card has no such group. *Settled* is the share of the DRM in the switch and discard groups. The last column is the share of the DRM's sub-7 cases that the card switches, and the share it throws away.
+**The cards.** Exact over all cases of the DRM. Each row is one verdict group of a DRM's card: what to check on the switched case, the share of the DRM that lands in the group, and the group's sub-7 rate. A DRM with no row for a verdict has no such group.
 
-| DRM | Sub-7 overall | Switch (share of the DRM at sub-7 rate) | Your call | Discard | Settled | Sub-7 states switched / discarded |
-|---|---|---|---|---|---|---|
-| 4c4e | 19.2% | both bad U/D edges paired: 15.5% at 59.9% | one paired, edge ARM 1 (the two bad edges in different slices): 32.5% at 20.0% | one paired, edge ARM 0 or 2 (both bad edges in one slice); no bad edge paired: 52.0% at 6.7% | 67.5% | 48.2% / 18.0% |
-| 4c2e | 18.7% | pairs + side pairs/2 is 1.5 or more: 22.3% at 57.0% | pairs + side pairs/2 is exactly 1: 24.6% at 15.7% | pairs + side pairs/2 is 0 or 0.5: 53.2% at 4.0% | 75.4% | 67.8% / 11.5% |
-| 3c2e | 61.6% | always: >99.9% at 61.6% | - | - | >99.9% | >99.9% / 0% |
-| 7c8e | 16.4% | 5 or 6 pairs: 16.3% at 59.0% | 4 pairs: 33.7% at 15.9% | 3 pairs or fewer: 50.0% at 2.9% | 66.3% | 58.7% / 8.7% |
-| 8c8e | 14.5% | - | corner ARM 0, 4 or 8: 44.2% at 20.5% | corner ARM 2, 3, 5 or 6: 55.8% at 9.8% | 55.8% | 0% / 37.6% |
-| 2c2e | 23.7% | a bad U/D edge with a pair: 23.2% at 59.6% | no pair, but JZP: 8.0% at 38.9% | no pair, not JZP: 68.8% at 9.7% | 92.0% | 58.5% / 28.3% |
-| 4c6e | 4.6% | JZP: 0.61% at 61.1% | 4 pairs: 1.2% at 47.9% | anything else: 98.2% at 3.7% | 98.8% | 8.1% / 79.4% |
-| 3c4e | 9.9% | - | 2 pairs: 10.7% at 33.7% | 0 or 1 pair: 89.3% at 7.1% | 89.3% | 0% / 63.7% |
-| 3c6e | 4.8% | - | - | always: >99.9% at 4.8% | >99.9% | 0% / >99.9% |
-| 5c4e | 7.2% | - | 3 pairs: 6.1% at 27.6% | 2 pairs or fewer: 93.9% at 5.9% | 93.9% | 0% / 76.5% |
-| 5c6e | 6.1% | - | 4 pairs: 3.1% at 37.9% | 3 pairs or fewer: 96.9% at 5.1% | 96.9% | 0% / 81.1% |
-| 6c6e | 5.6% | - | JZP, or 5 or 6 pairs: 1.3% at 39.0% | anything else: 98.7% at 5.2% | 98.7% | 0% / 91.2% |
+| DRM | Verdict | What the switched case shows | Share of the DRM | Sub-7 rate |
+|---|---|---|---|---|
+| 4c4e | **switch** | both bad U/D edges paired | 15.5% | 59.9% |
+|  | **your call** | one paired, edge ARM 1 (the two bad edges in different slices) | 32.5% | 20.0% |
+|  | **discard** | one paired, edge ARM 0 or 2 (both bad edges in one slice); no bad edge paired | 52.0% | 6.7% |
+| 4c2e | **switch** | pairs + side pairs/2 is 1.5 or more | 22.3% | 57.0% |
+|  | **your call** | pairs + side pairs/2 is exactly 1 | 24.6% | 15.7% |
+|  | **discard** | pairs + side pairs/2 is 0 or 0.5 | 53.2% | 4.0% |
+| 3c2e | **switch** | always | >99.9% | 61.6% |
+| 7c8e | **switch** | 5 or 6 pairs | 16.3% | 59.0% |
+|  | **your call** | 4 pairs | 33.7% | 15.9% |
+|  | **discard** | 3 pairs or fewer | 50.0% | 2.9% |
+| 8c8e | **your call** | corner ARM 0, 4 or 8 | 44.2% | 20.5% |
+|  | **discard** | corner ARM 2, 3, 5 or 6 | 55.8% | 9.8% |
+| 2c2e | **switch** | a bad U/D edge with a pair | 23.2% | 59.6% |
+|  | **your call** | no pair, but JZP | 8.0% | 38.9% |
+|  | **discard** | no pair, not JZP | 68.8% | 9.7% |
+| 4c6e | **switch** | JZP | 0.61% | 61.1% |
+|  | **your call** | 4 pairs | 1.2% | 47.9% |
+|  | **discard** | anything else | 98.2% | 3.7% |
+| 3c4e | **your call** | 2 pairs | 10.7% | 33.7% |
+|  | **discard** | 0 or 1 pair | 89.3% | 7.1% |
+| 3c6e | **discard** | always | >99.9% | 4.8% |
+| 5c4e | **your call** | 3 pairs | 6.1% | 27.6% |
+|  | **discard** | 2 pairs or fewer | 93.9% | 5.9% |
+| 5c6e | **your call** | 4 pairs | 3.1% | 37.9% |
+|  | **discard** | 3 pairs or fewer | 96.9% | 5.1% |
+| 6c6e | **your call** | JZP, or 5 or 6 pairs | 1.3% | 39.0% |
+|  | **discard** | anything else | 98.7% | 5.2% |
+
+What each card does to the whole DRM, one row per DRM. *Settled* is the share of the DRM in the switch and discard groups; the last two columns are the shares of the DRM's sub-7 cases that the card switches and that it throws away.
+
+| DRM | Sub-7 rate, whole DRM | Settled (share of the DRM in switch or discard) | Sub-7 states switched (share of the DRM's sub-7s) | Sub-7 states discarded (share of the DRM's sub-7s) |
+|---|---|---|---|---|
+| 4c4e | 19.2% | 67.5% | 48.2% | 18.0% |
+| 4c2e | 18.7% | 75.4% | 67.8% | 11.5% |
+| 3c2e | 61.6% | >99.9% | >99.9% | 0% |
+| 7c8e | 16.4% | 66.3% | 58.7% | 8.7% |
+| 8c8e | 14.5% | 55.8% | 0% | 37.6% |
+| 2c2e | 23.7% | 92.0% | 58.5% | 28.3% |
+| 4c6e | 4.6% | 98.8% | 8.1% | 79.4% |
+| 3c4e | 9.9% | 89.3% | 0% | 63.7% |
+| 3c6e | 4.8% | >99.9% | 0% | >99.9% |
+| 5c4e | 7.2% | 93.9% | 0% | 76.5% |
+| 5c6e | 6.1% | 96.9% | 0% | 81.1% |
+| 6c6e | 5.6% | 98.7% | 0% | 91.2% |
 
 How the cards were chosen: every cross-table of one, two or three readable features (38 features, section 9) was scored per DRM by how much of the DRM it puts in cells under 10% or over 50%. A card is the best of the ones a solver can trace, kept only if every labelled cell stays in its band on the cases RZPs reach and on the real attempts. Each verdict above is its group's own band (checked when the tables are built). I timed nothing. The only timing on the server is Yura Riabov's for pairs + ARM on 4c4e, "Like 5 seconds", "±2", "That's for 4c4e btw, for 7c8e it's longer" ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417786183135526954), [17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417786220435738704), [17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417787071405490237)). The cards ask for no more than that: a pair trace, and for 4c4e one look at the edges.
 
-**The cards cell by cell, with the RZP length.** The same cells on the real attempts at a total of 5 (EO + RZP), and the share with a DR in 7 (enough after a 4-move RZP) and in 5 (needed after a 6-move RZP):
+**The cards cell by cell, with the RZP length.** Each row is one cell of a card, with its size and its exact sub-7 rate:
 
-| DRM | Cell (read on the switched side) | Verdict | States | Share of the DRM | Sub-7 (exact) | Sub-7 in real attempts, RZP to 5 (attempts) | DR in 7 (RZP in 4) | DR in 5 (RZP in 6) |
-|---|---|---|---|---|---|---|---|---|
-| 4c4e | both bad U/D edges paired | switch | 10,920 | 15.5% | 59.9% | 60.0% (87,468) | 96.1% | 20.1% |
-|  | one paired, edge ARM 1 (the two bad edges in different slices) | check | 22,944 | 32.5% | 20.0% | 19.6% (180,746) | 73.1% | 2.9% |
-|  | one paired, edge ARM 0 or 2 (both bad edges in one slice) | discard | 15,696 | 22.2% | 9.8% | 9.7% (124,428) | 50.9% | 0.92% |
-|  | no bad edge paired | discard | 21,000 | 29.8% | 4.3% | 4.1% (168,180) | 31.7% | 0.35% |
-| 4c2e | pairs + side pairs/2 is 1.5 or more | switch | 2,992 | 22.3% | 57.0% | 57.5% (25,410) | 98.1% | 14.7% |
-|  | pairs + side pairs/2 is exactly 1 | check | 3,304 | 24.6% | 15.7% | 16.0% (27,540) | 80.1% | 0% |
-|  | pairs + side pairs/2 is 0 or 0.5 | discard | 7,144 | 53.2% | 4.0% | 4.1% (59,380) | 39.9% | 0.11% |
-| 3c2e | always | switch | 3,584 | >99.9% | 61.6% | 61.7% (31,340) | 98.7% | 19.2% |
-| 7c8e | 5 or 6 pairs | switch | 3,840 | 16.3% | 59.0% | 58.8% (30,574) | 93.8% | 18.3% |
-|  | 4 pairs | check | 7,920 | 33.7% | 15.9% | 15.9% (63,146) | 73.7% | 0.51% |
-|  | 3 pairs or fewer | discard | 11,760 | 50.0% | 2.9% | 3.0% (95,618) | 34.5% | 0% |
-| 8c8e | corner ARM 0, 4 or 8 | check | 2,660 | 44.2% | 20.5% | 20.5% (21,002) | 71.5% | 3.2% |
-|  | corner ARM 2, 3, 5 or 6 | discard | 3,360 | 55.8% | 9.8% | 9.2% (27,574) | 56.3% | 0.48% |
-| 2c2e | a bad U/D edge with a pair | switch | 416 | 23.2% | 59.6% | 60.3% (3,540) | >99.9% | 11.5% |
-|  | no pair, but JZP | check | 144 | 8.0% | 38.9% | 43.9% (1,284) | >99.9% | 0% |
-|  | no pair, not JZP | discard | 1,232 | 68.8% | 9.7% | 9.5% (10,376) | 79.2% | 0% |
-| 4c6e | JZP | switch | 576 | 0.61% | 61.1% | 58.4% (4,356) | 95.8% | 22.2% |
-|  | 4 pairs | check | 1,136 | 1.2% | 47.9% | 49.3% (8,500) | 90.1% | 15.5% |
-|  | anything else | discard | 92,368 | 98.2% | 3.7% | 3.8% (707,766) | 26.0% | 0.29% |
-| 3c4e | 2 pairs | check | 2,016 | 10.7% | 33.7% | 33.4% (16,678) | 82.9% | 4.4% |
-|  | 0 or 1 pair | discard | 16,800 | 89.3% | 7.1% | 7.2% (139,256) | 43.8% | 0.57% |
-| 3c6e | always | discard | 25,088 | >99.9% | 4.8% | 4.6% (199,294) | 27.1% | 0.64% |
-| 5c4e | 3 pairs | check | 5,760 | 6.1% | 27.6% | 28.2% (43,320) | 87.2% | 4.4% |
-|  | 2 pairs or fewer | discard | 88,320 | 93.9% | 5.9% | 5.9% (667,434) | 37.2% | 0.58% |
-| 5c6e | 4 pairs | check | 3,840 | 3.1% | 37.9% | 37.6% (28,572) | 94.4% | 6.7% |
-|  | 3 pairs or fewer | discard | 121,600 | 96.9% | 5.1% | 5.1% (933,944) | 33.8% | 0.47% |
-| 6c6e | JZP, or 5 or 6 pairs | check | 1,744 | 1.3% | 39.0% | 37.0% (13,420) | 90.8% | 6.9% |
-|  | anything else | discard | 136,240 | 98.7% | 5.2% | 5.1% (1,029,388) | 32.3% | 0.50% |
+| DRM | Cell (read on the switched side) | Verdict | States | Share of the DRM | Sub-7 rate, exact |
+|---|---|---|---|---|---|
+| 4c4e | both bad U/D edges paired | switch | 10,920 | 15.5% | 59.9% |
+|  | one paired, edge ARM 1 (the two bad edges in different slices) | check | 22,944 | 32.5% | 20.0% |
+|  | one paired, edge ARM 0 or 2 (both bad edges in one slice) | discard | 15,696 | 22.2% | 9.8% |
+|  | no bad edge paired | discard | 21,000 | 29.8% | 4.3% |
+| 4c2e | pairs + side pairs/2 is 1.5 or more | switch | 2,992 | 22.3% | 57.0% |
+|  | pairs + side pairs/2 is exactly 1 | check | 3,304 | 24.6% | 15.7% |
+|  | pairs + side pairs/2 is 0 or 0.5 | discard | 7,144 | 53.2% | 4.0% |
+| 3c2e | always | switch | 3,584 | >99.9% | 61.6% |
+| 7c8e | 5 or 6 pairs | switch | 3,840 | 16.3% | 59.0% |
+|  | 4 pairs | check | 7,920 | 33.7% | 15.9% |
+|  | 3 pairs or fewer | discard | 11,760 | 50.0% | 2.9% |
+| 8c8e | corner ARM 0, 4 or 8 | check | 2,660 | 44.2% | 20.5% |
+|  | corner ARM 2, 3, 5 or 6 | discard | 3,360 | 55.8% | 9.8% |
+| 2c2e | a bad U/D edge with a pair | switch | 416 | 23.2% | 59.6% |
+|  | no pair, but JZP | check | 144 | 8.0% | 38.9% |
+|  | no pair, not JZP | discard | 1,232 | 68.8% | 9.7% |
+| 4c6e | JZP | switch | 576 | 0.61% | 61.1% |
+|  | 4 pairs | check | 1,136 | 1.2% | 47.9% |
+|  | anything else | discard | 92,368 | 98.2% | 3.7% |
+| 3c4e | 2 pairs | check | 2,016 | 10.7% | 33.7% |
+|  | 0 or 1 pair | discard | 16,800 | 89.3% | 7.1% |
+| 3c6e | always | discard | 25,088 | >99.9% | 4.8% |
+| 5c4e | 3 pairs | check | 5,760 | 6.1% | 27.6% |
+|  | 2 pairs or fewer | discard | 88,320 | 93.9% | 5.9% |
+| 5c6e | 4 pairs | check | 3,840 | 3.1% | 37.9% |
+|  | 3 pairs or fewer | discard | 121,600 | 96.9% | 5.1% |
+| 6c6e | JZP, or 5 or 6 pairs | check | 1,744 | 1.3% | 39.0% |
+|  | anything else | discard | 136,240 | 98.7% | 5.2% |
+
+The same cells on the real attempts at a total of 5 (EO + RZP), and the exact share with a DR in 7 or fewer (enough after a 4-move RZP) and in 5 or fewer (needed after a 6-move RZP):
+
+| DRM | Cell (read on the switched side) | Sub-7 rate, real attempts (RZP to 5) | Real attempts (RZP to 5) | DR in 7 or fewer, exact (for a 4-move RZP) | DR in 5 or fewer, exact (for a 6-move RZP) |
+|---|---|---|---|---|---|
+| 4c4e | both bad U/D edges paired | 60.0% | 87,468 | 96.1% | 20.1% |
+|  | one paired, edge ARM 1 (the two bad edges in different slices) | 19.6% | 180,746 | 73.1% | 2.9% |
+|  | one paired, edge ARM 0 or 2 (both bad edges in one slice) | 9.7% | 124,428 | 50.9% | 0.92% |
+|  | no bad edge paired | 4.1% | 168,180 | 31.7% | 0.35% |
+| 4c2e | pairs + side pairs/2 is 1.5 or more | 57.5% | 25,410 | 98.1% | 14.7% |
+|  | pairs + side pairs/2 is exactly 1 | 16.0% | 27,540 | 80.1% | 0% |
+|  | pairs + side pairs/2 is 0 or 0.5 | 4.1% | 59,380 | 39.9% | 0.11% |
+| 3c2e | always | 61.7% | 31,340 | 98.7% | 19.2% |
+| 7c8e | 5 or 6 pairs | 58.8% | 30,574 | 93.8% | 18.3% |
+|  | 4 pairs | 15.9% | 63,146 | 73.7% | 0.51% |
+|  | 3 pairs or fewer | 3.0% | 95,618 | 34.5% | 0% |
+| 8c8e | corner ARM 0, 4 or 8 | 20.5% | 21,002 | 71.5% | 3.2% |
+|  | corner ARM 2, 3, 5 or 6 | 9.2% | 27,574 | 56.3% | 0.48% |
+| 2c2e | a bad U/D edge with a pair | 60.3% | 3,540 | >99.9% | 11.5% |
+|  | no pair, but JZP | 43.9% | 1,284 | >99.9% | 0% |
+|  | no pair, not JZP | 9.5% | 10,376 | 79.2% | 0% |
+| 4c6e | JZP | 58.4% | 4,356 | 95.8% | 22.2% |
+|  | 4 pairs | 49.3% | 8,500 | 90.1% | 15.5% |
+|  | anything else | 3.8% | 707,766 | 26.0% | 0.29% |
+| 3c4e | 2 pairs | 33.4% | 16,678 | 82.9% | 4.4% |
+|  | 0 or 1 pair | 7.2% | 139,256 | 43.8% | 0.57% |
+| 3c6e | always | 4.6% | 199,294 | 27.1% | 0.64% |
+| 5c4e | 3 pairs | 28.2% | 43,320 | 87.2% | 4.4% |
+|  | 2 pairs or fewer | 5.9% | 667,434 | 37.2% | 0.58% |
+| 5c6e | 4 pairs | 37.6% | 28,572 | 94.4% | 6.7% |
+|  | 3 pairs or fewer | 5.1% | 933,944 | 33.8% | 0.47% |
+| 6c6e | JZP, or 5 or 6 pairs | 37.0% | 13,420 | 90.8% | 6.9% |
+|  | anything else | 5.1% | 1,029,388 | 32.3% | 0.50% |
 
 So after a 4-move RZP, almost every 4c4e case with a paired edge is a switch, and after a 6-move RZP almost nothing is. The cut-offs that solvers already use ("i'll add 1 to trigger if it's 3c2e specifically", Jay, [27 Sep 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1024463307836506132)) fit this: 3c2e is 19.2% for DR in 5, about what 4c4e with both edges paired is (20.1%).
 
@@ -266,38 +331,38 @@ Trace the pairs on the inverse as usual, but keep track of which bad edges they 
 2. **No bad edge paired: discard** (5.3% at most, whatever the edge ARM).
 3. **One paired edge: look at edge ARM** (or just at where the two bad edges are). Both in one slice (edge ARM 0 or 2): **discard**, 9.8%. One in M and one in S (edge ARM 1): **your call**, 20.0%. A bar counts as one paired edge: two pairs on one edge are 26.6%, against 13.3% for a single pair.
 
-By paired edges and edge ARM:
+By paired edges and edge ARM, one row per cell. *Band* is the cell's verdict band (check = your call):
 
-| Paired edges, edge ARM | States | Share of the DRM | Sub-7 (exact) | Real attempts, RZP to 5 | Band |
-|---|---|---|---|---|---|
-| 0 paired, edge ARM 0 | 4,716 | 6.7% | 3.5% | 3.2% (39,028) | discard |
-| 0 paired, edge ARM 1 | 11,568 | 16.4% | 5.3% | 5.0% (92,204) | discard |
-| 0 paired, edge ARM 2 | 4,716 | 6.7% | 2.9% | 3.0% (36,948) | discard |
-| 1 paired, edge ARM 0 | 7,848 | 11.1% | 10.7% | 10.4% (62,634) | check |
-| 1 paired, edge ARM 1 | 22,944 | 32.5% | 20.0% | 19.6% (180,746) | check |
-| 1 paired, edge ARM 2 | 7,848 | 11.1% | 8.9% | 9.0% (61,794) | discard |
-| 2 paired, edge ARM 0 | 2,556 | 3.6% | 55.4% | 54.9% (21,182) | switch |
-| 2 paired, edge ARM 1 | 5,808 | 8.2% | 65.4% | 65.2% (46,638) | switch |
-| 2 paired, edge ARM 2 | 2,556 | 3.6% | 51.9% | 53.1% (19,648) | switch |
+| Paired edges, edge ARM | States | Share of the DRM | Sub-7 rate, exact | Sub-7 rate, real attempts (RZP to 5) | Real attempts (RZP to 5) | Band |
+|---|---|---|---|---|---|---|
+| 0 paired, edge ARM 0 | 4,716 | 6.7% | 3.5% | 3.2% | 39,028 | discard |
+| 0 paired, edge ARM 1 | 11,568 | 16.4% | 5.3% | 5.0% | 92,204 | discard |
+| 0 paired, edge ARM 2 | 4,716 | 6.7% | 2.9% | 3.0% | 36,948 | discard |
+| 1 paired, edge ARM 0 | 7,848 | 11.1% | 10.7% | 10.4% | 62,634 | check |
+| 1 paired, edge ARM 1 | 22,944 | 32.5% | 20.0% | 19.6% | 180,746 | check |
+| 1 paired, edge ARM 2 | 7,848 | 11.1% | 8.9% | 9.0% | 61,794 | discard |
+| 2 paired, edge ARM 0 | 2,556 | 3.6% | 55.4% | 54.9% | 21,182 | switch |
+| 2 paired, edge ARM 1 | 5,808 | 8.2% | 65.4% | 65.2% | 46,638 | switch |
+| 2 paired, edge ARM 2 | 2,556 | 3.6% | 51.9% | 53.1% | 19,648 | switch |
 
 Edge ARM 1 is the same thing as *the two bad edges are in different slices*, so the slice is no extra check once you have ARM. It also matches rodneykinney's slice penalty in *DR - 4c4e Theory*: "The slice penalty applies if you reach 1qt with both bad edges in the same slice." This is the one place where ARM helps a lot on top of pairs, and only the edge digit matters for it.
 
-**The your-call group, split.** If your cut is around 20% ("i switch for around 20% and above", [12 Aug 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1272564881358323785)), you can switch all 32.5%: they're 20.0% as a group. With a higher cut, the corner case and the corner ARM split them:
+**The your-call group, split.** If your cut is around 20% ("i switch for around 20% and above", [12 Aug 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1272564881358323785)), you can switch all 32.5%: they're 20.0% as a group. With a higher cut, the corner case and the corner ARM split them. Each row is a part of the your-call group, with its share of all 4c4e:
 
-| Inside *one paired, edge ARM 1* | States | Share of the DRM | Sub-7 (exact) | Real attempts, RZP to 5 | Band |
-|---|---|---|---|---|---|
-| 4d corners (always corner ARM 2: ARM 21) | 576 | 0.82% | 88.9% | 88.9% (4,638) | switch |
-| corner ARM 2 (ARM 21), 4b corners | 4,512 | 6.4% | 33.0% | 32.9% (35,476) | check |
-| corner ARM 2 (ARM 21), 4a corners | 2,304 | 3.3% | 18.8% | 17.2% (17,618) | check |
-| corner ARM 0 or 4, 4a corners | 1,728 | 2.4% | 23.6% | 22.5% (13,712) | check |
-| corner ARM 1 or 3 (4c corners) | 10,368 | 14.7% | 15.0% | 14.7% (82,382) | check |
-| corner ARM 0 or 4, 4b corners | 3,456 | 4.9% | 5.6% | 5.4% (26,920) | discard |
+| Inside *one paired, edge ARM 1* | States | Share of the DRM | Sub-7 rate, exact | Sub-7 rate, real attempts (RZP to 5) | Real attempts (RZP to 5) | Band |
+|---|---|---|---|---|---|---|
+| 4d corners (always corner ARM 2: ARM 21) | 576 | 0.82% | 88.9% | 88.9% | 4,638 | switch |
+| corner ARM 2 (ARM 21), 4b corners | 4,512 | 6.4% | 33.0% | 32.9% | 35,476 | check |
+| corner ARM 2 (ARM 21), 4a corners | 2,304 | 3.3% | 18.8% | 17.2% | 17,618 | check |
+| corner ARM 0 or 4, 4a corners | 1,728 | 2.4% | 23.6% | 22.5% | 13,712 | check |
+| corner ARM 1 or 3 (4c corners) | 10,368 | 14.7% | 15.0% | 14.7% | 82,382 | check |
+| corner ARM 0 or 4, 4b corners | 3,456 | 4.9% | 5.6% | 5.4% | 26,920 | discard |
 
 So 4d corners are rare but a near-certain switch (this is Evan's "4d+1 is extremely good for AR-21 (~90% sub-7)", [18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418247728328212585)). ARM 21 with 4b corners is a third. Corner ARM 0 or 4 with 4b corners is a discard. So with one paired edge and edge ARM 1: corner ARM 2 means switch if your cut is 30% or less (4b, 4d) and think again with 4a; corner ARM 0 or 4 means switch only with 4a; corner ARM 1 or 3 is 15.0%.
 
-Against the rules in use (section 7):
+Against the rules in use (section 7). Each row is a group a rule switches or discards, with its share of 4c4e and its sub-7 rate:
 
-| 4c4e group | Share of 4c4e | Sub-7 |
+| 4c4e group | Share of 4c4e | Sub-7 rate |
 |---|---|---|
 | *2+ pairs*: switch | 26.0% | 46.4% |
 | rodneykinney's pairs + corner case: switch | 25.2% | 49.3% |
@@ -309,19 +374,19 @@ The card's switch group is smaller and better. The new part is the middle: you k
 
 ### 4.2 4c2e
 
-**Pairs + side pairs/2: 1.5 or more, switch; exactly 1, your call; 0 or 0.5, discard.** This is rodneykinney's rule ([30 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1411385391461830769), [30 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1411385789891350698)), and it switches exactly the same cases as Jay's ([14 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383640829280780392)) and tseitsei89's ([25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409579685716689018)). The card adds the discard end (53.2% of 4c2e at 4.0%) and a way to read side pairs from normal (section 5). By cell:
+**Pairs + side pairs/2: 1.5 or more, switch; exactly 1, your call; 0 or 0.5, discard.** This is rodneykinney's rule ([30 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1411385391461830769), [30 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1411385789891350698)), and it switches exactly the same cases as Jay's ([14 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383640829280780392)) and tseitsei89's ([25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409579685716689018)). The card adds the discard end (53.2% of 4c2e at 4.0%) and a way to read side pairs from normal (section 5). One row per count of pairs and side pairs:
 
-| Pairs, side pairs | States | Share of the DRM | Sub-7 (exact) | Real attempts, RZP to 5 | Band |
-|---|---|---|---|---|---|
-| 0 pairs, 0 side pairs | 4,376 | 32.6% | 1.5% | 1.4% (37,042) | discard |
-| 0 pairs, 1 side pairs | 2,768 | 20.6% | 8.1% | 8.4% (22,338) | discard |
-| 0 pairs, 2 side pairs | 536 | 4.0% | 13.4% | 12.6% (4,270) | check |
-| 1 pairs, 0 side pairs | 2,768 | 20.6% | 16.2% | 16.7% (23,270) | check |
-| 1 pairs, 1 side pairs | 1,664 | 12.4% | 51.4% | 53.2% (14,188) | switch |
-| 1 pairs, 2 side pairs | 368 | 2.7% | 73.9% | 72.6% (3,078) | switch |
-| 2 pairs, 0 side pairs | 536 | 4.0% | 46.3% | 44.7% (4,490) | check |
-| 2 pairs, 1 side pairs | 368 | 2.7% | 76.1% | 75.3% (3,144) | switch |
-| 2 pairs, 2 side pairs | 56 | 0.42% | 85.7% | 92.2% (510) | switch |
+| Pairs, side pairs | States | Share of the DRM | Sub-7 rate, exact | Sub-7 rate, real attempts (RZP to 5) | Real attempts (RZP to 5) | Band |
+|---|---|---|---|---|---|---|
+| 0 pairs, 0 side pairs | 4,376 | 32.6% | 1.5% | 1.4% | 37,042 | discard |
+| 0 pairs, 1 side pairs | 2,768 | 20.6% | 8.1% | 8.4% | 22,338 | discard |
+| 0 pairs, 2 side pairs | 536 | 4.0% | 13.4% | 12.6% | 4,270 | check |
+| 1 pairs, 0 side pairs | 2,768 | 20.6% | 16.2% | 16.7% | 23,270 | check |
+| 1 pairs, 1 side pairs | 1,664 | 12.4% | 51.4% | 53.2% | 14,188 | switch |
+| 1 pairs, 2 side pairs | 368 | 2.7% | 73.9% | 72.6% | 3,078 | switch |
+| 2 pairs, 0 side pairs | 536 | 4.0% | 46.3% | 44.7% | 4,490 | check |
+| 2 pairs, 1 side pairs | 368 | 2.7% | 76.1% | 75.3% | 3,144 | switch |
+| 2 pairs, 2 side pairs | 56 | 0.42% | 85.7% | 92.2% | 510 | switch |
 
 The your-call group is 1 pair and no side pair (16.2%) or 2 side pairs and no pair (13.4%). Two pairs without a side pair are 46.3%, just under the line.
 
@@ -335,42 +400,42 @@ Nothing cheap splits the your-call group well. By corner ARM, edge ARM or corner
 
 ### 4.4 7c8e
 
-**5 or 6 pairs: switch** (59.0%, rodneykinney's "For 7c8e, it's 5 or 6 pairs", [14 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383638467736506439)). **3 or fewer: discard** (2.9%). **4 pairs: your call** (15.9%), and here edge ARM is the split:
+**5 or 6 pairs: switch** (59.0%, rodneykinney's "For 7c8e, it's 5 or 6 pairs", [14 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383638467736506439)). **3 or fewer: discard** (2.9%). **4 pairs: your call** (15.9%), and here edge ARM is the split. Each row is 4 pairs with one edge ARM:
 
-| Inside *4 pairs* | States | Share of the DRM | Sub-7 (exact) | Real attempts, RZP to 5 | Band |
-|---|---|---|---|---|---|
-| 4 pairs, edge ARM 0 | 96 | 0.41% | 0% | 0% (678) | discard |
-| 4 pairs, edge ARM 1 | 1,744 | 7.4% | 30.3% | 30.1% (13,626) | check |
-| 4 pairs, edge ARM 2 | 4,240 | 18.0% | 10.2% | 10.4% (34,130) | check |
-| 4 pairs, edge ARM 3 | 1,744 | 7.4% | 17.0% | 16.9% (14,050) | check |
-| 4 pairs, edge ARM 4 | 96 | 0.41% | 0% | 0% (662) | discard |
+| Inside *4 pairs* | States | Share of the DRM | Sub-7 rate, exact | Sub-7 rate, real attempts (RZP to 5) | Real attempts (RZP to 5) | Band |
+|---|---|---|---|---|---|---|
+| 4 pairs, edge ARM 0 | 96 | 0.41% | 0% | 0% | 678 | discard |
+| 4 pairs, edge ARM 1 | 1,744 | 7.4% | 30.3% | 30.1% | 13,626 | check |
+| 4 pairs, edge ARM 2 | 4,240 | 18.0% | 10.2% | 10.4% | 34,130 | check |
+| 4 pairs, edge ARM 3 | 1,744 | 7.4% | 17.0% | 16.9% | 14,050 | check |
+| 4 pairs, edge ARM 4 | 96 | 0.41% | 0% | 0% | 662 | discard |
 
-So 4 pairs with edge ARM 1 is worth switching at a 30% cut, and 4 pairs otherwise is not. This is close to tseitsei89's "4 pairs = switch if edge arm < 2" ([25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409426549287157780)). Edge ARM 0 is in it but empty of sub-7s, and it's only 0.41% of 7c8e. By pairs alone:
+So 4 pairs with edge ARM 1 is worth switching at a 30% cut, and 4 pairs otherwise is not. This is close to tseitsei89's "4 pairs = switch if edge arm < 2" ([25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409426549287157780)). Edge ARM 0 is in it but empty of sub-7s, and it's only 0.41% of 7c8e. By pairs alone, one row per pair count:
 
-| Pairs | States | Share of the DRM | Sub-7 (exact) | Real attempts, RZP to 5 | Band |
-|---|---|---|---|---|---|
-| 1 pairs | 480 | 2.0% | 0% | 0% (3,864) | discard |
-| 2 pairs | 3,360 | 14.3% | 2.1% | 2.4% (26,738) | discard |
-| 3 pairs | 7,920 | 33.7% | 3.3% | 3.4% (65,016) | discard |
-| 4 pairs | 7,920 | 33.7% | 15.9% | 15.9% (63,146) | check |
-| 5 pairs | 3,360 | 14.3% | 54.3% | 54.1% (26,786) | switch |
-| 6 pairs | 480 | 2.0% | 91.7% | 91.7% (3,788) | switch |
+| Pairs | States | Share of the DRM | Sub-7 rate, exact | Sub-7 rate, real attempts (RZP to 5) | Real attempts (RZP to 5) | Band |
+|---|---|---|---|---|---|---|
+| 1 pairs | 480 | 2.0% | 0% | 0% | 3,864 | discard |
+| 2 pairs | 3,360 | 14.3% | 2.1% | 2.4% | 26,738 | discard |
+| 3 pairs | 7,920 | 33.7% | 3.3% | 3.4% | 65,016 | discard |
+| 4 pairs | 7,920 | 33.7% | 15.9% | 15.9% | 63,146 | check |
+| 5 pairs | 3,360 | 14.3% | 54.3% | 54.1% | 26,786 | switch |
+| 6 pairs | 480 | 2.0% | 91.7% | 91.7% | 3,788 | switch |
 
 ARM on top of pairs adds little: the full pairs × ARM table settles 68.8% of 7c8e, against 66.3% for pairs alone (section 8).
 
 ### 4.5 8c8e
 
-**No group is a switch.** The one cheap discard is corner ARM 2, 3, 5 or 6 (55.8% of 8c8e at 9.8%). The rest (corner ARM 0, 4 or 8) is 20.5%, your call:
+**No group is a switch.** The one cheap discard is corner ARM 2, 3, 5 or 6 (55.8% of 8c8e at 9.8%). The rest (corner ARM 0, 4 or 8) is 20.5%, your call. One row per corner ARM:
 
-| Corner ARM | States | Share of the DRM | Sub-7 (exact) | Real attempts, RZP to 5 | Band |
-|---|---|---|---|---|---|
-| corner ARM 0 | 70 | 1.2% | 27.1% | 25.9% (548) | check |
-| corner ARM 2 | 1,120 | 18.6% | 5.0% | 4.9% (8,942) | discard |
-| corner ARM 3 | 560 | 9.3% | 8.6% | 7.6% (4,538) | discard |
-| corner ARM 4 | 2,520 | 41.9% | 20.4% | 20.5% (19,892) | check |
-| corner ARM 5 | 560 | 9.3% | 14.3% | 14.2% (4,888) | check |
-| corner ARM 6 | 1,120 | 18.6% | 12.9% | 11.6% (9,206) | check |
-| corner ARM 8 | 70 | 1.2% | 15.7% | 14.9% (562) | check |
+| Corner ARM | States | Share of the DRM | Sub-7 rate, exact | Sub-7 rate, real attempts (RZP to 5) | Real attempts (RZP to 5) | Band |
+|---|---|---|---|---|---|---|
+| corner ARM 0 | 70 | 1.2% | 27.1% | 25.9% | 548 | check |
+| corner ARM 2 | 1,120 | 18.6% | 5.0% | 4.9% | 8,942 | discard |
+| corner ARM 3 | 560 | 9.3% | 8.6% | 7.6% | 4,538 | discard |
+| corner ARM 4 | 2,520 | 41.9% | 20.4% | 20.5% | 19,892 | check |
+| corner ARM 5 | 560 | 9.3% | 14.3% | 14.2% | 4,888 | check |
+| corner ARM 6 | 1,120 | 18.6% | 12.9% | 11.6% | 9,206 | check |
+| corner ARM 8 | 70 | 1.2% | 15.7% | 14.9% | 562 | check |
 
 Pairs don't help much for 8c8e: the best common pair count, 6, is 32.1% (appendix A). The best 1-3 feature rule needs 65 cells (edge ARM × pairs × the orbit case of the out-of-AR corners) to settle 74.6%, which is **computer only**. The *correct 8c* check (R L gives JZP, Jay [4 Dec 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1181166799610445844), Yura Riabov [23 Mar 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1485595833180360725)) is always sub-7, but it covers 0.020% of 8c8e.
 
@@ -382,9 +447,9 @@ Pairs don't help much for 8c8e: the best common pair count, 6, is 32.1% (appendi
 - **3c4e with 2 pairs** (33.7%, 10.7% of 3c4e), **5c4e with 3 pairs** (27.6%), **5c6e with 4 pairs** (37.9%), **6c6e with JZP or 5-6 pairs** (39.0%): your call, all rare.
 - **3c6e**: no pair count is above 11.1%; Fanti's 3 pairs with ARM 00 or 2 pairs with ARM 21 ([6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436042954501390401)) is 28.4% on 4.7% of 3c6e, and ARM 21 alone (Jay, [3 Aug 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1269432136616771647)) 13.2%.
 
-By pairs:
+By pairs, one row per DRM and pair count (JZP as its own row):
 
-| DRM | Cell | States | Share of the DRM | Sub-7 (exact) | Band |
+| DRM | Pairs on the switched case | States | Share of the DRM | Sub-7 rate, exact | Band |
 |---|---|---|---|---|---|
 | 4c6e | 0 pairs | 12,800 | 13.6% | 0.12% | discard |
 |  | 1 pairs | 35,200 | 37.4% | 0.80% | discard |
@@ -423,9 +488,9 @@ Together these exceptions catch few of the sub-7 cases: 8.1% of 4c6e's in its sw
 
 ## 5. Reading the switched case from normal
 
-You decide before switching, so every feature of the cards has to be seen on the normal side, after EO + RZP. I tested each reading below on uniformly random cubes with the EO solved (a random case, then random pieces): read it on the normal cube, compare with the feature of its inverse. *Held* means it gave the right count on every cube.
+You decide before switching, so every feature of the cards has to be seen on the normal side, after EO + RZP. I tested each reading below on uniformly random cubes with the EO solved (a random case, then random pieces): read it on the normal cube, compare with the feature of its inverse. One row per feature; *Held* is on how many of the cubes tested the reading gave the right count.
 
-| Feature on the switched case | What to look at on normal | Source | Held |
+| Feature on the switched case | What to look at on normal | Source | Held (cubes right of cubes tested) |
 |---|---|---|---|
 | Corner ARM | R/L stickers on the U/D faces (corners) | rodneykinney, *DR - 4c4e Theory* | 20,000 of 20,000 |
 | ARM (both digits) | the ARM of the other DR axis on normal (U/D DR on inverse ↔ R/L DR on normal) | Cale [3 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1213932643188473896), wen [17 Sep 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1285751016545058853) | 20,000 of 20,000 |
@@ -449,9 +514,9 @@ The same-axis version of the ARM swap is wrong, as its author said at the time: 
 
 ## 6. Real RZPs: does the uniform table apply after a switch?
 
-Every table on the server counts each case once. Real cases come from RZPs, and torchlight pointed out why that matters: "if the EO isn't already 4c4e, it means that the 4c4e case you get from RZP is 1 move away from something that is not 4c4e", "the 4c4e cases that can go out of 4c4e in more ways will thus be more likely to show up" ([8 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1215720321995382867)). KrzychXyz asked whether natural 4c4e is therefore better ([9 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1216123557776461895)). Here's the sub-7 rate by DRM, uniform against the cases RZPs reach (exact counts over every 5-move RZP from a uniform EO-solved cube) and against the real attempts:
+Every table on the server counts each case once. Real cases come from RZPs, and torchlight pointed out why that matters: "if the EO isn't already 4c4e, it means that the 4c4e case you get from RZP is 1 move away from something that is not 4c4e", "the 4c4e cases that can go out of 4c4e in more ways will thus be more likely to show up" ([8 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1215720321995382867)). KrzychXyz asked whether natural 4c4e is therefore better ([9 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1216123557776461895)). Here's the sub-7 rate by DRM, uniform against the cases RZPs reach (exact counts over every 5-move RZP from a uniform EO-solved cube) and against the real attempts. One row per DRM; the last column is how many real attempts the RZP-to-5 rate rests on:
 
-| DRM | Uniform (the tables) | After an RZP of 5, same side | After an RZP of 5, switched | Real attempts, RZP to 5, switched | Real attempts, RZP to 6, switched, DR in 5 | Attempts (RZP to 5) |
+| DRM | Sub-7 rate, uniform (the tables) | Sub-7 rate after an RZP of 5, same side | Sub-7 rate after an RZP of 5, switched | Sub-7 rate, real attempts, RZP to 5, switched | DR in 5 or fewer, real attempts, RZP to 6, switched | Real attempts (RZP to 5) |
 |---|---|---|---|---|---|---|
 | 4c4e | 19.2% | 18.3% | 19.2% | 19.1% | 4.3% | 560,822 |
 | 4c2e | 18.7% | 17.9% | 18.7% | 19.1% | 3.3% | 112,330 |
@@ -474,9 +539,9 @@ The real attempts agree. In 36 cells (12 DRMs × RZP to 4, 5 or 6), the attempts
 
 **RZP length.** The last column of the table is the real attempts with a 6-move RZP, where the target is DR in 5. The rates fall by a factor of 3.2 to 10.3, which is why solvers use a shorter cut for 6-move RZPs. The cards give DR in 5 and DR in 7 for every cell (section 4).
 
-**The last turns after a switch.** Turning the RZP's last move the other way never changes the switched case: in 114,102 of 114,102 pairs of real attempts that differ only in that, the switched case is the same. The reason: on the inverse that move becomes the first premove, and a premove from the DR group (R and R' differ by R2) doesn't change which pieces are twisted or which places hold E-slice edges relative to home. So Jay's idea of looking at the case when you "flip" the RZP ([6 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1358302313076363294)) doesn't help after a switch. The EO's last turn still counts, but much less than without a switch, because the RZP sits between it and the inverse. On the real attempts at a total of 5:
+**The last turns after a switch.** Turning the RZP's last move the other way never changes the switched case: in 114,102 of 114,102 pairs of real attempts that differ only in that, the switched case is the same. The reason: on the inverse that move becomes the first premove, and a premove from the DR group (R and R' differ by R2) doesn't change which pieces are twisted or which places hold E-slice edges relative to home. So Jay's idea of looking at the case when you "flip" the RZP ([6 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1358302313076363294)) doesn't help after a switch. The EO's last turn still counts, but much less than without a switch, because the RZP sits between it and the inverse. On the real attempts at a total of 5, one row per DRM, the sub-7 rate after a switch, then with each option added:
 
-| DRM | Switched | EO's last turn either way | Better DR axis | Both |
+| DRM | Sub-7 rate, switched | Sub-7 rate, also EO's last turn either way | Sub-7 rate, also the better DR axis | Sub-7 rate, both |
 |---|---|---|---|---|
 | 4c4e | 19.1% | 21.2% | 25.0% | 27.4% |
 | 4c2e | 19.1% | 21.9% | 26.0% | 29.1% |
@@ -492,9 +557,9 @@ The two axes are close to independent, as caycala assumed ([16 Sep 2025](https:/
 
 ## 7. The existing rules, graded
 
-Every rule from the server I could pin down, graded the same way on the switched case. *Switches*: the share of the DRM it switches. *Sub-7 among switched*: how often a switch finds a DR in 6 (precision). *Sub-7 states switched*: the share of the DRM's sub-7 cases it switches (recall). *Sub-7 states discarded*: sub-7 cases it throws away, as a share of all the DRM's cases. Exact, every case once. The last column is the same precision on the real attempts at a total of 5. The card's rows come first (bold), then the rules by precision. The two 4-move rules (Daichi, Zagros) are graded against DR in 7 and Fanti's 6-move 3c2e rule against DR in 5, since that's what they're for.
+Every rule from the server I could pin down, graded the same way on the switched case, one rule per row. *Switches*: the share of the DRM it switches. *Sub-7 among switched*: how often a switch finds a DR in 6 (precision). *Sub-7 states switched*: the share of the DRM's sub-7 cases it switches (recall). *Sub-7 states discarded*: sub-7 cases it throws away, as a share of all the DRM's cases. Exact, every case once. The last column is the same precision on the real attempts at a total of 5. The card's rows come first (bold), then the rules by precision. The two 4-move rules (Daichi, Zagros) are graded against DR in 7 and Fanti's 6-move 3c2e rule against DR in 5, since that's what they're for.
 
-| DRM | Switch when | Who | Switches | Sub-7 among switched | Sub-7 states switched | Sub-7 states discarded (share of the DRM) | Real attempts: sub-7 among switched |
+| DRM | Switch when | Who | Switches (share of the DRM) | Sub-7 among switched | Sub-7 states switched (share of the DRM's sub-7s) | Sub-7 states discarded (share of the DRM) | Real attempts: sub-7 among switched |
 |---|---|---|---|---|---|---|---|
 | 4c4e | **both bad U/D edges paired** | **this study** (switch) | 15.5% | 59.9% | 48.2% | 10.0% | 60.0% |
 |  | **both bad edges paired, or one paired with edge ARM 1** | **this study** (switch + your call) | 48.0% | 32.9% | 82.0% | 3.5% | 32.8% |
@@ -583,22 +648,25 @@ What the table says:
 
 ## 8. What each feature adds
 
-**How much each settles.** The share of the DRM that lands in cells under 10% or over 50% when you split by a feature (or two) and nothing else, using every value it takes. Exact.
+**How much each settles.** Exact. Each row is a feature (or two) to split by, using every value it takes; each cell is the share of that DRM that lands in cells under 10% or over 50%.
 
-| DRM | ARM | Pairs | Paired edges | Corner case (4 corners) | Pairs + ARM | Pairs + corner case | Paired edges + edge ARM | Pairs + side pairs/2 |
-|---|---|---|---|---|---|---|---|---|
-| 4c4e | 31.2% | 33.3% | 45.2% | 11.4% | 49.6% | 43.6% | 56.4% | 51.9% |
-| 4c2e | 35.7% | 64.3% | 57.1% | 2.9% | 63.2% | 64.6% | 57.1% | 75.4% |
-| 7c8e | 32.2% | 66.3% | 34.0% | 0% | 68.8% | 66.3% | 43.2% | 54.7% |
-| 8c8e | 43.0% | 24.1% | 24.8% | 0% | 62.1% | 24.1% | 40.2% | 24.8% |
-| 2c2e | 42.9% | 21.4% | 23.2% | 0% | 45.5% | 21.4% | 11.6% | 81.7% |
+| Split by | 4c4e: settled | 4c2e: settled | 7c8e: settled | 8c8e: settled | 2c2e: settled |
+|---|---|---|---|---|---|
+| ARM | 31.2% | 35.7% | 32.2% | 43.0% | 42.9% |
+| Pairs | 33.3% | 64.3% | 66.3% | 24.1% | 21.4% |
+| Paired edges | 45.2% | 57.1% | 34.0% | 24.8% | 23.2% |
+| Corner case (4 corners) | 11.4% | 2.9% | 0% | 0% | 0% |
+| Pairs + ARM | 49.6% | 63.2% | 68.8% | 62.1% | 45.5% |
+| Pairs + corner case | 43.6% | 64.6% | 66.3% | 24.1% | 21.4% |
+| Paired edges + edge ARM | 56.4% | 57.1% | 43.2% | 40.2% | 11.6% |
+| Pairs + side pairs/2 | 51.9% | 75.4% | 54.7% | 24.8% | 81.7% |
 
 - **Pairs settle more than ARM** in 4c4e, 4c2e and 7c8e. In 8c8e and 2c2e ARM settles more. The corner case alone settles little anywhere: it is a refinement, not a first look. rodneykinney's corner orbit case is only worth reading inside a pair group (4c4e: the your-call group, section 4.1).
 - **For 4c4e, the edges matter more than the count.** Paired edges plus edge ARM (56.4% with all 9 cells, 67.5% once edge ARM 0 and 2 are pooled as on the card) beat pairs + ARM (49.6%) and pairs + corner case (43.6%).
 
-**wen's 2 of 3** ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418248619374678247)): switch the best 26.0% of 4c4e (as many as "2+ pairs" switches) by each pair of criteria, best cells first, which is a **computer-only** way to use them. The share of sub-7 cases you miss:
+**wen's 2 of 3** ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418248619374678247)): switch the best 26.0% of 4c4e (as many as "2+ pairs" switches) by each pair of criteria, best cells first, which is a **computer-only** way to use them. Each row is a way to pick them; the column is the share of 4c4e's sub-7 cases you miss:
 
-| Criteria (4c4e) | Sub-7s missed |
+| Criteria (4c4e) | Sub-7s missed (share of 4c4e's sub-7s) |
 |---|---|
 | pairs + corner case | 34.5% |
 | pairs + ARM | 35.5% |
@@ -606,19 +674,19 @@ What the table says:
 | all three | 32.0% |
 | 2+ pairs alone | 37.2% |
 
-**Bars against separate pairs.** In 4c4e, two pairs as a bar on one edge against two pairs on the two edges, per ARM:
+**Bars against separate pairs.** In 4c4e, two pairs as a bar on one edge against two pairs on the two edges. One row per ARM: the two sub-7 rates, then how many states each rests on:
 
-| ARM | 2 pairs as a bar on one edge | 2 pairs on the two edges |
-|---|---|---|
-| 00 | 37.5% (288) | 51.1% (360) |
-| 10 | 18.1% (576) | 46.3% (864) |
-| 21 | 44.2% (960) | 74.3% (2,208) |
-| 32 | 20.8% (576) | 47.2% (864) |
-| 42 | 22.2% (288) | 50.0% (360) |
-| 11 | 33.3% (864) | 45.1% (1,152) |
-| 31 | 33.3% (864) | 49.3% (1,152) |
-| 20 | 16.0% (648) | 47.2% (720) |
-| 22 | 12.3% (648) | 40.0% (720) |
+| ARM | Sub-7 rate, bar on one edge | Sub-7 rate, pairs on the two edges | States, bar on one edge | States, pairs on the two edges |
+|---|---|---|---|---|
+| 00 | 37.5% | 51.1% | 288 | 360 |
+| 10 | 18.1% | 46.3% | 576 | 864 |
+| 21 | 44.2% | 74.3% | 960 | 2,208 |
+| 32 | 20.8% | 47.2% | 576 | 864 |
+| 42 | 22.2% | 50.0% | 288 | 360 |
+| 11 | 33.3% | 45.1% | 864 | 1,152 |
+| 31 | 33.3% | 49.3% | 864 | 1,152 |
+| 20 | 16.0% | 47.2% | 648 | 720 |
+| 22 | 12.3% | 40.0% | 648 | 720 |
 
 Yura Riabov had it from experience: "From my experience with pairs 1 bar is worse than 2 pairs for most arms" ([22 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1397110208685146265)), "Also a bar+fake pair sucks" ([22 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1397113410516291684)). It holds in every ARM, by a wide margin. With a bar, the second pair is on an edge that is already paired, so the other bad edge has nothing. That's why the card counts paired edges.
 
@@ -632,9 +700,9 @@ Yura Riabov had it from experience: "From my experience with pairs 1 bar is wors
 
 Everything in this section is **computer only**. It says how far any rule could go, not what to do at the table.
 
-**The search.** For each DRM, every cross-table of 1, 2 or 3 of 38 features: the ARMs, pairs and their variants (fake, side, paired edges, bars, split pairs, AR bars, unpaired corners and edges), the corner case and suffix, twist split, layer layouts, JZP and anti-AR, and seven features that need a search in your head (moves to AR, moves to orient the corners, and the setup distance to each trigger family). I scored each rule by how much of the DRM it settles and kept it only if it holds on the RZP-weighted cases and the real attempts. The Pareto front, rule size against how much it settles:
+**The search.** For each DRM, every cross-table of 1, 2 or 3 of 38 features: the ARMs, pairs and their variants (fake, side, paired edges, bars, split pairs, AR bars, unpaired corners and edges), the corner case and suffix, twist split, layer layouts, JZP and anti-AR, and seven features that need a search in your head (moves to AR, moves to orient the corners, and the setup distance to each trigger family). I scored each rule by how much of the DRM it settles and kept it only if it holds on the RZP-weighted cases and the real attempts. The Pareto front, rule size against how much it settles. Each row is a rule: the features crossed, how many cells its table has, and the share of the DRM it settles:
 
-| DRM | Features | Cells | Settled (share in cells under 10% or over 50%) | Usable |
+| DRM | Features crossed | Cells in the table | Settled (share of the DRM in cells under 10% or over 50%) | Usable |
 |---|---|---|---|---|
 | 4c4e | setup turns to an R/L-quarter-turn finish | 10 | >99.9% | **computer only** |
 | 4c4e | fake pairs + setup turns to an R/L-quarter-turn finish | 30 | >99.9% | **computer only** |
@@ -657,9 +725,9 @@ Everything in this section is **computer only**. It says how far any rule could 
 
 - **The perfect separators are the trigger setups.** *How many U, D and half turns to an R/L-quarter-turn finish* settles all of 4c4e, and the same holds for 7c8e (R U L). But reading it means finding the DR, so it's no shortcut. That's the server's habit of just NISS-tracing a promising case all the way. Zagros: "skip all the stats and just niss trace and know 100% if you should switch." ([16 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417535391698784306), on 4c2e).
 - **8c8e** needs 65 cells (edge ARM × pairs × the orbit case of the out-of-AR corners) to settle 74.6%: a table to look things up in, not a rule.
-- **The low DRMs** settle "completely" only because every cell is under 10%: that is the discard verdict. What the search asked for them is whether any traceable rule of up to three features finds a cell above 50% holding a real share of their sub-7s. The best rule's share of each DRM's sub-7 cases in such cells:
+- **The low DRMs** settle "completely" only because every cell is under 10%: that is the discard verdict. What the search asked for them is whether any traceable rule of up to three features finds a cell above 50% holding a real share of their sub-7s. One row per DRM: the best rule's share of that DRM's sub-7 cases in such cells:
 
-| DRM | Sub-7s in cells above 50%, best rule |
+| DRM | Sub-7s in cells above 50%, best rule (share of the DRM's sub-7s) |
 |---|---|
 | 4c6e | 20.1% |
 | 3c4e | 23.9% |
@@ -668,13 +736,13 @@ Everything in this section is **computer only**. It says how far any rule could 
 | 5c6e | 8.8% |
 | 6c6e | 7.0% |
 
-**Information.** JTuu asked when ARM is most informative ([27 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1222755932518486027)). In information terms (the share of the uncertainty about sub-7 within the DRM that the feature removes), ARM / pairs / both remove 0.098 / 0.191 / 0.262 for 4c4e and 0.159 / 0.082 / 0.325 for 8c8e: ARM tells more than pairs only in 8c8e, 3c6e and 6c6e. rodneykinney's score ([29 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1388919153900912730), [29 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1388981949829218365)) is the product p(sub-7 | subset) × N(sub-7 in subset), which ranks rules well but is not mutual information in the usual sense. Full per-DRM values are in `research/out/q4.tsv` and `feature_value.tsv`.
+**Information.** JTuu asked when ARM is most informative ([27 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1222755932518486027)). In information terms (the share of the uncertainty about sub-7 within the DRM that the feature removes), ARM removes 0.098, pairs 0.191 and both 0.262 for 4c4e, and 0.159, 0.082 and 0.325 for 8c8e: ARM tells more than pairs only in 8c8e, 3c6e and 6c6e. rodneykinney's score ([29 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1388919153900912730), [29 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1388981949829218365)) is the product $p(\text{sub-7} \mid \text{subset}) \times N(\text{sub-7 in subset})$, which ranks rules well but is not mutual information in the usual sense. The values for every DRM are in the study's repository, with the code.
 
 ---
 
 ## 10. The sheets, reproduced
 
-I recomputed every published number I could match to a definition: exact tables to their printed rounding, sampled ones within three standard errors of the exact value.
+I recomputed every published number I could match to a definition: exact tables to their printed rounding, sampled ones within three standard errors of the exact value. One row per source:
 
 | Source | Numbers compared | Reproduced |
 |---|---|---|
@@ -693,12 +761,12 @@ I recomputed every published number I could match to a definition: exact tables 
 | my EO-to-DR study | 8 | 8 |
 | Cale, *DR setup stats (switching last move of EO)* | 2 | 2 |
 
-152 of 154 reproduce. The two that don't are both in **Evan's *arm/pairs***, far outside the sample's error:
+152 of 154 reproduce. The two that don't are both in **Evan's *arm/pairs***, far outside the sample's error. Each row is a sub-7 rate as a fraction, on the sheet and exact:
 
-| Evan's *arm/pairs*, 4c4e | Sheet | Exact | Distance in standard errors |
+| Evan's *arm/pairs*, 4c4e | Sub-7 rate on the sheet | Sub-7 rate, exact | Distance in standard errors |
 |---|---|---|---|
-| 2 pairs | 0.394 | 0.411 | z=17.05 |
-| 3 pairs | 0.758 | 0.790 | z=15.44 |
+| 2 pairs | 0.394 | 0.411 | $z = 17.05$ |
+| 3 pairs | 0.758 | 0.790 | $z = 15.44$ |
 
 Its ARM 21 cell does match. None of the definitions I tried explains the gap (optimal with any turns, paired corners, edges with a pair).
 
@@ -712,14 +780,14 @@ Its ARM 21 cell does match. None of the definitions I tried explains the gap (op
 
 Statements the numbers can settle, by theme. Questions and guesses are in section 2 unless a number was given. Each verdict is one of **True**, **Corrected**, **Depends** (true under one reading, not another), **Open** (not settled here) and **Withdrawn** (taken back at the time). Exact over all cases unless marked. Every correction has an example in the errata.
 
-**4c4e**
+**4c4e.** One claim per row, with its verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
 | "02, 12, 30 and 40 for 4e4c are never worth switching" | Yura Riabov [12 Aug 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1272565146916749436) | **True**: 02 0.003, 12 0.032, 30 0.035, 40 0.003. |
 | "02, 12, 03, 04 for 4e4c are like sub5 percent of sub7 dr" | Yura Riabov [17 Sep 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1285700522514448444) | **True**, reading 03 and 04 as 30 and 40 (4c4e has no edge ARM above 2): 02 0.31%, 12 3.2%. |
 | "00, 10, 21, 32 and 42 are more than 20% sub7 DR for 4c4e iirc" | tseitsei89 [17 Sep 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1285700969795158128) | **True**: 00 0.475, 10 0.285, 21 0.343, 32 0.292, 42 0.367. |
-| "AR-3c-0/1/2e is the same as AR-1c-2/1/0e"; "not strictly symmetrical (AR-1c is not exactly the same as AR-3c : see 0.28 vs 0.29 for the 4c case." | rodneykinney [8 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1381320727273148668); Louis [9 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1381623814307319828) | **True** to within a point, and Louis is right that it isn't exact: 30 against 12 0.0347 / 0.0324, 31 against 11 0.1771 / 0.1762, 32 against 10 0.2917 / 0.2847. |
+| "AR-3c-0/1/2e is the same as AR-1c-2/1/0e"; "not strictly symmetrical (AR-1c is not exactly the same as AR-3c : see 0.28 vs 0.29 for the 4c case." | rodneykinney [8 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1381320727273148668); Louis [9 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1381623814307319828) | **True** to within a point, and Louis is right that it isn't exact: ARM 30 is 0.0347 against 0.0324 for 12, 31 is 0.1771 against 0.1762 for 11, 32 is 0.2917 against 0.2847 for 10. |
 | "10 total sets that can be sub 6 out of the 15 total sets (7/15 can be sub 5!)" | Jay [9 Mar 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1215904716530384908) | **Corrected** [a]: 11 of the 15 ARM sets have a case of at most 5 moves; AR-4c1e (shortest 5) is missing from Jay's list. The 7 for sub-5 is right. |
 | "For sure there aren't any 4-movers with 0 or 1 pairs, because any 4 moves from a solved cube always leaves at least 2 bad pairs." ("pairs" = bad pairs) | rodneykinney [25 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1068026817602125844), [25 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1068024296519254046) | **Depends** on what a pair is. Counting top and side pairs it is true (Radek B, [26 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1068097736454451201): "0 or 1 top and side pairs => at best 5 moves", also **True**). Counting top pairs alone it is not: `F2 B2 R` is a 3-move 4c4e with no top pair, and Radek B listed its mirror `F2 B2 L` ([26 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1068097453871611934)). |
 | "you can also recognize that all the corners are on U and know that's the only 02 case that can be sub-7 :)", "whopping 5.60%"; "corners on U, edges on D", "then it goes up to 33%!!!" | Evan [16 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1395151816684998748), [16 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1395151868539310130); caycala [16 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1395152332349640766), [16 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1395152552655323348) | **True**: 5.6%, the rest 0%; with the bad edges on the other layer 33.3%. |
@@ -734,7 +802,7 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | "It seems like you should pretty much always switch a 4 move DR-4c4e." | Zagros [7 Jul 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1524175174507692245) | **True** with DR in 7 as the target: 59.4%; Daichi's refinement ([7 Jul 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1524192731432353853)) is 63.9% on 90.6%. |
 | "This is not accounting side pairs but you can quickly confirm that 0 or 1 top and side pairs => at best 5 moves" | Radek B [26 Jan 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1068097736454451201) | **True**: shortest 5 over 24890 states. |
 
-**4c2e and 3c2e**
+**4c2e and 3c2e.** One claim per row, with its verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
@@ -746,14 +814,14 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | "3c2e is pretty much always worth NISSing, even as a 6 move rzp." | tseitsei89 [20 Aug 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1275330107661352970) | **Depends** on the cut: after a 6-move RZP the target is DR in 5, and 3c2e is 19.2%. That is still the best of any DRM. |
 | "At the very least you will never miss a 5 mover by doing this" (switch 3c2e on a pair, a fake pair or a split pair) | wen [12 Feb 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1471458126539526323) | **True**: the 640 cases with none of the three are all 6 or more. |
 
-**7c8e, 8c8e and the rest**
+**7c8e, 8c8e and the rest.** One claim per row, with its verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
 | "DR-7C8E AR-2C1E is over 70% chance of sub7 dr" | Yura Riabov [12 Sep 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1283899100416442460) | **True**: 71.9%. tseitsei89's 7c8e 2c1e without a sub-7 ([2 Jun 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1379010221938053231)) is one of 216 such cases out of 768. |
 | "And for 7c8e in particular, half the cases are 0% chance of sub7 dr" | Yura Riabov [17 Sep 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1285701896123842690) | **True** by ARM set: 15 of 30 ARM sets have no sub-7 state, holding 12.6% of 7c8e cases. |
 | "all that i've memorized is that 1C0E is always 5-6 and 2C1E is the only one that can give sub 4" | Jay [9 May 2024](https://discord.com/channels/1007840975726575667/1007841273111117924/1238050909171482666) | **True**: 1C0E range (5, 6); ARMs with a state of 3 or fewer: ['21']. |
-| "After revisiting the ARM stats I noticed that edge ARM =4 always has 0% chance for sub7." "And yes 3 seems to be much better than 2, but also only good if corner ARM >= 4" | tseitsei89 [24 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409256324214034502) | **True**: edge ARM 4 0%; 3 against 2 18.6% / 12.2%. |
+| "After revisiting the ARM stats I noticed that edge ARM =4 always has 0% chance for sub7." "And yes 3 seems to be much better than 2, but also only good if corner ARM >= 4" | tseitsei89 [24 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409256324214034502) | **True**: edge ARM 4 0%; edge ARM 3 18.6% against edge ARM 2 12.2%. |
 | "7c8e is actually the exception because with 8 bad edges, every bad in-ARM corner forms a side pair anyway." | rodneykinney [29 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1411129084410462270) | **True**: side pairs = bad corners not out of AR on 23520 of 23520 7c8e states. |
 | "for 7c8e with 5p, 20/54 has a 0% chance of sub7"; "it's still 54% in general" | Daichi [6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436036602723045579), Fanti [6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436039819963662497) | **True**: 20 0.000 (48 states), 54 0.000 (48); 5 pairs 0.543. |
 | "also 78 4p has a weird silver lining with 11/12/33/41/62 where they're all just slightly worse", "20-23% sub7, though keep in mind only 21 can have sub-6 on 4p" | Fanti [6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436041311110172783), [6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436041646180667422) | **True**: 11 0.222, 12 0.222, 33 0.231, 41 0.215, 62 0.200, 21 0.690; ARMs with a 4-pair state of at most 5: ['21']. |
@@ -767,7 +835,7 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 | "For example, 5c4e with 2 pairs has 40% chance of sub-8." | rodneykinney [26 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409789617573597184) | **Open**: any optimal DR gives 57.0%; rodneykinney's numbers may count only findable solutions. |
 | "Yes, that’s the conclusion" (the DRMs outside the top ten are not worth looking at) | rodneykinney [30 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1411470906357977209), to zakimoshi [30 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1411464911313174769) | **True** for the time it takes: some are better per case but very rare (0c2e and 2c0e have 32 and 40 sub-7 cases in all). |
 
-**Switching, NISS and the tables**
+**Switching, NISS and the tables.** One claim per row, with its verdict.
 
 | Claim | Who | Verdict |
 |---|---|---|
@@ -797,84 +865,121 @@ Statements the numbers can settle, by theme. Questions and guesses are in sectio
 
 ## Appendix A: full tables
 
-**4c4e by ARM and paired edges**: sub-7 share (cases in brackets).
+**4c4e by ARM and paired edges.** One row per ARM; each cell is the sub-7 rate of the ARM's cases with that many bad edges paired:
 
-| ARM | No bad edge paired | One paired | Both paired | All |
+| ARM | No bad edge paired: sub-7 rate | One paired: sub-7 rate | Both paired: sub-7 rate | All: sub-7 rate |
 |---|---|---|---|---|
-| 00 | 66.7% (36) | 29.9% (576) | 61.4% (684) | 47.5% (1,296) |
-| 01 | 0.93% (864) | 10.8% (2,592) | - | 8.3% (3,456) |
-| 02 | 0.31% (1,296) | - | - | 0.31% (1,296) |
-| 10 | 8.3% (288) | 15.1% (2,016) | 56.9% (1,152) | 28.5% (3,456) |
-| 11 | 1.9% (2,592) | 15.6% (5,184) | 53.3% (1,440) | 17.6% (9,216) |
-| 12 | 1.9% (1,728) | 4.6% (1,728) | - | 3.2% (3,456) |
-| 20 | 5.3% (1,368) | 7.9% (3,528) | 47.2% (720) | 12.3% (5,616) |
-| 21 | 11.0% (4,656) | 32.9% (7,392) | 74.9% (2,928) | 34.3% (14,976) |
-| 22 | 3.5% (1,368) | 6.3% (3,528) | 40.0% (720) | 10.0% (5,616) |
-| 30 | 2.3% (1,728) | 4.6% (1,728) | - | 3.5% (3,456) |
-| 31 | 1.5% (2,592) | 14.5% (5,184) | 58.3% (1,440) | 17.7% (9,216) |
-| 32 | 8.3% (288) | 16.3% (2,016) | 56.9% (1,152) | 29.2% (3,456) |
-| 40 | 0.31% (1,296) | - | - | 0.31% (1,296) |
-| 41 | 0% (864) | 12.3% (2,592) | - | 9.3% (3,456) |
-| 42 | 83.3% (36) | 11.1% (576) | 55.8% (684) | 36.7% (1,296) |
+| 00 | 66.7% | 29.9% | 61.4% | 47.5% |
+| 01 | 0.93% | 10.8% | - | 8.3% |
+| 02 | 0.31% | - | - | 0.31% |
+| 10 | 8.3% | 15.1% | 56.9% | 28.5% |
+| 11 | 1.9% | 15.6% | 53.3% | 17.6% |
+| 12 | 1.9% | 4.6% | - | 3.2% |
+| 20 | 5.3% | 7.9% | 47.2% | 12.3% |
+| 21 | 11.0% | 32.9% | 74.9% | 34.3% |
+| 22 | 3.5% | 6.3% | 40.0% | 10.0% |
+| 30 | 2.3% | 4.6% | - | 3.5% |
+| 31 | 1.5% | 14.5% | 58.3% | 17.7% |
+| 32 | 8.3% | 16.3% | 56.9% | 29.2% |
+| 40 | 0.31% | - | - | 0.31% |
+| 41 | 0% | 12.3% | - | 9.3% |
+| 42 | 83.3% | 11.1% | 55.8% | 36.7% |
 
-**4c4e by pairs and paired edges** (bars against separate pairs):
+The number of states behind each cell of that table:
 
-| Pairs, paired edges | States | Share of the DRM | Sub-7 (exact) | Real attempts, RZP to 5 | Band |
+| ARM | No bad edge paired: states | One paired: states | Both paired: states | All: states |
+|---|---|---|---|---|
+| 00 | 36 | 576 | 684 | 1,296 |
+| 01 | 864 | 2,592 | - | 3,456 |
+| 02 | 1,296 | - | - | 1,296 |
+| 10 | 288 | 2,016 | 1,152 | 3,456 |
+| 11 | 2,592 | 5,184 | 1,440 | 9,216 |
+| 12 | 1,728 | 1,728 | - | 3,456 |
+| 20 | 1,368 | 3,528 | 720 | 5,616 |
+| 21 | 4,656 | 7,392 | 2,928 | 14,976 |
+| 22 | 1,368 | 3,528 | 720 | 5,616 |
+| 30 | 1,728 | 1,728 | - | 3,456 |
+| 31 | 2,592 | 5,184 | 1,440 | 9,216 |
+| 32 | 288 | 2,016 | 1,152 | 3,456 |
+| 40 | 1,296 | - | - | 1,296 |
+| 41 | 864 | 2,592 | - | 3,456 |
+| 42 | 36 | 576 | 684 | 1,296 |
+
+**4c4e by pairs and paired edges** (bars against separate pairs). One row per count of pairs and of the edges they sit on:
+
+| Pairs, paired edges | States | Share of the DRM | Sub-7 rate, exact | Sub-7 rate, real attempts (RZP to 5) | Real attempts (RZP to 5) | Band |
+|---|---|---|---|---|---|---|
+| 0 pairs on 0 edge(s) | 21,000 | 29.8% | 4.3% | 4.1% | 168,180 | discard |
+| 1 pairs on 1 edge(s) | 31,200 | 44.2% | 13.3% | 13.1% | 247,546 | check |
+| 2 pairs on 1 edge(s) (a bar) | 7,440 | 10.5% | 26.6% | 26.3% | 57,628 | check |
+| 2 pairs on 2 edge(s) | 8,400 | 11.9% | 53.9% | 54.0% | 67,030 | switch |
+| 3 pairs on 2 edge(s) | 2,400 | 3.4% | 79.0% | 78.6% | 19,310 | switch |
+| 4 pairs on 2 edge(s) | 120 | 0.17% | 98.3% | 99.5% | 1,128 | switch |
+
+**4c2e, inside *pairs + side pairs/2 is exactly 1*.** Each row splits that group by one feature value:
+
+| Inside *exactly 1* | States | Share of the DRM | Sub-7 rate, exact | Sub-7 rate, real attempts (RZP to 5) | Real attempts (RZP to 5) | Band |
+|---|---|---|---|---|---|---|
+| corner ARM 0 | 256 | 1.9% | 25.0% | 24.3% | 2,152 | check |
+| corner ARM 1 | 656 | 4.9% | 8.5% | 8.6% | 5,394 | discard |
+| corner ARM 2 | 1,240 | 9.2% | 14.2% | 14.0% | 10,610 | check |
+| corner ARM 3 | 864 | 6.4% | 17.6% | 18.8% | 7,180 | check |
+| corner ARM 4 | 288 | 2.1% | 25.0% | 26.9% | 2,204 | check |
+| edge ARM 0 | 1,392 | 10.4% | 13.2% | 13.3% | 11,390 | check |
+| edge ARM 1 | 1,912 | 14.2% | 17.6% | 18.0% | 16,150 | check |
+| 4a corners | 568 | 4.2% | 18.3% | 17.9% | 4,664 | check |
+| 4b corners | 1,120 | 8.3% | 17.1% | 17.3% | 9,314 | check |
+| 4c corners | 1,520 | 11.3% | 13.7% | 14.4% | 12,574 | check |
+| 4d corners | 96 | 0.71% | 16.7% | 15.8% | 988 | check |
+| JZP | 112 | 0.83% | 42.9% | 37.2% | 1,076 | check |
+
+**8c8e by pairs**, one row per pair count:
+
+| Pairs | States | Share of the DRM | Sub-7 rate, exact | Sub-7 rate, real attempts (RZP to 5) | Real attempts (RZP to 5) | Band |
+|---|---|---|---|---|---|---|
+| 0 pairs | 4 | 0.066% | 0% | 0% | 22 | discard |
+| 1 pairs | 32 | 0.53% | 0% | 0% | 252 | discard |
+| 2 pairs | 448 | 7.4% | 11.6% | 12.6% | 3,652 | check |
+| 3 pairs | 1,376 | 22.9% | 4.1% | 4.4% | 11,106 | discard |
+| 4 pairs | 2,300 | 38.2% | 11.8% | 11.3% | 18,484 | check |
+| 5 pairs | 1,376 | 22.9% | 25.0% | 23.5% | 11,174 | check |
+| 6 pairs | 448 | 7.4% | 32.1% | 32.1% | 3,610 | check |
+| 7 pairs | 32 | 0.53% | 0% | 0% | 250 | discard |
+| 8 pairs | 4 | 0.066% | >99.9% | >99.9% | 26 | switch |
+
+**EO to DR by DRM, with the free options** (every case once; from my EO-to-DR study's definitions, recomputed here). One row per DRM: the mean distance to DR and the share of cases with a DR in at most 5, 6 and 7:
+
+| DRM | States | Mean turns to DR | DR in 5 or fewer | DR in 6 or fewer | DR in 7 or fewer |
 |---|---|---|---|---|---|
-| 0 pairs on 0 edge(s) | 21,000 | 29.8% | 4.3% | 4.1% (168,180) | discard |
-| 1 pairs on 1 edge(s) | 31,200 | 44.2% | 13.3% | 13.1% (247,546) | check |
-| 2 pairs on 1 edge(s) (a bar) | 7,440 | 10.5% | 26.6% | 26.3% (57,628) | check |
-| 2 pairs on 2 edge(s) | 8,400 | 11.9% | 53.9% | 54.0% (67,030) | switch |
-| 3 pairs on 2 edge(s) | 2,400 | 3.4% | 79.0% | 78.6% (19,310) | switch |
-| 4 pairs on 2 edge(s) | 120 | 0.17% | 98.3% | 99.5% (1,128) | switch |
+| 4c4e | 70,560 | 7.1866 | 4.3% | 19.2% | 59.4% |
+| 4c2e | 13,440 | 7.1601 | 3.3% | 18.7% | 62.7% |
+| 3c2e | 3,584 | 6.1629 | 19.2% | 61.6% | 98.7% |
+| 7c8e | 23,520 | 7.2544 | 3.2% | 16.4% | 57.4% |
+| 8c8e | 6,020 | 7.2296 | 1.7% | 14.5% | 63.0% |
+| 2c2e | 1,792 | 6.8795 | 2.7% | 23.7% | 85.7% |
+| 4c6e | 94,080 | 7.8454 | 0.60% | 4.6% | 27.2% |
+| 3c4e | 18,816 | 7.4464 | 0.98% | 9.9% | 48.0% |
+| 3c6e | 25,088 | 7.8441 | 0.64% | 4.8% | 27.1% |
+| 5c4e | 94,080 | 7.5986 | 0.82% | 7.2% | 40.3% |
+| 5c6e | 125,440 | 7.6872 | 0.66% | 6.1% | 35.7% |
+| 6c6e | 137,984 | 7.7340 | 0.59% | 5.6% | 33.1% |
 
-**4c2e, inside *pairs + side pairs/2 is exactly 1***:
+The share with a DR in at most 6 when one free option is allowed, one row per DRM:
 
-| Inside *exactly 1* | States | Share of the DRM | Sub-7 (exact) | Real attempts, RZP to 5 | Band |
-|---|---|---|---|---|---|
-| corner ARM 0 | 256 | 1.9% | 25.0% | 24.3% (2,152) | check |
-| corner ARM 1 | 656 | 4.9% | 8.5% | 8.6% (5,394) | discard |
-| corner ARM 2 | 1,240 | 9.2% | 14.2% | 14.0% (10,610) | check |
-| corner ARM 3 | 864 | 6.4% | 17.6% | 18.8% (7,180) | check |
-| corner ARM 4 | 288 | 2.1% | 25.0% | 26.9% (2,204) | check |
-| edge ARM 0 | 1,392 | 10.4% | 13.2% | 13.3% (11,390) | check |
-| edge ARM 1 | 1,912 | 14.2% | 17.6% | 18.0% (16,150) | check |
-| 4a corners | 568 | 4.2% | 18.3% | 17.9% (4,664) | check |
-| 4b corners | 1,120 | 8.3% | 17.1% | 17.3% (9,314) | check |
-| 4c corners | 1,520 | 11.3% | 13.7% | 14.4% (12,574) | check |
-| 4d corners | 96 | 0.71% | 16.7% | 15.8% (988) | check |
-| JZP | 112 | 0.83% | 42.9% | 37.2% (1,076) | check |
-
-**8c8e by pairs**:
-
-| Pairs | States | Share of the DRM | Sub-7 (exact) | Real attempts, RZP to 5 | Band |
-|---|---|---|---|---|---|
-| 0 pairs | 4 | 0.066% | 0% | 0% (22) | discard |
-| 1 pairs | 32 | 0.53% | 0% | 0% (252) | discard |
-| 2 pairs | 448 | 7.4% | 11.6% | 12.6% (3,652) | check |
-| 3 pairs | 1,376 | 22.9% | 4.1% | 4.4% (11,106) | discard |
-| 4 pairs | 2,300 | 38.2% | 11.8% | 11.3% (18,484) | check |
-| 5 pairs | 1,376 | 22.9% | 25.0% | 23.5% (11,174) | check |
-| 6 pairs | 448 | 7.4% | 32.1% | 32.1% (3,610) | check |
-| 7 pairs | 32 | 0.53% | 0% | 0% (250) | discard |
-| 8 pairs | 4 | 0.066% | >99.9% | >99.9% (26) | switch |
-
-**EO to DR by DRM, with the free options** (every case once; from my EO-to-DR study's definitions, recomputed here):
-
-| DRM | States | Mean | DR in 5 | DR in 6 | DR in 7 | In 6, EO's last turn free | In 6, last two EO turns free (F B) | In 6, better DR axis | In 6, better of normal and inverse |
-|---|---|---|---|---|---|---|---|---|---|
-| 4c4e | 70,560 | 7.1866 | 4.3% | 19.2% | 59.4% | 28.1% | 35.9% | 25.4% | 34.8% |
-| 4c2e | 13,440 | 7.1601 | 3.3% | 18.7% | 62.7% | 27.2% | 33.6% | 26.2% | 33.9% |
-| 3c2e | 3,584 | 6.1629 | 19.2% | 61.6% | 98.7% | 77.0% | 83.3% | 66.0% | 85.3% |
-| 7c8e | 23,520 | 7.2544 | 3.2% | 16.4% | 57.4% | 24.4% | 34.4% | 20.5% | 30.1% |
-| 8c8e | 6,020 | 7.2296 | 1.7% | 14.5% | 63.0% | 23.5% | 32.2% | 19.2% | 26.9% |
-| 2c2e | 1,792 | 6.8795 | 2.7% | 23.7% | 85.7% | 35.9% | 42.9% | 34.5% | 41.7% |
-| 4c6e | 94,080 | 7.8454 | 0.60% | 4.6% | 27.2% | 7.7% | 11.5% | 10.3% | 9.0% |
-| 3c4e | 18,816 | 7.4464 | 0.98% | 9.9% | 48.0% | 15.9% | 23.5% | 18.2% | 18.9% |
-| 3c6e | 25,088 | 7.8441 | 0.64% | 4.8% | 27.1% | 7.8% | 11.5% | 10.9% | 9.5% |
-| 5c4e | 94,080 | 7.5986 | 0.82% | 7.2% | 40.3% | 12.2% | 18.3% | 13.6% | 13.9% |
-| 5c6e | 125,440 | 7.6872 | 0.66% | 6.1% | 35.7% | 10.2% | 15.2% | 11.7% | 11.9% |
-| 6c6e | 137,984 | 7.7340 | 0.59% | 5.6% | 33.1% | 9.4% | 14.0% | 10.6% | 10.8% |
+| DRM | DR in 6 or fewer, EO's last turn free | DR in 6 or fewer, last two EO turns free (F B) | DR in 6 or fewer, better DR axis | DR in 6 or fewer, better of normal and inverse |
+|---|---|---|---|---|
+| 4c4e | 28.1% | 35.9% | 25.4% | 34.8% |
+| 4c2e | 27.2% | 33.6% | 26.2% | 33.9% |
+| 3c2e | 77.0% | 83.3% | 66.0% | 85.3% |
+| 7c8e | 24.4% | 34.4% | 20.5% | 30.1% |
+| 8c8e | 23.5% | 32.2% | 19.2% | 26.9% |
+| 2c2e | 35.9% | 42.9% | 34.5% | 41.7% |
+| 4c6e | 7.7% | 11.5% | 10.3% | 9.0% |
+| 3c4e | 15.9% | 23.5% | 18.2% | 18.9% |
+| 3c6e | 7.8% | 11.5% | 10.9% | 9.5% |
+| 5c4e | 12.2% | 18.3% | 13.6% | 13.9% |
+| 5c6e | 10.2% | 15.2% | 11.7% | 11.9% |
+| 6c6e | 9.4% | 14.0% | 10.6% | 10.8% |
 
 ## Appendix B: how it was computed, and what checks it
 

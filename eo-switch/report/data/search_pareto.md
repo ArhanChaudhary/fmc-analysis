@@ -1,4 +1,4 @@
-| DRM | Features | Cells | Settled (share in cells under 10% or over 50%) | Usable |
+| DRM | Features crossed | Cells in the table | Settled (share of the DRM in cells under 10% or over 50%) | Usable |
 |---|---|---|---|---|
 | 4c4e | setup turns to an R/L-quarter-turn finish | 10 | >99.9% | **computer only** |
 | 4c4e | fake pairs + setup turns to an R/L-quarter-turn finish | 30 | >99.9% | **computer only** |

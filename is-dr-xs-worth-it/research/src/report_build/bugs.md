@@ -18,9 +18,9 @@ Section A is what's wrong in the docs, B what's wrong in things said in the chan
 ## A. The docs
 
 **A1. EO Meta Comparison (Rodney): the fix costs it assumes.**
-The doc says "we assume 1 slice can be fixed in 3 moves, and 2 slices can be fixed in 5 moves", and its tables are the standard table shifted by those amounts. Here are the exact counts, from the state alone and with one turn of the slice cancelling into the move before it, which is how Rodney counts the 3 ("one ht, one qt, and -1 cancellation on the slice", [[T12410]]):
+The doc says "we assume 1 slice can be fixed in 3 moves, and 2 slices can be fixed in 5 moves", and its tables are the standard table shifted by those amounts. Here are the exact counts, from the state alone and with one turn of the slice cancelling into the move before it, which is how Rodney counts the 3 ("one ht, one qt, and -1 cancellation on the slice", [[T12410]]). Each row is a step; the columns are its fewest, most and average face turns:
 
-| | Fewest | Most | Average from the state | Average, one slice turn cancelling |
+| Step | Fewest turns | Most turns | Average turns from the state | Average turns, one slice turn cancelling |
 |---|---:|---:|---:|---:|
 | DR-1s to DR | {= FIXMIN(1) =} | {= FIXMAX(1) =} | {= FIXAVG(1) =} | {= f2(float(FIXAVG(1)) - 1) =} |
 | DR-2s to DR | {= FIXMIN(2) =} | {= FIXMAX(2) =} | {= FIXAVG(2) =} | {= f2(float(FIXAVG(2)) - 1) =} |
@@ -44,9 +44,9 @@ It is a DR-2s, not a DR-1s: four flipped edges, all of one slice, with the cente
 trangium said they could not get that line to work ([[T11234]]) and proposed "FB-colored misoriented, others oriented" instead: that one is right, it gives a DR-1s whose four flipped edges belong to one slice. count quackula's 12-bad notes say the same for green/blue: "This is a DR-2s 4fe." The other five lines of Rodney's list are right.
 
 **B2. "I would guess the distribution is basically flat", and 3 moves as the median** for DR-1s to DR (Rodney, [[T12409]], [[T12410]]).
-Of the 70 layouts:
+Of the 70 layouts, how many need each number of turns:
 
-| Turns to DR | 2 | 3 | 4 | 5 | 6 |
+| Turns to a real DR | 2 | 3 | 4 | 5 | 6 |
 |---|---:|---:|---:|---:|---:|
 | layouts | {= FIX70(2) =} | {= FIX70(3) =} | {= FIX70(4) =} | {= FIX70(5) =} | {= FIX70(6) =} |
 
@@ -60,9 +60,9 @@ Rodney's 3 is one half turn, one quarter turn and the slice with one of its two 
 Right after a trigger, with the slice free to merge into its last move, the best case is 0 extra turns, but most layouts still need 5.
 
 **B3. "If you have 8 bad edges, where all the good edges belong to the same slice, then you can orient the corners that correspond to the good edges along any axis and you are guaranteed an extra-good dr-xs"** (Rodney, [[T11255]]).
-Take the EO axis as F/B and the four good edges as the E-slice edges, so the corners in question are the white/yellow ones.
+Take the EO axis as F/B and the four good edges as the E-slice edges, so the corners in question are the white/yellow ones. Each row is where their white or yellow faces go:
 
-| Corners on | You get | Extra-good? |
+| Corners oriented on | You get | Extra-good? |
 |---|---|---|
 | U/D | a DR-2s with all eight edges flipped and the centers right | yes: no flipped edge to place |
 | R/L | a DR-2s with no edge flipped | yes: no flipped edge to place |
@@ -70,7 +70,7 @@ Take the EO axis as F/B and the four good edges as the E-slice edges, so the cor
 
 So "any axis" holds for two of the three. A flipped edge "belongs to" its home slice here, the slice it sits in when solved (as in the write-up, 5.4). On F/B, by the slice they belong to, the four flipped edges split like this over the {= sum(WS['home_split'].values()) =} layouts:
 
-| Split | 2-2 | 3-1 | 4-0 |
+| Split between their home slices | 2-2 | 3-1 | 4-0 |
 |---|---:|---:|---:|
 | layouts | {= WS['home_split']['2-2'] =} | {= WS['home_split']['3-1'] =} | {= WS['home_split']['4-0'] =} |
 

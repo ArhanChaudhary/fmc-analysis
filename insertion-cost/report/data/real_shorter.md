@@ -1,4 +1,4 @@
-| Example | By | Leftover | Skeleton | Author | Best at cap 12 with a comm plus an alg | What the author did besides inserting |
+| Example | By | Leftover | Skeleton, moves | Author's solution, moves | Best at cap 12 with a comm plus an alg, moves | What the author did besides inserting |
 |---|---|---|---:|---:|---:|---|
 | DougCube, [[N4763]] | hand | flipped 2e2e | 18 | 22 | 25 | two slice insertions (`E2 ... E2`) on top of the 3e algs |
 | DougCube, [[N5493]] | hand | 3c | 11 | 17 | 18 | a slice pair (`M' ... M`) on top of the comm |

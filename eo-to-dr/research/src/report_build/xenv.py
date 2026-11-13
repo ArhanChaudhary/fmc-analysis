@@ -222,7 +222,10 @@ def CHIP(scr, axis, what):
     while term > 1e-15:
         s += term; i += 1; term *= x / (k + i)
     p = 1 - math.exp(-x + k * math.log(x) - math.lgamma(k)) * s
-    return f'{p:.1g}' if p >= 0.001 else f'{p:.0e}'.replace('e-0', '·10^-')
+    if p >= 0.001:
+        return f'{p:.1g}'
+    m, e = f'{p:.0e}'.split('e')
+    return f'${m}\\cdot 10^{{{int(e)}}}$'
 ENV.update({k: v for k, v in list(globals().items()) if not k.startswith('_')})
 def COSETS3(): return f"{int(COSETS().replace(',', '')) / 3 / 1e6:.0f} million"
 ENV.update({k: v for k, v in list(globals().items()) if not k.startswith('_')})

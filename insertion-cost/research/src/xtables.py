@@ -105,7 +105,7 @@ def t_classes():
         rows = list(csv.DictReader(open(O + f'cases_{t}_L12.tsv'), delimiter='\t'))
         rows.sort(key=lambda r: (int(r['optimal_length']), -int(r['class_size']), int(r['class'])))
         lens = range(6 if t == '3e' else 8, 13)
-        L = ['| Shortest | A shortest alg | Pieces (from > to, + twist) | States in the class | ' + ' | '.join(f'Algs of {k}' for k in lens) + ' |', '|---:|---|---|---:|' + '---:|' * len(lens)]
+        L = ['| Shortest alg, moves | A shortest alg | Pieces (from > to, + twist) | States in the class | ' + ' | '.join(f'{k}-move algs' for k in lens) + ' |', '|---:|---|---|---:|' + '---:|' * len(lens)]
         for r in rows:
             L.append(f"| {r['optimal_length']} | `{r['representative']}` | {r['pieces (from>to+twist)']} | {r['class_size']} | " + ' | '.join(r[f'n{k}'] if r[f'n{k}'] != '0' else '' for k in lens) + ' |')
         write(f'classes_{t}', L)
@@ -121,7 +121,7 @@ def cost_rows(typ, L, model, ns, src='sample', first=None):
         out.append('| ' + ((first + ' | ') if first else '') + f"{n} | {n_(c['n'])} | {f2(mean(c)) if c['n'] > c['inf'] else ''} | " + ' | '.join(pct(c, k) for k in cost_cols(typ)) + f' | {none} |')
     return out
 def cost_head(typ, first=None):
-    return [('| ' + first + ' ' if first else '') + '| Skeleton length | Skeletons | Mean added | ' + ' | '.join(f'{k} or less' for k in cost_cols(typ)) + ' | Nothing fits |',
+    return [('| ' + first + ' ' if first else '') + '| Skeleton length | Skeletons | Mean moves added | ' + ' | '.join(f'Adds {k} or less' for k in cost_cols(typ)) + ' | Nothing fits |',
             ('|---' if first else '') + '|---:|---:|---:|' + '---:|' * (len(cost_cols(typ)) + 1)]
 def caps_of(typ):
     """(cap, model, source) blocks shown for a type, in order."""
@@ -159,8 +159,8 @@ def paired(typ):
                     '8inf': s[idx]['L8_best'] == 'inf'})
     return out
 def t_caps():
-    L = ['| Leftover | Cap 8: something fits on | Cap 8: mean added where something fits | Skeletons (cap 8) | Cap 10 | Skeletons (cap 10) | Cap 10 with a comm plus an alg | Skeletons (comm plus alg) | Cap 12 | Skeletons (cap 12) |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|']
-    P = ['| Leftover | Skeletons | Cap 8, where something fits | Nothing fits at cap 8 | Cap 10 | Cap 10 with a comm plus an alg | Cap 12 |', '|---|---:|---:|---:|---:|---:|---:|']
+    L = ['| Leftover | Cap 8: something fits on | Cap 8: mean added where something fits | Skeletons (cap 8) | Cap 10: mean added | Skeletons (cap 10) | Cap 10, a comm plus an alg: mean added | Skeletons (comm plus alg) | Cap 12: mean added | Skeletons (cap 12) |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|']
+    P = ['| Leftover | Skeletons | Cap 8: mean added where something fits | Nothing fits at cap 8 | Cap 10: mean added | Cap 10, a comm plus an alg: mean added | Cap 12: mean added |', '|---|---:|---:|---:|---:|---:|---:|']
     for typ in TYPES:
         h = head(typ); row = [SHOW[typ]]
         for cap, src in ((8, 'sample'), (10, 'sample'), (10, 'mixed'), (12, 'two12' if typ not in ('3c', '3e') else 'sample')):
@@ -176,20 +176,22 @@ def t_caps():
             P.append(f"| {SHOW[typ]} | {len(common)} | {m('8', ok8)} | {len(common) - len(ok8)} | {m('10')} | {m('10m')} | {m('12')} |")
     write('caps', L); write('caps_paired', P)
     # one alg for the whole leftover, next to two 8-move comms on the skeletons where that alg fits
-    L = ['| Leftover | Skeletons | Alg of 10 or less: fits somewhere | Alg of 10 or less: mean added | Two 8-move comms on the skeletons where an alg of 10 or less fits | Alg of 12 or less: fits somewhere | Alg of 12 or less: mean added | Two 8-move comms on the skeletons where an alg of 12 or less fits |', '|---|---:|---:|---:|---:|---:|---:|---:|']
+    T = {k: [f'| Leftover | Skeletons | Alg of {c} or less: fits somewhere | Alg of {c} or less: mean added | Two 8-move comms on the skeletons where an alg of {c} or less fits: mean added | Of those skeletons, two 8-move comms fit on |', '|---|---:|---:|---:|---:|---|'] for k, c in ((1, 10), (2, 12))}
     for typ in TYPES:
         if typ in ('3c', '3e'): continue
         rows = [r for r in sample_cols(typ, 20, ['L8_two', 'L10_direct', 'L12_direct']) if r[0] not in ('nc', 'na')]
-        cells = [SHOW[typ], n_(len(rows))]
         for k in (1, 2):
+            cells = [SHOW[typ], n_(len(rows))]
             fit = [r for r in rows if r[k] not in ('inf', 'nc', 'na')]
-            if not fit: cells += ['0', '', '']; continue
-            two = [int(r[0]) for r in fit if r[0] != 'inf']
-            cells += [fmt(len(fit), len(rows)), f2(sum(int(r[k]) for r in fit) / len(fit)), (f2(sum(two) / len(two)) + ('' if len(two) == len(fit) else f' (two comms fit on {len(two):,} of them)')) if two else 'two 8-move comms never fit']
-        L.append('| ' + ' | '.join(cells) + ' |')
-    write('direct', L)
+            if not fit: cells += ['0', '', '', '']
+            else:
+                two = [int(r[0]) for r in fit if r[0] != 'inf']
+                cells += [fmt(len(fit), len(rows)), f2(sum(int(r[k]) for r in fit) / len(fit)), f2(sum(two) / len(two)) if two else 'two 8-move comms never fit',
+                          'all of them' if len(two) == len(fit) else f'{len(two):,}']
+            T[k].append('| ' + ' | '.join(cells) + ' |')
+    write('direct', T[1]); write('direct_12', T[2])
     # nesting, cap 8, the types that two comms solve
-    L = ['| Leftover | Skeletons in the sample | Of them, all three ways have a solution | Two comms, nesting allowed | No nesting | The two not touching | Best needs nesting |', '|---|---:|---:|---:|---:|---:|---:|']
+    L = ['| Leftover | Skeletons in the sample | Of them, all three ways have a solution | Nesting allowed: mean added | No nesting: mean added | The two not touching: mean added | Best needs nesting |', '|---|---:|---:|---:|---:|---:|---:|']
     for typ in TYPES:
         if typ in ('3c', '3e'): continue
         rows = []; tot = 0
@@ -226,9 +228,10 @@ def sample_cols(typ, n, cols, pre='sample'):
 def third(i, n): return min(2, 3 * i // (n + 1))
 def t_one():
     A = ['| Skeleton length | No 8-mover fits | 8-0 | 8-1 | 8-2 | 8-3 | 8-4 | 8-5 | 8-6 or more |', '|---:|' + '---:|' * 8]
-    B = ['| Skeleton length | An 8-mover is as good as anything up to 10 | A 9-mover beats every 8-mover and no 10-mover beats it | A 10-mover beats every 8- and 9-mover | No alg of up to 10 moves fits | When a 10-mover beats every 8- and 9-mover: by one move only | An 11- or 12-mover beats everything up to 10 | Skeletons where an 8-mover fits | Mean added on those skeletons, cap 8 | Same skeletons, cap 9 | Same skeletons, cap 10 | Same skeletons, cap 12 |', '|---:|' + '---:|' * 11]
+    B = ['| Skeleton length | An 8-mover is as good as anything up to 10 | A 9-mover beats every 8-mover and no 10-mover beats it | A 10-mover beats every 8- and 9-mover | No alg of up to 10 moves fits | When a 10-mover beats every 8- and 9-mover: by one move only | An 11- or 12-mover beats everything up to 10 | Skeletons where an 8-mover fits | Mean added on those skeletons, cap 8 | Same skeletons, cap 9: mean added | Same skeletons, cap 10: mean added | Same skeletons, cap 12: mean added |', '|---:|' + '---:|' * 11]
     C = ['| Skeleton length | Cap 8: first third | Cap 8: middle third | Cap 8: last third | Cap 10: first third | Cap 10: middle third | Cap 10: last third |', '|---:|' + '---:|' * 6]
-    S = ['| Skeleton length | Every other move finds the best | Every other move: mean loss | Best is 8-3 or better: every other move finds it | Best is 8-3 or better and missed: the best was | Best is 8-3 or better and missed: next to two opposite-face moves | All misses of every other move: next to two opposite-face moves | Every third move finds the best | Every third move: mean loss | Best is 8-3 or better: every third move finds it |', '|---:|---:|---:|---:|---|---:|---:|---:|---:|---:|']
+    S = ['| Skeleton length | Every other move finds the best | Every other move: mean loss, moves | All misses of every other move: next to two opposite-face moves | Every third move finds the best | Every third move: mean loss, moves |', '|---:|---:|---:|---:|---:|---:|']
+    SG = ['| Skeleton length | Best is 8-3 or better: every other move finds it | Best is 8-3 or better: every third move finds it | Best is 8-3 or better and every other move missed it: walks | Of those, the best was 8-3 | Of those, the best was 8-4 | Of those, next to two opposite-face moves |', '|---:|---:|---:|---:|---:|---:|---:|']
     for n in NS:
         P = onepos(n); N = len(P)
         m8 = [mn(p[0]) for p in P]; m9 = [mn(p[1]) for p in P]; m10 = [mn(p[2]) for p in P]
@@ -277,10 +280,13 @@ def t_one():
                         if b <= 5: missed[8 - b] += 1; near += nr
             return found, loss, good, goodfound, missed, tot, near, nearall
         f2_, l2, g2, gf2, ms2, t2, nr2, na2 = skip(2); f3, l3, g3, gf3, ms3, t3, nr3, na3 = skip(3)
-        S.append(f"| {n} | {fmt(f2_, t2)} | {f2(l2 / t2)} | {fmt(gf2, g2)} | {', '.join(f'8-{k} ({v})' for k, v in sorted(ms2.items())) or 'none missed'} | {nr2} of {sum(ms2.values())} | {fmt(na2, t2 - f2_)} | {fmt(f3, t3)} | {f2(l3 / t3)} | {fmt(gf3, g3)} |")
-    write('one_cancel', A); write('one_longer', B); write('one_thirds', C); write('one_skip', S)
+        S.append(f"| {n} | {fmt(f2_, t2)} | {f2(l2 / t2)} | {fmt(na2, t2 - f2_)} | {fmt(f3, t3)} | {f2(l3 / t3)} |")
+        assert set(ms2) <= {3, 4}, (n, ms2)
+        SG.append(f"| {n} | {fmt(gf2, g2)} | {fmt(gf3, g3)} | {sum(ms2.values())} | {ms2[3]} | {ms2[4]} | {nr2} |")
+    write('one_cancel', A); write('one_longer', B); write('one_thirds', C); write('one_skip', S); write('one_skip_good', SG)
     # going three spots on, not two, after a spot whose case has a shortest alg of 10 moves (paulduc03's question)
-    Q = ['| Skeleton length | Spots whose case needs a 10-mover | An 8-3 or better at the next spot | An 8-3 or better two spots on | Walks on skeletons with a best of 8-3 or better | Every other move misses it | Three spots on after a 10-move case misses it |', '|---:|---:|---:|---:|---:|---:|---:|']
+    Q = ['| Skeleton length | Spots whose case needs a 10-mover | An 8-3 or better at the next spot | An 8-3 or better two spots on |', '|---:|---:|---:|---:|']
+    QW = ['| Skeleton length | Walks on skeletons with a best of 8-3 or better | Every other move misses it: walks | Every other move misses it: share | Three spots on after a 10-move case misses it: walks | Three spots on after a 10-move case misses it: share |', '|---:|---:|---:|---:|---:|---:|']
     TS = {}
     for n in NS:
         P = onepos(n); ten = nxt = two = 0; good = plain = rule = 0
@@ -300,8 +306,9 @@ def t_one():
                     seen.add(i); i += 3 if (c8[i] is None and c9[i] is None and c10[i] is not None) else 2
                 rule += mn([c8[i] for i in sorted(seen)]) != b
         TS[n] = {'ten': ten, 'next': nxt, 'two': two, 'walks': good, 'plain_miss': plain, 'rule_miss': rule}
-        Q.append(f'| {n} | {ten:,} | {fmt(nxt, ten)} | {fmt(two, ten)} | {good:,} | {plain:,} ({fmt(plain, good)}) | {rule:,} ({fmt(rule, good)}) |')
-    write('ten_skip', Q); json.dump(TS, open(O + 'ten_skip.json', 'w'), indent=1)
+        Q.append(f'| {n} | {ten:,} | {fmt(nxt, ten)} | {fmt(two, ten)} |')
+        QW.append(f'| {n} | {good:,} | {plain:,} | {fmt(plain, good)} | {rule:,} | {fmt(rule, good)} |')
+    write('ten_skip', Q); write('ten_skip_walks', QW); json.dump(TS, open(O + 'ten_skip.json', 'w'), indent=1)
     # position by position, skeletons of 20 moves, cap 8
     P = onepos(20); n = 20; N = len(P)
     groups = [('before the first move', [0]), ('after move 1', [1]), ('after move 2', [2]), ('after moves 3 to 17 (each)', list(range(3, 18))), ('after move 18', [18]), ('after move 19', [19]), ('after the last move', [20])]
@@ -373,8 +380,9 @@ def t_exchange():
 def t_if():
     rows = list(csv.reader(open(O + 'if_compare.tsv'), delimiter='\t')); hd = rows[0]
     cases = {l.split('\t')[2]: l.rstrip('\n').split('\t') for l in open(O + 'if_cases.tsv')}
-    L = ['| Insertion Finder page | Skeleton | Insertion Finder | This search, cap 8 | Cap 10 | Cap 12 |', '|---|---|---:|---:|---:|---:|']
-    N = ['| Insertion Finder page | Skeleton | Insertion Finder | Why it is not compared |', '|---|---|---:|---|']
+    L = ['| Insertion Finder page | Skeleton | Insertion Finder, moves | This search, cap 8, moves | Cap 10, moves | Cap 12, moves |', '|---|---|---:|---:|---:|---:|']
+    H = ['| Insertion Finder page | Cap 8: what was inserted | Cap 10: what was inserted | Cap 12: what was inserted |', '|---|---|---|---|']
+    N = ['| Insertion Finder page | Skeleton | Insertion Finder, moves | Why it is not compared |', '|---|---|---:|---|']
     for r in rows[1:]:
         d = dict(zip(hd, r)); url = cases[d['page']][6]
         if d['L8 best'] == '-':
@@ -383,9 +391,10 @@ def t_if():
         def best(Lc):
             b = d[f'L{Lc} best']; which = [m for m in ('direct', 'two', 'mixed') if d[f'L{Lc} {m}'].rstrip('n') == b]
             name = {'direct': 'one alg', 'two': 'two comms', 'mixed': 'a comm plus an alg'}[which[0]]
-            return f'{b} ({name})'
-        L.append(f"| [{d['IF says']}]({url}) | {d['skeleton length']} moves | {d['IF length']} | {best(8)} | {best(10)} | {best(12)} |")
-    write('if_pages', L); write('if_pages_not', N)
+            return b, name
+        L.append(f"| [{d['IF says']}]({url}) | {d['skeleton length']} moves | {d['IF length']} | {best(8)[0]} | {best(10)[0]} | {best(12)[0]} |")
+        H.append(f"| {d['IF says']} | {best(8)[1]} | {best(10)[1]} | {best(12)[1]} |")
+    write('if_pages', L); write('if_pages_how', H); write('if_pages_not', N)
 
 # ---------------------------------------------------------------- the estimates people gave, next to the computed means
 EST = [  # leftover, the tutorial's table, what was posted (who, figure)
@@ -399,14 +408,20 @@ EST = [  # leftover, the tutorial's table, what was posted (who, figure)
 ]
 def t_estimates():
     """Each computed cell carries the number of skeletons behind it."""
-    L = ['| Leftover | The tutorial\'s table | Posted on the server | Random skeletons of 16 moves, cap 8: mean added (skeletons) | Random, 20 moves, cap 8 | Random, 20 moves, cap 10 | Random, 20 moves, cap 12 |', '|---|---:|---|---:|---:|---:|---:|']
-    def m(typ, n, cap, src='sample'):
-        c = cell(typ, n, cap, head(typ), src)
-        if not c: return 'not run'
-        return f2(mean(c)) + (f" ({n_(c['n'])}; fits on {fmt(c['n'] - c['inf'], c['n'])})" if c['inf'] > c['n'] * 0.005 else f" ({n_(c['n'])})")
+    L = ['| Leftover | The tutorial\'s table | Posted on the server | Random, 16 moves, cap 8: mean added | Random, 20 moves, cap 8: mean added | Random, 20 moves, cap 10: mean added | Random, 20 moves, cap 12: mean added |', '|---|---:|---|---:|---:|---:|---:|']
+    K = ['| Leftover | 16 moves, cap 8: skeletons | 16 moves, cap 8: something fits on | 20 moves, cap 8: skeletons | 20 moves, cap 10: skeletons | 20 moves, cap 12: skeletons |', '|---|---:|---:|---:|---:|---:|']
+    def c_(typ, n, cap, src='sample'): return cell(typ, n, cap, head(typ), src)
+    def m(c): return f2(mean(c)) if c else 'not run'
+    def k(c): return n_(c['n']) if c else 'not run'
+    def fits(c):
+        assert c['inf'] == 0 or c['inf'] > c['n'] * 0.005, c
+        return fmt(c['n'] - c['inf'], c['n']) if c['inf'] else 'every one'
     for typ, tr, posted in EST:
-        L.append(f"| {SHOW[typ]} | {tr} | {posted} | {m(typ, 16, 8)} | {m(typ, 20, 8)} | {m(typ, 20, 10)} | {m(typ, 20, 12, 'sample' if typ == '3c' else 'two12')} |")
-    write('estimates', L)
+        cs = [c_(typ, 16, 8), c_(typ, 20, 8), c_(typ, 20, 10), c_(typ, 20, 12, 'sample' if typ == '3c' else 'two12')]
+        assert all(c['inf'] <= c['n'] * 0.005 for c in cs[1:] if c), typ     # only the 16-move cell ever showed a share
+        L.append(f"| {SHOW[typ]} | {tr} | {posted} | " + ' | '.join(m(c) for c in cs) + ' |')
+        K.append(f"| {SHOW[typ]} | {k(cs[0])} | {fits(cs[0])} | " + ' | '.join(k(c) for c in cs[1:]) + ' |')
+    write('estimates', L); write('estimates_n', K)
 THRESH = [  # who, what was said, type, length, target
     ('the tutorial', '3c in 23: "you will probably get it" (sub-30)', '3c', 23, 29),
     ('the tutorial', '3c in 25: "you will need some luck" (sub-30)', '3c', 25, 29),

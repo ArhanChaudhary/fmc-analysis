@@ -7,26 +7,36 @@ import hand_corner_tables as H          # also rewrites report/data/corner_cases
 
 MERGE = [('25', '21'), ('11', '13')]     # look-alike cases with no visible test: one pooled row
 def single(cs, named=False):
+    """Three tables: what each case looks like, how it finishes, and a typical DR of it."""
     tot = sum(sum(h) for h in H.one[cs].values())
     pooled = {}
     for a, b in MERGE:
         if a in H.one[cs] and b in H.one[cs]:
             pooled[a] = (b, [x + y for x, y in zip(H.one[cs][a], H.one[cs][b])])
-    head = '| Bad corners |' + (' Subset |' if named else '') + f' L | A qt takes it straight to | Share | {H.ODDS_HEAD} | A typical DR (its optimal) |'
-    out = [head, '|---|' + ('---|' if named else '') + '---|---|---:|---:|---:|---:|---:|---|']
+    look = ['| Bad corners |' + (' Subset |' if named else '') + ' L | A qt takes it straight to | Share of the subset |', '|---|' + ('---|' if named else '') + '---|---|---:|']
+    odds = [f'| Bad corners | {H.ODDS_HEAD} |', '|---|---:|---:|---:|---:|']
+    typ = ['| Bad corners | A typical DR | Its optimal, moves |', '|---|---|---:|']
     items = [(k, pooled[k][1] if k in pooled else h) for k, h in H.one[cs].items() if k not in {b for b, _ in pooled.values()}]
     for k, h in sorted(items, key=lambda kv: H.st(kv[1])[1]):
         c = H.cc[k]
         if k in pooled:
             o = H.cc[pooled[k][0]]
             lo, hi = min(int(c[5]), int(o[5])), max(int(c[6]), int(o[6]))
-            out.append(f"| {H.layout(int(c[2]))} (two cases that look the same) |" + (f" {c[1]} |" if named else '') + f" {lo}–{hi} | {c[10] or 'nothing, needs a setup'} | {100*sum(h)/tot:.0f}% | {H.odds(h)} | `{H.TYP[k][0]}` ({H.TYP[k][1]}) or `{H.TYP[pooled[k][0]][0]}` ({H.TYP[pooled[k][0]][1]}) |")
+            name = f"{H.layout(int(c[2]))} (two cases that look the same)"
+            look.append(f"| {name} |" + (f" {c[1]} |" if named else '') + f" {lo}–{hi} | {c[10] or 'nothing, needs a setup'} | {100*sum(h)/tot:.0f}% |")
+            odds.append(f"| {name} | {H.odds(h)} |")
+            typ.append(f"| {name}, one | `{H.TYP[k][0]}` | {H.TYP[k][1]} |")
+            typ.append(f"| {name}, the other | `{H.TYP[pooled[k][0]][0]}` | {H.TYP[pooled[k][0]][1]} |")
             continue
         tell = {'8': '; back-face diagonals agree', '7': '; back-face diagonals differ'}.get(k, '')
-        out.append(f"| {H.layout(int(c[2]))}{tell} |" + (f" {c[1]} |" if named else '') + f" {c[5]}–{c[6]} | {c[10] or 'nothing, needs a setup'} | {100*sum(h)/tot:.0f}% | {H.odds(h)} | `{H.TYP[k][0]}` ({H.TYP[k][1]}) |")
-    return '\n'.join(out)
+        name = f"{H.layout(int(c[2]))}{tell}"
+        look.append(f"| {name} |" + (f" {c[1]} |" if named else '') + f" {c[5]}–{c[6]} | {c[10] or 'nothing, needs a setup'} | {100*sum(h)/tot:.0f}% |")
+        odds.append(f"| {name} | {H.odds(h)} |")
+        typ.append(f"| {name} | `{H.TYP[k][0]}` | {H.TYP[k][1]} |")
+    return '\n'.join(look + ['', 'How each case finishes, same rows: the share of its DRs finishing in 10, 11, 12 and 13 or less.', ''] + odds
+                     + ['', 'A typical DR of each case, with its optimal finish:', ''] + typ)
 
-BOTH_HEAD = [f'| Normal and inverse | Share | {H.ODDS_HEAD} |', '|---|---:|---:|---:|---:|---:|']
+BOTH_HEAD = [f'| Normal and inverse | Share of the subset | {H.ODDS_HEAD} |', '|---|---:|---:|---:|---:|---:|']
 def pair_hist(cs, pred):
     acc = [0] * 19
     for k, h in H.two[cs].items():
@@ -64,36 +74,37 @@ How to read the tables:
 
 - "A qt takes it straight to" means some U or D quarter turn lowers the corner qt count right away, with no setup.
 - L is the range of optimal corner solution lengths the case can have.
-- The last column is a typical DR of the case: a state whose optimal is the median for that case, with that optimal in brackets.
+- Each subset gets three tables: what the cases look like, how they finish, and a typical DR of each case (a state whose optimal is the median for that case).
+- "Both sides together" tables: each row is a combination of the cases on normal and on inverse, with its share of the subset and how it finishes.
 
-**2c4** (wen's stacks). Seven cases. Two of them have the same bad corners and are told apart by the back face, as explained under the table:
+**2c4** (wen's stacks). Seven cases. Two of them have the same bad corners and are told apart by the back face, as explained under the tables. One case per row:
 
 {single('2c4')}
 
 {H.BACK_FACE_NOTE}
 
-Both sides together:
+Both sides together, one row per combination of the cases on normal and on inverse:
 
 {both('2c4', [('the best case on both sides (adjacent, a qt straight to 2c3, first row)', lambda a, b: a == b == '2c4-1'),
               ('no stack on either side, and a qt goes straight to 2c3 or 4b3 on both', lambda a, b: straight(a) and straight(b) and not stk(a) and not stk(b)),
               ('a stack on one side only', lambda a, b: stk(a) != stk(b)),
               ('a stack on both sides', lambda a, b: stk(a) and stk(b))])}
 
-So a double stack is as dead as a 5qt at every target, and the best layout on both sides is as good as the last row:
+So a double stack is as dead as a 5qt at every target, and the best layout on both sides is as good as the last row. Each row is a kind of DR, with the share finishing in 10, 11, 12 and 13 or less:
 
-| | In 10 / 11 / 12 / 13 |
-|---|---|
-| a stack on both sides | {Q(pair_hist('2c4', lambda a, b: stk(a) and stk(b)))} |
-| all 5qt DRs | {Q(pv.q(group='5qt'))} |
-| an average 2c3 4e | {Q(pv.q(cs='2c3', e=4))} |
+| DRs | {H.ODDS_HEAD} |
+|---|---:|---:|---:|---:|
+| a stack on both sides | {pv.cells(pair_hist('2c4', lambda a, b: stk(a) and stk(b)))} |
+| all 5qt DRs | {pv.cells(pv.q(group='5qt'))} |
+| an average 2c3 4e | {pv.cells(pv.q(cs='2c3', e=4))} |
 
     U2 L2 D' F2 U' R2 U F2 D L2 U2   // the fastest any double-stacked 2c4 finishes: 11
 
-**2c5.** Three cases:
+**2c5.** Three cases, one per row:
 
 {single('2c5')}
 
-Both sides together:
+Both sides together, one row per combination of the cases on normal and on inverse:
 
 {both('2c5', [('adjacent on both sides', lambda a, b: adj(a) and adj(b)),
               ('adjacent and opposite', lambda a, b: (adj(a) and opp(b)) or (opp(a) and adj(b))),
@@ -112,7 +123,7 @@ The last two rows are 19% of all 2c5, and you can drop them on sight whatever yo
 
 The row marked "two cases that look the same" is two corner cases with the same bad corners and no quarter turn that lowers the count. I have not found a visible test that separates them, so the row gives their odds together. Apart, they are {Q(H.one['4c3']['11'])} and {Q(H.one['4c3']['13'])} (in 10 / 11 / 12 / 13), and only the optimal corner solution tells you which: 8 moves is the better one, 10 the worse one, and with 9 it can be either.
 
-Both sides together:
+Both sides together, one row per combination of the cases on normal and on inverse:
 
 {extremes('4c3')}
 
@@ -122,15 +133,15 @@ Both sides together:
 
 The 3-1 row is two corner cases that look the same (Daichi's "3-1 good parity" and "3-1 bad parity"). I have not found a visible test that separates them, so the row gives their odds together. Apart, they are {Q(H.one['4b2']['25'])} and {Q(H.one['4b2']['21'])} (in 10 / 11 / 12 / 13), and only the optimal corner solution tells you which: 4 moves is the better one, 8 the worse one, and with 5 to 7 it can be either.
 
-Both sides together:
+Both sides together, one row per combination of the cases on normal and on inverse:
 
 {extremes('4b2')}
 
-**4a2.** The widest spread of the low-qt subsets:
+**4a2.** The widest spread of the low-qt subsets. One case per row:
 
 {single('4a2')}
 
-Both sides together:
+Both sides together, one row per combination of the cases on normal and on inverse:
 
 {extremes('4a2')}
 

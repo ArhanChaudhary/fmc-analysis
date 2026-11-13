@@ -1,4 +1,4 @@
-| Fewest turns to a real DR, from the better side | Share of DR-1s | Average finish | Against a DR | In 14 or less | In 15 or less |
+| Fewest turns to a real DR, from the better side | Share of DR-1s | Average finish, moves | Average finish minus a DR's, moves | Finish in 14 or less | Finish in 15 or less |
 |---:|---:|---:|---:|---:|---:|
 | 2 | 2.8% | 14.52 | +0.94 | 46% | 81% |
 | 3 | 5.5% | 15.15 | +1.57 | 25% | 59% |

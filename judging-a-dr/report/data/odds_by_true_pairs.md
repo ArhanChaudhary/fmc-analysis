@@ -1,4 +1,4 @@
-**Share finishing in 10 or less**
+**Share finishing in 10 or less.** Each row is a subset, each column a number of true pairs:
 
 | Subset | 0 pairs | 1 | 2 | 3 | 4 | 5 | 6 or more |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -51,7 +51,7 @@
 | 4b5 2e | <0.01% | <0.01% | 0.01% | 0.02% | 0.07% | 0.11% | 0.20% |
 | 4b5 4e | 0 | <0.01% | <0.01% | 0.01% | 0.03% | 0.06% | 0.34% |
 
-**Share finishing in 11 or less**
+**Share finishing in 11 or less.** Each row is a subset, each column a number of true pairs:
 
 | Subset | 0 pairs | 1 | 2 | 3 | 4 | 5 | 6 or more |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -104,7 +104,7 @@
 | 4b5 2e | 0.04% | 0.06% | 0.18% | 0.29% | 0.54% | 0.94% | 1.6% |
 | 4b5 4e | 0.01% | 0.05% | 0.09% | 0.18% | 0.44% | 0.83% | 2.4% |
 
-**Share finishing in 12 or less**
+**Share finishing in 12 or less.** Each row is a subset, each column a number of true pairs:
 
 | Subset | 0 pairs | 1 | 2 | 3 | 4 | 5 | 6 or more |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -157,7 +157,7 @@
 | 4b5 2e | 0.63% | 0.93% | 1.7% | 2.7% | 4.1% | 6.2% | 8.9% |
 | 4b5 4e | 0.41% | 0.77% | 1.3% | 2.2% | 4.1% | 6.4% | 12% |
 
-**Share finishing in 13 or less**
+**Share finishing in 13 or less.** Each row is a subset, each column a number of true pairs:
 
 | Subset | 0 pairs | 1 | 2 | 3 | 4 | 5 | 6 or more |
 |---|---:|---:|---:|---:|---:|---:|---:|

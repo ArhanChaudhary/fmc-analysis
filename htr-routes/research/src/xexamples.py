@@ -177,14 +177,14 @@ for j, (r, t, w, t2r) in enumerate(zip(states, t1, Ws, t2)):
     for c, _ in checklist[sub]:
         check((c in found_b) == (c in r['_bin']['b']) and (c in found_n) == (c in r['_bin']['n']),
               (sub, r['idx'], 'class vs main run', c))
-    lines_cl = ['| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |', '|---:|---|---:|---|']
+    lines_cl = ['| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |', '|---:|---|---:|---|---|']
     worked = []
     first_b = first_n = None
     for pos, (c, cum) in enumerate(checklist[sub], 1):
         yb, yn = c in found_b, c in found_n
         if yb and first_b is None: first_b = pos
         if yn and first_n is None: first_n = pos
-        lines_cl.append(f"| {pos} | {cls_txt(c)} | {cum * 100:.1f}% | {'yes' if yb else 'no'} / {'yes' if yn else 'no'} |")
+        lines_cl.append(f"| {pos} | {cls_txt(c)} | {cum * 100:.1f}% | {'yes' if yb else 'no'} | {'yes' if yn else 'no'} |")
         if yn:
             (h, invf, fi), fi, k, side = best[c]
             mv = fins[fi]
@@ -246,6 +246,7 @@ for j, (r, t, w, t2r) in enumerate(zip(states, t1, Ws, t2)):
             f"{niss} with NISS.")
     body = ['<details><summary>Optimal finish, checklist and bounding</summary>', '',
             f"Optimal: {d} moves ({len(fins)} optimal finish{'es' if len(fins) != 1 else ''}, counting both orders of commuting moves).", '',
+            "Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.", '',
             *lines_cl, '']
     body += (worked or ['- None of these classes finds an optimal finish on this DR.']) + ['']
     body += red_lines + ['', '</details>', '']
@@ -253,7 +254,7 @@ for j, (r, t, w, t2r) in enumerate(zip(states, t1, Ws, t2)):
 
 # ------------------------------------------------------------------------------------- page
 n = len(states)
-summ = '\n'.join(f"| {k} | {tally[k]} ({tally[k] / n * 100:.0f}%) | {tally_n[k]} |" for k in range(1, NCLS + 1))
+summ = '\n'.join(f"| {k} | {tally[k]} | {tally[k] / n * 100:.0f}% | {tally_n[k]} |" for k in range(1, NCLS + 1))
 parts = []
 for g in ORDER:
     subs = [s for s in top if s.split()[0] == g]
@@ -269,7 +270,7 @@ Examples to play along with the write-up ([WRITEUP.md](WRITEUP.md)). Find the fi
 
 These are {n} DR states, the first {NPER} of the study's uniform sample in each of the {NSUB} most common subsets with their edge counts (together {sum(size[s] for s in top) / TOTAL * 100:.0f}% of all DR states). Nothing is hand-picked, so they're as hard or as easy as real DRs of that subset. Each scramble is a random DR followed by DR moves to the state, so it doesn't give the finish away.
 
-**How to read it.** Finishes stay in DR (U, D, R2, L2, F2, B2); optimal means the shortest such finish, E slice solved. A route class like `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` is the corner subset at the start and after each quarter turn until HTR, in the first study's names (4a3 and 4b3 by side: they swap on inverse); the part in brackets is done on the other side after a NISS switch. A class ending in `| qt` has a quarter turn after HTR (an HTR-breaking finish); every other class finishes in half turns from HTR. The checklist of each subset is the one in the write-up (greedy order, HTR budget 2, target optimal), with the share of the subset's 25,000 sampled states it covers after each class. A class *finds an optimal here* if some optimal finish can be read in that class with an HTR at most 2 moves longer than this DR's shortest NISS HTR (first answer), or with any HTR (second). The HTR length counts the moves on both sides until HTR. NISS is written as usual, inverse moves in brackets; "normal first" says which side you start on:
+**How to read it.** Finishes stay in DR (U, D, R2, L2, F2, B2); optimal means the shortest such finish, E slice solved. A route class like `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` is the corner subset at the start and after each quarter turn until HTR, in the first study's names (4a3 and 4b3 by side: they swap on inverse); the part in brackets is done on the other side after a NISS switch. A class ending in `| qt` has a quarter turn after HTR (an HTR-breaking finish); every other class finishes in half turns from HTR. The checklist of each subset is the one in the write-up (greedy order, HTR budget 2, target optimal), with the share of the subset's 25,000 sampled states it covers after each class. A class *finds an optimal here* if some optimal finish can be read in that class with an HTR at most 2 moves longer than this DR's shortest NISS HTR (first of the two columns), or with any HTR (second). The HTR length counts the moves on both sides until HTR. NISS is written as usual, inverse moves in brackets; "normal first" says which side you start on:
 
 ```
 R2 U (D F2)   // R2 U on normal, then D F2 on the inverse
@@ -281,10 +282,10 @@ The bounding lines give the shortest reduction that keeps an optimal finish: mov
 
 **Replay check.** Every move sequence on this page was replayed on the sticker model before the page was written: {REPLAYED[0]:,} checks (each scramble gives the state and its labels on both sides, every optimal finish solves it in the stated length, each printed reading has the stated class and HTR length when re-simulated move by move, each reduction leads to a state of the stated kind that the rest solves; the classes found agree with the main run on every state, and the 1q reduction length with the bounding run's one-quarter-turn reading), {len(MISMATCH)} mismatches.
 
-**In these {n}**, the subset's checklist finds an optimal finish after its first k classes on this many states:
+**In these {n}**, the subset's checklist finds an optimal finish after its first k classes on this many states. Each row is a value of k:
 
-| k | HTR within 2 | Any HTR |
-|---|---|---|
+| k | States, HTR within 2 | Share of the {n}, HTR within 2 | States, any HTR |
+|---|---|---|---|
 {summ}
 
 """

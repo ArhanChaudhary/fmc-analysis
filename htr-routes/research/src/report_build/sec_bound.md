@@ -4,13 +4,21 @@ The method of Levi Gibson's *DR Bounding* doc: "1. Find many reductions to the 1
 
 What I measure here is the method's ceiling. Write every reduction to 1q of at most R moves (on normal, on inverse, or split between them, section 3) and finish each reduced state optimally, with however many quarter turns that takes: how often is one of them the optimal finish of the DR, and how many reductions is that? The search over reductions is exact. Reductions are counted the way a solver writes them (each side's sequence empty or ending in a quarter turn), exactly, by table. Sampled: the first 4,000 states per subset × edges; shares have standard errors of at most {= f1(E['q8_se_max_corner'] * 100) =} points per corner subset.
 
+Each row is a subset; each cell is the share of DRs where some reduction to 1q of at most R moves leads to an optimal finish:
+
 {{bounding}}
 
-Each cell is the share of DRs where some reduction of at most R moves leads to an optimal finish / the mean number of reductions of at most R moves. Counts for R = 7 aren't reported: the table that counts them was checked against brute force only up to 5 moves on every subset and up to 7 on 40 states of 0c0, so for R ≤ 7 the table gives the share only (that comes from the exact search). The last three columns are a finish within +1 with reductions of at most 4; a finish of 12 or better with reductions of at most 5 (for DRs that have one); and reductions to 2q of at most 3 moves.
+How many reductions that is, the mean number of reductions of at most R moves per DR, same rows. Counts for R = 7 aren't reported: the table that counts them was checked against brute force only up to 5 moves on every subset and up to 7 on 40 states of 0c0, so for R ≤ 7 the table above gives the share only (that comes from the exact search).
+
+{{bounding_counts}}
+
+Other targets, same rows: a finish within +1 with reductions of at most 4; a finish of 12 or better with reductions of at most 5 (for DRs that have one); and reductions to 2q of at most 3 moves, with how many there are:
+
+{{bounding_other}}
 
 What it says:
 
-**Which subsets suit it depends on R.** Share where bounding finds the optimal:
+**Which subsets suit it depends on R.** Each row is a subset; each cell is the share where bounding finds the optimal:
 
 | Subset | R ≤ 4 | R ≤ 6 |
 |---|---|---|
@@ -22,7 +30,7 @@ What it says:
 
 So at R ≤ 6, 4a1 and 4b2 overtake 4a2. On 2c5 and 4b5 no reduction of 5 or less reaches 4a1 4e at all (it takes at least 6), and 4c4 and 2c4 are close to that.
 
-**Each extra move of reduction costs a lot.** The number of reductions grows {= f1(E['q8_growth'][0]) =} to {= f1(E['q8_growth'][1]) =} times from 5 to 6 moves. Over all DRs:
+**Each extra move of reduction costs a lot.** The number of reductions grows {= f1(E['q8_growth'][0]) =} to {= f1(E['q8_growth'][1]) =} times from 5 to 6 moves. The mean number of reductions per DR, over all DRs:
 
 | | R ≤ 4 | R ≤ 5 | R ≤ 6 |
 |---|---|---|---|
@@ -34,14 +42,14 @@ With the bounds doing their job you only finish a few of them, but you still wri
 
 **Within +1** is much easier: at most 4 moves gives a finish within +1 on {= pc(Q8('all', '1', '4', 'found_p1')) =} of DRs.
 
-**The one-quarter-turn reading** (the reduction, then a finish with exactly one quarter turn, which is what JTuu's simulation counted) finds less. At R ≤ 4:
+**The one-quarter-turn reading** (the reduction, then a finish with exactly one quarter turn, which is what JTuu's simulation counted) finds less. Each row is a subset; each cell is the share where some reduction of at most 4 finds the optimal, read each way:
 
 | Subset | One-qt finish | Any finish |
 |---|---|---|
 | 2c3 | {= pc(E['q8w']['2c3|1|4']['found_opt']) =} | {= pc(Q8('2c3', '1', '4', 'found_opt')) =} |
 | 4b2 | {= pc(E['q8w']['4b2|1|4']['found_opt']) =} | {= pc(Q8('4b2', '1', '4', 'found_opt')) =} |
 
-**Against the checklists.** How often does bounding find the optimal per subset, and how many reductions does that take? Here's the smallest R for which bounding finds the optimal on 80% of a subset, with the reductions that is, against how many routes the checklist of section 4 needs for 80%:
+**Against the checklists.** How often does bounding find the optimal per subset, and how many reductions does that take? Here's the smallest R for which bounding finds the optimal on 80% of a subset, with the reductions that is, against how many routes the checklist of section 4 needs for 80%, one row per corner subset:
 
 {{bounding_vs_checklist}}
 
@@ -49,9 +57,11 @@ Bounding gets to 80% with short reductions on 0c0 (3) and 4a1 (5), and to about 
 
 **For a human the bounding column is mostly out of reach.** Each extra move of reduction multiplies the reductions by about eight, and in an attempt you write tens, maybe a couple of hundred (R ≤ 4 is about {= n(round(float(Q8('all', '1', '4', 'mean_reductions_le_R')))) =} on average). So only the 0c0 entry (R = 3, about {= n(round(float(Q8('0c0', '1', '3', 'mean_reductions_le_R')))) =} reductions) is a practical recommendation. Every entry with R of 5 or more, thousands of reductions, is **computer only**: it shows where the optimal lies, not how to find it. Plan an attempt with the R ≤ 4 column of section 8.
 
-**Levi Gibson's verdicts per subset.** After "lots and lots of solves" ([[T7074]]): "0c0: Yes", "4a2: yes yes yes amazing muah chief's kiss", for 4a1 "if you get a 4a1 case randomly, bound it. Otherwise it's not great. For the 2e/6e case it's not great because you 99% of the time you want to find a 0c0 or 4b2 trigger", for 4b2 "just check the really short ones, and then just try triggers for the rest", for 2c3 "I only use it for the 6e subset now. Triggers will get you optimal usually for 2e and 4e", and "Bounding is actually REALLY good for 4c3". Row by row, bounding with every reduction of at most 4 and 5 moves against the first three and five budget-2 routes (4,000 states per subset × edges for bounding, 25,000 for the routes):
+**Levi Gibson's verdicts per subset.** After "lots and lots of solves" ([[T7074]]): "0c0: Yes", "4a2: yes yes yes amazing muah chief's kiss", for 4a1 "if you get a 4a1 case randomly, bound it. Otherwise it's not great. For the 2e/6e case it's not great because you 99% of the time you want to find a 0c0 or 4b2 trigger", for 4b2 "just check the really short ones, and then just try triggers for the rest", for 2c3 "I only use it for the 6e subset now. Triggers will get you optimal usually for 2e and 4e", and "Bounding is actually REALLY good for 4c3". Row by row, bounding with every reduction of at most 4 and 5 moves against the first three and five budget-2 routes (4,000 states per subset × edges for bounding, 25,000 for the routes). Each row is a subset × edges; each cell is the share where that method finds the optimal:
 
 {{bound_vs_routes_edges}}
+
+Levi Gibson's verdicts against those rows, one row per corner subset:
 
 | Subset | Verdict | Why |
 |---|---|---|
@@ -64,17 +74,19 @@ Bounding gets to 80% with short reductions on 0c0 (3) and 4a1 (5), and to about 
 
 On 4c3, Levi Gibson's reason was the b side ("On the b corners side there are sooooo many finecky ways to reduce to 4a1 in very few moves"); these numbers count both sides together.
 
-**Levi Gibson's 75 to 80%.** Asked how many reductions to check, Levi Gibson wrote "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time" ([[D9108]]), "sub-5" being "4 or less" ([[D9221]]). Later, asked "Would it be around 80 percent?" ([[D9208]]): "yeah something like that I'd guess" ([[D9209]]), "for 2c3 that is" ([[D9210]]), adding "The only thing it really misses is a bunch of half turns into a 5-move trigger, so check that in addition to bounding" ([[D9212]]). The subsets Levi Gibson named for full bounding were 4a2 and 2c3 ("I don't use it fully for any subsets other than 4a2 and 2c3", [[D9113]]). Bounding alone, every reduction of at most R moves:
+**Levi Gibson's 75 to 80%.** Asked how many reductions to check, Levi Gibson wrote "I like to check all sub-5 reductions. This can be done super quick and gets optimal like 75% of the time, and it gets optimal +1 the rest of the time" ([[D9108]]), "sub-5" being "4 or less" ([[D9221]]). Later, asked "Would it be around 80 percent?" ([[D9208]]): "yeah something like that I'd guess" ([[D9209]]), "for 2c3 that is" ([[D9210]]), adding "The only thing it really misses is a bunch of half turns into a 5-move trigger, so check that in addition to bounding" ([[D9212]]). The subsets Levi Gibson named for full bounding were 4a2 and 2c3 ("I don't use it fully for any subsets other than 4a2 and 2c3", [[D9113]]). Bounding alone, every reduction of at most R moves. Each row is a target and R; each cell is the share of the subset's DRs where it is found:
 
 | | 2c3 | 4a2 |
 |---|---|---|
-| Optimal, R ≤ 4 | {= pc(Q8('2c3', '1', '4', 'found_opt')) =} ({= pc(Q8('2c3 2e', '1', '4', 'found_opt')) =} of 2c3 2e; {= n(round(float(Q8('2c3', '1', '4', 'mean_reductions_le_R')))) =} reductions on average) | {= pc(Q8('4a2', '1', '4', 'found_opt')) =} |
+| Optimal, R ≤ 4 | {= pc(Q8('2c3', '1', '4', 'found_opt')) =} | {= pc(Q8('4a2', '1', '4', 'found_opt')) =} |
+| Optimal, R ≤ 4, 2c3 2e only | {= pc(Q8('2c3 2e', '1', '4', 'found_opt')) =} | |
+| Reductions on average, R ≤ 4 (a count, not a share) | {= n(round(float(Q8('2c3', '1', '4', 'mean_reductions_le_R')))) =} | |
 | Within +1, R ≤ 4 | {= pc(Q8('2c3', '1', '4', 'found_p1')) =} | {= pc(Q8('4a2', '1', '4', 'found_p1')) =} |
 | Optimal, R ≤ 5 | {= pc(Q8('2c3', '1', '5', 'found_opt')) =} | |
 
-On 4a2 the 75% holds (Levi Gibson had just written "for the 4a2 subset I use full DR Bounding", [[D9106]]), but within +1 it's only the share in the second row, not every DR. For 2c3 both halves are off for bounding alone: the optimal comes from a reduction of 4 or less on under half of 2c3, and on {= pc(1 - float(Q8('2c3', '1', '4', 'found_p1'))) =} not even +1 does. Levi Gibson does add the triggers ("For 2c3 2e and 4e I do full DR Bounding + checking the 5-move triggers, and that seems to catch everything", [[D9117]]); I haven't measured that combination. There's an example in the errata: a 2c3 2e where the best any reduction of at most 4 gives is +2.
+On 4a2 the 75% holds (Levi Gibson had just written "for the 4a2 subset I use full DR Bounding", [[D9106]]), but within +1 it's only the share in the *Within +1* row, not every DR. For 2c3 both halves are off for bounding alone: the optimal comes from a reduction of 4 or less on under half of 2c3, and on {= pc(1 - float(Q8('2c3', '1', '4', 'found_p1'))) =} not even +1 does. Levi Gibson does add the triggers ("For 2c3 2e and 4e I do full DR Bounding + checking the 5-move triggers, and that seems to catch everything", [[D9117]]); I haven't measured that combination. There's an example in the errata: a 2c3 2e where the best any reduction of at most 4 gives is +2.
 
-**JTuu's simulation** for Kai Cui's question ([[T5733]]): 2,000 2c3 2e states with Tzak's definitions, "4 move reduction to 4c4e just means you can strip off <=4 moves total from either end and be left with a single qt" ([[T5742]]) and "7 move linear htr means if you drop 7 moves on either end, are you left with just half turns" ([[T5743]]). That's the one-quarter-turn reading. JTuu's result ([[T5744]]) against mine on uniform 2c3 2e states, same definitions:
+**JTuu's simulation** for Kai Cui's question ([[T5733]]): 2,000 2c3 2e states with Tzak's definitions, "4 move reduction to 4c4e just means you can strip off <=4 moves total from either end and be left with a single qt" ([[T5742]]) and "7 move linear htr means if you drop 7 moves on either end, are you left with just half turns" ([[T5743]]). That's the one-quarter-turn reading. JTuu's result ([[T5744]]) against mine on uniform 2c3 2e states, same definitions. Each row is an option; JTuu's column is quoted, mine is the share of DRs:
 
 | Option | JTuu | Uniform 2c3 2e |
 |---|---|---|

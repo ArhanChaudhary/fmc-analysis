@@ -7,7 +7,7 @@ November 2026. A name with a date is a link to that message on the FMC solvers D
 **What everything below is measured against:**
 
 - **A full BFS of the DR group** ⟨U, D, R2, L2, F2, B2⟩: the optimal finish in DR moves of all 19,508,428,800 DR states. I ran it in Rust, on the group reduced by the 16 symmetries that keep the U/D axis. "Optimal" below means that (same as nissy's `drudfin`) unless I say otherwise. It matches Joba's per-subset distribution in every cell and nissy on 40 random DRs, and it agrees entry for entry with the table Lean proves optimal (last bullet).
-- **The 216 NISS@1qt cases** (FakeMMAP's: 12 corner cases × 3 M-slice patterns × 3 S-slice patterns × E-parity). Each case is 3,072 of the 663,552 HTR states. I solved them three ways, see the table below.
+- **The 216 NISS@1qt cases** (FakeMMAP's: 12 corner cases $\times$ 3 M-slice patterns $\times$ 3 S-slice patterns $\times$ E-parity). Each case is 3,072 of the 663,552 HTR states. I solved them three ways, see the table below: one row per move set.
 - **One pass per question over all DR states** for each thing people read off a DR (pairs, corner case, HTR length on both sides, corner length, E-parity), counted against the optimal.
 - **A Lean proof** (about 2,500 lines) of the lower bounds in the write-up and of the exact optimal of every DR state: no DR-move finish is shorter than the table says, and one of exactly that length exists. The percentages are computed, not proven.
 
@@ -15,7 +15,7 @@ November 2026. A name with a date is a link to that message on the FMC solvers D
 |---|---|
 | half turns only | BFS |
 | DR moves | BFS |
-| any of the 18 face turns | A search that's complete to 10 moves. Every sequence of ≤ 10 moves is two sequences of ≤ 5 glued together, so I listed all 624,124 of those twice, matched the pairs that can land in HTR and tested each hit. DR-move values never go above 10, so anything shorter is ≤ 9 moves and the search can't miss it. |
+| any of the 18 face turns | A search that's complete to 10 moves. Every sequence of $\le 10$ moves is two sequences of $\le 5$ glued together, so I listed all 624,124 of those twice, matched the pairs that can land in HTR and tested each hit. DR-move values never go above 10, so anything shorter is $\le 9$ moves and the search can't miss it. |
 
 Case labels like "F-D + F-V R-H odd" are FakeMMAP's: corner case with cs sign, M-slice edges, S-slice edges, E-parity.
 
@@ -25,7 +25,7 @@ Section A is what's wrong in the two bounding docs and their tables, section B w
 
 ## A. The bounding docs and their tables
 
-**A1. Two typos in Rodney's Advanced DR Bounding doc.**
+**A1. Two typos in Rodney's Advanced DR Bounding doc.** One per row:
 
 | Where | The doc says | Should be |
 |---|---|---|
@@ -39,23 +39,35 @@ U D L2 D' B2 U R2 F2 B2 D2 L2 D' R2 L2 D2 B2   // Rodney's first random scramble
 ```
 
 **A2. Rodney's "Adv DR Bounding" sheet: five penalties one too high, and one mislabelled alg.**
-The sheet has no optimal column. Its "Penalty" is the length of the listed alg (HTM, after cancelling) minus the setup of the corner case itself:
+The sheet has no optimal column. Its "Penalty" is the length of the listed alg (HTM, after cancelling) minus the setup of the corner case itself. Each row is a corner case and the setup the sheet takes off:
 
-| Corners | Setup taken off |
-|---|---|
-| F-D and R-D | 1 move |
+| Corners | Setup taken off, moves |
+|---|---:|
+| F-D and R-D | 1 |
 | F-V | 2 |
 | H-H | 0 |
 
-The complete-to-10 search over all 18 moves finds a finish one move shorter than the listed alg for five cases, the same five as in A3. Their penalties should be 5, 5, 8, 8, 8, not 6, 6, 9, 9, 9:
+The complete-to-10 search over all 18 moves finds a finish one move shorter than the listed alg for five cases, the same five as in A3. Their penalties should be 5, 5, 8, 8, 8, not 6, 6, 9, 9, 9.
 
-| Corners / F edges / R edges (cs/fr) | Listed alg | Sheet penalty | Real penalty | A state of the case, and a shorter finish |
-|---|---|---:|---:|---|
-| F-D / F-V / R-H (0/0) | `R2 U2 R2 F2 R2 U2 R2` (7) | 6 | 5 | `R L' B2 D2 R L'`, solved in 6 by `L R' D2 B2 L R'` |
-| R-D / F-H / R-V (0/0) | `F2 U2 F2 R2 F2 U2 F2` (7) | 6 | 5 | `F' B R2 D2 F B'`, solved in 6 by `B F' D2 R2 B' F` |
-| H-H / F-D / R-D (0/1) | `R2 U2 R2 U2 F2 R2 F2 R2 F2` (9) | 9 | 8 | `R D2 F2 B2 R' L F2 R'`, solved in 8 by `R F2 L' R B2 F2 D2 R'` |
-| H-H / F-D / R-V (0/1) | `F2 U2 R2 F2 U2 R2 F2 R2 F2` (9) | 9 | 8 | `F L2 F B' R2 L2 D2 F'`, solved in 8 by `F D2 L2 R2 B F' L2 F'` |
-| H-H / F-V / R-D (0/1) | `R2 U2 F2 R2 U2 F2 R2 F2 R2` (9) | 9 | 8 | `L' F2 R L' F2 B2 D2 L`, solved in 8 by `L' D2 B2 F2 L R' F2 L` |
+Each row is a case (corners, F edges, R edges, with the sheet's cs and fr labels), its listed alg, and the two penalties:
+
+| Case | cs | fr | Listed alg | Alg length, moves | Sheet penalty | Real penalty |
+|---|---:|---:|---|---:|---:|---:|
+| F-D, F-V, R-H | 0 | 0 | `R2 U2 R2 F2 R2 U2 R2` | 7 | 6 | 5 |
+| R-D, F-H, R-V | 0 | 0 | `F2 U2 F2 R2 F2 U2 F2` | 7 | 6 | 5 |
+| H-H, F-D, R-D | 0 | 1 | `R2 U2 R2 U2 F2 R2 F2 R2 F2` | 9 | 9 | 8 |
+| H-H, F-D, R-V | 0 | 1 | `F2 U2 R2 F2 U2 R2 F2 R2 F2` | 9 | 9 | 8 |
+| H-H, F-V, R-D | 0 | 1 | `R2 U2 F2 R2 U2 F2 R2 F2 R2` | 9 | 9 | 8 |
+
+A state of each case and a shorter finish for it:
+
+| Case | A state of the case | Shorter finish | Its length, moves |
+|---|---|---|---:|
+| F-D, F-V, R-H | `R L' B2 D2 R L'` | `L R' D2 B2 L R'` | 6 |
+| R-D, F-H, R-V | `F' B R2 D2 F B'` | `B F' D2 R2 B' F` | 6 |
+| H-H, F-D, R-D | `R D2 F2 B2 R' L F2 R'` | `R F2 L' R B2 F2 D2 R'` | 8 |
+| H-H, F-D, R-V | `F L2 F B' R2 L2 D2 F'` | `F D2 L2 R2 B F' L2 F'` | 8 |
+| H-H, F-V, R-D | `L' F2 R L' F2 B2 D2 L` | `L' D2 B2 F2 L R' F2 L` | 8 |
 
 Separately, the alg in the row labelled F-V / F-D / R-H (0/0) has R2 where it should have F2. I graded every row by the case its alg actually produces, not by its label:
 
@@ -71,7 +83,9 @@ The rule values ("Heuristic" column, same penalty scale) aren't affected. They s
 **A3. FakeMMAP's HTR-breaking table (`RK_OBL_table_DS_2e.csv`, attached to [FakeMMAP, 7 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546599572644696075)): five cells one too high, two of them labelled 7.**
 Of the first version (`RK_OBL_table_HTR_breaking.csv`, posted the day before) FakeMMAP said ≤ 7 was proven optimal and 8, 9, 10 "might actually be solvable in as little as 7" ([FakeMMAP, 6 Sep 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1546263650015256606)). In the 7 Sep file 211 of 216 cells are right. The two 7s below are 6 in both files.
 
-| Case | Table | Real | A state of that case (its inverse solves it) |
+Each row is one of the five cells, with the table's value, the real optimal and a state of the case (its inverse solves it):
+
+| Case | Table value, moves | Real optimal, moves | A state of that case |
 |---|---:|---:|---|
 | F-D + F-V R-H odd | 7 | 6 | `R L' B2 D2 R L'` |
 | R-D + F-H R-V odd | 7 | 6 | `F' B R2 D2 F B'` |
@@ -94,7 +108,7 @@ nissy finds no solution of 8 or fewer for any of the 3,072 states in each of tho
 ## B. Things said in the channels
 
 **B1. "The maximum [DR→HTR] takes is 12 moves linearly, and 11 moves using NISS"** ([Lewis Isom, 23 Jan 2024](https://discord.com/channels/1007840975726575667/1007841335434285126/1199490255921877022), from the sampled HTR Subset Stats sheet).
-It's 13, which matches Joba's table ([Joba, 3 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1357402650441945299): 4c4 has a 13 in 0.24% of its cosets).
+It's 13, which matches Joba's table ([Joba, 3 Apr 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1357402650441945299): 4c4 has a 13 in 0.24% of its cosets). Each row is how often a DR needs 13 to HTR:
 
 | DR → HTR needs | DR states | Subsets |
 |---|---:|---|
@@ -107,7 +121,7 @@ Two of them, both 0c3 4e (nissy's optimal HTR agrees on both):
     D B2 D' B2 D L2 U L2 U' F2 D B2 U' F2     // 13 to HTR on both sides
 
 **B2. "Only five subsets can be 18 optimal"** ([Zagros, 17 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1406635136526581810)), **and "We calculated all the 18 optimals once I remember it being either 5qt or the bad 3qt ons"** ([zakimoshi, 16 Dec 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1185609081629708298)).
-It's four of the 48, 1,352 states in total:
+It's four of the 48, 1,352 states in total, one subset per row:
 
 | Subset | States |
 |---|---:|
@@ -125,16 +139,18 @@ So "5qt or bad 3qt" misses the eight 0c0 8e states. Joba's file, which Zagros wa
 
 I can't show a fifth subset because there isn't one: the other 44 top out at 17 or less, and the write-up's Appendix G has a longest state for each.
 
-**B3. Arithmetic slip.** [Aneurin, 12 Mar 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1084362354894049340) has 27248 for (4!)⁴/12. It's 27648.
+**B3. Arithmetic slip.** [Aneurin, 12 Mar 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1084362354894049340) has 27248 for $(4!)^4/12$. It's 27648.
 
 **B4. "I hypothesize that corner case + moves to HTR on normal + moves to HTR on inverse can tell you the optimal solution with a standard deviation of like 0.25 moves"** ([Zagros, 4 Apr 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1490097940641878216)).
-It's nowhere near that. The sd of the optimal over all DRs, given what you know:
+It's nowhere near that. The sd of the optimal over all DRs, given what you know, one set of reads per row:
 
-| Known | sd left |
+| Known | Scatter left, sd in moves |
 |---|---:|
 | the subset alone | 0.88 |
 | subset (with the bad-edge count), corner case on both sides, HTR length on both sides | 0.80 |
-| everything readable | 0.78, nothing gets under it |
+| everything readable | 0.78 |
+
+Nothing gets under that last one.
 
 Zagros didn't list the bad-edge count, and knowing more can only lower the sd, so Zagros's own features leave at least 0.80. Here's a pair, both 2c4 4e with the same corner case on normal and on inverse, 7 to HTR on both sides and the same corner length (7):
 

@@ -144,8 +144,8 @@ def build():
             L += answer_lines(sk, a8, a10)
             L += ['</details>', '']
             tally[typ].append((len(sk), a8['cost'] if a8 else None, a10['cost'] if a10 else None))
-    L += ['## The tally', '', 'Over the 20 skeletons of each kind above, next to the same numbers from the big samples of the write-up (20,000 random skeletons of 20 moves at 8 moves per insertion; fewer at 10, see the write-up).', '',
-          '| Leftover | On this page: mean added, 8 moves or less | Nothing fits at 8 | Mean added, up to 10 | 10 beats 8 | Write-up, 20-move skeletons: 8 moves or less | Up to 10 |', '|---|---:|---:|---:|---:|---:|---:|']
+    L += ['## The tally', '', 'Over the 20 skeletons of each kind above, next to the same numbers from the big samples of the write-up (20,000 random skeletons of 20 moves at 8 moves per insertion; fewer at 10, see the write-up). One row per leftover; the counts are of the 20 skeletons.', '',
+          '| Leftover | On this page: mean added, 8 moves or less | On this page: nothing fits at 8 | On this page: mean added, up to 10 | On this page: up to 10 beats 8 or less | Write-up, 20-move skeletons: mean added, 8 or less | Write-up: mean added, up to 10 |', '|---|---:|---:|---:|---:|---:|---:|']
     for typ in TYPES:
         t = tally[typ]; v8 = [x[1] for x in t if x[1] is not None]; v10 = [x[2] for x in t if x[2] is not None]
         better = sum(1 for x in t if x[2] is not None and (x[1] is None or x[2] < x[1]))

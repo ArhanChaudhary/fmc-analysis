@@ -1,4 +1,4 @@
-| You check and finish | Normal EOs to check, per scramble | To finish, per scramble | Result, average |
+| You check and finish | Normal EOs to check, per scramble | Things to finish, per scramble | Average best solution, moves |
 |---|---:|---:|---:|
 | EOs of 4 or less: every DR of 10 or less | 20 | 58 | 21.13 |
 | EOs of 4 or less: DRs of 10 or less, and every DR-1s of 7 or less from a slice EO | 20 | 65 | 20.96 |

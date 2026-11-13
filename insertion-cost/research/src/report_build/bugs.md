@@ -24,7 +24,7 @@ Below is what was said in the channels that the numbers go against, each with an
 argonblue was answering jisu101's "if you can't find a 3c, what is generally better", "2c2c, 3c1t, or 5c?" ([[N6504]], [[N6505]]). jisu101 replied right away ([[N6508]], [[N6509]]): "True but so does 2c2c, you can pick literally any comm with 3 of the 4 corners", "and you can do it in both directions", which points the right way.
 With 8-movers on 20-move random skeletons the order by cost is the order of the table below, cheapest first. So a 2c2c is the cheaper leftover, by {= DIFF('3c1t', '2c2c-pure') =} to {= DIFF('3c1t', '2c2c-twisted') =} over a 3c1t: 2c2c > 3c1t > 5c. Counted per spot, a 2c2c has {= FC('2c2c-pure') =} first comms that leave a 3c and a 3c1t has {= FC('3c1t') =}, which is jisu101's point. Longer algs keep the 2c2c ahead of the 3c1t. Mean added on random skeletons, and what the posted skeletons give:
 
-| Leftover | 8-movers | Cap 10 | Cap 12 | Posted skeletons | Posted: mean added |
+| Leftover | Random, 8-movers: mean added | Random, cap 10: mean added | Random, cap 12: mean added | Posted skeletons | Posted, 8-movers: mean added |
 |---|---:|---:|---:|---:|---:|
 | twisted 2c2c | {= M('2c2c-twisted') =} | {= M('2c2c-twisted', L=10) =} | {= M('2c2c-twisted', L=12, src='two12') =} | {= POSTED('2c2c-twisted') =} | {= POSTEDM('2c2c-twisted') =} |
 | pure 2c2c | {= M('2c2c-pure') =} | {= M('2c2c-pure', L=10) =} | {= M('2c2c-pure', L=12, src='two12') =} | {= POSTED('2c2c-pure') =} | {= POSTEDM('2c2c-pure') =} |
@@ -44,14 +44,14 @@ A typical skeleton of each, 20 moves, 8-movers. Each costs its type's average, r
 Jay's "i didn't notice a meaningful different between 2 insertion 4c types" ([[N4860]]) is what a one-move difference with a spread of more than a move looks like solve by solve.
 
 **A2. Checking every other move "still guarantees you'll find them"** (notkevin, [[N4772]]: "if you're expecting at least a -3 somewhere, it has to cancel at least a full move, so checking every other still guarantees you'll find them").
-Nearly. On random 3c skeletons of 20 moves, when the best 8-mover insertion is an 8-3 or better, checking every second spot and both ends (the odd spots or the even ones, both counted) finds an insertion that good {= CELL('one_skip', '20', 'Best is 8-3 or better: every other move finds it') =} of the time. All of those misses ({= SKIPNEAR() =} over seven skeleton lengths) are next to two moves on opposite faces, where the full cancel reaches across the pair and the shifted alg lands two spots away. Nothing better than an {= SKIPWORST() =} was missed on any of {= SKIPTOTAL() =} skeletons. alkamaass had said the rule is not thorough when recommending it ([[N1144]]): "this isn't thorough tho bc it can miss stuff like R (R blah blah B' ) B'". Example:
+Nearly. On random 3c skeletons of 20 moves, when the best 8-mover insertion is an 8-3 or better, checking every second spot and both ends (the odd spots or the even ones, both counted) finds an insertion that good {= CELL('one_skip_good', '20', 'Best is 8-3 or better: every other move finds it') =} of the time. All of those misses ({= SKIPNEAR() =} over seven skeleton lengths) are next to two moves on opposite faces, where the full cancel reaches across the pair and the shifted alg lands two spots away. Nothing better than an {= SKIPWORST() =} was missed on any of {= SKIPTOTAL() =} skeletons. alkamaass had said the rule is not thorough when recommending it ([[N1144]]): "this isn't thorough tho bc it can miss stuff like R (R blah blah B' ) B'". Example:
 
 {{WIT_SKIP}}
 
 **A3. "sub-22 for 3C skeleton", "sub-20 for every other skeleton"** for sub-30 (sequesteredcuber, [[N292]]).
 Two moves apart is too close. With 8-movers on random skeletons:
 
-| Skeleton | Sub-30 |
+| Skeleton | Chance of sub-30 |
 |---|---:|
 | 3c in 21 | {= CH('3c', 21, 29) =} |
 | 5c in 19 | {= CH('5c', 19, 29) =} |

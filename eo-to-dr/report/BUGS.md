@@ -36,9 +36,9 @@ D F U' (L B R U')                                   // EO on U/D
 ```
 
 **3. DR-6e4c: "Similar efficiency to 4c4e and 4c2e in theory but many of the optimal solutions aren't findable with just setups to R U2 L"** (Jay, [14 Dec 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1052704838682689648), answering jellobean's "How good would you say … the Dr-6e4c case", [14 Dec 2022](https://discord.com/channels/1007840975726575667/1007841273111117924/1052653676902228008)).
-The optimal DR alone already differs. Over all EO-solved states, one axis, EO kept:
+The optimal DR alone already differs. Over all EO-solved states, one axis, EO kept; each row is a case:
 
-| Case | At most 6 from DR | Mean |
+| Case | DR in ≤ 6 | Mean, turns |
 |---|---|---|
 | 4c6e (Cale's 6e4c) | 4.6% | 7.85 |
 | 4c4e | 19.2% | 7.19 |

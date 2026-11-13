@@ -31,9 +31,9 @@ Each real skeleton is compared with random skeletons of its own length and type 
 
 {{real_cost}}
 
-Real skeletons come out cheaper, and by a lot. With 8-movers:
+Real skeletons come out cheaper, and by a lot. With 8-movers, real minus random in moves added per skeleton:
 
-| Leftover | Real minus random | ± |
+| Leftover | Real minus random, moves | ± one standard error |
 |---|---:|---:|
 | 3c | {= RDIFF('3c', 8) =} | {= RSE('3c', 8) =} |
 | 5c | {= RDIFF('5c', 8) =} | {= RSE('5c', 8) =} |
@@ -43,15 +43,19 @@ In this section ± is one standard error of the difference (Appendix C gives two
 
 **It's not how real skeletons are written.** Take the same real move sequences, all {= CPN('3c', 'sequences') =} of them that are 10 to 30 moves long, and put a random 3c or a random 5c on each, many times over:
 
-**The real move sequences with a random leftover, against random sequences of the same lengths with a random leftover: mean added.**
+**The real move sequences with a random leftover, against random sequences of the same lengths with a random leftover: mean added at cap 8. One row per leftover.**
 
 {{real_corpus}}
+
+**The same at cap 10, one row per leftover.**
+
+{{real_corpus_10}}
 
 For a 3c it's the same as random sequences ({= CP('3c', 8, 'real') =} against {= CP('3c', 8, 'rand') =} at cap 8). For a 5c within a tenth of a move: the real sequences are {= f2(float(CP('5c', 8, 'rand')) - float(CP('5c', 8, 'real'))) =} cheaper at cap 8 and {= f2(float(CP('5c', 10, 'rand')) - float(CP('5c', 10, 'real'))) =} at cap 10. Blocks, pairs and triggers in the moves make next to no difference to how insertions cancel.
 
 **Selection is part of it.** Split by where the skeleton comes from:
 
-**Real minus random, 8-movers, by where the skeleton was posted.**
+**Real minus random, 8-movers, by where the skeleton was posted. One row per group of skeletons; the difference is in moves added, with one standard error next to it.**
 
 {{real_subsets}}
 
@@ -76,13 +80,17 @@ With a comm plus an alg also allowed, the same real skeletons average:
 
 {{real_mixed}}
 
-At cap 12 that's {= CELL('real_mixed', '3c1t', 'Cap 12') =} for a 3c1t and {= CELL('real_mixed', '2c2c (pure or twisted)', 'Cap 12') =} for a 2c2c. So posted skeletons searched with a full alg list land around Baiqiang's 8-9 and 6-8.
+At cap 12 that's {= CELL('real_mixed', '3c1t', 'Cap 12: mean added') =} for a 3c1t and {= CELL('real_mixed', '2c2c (pure or twisted)', 'Cap 12: mean added') =} for a 2c2c. So posted skeletons searched with a full alg list land around Baiqiang's 8-9 and 6-8.
 
 **Edges.** The {= RL('by_type', '3e') =} real 3e skeletons cost {= RC('3e', 10, 'real') =} at cap 10 against {= RC('3e', 10, 'rand') =} for random ones ({= RDIFF('3e', 10) =}), and with algs of 8 or fewer something fits on {= RC('3e', 8, 'k') =} of the {= RL('by_type', '3e') =}. Is that because their edges are oriented? For the leftover as it stands at the end of the skeleton, count on how many of the three axes all three of its edges are oriented:
 
-**Edge 3-cycles by the number of axes on which their three edges are oriented: all {= STATES('3e') =} of them and how many have a short alg; the real 3e skeletons; the random 20-move 3e skeletons of the sample. Mean added at cap 10 (every alg of up to 10 moves).**
+**Edge 3-cycles by the number of axes on which their three edges are oriented: all {= STATES('3e') =} of them and how many have a short alg. One row per number of axes.**
 
 {{real_eo}}
+
+**The same split for the real 3e skeletons and the random 20-move 3e skeletons of the sample, with their mean added at cap 10 (every alg of up to 10 moves).**
+
+{{real_eo_skeletons}}
 
 - **The short algs do depend on it**, the way bpaul said ([[N5569]]): every 3-cycle oriented on all three axes has a 6-mover and no other has one; half of those oriented on two axes have an alg of 8 or fewer; none of the rest does.
 - **The real leftovers are oriented a little more often than a random 3-cycle:**
@@ -99,15 +107,17 @@ At cap 12 that's {= CELL('real_mixed', '3c1t', 'Cap 12') =} for a 3c1t and {= CE
 
 For the examples that state a final length, the author's added moves against the best there is on the same skeleton. *One comm, two comms or one alg* is what the tables of section 6 use; the last two rows also allow a comm plus an alg.
 
+Each row below is one cap the author is compared with; the middle columns count solutions by how many moves longer than the best the author's is.
+
 **By hand, all leftovers:**
 
 {{real_author_hand}}
 
-**By hand, 3c only:**
+**By hand, 3c only**, same columns:
 
 {{real_author_hand_3c}}
 
-**By hand, the corner leftovers that need two comms:**
+**By hand, the corner leftovers that need two comms**, same columns:
 
 {{real_author_hand_two}}
 
@@ -125,7 +135,7 @@ One of the slice pairs is the one kyh called "-3 with a slice insertion is insan
 
 What the hand insertions cancel, replayed move by move where the solution is written out:
 
-**8-move insertions in the hand solutions, by what they cancel.**
+**8-move insertions in the hand solutions, by what they cancel. One row per cancellation; each group has the number of insertions and their share of the group.**
 
 {{real_notes}}
 
@@ -150,9 +160,13 @@ What the hand insertions cancel, replayed move by move where the solution is wri
 
 ### 9.5 Insertion Finder
 
-Insertion Finder is at [333.fm/if](https://333.fm/if). Baiqiang ([[D3803]]): "i make the website 333.fm. the core is written by Yan Xuan". {= IFN('all') =} Insertion Finder result pages were posted on the server with their scramble and skeleton. {= IFN('not') =} of them have corners and edges or parity left, which I don't search. The other {= IFN('compared') =}:
+Insertion Finder is at [333.fm/if](https://333.fm/if). Baiqiang ([[D3803]]): "i make the website 333.fm. the core is written by Yan Xuan". {= IFN('all') =} Insertion Finder result pages were posted on the server with their scramble and skeleton. {= IFN('not') =} of them have corners and edges or parity left, which I don't search. The other {= IFN('compared') =}, one row per page with the final length each gives:
 
 {{if_pages}}
+
+What the search inserted for those lengths, page by page:
+
+{{if_pages_how}}
 
 - **Where Insertion Finder used only 8-movers, cap 8 gives the same**: {= IFP('18 to 3C1T', 'This search, cap 8') =} on the 18-move 3C1T (Insertion Finder: {= IFP('18 to 3C1T', 'Insertion Finder') =}), {= IFP('13 to 3T', 'This search, cap 8') =} on the 3T (Insertion Finder, run with its "3 Corners" set only: {= IFP('13 to 3T', 'Insertion Finder') =}).
 - **16 to 3C1T**: Insertion Finder's {= IFP('16 to 3C1T', 'Insertion Finder') =} is an 8-5 and a 10-move double swap. Two 8-movers give {= IFP('16 to 3C1T', 'This search, cap 8') =}; a comm plus an alg gives {= IFP('16 to 3C1T', 'Cap 10') =} at cap 10 and {= IFP('16 to 3C1T', 'Cap 12') =} at cap 12.
@@ -169,7 +183,7 @@ Insertion Finder is at [333.fm/if](https://333.fm/if). Baiqiang ([[D3803]]): "i 
 
 - So the search is never worse than Insertion Finder once its cap covers the algs Insertion Finder used, and at cap 12 it is one move shorter on {= IFBETTER() =}. As it should be: Insertion Finder works from lists of known algs, and here every sequence within the cap counts.
 
-The pages that are not compared:
+The pages that are not compared, with Insertion Finder's final length:
 
 {{if_pages_not}}
 
@@ -181,7 +195,7 @@ On the 16-move skeleton that the 8-10 leaves, a comm plus an alg of up to 12 mov
 
 **What an Insertion Finder "optimal" covers.** 2014chri04 ([[N2057]]), on an 8-4 for a 23-move 3c: "IF verifies that this is optimal". tseitsei89 ([[N1441]]), on two comms found by hand for a 21-move 5c: "IF says those are optimal insertions." Both report what Insertion Finder returned, with settings that aren't stated, and neither says the result is the best possible: 2014chri04 goes on to a {= W('n2057', 'hand') =} found by hand, and tseitsei89 had written ([[N1440]]) "there might be somethng even better". Searched here:
 
-| Skeleton | Cap 8 | Cap 10 |
+| Skeleton | Cap 8: best final length, moves | Cap 10: best final length, moves |
 |---|---:|---:|
 | first: the 8-4 is the best 8-mover insertion | {= RRLEN('N2057', 'L8') =} | {= RRLEN('N2057', 'L10') =} |
 | second: the two comms are the best pair | {= RRLEN('N1440', 'L8') =} | {= RRLEN('N1440', 'L10') =} |

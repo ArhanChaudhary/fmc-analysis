@@ -91,7 +91,7 @@ def main():
     B = load(); J['parity'] = sum(1 for k in B if B[k]['parity']); J['other'] = sum(1 for k in B if B[k]['type'] == 'not one of the types')
     # ---- what was usable
     ex = META['excluded']
-    L = ['| | Examples |', '|---|---:|', f"| Worked examples in the reading notes | {META['examples_in_file']} |"]
+    L = ['| Worked examples | How many |', '|---|---:|', f"| Worked examples in the reading notes | {META['examples_in_file']} |"]
     for key in ('written with inverse-scramble parts', 'skeleton has rotations, slice or wide moves', 'scramble not in face turns', 'corners and edges both left', 'parity (2 corners and 2 edges)', 'more than 6 pieces of one kind left', 'scramble and skeleton do not fit'):
         if ex.get(key): L.append(f'| left out: {key} | {ex[key]} |')
     srv = [r for r in R if r['origin'] == 'server']
@@ -102,7 +102,7 @@ def main():
     L.append(f"| of the server's: the author's own solution replays to the stated length | {J['replayed']} |")
     write('real_counts', L)
     # ---- real against random, like for like (one / direct / two; no comm plus alg)
-    L = ['| Leftover | Real skeletons | Their mean length | Cap 8: something fits on | Cap 8: real, mean added | Cap 8: random skeletons of the same lengths | Cap 10: real | Cap 10: random | Cap 12: real |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
+    L = ['| Leftover | Real skeletons | Their mean length, moves | Cap 8: something fits on | Cap 8: real, mean added | Cap 8: random of the same lengths, mean added | Cap 10: real, mean added | Cap 10: random, mean added | Cap 12: real, mean added |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
     comp = {}
     for g, types in GROUP.items():
         rs = [r for r in U if r['type'] in types]
@@ -128,7 +128,7 @@ def main():
         L.append(f"| {g} | {len(rs)} | {f1(sum(r['n'] for r in rs) / len(rs))} | {cells[0]} | {cells[1]} | {cells[2]} | {cells[3]} | {cells[4]} | {f2(sum(r12) / len(r12)) if r12 else ''} |")
     write('real_cost', L); J['comp'] = comp
     # ---- the same per cap with a comm plus an alg allowed (what Insertion Finder also does)
-    L = ['| Leftover | Real skeletons | Cap 8: something fits on | Cap 8 | Cap 10 | Cap 12 | Cap 12 comm-plus-alg search not finished for |', '|---|---:|---:|---:|---:|---:|---:|']
+    L = ['| Leftover | Real skeletons | Cap 8: something fits on | Cap 8: mean added | Cap 10: mean added | Cap 12: mean added | Cap 12 comm-plus-alg search not finished for |', '|---|---:|---:|---:|---:|---:|---:|']
     J['mixed'] = {}
     for g, types in GROUP.items():
         rs = [r for r in U if r['type'] in types]
@@ -143,7 +143,7 @@ def main():
     # ---- the author against the best
     def author_table(sel, name):
         A = [r for r in R if 'author_added' in r and sel(r)]
-        L = ['| Compared with the best at | Solutions | Author shorter | Same length | 1 longer | 2 longer | 3 or more longer | Author, mean added | Best, mean added |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
+        L = ['| Compared with the best at | Solutions | Author shorter | Same length | Author 1 move longer | Author 2 longer | Author 3 or more longer | Author, mean added | Best, mean added |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
         res = {}
         for Lc, key, label in ((8, 'L8', 'cap 8: one comm or two (edges: algs of 6 to 8)'), (10, 'L10', 'cap 10: one comm, two comms or one alg'), (12, 'L12', 'cap 12: one comm, two comms or one alg'),
                                (10, 'L10m', 'cap 10, a comm plus an alg also allowed'), (12, 'L12m', 'cap 12, a comm plus an alg also allowed')):
@@ -167,7 +167,7 @@ def main():
     WHY = {'N4763a': 'two slice insertions (`E2 ... E2`) on top of the 3e algs', 'N5493': "a slice pair (`M' ... M`) on top of the comm", 'N6810': "a slice pair (`S ... S'`) on top of the comm",
            'N6662': 'a stretch of the finished solution rewritten shorter', 'K27': 'a stretch of the finished solution rewritten shorter (the `[] =` line of the solve)', 'K97': 'a stretch of the finished solution rewritten shorter (the `[] =` line of the solve)',
            'D4876': 'two moves of the skeleton made wide, which changes the skeleton'}
-    L = ['| Example | By | Leftover | Skeleton | Author | Best at cap 12 with a comm plus an alg | What the author did besides inserting |', '|---|---|---|---:|---:|---:|---|']
+    L = ['| Example | By | Leftover | Skeleton, moves | Author\'s solution, moves | Best at cap 12 with a comm plus an alg, moves | What the author did besides inserting |', '|---|---|---|---:|---:|---:|---|']
     for x in J['shorter12']:
         r = next(r for r in R if r['id'] == x['id'])
         who = 'Kalbarczyk, solve ' + x['id'][1:] if x['id'].startswith('K') else f"{names.shown(r['author'])}, [[{x['id'].rstrip('ab')}]]"
@@ -180,18 +180,18 @@ def main():
         st = r['steps'] if r['replayed'] and r['steps'] else r['notes']
         for a, b in st: steps.append((a, b, r['type'], 'replayed' if r['replayed'] and r['steps'] else 'as written'))
     e8 = [s for s in steps if s[0] == 8]; c8 = collections.Counter(min(s[1], 6) for s in e8)
-    L = ['| 8-move insertions by hand | Insertions | 8-0 | 8-1 | 8-2 | 8-3 | 8-4 | 8-5 | 8-6 or more |', '|---|---:|' + '---:|' * 7]
-    def line(label, sel):
-        v = [s for s in e8 if sel(s)]; c = collections.Counter(min(s[1], 6) for s in v)
-        return f'| {label} | {len(v)} | ' + ' | '.join(f'{c[k]} ({fmt(c[k], len(v))})' if c[k] else '0' for k in range(7)) + ' |' if v else None
-    for label, sel in (('all of them', lambda s: True), ('on a 3c skeleton', lambda s: s[2] == '3c'), ('on a skeleton that needs two', lambda s: s[2] not in ('3c', '3e'))):
-        ln = line(label, sel)
-        if ln: L.append(ln)
+    groups = [(label, [s for s in e8 if sel(s)]) for label, sel in (('All of them', lambda s: True), ('On a 3c skeleton', lambda s: s[2] == '3c'), ('On a skeleton that needs two', lambda s: s[2] not in ('3c', '3e')))]
+    groups = [(label, v) for label, v in groups if v]
+    L = ['| What the 8-move insertion cancels | ' + ' | '.join(f'{g}: insertions | {g}: share' for g, _ in groups) + ' |', '|---|' + '---:|---:|' * len(groups)]
+    L.append('| all of them | ' + ' | '.join(f'{len(v)} | ' for _, v in groups) + ' |')
+    cs = [collections.Counter(min(s[1], 6) for s in v) for _, v in groups]
+    for k in range(7):
+        L.append(f"| {'8-6 or more' if k == 6 else f'8-{k}'} | " + ' | '.join(f'{c[k]} | {fmt(c[k], len(v))}' if c[k] else '0 | ' for c, (_, v) in zip(cs, groups)) + ' |')
     write('real_notes', L)
     J['notes'] = {'steps': len(steps), 'eight': len(e8), 'by_len': dict(collections.Counter(s[0] for s in steps)), 'eight_mean_cancel': sum(s[1] for s in e8) / max(len(e8), 1),
                   'eight_ge3': sum(1 for s in e8 if s[1] >= 3), 'replayed_steps': sum(1 for s in steps if s[3] == 'replayed')}
     # ---- by where the skeleton comes from, 3c and 5c, cap 8
-    L = ['| Skeletons | 3c: how many | 3c: real minus random, cap 8 (± one standard error) | 5c: how many | 5c: real minus random, cap 8 (± one standard error) |', '|---|---:|---:|---:|---:|']
+    L = ['| Skeletons | 3c: how many | 3c: real minus random, moves | 3c: ± one standard error | 5c: how many | 5c: real minus random, moves | 5c: ± one standard error |', '|---|---:|---:|---:|---:|---:|---:|']
     subsets = collections.OrderedDict([('all', lambda r: True), ('from the server, an insertion written out', lambda r: r['origin'] == 'server' and r['n_ins'] > 0),
                                        ('from the server, no insertion written (a skeleton posted as it is)', lambda r: r['origin'] == 'server' and r['n_ins'] == 0),
                                        ("Kalbarczyk's example solves", lambda r: r['origin'] == 'kalbarczyk'),
@@ -204,17 +204,17 @@ def main():
             d = [r['L8'] - rand_mean(typ, r['n'], 8)[0] for r in rs]
             if d:
                 md = sum(d) / len(d); se = (sum((x - md) ** 2 for x in d) / max(len(d) - 1, 1) / len(d)) ** 0.5
-                cells += [str(len(d)), f'{md:+.2f} (±{se:.2f})']; J['subsets'][name][typ] = {'k': len(d), 'diff': md, 'se': se}
-            else: cells += ['0', '']
+                cells += [str(len(d)), f'{md:+.2f}', f'{se:.2f}']; J['subsets'][name][typ] = {'k': len(d), 'diff': md, 'se': se}
+            else: cells += ['0', '', '']
         L.append(f'| {name} | ' + ' | '.join(cells) + ' |')
     write('real_subsets', L)
     # ---- the real move sequences with a random leftover on them (xreal.py --corpus)
     import csv as _csv
-    C = {}; L = ['| Leftover put on the real move sequences | Skeletons made (a real sequence with a random leftover) | Cap 8: mean added | Cap 8: random sequences of the same lengths | Cap 10: mean added | Cap 10: random sequences of the same lengths |', '|---|---:|---:|---:|---:|---:|']
+    C = {}; T = {Lc: [f'| Leftover put on the real move sequences | Skeletons made (a real sequence with a random leftover) | Cap {Lc}: real sequences, mean added | Cap {Lc}: the mean is over | Cap {Lc}: random sequences of the same lengths, mean added |', '|---|---:|---:|---|---:|'] for Lc in (8, 10)}
     for typ in ('3c', '5c'):
         p = f'{O}corpus_real_{typ}.tsv'
         if not os.path.exists(p): continue
-        lines = list(_csv.DictReader(open(p), delimiter='\t')); C[typ] = {'lines': len(lines), 'sequences': len({r['skeleton'] for r in lines})}; cells = []
+        lines = list(_csv.DictReader(open(p), delimiter='\t')); C[typ] = {'lines': len(lines), 'sequences': len({r['skeleton'] for r in lines})}
         for Lc in (8, 10):
             real, rnd = [], []; nc = inf = 0
             for r in lines:
@@ -223,9 +223,9 @@ def main():
                 real.append(int(v)); rnd.append(rand_mean(typ, len(r['skeleton'].split()), Lc)[0])
             C[typ][str(Lc)] = {'k': len(real), 'real': sum(real) / len(real), 'rand': sum(rnd) / len(rnd), 'not_run': nc, 'nothing_fits': inf}
             assert not (nc and inf)
-            cells += [f"{sum(real) / len(real):.2f}" + (f' (on the {len(real):,} where something fits)' if inf else f' (run on the first {len(real):,})' if nc else ''), f'{sum(rnd) / len(rnd):.2f}']
-        L.append(f"| a random {typ} | {len(lines):,} | " + ' | '.join(cells) + ' |')
-    write('real_corpus', L)
+            over = f'the {len(real):,} where something fits' if inf else f'the first {len(real):,} (only those were run)' if nc else 'all of them'
+            T[Lc].append(f"| a random {typ} | {len(lines):,} | {sum(real) / len(real):.2f} | {over} | {sum(rnd) / len(rnd):.2f} |")
+    write('real_corpus', T[8]); write('real_corpus_10', T[10])
     # ---- where the best 3c insertion sits: real skeletons with their own leftover, real sequences with a random 3c,
     #      and random sequences of the same lengths (thirds of the skeleton by position / length)
     import py3
@@ -290,12 +290,15 @@ def main():
             p = l.rstrip('\n').split('\t'); st = cubie.make(*[[int(x) for x in part.split(',')] for part in p[ia].split(';')])
             rand10[axes_oriented(st)].append(int(p[ib]))
     nr = sum(len(v) for v in rand10.values())
-    L = ['| Axes on which the three edges are oriented | Edge 3-cycles | With a 6-move alg | With an alg of 8 moves or fewer | Real 3e skeletons | Their mean added, cap 10 | Random 20-move 3e skeletons | Their mean added, cap 10 |', '|---:|---:|---:|---:|---:|---:|---:|---:|']
+    L = ['| Axes on which the three edges are oriented | Edge 3-cycles | With a 6-move alg | With an alg of 8 moves or fewer | Share with an alg of 8 moves or fewer |', '|---:|---:|---:|---:|---:|']
+    K = ['| Axes on which the three edges are oriented | Real 3e skeletons | Their mean added, cap 10 | Random 20-move 3e skeletons | Their mean added, cap 10 |', '|---:|---:|---:|---:|---:|']
     for k in (3, 2, 1, 0):
-        L.append(f"| {k} | {allc[k]:,} | {six[k]} | {le8[k]} ({fmt(le8[k], allc[k]) if allc[k] else ''}) | {realc[k]} | {f2(sum(real10[k]) / len(real10[k])) if real10[k] else ''} | {len(rand10[k]):,} | {f2(sum(rand10[k]) / len(rand10[k]))} |")
+        L.append(f"| {k} | {allc[k]:,} | {six[k]} | {le8[k]} | {fmt(le8[k], allc[k]) if allc[k] else ''} |")
+        K.append(f"| {k} | {realc[k]} | {f2(sum(real10[k]) / len(real10[k])) if real10[k] else ''} | {len(rand10[k]):,} | {f2(sum(rand10[k]) / len(rand10[k]))} |")
     allreal = [x for v in real10.values() for x in v]; allrand = [x for v in rand10.values() for x in v]
-    L.append(f"| **all** | **{sum(allc.values()):,}** | **{sum(six.values())}** | **{sum(le8.values())}** ({fmt(sum(le8.values()), sum(allc.values()))}) | **{sum(realc.values())}** | **{f2(sum(allreal) / len(allreal))}** | **{nr:,}** | **{f2(sum(allrand) / len(allrand))}** |")
-    write('real_eo', L)
+    L.append(f"| **all** | **{sum(allc.values()):,}** | **{sum(six.values())}** | **{sum(le8.values())}** | {fmt(sum(le8.values()), sum(allc.values()))} |")
+    K.append(f"| **all** | **{sum(realc.values())}** | **{f2(sum(allreal) / len(allreal))}** | **{nr:,}** | **{f2(sum(allrand) / len(allrand))}** |")
+    write('real_eo', L); write('real_eo_skeletons', K)
     J['eo'] = {'all': {str(k): allc[k] for k in range(4)}, 'six': {str(k): six[k] for k in range(4)}, 'le8': {str(k): le8[k] for k in range(4)}, 'real': {str(k): realc[k] for k in range(4)},
                'real10': {str(k): (sum(v) / len(v) if v else None) for k, v in real10.items()}, 'rand10': {str(k): sum(v) / len(v) for k, v in rand10.items()}, 'rand_n': {str(k): len(v) for k, v in rand10.items()}}
     json.dump(C, open(O + 'real_corpus.json', 'w'), indent=1)

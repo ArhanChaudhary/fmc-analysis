@@ -1,4 +1,4 @@
-| Shortest DR (50,000 scrambles each) | Mean, uniform | Mean, nissy scramble | ≤ 8, uniform | ≤ 8, nissy scramble | ≤ 9, uniform | ≤ 9, nissy scramble |
+| Shortest DR (50,000 scrambles each) | Mean turns, uniform | Mean turns, nissy scramble | DR in ≤ 8, uniform | DR in ≤ 8, nissy scramble | DR in ≤ 9, uniform | DR in ≤ 9, nissy scramble |
 |---|---:|---:|---:|---:|---:|---:|
 | One fixed axis, normal (each of the 3 axes) | 9.53 | 9.50 | 6.2% | 6.7% | 43.1% | 45.1% |
 | Best of 3 axes, normal | 9.05 | 9.02 | 16.5% | 17.8% | 76.5% | 78.5% |

@@ -1,4 +1,4 @@
-| Corner qt | Longer HTR | Share of the group | In 9 | In 10 | In 11 | In 12 | In 13 |
+| Corner qt | Longer HTR, moves | Share of the group | In 9 | In 10 | In 11 | In 12 | In 13 |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | 1–2qt | 4 | 0.27% | 14% | 31% | 58% | 86% | 99% |
 | 1–2qt | 5 | 1.9% | 4.1% | 13% | 34% | 71% | 97% |

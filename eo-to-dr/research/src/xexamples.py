@@ -145,7 +145,8 @@ for i in range(1, NSCR + 1):
         check(sticker.bad_edges(s0, AX[a]) == int(r[f'bad_{a}']), (i, 'bad edges', a))
     lines = [f'### Scramble {i}', '', *block([(s, 'scramble')]), '',
              f"Bad edges on R/L, U/D, F/B: {bad[0]}, {bad[1]}, {bad[2]}.", '',
-             '| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |', '|---|---:|---:|---:|',
+             'How many EOs the scramble has on all three axes, by length, on each side:', '',
+             '| Number of EOs | Normal | Inverse | NISS, turns on both sides |', '|---|---:|---:|---:|',
              f"| At most 4 turns | {neo_sum(r, 'n', 4)} | {neo_sum(r, 'i', 4)} | {neo_sum(r, 'x', 4)} |",
              f"| At most 5 | {neo_sum(r, 'n', 5)} | {neo_sum(r, 'i', 5)} | {neo_sum(r, 'x', 5)} |", '',
              '<details><summary>Shortest DRs and the best DRs through short EOs</summary>', '']
@@ -155,7 +156,8 @@ for i in range(1, NSCR + 1):
     dr_check(s, '', iopt, q['opt_axis'], linv, (i, 'opt inverse'))
     dr_check(s, r['niss_normal'], r['niss_inverse'], r['niss_axis'], dniss, (i, 'niss'))
     nn, ni = raw(r['niss_normal']), raw(r['niss_inverse'])
-    lines += ['| Shortest DR | Turns | ' + ' | '.join(NAME[a] for a in AX) + ' |', '|---|---:|---:|---:|---:|',
+    lines += ['Fewest turns to DR from the scramble: the best axis, then each axis.', '',
+              '| Shortest DR | Best axis, turns | ' + ' | '.join(f'{NAME[a]}, turns' for a in AX) + ' |', '|---|---:|---:|---:|---:|',
               f'| Normal side | {lin} | ' + ' | '.join(str(dn[a]) for a in AX) + ' |',
               f'| Inverse | {linv} | ' + ' | '.join(str(di[a]) for a in AX) + ' |',
               f'| Best of the six | {six} | | | |', f'| NISS | {dniss} | | | |', '',
@@ -231,7 +233,8 @@ for c in order:
         se = sticker.replay(s, eo)
         check(sticker.is_eo(se, AX[y]), ('eo', s, eo))
         check(case_of(se, x) == a['case'] and case_of(se, x2) == b['case'], ('case', s, eo))
-        tab = ['| After the EO | Turns to DR | One way |', '|---|---:|---|']
+        tab = ['Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.', '',
+               '| After the EO | Turns to DR | One shortest DR |', '|---|---:|---|']
         for r in (a, b):
             X = r['dr_axis']
             route_check(s, eo, r['plain_dr'], y, X, len(toks(eo)) + int(r['plain']), 'normal', ('plain', s, eo, X))

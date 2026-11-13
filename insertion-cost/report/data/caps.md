@@ -1,4 +1,4 @@
-| Leftover | Cap 8: something fits on | Cap 8: mean added where something fits | Skeletons (cap 8) | Cap 10 | Skeletons (cap 10) | Cap 10 with a comm plus an alg | Skeletons (comm plus alg) | Cap 12 | Skeletons (cap 12) |
+| Leftover | Cap 8: something fits on | Cap 8: mean added where something fits | Skeletons (cap 8) | Cap 10: mean added | Skeletons (cap 10) | Cap 10, a comm plus an alg: mean added | Skeletons (comm plus alg) | Cap 12: mean added | Skeletons (cap 12) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 3c | 99.6% | 5.90 | 20,000 | 5.85 | 20,000 | 5.99 | 200 | 5.77 | 20,000 |
 | 2tc | every one | 7.71 | 5,000 | 7.34 | 200 | 7.34 | 200 | not run | not run |

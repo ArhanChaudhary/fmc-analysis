@@ -1,4 +1,4 @@
-| Slice-EO skips on the scramble | On normal | On normal or inverse | All-oriented only, normal | All-oriented only, normal or inverse |
+| Slice-EO skips on the scramble | Any skip, on normal | Any skip, on normal or inverse | All-oriented skips only, on normal | All-oriented skips only, on normal or inverse |
 |---|---:|---:|---:|---:|
 | at least one | 69% | 79% | 43% | 56% |
 | exactly 0 | 31% | 21% | 57% | 44% |

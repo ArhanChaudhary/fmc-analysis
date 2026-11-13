@@ -1,20 +1,20 @@
 ## 8. What I'd do per subset
 
-This table is the per-subset reference, so it's long. Read these first, they apply to every row.
+This is the per-subset reference, so it's long. Read these first, they apply to every subset.
 
 - **Three numbers, like {= E('2c4',4) =}**, are the shares of all DR states of that kind whose optimal finish, in DR moves, is 10 or less / 11 or less / 12 or less. Which one is yours depends on the DR: your solution is the DR length plus the finish (one less if the first finish move merges with the last DR move). A 9- or 10-move DR gets a look whatever it is, so the numbers that decide something are the first two: an 11-move DR needs a 10 or an 11.
 - **0 means no state at all** finishes that fast. "<0.01%" means a few do.
 - **For a 13**, and for every case not quoted here, the same numbers are in appendices A, D, E and F (Appendix E gives the corner cases with all edge counts together).
 - **They are odds, not guarantees.** The only guarantees are the two bounds (no finish is shorter than the longer HTR, and none is shorter than the best corner solution with the right number of side turns) and the cells that say 0.
 - **"Drop" means "spend your time somewhere else first".** It doesn't mean unsolvable, and with a short enough DR or nothing better on the page you come back to it.
-- **No row says a subset is bad to *try*.** The rows say how often each kind finishes short and which reads change that.
+- **Nothing here says a subset is bad to *try*.** It says how often each kind finishes short and which reads change that.
 - **Pairs and the corner case need no solving.** Count the pairs, recognise the corners on normal and on inverse. **HTR length and L do**: the numbers are for the true shortest HTR on each side and the optimal corner solution. If the HTR you found isn't the shortest, your DR is in a better cell than you think.
 - **Pairs** are true pairs: corner and edge next to each other in the U or D layer, both touching stickers matching.
-- **Edge count.** The second column splits every subset by its number of bad edges. In the third column a read is given per edge count wherever the edge count changes it, and the cell says so where it doesn't. *Where* the bad edges sit is not a read in this table: I only measured it through the HTR length.
+- **Edge count.** Each subset's table splits it by its number of bad edges. Under "What to read" a read is given per edge count wherever the edge count changes it, and it says so where it doesn't. *Where* the bad edges sit is not a read here: I only measured it through the HTR length.
 - **Corner cases** are named by where the bad corners sit, counted up to turning a layer. "A qt goes straight to X" means some U or D quarter turn lowers the corner qt count right away, with no setup.
 - Shares like "a third of 4c3" are of all DR states of that corner subset.
 
-**The short version for an 11-move DR**, which needs a 10 or an 11. This is the last column of the table boiled down to what you can see without solving anything:
+**The short version for an 11-move DR**, which needs a 10 or an 11. This is the "when to drop it" lines below boiled down to what you can see without solving anything:
 
 - **2c5, 4b5, 4c4, 0c3, 0c4**: drop it.
 - **2c4**: keep it only if on both sides the bad corners are not stacked and a quarter turn takes them straight to 2c3 or 4b3, or if it has four or more pairs.
@@ -22,13 +22,13 @@ This table is the per-subset reference, so it's long. Read these first, they app
 - **4a2**: with 4e, keep it if on at least one side the bad corners are 2-2 with the two pairs stacked or each on a diagonal. With 2e or 0e, keep it only if one side has each layer's pair on a diagonal (a quarter turn straight to 4a1).
 - **4a1, 4b2, 2c3, 0c0**: keep.
 
-What that does, counted over all DR states:
+What that does, counted over all DR states. Each row is a corner-qt group; the columns are the share of its DRs the list drops, and the share of its finishes in 10, 11 and 12 or less that go with them:
 
 {= PRUNE_TABLE() =}
 
-Read it row by row, not from the last row. The last row counts every DR state once, and {= QTSHARE('4qt','5qt') =} of all DR states are 4qt or 5qt, so it mostly says what happens up there: {= PRUNE_HIGHQT() =} of what the list drops is 4qt or 5qt.
+Read it row by row, not from the last row. The last row counts every DR state once, and {= QTSHARE('4qt','5qt') =} of all DR states are 4qt or 5qt, so it mostly says what happens up there: {= PRUNE_HIGHQT() =} of what the list drops is 4qt or 5qt. Per qt group, for an 11:
 
-| Corner qt | Dropped | Finishes in 11 lost | Note |
+| Corner qt | Dropped, share of the DRs | Finishes in 11 lost | Note |
 |---|---:|---:|---|
 | 1–2qt | {= PRUNE('drop',11,'1-2qt') =} | {= PRUNE('lose',11,'1-2qt') =} | At 1–2qt the list hardly prunes. |
 | 3qt | {= PRUNE('drop',11,'3qt') =} | {= PRUNE('lose',11,'3qt') =} | What it keeps finishes in 11 {= PRUNE('kept',11,'3qt') =} of the time, against {= PRUNE('base',11,'3qt') =} for all of 3qt. |
@@ -39,7 +39,7 @@ Over all DR states the list drops {= PRUNE('drop') =} and keeps {= PRUNE('keep',
 
 On real scrambles the price is smaller still, because the short DRs carry most of the result. Take the {= ATT('have') =} of {= ATT('n') =} random scrambles that have an EO-first DR of 10 moves or less, finish every DR of 10 or less optimally, and then:
 
-| Also finish | Best solution, average | DRs per scramble |
+| Also finish | Best solution, average moves | DRs per scramble |
 |---|---:|---:|
 | every 11-mover | {= ATT('res_all') =} | {= ATT('drs_all') =} |
 | only the 11-movers the list keeps | {= ATT('res_kept') =} | {= ATT('drs_kept') =} |
@@ -48,21 +48,389 @@ The tally is at the end of the examples page.
 
 If you have the HTR lengths, do the 4c3 line as "9+ on both sides, toss" instead: it drops about as many and loses {= LOSS('4c3', lambda e, a, b, tp, lo, hi: lo >= 9) =} of the 4c3 finishes in 11 instead of {= LOSS('4c3', 'list') =}.
 
-The table, subset by subset:
+Subset by subset. Each one has a table of how it finishes by bad edges, then what to read and when to drop it.
 
-| Subset | How it finishes: in 10 / 11 / 12 | What to read, and what each read changes | When to drop it, and what not to conclude |
-|---|---|---|---|
-| **0c0**<br>0.5% of all DRs<br>average 12.28 | Depends almost only on the bad edges.<br>0e: {= E('0c0',0) =} (these are HTR states and their U D' turns).<br>2e: {= E('0c0',2) =}.<br>4e: {= E('0c0',4) =}.<br>6e: {= E('0c0',6) =}.<br>8e: {= E('0c0',8) =}. | **Pairs**, none against five or more.<br>2e: {= PR('0c0',0,2) =} against {= PR('0c0',5,2) =}.<br>4e: {= PR('0c0',0,4) =} against {= PR('0c0',5,4) =}.<br>6e: {= PR('0c0',0,6) =} with none, {= PR('0c0',2,6) =} with two.<br>**Longer HTR** adds little once you know the edge count.<br>2e, always 5 or 6: {= HX('0c0',5,2) =} and {= HX('0c0',6,2) =}.<br>4e, 5, 6 or 7: {= HX('0c0',5,4) =}, {= HX('0c0',6,4) =}, {= HX('0c0',7,4) =}.<br>6e, 7 or 8: {= HX('0c0',7,6) =} and {= HX('0c0',8,6) =}.<br>**Corners**: one case only, nothing to read.<br>**Parity**: L is 0–5, and the wrong E-parity costs +2 or more for three corner states in four, so check it before trusting a short corner solution.<br>For 6e and 8e, go for the setup to a quarter turn first (Rodney's examples in [Rodney, 23 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1563054901871902741)). | **Needing a 10 or an 11**: 6e is the weak one, {= E('0c0',6) =}, and with no pairs {= PR('0c0',0,6) =}. 2e is worth it at any length.<br>**Needing a 12**: never because of the subset. 6e with no pairs is still {= pct(q(cs='0c0',e=6,pairs=0),12) =}.<br>**Don't conclude** that "0" means no quarter turns: every 0c0 with bad edges needs two. The shortest 0c0 2e is `D F2 R2 F2 D`, solved by `D' F2 R2 F2 D'`. |
-| **4a1**<br>2.9% of all DRs<br>average 12.42 | 4e: {= E('4a1',4) =}.<br>2e: {= E('4a1',2) =}.<br>0e: {= E('4a1',0) =} (only 3% of 4a1).<br>Only 4e can be finished with one quarter turn. 2e and 0e need three. | **Pairs**, none against five or more.<br>4e: {= PR('4a1',0,4) =} against {= PR('4a1',5,4) =}.<br>2e: {= PR('4a1',0,2) =} against {= PR('4a1',5,2) =}.<br>**Corners**: four cases.<br>4e: they barely differ, from {= C1('4a1','45',4) =} to {= C1('4a1','5',4) =}.<br>2e: they do. All four on one layer (L 1–4): {= C1('4a1','5',2) =}. The L 4–7 case: {= C1('4a1','45',2) =}, and {= C2('4a1','45','45',2) =} with that case on both sides.<br>**Longer HTR**.<br>4e: 5 gives {= HX('4a1',5,4) =}, 6 gives {= HX('4a1',6,4) =}, 7 gives {= HX('4a1',7,4) =}, 8 gives {= HX('4a1',8,4) =}.<br>2e: 6 gives {= HX('4a1',6,2) =}, 7 gives {= HX('4a1',7,2) =}, 8 gives {= HX('4a1',8,2) =}.<br>**Levi's formula (4e only)**: shortest *1qt* HTR on normal + on inverse − 1. It bounds the finishes with one quarter turn. For one case in six the shortest HTR is a 3qt one, and the formula wants the 1qt length. A 3qt finish is shorter than the formula 11.7% of the time (2.5% when the formula says 12 or less). | **Needing a 10 or an 11**: 8 to HTR on the longer side is the weak cell at 4e and 2e alike ({= HX('4a1',8) =}), and 0e as a whole. Everything else is a real chance: 7 on the longer side is still {= pct(q(cs='4a1',hmax=7),11) =} for an 11.<br>**Needing a 12**: rarely. 4a1 0e is the weak one.<br>**Don't conclude** that 4a1 2e or 0e are bad DRs: 2e is one of the better subsets. Levi's formula doesn't apply to them, that's all.<br>**Don't forget** the 3qt finishes on 4e. When a 4a1 4e is very blocky and the formula still says 10+, look for one: `U2 F2 R2 B2 U D2 B2 R2 B2 R2 F2` has formula 10 and a 3qt finish in 7 (`U B2 L2 F2 D F2 D`).<br>2e and 0e really need three quarter turns: `D F2 U' B2 F2 D'` (4a1 2e) is solved by `D F2 B2 U F2 D'`, and `U L2 R2 U L2 R2 U'` (4a1 0e) by `U R2 L2 U' R2 L2 U'`. |
-| **4a2**<br>2.9% of all DRs<br>average 13.35 | 4e: {= E('4a2',4) =}.<br>2e: {= E('4a2',2) =}.<br>0e: {= E('4a2',0) =}.<br>So 4a2 2e and 0e finish like a 2c4, not like a 2qt. | **Corners** carry the most. Best case: 2-2, each layer's pair on a diagonal, L 5–8, a qt goes straight to 4a1. Worst case: all four on one layer, L 8–11.<br>4e, best: {= C1('4a2','42',4) =}. Worst: {= C1('4a2','4',4) =}. Best on both sides: {= C2('4a2','42','42',4) =}. Worst on both sides: {= C2('4a2','4','4',4) =}.<br>2e, best: {= C1('4a2','42',2) =}. Worst: {= C1('4a2','4',2) =}. Best on both sides: {= C2('4a2','42','42',2) =}. Worst on both sides: {= C2('4a2','4','4',2) =}.<br>**Pairs**, none against five or more.<br>4e: {= PR('4a2',0,4) =} against {= PR('4a2',5,4) =}.<br>2e: {= PR('4a2',0,2) =} against {= PR('4a2',5,2) =}.<br>**Longer HTR**.<br>4e: 7 gives {= HX('4a2',7,4) =}, 8 gives {= HX('4a2',8,4) =}, 9 gives {= HX('4a2',9,4) =}, 10 gives {= HX('4a2',10,4) =}, 11 gives {= HX('4a2',11,4) =}.<br>2e, almost always 9 or more: 9 gives {= HX('4a2',9,2) =}, 10 gives {= HX('4a2',10,2) =}, 11 gives {= HX('4a2',11,2) =}.<br>**Method**: 4a2 4e is where Levi's bounding and Rodney's rules work best. Use them. | **Needing a 10 or an 11**: 2e and 0e unless one side is the best corner case. With 4e, neither side 2-2 with the pairs stacked or on diagonals ({= C2('4a2','31 4','31 4',4) =}). 10 or more to HTR on the longer side ({= SH('4a2',q(cs='4a2',hmax=lambda x: x>=10)) =} of 4a2): {= T(q(cs='4a2',hmax=lambda x: x>=10)) =}.<br>**Needing a 12**: 10 or more to HTR on both sides ({= SH('4a2',q(cs='4a2',hmin=lambda x: x>=10)) =} of 4a2): {= T(q(cs='4a2',hmin=lambda x: x>=10)) =}. The worst corner case on both sides, above all with 2e.<br>**Don't conclude** that 2qt means good. On average 4a2 finishes worse than 2c3 and 4b2: {= T(q(cs='4a2')) =} against {= T(q(cs='2c3')) =} and {= T(q(cs='4b2')) =}. |
-| **4b2**<br>11.4% of all DRs<br>average 12.68 | Flat across edges.<br>2e: {= E('4b2',2) =}.<br>4e: {= E('4b2',4) =}.<br>0e: {= E('4b2',0) =}. | **Pairs** are the best read here, none against five or more.<br>All edge counts: {= PR('4b2',0) =} against {= PR('4b2',5) =}.<br>2e: {= PR('4b2',0,2) =} against {= PR('4b2',5,2) =}.<br>4e: {= PR('4b2',0,4) =} against {= PR('4b2',5,4) =}.<br>**Corners**: four cases, three looks.<br>2-2 with L 3–6, a qt goes straight to 4a1: {= C1('4b2','38') =}.<br>3-1: {= C1('4b2','25 21') =}. This is two cases that look the same, {= C1('4b2','25') =} and {= C1('4b2','21') =}; only the optimal corner solution separates them, 4 moves being the better one and 8 the worse.<br>2-2 with L 6–9: {= C1('4b2','28') =}.<br>Best on both sides: {= C2('4b2','38','38') =}. Worst on both sides: {= C2('4b2','28','28') =}.<br>A little higher with 2e than with 4e throughout.<br>**Longer HTR** has to be read with the edge count, because 4e HTRs run a move longer.<br>2e: 6 gives {= HX('4b2',6,2) =}, 7 gives {= HX('4b2',7,2) =}, 8 gives {= HX('4b2',8,2) =}.<br>4e: 7 gives {= HX('4b2',7,4) =}, 8 gives {= HX('4b2',8,4) =}, 9 gives {= HX('4b2',9,4) =}.<br>**Method**: Rodney's, as written. | **Needing a 10 or an 11**: no pairs ({= PR('4b2',0) =}), or 8 and 9 to HTR ({= HB('4b2',8,9) =}). Three or more pairs ({= pct(q(cs='4b2',pairs=lambda n: n>=3),11) =} for an 11) or 5 on the shorter side ({= pct(q(cs='4b2',hmin=5),11) =}) make it a fair shot.<br>**Needing a 12**: there is no dead corner of 4b2. The weakest HTR cells of any size are 7 and 8 with 2e ({= pct(q(cs='4b2',e=2,htr=(7,8)),12) =}) and 8 and 9 with 4e ({= pct(q(cs='4b2',e=4,htr=(8,9)),12) =}).<br>**Don't conclude** that a short HTR means a short finish. Example 10 in the examples file has a 4-move HTR, sits in a cell where {= pct(q(cs='4b2',e=4,htr=(4,8)),12) =} finish in 12, and is a 13. |
-| **2c3**<br>15.2% of all DRs<br>average 12.92 | The edge count matters a lot.<br>2e: {= E('2c3',2) =}.<br>4e: {= E('2c3',4) =}.<br>6e: {= E('2c3',6) =}.<br>0e: {= E('2c3',0) =}.<br>8e: {= E('2c3',8) =}.<br>(0e and 8e are 1% of 2c3 each.) | **Corners**: three cases. Stacked (one above the other), L 5–8, a qt goes straight to 4b2. Opposite corners of the cube, L 5–8, also straight to 4b2. Next to each other on one layer, L 6–9, needs a setup (half of all 2c3).<br>2e, stacked: {= C1('2c3','19',2) =}. Opposite: {= C1('2c3','16',2) =}. Adjacent: {= C1('2c3','9',2) =}.<br>4e, stacked: {= C1('2c3','19',4) =}. Opposite: {= C1('2c3','16',4) =}. Adjacent: {= C1('2c3','9',4) =}.<br>6e, stacked: {= C1('2c3','19',6) =}. Opposite: {= C1('2c3','16',6) =}. Adjacent: {= C1('2c3','9',6) =}.<br>Stacked on both sides: {= C2('2c3','19','19',2) =} with 2e, {= C2('2c3','19','19',4) =} with 4e, {= C2('2c3','19','19',6) =} with 6e.<br>Adjacent on both sides (a quarter of 2c3): {= C2('2c3','9','9',2) =} with 2e, {= C2('2c3','9','9',4) =} with 4e, {= C2('2c3','9','9',6) =} with 6e.<br>**Pairs**, none against five or more.<br>2e: {= PR('2c3',0,2) =} against {= PR('2c3',5,2) =}.<br>4e: {= PR('2c3',0,4) =} against {= PR('2c3',5,4) =}.<br>6e: {= PR('2c3',0,6) =} against {= PR('2c3',5,6) =}.<br>**Longer HTR**.<br>2e: 6 gives {= HX('2c3',6,2) =}, 7 gives {= HX('2c3',7,2) =}.<br>4e: 7 gives {= HX('2c3',7,4) =}, 8 gives {= HX('2c3',8,4) =}, 9 gives {= HX('2c3',9,4) =}.<br>6e: 8 gives {= HX('2c3',8,6) =}, 9 gives {= HX('2c3',9,6) =}.<br>**Parity**: for half of all 2c3 corner states the wrong E-parity costs +2, so the corner solution you like may be two moves short of reality.<br>**Method**: Rodney's. | **Needing a 10 or an 11**: 6e with adjacent corners on both sides ({= C2('2c3','9','9',6) =}). 9 to HTR on the longer side ({= HX('2c3',9,4) =} with 4e, {= HX('2c3',9,6) =} with 6e). No pairs with 4e or 6e. Keep 2e with stacked or opposite corners, and anything with five pairs.<br>**Needing a 12**: nothing is dead. The weakest cells of any size: 6e with adjacent corners on both sides ({= pct(q(cs='2c3',e=6,both=(S('9'),S('9'))),12) =}), 4e at 8 and 9 to HTR ({= pct(q(cs='2c3',e=4,htr=(8,9)),12) =}), 6e at 9 and 9 ({= pct(q(cs='2c3',e=6,htr=(9,9)),12) =}).<br>**Don't conclude** that stacked corners are bad. At 3qt stacked is the *best* layout. It's at 4qt and 5qt that stacked is the worst. |
-| **4c3**<br>(4a3 and 4b3)<br>11.4% of all DRs<br>average 13.49 | Flat across edges.<br>4e: {= E('4c3',4) =}.<br>2e: {= E('4c3',2) =}.<br>0e: {= E('4c3',0) =}. | **Corners** carry the most, and which 4a3 you have is the big one.<br>4a3 that is 2-2 with L 7–9 and a qt straight to 4b2 (two such cases): {= C1('4c3','32') =} and {= C1('4c3','30') =}.<br>4b3 that is 2-2 with a qt straight to 4a2: {= C1('4c3','29') =}.<br>4b3 that is 3-1 (a third of all 4c3): {= C1('4c3','15') =}.<br>4a3 with all four on one layer: {= C1('4c3','11 13') =}. Two cases that look the same: with an optimal corner solution of 8 it is the better one, {= C1('4c3','11') =}, with 10 the worse one, {= C1('4c3','13') =}.<br>4a3 with L 9–11: {= C1('4c3','41') =}.<br>Both sides, best pair of cases: {= XP('4c3','best') =}. Worst pair ({= XPS('4c3','worst') =} of all 4c3): {= XP('4c3','worst') =}.<br>**Pairs**: {= PR('4c3',0) =} with none, {= PR('4c3',5) =} with five or more.<br>**HTR on both sides**.<br>7 and 8: {= HB('4c3',7,8) =}.<br>8 and 8: {= HB('4c3',8,8) =}.<br>8 and 9: {= HB('4c3',8,9) =}.<br>9 and 9: {= HB('4c3',9,9) =}.<br>9 and 10: {= HB('4c3',9,10) =}.<br>10 and 10: {= HB('4c3',10,10) =}.<br>The same length is worth a little more with 4e than with 2e (longer side 9: {= HX('4c3',9,4) =} with 4e, {= HX('4c3',9,2) =} with 2e), because 4e HTRs run about a move longer.<br>Corners and pairs read the same at 2e and 4e. | **Needing a 10 or an 11**: Zagros's rule (9+ on both sides, toss) is a fair trade here. It drops half of all 4c3 and keeps {= KEEP('4c3',lambda lo: lo<9,10) =} of the 10s and {= KEEP('4c3',lambda lo: lo<9,11) =} of the 11s. What it drops is {= T(q(cs='4c3',hmin=lambda x: x>=9)) =}. Also drop the 4a3 with L 9–11 and the worse 4-0. Worth keeping: a qt straight to 4b2 on the 4a3 side, four or more pairs ({= pct(q(cs='4c3',pairs=lambda n: n>=4),11) =} for an 11), or 8 or less on the shorter side.<br>**Needing a 12**: 10 on both sides, or 9 and 10 with nothing else going for it. The rule keeps {= KEEP('4c3',lambda lo: lo<9,12) =} of the 12s, so there it costs a quarter of them.<br>**Don't conclude** that what the rule drops is dead: `U' L2 D' B2 U' B2 U L2 D` is 9 to HTR on both sides and finishes in 9. |
-| **0c3**<br>1.4% of all DRs<br>average 14.46 | The worst subset on average, worse than 5qt.<br>4e (half of 0c3): {= E('0c3',4) =}.<br>2e and 6e: {= E('0c3',2) =}.<br>0e and 8e: {= E('0c3',0) =}. | **Longer HTR** is the read, and it has to be read with the edge count.<br>4e: 11 (one in seven) gives {= HX('0c3',11,4) =}, 12 (most of them) gives {= HX('0c3',12,4) =}, 13 (one in seven) gives {= HX('0c3',13,4) =}.<br>2e or 6e: 10 (two thirds) gives {= HX('0c3',10,2) =}, 11 (a third) gives {= HX('0c3',11,2) =}.<br>So an 11 is the best case with 4e and the worst with 2e or 6e.<br>**Corners**: two cases, both with no bad corners.<br>A qt goes straight to 4a2 (a third of 0c3): {= C1('0c3','3',2) =} with 2e or 6e, {= C1('0c3','3',4) =} with 4e.<br>Needs a setup: {= C1('0c3','6',2) =} with 2e or 6e, {= C1('0c3','6',4) =} with 4e.<br>**Pairs** barely move it.<br>2e: {= PR('0c3',0,2) =} with none, {= PR('0c3',5,2) =} with five or more.<br>4e: {= PR('0c3',0,4) =} and {= PR('0c3',5,4) =}.<br>**Parity**: the wrong E-parity always costs exactly +1. | **Needing a 10 or an 11**: always. The longer HTR is 10 or more for 99% of 0c3, so a 10 is all but ruled out before you look. For an 11 even the better cells are 1–3%: 2e or 6e with a qt straight to 4a2 is {= pct(q(cs='0c3',e=(2,6),cc=S('3')),11) =}, 2e with five pairs {= pct(q(cs='0c3',e=2,pairs=5),11) =}, 2e or 6e at 9 and 10 to HTR {= pct(q(cs='0c3',e=(2,6),htr=(9,10)),11) =}, 4e at 10 and 11 {= pct(q(cs='0c3',e=4,htr=(10,11)),11) =}. 9 on the longer side reaches {= pct(q(cs='0c3',hmax=9),11) =}, and that is one 0c3 in a hundred.<br>**Needing a 12**: by default. 0c3 4e with 12 or 13 on the longer side (six in seven of 0c3 4e) is at most {= pct(q(cs='0c3',e=4,hmax=12),12) =}.<br>**Don't conclude** that no bad corners means good corners. |
-| **2c4**<br>22.9% of all DRs, the most common subset<br>average 13.65 | 2e: {= E('2c4',2) =}.<br>4e: {= E('2c4',4) =}.<br>6e: {= E('2c4',6) =}.<br>0e: {= E('2c4',0) =}.<br>8e: {= E('2c4',8) =}.<br>(0e and 8e are 1% of 2c4 each.) | **Corners first**, seven cases.<br>Next to each other on one layer with a qt straight to 2c3, two cases with the same bad corners, told apart by the diagonals of the back face (section 4.3 says how): {= C1('2c4','8') =} and {= C1('2c4','7') =}.<br>Opposite corners with a qt straight to 4b3 (L 8–10): {= C1('2c4','24') =}.<br>The other two non-stacked cases, which need a setup: {= C1('2c4','2') =} and {= C1('2c4','14') =}.<br>Stacked (one above the other) with a qt straight to 4b3: {= C1('2c4','23') =}. Stacked, needing a setup: {= C1('2c4','18') =}.<br>Best layout on both sides: {= C2('2c4','8','8') =}.<br>A stack on both sides: {= C2('2c4','23 18','23 18') =}.<br>This holds at every edge count: the best layout on both sides is {= C2('2c4','8','8',2) =} with 2e, {= C2('2c4','8','8',4) =} with 4e, {= C2('2c4','8','8',6) =} with 6e.<br>**Pairs**: {= PR('2c4',0) =} with none, {= PR('2c4',5) =} with five or more, about the same at 2e, 4e and 6e.<br>**HTR on both sides**.<br>7 and 8: {= HB('2c4',7,8) =}.<br>8 and 8: {= HB('2c4',8,8) =}.<br>8 and 9: {= HB('2c4',8,9) =}.<br>9 and 9: {= HB('2c4',9,9) =}.<br>9 and 10: {= HB('2c4',9,10) =}.<br>10 and 10: {= HB('2c4',10,10) =}.<br>Within a few points of this at 2e, 4e and 6e.<br>**Parity** (if the corner solutions are written down): for 2c4 4e, L of 11 or more is {= T(q2(cs='2c4',e=4,L=lambda x: x>=11)) =}, and L = 12 with an odd E-slice has no 12 at all. | **Needing a 10** ({= pct(q(cs='2c4'),10) =} as a subset): it takes the best layout on both sides ({= pct(q(cs='2c4',both=(S('8'),S('8'))),10) =}), five pairs ({= pct(q(cs='2c4',pairs=5),10) =}) or 7 and 8 to HTR ({= pct(q(cs='2c4',htr=(7,8)),10) =}) to get near 1 in 100.<br>**Needing an 11** ({= pct(q(cs='2c4'),11) =} as a subset): under 1% with a stack that needs a setup ({= pct(q(cs='2c4',cc=S('18')),11) =}), 9 and 9 or worse to HTR ({= pct(q(cs='2c4',hmin=lambda x: x>=9),11) =}), or no pairs ({= pct(q(cs='2c4',pairs=0),11) =}). Worth it with a qt straight to 2c3 on both sides ({= pct(q(cs='2c4',both=(S('8 7'),S('8 7'))),11) =}), four or more pairs ({= pct(q(cs='2c4',pairs=lambda n: n>=4),11) =}), or 8 and 8 or better to HTR ({= pct(q(cs='2c4',hmax=lambda x: x<=8),11) =}).<br>**Needing a 12**: a stack on both sides (the fastest any of them finishes is 11: `U2 L2 D' F2 U' R2 U F2 D L2 U2`). 10 to HTR on both sides. No pairs and nothing else going for it.<br>**Don't conclude** that 2c4 is bad as a subset. The best layout on both sides is as good as an average 2c3 4e ({= C2('2c4','8','8') =} against {= E('2c3',4) =}), and 2c4 is where reading pays the most, because the spread inside it is the widest.<br>**Don't conclude** that 6e is a discard on its own: it's {= E('2c4',6) =} against {= E('2c4',4) =} for 4e. 8e is worse. |
-| **0c4**<br>1.0% of all DRs<br>average 13.67 | Same average as 2c4 but fewer short finishes: {= T(q(cs='0c4')) =} against {= T(q(cs='2c4')) =}.<br>2e: {= E('0c4',2) =}.<br>4e: {= E('0c4',4) =}.<br>6e: {= E('0c4',6) =}. | **Pairs** are the only read with much in it.<br>2e: {= PR('0c4',0,2) =} with none, {= PR('0c4',5,2) =} with five or more.<br>4e: {= PR('0c4',0,4) =} and {= PR('0c4',5,4) =}.<br>6e: {= PR('0c4',0,6) =} with none, {= PR('0c4',2,6) =} with two.<br>**HTR** is 9 or 10 on each side (11 only with 8e) and tells you little beyond the edge count: 9 and 9 gives {= HB('0c4',9,9) =}, 10 and 10 gives {= HB('0c4',10,10) =}, and with 6e it's always 10.<br>**Corners**: one case, L is always 9 or 10, and the wrong E-parity always costs +1. | **Needing a 10 or an 11**: always. Five pairs is the only thing that lifts it: {= PR('0c4',5,2) =} with 2e, {= PR('0c4',5,4) =} with 4e.<br>**Needing a 12**: 6e or 8e, or no pairs.<br>**Don't conclude** anything from the corners here, there's nothing to tell apart. |
-| **4c4**<br>(4a4 and 4b4)<br>11.4% of all DRs<br>average 14.40 | Flat across edges.<br>4e: {= E('4c4',4) =}.<br>2e: {= E('4c4',2) =}.<br>0e: {= E('4c4',0) =}. | **Corners**.<br>Best case (2-2, each layer's pair on a diagonal, L 9–10, a qt straight to 4a3): {= C1('4c4','44') =}.<br>The two worst (L 11–12): {= C1('4c4','34 12') =}.<br>Best pair of cases on both sides: {= XP('4c4','best') =}. Worst pair: {= XP('4c4','worst') =}.<br>**Pairs**: {= PR('4c4',0) =} with none, {= PR('4c4',5) =} with five or more.<br>**Longer HTR**: 10 gives {= HX('4c4',10) =}, 11 (two thirds of 4c4) gives {= HX('4c4',11) =}, 12 gives {= HX('4c4',12) =}.<br>All of this reads the same at 2e and 4e. | **Needing a 10 or an 11**: always. With 11 or more on the longer side (three quarters of 4c4) a 10 is impossible and an 11 is {= pct(q(cs='4c4',hmax=lambda x: x>=11),11) =}. The best single reads for an 11: 9 on the longer side ({= pct(q(cs='4c4',hmax=9),11) =}, but that is one 4c4 in a hundred), the best pair of corner cases ({= pct(XPH('4c4','best'),11) =}), five pairs ({= pct(q(cs='4c4',pairs=5),11) =}).<br>**Needing a 12**: by default. It takes a short DR *and* something going for it (five pairs, or 9 and 10 to HTR, or the best corners), and then it's about {= pct(q(cs='4c4',pairs=5),12) =}. 11 to HTR on both sides: {= pct(q(cs='4c4',htr=(11,11)),12) =}.<br>**Don't conclude** from examples 2 and 9 in the examples file that 4c4 comes good. Those were rare outcomes. |
-| **2c5**<br>7.6% of all DRs<br>average 14.33 | Flat across edges.<br>4e: {= E('2c5',4) =}.<br>2e: {= E('2c5',2) =}.<br>6e: {= E('2c5',6) =}. | **Corners**.<br>Next to each other on one layer (half of 2c5): {= C1('2c5','1') =}.<br>Opposite corners: {= C1('2c5','20') =}.<br>Stacked: {= C1('2c5','26') =}.<br>Adjacent on both sides (a quarter of 2c5): {= C2('2c5','1','1') =}.<br>Stacked on one side, opposite on the other: {= C2('2c5','26','20') =}.<br>**Stacked on both sides: {= C2('2c5','26','26') =}**, so never a 12 (the fastest is 13: `U2 F2 U' R2 U F2 D' L2 U B2 U' L2 U2`).<br>**Pairs**: {= PR('2c5',0) =} with none, {= PR('2c5',5) =} with five or more.<br>**Longer HTR**: 9 (2% of 2c5) gives {= HX('2c5',9) =}, 10 gives {= HX('2c5',10) =}, 11 gives {= HX('2c5',11) =}, 12 gives {= HX('2c5',12) =}.<br>**Parity**: this is where the parity bound does the most. At 5qt it proves "no 11" outright for 37% of DRs and "no 12" for 13%.<br>The reads are about the same at 2e, 4e and 6e, a little lower with 6e. | **Needing a 10 or an 11**: always. The exceptions are 9 on the longer side ({= pct(q(cs='2c5',hmax=9),11) =} for an 11, but that is one 2c5 in fifty) and five pairs ({= pct(q(cs='2c5',pairs=5),11) =}).<br>**Needing a 12**: by default, and at once with a stack on both sides, a stack plus opposite, or 11 to HTR on both sides ({= pct(q(cs='2c5',htr=(11,11)),12) =}). Worth a look with a short DR and five pairs, or adjacent corners on both sides with 9 or 10 to HTR.<br>**Don't conclude** that "5qt, skip" loses nothing when a 13 is enough: one 2c5 in seven finishes in 13. |
-| **4b5**<br>11.4% of all DRs<br>average 14.28 | Flat across edges.<br>4e: {= E('4b5',4) =}.<br>2e: {= E('4b5',2) =}.<br>0e: {= E('4b5',0) =}. | **Pairs** are the only read that does anything: {= PR('4b5',0) =} with none, {= PR('4b5',5) =} with five or more.<br>**Corners**: two cases.<br>3-1 with a qt straight to 2c4 (two thirds): {= C1('4b5','22') =}.<br>2-2 with a qt straight to 4a4: {= C1('4b5','35') =}.<br>**HTR**: 9, 10 or 11 on each side. 9 and 9 gives {= HB('4b5',9,9) =}, 11 and 11 gives {= HB('4b5',11,11) =}.<br>The same at 2e and 4e. | **Needing a 10 or an 11**: always. Five pairs gets it to {= pct(q(cs='4b5',pairs=5),11) =} for an 11 and nothing gets it further.<br>**Needing a 12**: by default. Unlike 2c5 there is no layout that kills it or saves it. A short DR with four or five pairs is the only case for it.<br>**Don't conclude** that 4b5 and 2c5 read the same way: 2c5 has the stacked-corner rule, 4b5 has nothing like it. |
+#### 0c0
+
+0.5% of all DRs, average optimal 12.28. Depends almost only on the bad edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
+
+| Bad edges | In 10 | In 11 | In 12 | Note |
+|---|---:|---:|---:|---|
+| 0e | {= CELLS(E('0c0',0)) =} | these are HTR states and their U D' turns |
+| 2e | {= CELLS(E('0c0',2)) =} |  |
+| 4e | {= CELLS(E('0c0',4)) =} |  |
+| 6e | {= CELLS(E('0c0',6)) =} |  |
+| 8e | {= CELLS(E('0c0',8)) =} |  |
+
+**What to read, and what each read changes:**
+
+- **Pairs**, none against five or more.
+  - 2e: {= PR('0c0',0,2) =} against {= PR('0c0',5,2) =}.
+  - 4e: {= PR('0c0',0,4) =} against {= PR('0c0',5,4) =}.
+  - 6e: {= PR('0c0',0,6) =} with none, {= PR('0c0',2,6) =} with two.
+- **Longer HTR** adds little once you know the edge count.
+  - 2e, always 5 or 6: {= HX('0c0',5,2) =} and {= HX('0c0',6,2) =}.
+  - 4e, 5, 6 or 7: {= HX('0c0',5,4) =}, {= HX('0c0',6,4) =}, {= HX('0c0',7,4) =}.
+  - 6e, 7 or 8: {= HX('0c0',7,6) =} and {= HX('0c0',8,6) =}.
+- **Corners**: one case only, nothing to read.
+- **Parity**: L is 0–5, and the wrong E-parity costs +2 or more for three corner states in four, so check it before trusting a short corner solution.
+- For 6e and 8e, go for the setup to a quarter turn first (Rodney's examples in [Rodney, 23 Oct 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1563054901871902741)).
+
+**When to drop it, and what not to conclude:**
+
+- **Needing a 10 or an 11**: 6e is the weak one, {= E('0c0',6) =}, and with no pairs {= PR('0c0',0,6) =}. 2e is worth it at any length.
+- **Needing a 12**: never because of the subset. 6e with no pairs is still {= pct(q(cs='0c0',e=6,pairs=0),12) =}.
+- **Don't conclude** that "0" means no quarter turns: every 0c0 with bad edges needs two. The shortest 0c0 2e is `D F2 R2 F2 D`, solved by `D' F2 R2 F2 D'`.
+
+#### 4a1
+
+2.9% of all DRs, average optimal 12.42. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
+
+| Bad edges | In 10 | In 11 | In 12 | Note |
+|---|---:|---:|---:|---|
+| 4e | {= CELLS(E('4a1',4)) =} |  |
+| 2e | {= CELLS(E('4a1',2)) =} |  |
+| 0e | {= CELLS(E('4a1',0)) =} | only 3% of 4a1 |
+
+Only 4e can be finished with one quarter turn. 2e and 0e need three.
+
+**What to read, and what each read changes:**
+
+- **Pairs**, none against five or more.
+  - 4e: {= PR('4a1',0,4) =} against {= PR('4a1',5,4) =}.
+  - 2e: {= PR('4a1',0,2) =} against {= PR('4a1',5,2) =}.
+- **Corners**: four cases.
+  - 4e: they barely differ, from {= C1('4a1','45',4) =} to {= C1('4a1','5',4) =}.
+  - 2e: they do. All four on one layer (L 1–4): {= C1('4a1','5',2) =}. The L 4–7 case: {= C1('4a1','45',2) =}, and {= C2('4a1','45','45',2) =} with that case on both sides.
+- **Longer HTR**.
+  - 4e: 5 gives {= HX('4a1',5,4) =}, 6 gives {= HX('4a1',6,4) =}, 7 gives {= HX('4a1',7,4) =}, 8 gives {= HX('4a1',8,4) =}.
+  - 2e: 6 gives {= HX('4a1',6,2) =}, 7 gives {= HX('4a1',7,2) =}, 8 gives {= HX('4a1',8,2) =}.
+- **Levi's formula (4e only)**: shortest *1qt* HTR on normal + on inverse $- 1$. It bounds the finishes with one quarter turn. For one case in six the shortest HTR is a 3qt one, and the formula wants the 1qt length. A 3qt finish is shorter than the formula 11.7% of the time (2.5% when the formula says 12 or less).
+
+**When to drop it, and what not to conclude:**
+
+- **Needing a 10 or an 11**: 8 to HTR on the longer side is the weak cell at 4e and 2e alike ({= HX('4a1',8) =}), and 0e as a whole. Everything else is a real chance: 7 on the longer side is still {= pct(q(cs='4a1',hmax=7),11) =} for an 11.
+- **Needing a 12**: rarely. 4a1 0e is the weak one.
+- **Don't conclude** that 4a1 2e or 0e are bad DRs: 2e is one of the better subsets. Levi's formula doesn't apply to them, that's all.
+- **Don't forget** the 3qt finishes on 4e. When a 4a1 4e is very blocky and the formula still says 10+, look for one: `U2 F2 R2 B2 U D2 B2 R2 B2 R2 F2` has formula 10 and a 3qt finish in 7 (`U B2 L2 F2 D F2 D`).
+  - 2e and 0e really need three quarter turns: `D F2 U' B2 F2 D'` (4a1 2e) is solved by `D F2 B2 U F2 D'`, and `U L2 R2 U L2 R2 U'` (4a1 0e) by `U R2 L2 U' R2 L2 U'`.
+
+#### 4a2
+
+2.9% of all DRs, average optimal 13.35. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
+
+| Bad edges | In 10 | In 11 | In 12 |
+|---|---:|---:|---:|
+| 4e | {= CELLS(E('4a2',4)) =} |
+| 2e | {= CELLS(E('4a2',2)) =} |
+| 0e | {= CELLS(E('4a2',0)) =} |
+
+So 4a2 2e and 0e finish like a 2c4, not like a 2qt.
+
+**What to read, and what each read changes:**
+
+- **Corners** carry the most. Best case: 2-2, each layer's pair on a diagonal, L 5–8, a qt goes straight to 4a1. Worst case: all four on one layer, L 8–11.
+  - 4e, best: {= C1('4a2','42',4) =}. Worst: {= C1('4a2','4',4) =}. Best on both sides: {= C2('4a2','42','42',4) =}. Worst on both sides: {= C2('4a2','4','4',4) =}.
+  - 2e, best: {= C1('4a2','42',2) =}. Worst: {= C1('4a2','4',2) =}. Best on both sides: {= C2('4a2','42','42',2) =}. Worst on both sides: {= C2('4a2','4','4',2) =}.
+- **Pairs**, none against five or more.
+  - 4e: {= PR('4a2',0,4) =} against {= PR('4a2',5,4) =}.
+  - 2e: {= PR('4a2',0,2) =} against {= PR('4a2',5,2) =}.
+- **Longer HTR**.
+  - 4e: 7 gives {= HX('4a2',7,4) =}, 8 gives {= HX('4a2',8,4) =}, 9 gives {= HX('4a2',9,4) =}, 10 gives {= HX('4a2',10,4) =}, 11 gives {= HX('4a2',11,4) =}.
+  - 2e, almost always 9 or more: 9 gives {= HX('4a2',9,2) =}, 10 gives {= HX('4a2',10,2) =}, 11 gives {= HX('4a2',11,2) =}.
+- **Method**: 4a2 4e is where Levi's bounding and Rodney's rules work best. Use them.
+
+**When to drop it, and what not to conclude:**
+
+- **Needing a 10 or an 11**: 2e and 0e unless one side is the best corner case. With 4e, neither side 2-2 with the pairs stacked or on diagonals ({= C2('4a2','31 4','31 4',4) =}). 10 or more to HTR on the longer side ({= SH('4a2',q(cs='4a2',hmax=lambda x: x>=10)) =} of 4a2): {= T(q(cs='4a2',hmax=lambda x: x>=10)) =}.
+- **Needing a 12**: 10 or more to HTR on both sides ({= SH('4a2',q(cs='4a2',hmin=lambda x: x>=10)) =} of 4a2): {= T(q(cs='4a2',hmin=lambda x: x>=10)) =}. The worst corner case on both sides, above all with 2e.
+- **Don't conclude** that 2qt means good. On average 4a2 finishes worse than 2c3 and 4b2: {= T(q(cs='4a2')) =} against {= T(q(cs='2c3')) =} and {= T(q(cs='4b2')) =}.
+
+#### 4b2
+
+11.4% of all DRs, average optimal 12.68. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
+
+| Bad edges | In 10 | In 11 | In 12 |
+|---|---:|---:|---:|
+| 2e | {= CELLS(E('4b2',2)) =} |
+| 4e | {= CELLS(E('4b2',4)) =} |
+| 0e | {= CELLS(E('4b2',0)) =} |
+
+**What to read, and what each read changes:**
+
+- **Pairs** are the best read here, none against five or more.
+  - All edge counts: {= PR('4b2',0) =} against {= PR('4b2',5) =}.
+  - 2e: {= PR('4b2',0,2) =} against {= PR('4b2',5,2) =}.
+  - 4e: {= PR('4b2',0,4) =} against {= PR('4b2',5,4) =}.
+- **Corners**: four cases, three looks.
+  - 2-2 with L 3–6, a qt goes straight to 4a1: {= C1('4b2','38') =}.
+  - 3-1: {= C1('4b2','25 21') =}. This is two cases that look the same, {= C1('4b2','25') =} and {= C1('4b2','21') =}; only the optimal corner solution separates them, 4 moves being the better one and 8 the worse.
+  - 2-2 with L 6–9: {= C1('4b2','28') =}.
+  - Best on both sides: {= C2('4b2','38','38') =}. Worst on both sides: {= C2('4b2','28','28') =}.
+  - A little higher with 2e than with 4e throughout.
+- **Longer HTR** has to be read with the edge count, because 4e HTRs run a move longer.
+  - 2e: 6 gives {= HX('4b2',6,2) =}, 7 gives {= HX('4b2',7,2) =}, 8 gives {= HX('4b2',8,2) =}.
+  - 4e: 7 gives {= HX('4b2',7,4) =}, 8 gives {= HX('4b2',8,4) =}, 9 gives {= HX('4b2',9,4) =}.
+- **Method**: Rodney's, as written.
+
+**When to drop it, and what not to conclude:**
+
+- **Needing a 10 or an 11**: no pairs ({= PR('4b2',0) =}), or 8 and 9 to HTR ({= HB('4b2',8,9) =}). Three or more pairs ({= pct(q(cs='4b2',pairs=lambda n: n>=3),11) =} for an 11) or 5 on the shorter side ({= pct(q(cs='4b2',hmin=5),11) =}) make it a fair shot.
+- **Needing a 12**: there is no dead corner of 4b2. The weakest HTR cells of any size are 7 and 8 with 2e ({= pct(q(cs='4b2',e=2,htr=(7,8)),12) =}) and 8 and 9 with 4e ({= pct(q(cs='4b2',e=4,htr=(8,9)),12) =}).
+- **Don't conclude** that a short HTR means a short finish. Example 10 in the examples file has a 4-move HTR, sits in a cell where {= pct(q(cs='4b2',e=4,htr=(4,8)),12) =} finish in 12, and is a 13.
+
+#### 2c3
+
+15.2% of all DRs, average optimal 12.92. The edge count matters a lot. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
+
+| Bad edges | In 10 | In 11 | In 12 |
+|---|---:|---:|---:|
+| 2e | {= CELLS(E('2c3',2)) =} |
+| 4e | {= CELLS(E('2c3',4)) =} |
+| 6e | {= CELLS(E('2c3',6)) =} |
+| 0e | {= CELLS(E('2c3',0)) =} |
+| 8e | {= CELLS(E('2c3',8)) =} |
+
+(0e and 8e are 1% of 2c3 each.)
+
+**What to read, and what each read changes:**
+
+- **Corners**: three cases. Stacked (one above the other), L 5–8, a qt goes straight to 4b2. Opposite corners of the cube, L 5–8, also straight to 4b2. Next to each other on one layer, L 6–9, needs a setup (half of all 2c3).
+  - 2e, stacked: {= C1('2c3','19',2) =}. Opposite: {= C1('2c3','16',2) =}. Adjacent: {= C1('2c3','9',2) =}.
+  - 4e, stacked: {= C1('2c3','19',4) =}. Opposite: {= C1('2c3','16',4) =}. Adjacent: {= C1('2c3','9',4) =}.
+  - 6e, stacked: {= C1('2c3','19',6) =}. Opposite: {= C1('2c3','16',6) =}. Adjacent: {= C1('2c3','9',6) =}.
+  - Stacked on both sides: {= C2('2c3','19','19',2) =} with 2e, {= C2('2c3','19','19',4) =} with 4e, {= C2('2c3','19','19',6) =} with 6e.
+  - Adjacent on both sides (a quarter of 2c3): {= C2('2c3','9','9',2) =} with 2e, {= C2('2c3','9','9',4) =} with 4e, {= C2('2c3','9','9',6) =} with 6e.
+- **Pairs**, none against five or more.
+  - 2e: {= PR('2c3',0,2) =} against {= PR('2c3',5,2) =}.
+  - 4e: {= PR('2c3',0,4) =} against {= PR('2c3',5,4) =}.
+  - 6e: {= PR('2c3',0,6) =} against {= PR('2c3',5,6) =}.
+- **Longer HTR**.
+  - 2e: 6 gives {= HX('2c3',6,2) =}, 7 gives {= HX('2c3',7,2) =}.
+  - 4e: 7 gives {= HX('2c3',7,4) =}, 8 gives {= HX('2c3',8,4) =}, 9 gives {= HX('2c3',9,4) =}.
+  - 6e: 8 gives {= HX('2c3',8,6) =}, 9 gives {= HX('2c3',9,6) =}.
+- **Parity**: for half of all 2c3 corner states the wrong E-parity costs +2, so the corner solution you like may be two moves short of reality.
+- **Method**: Rodney's.
+
+**When to drop it, and what not to conclude:**
+
+- **Needing a 10 or an 11**: 6e with adjacent corners on both sides ({= C2('2c3','9','9',6) =}). 9 to HTR on the longer side ({= HX('2c3',9,4) =} with 4e, {= HX('2c3',9,6) =} with 6e). No pairs with 4e or 6e. Keep 2e with stacked or opposite corners, and anything with five pairs.
+- **Needing a 12**: nothing is dead. The weakest cells of any size: 6e with adjacent corners on both sides ({= pct(q(cs='2c3',e=6,both=(S('9'),S('9'))),12) =}), 4e at 8 and 9 to HTR ({= pct(q(cs='2c3',e=4,htr=(8,9)),12) =}), 6e at 9 and 9 ({= pct(q(cs='2c3',e=6,htr=(9,9)),12) =}).
+- **Don't conclude** that stacked corners are bad. At 3qt stacked is the *best* layout. It's at 4qt and 5qt that stacked is the worst.
+
+#### 4c3 (4a3 and 4b3)
+
+11.4% of all DRs, average optimal 13.49. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
+
+| Bad edges | In 10 | In 11 | In 12 |
+|---|---:|---:|---:|
+| 4e | {= CELLS(E('4c3',4)) =} |
+| 2e | {= CELLS(E('4c3',2)) =} |
+| 0e | {= CELLS(E('4c3',0)) =} |
+
+**What to read, and what each read changes:**
+
+- **Corners** carry the most, and which 4a3 you have is the big one.
+  - 4a3 that is 2-2 with L 7–9 and a qt straight to 4b2 (two such cases): {= C1('4c3','32') =} and {= C1('4c3','30') =}.
+  - 4b3 that is 2-2 with a qt straight to 4a2: {= C1('4c3','29') =}.
+  - 4b3 that is 3-1 (a third of all 4c3): {= C1('4c3','15') =}.
+  - 4a3 with all four on one layer: {= C1('4c3','11 13') =}. Two cases that look the same: with an optimal corner solution of 8 it is the better one, {= C1('4c3','11') =}, with 10 the worse one, {= C1('4c3','13') =}.
+  - 4a3 with L 9–11: {= C1('4c3','41') =}.
+  - Both sides, best pair of cases: {= XP('4c3','best') =}. Worst pair ({= XPS('4c3','worst') =} of all 4c3): {= XP('4c3','worst') =}.
+- **Pairs**: {= PR('4c3',0) =} with none, {= PR('4c3',5) =} with five or more.
+- **HTR on both sides**.
+  - 7 and 8: {= HB('4c3',7,8) =}.
+  - 8 and 8: {= HB('4c3',8,8) =}.
+  - 8 and 9: {= HB('4c3',8,9) =}.
+  - 9 and 9: {= HB('4c3',9,9) =}.
+  - 9 and 10: {= HB('4c3',9,10) =}.
+  - 10 and 10: {= HB('4c3',10,10) =}.
+  - The same length is worth a little more with 4e than with 2e (longer side 9: {= HX('4c3',9,4) =} with 4e, {= HX('4c3',9,2) =} with 2e), because 4e HTRs run about a move longer.
+- Corners and pairs read the same at 2e and 4e.
+
+**When to drop it, and what not to conclude:**
+
+- **Needing a 10 or an 11**: Zagros's rule (9+ on both sides, toss) is a fair trade here. It drops half of all 4c3 and keeps {= KEEP('4c3',lambda lo: lo<9,10) =} of the 10s and {= KEEP('4c3',lambda lo: lo<9,11) =} of the 11s. What it drops is {= T(q(cs='4c3',hmin=lambda x: x>=9)) =}. Also drop the 4a3 with L 9–11 and the worse 4-0. Worth keeping: a qt straight to 4b2 on the 4a3 side, four or more pairs ({= pct(q(cs='4c3',pairs=lambda n: n>=4),11) =} for an 11), or 8 or less on the shorter side.
+- **Needing a 12**: 10 on both sides, or 9 and 10 with nothing else going for it. The rule keeps {= KEEP('4c3',lambda lo: lo<9,12) =} of the 12s, so there it costs a quarter of them.
+- **Don't conclude** that what the rule drops is dead: `U' L2 D' B2 U' B2 U L2 D` is 9 to HTR on both sides and finishes in 9.
+
+#### 0c3
+
+1.4% of all DRs, average optimal 14.46. The worst subset on average, worse than 5qt. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
+
+| Bad edges | In 10 | In 11 | In 12 | Note |
+|---|---:|---:|---:|---|
+| 4e | {= CELLS(E('0c3',4)) =} | half of 0c3 |
+| 2e and 6e | {= CELLS(E('0c3',2)) =} |  |
+| 0e and 8e | {= CELLS(E('0c3',0)) =} |  |
+
+**What to read, and what each read changes:**
+
+- **Longer HTR** is the read, and it has to be read with the edge count.
+  - 4e: 11 (one in seven) gives {= HX('0c3',11,4) =}, 12 (most of them) gives {= HX('0c3',12,4) =}, 13 (one in seven) gives {= HX('0c3',13,4) =}.
+  - 2e or 6e: 10 (two thirds) gives {= HX('0c3',10,2) =}, 11 (a third) gives {= HX('0c3',11,2) =}.
+  - So an 11 is the best case with 4e and the worst with 2e or 6e.
+- **Corners**: two cases, both with no bad corners.
+  - A qt goes straight to 4a2 (a third of 0c3): {= C1('0c3','3',2) =} with 2e or 6e, {= C1('0c3','3',4) =} with 4e.
+  - Needs a setup: {= C1('0c3','6',2) =} with 2e or 6e, {= C1('0c3','6',4) =} with 4e.
+- **Pairs** barely move it.
+  - 2e: {= PR('0c3',0,2) =} with none, {= PR('0c3',5,2) =} with five or more.
+  - 4e: {= PR('0c3',0,4) =} and {= PR('0c3',5,4) =}.
+- **Parity**: the wrong E-parity always costs exactly +1.
+
+**When to drop it, and what not to conclude:**
+
+- **Needing a 10 or an 11**: always. The longer HTR is 10 or more for 99% of 0c3, so a 10 is all but ruled out before you look. For an 11 even the better cells are 1–3%: 2e or 6e with a qt straight to 4a2 is {= pct(q(cs='0c3',e=(2,6),cc=S('3')),11) =}, 2e with five pairs {= pct(q(cs='0c3',e=2,pairs=5),11) =}, 2e or 6e at 9 and 10 to HTR {= pct(q(cs='0c3',e=(2,6),htr=(9,10)),11) =}, 4e at 10 and 11 {= pct(q(cs='0c3',e=4,htr=(10,11)),11) =}. 9 on the longer side reaches {= pct(q(cs='0c3',hmax=9),11) =}, and that is one 0c3 in a hundred.
+- **Needing a 12**: by default. 0c3 4e with 12 or 13 on the longer side (six in seven of 0c3 4e) is at most {= pct(q(cs='0c3',e=4,hmax=12),12) =}.
+- **Don't conclude** that no bad corners means good corners.
+
+#### 2c4
+
+22.9% of all DRs, the most common subset, average optimal 13.65. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
+
+| Bad edges | In 10 | In 11 | In 12 |
+|---|---:|---:|---:|
+| 2e | {= CELLS(E('2c4',2)) =} |
+| 4e | {= CELLS(E('2c4',4)) =} |
+| 6e | {= CELLS(E('2c4',6)) =} |
+| 0e | {= CELLS(E('2c4',0)) =} |
+| 8e | {= CELLS(E('2c4',8)) =} |
+
+(0e and 8e are 1% of 2c4 each.)
+
+**What to read, and what each read changes:**
+
+- **Corners first**, seven cases.
+  - Next to each other on one layer with a qt straight to 2c3, two cases with the same bad corners, told apart by the diagonals of the back face (section 4.3 says how): {= C1('2c4','8') =} and {= C1('2c4','7') =}.
+  - Opposite corners with a qt straight to 4b3 (L 8–10): {= C1('2c4','24') =}.
+  - The other two non-stacked cases, which need a setup: {= C1('2c4','2') =} and {= C1('2c4','14') =}.
+  - Stacked (one above the other) with a qt straight to 4b3: {= C1('2c4','23') =}. Stacked, needing a setup: {= C1('2c4','18') =}.
+  - Best layout on both sides: {= C2('2c4','8','8') =}.
+  - A stack on both sides: {= C2('2c4','23 18','23 18') =}.
+  - This holds at every edge count: the best layout on both sides is {= C2('2c4','8','8',2) =} with 2e, {= C2('2c4','8','8',4) =} with 4e, {= C2('2c4','8','8',6) =} with 6e.
+- **Pairs**: {= PR('2c4',0) =} with none, {= PR('2c4',5) =} with five or more, about the same at 2e, 4e and 6e.
+- **HTR on both sides**.
+  - 7 and 8: {= HB('2c4',7,8) =}.
+  - 8 and 8: {= HB('2c4',8,8) =}.
+  - 8 and 9: {= HB('2c4',8,9) =}.
+  - 9 and 9: {= HB('2c4',9,9) =}.
+  - 9 and 10: {= HB('2c4',9,10) =}.
+  - 10 and 10: {= HB('2c4',10,10) =}.
+  - Within a few points of this at 2e, 4e and 6e.
+- **Parity** (if the corner solutions are written down): for 2c4 4e, L of 11 or more is {= T(q2(cs='2c4',e=4,L=lambda x: x>=11)) =}, and L = 12 with an odd E-slice has no 12 at all.
+
+**When to drop it, and what not to conclude:**
+
+- **Needing a 10** ({= pct(q(cs='2c4'),10) =} as a subset): it takes the best layout on both sides ({= pct(q(cs='2c4',both=(S('8'),S('8'))),10) =}), five pairs ({= pct(q(cs='2c4',pairs=5),10) =}) or 7 and 8 to HTR ({= pct(q(cs='2c4',htr=(7,8)),10) =}) to get near 1 in 100.
+- **Needing an 11** ({= pct(q(cs='2c4'),11) =} as a subset): under 1% with a stack that needs a setup ({= pct(q(cs='2c4',cc=S('18')),11) =}), 9 and 9 or worse to HTR ({= pct(q(cs='2c4',hmin=lambda x: x>=9),11) =}), or no pairs ({= pct(q(cs='2c4',pairs=0),11) =}). Worth it with a qt straight to 2c3 on both sides ({= pct(q(cs='2c4',both=(S('8 7'),S('8 7'))),11) =}), four or more pairs ({= pct(q(cs='2c4',pairs=lambda n: n>=4),11) =}), or 8 and 8 or better to HTR ({= pct(q(cs='2c4',hmax=lambda x: x<=8),11) =}).
+- **Needing a 12**: a stack on both sides (the fastest any of them finishes is 11: `U2 L2 D' F2 U' R2 U F2 D L2 U2`). 10 to HTR on both sides. No pairs and nothing else going for it.
+- **Don't conclude** that 2c4 is bad as a subset. The best layout on both sides is as good as an average 2c3 4e ({= C2('2c4','8','8') =} against {= E('2c3',4) =}), and 2c4 is where reading pays the most, because the spread inside it is the widest.
+- **Don't conclude** that 6e is a discard on its own: it's {= E('2c4',6) =} against {= E('2c4',4) =} for 4e. 8e is worse.
+
+#### 0c4
+
+1.0% of all DRs, average optimal 13.67. Same average as 2c4 but fewer short finishes: {= T(q(cs='0c4')) =} against {= T(q(cs='2c4')) =}. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
+
+| Bad edges | In 10 | In 11 | In 12 |
+|---|---:|---:|---:|
+| 2e | {= CELLS(E('0c4',2)) =} |
+| 4e | {= CELLS(E('0c4',4)) =} |
+| 6e | {= CELLS(E('0c4',6)) =} |
+
+**What to read, and what each read changes:**
+
+- **Pairs** are the only read with much in it.
+  - 2e: {= PR('0c4',0,2) =} with none, {= PR('0c4',5,2) =} with five or more.
+  - 4e: {= PR('0c4',0,4) =} and {= PR('0c4',5,4) =}.
+  - 6e: {= PR('0c4',0,6) =} with none, {= PR('0c4',2,6) =} with two.
+- **HTR** is 9 or 10 on each side (11 only with 8e) and tells you little beyond the edge count: 9 and 9 gives {= HB('0c4',9,9) =}, 10 and 10 gives {= HB('0c4',10,10) =}, and with 6e it's always 10.
+- **Corners**: one case, L is always 9 or 10, and the wrong E-parity always costs +1.
+
+**When to drop it, and what not to conclude:**
+
+- **Needing a 10 or an 11**: always. Five pairs is the only thing that lifts it: {= PR('0c4',5,2) =} with 2e, {= PR('0c4',5,4) =} with 4e.
+- **Needing a 12**: 6e or 8e, or no pairs.
+- **Don't conclude** anything from the corners here, there's nothing to tell apart.
+
+#### 4c4 (4a4 and 4b4)
+
+11.4% of all DRs, average optimal 14.40. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
+
+| Bad edges | In 10 | In 11 | In 12 |
+|---|---:|---:|---:|
+| 4e | {= CELLS(E('4c4',4)) =} |
+| 2e | {= CELLS(E('4c4',2)) =} |
+| 0e | {= CELLS(E('4c4',0)) =} |
+
+**What to read, and what each read changes:**
+
+- **Corners**.
+  - Best case (2-2, each layer's pair on a diagonal, L 9–10, a qt straight to 4a3): {= C1('4c4','44') =}.
+  - The two worst (L 11–12): {= C1('4c4','34 12') =}.
+  - Best pair of cases on both sides: {= XP('4c4','best') =}. Worst pair: {= XP('4c4','worst') =}.
+- **Pairs**: {= PR('4c4',0) =} with none, {= PR('4c4',5) =} with five or more.
+- **Longer HTR**: 10 gives {= HX('4c4',10) =}, 11 (two thirds of 4c4) gives {= HX('4c4',11) =}, 12 gives {= HX('4c4',12) =}.
+- All of this reads the same at 2e and 4e.
+
+**When to drop it, and what not to conclude:**
+
+- **Needing a 10 or an 11**: always. With 11 or more on the longer side (three quarters of 4c4) a 10 is impossible and an 11 is {= pct(q(cs='4c4',hmax=lambda x: x>=11),11) =}. The best single reads for an 11: 9 on the longer side ({= pct(q(cs='4c4',hmax=9),11) =}, but that is one 4c4 in a hundred), the best pair of corner cases ({= pct(XPH('4c4','best'),11) =}), five pairs ({= pct(q(cs='4c4',pairs=5),11) =}).
+- **Needing a 12**: by default. It takes a short DR *and* something going for it (five pairs, or 9 and 10 to HTR, or the best corners), and then it's about {= pct(q(cs='4c4',pairs=5),12) =}. 11 to HTR on both sides: {= pct(q(cs='4c4',htr=(11,11)),12) =}.
+- **Don't conclude** from examples 2 and 9 in the examples file that 4c4 comes good. Those were rare outcomes.
+
+#### 2c5
+
+7.6% of all DRs, average optimal 14.33. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
+
+| Bad edges | In 10 | In 11 | In 12 |
+|---|---:|---:|---:|
+| 4e | {= CELLS(E('2c5',4)) =} |
+| 2e | {= CELLS(E('2c5',2)) =} |
+| 6e | {= CELLS(E('2c5',6)) =} |
+
+**What to read, and what each read changes:**
+
+- **Corners**.
+  - Next to each other on one layer (half of 2c5): {= C1('2c5','1') =}.
+  - Opposite corners: {= C1('2c5','20') =}.
+  - Stacked: {= C1('2c5','26') =}.
+  - Adjacent on both sides (a quarter of 2c5): {= C2('2c5','1','1') =}.
+  - Stacked on one side, opposite on the other: {= C2('2c5','26','20') =}.
+- **Stacked on both sides: {= C2('2c5','26','26') =}**, so never a 12 (the fastest is 13: `U2 F2 U' R2 U F2 D' L2 U B2 U' L2 U2`).
+- **Pairs**: {= PR('2c5',0) =} with none, {= PR('2c5',5) =} with five or more.
+- **Longer HTR**: 9 (2% of 2c5) gives {= HX('2c5',9) =}, 10 gives {= HX('2c5',10) =}, 11 gives {= HX('2c5',11) =}, 12 gives {= HX('2c5',12) =}.
+- **Parity**: this is where the parity bound does the most. At 5qt it proves "no 11" outright for 37% of DRs and "no 12" for 13%.
+- The reads are about the same at 2e, 4e and 6e, a little lower with 6e.
+
+**When to drop it, and what not to conclude:**
+
+- **Needing a 10 or an 11**: always. The exceptions are 9 on the longer side ({= pct(q(cs='2c5',hmax=9),11) =} for an 11, but that is one 2c5 in fifty) and five pairs ({= pct(q(cs='2c5',pairs=5),11) =}).
+- **Needing a 12**: by default, and at once with a stack on both sides, a stack plus opposite, or 11 to HTR on both sides ({= pct(q(cs='2c5',htr=(11,11)),12) =}). Worth a look with a short DR and five pairs, or adjacent corners on both sides with 9 or 10 to HTR.
+- **Don't conclude** that "5qt, skip" loses nothing when a 13 is enough: one 2c5 in seven finishes in 13.
+
+#### 4b5
+
+11.4% of all DRs, average optimal 14.28. Flat across edges. Each row is one bad-edge count; the columns are the share of those DRs finishing in 10, 11 and 12 or less:
+
+| Bad edges | In 10 | In 11 | In 12 |
+|---|---:|---:|---:|
+| 4e | {= CELLS(E('4b5',4)) =} |
+| 2e | {= CELLS(E('4b5',2)) =} |
+| 0e | {= CELLS(E('4b5',0)) =} |
+
+**What to read, and what each read changes:**
+
+- **Pairs** are the only read that does anything: {= PR('4b5',0) =} with none, {= PR('4b5',5) =} with five or more.
+- **Corners**: two cases.
+  - 3-1 with a qt straight to 2c4 (two thirds): {= C1('4b5','22') =}.
+  - 2-2 with a qt straight to 4a4: {= C1('4b5','35') =}.
+- **HTR**: 9, 10 or 11 on each side. 9 and 9 gives {= HB('4b5',9,9) =}, 11 and 11 gives {= HB('4b5',11,11) =}.
+- The same at 2e and 4e.
+
+**When to drop it, and what not to conclude:**
+
+- **Needing a 10 or an 11**: always. Five pairs gets it to {= pct(q(cs='4b5',pairs=5),11) =} for an 11 and nothing gets it further.
+- **Needing a 12**: by default. Unlike 2c5 there is no layout that kills it or saves it. A short DR with four or five pairs is the only case for it.
+- **Don't conclude** that 4b5 and 2c5 read the same way: 2c5 has the stacked-corner rule, 4b5 has nothing like it.
 
 On top of any row: a last DR move that can be turned the other way is worth a third of a move on average, in every subset, so read the DR both ways (example 3 in the examples file). At 3qt it takes the share finishing in 11 from 4.6% to 7.5%. And if a row's reads disagree with each other, that's normal: together they explain about half of what there is to know.

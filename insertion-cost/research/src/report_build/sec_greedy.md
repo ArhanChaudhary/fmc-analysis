@@ -9,25 +9,25 @@ Nobody searches every pair of comms by hand. You find the best first comm, maybe
 
   | Skeleton | 8-3 or better | 8-4 or better |
   |---|---:|---:|
-  | 16 moves | {= CELL('greedy_first', '16', '8-3 or better') =} | {= CELL('greedy_first', '16', '8-4 or better') =} |
-  | 20 moves | {= CELL('greedy_first', '20', '8-3 or better') =} | {= CELL('greedy_first', '20', '8-4 or better') =} |
+  | 16 moves | {= CELL('greedy_first', '16', '5c: 8-3 or better') =} | {= CELL('greedy_first', '16', '5c: 8-4 or better') =} |
+  | 20 moves | {= CELL('greedy_first', '20', '5c: 8-3 or better') =} | {= CELL('greedy_first', '20', '5c: 8-4 or better') =} |
 
-  So you get an 8-3 most of the time, and an 8-4 about one time in {= GONEIN('16', '8-4 or better') =} on a 16-move skeleton.
+  So you get an 8-3 most of the time, and an 8-4 about one time in {= GONEIN('16', '5c: 8-4 or better') =} on a 16-move skeleton.
 
 **Following only the best first comms: two 8-move comms on random skeletons of 20 moves. *Best first comm only* is the best first comm (all that tie for it) followed by the best second; *within 1 move* also follows the first comms one move worse. *Loses* is the share of skeletons where the result is longer than the best pair. A rule that ends with no second comm after the first comms it follows counts as a loss and is left out of that rule's mean; for the best first comm only, the sixth column says on how many skeletons that happens.**
 
 {{greedy}}
 
-- **Taking the best first comm of a 5c and then the best second gets you {= CELL('greedy', '5c', 'Best first comm only') =} against {= CELL('greedy', '5c', 'Best pair of comms') =} for the best pair**, and misses the best pair on {= GLOSS('5c', 0) =} of skeletons. (All first comms that tie for the best are followed up.)
+- **Taking the best first comm of a 5c and then the best second gets you {= CELL('greedy', '5c', 'Best first comm only: mean added') =} against {= CELL('greedy', '5c', 'Best pair of comms: mean added') =} for the best pair**, and misses the best pair on {= GLOSS('5c', 0) =} of skeletons. (All first comms that tie for the best are followed up.)
 - **Also following up the first comms that are one move worse** brings that down to {= GLOSS('5c', 1) =}, and two moves worse to {= GLOSS('5c', 2) =}.
 - This is what kyh ([[N5837]], [[N5838]]) and argonblue ([[N5842]]) ran into: "my pr single wouldve been a 30 if i didnt go look for sub optimal first insertions", "but its a 28"; "i just had to check a suboptimal first insertion (8-2 instead of 8-3) to get any cancellations in the second". The second comm depends on where the first one went, so the best first comm isn't always the one to follow.
 - **What people say about the setting.** Ben ([[N5683]], [[N5684]]): "if you set greedy to 0 and only pick regular 3c comms then it basically shows human findable", "the main thing is setting it to greedy 0". And ([[N5688]], [[N5689]]): "greedy 1 is still reasonable if your skeleton is really good but anything higher isn't imo", "like if i have an 8-3 im not checking 8-1s ever". kyh ([[N5836]]): "i think 1 is realistic". I don't measure what's findable. Here's what each setting gives on a 20-move 5c with 8-movers:
 
   | Setting | Mean added |
   |---|---:|
-  | greedy 0 | {= CELL('greedy', '5c', 'Best first comm only') =} |
-  | greedy 1 | {= CELL('greedy', '5c', 'First comms within 1 move') =} |
-  | the best pair | {= CELL('greedy', '5c', 'Best pair of comms') =} |
+  | greedy 0 | {= CELL('greedy', '5c', 'Best first comm only: mean added') =} |
+  | greedy 1 | {= CELL('greedy', '5c', 'First comms within 1 move: mean added') =} |
+  | the best pair | {= CELL('greedy', '5c', 'Best pair of comms: mean added') =} |
 
   By hand, greedy 1 means: when the best first comm is an 8-4, also follow up the 8-3s.
 - **The other two-comm leftovers** are in the same table, with the same pattern: one move of slack on the first comm gets back most of the loss. A twisted 2c2c still loses on {= CELL('greedy', 'twisted 2c2c', 'Within 1 move: loses') =} of skeletons with it and a 3c3c on {= CELL('greedy', '3c3c', 'Within 1 move: loses') =}.

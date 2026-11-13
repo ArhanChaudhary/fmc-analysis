@@ -1,4 +1,4 @@
-| Compared with the best at | Solutions | Author shorter | Same length | 1 longer | 2 longer | 3 or more longer | Author, mean added | Best, mean added |
+| Compared with the best at | Solutions | Author shorter | Same length | Author 1 move longer | Author 2 longer | Author 3 or more longer | Author, mean added | Best, mean added |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | cap 8: one comm or two (edges: algs of 6 to 8) | 168 | 32 | 125 | 4 | 2 | 5 | 6.30 | 6.80 |
 | cap 10: one comm, two comms or one alg | 171 | 10 | 137 | 12 | 6 | 6 | 6.25 | 6.08 |

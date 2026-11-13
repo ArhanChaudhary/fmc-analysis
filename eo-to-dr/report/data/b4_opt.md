@@ -1,4 +1,4 @@
-| Shortest EO | Exact or sampled | Mean | ≤ 2 | ≤ 3 | ≤ 4 | ≤ 5 | Longest seen |
+| Shortest EO | Exact or sampled | Mean, turns | EO in ≤ 2 | EO in ≤ 3 | EO in ≤ 4 | EO in ≤ 5 | Longest seen, turns |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | One fixed axis, normal | exact, 2,048 EO states | 4.609 | 1.4% | 11.2% | 41.5% | 85.4% | 7 |
 | Best of 3 axes, normal | sampled, 1,000,000 | 3.881 | 4.0% | 29.3% | 78.5% | 99.5% | 7 |

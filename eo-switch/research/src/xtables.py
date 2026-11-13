@@ -74,7 +74,7 @@ RULES = {
 READ = {'4c4e': 'paired edges, then edge ARM', '4c2e': 'pairs and side pairs', '3c2e': 'nothing', '7c8e': 'pairs',
         '8c8e': 'corner ARM', '2c2e': 'paired edges, JZP', '4c6e': 'JZP, pairs', '3c4e': 'pairs', '3c6e': 'nothing',
         '5c4e': 'pairs', '5c6e': 'pairs', '6c6e': 'JZP, pairs'}
-cards, cells, E['rule'] = [], [], {}
+cards, cards_sum, cells, E['rule'] = [], [], [], {}
 for drm in DRMS:
     m = M(drm); taken = np.zeros(len(d), dtype=bool); grp = collections.defaultdict(lambda: np.zeros(len(d), dtype=bool))
     rows = []
@@ -84,25 +84,27 @@ for drm in DRMS:
         assert verdict(s['p6']) == lab, (drm, txt, s['p6'])           # every printed verdict is the cell's own band
         rows.append((lab, txt, s))
     al = stats(drm, ALL); g = {k: stats(drm, v) for k, v in grp.items()}
-    def cell(k):
-        if k not in g: return '-'
-        txts = '; '.join(t for lab, t, _ in rows if lab == k)
-        return f"{txts}: {pc(g[k]['share'])} at {pc(g[k]['p6'])}"
     decided = sum(g[k]['share'] for k in g if k != 'check')
     kept = g['switch']['hits'] / al['hits'] if 'switch' in g else 0.0
     lost = g['discard']['hits'] / al['hits'] if 'discard' in g else 0.0
-    cards.append([drm, pc(al['p6']), cell('switch'), cell('check'), cell('discard'), pc(decided), f'{pc(kept)} / {pc(lost)}'])
+    for k, name in (('switch', 'switch'), ('check', 'your call'), ('discard', 'discard')):
+        if k in g: cards.append([drm if k == next(x for x in ('switch', 'check', 'discard') if x in g) else '', f'**{name}**',
+                                 '; '.join(t for lab, t, _ in rows if lab == k), pc(g[k]['share']), pc(g[k]['p6'])])
+    cards_sum.append([drm, pc(al['p6']), pc(decided), pc(kept), pc(lost)])
     E['rule'][drm] = {'all': al, 'groups': g, 'decided': decided, 'kept': kept, 'lost': lost,
                       'cells': [(lab, t, s) for lab, t, s in rows]}
-write('rule_cards', ['DRM', 'Sub-7 overall', 'Switch (share of the DRM at sub-7 rate)', 'Your call', 'Discard', 'Settled', 'Sub-7 states switched / discarded'], cards)
+write('rule_cards', ['DRM', 'Verdict', 'What the switched case shows', 'Share of the DRM', 'Sub-7 rate'], cards)
+write('rule_cards_sum', ['DRM', 'Sub-7 rate, whole DRM', 'Settled (share of the DRM in switch or discard)', "Sub-7 states switched (share of the DRM's sub-7s)", "Sub-7 states discarded (share of the DRM's sub-7s)"], cards_sum)
 # cells table: drm shown once
-seen = set(); rows = []
+seen = set(); rows = []; rows2 = []
 for drm in DRMS:
     for lab, t, s in E['rule'][drm]['cells']:
-        rows.append([drm if drm not in seen else '', t, lab, n_(s['n']), pc(s['share']), pc(s['p6']), f"{pc(s['q5'])} ({n_(s['a5'])})", pc(s['p7']), pc(s['p5'])])
+        rows.append([drm if drm not in seen else '', t, lab, n_(s['n']), pc(s['share']), pc(s['p6'])])
+        rows2.append([drm if drm not in seen else '', t, pc(s['q5']), n_(s['a5']), pc(s['p7']), pc(s['p5'])])
         seen.add(drm)
-write('rule_cells', ['DRM', 'Cell (read on the switched side)', 'Verdict', 'States', 'Share of the DRM', 'Sub-7 (exact)',
-                     'Sub-7 in real attempts, RZP to 5 (attempts)', 'DR in 7 (RZP in 4)', 'DR in 5 (RZP in 6)'], rows)
+write('rule_cells', ['DRM', 'Cell (read on the switched side)', 'Verdict', 'States', 'Share of the DRM', 'Sub-7 rate, exact'], rows)
+write('rule_cells_rzp', ['DRM', 'Cell (read on the switched side)', 'Sub-7 rate, real attempts (RZP to 5)', 'Real attempts (RZP to 5)',
+                         'DR in 7 or fewer, exact (for a 4-move RZP)', 'DR in 5 or fewer, exact (for a 6-move RZP)'], rows2)
 
 # ------------------------------------------------------------------------------------------------------------------
 # finer tables
@@ -111,8 +113,8 @@ def cross(drm, rowsdef, name, head0):
     for txt, mask in rowsdef:
         s = stats(drm, mask)
         if s is None: continue
-        rows.append([txt, n_(s['n']), pc(s['share']), pc(s['p6']), f"{pc(s['q5'])} ({n_(s['a5'])})", verdict(s['p6'])])
-    write(name, [head0, 'States', 'Share of the DRM', 'Sub-7 (exact)', 'Real attempts, RZP to 5', 'Band'], rows)
+        rows.append([txt, n_(s['n']), pc(s['share']), pc(s['p6']), pc(s['q5']), n_(s['a5']), verdict(s['p6'])])
+    write(name, [head0, 'States', 'Share of the DRM', 'Sub-7 rate, exact', 'Sub-7 rate, real attempts (RZP to 5)', 'Real attempts (RZP to 5)', 'Band'], rows)
 cross('4c4e', [(f'{e} paired, edge ARM {a}', (ep == e) & (earm == a)) for e in (0, 1, 2) for a in (0, 1, 2)], 'c44_paired_earm', 'Paired edges, edge ARM')
 chk = (ep == 1) & (earm == 1)
 cross('4c4e', [('4d corners (always corner ARM 2: ARM 21)', chk & (case == 3)),
@@ -140,17 +142,18 @@ for drm in ['4c6e', '3c4e', '3c6e', '5c4e', '5c6e', '6c6e']:
         out.append([drm if drm != last else '', 'JZP' if p == 'JZP' else f'{p} pairs', n_(s['n']), pc(s['share']), pc(s['p6']), verdict(s['p6'])]); last = drm
 E['pairs_max'] = {drm: max(stats(drm, pairs == p)['p6'] for p in range(9) if stats(drm, pairs == p)) for drm in ['4c6e', '3c4e', '3c6e', '5c4e', '5c6e', '6c6e', '8c8e']}
 E['arm_rate'] = {drm: {f'{a}{b}': stats(drm, (carm == a) & (earm == b))['p6'] for a in range(9) for b in range(5) if stats(drm, (carm == a) & (earm == b))} for drm in ['4c4e', '4c2e', '7c8e', '8c8e']}
-write('low_pairs', ['DRM', 'Cell', 'States', 'Share of the DRM', 'Sub-7 (exact)', 'Band'], out)
+write('low_pairs', ['DRM', 'Pairs on the switched case', 'States', 'Share of the DRM', 'Sub-7 rate, exact', 'Band'], out)
 # 4c4e: ARM x paired edges (appendix)
-rows = []
+rows, rowsn = [], []
 for a in sorted(set((carm[M('4c4e')] * 10 + earm[M('4c4e')]).tolist())):
-    r = [f'{a // 10}{a % 10}']
+    r, rn = [f'{a // 10}{a % 10}'], [f'{a // 10}{a % 10}']
     for e in range(3):
         s = stats('4c4e', (carm == a // 10) & (earm == a % 10) & (ep == e))
-        r.append(f"{pc(s['p6'])} ({n_(s['n'])})" if s else '-')
-    s = stats('4c4e', (carm == a // 10) & (earm == a % 10)); r.append(f"{pc(s['p6'])} ({n_(s['n'])})")
-    rows.append(r)
-write('c44_arm_paired', ['ARM', 'No bad edge paired', 'One paired', 'Both paired', 'All'], rows)
+        r.append(pc(s['p6']) if s else '-'); rn.append(n_(s['n']) if s else '-')
+    s = stats('4c4e', (carm == a // 10) & (earm == a % 10)); r.append(pc(s['p6'])); rn.append(n_(s['n']))
+    rows.append(r); rowsn.append(rn)
+write('c44_arm_paired', ['ARM', 'No bad edge paired: sub-7 rate', 'One paired: sub-7 rate', 'Both paired: sub-7 rate', 'All: sub-7 rate'], rows)
+write('c44_arm_paired_n', ['ARM', 'No bad edge paired: states', 'One paired: states', 'Both paired: states', 'All: states'], rowsn)
 
 # ------------------------------------------------------------------------------------------------------------------
 # strict separation of single features and of the rules (share of the DRM in cells under 10% or over 50%)
@@ -250,7 +253,7 @@ for drm in order:
         first = False
         E['grade'][i] = {k: float(a[k]) for k in ('share_switched', 'precision', 'recall', 'target_states_discarded')}
         E['grade'][i]['p3'] = float(b['precision'])
-write('grades', ['DRM', 'Switch when', 'Who', 'Switches', 'Sub-7 among switched', 'Sub-7 states switched', 'Sub-7 states discarded (share of the DRM)', 'Real attempts: sub-7 among switched'], rows)
+write('grades', ['DRM', 'Switch when', 'Who', 'Switches (share of the DRM)', 'Sub-7 among switched', "Sub-7 states switched (share of the DRM's sub-7s)", 'Sub-7 states discarded (share of the DRM)', 'Real attempts: sub-7 among switched'], rows)
 
 # ------------------------------------------------------------------------------------------------------------------
 # populations: the RZP bias and the switch
@@ -263,7 +266,7 @@ for drm in DRMS:
     v = [popv(drm, 'P1', 'any', 0), popv(drm, 'P2', 'same side', 5), popv(drm, 'P2', 'switched', 5), popv(drm, 'P3', 'switched', 5), popv(drm, 'P3', 'switched', 6, 'p_le5')]
     n5 = int(float([r for r in pp if r['drm'] == drm and r['population'] == 'P3' and r['side'] == 'switched' and r['L'] == '5'][0]['weight_or_attempts']))
     rows.append([drm] + [pc(x) for x in v] + [n_(n5)]); E['pop'][drm] = v
-write('populations', ['DRM', 'Uniform (the tables)', 'After an RZP of 5, same side', 'After an RZP of 5, switched', 'Real attempts, RZP to 5, switched', 'Real attempts, RZP to 6, switched, DR in 5', 'Attempts (RZP to 5)'], rows)
+write('populations', ['DRM', 'Sub-7 rate, uniform (the tables)', 'Sub-7 rate after an RZP of 5, same side', 'Sub-7 rate after an RZP of 5, switched', 'Sub-7 rate, real attempts, RZP to 5, switched', 'DR in 5 or fewer, real attempts, RZP to 6, switched', 'Real attempts (RZP to 5)'], rows)
 su = T('checks_switch_uniform.tsv')
 E['uniform_worst_z'] = max(abs(float(r['z_20_batches'])) for r in su); E['uniform_cells'] = len(su)
 E['attempts_total'] = 121527134
@@ -273,31 +276,33 @@ for drm in ['4c4e', '4c2e', '3c2e', '7c8e', '8c8e']:
     m = M(drm); n0 = P['P3_5'][m].sum()
     v = [(P['P3_5'][m] * (d[m] <= 6)).sum() / n0, P['P3_5_alt6'][m].sum() / n0, P['P3_5_two6'][m].sum() / n0, P['P3_5_all6'][m].sum() / n0]
     rows.append([drm] + [pc(x) for x in v]); E['opt'][drm] = v
-write('options', ['DRM', 'Switched', 'EO\'s last turn either way', 'Better DR axis', 'Both'], rows)
+write('options', ['DRM', 'Sub-7 rate, switched', 'Sub-7 rate, also EO\'s last turn either way', 'Sub-7 rate, also the better DR axis', 'Sub-7 rate, both'], rows)
 vb = {r['drm']: r for r in T('variants_by_drm.tsv')}
 E['var'] = {k: {c: float(v) for c, v in r.items() if c != 'drm'} for k, r in vb.items()}
-rows = []
+rows, rows2 = [], []
 for drm in DRMS:
     r = vb[drm]
-    rows.append([drm, n_(r['cosets']), r['mean_d'], pc(r['plain_le5']), pc(r['plain_le6']), pc(r['plain_le7']), pc(r['lastF_le6']), pc(r['lastFB_le6']), pc(r['two_le6']), pc(r['inv_le6'])])
-write('variants', ['DRM', 'States', 'Mean', 'DR in 5', 'DR in 6', 'DR in 7', 'In 6, EO\'s last turn free', 'In 6, last two EO turns free (F B)', 'In 6, better DR axis', 'In 6, better of normal and inverse'], rows)
+    rows.append([drm, n_(r['cosets']), r['mean_d'], pc(r['plain_le5']), pc(r['plain_le6']), pc(r['plain_le7'])])
+    rows2.append([drm, pc(r['lastF_le6']), pc(r['lastFB_le6']), pc(r['two_le6']), pc(r['inv_le6'])])
+write('variants', ['DRM', 'States', 'Mean turns to DR', 'DR in 5 or fewer', 'DR in 6 or fewer', 'DR in 7 or fewer'], rows)
+write('variants_options', ['DRM', 'DR in 6 or fewer, EO\'s last turn free', 'DR in 6 or fewer, last two EO turns free (F B)', 'DR in 6 or fewer, better DR axis', 'DR in 6 or fewer, better of normal and inverse'], rows2)
 E['last_rzp'] = open(OUT + 'checks_last_rzp_turn.txt').read().split()[:2]
 
 # ------------------------------------------------------------------------------------------------------------------
 # which feature adds most (computer only: information measures), from q4.tsv and feature_value.tsv
 q4 = T('q4.tsv'); E['q4'] = {r['what']: r['answer'] for r in q4}
-rows = []
-for drm in ['4c4e', '4c2e', '7c8e', '8c8e', '2c2e']:
-    rows.append([drm] + [pc(E['strict'][drm][k]) for k in ['carm+earm', 'pairs', 'edges_paired', 'corner_case+case_suffix', 'pairs+carm+earm', 'pairs+corner_case+case_suffix', 'edges_paired+earm', 'pairs_plus_half_side_x2']])
-write('decided_by_feature', ['DRM', 'ARM', 'Pairs', 'Paired edges', 'Corner case (4 corners)', 'Pairs + ARM', 'Pairs + corner case', 'Paired edges + edge ARM', 'Pairs + side pairs/2'], rows)
+FD = ['4c4e', '4c2e', '7c8e', '8c8e', '2c2e']
+rows = [[lab] + [pc(E['strict'][drm][k]) for drm in FD] for k, lab in [('carm+earm', 'ARM'), ('pairs', 'Pairs'), ('edges_paired', 'Paired edges'), ('corner_case+case_suffix', 'Corner case (4 corners)'),
+        ('pairs+carm+earm', 'Pairs + ARM'), ('pairs+corner_case+case_suffix', 'Pairs + corner case'), ('edges_paired+earm', 'Paired edges + edge ARM'), ('pairs_plus_half_side_x2', 'Pairs + side pairs/2')]]
+write('decided_by_feature', ['Split by'] + [f'{drm}: settled' for drm in FD], rows)
 # bars vs two edges, per 4c4e ARM (q4.tsv)
 rows = []; E['bars'] = {}
 for r in q4:
     w = r['what']
     if w.startswith('4c4e ARM ') and 'as a bar' in w:
         arm = w.split()[2].rstrip(','); a = r['answer'].split(' / '); nn = r['size'].replace(' states', '').split(' / ')
-        rows.append([arm, f'{pc(a[0])} ({n_(nn[0])})', f'{pc(a[1])} ({n_(nn[1])})']); E['bars'][arm] = [float(a[0]), float(a[1])]
-write('bars', ['ARM', '2 pairs as a bar on one edge', '2 pairs on the two edges'], rows)
+        rows.append([arm, pc(a[0]), pc(a[1]), n_(nn[0]), n_(nn[1])]); E['bars'][arm] = [float(a[0]), float(a[1])]
+write('bars', ['ARM', 'Sub-7 rate, bar on one edge', 'Sub-7 rate, pairs on the two edges', 'States, bar on one edge', 'States, pairs on the two edges'], rows)
 # wen's 2-of-3 (q4)
 E['wen23'] = {}
 for r in q4:
@@ -317,7 +322,7 @@ for r in st:
     if r['pareto'] != 'yes': continue
     comp = any(k.startswith(('fam_', 'corner_dist', 'moves_to', 'udmoves')) for k in r['features'].split('+')) or int(r['cells']) > 12
     rows.append([r['drm'], ' + '.join(NICE.get(k, k) for k in r['features'].split('+')), r['cells'], pc(r['strict_sep_P1']), '**computer only**' if comp else 'by hand'])
-write('search_pareto', ['DRM', 'Features', 'Cells', 'Settled (share in cells under 10% or over 50%)', 'Usable'], rows)
+write('search_pareto', ['DRM', 'Features crossed', 'Cells in the table', 'Settled (share of the DRM in cells under 10% or over 50%)', 'Usable'], rows)
 E['c88_65'] = E['search']['8c8e|earm+pairs+arm_corner_case']
 E['fam44'] = E['search']['4c4e|fam_4c4e']
 E['low_best'] = {}

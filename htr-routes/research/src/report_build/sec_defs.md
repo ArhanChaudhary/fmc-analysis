@@ -2,7 +2,7 @@
 
 **Finish.** A sequence of DR moves (U, D, R2, L2, F2, B2) that solves the DR state, E slice included. No DR-breaking or HTR-breaking moves in the HTR part; the post-HTR part may be anything in the DR group, so a finish whose last part has a quarter turn counts (it is rare: marked `| qt` in the files). For each state I list every optimal finish and every finish one move longer, including both orders of moves that commute.
 
-**DR-breaking finishes.** *Optimal* here always means the best finish in DR moves. To see how much that leaves out I ran nissy's exact solver (`solve optimal`, all 18 face turns) on {= n(E['gaps']['g2_n']) =} uniform DR states (the first 1,000 of each subset × edges sample). A finish shorter than the DR-move optimum exists on **{= pc(E['gaps']['g2_all']['shorter']) =} ± {= f1(E['gaps']['g2_all']['se'] * 100) =} points of DRs**, by one move in {= p0(E['gaps']['g2_by1_of_shorter']) =} of those and by up to {= E['gaps']['g2_maxgain'] =}; the mean gain is {= f3(E['gaps']['g2_all']['mean_gain']) =} moves. The real DRs of section 12 ({= n(E['gaps']['g2_real_n']) =} states, 500 per subset × edges) give about the same, and it hardly touches the finishes you write:
+**DR-breaking finishes.** *Optimal* here always means the best finish in DR moves. To see how much that leaves out I ran nissy's exact solver (`solve optimal`, all 18 face turns) on {= n(E['gaps']['g2_n']) =} uniform DR states (the first 1,000 of each subset × edges sample). A finish shorter than the DR-move optimum exists on **{= pc(E['gaps']['g2_all']['shorter']) =} ± {= f1(E['gaps']['g2_all']['se'] * 100) =} points of DRs**, by one move in {= p0(E['gaps']['g2_by1_of_shorter']) =} of those and by up to {= E['gaps']['g2_maxgain'] =}; the mean gain is {= f3(E['gaps']['g2_all']['mean_gain']) =} moves. The real DRs of section 12 ({= n(E['gaps']['g2_real_n']) =} states, 500 per subset × edges) give about the same, and it hardly touches the finishes you write. Each row is a set of DRs and the share of them with a shorter finish outside DR (± a standard error, in points, where given):
 
 | DRs | Shorter finish outside DR |
 |---|---|
@@ -19,17 +19,21 @@ So it only climbs for long finishes. The exceptions are three 0e cells: {= '; '.
 {= [s['moves'] for s in E['gaps']['g2_ex']['solutions'] if s['moves'].startswith('R L')][0] =}   // solves it in {= E['gaps']['g2_ex']['true_optimum'] =}
 ```
 
-*Computed with nissy, not proved in Lean*; every solution quoted was replayed on a sticker model ({= E['gaps']['g2_ex_nsol'] =} solutions, {= E['gaps']['g2_ex_fail'] =} failures). Per corner subset:
+*Computed with nissy, not proved in Lean*; every solution quoted was replayed on a sticker model ({= E['gaps']['g2_ex_nsol'] =} solutions, {= E['gaps']['g2_ex_fail'] =} failures). Each row is a corner subset: the share of DRs with a shorter finish outside DR, uniform and on real DRs (section 12), then how the uniform share splits by how many moves shorter:
 
 {{g2_subsets}}
 
-By the DR-move optimum (uniform, weighted by exact subset size):
+Same rows, in moves: the mean gain over all DRs, and the mean optimum in DR moves and with any moves:
+
+{{g2_means}}
+
+By the DR-move optimum (uniform, weighted by exact subset size). Each row is a DR-move optimum: its share of DR states, how many were sampled, and the share of those with a shorter finish outside DR:
 
 {{g2_bylen}}
 
 **Corner path, route.** Read a finish move by move and write down the corner subset at the start and after each quarter turn, until the cube is in HTR (corners and edges). `4b2 > 2c3 > 4b2 > 4a1 > 0c0` is a 4b2 that regresses to 2c3, comes back to 4b2, then goes 4a1 and HTR. The moves up to that point are the finish's HTR, the rest its post-HTR part. A *route* (route class) is the chain plus where the NISS switch is: `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` means one qt on the first side to 2c3, then switch, and the rest on the other side, where the subsets are read on that side. That's the notation of Daichi's cheat sheet; the list of routes comes from the data, not from a list picked in advance. Edge counts are dropped from route names in the tables (they are in the files).
 
-**NISS readings.** A finish S of a state X can be found as A on normal and then B on inverse whenever S = A·B⁻¹; and the other way, B on inverse first. So every finish of n moves has 2(n + 1) readings, one per split and side. A route *works* on a state if some reading of some optimal finish (or +1 finish, at +1) follows it. Both sides are always available: a linear route on the inverse is a reading too.
+**NISS readings.** A finish S of a state X can be found as A on normal and then B on inverse whenever $S = A \cdot B^{-1}$; and the other way, B on inverse first. So every finish of $n$ moves has $2(n + 1)$ readings, one per split and side. A route *works* on a state if some reading of some optimal finish (or +1 finish, at +1) follows it. Both sides are always available: a linear route on the inverse is a reading too.
 
 **Why a budget is needed.** The catch is that every NISS reading is also a linear finish of the same length. So *some optimal follows route X* says nothing about whether NISS was needed: whenever a NISS reading of an optimal follows X, the same moves read linearly follow some other route, and a route that is long enough on one side almost always has some reading that fits. With no limit, three routes cover {= pc(min(BUDF(g, 'inf', 3) for g in G12)) =} to {= pc(max(BUDF(g, 'inf', 3) for g in G12)) =} of a corner subset (section 4), which is true and useless. What NISS really changes is how long the HTR is that you have to find. So each route is graded with an **HTR budget**: it counts on a state only if its reading reaches HTR within the state's shortest NISS HTR plus the budget (moves on both sides counted). Budget 0 means you only ever look at the shortest HTRs; budget 2 means HTRs up to two moves longer than the shortest; *no limit* is the plain route. I use budget 2 as the default: it is about what a strong solver checks, and the tables give 0, 1, 2 and no limit.
 

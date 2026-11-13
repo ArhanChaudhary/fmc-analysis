@@ -2,9 +2,9 @@ New stuff first, then what the numbers confirm or correct. Scramble-level lines 
 
 **What is new here**
 
-**How often there's a short DR from the scramble** (optimal DR, 3.1):
+**How often there's a short DR from the scramble** (optimal DR, 3.1). Each row is what you allow; the middle columns are the share of scrambles with a DR that short:
 
-| Allowed | DR in 9 or better | In 8 or better | Mean |
+| Allowed | DR in ≤ 9 | DR in ≤ 8 | Mean, turns |
 |---|---|---|---|
 | One fixed axis | | | {= A1('fixed', 'mean') =} |
 | Linear, one side (3 axes) | {= A1('lin', 'p_le9') =} | {= A1('lin', 'p_le8') =} | {= A1('lin', 'mean') =} |
@@ -17,9 +17,9 @@ NISS beats the best of six linear tries on {= GAINGE('niss_gain_over_6', 1) =} o
 - **The optimal DR usually starts with a long EO.** Its shortest EO (over every optimal DR of the scramble, normal side) is at most 4 turns on {= EST(4) =} of scrambles, at most 5 on {= EST(5) =}, and 7 or more on {= EST(7, 'ge') =} (3.2) [c].
 - **EO-breaking turns hardly ever help.** Among routes through an EO of at most 5, a continuation with any turns reaches the optimal DR where no EO-keeping one does on {= BRK(5) =} of {= n(X('n')) =} scrambles ({= BRK(4) =} for EOs of at most 4, {= BRK(6) =} for at most 6). **Computer only**, the answer key. What it means in an attempt: the optimal DR usually isn't behind any EO you write, so judge your DR against the route numbers below, not against the optimum.
 
-**Through the EOs people write down** (each EO with its best EO-keeping DR on either DR axis; a NISS EO takes the DR on the better side; 3.2):
+**Through the EOs people write down** (each EO with its best EO-keeping DR on either DR axis; a NISS EO takes the DR on the better side; 3.2). Each row is a set of EOs; the columns are the share of scrambles where one of them leads to a DR that short:
 
-| EOs | DR in 10 or better | In 11 or better |
+| EOs | DR in ≤ 10 | DR in ≤ 11 |
 |---|---|---|
 | Every EO of at most 5 turns, normal, inverse and NISS | {= XP('route_x5_le10') =} | {= XP('route_x5_le11') =} |
 | Normal EOs only | {= XP('route_n5_le10') =} | {= XP('route_n5_le11') =} |
@@ -27,37 +27,37 @@ NISS beats the best of six linear tries on {= GAINGE('niss_gain_over_6', 1) =} o
 
 A route in 9 or better exists on {= XP('route_x5_le9') =} of scrambles. **Computer only**: that's every EO of at most 5 ({= B4('NISS (normal, inverse, both)', 'all three axes', 5, 'mean_le') =} per scramble on average with NISS, {= B4('linear (normal)', 'all three axes', 5, 'mean_le') =} normal only), each with its best DR on both axes, which nobody writes out and solves in an hour. It says what's there to find. By hand, read the case each EO leaves on both DR axes and keep the EOs whose case has good odds (5.2).
 
-**"Would you rather have 25 4 move eos or 200 5 move eos"** (Somebodyidk, [[D16056]]). On average (3.3):
+**"Would you rather have 25 4 move eos or 200 5 move eos"** (Somebodyidk, [[D16056]]). On average (3.3), the number of DRs that short you'd get from each pile of EOs:
 
-| | DRs in 10 or better | DRs in 11 or better |
+| EOs | DRs in ≤ 10 | DRs in ≤ 11 |
 |---|---|---|
-| 25 EOs of at most 4 | {= CELL('a3_yield', '≤ 10', '25 EOs of ≤ 4') =} | {= CELL('a3_yield', '≤ 11', '25 EOs of ≤ 4') =} |
-| 200 EOs of exactly 5 | {= CELL('a3_yield', '≤ 10', '200 EOs of exactly 5') =} | {= CELL('a3_yield', '≤ 11', '200 EOs of exactly 5') =} |
+| 25 EOs of at most 4 | {= CELL('a3_yield', '≤ 10', 'Pairs from 25 EOs of ≤ 4') =} | {= CELL('a3_yield', '≤ 11', 'Pairs from 25 EOs of ≤ 4') =} |
+| 200 EOs of exactly 5 | {= CELL('a3_yield', '≤ 10', 'Pairs from 200 EOs of exactly 5') =} | {= CELL('a3_yield', '≤ 11', 'Pairs from 200 EOs of exactly 5') =} |
 
 So the 25 win for a DR in 10 and the 200 for a DR in 11: a 5-move EO gives about a tenth as many DRs in 10 as an EO of at most 4. The counts are of DRs that exist after each EO (its best DR on both axes), **computer only**; what carries to an attempt is the ratio, one 4-mover worth about ten 5-movers for a DR in 10.
 
-**EO to DR with every option is 7, not 8** (5.1). Two DR axes, normal or inverse, and the EO's last turn either way, all keeping the EO:
+**EO to DR with every option is 7, not 8** (5.1). Two DR axes, normal or inverse, and the EO's last turn either way, all keeping the EO. Each row is what you check after the EO; the columns are the mean turns to DR and how often it's short:
 
-| | Mean | DR in 6 or fewer | In 7 or fewer |
-|---|---|---|---|
-| Every option | {= CT('allkept', 'mean') =} | {= CT('allkept', 'p_le6') =} (1 in {= CT('allkept', 'one_in_le6') =}) | {= CT('allkept', 'p_le7') =} |
-| One axis alone | {= CT('plain', 'mean') =} | 1 in {= CT('plain', 'one_in_le6') =} | |
+| Options checked | Mean, turns | DR in ≤ 6 | DR in ≤ 6, odds | DR in ≤ 7 |
+|---|---|---|---|---|
+| Every option | {= CT('allkept', 'mean') =} | {= CT('allkept', 'p_le6') =} | 1 in {= CT('allkept', 'one_in_le6') =} | {= CT('allkept', 'p_le7') =} |
+| One axis alone | {= CT('plain', 'mean') =} | | 1 in {= CT('plain', 'one_in_le6') =} | |
 
 (The every-option row is sampled.) The lengths are optimal DRs after the EO, the answer key. What you use in an attempt is the list of options to check after each EO, and the case on each DR axis, which you can read at the table and which gives the odds of each (5.2).
 
-- **The other DR axis of the same EO is worth more than switching the EO's last turn**: exact, at most 6 on {= CT('two', 'p_le6') =} against {= CT('switch', 'p_le6') =}, and about as much as checking the inverse ({= CT('ni', 'p_le6') =}). DanielEgdal set out to compute the two-axis numbers in 2023 and thought it "pretty much infeasible" ([[T3329]]); FakeMMAP showed the state space is about 5·10^9 ([[T3340]]), and DanielEgdal ran it until it stalled at 3·10^8 ([[T3347]]). They're exact here (5.1).
+- **The other DR axis of the same EO is worth more than switching the EO's last turn**: exact, at most 6 on {= CT('two', 'p_le6') =} against {= CT('switch', 'p_le6') =}, and about as much as checking the inverse ({= CT('ni', 'p_le6') =}). DanielEgdal set out to compute the two-axis numbers in 2023 and thought it "pretty much infeasible" ([[T3329]]). FakeMMAP showed the state space is about $5\cdot 10^9$ ([[T3340]]), and DanielEgdal ran it until it stalled at $3\cdot 10^8$ ([[T3347]]). They're exact here (5.1).
 - **Normal and inverse after an EO are related almost only through the case.** The DR lengths on the two sides correlate {= NI('all', 'correlation') =} over all states, and at most {= NIRANGE()[1] =} within a case. Once you know the case, the inverse is nearly a fresh draw (5.2).
 
-**EO counts per scramble** (all three axes, counted the way nissy's `-a` lists them; 4.1):
+**EO counts per scramble** (all three axes, counted the way nissy's `-a` lists them; 4.1). Each row is the kind of EO counted; the last two columns are the share of scrambles with none that short:
 
-| EOs counted | Of at most 4: mean (median) | No EO of at most 4 | None of at most 5 |
-|---|---|---|---|
-| Normal | {= B4('linear (normal)', 'all three axes', 4, 'mean_le') =} ({= B4('linear (normal)', 'all three axes', 4, 'median_le') =}) | {= B4('linear (normal)', 'all three axes', 4, 'p_none_le') =} | |
-| With inverse and NISS EOs | {= B4('NISS (normal, inverse, both)', 'all three axes', 4, 'mean_le') =} ({= B4('NISS (normal, inverse, both)', 'all three axes', 4, 'median_le') =}) | | {= B4('NISS (normal, inverse, both)', 'all three axes', 5, 'p_none_le') =} [d] |
+| EOs counted | EOs of ≤ 4, mean | EOs of ≤ 4, median | Scrambles with no EO of ≤ 4 | Scrambles with no EO of ≤ 5 |
+|---|---|---|---|---|
+| Normal | {= B4('linear (normal)', 'all three axes', 4, 'mean_le') =} | {= B4('linear (normal)', 'all three axes', 4, 'median_le') =} | {= B4('linear (normal)', 'all three axes', 4, 'p_none_le') =} | |
+| With inverse and NISS EOs | {= B4('NISS (normal, inverse, both)', 'all three axes', 4, 'mean_le') =} | {= B4('NISS (normal, inverse, both)', 'all three axes', 4, 'median_le') =} | | {= B4('NISS (normal, inverse, both)', 'all three axes', 5, 'p_none_le') =} [d] |
 
-**Shortest EO over three axes without NISS** (sampled, {= NSAMP('b') =} states; 4.1):
+**Shortest EO over three axes without NISS** (sampled, {= NSAMP('b') =} states; 4.1). Each row is a side rule; the last column is the share of states with an EO that short:
 
-| | Mean | EO in 3 or fewer |
+| EOs allowed | Mean, turns | EO in ≤ 3 |
 |---|---|---|
 | Linear | {= BOPT('any_axis_linear', 'mean') =} | {= BOPT('any_axis_linear', 'le3') =} |
 | Normal or inverse | {= BOPT('any_axis_lin_or_inv', 'mean') =} | {= BOPT('any_axis_lin_or_inv', 'le3') =} |
@@ -73,21 +73,21 @@ So the 25 win for a DR in 10 and the 200 for a DR in 11: a 5-move EO gives about
 ep = rand() % FACTORIAL12;   // the edge permutation of the drawn state
 ```
 
-rand() gives {= NISSYBIAS('ratio') =} times 12! values, so the lowest {= NISSYBIAS('lowshare') =} of edge-permutation indices come up {= NISSYBIAS('more') =} more often than the rest. The inverse side is where the drawn state is, and that's where it shows, on {= n(X('n')) =} of its scrambles:
+rand() gives {= NISSYBIAS('ratio') =} times $12!$ values, so the lowest {= NISSYBIAS('lowshare') =} of edge-permutation indices come up {= NISSYBIAS('more') =} more often than the rest. The inverse side is where the drawn state is, and that's where it shows, on {= n(X('n')) =} of its scrambles. Each row is one measure, on nissy's scrambles and on uniform ones:
 
-| | nissy's scrambles | Uniform states |
+| Measure | nissy's scrambles | Uniform states |
 |---|---|---|
 | Inverse, mean to DR (best of 3 axes) | {= A1('inv', 'mean', 'nissy') =} | {= A1('inv', 'mean') =} |
 | Normal, the same (barely moved) | {= A1('lin', 'mean', 'nissy') =} | {= A1('lin', 'mean') =} |
 | Best of six at most 8 | {= A1('six', 'p_le8', 'nissy') =} | {= A1('six', 'p_le8') =} |
 
-The twisted-corner counts are off too (chi² {= CHI('nissy', 'RL', 'twisted corners') =} and {= CHI('nissy', 'UD', 'twisted corners') =} on 7 degrees of freedom, p = {= CHIP('nissy', 'RL', 'twisted corners') =} and {= CHIP('nissy', 'UD', 'twisted corners') =}); I haven't found the cause. This study draws its own uniform states (appendix B).
+The twisted-corner counts are off too ($\chi^2$ {= CHI('nissy', 'RL', 'twisted corners') =} and {= CHI('nissy', 'UD', 'twisted corners') =} on 7 degrees of freedom, p = {= CHIP('nissy', 'RL', 'twisted corners') =} and {= CHIP('nissy', 'UD', 'twisted corners') =}); I haven't found the cause. This study draws its own uniform states (appendix B).
 
 **What it confirms or corrects**
 
-**The known tables reproduce exactly:**
+**The known tables reproduce exactly.** Each row is an earlier table or count, the number it gave where it gave one, and the number here:
 
-| Table | Theirs | Here |
+| Table | Their number | Here |
 |---|---|---|
 | Cale's and FakeMMAP's {= EODRT() =} EO-solved states | | mean {= CT('plain', 'mean') =} |
 | torchlight's EO-breaking version (EO-breaking turns change almost nothing, as torchlight's table showed in 2023) | | {= CT('any', 'mean') =} |

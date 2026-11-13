@@ -31,22 +31,21 @@ def sm(g, b): return [r for r in same if r['group'] == g and r['budget'] == b]
 rows = []
 for g in CGROUPS:
     a = lst(g, '2'); s = sm(g, '2')
-    rows.append([g, cls2(a[0]), cls2(a[1]), cls2(a[2]),
-                 ' / '.join(pc(a[i]['cumulative']) for i in (0, 1, 2, 4)), pc(s[2]['cum_p1']), pc(lst(g, 'inf')[2]['cumulative'])])
-write('checklist_corner', ['Subset', 'Try first', 'Then', 'Then', 'Optimal after 1 / 2 / 3 / 5 classes', 'Within +1, same 3', 'No HTR limit, 3 classes'], rows)
+    rows.append([g, cls2(a[0]), cls2(a[1]), cls2(a[2])]
+                + [pc(a[i]['cumulative']) for i in (0, 1, 2, 4)] + [pc(s[2]['cum_p1']), pc(lst(g, 'inf')[2]['cumulative'])])
+# one table of routes, one of shares (one value per cell, at most 7 columns)
+SH = ['Optimal found, 1 route', 'Optimal found, 2 routes', 'Optimal found, 3 routes', 'Optimal found, 5 routes', 'Within +1, same 3 routes']
+write('checklist_corner', ['Subset', 'Try first', 'Then', 'Then'], [r[:4] for r in rows])
+write('checklist_corner_shares', ['Subset'] + SH + ['Optimal found, 3 routes, no HTR limit'], [r[:1] + r[4:] for r in rows])
 rows = []
 for s_ in SUBS:
     a = lst(s_, '2'); s = sm(s_, '2')
-    rows.append([s_, cls2(a[0]), cls2(a[1]), cls2(a[2]),
-                 ' / '.join(pc(a[i]['cumulative']) for i in (0, 1, 2, 4)), pc(s[2]['cum_p1'])])
-write('checklist_edges', ['Subset', 'Try first', 'Then', 'Then', 'Optimal after 1 / 2 / 3 / 5', 'Within +1, same 3'], rows)
-rows = []
-for g in CGROUPS:
-    r_ = [g]
-    for b in ('0', '1', '2', 'inf'):
-        a = lst(g, b); r_.append(f"{pc(a[0]['cumulative'])} / {pc(a[2]['cumulative'])}")
-    rows.append(r_)
-write('budgets', ['Subset', 'Budget 0 (shortest HTRs only): 1 / 3 classes', 'Budget 1', 'Budget 2', 'No limit'], rows)
+    rows.append([s_, cls2(a[0]), cls2(a[1]), cls2(a[2])] + [pc(a[i]['cumulative']) for i in (0, 1, 2, 4)] + [pc(s[2]['cum_p1'])])
+write('checklist_edges', ['Subset', 'Try first', 'Then', 'Then'], [r[:4] for r in rows])
+write('checklist_edges_shares', ['Subset'] + SH, [r[:1] + r[4:] for r in rows])
+BH = ['Subset', 'Budget 0 (shortest HTRs only)', 'Budget 1', 'Budget 2', 'No HTR limit']
+for k, name in ((0, 'budgets_1'), (2, 'budgets_3')):
+    write(name, BH, [[g] + [pc(lst(g, b)[k]['cumulative']) for b in ('0', '1', '2', 'inf')] for g in CGROUPS])
 # full appendix: per subset x edges, budget 2, 8 classes, opt and +1 (same classes)
 rows = []
 for s_ in SUBS:
@@ -86,14 +85,17 @@ EG['big'] = [s for s in EG['rows'] if big(s)]; EG['flat'] = [s for s in EG['rows
 EG['flat_corners'] = [g for g in CGROUPS if all(s in EG['flat'] for s in EG['rows'] if CORNER(s) == g)]
 EG['max'] = {k: max(EG['rows'], key=lambda s: EG['rows'][s]['opt'][f'gain{k}']) for k in KS}
 E['eg'] = EG
-rows = []
+GH = ['After 1 route (own − pooled, points)', 'After 2 routes', 'After 3 routes', 'After 5 routes']
+rows, rows_p1, rows_sh = [], [], []
 for s_ in EG['big']:
     o, p = EG['rows'][s_]['opt'], EG['rows'][s_]['p1']
-    rows.append([s_, 'same' if o['first_differs'] == '0' else cls(o['own_first']), o['pooled_first_rank'],
-                 ' / '.join(pc(o[f'own{k}']) for k in KS), ' / '.join(pc(o[f'pooled{k}']) for k in KS),
-                 ' / '.join(f"{gain(o, k) * 100:+.1f}" for k in KS), ' / '.join(f"{gain(p, k) * 100:+.1f}" for k in KS)])
-write('edge_gain', ['Subset', 'Own first route', 'Pooled first route: rank in own order', 'Own order: optimal after 1 / 2 / 3 / 5',
-                    'Pooled order: optimal after 1 / 2 / 3 / 5', 'Gain, points (optimal)', 'Gain, points (within +1)'], rows)
+    rows.append([s_, 'same' if o['first_differs'] == '0' else cls(o['own_first']), o['pooled_first_rank']] + [f"{gain(o, k) * 100:+.1f}" for k in KS])
+    rows_p1.append([s_] + [f"{gain(p, k) * 100:+.1f}" for k in KS])
+    rows_sh.append([s_, 'own'] + [pc(o[f'own{k}']) for k in KS])
+    rows_sh.append([s_, 'pooled'] + [pc(o[f'pooled{k}']) for k in KS])
+write('edge_gain', ['Subset', 'Own list: first route', "Pooled list's first route: place in own list"] + GH, rows)
+write('edge_gain_p1', ['Subset'] + GH, rows_p1)
+write('edge_gain_shares', ['Subset', 'List', 'Optimal found, 1 route', 'Optimal found, 2 routes', 'Optimal found, 3 routes', 'Optimal found, 5 routes'], rows_sh)
 # routes read with the edge count at every step (edge_steps.py)
 from common import level_of
 VIA = collections.defaultdict(dict)
@@ -114,13 +116,14 @@ for x in XS:
         rows.append([x if tg == 'opt' else '', {'opt': 'optimal', 'p1': 'within +1'}[tg], pc(r['any'])]
                     + [pc(r[e]) if r[e] > 0 else '–' for e in EDG])
 write('edge_via_reverse', ['Intermediate subset', 'Target', 'DRs that can pass it', 'of those, via 0e', 'via 2e', 'via 4e', 'via 6e', 'via 8e'], rows)
-def vcell(s, x, tg='opt'):
-    v = VIA[(s, tg)]; a = v.get(x + ' *', 0)
-    if a < 0.005: return '–'
-    parts = [f"{e} {pc(v[f'{x} {e}'])}" for e in EDG if v.get(f'{x} {e}', 0) >= 0.005]
-    return f"{pc(a)}: " + ', '.join(parts) if parts else pc(a)
-rows = [[s] + [vcell(s, x) for x in XS] for s in SUBS]
-write('edge_via', ['Subset', 'Through 4b2', 'Through 2c3', 'Through 4a1', 'Through 4a2', 'Through 4c3 (4a3 or 4b3)'], rows)
+# per starting subset x edges and intermediate subset: share that can pass it at all, then per edge count (under 0.5% left out)
+for x in XS:
+    rows = []
+    for s in SUBS:
+        v = VIA[(s, 'opt')]
+        if v.get(x + ' *', 0) < 0.005: continue
+        rows.append([s, pc(v[x + ' *'])] + [pc(v[f'{x} {e}']) if v.get(f'{x} {e}', 0) >= 0.005 else '–' for e in EDG])
+    write('edge_via_' + x, ['Subset', f'Can pass {x}' if x != '4c3' else 'Can pass 4c3 (4a3 or 4b3)', 'via 0e', 'via 2e', 'via 4e', 'via 6e', 'via 8e'], rows)
 # edge-refined checklists against corner-only
 ck = T('q2_edge_steps_checklist.tsv')
 alias = {}
@@ -144,13 +147,13 @@ for tg in ('opt', 'p1'):
                      'match1': collections.Counter(ES['ref'][f'{s}|{tg}']['match1'] for s in SUBS)}
 ES['n'] = len(SUBS)
 E['es'] = ES
-rows = []
+rows, rows_e = [], []
 for s in SUBS:
     o = ES['ref'][f'{s}|opt']
-    rows.append([s, ' / '.join(pc(x) for x in o['corner']), ' / '.join(pc(x) for x in o['edge']),
-                 cls(o['first']) + (f" (mirror: {cls(o['first_mirror'])})" if o['first_mirror'] else ''), o['match1'] or '>8'])
-write('edge_refined', ['Subset', 'Corner-only routes: optimal after 1 / 2 / 3 / 5', 'Edge-refined routes: optimal after 1 / 2 / 3 / 5',
-                       'Edge-refined first route', 'Edge-refined routes to match the first corner-only route'], rows)
+    rows.append([s] + [pc(x) for x in o['corner']])
+    rows_e.append([s] + [pc(x) for x in o['edge']] + [cls(o['first']) + (f" (mirror: {cls(o['first_mirror'])})" if o['first_mirror'] else ''), o['match1'] or '>8'])
+write('edge_refined', ['Subset', 'Optimal found, 1 corner route', '2 routes', '3 routes', '5 routes'], rows)
+write('edge_refined_paths', ['Subset', 'Optimal found, 1 edge path', '2 paths', '3 paths', '5 paths', 'First edge path', 'Edge paths to match the first corner route'], rows_e)
 # ------------------------------------------------------------------ docs 171 / 15 / 66
 def mad(f):
     r = T(f); a = np.array([float(x['doc_share']) for x in r]); o = np.array([float(x['our_expected_share_random_tiebreak']) for x in r])
@@ -175,13 +178,13 @@ for g in CGROUPS + ['all']:
     r = q3[g]
     rows.append([g if g != 'all' else 'all DRs', f"{float(r['mean_htr_niss']):.2f}", f"{float(r['mean_htr_linear_best_side']):.2f}", f"{float(r['mean_htr_normal']):.2f}",
                  pc(r['niss_eq_linear']), pc(r['niss_shorter_by_1']), pc(r['niss_shorter_by_2plus'])])
-write('htr_lengths', ['Subset', 'Shortest NISS HTR', 'Shortest linear, better side', 'Normal side', 'NISS = linear', 'NISS 1 shorter', 'NISS 2+ shorter'], rows)
+write('htr_lengths', ['Subset', 'Shortest NISS HTR, mean (moves)', 'Shortest linear, better side (moves)', 'Normal side (moves)', 'NISS = linear', 'NISS 1 shorter', 'NISS 2+ shorter'], rows)
 rows = []
 for g in CGROUPS + ['all']:
     r = q3[g]
     rows.append([g if g != 'all' else 'all DRs', pc(r['opt_uses_shortest_niss']), pc(r['opt_htr_plus1']), pc(r['opt_htr_plus2']), pc(r['opt_htr_plus3more']),
                  pc(r['every_opt_htr_ge9']), pc(float(r['every_opt_htr_ge9']) - float(r['niss_htr_ge9'])), f"{float(r['mean_post_htr_longest_in_an_optimal']):.2f}"])
-write('htr_vs_opt', ['Subset', 'Shortest HTR', '+1', '+2', '+3 or more', 'Every optimal needs 9+', '… though a sub-9 HTR exists', 'Post-HTR moves'], rows)
+write('htr_vs_opt', ['Subset', 'Optimal uses a shortest HTR', 'Best is 1 longer', '2 longer', '3 or more longer', 'Every optimal needs 9+', '… though a sub-9 HTR exists', 'Post-HTR moves, mean'], rows)
 bl = [r for r in T('q3_htr_by_length.tsv') if r['group'] == 'all' and float(r['states_share_with_shortest_niss_L']) >= 0.004]
 E['bylen_cov'] = sum(float(r['states_share_with_shortest_niss_L']) for r in bl); E['bylen_out'] = [r['L'] for r in T('q3_htr_by_length.tsv') if r['group'] == 'all' and 0 < float(r['states_share_with_shortest_niss_L']) < 0.004]
 write('htr_by_length', ['Shortest NISS HTR (L)', 'Share of DRs', 'An optimal uses an L-move HTR'], [[r['L'], pc(r['states_share_with_shortest_niss_L']), pc(r['opt_uses_an_L_move_htr'])] for r in bl])
@@ -190,7 +193,7 @@ q4 = {r['group']: r for r in T('q4_qt.tsv')}; E['q4'] = q4
 write('extra_qt', ['Subset', 'Every optimal uses extra qts', 'Some optimal does', 'Every leave-slice optimal does'],
       [[g if g != 'all' else 'all DRs', pc(q4[g]['every_opt_extra_qt_vs_corners']), pc(q4[g]['some_opt_extra_qt_vs_corners']), pc(q4[g]['ls_every_opt_extra_qt_vs_corners'])] for g in CGROUPS + ['all']])
 q5 = {r['group']: r for r in T('q5_states.tsv')}; E['q5'] = q5
-write('variation', ['Subset', 'Mean optimal', 'Last move either way', 'One shorter', 'Same', 'Optimal 15+', '15+ either way'],
+write('variation', ['Subset', 'Mean optimal (moves)', 'Mean, last move either way (moves)', 'One shorter', 'Same', 'Optimal 15+', '15+ either way'],
       [[g if g != 'all' else 'all DRs', f"{float(q5[g]['mean_opt']):.2f}", f"{float(q5[g]['mean_opt_with_variation']):.2f}", pc(q5[g]['share_variation_shorter']), pc(q5[g]['share_variation_equal']),
         pc(q5[g]['share_ge15']), pc(q5[g]['share_ge15_with_variation'])] for g in CGROUPS + ['all']])
 # ------------------------------------------------------------------ Q6
@@ -212,23 +215,27 @@ V = {(r['group'], r['q'], r['R']): r for r in T('q8_bounding_stated.tsv')}
 V1 = {(r['group'], r['q'], r['R']): r for r in T('q8_bounding_v2.tsv')}
 E['q8w'] = {f'{k[0]}|{k[1]}|{k[2]}': v for k, v in V1.items()}
 E['q8'] = {f'{k[0]}|{k[1]}|{k[2]}': v for k, v in V.items()}
-def fr(g, q, R_, t='opt'):
-    r = V[(g, q, str(R_))]
-    if R_ >= 7: return pc(r['found_' + t])
-    return f"{pc(r['found_' + t])} / {float(r['mean_reductions_le_R']):,.0f}"
-rows = []
-for g in CGROUPS + ['all']:
-    rows.append([g if g != 'all' else 'all DRs', fr(g, '1', 3), fr(g, '1', 4), fr(g, '1', 5), fr(g, '1', 6), fr(g, '1', 7), pc(V[(g, '1', '4')]['found_p1']), pc(V[(g, '1', '5')]['found_M12']), fr(g, '2', 3)])
-write('bounding', ['Subset', 'R ≤ 3: optimal / reductions', 'R ≤ 4', 'R ≤ 5', 'R ≤ 6', 'R ≤ 7 (optimal only)', 'Within +1, R ≤ 4', '12 or better, R ≤ 5', '2q, R ≤ 3'], rows)
+def fo(g, q, R_, t='opt'): return pc(V[(g, q, str(R_))]['found_' + t])
+def fn(g, q, R_): return f"{float(V[(g, q, str(R_))]['mean_reductions_le_R']):,.0f}"
+GG = lambda g: g if g != 'all' else 'all DRs'
+write('bounding', ['Subset', 'Optimal found, R ≤ 3', 'R ≤ 4', 'R ≤ 5', 'R ≤ 6', 'R ≤ 7'],
+      [[GG(g)] + [fo(g, '1', R_) for R_ in (3, 4, 5, 6, 7)] for g in CGROUPS + ['all']])
+write('bounding_counts', ['Subset', 'Reductions on average, R ≤ 3', 'R ≤ 4', 'R ≤ 5', 'R ≤ 6'],
+      [[GG(g)] + [fn(g, '1', R_) for R_ in (3, 4, 5, 6)] for g in CGROUPS + ['all']])
+write('bounding_other', ['Subset', 'Within +1 found, R ≤ 4', '12 or better found, R ≤ 5', 'To 2q, R ≤ 3: optimal found', 'To 2q, R ≤ 3: reductions on average'],
+      [[GG(g), pc(V[(g, '1', '4')]['found_p1']), pc(V[(g, '1', '5')]['found_M12']), fo(g, '2', 3), fn(g, '2', 3)] for g in CGROUPS + ['all']])
 rows = []
 for g in CGROUPS:
     rr_ = next((R_ for R_ in range(0, 8) if float(V[(g, '1', str(R_))]['found_opt']) >= 0.8), None)
-    bstr = (f"{rr_} ({float(V[(g, '1', str(rr_))]['mean_reductions_le_R']):,.0f})" if rr_ < 7 else "7 (count not reported)") if rr_ is not None else f"more than 7 ({pc(V[(g, '1', '7')]['found_opt'])} at 7)"
+    if rr_ is None: bR, bN, b7 = 'more than 7', '', pc(V[(g, '1', '7')]['found_opt'])
+    else: bR, bN, b7 = str(rr_), (f"{float(V[(g, '1', str(rr_))]['mean_reductions_le_R']):,.0f}" if rr_ < 7 else 'not reported'), ''
     def kfor(b):
         a = lst(g, b); k = next((int(x['step']) for x in a if float(x['cumulative']) >= 0.8), None)
-        return str(k) if k else f"more than {len(a)} ({pc(a[-1]['cumulative'])} at {len(a)})"
-    rows.append([g, bstr, kfor('2'), kfor('inf')])
-write('bounding_vs_checklist', ['Subset', 'Bounding: R for 80% (reductions)', 'Checklist classes for 80%, budget 2', 'Checklist classes, no HTR limit'], rows)
+        return (str(k), '') if k else (f"more than {len(a)}", pc(a[-1]['cumulative']))
+    k2, k2f = kfor('2'); ki, kif = kfor('inf'); assert kif == ''
+    rows.append([g, bR, bN, b7, k2, k2f, ki])
+write('bounding_vs_checklist', ['Subset', 'Bounding: smallest R for 80%', 'Reductions on average at that R', 'If not reached: found at R ≤ 7',
+                                'Checklist routes for 80%, budget 2', 'If not reached: found after 8 routes', 'Routes for 80%, no HTR limit'], rows)
 se = [float(r['se_opt']) for k, r in V.items() if k[0] in CGROUPS]
 E['q8_se_max_corner'] = max(se)
 # reductions grow per extra move
@@ -250,18 +257,18 @@ for tg in ('opt', 'p1', 'M10', 'M11', 'M12'):
     Q9[tg]['p90'] = agg(tg, 'p90_needed'); Q9[tg]['max'] = max(int(r['max_needed']) for r in q9v if r['target'] == tg)
 E['q9'] = Q9
 TN = {'opt': 'optimal', 'p1': 'optimal + 1', 'M10': '10 or better', 'M11': '11 or better', 'M12': '12 or better'}
-write('fake_summary', ['Target', '(state, path) cases', 'R as written (largest term)', 'Without term 1', 'Smallest term', 'Exact model', 'Needed: mean / largest', 'R too short: as written / smallest term / exact'],
+write('fake_summary', ['Target', '(state, path) cases', 'Mean R, as written (largest term)', 'Without term 1', 'Smallest term', 'Exact model', 'Mean reduction needed'],
       [[TN[tg], f"{Q9[tg]['cases']:,}", f"{Q9[tg]['mean_R_literal']:.1f}", f"{Q9[tg]['mean_R_no_term1']:.1f}", f"{Q9[tg]['mean_R_min_terms']:.1f}", f"{Q9[tg]['mean_R_exact']:.1f}",
-        f"{Q9[tg]['mean_R_needed']:.1f} / {Q9[tg]['max']}", f"{pc(Q9[tg]['insuff_literal'])} / {pc(Q9[tg]['insuff_min_terms'])} / {pc(Q9[tg]['insuff_exact'])}"] for tg in TN])
+        f"{Q9[tg]['mean_R_needed']:.1f}"] for tg in TN])
+write('fake_short', ['Target', 'Longest reduction needed (moves)', 'R too short: as written', 'Smallest term', 'Exact model'],
+      [[TN[tg], Q9[tg]['max'], pc(Q9[tg]['insuff_literal']), pc(Q9[tg]['insuff_min_terms']), pc(Q9[tg]['insuff_exact'])] for tg in TN])
 rod = T('q9_rodney_table.tsv')
 rows = []
 for s_ in SUBS:
-    r_ = [s_]
     for M in ('M10:M=10', 'M11:M=11', 'M12:M=12'):
         x = [r for r in rod if r['subset'] == s_ and r['M_minus_opt_or_M'] == M]
-        r_.append(f"{x[0]['R_no_term1_worst_case']} / {x[0]['R_exact_worst_case']} / {x[0]['R_needed_max']}" if x else '')
-    rows.append(r_)
-write('rodney_table', ['Subset', 'M = 10: formula / exact / needed', 'M = 11', 'M = 12'], rows)
+        rows.append([s_, M.split('=')[1]] + ([x[0]['R_no_term1_worst_case'], x[0]['R_exact_worst_case'], x[0]['R_needed_max']] if x else ['', '', '']))
+write('rodney_table', ['Subset', 'Target M', 'R from the formula without term 1', 'R from the exact model', 'Longest reduction needed'], rows)
 t5 = T('q9_t11503_examples.tsv')
 E['t11503_n'] = len(t5); E['t11503_subsets'] = sorted({r['subset'].split()[0] for r in t5})
 E['t11503_cases_opt'] = Q9['opt']['cases']
@@ -344,9 +351,11 @@ for r in t5:
 E['t11503_kinds'] = dict(_kinds)
 if os.path.exists(f'{OUT}/q9_lb_values.tsv'):
     lv = {r['group']: r for r in T('q9_lb_values.tsv')}
-    write('lb_values', ['Subset', '(state, path) cases', 'Lower bound: median / mean', 'Trivial bound: median / mean', 'Mean optimum', 'Bound above trivial', 'Bound reaches the optimum', 'Bound 11 or more'],
-          [[g, f"{int(lv[g]['cases']):,}", f"{float(lv[g]['median_lb']):g} / {float(lv[g]['mean_lb']):.2f}", f"{float(lv[g]['median_trivial']):g} / {float(lv[g]['mean_trivial']):.2f}", lv[g]['mean_opt'],
-            pc(lv[g]['lb_beats_trivial']), pc(lv[g]['lb_reaches_opt']), pc(lv[g]['lb_ge_11'])] for g in CGROUPS if g in lv])
+    write('lb_values', ['Subset', '(state, path) cases', 'Corrected bound, median', 'Corrected bound, mean', 'Trivial bound, median', 'Trivial bound, mean', 'Mean optimum'],
+          [[g, f"{int(lv[g]['cases']):,}", f"{float(lv[g]['median_lb']):g}", f"{float(lv[g]['mean_lb']):.2f}", f"{float(lv[g]['median_trivial']):g}", f"{float(lv[g]['mean_trivial']):.2f}", lv[g]['mean_opt']]
+           for g in CGROUPS if g in lv])
+    write('lb_shares', ['Subset', 'Bound above the trivial one', 'Bound reaches the optimum', 'Bound 11 or more'],
+          [[g, pc(lv[g]['lb_beats_trivial']), pc(lv[g]['lb_reaches_opt']), pc(lv[g]['lb_ge_11'])] for g in CGROUPS if g in lv])
 rows = []
 for s_ in ['0c0 0e', '0c0 2e', '0c0 4e', '0c0 6e', '0c0 8e', '4a1 0e', '4a1 2e', '4a1 4e', '4a2 0e', '4a2 2e', '4a2 4e', '4b2 0e', '4b2 2e', '4b2 4e', '2c3 0e', '2c3 2e', '2c3 4e', '2c3 6e', '2c3 8e', '4c3 0e', '4c3 2e', '4c3 4e']:
     rows.append([s_, pc(V[(s_, '1', '4')]['found_opt']), pc(V[(s_, '1', '5')]['found_opt']), pc(lst(s_, '2')[2]['cumulative']), pc(lst(s_, '2')[4]['cumulative'])])
@@ -367,7 +376,7 @@ def _pse(v, s, flag=False, d=1):
     return f"**{x}**" if flag else x
 def _flag(u, su, r, sr):
     d = abs(float(r) - float(u)); return d > 0.02 and d > 2 * math.sqrt(float(su) ** 2 + float(sr) ** 2)
-write('real_subsets', ['Subset', 'Share: uniform', 'Each DR once', 'Each scramble once', 'Mean optimal: uniform', 'Each DR once', 'Each scramble once'],
+write('real_subsets', ['Subset', 'Share of DRs, uniform', 'Share, each DR once (± SE)', 'Share, each scramble once (± SE)', 'Mean optimal (moves), uniform', 'Mean optimal, each DR once', 'Mean optimal, each scramble once'],
       [[g, f"{float(_as[(g, 'dr11')]['uniform_share']) * 100:.2f}%"] + [_pse(_as[(g, p)]['share'], _as[(g, p)]['se'], d=2) for p in P11]
        + [f"{float(_as[(g, 'dr11')]['uniform_mean']):.3f}"] + [f"{float(_as[(g, p)]['mean_opt']):.3f} ± {float(_as[(g, p)]['se_mean']):.3f}" for p in P11] for g in CGROUPS])
 GA['share_maxdiff'] = max(abs(float(_as[(g, p)]['share']) - float(_as[(g, p)]['uniform_share'])) * 100 for g in CGROUPS for p in P11)
@@ -395,15 +404,14 @@ def _same(g, p):
     return 'yes' if a == b else 'same three, 2nd and 3rd swapped' if sorted(a) == sorted(b) and a[0] == b[0] else \
         'first two the same' if a[:2] == b[:2] else 'first the same' if a[0] == b[0] else 'no'
 rows = []; GA['chk_flags'] = []
+PN = {'dr11': 'each DR once', 'scr11': 'each scramble once'}
 for g in CGROUPS:
-    row = [g, ' / '.join(f"{float(_u[g][a]) * 100:.1f}" for a, s in _cols)]
+    rows.append([g, 'uniform'] + [f"{float(_u[g][a]) * 100:.1f}" for a, s in _cols] + [''])
     for p in P11:
         r = _o[(g, p)]; fl = [_flag(_u[g][a], _u[g][s], r[a], r[s]) for a, s in _cols]
         if any(fl): GA['chk_flags'].append((g, p))
-        row.append(' / '.join(_pse(r[a], r[s], f) for (a, s), f in zip(_cols, fl)))
-    row.append(' / '.join(_same(g, p) for p in P11) if _same(g, 'dr11') != _same(g, 'scr11') else _same(g, 'dr11'))
-    rows.append(row)
-write('real_checklist', ['Subset', 'Uniform: 1 / 2 / 3 routes, +1 after 3', 'Each DR once (± SE)', 'Each scramble once (± SE)', 'Same three routes in the same order'], rows)
+        rows.append(['', PN[p]] + [_pse(r[a], r[s], f) for (a, s), f in zip(_cols, fl)] + [_same(g, p)])
+write('real_checklist', ['Subset', 'DRs', 'Optimal found, 1 route (%)', '2 routes', '3 routes', 'Within +1, 3 routes', 'Same three routes, same order as uniform'], rows)
 GA['chk_maxdiff_ex0c0'] = max(abs(float(_o[(g, p)][a]) - float(_u[g][a])) * 100 for g in CGROUPS if g != '0c0' for p in P11 for a, s in _cols)
 GA['first_same'] = all(_o[(g, p)]['class1'] == _u[g]['class1'] for g in CGROUPS for p in P11)
 GA['order_changed'] = sorted({g for g in CGROUPS for p in P11 if _same(g, p) != 'yes'})
@@ -447,7 +455,7 @@ for name, f, v, s in HL:
         if fl: GA['hl_flags'].append((name, p))
         row.append(_pse(r[v], r[s], fl))
     rows.append(row)
-write('real_headlines', ['Headline', 'Uniform (± SE)', 'Each DR once', 'Each scramble once'], rows)
+write('real_headlines', ['Headline', 'Uniform (± SE)', 'Each DR once (± SE)', 'Each scramble once (± SE)'], rows)
 GA['hl_maxdiff_ex0c3'] = max(abs(float(f(p)[v]) - float(f('uniform')[v])) * 100 for name, f, v, s in HL if '0c3' not in name for p in P11)
 GA['c0c3_2plus'] = [float(_q3[('0c3', p, 'niss_shorter_by_2plus')]['value']) * 100 for p in ('uniform',) + P11]
 GA['b4a2_r5'] = [float(_bd[('4a2', p, '1', '5')]['found_opt']) * 100 for p in ('uniform',) + P11]
@@ -464,15 +472,17 @@ GA['g2_n'] = int(_A['n'])
 GA['g2_real'] = {p: {k: float(_g2[('all', p)][k]) for k in ('shorter', 'se', 'mean_gain')} for p in P11 if ('all', p) in _g2}
 GA['g2_real_n'] = int(_g2[('all', 'dr11')]['n']) if ('all', 'dr11') in _g2 else 0
 _hasreal = bool(GA['g2_real'])
-rows = []
+rows = []; rows_m = []
 for g in CGROUPS + ['all']:
     r = _g2[(g, 'uniform')]
-    row = [g if g != 'all' else 'all DRs', _pse(r['shorter'], r['se']) + '%', f"{float(r['by1']) * 100:.1f} / {float(r['by2plus']) * 100:.1f}", f"{float(r['mean_gain']):.3f}",
-           f"{float(r['mean_dr_opt']):.2f} / {float(r['mean_true_opt']):.2f}"]
+    row = [g if g != 'all' else 'all DRs', _pse(r['shorter'], r['se']) + '%']
     if _hasreal: row += [_pse(_g2[(g, p)]['shorter'], _g2[(g, p)]['se']) + '%' for p in P11]
+    row += [f"{float(r['by1']) * 100:.1f}", f"{float(r['by2plus']) * 100:.1f}"]
     rows.append(row)
-write('g2_subsets', ['Subset', 'Shorter finish outside DR (± SE)', 'By 1 / by 2+ (%)', 'Mean gain (moves)', 'Mean DR-move / any-move optimum']
-      + (['Real DRs: each DR once', 'Each scramble once'] if _hasreal else []), rows)
+    rows_m.append([row[0], f"{float(r['mean_gain']):.3f}", f"{float(r['mean_dr_opt']):.2f}", f"{float(r['mean_true_opt']):.2f}"])
+write('g2_subsets', ['Subset', 'Shorter finish outside DR, uniform (± SE)'] + (['Real DRs, each DR once', 'Real DRs, each scramble once'] if _hasreal else [])
+      + ['Shorter by 1 move, uniform (%)', 'By 2 or more (%)'], rows)
+write('g2_means', ['Subset', 'Mean gain (moves)', 'Mean DR-move optimum (moves)', 'Mean any-move optimum (moves)'], rows_m)
 _cellrows = sorted([r for r in GT('g2.tsv') if r['pop'] == 'uniform' and ' ' in r['group']], key=lambda r: -float(r['shorter']))
 GA['g2_worst'] = [(r['group'], float(r['shorter']) * 100, float(r['by2plus']) * 100) for r in _cellrows[:3]]
 GA['g2_cells_over10'] = [r['group'] for r in _cellrows if float(r['shorter']) > 0.10]

@@ -1,4 +1,4 @@
-| Cap and model | Skeleton length | Skeletons | Mean added | 4 or less | 5 or less | 6 or less | 7 or less | 8 or less | 9 or less | 10 or less | 11 or less | 12 or less | Nothing fits |
+| Cap and model | Skeleton length | Skeletons | Mean moves added | Adds 4 or less | Adds 5 or less | Adds 6 or less | Adds 7 or less | Adds 8 or less | Adds 9 or less | Adds 10 or less | Adds 11 or less | Adds 12 or less | Nothing fits |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 8, two comms | 10 | 20,000 | 10.22 | 0.06% | 0.17% | 0.68% | 2.5% | 8.6% | 25% | 56% | 87% | 98% | 0 |
 | 8, two comms | 12 | 20,000 | 9.94 | 0.07% | 0.36% | 1.2% | 3.8% | 12% | 32% | 66% | 92% | 99.2% | 0 |

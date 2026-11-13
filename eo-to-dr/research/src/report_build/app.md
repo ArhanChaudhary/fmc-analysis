@@ -1,14 +1,24 @@
 ## Appendix A: full tables
 
-**EO to DR by case**, all 40 cases. Each cell: mean turns to DR, then the chance of at most 6. One axis, any turns and the last turn either way are exact over all 1,082,565 EO-solved states; the better of two DR axes is exact (read by the case on the first axis); normal or inverse and all EO-keeping options together are sampled ({= NSAMP('c') =} states; the last column gives how many fell in each case, and the cases marked *few* rest on about 300 to 1,000).
+**EO to DR by case**, all 40 cases, in three tables: how common each case is, the mean turns to DR with each option, and the chance of a DR in 6 or fewer with each option. One axis, any turns and the last turn either way are exact over all 1,082,565 EO-solved states; the better of two DR axes is exact (read by the case on the first axis); normal or inverse and all EO-keeping options together are sampled ({= NSAMP('c') =} states; the last column gives how many fell in each case, and the cases marked *few* rest on about 300 to 1,000).
+
+Each row is a case: its share of EO-solved states, and how many of the sampled states fell in it.
 
 {{c6_case_full}}
 
-**Normal against inverse after an EO**, by case (sampled, {= NSAMP('c') =} states, same DR axis, EO kept). Cases with fewer than 1,000 samples have noisy correlations.
+Mean turns to DR, one column per option:
+
+{{c6_case_full_mean}}
+
+Chance of a DR in 6 or fewer, one column per option:
+
+{{c6_case_full_le6}}
+
+**Normal against inverse after an EO**, by case (sampled, {= NSAMP('c') =} states, same DR axis, EO kept). Cases with fewer than 1,000 samples have noisy correlations. Each row is a case; the last three columns are the chance the inverse is at most 6:
 
 {{c6_normal_inverse}}
 
-**Bad edges on the three axes**, all 65 sorted triples, exact over all 70,963,200 classes of edge states (orientation and slice placement):
+**Bad edges on the three axes**, all 65 sorted triples, exact over all 70,963,200 classes of edge states (orientation and slice placement). Each row is a set of bad-edge counts on the three axes, in any order:
 
 {{b5_sorted}}
 
@@ -23,29 +33,29 @@
     co = rand() % POW3TO7;
     cp = rand() % FACTORIAL8;
 
-and prints a solution of it as the scramble. glibc's `rand()` takes 2^31 values, {= NISSYBIAS('ratio') =} times 12!, so `rand() % FACTORIAL12` gives the lowest {= NISSYBIAS('low') =} edge-permutation indices ({= NISSYBIAS('lowshare') =} of them) one chance more than the rest: they are {= NISSYBIAS('more') =} more likely. The other three draws are over ranges small enough that the same bias is negligible. Since the scramble solves the drawn state, the drawn state is the inverse of the scramble, and that is where the effect shows: on {= n(X('n')) =} nissy scrambles the inverse side is shorter to DR, the normal side barely moved:
+and prints a solution of it as the scramble. glibc's `rand()` takes $2^{31}$ values, {= NISSYBIAS('ratio') =} times $12!$, so `rand() % FACTORIAL12` gives the lowest {= NISSYBIAS('low') =} edge-permutation indices ({= NISSYBIAS('lowshare') =} of them) one chance more than the rest: they are {= NISSYBIAS('more') =} more likely. The other three draws are over ranges small enough that the same bias is negligible. Since the scramble solves the drawn state, the drawn state is the inverse of the scramble, and that is where the effect shows: on {= n(X('n')) =} nissy scrambles the inverse side is shorter to DR, the normal side barely moved. Each row is one way of reaching DR; the *DR in ≤* columns are the share of scrambles:
 
 {{nissy_bias}}
 
-The number of twisted corners per axis is also off on nissy's scrambles, on 7 degrees of freedom; I haven't found the cause:
+The number of twisted corners per axis is also off on nissy's scrambles, on 7 degrees of freedom; I haven't found the cause. Each row is an axis, with the test statistic and its p-value:
 
-| Axis | chi² | p |
+| Axis | $\chi^2$ | p-value |
 |---|---|---|
 | R/L | {= CHI('nissy', 'RL', 'twisted corners') =} | {= CHIP('nissy', 'RL', 'twisted corners') =} |
 | U/D | {= CHI('nissy', 'UD', 'twisted corners') =} | {= CHIP('nissy', 'UD', 'twisted corners') =} |
 | F/B | {= CHI('nissy', 'FB', 'twisted corners') =} | {= CHIP('nissy', 'FB', 'twisted corners') =} |
 
-The test of every scramble set (twisted corners, bad edges and slice pieces in their slice, on each axis):
+The test of every scramble set (twisted corners, bad edges and slice pieces in their slice, on each axis). Each row is one scramble set, axis and count:
 
 {{scramble_checks}}
 
-The study's own scrambles pass every test. A separate set of {= n(X('s500_n')) =} scrambles from nissy's scrambler shows the same effect:
+The study's own scrambles pass every test. A separate set of {= n(X('s500_n')) =} scrambles from nissy's scrambler shows the same effect. Each row is a mean number of turns to DR; z is how many standard errors those scrambles sit from the uniform sample:
 
-| Mean to DR | Those scrambles | Uniform sample | z |
-|---|---|---|---|
-| Inverse, best of 3 | {= XN('s500_inv_mean', 3) =} ± {= XN('s500_inv_se', 3) =} | {= A1('inv', 'mean') =} | {= XN('s500_inv_z', 1) =} |
-| Best of six | {= XN('s500_six_mean', 3) =} ± {= XN('s500_six_se', 3) =} | {= A1('six', 'mean') =} | {= XN('s500_six_z', 1) =} |
-| Normal side (unaffected) | {= XN('s500_lin_mean', 3) =} | {= A1('lin', 'mean') =} | |
+| Mean to DR | Those scrambles, mean turns | Standard error | Uniform sample, mean turns | z |
+|---|---|---|---|---|
+| Inverse, best of 3 | {= XN('s500_inv_mean', 3) =} | {= XN('s500_inv_se', 3) =} | {= A1('inv', 'mean') =} | {= XN('s500_inv_z', 1) =} |
+| Best of six | {= XN('s500_six_mean', 3) =} | {= XN('s500_six_se', 3) =} | {= A1('six', 'mean') =} | {= XN('s500_six_z', 1) =} |
+| Normal side (unaffected) | {= XN('s500_lin_mean', 3) =} | | {= A1('lin', 'mean') =} | |
 
 **Per scramble** (`eodrtools scr`): the exact DR distance on each axis, normal and inverse; the NISS DR (pre-turns on one side, stopping where they can no longer win); the number of DR solutions of each length up to 12 on the normal side; the shortest EO inside an optimal DR; every EO of up to 6 turns on each axis, normal, inverse and NISS, each with the exact EO-keeping DR distance on both DR axes; from these the best route through an EO of each length, the (EO, DR axis) counts and the optimal EOs. About 30 minutes on four cores for the {= n(X('n')) =}.
 
@@ -55,15 +65,15 @@ The study's own scrambles pass every test. A separate set of {= n(X('s500_n')) =
 
 **What checks it.**
 
-- Every table mapping against nissy 2.0.8: {= CHK(1) =} of {= CHK(0) =} positions agree, over {= CHK(2) =} mappings (DR from a scramble on each axis, EO-keeping DR for all six pairs of EO axis and DR axis, any-turn DR from EO-solved states, optimal EO per axis, NISS EO over all axes):
+- Every table mapping against nissy 2.0.8: {= CHK(1) =} of {= CHK(0) =} positions agree, over {= CHK(2) =} mappings (DR from a scramble on each axis, EO-keeping DR for all six pairs of EO axis and DR axis, any-turn DR from EO-solved states, optimal EO per axis, NISS EO over all axes). Each row is one mapping:
 
 {{checks_nissy}}
 
-- Counts against nissy on the first 30 scrambles (DR solutions of 9 and 10, EOs linear and NISS, `nissy -a`), and the NISS DR against `nissy solve dr -N` on 40 scrambles where NISS beats linear:
+- Counts against nissy on the first 30 scrambles (DR solutions of 9 and 10, EOs linear and NISS, `nissy -a`), and the NISS DR against `nissy solve dr -N` on 40 scrambles where NISS beats linear. Each row is one count:
 
 {{checks_counts}}
 
-- The known tables come out exactly: the EO-solved part of the EO-keeping table is FakeMMAP's and Cale's 1, 2, 17, …, 3114 (mean {= CT('plain', 'mean') =}); the any-turn version gives torchlight's {= CT('any', 'mean') =}; one-axis EO {= EO1() =}; DougCube's one-axis DR from a scramble, mean {= A1('fixed', 'mean') =}. The sample agrees with the exact one-axis table (mean {= A1('pooled', 'mean') =} on {= PRIOR('one axis', 'ours_n') =} axes; chi² {= PRIOR('one axis', 'chi2') =} on {= PRIOR('one axis', 'df') =} df), and with the DR-xs study's {= PRIOR('best of 6 (normal or inverse)', 'prior_n') =} scrambles (best of three, chi² {= PRIOR('best of 3 axes, normal', 'chi2') =} on {= PRIOR('best of 3 axes, normal', 'df') =} df; best of six, {= PRIOR('best of 6 (normal or inverse)', 'chi2') =} on {= PRIOR('best of 6 (normal or inverse)', 'df') =}).
+- The known tables come out exactly: the EO-solved part of the EO-keeping table is FakeMMAP's and Cale's 1, 2, 17, …, 3114 (mean {= CT('plain', 'mean') =}); the any-turn version gives torchlight's {= CT('any', 'mean') =}; one-axis EO {= EO1() =}; DougCube's one-axis DR from a scramble, mean {= A1('fixed', 'mean') =}. The sample agrees with the exact one-axis table (mean {= A1('pooled', 'mean') =} on {= PRIOR('one axis', 'ours_n') =} axes; $\chi^2$ {= PRIOR('one axis', 'chi2') =} on {= PRIOR('one axis', 'df') =} df), and with the DR-xs study's {= PRIOR('best of 6 (normal or inverse)', 'prior_n') =} scrambles (best of three, $\chi^2$ {= PRIOR('best of 3 axes, normal', 'chi2') =} on {= PRIOR('best of 3 axes, normal', 'df') =} df; best of six, {= PRIOR('best of 6 (normal or inverse)', 'chi2') =} on {= PRIOR('best of 6 (normal or inverse)', 'df') =}).
 - The sampled EO to DR rows agree with the exact ones where both exist (one axis: {= CSTAT('check_plain_exact_vs_sampled', 'sampled', 'mean') =} sampled against {= CSTAT('check_plain_exact_vs_sampled', 'exact', 'mean') =} exact).
 - Every solution in the per-scramble tables (NISS DR, optimal DR with its EO split, the best routes through EOs of at most 4, 5 and 6) is replayed on the sticker model, a separate implementation that reads EO and DR off the stickers; so is every example in this write-up ({= WX['checks'] =} checks) and every move sequence on the examples page.
 - The optimal solutions of the first three scrambles with no sub-10 DR (nissy `solve optimal`, about 3.5 GB) are replayed and solve the cube.

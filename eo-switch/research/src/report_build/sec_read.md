@@ -1,8 +1,8 @@
 ## 5. Reading the switched case from normal
 
-You decide before switching, so every feature of the cards has to be seen on the normal side, after EO + RZP. I tested each reading below on uniformly random cubes with the EO solved (a random case, then random pieces): read it on the normal cube, compare with the feature of its inverse. *Held* means it gave the right count on every cube.
+You decide before switching, so every feature of the cards has to be seen on the normal side, after EO + RZP. I tested each reading below on uniformly random cubes with the EO solved (a random case, then random pieces): read it on the normal cube, compare with the feature of its inverse. One row per feature; *Held* is on how many of the cubes tested the reading gave the right count.
 
-| Feature on the switched case | What to look at on normal | Source | Held |
+| Feature on the switched case | What to look at on normal | Source | Held (cubes right of cubes tested) |
 |---|---|---|---|
 | Corner ARM | R/L stickers on the U/D faces (corners) | rodneykinney, *DR - 4c4e Theory* | {= n(NISS('R/L stickers on U/D faces (normal) = corner ARM on inverse (uniform)')[1]) =} of {= n(NISS('R/L stickers on U/D faces (normal) = corner ARM on inverse (uniform)')[0]) =} |
 | ARM (both digits) | the ARM of the other DR axis on normal (U/D DR on inverse ↔ R/L DR on normal) | Cale [[T4202]], wen [[D7896]] | {= n(NISS('ARM axis swap: ARM for U/D DR on normal = ARM for R/L DR on inverse (uniform)')[1]) =} of {= n(NISS('ARM axis swap: ARM for U/D DR on normal = ARM for R/L DR on inverse (uniform)')[0]) =} |

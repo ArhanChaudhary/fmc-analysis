@@ -4,7 +4,7 @@ Examples to play along with the write-up ([WRITEUP.md](WRITEUP.md)). Find the fi
 
 These are 200 DR states, the first 10 of the study's uniform sample in each of the 20 most common subsets with their edge counts (together 93% of all DR states). Nothing is hand-picked, so they're as hard or as easy as real DRs of that subset. Each scramble is a random DR followed by DR moves to the state, so it doesn't give the finish away.
 
-**How to read it.** Finishes stay in DR (U, D, R2, L2, F2, B2); optimal means the shortest such finish, E slice solved. A route class like `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` is the corner subset at the start and after each quarter turn until HTR, in the first study's names (4a3 and 4b3 by side: they swap on inverse); the part in brackets is done on the other side after a NISS switch. A class ending in `| qt` has a quarter turn after HTR (an HTR-breaking finish); every other class finishes in half turns from HTR. The checklist of each subset is the one in the write-up (greedy order, HTR budget 2, target optimal), with the share of the subset's 25,000 sampled states it covers after each class. A class *finds an optimal here* if some optimal finish can be read in that class with an HTR at most 2 moves longer than this DR's shortest NISS HTR (first answer), or with any HTR (second). The HTR length counts the moves on both sides until HTR. NISS is written as usual, inverse moves in brackets; "normal first" says which side you start on:
+**How to read it.** Finishes stay in DR (U, D, R2, L2, F2, B2); optimal means the shortest such finish, E slice solved. A route class like `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` is the corner subset at the start and after each quarter turn until HTR, in the first study's names (4a3 and 4b3 by side: they swap on inverse); the part in brackets is done on the other side after a NISS switch. A class ending in `| qt` has a quarter turn after HTR (an HTR-breaking finish); every other class finishes in half turns from HTR. The checklist of each subset is the one in the write-up (greedy order, HTR budget 2, target optimal), with the share of the subset's 25,000 sampled states it covers after each class. A class *finds an optimal here* if some optimal finish can be read in that class with an HTR at most 2 moves longer than this DR's shortest NISS HTR (first of the two columns), or with any HTR (second). The HTR length counts the moves on both sides until HTR. NISS is written as usual, inverse moves in brackets; "normal first" says which side you start on:
 
 ```
 R2 U (D F2)   // R2 U on normal, then D F2 on the inverse
@@ -16,15 +16,15 @@ The bounding lines give the shortest reduction that keeps an optimal finish: mov
 
 **Replay check.** Every move sequence on this page was replayed on the sticker model before the page was written: 3,829 checks (each scramble gives the state and its labels on both sides, every optimal finish solves it in the stated length, each printed reading has the stated class and HTR length when re-simulated move by move, each reduction leads to a state of the stated kind that the rest solves; the classes found agree with the main run on every state, and the 1q reduction length with the bounding run's one-quarter-turn reading), 0 mismatches.
 
-**In these 200**, the subset's checklist finds an optimal finish after its first k classes on this many states:
+**In these 200**, the subset's checklist finds an optimal finish after its first k classes on this many states. Each row is a value of k:
 
-| k | HTR within 2 | Any HTR |
-|---|---|---|
-| 1 | 124 (62%) | 151 |
-| 2 | 155 (78%) | 182 |
-| 3 | 162 (81%) | 189 |
-| 4 | 169 (84%) | 192 |
-| 5 | 171 (86%) | 192 |
+| k | States, HTR within 2 | Share of the 200, HTR within 2 | States, any HTR |
+|---|---|---|---|
+| 1 | 124 | 62% | 151 |
+| 2 | 155 | 78% | 182 |
+| 3 | 162 | 81% | 189 |
+| 4 | 169 | 84% | 192 |
+| 5 | 171 | 86% | 192 |
 
 ## 2c5
 
@@ -40,13 +40,15 @@ Read as 2c5 2e on normal, 2c5 2e on inverse. Shortest HTR: 9 on normal, 12 on in
 
 Optimal: 15 moves (23 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / yes |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
 
 - Class 1: normal first: `U L2 U`, then on inverse `(B2 U B2 D' B2 D' L2 U2 R2 B2 L2 R2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U L2 U R2 L2 B2 R2 U2 L2 D B2 D B2 U' B2`.
 - Class 2: linear on normal: `U R2 U' F2 D L2 U' B2 R2 U' R2 L2 B2 U2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U R2 U' F2 D L2 U' B2 R2 U' R2 L2 B2 U2 R2`.
@@ -66,13 +68,15 @@ Read as 2c5 2e on normal, 2c5 2e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 14 moves (37 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / yes |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
 
 - Class 1: inverse first: `(D' B2 L2 D)`, then on normal `R2 U' B2 D' F2 U' D2 R2 L2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 U' B2 D' F2 U' D2 R2 L2 B2 D' L2 B2 D`.
 - Class 2: linear on the inverse: `(R2 U' L2 D B2 D' F2 D L2 B2 U' L2 D2 R2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 D2 L2 U B2 L2 D' F2 D B2 D' L2 U R2`.
@@ -92,13 +96,15 @@ Read as 2c5 2e on normal, 2c5 2e on inverse. Shortest HTR: 11 on normal, 9 on in
 
 Optimal: 14 moves (5 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / yes |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
 
 - Class 1: inverse first: `(D R2 D')`, then on normal `B2 D F2 U' F2 U' R2 B2 D2 R2 F2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `B2 D F2 U' F2 U' R2 B2 D2 R2 F2 D R2 D'`.
 - Class 2: linear on the inverse: `(D' R2 D B2 D' R2 D F2 D B2 R2 U2 F2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `L2 F2 U2 R2 B2 D' F2 D' R2 D B2 D' R2 D`.
@@ -118,13 +124,15 @@ Read as 2c5 2e on normal, 2c5 2e on inverse. Shortest HTR: 11 on normal, 11 on i
 
 Optimal: 15 moves (16 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no / no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes / yes |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | no |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes | yes |
+| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
 
 - Class 1: normal first: `U2 R2 F2 U' B2 U'`, then on inverse `(U R2 D' L2 U F2 R2 U2 L2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U2 R2 F2 U' B2 U' L2 U2 R2 F2 U' L2 D R2 U'`.
 - Class 2: linear on normal: `U2 R2 F2 U' B2 U' L2 U2 R2 F2 U' L2 D R2 U'`. HTR after 15 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U2 R2 F2 U' B2 U' L2 U2 R2 F2 U' L2 D R2 U'`.
@@ -143,13 +151,15 @@ Read as 2c5 2e on normal, 2c5 2e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 13 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no / no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / yes |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | no |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
 
 - Class 1: inverse first: `(F2 D B2 D)`, then on normal `B2 U F2 U B2 U R2 D2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U F2 U B2 U R2 D2 B2 D' B2 D' F2`.
 - Class 2: linear on the inverse: `(F2 D B2 D B2 D2 R2 U' B2 U' F2 U' B2)`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U F2 U B2 U R2 D2 B2 D' B2 D' F2`.
@@ -168,13 +178,15 @@ Read as 2c5 2e on normal, 2c5 2e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 14 moves (14 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | yes / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / no |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | yes | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
+| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
 
 - Class 1: normal first: `R2 F2 U B2 U'`, then on inverse `(R2 D B2 R2 U L2 U D2 F2)`. HTR after 12 moves (within the budget); the whole finish, as read on normal: `R2 F2 U B2 U' F2 D2 U' L2 U' R2 B2 D' R2`.
 - Class 2: linear on the inverse: `(R2 U R2 F2 D L2 U' B2 D R2 D U2 F2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 F2 U2 D' R2 D' B2 U L2 D' F2 R2 U' R2`.
@@ -193,13 +205,15 @@ Read as 2c5 2e on normal, 2c5 2e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 15 moves (97 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | yes / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / yes |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | yes | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
 
 - Class 1: normal first: `U B2 D'`, then on inverse `(R2 U R2 U B2 U B2 D2 B2 L2 B2 F2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U B2 D' F2 B2 L2 B2 D2 B2 U' B2 U' R2 U' R2`.
 - Class 2: linear on normal: `R2 U' R2 U' R2 B2 D' B2 D R2 D B2 R2 F2 D2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 U' R2 U' R2 B2 D' B2 D R2 D B2 R2 F2 D2`.
@@ -219,13 +233,15 @@ Read as 2c5 2e on normal, 2c5 2e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 15 moves (25 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | yes / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / no |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | yes | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
+| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
 
 - Class 1: inverse first: `(D F2 L2 U')`, then on normal `F2 D F2 L2 U L2 D F2 L2 U2 F2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `F2 D F2 L2 U L2 D F2 L2 U2 F2 U L2 F2 D'`.
 - Class 2: linear on the inverse: `(U B2 U F2 D' B2 R2 D' B2 D' B2 F2 L2 U2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U2 L2 F2 B2 D B2 D R2 B2 D F2 U' B2 U'`.
@@ -244,13 +260,15 @@ Read as 2c5 2e on normal, 2c5 2e on inverse. Shortest HTR: 11 on normal, 10 on i
 
 Optimal: 14 moves (3 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / no |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
+| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
 
 - Class 1: normal first: `D2 R2 D R2 U'`, then on inverse `(R2 B2 D R2 U' F2 U R2 B2)`. HTR after 12 moves (within the budget); the whole finish, as read on normal: `D2 R2 D R2 U' B2 R2 U' F2 U R2 D' B2 R2`.
 - Class 2: linear on normal: `D2 F2 D' B2 D F2 U' R2 U F2 U' R2 B2 R2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `D2 F2 D' B2 D F2 U' R2 U F2 U' R2 B2 R2`.
@@ -269,13 +287,15 @@ Read as 2c5 2e on normal, 2c5 2e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 14 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | no / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / no |
-| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.8% | no | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.2% | yes | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.0% | no | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
+| 5 | `2c5 > 4b4 > (4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.9% | no | no |
 
 - Class 1: normal first: `B2 U' F2 L2 U`, then on inverse `(F2 L2 R2 D' R2 U' L2 D R2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U' F2 L2 U R2 D' L2 U R2 D R2 L2 F2`.
 - Class 2: linear on normal: `B2 U' F2 L2 U R2 D' L2 U R2 D R2 L2 F2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `B2 U' F2 L2 U R2 D' L2 U R2 D R2 L2 F2`.
@@ -298,13 +318,15 @@ Read as 2c5 4e on normal, 2c5 4e on inverse. Shortest HTR: 11 on normal, 11 on i
 
 Optimal: 15 moves (10 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no / yes |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | yes |
+| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `R2 D' L2 F2 D'`, then on inverse `(L2 U' F2 U L2 U R2 D2 L2 F2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 D' L2 F2 D' F2 L2 D2 R2 U' L2 U' F2 U L2`.
 - Class 2: linear on normal: `F2 R2 U L2 F2 D' L2 D R2 D' R2 B2 D' L2 D2`. HTR after 13 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 R2 U L2 F2 D' L2 D R2 D' R2 B2 D' L2 D2`.
@@ -324,13 +346,15 @@ Read as 2c5 4e on normal, 2c5 4e on inverse. Shortest HTR: 12 on normal, 11 on i
 
 Optimal: 14 moves (10 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no / no |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no / no |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no / no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | yes / yes |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no | no |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | no |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no | no |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | yes | yes |
+| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
 
 - Class 4: inverse first: `(U F2 D)`, then on normal `U L2 D R2 U2 B2 D' L2 F2 U2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U L2 D R2 U2 B2 D' L2 F2 U2 B2 D' F2 U'`.
 
@@ -347,13 +371,15 @@ Read as 2c5 4e on normal, 2c5 4e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 14 moves (10 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no / no |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | no |
+| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `L2 B2 U' R2 L2 B2 U`, then on inverse `(U L2 B2 D' F2 D F2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 U' R2 L2 B2 U F2 D' F2 D B2 L2 U'`.
 - Class 2: linear on the inverse: `(U L2 B2 D' F2 D F2 U' B2 L2 R2 U B2 L2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 U' R2 L2 B2 U F2 D' F2 D B2 L2 U'`.
@@ -372,13 +398,15 @@ Read as 2c5 4e on normal, 2c5 4e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 15 moves (3 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no / no |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | no |
+| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `F2 U L2 F2 D'`, then on inverse `(R2 U L2 F2 U' F2 U' B2 U2 B2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U L2 F2 D' B2 U2 B2 U F2 U F2 L2 U' R2`.
 - Class 2: linear on normal: `U' R2 B2 D2 R2 U B2 R2 D' L2 F2 U' B2 D B2`. HTR after 14 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U' R2 B2 D2 R2 U B2 R2 D' L2 F2 U' B2 D B2`.
@@ -397,13 +425,15 @@ Read as 2c5 4e on normal, 2c5 4e on inverse. Shortest HTR: 10 on normal, 11 on i
 
 Optimal: 14 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no / no |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | no |
+| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `U B2 U'`, then on inverse `(D2 L2 D' B2 D R2 D L2 F2 D2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U B2 U' R2 D2 F2 L2 D' R2 D' B2 D L2 D2`.
 - Class 2: linear on normal: `U B2 U' R2 D2 F2 L2 D' R2 D' B2 D L2 D2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U B2 U' R2 D2 F2 L2 D' R2 D' B2 D L2 D2`.
@@ -422,13 +452,15 @@ Read as 2c5 4e on normal, 2c5 4e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 14 moves (10 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | yes / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no / no |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | yes | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | no |
+| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
 
 - Class 1: inverse first: `(L2 U' R2 B2 D)`, then on normal `R2 U F2 L2 D L2 D' R2 F2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 U F2 L2 D L2 D' R2 F2 D' B2 R2 U L2`.
 - Class 2: linear on normal: `R2 U' R2 U' L2 D B2 U' R2 D F2 D2 B2 U2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 U' R2 U' L2 D B2 U' R2 D F2 D2 B2 U2`.
@@ -447,13 +479,15 @@ Read as 2c5 4e on normal, 2c5 4e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 15 moves (4 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no / no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no / yes |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | no | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no | no |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | yes |
+| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `D' R2 U`, then on inverse `(B2 U2 B2 U F2 D F2 L2 U R2 U2 F2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D' R2 U F2 U2 R2 U' L2 F2 D' F2 U' B2 U2 B2`.
 - Class 2: linear on normal: `D' R2 U F2 U2 R2 U' L2 F2 D' F2 U' B2 U2 B2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D' R2 U F2 U2 R2 U' L2 F2 D' F2 U' B2 U2 B2`.
@@ -472,13 +506,15 @@ Read as 2c5 4e on normal, 2c5 4e on inverse. Shortest HTR: 9 on normal, 11 on in
 
 Optimal: 14 moves (12 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | yes / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no / no |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | yes | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | no |
+| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `L2 U F2 D`, then on inverse `(B2 U L2 B2 D' F2 U L2 F2 U2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `L2 U F2 D U2 F2 L2 U' F2 D B2 L2 U' B2`.
 - Class 2: linear on normal: `U' F2 D' B2 U B2 D' B2 D' L2 B2 R2 U2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U' F2 D' B2 U B2 D' B2 D' L2 B2 R2 U2 R2`.
@@ -497,13 +533,15 @@ Read as 2c5 4e on normal, 2c5 4e on inverse. Shortest HTR: 11 on normal, 10 on i
 
 Optimal: 14 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no / no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no / yes |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | no | no |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | yes |
+| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
 
 - Class 1: inverse first: `(U B2 U')`, then on normal `F2 D F2 D' R2 F2 U L2 D2 R2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 D F2 D' R2 F2 U L2 D2 R2 B2 U B2 U'`.
 - Class 2: linear on the inverse: `(U B2 U' B2 R2 D2 L2 U' F2 R2 D F2 D' F2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 D F2 D' R2 F2 U L2 D2 R2 B2 U B2 U'`.
@@ -522,13 +560,15 @@ Read as 2c5 4e on normal, 2c5 4e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 15 moves (15 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no / no |
-| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 71.5% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.0% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 91.9% | yes | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 93.2% | no | no |
+| 5 | `2c5 > 4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 93.4% | no | no |
 
 - Class 1: normal first: `F2 R2 D F2 U`, then on inverse `(U L2 U L2 U B2 L2 U2 R2 F2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 R2 D F2 U F2 R2 U2 L2 B2 U' L2 U' L2 U'`.
 - Class 2: linear on normal: `F2 R2 U R2 U2 R2 U' B2 U' B2 D F2 U R2 L2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 R2 U R2 U2 R2 U' B2 U' B2 D F2 U R2 L2`.
@@ -551,13 +591,15 @@ Read as 2c5 6e on normal, 2c5 6e on inverse. Shortest HTR: 10 on normal, 11 on i
 
 Optimal: 15 moves (20 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes / yes |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes | yes |
+| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
 
 - Class 1: normal first: `U' R2 U`, then on inverse `(D' R2 D R2 B2 U' R2 D2 B2 F2 L2 B2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U' R2 U B2 L2 F2 B2 D2 R2 U B2 R2 D' R2 D`.
 - Class 2: linear on normal: `D B2 U F2 R2 U F2 L2 D F2 U' B2 D2 L2 F2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `D B2 U F2 R2 U F2 L2 D F2 U' B2 D2 L2 F2`.
@@ -577,13 +619,15 @@ Read as 2c5 6e on normal, 2c5 6e on inverse. Shortest HTR: 11 on normal, 12 on i
 
 Optimal: 15 moves (55 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no / no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes / yes |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | no |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes | yes |
+| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(U2 R2 U' B2 U)`, then on normal `B2 U F2 U' F2 U' F2 D2 F2 L2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `B2 U F2 U' F2 U' F2 D2 F2 L2 U' B2 U R2 U2`.
 - Class 2: linear on the inverse: `(U2 R2 U' B2 U L2 F2 D2 F2 U F2 U F2 U' B2)`. HTR after 14 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U F2 U' F2 U' F2 D2 F2 L2 U' B2 U R2 U2`.
@@ -602,13 +646,15 @@ Read as 2c5 6e on normal, 2c5 6e on inverse. Shortest HTR: 12 on normal, 10 on i
 
 Optimal: 14 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no / no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / yes |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | no |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(F2 D' R2 F2 U)`, then on normal `U' R2 U B2 U' L2 B2 U2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U' R2 U B2 U' L2 B2 U2 F2 U' F2 R2 D F2`.
 - Class 2: linear on the inverse: `(F2 D' R2 F2 U F2 U2 B2 L2 U B2 U' R2 U)`. HTR after 14 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U' R2 U B2 U' L2 B2 U2 F2 U' F2 R2 D F2`.
@@ -627,13 +673,15 @@ Read as 2c5 6e on normal, 2c5 6e on inverse. Shortest HTR: 11 on normal, 10 on i
 
 Optimal: 14 moves (3 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | yes / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / no |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | yes | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
+| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
 
 - Class 1: normal first: `L2 U' L2 D'`, then on inverse `(L2 F2 D' B2 L2 D' F2 U R2 F2)`. HTR after 12 moves (within the budget); the whole finish, as read on normal: `L2 U' L2 D' F2 R2 U' F2 D L2 B2 D F2 L2`.
 - Class 2: linear on normal: `R2 F2 U B2 U' R2 D R2 D' L2 U' L2 F2 R2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 F2 U B2 U' R2 D R2 D' L2 U' L2 F2 R2`.
@@ -652,13 +700,15 @@ Read as 2c5 6e on normal, 2c5 6e on inverse. Shortest HTR: 10 on normal, 11 on i
 
 Optimal: 15 moves (13 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no / no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes / yes |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | no |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes | yes |
+| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(B2 D2 L2 D R2 U')`, then on normal `U' L2 F2 D R2 U' B2 U2 R2`. HTR after 12 moves (within the budget); the whole finish, as read on normal: `U' L2 F2 D R2 U' B2 U2 R2 U R2 D' L2 D2 B2`.
 - Class 2: linear on the inverse: `(B2 D2 L2 D R2 U' R2 U2 B2 U R2 D' F2 L2 U)`. HTR after 15 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U' L2 F2 D R2 U' B2 U2 R2 U R2 D' L2 D2 B2`.
@@ -677,13 +727,15 @@ Read as 2c5 6e on normal, 2c5 6e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 14 moves (3 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / no |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
+| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(L2 F2 D R2 D)`, then on normal `U R2 U' B2 U' R2 D2 B2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U R2 U' B2 U' R2 D2 B2 R2 D' R2 D' F2 L2`.
 - Class 2: linear on normal: `U R2 U' B2 U' R2 D2 B2 R2 D' R2 D' F2 L2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U R2 U' B2 U' R2 D2 B2 R2 D' R2 D' F2 L2`.
@@ -702,13 +754,15 @@ Read as 2c5 6e on normal, 2c5 6e on inverse. Shortest HTR: 12 on normal, 10 on i
 
 Optimal: 15 moves (11 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no / no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / yes |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | no |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | yes |
+| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(R2 U' B2 D)`, then on normal `U' B2 L2 U' R2 U L2 F2 U2 L2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U' B2 L2 U' R2 U L2 F2 U2 L2 B2 D' B2 U R2`.
 - Class 2: linear on the inverse: `(D B2 L2 D F2 U2 B2 L2 U F2 U' F2 L2 U' F2)`. HTR after 14 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U L2 F2 U F2 U' L2 B2 U2 F2 D' L2 B2 D'`.
@@ -727,13 +781,15 @@ Read as 2c5 6e on normal, 2c5 6e on inverse. Shortest HTR: 10 on normal, 11 on i
 
 Optimal: 15 moves (15 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no / no |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes / yes |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | no |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | yes | yes |
+| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(D2 F2 U R2 F2 U)`, then on normal `D' L2 D' L2 D' F2 R2 U2 R2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `D' L2 D' L2 D' F2 R2 U2 R2 U' F2 R2 U' F2 D2`.
 - Class 2: linear on the inverse: `(D2 F2 U R2 F2 U R2 U2 R2 F2 D L2 D L2 D)`. HTR after 15 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `D' L2 D' L2 D' F2 R2 U2 R2 U' F2 R2 U' F2 D2`.
@@ -752,13 +808,15 @@ Read as 2c5 6e on normal, 2c5 6e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 14 moves (4 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | yes / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / no |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | yes | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
+| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
 
 - Class 1: inverse first: `(U F2 L2 D')`, then on normal `U L2 B2 D R2 D R2 B2 U2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U L2 B2 D R2 D R2 B2 U2 L2 D L2 F2 U'`.
 - Class 2: linear on normal: `L2 D' L2 U B2 U' R2 D' F2 U2 R2 F2 U' B2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 D' L2 U B2 U' R2 D' F2 U2 R2 F2 U' B2`.
@@ -777,13 +835,15 @@ Read as 2c5 6e on normal, 2c5 6e on inverse. Shortest HTR: 10 on normal, 11 on i
 
 Optimal: 14 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes / yes |
-| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes / yes |
-| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no / yes |
-| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no / no |
-| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.0% | yes | yes |
+| 2 | `2c5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
+| 3 | `2c5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.6% | no | yes |
+| 4 | `2c5 > 4b4 > 4a3 > (4a2 > 4a1 > 0c0)` | 92.4% | no | no |
+| 5 | `2c5 > 4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 92.7% | no | no |
 
 - Class 1: normal first: `R2 U B2 R2 D'`, then on inverse `(F2 D' F2 U' F2 D' L2 D2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 U B2 R2 D' R2 D2 L2 D F2 U F2 D F2`.
 - Class 2: linear on normal: `U F2 R2 U F2 U' R2 B2 D' L2 U' F2 U2 L2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U F2 R2 U F2 U' R2 B2 D' L2 U' F2 U2 L2`.
@@ -808,13 +868,15 @@ Read as 2c4 2e on normal, 2c4 2e on inverse. Shortest HTR: 9 on normal, 8 on inv
 
 Optimal: 13 moves (4 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | yes / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | yes | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
 
 - Class 1: inverse first: `(U)`, then on normal `L2 U2 R2 F2 U' F2 U' F2 U' L2 D2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `L2 U2 R2 F2 U' F2 U' F2 U' L2 D2 R2 U'`.
 - Class 2: linear on the inverse: `(U R2 D2 L2 U F2 U F2 U F2 R2 U2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `L2 U2 R2 F2 U' F2 U' F2 U' L2 D2 R2 U'`.
@@ -833,13 +895,15 @@ Read as 2c4 2e on normal, 2c4 2e on inverse. Shortest HTR: 9 on normal, 8 on inv
 
 Optimal: 12 moves (4 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
 
 - Class 1: inverse first: `(U)`, then on normal `B2 U F2 D L2 D' R2 D2 B2 D2 B2`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `B2 U F2 D L2 D' R2 D2 B2 D2 B2 U'`.
 - Class 2: linear on the inverse: `(U B2 D2 B2 D2 R2 D L2 D' F2 U' B2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U F2 D L2 D' R2 D2 B2 D2 B2 U'`.
@@ -858,13 +922,15 @@ Read as 2c4 2e on normal, 2c4 2e on inverse. Shortest HTR: 8 on normal, 10 on in
 
 Optimal: 14 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
 
 - Class 1: normal first: `L2 U`, then on inverse `(B2 R2 D L2 D' L2 F2 U F2 R2 D2 L2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `L2 U L2 D2 R2 F2 U' F2 L2 D L2 D' R2 B2`.
 - Class 2: linear on normal: `U L2 U B2 R2 U L2 F2 L2 F2 D' R2 U2 L2`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U L2 U B2 R2 U L2 F2 L2 F2 D' R2 U2 L2`.
@@ -883,13 +949,15 @@ Read as 2c4 2e on normal, 2c4 2e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 14 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
 
 - Class 1: normal first: `U2 F2 U`, then on inverse `(B2 R2 D B2 U' L2 F2 U F2 U2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U2 F2 U R2 U2 F2 U' F2 L2 U B2 D' R2 B2`.
 - Class 2: linear on normal: `B2 U2 R2 D B2 U R2 D' R2 U L2 F2 B2 U2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U2 R2 D B2 U R2 D' R2 U L2 F2 B2 U2`.
@@ -908,13 +976,15 @@ Read as 2c4 2e on normal, 2c4 2e on inverse. Shortest HTR: 8 on normal, 9 on inv
 
 Optimal: 11 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | yes / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | yes | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
 
 - Class 1: normal first: `U'`, then on inverse `(U L2 F2 U B2 R2 U' F2 U2 L2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `U' L2 U2 F2 U R2 B2 U' F2 L2 U'`.
 - Class 2: linear on normal: `U' L2 U2 F2 U R2 B2 U' F2 L2 U'`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' L2 U2 F2 U R2 B2 U' F2 L2 U'`.
@@ -933,13 +1003,15 @@ Read as 2c4 2e on normal, 2c4 2e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 15 moves (5 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | no / no |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no / no |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no / no |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | no | no |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no | no |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | no |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -956,13 +1028,15 @@ Read as 2c4 2e on normal, 2c4 2e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 14 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | no / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | yes / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | no | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | yes | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
 
 - Class 1: inverse first: `(F2 R2 D')`, then on normal `F2 U' B2 U R2 B2 R2 L2 D L2 F2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U' B2 U R2 B2 R2 L2 D L2 F2 D R2 F2`.
 - Class 2: linear on normal: `F2 U' B2 U R2 B2 R2 L2 D L2 F2 D R2 F2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U' B2 U R2 B2 R2 L2 D L2 F2 D R2 F2`.
@@ -981,13 +1055,15 @@ Read as 2c4 2e on normal, 2c4 2e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 12 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | no | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
 
 - Class 1: inverse first: `(B2 F2 D)`, then on normal `F2 U L2 D' R2 U B2 U2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `F2 U L2 D' R2 U B2 U2 R2 D' F2 B2`.
 - Class 2: linear on the inverse: `(B2 F2 D R2 U2 B2 U' R2 D L2 U' F2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U L2 D' R2 U B2 U2 R2 D' F2 B2`.
@@ -1006,13 +1082,15 @@ Read as 2c4 2e on normal, 2c4 2e on inverse. Shortest HTR: 8 on normal, 8 on inv
 
 Optimal: 13 moves (3 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
 
 - Class 1: normal first: `R2 U`, then on inverse `(B2 R2 U' B2 R2 U' F2 U' F2 D2 F2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 U F2 D2 F2 U F2 U R2 B2 U R2 B2`.
 - Class 2: linear on the inverse: `(R2 U' B2 D B2 U' F2 R2 U' D2 F2 L2 F2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `F2 L2 F2 D2 U R2 F2 U B2 D' B2 U R2`.
@@ -1031,13 +1109,15 @@ Read as 2c4 2e on normal, 2c4 2e on inverse. Shortest HTR: 8 on normal, 9 on inv
 
 Optimal: 15 moves (33 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 67.7% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 86.3% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 89.9% | no | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 90.5% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 90.8% | no | no |
 
 - Class 1: normal first: `U`, then on inverse `(B2 U2 F2 R2 U B2 D R2 U' L2 U2 B2 L2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U B2 L2 B2 U2 L2 U R2 D' B2 U' R2 F2 U2 B2`.
 - Class 2: linear on normal: `D L2 U2 R2 D L2 U F2 R2 D L2 B2 D2 R2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D L2 U2 R2 D L2 U F2 R2 D L2 B2 D2 R2 F2`.
@@ -1060,13 +1140,15 @@ Read as 2c4 4e on normal, 2c4 4e on inverse. Shortest HTR: 9 on normal, 8 on inv
 
 Optimal: 13 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | no / no |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no / no |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no / no |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no / no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | no | no |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no | no |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | no |
+| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
+| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -1083,13 +1165,15 @@ Read as 2c4 4e on normal, 2c4 4e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 14 moves (29 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | yes / yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no / no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | yes | yes |
+| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
+| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
 
 - Class 1: normal first: `F2 L2 U`, then on inverse `(R2 D' R2 U R2 B2 D' F2 D2 B2 D2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 L2 U D2 B2 D2 F2 D B2 R2 U' R2 D R2`.
 - Class 2: linear on the inverse: `(R2 U' B2 U B2 L2 D L2 D L2 F2 U2 L2 U2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U2 L2 U2 F2 L2 D' L2 D' L2 B2 U' B2 U R2`.
@@ -1108,13 +1192,15 @@ Read as 2c4 4e on normal, 2c4 4e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 14 moves (5 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no / yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no / no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | yes |
+| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
+| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
 
 - Class 1: inverse first: `(U2 R2 U')`, then on normal `B2 U F2 L2 D B2 U' B2 D2 F2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U F2 L2 D B2 U' B2 D2 F2 R2 U R2 U2`.
 - Class 2: linear on normal: `U2 F2 D' L2 U R2 D' F2 D' F2 D2 R2 F2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U2 F2 D' L2 U R2 D' F2 D' F2 D2 R2 F2 R2`.
@@ -1133,13 +1219,15 @@ Read as 2c4 4e on normal, 2c4 4e on inverse. Shortest HTR: 8 on normal, 10 on in
 
 Optimal: 14 moves (3 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | no / no |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no / no |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no / no |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no / yes |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | no | no |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no | no |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | no |
+| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | yes |
+| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
 
 - Class 4: inverse first: `(D' B2 D')`, then on normal `U' F2 U' L2 U L2 B2 D B2 U2 R2`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' F2 U' L2 U L2 B2 D B2 U2 R2 D B2 D`.
 
@@ -1156,13 +1244,15 @@ Read as 2c4 4e on normal, 2c4 4e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 14 moves (15 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | yes / yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no / no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | yes | yes |
+| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
+| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
 
 - Class 1: inverse first: `(L2 F2 D')`, then on normal `U F2 D F2 L2 D' U2 B2 U2 B2 L2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U F2 D F2 L2 D' U2 B2 U2 B2 L2 D F2 L2`.
 - Class 2: linear on normal: `L2 D' R2 L2 F2 L2 U R2 F2 D L2 D' F2 R2`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 D' R2 L2 F2 L2 U R2 F2 D L2 D' F2 R2`.
@@ -1181,13 +1271,15 @@ Read as 2c4 4e on normal, 2c4 4e on inverse. Shortest HTR: 9 on normal, 7 on inv
 
 Optimal: 14 moves (7 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no / yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no / no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | yes |
+| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
+| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
 
 - Class 1: inverse first: `(U)`, then on normal `R2 U L2 D' F2 D' B2 L2 B2 U2 R2 L2 F2`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `R2 U L2 D' F2 D' B2 L2 B2 U2 R2 L2 F2 U'`.
 - Class 2: linear on the inverse: `(R2 U B2 D R2 U' R2 U' B2 L2 B2 F2 U2 L2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `L2 U2 F2 B2 L2 B2 U R2 U R2 D' B2 U' R2`.
@@ -1206,13 +1298,15 @@ Read as 2c4 4e on normal, 2c4 4e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 13 moves (3 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | no / no |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no / no |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no / no |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no / yes |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | no | no |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no | no |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | no |
+| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | yes |
+| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | yes |
 
 - Class 4: inverse first: `(U' L2 D')`, then on normal `L2 B2 U' B2 U L2 U' L2 U R2`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 U' B2 U L2 U' L2 U R2 D L2 U`.
 - Class 5: inverse first: `(U')`, then on normal `L2 B2 U' B2 U L2 U' L2 U R2 D L2`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 U' B2 U L2 U' L2 U R2 D L2 U`.
@@ -1230,13 +1324,15 @@ Read as 2c4 4e on normal, 2c4 4e on inverse. Shortest HTR: 8 on normal, 7 on inv
 
 Optimal: 12 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no / yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no / no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | no | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | yes |
+| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
+| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
 
 - Class 1: inverse first: `(D)`, then on normal `L2 B2 D' B2 U B2 L2 D F2 B2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `L2 B2 D' B2 U B2 L2 D F2 B2 R2 D'`.
 - Class 2: linear on the inverse: `(D R2 B2 F2 D' L2 B2 U' B2 D B2 L2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 D' B2 U B2 L2 D F2 B2 R2 D'`.
@@ -1255,13 +1351,15 @@ Read as 2c4 4e on normal, 2c4 4e on inverse. Shortest HTR: 10 on normal, 8 on in
 
 Optimal: 15 moves (21 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no / yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no / yes |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | yes |
+| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | yes |
+| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | yes |
 
 - Class 1: inverse first: `(F2 D')`, then on normal `L2 U' F2 D B2 R2 U L2 U2 F2 L2 F2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `L2 U' F2 D B2 R2 U L2 U2 F2 L2 F2 R2 D F2`.
 - Class 2: linear on the inverse: `(F2 U' R2 D L2 D' L2 D F2 U2 B2 F2 R2 F2 R2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `R2 F2 R2 F2 B2 U2 F2 D' L2 D L2 D' R2 U F2`.
@@ -1282,13 +1380,15 @@ Read as 2c4 4e on normal, 2c4 4e on inverse. Shortest HTR: 8 on normal, 9 on inv
 
 Optimal: 15 moves (49 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no / yes |
-| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no / no |
-| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 62.0% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 82.0% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 87.6% | no | yes |
+| 4 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 88.1% | no | no |
+| 5 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 88.4% | no | no |
 
 - Class 1: normal first: `B2 U'`, then on inverse `(B2 U2 R2 U' R2 U' R2 U' R2 F2 D2 R2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U' B2 R2 D2 F2 R2 U R2 U R2 U R2 U2 B2`.
 - Class 2: linear on normal: `B2 U' L2 U F2 D' L2 D R2 B2 D2 F2 D2 L2 B2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 U' L2 U F2 D' L2 D R2 B2 D2 F2 D2 L2 B2`.
@@ -1311,13 +1411,15 @@ Read as 2c4 6e on normal, 2c4 6e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 15 moves (35 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no / yes |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | yes |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | yes |
 
 - Class 1: inverse first: `(U2 R2 D)`, then on normal `R2 U' F2 U B2 R2 U F2 R2 B2 L2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 U' F2 U B2 R2 U F2 R2 B2 L2 F2 D' R2 U2`.
 - Class 2: linear on normal: `R2 D' R2 D L2 B2 D L2 F2 U B2 D2 R2 F2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 D' R2 D L2 B2 D L2 F2 U B2 D2 R2 F2 L2`.
@@ -1338,13 +1440,15 @@ Read as 2c4 6e on normal, 2c4 6e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 14 moves (10 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
 
 - Class 1: inverse first: `(B2 D')`, then on normal `F2 U2 R2 U F2 U B2 U B2 R2 U2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 U2 R2 U F2 U B2 U B2 R2 U2 B2 D B2`.
 - Class 2: linear on the inverse: `(B2 D L2 F2 U F2 U' B2 U' D2 F2 L2 D2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `L2 D2 L2 F2 D2 U B2 U F2 U' F2 L2 D' B2`.
@@ -1363,13 +1467,15 @@ Read as 2c4 6e on normal, 2c4 6e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 14 moves (9 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | no / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | yes / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no / yes |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | yes / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | no | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | yes | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | yes |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
 
 - Class 1: normal first: `B2 L2 D'`, then on inverse `(B2 U R2 U B2 R2 B2 D2 L2 D' F2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 L2 D' F2 D L2 D2 B2 R2 B2 U' R2 U' B2`.
 - Class 2: linear on the inverse: `(B2 U R2 U B2 R2 B2 D2 L2 D' F2 D L2 B2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 L2 D' F2 D L2 D2 B2 R2 B2 U' R2 U' B2`.
@@ -1390,13 +1496,15 @@ Read as 2c4 6e on normal, 2c4 6e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 14 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | yes / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | yes | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
 
 - Class 1: normal first: `U2 F2 U'`, then on inverse `(D' B2 D' B2 L2 D2 B2 D R2 D2 B2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U2 F2 U' B2 D2 R2 D' B2 D2 L2 B2 D B2 D`.
 - Class 2: linear on normal: `U2 F2 U' B2 D2 R2 D' B2 D2 L2 B2 D B2 D`. HTR after 14 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U2 F2 U' B2 D2 R2 D' B2 D2 L2 B2 D B2 D`.
@@ -1415,13 +1523,15 @@ Read as 2c4 6e on normal, 2c4 6e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 14 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
 
 - Class 1: normal first: `D2 B2 L2 U'`, then on inverse `(U F2 R2 D L2 D B2 F2 D2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D2 B2 L2 U' R2 D2 F2 B2 D' L2 D' R2 F2 U'`.
 - Class 2: linear on the inverse: `(U F2 R2 D L2 D B2 F2 D2 R2 U L2 B2 D2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `D2 B2 L2 U' R2 D2 F2 B2 D' L2 D' R2 F2 U'`.
@@ -1440,13 +1550,15 @@ Read as 2c4 6e on normal, 2c4 6e on inverse. Shortest HTR: 8 on normal, 8 on inv
 
 Optimal: 14 moves (3 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | no / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | no | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
 
 - Class 1: inverse first: `(D')`, then on normal `F2 D2 L2 B2 U' B2 D L2 D' F2 L2 D2 R2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 D2 L2 B2 U' B2 D L2 D' F2 L2 D2 R2 D`.
 - Class 2: linear on the inverse: `(D' R2 D2 L2 F2 D L2 D' B2 U B2 L2 D2 F2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 D2 L2 B2 U' B2 D L2 D' F2 L2 D2 R2 D`.
@@ -1465,13 +1577,15 @@ Read as 2c4 6e on normal, 2c4 6e on inverse. Shortest HTR: 9 on normal, 8 on inv
 
 Optimal: 14 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | no / no |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no / no |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no / no |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | no | no |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | no |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | no |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -1488,13 +1602,15 @@ Read as 2c4 6e on normal, 2c4 6e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 15 moves (35 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no / yes |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | no | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | yes |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | yes |
 
 - Class 1: inverse first: `(U)`, then on normal `B2 L2 D F2 L2 D R2 F2 D B2 U2 R2 F2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 L2 D F2 L2 D R2 F2 D B2 U2 R2 F2 B2 U'`.
 - Class 2: linear on the inverse: `(U2 F2 D' L2 D' B2 D' B2 F2 U2 L2 D' L2 U2 F2)`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U2 L2 D L2 U2 F2 B2 D B2 D L2 D F2 U2`.
@@ -1515,13 +1631,15 @@ Read as 2c4 6e on normal, 2c4 6e on inverse. Shortest HTR: 8 on normal, 10 on in
 
 Optimal: 14 moves (5 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | no / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | no | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
 
 - Class 1: normal first: `L2 B2 R2 U'`, then on inverse `(R2 U R2 D' R2 B2 U' F2 D2 L2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 R2 U' L2 D2 F2 U B2 R2 D R2 U' R2`.
 - Class 2: linear on normal: `D' L2 U R2 F2 U F2 B2 L2 D R2 D2 L2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D' L2 U R2 F2 U F2 B2 L2 D R2 D2 L2 F2`.
@@ -1540,13 +1658,15 @@ Read as 2c4 6e on normal, 2c4 6e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes / yes |
-| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes / yes |
-| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no / yes |
-| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no / no |
-| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 73.8% | yes | yes |
+| 2 | `2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 84.1% | yes | yes |
+| 3 | `2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 88.5% | no | yes |
+| 4 | `2c4 > 4b5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 89.2% | no | no |
+| 5 | `2c4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 89.6% | no | no |
 
 - Class 1: inverse first: `(D2 R2 U')`, then on normal `F2 B2 R2 U' R2 U B2 D' B2 L2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `F2 B2 R2 U' R2 U B2 D' B2 L2 U R2 D2`.
 - Class 2: linear on the inverse: `(D2 R2 U' L2 B2 D B2 U' R2 U R2 B2 F2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 B2 R2 U' R2 U B2 D' B2 L2 U R2 D2`.
@@ -1571,13 +1691,15 @@ Read as 4a2 2e on normal, 4a2 2e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 12 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes / yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no / no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no / no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no / no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes | yes |
+| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
+| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
+| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
 
 - Class 1: inverse first: `(U' B2 L2 B2 D' B2 U')`, then on normal `D F2 U2 F2 R2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `D F2 U2 F2 R2 U B2 D B2 L2 B2 U`.
 
@@ -1594,13 +1716,15 @@ Read as 4a2 2e on normal, 4a2 2e on inverse. Shortest HTR: 11 on normal, 9 on in
 
 Optimal: 12 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes / yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no / no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no / no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no / no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes | yes |
+| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
+| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
+| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
 
 - Class 1: normal first: `F2 U' F2 B2 U' B2 D`, then on inverse `(F2 U B2 U2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `F2 U' F2 B2 U' B2 D L2 U2 B2 U' F2`.
 
@@ -1617,13 +1741,15 @@ Read as 4a2 2e on normal, 4a2 2e on inverse. Shortest HTR: 10 on normal, 8 on in
 
 Optimal: 14 moves (22 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no / yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | yes / yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no / yes |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no / yes |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no | yes |
+| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | yes | yes |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | yes |
+| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | yes |
+| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | yes |
 
 - Class 1: normal first: `U B2 R2 F2 D' B2 R2 U`, then on inverse `(L2 R2 U R2 D2 B2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U B2 R2 F2 D' B2 R2 U B2 D2 R2 U' R2 L2`.
 - Class 2: normal first: `U2 B2 R2 F2 L2 U`, then on inverse `(U D2 L2 U2 B2 R2 B2 L2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `U2 B2 R2 F2 L2 U L2 B2 R2 B2 U2 L2 D2 U'`.
@@ -1644,13 +1770,15 @@ Read as 4a2 2e on normal, 4a2 2e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes / yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no / no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no / no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no / no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes | yes |
+| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
+| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
+| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
 
 - Class 1: inverse first: `(F2 U' B2 F2 U F2 U')`, then on normal `B2 D F2 D2 F2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `B2 D F2 D2 F2 R2 U F2 U' F2 B2 U F2`.
 
@@ -1667,13 +1795,15 @@ Read as 4a2 2e on normal, 4a2 2e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 14 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes / yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no / no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no / no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no / no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes | yes |
+| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
+| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
+| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
 
 - Class 1: normal first: `U' F2 D2 F2 R2 U' F2 L2 U'`, then on inverse `(U R2 B2 U2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U' F2 D2 F2 R2 U' F2 L2 U' B2 U2 B2 R2 U'`.
 
@@ -1690,13 +1820,15 @@ Read as 4a2 2e on normal, 4a2 2e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 14 moves (11 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no / yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | yes / yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no / no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no / no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no | yes |
+| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | yes | yes |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
+| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
+| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
 
 - Class 1: inverse first: `(L2 D B2 L2 F2 U R2 U')`, then on normal `U2 R2 U' L2 D2 F2`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U2 R2 U' L2 D2 F2 U R2 U' F2 L2 B2 D' L2`.
 - Class 2: normal first: `B2 L2 U2 F2 D'`, then on inverse `(F2 D F2 L2 F2 R2 F2 U2 B2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `B2 L2 U2 F2 D' B2 U2 F2 R2 F2 L2 F2 D' F2`.
@@ -1714,13 +1846,15 @@ Read as 4a2 2e on normal, 4a2 2e on inverse. Shortest HTR: 11 on normal, 10 on i
 
 Optimal: 14 moves (4 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no / no |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no / no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no / no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no / no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no | no |
+| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
+| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
+| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -1737,13 +1871,15 @@ Read as 4a2 2e on normal, 4a2 2e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 14 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no / no |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no / no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no / no |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no / no |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no | no |
+| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | no |
+| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | no | no |
+| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -1760,13 +1896,15 @@ Read as 4a2 2e on normal, 4a2 2e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 14 moves (8 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no / no |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no / no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no / yes |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | yes / yes |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | no | no |
+| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | no | no |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | yes |
+| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | yes | yes |
+| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | no | yes |
 
 - Class 3: linear on normal: `L2 U' B2 D L2 F2 R2 U' F2 D' R2 L2 D2 R2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U' B2 D L2 F2 R2 U' F2 D' R2 L2 D2 R2`.
 - Class 4: normal first: `R2 D`, then on inverse `(L2 D' F2 U B2 F2 D L2 D2 B2 R2 F2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `R2 D F2 R2 B2 D2 L2 D' F2 B2 U' F2 D L2`.
@@ -1785,13 +1923,15 @@ Read as 4a2 2e on normal, 4a2 2e on inverse. Shortest HTR: 8 on normal, 8 on inv
 
 Optimal: 14 moves (79 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes / yes |
-| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | yes / yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no / yes |
-| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | yes / yes |
-| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | yes / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 42.2% | yes | yes |
+| 2 | `4a2 > 4a1 > (0c0)` | 67.8% | yes | yes |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 76.8% | no | yes |
+| 4 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 79.6% | yes | yes |
+| 5 | `4a2 > 4a1 > 4b2 > (4a1 > 0c0)` | 81.4% | yes | yes |
 
 - Class 1: normal first: `R2 F2 U' F2 R2 F2 U' F2 D`, then on inverse `(U' L2 D2 R2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 F2 U' F2 R2 F2 U' F2 D B2 R2 D2 L2 U`.
 - Class 2: normal first: `D`, then on inverse `(R2 U2 B2 L2 U2 F2 U F2 R2 F2 R2 U2 B2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `D B2 U2 R2 F2 R2 F2 U' F2 U2 L2 B2 U2 R2`.
@@ -1816,13 +1956,15 @@ Read as 4a2 4e on normal, 4a2 4e on inverse. Shortest HTR: 9 on normal, 8 on inv
 
 Optimal: 13 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes / yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no / no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no / no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes / yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no | no |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
+| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes | yes |
+| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
 
 - Class 1: linear on normal: `B2 U2 R2 D' R2 B2 D2 L2 F2 U' L2 F2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U2 R2 D' R2 B2 D2 L2 F2 U' L2 F2 L2`.
 - Class 4: normal first: `B2 U2 R2 D'`, then on inverse `(L2 F2 L2 U F2 L2 D2 B2 R2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 U2 R2 D' R2 B2 D2 L2 F2 U' L2 F2 L2`.
@@ -1840,13 +1982,15 @@ Read as 4a2 4e on normal, 4a2 4e on inverse. Shortest HTR: 8 on normal, 10 on in
 
 Optimal: 14 moves (34 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | no / no |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | yes / yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | yes / yes |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | no / no |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | yes / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4a1 > 0c0` | 60.9% | no | no |
+| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | yes | yes |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | yes | yes |
+| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | no | no |
+| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | yes | yes |
 
 - Class 2: inverse first: `(D' B2 F2 D F2 U')`, then on normal `D F2 L2 B2 R2 F2 U2 F2`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `D F2 L2 B2 R2 F2 U2 F2 U F2 D' F2 B2 D`.
 - Class 3: linear on normal: `D' B2 U F2 L2 B2 U' R2 U' B2 R2 F2 D2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `D' B2 U F2 L2 B2 U' R2 U' B2 R2 F2 D2 R2`.
@@ -1865,13 +2009,15 @@ Read as 4a2 4e on normal, 4a2 4e on inverse. Shortest HTR: 7 on normal, 6 on inv
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes / yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no / no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no / no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | no / yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no | no |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
+| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | no | yes |
+| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
 
 - Class 1: linear on the inverse: `(R2 U B2 L2 U2 R2 D L2 F2 R2 F2 U2 B2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `B2 U2 F2 R2 F2 L2 D' R2 U2 L2 B2 U' R2`.
 - Class 4: normal first: `B2 U2 F2 R2 F2 L2 D'`, then on inverse `(R2 U B2 L2 U2 R2)`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U2 F2 R2 F2 L2 D' R2 U2 L2 B2 U' R2`.
@@ -1889,13 +2035,15 @@ Read as 4a2 4e on normal, 4a2 4e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 15 moves (92 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes / yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | yes / yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | yes / yes |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes / yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | yes | yes |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | yes | yes |
+| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes | yes |
+| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | yes |
 
 - Class 1: linear on normal: `U2 R2 B2 U R2 U2 R2 F2 D B2 U2 B2 L2 U2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U2 R2 B2 U R2 U2 R2 F2 D B2 U2 B2 L2 U2 R2`.
 - Class 2: inverse first: `(L2 F2 D U B2 U')`, then on normal `D2 R2 B2 U' R2 B2 D2 L2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D2 R2 B2 U' R2 B2 D2 L2 F2 U B2 U' D' F2 L2`.
@@ -1916,13 +2064,15 @@ Read as 4a2 4e on normal, 4a2 4e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 14 moves (28 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | no / no |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | yes / yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no / no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | no / no |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4a1 > 0c0` | 60.9% | no | no |
+| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | yes | yes |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
+| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | no | no |
+| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
 
 - Class 2: normal first: `U R2 U2 L2 B2 U R2 U`, then on inverse `(F2 D L2 D2 L2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U R2 U2 L2 B2 U R2 U B2 L2 D2 L2 D' F2`.
 
@@ -1939,13 +2089,15 @@ Read as 4a2 4e on normal, 4a2 4e on inverse. Shortest HTR: 8 on normal, 5 on inv
 
 Optimal: 13 moves (40 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes / yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no / no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no / no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes / yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no | no |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
+| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes | yes |
+| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | yes |
 
 - Class 1: linear on the inverse: `(D F2 L2 U2 L2 D' B2 D2 B2 R2 F2 U2 R2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `R2 U2 F2 R2 B2 D2 B2 D L2 U2 L2 F2 D'`.
 - Class 4: normal first: `F2 R2 F2 U'`, then on inverse `(L2 R2 D' F2 L2 U2 B2 F2 L2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `F2 R2 F2 U' L2 F2 B2 U2 L2 F2 D R2 L2`.
@@ -1964,13 +2116,15 @@ Read as 4a2 4e on normal, 4a2 4e on inverse. Shortest HTR: 6 on normal, 6 on inv
 
 Optimal: 10 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes / yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no / no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no / no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes / yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no | no |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
+| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes | yes |
+| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
 
 - Class 1: linear on the inverse: `(F2 U' R2 F2 D2 F2 U' B2 F2 D2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `D2 F2 B2 U F2 D2 F2 R2 U F2`.
 - Class 4: normal first: `D2 F2 B2 U`, then on inverse `(F2 U' R2 F2 D2 F2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `D2 F2 B2 U F2 D2 F2 R2 U F2`.
@@ -1988,13 +2142,15 @@ Read as 4a2 4e on normal, 4a2 4e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes / yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no / no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no / no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes / yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no | no |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
+| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes | yes |
+| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
 
 - Class 1: linear on normal: `R2 D2 B2 D' L2 U2 L2 F2 D' R2 B2 R2 F2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `R2 D2 B2 D' L2 U2 L2 F2 D' R2 B2 R2 F2`.
 - Class 4: normal first: `R2 D2 B2 D'`, then on inverse `(F2 R2 B2 R2 D F2 L2 U2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `R2 D2 B2 D' L2 U2 L2 F2 D' R2 B2 R2 F2`.
@@ -2012,13 +2168,15 @@ Read as 4a2 4e on normal, 4a2 4e on inverse. Shortest HTR: 7 on normal, 6 on inv
 
 Optimal: 12 moves (4 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes / yes |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no / no |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no / no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes / yes |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4a1 > 0c0` | 60.9% | yes | yes |
+| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | no | no |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
+| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | yes | yes |
+| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
 
 - Class 1: linear on the inverse: `(U' B2 U2 B2 L2 D R2 B2 R2 U2 L2 U2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `U2 L2 U2 R2 B2 R2 D' L2 B2 U2 B2 U`.
 - Class 4: normal first: `U2 R2 U'`, then on inverse `(D2 L2 B2 R2 D' L2 D2 R2 F2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `U2 R2 U' F2 R2 D2 L2 D R2 B2 L2 D2`.
@@ -2036,13 +2194,15 @@ Read as 4a2 4e on normal, 4a2 4e on inverse. Shortest HTR: 10 on normal, 8 on in
 
 Optimal: 14 moves (12 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a2 > 4a1 > 0c0` | 60.9% | no / no |
-| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | yes / yes |
-| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no / no |
-| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | no / no |
-| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a2 > 4a1 > 0c0` | 60.9% | no | no |
+| 2 | `4a2 > 4b3 > 4a2 > 4a1 > (0c0)` | 72.2% | yes | yes |
+| 3 | `4a2 > 4a1 > 4b2 > 4a1 > 0c0` | 79.1% | no | no |
+| 4 | `4a2 > 4a1 > (0c0)` | 83.7% | no | no |
+| 5 | `4a2 > 4a1 > (0c0 > 4a1 > 0c0)` | 85.3% | no | no |
 
 - Class 2: inverse first: `(D' L2 R2 D' R2 D')`, then on normal `F2 L2 D L2 F2 D2 L2 F2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `F2 L2 D L2 F2 D2 L2 F2 D R2 D R2 L2 D`.
 
@@ -2065,13 +2225,15 @@ Read as 4a1 4e on normal, 4a1 4e on inverse. Shortest HTR: 6 on normal, 5 on inv
 
 Optimal: 11 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a1 > 0c0` | 33.6% | no / no |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no / no |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no / no |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no / no |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a1 > 0c0` | 33.6% | no | no |
+| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | no |
+| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | no |
+| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | no |
+| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -2088,13 +2250,15 @@ Read as 4a1 4e on normal, 4a1 4e on inverse. Shortest HTR: 7 on normal, 7 on inv
 
 Optimal: 14 moves (19 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a1 > 0c0` | 33.6% | no / no |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | yes / yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no / yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no / yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a1 > 0c0` | 33.6% | no | no |
+| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | yes | yes |
+| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
 
 - Class 2: linear on the inverse: `(U' B2 L2 B2 U R2 U' B2 U2 L2 D2 R2 B2 L2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `L2 B2 R2 D2 L2 U2 B2 U R2 U' B2 L2 B2 U`.
 - Class 3: normal first: `D2 B2 U2 F2 L2 D`, then on inverse `(D' F2 L2 F2 D B2 F2 L2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D2 B2 U2 F2 L2 D L2 F2 B2 D' F2 L2 F2 D`.
@@ -2114,13 +2278,15 @@ Read as 4a1 4e on normal, 4a1 4e on inverse. Shortest HTR: 4 on normal, 7 on inv
 
 Optimal: 13 moves (24 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a1 > 0c0` | 33.6% | yes / yes |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no / yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no / yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no / yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a1 > 0c0` | 33.6% | yes | yes |
+| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | yes |
+| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
 
 - Class 1: linear on normal: `R2 U2 B2 U D2 R2 B2 R2 B2 R2 U2 L2 U2`. HTR after 4 moves (within the budget); the whole finish, as read on normal: `R2 U2 B2 U D2 R2 B2 R2 B2 R2 U2 L2 U2`.
 - Class 2: linear on the inverse: `(L2 D2 B2 L2 D U' L2 B2 D' B2 U2 B2 R2)`. HTR after 9 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 U2 B2 D B2 L2 U D' L2 B2 D2 L2`.
@@ -2141,13 +2307,15 @@ Read as 4a1 4e on normal, 4a1 4e on inverse. Shortest HTR: 8 on normal, 7 on inv
 
 Optimal: 13 moves (15 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a1 > 0c0` | 33.6% | no / no |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no / yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no / yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | yes / yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a1 > 0c0` | 33.6% | no | no |
+| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | yes |
+| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | yes | yes |
+| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
 
 - Class 2: linear on the inverse: `(L2 U F2 L2 F2 L2 R2 U' R2 D2 R2 U' F2)`. HTR after 12 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U R2 D2 R2 U R2 L2 F2 L2 F2 U' L2`.
 - Class 3: normal first: `F2 U`, then on inverse `(L2 U F2 L2 F2 L2 R2 U' R2 D2 R2)`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U R2 D2 R2 U R2 L2 F2 L2 F2 U' L2`.
@@ -2167,13 +2335,15 @@ Read as 4a1 4e on normal, 4a1 4e on inverse. Shortest HTR: 5 on normal, 5 on inv
 
 Optimal: 11 moves (20 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a1 > 0c0` | 33.6% | yes / yes |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | yes / yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no / yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no / yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a1 > 0c0` | 33.6% | yes | yes |
+| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | yes | yes |
+| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
 
 - Class 1: linear on the inverse: `(D2 F2 L2 R2 D' U2 B2 U2 L2 U2 R2)`. HTR after 5 moves (within the budget); the whole finish, as read on normal: `R2 U2 L2 U2 B2 U2 D R2 L2 F2 D2`.
 - Class 2: linear on the inverse: `(D2 F2 R2 D' U B2 U' L2 U2 B2 R2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `R2 B2 U2 L2 U B2 U' D R2 F2 D2`.
@@ -2194,13 +2364,15 @@ Read as 4a1 4e on normal, 4a1 4e on inverse. Shortest HTR: 6 on normal, 2 on inv
 
 Optimal: 11 moves (32 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a1 > 0c0` | 33.6% | yes / yes |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no / no |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no / no |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no / no |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a1 > 0c0` | 33.6% | yes | yes |
+| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | no |
+| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | no |
+| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | no |
+| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | no |
 
 - Class 1: linear on the inverse: `(L2 D F2 L2 B2 D2 B2 F2 L2 D2 U2)`. HTR after 2 moves (within the budget); the whole finish, as read on normal: `U2 D2 L2 F2 B2 D2 B2 L2 F2 D' L2`.
 
@@ -2217,13 +2389,15 @@ Read as 4a1 4e on normal, 4a1 4e on inverse. Shortest HTR: 7 on normal, 4 on inv
 
 Optimal: 13 moves (25 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a1 > 0c0` | 33.6% | yes / yes |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no / yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no / yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no / yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a1 > 0c0` | 33.6% | yes | yes |
+| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | yes |
+| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
 
 - Class 1: linear on the inverse: `(R2 U2 L2 R2 F2 U' D2 B2 L2 U2 R2 U2 R2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `R2 U2 R2 U2 L2 B2 D2 U F2 R2 L2 U2 R2`.
 - Class 2: linear on normal: `R2 U2 R2 B2 U D B2 R2 U' B2 U2 F2 R2`. HTR after 9 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `R2 U2 R2 B2 U D B2 R2 U' B2 U2 F2 R2`.
@@ -2244,13 +2418,15 @@ Read as 4a1 4e on normal, 4a1 4e on inverse. Shortest HTR: 7 on normal, 5 on inv
 
 Optimal: 13 moves (32 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a1 > 0c0` | 33.6% | yes / yes |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no / yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no / yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no / yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a1 > 0c0` | 33.6% | yes | yes |
+| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | yes |
+| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
 
 - Class 1: linear on the inverse: `(L2 B2 U2 L2 U' L2 U2 F2 R2 U2 B2 L2 R2)`. HTR after 5 moves (within the budget); the whole finish, as read on normal: `R2 L2 B2 U2 R2 F2 U2 L2 U L2 U2 B2 L2`.
 - Class 2: linear on normal: `R2 D B2 L2 B2 D B2 U L2 U2 B2 L2 F2`. HTR after 8 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 D B2 L2 B2 D B2 U L2 U2 B2 L2 F2`.
@@ -2271,13 +2447,15 @@ Read as 4a1 4e on normal, 4a1 4e on inverse. Shortest HTR: 7 on normal, 8 on inv
 
 Optimal: 13 moves (5 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a1 > 0c0` | 33.6% | no / no |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | yes / yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | yes / yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no / yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a1 > 0c0` | 33.6% | no | no |
+| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | yes | yes |
+| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | yes | yes |
+| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | no | yes |
 
 - Class 2: linear on normal: `U2 R2 U' B2 L2 F2 D L2 D' L2 B2 L2 D2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U2 R2 U' B2 L2 F2 D L2 D' L2 B2 L2 D2`.
 - Class 3: inverse first: `(D)`, then on normal `U2 F2 L2 D F2 B2 U' F2 R2 B2 D2 B2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `U2 F2 L2 D F2 B2 U' F2 R2 B2 D2 B2 D'`.
@@ -2297,13 +2475,15 @@ Read as 4a1 4e on normal, 4a1 4e on inverse. Shortest HTR: 7 on normal, 6 on inv
 
 Optimal: 13 moves (14 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a1 > 0c0` | 33.6% | no / no |
-| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no / yes |
-| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no / yes |
-| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no / yes |
-| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | yes / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a1 > 0c0` | 33.6% | no | no |
+| 2 | `4a1 > 4b2 > 4a1 > 0c0` | 50.3% | no | yes |
+| 3 | `4a1 > 0c0 > (4a1 > 0c0)` | 60.6% | no | yes |
+| 4 | `4a1 > 0c0 > 4a1 > (0c0)` | 66.6% | no | yes |
+| 5 | `4a1 > 0c0 > 4a1 > 0c0` | 69.5% | yes | yes |
 
 - Class 2: linear on normal: `D' L2 F2 L2 D' F2 U2 F2 B2 U' F2 B2 R2`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D' L2 F2 L2 D' F2 U2 F2 B2 U' F2 B2 R2`.
 - Class 3: inverse first: `(R2 B2 F2 U)`, then on normal `D' L2 F2 L2 D' F2 U2 F2 B2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D' L2 F2 L2 D' F2 U2 F2 B2 U' F2 B2 R2`.
@@ -2329,13 +2509,15 @@ Read as 2c3 2e on normal, 2c3 2e on inverse. Shortest HTR: 7 on normal, 7 on inv
 
 Optimal: 12 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no / no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on normal: `B2 U F2 L2 U' R2 D' U2 B2 D2 B2 R2`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `B2 U F2 L2 U' R2 D' U2 B2 D2 B2 R2`.
 - Class 2: normal first: `B2 U`, then on inverse `(R2 B2 D2 B2 D U2 R2 U L2 F2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U F2 L2 U' R2 U2 D' B2 D2 B2 R2`.
@@ -2353,13 +2535,15 @@ Read as 2c3 2e on normal, 2c3 2e on inverse. Shortest HTR: 7 on normal, 7 on inv
 
 Optimal: 12 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no / no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on the inverse: `(F2 R2 D' L2 D F2 U F2 L2 F2 D2 B2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `B2 D2 F2 L2 F2 U' F2 D' L2 D R2 F2`.
 - Class 2: normal first: `B2 D2 F2 L2 F2 U'`, then on inverse `(F2 R2 D' L2 D F2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 D2 F2 L2 F2 U' F2 D' L2 D R2 F2`.
@@ -2377,13 +2561,15 @@ Read as 2c3 2e on normal, 2c3 2e on inverse. Shortest HTR: 7 on normal, 7 on inv
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | no / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no / no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | no | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on the inverse: `(U2 L2 U F2 L2 R2 U' B2 R2 U' L2 U2 B2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U2 L2 U R2 B2 U R2 L2 F2 U' L2 U2`.
 - Class 2: inverse first: `(U2 L2 U)`, then on normal `B2 U2 L2 U R2 B2 U R2 L2 F2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U2 L2 U R2 B2 U R2 L2 F2 U' L2 U2`.
@@ -2401,13 +2587,15 @@ Read as 2c3 2e on normal, 2c3 2e on inverse. Shortest HTR: 6 on normal, 7 on inv
 
 Optimal: 13 moves (34 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no / yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | yes |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | yes |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | yes |
 
 - Class 1: linear on the inverse: `(D2 F2 U R2 U' R2 U B2 F2 U2 L2 D2 R2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `R2 D2 L2 U2 F2 B2 U' R2 U R2 U' F2 D2`.
 - Class 2: inverse first: `(D2 F2 U')`, then on normal `U2 R2 F2 B2 U' L2 U' R2 U2 L2`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U2 R2 F2 B2 U' L2 U' R2 U2 L2 U F2 D2`.
@@ -2428,13 +2616,15 @@ Read as 2c3 2e on normal, 2c3 2e on inverse. Shortest HTR: 7 on normal, 6 on inv
 
 Optimal: 13 moves (11 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | yes / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no / no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | yes | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on the inverse: `(U' F2 D B2 R2 D F2 R2 F2 U2 F2 D2 R2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `R2 D2 F2 U2 F2 R2 F2 D' R2 B2 D' F2 U`.
 - Class 2: inverse first: `(U2 F2 D)`, then on normal `B2 L2 U L2 U' F2 R2 B2 R2 U2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 L2 U L2 U' F2 R2 B2 R2 U2 D' F2 U2`.
@@ -2452,13 +2642,15 @@ Read as 2c3 2e on normal, 2c3 2e on inverse. Shortest HTR: 5 on normal, 7 on inv
 
 Optimal: 11 moves (12 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no / no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on normal: `U' R2 U' R2 U' D2 R2 B2 U2 L2 F2`. HTR after 5 moves (within the budget); the whole finish, as read on normal: `U' R2 U' R2 U' D2 R2 B2 U2 L2 F2`.
 - Class 2: normal first: `D`, then on inverse `(F2 D2 F2 L2 D F2 U' B2 U2 F2)`. HTR after 8 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D F2 U2 B2 U F2 D' L2 F2 D2 F2`.
@@ -2476,13 +2668,15 @@ Read as 2c3 2e on normal, 2c3 2e on inverse. Shortest HTR: 6 on normal, 8 on inv
 
 Optimal: 12 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no / no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on normal: `U R2 U' L2 B2 U B2 U2 R2 F2 R2 D2`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `U R2 U' L2 B2 U B2 U2 R2 F2 R2 D2`.
 - Class 2: inverse first: `(D2 R2 F2 R2 U2 B2 U')`, then on normal `U R2 U' L2 B2`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U R2 U' L2 B2 U B2 U2 R2 F2 R2 D2`.
@@ -2500,13 +2694,15 @@ Read as 2c3 2e on normal, 2c3 2e on inverse. Shortest HTR: 6 on normal, 6 on inv
 
 Optimal: 13 moves (5 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no / yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | yes |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | yes |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on the inverse: `(D R2 F2 U L2 U' L2 B2 F2 U2 R2 F2 D2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `D2 F2 R2 U2 F2 B2 L2 U L2 U' F2 R2 D'`.
 - Class 2: inverse first: `(D)`, then on normal `D2 F2 R2 U2 F2 B2 L2 U L2 U' F2 R2`. HTR after 11 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `D2 F2 R2 U2 F2 B2 L2 U L2 U' F2 R2 D'`.
@@ -2526,13 +2722,15 @@ Read as 2c3 2e on normal, 2c3 2e on inverse. Shortest HTR: 7 on normal, 5 on inv
 
 Optimal: 13 moves (16 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no / yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | yes |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | yes |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on the inverse: `(U F2 D R2 D' B2 L2 B2 U2 B2 U2 F2 L2)`. HTR after 5 moves (within the budget); the whole finish, as read on normal: `L2 F2 U2 B2 U2 B2 L2 B2 D R2 D' F2 U'`.
 - Class 2: inverse first: `(U')`, then on normal `R2 B2 U2 F2 D B2 D R2 L2 F2 R2 D2`. HTR after 8 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 U2 F2 D B2 D R2 L2 F2 R2 D2 U`.
@@ -2552,13 +2750,15 @@ Read as 2c3 2e on normal, 2c3 2e on inverse. Shortest HTR: 7 on normal, 6 on inv
 
 Optimal: 12 moves (4 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no / no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 66.5% | yes | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 79.6% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.6% | no | no |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 80.8% | no | no |
 
 - Class 1: linear on the inverse: `(R2 U' F2 D2 B2 U' B2 U B2 F2 U2 B2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 U2 F2 B2 U' B2 U B2 D2 F2 U R2`.
 - Class 2: inverse first: `(R2 U')`, then on normal `B2 U2 F2 B2 U' B2 U B2 D2 F2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U2 F2 B2 U' B2 U B2 D2 F2 U R2`.
@@ -2580,13 +2780,15 @@ Read as 2c3 4e on normal, 2c3 4e on inverse. Shortest HTR: 8 on normal, 8 on inv
 
 Optimal: 14 moves (3 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no / no |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | no / no |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no / yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no / yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no | no |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | no | no |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | yes |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | yes |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | yes |
 
 - Class 3: normal first: `B2 U'`, then on inverse `(D2 F2 R2 F2 U F2 D L2 U R2 U' B2)`. HTR after 13 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U' B2 U R2 U' L2 D' F2 U' F2 R2 F2 D2`.
 - Class 4: normal first: `B2 U' B2 U`, then on inverse `(D2 F2 R2 F2 U F2 D L2 U R2)`. HTR after 13 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U' B2 U R2 U' L2 D' F2 U' F2 R2 F2 D2`.
@@ -2605,13 +2807,15 @@ Read as 2c3 4e on normal, 2c3 4e on inverse. Shortest HTR: 7 on normal, 8 on inv
 
 Optimal: 12 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | yes / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no / no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no / no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | yes | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | no |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | no |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
 
 - Class 1: linear on the inverse: `(U2 L2 U' B2 L2 D' B2 U L2 B2 U2 L2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `L2 U2 B2 L2 U' B2 D L2 B2 U L2 U2`.
 - Class 2: inverse first: `(U2 L2 U')`, then on normal `L2 U2 B2 L2 U' B2 D L2 B2`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U2 B2 L2 U' B2 D L2 B2 U L2 U2`.
@@ -2629,13 +2833,15 @@ Read as 2c3 4e on normal, 2c3 4e on inverse. Shortest HTR: 8 on normal, 8 on inv
 
 Optimal: 13 moves (41 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | yes / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no / yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no / yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | yes | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | yes |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | yes |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
 
 - Class 1: linear on normal: `D' R2 F2 B2 D L2 F2 U' R2 U2 R2 F2 B2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `D' R2 F2 B2 D L2 F2 U' R2 U2 R2 F2 B2`.
 - Class 2: inverse first: `(U2 L2 D')`, then on normal `D L2 U2 R2 U F2 L2 B2 D2 F2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `D L2 U2 R2 U F2 L2 B2 D2 F2 D L2 U2`.
@@ -2655,13 +2861,15 @@ Read as 2c3 4e on normal, 2c3 4e on inverse. Shortest HTR: 7 on normal, 8 on inv
 
 Optimal: 13 moves (28 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no / no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no / yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | no |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | yes |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
 
 - Class 1: linear on the inverse: `(B2 D L2 D R2 B2 L2 U2 L2 U B2 F2 D2)`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D2 F2 B2 U' L2 U2 L2 B2 R2 D' L2 D' B2`.
 - Class 2: normal first: `D'`, then on inverse `(R2 F2 D' R2 U' F2 D2 F2 R2 D2 F2 L2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `D' L2 F2 D2 R2 F2 D2 F2 U R2 D F2 R2`.
@@ -2680,13 +2888,15 @@ Read as 2c3 4e on normal, 2c3 4e on inverse. Shortest HTR: 7 on normal, 9 on inv
 
 Optimal: 13 moves (3 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no / yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no / no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | yes |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | no |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | yes |
 
 - Class 1: linear on normal: `F2 U D2 B2 L2 F2 R2 U B2 D' R2 F2 U2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U D2 B2 L2 F2 R2 U B2 D' R2 F2 U2`.
 - Class 2: normal first: `F2 U`, then on inverse `(U2 F2 R2 D B2 U' R2 F2 L2 B2 D2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `F2 U D2 B2 L2 F2 R2 U B2 D' R2 F2 U2`.
@@ -2706,13 +2916,15 @@ Read as 2c3 4e on normal, 2c3 4e on inverse. Shortest HTR: 8 on normal, 7 on inv
 
 Optimal: 11 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | yes / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no / no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no / no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | yes | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | no |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | no |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
 
 - Class 1: linear on the inverse: `(F2 D2 U R2 D' L2 B2 D' R2 D2 R2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `R2 D2 R2 D B2 L2 D R2 U' D2 F2`.
 - Class 2: normal first: `R2 D2 R2 D`, then on inverse `(F2 D2 U R2 D' L2 B2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `R2 D2 R2 D B2 L2 D R2 U' D2 F2`.
@@ -2730,13 +2942,15 @@ Read as 2c3 4e on normal, 2c3 4e on inverse. Shortest HTR: 6 on normal, 6 on inv
 
 Optimal: 12 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | yes / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no / no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no / no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | yes | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | no |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | no |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
 
 - Class 1: linear on normal: `B2 L2 U' R2 U B2 L2 D F2 D2 L2 F2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 L2 U' R2 U B2 L2 D F2 D2 L2 F2`.
 - Class 2: inverse first: `(F2 L2 D2 F2 D')`, then on normal `B2 L2 U' R2 U B2 L2`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 L2 U' R2 U B2 L2 D F2 D2 L2 F2`.
@@ -2754,13 +2968,15 @@ Read as 2c3 4e on normal, 2c3 4e on inverse. Shortest HTR: 7 on normal, 8 on inv
 
 Optimal: 13 moves (21 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no / no |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no / yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | no |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | yes |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
 
 - Class 1: linear on normal: `U' F2 D2 F2 R2 B2 L2 U B2 U2 B2 U R2`. HTR after 12 moves (7 over the shortest NISS HTR); the whole finish, as read on normal: `U' F2 D2 F2 R2 B2 L2 U B2 U2 B2 U R2`.
 - Class 2: normal first: `U'`, then on inverse `(R2 U' B2 U2 B2 U' L2 B2 R2 F2 D2 F2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `U' F2 D2 F2 R2 B2 L2 U B2 U2 B2 U R2`.
@@ -2779,13 +2995,15 @@ Read as 2c3 4e on normal, 2c3 4e on inverse. Shortest HTR: 7 on normal, 9 on inv
 
 Optimal: 14 moves (38 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no / yes |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no / yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no / no |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no | yes |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | yes | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | yes |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | no |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | yes |
 
 - Class 1: linear on the inverse: `(R2 D F2 U' L2 F2 R2 F2 R2 U' L2 U2 B2 U2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U2 B2 U2 L2 U R2 F2 R2 F2 L2 U F2 D' R2`.
 - Class 2: inverse first: `(R2 D')`, then on normal `R2 U2 F2 D' R2 D R2 L2 F2 U2 F2 B2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `R2 U2 F2 D' R2 D R2 L2 F2 U2 F2 B2 D R2`.
@@ -2805,13 +3023,15 @@ Read as 2c3 4e on normal, 2c3 4e on inverse. Shortest HTR: 6 on normal, 8 on inv
 
 Optimal: 13 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no / no |
-| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | no / no |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no / yes |
-| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no / yes |
-| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > 4a1 > 0c0` | 55.3% | no | no |
+| 2 | `2c3 > 4b2 > (4a1 > 0c0)` | 76.6% | no | no |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 78.1% | no | yes |
+| 4 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.1% | no | yes |
+| 5 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.9% | no | no |
 
 - Class 3: inverse first: `(R2 D')`, then on normal `D B2 U' B2 U' B2 U R2 L2 D2 R2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D B2 U' B2 U' B2 U R2 L2 D2 R2 D R2`.
 - Class 4: normal first: `D B2 U'`, then on inverse `(R2 D' R2 D2 L2 R2 U' B2 U B2)`. HTR after 12 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `D B2 U' B2 U' B2 U R2 L2 D2 R2 D R2`.
@@ -2833,13 +3053,15 @@ Read as 2c3 6e on normal, 2c3 6e on inverse. Shortest HTR: 8 on normal, 7 on inv
 
 Optimal: 12 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes / yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no / no |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no / no |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes | yes |
+| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | no |
+| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | no |
+| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | no |
 
 - Class 1: normal first: `L2 F2 U'`, then on inverse `(U2 F2 U L2 D B2 R2 B2 F2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `L2 F2 U' F2 B2 R2 B2 D' L2 U' F2 U2`.
 - Class 2: linear on normal: `L2 F2 U' F2 B2 R2 B2 D' L2 U' F2 U2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 F2 U' F2 B2 R2 B2 D' L2 U' F2 U2`.
@@ -2857,13 +3079,15 @@ Read as 2c3 6e on normal, 2c3 6e on inverse. Shortest HTR: 8 on normal, 8 on inv
 
 Optimal: 13 moves (13 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | no / no |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no / no |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no / yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no / yes |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | no | no |
+| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | no |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | yes |
+| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | yes |
+| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
 
 - Class 3: normal first: `F2 L2 U`, then on inverse `(U L2 D F2 D L2 B2 D R2 D2)`. HTR after 11 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `F2 L2 U D2 R2 D' B2 L2 D' F2 D' L2 U'`.
 - Class 4: inverse first: `(U L2 D)`, then on normal `U' R2 U' F2 L2 D L2 F2 D2 F2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' R2 U' F2 L2 D L2 F2 D2 F2 D' L2 U'`.
@@ -2882,13 +3106,15 @@ Read as 2c3 6e on normal, 2c3 6e on inverse. Shortest HTR: 8 on normal, 8 on inv
 
 Optimal: 14 moves (15 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes / yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | yes / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no / yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no / yes |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes | yes |
+| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | yes | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | yes |
+| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | yes |
+| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
 
 - Class 1: inverse first: `(L2 U)`, then on normal `B2 L2 D2 B2 U' L2 D U2 B2 R2 B2 L2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `B2 L2 D2 B2 U' L2 D U2 B2 R2 B2 L2 U' L2`.
 - Class 2: linear on the inverse: `(L2 U L2 B2 R2 B2 U F2 D' R2 D2 F2 U2 B2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `B2 U2 F2 D2 R2 D F2 U' B2 R2 B2 L2 U' L2`.
@@ -2909,13 +3135,15 @@ Read as 2c3 6e on normal, 2c3 6e on inverse. Shortest HTR: 9 on normal, 7 on inv
 
 Optimal: 13 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes / yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no / yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no / yes |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes | yes |
+| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | yes |
+| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | yes |
+| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
 
 - Class 1: inverse first: `(U')`, then on normal `F2 R2 D2 R2 D' F2 D U2 L2 F2 R2 F2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `F2 R2 D2 R2 D' F2 D U2 L2 F2 R2 F2 U`.
 - Class 2: linear on the inverse: `(U' F2 R2 F2 L2 D' U2 F2 D R2 D2 R2 F2)`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 R2 D2 R2 D' F2 U2 D L2 F2 R2 F2 U`.
@@ -2936,13 +3164,15 @@ Read as 2c3 6e on normal, 2c3 6e on inverse. Shortest HTR: 8 on normal, 7 on inv
 
 Optimal: 14 moves (28 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | no / yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | yes / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no / yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no / no |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | no | yes |
+| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | yes | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | yes |
+| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | no |
+| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
 
 - Class 1: normal first: `L2 U`, then on inverse `(B2 L2 D U2 L2 B2 U R2 F2 L2 B2 R2)`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U R2 B2 L2 F2 R2 U' B2 L2 U2 D' L2 B2`.
 - Class 2: linear on the inverse: `(D' L2 R2 B2 U' R2 U' B2 L2 B2 R2 F2 U2 L2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `L2 U2 F2 R2 B2 L2 B2 U R2 U B2 R2 L2 D`.
@@ -2962,13 +3192,15 @@ Read as 2c3 6e on normal, 2c3 6e on inverse. Shortest HTR: 8 on normal, 9 on inv
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | no / yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | yes / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no / no |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no / no |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | no | yes |
+| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | yes | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | no |
+| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | no |
+| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | no |
 
 - Class 1: normal first: `B2 D'`, then on inverse `(D2 F2 L2 D2 R2 U' B2 D' L2 B2 F2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 D' F2 B2 L2 D B2 U R2 D2 L2 F2 D2`.
 - Class 2: linear on normal: `B2 D' F2 B2 L2 D B2 U R2 D2 L2 F2 D2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 D' F2 B2 L2 D B2 U R2 D2 L2 F2 D2`.
@@ -2986,13 +3218,15 @@ Read as 2c3 6e on normal, 2c3 6e on inverse. Shortest HTR: 7 on normal, 9 on inv
 
 Optimal: 12 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes / yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no / no |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no / no |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes | yes |
+| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | no |
+| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | no |
+| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | no |
 
 - Class 1: inverse first: `(B2 R2 U)`, then on normal `D' F2 U' B2 R2 U2 L2 U2 L2`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `D' F2 U' B2 R2 U2 L2 U2 L2 U' R2 B2`.
 - Class 2: linear on normal: `D' F2 U' B2 R2 U2 L2 U2 L2 U' R2 B2`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D' F2 U' B2 R2 U2 L2 U2 L2 U' R2 B2`.
@@ -3010,13 +3244,15 @@ Read as 2c3 6e on normal, 2c3 6e on inverse. Shortest HTR: 8 on normal, 8 on inv
 
 Optimal: 14 moves (89 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes / yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no / yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no / yes |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes | yes |
+| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | yes |
+| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | yes |
+| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
 
 - Class 1: normal first: `U2 R2 L2 U`, then on inverse `(F2 L2 U R2 U B2 F2 D2 B2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U2 R2 L2 U L2 B2 D2 F2 B2 U' R2 U' L2 F2`.
 - Class 2: linear on normal: `U' F2 B2 R2 D' L2 F2 R2 F2 D' B2 R2 F2 R2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' F2 B2 R2 D' L2 F2 R2 F2 D' B2 R2 F2 R2`.
@@ -3037,13 +3273,15 @@ Read as 2c3 6e on normal, 2c3 6e on inverse. Shortest HTR: 8 on normal, 9 on inv
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | no / no |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no / no |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no / yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no / yes |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | no | no |
+| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | no |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | no | yes |
+| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | no | yes |
+| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
 
 - Class 3: normal first: `F2 U'`, then on inverse `(U' B2 D L2 U2 L2 U R2 D B2 R2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U' R2 B2 D' R2 U' L2 U2 L2 D' B2 U`.
 - Class 4: inverse first: `(U' B2 D)`, then on normal `F2 U' R2 B2 D' R2 U' L2 U2 L2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U' R2 B2 D' R2 U' L2 U2 L2 D' B2 U`.
@@ -3062,13 +3300,15 @@ Read as 2c3 6e on normal, 2c3 6e on inverse. Shortest HTR: 8 on normal, 8 on inv
 
 Optimal: 14 moves (48 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes / yes |
-| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no / yes |
-| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | yes / yes |
-| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | yes / yes |
-| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `2c3 > 4b2 > (4a1 > 0c0)` | 66.1% | yes | yes |
+| 2 | `2c3 > 4b2 > 4a1 > 0c0` | 73.3% | no | yes |
+| 3 | `2c3 > 4b2 > (2c3 > 4b2 > 4a1 > 0c0)` | 76.7% | yes | yes |
+| 4 | `2c3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.3% | yes | yes |
+| 5 | `2c3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 79.8% | no | yes |
 
 - Class 1: normal first: `L2 D`, then on inverse `(U2 L2 U B2 U' B2 L2 U2 F2 R2 D2 F2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `L2 D F2 D2 R2 F2 U2 L2 B2 U B2 U' L2 U2`.
 - Class 2: linear on normal: `L2 U' B2 U2 L2 F2 L2 D F2 U2 B2 U R2 D2`. HTR after 12 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U' B2 U2 L2 F2 L2 D F2 U2 B2 U R2 D2`.
@@ -3095,13 +3335,15 @@ Read as 4a3 2e on normal, 4b3 2e on inverse. Shortest HTR: 10 on normal, 8 on in
 
 Optimal: 15 moves (39 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes / yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no / yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no / yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | yes / yes |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes | yes |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | yes |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | yes |
+| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | yes | yes |
+| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | yes |
 
 - Class 1: normal first: `U2 L2 D'`, then on inverse `(D2 F2 U B2 L2 D B2 U2 L2 F2 R2 B2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U2 L2 D' B2 R2 F2 L2 U2 B2 D' L2 B2 U' F2 D2`.
 - Class 2: inverse first: `(B2 D' B2 D')`, then on normal `R2 D' B2 L2 U' R2 D' R2 D2 R2 F2`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 D' B2 L2 U' R2 D' R2 D2 R2 F2 D B2 D B2`.
@@ -3122,13 +3364,15 @@ Read as 4a3 2e on normal, 4b3 2e on inverse. Shortest HTR: 9 on normal, 8 on inv
 
 Optimal: 15 moves (19 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no / yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | yes / yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no / yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | yes / yes |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no | yes |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | yes | yes |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | yes |
+| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | yes | yes |
+| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | yes |
 
 - Class 1: normal first: `U2 F2 U2 R2 F2 L2 D'`, then on inverse `(R2 U F2 U L2 F2 U2 B2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U2 F2 U2 R2 F2 L2 D' B2 U2 F2 L2 U' F2 U' R2`.
 - Class 2: inverse first: `(D' F2 R2 U)`, then on normal `D L2 U' R2 U R2 B2 R2 L2 D2 B2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `D L2 U' R2 U R2 B2 R2 L2 D2 B2 U' R2 F2 D`.
@@ -3149,13 +3393,15 @@ Read as 4a3 2e on normal, 4b3 2e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 13 moves (8 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no / no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no / yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no / yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no / no |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | yes / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no | no |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | yes |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | yes |
+| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | no |
+| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | yes | yes |
 
 - Class 2: inverse first: `(L2 U' B2 R2 D)`, then on normal `U2 B2 U' F2 U F2 D' F2`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U2 B2 U' F2 U F2 D' F2 D' R2 B2 U L2`.
 - Class 3: normal first: `U2 B2 U' F2 U`, then on inverse `(L2 U' B2 R2 D F2 D F2)`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U2 B2 U' F2 U F2 D' F2 D' R2 B2 U L2`.
@@ -3174,13 +3420,15 @@ Read as 4a3 2e on normal, 4b3 2e on inverse. Shortest HTR: 8 on normal, 8 on inv
 
 Optimal: 12 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes / yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no / no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no / no |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no / yes |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes | yes |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | no |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | no |
+| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | yes |
+| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | no |
 
 - Class 1: normal first: `U`, then on inverse `(U2 R2 U R2 D R2 F2 D2 L2 R2 F2)`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `U F2 R2 L2 D2 F2 R2 D' R2 U' R2 U2`.
 - Class 4: linear on the inverse: `(U2 R2 U R2 D R2 F2 D2 L2 R2 F2 U')`. HTR after 12 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `U F2 R2 L2 D2 F2 R2 D' R2 U' R2 U2`.
@@ -3198,13 +3446,15 @@ Read as 4b3 2e on normal, 4a3 2e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 14 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes / yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no / no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no / no |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no / yes |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes | yes |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | no |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | no |
+| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | yes |
+| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | no |
 
 - Class 1: inverse first: `(U2 F2 D')`, then on normal `D' F2 U2 F2 L2 B2 U' B2 R2 D2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D' F2 U2 F2 L2 B2 U' B2 R2 D2 R2 D F2 U2`.
 - Class 4: linear on normal: `U' R2 U2 R2 F2 L2 U F2 U2 L2 U' B2 D2 B2`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' R2 U2 R2 F2 L2 U F2 U2 L2 U' B2 D2 B2`.
@@ -3222,13 +3472,15 @@ Read as 4a3 2e on normal, 4b3 2e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 15 moves (87 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes / yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | yes / yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | yes / yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | yes / yes |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | yes / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes | yes |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | yes | yes |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | yes | yes |
+| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | yes | yes |
+| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | yes | yes |
 
 - Class 1: normal first: `D'`, then on inverse `(B2 R2 U L2 D2 L2 U2 F2 U' B2 R2 U2 F2 L2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D' L2 F2 U2 R2 B2 U F2 U2 L2 D2 L2 U' R2 B2`.
 - Class 2: inverse first: `(B2 U B2 D')`, then on normal `U' F2 D F2 D' F2 R2 U2 B2 L2 F2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U' F2 D F2 D' F2 R2 U2 B2 L2 F2 D B2 U' B2`.
@@ -3249,13 +3501,15 @@ Read as 4b3 2e on normal, 4a3 2e on inverse. Shortest HTR: 10 on normal, 8 on in
 
 Optimal: 14 moves (11 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no / no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no / yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no / yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no / no |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no | no |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | yes |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | yes |
+| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | no |
+| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | yes |
 
 - Class 2: normal first: `R2 U R2 U`, then on inverse `(B2 D F2 U' B2 L2 D' B2 L2 D2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 U R2 U D2 L2 B2 D L2 B2 U F2 D' B2`.
 - Class 3: inverse first: `(B2 D F2 U')`, then on normal `R2 U R2 U D2 L2 B2 D L2 B2`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `R2 U R2 U D2 L2 B2 D L2 B2 U F2 D' B2`.
@@ -3274,13 +3528,15 @@ Read as 4a3 2e on normal, 4b3 2e on inverse. Shortest HTR: 8 on normal, 9 on inv
 
 Optimal: 14 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no / no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | yes / yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no / yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no / no |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no | no |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | yes | yes |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | yes |
+| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | no |
+| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | yes |
 
 - Class 2: inverse first: `(L2 U' B2 D')`, then on normal `L2 U' B2 D R2 D' R2 F2 R2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `L2 U' B2 D R2 D' R2 F2 R2 F2 D B2 U L2`.
 - Class 3: normal first: `L2 U' B2 D`, then on inverse `(L2 U' B2 D' F2 R2 F2 R2 D R2)`. HTR after 13 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U' B2 D R2 D' R2 F2 R2 F2 D B2 U L2`.
@@ -3299,13 +3555,15 @@ Read as 4a3 2e on normal, 4b3 2e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes / yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no / no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no / no |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no / yes |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | yes | yes |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | no |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | no |
+| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | yes |
+| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | no |
 
 - Class 1: normal first: `R2 U2 B2 U'`, then on inverse `(D' B2 U B2 U2 R2 F2 L2 B2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `R2 U2 B2 U' B2 L2 F2 R2 U2 B2 U' B2 D`.
 - Class 4: linear on the inverse: `(D' B2 U B2 U2 R2 F2 L2 B2 U B2 U2 R2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 U2 B2 U' B2 L2 F2 R2 U2 B2 U' B2 D`.
@@ -3323,13 +3581,15 @@ Read as 4a3 2e on normal, 4b3 2e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 14 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no / no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no / no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no / yes |
-| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no / no |
-| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 66.2% | no | no |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 72.0% | no | no |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 75.1% | no | yes |
+| 4 | `4b3 > 4a2 > 4a1 > 0c0` | 77.9% | no | no |
+| 5 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 80.1% | no | no |
 
 - Class 3: normal first: `U2 F2 L2 U' F2 D`, then on inverse `(F2 U' B2 U' R2 U' B2 F2)`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U2 F2 L2 U' F2 D F2 B2 U R2 U B2 U F2`.
 
@@ -3350,13 +3610,15 @@ Read as 4b3 4e on normal, 4a3 4e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 13 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no / no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no / yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | yes / yes |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no / yes |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no | no |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | yes |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | yes | yes |
+| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | yes |
+| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | no |
 
 - Class 2: normal first: `L2 B2 U' B2 U`, then on inverse `(R2 U' R2 U' R2 F2 D' F2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 U' B2 U F2 D F2 R2 U R2 U R2`.
 - Class 3: inverse first: `(R2 F2 D L2 U')`, then on normal `L2 U F2 U' R2 U R2 L2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `L2 U F2 U' R2 U R2 L2 U L2 D' F2 R2`.
@@ -3375,13 +3637,15 @@ Read as 4b3 4e on normal, 4a3 4e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 13 moves (4 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no / yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no / no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no / no |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no / no |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no | yes |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | no |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | no |
+| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | no |
+| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | yes |
 
 - Class 1: inverse first: `(D2 L2 B2 D)`, then on normal `F2 L2 D' F2 R2 U' B2 U2 R2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 L2 D' F2 R2 U' B2 U2 R2 D' B2 L2 D2`.
 - Class 5: linear on the inverse: `(D2 L2 B2 D R2 U2 B2 U R2 F2 D L2 F2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 L2 D' F2 R2 U' B2 U2 R2 D' B2 L2 D2`.
@@ -3399,13 +3663,15 @@ Read as 4a3 4e on normal, 4b3 4e on inverse. Shortest HTR: 9 on normal, 8 on inv
 
 Optimal: 11 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | yes / yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no / no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no / no |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no / no |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | yes | yes |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | no |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | no |
+| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | no |
+| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | yes |
 
 - Class 1: normal first: `R2 L2 U`, then on inverse `(U' L2 F2 U' F2 L2 D2 L2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `R2 L2 U L2 D2 L2 F2 U F2 L2 U`.
 - Class 5: linear on normal: `R2 L2 U L2 D2 L2 F2 U F2 L2 U`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `R2 L2 U L2 D2 L2 F2 U F2 L2 U`.
@@ -3423,13 +3689,15 @@ Read as 4a3 4e on normal, 4b3 4e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 14 moves (27 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | yes / yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no / yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no / yes |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | yes / yes |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | yes / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | yes | yes |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | yes |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | yes |
+| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | yes | yes |
+| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | yes | yes |
 
 - Class 1: normal first: `B2 L2 U`, then on inverse `(D2 B2 L2 U L2 D R2 F2 U2 L2 B2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `B2 L2 U B2 L2 U2 F2 R2 D' L2 U' L2 B2 D2`.
 - Class 2: inverse first: `(D' B2 R2 U')`, then on normal `L2 D' L2 U R2 F2 U B2 R2 L2`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 D' L2 U R2 F2 U B2 R2 L2 U R2 B2 D`.
@@ -3450,13 +3718,15 @@ Read as 4a3 4e on normal, 4b3 4e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 13 moves (8 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no / no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | yes / yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no / yes |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no / yes |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no | no |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | yes | yes |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | yes |
+| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | yes |
+| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | no |
 
 - Class 2: inverse first: `(L2 D B2 L2 U')`, then on normal `U B2 U' L2 D F2 L2 D2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U B2 U' L2 D F2 L2 D2 U L2 B2 D' L2`.
 - Class 3: normal first: `U B2 U`, then on inverse `(L2 U R2 B2 U F2 R2 U' R2 D2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U B2 U D2 R2 U R2 F2 U' B2 R2 U' L2`.
@@ -3475,13 +3745,15 @@ Read as 4b3 4e on normal, 4a3 4e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 13 moves (5 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | yes / yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no / no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no / no |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no / no |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | yes | yes |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | no |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | no |
+| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | no |
+| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | yes |
 
 - Class 1: inverse first: `(F2 U')`, then on normal `L2 F2 U' L2 F2 U L2 D2 F2 R2 L2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `L2 F2 U' L2 F2 U L2 D2 F2 R2 L2 U F2`.
 - Class 5: linear on the inverse: `(B2 U F2 D2 R2 D R2 B2 L2 B2 D B2 R2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 D' B2 L2 B2 R2 D' R2 D2 F2 U' B2`.
@@ -3499,13 +3771,15 @@ Read as 4a3 4e on normal, 4b3 4e on inverse. Shortest HTR: 9 on normal, 8 on inv
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no / no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no / no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no / yes |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no / no |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no | no |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | no |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | yes |
+| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | no |
+| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | no |
 
 - Class 3: normal first: `B2 D' F2 D'`, then on inverse `(F2 U' R2 D' L2 B2 U B2 F2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 D' F2 D' F2 B2 U' B2 L2 D R2 U F2`.
 
@@ -3522,13 +3796,15 @@ Read as 4a3 4e on normal, 4b3 4e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 12 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no / no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no / yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no / yes |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no / yes |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no | no |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | yes |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | yes |
+| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | yes |
+| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | no |
 
 - Class 2: inverse first: `(U B2 U')`, then on normal `D' L2 D2 F2 L2 U B2 U F2`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D' L2 D2 F2 L2 U B2 U F2 U B2 U'`.
 - Class 3: normal first: `D' L2 D2 F2 L2 U`, then on inverse `(U B2 U' F2 U' B2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D' L2 D2 F2 L2 U B2 U F2 U B2 U'`.
@@ -3547,13 +3823,15 @@ Read as 4b3 4e on normal, 4a3 4e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 14 moves (12 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no / no |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | yes / yes |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no / yes |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | yes / yes |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | no | no |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | yes | yes |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | yes |
+| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | yes | yes |
+| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | no |
 
 - Class 2: normal first: `L2 U R2 F2 U`, then on inverse `(U R2 U B2 R2 U' F2 D2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `L2 U R2 F2 U R2 D2 F2 U R2 B2 U' R2 U'`.
 - Class 3: inverse first: `(L2 F2 D F2 U2 F2 U')`, then on normal `D' R2 U F2 U' F2 B2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D' R2 U F2 U' F2 B2 U F2 U2 F2 D' F2 L2`.
@@ -3572,13 +3850,15 @@ Read as 4b3 4e on normal, 4a3 4e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | yes / yes |
-| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no / no |
-| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no / no |
-| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no / no |
-| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4a3 > 4b2 > (4a1 > 0c0)` | 62.3% | yes | yes |
+| 2 | `4b3 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 70.2% | no | no |
+| 3 | `4a3 > 4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 74.4% | no | no |
+| 4 | `4b3 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 77.6% | no | no |
+| 5 | `4a3 > 4b2 > 4a1 > 0c0` | 79.6% | no | yes |
 
 - Class 1: inverse first: `(L2 R2 D')`, then on normal `L2 B2 D L2 B2 D F2 L2 U2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `L2 B2 D L2 B2 D F2 L2 U2 R2 D R2 L2`.
 - Class 5: linear on the inverse: `(L2 R2 D' R2 U2 L2 F2 D' B2 L2 D' B2 L2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `L2 B2 D L2 B2 D F2 L2 U2 R2 D R2 L2`.
@@ -3602,13 +3882,15 @@ Read as 4b4 2e on normal, 4a4 2e on inverse. Shortest HTR: 10 on normal, 11 on i
 
 Optimal: 15 moves (12 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | no / no |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no / yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no / yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no / yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | no | no |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | yes |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | yes |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | yes |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | yes |
 
 - Class 2: inverse first: `(D L2 D')`, then on normal `D2 F2 R2 U' F2 U' B2 U L2 D' L2 F2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D2 F2 R2 U' F2 U' B2 U L2 D' L2 F2 D L2 D'`.
 - Class 3: inverse first: `(F2 U B2 U' L2 U)`, then on normal `U F2 U' L2 B2 U2 R2 U' R2`. HTR after 14 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U F2 U' L2 B2 U2 R2 U' R2 U' L2 U B2 U' F2`.
@@ -3628,13 +3910,15 @@ Read as 4b4 2e on normal, 4a4 2e on inverse. Shortest HTR: 11 on normal, 10 on i
 
 Optimal: 15 moves (58 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no / yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no / yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no / yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | yes |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | yes |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | yes |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | no |
 
 - Class 1: normal first: `U B2 U`, then on inverse `(U' L2 F2 D2 R2 U L2 R2 F2 R2 U2 R2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U B2 U R2 U2 R2 F2 R2 L2 U' R2 D2 F2 L2 U`.
 - Class 2: inverse first: `(R2 D' B2 U')`, then on normal `R2 D' B2 U' R2 B2 U' L2 U B2 L2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `R2 D' B2 U' R2 B2 U' L2 U B2 L2 U B2 D R2`.
@@ -3654,13 +3938,15 @@ Read as 4a4 2e on normal, 4b4 2e on inverse. Shortest HTR: 11 on normal, 9 on in
 
 Optimal: 15 moves (22 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no / yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no / yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no / no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | yes |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | yes |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | no |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | yes |
 
 - Class 1: inverse first: `(D' L2 D2 F2 U)`, then on normal `B2 U' L2 B2 D B2 L2 U2 F2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U' L2 B2 D B2 L2 U2 F2 L2 U' F2 D2 L2 D`.
 - Class 2: normal first: `F2 B2 D F2 D'`, then on inverse `(D F2 D B2 D' L2 F2 U' R2 F2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 B2 D F2 D' F2 R2 U F2 L2 D B2 D' F2 D'`.
@@ -3680,13 +3966,15 @@ Read as 4a4 2e on normal, 4b4 2e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 15 moves (20 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no / no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no / no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no / yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | no |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | no |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | yes |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | no |
 
 - Class 1: inverse first: `(D2 F2 R2 U L2 D)`, then on normal `U' F2 L2 U B2 L2 U2 B2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U' F2 L2 U B2 L2 U2 B2 L2 D' L2 U' R2 F2 D2`.
 - Class 4: inverse first: `(D')`, then on normal `U L2 U L2 U' L2 B2 D' F2 R2 D B2 R2 L2`. HTR after 12 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U L2 U L2 U' L2 B2 D' F2 R2 D B2 R2 L2 D`.
@@ -3704,13 +3992,15 @@ Read as 4b4 2e on normal, 4a4 2e on inverse. Shortest HTR: 11 on normal, 11 on i
 
 Optimal: 14 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | no / no |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no / yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no / yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no / no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | no | no |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | yes |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | yes |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | no |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | yes |
 
 - Class 2: inverse first: `(U' B2 F2 L2 D)`, then on normal `D R2 U F2 U' R2 U B2 R2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D R2 U F2 U' R2 U B2 R2 D' L2 F2 B2 U`.
 - Class 3: inverse first: `(U' B2 F2 L2 D R2 B2 U')`, then on normal `D R2 U F2 U' R2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D R2 U F2 U' R2 U B2 R2 D' L2 F2 B2 U`.
@@ -3729,13 +4019,15 @@ Read as 4a4 2e on normal, 4b4 2e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 14 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | no / no |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no / yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no / yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no / yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | no | no |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | yes |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | yes |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | yes |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | no |
 
 - Class 2: normal first: `U F2 U`, then on inverse `(U L2 B2 U L2 D' F2 U L2 R2 F2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U F2 U F2 R2 L2 U' F2 D L2 U' B2 L2 U'`.
 - Class 3: normal first: `U F2 U F2 R2 L2 U'`, then on inverse `(U L2 B2 U L2 D' F2)`. HTR after 13 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U F2 U F2 R2 L2 U' F2 D L2 U' B2 L2 U'`.
@@ -3754,13 +4046,15 @@ Read as 4a4 2e on normal, 4b4 2e on inverse. Shortest HTR: 11 on normal, 9 on in
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no / no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no / no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no / no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | no |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | no |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | no |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | no |
 
 - Class 1: inverse first: `(U F2 D)`, then on normal `F2 U2 L2 U' R2 U' L2 F2 U2 F2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `F2 U2 L2 U' R2 U' L2 F2 U2 F2 D' F2 U'`.
 
@@ -3777,13 +4071,15 @@ Read as 4b4 2e on normal, 4a4 2e on inverse. Shortest HTR: 11 on normal, 10 on i
 
 Optimal: 15 moves (42 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | no / no |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no / yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no / yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | yes / yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | no | no |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | yes |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | yes |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | yes | yes |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | yes |
 
 - Class 2: inverse first: `(D F2 D)`, then on normal `F2 U2 F2 U' B2 U L2 D' R2 D F2 L2`. HTR after 13 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U2 F2 U' B2 U L2 D' R2 D F2 L2 D' F2 D'`.
 - Class 3: inverse first: `(D F2 D L2 F2 D')`, then on normal `F2 U2 F2 U' B2 U L2 D' R2`. HTR after 14 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U2 F2 U' B2 U L2 D' R2 D F2 L2 D' F2 D'`.
@@ -3803,13 +4099,15 @@ Read as 4a4 2e on normal, 4b4 2e on inverse. Shortest HTR: 10 on normal, 11 on i
 
 Optimal: 16 moves (222 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | yes / yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | yes / yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | yes / yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | yes / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | yes | yes |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | yes | yes |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | yes | yes |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | yes | yes |
 
 - Class 1: inverse first: `(B2 R2 U' B2 D')`, then on normal `L2 U' R2 F2 U R2 U2 F2 R2 F2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `L2 U' R2 F2 U R2 U2 F2 R2 F2 L2 D B2 U R2 B2`.
 - Class 2: normal first: `U R2 U`, then on inverse `(B2 D' F2 D' R2 B2 U' B2 U' R2 U2 L2 F2)`. HTR after 12 moves (within the budget); the whole finish, as read on normal: `U R2 U F2 L2 U2 R2 U B2 U B2 R2 D F2 D B2`.
@@ -3830,13 +4128,15 @@ Read as 4b4 2e on normal, 4a4 2e on inverse. Shortest HTR: 11 on normal, 10 on i
 
 Optimal: 14 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no / no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no / no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no / no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 67.9% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 75.4% | no | no |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.7% | no | no |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.8% | no | no |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 82.1% | no | no |
 
 - Class 1: normal first: `L2 F2 U B2 D`, then on inverse `(B2 D' F2 R2 U' B2 U2 B2 L2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `L2 F2 U B2 D L2 B2 U2 B2 U R2 F2 D B2`.
 
@@ -3857,13 +4157,15 @@ Read as 4b4 4e on normal, 4a4 4e on inverse. Shortest HTR: 9 on normal, 11 on in
 
 Optimal: 14 moves (14 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no / no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no / no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | no |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | no |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
 
 - Class 1: normal first: `U L2 U`, then on inverse `(F2 L2 R2 D2 B2 U' L2 D B2 U2 L2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U L2 U L2 U2 B2 D' L2 U B2 D2 R2 L2 F2`.
 
@@ -3880,13 +4182,15 @@ Read as 4a4 4e on normal, 4b4 4e on inverse. Shortest HTR: 11 on normal, 10 on i
 
 Optimal: 15 moves (10 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no / no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no / no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | no |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | no |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
 
 - Class 1: inverse first: `(B2 D' B2 U)`, then on normal `R2 F2 U2 R2 U F2 D' R2 F2 U2 F2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 F2 U2 R2 U F2 D' R2 F2 U2 F2 U' B2 D B2`.
 
@@ -3903,13 +4207,15 @@ Read as 4a4 4e on normal, 4b4 4e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 14 moves (4 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no / yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no / no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | yes / yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | yes |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | no |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | yes | yes |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
 
 - Class 1: inverse first: `(L2 D' L2 B2 D')`, then on normal `R2 B2 D' F2 D B2 D2 F2 L2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `R2 B2 D' F2 D B2 D2 F2 L2 D B2 L2 D L2`.
 - Class 2: normal first: `U' B2 U`, then on inverse `(D L2 U2 B2 U L2 U B2 R2 U B2)`. HTR after 13 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' B2 U B2 U' R2 B2 U' L2 U' B2 U2 L2 D'`.
@@ -3928,13 +4234,15 @@ Read as 4a4 4e on normal, 4b4 4e on inverse. Shortest HTR: 9 on normal, 11 on in
 
 Optimal: 15 moves (26 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no / yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no / yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | yes |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | yes |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | yes |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
 
 - Class 1: inverse first: `(L2 B2 U' B2 D')`, then on normal `U L2 F2 U2 R2 D' F2 D2 B2 R2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U L2 F2 U2 R2 D' F2 D2 B2 R2 D B2 U B2 L2`.
 - Class 2: normal first: `B2 R2 U' B2 U'`, then on inverse `(U' B2 D' R2 F2 U' L2 B2 U' L2)`. HTR after 14 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `B2 R2 U' B2 U' L2 U B2 L2 U F2 R2 D B2 U`.
@@ -3954,13 +4262,15 @@ Read as 4a4 4e on normal, 4b4 4e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 15 moves (29 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no / yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no / yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | yes |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | yes |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | yes |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | yes |
 
 - Class 1: inverse first: `(L2 U' B2 F2 L2 D)`, then on normal `U R2 U' R2 B2 R2 B2 D2 L2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U R2 U' R2 B2 R2 B2 D2 L2 D' L2 F2 B2 U L2`.
 - Class 2: normal first: `U2 R2 U L2 U`, then on inverse `(L2 D' F2 U L2 F2 D B2 U' B2)`. HTR after 14 moves (7 over the shortest NISS HTR); the whole finish, as read on normal: `U2 R2 U L2 U B2 U B2 D' F2 L2 U' F2 D L2`.
@@ -3981,13 +4291,15 @@ Read as 4b4 4e on normal, 4a4 4e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 15 moves (24 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | yes / yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no / yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / yes |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | yes | yes |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | yes |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | yes |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | yes |
 
 - Class 1: normal first: `R2 F2 L2 B2 U' L2 U'`, then on inverse `(R2 U' B2 D R2 D2 L2 F2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `R2 F2 L2 B2 U' L2 U' F2 L2 D2 R2 D' B2 U R2`.
 - Class 2: inverse first: `(U R2 U')`, then on normal `U' L2 U' B2 U B2 R2 U F2 U2 F2 B2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U' L2 U' B2 U B2 R2 U F2 U2 F2 B2 U R2 U'`.
@@ -4008,13 +4320,15 @@ Read as 4b4 4e on normal, 4a4 4e on inverse. Shortest HTR: 11 on normal, 10 on i
 
 Optimal: 15 moves (19 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no / yes |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no / yes |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | yes |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | yes |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | yes |
 
 - Class 1: normal first: `U2 F2 D' B2 U'`, then on inverse `(F2 U F2 R2 D' F2 L2 D2 F2 L2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U2 F2 D' B2 U' L2 F2 D2 L2 F2 D R2 F2 U' F2`.
 - Class 2: inverse first: `(U F2 L2 U')`, then on normal `F2 R2 U' F2 U' F2 U F2 D' R2 F2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 R2 U' F2 U' F2 U F2 D' R2 F2 U L2 F2 U'`.
@@ -4034,13 +4348,15 @@ Read as 4a4 4e on normal, 4b4 4e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 14 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | no / no |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no / no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no / no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | no | no |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | no |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | no |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -4057,13 +4373,15 @@ Read as 4b4 4e on normal, 4a4 4e on inverse. Shortest HTR: 10 on normal, 11 on i
 
 Optimal: 16 moves (27 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no / no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no / no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | no |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | no |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
 
 - Class 1: normal first: `R2 U L2 U'`, then on inverse `(U2 B2 R2 D' F2 L2 R2 U R2 D2 L2 B2)`. HTR after 12 moves (within the budget); the whole finish, as read on normal: `R2 U L2 U' B2 L2 D2 R2 U' R2 L2 F2 D R2 B2 U2`.
 
@@ -4080,13 +4398,15 @@ Read as 4b4 4e on normal, 4a4 4e on inverse. Shortest HTR: 11 on normal, 10 on i
 
 Optimal: 15 moves (9 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes / yes |
-| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no / no |
-| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no / no |
-| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no / no |
-| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b4 > 4a3 > 4b2 > (4a1 > 0c0)` | 68.4% | yes | yes |
+| 2 | `4a4 > 4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 74.8% | no | no |
+| 3 | `4a4 > 4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 78.2% | no | no |
+| 4 | `4b4 > 2c5 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 80.2% | no | no |
+| 5 | `4b4 > 4a3 > (2c4 > 2c3 > 4b2 > 4a1 > 0c0)` | 81.5% | no | no |
 
 - Class 1: normal first: `R2 U R2 D'`, then on inverse `(F2 D' F2 U' L2 F2 L2 R2 U2 L2 F2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `R2 U R2 D' F2 L2 U2 R2 L2 F2 L2 U F2 D F2`.
 
@@ -4109,13 +4429,15 @@ Read as 4b2 2e on normal, 4b2 2e on inverse. Shortest HTR: 6 on normal, 6 on inv
 
 Optimal: 13 moves (3 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | no / no |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no / yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no / no |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no / yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 45.9% | no | no |
+| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | yes |
+| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | no |
+| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | yes |
+| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | yes |
 
 - Class 2: inverse first: `(R2 D R2 F2 R2 D L2 D)`, then on normal `U' B2 D2 R2 B2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' B2 D2 R2 B2 D' L2 D' R2 F2 R2 D' R2`.
 - Class 4: linear on normal: `R2 B2 U' R2 L2 D L2 U L2 U2 R2 U' F2`. HTR after 12 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 U' R2 L2 D L2 U L2 U2 R2 U' F2`.
@@ -4134,13 +4456,15 @@ Read as 4b2 2e on normal, 4b2 2e on inverse. Shortest HTR: 7 on normal, 7 on inv
 
 Optimal: 14 moves (45 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes / yes |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | yes / yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | yes / yes |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no / yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | yes / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes | yes |
+| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | yes | yes |
+| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | yes | yes |
+| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | yes |
+| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | yes | yes |
 
 - Class 1: linear on normal: `U2 L2 B2 U' L2 F2 B2 D B2 R2 F2 D2 F2 D2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `U2 L2 B2 U' L2 F2 B2 D B2 R2 F2 D2 F2 D2`.
 - Class 2: normal first: `U F2 U' F2 B2 R2 U`, then on inverse `(D' B2 R2 D2 R2 F2 R2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `U F2 U' F2 B2 R2 U R2 F2 R2 D2 R2 B2 D`.
@@ -4161,13 +4485,15 @@ Read as 4b2 2e on normal, 4b2 2e on inverse. Shortest HTR: 7 on normal, 6 on inv
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | no / no |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no / yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no / no |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no / yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 45.9% | no | no |
+| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | yes |
+| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | no |
+| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | yes |
+| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | yes |
 
 - Class 2: normal first: `R2 B2 D F2 U' B2 U'`, then on inverse `(F2 U2 L2 F2 D' B2)`. HTR after 12 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 D F2 U' B2 U' B2 D F2 L2 U2 F2`.
 - Class 4: linear on normal: `R2 B2 D F2 U' B2 U' B2 D F2 L2 U2 F2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 D F2 U' B2 U' B2 D F2 L2 U2 F2`.
@@ -4186,13 +4512,15 @@ Read as 4b2 2e on normal, 4b2 2e on inverse. Shortest HTR: 6 on normal, 6 on inv
 
 Optimal: 14 moves (60 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes / yes |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no / yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | yes / yes |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no / yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes | yes |
+| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | yes |
+| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | yes | yes |
+| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | yes |
+| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | yes |
 
 - Class 1: linear on the inverse: `(F2 D B2 U2 L2 R2 U F2 U2 L2 U2 L2 B2 U2)`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `U2 B2 L2 U2 L2 U2 F2 U' R2 L2 U2 B2 D' F2`.
 - Class 2: normal first: `U D L2 F2 R2 D2 B2 U`, then on inverse `(F2 U R2 U2 B2 F2)`. HTR after 10 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U D L2 F2 R2 D2 B2 U F2 B2 U2 R2 U' F2`.
@@ -4213,13 +4541,15 @@ Read as 4b2 2e on normal, 4b2 2e on inverse. Shortest HTR: 6 on normal, 6 on inv
 
 Optimal: 13 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes / yes |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no / yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no / yes |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no / yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes | yes |
+| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | yes |
+| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | yes |
+| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | yes |
+| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | yes |
 
 - Class 1: linear on normal: `L2 B2 L2 U R2 L2 B2 U' F2 U2 R2 U2 B2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `L2 B2 L2 U R2 L2 B2 U' F2 U2 R2 U2 B2`.
 - Class 2: normal first: `F2 U F2 D R2 L2 B2 U`, then on inverse `(L2 B2 L2 U L2)`. HTR after 12 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U F2 D R2 L2 B2 U L2 U' L2 B2 L2`.
@@ -4240,13 +4570,15 @@ Read as 4b2 2e on normal, 4b2 2e on inverse. Shortest HTR: 7 on normal, 6 on inv
 
 Optimal: 13 moves (8 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes / yes |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no / yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no / yes |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | yes / yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes | yes |
+| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | yes |
+| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | yes |
+| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | yes | yes |
+| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | yes |
 
 - Class 1: linear on the inverse: `(B2 U2 B2 D B2 F2 R2 D B2 F2 R2 U2 B2)`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 U2 R2 F2 B2 D' R2 F2 B2 D' B2 U2 B2`.
 - Class 2: normal first: `F2 U' L2 U L2 B2 L2 B2 D'`, then on inverse `(F2 D L2 F2)`. HTR after 11 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U' L2 U L2 B2 L2 B2 D' F2 L2 D' F2`.
@@ -4267,13 +4599,15 @@ Read as 4b2 2e on normal, 4b2 2e on inverse. Shortest HTR: 6 on normal, 6 on inv
 
 Optimal: 12 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | no / no |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no / no |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no / no |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no / no |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 45.9% | no | no |
+| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | no |
+| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | no |
+| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | no |
+| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | no |
 
 - None of these classes finds an optimal finish on this DR.
 
@@ -4290,13 +4624,15 @@ Read as 4b2 2e on normal, 4b2 2e on inverse. Shortest HTR: 6 on normal, 4 on inv
 
 Optimal: 12 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes / yes |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no / no |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no / yes |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no / no |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes | yes |
+| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | no |
+| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | yes |
+| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | no |
+| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | no |
 
 - Class 1: linear on the inverse: `(L2 U L2 D' F2 R2 D2 F2 L2 U2 B2 R2)`. HTR after 4 moves (within the budget); the whole finish, as read on normal: `R2 B2 U2 L2 F2 D2 R2 F2 D L2 U' L2`.
 - Class 3: normal first: `R2 B2 U2 L2 F2 D2 R2 F2 D`, then on inverse `(L2 U L2)`. HTR after 11 moves (7 over the shortest NISS HTR); the whole finish, as read on normal: `R2 B2 U2 L2 F2 D2 R2 F2 D L2 U' L2`.
@@ -4314,13 +4650,15 @@ Read as 4b2 2e on normal, 4b2 2e on inverse. Shortest HTR: 6 on normal, 5 on inv
 
 Optimal: 11 moves (8 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | no / no |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | yes / yes |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no / no |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no / yes |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 45.9% | no | no |
+| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | yes | yes |
+| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | no |
+| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | yes |
+| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | yes |
 
 - Class 2: inverse first: `(U' R2 D B2 U')`, then on normal `L2 U' F2 R2 L2 D2`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `L2 U' F2 R2 L2 D2 U B2 D' R2 U`.
 - Class 4: linear on the inverse: `(U' R2 D B2 D2 U' L2 R2 F2 U L2)`. HTR after 10 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U' F2 R2 L2 U D2 B2 D' R2 U`.
@@ -4339,13 +4677,15 @@ Read as 4b2 2e on normal, 4b2 2e on inverse. Shortest HTR: 7 on normal, 4 on inv
 
 Optimal: 11 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes / yes |
-| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no / no |
-| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no / yes |
-| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no / no |
-| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 45.9% | yes | yes |
+| 2 | `4b2 > 2c3 > 4b2 > 4a1 > (0c0)` | 53.7% | no | no |
+| 3 | `4b2 > 4a1 > (0c0)` | 59.0% | no | yes |
+| 4 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 63.3% | no | no |
+| 5 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 66.3% | no | no |
 
 - Class 1: linear on the inverse: `(F2 D' F2 U L2 F2 D2 R2 B2 D2 L2)`. HTR after 4 moves (within the budget); the whole finish, as read on normal: `L2 D2 B2 R2 D2 F2 L2 U' F2 D F2`.
 - Class 3: normal first: `L2 D2 B2 R2 D2 F2 L2 U'`, then on inverse `(F2 D' F2)`. HTR after 10 moves (6 over the shortest NISS HTR); the whole finish, as read on normal: `L2 D2 B2 R2 D2 F2 L2 U' F2 D F2`.
@@ -4367,13 +4707,15 @@ Read as 4b2 4e on normal, 4b2 4e on inverse. Shortest HTR: 6 on normal, 8 on inv
 
 Optimal: 12 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no / no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no / yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no / yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | yes / yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
+| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
+| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | yes | yes |
+| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
 
 - Class 2: normal first: `U'`, then on inverse `(F2 D F2 D L2 D2 L2 F2 L2 D L2)`. HTR after 11 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U' L2 D' L2 F2 L2 D2 L2 D' F2 D' F2`.
 - Class 3: linear on normal: `U' L2 D' L2 F2 L2 D2 L2 D' F2 D' F2`. HTR after 11 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U' L2 D' L2 F2 L2 D2 L2 D' F2 D' F2`.
@@ -4392,13 +4734,15 @@ Read as 4b2 4e on normal, 4b2 4e on inverse. Shortest HTR: 8 on normal, 7 on inv
 
 Optimal: 12 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no / no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | yes / yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | yes / yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no / yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
+| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | yes | yes |
+| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | yes | yes |
+| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | yes |
+| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
 
 - Class 2: normal first: `D`, then on inverse `(B2 F2 L2 U' R2 D R2 U' R2 U2 L2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `D L2 U2 R2 U R2 D' R2 U L2 F2 B2`.
 - Class 3: linear on normal: `D L2 U2 R2 U R2 D' R2 U L2 F2 B2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `D L2 U2 R2 U R2 D' R2 U L2 F2 B2`.
@@ -4417,13 +4761,15 @@ Read as 4b2 4e on normal, 4b2 4e on inverse. Shortest HTR: 8 on normal, 9 on inv
 
 Optimal: 13 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no / no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no / yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no / yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | yes / yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
+| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
+| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | yes | yes |
+| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
 
 - Class 2: normal first: `F2 U`, then on inverse `(D' R2 D B2 L2 B2 L2 D F2 U2 F2)`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U F2 U2 F2 D' L2 B2 L2 B2 D' R2 D`.
 - Class 3: linear on the inverse: `(D' R2 D B2 L2 B2 L2 D F2 U2 F2 U' F2)`. HTR after 12 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U F2 U2 F2 D' L2 B2 L2 B2 D' R2 D`.
@@ -4442,13 +4788,15 @@ Read as 4b2 4e on normal, 4b2 4e on inverse. Shortest HTR: 9 on normal, 7 on inv
 
 Optimal: 12 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no / no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | yes / yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no / yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no / yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
+| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | yes | yes |
+| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
+| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | yes |
+| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
 
 - Class 2: inverse first: `(U')`, then on normal `D' F2 U F2 R2 D' F2 U2 R2 B2 L2`. HTR after 7 moves (within the budget); the whole finish, as read on normal: `D' F2 U F2 R2 D' F2 U2 R2 B2 L2 U`.
 - Class 3: linear on normal: `D' F2 U F2 R2 D' F2 U2 R2 B2 L2 U`. HTR after 12 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `D' F2 U F2 R2 D' F2 U2 R2 B2 L2 U`.
@@ -4467,13 +4815,15 @@ Read as 4b2 4e on normal, 4b2 4e on inverse. Shortest HTR: 9 on normal, 5 on inv
 
 Optimal: 12 moves (3 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | yes / yes |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no / yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no / yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no / yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 30.3% | yes | yes |
+| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
+| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | yes |
+| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | yes |
 
 - Class 1: linear on the inverse: `(L2 U' L2 B2 D' L2 D2 B2 D2 B2 L2 F2)`. HTR after 5 moves (within the budget); the whole finish, as read on normal: `F2 L2 B2 D2 B2 D2 L2 D B2 L2 U L2`.
 - Class 2: normal first: `F2 L2 B2 L2 U`, then on inverse `(L2 D' B2 R2 D R2 D')`. HTR after 12 moves (7 over the shortest NISS HTR); the whole finish, as read on normal: `F2 L2 B2 L2 U D R2 D' R2 B2 D L2`.
@@ -4494,13 +4844,15 @@ Read as 4b2 4e on normal, 4b2 4e on inverse. Shortest HTR: 9 on normal, 8 on inv
 
 Optimal: 12 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no / no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no / yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | yes / yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no / yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
+| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | yes | yes |
+| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | yes |
+| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
 
 - Class 2: inverse first: `(D2 F2 R2 U')`, then on normal `R2 D' L2 U B2 U F2 L2`. HTR after 10 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `R2 D' L2 U B2 U F2 L2 U R2 F2 D2`.
 - Class 3: linear on normal: `R2 D' L2 U B2 U F2 L2 U R2 F2 D2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `R2 D' L2 U B2 U F2 L2 U R2 F2 D2`.
@@ -4519,13 +4871,15 @@ Read as 4b2 4e on normal, 4b2 4e on inverse. Shortest HTR: 8 on normal, 8 on inv
 
 Optimal: 13 moves (4 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | yes / yes |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no / no |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no / no |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no / no |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | yes / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 30.3% | yes | yes |
+| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | no |
+| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | no |
+| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | no |
+| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | yes | yes |
 
 - Class 1: linear on normal: `B2 U2 F2 L2 D B2 R2 D' U2 R2 L2 B2 U2`. HTR after 8 moves (within the budget); the whole finish, as read on normal: `B2 U2 F2 L2 D B2 R2 D' U2 R2 L2 B2 U2`.
 - Class 5: normal first: `B2 U2 F2 L2 D`, then on inverse `(U2 B2 L2 R2 D U2 R2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U2 F2 L2 D B2 R2 U2 D' R2 L2 B2 U2`.
@@ -4543,13 +4897,15 @@ Read as 4b2 4e on normal, 4b2 4e on inverse. Shortest HTR: 8 on normal, 7 on inv
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no / no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no / yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no / yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | yes / yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
+| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
+| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | yes | yes |
+| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
 
 - Class 2: inverse first: `(U)`, then on normal `B2 R2 U' F2 D' R2 L2 D2 R2 D L2 B2`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 R2 U' F2 D' R2 L2 D2 R2 D L2 B2 U'`.
 - Class 3: linear on the inverse: `(U B2 L2 D' R2 D2 L2 R2 D F2 U R2 B2)`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 R2 U' F2 D' R2 L2 D2 R2 D L2 B2 U'`.
@@ -4568,13 +4924,15 @@ Read as 4b2 4e on normal, 4b2 4e on inverse. Shortest HTR: 6 on normal, 8 on inv
 
 Optimal: 14 moves (68 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | yes / yes |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no / yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no / yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no / yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 30.3% | yes | yes |
+| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
+| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | yes |
+| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | yes |
 
 - Class 1: linear on normal: `D B2 L2 B2 R2 U R2 U2 R2 F2 L2 F2 R2 D2`. HTR after 6 moves (within the budget); the whole finish, as read on normal: `D B2 L2 B2 R2 U R2 U2 R2 F2 L2 F2 R2 D2`.
 - Class 2: inverse first: `(F2 D')`, then on normal `U2 L2 U B2 D R2 U' F2 R2 D2 L2 F2`. HTR after 9 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U2 L2 U B2 D R2 U' F2 R2 D2 L2 F2 D F2`.
@@ -4595,13 +4953,15 @@ Read as 4b2 4e on normal, 4b2 4e on inverse. Shortest HTR: 9 on normal, 9 on inv
 
 Optimal: 13 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no / no |
-| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no / yes |
-| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no / yes |
-| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no / yes |
-| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b2 > 4a1 > 0c0` | 30.3% | no | no |
+| 2 | `4b2 > 2c3 > (4b2 > 4a1 > 0c0)` | 53.3% | no | yes |
+| 3 | `4b2 > 2c3 > 4b2 > 4a1 > 0c0` | 66.8% | no | yes |
+| 4 | `4b2 > 2c3 > 4b2 > (4a1 > 0c0)` | 71.7% | no | yes |
+| 5 | `4b2 > 4a1 > (0c0)` | 76.0% | no | no |
 
 - Class 2: normal first: `R2 F2 D`, then on inverse `(D2 B2 D' F2 D F2 L2 R2 D B2)`. HTR after 12 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `R2 F2 D B2 D' R2 L2 F2 D' F2 D B2 D2`.
 - Class 3: linear on normal: `R2 F2 D B2 D' R2 L2 F2 D' F2 D B2 D2`. HTR after 11 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `R2 F2 D B2 D' R2 L2 F2 D' F2 D B2 D2`.
@@ -4626,13 +4986,15 @@ Read as 4b5 2e on normal, 4b5 2e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 14 moves (12 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | no |
 
 - Class 1: inverse first: `(R2 B2 U')`, then on normal `F2 B2 U B2 U' F2 D R2 D U2 L2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 B2 U B2 U' F2 D R2 D U2 L2 U B2 R2`.
 - Class 2: normal first: `F2 B2 U B2 D'`, then on inverse `(R2 B2 D' B2 U R2 U D2 L2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 B2 U B2 D' L2 D2 U' R2 U' B2 D B2 R2`.
@@ -4652,13 +5014,15 @@ Read as 4b5 2e on normal, 4b5 2e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 14 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | yes |
 
 - Class 1: normal first: `D'`, then on inverse `(F2 U2 R2 D L2 U B2 U' L2 F2 U' R2 F2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D' F2 R2 U F2 L2 U B2 U' L2 D' R2 U2 F2`.
 - Class 2: normal first: `U' R2 B2 D`, then on inverse `(F2 U R2 D' R2 U' B2 L2 D2 L2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U' R2 B2 D L2 D2 L2 B2 U R2 D R2 U' F2`.
@@ -4679,13 +5043,15 @@ Read as 4b5 2e on normal, 4b5 2e on inverse. Shortest HTR: 11 on normal, 9 on in
 
 Optimal: 15 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no / no |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no | no |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | yes |
 
 - Class 2: normal first: `F2 U B2 U`, then on inverse `(U2 F2 U' R2 D F2 D' R2 F2 D2 B2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `F2 U B2 U B2 D2 F2 R2 D F2 D' R2 U F2 U2`.
 - Class 3: linear on normal: `F2 U B2 U B2 D2 F2 R2 D F2 D' R2 U F2 U2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U B2 U B2 D2 F2 R2 D F2 D' R2 U F2 U2`.
@@ -4705,13 +5071,15 @@ Read as 4b5 2e on normal, 4b5 2e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 14 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | no |
 
 - Class 1: inverse first: `(R2 F2 D')`, then on normal `U' B2 R2 U B2 U' L2 U' L2 U2 F2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `U' B2 R2 U B2 U' L2 U' L2 U2 F2 D F2 R2`.
 - Class 2: inverse first: `(R2 F2 D' F2 U2 L2 U)`, then on normal `U' B2 R2 U B2 U' L2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `U' B2 R2 U B2 U' L2 U' L2 U2 F2 D F2 R2`.
@@ -4731,13 +5099,15 @@ Read as 4b5 2e on normal, 4b5 2e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 14 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | no |
 
 - Class 1: inverse first: `(U')`, then on normal `B2 U' B2 L2 D' B2 U F2 U' F2 R2 U2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U' B2 L2 D' B2 U F2 U' F2 R2 U2 R2 U`.
 - Class 2: inverse first: `(U' R2 U2 R2 F2 U)`, then on normal `B2 U' B2 L2 D' B2 U F2`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `B2 U' B2 L2 D' B2 U F2 U' F2 R2 U2 R2 U`.
@@ -4757,13 +5127,15 @@ Read as 4b5 2e on normal, 4b5 2e on inverse. Shortest HTR: 10 on normal, 9 on in
 
 Optimal: 14 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | yes |
 
 - Class 1: normal first: `F2 L2 U2 R2 B2 D'`, then on inverse `(U' R2 U B2 U' L2 U R2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 L2 U2 R2 B2 D' R2 U' L2 U B2 U' R2 U`.
 - Class 2: inverse first: `(D' L2 F2 U)`, then on normal `L2 U' L2 D B2 D' R2 U2 L2 F2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `L2 U' L2 D B2 D' R2 U2 L2 F2 U' F2 L2 D`.
@@ -4784,13 +5156,15 @@ Read as 4b5 2e on normal, 4b5 2e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 13 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | yes / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | no | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | yes | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | no |
 
 - Class 1: normal first: `D'`, then on inverse `(R2 B2 U' L2 U' F2 L2 U' B2 R2 D' B2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D' B2 D R2 B2 U L2 F2 U L2 U B2 R2`.
 - Class 2: normal first: `D' B2 D`, then on inverse `(R2 B2 U' L2 U' F2 L2 U' B2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `D' B2 D R2 B2 U L2 F2 U L2 U B2 R2`.
@@ -4810,13 +5184,15 @@ Read as 4b5 2e on normal, 4b5 2e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 13 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | no | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | no |
 
 - Class 1: inverse first: `(D')`, then on normal `U' F2 L2 U R2 D' B2 U' B2 D2 B2 R2`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U' F2 L2 U R2 D' B2 U' B2 D2 B2 R2 D`.
 - Class 2: inverse first: `(D' R2 B2 D2 B2 U)`, then on normal `U' F2 L2 U R2 D' B2`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U' F2 L2 U R2 D' B2 U' B2 D2 B2 R2 D`.
@@ -4836,13 +5212,15 @@ Read as 4b5 2e on normal, 4b5 2e on inverse. Shortest HTR: 11 on normal, 10 on i
 
 Optimal: 15 moves (18 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | no | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | yes |
 
 - Class 1: inverse first: `(U)`, then on normal `B2 U' B2 D R2 U' L2 B2 D R2 U2 F2 B2 R2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `B2 U' B2 D R2 U' L2 B2 D R2 U2 F2 B2 R2 U'`.
 - Class 2: normal first: `B2 L2 D L2 U`, then on inverse `(F2 U R2 B2 D F2 U L2 D2 B2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `B2 L2 D L2 U B2 D2 L2 U' F2 D' B2 R2 U' F2`.
@@ -4863,13 +5241,15 @@ Read as 4b5 2e on normal, 4b5 2e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 14 moves (14 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | yes / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 62.6% | yes | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 85.1% | yes | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.6% | yes | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 93.7% | yes | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 93.8% | no | no |
 
 - Class 1: normal first: `U'`, then on inverse `(L2 U' L2 U R2 U' F2 U' L2 B2 D2 L2 F2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U' F2 L2 D2 B2 L2 U F2 U R2 U' L2 U L2`.
 - Class 2: inverse first: `(U2 R2 D' R2 D)`, then on normal `U R2 D B2 U' L2 F2 L2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U R2 D B2 U' L2 F2 L2 B2 D' R2 D R2 U2`.
@@ -4893,13 +5273,15 @@ Read as 4b5 4e on normal, 4b5 4e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 14 moves (16 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | yes |
 
 - Class 1: normal first: `D`, then on inverse `(R2 D' F2 R2 U L2 U' R2 U F2 L2 U2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D R2 U2 L2 F2 U' R2 U L2 U' R2 F2 D R2`.
 - Class 2: normal first: `U R2 U'`, then on inverse `(D' F2 L2 R2 U' B2 D F2 R2 D2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U R2 U' R2 D2 R2 F2 D' B2 U R2 L2 F2 D`.
@@ -4920,13 +5302,15 @@ Read as 4b5 4e on normal, 4b5 4e on inverse. Shortest HTR: 11 on normal, 10 on i
 
 Optimal: 15 moves (5 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no / no |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | yes / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no | no |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | yes | yes |
 
 - Class 2: inverse first: `(U' R2 U2 F2 D)`, then on normal `F2 U' B2 U L2 D B2 L2 D2 L2`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `F2 U' B2 U L2 D B2 L2 D2 L2 D' F2 U2 R2 U`.
 - Class 3: linear on the inverse: `(U' R2 U2 F2 D L2 D2 L2 B2 D' L2 U' B2 U F2)`. HTR after 14 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `F2 U' B2 U L2 D B2 L2 D2 L2 D' F2 U2 R2 U`.
@@ -4946,13 +5330,15 @@ Read as 4b5 4e on normal, 4b5 4e on inverse. Shortest HTR: 11 on normal, 11 on i
 
 Optimal: 15 moves (19 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | no / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | no | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | no |
 
 - Class 1: normal first: `L2 U`, then on inverse `(D' B2 R2 U' L2 B2 U' F2 U' L2 D2 B2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `L2 U R2 B2 D2 L2 U F2 U B2 L2 U R2 B2 D`.
 - Class 2: normal first: `L2 U' F2 U2 B2 L2 D'`, then on inverse `(U R2 B2 U B2 D' F2 R2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `L2 U' F2 U2 B2 L2 D' R2 F2 D B2 U' B2 R2 U'`.
@@ -4972,13 +5358,15 @@ Read as 4b5 4e on normal, 4b5 4e on inverse. Shortest HTR: 9 on normal, 10 on in
 
 Optimal: 14 moves (21 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | yes |
 
 - Class 1: normal first: `U'`, then on inverse `(U B2 U R2 B2 U B2 D L2 U2 B2 L2 R2)`. HTR after 9 moves (within the budget); the whole finish, as read on normal: `U' R2 L2 B2 U2 L2 D' B2 U' B2 R2 U' B2 U'`.
 - Class 2: inverse first: `(U' F2 D)`, then on normal `F2 U' B2 U' F2 L2 D' L2 B2 D2 B2`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 U' B2 U' F2 L2 D' L2 B2 D2 B2 D' F2 U`.
@@ -4999,13 +5387,15 @@ Read as 4b5 4e on normal, 4b5 4e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 13 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | yes / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | yes | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | no |
 
 - Class 1: normal first: `U`, then on inverse `(F2 U' F2 D' R2 D' F2 D2 B2 D R2 F2)`. HTR after 11 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `U F2 R2 D' B2 D2 F2 D R2 D F2 U F2`.
 - Class 2: normal first: `U F2 R2 D'`, then on inverse `(F2 U' F2 D' R2 D' F2 D2 B2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U F2 R2 D' B2 D2 F2 D R2 D F2 U F2`.
@@ -5025,13 +5415,15 @@ Read as 4b5 4e on normal, 4b5 4e on inverse. Shortest HTR: 10 on normal, 11 on i
 
 Optimal: 14 moves (4 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | yes / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | yes / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | yes | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | yes | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | no |
 
 - Class 1: normal first: `D`, then on inverse `(R2 F2 U R2 D' L2 U L2 R2 F2 U' F2 R2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D R2 F2 U F2 R2 L2 U' L2 D R2 U' F2 R2`.
 - Class 2: normal first: `D B2 D'`, then on inverse `(B2 D' F2 U R2 F2 U B2 R2 F2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `D B2 D' R2 F2 R2 B2 U' F2 R2 U' F2 D B2`.
@@ -5051,13 +5443,15 @@ Read as 4b5 4e on normal, 4b5 4e on inverse. Shortest HTR: 10 on normal, 10 on i
 
 Optimal: 13 moves (6 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no / no |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | yes / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no / yes |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no | no |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | yes | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | yes |
 
 - Class 2: normal first: `U' F2 U`, then on inverse `(U B2 D' L2 R2 F2 U B2 U2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `U' F2 U R2 U2 B2 U' F2 R2 L2 D B2 U'`.
 - Class 3: linear on normal: `U' F2 U R2 U2 B2 U' F2 R2 L2 D B2 U'`. HTR after 13 moves (5 over the shortest NISS HTR); the whole finish, as read on normal: `U' F2 U R2 U2 B2 U' F2 R2 L2 D B2 U'`.
@@ -5077,13 +5471,15 @@ Read as 4b5 4e on normal, 4b5 4e on inverse. Shortest HTR: 11 on normal, 10 on i
 
 Optimal: 13 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | yes / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | yes | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | yes | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | no |
 
 - Class 1: normal first: `F2 U'`, then on inverse `(D' R2 B2 U B2 U' F2 R2 U' B2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `F2 U' R2 B2 U R2 F2 U B2 U' B2 R2 D`.
 - Class 2: normal first: `F2 U' R2 B2 U`, then on inverse `(D' R2 B2 U B2 U' F2 R2)`. HTR after 11 moves (within the budget); the whole finish, as read on normal: `F2 U' R2 B2 U R2 F2 U B2 U' B2 R2 D`.
@@ -5103,13 +5499,15 @@ Read as 4b5 4e on normal, 4b5 4e on inverse. Shortest HTR: 10 on normal, 11 on i
 
 Optimal: 14 moves (2 optimal finishes, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | no / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | yes / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | no | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | no | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | yes | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | no |
 
 - Class 1: normal first: `D2 L2 F2 U'`, then on inverse `(F2 D R2 U' L2 D B2 L2 D B2)`. HTR after 13 moves (4 over the shortest NISS HTR); the whole finish, as read on normal: `D2 L2 F2 U' B2 D' L2 B2 D' L2 U R2 D' F2`.
 - Class 2: normal first: `D2 L2 F2 U' B2 D'`, then on inverse `(F2 D R2 U' L2 D B2 L2)`. HTR after 12 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `D2 L2 F2 U' B2 D' L2 B2 D' L2 U R2 D' F2`.
@@ -5129,13 +5527,15 @@ Read as 4b5 4e on normal, 4b5 4e on inverse. Shortest HTR: 10 on normal, 11 on i
 
 Optimal: 14 moves (1 optimal finish, counting both orders of commuting moves).
 
-| # | Class | Cumulative share (sample) | Finds an optimal here (HTR within 2 / any HTR) |
-|---:|---|---:|---|
-| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes / yes |
-| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | no / yes |
-| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no / yes |
-| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no / yes |
-| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no / no |
+Each row is the next class of the subset's checklist: the share of the subset's sample the classes so far cover, and whether this class finds an optimal finish on this DR.
+
+| # | Class | Subset sample covered so far | Finds an optimal here, HTR within 2 | Finds an optimal here, any HTR |
+|---:|---|---:|---|---|
+| 1 | `4b5 > 2c4 > (2c3 > 4b2 > 4a1 > 0c0)` | 67.0% | yes | yes |
+| 2 | `4b5 > 2c4 > 2c3 > (4b2 > 4a1 > 0c0)` | 89.6% | no | yes |
+| 3 | `4b5 > 2c4 > 2c3 > 4b2 > 4a1 > 0c0` | 93.9% | no | yes |
+| 4 | `4b5 > 2c4 > 2c3 > 4b2 > (4a1 > 0c0)` | 94.0% | no | yes |
+| 5 | `4b5 > 2c4 > (4b3 > 4a2 > 4a1 > 0c0)` | 94.0% | no | no |
 
 - Class 1: normal first: `F2 L2 U`, then on inverse `(U' F2 D B2 U' L2 U' B2 R2 U2 R2)`. HTR after 10 moves (within the budget); the whole finish, as read on normal: `F2 L2 U R2 U2 R2 B2 U L2 U B2 D' F2 U`.
 - Class 2: normal first: `F2 L2 U R2 U2 R2 B2 U`, then on inverse `(U' F2 D B2 U' L2)`. HTR after 13 moves (3 over the shortest NISS HTR); the whole finish, as read on normal: `F2 L2 U R2 U2 R2 B2 U L2 U B2 D' F2 U`.

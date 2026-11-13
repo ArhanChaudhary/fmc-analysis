@@ -1,4 +1,4 @@
-| DRM | Switched | EO's last turn either way | Better DR axis | Both |
+| DRM | Sub-7 rate, switched | Sub-7 rate, also EO's last turn either way | Sub-7 rate, also the better DR axis | Sub-7 rate, both |
 |---|---|---|---|---|
 | 4c4e | 19.1% | 21.2% | 25.0% | 27.4% |
 | 4c2e | 19.1% | 21.9% | 26.0% | 29.1% |

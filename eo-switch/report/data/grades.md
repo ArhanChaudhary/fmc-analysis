@@ -1,4 +1,4 @@
-| DRM | Switch when | Who | Switches | Sub-7 among switched | Sub-7 states switched | Sub-7 states discarded (share of the DRM) | Real attempts: sub-7 among switched |
+| DRM | Switch when | Who | Switches (share of the DRM) | Sub-7 among switched | Sub-7 states switched (share of the DRM's sub-7s) | Sub-7 states discarded (share of the DRM) | Real attempts: sub-7 among switched |
 |---|---|---|---|---|---|---|---|
 | 4c4e | **both bad U/D edges paired** | **this study** (switch) | 15.5% | 59.9% | 48.2% | 10.0% | 60.0% |
 |  | **both bad edges paired, or one paired with edge ARM 1** | **this study** (switch + your call) | 48.0% | 32.9% | 82.0% | 3.5% | 32.8% |

@@ -1,4 +1,4 @@
-| Subset | Shortest HTR | +1 | +2 | +3 or more | Every optimal needs 9+ | … though a sub-9 HTR exists | Post-HTR moves |
+| Subset | Optimal uses a shortest HTR | Best is 1 longer | 2 longer | 3 or more longer | Every optimal needs 9+ | … though a sub-9 HTR exists | Post-HTR moves, mean |
 |---|---|---|---|---|---|---|---|
 | 0c0 | 34.1% | 17.2% | 19.0% | 29.7% | 22.1% | 22.1% | 5.39 |
 | 2c5 | 32.4% | 39.2% | 22.1% | 6.2% | 97.1% | 9.0% | 4.05 |

@@ -1,4 +1,4 @@
-| | Examples |
+| Worked examples | How many |
 |---|---:|
 | Worked examples in the reading notes | 389 |
 | left out: written with inverse-scramble parts | 147 |

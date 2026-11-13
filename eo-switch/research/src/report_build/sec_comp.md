@@ -2,15 +2,15 @@
 
 Everything in this section is **computer only**. It says how far any rule could go, not what to do at the table.
 
-**The search.** For each DRM, every cross-table of 1, 2 or 3 of 38 features: the ARMs, pairs and their variants (fake, side, paired edges, bars, split pairs, AR bars, unpaired corners and edges), the corner case and suffix, twist split, layer layouts, JZP and anti-AR, and seven features that need a search in your head (moves to AR, moves to orient the corners, and the setup distance to each trigger family). I scored each rule by how much of the DRM it settles and kept it only if it holds on the RZP-weighted cases and the real attempts. The Pareto front, rule size against how much it settles:
+**The search.** For each DRM, every cross-table of 1, 2 or 3 of 38 features: the ARMs, pairs and their variants (fake, side, paired edges, bars, split pairs, AR bars, unpaired corners and edges), the corner case and suffix, twist split, layer layouts, JZP and anti-AR, and seven features that need a search in your head (moves to AR, moves to orient the corners, and the setup distance to each trigger family). I scored each rule by how much of the DRM it settles and kept it only if it holds on the RZP-weighted cases and the real attempts. The Pareto front, rule size against how much it settles. Each row is a rule: the features crossed, how many cells its table has, and the share of the DRM it settles:
 
 {{search_pareto}}
 
 - **The perfect separators are the trigger setups.** *How many U, D and half turns to an R/L-quarter-turn finish* settles all of 4c4e, and the same holds for 7c8e (R U L). But reading it means finding the DR, so it's no shortcut. That's the server's habit of just NISS-tracing a promising case all the way. Zagros: "skip all the stats and just niss trace and know 100% if you should switch." ([[D14199]], on 4c2e).
 - **8c8e** needs {= E['c88_65']['cells'] =} cells (edge ARM × pairs × the orbit case of the out-of-AR corners) to settle {= pc(E['c88_65']['strict_sep_P1']) =}: a table to look things up in, not a rule.
-- **The low DRMs** settle "completely" only because every cell is under 10%: that is the discard verdict. What the search asked for them is whether any traceable rule of up to three features finds a cell above 50% holding a real share of their sub-7s. The best rule's share of each DRM's sub-7 cases in such cells:
+- **The low DRMs** settle "completely" only because every cell is under 10%: that is the discard verdict. What the search asked for them is whether any traceable rule of up to three features finds a cell above 50% holding a real share of their sub-7s. One row per DRM: the best rule's share of that DRM's sub-7 cases in such cells:
 
-| DRM | Sub-7s in cells above 50%, best rule |
+| DRM | Sub-7s in cells above 50%, best rule (share of the DRM's sub-7s) |
 |---|---|
 | 4c6e | {= pc(E['low_best']['4c6e']) =} |
 | 3c4e | {= pc(E['low_best']['3c4e']) =} |
@@ -19,4 +19,4 @@ Everything in this section is **computer only**. It says how far any rule could 
 | 5c6e | {= pc(E['low_best']['5c6e']) =} |
 | 6c6e | {= pc(E['low_best']['6c6e']) =} |
 
-**Information.** JTuu asked when ARM is most informative ([[T4332]]). In information terms (the share of the uncertainty about sub-7 within the DRM that the feature removes), ARM / pairs / both remove {= Q4('4c4e: entropy of sub-7 0.706 bits; explained by ARM / pairs / both') =} for 4c4e and {= Q4('8c8e: entropy of sub-7 0.597 bits; explained by ARM / pairs / both') =} for 8c8e: ARM tells more than pairs only in 8c8e, 3c6e and 6c6e. rodneykinney's score ([[T8327]], [[T8333]]) is the product p(sub-7 | subset) × N(sub-7 in subset), which ranks rules well but is not mutual information in the usual sense. The values for every DRM are in the study's repository, with the code.
+**Information.** JTuu asked when ARM is most informative ([[T4332]]). In information terms (the share of the uncertainty about sub-7 within the DRM that the feature removes), ARM removes {= Q4P('4c4e: entropy of sub-7 0.706 bits; explained by ARM / pairs / both', 0, ' / ') =}, pairs {= Q4P('4c4e: entropy of sub-7 0.706 bits; explained by ARM / pairs / both', 1, ' / ') =} and both {= Q4P('4c4e: entropy of sub-7 0.706 bits; explained by ARM / pairs / both', 2, ' / ') =} for 4c4e, and {= Q4P('8c8e: entropy of sub-7 0.597 bits; explained by ARM / pairs / both', 0, ' / ') =}, {= Q4P('8c8e: entropy of sub-7 0.597 bits; explained by ARM / pairs / both', 1, ' / ') =} and {= Q4P('8c8e: entropy of sub-7 0.597 bits; explained by ARM / pairs / both', 2, ' / ') =} for 8c8e: ARM tells more than pairs only in 8c8e, 3c6e and 6c6e. rodneykinney's score ([[T8327]], [[T8333]]) is the product $p(\text{sub-7} \mid \text{subset}) \times N(\text{sub-7 in subset})$, which ranks rules well but is not mutual information in the usual sense. The values for every DRM are in the study's repository, with the code.

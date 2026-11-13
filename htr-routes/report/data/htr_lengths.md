@@ -1,4 +1,4 @@
-| Subset | Shortest NISS HTR | Shortest linear, better side | Normal side | NISS = linear | NISS 1 shorter | NISS 2+ shorter |
+| Subset | Shortest NISS HTR, mean (moves) | Shortest linear, better side (moves) | Normal side (moves) | NISS = linear | NISS 1 shorter | NISS 2+ shorter |
 |---|---|---|---|---|---|---|
 | 0c0 | 5.25 | 5.80 | 6.16 | 66.6% | 18.1% | 15.3% |
 | 2c5 | 9.25 | 9.93 | 10.34 | 41.1% | 49.1% | 9.7% |

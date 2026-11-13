@@ -1,4 +1,4 @@
-| Skeleton length | 5c: best first comm, mean added | 8-3 or better | 8-4 or better | 8-5 or better | 3c: best comm, mean added | 3c: 8-3 or better | 3c: 8-4 or better |
+| Skeleton length | 5c: best first comm, mean added | 5c: 8-3 or better | 5c: 8-4 or better | 5c: 8-5 or better | 3c: best comm, mean added | 3c: 8-3 or better | 3c: 8-4 or better |
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | 12 | 5.09 | 62% | 23% | 7.0% | 6.30 | 19% | 5.5% |
 | 14 | 4.96 | 67% | 27% | 7.7% | 6.20 | 21% | 6.3% |

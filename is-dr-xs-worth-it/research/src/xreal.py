@@ -28,7 +28,7 @@ R = {}
 def write(name, L): open(D + name + '.md', 'w').write('\n'.join(L) + '\n'); print(name, len(L))
 S = sorted(base)
 # ---- what there is
-L = ['| On a scramble | Share of the 500 | Average number |', '|---|---:|---:|']
+L = ['| On a scramble | Share of the 500 that have one | Average number per scramble |', '|---|---:|---:|']
 def there(nm, f): L.append(f'| {nm} | {fmt(sum(1 for s in S if f(s) > 0), N)} | {avg(f(s) for s in S):,.1f} |')
 TH = {}
 def there(nm, f):
@@ -51,7 +51,7 @@ pol = [('every normal DR of 10 or less', lambda s: (nclassic(base[s], 10), class
        ('normal DRs of 11 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (nclassic(base[s], 11) + count(one[s], 8) + count(eight[s], 9), min(classic(base[s], 11), best(one[s], 8), best(eight[s], 9)))),
        ('every normal DR of 12 or less', lambda s: (nclassic(base[s], 12), classic(base[s], 12))),
        ('normal DRs of 12 or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (nclassic(base[s], 12) + count(one[s], 8) + count(eight[s], 9), min(classic(base[s], 12), best(one[s], 8), best(eight[s], 9))))]
-L = ['| You finish | To finish, per scramble | Result, average | 20 or less | 19 or less |', '|---|---:|---:|---:|---:|']
+L = ['| You finish | Things to finish, per scramble | Average best solution, moves | Best solution in 20 or less | 19 or less |', '|---|---:|---:|---:|---:|']
 for nm, f in pol:
     v = [f(s) for s in H]
     L.append(f'| {nm} | {avg(c for c, _ in v):,.0f} | {avg(b for _, b in v):.2f} | {fmt(sum(b <= 20 for _, b in v), len(H))} | {fmt(sum(b <= 19 for _, b in v), len(H))} |')
@@ -59,7 +59,7 @@ for nm, f in pol:
     R.setdefault('policies', []).append(dict(name=nm, n=avg(c for c, _ in v), result=avg(b for _, b in v)))
 write('real_result', L); R['H'] = len(H)
 # ---- head to head, all 500
-L = ['| Against the best through a normal DR of | The best DR-xs solution is shorter | Equal | Longer or none |', '|---|---:|---:|---:|']
+L = ['| Against the best through a normal DR of | Best DR-xs solution shorter, share of scrambles | Equal | Longer, or no DR-xs |', '|---|---:|---:|---:|']
 for ln in (10, 11, 12):
     w = e = l = 0
     for s in S:
@@ -69,15 +69,15 @@ for ln in (10, 11, 12):
 write('real_head', L)
 # ---- per candidate: how they finish against the uniform samples, and how often one reaches the best normal-DR solution
 allr = [r for s in S for r in one[s]]; alle = [r for s in S for r in eight[s]]
-L = ['| Kind and length | Number on the 500 scrambles | Their average finish | Average finish of the uniform sample |', '|---|---:|---:|---:|']
+L = ['| Kind and length | Number on the 500 scrambles | Their average finish, moves | Average finish of the uniform sample, moves | Setup searched, real and sample alike |', '|---|---:|---:|---:|---|']
 for ln in (6, 7, 8):
     rs = [r for r in allr if int(r['length']) == ln]
-    L.append(f"| DR-1s in {ln} | {len(rs):,} | {avg(int(r['finish']) for r in rs):.2f} | {xv.avg(xv.one_s()):.2f} |")
+    L.append(f"| DR-1s in {ln} | {len(rs):,} | {avg(int(r['finish']) for r in rs):.2f} | {xv.avg(xv.one_s()):.2f} | any length from either end |")
 for ln in (7, 8, 9):
     rs = [r for r in alle if int(r['length']) == ln]
-    L.append(f"| DR-2s 8fe in {ln} | {len(rs):,} | {avg(int(r['finish']) for r in rs):.2f} | {avg(int(x['finish_setup3']) for x in xv._rows('sample8fe.tsv')):.2f} (same 3-move setup search) |")
+    L.append(f"| DR-2s 8fe in {ln} | {len(rs):,} | {avg(int(r['finish']) for r in rs):.2f} | {avg(int(x['finish_setup3']) for x in xv._rows('sample8fe.tsv')):.2f} | up to 3 moves from either end |")
 write('real_candidates', L)
-L = ['| What you finish | Of them per scramble | Share that reach the best normal-DR solution of the scramble | One in |', '|---|---:|---:|---:|']
+L = ['| What you finish | How many per scramble | Share that reach the scramble\'s best normal-DR solution | One in this many reaches it |', '|---|---:|---:|---:|']
 Y = {}
 def yrow(nm, n, reach, key):
     L.append(f'| {nm} | {n / N:,.1f} | {fmt(reach, n)} | {n / reach:,.0f} |' if reach else f'| {nm} | {n / N:,.1f} | 0 | |'); Y[key] = reach / n if n else 0
@@ -111,7 +111,7 @@ if os.path.exists(O + 'eo_run.tsv'):
                (f'EOs of 4 or less: DRs of {cap} or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (eo[s][f'drs{cap}_eo4'] + count(one[s], 8) + count(eight[s], 9), min(eo[s][f'best{cap}_eo4'], best(one[s], 8), best(eight[s], 9)))),
                (f'EOs of 5 or less: every DR of {cap} or less', lambda s: (eo[s][f'drs{cap}_eo5'], eo[s][f'best{cap}_eo5'])),
                (f'EOs of 5 or less: DRs of {cap} or less, every DR-1s of 8 or less and every DR-2s 8fe of 9 or less', lambda s: (eo[s][f'drs{cap}_eo5'] + count(one[s], 8) + count(eight[s], 9), min(eo[s][f'best{cap}_eo5'], best(one[s], 8), best(eight[s], 9))))]
-        L = ['| You check and finish | Normal EOs to check, per scramble | To finish, per scramble | Result, average |', '|---|---:|---:|---:|']; P = []
+        L = ['| You check and finish | Normal EOs to check, per scramble | Things to finish, per scramble | Average best solution, moves |', '|---|---:|---:|---:|']; P = []
         for i, (nm, f) in enumerate(pol):
             v = [f(s) for s in Hs]; ne = avg(eo[s]['eos4' if i < 4 else 'eos5'] for s in Hs)
             L.append(f'| {nm} | {ne:,.0f} | {avg(c for c, _ in v):,.0f} | {avg(b for _, b in v):.2f} |'); P.append(dict(name=nm, eos=ne, n=avg(c for c, _ in v), result=avg(b for _, b in v)))

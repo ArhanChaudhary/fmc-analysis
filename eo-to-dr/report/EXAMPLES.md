@@ -27,14 +27,18 @@ U2 R2 D L2 R2 D' R2 U' L2 D R2 U F2 R' D' F2 L' D R D' B' R2 D'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 10, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 26 | 24 | 4 |
 | At most 5 | 180 | 172 | 184 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -78,14 +82,18 @@ B2 L2 R2 U R2 D2 B2 L2 R2 U F2 U R2 D2 B' R' U B' L' U R2 B D2  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 4 | 0 |
 | At most 5 | 58 | 100 | 92 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 8 | 9 | 11 |
 | Inverse | 8 | 9 | 10 | 8 |
@@ -127,14 +135,18 @@ L2 D2 U' F2 L2 U' L2 B2 U' R2 B2 L2 R' D L F' D F2 D' F2  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 4, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 64 | 48 | 12 |
 | At most 5 | 650 | 380 | 276 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 9 | 8 | 10 |
 | Inverse | 8 | 9 | 8 | 10 |
@@ -178,14 +190,18 @@ U R2 F2 R2 F2 U B2 U2 R2 D' F2 L2 U' R' U' F' U' R2 B' F2 D' R  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 12 | 24 | 36 |
 | At most 5 | 190 | 284 | 316 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 8 | 8 | 9 | 10 |
@@ -229,14 +245,18 @@ D2 R2 F2 L2 U' L2 R2 U' B2 D B2 R2 U2 B' L2 F' R U2 B L2 F L' U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 12 | 0 | 12 |
 | At most 5 | 190 | 88 | 228 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 8 | 10 | 10 |
 | Inverse | 8 | 10 | 8 | 10 |
@@ -278,14 +298,18 @@ B2 U L2 F2 R2 D2 R2 U F2 U2 B2 U R2 L' B' F2 R' D F2 U' F' D2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 2 | 32 | 24 |
 | At most 5 | 66 | 244 | 284 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 10 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -329,14 +353,18 @@ B2 F2 U2 B2 L2 U' B2 U' B2 U L2 U' B2 F' D2 U L D2 B' U' L U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 18 | 14 | 24 |
 | At most 5 | 256 | 238 | 248 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 10 |
 | Inverse | 9 | 10 | 9 | 9 |
@@ -380,14 +408,18 @@ B2 U2 L2 R2 D B2 D F2 U2 L2 U' R2 U' R2 U' B' D2 R' B2 F' R2 U F2 L R'  // scram
 
 Bad edges on R/L, U/D, F/B: 6, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 4 | 2 | 0 |
 | At most 5 | 54 | 60 | 116 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 11 | 10 | 10 |
 | Inverse | 9 | 10 | 9 | 9 |
@@ -431,14 +463,18 @@ F2 L2 R2 U2 L2 U' F2 D' B2 R2 D' F2 U R U L2 B L F' D F R' U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 16 | 40 |
 | At most 5 | 52 | 116 | 236 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -480,14 +516,18 @@ D2 L2 U2 L2 U' L2 D F2 U' B2 D B2 U L2 U2 B' D' F R' B' D B2 F2 L2 U2  // scramb
 
 Bad edges on R/L, U/D, F/B: 4, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 14 | 14 | 32 |
 | At most 5 | 230 | 150 | 316 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 8 | 9 | 10 | 8 |
@@ -531,14 +571,18 @@ U' B2 U' B2 U L2 D2 B2 R2 F2 R2 D F2 R2 U2 R' U L B F R2 U' B R D2  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 10 | 28 | 4 |
 | At most 5 | 144 | 180 | 228 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -582,14 +626,18 @@ R2 F2 L2 B2 D F2 L2 D2 L2 U F2 D B2 U' L' F' U B L D R B' L2 U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 10.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 8 |
 | At most 5 | 0 | 26 | 180 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 11 | 10 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -624,14 +672,18 @@ D F2 U' L2 D' F2 U' R2 U' B2 U B2 R2 U L' D' U' F R D2 R D' B D  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 4 | 4 | 8 |
 | At most 5 | 62 | 96 | 228 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -675,14 +727,18 @@ L2 R2 U2 F2 U L2 U F2 L2 D' F2 R2 U F' L' D2 R' B2 U B' F' L2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 10.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 0 |
 | At most 5 | 28 | 28 | 112 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -719,14 +775,18 @@ R2 B2 U2 B2 U' F2 D F2 U2 F2 R2 D2 U' R2 L' B D' U F2 R' B F2 L  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 8, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 10 | 6 | 12 |
 | At most 5 | 174 | 152 | 180 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 9 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -770,14 +830,18 @@ D R2 U B2 L2 U L2 B2 D2 L2 F2 U' L2 U' B' D2 F' L' R D' U' R' U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 16 | 20 | 16 |
 | At most 5 | 260 | 310 | 332 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 10 |
 | Inverse | 10 | 10 | 11 | 11 |
@@ -821,14 +885,18 @@ U2 F2 D' L2 B2 D' R2 F2 D F2 L2 B2 U2 B' U R F2 U F U2 R2 U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 40 | 6 | 8 |
 | At most 5 | 352 | 170 | 228 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 9 |
 | Inverse | 9 | 10 | 9 | 9 |
@@ -872,14 +940,18 @@ D' R2 U2 F2 L2 R2 U' L2 U' L2 U' B2 L B' U' R B U2 F' R' F' R'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 24 | 24 | 44 |
 | At most 5 | 340 | 278 | 524 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 9 | 9 | 10 | 9 |
@@ -923,14 +995,18 @@ D L2 U' F2 R2 U B2 R2 D' R2 U2 L2 B' L2 D' L B' D2 F D B R' U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 6 | 6 | 16 |
 | At most 5 | 176 | 130 | 412 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 8 | 11 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -974,14 +1050,18 @@ R2 U' L2 D' F2 U2 B2 R2 B2 U F2 D F2 U2 F' L' B U F' D' B U2 R2  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 28 | 4 | 8 |
 | At most 5 | 236 | 152 | 200 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 9 |
 | Inverse | 9 | 9 | 10 | 9 |
@@ -1025,14 +1105,18 @@ D B2 D2 F2 D R2 B2 F2 U R2 B2 L2 U' B' D2 L D' L D L F' L2 U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 2, 8, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 16 | 24 | 20 |
 | At most 5 | 244 | 296 | 220 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 10 |
 | Inverse | 9 | 10 | 9 | 9 |
@@ -1076,14 +1160,18 @@ L2 D' F2 U L2 F2 D' B2 D2 R2 B2 U R2 F' U2 L B' R2 F' U' R F' U  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 8, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 4 | 0 | 20 |
 | At most 5 | 100 | 84 | 228 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -1125,14 +1213,18 @@ D' R2 F2 U L2 U R2 U' R2 U L2 U B2 D B U R2 D R' F' U' B F2 U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 24 | 22 | 16 |
 | At most 5 | 236 | 290 | 228 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -1176,14 +1268,18 @@ U2 R2 U' F2 U' B2 F2 D' R2 U B2 U2 R2 D B2 U' R' B' U B' D R' D L R2 U'  // scra
 
 Bad edges on R/L, U/D, F/B: 6, 8, 2.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 40 | 36 | 4 |
 | At most 5 | 530 | 428 | 232 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 11 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -1227,14 +1323,18 @@ F2 D B2 R2 B2 L2 U2 B2 U R2 U' B2 U F2 B' D L2 R' U R2 B F2 R' D'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 24 |
 | At most 5 | 26 | 52 | 312 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -1271,14 +1371,18 @@ D2 B2 R2 D F2 U' B2 L2 B2 L2 D2 F2 D' R' B' F2 R F2 L B' D' F U  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 4 |
 | At most 5 | 72 | 48 | 64 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 9 | 10 | 9 |
@@ -1315,14 +1419,18 @@ D' F2 D L2 F2 U' F2 L2 D L2 U' L2 B2 F' R F D R' U' F R U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 18 | 34 | 16 |
 | At most 5 | 306 | 332 | 324 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 8 | 9 | 9 | 8 |
@@ -1366,14 +1474,18 @@ U2 L2 U B2 D2 L2 D' R2 U' F2 D' B2 R2 B2 L' F D' U' F2 D2 B2 R2 F  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 4 | 16 | 4 |
 | At most 5 | 206 | 226 | 132 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 10 | 9 | 8 |
 | Inverse | 9 | 9 | 9 | 10 |
@@ -1417,14 +1529,18 @@ L2 U' R2 U' R2 F2 L2 D L2 D F2 U2 L2 U R' B2 F R D F' L2 F' L' R'  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 2, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 42 | 42 | 16 |
 | At most 5 | 528 | 556 | 264 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 9 | 9 | 9 | 10 |
@@ -1468,14 +1584,18 @@ R2 D' B2 D L2 B2 F2 D B2 L2 R2 D U F' L' U2 B2 D B' R' B' F' U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 12 |
 | At most 5 | 20 | 52 | 216 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -1512,14 +1632,18 @@ B2 R2 U F2 U' L2 F2 U B2 L2 U' L2 D2 R' D' R2 F' L B' R U' L U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 8 | 8 |
 | At most 5 | 78 | 120 | 164 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -1563,14 +1687,18 @@ R2 U' F2 U' F2 R2 B2 D B2 D' R2 F2 U' L' D' R U' L' B' L  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 8, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 36 | 36 | 16 |
 | At most 5 | 518 | 400 | 368 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 7 | 8 | 7 | 9 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -1614,14 +1742,18 @@ B2 U B2 F2 R2 U' R2 B2 U' L2 U F2 L2 U2 F' L' D' U' B' D' L F2 D U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 4, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 40 | 22 | 4 |
 | At most 5 | 424 | 244 | 256 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 9 | 9 | 10 | 9 |
@@ -1665,14 +1797,18 @@ B2 L2 U' B2 F2 D F2 U2 B2 L2 F2 L2 U F' D B2 F2 R' B2 D' B' D L'  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 24 | 8 | 20 |
 | At most 5 | 170 | 108 | 244 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -1716,14 +1852,18 @@ F2 U L2 U' B2 D F2 L2 R2 F2 U B2 D' F' L B U2 F2 L U' L' R2 D2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 8, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 4 |
 | At most 5 | 92 | 32 | 112 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 10 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -1760,14 +1900,18 @@ R2 U2 B2 L2 U' F2 U' R2 B2 R2 D R2 F' U L' U' R D2 F' R B2 D2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 4 | 8 | 8 |
 | At most 5 | 144 | 104 | 240 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 11 | 10 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -1811,14 +1955,18 @@ D F2 L2 U' F2 U L2 B2 U L2 B2 L2 D U' L' F R B2 U L U2 L2 F  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 2 | 16 |
 | At most 5 | 92 | 90 | 232 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 11 | 9 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -1860,14 +2008,18 @@ L2 D F2 U F2 D B2 L2 D R2 B2 F2 D F2 R' F' R U R' D F2 R D'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 22 | 18 | 12 |
 | At most 5 | 246 | 198 | 248 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -1911,14 +2063,18 @@ B2 F2 D2 U' B2 R2 F2 U' R2 U L2 F2 D' U' L' R' U' F2 L B D F2 D'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 52 | 18 | 8 |
 | At most 5 | 402 | 268 | 264 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 8 | 9 | 9 |
 | Inverse | 9 | 9 | 10 | 9 |
@@ -1962,14 +2118,18 @@ D2 R2 D' F2 L2 B2 D2 R2 D2 U B2 R2 U2 L' D2 U F R B L' F L U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 4, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 28 | 64 | 16 |
 | At most 5 | 376 | 426 | 228 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -2013,14 +2173,18 @@ B2 F2 R2 D B2 U' B2 D2 U' F2 U B2 L2 U' L' D U2 B2 F R D F R'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 4, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 42 | 22 | 24 |
 | At most 5 | 364 | 282 | 472 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 8 | 9 | 9 |
 | Inverse | 8 | 8 | 8 | 8 |
@@ -2064,14 +2228,18 @@ B2 D R2 D' B2 R2 B2 F2 U' R2 U F2 U R' F R B2 U2 L' U F D' B'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 10 | 8 |
 | At most 5 | 12 | 192 | 232 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -2113,14 +2281,18 @@ F2 D' R2 B2 D L2 U2 L2 F2 D' R2 U2 F2 U' F' U' R' D' B R' F D' U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 22 | 36 | 20 |
 | At most 5 | 198 | 280 | 320 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 8 | 9 | 8 | 10 |
@@ -2164,14 +2336,18 @@ U F2 U' L2 F2 D L2 B2 D R2 B2 R2 U B' D2 U R' B L D R' U' F  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 4 | 4 |
 | At most 5 | 40 | 90 | 88 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -2213,14 +2389,18 @@ B2 U2 B2 D F2 D' R2 F2 U' B2 L2 D' R2 U' L' D F' U' R2 U' B' F2 L' R'  // scramb
 
 Bad edges on R/L, U/D, F/B: 10, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 4 |
 | At most 5 | 10 | 38 | 136 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -2257,14 +2437,18 @@ D F2 U L2 D L2 U B2 R2 U' R2 D2 L2 D F' R F2 L U2 B' D' U' F' U  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 16 |
 | At most 5 | 54 | 32 | 308 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -2301,14 +2485,18 @@ U R2 D2 R2 U2 F2 L2 R2 U' L2 R2 L' U L R2 B D2 L' U2 R  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 20 | 16 | 0 |
 | At most 5 | 272 | 262 | 176 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 9 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -2352,14 +2540,18 @@ F2 D2 R2 D' L2 U2 B2 L2 B2 L2 D F2 U2 R2 U' R' D L2 B L' B2 R2 D2 F' L2 U'  // s
 
 Bad edges on R/L, U/D, F/B: 8, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 12 |
 | At most 5 | 68 | 64 | 188 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 11 | 10 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -2396,14 +2588,18 @@ F2 D2 R2 U L2 U B2 D' R2 B2 F2 D F2 R' B2 D' L B U R2 F L' B  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 0 |
 | At most 5 | 42 | 22 | 132 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 10 | 10 | 11 | 10 |
@@ -2440,14 +2636,18 @@ F2 L2 F2 D U2 L2 F2 D' F2 L2 R2 U2 L2 F' U' B L B U2 B2 F' R U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 20 | 6 | 4 |
 | At most 5 | 200 | 174 | 132 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -2491,14 +2691,18 @@ L2 D2 R2 B2 D F2 D' L2 F2 R2 U2 F2 U2 F' R' U2 L B D' L' F2 D' U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 14 | 8 | 12 |
 | At most 5 | 226 | 154 | 208 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 10 |
 | Inverse | 9 | 10 | 9 | 9 |
@@ -2542,14 +2746,18 @@ D R2 F2 D' L2 F2 U2 R2 F2 U' F2 D' R D' B L' F2 D2 R' D' U  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 8, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 4 | 12 | 16 |
 | At most 5 | 162 | 192 | 260 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 8 | 9 | 8 | 9 |
@@ -2593,14 +2801,18 @@ B2 D' L2 U R2 F2 U' R2 D2 F2 R2 D' R2 D2 R' D L2 F R2 D' F2 U' L U  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 8, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 14 | 36 |
 | At most 5 | 174 | 204 | 332 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 9 | 9 | 10 |
@@ -2644,14 +2856,18 @@ F2 U2 F2 D' L2 D B2 U' B2 U' L2 D2 B' L F' R B U F L' R' D'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 28 | 20 | 28 |
 | At most 5 | 412 | 224 | 420 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 10 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -2695,14 +2911,18 @@ D2 L2 F2 L2 D' R2 B2 F2 U' F2 D' R2 U B' D U2 F U' L' R' U F2 U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 4 | 0 | 16 |
 | At most 5 | 142 | 100 | 212 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -2744,14 +2964,18 @@ F2 D B2 D' R2 D' F2 L2 D2 B2 L2 D2 U' B2 R' D U2 B' F2 L F' L2 D'  // scramble
 
 Bad edges on R/L, U/D, F/B: 2, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 50 | 10 | 12 |
 | At most 5 | 492 | 218 | 276 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 10 |
 | Inverse | 9 | 9 | 9 | 10 |
@@ -2795,14 +3019,18 @@ R2 D2 L2 B2 D' F2 D' F2 R2 F2 U2 B2 D R' D2 F U' B L' B2 D F D  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 14 | 4 |
 | At most 5 | 120 | 230 | 204 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 10 | 9 | 9 |
@@ -2846,14 +3074,18 @@ L2 B2 U' F2 D L2 F2 U L2 U' B2 R2 F2 B' L2 R' B' D' R D2 R B'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 2 | 14 | 0 |
 | At most 5 | 136 | 234 | 128 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 9 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -2897,14 +3129,18 @@ B2 F2 D2 L2 D R2 U F2 L2 D F2 D L2 B2 U2 F' D2 L' D' U2 F R2 B D2 U  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 22 | 18 | 16 |
 | At most 5 | 290 | 212 | 236 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -2948,14 +3184,18 @@ U2 L2 D' L2 D F2 L2 D R2 U' L2 D' R2 F2 U L' D R2 F R F' L' F  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 20 | 22 | 12 |
 | At most 5 | 430 | 296 | 260 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 9 | 8 | 8 |
 | Inverse | 9 | 9 | 10 | 9 |
@@ -2999,14 +3239,18 @@ U' B2 D F2 D' B2 D' B2 F2 D2 R2 B2 D2 R2 B' D R B' D2 U' R U2 B2 U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 30 | 16 | 36 |
 | At most 5 | 296 | 350 | 336 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 8 | 9 | 8 | 10 |
@@ -3050,14 +3294,18 @@ U2 F2 U L2 U F2 L2 U F2 U' L2 U L2 U2 L' D U2 B D' L' B R U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 6 | 10 | 20 |
 | At most 5 | 230 | 210 | 236 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 10 |
 | Inverse | 8 | 10 | 9 | 8 |
@@ -3101,14 +3349,18 @@ D2 B2 U F2 L2 R2 D R2 F2 U R2 D' B L' B2 F' L2 D F U R  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 16 | 0 | 8 |
 | At most 5 | 248 | 58 | 288 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 9 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -3150,14 +3402,18 @@ B2 D F2 D2 B2 D' B2 D' R2 D' F2 U' R2 U' L' D' F' R' B L U B F' R2  // scramble
 
 Bad edges on R/L, U/D, F/B: 10, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 16 |
 | At most 5 | 54 | 24 | 128 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 10 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -3194,14 +3450,18 @@ R2 D R2 F2 D F2 U' B2 L2 D B2 D2 F2 U R' U2 F' R2 B2 D' U' L' F L'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 10, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 0 | 8 |
 | At most 5 | 68 | 46 | 232 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 11 | 10 | 10 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -3243,14 +3503,18 @@ F2 D' R2 B2 U' R2 U' F2 D2 B2 R2 U' F2 R2 D2 F' R B2 R F' L D U' F U2  // scramb
 
 Bad edges on R/L, U/D, F/B: 4, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 26 | 24 | 8 |
 | At most 5 | 290 | 312 | 248 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 9 | 9 | 9 | 10 |
@@ -3294,14 +3558,18 @@ D' B2 D2 L2 D F2 L2 U2 F2 R2 U' R2 B2 U B' D' B' F L' F R B' R2 U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 8, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 4 | 16 | 0 |
 | At most 5 | 116 | 200 | 72 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -3345,14 +3613,18 @@ B2 L2 D' R2 F2 D' F2 D B2 D R2 D2 B2 L2 U' F' L D U' R B2 U L' B2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 18 | 24 | 4 |
 | At most 5 | 368 | 288 | 212 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 8 | 9 | 9 |
 | Inverse | 9 | 9 | 9 | 10 |
@@ -3396,14 +3668,18 @@ R2 B2 F2 D2 L2 B2 D' R2 D L2 R2 D R2 U' B' R2 D' R' F U L D2 F' D2  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 20 |
 | At most 5 | 68 | 4 | 120 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -3440,14 +3716,18 @@ R2 B2 U2 B2 U L2 U2 R2 U2 B2 L2 U' B' D2 L' F D2 R F' U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 2, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 48 | 60 | 8 |
 | At most 5 | 524 | 572 | 356 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 8 | 8 | 9 |
 | Inverse | 8 | 8 | 9 | 10 |
@@ -3491,14 +3771,18 @@ B2 L2 U' L2 U' F2 D R2 B2 D R2 U' F2 D2 R' F' D L' B2 R2 B D2 U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 2 | 16 | 0 |
 | At most 5 | 64 | 326 | 80 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 9 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -3542,14 +3826,18 @@ D' F2 R2 U2 R2 U B2 U F2 U R2 U2 L2 U2 B' F' D' L B R U' L2 F' R2  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 16 | 0 |
 | At most 5 | 44 | 92 | 80 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -3591,14 +3879,18 @@ D' R2 U2 B2 F2 U F2 U' B2 L2 R2 U2 R' B' D L2 U R2 B' D2  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 4 | 14 | 20 |
 | At most 5 | 122 | 162 | 232 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 9 | 8 | 10 |
 | Inverse | 9 | 9 | 10 | 9 |
@@ -3642,14 +3934,18 @@ D F2 U R2 U' F2 L2 D' F2 D2 L2 B2 D' L' U2 B' R U F L2 D' B R'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 10.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 0 | 4 |
 | At most 5 | 82 | 20 | 112 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 9 | 9 | 10 |
@@ -3691,14 +3987,18 @@ D' F2 U' R2 B2 L2 R2 D' R2 U2 B2 F2 U' R' D B L F' D2 B L R2 U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 26 | 10 | 8 |
 | At most 5 | 278 | 198 | 136 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 7 | 10 | 10 | 7 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -3742,14 +4042,18 @@ U' B2 U' F2 D L2 R2 D F2 U' F2 U' R2 U F' L R2 B' D L F2 U' F' R U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 12 | 24 |
 | At most 5 | 108 | 122 | 340 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 11 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -3793,14 +4097,18 @@ U2 F2 D B2 L2 D B2 L2 D L2 U' B2 D2 L2 U' L' F U' L2 B F2 L' D2 U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 12 | 0 | 24 |
 | At most 5 | 174 | 96 | 304 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 11 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -3842,14 +4150,18 @@ B2 U' R2 U' B2 L2 D2 B2 L2 U2 B2 L2 U' R2 B' D' U F R' B' R U B'  // scramble
 
 Bad edges on R/L, U/D, F/B: 2, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 46 | 32 | 12 |
 | At most 5 | 454 | 392 | 272 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 9 |
 | Inverse | 7 | 9 | 7 | 10 |
@@ -3893,14 +4205,18 @@ R2 D' F2 R2 D' B2 L2 R2 U F2 D B2 D' F' U2 L B U2 L2 R F2 R'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 14 | 28 | 12 |
 | At most 5 | 216 | 302 | 252 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 9 |
 | Inverse | 9 | 9 | 10 | 9 |
@@ -3944,14 +4260,18 @@ B2 D R2 U' R2 F2 L2 R2 U' F2 U' R2 U2 B2 U' B' R' D2 F2 U2 F2 U2 F' U'  // scram
 
 Bad edges on R/L, U/D, F/B: 4, 4, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 64 | 82 | 20 |
 | At most 5 | 636 | 780 | 484 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 10 |
 | Inverse | 7 | 8 | 7 | 9 |
@@ -3995,14 +4315,18 @@ U' F2 U F2 L2 U F2 L2 D L2 U2 F2 R2 F2 U2 F' R' B R' D B2 L' U' L2 D2  // scramb
 
 Bad edges on R/L, U/D, F/B: 6, 8, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 32 | 0 | 4 |
 | At most 5 | 190 | 10 | 224 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 10 |
 | Inverse | 9 | 9 | 10 | 9 |
@@ -4044,14 +4368,18 @@ D B2 U2 F2 R2 F2 D' R2 B2 U' B2 D F2 B' L' U R2 D2 U' B R2  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 20 | 8 | 8 |
 | At most 5 | 210 | 170 | 200 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 10 | 8 | 10 |
 | Inverse | 9 | 10 | 9 | 9 |
@@ -4095,14 +4423,18 @@ U B2 L2 F2 L2 D L2 U2 F2 L2 R2 D L2 U' F' U' B D' L' B' F L2 U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 16 | 4 | 4 |
 | At most 5 | 152 | 152 | 172 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 8 | 9 | 8 | 10 |
@@ -4146,14 +4478,18 @@ U' F2 D B2 L2 D2 R2 F2 U' B2 F2 R2 B' L2 R' F R U2 L' R2 D'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 52 | 16 | 20 |
 | At most 5 | 606 | 248 | 372 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -4197,14 +4533,18 @@ F2 R2 F2 R2 D L2 U2 R2 D2 U' B2 U2 R2 L' U' L F' U L U2 B R  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 20 |
 | At most 5 | 94 | 42 | 280 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 9 | 11 | 9 | 10 |
@@ -4241,14 +4581,18 @@ L2 F2 U R2 F2 U2 L2 U B2 U B2 U' R2 D' L' U L2 B2 F' U' L' F2 D2  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 4, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 26 | 16 | 12 |
 | At most 5 | 400 | 270 | 328 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 8 | 9 | 10 |
 | Inverse | 9 | 9 | 9 | 9 |
@@ -4292,14 +4636,18 @@ D' L2 D' R2 D' R2 D2 B2 U' R2 D' B2 U2 B2 U' L' B F' D' L F R2 D2 R  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 4, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 24 | 4 |
 | At most 5 | 130 | 250 | 180 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 10 | 9 | 8 |
 | Inverse | 9 | 9 | 9 | 9 |
@@ -4343,14 +4691,18 @@ L2 U B2 R2 D' L2 D2 F2 D L2 D' B2 U' B' U' R2 B2 R' F L2 D2 F2  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 20 | 14 | 28 |
 | At most 5 | 238 | 248 | 260 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 10 |
 | Inverse | 8 | 8 | 10 | 9 |
@@ -4394,14 +4746,18 @@ U L2 B2 D R2 F2 U B2 D' B2 L2 B2 F2 U2 R' U2 R2 F' R2 D' B' L F  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 6 | 10 | 0 |
 | At most 5 | 160 | 226 | 124 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 10 | 9 | 8 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -4445,14 +4801,18 @@ U' B2 L2 D' B2 U2 L2 U B2 F2 L2 D B2 R2 U' L' B2 R' B' U2 L2 B L2 U2  // scrambl
 
 Bad edges on R/L, U/D, F/B: 6, 2, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 62 | 36 | 20 |
 | At most 5 | 672 | 542 | 412 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -4496,14 +4856,18 @@ L2 D2 B2 R2 D' L2 D R2 B2 D' R2 F2 D2 R' F U' F2 U' L' B2 D' F2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 2 | 20 | 28 |
 | At most 5 | 114 | 182 | 364 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 10 |
 | Inverse | 9 | 10 | 9 | 9 |
@@ -4547,14 +4911,18 @@ R2 U2 R2 B2 D L2 B2 L2 D2 B2 U B2 U' F' U B2 L B D L2 R' D2 F'  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 6, 10.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 0 | 8 |
 | At most 5 | 84 | 64 | 144 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -4596,14 +4964,18 @@ F2 R2 D B2 R2 D' B2 D2 U' R2 U' R2 F2 U' R2 B' D L' D2 F2 R2 F' D' U2 R'  // scr
 
 Bad edges on R/L, U/D, F/B: 4, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 24 | 8 | 0 |
 | At most 5 | 290 | 164 | 164 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 8 | 8 | 10 | 9 |
@@ -4647,14 +5019,18 @@ B2 R2 D' L2 U2 B2 U2 F2 R2 U' L2 F2 U' F' U' L' B2 U R D' F D2 U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 4 |
 | At most 5 | 12 | 90 | 280 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -4691,14 +5067,18 @@ U L2 D F2 U2 L2 B2 U R2 U L2 R2 F2 U' F' U B L' U' B' L B2 D  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 32 | 0 | 4 |
 | At most 5 | 286 | 22 | 208 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 10 |
 | Inverse | 9 | 9 | 10 | 9 |
@@ -4740,14 +5120,18 @@ F2 L2 F2 D B2 U' F2 D2 L2 D B2 L2 U B2 R' U' L2 R' B D R2 U2 B' U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 2, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 24 | 22 | 16 |
 | At most 5 | 332 | 326 | 312 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -4791,14 +5175,18 @@ D2 R2 U' F2 U' B2 F2 D' L2 D L2 U R2 U' L' U' L' D' B' D2 R D' B' D2  // scrambl
 
 Bad edges on R/L, U/D, F/B: 6, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 32 | 30 | 36 |
 | At most 5 | 380 | 306 | 396 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -4842,14 +5230,18 @@ D2 L2 B2 D' L2 U2 L2 F2 D' R2 U2 F2 U' R2 U2 L' U' L' F U' R B F2  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 16 | 0 |
 | At most 5 | 152 | 200 | 136 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 9 | 8 | 9 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -4893,14 +5285,18 @@ U' R2 D F2 U2 L2 U' R2 U F2 L2 B2 F U2 R B' F' U' F' L2 R U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 4 | 20 | 40 |
 | At most 5 | 210 | 196 | 348 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -4944,14 +5340,18 @@ B2 D2 R2 U2 L2 B2 R2 D' L2 B2 D' L2 U2 L' U2 B' R' D L2 U' L F2 U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 8, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 16 | 4 | 12 |
 | At most 5 | 354 | 148 | 204 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -4995,14 +5395,18 @@ F2 R2 U' F2 L2 F2 L2 U F2 D R2 D2 L2 U' R' U2 B D R' B F U B L2 U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 10, 10.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 8 |
 | At most 5 | 0 | 4 | 76 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 11 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -5037,14 +5441,18 @@ L2 R2 D' R2 F2 U R2 D B2 U' F2 D' B' R D' U B2 R D R2 F' U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 22 | 2 | 12 |
 | At most 5 | 238 | 174 | 296 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 8 | 9 | 9 | 8 |
@@ -5088,14 +5496,18 @@ U2 L2 U' F2 D' L2 U2 F2 D B2 U B2 U' F2 U' F' U' L2 D' L' U L R2 F U'  // scramb
 
 Bad edges on R/L, U/D, F/B: 2, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 22 | 32 |
 | At most 5 | 78 | 240 | 344 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -5137,14 +5549,18 @@ U L2 U2 L2 U' F2 D' R2 D R2 U2 B2 F L F' D2 F2 R U' L2 B' U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 18 | 40 | 28 |
 | At most 5 | 350 | 426 | 416 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 9 | 9 | 10 | 9 |
@@ -5188,14 +5604,18 @@ U B2 D R2 U' L2 D2 L2 R2 U' F2 U B2 U' R' D' L' B U R B2 D U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 34 | 6 | 12 |
 | At most 5 | 328 | 118 | 200 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 9 | 10 | 9 | 9 |
@@ -5239,14 +5659,18 @@ D' B2 U2 F2 D L2 U B2 R2 U B' R2 U L F' D' R' U' L U  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 28 | 2 | 0 |
 | At most 5 | 224 | 116 | 112 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -5290,14 +5714,18 @@ B2 D' B2 R2 D' B2 U2 L2 U2 R2 U B2 F2 U' L' F L2 U' R F' D2 F' R U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 2, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 42 | 18 | 20 |
 | At most 5 | 440 | 278 | 400 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -5341,14 +5769,18 @@ F2 D F2 U' B2 F2 R2 F2 D F2 U2 B2 D' R F' L' U' B D' R' D2 R U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 10, 8, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 8 | 0 |
 | At most 5 | 64 | 88 | 72 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 8 | 10 | 10 |
 | Inverse | 8 | 10 | 8 | 10 |
@@ -5390,14 +5822,18 @@ B2 R2 D2 B2 D L2 R2 U' B2 U2 F2 U' F' R F L F2 D' L2 D B  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 20 | 28 | 4 |
 | At most 5 | 312 | 354 | 144 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 8 | 10 | 10 | 8 |
@@ -5441,14 +5877,18 @@ L2 U F2 D L2 B2 U2 R2 B2 R2 B2 D' L2 U' R2 B' L' D2 R' F R2 U' L B L  // scrambl
 
 Bad edges on R/L, U/D, F/B: 6, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 16 | 16 |
 | At most 5 | 26 | 92 | 276 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -5490,14 +5930,18 @@ F2 D2 L2 U F2 L2 R2 D L2 F2 U F2 D' F2 U' R' D' F' L2 B2 R B F' D'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 12 | 0 | 12 |
 | At most 5 | 204 | 108 | 180 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 9 |
 | Inverse | 9 | 9 | 9 | 10 |
@@ -5539,14 +5983,18 @@ R2 D B2 D' B2 U2 R2 B2 L2 F2 D2 U F2 L' D F R2 D U2 B' R'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 24 | 18 | 16 |
 | At most 5 | 252 | 360 | 348 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 10 | 8 | 9 |
 | Inverse | 9 | 9 | 9 | 9 |
@@ -5590,14 +6038,18 @@ B2 L2 F2 L2 D R2 U' B2 U2 B2 L2 U' R2 U L2 U F' U' R F' R2 U' L' B' U'  // scram
 
 Bad edges on R/L, U/D, F/B: 8, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 12 | 8 | 28 |
 | At most 5 | 116 | 124 | 212 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 10 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -5641,14 +6093,18 @@ L2 F2 R2 U2 L2 F2 U' L2 D B2 R2 U B2 U2 L' F' U2 L U L2 R' U2 B D  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 8, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 0 | 4 |
 | At most 5 | 72 | 96 | 84 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 10 | 11 | 11 | 10 |
@@ -5690,14 +6146,18 @@ L2 U F2 U2 B2 U F2 L2 F2 U' F2 R2 F' L' D2 B2 U2 F' D' F D2 U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 20 | 22 | 0 |
 | At most 5 | 202 | 218 | 192 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 10 |
 | Inverse | 9 | 9 | 9 | 9 |
@@ -5741,14 +6201,18 @@ U R2 B2 D' B2 D F2 D L2 B2 D2 B2 U B' D L D2 B D2 F' U L' D'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 8 |
 | At most 5 | 44 | 60 | 192 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -5785,14 +6249,18 @@ U B2 F2 D B2 F2 U' R2 D' U' R2 B2 U R' B2 D F' D' R2 B' U' F' U  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 14 | 22 | 8 |
 | At most 5 | 204 | 230 | 212 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -5836,14 +6304,18 @@ B2 U' B2 R2 B2 U B2 D' U2 B2 U F2 R' F L2 D' B D' B D'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 4, 2.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 46 | 90 | 44 |
 | At most 5 | 676 | 872 | 504 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 10 | 8 | 9 |
 | Inverse | 8 | 8 | 9 | 9 |
@@ -5887,14 +6359,18 @@ D L2 D U2 F2 D B2 U' L2 U L2 B2 R F D2 L' B' F' D' R' U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 4 | 0 | 20 |
 | At most 5 | 66 | 42 | 168 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -5936,14 +6412,18 @@ B2 D B2 D F2 L2 F2 R2 D L2 B2 D2 F2 U2 R' B2 F2 D U' B L' D' F2 U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 24 | 24 | 28 |
 | At most 5 | 340 | 260 | 400 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -5987,14 +6467,18 @@ F2 U' B2 U2 B2 L2 U' L2 U F2 L2 R2 U' F2 U F' U' L F2 D L2 F L B' U2  // scrambl
 
 Bad edges on R/L, U/D, F/B: 4, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 20 | 8 | 4 |
 | At most 5 | 174 | 124 | 100 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -6038,14 +6522,18 @@ D2 F2 U B2 R2 D2 L2 D R2 U L2 R2 L' D R2 B F D B' F2 R2 U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 28 | 28 |
 | At most 5 | 168 | 240 | 248 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 9 | 9 | 10 | 9 |
@@ -6089,14 +6577,18 @@ D L2 F2 U B2 D' F2 R2 B2 F2 U2 R2 U' R2 U' B' D L' R2 F L D' F' U' L  // scrambl
 
 Bad edges on R/L, U/D, F/B: 4, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 34 | 10 | 8 |
 | At most 5 | 554 | 288 | 272 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 7 | 9 | 9 | 7 |
@@ -6140,14 +6632,18 @@ B2 U' R2 D L2 B2 R2 F2 U F2 U' R2 U L2 U' F' L2 R2 D2 F R' B L D R'  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 22 | 4 | 12 |
 | At most 5 | 322 | 162 | 180 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 9 | 9 | 10 |
@@ -6191,14 +6687,18 @@ R2 F2 D2 L2 D2 R2 B2 U L2 R2 F2 R2 U2 B' L' D U2 L R2 D2 F D2  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 32 | 42 | 8 |
 | At most 5 | 366 | 366 | 188 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 9 |
 | Inverse | 9 | 10 | 9 | 9 |
@@ -6242,14 +6742,18 @@ D F2 U F2 L2 B2 U' R2 B2 R2 D L2 U' L' D B2 D R' B' U' R'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 8, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 26 | 24 | 24 |
 | At most 5 | 306 | 482 | 244 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 9 | 8 | 10 |
 | Inverse | 9 | 9 | 9 | 9 |
@@ -6293,14 +6797,18 @@ B2 D B2 D' L2 B2 F2 D R2 B2 F2 U2 B2 U' L' D2 U' B2 D' F L' D' B' U'  // scrambl
 
 Bad edges on R/L, U/D, F/B: 6, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 12 | 8 |
 | At most 5 | 126 | 154 | 252 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 11 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -6344,14 +6852,18 @@ U' B2 U' R2 D F2 U2 L2 B2 L2 D F2 D2 R2 F' U' R2 B' R' F2 L B F' U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 2 | 4 |
 | At most 5 | 136 | 102 | 100 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -6395,14 +6907,18 @@ B2 L2 D' B2 U' F2 U B2 F2 L2 F2 D2 B' D R U' L' B D U' R D' U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 10, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 24 |
 | At most 5 | 30 | 16 | 264 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 11 | 10 |
 | Inverse | 10 | 10 | 11 | 10 |
@@ -6439,14 +6955,18 @@ D' F2 D' F2 R2 U' F2 U F2 U' B2 L2 U2 R B' D R' U L' D L' R' U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 28 | 22 | 12 |
 | At most 5 | 252 | 194 | 232 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 8 | 8 | 9 | 10 |
@@ -6490,14 +7010,18 @@ B2 D' R2 D2 B2 D F2 U2 R2 U' B2 R2 U2 L' U' R' F' D' F2 L B' D2 L  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 4 | 8 |
 | At most 5 | 0 | 108 | 184 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -6537,14 +7061,18 @@ B2 D' R2 U R2 U R2 B2 U2 L2 U R2 U' R2 U' B' D L2 D' L F L D' L  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 6 | 4 | 32 |
 | At most 5 | 178 | 184 | 388 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 9 |
 | Inverse | 9 | 9 | 9 | 10 |
@@ -6588,14 +7116,18 @@ F2 U R2 B2 R2 F2 D' L2 U' L2 U' R2 L' B' R' U' L' F' U2 B2 R U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 4 | 40 |
 | At most 5 | 116 | 166 | 408 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 10 |
 | Inverse | 8 | 8 | 10 | 10 |
@@ -6637,14 +7169,18 @@ D R2 B2 U' L2 U B2 U' R2 D R2 B2 F2 L' F D' B U L' R2 F' R' D2 U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 10, 10, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 0 |
 | At most 5 | 24 | 32 | 8 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 11 | 10 |
 | Inverse | 9 | 9 | 10 | 9 |
@@ -6681,14 +7217,18 @@ U2 R2 U L2 F2 U B2 U' B2 U L2 D R2 U2 R' U B' L U L' B2 F L' D2  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 4, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 6 | 14 | 12 |
 | At most 5 | 172 | 268 | 156 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -6732,14 +7272,18 @@ B2 L2 D L2 F2 U L2 U2 B2 D2 U' F' U R' D B L' R2 B F U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 4, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 32 | 28 | 16 |
 | At most 5 | 384 | 430 | 284 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -6783,14 +7327,18 @@ L2 D B2 L2 U L2 U2 F2 L2 B2 L2 R2 B' L' R2 F L' F' U B' L  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 28 | 24 | 44 |
 | At most 5 | 356 | 280 | 408 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -6834,14 +7382,18 @@ B2 F2 L2 F2 D2 F2 U L2 U F2 R2 U F2 R' F' U' B' L U F2 U' B  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 12 | 16 | 28 |
 | At most 5 | 142 | 256 | 332 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 10 |
 | Inverse | 9 | 9 | 10 | 10 |
@@ -6885,14 +7437,18 @@ D U2 B2 U' L2 U B2 U' B2 D' R2 U L' F' R' U' L' R F D2 L U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 2 | 4 | 8 |
 | At most 5 | 84 | 90 | 240 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 11 | 10 | 10 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -6936,14 +7492,18 @@ F2 U' R2 F2 D' R2 D' R2 B2 D' L2 U B2 R2 U L' B' F D L' U' R2 B L2 U'  // scramb
 
 Bad edges on R/L, U/D, F/B: 6, 4, 10.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 24 | 0 | 8 |
 | At most 5 | 208 | 96 | 152 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 7 | 7 | 10 | 9 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -6985,14 +7545,18 @@ B2 D' L2 U F2 D L2 U2 F2 D2 B2 R D' F R2 U B L U' L  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 2 | 0 | 4 |
 | At most 5 | 66 | 90 | 148 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 9 | 9 |
 | Inverse | 8 | 10 | 8 | 9 |
@@ -7034,14 +7598,18 @@ F2 U R2 U R2 D' F2 U B2 D B2 L2 D' L2 R' U2 F' D' F' R2 F' D2 F2 D'  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 4, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 18 | 16 |
 | At most 5 | 156 | 254 | 288 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 8 | 10 | 10 |
 | Inverse | 9 | 10 | 10 | 9 |
@@ -7085,14 +7653,18 @@ B2 L2 F2 U L2 D2 B2 L2 D R2 D B2 F' R2 U B D2 L' F D2 B  // scramble
 
 Bad edges on R/L, U/D, F/B: 4, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 16 | 40 | 12 |
 | At most 5 | 188 | 462 | 200 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 8 | 9 | 9 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -7136,14 +7708,18 @@ L2 U F2 D R2 B2 L2 F2 U' B2 U2 L2 B2 F' D' B2 R' D U' F' R B2 U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 8, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 18 | 12 |
 | At most 5 | 140 | 276 | 180 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 8 | 8 | 10 | 10 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -7187,14 +7763,18 @@ B2 L2 B2 D' B2 U L2 U2 F2 U' B2 U' F2 R2 L' D F D U B U' R2 D L'  // scramble
 
 Bad edges on R/L, U/D, F/B: 2, 10, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 24 | 38 | 0 |
 | At most 5 | 280 | 396 | 152 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -7238,14 +7818,18 @@ F2 R2 D' L2 B2 D2 F2 U R2 F2 U L2 R2 U2 B' U F' L' F L R D U' L  // scramble
 
 Bad edges on R/L, U/D, F/B: 10, 6, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 0 | 0 | 16 |
 | At most 5 | 38 | 16 | 208 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 9 | 10 | 9 |
 | Inverse | 9 | 9 | 10 | 11 |
@@ -7282,14 +7866,18 @@ D L2 U2 L2 B2 D2 F2 U F2 U L2 U' B' L F L2 F2 L2 U R F U'  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 8.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 4 | 4 | 4 |
 | At most 5 | 86 | 128 | 128 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 10 | 9 |
 | Inverse | 10 | 10 | 10 | 10 |
@@ -7333,14 +7921,18 @@ R2 F2 L2 D' B2 D F2 D2 R2 D R2 F2 U2 B2 U2 R' U' L2 B U L' U F2 U2  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 6, 4.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 14 | 22 | 8 |
 | At most 5 | 200 | 228 | 232 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 10 |
 | Inverse | 9 | 10 | 9 | 10 |
@@ -7384,14 +7976,18 @@ D R2 B2 U L2 U2 L2 D' B2 U2 L' B' D' R B2 U' B F' R2 D'  // scramble
 
 Bad edges on R/L, U/D, F/B: 8, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 12 | 12 | 8 |
 | At most 5 | 180 | 132 | 196 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 10 | 10 | 10 | 10 |
 | Inverse | 9 | 9 | 9 | 10 |
@@ -7435,14 +8031,18 @@ R2 D2 B2 R2 U' F2 D L2 U' R2 F2 U' B2 U' L' F' R' F2 D' B' U L F  // scramble
 
 Bad edges on R/L, U/D, F/B: 6, 8, 6.
 
-| EOs (all three axes) | Normal | Inverse | NISS, turns on both sides |
+How many EOs the scramble has on all three axes, by length, on each side:
+
+| Number of EOs | Normal | Inverse | NISS, turns on both sides |
 |---|---:|---:|---:|
 | At most 4 turns | 8 | 0 | 0 |
 | At most 5 | 104 | 28 | 64 |
 
 <details><summary>Shortest DRs and the best DRs through short EOs</summary>
 
-| Shortest DR | Turns | R/L | U/D | F/B |
+Fewest turns to DR from the scramble: the best axis, then each axis.
+
+| Shortest DR | Best axis, turns | R/L, turns | U/D, turns | F/B, turns |
 |---|---:|---:|---:|---:|
 | Normal side | 9 | 10 | 9 | 10 |
 | Inverse | 8 | 10 | 10 | 8 |
@@ -7491,7 +8091,9 @@ U R' B2 D                                                          // EO on U/D 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (6c6e), EO kept | 8 | `F' B' R' F' U2 R2 F2 R` |
 | DR on F/B on the inverse (6c6e there), EO kept | 7 | `(B U2 L' F' R F2 R)` |
@@ -7511,7 +8113,9 @@ U R2 L D                                                          // EO on U/D (
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (6c6e), EO kept | 7 | `F' U2 L F U2 R' B` |
 | DR on R/L on the inverse (6c6e there), EO kept | 8 | `(R2 D2 F L' B2 R' D2 F)` |
@@ -7531,7 +8135,9 @@ L U F' R                                                           // EO on R/L 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (6c6e), EO kept | 7 | `B U2 D' B' R2 D' B` |
 | DR on U/D on the inverse (6c6e there), EO kept | 8 | `(F2 U' F D L2 B2 U' B)` |
@@ -7553,7 +8159,9 @@ U B R F                                                        // EO on F/B (4 t
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (5c6e), EO kept | 8 | `R2 F2 R U L2 D' R D` |
 | DR on R/L on the inverse (5c6e there), EO kept | 6 | `(U L' D2 F2 L D)` |
@@ -7573,7 +8181,9 @@ U D2 L D                                                                     // 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (5c6e), EO kept | 8 | `F L D2 L F' L R' F` |
 | DR on R/L on the inverse (5c6e there), EO kept | 8 | `(L2 B' R U2 B L R B)` |
@@ -7593,7 +8203,9 @@ L' B U L'                                                           // EO on R/L
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (5c6e), EO kept | 9 | `U F2 R2 U B2 F' R2 D B` |
 | DR on U/D on the inverse (5c6e there), EO kept | 8 | `(U' B U B2 D' B L2 F)` |
@@ -7615,7 +8227,9 @@ U' D R' U                                                          // EO on U/D 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (6c4e), EO kept | 9 | `L2 B L B' U2 D2 B2 R F` |
 | DR on R/L on the inverse (6c4e there), EO kept | 8 | `(R F U2 L R' D2 R B)` |
@@ -7635,7 +8249,9 @@ F2 D' L2 F                                                  // EO on F/B (4 turn
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (6c4e), EO kept | 8 | `U R' U F2 U B2 L D` |
 | DR on R/L on the inverse (6c4e there), EO kept | 8 | `(R2 U D L2 U' L' R D)` |
@@ -7655,7 +8271,9 @@ U2 D' R L                                                            // EO on R/
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (6c4e), EO kept | 9 | `D F U R2 D L2 B2 U2 B` |
 | DR on U/D on the inverse (6c4e there), EO kept | 8 | `(U' D' B' D B2 D R2 F)` |
@@ -7677,7 +8295,9 @@ D L B R                                                          // EO on R/L (4
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (4c6e), EO kept | 7 | `B U' L2 D' B2 R2 F` |
 | DR on U/D on the inverse (4c6e there), EO kept | 9 | `(D B2 D2 R2 B' L2 B2 D F)` |
@@ -7697,7 +8317,9 @@ D B' U' R'                                                     // EO on R/L (4 t
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (4c6e), EO kept | 7 | `B' F2 U F U2 D B` |
 | DR on U/D on the inverse (4c6e there), EO kept | 7 | `(U' D2 F2 U' B' D2 F)` |
@@ -7717,7 +8339,9 @@ U R' F R'                                                      // EO on R/L (4 t
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (4c6e), EO kept | 7 | `R2 D' B D2 F U F` |
 | DR on U/D on the inverse (4c6e there), EO kept | 8 | `(D L2 B' D' L2 B2 D2 B)` |
@@ -7739,7 +8363,9 @@ U' D R U                                                         // EO on U/D (4
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (5c4e), EO kept | 8 | `L2 F D2 U2 L' F D2 L` |
 | DR on F/B on the inverse (5c4e there), EO kept | 9 | `(F R F2 R2 L' U2 F2 B' L)` |
@@ -7759,7 +8385,9 @@ U B' D B                                                     // EO on F/B (4 tur
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (5c4e), EO kept | 8 | `U2 B2 L D F2 L2 R' U` |
 | DR on R/L on the inverse (5c4e there), EO kept | 8 | `(U L2 D L U L2 R2 U)` |
@@ -7779,7 +8407,9 @@ R B2 D L                                                           // EO on R/L 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (5c4e), EO kept | 8 | `B2 U B2 L2 F' U R2 F` |
 | DR on U/D on the inverse (5c4e there), EO kept | 7 | `(D B' D' B2 D' R2 F)` |
@@ -7801,7 +8431,9 @@ U D' B2 U                                                     // EO on U/D (4 tu
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (7c6e), EO kept | 7 | `L' R' F R' U2 L F` |
 | DR on R/L on the inverse (7c6e there), EO kept | 8 | `(R F' R' B F' L B F)` |
@@ -7821,7 +8453,9 @@ U' D B L                                                            // EO on R/L
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (7c6e), EO kept | 9 | `F B2 U' B2 U B R2 F U` |
 | DR on F/B on the inverse (7c6e there), EO kept | 9 | `(F R2 B' D' B U' F' R2 U)` |
@@ -7841,7 +8475,9 @@ L' U2 D R                                                       // EO on R/L (4 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (7c6e), EO kept | 9 | `U2 F' L2 B U' L2 B2 D2 F` |
 | DR on U/D on the inverse (7c6e there), EO kept | 8 | `(U' D B' F U' L2 U' F)` |
@@ -7863,7 +8499,9 @@ R B2 L' F                                                        // EO on F/B (4
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (4c4e), EO kept | 8 | `U D2 F2 U R2 D F2 L` |
 | DR on U/D on the inverse (4c4e there), EO kept | 7 | `(B2 U L2 D' R2 F2 L)` |
@@ -7883,7 +8521,9 @@ D2 F R' B                                                          // EO on F/B 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (4c4e), EO kept | 7 | `L2 U2 R2 U2 F2 U L` |
 | DR on U/D on the inverse (4c4e there), EO kept | 8 | `(U2 D F2 D' L2 U F2 R)` |
@@ -7903,7 +8543,9 @@ D L F                                                                    // EO o
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (4c4e), EO kept | 6 | `F2 L U2 F2 L' D` |
 | DR on R/L on the inverse (4c4e there), EO kept | 7 | `(L B2 R D2 L' B2 D)` |
@@ -7925,7 +8567,9 @@ U2 R' U2 D                                                    // EO on U/D (4 tu
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (7c4e), EO kept | 9 | `L R' F L2 F L' U2 L2 B` |
 | DR on R/L on the inverse (7c4e there), EO kept | 9 | `(R B' F R B2 R B L2 F)` |
@@ -7945,7 +8589,9 @@ D R F B                                                       // EO on F/B (4 tu
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (7c4e), EO kept | 7 | `U R' U R' F2 R2 D` |
 | DR on R/L on the inverse (7c4e there), EO kept | 9 | `(L U' L' B2 L D' L R2 D)` |
@@ -7965,7 +8611,9 @@ U2 B D2 R'                                                     // EO on R/L (4 t
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (7c4e), EO kept | 9 | `U R2 D' R2 U F U2 D' F` |
 | DR on U/D on the inverse (7c4e there), EO kept | 8 | `(B U' D2 B' U R2 U' F)` |
@@ -7987,7 +8635,9 @@ L' F' D' B                                                          // EO on F/B
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (6c8e), EO kept | 8 | `R' D' R U2 L' U' F2 D` |
 | DR on R/L on the inverse (6c8e there), EO kept | 8 | `(U D R' F2 U' F2 L2 D)` |
@@ -8007,7 +8657,9 @@ U D' B L                                                 // EO on R/L (4 turns)
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (6c8e), EO kept | 8 | `U' R2 F' D2 B U D2 B` |
 | DR on U/D on the inverse (6c8e there), EO kept | 7 | `(B D' B2 F' L2 D' B)` |
@@ -8027,7 +8679,9 @@ D F R L                                                        // EO on R/L (4 t
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (6c8e), EO kept | 9 | `U B F' D' B F' U B F` |
 | DR on U/D on the inverse (6c8e there), EO kept | 8 | `(B F R2 U L2 D R2 B)` |
@@ -8049,7 +8703,9 @@ U F B2 R                                                               // EO on 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (5c8e), EO kept | 7 | `D' F' U' B2 D B' D` |
 | DR on F/B on the inverse (5c8e there), EO kept | 8 | `(F' U' L2 F' U D B' U)` |
@@ -8069,7 +8725,9 @@ D2 B' D2 L                                                            // EO on R
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (5c8e), EO kept | 9 | `B R2 F' L2 D' F U' D2 B` |
 | DR on U/D on the inverse (5c8e there), EO kept | 9 | `(U D' B U' D' F L2 U' B)` |
@@ -8089,7 +8747,9 @@ U B2 R D'                                                                // EO o
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (5c8e), EO kept | 8 | `F L' F R' L2 F U2 L` |
 | DR on F/B on the inverse (5c8e there), EO kept | 8 | `(F' R2 L D2 R' F' B L)` |
@@ -8111,7 +8771,9 @@ F U2 R' B                                                       // EO on F/B (4 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (4c8e), EO kept | 9 | `L D' L2 R D B2 D' L U` |
 | DR on R/L on the inverse (4c8e there), EO kept | 9 | `(R F2 U F2 U B2 D L' U)` |
@@ -8131,7 +8793,9 @@ B' U' D L                                                               // EO on
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (4c8e), EO kept | 8 | `F U' L2 D B D2 F U` |
 | DR on F/B on the inverse (4c8e there), EO kept | 8 | `(R2 D F U2 B U2 B2 U)` |
@@ -8151,7 +8815,9 @@ R L D L                                                         // EO on R/L (4 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (4c8e), EO kept | 9 | `D' B' R2 F2 U' D2 B D2 F` |
 | DR on U/D on the inverse (4c8e there), EO kept | 9 | `(D' F U D2 B2 F' U2 D B)` |
@@ -8173,7 +8839,9 @@ U' F' B' L                                                  // EO on R/L (4 turn
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (3c6e), EO kept | 9 | `U F D L2 B R2 B2 D' B` |
 | DR on U/D on the inverse (3c6e there), EO kept | 7 | `(L2 D B2 F' U' D2 B)` |
@@ -8193,7 +8861,9 @@ L B U D                                                    // EO on U/D (4 turns
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (3c6e), EO kept | 7 | `U2 L' R' F' L R2 B` |
 | DR on R/L on the inverse (3c6e there), EO kept | 5 | `(L2 B' L2 R' F)` |
@@ -8213,7 +8883,9 @@ U R L D                                                               // EO on U
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (3c6e), EO kept | 8 | `D2 B2 U2 R2 F L R2 B` |
 | DR on R/L on the inverse (3c6e there), EO kept | 8 | `(R' D2 F R' B2 D2 L' B)` |
@@ -8235,7 +8907,9 @@ U L' F2 B                                                            // EO on F/
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (7c8e), EO kept | 9 | `U R2 F2 B2 R D' R2 U L` |
 | DR on U/D on the inverse (7c8e there), EO kept | 8 | `(U R D' F2 B2 L2 U R)` |
@@ -8255,7 +8929,9 @@ B' R2 U F                                                         // EO on F/B (
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (7c8e), EO kept | 7 | `L2 U2 L U2 D R U` |
 | DR on R/L on the inverse (7c8e there), EO kept | 6 | `(L D2 F2 D R' U)` |
@@ -8275,7 +8951,9 @@ L' F B' D                                                    // EO on U/D (4 tur
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (7c8e), EO kept | 7 | `U2 R L B R' U2 R` |
 | DR on F/B on the inverse (7c8e there), EO kept | 8 | `(B D2 L' B' R L' F L)` |
@@ -8297,7 +8975,9 @@ U B2 U L                                                      // EO on R/L (4 tu
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (6c2e), EO kept | 8 | `U2 B' D2 B' U B' U B` |
 | DR on U/D on the inverse (6c2e there), EO kept | 9 | `(U D F' R2 U B' U D2 B)` |
@@ -8317,7 +8997,9 @@ U F R' D                                                         // EO on U/D (4
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (6c2e), EO kept | 8 | `L' F R2 B L' F' B L` |
 | DR on F/B on the inverse (6c2e there), EO kept | 8 | `(R' D2 F L' F' R' F' L)` |
@@ -8337,7 +9019,9 @@ R2 D2 L U'                                                          // EO on U/D
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (6c2e), EO kept | 9 | `F L F' L D2 L' B' D2 L` |
 | DR on F/B on the inverse (6c2e there), EO kept | 9 | `(F2 B2 R F B R F' B2 R)` |
@@ -8359,7 +9043,9 @@ U2 R F U                                                    // EO on U/D (4 turn
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (8c6e), EO kept | 8 | `F R F L2 D2 R2 F R` |
 | DR on F/B on the inverse (8c6e there), EO kept | 9 | `(B2 R' B R2 B' R L B R)` |
@@ -8379,7 +9065,9 @@ U F B2 L'                                                             // EO on R
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (8c6e), EO kept | 8 | `U2 F' U B L2 B2 D F` |
 | DR on U/D on the inverse (8c6e there), EO kept | 8 | `(D' B U R2 L2 B' U F)` |
@@ -8399,7 +9087,9 @@ F2 U2 R2 F                                                   // EO on F/B (4 tur
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (8c6e), EO kept | 9 | `L D R' U D2 F2 R' B2 L` |
 | DR on U/D on the inverse (8c6e there), EO kept | 8 | `(R' F2 L U2 L U' D' L)` |
@@ -8421,7 +9111,9 @@ D F D' L                                                      // EO on R/L (4 tu
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (3c4e), EO kept | 8 | `F2 D2 F U' R2 L2 F' D` |
 | DR on F/B on the inverse (3c4e there), EO kept | 5 | `(U F U' B U)` |
@@ -8441,7 +9133,9 @@ U L' U' L                                                       // EO on R/L (4 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (3c4e), EO kept | 7 | `B D' B2 U2 B' U' B` |
 | DR on U/D on the inverse (3c4e there), EO kept | 8 | `(U' B2 U2 B' D' R2 U2 F)` |
@@ -8461,7 +9155,9 @@ D2 F' R'                                                      // EO on R/L (3 tu
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (3c4e), EO kept | 6 | `R2 U F2 U B D` |
 | DR on F/B on the inverse (3c4e there), EO kept | 7 | `(F' U' D2 F R2 L2 D)` |
@@ -8483,7 +9179,9 @@ D L' B R                                                             // EO on R/
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (2c4e), EO kept | 7 | `D' R2 B R2 B R2 D` |
 | DR on F/B on the inverse (2c4e there), EO kept | 8 | `(B U2 F2 U' F2 U' L2 U)` |
@@ -8503,7 +9201,9 @@ F' L' D R'                                                         // EO on R/L 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (2c4e), EO kept | 8 | `U B U' F' L2 U' F2 U` |
 | DR on F/B on the inverse (2c4e there), EO kept | 8 | `(F D' R2 D F' U' F2 D)` |
@@ -8523,7 +9223,9 @@ L' F2 B' U                                                 // EO on U/D (4 turns
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (2c4e), EO kept | 8 | `R' B2 F' R2 F U2 R F` |
 | DR on R/L on the inverse (2c4e there), EO kept | 7 | `(F D2 L F2 R' U2 F)` |
@@ -8545,7 +9247,9 @@ U L D L                                                   // EO on R/L (4 turns)
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (4c2e), EO kept | 7 | `D B' U2 D2 B' R2 F` |
 | DR on U/D on the inverse (4c2e there), EO kept | 7 | `(U F D B' F' D B)` |
@@ -8565,7 +9269,9 @@ D L' B' U                                                          // EO on U/D 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (4c2e), EO kept | 8 | `L2 U2 B' F2 R' B2 L' B` |
 | DR on R/L on the inverse (4c2e there), EO kept | 8 | `(L R' F R' F R U2 F)` |
@@ -8585,7 +9291,9 @@ U' D2 F D                                                         // EO on U/D (
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (4c2e), EO kept | 8 | `L' F U2 F' U2 F2 L F` |
 | DR on R/L on the inverse (4c2e there), EO kept | 6 | `(L' F D2 R' D2 F)` |
@@ -8607,7 +9315,9 @@ F' R B U                                                 // EO on U/D (4 turns)
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (3c2e), EO kept | 7 | `L2 R F2 R2 F R F` |
 | DR on R/L on the inverse (3c2e there), EO kept | 5 | `(B2 L2 B' R' B)` |
@@ -8627,7 +9337,9 @@ R' B R' F                                                           // EO on F/B
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (3c2e), EO kept | 7 | `F2 U R2 U L' D' L` |
 | DR on U/D on the inverse (3c2e there), EO kept | 7 | `(U F2 U2 R2 L' U L)` |
@@ -8647,7 +9359,9 @@ B2 R2 D R                                          // EO on R/L (4 turns)
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on F/B (3c2e), EO kept | 7 | `R2 B L2 F' D' F' D` |
 | DR on F/B on the inverse (3c2e there), EO kept | 6 | `(F B U' D2 F U)` |
@@ -8669,7 +9383,9 @@ L2 F2 B2 D                                                            // EO on U
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (8c8e), EO kept | 7 | `R' F L' B L2 R' B` |
 | DR on R/L on the inverse (8c8e there), EO kept | 7 | `(R B F2 L F' R' B)` |
@@ -8689,7 +9405,9 @@ U' F' B' R                                                      // EO on R/L (4 
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on U/D (8c8e), EO kept | 8 | `B D L2 F' L2 F2 D' F` |
 | DR on U/D on the inverse (8c8e there), EO kept | 8 | `(U L2 D' B F U D' B)` |
@@ -8709,7 +9427,9 @@ U L' B2 U'                                                       // EO on U/D (4
 
 <details><summary>Turns to DR each way</summary>
 
-| After the EO | Turns to DR | One way |
+Each row is one way to finish: the DR axis and the option, the fewest turns to DR that way, and one DR of that length.
+
+| After the EO | Turns to DR | One shortest DR |
 |---|---:|---|
 | DR on R/L (8c8e), EO kept | 8 | `L2 B' F L' R B L2 B` |
 | DR on R/L on the inverse (8c8e there), EO kept | 7 | `(L U2 B F L R F)` |

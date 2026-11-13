@@ -1,4 +1,4 @@
-| Count | Scrambles | Agree |
+| Count checked | Scrambles compared | Scrambles that agree |
 |---|---:|---:|
 | drud count of exactly 9 | 30 | 30 |
 | drud count of exactly 10 | 30 | 30 |

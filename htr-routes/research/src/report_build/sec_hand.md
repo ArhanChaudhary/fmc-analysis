@@ -2,7 +2,7 @@
 
 I translate each checklist into route classes as closely as the route names allow and grade it on the same sample: the share of DRs where its steps so far find an optimal finish, and a finish within +1, with HTRs at most two over the shortest (budget 2), and with no HTR limit. Steps that depend on how many setup moves come before a trigger are graded as their whole route class, which flatters them a little. Sampled, {= n(25000) =} per subset × edges.
 
-**Zagros's 4b2 order** ([[D15884]]): "1. check shortest HTR on normal by settings up to triggers and reasonable extensions", "2. check more linear 2qt HTRs by just reducing to 4a1 and doing the HTR even if it's long", and on to "8. if it is seriously my only DR and I have nothing, try 2+2 HTRs". Steps 1 and 2 are graded together; 6 (the inverse) and 7 are already inside the others, since both sides are always graded:
+**Zagros's 4b2 order** ([[D15884]]): "1. check shortest HTR on normal by settings up to triggers and reasonable extensions", "2. check more linear 2qt HTRs by just reducing to 4a1 and doing the HTR even if it's long", and on to "8. if it is seriously my only DR and I have nothing, try 2+2 HTRs". Steps 1 and 2 are graded together; 6 (the inverse) and 7 are already inside the others, since both sides are always graded. Each row is a step; each cell is the cumulative share of 4b2 DRs found after it:
 
 {{grade_zagros}}
 
@@ -15,11 +15,11 @@ Zagros: "if I simply follow the system I have in my mind for each subset without
 - Adri agreed the label was the confusing part ([[D6424]]): "I agree that's why calling it the best 4qt subset seems confusing".
 - Jay ([[D6439]]): "if you think of this subset as one where you only try to solve with U R2 F2 U, you're gonna miss optimal the vast majority of the time".
 
-Yura Riabov's order, with the first step as a trigger with at most two setup moves (the setup limit is Yura's "1-2 moves"):
+Yura Riabov's order, with the first step as a trigger with at most two setup moves (the setup limit is Yura's "1-2 moves"); each row is a step, each cell a cumulative share of 4b2 4e:
 
 {{grade_yura}}
 
-The other start, reducing to 1q and NISS-tracing, is DR bounding. On 4b2 4e, share finding the optimal (budget-2 HTRs for the routes; bounding on 4,000 states, section 8):
+The other start, reducing to 1q and NISS-tracing, is DR bounding. On 4b2 4e, one row per start, share finding the optimal (budget-2 HTRs for the routes; bounding on 4,000 states, section 8):
 
 | Start | Optimal found |
 |---|---|
@@ -30,11 +30,11 @@ The other start, reducing to 1q and NISS-tracing, is DR bounding. On 4b2 4e, sha
 
 So the regression to 2c3 beats every reduction up to 4, and is a little behind every reduction up to 5 (about {= n(round(float(Q8('4b2 4e', '1', '5', 'mean_reductions_le_R')))) =} of them). The 4a1 switch adds {= f1(float(GR('Yura 4b2 4e order (D6409-D6416)', 3, 'cumulative_opt_htr_budget2').rstrip('%')) - float(GR('Yura 4b2 4e order (D6409-D6416)', 2, 'cumulative_opt_htr_budget2').rstrip('%'))) =} points after it. Jay is right too: the 2qt trigger alone (with at most two setup moves) finds {= GR('Yura 4b2 4e order (D6409-D6416)', 1, 'cumulative_opt_htr_budget2') =}. On 4b2 4e every optimal uses 4 quarter turns on {= E['claims']['C40']['evidence'].split('4qt ')[1].rstrip('.') =} of states, as Yura Riabov's [*Hitchhiker’s Guide to HTR*](https://docs.google.com/document/d/1_NMlyPh2Ifd1E0ivos-15Sp-by-KPxoOsj9JD4pJuHI) says ("it’s optimal with 4q more than half of the time").
 
-Fanti's split ([[D10034]]; probably read off *allcases*, since it matches its cells): "40% of opt 4b2 4e solutions use 2qt, 45% regress to 2c3", "only about 8% go to 0c0 2e/4e". Read as a checklist in that order:
+Fanti's split ([[D10034]]; probably read off *allcases*, since it matches its cells): "40% of opt 4b2 4e solutions use 2qt, 45% regress to 2c3", "only about 8% go to 0c0 2e/4e". Read as a checklist in that order, one row per step, cumulative shares of 4b2 4e:
 
 {{grade_fanti}}
 
-**Lewis Isom's 4a2 0e/2e list** ([[T6743]]): "1) Linear 2qt HTRs on both sides. This means the first qt makes 4a1 4e.", "2) Write down all the +1's and +2's to 4a1 4e, and NISS them.", then the U M2 U checks, the regression to 4c3, and to 0c3:
+**Lewis Isom's 4a2 0e/2e list** ([[T6743]]): "1) Linear 2qt HTRs on both sides. This means the first qt makes 4a1 4e.", "2) Write down all the +1's and +2's to 4a1 4e, and NISS them.", then the U M2 U checks, the regression to 4c3, and to 0c3. One row per step, cumulative shares of 4a2 0e and 2e pooled:
 
 {{grade_lewis}}
 
@@ -42,7 +42,7 @@ Levi Gibson's reply for 4a2 0e, "you don’t have to try reductions to 4a1 4e be
 
 **Jay's and rodneykinney's 3qt 2c0e checks.** Jay counted "11 total things" to check for every two half turns followed by a quarter turn ([[T328]]); rodneykinney: "I would count 9 cases" ([[T333]]), and later "You can check just F and R2 F" ([[T337]]). As a route class (one qt to 4b2 4e, switch, then 4a1 and HTR, any setup) it finds the optimal on {= GR('Jay/rodney 2c3 0e checks (T328-T344)', 1, 'cumulative_opt_htr_budget2') =} of 2c3 0e and +1 on {= GR('Jay/rodney 2c3 0e checks (T328-T344)', 1, 'cumulative_p1_htr_budget2') =}. The setup counts themselves aren't graded.
 
-**Daichi's cheat sheet** ([[D18340]]), every listed route of each subset × edges together, against my checklist:
+**Daichi's cheat sheet** ([[D18340]]), every listed route of each subset × edges together, against my checklist. Each row is a subset × edges and the share where the sheet's routes find the optimal (or +1), then the share of my first three routes:
 
 {{grade_daichi}}
 

@@ -99,11 +99,19 @@ def P05(cs, T):
     """Odds of a finish in T with five or more pairs, as a multiple of the odds with none."""
     return f"{share(q(cs=cs, pairs=5), T) / share(q(cs=cs, pairs=0), T):.0f}"
 def PRUNE_TABLE():
-    L = ['| DRs | Dropped | 10s lost | 11s lost | 12s lost | All of them: in 10 / 11 / 12 | What you keep: in 10 / 11 / 12 |', '|---|---:|---:|---:|---:|---|---|']
+    L = ['| DRs | Dropped, share of the DRs | Finishes in 10 lost | Finishes in 11 lost | Finishes in 12 lost |', '|---|---:|---:|---:|---:|']
+    for g in pv.GROUPS + [None]:
+        n, dn = _prune(g)
+        L.append(f"| {pv.GROUP_NAME[g] if g else '**all DR states**'} | {100 * sum(dn) / sum(n):.0f}% | " + ' | '.join(pv.num(100 * sum(dn[:T + 1]) / sum(n[:T + 1])) for T in (10, 11, 12)) + ' |')
+    L += ['', 'And how the DRs finish before and after the list, on the same rows: the share finishing in 10, 11 and 12 or less, of all of them and of what you keep.', '',
+          '| DRs | All of them: in 10 | All of them: in 11 | All of them: in 12 | What you keep: in 10 | What you keep: in 11 | What you keep: in 12 |', '|---|---:|---:|---:|---:|---:|---:|']
     for g in pv.GROUPS + [None]:
         n, dn = _prune(g); kept = [x - y for x, y in zip(n, dn)]
-        L.append(f"| {pv.GROUP_NAME[g] if g else '**all DR states**'} | {100 * sum(dn) / sum(n):.0f}% | " + ' | '.join(pv.num(100 * sum(dn[:T + 1]) / sum(n[:T + 1])) for T in (10, 11, 12)) + f' | {tri(n)} | {tri(kept) if sum(kept) else "nothing is kept"} |')
+        L.append(f"| {pv.GROUP_NAME[g] if g else '**all DR states**'} | {CELLS(tri(n))} | " + (CELLS(tri(kept)) if sum(kept) else 'nothing is kept | | ') + ' |')
     return '\n'.join(L)
+def CELLS(s):
+    """'a / b / c' as table cells 'a | b | c'."""
+    return s.replace(' / ', ' | ')
 ENV = {k: v for k, v in globals().items() if not k.startswith('_')}
 # ---- real DRs and DR-breaking finishes: the gaps study's outputs (/data/fmc/gaps/research/out); computed, not in Lean
 import csv as _csv, json as _json, collections as _col

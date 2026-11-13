@@ -1,4 +1,4 @@
-| Shortest | A shortest alg | Pieces (from > to, + twist) | States in the class | Algs of 8 | Algs of 9 | Algs of 10 | Algs of 11 | Algs of 12 |
+| Shortest alg, moves | A shortest alg | Pieces (from > to, + twist) | States in the class | 8-move algs | 9-move algs | 10-move algs | 11-move algs | 12-move algs |
 |---:|---|---|---:|---:|---:|---:|---:|---:|
 | 8 | `F2 L B L' F2 L B' L'` | DFL>DBL UFR>DFL DBL>UFR | 48 | 2 | 1 | 15 | 28 | 236 |
 | 8 | `L D' R2 D L' D' R2 D` | DFL>DBL+1 UFR>DFL+2 DBL>UFR | 48 | 1 | 2 | 12 | 33 | 218 |

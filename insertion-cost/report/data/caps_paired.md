@@ -1,4 +1,4 @@
-| Leftover | Skeletons | Cap 8, where something fits | Nothing fits at cap 8 | Cap 10 | Cap 10 with a comm plus an alg | Cap 12 |
+| Leftover | Skeletons | Cap 8: mean added where something fits | Nothing fits at cap 8 | Cap 10: mean added | Cap 10, a comm plus an alg: mean added | Cap 12: mean added |
 |---|---:|---:|---:|---:|---:|---:|
 | 3c | 200 | 6.12 | 1 | 6.07 | 5.99 | 5.98 |
 | 3tc | 100 | 9.41 | 0 | 9.32 | 9.32 | 8.56 |

@@ -1,4 +1,4 @@
-| Case | States sampled | Correlation normal/inverse | Inverse ≤ 6 when normal is 6 | when normal is 8 | Inverse ≤ 6 overall |
+| Case | States sampled | Correlation, normal against inverse | Inverse DR in ≤ 6 when normal is 6 | Inverse DR in ≤ 6 when normal is 8 | Inverse DR in ≤ 6, any normal |
 |---|---:|---:|---:|---:|---:|
 | all | 10,000,000 | 0.1684 | 11.2% | 5.3% | 5.9% |
 | 0c4e | 1,575 | -0.0148 | 45.4% | – | 46.0% |

@@ -1,4 +1,4 @@
-| Subset | Share: uniform | Each DR once | Each scramble once | Mean optimal: uniform | Each DR once | Each scramble once |
+| Subset | Share of DRs, uniform | Share, each DR once (± SE) | Share, each scramble once (± SE) | Mean optimal (moves), uniform | Mean optimal, each DR once | Mean optimal, each scramble once |
 |---|---|---|---|---|---|---|
 | 0c0 | 0.48% | 0.51 ± 0.03 | 0.48 ± 0.01 | 12.278 | 12.293 ± 0.040 | 12.327 ± 0.016 |
 | 2c5 | 7.62% | 7.50 ± 0.11 | 7.49 ± 0.05 | 14.327 | 14.317 ± 0.005 | 14.332 ± 0.003 |
