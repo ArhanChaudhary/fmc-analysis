@@ -4,6 +4,12 @@
 
 Each study takes one question from Rubik's cube fewest-moves solving, answers it against exhaustive data, and says what a solver can do with the answer.
 
+## Reference tables
+
+Single tables that answer one question, too small for a study.
+
+- [Half turns before the first quarter turn](tables/half-turns-before-first-qt.html): per subset × edges, how often an optimal finish needs 0, 1, 2 or more half turns before its first qt on the better side, for all DRs and for DRs with an optimal of 13 or less and 12 or less.
+
 ## Judging a DR by hand
 
 What a solver can read off a domino reduction before solving it, how much each read says about the finish, and which lower bounds hold. Measured on the exact optimal finish of all 19,508,428,800 DR states.

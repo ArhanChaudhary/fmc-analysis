@@ -39,6 +39,7 @@ Shared by all studies:
 | Path | What |
 |---|---|
 | `scripts/build-pages.sh`, `site/` | The website: a front page (`site/index.md`) and each study's reports as pages. Needs pandoc. |
+| `tables/` | Reference tables: single pages that answer one question, too small for a study (`tables/*.md`, each written by a script in `tables/src/`). |
 | `.github/workflows/pages.yml` | Builds the site with that script on every push to `main` and deploys it to GitHub Pages. |
 | `env.sh` | Tool paths on the machine the studies are built on. |
 
@@ -52,4 +53,4 @@ Shared by all studies:
 
     scripts/build-pages.sh /tmp/fmc-site      # needs pandoc
 
-A new study appears on the site once its folder has a `report/WRITEUP.md` and `site/index.md` links to it.
+A new study appears on the site once its folder has a `report/WRITEUP.md` and `site/index.md` links to it. A reference table appears once `tables/<name>.md` exists and `site/index.md` links to `tables/<name>.html`.

@@ -1,7 +1,8 @@
 #!/bin/bash
 # Build the public site (GitHub Pages, see .github/workflows/pages.yml): a front page that lists the
-# case studies (site/index.md), and for every study folder with a report/WRITEUP.md its reports as HTML
-# pages with a shared navigation bar and a table of contents per page, plus the Markdown sources.
+# case studies and the reference tables (site/index.md), for every study folder with a report/WRITEUP.md its reports
+# as HTML pages with a shared navigation bar and a table of contents per page, plus the Markdown sources, and one
+# page per reference table (tables/*.md).
 # Needs pandoc.
 # usage: scripts/build-pages.sh OUTPUT_DIRECTORY
 set -euo pipefail
@@ -59,6 +60,17 @@ for writeup in */report/WRITEUP.md; do
     # every study must be reachable from the front page
     grep -q "href=\"$study/\"" "$output/index.html" || { echo "build-pages: site/index.md does not link to $study/" >&2; exit 1; }
 done
+
+# reference tables: single pages under tables/, each too small for a study, listed on the front page
+if compgen -G "tables/*.md" > /dev/null; then
+    mkdir -p "$output/tables"
+    for source in tables/*.md; do
+        name=$(basename "$source" .md)
+        render "$source" "tables/$name.html" ../ --variable is-table
+        cp "$source" "$output/tables/"
+        grep -q "href=\"tables/$name.html\"" "$output/index.html" || { echo "build-pages: site/index.md does not link to tables/$name.html" >&2; exit 1; }
+    done
+fi
 
 cp site/style.css "$output/"
 # a table cell left empty after the row's first filled cell shows a dash (site/tables.lua); that is right for a
