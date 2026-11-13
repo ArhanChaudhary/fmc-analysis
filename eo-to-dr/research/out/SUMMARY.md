@@ -97,7 +97,7 @@ Most striking:
 | NISS (normal, inverse, both) | one axis (F/B) | 0.981 | 14.648 (8.0) | 215.399 (162.0) | 3147.372 | 0 | 1204 | 28.9% |
 | NISS (normal, inverse, both) | all three axes | 2.946 | 43.879 (36.0) | 646.365 (574.0) | 9443.046 | 0 | 2998 | 4.0% |
 
-Means per scramble (50,000 scrambles; every EO counted, nissy `-a`; nissy's default listing drops EOs ending in F'/B' and shows about half). One axis linear is exact over its 2048 EO states (`out/b4_one_axis_exact.tsv`): ≤ 5 mean 67.6597, at most 476; ≤ 4 at most 92.
+Means per scramble (50,000 scrambles; every EO counted, nissy `-a`; nissy's default listing keeps one of each pair of EOs that differ in a last turn's direction, about two fifths in all: `out/default_listing.json`). One axis linear is exact over its 2048 EO states (`out/b4_one_axis_exact.tsv`): ≤ 5 mean 67.6597, at most 476; ≤ 4 at most 92.
 Optimal EO over all three axes (1,000,000 states): linear 3.88137, normal or inverse 3.60056, NISS 3.45481; an EO of ≤ 3 exists on 29.3% / 43.6% / 49.6% of scrambles, ≤ 2 on 4.0% / 7.5% / 8.1% (S-EO-85/86).
 An N-move EO but no (N+1)-move EO (S-EO-87), all axes, linear: N=1: 0.14%, N=2: 0.57%, N=3: 0.00%, N=4: 0.00%, N=5: 0.00%; with NISS: N=1: 0.26%, N=2: 0.59%, N=3: 0.02%, N=4: 0.00%, N=5: 0.00%.
 
@@ -146,12 +146,12 @@ Most striking:
 | one DR axis, EO kept, normal (sampled, to compare with the exact row) | sampled | 7.8026 | 0.88% | 5.94% | 30.7% | 82.4% | 16.84 |
 
 This is C7's "typical EO→DR" table (`out/c7_typical.tsv`); per case (DRM of the first axis) for every option in `out/c6_by_case.tsv`, the joint case of both axes in `out/c6_axis_pairs.tsv`, normal against inverse in `out/c6_normal_inverse.tsv`. Exact rows: over all 1,082,565 EO-solved cosets (two axes: over corners x E/M-slice places, see README); sampled rows: 10,000,000 states.
-Answers: (a) the better of the two DR axes of one EO: mean 7.401, ≤ 6 11.33% (exact). (b) better of normal and inverse: 7.420, ≤ 6 11.15%; correlation normal/inverse 0.1684 overall, almost all of it because the case xcye is the same on both sides; within a case at most 0.063. (c) last-turn inversion: 7.542, ≤ 6 9.47%; DR-4c4e ≤ 6 is 19.24% (1 in 5.20) and 28.06% with the switch (1 in 3.56), Cale's 1 in 5.2 and 1 in 3.6 exactly. (d) any turns: 7.7969 against 7.8031 (torchlight's figures).
+Answers: (a) the better of the two DR axes of one EO: mean 7.401, ≤ 6 11.33% (exact). (b) better of normal and inverse: 7.420, ≤ 6 11.15%; correlation normal/inverse 0.1684 overall, almost all of it because the case xcye is the same on both sides; within a case at most 0.063, so for a known case (an RZP) Jay's 'zero correlation' and Tom Nelson's 'yeah that's what I mean' hold. (c) last-turn inversion: 7.542, ≤ 6 9.47%; DR-4c4e ≤ 6 is 19.24% (1 in 5.20) and 28.06% with the switch (1 in 3.56), Cale's 1 in 5.2 and 1 in 3.6 exactly. (d) any turns: 7.7969 against 7.8031 (torchlight's figures).
 
 Most striking:
 - Every EO-keeping option together (two axes x normal/inverse x last turn) takes the typical EO→DR from 7.80 to 6.90 and sub-7 from 1 in 16.89 to 1 in 3.89 [W11][W10][W9].
 - The second DR axis alone is worth more than the last-turn switch (≤ 6: 11.33% vs 9.47%) and about as much as checking the inverse (11.15%).
-- EO-breaking turns change almost nothing (7.8031 → 7.7969; ≤ 6 5.92% → 5.94%) [W12]; at the scramble level, among routes through EOs of ≤ 5 an any-turn continuation reaches the optimum where no EO-keeping one does on 4 of 50,000 scrambles (A2).
+- EO-breaking turns change almost nothing (7.8031 → 7.7969; ≤ 6 5.92% → 5.94%) [X6, out/witness_extra.json; W12's shorter DR keeps the other EO of a 3c0e state, as in every xc0e case: `out/both_eo.json`]; at the scramble level, among routes through EOs of ≤ 5 an any-turn continuation reaches the optimum where no EO-keeping one does on 4 of 50,000 scrambles (A2).
 
 ## D. Claims
 
@@ -162,20 +162,20 @@ Most striking:
 | S-DR-8 | superflip: confirmed; worst case: no, it is not alone, and no sub-10 DR even with NISS: 437 of 50000 sample scrambles; the optimal solution of the first 3 (nissy solve optimal), replayed: optimal 18, 19, 18 moves, so not all 20-movers (Daichi: no) [e.g. sample scramble 101: F2 R2 U' F2 L2 F2 L2 U F2 D R2 D2 L2 U' R' U2 B D R' B F U B L2 U2, optimal D' R2 D B' L' U2 L D' F' L' B U' L2 F' D' R2 B' L'] | superflip: DR in 10 on each axis (normal), 10 best of 6, 10 with NISS; optimal EO 7 linear, 7 with NISS; in the sample 8.462% of random scrambles have no sub-10 DR on 6 tries and 0.874% none even with NISS | W3 |
 | S-DR-13 | corrected (a hedged aside): 12!/8! should be 12!/(8!·4!) = 495 | 1 in 2,217,093,120 on a given axis (= 2^11·3^7·495); about 1 in 739 million on some axis |  |
 | S-DR-6 | answered (out/a50k_a1.tsv) | fixed axis mean 9.5245 (exact); best of 3 normal 9.051, best of 6 8.7636, NISS 8.4649; P(<=8) 16.48% / 28.38% / 47.53% |  |
-| S-DR-46 | answered: about 41% for the optimal DR (JTuu guessed 'low') | the optimal normal DR starts with an EO of <=5 turns on 41.06% of scrambles (<=4: 22.08%, <=6: 62.78%); mean EO inside the optimal DR 5.768 turns | W4 |
+| S-DR-46 | answered per scramble: on about 41% of scrambles some optimal DR starts with an EO of <=5 (JTuu guessed 'low'); the share among all DRs, which Zagros asked, is not measured | the optimal normal DR starts with an EO of <=5 turns on 41.06% of scrambles (<=4: 22.08%, <=6: 62.78%); mean EO inside the optimal DR 5.768 turns | W4 |
 | S-DR-47 | answered (out/a50k_a2.tsv): the optimal DR usually needs a 6+ turn EO | best through an EO of <=5 (normal): mean 9.8272 against the optimal 9.051; equal on 41.06%, 1 worse 41.46%, 2 worse 15.10%, 3+ 1.90% | W5 |
 | S-DR-26 | answered | see out/a50k_a2.tsv (mean_best_given_eo) and out/a50k_a3.tsv (p_none for N = 9..12) |  |
 | S-DR-261 | answered: the 25 four-movers give more short DRs up to a total of 10, the 200 five-movers more from 11 on | total <=9: 25 four-movers ~0.7 DRs, 200 five-movers ~0.5; total <=10: 25 four-movers ~4.0 DRs, 200 five-movers ~3.5; total <=11: 25 four-movers ~17.3 DRs, 200 five-movers ~23.7; total <=12: 25 four-movers ~41.9 DRs, 200 five-movers ~122.6 (expected (EO, DR axis) pairs, normal side, per-EO yields over all EOs of that length on 50,000 scrambles; '<=4' yield used for the four-movers) |  |
-| EO-DR-50 | corrected: the 10s are 0.29% (not 3%); sub-7 is 5.92% | 10 is the longest; 3114 of 1,082,565 cases = 0.29%; sub-7 (<=6): 5.92%; with the last EO turn invertible 9.47%, with the other DR axis too 17.77% |  |
+| EO-DR-50 | corrected: the 10s are 0.29% (not 3%); zakimoshi's 6.3% sub-7 was a question (5.92%) | 10 is the longest; 3114 of 1,082,565 cases = 0.29%; sub-7 (<=6): 5.92%; with the last EO turn invertible 9.47%, with the other DR axis too 17.77% |  |
 | EO-DR-79 | confirmed | exact: <=6 on 19.24% (1 in 5.20); with the last EO turn inverted if better 28.06% (1 in 3.56) | W9 |
-| EO-DR-80 | open: p = 0.033 under the exact rate for EO-solved states, while Cale's 25 (same method) fit it; both are first-found RZPs from nissy online, which need not be uniform EO-solved states | with the exact 28.06% the chance of 3 or fewer in 27 independent 4c4e is 0.0328 |  |
+| EO-DR-80 | open: p = 0.033 under the exact rate for EO-solved states (0.040 at Cale's 19226/70560 for switching the RZP's last move, which is what Lichi Fang switched; a report with questions, not a claim the sheet is wrong), while Cale's 25 (same method) fit it; both are first-found RZPs from nissy online, which need not be uniform EO-solved states | with the exact 28.06% the chance of 3 or fewer in 27 independent 4c4e is 0.0328 |  |
 | EO-DR-22 | confirmed | 70560 of 1,082,565 cosets = 1 in 15.34 |  |
 | EO-DR-18 | confirmed | 3: 112/2187 = 5.12%; 4: 420/2187 = 19.20% |  |
 | EO-DR-5 | Zagros is right (1 in 11) | 6+0: 56 of 616 six-twist orientations = 1/11 |  |
 | EO-DR-32 | confirmed, both: in Cale's split (6c as 3+3 and 6+0) 5c6e is tied with 6c6e(3+3) (the same number of states), as Jay and torchlight's edit say; 6c6e as a whole is the most common | most common cases: 6c6e 12.75%, 5c6e 11.59%, 6c4e 9.56%, 5c4e 8.69%, 4c6e 8.69% |  |
 | S-DR-76 | confirmed | exact means: EO kept 7.8031, any turns 7.7969; <=6: 5.92% against 5.94% |  |
-| S-DR-77 | answered: hardly at all | mean 7.8031 -> 7.7969; <=5 0.87% -> 0.87%; <=6 5.92% -> 5.94% | W12 |
-| EO-DR-326 | almost all of the 0.17 is the case (normal and inverse always have the same case); within a case the correlation is between -0.015 and 0.063 (35 cases with 1000+ samples, out/c6_normal_inverse.tsv), small but not zero, largest where 6c and 8c lump sub-cases (3+3/6+0, 4+4/7+1) that inversion keeps | correlation of the EO-kept DR length on normal and on inverse (same axis): 0.1684 over all EO states; P(inverse <=6) = 0.0592, given normal 9: 0.032, given normal 6: 0.1118 |  |
+| S-DR-77 | answered: hardly at all (of the 6433 states shorter with any turns, 485 are xc0e, where the other EO is solved and a DR as short keeps it) | mean 7.8031 -> 7.7969; <=5 0.87% -> 0.87%; <=6 5.92% -> 5.94% | X6 (witness_extra.json; W12 is a 3c0e state) |
+| EO-DR-326 | true for a known case, as after an RZP (Tom Nelson agreed, D850): within a case the correlation is between -0.015 and 0.063 (35 cases with 1000+ samples, out/c6_normal_inverse.tsv), within +-0.006 for the cases people switch from (4c4e, 4c2e, 3c2e, 7c8e, 3c4e, 8c8e), largest where 6c and 8c lump sub-cases (3+3/6+0, 4+4/7+1) that inversion keeps; the 0.17 overall, case not known, is almost all the case | correlation of the EO-kept DR length on normal and on inverse (same axis): 0.1684 over all EO states; P(inverse <=6) = 0.0592, given normal 9: 0.032, given normal 6: 0.1118 |  |
 | EO-DR-336 | answered | mean 7.4203 (against 7.8031), <=6 11.15% |  |
 | EO-DR-334 | answered exactly | exact: mean 7.4008, <=6 11.33%, <=7 50.62% | W11 |
 | S-EO-67 | confirmed | 103741/70963200 |  |
@@ -189,13 +189,13 @@ Most striking:
 | S-EO-17 | answered | 1/70963200 = 0.000001% |  |
 | S-EO-24/25/26 | no 5-movers; 7-movers exist (12 states) | the 66 ten-bad states of one axis: optimal linear EO {'6': 54, '7': 12} |  |
 | S-EO-23 | confirmed | 7 |  |
-| S-EO-141 | confirmed | linear <=4: 6 bad 22.51%, 8 bad 28.89%; with NISS (sampled) 63.25% against 61.39% |  |
+| S-EO-141 | depends: confirmed linearly; with NISS 6 bad is a little better | linear <=4: 6 bad 22.51%, 8 bad 28.89%; with NISS (sampled) 63.25% against 61.39% |  |
 | S-EO-140 | answered | linear 28.89%, NISS 61.39% |  |
 | S-EO-137 | answered | linear 0.00%, normal or inverse 0.00%, NISS 11.79% |  |
 | S-EO-85/86 | answered | EO in <=3 on some axis: linear 29.30%, normal or inverse 43.55%, NISS 49.63% |  |
 | S-EO-6/9 | confirmed | 9439/2048 = 4.60889 (exact); 3.45481 (sampled) |  |
-| S-EO-12/13 | confirmed: 7 even with NISS (the same author's later "6 with NISS" is wrong); NISS does not shorten the superflip EO | optimal EO 7 linear, 7 with NISS | W3 |
-| S-EO-75/76 | depends on the counting convention; see value | linear normal, all axes, every EO (nissy -a): <=4 mean 15.269 (median 12.0), <=5 mean 203.209; with NISS <=4 mean 43.879 (median 36.0), <=5 mean 646.365; nissy's default listing drops about half (EOs ending F'/B') |  |
+| S-EO-12/13 | confirmed: 7 even with NISS (the same author's later "6 with NISS" is wrong); NISS does not shorten the superflip EO; most other 12/12/12 states do have a NISS EO under 7 (Joba T9374: 1792 edge states need 7, against 13824 with 12/12/12; torchlight T9414: superflip + M 3-cycle has 6-move NISS EOs, replayed as X7) | optimal EO 7 linear, 7 with NISS | W3 |
+| S-EO-75/76 | true as Cale's sheet of official scrambles counts them (NISS, all axes, nissy's default listing: mean 246, median 217 for <=5; mean 17.3, median 14 for <=4); every EO (-a) gives more; see value | linear normal, all axes, every EO (nissy -a): <=4 mean 15.269 (median 12.0), <=5 mean 203.209; with NISS <=4 mean 43.879 (median 36.0), <=5 mean 646.365; nissy's default NISS listing on the first 150 scrambles: <=5 mean 242.9 (median 223.5), <=4 mean 17.1 (median 14.0); it keeps 46.6% of one-sided and 22.4% of two-sided EOs of <=5, 37.8% in all |  |
 | S-EO-88 | withdrawn at the time (Kai Cui: "oh bruh", "nvm then"); with every EO counted it happens with NISS (rare), never linearly in the sample; kalindumaxxer asked excluding HTR-equivalent variants, a convention not counted here | linear (normal, all axes): 0.000% of scrambles; with NISS 0.018% | W8 |
 | S-EO-91 | answered for the sample | fewest EOs of at most 5 turns in the sample: 0 with NISS on all three axes (0 linear normal); 6 such scrambles | W7 |
 | S-EO-87 | answered | linear, all axes: 1 but no 2: 0.142%, 2 but no 3: 0.570%, 3 but no 4: 0.000%, 4 but no 5: 0.000%, 5 but no 6: 0.000% |  |

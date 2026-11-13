@@ -158,7 +158,7 @@ for eos in ('linear (normal)', 'normal or inverse (linear)', 'NISS (normal, inve
         w(f"| {eos} | {axes} | {r3_['mean_le']} | {r4_['mean_le']} ({r4_['median_le']}) | {r5_['mean_le']} ({r5_['median_le']}) | {r6_['mean_le']} | {r5_['min_le']} | {r5_['max_le']} | {P(r4_['p_none_le'])} |")
 w('')
 an, al, ab = B['any_axis_niss'], B['any_axis_linear'], B['any_axis_lin_or_inv']
-w(f"Means per scramble ({n:,} scrambles; every EO counted, nissy `-a`; nissy's default listing drops EOs ending in F'/B' and shows about half). One axis linear is exact over its 2048 EO states (`out/b4_one_axis_exact.tsv`): ≤ 5 mean {b4x[5]['mean_le']}, at most {b4x[5]['max_le']}; ≤ 4 at most {b4x[4]['max_le']}.")
+w(f"Means per scramble ({n:,} scrambles; every EO counted, nissy `-a`; nissy's default listing keeps one of each pair of EOs that differ in a last turn's direction, about two fifths in all: `out/default_listing.json`). One axis linear is exact over its 2048 EO states (`out/b4_one_axis_exact.tsv`): ≤ 5 mean {b4x[5]['mean_le']}, at most {b4x[5]['max_le']}; ≤ 4 at most {b4x[4]['max_le']}.")
 w(f"Optimal EO over all three axes (1,000,000 states): linear {al['mean']}, normal or inverse {ab['mean']}, NISS {an['mean']}; an EO of ≤ 3 exists on {P(al['p_le3'])} / {P(ab['p_le3'])} / {P(an['p_le3'])} of scrambles, ≤ 2 on {P(al['p_le2'])} / {P(ab['p_le2'])} / {P(an['p_le2'])} (S-EO-85/86).")
 gl, gn = A['gap_linear'], A['gap_niss']
 w('An N-move EO but no (N+1)-move EO (S-EO-87), all axes, linear: ' + ', '.join(f"N={k.split('_')[0]}: {P(v, 2)}" for k, v in gl.items()) + '; with NISS: ' + ', '.join(f"N={k.split('_')[0]}: {P(v, 2)}" for k, v in gn.items()) + '.\n')
@@ -197,13 +197,13 @@ w("This is C7's \"typical EO→DR\" table (`out/c7_typical.tsv`); per case (DRM 
   "normal against inverse in `out/c6_normal_inverse.tsv`. Exact rows: over all 1,082,565 EO-solved cosets (two axes: over corners x E/M-slice places, see README); sampled rows: 10,000,000 states.")
 k44 = c6['4c4e']
 w(f"Answers: (a) the better of the two DR axes of one EO: mean {F(c7[4]['mean'], 3)}, ≤ 6 {P(c7[4]['p_le6'], 2)} (exact). (b) better of normal and inverse: {F(c7[6]['mean'], 3)}, ≤ 6 {P(c7[6]['p_le6'], 2)}; "
-  f"correlation normal/inverse {ni['all']['correlation']} overall, almost all of it because the case xcye is the same on both sides; within a case at most 0.063. (c) last-turn inversion: {F(c7[2]['mean'], 3)}, ≤ 6 {P(c7[2]['p_le6'], 2)}; "
+  f"correlation normal/inverse {ni['all']['correlation']} overall, almost all of it because the case xcye is the same on both sides; within a case at most 0.063, so for a known case (an RZP) Jay's 'zero correlation' and Tom Nelson's 'yeah that's what I mean' hold. (c) last-turn inversion: {F(c7[2]['mean'], 3)}, ≤ 6 {P(c7[2]['p_le6'], 2)}; "
   f"DR-4c4e ≤ 6 is {P(k44['plain_p_le6'], 2)} (1 in {1 / float(k44['plain_p_le6']):.2f}) and {P(k44['switch_last_p_le6'], 2)} with the switch (1 in {1 / float(k44['switch_last_p_le6']):.2f}), Cale's 1 in 5.2 and 1 in 3.6 exactly. "
   f"(d) any turns: {F(c7[1]['mean'], 4)} against {F(c7[0]['mean'], 4)} (torchlight's figures).\n")
 w('Most striking:')
 w(f"- Every EO-keeping option together (two axes x normal/inverse x last turn) takes the typical EO→DR from {F(c7[0]['mean'], 2)} to {F(c7[-4]['mean'], 2)} and sub-7 from 1 in {c7[0]['one_in_le6']} to 1 in {c7[-4]['one_in_le6']} {wid('C6a', 'two DR axes')}{wid('C6b', 'inverse')}{wid('C6c', '4c4e')}.")
 w(f"- The second DR axis alone is worth more than the last-turn switch (≤ 6: {P(c7[4]['p_le6'], 2)} vs {P(c7[2]['p_le6'], 2)}) and about as much as checking the inverse ({P(c7[6]['p_le6'], 2)}).")
-w(f"- EO-breaking turns change almost nothing ({F(c7[0]['mean'], 4)} → {F(c7[1]['mean'], 4)}; ≤ 6 {P(c7[0]['p_le6'], 2)} → {P(c7[1]['p_le6'], 2)}) {wid('C6d', 'breaks')}; at the scramble level, among routes through EOs of ≤ 5 an any-turn continuation reaches the optimum where no EO-keeping one does on {round(float(r5['p_needs_eo_breaking']) * n)} of {n:,} scrambles (A2).\n")
+w(f"- EO-breaking turns change almost nothing ({F(c7[0]['mean'], 4)} → {F(c7[1]['mean'], 4)}; ≤ 6 {P(c7[0]['p_le6'], 2)} → {P(c7[1]['p_le6'], 2)}) [X6, out/witness_extra.json; W12's shorter DR keeps the other EO of a 3c0e state, as in every xc0e case: `out/both_eo.json`]; at the scramble level, among routes through EOs of ≤ 5 an any-turn continuation reaches the optimum where no EO-keeping one does on {round(float(r5['p_needs_eo_breaking']) * n)} of {n:,} scrambles (A2).\n")
 
 # ---------------- D
 w('## D. Claims\n')

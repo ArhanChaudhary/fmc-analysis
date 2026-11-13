@@ -259,6 +259,11 @@ for c in order:
 # --------------------------------------------------------------------------------------------- page
 import json
 A1 = json.load(open(OUT + 'a50k_stats.json'))['a1']
+DL = json.load(open(OUT + 'default_listing.json'))          # nissy's default listing against -a on these same scrambles
+assert DL['scrambles'] == NSCR
+def dlp(kind, k=5):
+    from fractions import Fraction
+    return f"{hu(Fraction(DL[f'le{k}'][kind]['default'], DL[f'le{k}'][kind]['all']), 0, 100):.0f}%"
 six = np.array(stats['six']); dn_ = np.array(stats['niss'])
 head = f"""# Worked examples: EO to DR, and scramble to DR
 
@@ -270,7 +275,7 @@ How to read it:
 
 - Turns are face turns (HTM). *Normal* means turns after the scramble, *inverse* turns after the inverse scramble, written in brackets as usual for NISS: `R U (F D)` is `R U` on the normal side and `F D` on the inverse. A *NISS EO* has turns on both sides.
 - A *route through an EO* is the EO, then turns that keep it (no quarter turns of the EO's axis) to DR on one of the two other axes, on the same side.
-- "EOs of at most 4 turns" counts every move sequence that solves EO for the first time at its last turn, both directions of the last turn counted, as nissy's `-a` lists them (nissy's default listing shows about half of these).
+- "EOs of at most 4 turns" counts every move sequence that solves EO for the first time at its last turn, both directions of the last turn counted, as nissy's `-a` lists them. nissy's default listing keeps one of the EOs that differ only in the directions of their last turns: on these {NSCR} scrambles it lists {dlp('normal')} of the normal EOs of at most 5, {dlp('inverse')} of the inverse ones and {dlp('niss')}, about two fifths, of the NISS column.
 - A case like 4c4e names the bad corners and the edges out of place for that DR axis (slice edges outside the slice, and as many other edges inside it), the counts of Cale's "DR setup stats" sheet (which writes the edges first, 4e4c).
 
 Every answer is exact: a shortest DR is the fewest turns there are (from exact distance tables), and a "best DR through an EO" is the best over every EO of that length or shorter. "For example" gives one of the shortest; there are usually several. These are computer only, the answer key: try the scramble the way you would in an attempt, then compare.

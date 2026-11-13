@@ -19,7 +19,7 @@ Zagros asked ([[D12300]]): "What is typical eo->dr? … Is 7 moves from eo to dr
 
 - **The other DR axis** of the same EO is worth more than switching the EO's last turn: at most 6 on {= CT('two', 'p_le6') =} of EOs against {= CT('switch', 'p_le6') =} ✓, mean {= CT('two', 'mean') =} against {= CT('switch', 'mean') =} ✓. Checking the inverse is worth about the same as the other axis ({= CT('ni', 'p_le6') =}).
 - **All of the EO-keeping options together** (two axes, normal or inverse, last turn either way): mean {= CT('allkept', 'mean') =}, at most 6 on {= CT('allkept', 'p_le6') =} (1 in {= CT('allkept', 'one_in_le6') =}, against 1 in {= CT('plain', 'one_in_le6') =} ✓ for one axis), at most 7 on {= CT('allkept', 'p_le7') =}. So once you use every option, the typical EO is 7 from DR, not 8.
-- **EO-breaking turns change almost nothing** (exact; torchlight's table). On top of all the EO-keeping options they add {= f3(float(CT('allkept', 'mean')) - float(CT('all', 'mean'))) =} turns on average [f]. One axis, with and without them:
+- **EO-breaking turns change almost nothing** (exact; torchlight's table). On top of all the EO-keeping options they add {= f3(float(CT('allkept', 'mean')) - float(CT('all', 'mean'))) =} turns on average [f]. Of the {= BOTH('states_shorter_with_any_turns') =} EO-solved states where any turns are shorter, {= BOTH('all_0e_cases', 'shorter_with_any_turns') =} have no edge out of place; then the other EO is solved too, and a DR as short keeps it. One axis, with and without them:
 
 | Turns after the EO | Mean, turns | DR in ≤ 6 |
 |---|---|---|
@@ -36,7 +36,7 @@ F' B' U' F'   // the other axis: 9 on R/L, 5 on U/D
 R' D2 L' D    // the switch: 6, and 5 with D'
 ```
 
-And an EO-breaking turn: 8 keeping the EO, 7 breaking it.
+And an EO-breaking turn, after an EO ({= WXX('X6', 'eo_axis') =}) that is the only EO solved: {= WXX('X6', 'keep') =} keeping the EO, {= WXX('X6', 'any') =} breaking it.
 
 ### 5.2 By case
 
@@ -46,11 +46,11 @@ The case after the EO, on the DR axis you're looking at, in the server's naming:
 
 This table is for the attempt: the case is what you read at the table (twisted corners and edges out of place on each DR axis), and the row says how likely a DR in 6 or fewer is with each option. The DR lengths behind it are optimal, so treat the odds as what is there to find. All 40 cases but 0c0e (already a DR) with the mean and the odds of each option are in appendix A. The better of two axes is read by the case on the first one, so it mixes every case the second axis can have.
 
-**Normal and inverse.** Jay said of RZP to DR on normal and on inverse: "i'm certain there's zero correlation" ([[D848]]); Tom Nelson: "it's the opposite for rzp to DR because if it's bad then it's more likely to be better after switching" ([[D847]]), and Rodney Kinney called that "Regression to the mean" ([[D851]]).
+**Normal and inverse.** Java asked trig0n whether the rule not to switch when there's nothing on normal holds for RZP to DR ([[D844]]: "does this apply to RZP -> DR and HTR subsets?"). Tom Nelson: "it's the opposite for rzp to DR because if it's bad then it's more likely to be better after switching" ([[D847]]); Jay: "i'm certain there's zero correlation" ([[D848]]); Tom Nelson: "yeah that's what I mean. If it's 8 moves on normal then it's more likely to be better on inverse because any random case is probably sub-8" ([[D850]]); Rodney Kinney: "Regression to the mean" ([[D851]]).
 
 Over all EO-solved states, the DR lengths on normal and on the inverse (same axis, EO kept) have correlation {= NI('all', 'correlation') =}: a bad normal side does make a bad inverse a little more likely. Almost all of that is the case. The inverse of a position has the same case on the same axis (as many twisted corners, as many slice edges out of the slice), and within one case the correlation is between {= NIRANGE()[0] =} and {= NIRANGE()[1] =} in each of the {= NIRANGE()[2] =} cases with 1,000 or more samples (appendix A). Small, but not zero: the largest ({= NI('8c2e', 'correlation') =} for 8c2e, {= NI('6c8e', 'correlation') =} for 6c8e, {= NI('6c6e', 'correlation') =} for 6c6e) are in cases that lump together sub-cases the inversion keeps (6c is 3+3 or 6+0, 8c is 4+4 or 7+1).
 
-So both are nearly right: once you know the case, the inverse is close to a fresh draw from that case (Jay), and a long normal side is no reason to expect a long inverse, so switching after a bad one pays (Tom Nelson and Rodney Kinney). The chance the inverse is at most 6, given the normal side's length (same axis, EO kept):
+So they are right once the case is known, as it is after an RZP: the inverse is close to a fresh draw from that case (Jay), and a long normal side is no reason to expect a long inverse, so switching after a bad one pays (Tom Nelson and Rodney Kinney). The chance the inverse is at most 6, given the normal side's length (same axis, EO kept):
 
 | Normal side, turns | Inverse DR in ≤ 6 |
 |---|---|

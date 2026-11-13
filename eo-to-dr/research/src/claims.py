@@ -13,6 +13,7 @@ def rd(name):
     return list(csv.DictReader((l for l in open(os.path.join(OUT, name)) if not l.startswith('#')), delimiter='\t'))
 A = J('a50k_stats.json'); B = J('b_stats.json'); C = J('c_stats.json')
 wit = J('witness.json')
+dl = J('default_listing.json'); be = J('both_eo.json')
 def wid(question, word):
     for w in wit:
         if w['question'] == question and word in w['finding']:
@@ -60,12 +61,12 @@ def a2row(kind, k):
 r5 = a2row('normal EOs', 5); r4 = a2row('normal EOs', 4); r6 = a2row('normal EOs', 6)
 claim('S-DR-46', 'Zagros: what share of good DRs have an EO under 6 moves? JTuu: very low (for optimal solutions), guessing low for DRs too',
       f"the optimal normal DR starts with an EO of <=5 turns on {pct(r5['p_estar_le_k'])} of scrambles (<=4: {pct(r4['p_estar_le_k'])}, <=6: {pct(r6['p_estar_le_k'])}); mean EO inside the optimal DR {A['estar_mean']} turns",
-      f"answered: about {round(float(r5['p_estar_le_k']) * 100)}% for the optimal DR (JTuu guessed 'low')", f'{n} scrambles; optimal DR over 3 axes on normal; shortest EO prefix over all optimal DRs', wid('A2', 'starts with an EO'))
+      f"answered per scramble: on about {round(float(r5['p_estar_le_k']) * 100)}% of scrambles some optimal DR starts with an EO of <=5 (JTuu guessed 'low'); the share among all DRs, which Zagros asked, is not measured", f'{n} scrambles; optimal DR over 3 axes on normal; shortest EO prefix over all optimal DRs', wid('A2', 'starts with an EO'))
 claim('S-DR-47', 'Zagros: stats on scramble -> DR without an EO step; are the best DRs findable, or random 8-move DRs from 7-move EOs?',
       f"best through an EO of <=5 (normal): mean {r5['mean_best_given_eo']} against the optimal {bn['mean']}; equal on {pct(r5['p_equals_optimal'])}, 1 worse {pct(r5['p_loss1'])}, 2 worse {pct(r5['p_loss2'])}, 3+ {pct(r5['p_loss3plus'])}",
       'answered (out/a50k_a2.tsv): the optimal DR usually needs a 6+ turn EO', f'{n} scrambles; DR keeps the EO', wid('A2', 'the best DR through'))
 rx = lambda N: next(r for r in a2 if r['eo_kind'].startswith('normal EOs') and r['k'] == '5')
-claim('S-DR-26', 'Michael Smith: chance of an N-move DR that begins with an EO of at most 5 moves (not analysed, said JTuu)',
+claim('S-DR-26', 'Michael Smith sub7: chance of an N-move DR that begins with an EO of at most 5 moves (not analysed, said JTuu)',
       'see out/a50k_a2.tsv (mean_best_given_eo) and out/a50k_a3.tsv (p_none for N = 9..12)', 'answered', f'{n} scrambles')
 g = A['a3_gains']
 def yields(N):
@@ -79,13 +80,13 @@ win = [N for N in (9, 10, 11, 12) if yields(N)[1] > yields(N)[0]]
 claim('S-DR-261', 'Somebodyidk: 25 four-move EOs or 200 five-move EOs?',
       '; '.join(parts) + " (expected (EO, DR axis) pairs, normal side, per-EO yields over all EOs of that length on 50,000 scrambles; '<=4' yield used for the four-movers)",
       ('answered: the 25 four-movers give more short DRs up to a total of ' + str(min(win) - 1) + ', the 200 five-movers more from ' + str(min(win)) + ' on') if win and min(win) > 9 else ('answered: the 200 five-movers give more DRs' if win else 'answered: the 25 four-movers give more DRs'),
-      'per-EO yields averaged over 50,000 scrambles; EOs on one scramble are correlated, so this is an expectation, not a per-scramble guarantee')
+      'per-EO yields averaged over 50,000 scrambles; EOs on one scramble are correlated, so this is an expectation, not a per-scramble guarantee; EOs counted as nissy -a (counted the server\'s way both piles about double, same answer)')
 # ---- EO -> DR
 allc = c6['all']
 plain = c7['one DR axis, EO kept, normal (the known table)']
 claim('EO-DR-50', 'KrzychXyz: the longest EO->DR is 10, about 3% of cases; zakimoshi: so only 6.3% of cases are sub-7',
       f"10 is the longest; 3114 of 1,082,565 cases = 0.29%; sub-7 (<=6): {pct(plain['p_le6'])}; with the last EO turn invertible {pct(c7['one DR axis, EO kept, last EO turn inverted if better']['p_le6'])}, with the other DR axis too {pct(c7['two DR axes x last turn inverted, EO kept, normal']['p_le6'])}",
-      'corrected: the 10s are 0.29% (not 3%); sub-7 is 5.92%', 'exact over the 1,082,565 EO-solved cosets, one DR axis, EO kept')
+      'corrected: the 10s are 0.29% (not 3%); zakimoshi\'s 6.3% sub-7 was a question (5.92%)', 'exact over the 1,082,565 EO-solved cosets, one DR axis, EO kept')
 k44 = c6['4c4e']
 claim('EO-DR-79', "Cale's sheet (quoted by Lichi Fang): DR-4e4c reaches DR in <=6 1 in 5.2, or 1 in 3.6 when the last move may be switched",
       f"exact: <=6 on {pct(k44['plain_p_le6'])} (1 in {1 / float(k44['plain_p_le6']):.2f}); with the last EO turn inverted if better {pct(k44['switch_last_p_le6'])} (1 in {1 / float(k44['switch_last_p_le6']):.2f})",
@@ -93,7 +94,7 @@ claim('EO-DR-79', "Cale's sheet (quoted by Lichi Fang): DR-4e4c reaches DR in <=
 p = float(k44['switch_last_p_le6'])
 tail = sum(comb(27, i) * p ** i * (1 - p) ** (27 - i) for i in range(4))
 claim('EO-DR-80', 'Lichi Fang: only 3 of 27 DR-4e4c (first one nissy found per scramble) reach DR in <=6, switching allowed',
-      f'with the exact {pct(p)} the chance of 3 or fewer in 27 independent 4c4e is {tail:.4f}', 'open: p = %.3f under the exact rate for EO-solved states, while Cale\'s 25 (same method) fit it; both are first-found RZPs from nissy online, which need not be uniform EO-solved states' % tail,
+      f'with the exact {pct(p)} the chance of 3 or fewer in 27 independent 4c4e is {tail:.4f}', 'open: p = %.3f under the exact rate for EO-solved states (%.3f at Cale\'s 19226/70560 for switching the RZP\'s last move, which is what Lichi Fang switched; a report with questions, not a claim the sheet is wrong), while Cale\'s 25 (same method) fit it; both are first-found RZPs from nissy online, which need not be uniform EO-solved states' % (tail, sum(comb(27, i) * (19226 / 70560) ** i * (1 - 19226 / 70560) ** (27 - i) for i in range(4))),
       'binomial with the exact rate; does not model how nissy picks the first RZP')
 claim('EO-DR-22', "Mike (Cale's sheet): 4c4e comes up in 1 in 15.3 EOs", f"{k44['cosets']} of 1,082,565 cosets = 1 in {k44['one_in']}",
       'confirmed', 'exact; one DR axis')
@@ -128,11 +129,11 @@ claim('S-DR-76', "torchlight: EO->DR with EO-breaking turns allowed (7.797 again
       'exact over the 1,082,565 EO-solved cosets')
 claim('S-DR-77', 'DougCube, KrzychXyz: how much do EO-breaking DRs change the EO->DR distribution?',
       f"mean {plain['mean']} -> {anyrow['mean']}; <=5 {pct(plain['p_le5'])} -> {pct(anyrow['p_le5'])}; <=6 {pct(plain['p_le6'])} -> {pct(anyrow['p_le6'])}",
-      'answered: hardly at all', 'exact', wid('C6d', 'breaks'))
+      f"answered: hardly at all (of the {be['states_shorter_with_any_turns']} states shorter with any turns, {be['all_0e_cases']['shorter_with_any_turns']} are xc0e, where the other EO is solved and a DR as short keeps it)", 'exact', 'X6 (witness_extra.json; W12 is a 3c0e state)')
 ni = {r['case']: r for r in rd('c6_normal_inverse.tsv')}
 claim('EO-DR-326', 'Jay: RZP->DR on normal and on inverse are uncorrelated (Tom Nelson, rodneykinney: regression to the mean)',
       f"correlation of the EO-kept DR length on normal and on inverse (same axis): {ni['all']['correlation']} over all EO states; P(inverse <=6) = {ni['all']['p_inv_le6']}, given normal 9: {ni['all']['p_inv_le6_given_normal_9']}, given normal 6: {ni['all']['p_inv_le6_given_normal_6']}",
-      'almost all of the 0.17 is the case (normal and inverse always have the same case); within a case the correlation is between -0.015 and 0.063 (35 cases with 1000+ samples, out/c6_normal_inverse.tsv), small but not zero, largest where 6c and 8c lump sub-cases (3+3/6+0, 4+4/7+1) that inversion keeps', f"{C['sampled_states']} uniform EO-solved states, exact lookups")
+      'true for a known case, as after an RZP (Tom Nelson agreed, D850): within a case the correlation is between -0.015 and 0.063 (35 cases with 1000+ samples, out/c6_normal_inverse.tsv), within +-0.006 for the cases people switch from (4c4e, 4c2e, 3c2e, 7c8e, 3c4e, 8c8e), largest where 6c and 8c lump sub-cases (3+3/6+0, 4+4/7+1) that inversion keeps; the 0.17 overall, case not known, is almost all the case', f"{C['sampled_states']} uniform EO-solved states, exact lookups")
 claim('EO-DR-336', 'DanielEgdal: EO->DR length as the minimum of normal and inverse?',
       f"mean {c7['one DR axis, EO kept, better of normal and inverse']['mean']} (against {plain['mean']}), <=6 {pct(c7['one DR axis, EO kept, better of normal and inverse']['p_le6'])}",
       'answered', 'sampled, exact lookups')
@@ -159,7 +160,7 @@ tw12 = [r['optimal'] for r in ax if r['bad'] == '12']
 claim('S-EO-23', 'wen: the optimal linear EO for 12 bad edges is 7', f'{tw12[0]}', 'confirmed' if tw12 == ['7'] else 'refuted', 'exact')
 claim('S-EO-141', 'wen, EG-1 grind?: a 4-move EO is likelier from 8 bad than from 6 bad (kyh: 8 is worse)',
       f"linear <=4: 6 bad {pct(byb[6]['p_linear_le4'])}, 8 bad {pct(byb[8]['p_linear_le4'])}; with NISS (sampled) {pct(byb[6]['p_niss_le4'])} against {pct(byb[8]['p_niss_le4'])}",
-      'confirmed' if float(byb[8]['p_linear_le4']) > float(byb[6]['p_linear_le4']) else 'refuted', 'linear: exact over one axis; NISS: 1,000,000 random states x 3 axes')
+      ('depends: confirmed linearly; with NISS 6 bad is a little better' if float(byb[8]['p_niss_le4']) < float(byb[6]['p_niss_le4']) else 'confirmed') if float(byb[8]['p_linear_le4']) > float(byb[6]['p_linear_le4']) else 'refuted', 'linear: exact over one axis; NISS: 1,000,000 random states x 3 axes')
 claim('S-EO-140', 'wen: probability of a <5 move EO with 8 bad edges (feels no better than 6 bad)',
       f"linear {pct(byb[8]['p_linear_le4'])}, NISS {pct(byb[8]['p_niss_le4'])}", 'answered', 'as above')
 claim('S-EO-137', 'trig0n: odds of a <=4-move EO for 10 bad', f"linear {pct(byb[10]['p_linear_le4'])}, normal or inverse {pct(byb[10]['p_lin_or_inv_le4'])}, NISS {pct(byb[10]['p_niss_le4'])}", 'answered', 'as above')
@@ -170,12 +171,12 @@ claim('S-EO-85/86', 'argonblue: how rare are 3-move EOs? wen: probability of a 3
 claim('S-EO-6/9', 'Joba / DougCube: fixed-axis EO mean 4.609, best NISS EO over all axes 3.455', f"{B['one_axis_optimal_mean']} (exact); {anyn['mean']} (sampled)", 'confirmed', 'exact; 1,000,000 random states')
 sf = sfw
 claim('S-EO-12/13', 'Aneurin: superflip EO is 7 even with NISS; alkamaass: is NISS useless for EO on the superflip?', sf['finding'].split('; ')[-1],
-      'confirmed: 7 even with NISS (the same author\'s later "6 with NISS" is wrong); NISS does not shorten the superflip EO' if sf['finding'].endswith('7 linear, 7 with NISS') else 'see value', 'exact for the superflip', sf['id'])
+      'confirmed: 7 even with NISS (the same author\'s later "6 with NISS" is wrong); NISS does not shorten the superflip EO; most other 12/12/12 states do have a NISS EO under 7 (Joba T9374: 1792 edge states need 7, against 13824 with 12/12/12; torchlight T9414: superflip + M 3-cycle has 6-move NISS EOs, replayed as X7)' if sf['finding'].endswith('7 linear, 7 with NISS') else 'see value', 'exact for the superflip', sf['id'])
 lin_all = {(r['eos'], r['axes'], r['length']): r for r in b4}
 k = lambda e, a, l: lin_all[(e, a, str(l))]
 claim('S-EO-75/76', 'wen: about 200 EOs of <=5 and 17 of <=4 per scramble; Lichi Fang: median for <=4 about 14, skewed, up to 50-60',
-      f"linear normal, all axes, every EO (nissy -a): <=4 mean {k('linear (normal)', 'all three axes', 4)['mean_le']} (median {k('linear (normal)', 'all three axes', 4)['median_le']}), <=5 mean {k('linear (normal)', 'all three axes', 5)['mean_le']}; with NISS <=4 mean {k('NISS (normal, inverse, both)', 'all three axes', 4)['mean_le']} (median {k('NISS (normal, inverse, both)', 'all three axes', 4)['median_le']}), <=5 mean {k('NISS (normal, inverse, both)', 'all three axes', 5)['mean_le']}; nissy's default listing drops about half (EOs ending F'/B')",
-      'depends on the counting convention; see value', f'{n} random-state scrambles')
+      f"linear normal, all axes, every EO (nissy -a): <=4 mean {k('linear (normal)', 'all three axes', 4)['mean_le']} (median {k('linear (normal)', 'all three axes', 4)['median_le']}), <=5 mean {k('linear (normal)', 'all three axes', 5)['mean_le']}; with NISS <=4 mean {k('NISS (normal, inverse, both)', 'all three axes', 4)['mean_le']} (median {k('NISS (normal, inverse, both)', 'all three axes', 4)['median_le']}), <=5 mean {k('NISS (normal, inverse, both)', 'all three axes', 5)['mean_le']}; nissy's default NISS listing on the first {dl['scrambles']} scrambles: <=5 mean {dl['le5']['niss_default_per_scramble']['mean']:.1f} (median {dl['le5']['niss_default_per_scramble']['median']}), <=4 mean {dl['le4']['niss_default_per_scramble']['mean']:.1f} (median {dl['le4']['niss_default_per_scramble']['median']}); it keeps {pct(dl['le5']['one_sided']['default'] / dl['le5']['one_sided']['all'], 1)} of one-sided and {pct(dl['le5']['two_sided']['default'] / dl['le5']['two_sided']['all'], 1)} of two-sided EOs of <=5, {pct(dl['le5']['niss']['default'] / dl['le5']['niss']['all'], 1)} in all",
+      "true as Cale's sheet of official scrambles counts them (NISS, all axes, nissy's default listing: mean 246, median 217 for <=5; mean 17.3, median 14 for <=4); every EO (-a) gives more; see value", f'{n} random-state scrambles; default listing: out/default_listing.json')
 claim('S-EO-88', 'Kai Cui: a scramble never has more 3-move than 4-move EOs (kalindumaxxer: "i literally got one"; Yura: U (R2 U))',
       f"linear (normal, all axes): {pct(A['more3than4_linear'], 3)} of scrambles; with NISS {pct(A['more3than4_niss'], 3)}",
       'withdrawn at the time (Kai Cui: "oh bruh", "nvm then"); with every EO counted it happens with NISS (rare), never linearly in the sample; kalindumaxxer asked excluding HTR-equivalent variants, a convention not counted here' if A['more3than4_linear'] == 0 else 'refuted', f'{n} scrambles; every EO counted (nissy -a)', wid('B4', 'more 3-move'))

@@ -1,0 +1,47 @@
+{
+ "cases": {
+  "2c0e": {
+   "states": 56,
+   "shorter_with_any_turns": 8,
+   "of_which_a_dr_keeping_the_other_eo_is_as_short": 8
+  },
+  "3c0e": {
+   "states": 112,
+   "shorter_with_any_turns": 32,
+   "of_which_a_dr_keeping_the_other_eo_is_as_short": 32
+  },
+  "4c0e": {
+   "states": 420,
+   "shorter_with_any_turns": 84,
+   "of_which_a_dr_keeping_the_other_eo_is_as_short": 84
+  },
+  "5c0e": {
+   "states": 560,
+   "shorter_with_any_turns": 120,
+   "of_which_a_dr_keeping_the_other_eo_is_as_short": 120
+  },
+  "6c0e": {
+   "states": 616,
+   "shorter_with_any_turns": 112,
+   "of_which_a_dr_keeping_the_other_eo_is_as_short": 112
+  },
+  "7c0e": {
+   "states": 336,
+   "shorter_with_any_turns": 112,
+   "of_which_a_dr_keeping_the_other_eo_is_as_short": 112
+  },
+  "8c0e": {
+   "states": 86,
+   "shorter_with_any_turns": 17,
+   "of_which_a_dr_keeping_the_other_eo_is_as_short": 17
+  }
+ },
+ "all_0e_cases": {
+  "states": 2186,
+  "shorter_with_any_turns": 485,
+  "of_which_a_dr_keeping_the_other_eo_is_as_short": 485
+ },
+ "eo_solved_states": 1082565,
+ "states_shorter_with_any_turns": 6433,
+ "states_shorter_with_any_turns_outside_0e_cases": 5948
+}

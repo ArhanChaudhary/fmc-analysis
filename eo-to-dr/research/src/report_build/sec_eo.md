@@ -2,9 +2,11 @@
 
 ### 4.1 How many EOs, how short
 
-How many EOs a scramble has, on the same {= n(X('n')) =} uniformly random scrambles. An EO of length L is a move sequence that solves EO on its axis for the first time at its L-th turn, so its last turn is a quarter turn of that axis, and the two directions of that last turn count as two EOs. That's nissy's `solve eo -a` listing, and my counts match nissy's on 30 scrambles (appendix B).
+How many EOs a scramble has, on the same {= n(X('n')) =} uniformly random scrambles. An EO of length L is a move sequence that solves EO on its axis for the first time at its L-th turn, so its last turn is a quarter turn of that axis, and the two directions of that last turn count as two EOs. That's nissy's `solve eo -a` listing, and my counts match nissy's on 30 scrambles (appendix B). A NISS EO has turns on both sides, each side ending in a quarter turn of the axis.
 
-nissy without `-a` drops the EOs that end in `F'` or `B'` (or the matching turns of the other axes), so it lists about half as many; the counts quoted on the server are mostly of that kind. A NISS EO has turns on both sides, each side ending in a quarter turn of the axis. Each row is a kind of EO and its axes; the cells are the mean number of EOs per scramble up to that length:
+nissy without `-a` lists an EO only if each side ends in a clockwise quarter turn (two of them where a side ends in turns of two opposite faces, like `F B`). So of the EOs that differ only in the directions of their last turns it keeps one: one of two for most one-sided EOs, one of four for most NISS EOs. On the first {= DL['scrambles'] =} scrambles it lists {= DLP(5, 'one_sided') =} of the normal and inverse EOs of at most 5 and {= DLP(5, 'two_sided') =} of the NISS ones, {= DLP(5, 'niss') =} in all, about two fifths. The counts quoted on the server are of that kind: on those scrambles nissy's default NISS listing has a mean of {= DLPER(5, 'mean') =} EOs of at most 5 and {= DLPER(4, 'mean') =} of at most 4 (medians {= DLPER(5, 'median') =} and {= DLPER(4, 'median') =}), about what Cale's sheet of official scrambles has ("mean = 246", "median = 217"; "mean: 17.3", "median: 14").
+
+Each row is a kind of EO and its axes; the cells are the mean number of EOs per scramble up to that length:
 
 {{b4}}
 

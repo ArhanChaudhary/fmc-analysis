@@ -201,6 +201,8 @@ for k, v in by.items():
         add(0, 'C6a', f"one EO, two DR axes: {v[0]['case']} on {v[0]['dr_axis']} is {v[0]['plain']} to DR, {v[1]['case']} on {v[1]['dr_axis']} is {v[1]['plain']}", k[0],
             {'eo': k[2], 'eo_axis': k[1], v[0]['dr_axis']: v[0]['plain_dr'], v[1]['dr_axis']: v[1]['plain_dr']}, True)
         break
+# (the first such row is a 3c0e state, which has the other EO solved as well, and its shorter DR keeps that one; the
+# write-up's [f] uses xwitness.py's X6 instead, a state with one EO only)
 x = pick(lambda x: int(x['any']) < int(x['plain']))
 if x:
     vplain(x)

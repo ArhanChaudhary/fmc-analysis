@@ -40,9 +40,12 @@ The numbers behind the fourth case study (questions A1–A3, B4–B5, C6–C7 an
 - *A DR solution of length L* (A1 counts): a canonical sequence of L turns that reaches DR on an axis for the first
   time at its end. Matches `nissy solve drud -a -c -m L -M L` (checked).
 - *An EO of length L*: a canonical sequence that solves EO on axis Y for the first time at its end (so its last
-  turn is a quarter turn of a Y face). Matches `nissy solve eo* -a`; nissy *without* `-a` drops EOs that end in
-  F' or B' and lists about half as many (recorded in `out/checks_counts.tsv`; quoted counts on the server are
-  usually nissy's default). *A NISS EO*: turns on both sides, each side non-empty and ending in a quarter turn of
+  turn is a quarter turn of a Y face). Matches `nissy solve eo* -a`; nissy *without* `-a` keeps an EO only if each
+  side ends in a clockwise quarter turn (both clockwise where a side ends in two opposite faces), so one of each pair
+  that differs in a last turn's direction: on the first 150 scrambles 46.6% of the one-sided and 22.4% of the
+  two-sided EOs of at most 5, 37.8% in all (`src/default_listing.py`, `out/default_listing.json`). Quoted counts on
+  the server, Cale's sheet of official scrambles among them, are nissy's default (its means 246 and 17.3 against
+  242.9 and 17.1 for the default NISS listing on those 150). *A NISS EO*: turns on both sides, each side non-empty and ending in a quarter turn of
   Y; counts match `nissy solve eo* -N -a` together with the linear ones.
 - *Route through an EO*: EO E on axis Y, then turns without quarter turns of Y to a DR on one of the two other
   axes. For a normal EO the DR is on the normal side, for an inverse EO on the inverse side, for a NISS EO on
@@ -85,6 +88,9 @@ The numbers behind the fourth case study (questions A1–A3, B4–B5, C6–C7 an
 | A tables | `src/analyze_scr.py` | scr tables | `out/a50k_*.tsv`, `out/s500_*.tsv`, `*_stats.json` | 30 s |
 | Prior work | `src/compare_prior.py` | is-dr-xs-worth-it `out/nearest.tsv` | `out/compare_prior.tsv` | 10 s |
 | Witnesses | `src/witness.py` (`eodrtools eolist`, nissy for EO lists) | scr tables | `out/witness.json` | 20 s |
+| Extra witnesses, replayed | `src/xwitness.py` (X6 is the write-up's [f]: W12's shorter DR keeps the other EO of a 3c0e state) | witness.json, eolist, eo0 tables | `out/witness_extra.json` | 1 s |
+| Cases with both EOs | `src/both_eo.py` (xc0e: any-turn gains that keep the other EO) | eo0 tables | `out/both_eo.json` | 5 s |
+| nissy's default EO listing | `src/default_listing.py 150` (default against `-a`, normal, inverse, NISS) | first 150 scrambles | `out/default_listing.json` | 80 s |
 | Claims | `src/claims.py` | all of the above | `out/claims.tsv` | 1 s |
 | Summary | `src/summary.py` | all of the above | `out/SUMMARY.md` | 1 s |
 

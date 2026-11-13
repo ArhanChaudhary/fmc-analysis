@@ -2,7 +2,7 @@
 
 The fourth case study of this repository: the first half of a DR solve. How far a random scramble is from DR (one axis, best of three, with the inverse, with NISS, and through the short EOs a solver writes down), how many EOs a scramble has and how short, and what an EO leaves: how far DR is with the other DR axis, the inverse, the EO's last turn the other way and EO-breaking turns, overall and case by case. Every concrete claim from the FMC solvers Discord on these topics is checked against the numbers.
 
-It builds on Cale's *DR setup stats* (and its version with the last EO move switched), Louis's *DRM/ARM average optimals* and Rodney Kinney's sheet built on it, KrzychXyz's and Evan's sheets, Shota's EO tables, FakeMMAP's and torchlight's EO to DR tables, DougCube's *Tables of Distinct Positions*, Joba's exact NISS EO table, Tronto's EO-solved scrambles, torchlight's exact bad-edge counts, and the DR-xs study's section 6.4. What it adds:
+It builds on Cale's *DR setup stats* (and its version with the last EO move switched), Louis's *DRM/ARM average optimals* and Rodney Kinney's sheet built on it, KrzychXyz's and Evan's sheets, Shota's EO tables, FakeMMAP's and torchlight's EO to DR tables, DougCube's *Tables of Distinct Positions*, Joba's exact NISS EO table, Sebastiano Tronto's EO-solved scrambles, torchlight's exact bad-edge counts, and the DR-xs study's section 6.4. What it adds:
 
 - DR from a scramble over all axes, with the inverse and with NISS, with the odds of a DR in 8, 9, 10 and 11;
 - the EO inside the optimal DR, and the best DR through EOs of each length;
@@ -39,6 +39,8 @@ Large outputs (`research/out/big/`, the per-scramble tables) are not in the repo
     cd src
     python xtables.py                              # report/data/*.md and out/report_extra.json
     python xwitness.py                             # out/witness_extra.json, replayed
+    python both_eo.py                              # out/both_eo.json: the cases with no edge out of place (seconds)
+    python default_listing.py                      # out/default_listing.json: nissy's default EO listing against -a (about a minute)
     python report_build/assemble.py --final        # report/WRITEUP.md (every number is computed; --final fails if one is missing)
     python report_build/assemble.py --bugs --final # report/BUGS.md
     python xexamples.py                            # report/EXAMPLES.md, every move sequence replayed on the sticker model

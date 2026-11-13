@@ -29,6 +29,23 @@
   "inverse": "L B R U'",
   "axis": "U/D"
  },
+ "X6": {
+  "scramble": "R2 F' R U2 B2 D2 B F R' D F B' U' L' D B' F R2 L2 B F D'",
+  "eo": "F' R L' B",
+  "eo_axis": "F/B",
+  "dr_axis": "U/D",
+  "case": "4c4e",
+  "keep": 7,
+  "any": 6,
+  "dr_keeping_eo": "D R2 D' L2 F2 U' R",
+  "dr_breaking_eo": "R F R' B2 R F"
+ },
+ "X7": {
+  "scramble": "B R2 B2 L2 B2 D2 F U2 R2 D2 L' R U L2 D2 B F' R' D U'",
+  "normal": "R L' F",
+  "inverse": "U F B",
+  "axis": "F/B"
+ },
  "X2": {
   "scramble": "R2 L2 F2 B2"
  },
@@ -73,9 +90,10 @@
   "W12": "L2 D2 U' F2 L2 U' L2 B2 U' R2 B2 L2 R' D L F' D F2 D' F2",
   "X1": "U2 B2 U' R2 U F2 U2 R2 B2 F2 R2 B2 U2 L' B D' U' L' R' F' L2 F'",
   "X4": "U B2 R2 U' R2 U B2 D' F2 R2 U L2 F2 L' U' R' F2 D F' R B R U'",
+  "X6": "R2 F' R U2 B2 D2 B F R' D F B' U' L' D B' F R2 L2 B F D'",
   "X3_0": "F2 R2 U' F2 L2 F2 L2 U F2 D R2 D2 L2 U' R' U2 B D R' B F U B L2 U2",
   "X3_1": "L2 F2 R2 U2 L2 F2 U' L2 D B2 R2 U B2 U2 L' F' U2 L U L2 R' U2 B D",
   "X3_2": "U' F2 U2 B2 L2 U B2 L2 U2 L2 U' R2 U' L2 F' L' B' F U2 R' U L D' R"
  },
- "checks": 47
+ "checks": 56
 }

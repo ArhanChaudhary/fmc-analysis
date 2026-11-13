@@ -1,0 +1,77 @@
+{
+ "scrambles": 150,
+ "le4": {
+  "normal": {
+   "default": 1089,
+   "all": 2356,
+   "all_study": 2368,
+   "scrambles_equal_to_study": 137
+  },
+  "inverse": {
+   "default": 1021,
+   "all": 2200,
+   "all_study": 2196,
+   "scrambles_equal_to_study": 141
+  },
+  "niss": {
+   "default": 2564,
+   "all": 6568,
+   "all_study": 6592,
+   "scrambles_equal_to_study": 128
+  },
+  "one_sided": {
+   "default": 2110,
+   "all": 4556
+  },
+  "two_sided": {
+   "default": 454,
+   "all": 2012
+  },
+  "niss_default_per_scramble": {
+   "mean": 17.093333333333334,
+   "median": 14.0,
+   "none": 3
+  },
+  "niss_all_per_scramble": {
+   "mean": 43.78666666666667,
+   "median": 37.0
+  }
+ },
+ "le5": {
+  "normal": {
+   "default": 14686,
+   "all": 31524,
+   "all_study": 31630,
+   "scrambles_equal_to_study": 102
+  },
+  "inverse": {
+   "default": 13909,
+   "all": 29898,
+   "all_study": 29926,
+   "scrambles_equal_to_study": 95
+  },
+  "niss": {
+   "default": 36433,
+   "all": 96362,
+   "all_study": 96664,
+   "scrambles_equal_to_study": 64
+  },
+  "one_sided": {
+   "default": 28595,
+   "all": 61422
+  },
+  "two_sided": {
+   "default": 7838,
+   "all": 34940
+  },
+  "niss_default_per_scramble": {
+   "mean": 242.88666666666666,
+   "median": 223.5,
+   "none": 0
+  },
+  "niss_all_per_scramble": {
+   "mean": 642.4133333333333,
+   "median": 591.0
+  }
+ }
+}

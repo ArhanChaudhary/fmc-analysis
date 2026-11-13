@@ -261,3 +261,40 @@ def A1COUNT(key, d):
     r = [r for r in csv.DictReader(open(O + 'a50k_a1.tsv'), delimiter='\t') if r['what'] == A1N[key]][0]
     return n(r[f'n{d}'])
 ENV.update({k: v for k, v in list(globals().items()) if not k.startswith('_')})
+# ---- nissy's default EO listing against -a (out/default_listing.json, default_listing.py: the first 150 scrambles)
+DL = _j('default_listing.json')
+def DLK(k, kind, which): return DL[f'le{k}'][kind][which]
+def DLP(k, kind):
+    """Share of the -a EOs of at most k (normal, inverse, one_sided, two_sided, niss) that nissy's default listing keeps."""
+    from fractions import Fraction
+    return pc(Fraction(DLK(k, kind, 'default'), DLK(k, kind, 'all')))
+def DLPER(k, what, which='niss_default_per_scramble'):
+    """Mean or median per scramble of the default NISS listing (all axes) of EOs of at most k, on those scrambles."""
+    v = DL[f'le{k}'][which][what]
+    return f'{hu(v, 1):.1f}' if what == 'mean' else f'{hu(v, 1):g}' if v != int(v) else str(int(v))
+# ---- the cases with no edge out of place, where the other EO is solved too (out/both_eo.json, both_eo.py)
+BE = _j('both_eo.json')
+def BOTH(key, what=None):
+    v = BE[key] if what is None else BE[key][what]
+    return n(v)
+def BOTHCASES(): ks = sorted(BE['cases'], key=lambda c: int(c.split('c')[0])); return f'{ks[0]} to {ks[-1]}'
+# ---- Cale's table for switching the RZP's last move on a 4c4e ([[T4264]], its image): 19,226 of 70,560 in 6 or fewer
+CALE_RZP_4C4E = (19226, 70560)
+def CALE_RZP(what):
+    from fractions import Fraction
+    k, t = CALE_RZP_4C4E
+    assert t == int(E['c6']['4c4e']['cosets'])                # the same 4c4e states as here
+    p = Fraction(k, t)
+    return pc(p) if what == 'p' else pc(BINOM(3, 27, p))
+def EDGESTATES(pred):
+    """Edge states (12! * 2^11) whose bad-edge counts satisfy pred: the exact share of the layouts times the states."""
+    from fractions import Fraction
+    v = Fraction(LAYF(pred)) * math.factorial(12) * 2 ** 11
+    assert v.denominator == 1
+    return n(v.numerator)
+ENV.update({k: v for k, v in list(globals().items()) if not k.startswith('_')})
+SWITCHED = ('4c4e', '4c2e', '3c2e', '7c8e', '3c4e', '8c8e')      # the cases people switch from (sec_claims, Noah Swor's and mrauo's lists, Jay's T1802)
+def SWCORR():
+    """A bound on |correlation| of normal and inverse within those cases: the largest, rounded up to 3 decimals."""
+    return f'{math.ceil(max(abs(float(E["c6ni"][c]["correlation"])) for c in SWITCHED) * 1000) / 1000:.3f}'
+ENV.update({k: v for k, v in list(globals().items()) if not k.startswith('_')})
