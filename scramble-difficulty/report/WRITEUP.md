@@ -643,7 +643,7 @@ Counts are as defined under Terms. Every DR below was replayed on the cube model
 ## Docs referred to
 
 - tnoodle-lib, the scrambling library of TNoodle: [github.com/thewca/tnoodle-lib](https://github.com/thewca/tnoodle-lib), as of 5 October 2026 (commit d01a947). min2phase is by Shuang Chen; the update with premoves entered TNoodle's source on 30 June 2019.
-- WCA results export, version 2.0.2 of 13 November 2026: [worldcubeassociation.org/export/results](https://www.worldcubeassociation.org/export/results).
+- WCA results export, version 2.0.2 of 13 November 2026: [worldcubeassociation.org/export/results](https://www.worldcubeassociation.org/export/results). This information is based on competition results owned and maintained by the World Cube Association, published at https://worldcubeassociation.org/results as of November 13, 2026.
 - DougCube, [*All WCA Scrambles by DougCube (Main)*](https://docs.google.com/spreadsheets/d/183AYpjKz4fZZAy5Hx5lxEthD2f356ReZG-uHPm_HWcY), tab FMC, as of 16 July 2026.
 - [*Judging a DR*](../judging-a-dr/), [*EO to DR, and scramble to DR*](../eo-to-dr/), [*When to switch an EO*](../eo-switch/), and `gaps/research` in the [repository](https://github.com/ArhanChaudhary/fmc-analysis).
 - Levi Gibson, [*Trigger averages*](https://docs.google.com/spreadsheets/d/1ye-vV4OeGBofmlZIJyIMy_dEoZk9Xz-v2ijtcTyO5AM).

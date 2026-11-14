@@ -53,3 +53,7 @@ Add a `[policy.NAME]` section to a file in `policies/` (or to `src/make_policies
 copies another section of the same file first; every key is a field of `Policy` in `attemptsim/src/conf.rs`, with its
 meaning in the comment next to it. Times are seconds on the clock of a one-hour attempt; with another `budget` they
 scale with it.
+
+## WCA data
+
+The official results and scrambles used here come from the WCA results export (version 2.0.2, 13 November 2026, https://www.worldcubeassociation.org/export/results). This information is based on competition results owned and maintained by the World Cube Association, published at https://worldcubeassociation.org/results as of November 13, 2026.

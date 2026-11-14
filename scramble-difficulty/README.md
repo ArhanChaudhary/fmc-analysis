@@ -14,3 +14,7 @@ It builds on torchlight's guess about the axis, Levi Gibson's corner QT count an
 | `UNLISTED` | marker file: the page is built but not linked from the front page |
 
 The large inputs (the DR lists, the WCA export, the generated scrambles) are not in the repository.
+
+## WCA data
+
+The official results and scrambles used here come from the WCA results export (version 2.0.2, 13 November 2026, https://www.worldcubeassociation.org/export/results). This information is based on competition results owned and maintained by the World Cube Association, published at https://worldcubeassociation.org/results as of November 13, 2026.

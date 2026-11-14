@@ -53,5 +53,5 @@ Lean checks individual attempts, not the averages, which stay **sampled**.
 - Yura Riabov, [*Hitchhiker's Guide to FMC*](https://docs.google.com/document/d/16nu10y1JkUmVDC11c1h_ULzAl4Vze7zR/edit) (Google Doc).
 - Yura Riabov, [*FMC Jan-May 2025*](https://docs.google.com/spreadsheets/d/1Cb7M3KqB5W99sSNOIKLG3xqZ-k58koIexTLahUiPNhs/edit?usp=sharing), a log of 138 attempts (Google Sheet, posted [[D12481]]).
 - [*Sub 22 Official Mean Stats*](https://docs.google.com/spreadsheets/d/17L6vArP8t_5yPIeCpiQpp66YBZcLcbxS10hzYtnB-XE/edit?gid=0) (Google Sheet, first linked here by Yura Riabov, [[N1100]]).
-- The WCA results export: official FMC results of the top 10 by mean since 2024.
+- The WCA results export, version 2.0.2 of 13 November 2026 ([worldcubeassociation.org/export/results](https://www.worldcubeassociation.org/export/results)): official FMC results of the top 10 by mean since 2024, and their scrambles. This information is based on competition results owned and maintained by the World Cube Association, published at https://worldcubeassociation.org/results as of November 13, 2026.
 - The other studies on this site: [*Judging a DR by hand*](../judging-a-dr/), [*Which HTR routes to try from a DR*](../htr-routes/), [*EO to DR, and scramble to DR*](../eo-to-dr/), [*When to switch an EO*](../eo-switch/).

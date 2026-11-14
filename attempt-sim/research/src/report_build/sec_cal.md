@@ -1,6 +1,6 @@
 ## 5. The baseline against real results
 
-The real yardstick is the WCA export: the five solvers with the best official mean since 2024 (at least 40 attempts each), {{V:real_t5_n}} attempts. Their mean is {{V:real_t5_mean}}, not 20-21: 20-21 is a good mean of 3, not where the best solvers sit over many attempts. Yura Riabov's own log of 138 attempts from 2025 ([*FMC Jan-May 2025*](https://docs.google.com/spreadsheets/d/1Cb7M3KqB5W99sSNOIKLG3xqZ-k58koIexTLahUiPNhs/edit?usp=sharing), posted [[D12481]]) says the same: 21.99.
+The real yardstick is the WCA results export (This information is based on competition results owned and maintained by the World Cube Association, published at https://worldcubeassociation.org/results as of November 13, 2026.): the five solvers with the best official mean since 2024 (at least 40 attempts each), {{V:real_t5_n}} attempts. Their mean is {{V:real_t5_mean}}, not 20-21: 20-21 is a good mean of 3, not where the best solvers sit over many attempts. Yura Riabov's own log of 138 attempts from 2025 ([*FMC Jan-May 2025*](https://docs.google.com/spreadsheets/d/1Cb7M3KqB5W99sSNOIKLG3xqZ-k58koIexTLahUiPNhs/edit?usp=sharing), posted [[D12481]]) says the same: 21.99.
 
 The baseline policy with the costs of section 4 lands within about a tenth of a move of them. One row per group of attempts; the simulator is run on random scrambles and, separately, on exactly the scrambles of the top 5's attempts (each scramble as many times as they had it):
 
