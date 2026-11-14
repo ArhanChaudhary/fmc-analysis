@@ -83,7 +83,7 @@ def t_mid():
 
 CASE_ROWS = ['3c2e', '2c2e', '4c2e', '4c4e', '7c8e', '8c8e', '3c4e', '5c4e', '4c6e', '5c6e', '6c6e', '6c4e', '7c6e', '7c4e', '6c8e', '3c6e']
 def t_cases():
-    rows = ['| Case on the DR axis | Share of EO-solved states | DR in ≤ 5 more | DR in ≤ 6 more | DR in ≤ 7 more | DR in ≤ 6 more, that axis alone |',
+    rows = ['| DRM on the DR axis you look at | Share of all EO-solved states | DR in 5 or fewer more moves, every option (share of the row) | DR in 6 or fewer more, every option (share of the row) | DR in 7 or fewer more, every option (share of the row) | DR in 6 or fewer more, that one DR axis, normal only (share of the row) |',
             '|---|---:|---:|---:|---:|---:|']
     for c in CASE_ROWS:
         rows.append(f"| {c} | {{= eo-to-dr: C6('{c}', 'share') =}} | {{= eo-to-dr: C6('{c}', 'all_eo_kept_p_le5') =}} | "
@@ -114,7 +114,34 @@ def t_mid_rule():
 
 def include(path): return open(f'{ROOT}/{path}').read().strip('\n')
 
-TABLES = {'eoswitch_cards': lambda: include('eo-switch/report/data/rule_cards.md'), 'stop_all': lambda: t_stop('normal, inverse and NISS'), 'stop_normal': lambda: t_stop('normal'),
+SW44 = {r['key']: r for r in tsv(f'{DATA}/switch44.tsv')}
+SWR = {r['key']: r for r in tsv(f'{DATA}/switch44_rules.tsv')}
+def S44(key, col): return SW44[key][col]
+def SR(key, col): return SWR[key][col]
+
+def t_sw44_groups():
+    rows = ['| What you NISS trace on the switched case | Share of all non-JZP 4c4e cases | DR in 6 or less after the switch (share of the row) | DR in 5 or less after the switch (share of the row) | Share of all non-JZP 4c4e cases with a DR in 5 or less |',
+            '|---|---:|---:|---:|---:|']
+    for k in ('p2_le2', 'p2_3', 'p2_45', 'p1_arm21', 'p1_other', 'p0'):
+        r = SW44[k]
+        rows.append(f"| {r['group']} | {pc(r['share_of_nonjzp'])} | {pc(r['p_le6'])} | {pc(r['p_le5'])} | {pc(r['of_nonjzp_le5'])} |")
+    return '\n'.join(rows)
+
+def t_sw44_rules():
+    rows = ['| Switch when | Share of all non-JZP 4c4e cases switched | DR in 6 or less, among the switched | Share of all non-JZP 4c4e cases with a DR in 6 or less that get switched | Share of all non-JZP 4c4e cases with a DR in 5 or less that get switched |',
+            '|---|---:|---:|---:|---:|']
+    for k in ('current', 'first', 'first_arm21'):
+        r = SWR[k]
+        rows.append(f"| {r['rule']} | {pc(r['share_switched'])} | {pc(r['p_le6'])} | {pc(r['caught_le6'])} | {pc(r['caught_le5'])} |")
+    return '\n'.join(rows)
+
+def t_eoswitch_cards():
+    t = include('eo-switch/report/data/rule_cards.md')
+    old = '| DRM | Verdict | What the switched case shows | Share of the DRM | Sub-7 rate |'
+    assert t.startswith(old)
+    return t.replace(old, '| DRM | Verdict | What you NISS trace on the switched case | Share of all cases of this DRM | DR in 6 or less after the switch (share of the row) |', 1)
+
+TABLES = {'eoswitch_cards': t_eoswitch_cards, 'sw44_groups': t_sw44_groups, 'sw44_rules': t_sw44_rules, 'stop_all': lambda: t_stop('normal, inverse and NISS'), 'stop_normal': lambda: t_stop('normal'),
           'variants': t_variants, 'mid': t_mid, 'mid_rule': t_mid_rule, 'cases': t_cases}
 
 # ------------------------------------------------------------------ section links
@@ -143,7 +170,7 @@ def study_eval(study, exprs):
 
 def main():
     doc = open(os.path.join(HERE, 'cards.md')).read()
-    doc = re.sub(r'\{\{([a-z_]+)\}\}', lambda m: TABLES[m.group(1)](), doc)
+    doc = re.sub(r'\{\{([a-z_0-9]+)\}\}', lambda m: TABLES[m.group(1)](), doc)
     doc = re.sub(r'\{\{sec ([a-z\-]+) ([\d.]+)\}\}', lambda m: sec(m.group(1), m.group(2)), doc)
     pat = re.compile(r'\{=\s*(?:([a-z][a-z\-]+):\s*)?(.+?)\s*=\}')
     want = {}

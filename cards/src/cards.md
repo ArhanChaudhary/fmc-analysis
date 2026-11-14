@@ -69,38 +69,60 @@ Read each row as "what's still out there". The DRs counted are the best that exi
 
 ### Should I switch this EO?
 
-**On 4c4e, count the half turns to two bars, U and D moves free: 0 or 1, switch (it's guaranteed); 2, switch; 3, your call; 4 or 5, discard. For every other DRM use the pair card below.** Switching here means: after EO + RZP, go to inverse, keep the EO and look for DR there. Sub-7 means a DR in 6 or less on the switched side.
+**On 4c4e, keep switching what you switch now: 2 or more top pairs, or 1 top pair with ARM 21. Of all non-JZP 4c4e cases that have a DR in 5 or less after the switch, that rule switches {= pc(SR('current', 'caught_le5')) =}. What NISS tracing adds is which of those switches to work first (below). For the other DRMs, use the pair card further down. JZP you check directly.**
 
-*What you check:* on 4c4e, the two rings and the count if you've got 2 or more pairs. Otherwise the card's pairs, side pairs, ARM or corner case on the switched case ({{sec eo-switch 4.4}}).
+Switching means: after EO + RZP, go to the inverse, keep the EO and look for a DR there. All the odds on this card are for the switched side and are exact, over every EO-solved case of the DRM. They hold after any RZP, because the switched case is exactly uniform whatever path made it ({{sec eo-switch 8}}).
 
-4c4e by half turns to two bars, exact over every 4c4e case ({{sec eo-switch 4.3}}):
+*What you check:* NISS trace the switched case from normal: top pairs (wen's tracing), side pairs (rodneykinney's), ARM (the R/L stickers on U/D for corner ARM), and the corner case. On 4c4e with 2 or more top pairs, also trace the leftover bad corners and the two U/D edges stuck in the E slice, and work out the half turns to two bars, explained below.
 
-| Half turns to two bars | Verdict | Share of 4c4e | Sub-7 rate |
-|---|---|---:|---:|
-| 0 or 1 | **switch**, guaranteed | {= eo-switch: pcx(RHG('le1', 'share')) =} | {= eo-switch: pcx(RHG('le1')) =} |
-| 2 | **switch** | {= eo-switch: pcx(RH(2, 'share')) =} | {= eo-switch: pcx(RH(2)) =} |
-| 3 | **your call** | {= eo-switch: pcx(RH(3, 'share')) =} | {= eo-switch: pcx(RH(3)) =} |
-| 4 or 5 | **discard** | {= eo-switch: pcx(RHG('ge4', 'share')) =} | {= eo-switch: pcx(RHG('ge4')) =} |
+**4c4e, your rule split up.** Each row is one group of switched non-JZP 4c4e cases, by what you trace. The second column says how common the group is among all non-JZP 4c4e cases. The next two say how often a case in that row has a DR in 6 (or 5) or less after the switch. The last says how much of all the 5-or-less cases sit in that row:
 
-By hand you can read the switch end, not the discard end. With 2+ pairs you can read the count (2 or fewer is {= eo-switch: pcx(RU('p2le2', 'share')) =} of 4c4e, and those are sub-7 {= eo-switch: pcx(RU('p2le2')) =} of the time). With 0 or 1 pair the reading only tells you "3 or more", so just use the card. Two bars as the target isn't new: it's in Andrew's 2019 video and rodneykinney's *DR - 4c4e Theory*. The exact count and the bands are what the study adds ({{sec eo-switch 4}}).
+{{sw44_groups}}
 
-The pair card for every DRM, exact over all its cases ({{sec eo-switch 6}}). Each row is a verdict group: what you check on the switched case, how much of the DRM lands there, and how often it's sub-7:
+Your rule is the first four rows: 2+ top pairs, any number of half turns, plus 1 top pair with ARM 21. The 2+ top pair cases with 2 or fewer half turns to two bars are where the short DRs are, about 3 in 4 with a DR in 6 or less and 1 in 4 with a DR in 5 or less. The 2+ top pair cases with 3 or more are barely better than an average 4c4e, and almost never a 5. Your 1-pair ARM 21 rule sits in between, and it holds {= pc(S44('p1_arm21', 'of_nonjzp_le5')) =} of all the 5-or-less cases, so it's worth keeping.
+
+The same thing as rules. Each row is a switch rule over all non-JZP 4c4e cases: how many it switches, how many of the switched have a DR in 6 or less, and how many of all the 6-or-less and 5-or-less cases it catches:
+
+{{sw44_rules}}
+
+So if missing a short DR hurts you more than a wasted switch, keep your rule and use half turns to two bars only to order the switches: 2 or fewer first, then 1 top pair with ARM 21, then the 2+ top pair cases with 3 or more. Dropping that last group saves about {= pc(float(S44('p2_3', 'share_of_nonjzp')) + float(S44('p2_45', 'share_of_nonjzp'))) =} of all non-JZP 4c4e cases' worth of switches and loses {= pc(float(S44('p2_3', 'of_nonjzp_le5')) + float(S44('p2_45', 'of_nonjzp_le5'))) =} of the 5-or-less cases.
+
+JZP is {= pc(S44('jzp', 'share_of_4c4e')) =} of all 4c4e cases (on 4c4e it's exactly ARM 00), and {= pc(S44('jzp', 'p_le6')) =} of those have a DR in 6 or less after the switch.
+
+**Half turns to two bars, by NISS tracing.** A switched 4c4e is one R or L quarter turn away from DR when three things line up:
+
+- each of the two bad U/D edges is a **bar**: it has a top pair on both sides, so both corners next to it are bad and both pair with it;
+- the two bars are on the same R or L side, one in U and one in D;
+- the two U/D edges stuck in the E slice (the ones you look at for side pairs) are on that same R/L side.
+
+U and D turns are free, and each R2, L2, F2 or B2 swaps the corner, edge and corner of that side in U with the three in D. *Half turns to two bars* is the fewest of those R2/L2/F2/B2 that get you there. Here's how to read it off your tracing, by top pairs:
+
+- **4 top pairs:** you have two bars already. If they're in different layers, you need 0 half turns for the bars. If they're both in one layer, you need 1 to move one over.
+- **3 top pairs:** one bad corner is left over, and one bad edge is missing its second pair. Start at 1. Add 1 if the leftover corner is in the same layer as that edge. Add 1 if the leftover corner is blocked: a bad piece on its other side, meaning the neighbouring edge it would *not* pair with, or the corner just past that edge. Add 1 if both bad edges are in the same layer, opposite each other. This is exact on every 3-pair case ({{sec eo-switch 4.4}}).
+- **2 top pairs:** check whether one half turn gets you to one of the four shapes that are a single half turn from two bars ({{sec eo-switch 4.4}} lists them; one of them has only 2 top pairs, one on each bad edge, with each layer holding the corner the other needs).
+- **0 or 1 top pair:** it's always 2 or more, nearly always 3 or more, and by hand you can't tell a 3 from a 4 or 5. Use ARM instead (your ARM 21 rule, or the pair card).
+
+Then the stuck E-slice edges: they cost nothing if they share an R/L colour (they're on one R/L side), 1 half turn if they share no colour, and 2 if they share an F/B colour. The answer is always the larger of the two numbers, bars and stuck edges (checked on every 4c4e case): you choose which side each half turn is on, so the turns that make the bars can fix the stuck edges at no extra cost. Every 4c4e with 0 or 1 half turns to two bars has a DR in 6 or less ({= eo-switch: pcx(RHG('le1', 'share')) =} of all 4c4e cases). Two bars as the target goes back to Andrew's 2019 video and rodneykinney's *DR - 4c4e Theory*. The exact count and its odds are the EO-switch study's ({{sec eo-switch 4}}).
+
+**The pair card, every DRM.** Each row is one verdict group of a DRM: what you trace on the switched case, how much of that DRM lands in the group (share of all cases of the DRM), and how often a case in the group has a DR in 6 or less after the switch ({{sec eo-switch 6}}). For 4c4e this card splits by paired edges instead of top pairs, so it's a bit different from your rule above:
 
 {{eoswitch_cards}}
 
-These hold after any RZP. The switched case is exactly uniform no matter how you got there, so the tables apply as they are ({{sec eo-switch 8}}). Also, after switching, checking the other DR axis is worth more than flipping the EO's last move: {= eo-switch: f1((OPT('4c4e', 2) - OPT('4c4e', 0)) * 100) =} points against {= eo-switch: f1((OPT('4c4e', 1) - OPT('4c4e', 0)) * 100) =} on 4c4e.
+One more thing after you switch: checking the other DR axis beats turning the EO's last move the other way. On 4c4e it adds {= eo-switch: f1((OPT('4c4e', 2) - OPT('4c4e', 0)) * 100) =} percentage points to the share of switched cases with a DR in 6 or less, against {= eo-switch: f1((OPT('4c4e', 1) - OPT('4c4e', 0)) * 100) =} for the last move ({{sec eo-switch 8}}).
 
 ### Should I add some random moves to this EO?
 
-**Yeah, if the EO leaves room for them. With every option checked, an EO-solved cube has a DR in 7 more moves or less {= eo-to-dr: CT('allkept', 'p_le7') =} of the time, in 6 or less {= eo-to-dr: CT('allkept', 'p_le6') =}, in 5 or less {= eo-to-dr: C6('all', 'all_eo_kept_p_le5') =}. So if you want a DR in 10: an EO of 3 or less is usually worth RZPing, a 4-mover depends on its case, and a 5-mover needs one of the good cases.** Random moves = RZP, setup moves into a DR trigger ("Doing random moves, but in polish it abreviates to rzp", Yura Riabov, [[D3759]]). Keep the EO while you do it: among routes through EOs of 5 or less, breaking the EO reaches the optimal DR where nothing EO-keeping does on {= eo-to-dr: BRK(5) =} of {= eo-to-dr: n(X('n')) =} scrambles ({{sec eo-to-dr 1}}).
+**Yeah, if the EO leaves room for them. Random moves are an RZP: setup moves into a DR trigger ("Doing random moves, but in polish it abreviates to rzp", Yura Riabov, [[D3759]]). Over all EO-solved states, with every option checked, {= eo-to-dr: CT('allkept', 'p_le7') =} have a DR in 7 or fewer more moves, {= eo-to-dr: CT('allkept', 'p_le6') =} in 6 or fewer and {= eo-to-dr: C6('all', 'all_eo_kept_p_le5') =} in 5 or fewer. So if you want a DR in 10: an EO of 3 or less is usually worth RZPing, a 4-mover depends on its DRM, and a 5-mover needs one of the good DRMs.**
 
-*What you check:* how long the EO is, and its case (bad corners and edges out of place) on each DR axis, normal and inverse, before you add anything.
+*Every option* means both DR axes, normal or inverse, and the EO's last move either way, all keeping the EO. Keep the EO while you add moves: among routes through EOs of 5 or less, breaking the EO reaches the optimal DR where nothing EO-keeping does on only {= eo-to-dr: BRK(5) =} of {= eo-to-dr: n(X('n')) =} scrambles ({{sec eo-to-dr 1}}).
 
-With every option (two DR axes, normal or inverse, the EO's last move either way, all keeping EO), the odds of a DR in 5, 6 or 7 more moves are {= eo-to-dr: C6('all', 'all_eo_kept_p_le5') =}, {= eo-to-dr: CT('allkept', 'p_le6') =} and {= eo-to-dr: CT('allkept', 'p_le7') =}. On one DR axis alone it's {= eo-to-dr: CT('plain', 'p_le6') =} for 6 and {= eo-to-dr: CT('plain', 'p_le7') =} for 7 ({{sec eo-to-dr 5.1}}). Here it is by the case you start from ({{sec eo-to-dr 5.2}}), the good named cases first and then the common ones. Each row is the case on the DR axis you're looking at. The middle columns use every option, the last one that axis alone:
+*What you check:* how long the EO is, and the DRM it leaves on each DR axis (bad corners and bad edges for that DR), normal and inverse, before you add anything.
+
+With a single DR axis and normal only, the odds drop to {= eo-to-dr: CT('plain', 'p_le6') =} for 6 or fewer more and {= eo-to-dr: CT('plain', 'p_le7') =} for 7 ({{sec eo-to-dr 5.1}}). By the DRM you start from ({{sec eo-to-dr 5.2}}): each row is the DRM on the DR axis you look at. The second column is how common it is among all EO-solved states. The others say how often a state with that DRM has a DR within 5, 6 or 7 more moves (every option), or within 6 on that axis alone:
 
 {{cases}}
 
-The case matters more than the RZP does: a natural 4c4e or 4c2e gets a DR in 6 more about half the time with every option, a 6c6e about one time in four. And a 6-move RZP is a much tougher target than a 4 or 5. On real attempts, after a switch, a DR in 5 after a 6-move RZP is {= eo-switch: f1(min(POP(d, 3) / POP(d, 4) for d in E['pop'])) =} to {= eo-switch: f1(max(POP(d, 3) / POP(d, 4) for d in E['pop'])) =} times rarer than a DR in 6 after a 5-move one, depending on the DRM ({{sec eo-switch 8}}). The DR lengths are optimal DRs after the EO, **computer only**. The case is the part you can actually read.
+The DRM matters more than the RZP does. A natural 4c4e or 4c2e has a DR in 6 or fewer more moves about half the time with every option, a 6c6e about one time in four. And a 6-move RZP is a much tougher target than a 4 or 5. On real attempts, after a switch, the share of cases with a DR in 5 after a 6-move RZP is {= eo-switch: f1(min(POP(d, 3) / POP(d, 4) for d in E['pop'])) =} to {= eo-switch: f1(max(POP(d, 3) / POP(d, 4) for d in E['pop'])) =} times smaller than the share with a DR in 6 after a 5-move one, depending on the DRM ({{sec eo-switch 8}}). The DR lengths are optimal DRs after the EO, **computer only**. The DRM is the part you can actually read.
 
 ## DR to HTR
 

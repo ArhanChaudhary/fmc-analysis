@@ -1,0 +1,4 @@
+key	rule	share_switched	p_le6	p_le5	caught_le6	caught_le5
+current	2+ top pairs, or 1 top pair with ARM 21 (what people switch now)	0.343901594	0.419899244	0.112930311	0.771759259	0.943197756
+first	only 2+ top pairs with 2 or fewer half turns to two bars	0.120408870	0.735971223	0.264988010	0.473611111	0.774894811
+first_arm21	that, plus 1 top pair with ARM 21	0.213270963	0.551448687	0.175060926	0.628549383	0.906732118
