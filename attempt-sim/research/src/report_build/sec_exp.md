@@ -26,7 +26,7 @@ After how many DRs you finish, this is the steepest curve of the hour: 0 or 1 st
 
 {{T:edge}}
 
-Past 8 it's flat. At that point the read cut-off is what decides which states you work, not the per-EO cap, so in practice it means "work every RZP state whose read looks good enough". What does still help is giving the 5-movers 2 RZP states instead of 1: {{V:edge_best}} scores {{V:edge_best_d}} against the tuned plan. So the tuned plan isn't the end of the road; that's just the best version I've measured so far.
+Past 8 it's flat. At that point the read cut-off is what decides which states you work, not the per-EO cap, so in practice it means: work every RZP state whose read looks good enough. What does still help is giving the 5-movers 2 RZP states instead of 1: {{V:edge_best}} scores {{V:edge_best_d}} against the tuned plan. So the tuned plan isn't the end of the road; that's just the best version I've measured so far.
 
 **When the DR search stops**, with nothing else changed. Each row is the minute:
 
