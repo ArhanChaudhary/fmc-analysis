@@ -266,7 +266,7 @@ So tseitsei89's "100% cases and 0% cases" don't exist at any target. There is no
 
 The tables above are ceilings, **computer only**: a rule that reaches them needs a table of thousands of classes. These are rules you can carry in your head, for the attempt.
 
-**HTR length against your target** (needs the shortest HTR on both sides). This is Zagros's "4c3 that is 9+ on both sides I throw away" ([[T11190]]) moved to the finish you need, T. Each rule gets two columns: the share of the qt group it drops, and the share of the finishes in T it loses. The rules on the longer side first:
+**HTR length against your target** (needs the shortest HTR on both sides). This is Zagros's "4c3 that is 9+ on both sides I throw away" ([[T11190]]) moved to the finish you need, T. trangium answered the question the same day with a sampled square table ("note: sample sizes for each cell are quite small (20 to 100)", [[T11191]], [[T11192]]), after posting the one-sided version, the average optimal by the shortest HTR on the other side, for DRs ending in F R L and from a normal DR ([[T11181]], [[T11189]]). The numbers here are exact, over every DR state. Each rule gets two columns: the share of the qt group it drops, and the share of the finishes in T it loses. The rules on the longer side first:
 
 {{PIV_RULES}}
 
