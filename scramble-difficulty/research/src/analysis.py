@@ -1,6 +1,12 @@
-"""All statistics of the report.  usage: venv/bin/python src/analysis.py  (from /data/scramble-difficulty)
-Reads out/feat_*.tsv and out/tgt_*.tsv; writes out/analysis.txt (every table) and out/results.json."""
-import json, sys, os, csv, math
+"""All statistics of the report that come from features and targets.
+
+usage: analysis.py --data DIR --cap 10|11 --pops uni,real,gen[,pnew,pold] --out DIR [--tag T] [--big DIR]
+Reads DIR/feat_<pop>.tsv, feat2_<pop>.tsv, tgt<cap>_<pop>.tsv, tgt<cap>_<pop>_axis.tsv, opt_real.tsv and
+BIG/real_unique.tsv; writes OUT/analysis<T>.txt (every table, as text) and OUT/analysis<T>.json (every number the
+page uses).  The targets are those of the DRs of at most <cap> moves.  The order of the computations that draw
+random numbers is fixed: with --cap 10 --pops uni,real,gen on the first data set it reproduces the first run digit
+for digit; anything added later draws from a second generator (RNG2)."""
+import json, sys, os, csv, math, argparse
 import numpy as np
 from collections import defaultdict
 from sklearn.linear_model import LinearRegression, LogisticRegression
@@ -8,14 +14,23 @@ from sklearn.ensemble import HistGradientBoostingRegressor, HistGradientBoosting
 from sklearn.tree import DecisionTreeRegressor, export_text
 from sklearn.metrics import roc_auc_score
 
-os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
-OUT = open('out/analysis.txt', 'w')
+ap = argparse.ArgumentParser()
+ap.add_argument('--data', required=True); ap.add_argument('--cap', type=int, default=10); ap.add_argument('--pops', default='uni,real,gen')
+ap.add_argument('--out', required=True); ap.add_argument('--tag', default=''); ap.add_argument('--big', default='/data/scramble-difficulty/big')
+ap.add_argument('--hard', type=int, default=0); ap.add_argument('--good', type=int, default=22); ap.add_argument('--limit', type=int, default=0)
+ARG = ap.parse_args()
+CAP = ARG.cap; NK = f'n{CAP}'; PK = f'n{CAP - 1}'; GOODK = f'good{ARG.good}'
+EASY_CUT = 19; HARD_CUT = ARG.hard or (23 if CAP == 10 else 22)      # easy: best <= 19; hard: best >= HARD_CUT, or no DR
+DD = ARG.data
+os.makedirs(ARG.out, exist_ok=True)
+OUT = open(f'{ARG.out}/analysis{ARG.tag}.txt', 'w')
 RES = {}
 def P(*a):
     s = ' '.join(str(x) for x in a); print(s); OUT.write(s + '\n'); OUT.flush()
 
 AX = ['UD', 'FB', 'RL']
 RNG = np.random.default_rng(20261113)
+RNG2 = np.random.default_rng(20261114)
 B = 400  # bootstrap resamples
 
 def read(path):
@@ -24,18 +39,18 @@ def read(path):
 
 # ------------------------------------------------------------------ load
 dates = {}
-for i, l in enumerate(open('big/real_unique.tsv')):
+for i, l in enumerate(open(f'{ARG.big}/real_unique.tsv')):
     if i == 0: continue
     r = l.rstrip('\n').split('\t'); dates[f'r{i - 1}'] = r[2]
 POPS = []
-for tag, ff, tt, ta in (('uni', 'out/feat_uni.tsv', 'out/tgt_uni.tsv', 'out/tgt_uni_axis.tsv'),
-                        ('real', 'out/feat_real.tsv', 'out/tgt_real.tsv', 'out/tgt_real_axis.tsv'),
-                        ('gen', 'out/feat_gen.tsv', 'out/tgt_gen.tsv', 'out/tgt_gen_axis.tsv')):
-    if not (os.path.exists(ff) and os.path.exists(tt)): P('missing', tag); continue
+for tag in ARG.pops.split(','):
+    ff, tt, ta = f'{DD}/feat_{tag}.tsv', f'{DD}/tgt{CAP}_{tag}.tsv', f'{DD}/tgt{CAP}_{tag}_axis.tsv'
+    assert os.path.exists(ff) and os.path.exists(tt), tag
     POPS.append((tag, ff, tt, ta))
 
-TKEYS = ['n8', 'n9', 'n10', 'n11', 'best', 'n_near', 'good19', 'good20', 'good21', 'good22', 'gsub10', 'bestdr']
-def empty_t(): return {'n8': 0, 'n9': 0, 'n10': 0, 'n11': 0, 'best': 27, 'n_near': 0, 'good19': 0, 'good20': 0, 'good21': 0, 'good22': 0, 'gsub10': 0, 'bestdr': 12}
+TKEYS = ['n8', 'n9', 'n10', 'n11', 'best', 'n_near', 'good19', 'good20', 'good21', 'good22', 'gsub', 'bestdr']
+def empty_t(): return {'n8': 0, 'n9': 0, 'n10': 0, 'n11': 0, 'best': 27, 'n_near': 0, 'good19': 0, 'good20': 0, 'good21': 0, 'good22': 0, 'gsub': 0, 'bestdr': 12}
+def tget(t): return {x: float(t[x] if x in t else t['gsub10']) for x in TKEYS}      # the first files call gsub gsub10
 
 rows = []          # per scramble dicts
 axrows = []        # per scramble x axis
@@ -43,7 +58,8 @@ for tag, ff, tt, ta in POPS:
     T = {r['id']: r for r in read(tt)}
     F2 = {r['id']: r for r in read(ff.replace('feat_', 'feat2_'))}
     TA = {(r['id'], r['axis']): r for r in read(ta)}
-    for r in read(ff):
+    for nrow, r in enumerate(read(ff)):
+        if ARG.limit and nrow >= ARG.limit: break
         k = r['id']
         F = {}
         for x, v in list(r.items()) + [(a, b) for a, b in F2[r['id']].items() if a != 'id']:
@@ -51,18 +67,20 @@ for tag, ff, tt, ta in POPS:
             try: F[x] = float(v)
             except ValueError: F[x] = v
         t = T.get(k)
-        tg = {x: float(t[x]) for x in TKEYS} if t else {x: float(v) for x, v in empty_t().items()}
+        tg = tget(t) if t else {x: float(v) for x, v in empty_t().items()}
         if tg['best'] == 99: tg['best'] = 27
         pop = tag
         if tag == 'real': pop = 'real_old' if dates[k] < '2020-08' else 'real_new'
         rows.append({'id': k, 'pop': pop, 'F': F, 'T': tg})
         for a in AX:
             t = TA.get((k, a))
-            tg = {x: float(t[x]) for x in TKEYS} if t else {x: float(v) for x, v in empty_t().items()}
+            tg = tget(t) if t else {x: float(v) for x, v in empty_t().items()}
             if tg['best'] == 99: tg['best'] = 27
             if tg['bestdr'] == 99: tg['bestdr'] = 12
             axrows.append({'id': k, 'pop': pop, 'axis': a, 'F': rows[-1]['F'], 'T': tg})
-P('scrambles per population:', {p: sum(1 for r in rows if r['pop'] == p) for p in ('uni', 'real_old', 'real_new', 'gen')})
+POPN = ('uni', 'real_old', 'real_new', 'gen', 'pnew', 'pold')
+NEWSET = ('real_new', 'gen', 'pnew'); OLDSET = ('real_old', 'pold')          # scrambles of the current and of the 2016-2020 solver
+P('scrambles per population:', {p: sum(1 for r in rows if r['pop'] == p) for p in POPN})
 
 # ------------------------------------------------------------------ derived scramble-level features
 def derive(F, tnoodle):
@@ -123,14 +141,14 @@ for r in rows:
 
 def tvec(rs):
     return {
-        'n10 (log2 1+n)': np.array([math.log2(1 + r['T']['n10']) for r in rs]),
-        'best DR+finish': np.array([r['T']['best'] for r in rs]),
-        'good22 (log2 1+n)': np.array([math.log2(1 + r['T']['good22']) for r in rs]),
-        'gsub10 (log2 1+n)': np.array([math.log2(1 + r['T']['gsub10']) for r in rs]),
-        'n9 (log2 1+n)': np.array([math.log2(1 + r['T']['n9']) for r in rs]),
-        'n_near (log2)': np.array([math.log2(r['T']['n_near']) if r['T']['n_near'] > 0 else 0 for r in rs]),
+        'n': np.array([math.log2(1 + r['T'][NK]) for r in rs]),                 # DRs of at most CAP, log2(1 + n)
+        'best': np.array([r['T']['best'] for r in rs]),                          # best DR + finish
+        'good': np.array([math.log2(1 + r['T'][GOODK]) for r in rs]),            # good DRs, log
+        'gsub': np.array([math.log2(1 + r['T']['gsub']) for r in rs]),           # DRs in a good subset, log
+        'nprev': np.array([math.log2(1 + r['T'][PK]) for r in rs]),              # DRs of at most CAP - 1, log
+        'near': np.array([math.log2(r['T']['n_near']) if r['T']['n_near'] > 0 else 0 for r in rs]),
     }
-MAIN = ['n10 (log2 1+n)', 'best DR+finish', 'good22 (log2 1+n)', 'gsub10 (log2 1+n)']
+MAIN = ['n', 'best', 'good', 'gsub']
 
 def rank(x):
     o = np.argsort(x, kind='mergesort'); r = np.empty(len(x)); r[o] = np.arange(len(x))
@@ -172,34 +190,45 @@ def fmt(e, lo, hi, d=3): return f'{e:.{d}f} [{lo:.{d}f}, {hi:.{d}f}]'
 
 ALL = rows
 TN = [r for r in rows if r['pop'] != 'uni']
-TNNEW = [r for r in rows if r['pop'] in ('real_new', 'gen')]
+TNNEW = [r for r in rows if r['pop'] in NEWSET]
 
 # ------------------------------------------------------------------ 0. target distributions and agreement
 P('\n## 0. Targets')
 Y = tvec(ALL)
 for k in MAIN:
     v = Y[k]; P(f'{k}: mean {v.mean():.3f}, quartiles {np.percentile(v, [25, 50, 75]).tolist()}')
-for p in ('uni', 'real_old', 'real_new', 'gen'):
+def popstats(rs):
+    b = np.array([r['T']['best'] for r in rs]); nn = np.array([r['T'][NK] for r in rs])
+    return {'n': len(rs), 'mean_n': float(nn.mean()), 'median_n': float(np.median(nn)), 'mean_best': float(b.mean()), 'median_best': float(np.median(b)),
+            'easy': float(np.mean(b <= EASY_CUT)), 'hard': float(np.mean(b >= HARD_CUT)), 'none': float(np.mean(nn == 0)),
+            'mean_good': float(np.mean([r['T'][GOODK] for r in rs])), 'median_good': float(np.median([r['T'][GOODK] for r in rs])),
+            'mean_gsub': float(np.mean([r['T']['gsub'] for r in rs])), 'median_gsub': float(np.median([r['T']['gsub'] for r in rs])),
+            'min_best': float(b[nn > 0].min()) if (nn > 0).any() else None, 'max_best': float(b[nn > 0].max()) if (nn > 0).any() else None}
+RES['meta'] = {'cap': CAP, 'easy_cut': EASY_CUT, 'hard_cut': HARD_CUT, 'good_cut': ARG.good, 'B': B, 'pops': ARG.pops, 'n_all': len(ALL), 'n_new': len(TNNEW),
+               'n_old': sum(1 for r in rows if r['pop'] in OLDSET)}
+RES['pops'] = {'all': popstats(ALL)}
+for p in POPN:
     rs = [r for r in rows if r['pop'] == p]
     if not rs: continue
-    yy = tvec(rs)
-    P(f'pop {p} n={len(rs)}: mean n10 {np.mean([r["T"]["n10"] for r in rs]):.1f}, median n10 {np.median([r["T"]["n10"] for r in rs]):.0f}, '
-      f'mean best {yy["best DR+finish"].mean():.3f}, share best<=19 {np.mean(yy["best DR+finish"] <= 19):.3f}, share no DR<=10 {np.mean([r["T"]["n10"] == 0 for r in rs]):.4f}')
-best = Y['best DR+finish']
+    yy = tvec(rs); RES['pops'][p] = popstats(rs)
+    P(f'pop {p} n={len(rs)}: mean n {np.mean([r["T"][NK] for r in rs]):.1f}, median n {np.median([r["T"][NK] for r in rs]):.0f}, '
+      f'mean best {yy["best"].mean():.3f}, share easy {np.mean(yy["best"] <= EASY_CUT):.3f}, share no DR {np.mean([r["T"][NK] == 0 for r in rs]):.4f}')
+best = Y['best']
 P('best DR+finish histogram:', {int(k): int(v) for k, v in zip(*np.unique(best, return_counts=True))})
+RES['best_hist'] = {int(k): int(v) for k, v in zip(*np.unique(best, return_counts=True))}
 P('target agreement (Spearman, all scrambles):')
 tk = list(Y)
 for a in tk:
     P('  ' + a.ljust(20) + ' '.join(f'{spear(Y[a], Y[b]):+.3f}' for b in tk))
 RES['agreement'] = {a: {b: spear(Y[a], Y[b]) for b in tk} for a in tk}
-EASY = best <= 19
-HARD = best >= 23
-P(f'easy (best <= 19): {EASY.mean():.3f}; hard (best >= 22): {HARD.mean():.3f}')
+EASY = best <= EASY_CUT
+HARD = best >= HARD_CUT
+P(f'easy (best <= {EASY_CUT}): {EASY.mean():.3f}; hard (best >= {HARD_CUT} or none): {HARD.mean():.3f}')
 
 # ------------------------------------------------------------------ 1. single features
 def single_table(rs, feats, label):
     if not rs: return {}
-    Yl = tvec(rs); bl = Yl['best DR+finish']; easy = (bl <= 19).astype(int)
+    Yl = tvec(rs); bl = Yl['best']; easy = (bl <= EASY_CUT).astype(int)
     P(f'\n## 1. Single features ({label}, n={len(rs)}): Spearman rho [95% bootstrap CI] with each target; AUC for easy (best<=19), oriented')
     out = {}
     for f in feats:
@@ -209,7 +238,7 @@ def single_table(rs, feats, label):
         res = {}
         for k in MAIN:
             e, lo, hi = spear_ci(x, Yl[k]); res[k] = (e, lo, hi); cells.append(fmt(e, lo, hi))
-        sgn = 1 if spear(x, Yl['best DR+finish']) < 0 else -1
+        sgn = 1 if spear(x, Yl['best']) < 0 else -1
         a = auc_ci(sgn * x, easy); res['auc_easy'] = a
         P(f'  {f:22s} ' + ' | '.join(cells) + f' | AUC {fmt(*a)}')
         out[f] = res
@@ -217,7 +246,7 @@ def single_table(rs, feats, label):
 featlist = [f for g in GROUPS.values() for f in g]
 RES['single_all'] = single_table(ALL, featlist, 'all populations')
 RES['single_text'] = single_table(TNNEW, TEXTG + ['be_min', 'mc_min', 'n_eo4', 'eo_best'], 'TNoodle 2020-08 to 2026 + generated')
-old = [r for r in rows if r['pop'] == 'real_old']
+old = [r for r in rows if r['pop'] in OLDSET]
 if old: RES['single_text_old'] = single_table(old, TEXTG, 'real TNoodle 2016-2020')
 
 # ------------------------------------------------------------------ 2. nested models (held out)
@@ -243,8 +272,9 @@ def nested(rs, label, text=False):
         P(f' target {k}: baseline EO+CO linear R^2 {fmt(*rb)}')
         eo3 = ['be_min', 'be_mid', 'be_max']
         pe3 = LinearRegression().fit(X_of(tr, eo3), Ytr[k]).predict(X_of(te, eo3))
-        P(f'   (bad edges only, no CO: R^2 {fmt(*r2_ci(Yte[k], pe3))}; CO adds {rb[0] - r2(Yte[k], pe3):+.4f})')
-        out[k] = {'baseline': rb, 'add': {}}
+        re3 = r2_ci(Yte[k], pe3)
+        P(f'   (bad edges only, no CO: R^2 {fmt(*re3)}; CO adds {rb[0] - r2(Yte[k], pe3):+.4f})')
+        out[k] = {'baseline': rb, 'edges_only': re3, 'add': {}, 'ntrain': len(tr), 'ntest': len(te)}
         allf = list(base)
         groups = dict(GROUPS)
         if text: groups['scramble text'] = TEXTG
@@ -267,11 +297,13 @@ def nested(rs, label, text=False):
         g = HistGradientBoostingRegressor(max_iter=400, learning_rate=0.05, max_leaf_nodes=31, random_state=1).fit(Xtr, Ytr[k])
         pg = g.predict(Xte); rg = r2_ci(Yte[k], pg)
         P(f'   COMPUTER-ONLY gradient boosting on all {Xtr.shape[1]} raw+derived features: R^2 {fmt(*rg)}')
-        out[k]['linear_all'] = rl; out[k]['gbm'] = rg
-        if k == 'best DR+finish':
-            easy_te = (Yte[k] <= 19).astype(int)
-            P(f'   AUC easy: baseline {fmt(*auc_ci(-pb, easy_te))}; all linear {fmt(*auc_ci(-pl, easy_te))}; GBM {fmt(*auc_ci(-pg, easy_te))}')
-            out[k]['auc'] = {'baseline': auc_ci(-pb, easy_te), 'linear_all': auc_ci(-pl, easy_te), 'gbm': auc_ci(-pg, easy_te)}
+        out[k]['linear_all'] = rl; out[k]['gbm'] = rg; out[k]['nfeat'] = int(Xtr.shape[1])
+        if k == 'best':
+            easy_te = (Yte[k] <= EASY_CUT).astype(int)
+            a1 = (auc_ci(-pb, easy_te), auc_ci(-pl, easy_te), auc_ci(-pg, easy_te))
+            P(f'   AUC easy: baseline {fmt(*a1[0])}; all linear {fmt(*a1[1])}; GBM {fmt(*a1[2])}')
+            out[k]['auc'] = {'baseline': a1[0], 'linear_all': a1[1], 'gbm': a1[2]}
+            out[k]['auc2'] = {'baseline': auc_ci(-pb, easy_te), 'linear_all': auc_ci(-pl, easy_te), 'gbm': auc_ci(-pg, easy_te)}   # second draw, kept for the order
             # permutation importance of GBM (top 12)
             base_r = r2(Yte[k], pg); imp = []
             for j in range(Xte.shape[1]):
@@ -311,21 +343,23 @@ for name, fs in CANDS.items():
         m = LinearRegression().fit(Xt, Ytr[k]); p = m.predict(Xe)
         e = r2_ci(Yte[k], p); line += f' | {k.split()[0]} {e[0]:.3f}'
         RES['human'][name][k] = {'r2': e, 'coef': m.coef_.tolist(), 'icpt': float(m.intercept_)}
-        if k == 'best DR+finish':
-            a = auc_ci(-p, (Yte[k] <= 19).astype(int)); line += f' AUCeasy {a[0]:.3f}'
+        if k == 'best':
+            a = auc_ci(-p, (Yte[k] <= EASY_CUT).astype(int)); line += f' AUCeasy {a[0]:.3f}'
             RES['human'][name]['auc'] = a
     P(line)
 # decision trees on cheap / EO-search features
 for depth in (2, 3):
     for fs, lab in ((['be_min', 'be_mid', 'be_max', 'mc_min', 'mc_mid', 'mc_max', 'slin_max', 'lucky', 'pairs', 'solved'], 'cube-only counts'),
                     (['be_min', 'be_mid', 'mc_min', 'eo_best', 'n_eo4', 'n_eo5', 'post_c_min', 'post_neasy', 'post_neasy_max'], 'counts + EO search')):
-        for k in ('best DR+finish', 'n10 (log2 1+n)'):
+        for k in ('best', 'n'):
             t = DecisionTreeRegressor(max_depth=depth, min_samples_leaf=200, random_state=0).fit(X_of(tr, fs), Ytr[k])
             p = t.predict(X_of(te, fs)); e = r2_ci(Yte[k], p)
             P(f'  tree depth {depth} on {lab}, target {k}: test R^2 {fmt(*e)}')
-            if depth == 2 or k == 'best DR+finish':
+            if depth == 2 or k == 'best':
                 P('    ' + export_text(t, feature_names=fs, decimals=1).replace('\n', '\n    '))
             RES.setdefault('trees', {})[f'{depth}|{lab}|{k}'] = e
+            RES.setdefault('tree_text', {})[f'{depth}|{lab}|{k}'] = export_text(t, feature_names=fs, decimals=1)
+            RES.setdefault('tree_leaves', {})[f'{depth}|{lab}|{k}'] = int(t.get_n_leaves())
 
 # ------------------------------------------------------------------ 4. which axis
 P('\n## 4. Which DR axis (per scramble, 3 axes)')
@@ -374,7 +408,7 @@ def topacc_ci(groups, score_fn, tkey, hb):
         per.append(np.mean([1.0 if i in winners else 0.0 for i in top]))
     per = np.array(per); bs = [per[RNG.integers(0, len(per), len(per))].mean() for _ in range(B)]
     lo, hi = np.percentile(bs, [2.5, 97.5]); return e, float(lo), float(hi), ch
-AXT = [('n10', True), ('bestdr', False), ('best', False)]
+AXT = [(NK, True), ('bestdr', False), ('best', False)]
 def axis_section(ar, label, text=False):
     G = by_scr(ar)
     if not G: return {}
@@ -383,16 +417,17 @@ def axis_section(ar, label, text=False):
     out = {}
     for f in feats:
         # orientation: sign of within-scramble correlation with n10 on the pooled data
-        x = np.array([r['A'][f] for g in G for r in g]); y = np.array([r['T']['n10'] for g in G for r in g])
+        x = np.array([r['A'][f] for g in G for r in g]); y = np.array([r['T'][NK] for g in G for r in g])
         xm = x - np.repeat([np.mean([r['A'][f] for r in g]) for g in G], 3)
-        ym = np.log2(1 + y); ym = ym - np.repeat([np.mean([math.log2(1 + r['T']['n10']) for r in g]) for g in G], 3)
+        ym = np.log2(1 + y); ym = ym - np.repeat([np.mean([math.log2(1 + r['T'][NK]) for r in g]) for g in G], 3)
         c = float(np.corrcoef(xm, ym)[0, 1]) if xm.std() > 0 else 0.0
         sgn = 1 if c >= 0 else -1
-        cells = []
+        cells = []; hitd = {}
         for tkey, hb in AXT:
             e, lo, hi, ch = topacc_ci(G, lambda r: sgn * r['A'][f], tkey, hb); cells.append(f'{tkey}: {e:.3f} [{lo:.3f}, {hi:.3f}] (chance {ch:.3f})')
-        P(f'  {f:12s} within-scramble r with log n10 {c:+.3f} | ' + ' | '.join(cells))
-        out[f] = {'r': c, 'sign': sgn}
+            hitd[tkey] = (e, lo, hi, ch)
+        P(f'  {f:12s} within-scramble r with log n {c:+.3f} | ' + ' | '.join(cells))
+        out[f] = {'r': c, 'sign': sgn, 'hit': hitd}
     # held-out linear model on within-scramble demeaned features
     ids = sorted({g[0]['id'] for g in G}); rng = np.random.default_rng(3); rng.shuffle(ids)
     trs = set(ids[:int(0.67 * len(ids))])
@@ -401,41 +436,45 @@ def axis_section(ar, label, text=False):
         X = []; y = []
         for g in GG:
             m = np.array([[r['A'][f] for f in fs] for r in g], dtype=float); X.append(m - m.mean(0))
-            t = np.array([math.log2(1 + r['T']['n10']) for r in g]); y.append(t - t.mean())
+            t = np.array([math.log2(1 + r['T'][NK]) for r in g]); y.append(t - t.mean())
         return np.vstack(X), np.concatenate(y)
     for fs, lab in ((['mc', 'be_min2', 'be_sum2', 'slin'], 'cube counts'),
                     (['mc', 'be_min2', 'eo_min2', 'n_eo4_2', 'n_eo5_2', 'post_c', 'post_neasy'], 'counts + EO search'),
                     (feats, 'all per-axis features')):
         Xt, yt = mat(Gtr, fs); m = LinearRegression(fit_intercept=False).fit(Xt, yt)
         coef = dict(zip(fs, m.coef_))
-        cells = []
+        cells = []; hitd = {}
         for tkey, hb in AXT:
             e, lo, hi, ch = topacc_ci(Gte, lambda r: sum(coef[f] * r['A'][f] for f in fs), tkey, hb); cells.append(f'{tkey}: {e:.3f} [{lo:.3f}, {hi:.3f}] (chance {ch:.3f})')
+            hitd[tkey] = (e, lo, hi, ch)
         P(f'  held-out linear ({lab}; {len(Gte)} test scrambles): ' + ' | '.join(cells))
         P('    coefficients: ' + ', '.join(f'{f} {c:+.3f}' for f, c in coef.items()))
-        out[f'model {lab}'] = {'coef': coef}
+        out[f'model {lab}'] = {'coef': {f: float(c) for f, c in coef.items()}, 'hit': hitd, 'ntest': len(Gte)}
     # computer-only GBM per axis row
     fs = feats
-    Xt = np.array([[r['A'][f] for f in fs] for g in Gtr for r in g]); yt = np.array([math.log2(1 + r['T']['n10']) for g in Gtr for r in g])
+    Xt = np.array([[r['A'][f] for f in fs] for g in Gtr for r in g]); yt = np.array([math.log2(1 + r['T'][NK]) for g in Gtr for r in g])
     gb = HistGradientBoostingRegressor(max_iter=300, learning_rate=0.05, random_state=1).fit(Xt, yt)
     pred = {}
     Xe = np.array([[r['A'][f] for f in fs] for g in Gte for r in g]); pe = gb.predict(Xe)
     for (g, r), p in zip([(g, r) for g in Gte for r in g], pe): pred[(r['id'], r['axis'])] = p
-    cells = []
+    cells = []; hitd = {}
     for tkey, hb in AXT:
         e, lo, hi, ch = topacc_ci(Gte, lambda r: pred[(r['id'], r['axis'])], tkey, hb); cells.append(f'{tkey}: {e:.3f} [{lo:.3f}, {hi:.3f}]')
+        hitd[tkey] = (e, lo, hi, ch)
     P(f'  COMPUTER-ONLY GBM on all per-axis features: ' + ' | '.join(cells))
+    out['gbm'] = {'hit': hitd, 'ntest': len(Gte)}; out['n'] = len(G)
     return out
 RES['axis_all'] = axis_section([r for r in axrows], 'all populations')
-RES['axis_text'] = axis_section([r for r in axrows if r['pop'] in ('real_new', 'gen')], 'TNoodle 2020-08 to 2026 + generated (with text)', text=True)
-oldax = [r for r in axrows if r['pop'] == 'real_old']
+RES['axis_text'] = axis_section([r for r in axrows if r['pop'] in NEWSET], 'TNoodle 2020-08 to 2026 + generated (with text)', text=True)
+oldax = [r for r in axrows if r['pop'] in OLDSET]
 if oldax: RES['axis_text_old'] = axis_section(oldax, 'real TNoodle 2016-2020 (with text)', text=True)
 
 # ------------------------------------------------------------------ 5. the scramble's own DR axis
 P('\n## 5. The text DR axis')
-for lab, pops in (('2020-08 to 2026 + generated', ('real_new', 'gen')), ('2016-2020', ('real_old',))):
+def text_axis(lab, pops, rng):
+    """the text's DR axis against the other two: paired difference of log DR counts, and how often it is a best axis"""
     G = by_scr([r for r in axrows if r['pop'] in pops])
-    if not G: continue
+    if not G: return
     n = len(G); hits = defaultdict(float); ch = defaultdict(float); mean_on = defaultdict(list); mean_off = defaultdict(list)
     for g in G:
         for tkey, hb in AXT:
@@ -446,21 +485,23 @@ for lab, pops in (('2020-08 to 2026 + generated', ('real_new', 'gen')), ('2016-2
     dd = []
     for g in G:
         i = [j for j, x in enumerate(g) if x['A']['t_is_axis'] == 1][0]
-        v = [math.log2(1 + x['T']['n10']) for x in g]; dd.append(v[i] - (sum(v) - v[i]) / 2)
-    dd = np.array(dd); bs = [dd[RNG.integers(0, n, n)].mean() for _ in range(B)]
-    P(f'  {lab}: log2(1+n10) on the text axis minus the mean of the other two: {dd.mean():+.3f} [{np.percentile(bs, 2.5):+.3f}, {np.percentile(bs, 97.5):+.3f}] (a factor {2 ** dd.mean():.3f} in 1+n10)')
+        v = [math.log2(1 + x['T'][NK]) for x in g]; dd.append(v[i] - (sum(v) - v[i]) / 2)
+    dd = np.array(dd); bs = [dd[rng.integers(0, n, n)].mean() for _ in range(B)]
+    P(f'  {lab}: log2(1+n) on the text axis minus the mean of the other two: {dd.mean():+.3f} [{np.percentile(bs, 2.5):+.3f}, {np.percentile(bs, 97.5):+.3f}] (a factor {2 ** dd.mean():.3f} in 1+n)')
     RES.setdefault('text_axis_diff', {})[lab] = (float(dd.mean()), float(np.percentile(bs, 2.5)), float(np.percentile(bs, 97.5)))
     for tkey, _ in AXT:
-        per = None
         P(f'  {lab}: text axis is a best axis by {tkey}: {hits[tkey] / n:.3f} (chance {ch[tkey] / n:.3f}); mean {tkey} on text axis {np.mean(mean_on[tkey]):.3f} vs other axes {np.mean(mean_off[tkey]):.3f}  (n={n})')
-    RES.setdefault('text_axis', {})[lab] = {k: (hits[k] / n, ch[k] / n, float(np.mean(mean_on[k])), float(np.mean(mean_off[k]))) for k, _ in AXT}
+    RES.setdefault('text_axis', {})[lab] = {('n' if k == NK else k): (hits[k] / n, ch[k] / n, float(np.mean(mean_on[k])), float(np.mean(mean_off[k]))) for k, _ in AXT}
+    RES['text_axis'][lab]['count'] = n
+text_axis('new', NEWSET, RNG)
+text_axis('old', OLDSET, RNG)
 
 
 # ------------------------------------------------------------------ 7. lookup tables a solver can use
 def cell_stats(rs):
     if not rs: return None
-    b = np.array([r['T']['best'] for r in rs]); n10 = np.array([r['T']['n10'] for r in rs])
-    return len(rs), float(np.mean(b <= 19)), float(np.median(n10)), float(np.mean(b)), float(np.mean(b >= 23))
+    b = np.array([r['T']['best'] for r in rs]); n10 = np.array([r['T'][NK] for r in rs])
+    return len(rs), float(np.mean(b <= EASY_CUT)), float(np.median(n10)), float(np.mean(b)), float(np.mean(b >= HARD_CUT))
 def lookup(rs, rowf, rowlab, colf, collab, title):
     P(f'\n### {title} (n={len(rs)}): per cell n | share easy (best<=19) | median n10 | mean best | share hard (best>=23 or none)')
     rows_ = sorted({rowf(r) for r in rs}, key=lambda x: rowlab.index(x)); cols_ = sorted({colf(r) for r in rs}, key=lambda x: collab.index(x))
@@ -488,6 +529,7 @@ RES['lookup_eo'] = lookup(ALL, eoclass, ['<=2', '3', '4', '>=5'], n4class, ['0',
 RES['lookup_be'] = lookup(ALL, triple, ['two<=4', 'one<=4', 'none<=4,max<=8', 'none<=4,max>=10'], lambda r: 'all', ['all'], 'bad-edge triple class')
 for cl in ['two<=4', 'one<=4', 'none<=4,max<=8', 'none<=4,max>=10']:
     P(f'  share of scrambles in {cl}: {np.mean([triple(r) == cl for r in ALL]):.3f}')
+    RES.setdefault('lookup_be_share', {})[cl] = float(np.mean([triple(r) == cl for r in ALL]))
 
 # ------------------------------------------------------------------ 8. claims from the server, tested
 P('\n## 8. Claims tested (all populations)')
@@ -495,14 +537,16 @@ def contrast(name, pred):
     a = [r for r in ALL if pred(r)]; b = [r for r in ALL if not pred(r)]
     sa, sb = cell_stats(a), cell_stats(b)
     # bootstrap CI of the difference in share easy and in mean best
-    ea = np.array([r['T']['best'] <= 19 for r in a], float); eb = np.array([r['T']['best'] <= 19 for r in b], float)
+    ea = np.array([r['T']['best'] <= EASY_CUT for r in a], float); eb = np.array([r['T']['best'] <= EASY_CUT for r in b], float)
     ba = np.array([r['T']['best'] for r in a]); bb = np.array([r['T']['best'] for r in b])
     d1 = []; d2 = []
     for _ in range(B):
         i = RNG.integers(0, len(a), len(a)); j = RNG.integers(0, len(b), len(b))
         d1.append(ea[i].mean() - eb[j].mean()); d2.append(ba[i].mean() - bb[j].mean())
     P(f'  {name}: yes n={sa[0]} ({sa[0] / len(ALL):.3f}) easy {sa[1]:.3f} hard {sa[4]:.3f} median n10 {sa[2]:.0f} mean best {sa[3]:.2f} | no n={sb[0]} easy {sb[1]:.3f} hard {sb[4]:.3f} median n10 {sb[2]:.0f} mean best {sb[3]:.2f} | diff easy {np.mean(ea) - np.mean(eb):+.3f} [{np.percentile(d1, 2.5):+.3f}, {np.percentile(d1, 97.5):+.3f}], diff mean best {np.mean(ba) - np.mean(bb):+.2f} [{np.percentile(d2, 2.5):+.2f}, {np.percentile(d2, 97.5):+.2f}]')
-    RES.setdefault('claims', {})[name] = (sa, sb)
+    RES.setdefault('claims', {})[name] = {'yes': sa, 'no': sb, 'share': sa[0] / len(ALL),
+        'd_easy': (float(np.mean(ea) - np.mean(eb)), float(np.percentile(d1, 2.5)), float(np.percentile(d1, 97.5))),
+        'd_best': (float(np.mean(ba) - np.mean(bb)), float(np.percentile(d2, 2.5)), float(np.percentile(d2, 97.5)))}
 contrast('fewer than 8 EOs of <= 4 moves (normal + inverse, all axes)', lambda r: r['D']['n_eo4'] < 8)
 contrast('fewer than 8 EOs of <= 4 moves (normal only)', lambda r: r['D']['n_eo4_N'] < 8)
 contrast('fewer than 30 EOs of exactly 5 moves (normal + inverse) and at most 2 of <= 4', lambda r: r['D']['n_eo5'] - r['D']['n_eo4'] < 30 and r['D']['n_eo4'] <= 2)
@@ -511,19 +555,41 @@ contrast('lucky: no axis with 6, 10 or 12 bad edges', lambda r: r['D']['lucky'] 
 contrast('10/8/8 bad edges and no EO under 5 moves', lambda r: (r['D']['be_min'], r['D']['be_mid'], r['D']['be_max']) == (8, 8, 10) and r['D']['eo_best'] >= 5)
 contrast('an EO of <= 2 moves', lambda r: r['D']['eo_best'] <= 2)
 P(f"  share lucky: {np.mean([r['D']['lucky'] for r in ALL]):.4f}")
+RES['share_lucky'] = float(np.mean([r['D']['lucky'] for r in ALL]))
 
 # ------------------------------------------------------------------ 6. optimal length (official scrambles, DougCube's sheet)
-OPT = {r['id']: float(r['opt']) for r in read('out/opt_real.tsv')}
+OPT = {r['id']: float(r['opt']) for r in read(f'{DD}/opt_real.tsv')}
 R6 = [r for r in rows if r['id'] in OPT]
 if R6:
     P(f'\n## 6. Optimal solution length (official scrambles with DougCube sheet optimum, n={len(R6)})')
     o = np.array([OPT[r['id']] for r in R6]); Yo = tvec(R6)
     P('  optimal length histogram:', {int(k): int(v) for k, v in zip(*np.unique(o, return_counts=True))})
+    RES['opt'] = {'n': len(R6), 'hist': {int(k): int(v) for k, v in zip(*np.unique(o, return_counts=True))}, 'rho': {}}
     for k in MAIN:
-        P(f'  Spearman(optimal length, {k}) = {fmt(*spear_ci(o, Yo[k]))}')
+        e = spear_ci(o, Yo[k]); RES['opt']['rho'][k] = e
+        P(f'  Spearman(optimal length, {k}) = {fmt(*e)}')
     for f in ['n_eo5', 'n_eo4', 'eo_sum', 'be_min', 'mc_min', 'pairs', 'solved', 't_len', 't_dr']:
-        x = np.array([r['D'][f] for r in R6]); P(f'  Spearman(optimal length, {f}) = {fmt(*spear_ci(o, x))}')
-    RES['opt'] = True
+        x = np.array([r['D'][f] for r in R6]); e = spear_ci(o, x); RES['opt']['rho'][f] = e
+        P(f'  Spearman(optimal length, {f}) = {fmt(*e)}')
 
-json.dump(RES, open('out/results.json', 'w'), indent=1, default=lambda o: float(o) if isinstance(o, (np.floating,)) else str(o))
+# ------------------------------------------------------------------ 9. added later (second random generator): the text by population
+P('\n## 9. Text features by population')
+for lab, pops in (('off_new', ('real_new',)), ('off_old', ('real_old',)), ('gen', ('gen',)), ('pnew', ('pnew',)), ('pold', ('pold',))):
+    rs = [r for r in rows if r['pop'] in pops]
+    if not rs: continue
+    Yl = tvec(rs); RES.setdefault('text_by_pop', {})[lab] = {'n': len(rs)}
+    for f in ('t_len', 't_dr'):
+        x = np.array([r['D'][f] for r in rs])
+        for k in ('n', 'best'):
+            ra, rb = rank(x), rank(Yl[k]); est = float(np.corrcoef(ra, rb)[0, 1]); m = len(x)
+            bs = [np.corrcoef(ra[i], rb[i])[0, 1] for i in (RNG2.integers(0, m, m) for _ in range(B))]
+            RES['text_by_pop'][lab][f'{f}|{k}'] = (est, float(np.nanpercentile(bs, 2.5)), float(np.nanpercentile(bs, 97.5)))
+    P(f'  {lab} n={len(rs)}: ' + ', '.join(f'{k} {v[0]:+.3f} [{v[1]:+.3f}, {v[2]:+.3f}]' for k, v in RES['text_by_pop'][lab].items() if k != 'n'))
+    text_axis('pop_' + lab, pops, RNG2)
+
+def _js(o):
+    if isinstance(o, (np.floating,)): return float(o)
+    if isinstance(o, (np.integer,)): return int(o)
+    return str(o)
+json.dump(RES, open(f'{ARG.out}/analysis{ARG.tag}.json', 'w'), indent=1, default=_js)
 P('\ndone')
