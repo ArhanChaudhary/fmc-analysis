@@ -1,0 +1,2 @@
+r2_off all official_scrambles.txt 0 912
+r3_off t_all official_scrambles.txt 0 912

@@ -1,0 +1,6 @@
+c1_f00 cal1 scrambles_uniform.txt 0 4000
+c1_f03 cal1 scrambles_uniform.txt 0 4000 --set human.form_sigma=0.3
+c1_f05 cal1 scrambles_uniform.txt 0 4000 --set human.form_sigma=0.5
+c1_f07 cal1 scrambles_uniform.txt 0 4000 --set human.form_sigma=0.7
+c1_f10 cal1 scrambles_uniform.txt 0 4000 --set human.form_sigma=1.0
+c1_f07_off cal1 official_scrambles.txt 0 912 --set human.form_sigma=0.7

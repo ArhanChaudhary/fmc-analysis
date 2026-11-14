@@ -1,0 +1,4 @@
+r2_tr_a1 all scrambles_uniform.txt 0 300
+r2_tr_a2 all scrambles_uniform.txt 300 300
+r2_tr_a3 all scrambles_uniform.txt 600 300
+r2_tr_a4 all scrambles_uniform.txt 900 300

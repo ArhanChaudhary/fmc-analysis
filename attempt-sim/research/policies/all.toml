@@ -1,0 +1,1199 @@
+# Every experiment in one file: base, then each variant as EXP_NAME.
+
+[policy.base]
+eo_len = 5
+eo_niss = true
+eo_cap = 40
+t_eo = 480
+rzp_per_eo = 3
+rzp_short = 4
+rzp_per_eo_long = 1
+read_max = 11.5
+rzp_depth = 3
+switch_pen = 0.3
+dr_cap = 11
+t_dr = 2100
+htr_per_dr = 4
+fin_min_p = 0.03
+reserve = 300
+
+[policy.e1_teo180_tdr900]
+base = "base"
+t_eo = 180
+eo_cap = 999
+t_dr = 900
+
+[policy.e1_teo180_tdr1200]
+base = "base"
+t_eo = 180
+eo_cap = 999
+t_dr = 1200
+
+[policy.e1_teo180_tdr1500]
+base = "base"
+t_eo = 180
+eo_cap = 999
+t_dr = 1500
+
+[policy.e1_teo180_tdr1800]
+base = "base"
+t_eo = 180
+eo_cap = 999
+t_dr = 1800
+
+[policy.e1_teo180_tdr2100]
+base = "base"
+t_eo = 180
+eo_cap = 999
+t_dr = 2100
+
+[policy.e1_teo180_tdr2400]
+base = "base"
+t_eo = 180
+eo_cap = 999
+t_dr = 2400
+
+[policy.e1_teo180_tdr2700]
+base = "base"
+t_eo = 180
+eo_cap = 999
+t_dr = 2700
+
+[policy.e1_teo180_tdr3000]
+base = "base"
+t_eo = 180
+eo_cap = 999
+t_dr = 3000
+
+[policy.e1_teo300_tdr900]
+base = "base"
+t_eo = 300
+eo_cap = 999
+t_dr = 900
+
+[policy.e1_teo300_tdr1200]
+base = "base"
+t_eo = 300
+eo_cap = 999
+t_dr = 1200
+
+[policy.e1_teo300_tdr1500]
+base = "base"
+t_eo = 300
+eo_cap = 999
+t_dr = 1500
+
+[policy.e1_teo300_tdr1800]
+base = "base"
+t_eo = 300
+eo_cap = 999
+t_dr = 1800
+
+[policy.e1_teo300_tdr2100]
+base = "base"
+t_eo = 300
+eo_cap = 999
+t_dr = 2100
+
+[policy.e1_teo300_tdr2400]
+base = "base"
+t_eo = 300
+eo_cap = 999
+t_dr = 2400
+
+[policy.e1_teo300_tdr2700]
+base = "base"
+t_eo = 300
+eo_cap = 999
+t_dr = 2700
+
+[policy.e1_teo300_tdr3000]
+base = "base"
+t_eo = 300
+eo_cap = 999
+t_dr = 3000
+
+[policy.e1_teo480_tdr900]
+base = "base"
+t_eo = 480
+eo_cap = 999
+t_dr = 900
+
+[policy.e1_teo480_tdr1200]
+base = "base"
+t_eo = 480
+eo_cap = 999
+t_dr = 1200
+
+[policy.e1_teo480_tdr1500]
+base = "base"
+t_eo = 480
+eo_cap = 999
+t_dr = 1500
+
+[policy.e1_teo480_tdr1800]
+base = "base"
+t_eo = 480
+eo_cap = 999
+t_dr = 1800
+
+[policy.e1_teo480_tdr2100]
+base = "base"
+t_eo = 480
+eo_cap = 999
+t_dr = 2100
+
+[policy.e1_teo480_tdr2400]
+base = "base"
+t_eo = 480
+eo_cap = 999
+t_dr = 2400
+
+[policy.e1_teo480_tdr2700]
+base = "base"
+t_eo = 480
+eo_cap = 999
+t_dr = 2700
+
+[policy.e1_teo480_tdr3000]
+base = "base"
+t_eo = 480
+eo_cap = 999
+t_dr = 3000
+
+[policy.e1_teo720_tdr900]
+base = "base"
+t_eo = 720
+eo_cap = 999
+t_dr = 900
+
+[policy.e1_teo720_tdr1200]
+base = "base"
+t_eo = 720
+eo_cap = 999
+t_dr = 1200
+
+[policy.e1_teo720_tdr1500]
+base = "base"
+t_eo = 720
+eo_cap = 999
+t_dr = 1500
+
+[policy.e1_teo720_tdr1800]
+base = "base"
+t_eo = 720
+eo_cap = 999
+t_dr = 1800
+
+[policy.e1_teo720_tdr2100]
+base = "base"
+t_eo = 720
+eo_cap = 999
+t_dr = 2100
+
+[policy.e1_teo720_tdr2400]
+base = "base"
+t_eo = 720
+eo_cap = 999
+t_dr = 2400
+
+[policy.e1_teo720_tdr2700]
+base = "base"
+t_eo = 720
+eo_cap = 999
+t_dr = 2700
+
+[policy.e1_teo720_tdr3000]
+base = "base"
+t_eo = 720
+eo_cap = 999
+t_dr = 3000
+
+[policy.e1_teo960_tdr1200]
+base = "base"
+t_eo = 960
+eo_cap = 999
+t_dr = 1200
+
+[policy.e1_teo960_tdr1500]
+base = "base"
+t_eo = 960
+eo_cap = 999
+t_dr = 1500
+
+[policy.e1_teo960_tdr1800]
+base = "base"
+t_eo = 960
+eo_cap = 999
+t_dr = 1800
+
+[policy.e1_teo960_tdr2100]
+base = "base"
+t_eo = 960
+eo_cap = 999
+t_dr = 2100
+
+[policy.e1_teo960_tdr2400]
+base = "base"
+t_eo = 960
+eo_cap = 999
+t_dr = 2400
+
+[policy.e1_teo960_tdr2700]
+base = "base"
+t_eo = 960
+eo_cap = 999
+t_dr = 2700
+
+[policy.e1_teo960_tdr3000]
+base = "base"
+t_eo = 960
+eo_cap = 999
+t_dr = 3000
+
+[policy.e2_eagereo2]
+base = "base"
+eager_eo = 2
+
+[policy.e2_eagereo3]
+base = "base"
+eager_eo = 3
+
+[policy.e2_eagereo4]
+base = "base"
+eager_eo = 4
+
+[policy.e2_eagereo5]
+base = "base"
+eager_eo = 5
+
+[policy.e2_eagerfin20p5_r1]
+base = "base"
+eager_finish = 20.5
+eager_routes = 1
+
+[policy.e2_eagerfin20p5_r2]
+base = "base"
+eager_finish = 20.5
+eager_routes = 2
+
+[policy.e2_eagerfin20p5_r99]
+base = "base"
+eager_finish = 20.5
+eager_routes = 99
+
+[policy.e2_eagerfin21p5_r1]
+base = "base"
+eager_finish = 21.5
+eager_routes = 1
+
+[policy.e2_eagerfin21p5_r2]
+base = "base"
+eager_finish = 21.5
+eager_routes = 2
+
+[policy.e2_eagerfin21p5_r99]
+base = "base"
+eager_finish = 21.5
+eager_routes = 99
+
+[policy.e2_eagerfin22p5_r1]
+base = "base"
+eager_finish = 22.5
+eager_routes = 1
+
+[policy.e2_eagerfin22p5_r2]
+base = "base"
+eager_finish = 22.5
+eager_routes = 2
+
+[policy.e2_eagerfin22p5_r99]
+base = "base"
+eager_finish = 22.5
+eager_routes = 99
+
+[policy.e2_eagerfin23p5_r1]
+base = "base"
+eager_finish = 23.5
+eager_routes = 1
+
+[policy.e2_eagerfin23p5_r2]
+base = "base"
+eager_finish = 23.5
+eager_routes = 2
+
+[policy.e2_eagerfin23p5_r99]
+base = "base"
+eager_finish = 23.5
+eager_routes = 99
+
+[policy.e2_eagerfin99_r1]
+base = "base"
+eager_finish = 99
+eager_routes = 1
+
+[policy.e2_eagerfin99_r2]
+base = "base"
+eager_finish = 99
+eager_routes = 2
+
+[policy.e2_eagerfin99_r99]
+base = "base"
+eager_finish = 99
+eager_routes = 99
+
+[policy.e2_dfs]
+base = "base"
+eager_eo = 9
+eager_finish = 99
+eager_routes = 99
+
+[policy.e2_dfs_r1]
+base = "base"
+eager_eo = 9
+eager_finish = 99
+eager_routes = 1
+
+[policy.e2_dfs_eo3]
+base = "base"
+eager_eo = 3
+eager_finish = 99
+eager_routes = 99
+
+[policy.e2_dfs_eo3_fin22p5]
+base = "base"
+eager_eo = 3
+eager_finish = 22.5
+eager_routes = 99
+
+[policy.e2_backup600]
+base = "base"
+backup_time = 600
+
+[policy.e2_backup900]
+base = "base"
+backup_time = 900
+
+[policy.e2_backup1200]
+base = "base"
+backup_time = 1200
+
+[policy.e2_backup1500]
+base = "base"
+backup_time = 1500
+
+[policy.e2_backup1800]
+base = "base"
+backup_time = 1800
+
+[policy.e2_backup2100]
+base = "base"
+backup_time = 2100
+
+[policy.e2_backup2400]
+base = "base"
+backup_time = 2400
+
+[policy.e3_rich15_tdr1500]
+base = "base"
+rich_n = 15
+t_dr_rich = 1500
+
+[policy.e3_rich15_tdr1800]
+base = "base"
+rich_n = 15
+t_dr_rich = 1800
+
+[policy.e3_rich15_tdr2400]
+base = "base"
+rich_n = 15
+t_dr_rich = 2400
+
+[policy.e3_rich15_tdr2700]
+base = "base"
+rich_n = 15
+t_dr_rich = 2700
+
+[policy.e3_rich25_tdr1500]
+base = "base"
+rich_n = 25
+t_dr_rich = 1500
+
+[policy.e3_rich25_tdr1800]
+base = "base"
+rich_n = 25
+t_dr_rich = 1800
+
+[policy.e3_rich25_tdr2400]
+base = "base"
+rich_n = 25
+t_dr_rich = 2400
+
+[policy.e3_rich25_tdr2700]
+base = "base"
+rich_n = 25
+t_dr_rich = 2700
+
+[policy.e3_rich35_tdr1500]
+base = "base"
+rich_n = 35
+t_dr_rich = 1500
+
+[policy.e3_rich35_tdr1800]
+base = "base"
+rich_n = 35
+t_dr_rich = 1800
+
+[policy.e3_rich35_tdr2400]
+base = "base"
+rich_n = 35
+t_dr_rich = 2400
+
+[policy.e3_rich35_tdr2700]
+base = "base"
+rich_n = 35
+t_dr_rich = 2700
+
+[policy.e3_rich50_tdr1500]
+base = "base"
+rich_n = 50
+t_dr_rich = 1500
+
+[policy.e3_rich50_tdr1800]
+base = "base"
+rich_n = 50
+t_dr_rich = 1800
+
+[policy.e3_rich50_tdr2400]
+base = "base"
+rich_n = 50
+t_dr_rich = 2400
+
+[policy.e3_rich50_tdr2700]
+base = "base"
+rich_n = 50
+t_dr_rich = 2700
+
+[policy.e3_poor6]
+base = "base"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 6
+
+[policy.e3_poor10]
+base = "base"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 10
+
+[policy.e3_poor15]
+base = "base"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 15
+
+[policy.e3_poor25]
+base = "base"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 25
+
+[policy.e3_poor40]
+base = "base"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 40
+
+[policy.e3_eo4only]
+base = "base"
+eo_len = 4
+
+[policy.e3_late8_tdr2400]
+base = "base"
+late_len = 8
+t_dr_late = 2400
+
+[policy.e3_late8_tdr2700]
+base = "base"
+late_len = 8
+t_dr_late = 2700
+
+[policy.e3_late8_tdr3000]
+base = "base"
+late_len = 8
+t_dr_late = 3000
+
+[policy.e3_late9_tdr2400]
+base = "base"
+late_len = 9
+t_dr_late = 2400
+
+[policy.e3_late9_tdr2700]
+base = "base"
+late_len = 9
+t_dr_late = 2700
+
+[policy.e3_late9_tdr3000]
+base = "base"
+late_len = 9
+t_dr_late = 3000
+
+[policy.e3_late10_tdr2400]
+base = "base"
+late_len = 10
+t_dr_late = 2400
+
+[policy.e3_late10_tdr2700]
+base = "base"
+late_len = 10
+t_dr_late = 2700
+
+[policy.e3_late10_tdr3000]
+base = "base"
+late_len = 10
+t_dr_late = 3000
+
+[policy.e3_enough1_len8]
+base = "base"
+dr_enough = 1
+dr_enough_len = 8
+
+[policy.e3_enough1_len9]
+base = "base"
+dr_enough = 1
+dr_enough_len = 9
+
+[policy.e3_enough1_len10]
+base = "base"
+dr_enough = 1
+dr_enough_len = 10
+
+[policy.e3_enough2_len8]
+base = "base"
+dr_enough = 2
+dr_enough_len = 8
+
+[policy.e3_enough2_len9]
+base = "base"
+dr_enough = 2
+dr_enough_len = 9
+
+[policy.e3_enough2_len10]
+base = "base"
+dr_enough = 2
+dr_enough_len = 10
+
+[policy.e3_enough3_len8]
+base = "base"
+dr_enough = 3
+dr_enough_len = 8
+
+[policy.e3_enough3_len9]
+base = "base"
+dr_enough = 3
+dr_enough_len = 9
+
+[policy.e3_enough3_len10]
+base = "base"
+dr_enough = 3
+dr_enough_len = 10
+
+[policy.e3_enough5_len8]
+base = "base"
+dr_enough = 5
+dr_enough_len = 8
+
+[policy.e3_enough5_len9]
+base = "base"
+dr_enough = 5
+dr_enough_len = 9
+
+[policy.e3_enough5_len10]
+base = "base"
+dr_enough = 5
+dr_enough_len = 10
+
+[policy.e3_bk21_tdr2700]
+base = "base"
+backup_len = 21
+t_dr_backup = 2700
+bank_at = 21
+
+[policy.e3_bk21_tdr3000]
+base = "base"
+backup_len = 21
+t_dr_backup = 3000
+bank_at = 21
+
+[policy.e3_bk21_tdr3150]
+base = "base"
+backup_len = 21
+t_dr_backup = 3150
+bank_at = 21
+
+[policy.e3_bk22_tdr2700]
+base = "base"
+backup_len = 22
+t_dr_backup = 2700
+bank_at = 22
+
+[policy.e3_bk22_tdr3000]
+base = "base"
+backup_len = 22
+t_dr_backup = 3000
+bank_at = 22
+
+[policy.e3_bk22_tdr3150]
+base = "base"
+backup_len = 22
+t_dr_backup = 3150
+bank_at = 22
+
+[policy.e3_bk23_tdr2700]
+base = "base"
+backup_len = 23
+t_dr_backup = 2700
+bank_at = 23
+
+[policy.e3_bk23_tdr3000]
+base = "base"
+backup_len = 23
+t_dr_backup = 3000
+bank_at = 23
+
+[policy.e3_bk23_tdr3150]
+base = "base"
+backup_len = 23
+t_dr_backup = 3150
+bank_at = 23
+
+[policy.e3_early1500_late9_2400]
+base = "base"
+t_dr = 1500
+late_len = 9
+t_dr_late = 2400
+
+[policy.e3_early1500_late9_2700]
+base = "base"
+t_dr = 1500
+late_len = 9
+t_dr_late = 2700
+
+[policy.e3_early1500_late10_2400]
+base = "base"
+t_dr = 1500
+late_len = 10
+t_dr_late = 2400
+
+[policy.e3_early1500_late10_2700]
+base = "base"
+t_dr = 1500
+late_len = 10
+t_dr_late = 2700
+
+[policy.e3_early1800_late9_2400]
+base = "base"
+t_dr = 1800
+late_len = 9
+t_dr_late = 2400
+
+[policy.e3_early1800_late9_2700]
+base = "base"
+t_dr = 1800
+late_len = 9
+t_dr_late = 2700
+
+[policy.e3_early1800_late10_2400]
+base = "base"
+t_dr = 1800
+late_len = 10
+t_dr_late = 2400
+
+[policy.e3_early1800_late10_2700]
+base = "base"
+t_dr = 1800
+late_len = 10
+t_dr_late = 2700
+
+[policy.e4_reserve150]
+base = "base"
+reserve = 150
+
+[policy.e4_reserve180]
+base = "base"
+reserve = 180
+
+[policy.e4_reserve210]
+base = "base"
+reserve = 210
+
+[policy.e4_reserve240]
+base = "base"
+reserve = 240
+
+[policy.e4_reserve270]
+base = "base"
+reserve = 270
+
+[policy.e4_reserve360]
+base = "base"
+reserve = 360
+
+[policy.e4_reserve420]
+base = "base"
+reserve = 420
+
+[policy.e4_reserve600]
+base = "base"
+reserve = 600
+
+[policy.e4_stop20]
+base = "base"
+stop_at = 20
+
+[policy.e4_stop21]
+base = "base"
+stop_at = 21
+
+[policy.e4_stop22]
+base = "base"
+stop_at = 22
+
+[policy.e4_stop23]
+base = "base"
+stop_at = 23
+
+[policy.e4_bankfirst_rr150]
+base = "base"
+bank_first = true
+reserve_rewrite = 150
+
+[policy.e4_bankfirst_rr180]
+base = "base"
+bank_first = true
+reserve_rewrite = 180
+
+[policy.e4_bankfirst_rr240]
+base = "base"
+bank_first = true
+reserve_rewrite = 240
+
+[policy.e4_bankfirst_rr300]
+base = "base"
+bank_first = true
+reserve_rewrite = 300
+
+[policy.e4_bankat21_rr180]
+base = "base"
+bank_at = 21
+reserve_rewrite = 180
+
+[policy.e4_bankat21_rr300]
+base = "base"
+bank_at = 21
+reserve_rewrite = 300
+
+[policy.e4_bankat22_rr180]
+base = "base"
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.e4_bankat22_rr300]
+base = "base"
+bank_at = 22
+reserve_rewrite = 300
+
+[policy.e4_bankat23_rr180]
+base = "base"
+bank_at = 23
+reserve_rewrite = 180
+
+[policy.e4_bankat23_rr300]
+base = "base"
+bank_at = 23
+reserve_rewrite = 300
+
+[policy.e4_bankat24_rr180]
+base = "base"
+bank_at = 24
+reserve_rewrite = 180
+
+[policy.e4_bankat24_rr300]
+base = "base"
+bank_at = 24
+reserve_rewrite = 300
+
+[policy.e4_bankalways]
+base = "base"
+bank_always = true
+reserve_rewrite = 180
+
+[policy.e4_quick21p5_r1]
+base = "base"
+eager_finish = 21.5
+eager_routes = 1
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.e4_quick21p5_r2]
+base = "base"
+eager_finish = 21.5
+eager_routes = 2
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.e4_quick22p5_r1]
+base = "base"
+eager_finish = 22.5
+eager_routes = 1
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.e4_quick22p5_r2]
+base = "base"
+eager_finish = 22.5
+eager_routes = 2
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.e4_quick23p5_r1]
+base = "base"
+eager_finish = 23.5
+eager_routes = 1
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.e4_quick23p5_r2]
+base = "base"
+eager_finish = 23.5
+eager_routes = 2
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.e4_safe_bk900_q22p5]
+base = "base"
+backup_time = 900
+bank_at = 22
+eager_finish = 22.5
+eager_routes = 1
+reserve_rewrite = 180
+
+[policy.e4_safe_bk1200_q22p5]
+base = "base"
+backup_time = 1200
+bank_at = 22
+eager_finish = 22.5
+eager_routes = 1
+reserve_rewrite = 180
+
+[policy.e4_safe_bk1500_q22p5]
+base = "base"
+backup_time = 1500
+bank_at = 22
+eager_finish = 22.5
+eager_routes = 1
+reserve_rewrite = 180
+
+[policy.e4_safe_bk1800_q22p5]
+base = "base"
+backup_time = 1800
+bank_at = 22
+eager_finish = 22.5
+eager_routes = 1
+reserve_rewrite = 180
+
+[policy.e4_commit1200]
+base = "base"
+t_dr = 1200
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.e4_commit1500]
+base = "base"
+t_dr = 1500
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.e4_commit1800]
+base = "base"
+t_dr = 1800
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.e5_eo_cap_10]
+base = "base"
+eo_cap = 10
+t_eo = 9999
+
+[policy.e5_eo_cap_20]
+base = "base"
+eo_cap = 20
+t_eo = 9999
+
+[policy.e5_eo_cap_30]
+base = "base"
+eo_cap = 30
+t_eo = 9999
+
+[policy.e5_eo_cap_60]
+base = "base"
+eo_cap = 60
+t_eo = 9999
+
+[policy.e5_eo_cap_80]
+base = "base"
+eo_cap = 80
+t_eo = 9999
+
+[policy.e5_eo_cap_120]
+base = "base"
+eo_cap = 120
+t_eo = 9999
+
+[policy.e5_eo_len_3]
+base = "base"
+eo_len = 3
+
+[policy.e5_eo_len_4]
+base = "base"
+eo_len = 4
+
+[policy.e5_rzp_per_eo_0]
+base = "base"
+rzp_per_eo = 0
+
+[policy.e5_rzp_per_eo_1]
+base = "base"
+rzp_per_eo = 1
+
+[policy.e5_rzp_per_eo_2]
+base = "base"
+rzp_per_eo = 2
+
+[policy.e5_rzp_per_eo_4]
+base = "base"
+rzp_per_eo = 4
+
+[policy.e5_rzp_per_eo_6]
+base = "base"
+rzp_per_eo = 6
+
+[policy.e5_rzp_per_eo_8]
+base = "base"
+rzp_per_eo = 8
+
+[policy.e5_rzp_per_eo_long_0]
+base = "base"
+rzp_per_eo_long = 0
+
+[policy.e5_rzp_per_eo_long_2]
+base = "base"
+rzp_per_eo_long = 2
+
+[policy.e5_rzp_per_eo_long_3]
+base = "base"
+rzp_per_eo_long = 3
+
+[policy.e5_read_max_8]
+base = "base"
+read_max = 8
+
+[policy.e5_read_max_8p5]
+base = "base"
+read_max = 8.5
+
+[policy.e5_read_max_9]
+base = "base"
+read_max = 9
+
+[policy.e5_read_max_9p5]
+base = "base"
+read_max = 9.5
+
+[policy.e5_read_max_10]
+base = "base"
+read_max = 10
+
+[policy.e5_read_max_10p5]
+base = "base"
+read_max = 10.5
+
+[policy.e5_read_max_11]
+base = "base"
+read_max = 11
+
+[policy.e5_read_max_12]
+base = "base"
+read_max = 12
+
+[policy.e5_read_max_13]
+base = "base"
+read_max = 13
+
+[policy.e5_rzp_depth_1]
+base = "base"
+rzp_depth = 1
+
+[policy.e5_rzp_depth_2]
+base = "base"
+rzp_depth = 2
+
+[policy.e5_rzp_more_0]
+base = "base"
+rzp_more = 0
+
+[policy.e5_rzp_more_1]
+base = "base"
+rzp_more = 1
+
+[policy.e5_rzp_more_4]
+base = "base"
+rzp_more = 4
+
+[policy.e5_dr_per_line_2]
+base = "base"
+dr_per_line = 2
+
+[policy.e5_dr_per_line_3]
+base = "base"
+dr_per_line = 3
+
+[policy.e5_switch_pen_0]
+base = "base"
+switch_pen = 0
+
+[policy.e5_switch_pen_0p6]
+base = "base"
+switch_pen = 0.6
+
+[policy.e5_switch_pen_1]
+base = "base"
+switch_pen = 1
+
+[policy.e5_switch_pen_2]
+base = "base"
+switch_pen = 2
+
+[policy.e5_switch_pen_99]
+base = "base"
+switch_pen = 99
+
+[policy.e5_dr_cap_10]
+base = "base"
+dr_cap = 10
+
+[policy.e5_dr_cap_12]
+base = "base"
+dr_cap = 12
+
+[policy.e5_t_dr_900]
+base = "base"
+t_dr = 900
+
+[policy.e5_t_dr_1200]
+base = "base"
+t_dr = 1200
+
+[policy.e5_t_dr_1500]
+base = "base"
+t_dr = 1500
+
+[policy.e5_t_dr_1800]
+base = "base"
+t_dr = 1800
+
+[policy.e5_t_dr_2400]
+base = "base"
+t_dr = 2400
+
+[policy.e5_t_dr_2700]
+base = "base"
+t_dr = 2700
+
+[policy.e5_t_dr_3000]
+base = "base"
+t_dr = 3000
+
+[policy.e5_htr_per_dr_1]
+base = "base"
+htr_per_dr = 1
+
+[policy.e5_htr_per_dr_2]
+base = "base"
+htr_per_dr = 2
+
+[policy.e5_htr_per_dr_3]
+base = "base"
+htr_per_dr = 3
+
+[policy.e5_htr_per_dr_6]
+base = "base"
+htr_per_dr = 6
+
+[policy.e5_htr_per_dr_8]
+base = "base"
+htr_per_dr = 8
+
+[policy.e5_fin_min_p_0]
+base = "base"
+fin_min_p = 0
+
+[policy.e5_fin_min_p_0p01]
+base = "base"
+fin_min_p = 0.01
+
+[policy.e5_fin_min_p_0p06]
+base = "base"
+fin_min_p = 0.06
+
+[policy.e5_fin_min_p_0p1]
+base = "base"
+fin_min_p = 0.1
+
+[policy.e5_fin_min_p_0p2]
+base = "base"
+fin_min_p = 0.2
+
+[policy.e5_fin_max_1]
+base = "base"
+fin_max = 1
+
+[policy.e5_fin_max_2]
+base = "base"
+fin_max = 2
+
+[policy.e5_fin_max_3]
+base = "base"
+fin_max = 3
+
+[policy.e5_fin_max_4]
+base = "base"
+fin_max = 4
+
+[policy.e5_fin_max_5]
+base = "base"
+fin_max = 5
+
+[policy.e5_fin_max_6]
+base = "base"
+fin_max = 6
+
+[policy.e5_reserve_180]
+base = "base"
+reserve = 180
+
+[policy.e5_reserve_240]
+base = "base"
+reserve = 240
+
+[policy.e5_reserve_360]
+base = "base"
+reserve = 360
+
+[policy.e5_read_on_find_false]
+base = "base"
+read_on_find = false
+
+[policy.e5_eo_niss_false]
+base = "base"
+eo_niss = false

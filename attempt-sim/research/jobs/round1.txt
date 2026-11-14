@@ -1,0 +1,6 @@
+r1_e5 e5_curves scrambles_uniform.txt 0 2000
+r1_e1 e1_split scrambles_uniform.txt 0 2000
+r1_e2 e2_order scrambles_uniform.txt 0 2000
+r1_e3 e3_adaptive scrambles_uniform.txt 0 2000
+r1_e4 e4_safety scrambles_uniform.txt 0 2000
+official_base base official_scrambles.txt 0 912

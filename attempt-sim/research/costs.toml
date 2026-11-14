@@ -1,0 +1,44 @@
+# Time costs and human limits of the simulated solver.  FIRST GUESSES: these are what gets tuned.
+# Every cost is in seconds: the nominal time of one step.  A step's real time is the nominal time times a
+# log-normal factor with spread `noise_sigma` (mean 1), fixed per scramble and object, the same under every policy.
+# The source of each guess is in ../report/WRITEUP.md, section 4 (a table with value, source and confidence).
+
+[cost]
+budget = 3600        # one hour
+noise_sigma = 0.25   # spread of one step's real time around its nominal time (log-normal)
+attempt_sigma = 0.15 # spread of the solver's pace from one attempt to the next (log-normal factor on every step).
+                     # Fitted: with 0.15 the baseline policy DNFs 1.6% (top 5 officially: 1.4%); 0.25 gives 3.4%, 0.35 5.9%.
+look = 15            # count the bad edges on the three axes before anything else
+# Searching ONE axis (both sides) for EOs one move longer than before; index = EO length 0..7.
+# Cumulative per axis: 20 s to length 4, 50 s to length 5 (a pass over the six axis-sides takes under 2 minutes).
+eo_scan = [0, 2, 3, 5, 10, 30, 120, 400]
+eo_niss_factor = 1.5 # the same search when EOs with moves on both sides are looked for too
+eo_write = 8         # write one EO down (7 to 20 s per EO all in)
+eo_eval = 5          # glance at one EO: bad corners / bad edges on its two DR axes, both endings (3 to 5 s to discard)
+rzp = 15             # work one RZP state (10 to 30 s per RZP)
+switch = 25          # work a state on the other side: set the inverse up first (20 to 30 s)
+# Write down a DR that was seen; index = how many moves away it was (0..7).
+dr_find = [3, 3, 5, 8, 12, 20, 30, 45]
+dr_read = 15         # read a DR: corner case and bad edges, for the last turn either way
+htr = 40             # try one route to HTR on a DR
+tail = 30            # write out the finish a route gave (leave slice + slice, or direct)
+write = 150          # write the full solution down and check it on the cube
+
+[human]
+# Chance that an EO of a given length (index 0..7) is found when its axis is searched to that length.
+eo_see_lin  = [1, 1, 1, 1, 0.95, 0.75, 0.3, 0.1]    # all moves on one side
+eo_see_niss = [1, 1, 0.9, 0.9, 0.7, 0.3, 0.05, 0]   # moves on both sides
+# Chance that the DR is seen from a state that is d EO-keeping moves away from it (index d = 0..7):
+dr_see_glance = [1, 1, 1, 0.9, 0.6, 0.25, 0.05, 0]  # at the glance that discards an EO
+dr_see_work   = [1, 1, 1, 1, 0.95, 0.8, 0.5, 0.15]  # at an RZP state that is worked
+route_see = 0.9          # chance that a route that has a short finish is finished that well when tried
+# How well the solver judges, from the DRM, pairs and ARM, how far the DR is from a state: the read is the true
+# EO-keeping distance plus a normal error with this spread, in moves.  With 1.0 the solver flags 18.5% of 4c4e cases
+# as sub-7 and 60.8% of those are (the EO-switch study's paired-edge card: 15.5% at 59.9%; its half-turn count 14.2% at
+# 74.1%, about read_sd 0.75); 0 would be a solver who knows the distance, 3 one who reads nothing.
+read_sd = 1.0
+rzp_depth_weight = 0.6   # RZP states are ranked by this * moves so far + their read
+# Spread of the solver's form from attempt to attempt: on a day with form f = exp(form_sigma * z) every miss chance m
+# becomes m^f and the reading error read_sd / f.  0 = the same solver every attempt.  Tried 0.3 and 0.5: the results
+# spread hardly wider (SD 1.23 -> 1.24 -> 1.29) and the mean gets worse (22.04 -> 22.07 -> 22.14), so it stays off.
+form_sigma = 0

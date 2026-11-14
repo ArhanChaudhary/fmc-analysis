@@ -1,0 +1,5 @@
+# big generated outputs and build products (research/run_all.sh regenerates them)
+/research/out/big/
+/research/attemptsim/target/
+/lean/AttemptSim/.lake/
+__pycache__/

@@ -1,0 +1,4 @@
+r2_te_a all scrambles_uniform.txt 4000 1000
+r2_te_b all scrambles_uniform.txt 5000 1000
+r2_te_c all scrambles_uniform.txt 6000 1000
+r2_te_d all scrambles_uniform.txt 7000 1000

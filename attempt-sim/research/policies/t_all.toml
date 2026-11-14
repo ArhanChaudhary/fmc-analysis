@@ -1,0 +1,1205 @@
+# Every experiment in one file: base, then each variant as EXP_NAME.
+
+[policy.base]
+eo_len = 5
+eo_niss = true
+eo_cap = 40
+t_eo = 480
+rzp_per_eo = 3
+rzp_short = 4
+rzp_per_eo_long = 1
+read_max = 11.5
+rzp_depth = 3
+switch_pen = 0.3
+dr_cap = 11
+t_dr = 2100
+htr_per_dr = 4
+fin_min_p = 0.03
+reserve = 300
+
+[policy.ref]
+base = "base"
+read_max = 10
+reserve = 420
+switch_pen = 0
+
+[policy.te1_teo180_tdr900]
+base = "ref"
+t_eo = 180
+eo_cap = 999
+t_dr = 900
+
+[policy.te1_teo180_tdr1200]
+base = "ref"
+t_eo = 180
+eo_cap = 999
+t_dr = 1200
+
+[policy.te1_teo180_tdr1500]
+base = "ref"
+t_eo = 180
+eo_cap = 999
+t_dr = 1500
+
+[policy.te1_teo180_tdr1800]
+base = "ref"
+t_eo = 180
+eo_cap = 999
+t_dr = 1800
+
+[policy.te1_teo180_tdr2100]
+base = "ref"
+t_eo = 180
+eo_cap = 999
+t_dr = 2100
+
+[policy.te1_teo180_tdr2400]
+base = "ref"
+t_eo = 180
+eo_cap = 999
+t_dr = 2400
+
+[policy.te1_teo180_tdr2700]
+base = "ref"
+t_eo = 180
+eo_cap = 999
+t_dr = 2700
+
+[policy.te1_teo180_tdr3000]
+base = "ref"
+t_eo = 180
+eo_cap = 999
+t_dr = 3000
+
+[policy.te1_teo300_tdr900]
+base = "ref"
+t_eo = 300
+eo_cap = 999
+t_dr = 900
+
+[policy.te1_teo300_tdr1200]
+base = "ref"
+t_eo = 300
+eo_cap = 999
+t_dr = 1200
+
+[policy.te1_teo300_tdr1500]
+base = "ref"
+t_eo = 300
+eo_cap = 999
+t_dr = 1500
+
+[policy.te1_teo300_tdr1800]
+base = "ref"
+t_eo = 300
+eo_cap = 999
+t_dr = 1800
+
+[policy.te1_teo300_tdr2100]
+base = "ref"
+t_eo = 300
+eo_cap = 999
+t_dr = 2100
+
+[policy.te1_teo300_tdr2400]
+base = "ref"
+t_eo = 300
+eo_cap = 999
+t_dr = 2400
+
+[policy.te1_teo300_tdr2700]
+base = "ref"
+t_eo = 300
+eo_cap = 999
+t_dr = 2700
+
+[policy.te1_teo300_tdr3000]
+base = "ref"
+t_eo = 300
+eo_cap = 999
+t_dr = 3000
+
+[policy.te1_teo480_tdr900]
+base = "ref"
+t_eo = 480
+eo_cap = 999
+t_dr = 900
+
+[policy.te1_teo480_tdr1200]
+base = "ref"
+t_eo = 480
+eo_cap = 999
+t_dr = 1200
+
+[policy.te1_teo480_tdr1500]
+base = "ref"
+t_eo = 480
+eo_cap = 999
+t_dr = 1500
+
+[policy.te1_teo480_tdr1800]
+base = "ref"
+t_eo = 480
+eo_cap = 999
+t_dr = 1800
+
+[policy.te1_teo480_tdr2100]
+base = "ref"
+t_eo = 480
+eo_cap = 999
+t_dr = 2100
+
+[policy.te1_teo480_tdr2400]
+base = "ref"
+t_eo = 480
+eo_cap = 999
+t_dr = 2400
+
+[policy.te1_teo480_tdr2700]
+base = "ref"
+t_eo = 480
+eo_cap = 999
+t_dr = 2700
+
+[policy.te1_teo480_tdr3000]
+base = "ref"
+t_eo = 480
+eo_cap = 999
+t_dr = 3000
+
+[policy.te1_teo720_tdr900]
+base = "ref"
+t_eo = 720
+eo_cap = 999
+t_dr = 900
+
+[policy.te1_teo720_tdr1200]
+base = "ref"
+t_eo = 720
+eo_cap = 999
+t_dr = 1200
+
+[policy.te1_teo720_tdr1500]
+base = "ref"
+t_eo = 720
+eo_cap = 999
+t_dr = 1500
+
+[policy.te1_teo720_tdr1800]
+base = "ref"
+t_eo = 720
+eo_cap = 999
+t_dr = 1800
+
+[policy.te1_teo720_tdr2100]
+base = "ref"
+t_eo = 720
+eo_cap = 999
+t_dr = 2100
+
+[policy.te1_teo720_tdr2400]
+base = "ref"
+t_eo = 720
+eo_cap = 999
+t_dr = 2400
+
+[policy.te1_teo720_tdr2700]
+base = "ref"
+t_eo = 720
+eo_cap = 999
+t_dr = 2700
+
+[policy.te1_teo720_tdr3000]
+base = "ref"
+t_eo = 720
+eo_cap = 999
+t_dr = 3000
+
+[policy.te1_teo960_tdr1200]
+base = "ref"
+t_eo = 960
+eo_cap = 999
+t_dr = 1200
+
+[policy.te1_teo960_tdr1500]
+base = "ref"
+t_eo = 960
+eo_cap = 999
+t_dr = 1500
+
+[policy.te1_teo960_tdr1800]
+base = "ref"
+t_eo = 960
+eo_cap = 999
+t_dr = 1800
+
+[policy.te1_teo960_tdr2100]
+base = "ref"
+t_eo = 960
+eo_cap = 999
+t_dr = 2100
+
+[policy.te1_teo960_tdr2400]
+base = "ref"
+t_eo = 960
+eo_cap = 999
+t_dr = 2400
+
+[policy.te1_teo960_tdr2700]
+base = "ref"
+t_eo = 960
+eo_cap = 999
+t_dr = 2700
+
+[policy.te1_teo960_tdr3000]
+base = "ref"
+t_eo = 960
+eo_cap = 999
+t_dr = 3000
+
+[policy.te2_eagereo2]
+base = "ref"
+eager_eo = 2
+
+[policy.te2_eagereo3]
+base = "ref"
+eager_eo = 3
+
+[policy.te2_eagereo4]
+base = "ref"
+eager_eo = 4
+
+[policy.te2_eagereo5]
+base = "ref"
+eager_eo = 5
+
+[policy.te2_eagerfin20p5_r1]
+base = "ref"
+eager_finish = 20.5
+eager_routes = 1
+
+[policy.te2_eagerfin20p5_r2]
+base = "ref"
+eager_finish = 20.5
+eager_routes = 2
+
+[policy.te2_eagerfin20p5_r99]
+base = "ref"
+eager_finish = 20.5
+eager_routes = 99
+
+[policy.te2_eagerfin21p5_r1]
+base = "ref"
+eager_finish = 21.5
+eager_routes = 1
+
+[policy.te2_eagerfin21p5_r2]
+base = "ref"
+eager_finish = 21.5
+eager_routes = 2
+
+[policy.te2_eagerfin21p5_r99]
+base = "ref"
+eager_finish = 21.5
+eager_routes = 99
+
+[policy.te2_eagerfin22p5_r1]
+base = "ref"
+eager_finish = 22.5
+eager_routes = 1
+
+[policy.te2_eagerfin22p5_r2]
+base = "ref"
+eager_finish = 22.5
+eager_routes = 2
+
+[policy.te2_eagerfin22p5_r99]
+base = "ref"
+eager_finish = 22.5
+eager_routes = 99
+
+[policy.te2_eagerfin23p5_r1]
+base = "ref"
+eager_finish = 23.5
+eager_routes = 1
+
+[policy.te2_eagerfin23p5_r2]
+base = "ref"
+eager_finish = 23.5
+eager_routes = 2
+
+[policy.te2_eagerfin23p5_r99]
+base = "ref"
+eager_finish = 23.5
+eager_routes = 99
+
+[policy.te2_eagerfin99_r1]
+base = "ref"
+eager_finish = 99
+eager_routes = 1
+
+[policy.te2_eagerfin99_r2]
+base = "ref"
+eager_finish = 99
+eager_routes = 2
+
+[policy.te2_eagerfin99_r99]
+base = "ref"
+eager_finish = 99
+eager_routes = 99
+
+[policy.te2_dfs]
+base = "ref"
+eager_eo = 9
+eager_finish = 99
+eager_routes = 99
+
+[policy.te2_dfs_r1]
+base = "ref"
+eager_eo = 9
+eager_finish = 99
+eager_routes = 1
+
+[policy.te2_dfs_eo3]
+base = "ref"
+eager_eo = 3
+eager_finish = 99
+eager_routes = 99
+
+[policy.te2_dfs_eo3_fin22p5]
+base = "ref"
+eager_eo = 3
+eager_finish = 22.5
+eager_routes = 99
+
+[policy.te2_backup600]
+base = "ref"
+backup_time = 600
+
+[policy.te2_backup900]
+base = "ref"
+backup_time = 900
+
+[policy.te2_backup1200]
+base = "ref"
+backup_time = 1200
+
+[policy.te2_backup1500]
+base = "ref"
+backup_time = 1500
+
+[policy.te2_backup1800]
+base = "ref"
+backup_time = 1800
+
+[policy.te2_backup2100]
+base = "ref"
+backup_time = 2100
+
+[policy.te2_backup2400]
+base = "ref"
+backup_time = 2400
+
+[policy.te3_rich15_tdr1500]
+base = "ref"
+rich_n = 15
+t_dr_rich = 1500
+
+[policy.te3_rich15_tdr1800]
+base = "ref"
+rich_n = 15
+t_dr_rich = 1800
+
+[policy.te3_rich15_tdr2400]
+base = "ref"
+rich_n = 15
+t_dr_rich = 2400
+
+[policy.te3_rich15_tdr2700]
+base = "ref"
+rich_n = 15
+t_dr_rich = 2700
+
+[policy.te3_rich25_tdr1500]
+base = "ref"
+rich_n = 25
+t_dr_rich = 1500
+
+[policy.te3_rich25_tdr1800]
+base = "ref"
+rich_n = 25
+t_dr_rich = 1800
+
+[policy.te3_rich25_tdr2400]
+base = "ref"
+rich_n = 25
+t_dr_rich = 2400
+
+[policy.te3_rich25_tdr2700]
+base = "ref"
+rich_n = 25
+t_dr_rich = 2700
+
+[policy.te3_rich35_tdr1500]
+base = "ref"
+rich_n = 35
+t_dr_rich = 1500
+
+[policy.te3_rich35_tdr1800]
+base = "ref"
+rich_n = 35
+t_dr_rich = 1800
+
+[policy.te3_rich35_tdr2400]
+base = "ref"
+rich_n = 35
+t_dr_rich = 2400
+
+[policy.te3_rich35_tdr2700]
+base = "ref"
+rich_n = 35
+t_dr_rich = 2700
+
+[policy.te3_rich50_tdr1500]
+base = "ref"
+rich_n = 50
+t_dr_rich = 1500
+
+[policy.te3_rich50_tdr1800]
+base = "ref"
+rich_n = 50
+t_dr_rich = 1800
+
+[policy.te3_rich50_tdr2400]
+base = "ref"
+rich_n = 50
+t_dr_rich = 2400
+
+[policy.te3_rich50_tdr2700]
+base = "ref"
+rich_n = 50
+t_dr_rich = 2700
+
+[policy.te3_poor6]
+base = "ref"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 6
+
+[policy.te3_poor10]
+base = "ref"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 10
+
+[policy.te3_poor15]
+base = "ref"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 15
+
+[policy.te3_poor25]
+base = "ref"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 25
+
+[policy.te3_poor40]
+base = "ref"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 40
+
+[policy.te3_eo4only]
+base = "ref"
+eo_len = 4
+
+[policy.te3_late8_tdr2400]
+base = "ref"
+late_len = 8
+t_dr_late = 2400
+
+[policy.te3_late8_tdr2700]
+base = "ref"
+late_len = 8
+t_dr_late = 2700
+
+[policy.te3_late8_tdr3000]
+base = "ref"
+late_len = 8
+t_dr_late = 3000
+
+[policy.te3_late9_tdr2400]
+base = "ref"
+late_len = 9
+t_dr_late = 2400
+
+[policy.te3_late9_tdr2700]
+base = "ref"
+late_len = 9
+t_dr_late = 2700
+
+[policy.te3_late9_tdr3000]
+base = "ref"
+late_len = 9
+t_dr_late = 3000
+
+[policy.te3_late10_tdr2400]
+base = "ref"
+late_len = 10
+t_dr_late = 2400
+
+[policy.te3_late10_tdr2700]
+base = "ref"
+late_len = 10
+t_dr_late = 2700
+
+[policy.te3_late10_tdr3000]
+base = "ref"
+late_len = 10
+t_dr_late = 3000
+
+[policy.te3_enough1_len8]
+base = "ref"
+dr_enough = 1
+dr_enough_len = 8
+
+[policy.te3_enough1_len9]
+base = "ref"
+dr_enough = 1
+dr_enough_len = 9
+
+[policy.te3_enough1_len10]
+base = "ref"
+dr_enough = 1
+dr_enough_len = 10
+
+[policy.te3_enough2_len8]
+base = "ref"
+dr_enough = 2
+dr_enough_len = 8
+
+[policy.te3_enough2_len9]
+base = "ref"
+dr_enough = 2
+dr_enough_len = 9
+
+[policy.te3_enough2_len10]
+base = "ref"
+dr_enough = 2
+dr_enough_len = 10
+
+[policy.te3_enough3_len8]
+base = "ref"
+dr_enough = 3
+dr_enough_len = 8
+
+[policy.te3_enough3_len9]
+base = "ref"
+dr_enough = 3
+dr_enough_len = 9
+
+[policy.te3_enough3_len10]
+base = "ref"
+dr_enough = 3
+dr_enough_len = 10
+
+[policy.te3_enough5_len8]
+base = "ref"
+dr_enough = 5
+dr_enough_len = 8
+
+[policy.te3_enough5_len9]
+base = "ref"
+dr_enough = 5
+dr_enough_len = 9
+
+[policy.te3_enough5_len10]
+base = "ref"
+dr_enough = 5
+dr_enough_len = 10
+
+[policy.te3_bk21_tdr2700]
+base = "ref"
+backup_len = 21
+t_dr_backup = 2700
+bank_at = 21
+
+[policy.te3_bk21_tdr3000]
+base = "ref"
+backup_len = 21
+t_dr_backup = 3000
+bank_at = 21
+
+[policy.te3_bk21_tdr3150]
+base = "ref"
+backup_len = 21
+t_dr_backup = 3150
+bank_at = 21
+
+[policy.te3_bk22_tdr2700]
+base = "ref"
+backup_len = 22
+t_dr_backup = 2700
+bank_at = 22
+
+[policy.te3_bk22_tdr3000]
+base = "ref"
+backup_len = 22
+t_dr_backup = 3000
+bank_at = 22
+
+[policy.te3_bk22_tdr3150]
+base = "ref"
+backup_len = 22
+t_dr_backup = 3150
+bank_at = 22
+
+[policy.te3_bk23_tdr2700]
+base = "ref"
+backup_len = 23
+t_dr_backup = 2700
+bank_at = 23
+
+[policy.te3_bk23_tdr3000]
+base = "ref"
+backup_len = 23
+t_dr_backup = 3000
+bank_at = 23
+
+[policy.te3_bk23_tdr3150]
+base = "ref"
+backup_len = 23
+t_dr_backup = 3150
+bank_at = 23
+
+[policy.te3_early1500_late9_2400]
+base = "ref"
+t_dr = 1500
+late_len = 9
+t_dr_late = 2400
+
+[policy.te3_early1500_late9_2700]
+base = "ref"
+t_dr = 1500
+late_len = 9
+t_dr_late = 2700
+
+[policy.te3_early1500_late10_2400]
+base = "ref"
+t_dr = 1500
+late_len = 10
+t_dr_late = 2400
+
+[policy.te3_early1500_late10_2700]
+base = "ref"
+t_dr = 1500
+late_len = 10
+t_dr_late = 2700
+
+[policy.te3_early1800_late9_2400]
+base = "ref"
+t_dr = 1800
+late_len = 9
+t_dr_late = 2400
+
+[policy.te3_early1800_late9_2700]
+base = "ref"
+t_dr = 1800
+late_len = 9
+t_dr_late = 2700
+
+[policy.te3_early1800_late10_2400]
+base = "ref"
+t_dr = 1800
+late_len = 10
+t_dr_late = 2400
+
+[policy.te3_early1800_late10_2700]
+base = "ref"
+t_dr = 1800
+late_len = 10
+t_dr_late = 2700
+
+[policy.te4_reserve150]
+base = "ref"
+reserve = 150
+
+[policy.te4_reserve180]
+base = "ref"
+reserve = 180
+
+[policy.te4_reserve210]
+base = "ref"
+reserve = 210
+
+[policy.te4_reserve240]
+base = "ref"
+reserve = 240
+
+[policy.te4_reserve270]
+base = "ref"
+reserve = 270
+
+[policy.te4_reserve360]
+base = "ref"
+reserve = 360
+
+[policy.te4_reserve420]
+base = "ref"
+reserve = 420
+
+[policy.te4_reserve600]
+base = "ref"
+reserve = 600
+
+[policy.te4_stop20]
+base = "ref"
+stop_at = 20
+
+[policy.te4_stop21]
+base = "ref"
+stop_at = 21
+
+[policy.te4_stop22]
+base = "ref"
+stop_at = 22
+
+[policy.te4_stop23]
+base = "ref"
+stop_at = 23
+
+[policy.te4_bankfirst_rr150]
+base = "ref"
+bank_first = true
+reserve_rewrite = 150
+
+[policy.te4_bankfirst_rr180]
+base = "ref"
+bank_first = true
+reserve_rewrite = 180
+
+[policy.te4_bankfirst_rr240]
+base = "ref"
+bank_first = true
+reserve_rewrite = 240
+
+[policy.te4_bankfirst_rr300]
+base = "ref"
+bank_first = true
+reserve_rewrite = 300
+
+[policy.te4_bankat21_rr180]
+base = "ref"
+bank_at = 21
+reserve_rewrite = 180
+
+[policy.te4_bankat21_rr300]
+base = "ref"
+bank_at = 21
+reserve_rewrite = 300
+
+[policy.te4_bankat22_rr180]
+base = "ref"
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.te4_bankat22_rr300]
+base = "ref"
+bank_at = 22
+reserve_rewrite = 300
+
+[policy.te4_bankat23_rr180]
+base = "ref"
+bank_at = 23
+reserve_rewrite = 180
+
+[policy.te4_bankat23_rr300]
+base = "ref"
+bank_at = 23
+reserve_rewrite = 300
+
+[policy.te4_bankat24_rr180]
+base = "ref"
+bank_at = 24
+reserve_rewrite = 180
+
+[policy.te4_bankat24_rr300]
+base = "ref"
+bank_at = 24
+reserve_rewrite = 300
+
+[policy.te4_bankalways]
+base = "ref"
+bank_always = true
+reserve_rewrite = 180
+
+[policy.te4_quick21p5_r1]
+base = "ref"
+eager_finish = 21.5
+eager_routes = 1
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.te4_quick21p5_r2]
+base = "ref"
+eager_finish = 21.5
+eager_routes = 2
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.te4_quick22p5_r1]
+base = "ref"
+eager_finish = 22.5
+eager_routes = 1
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.te4_quick22p5_r2]
+base = "ref"
+eager_finish = 22.5
+eager_routes = 2
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.te4_quick23p5_r1]
+base = "ref"
+eager_finish = 23.5
+eager_routes = 1
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.te4_quick23p5_r2]
+base = "ref"
+eager_finish = 23.5
+eager_routes = 2
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.te4_safe_bk900_q22p5]
+base = "ref"
+backup_time = 900
+bank_at = 22
+eager_finish = 22.5
+eager_routes = 1
+reserve_rewrite = 180
+
+[policy.te4_safe_bk1200_q22p5]
+base = "ref"
+backup_time = 1200
+bank_at = 22
+eager_finish = 22.5
+eager_routes = 1
+reserve_rewrite = 180
+
+[policy.te4_safe_bk1500_q22p5]
+base = "ref"
+backup_time = 1500
+bank_at = 22
+eager_finish = 22.5
+eager_routes = 1
+reserve_rewrite = 180
+
+[policy.te4_safe_bk1800_q22p5]
+base = "ref"
+backup_time = 1800
+bank_at = 22
+eager_finish = 22.5
+eager_routes = 1
+reserve_rewrite = 180
+
+[policy.te4_commit1200]
+base = "ref"
+t_dr = 1200
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.te4_commit1500]
+base = "ref"
+t_dr = 1500
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.te4_commit1800]
+base = "ref"
+t_dr = 1800
+bank_at = 22
+reserve_rewrite = 180
+
+[policy.te5_eo_cap_10]
+base = "ref"
+eo_cap = 10
+t_eo = 9999
+
+[policy.te5_eo_cap_20]
+base = "ref"
+eo_cap = 20
+t_eo = 9999
+
+[policy.te5_eo_cap_30]
+base = "ref"
+eo_cap = 30
+t_eo = 9999
+
+[policy.te5_eo_cap_60]
+base = "ref"
+eo_cap = 60
+t_eo = 9999
+
+[policy.te5_eo_cap_80]
+base = "ref"
+eo_cap = 80
+t_eo = 9999
+
+[policy.te5_eo_cap_120]
+base = "ref"
+eo_cap = 120
+t_eo = 9999
+
+[policy.te5_eo_len_3]
+base = "ref"
+eo_len = 3
+
+[policy.te5_eo_len_4]
+base = "ref"
+eo_len = 4
+
+[policy.te5_rzp_per_eo_0]
+base = "ref"
+rzp_per_eo = 0
+
+[policy.te5_rzp_per_eo_1]
+base = "ref"
+rzp_per_eo = 1
+
+[policy.te5_rzp_per_eo_2]
+base = "ref"
+rzp_per_eo = 2
+
+[policy.te5_rzp_per_eo_4]
+base = "ref"
+rzp_per_eo = 4
+
+[policy.te5_rzp_per_eo_6]
+base = "ref"
+rzp_per_eo = 6
+
+[policy.te5_rzp_per_eo_8]
+base = "ref"
+rzp_per_eo = 8
+
+[policy.te5_rzp_per_eo_long_0]
+base = "ref"
+rzp_per_eo_long = 0
+
+[policy.te5_rzp_per_eo_long_2]
+base = "ref"
+rzp_per_eo_long = 2
+
+[policy.te5_rzp_per_eo_long_3]
+base = "ref"
+rzp_per_eo_long = 3
+
+[policy.te5_read_max_8]
+base = "ref"
+read_max = 8
+
+[policy.te5_read_max_8p5]
+base = "ref"
+read_max = 8.5
+
+[policy.te5_read_max_9]
+base = "ref"
+read_max = 9
+
+[policy.te5_read_max_9p5]
+base = "ref"
+read_max = 9.5
+
+[policy.te5_read_max_10]
+base = "ref"
+read_max = 10
+
+[policy.te5_read_max_10p5]
+base = "ref"
+read_max = 10.5
+
+[policy.te5_read_max_11]
+base = "ref"
+read_max = 11
+
+[policy.te5_read_max_12]
+base = "ref"
+read_max = 12
+
+[policy.te5_read_max_13]
+base = "ref"
+read_max = 13
+
+[policy.te5_rzp_depth_1]
+base = "ref"
+rzp_depth = 1
+
+[policy.te5_rzp_depth_2]
+base = "ref"
+rzp_depth = 2
+
+[policy.te5_rzp_more_0]
+base = "ref"
+rzp_more = 0
+
+[policy.te5_rzp_more_1]
+base = "ref"
+rzp_more = 1
+
+[policy.te5_rzp_more_4]
+base = "ref"
+rzp_more = 4
+
+[policy.te5_dr_per_line_2]
+base = "ref"
+dr_per_line = 2
+
+[policy.te5_dr_per_line_3]
+base = "ref"
+dr_per_line = 3
+
+[policy.te5_switch_pen_0]
+base = "ref"
+switch_pen = 0
+
+[policy.te5_switch_pen_0p6]
+base = "ref"
+switch_pen = 0.6
+
+[policy.te5_switch_pen_1]
+base = "ref"
+switch_pen = 1
+
+[policy.te5_switch_pen_2]
+base = "ref"
+switch_pen = 2
+
+[policy.te5_switch_pen_99]
+base = "ref"
+switch_pen = 99
+
+[policy.te5_dr_cap_10]
+base = "ref"
+dr_cap = 10
+
+[policy.te5_dr_cap_12]
+base = "ref"
+dr_cap = 12
+
+[policy.te5_t_dr_900]
+base = "ref"
+t_dr = 900
+
+[policy.te5_t_dr_1200]
+base = "ref"
+t_dr = 1200
+
+[policy.te5_t_dr_1500]
+base = "ref"
+t_dr = 1500
+
+[policy.te5_t_dr_1800]
+base = "ref"
+t_dr = 1800
+
+[policy.te5_t_dr_2400]
+base = "ref"
+t_dr = 2400
+
+[policy.te5_t_dr_2700]
+base = "ref"
+t_dr = 2700
+
+[policy.te5_t_dr_3000]
+base = "ref"
+t_dr = 3000
+
+[policy.te5_htr_per_dr_1]
+base = "ref"
+htr_per_dr = 1
+
+[policy.te5_htr_per_dr_2]
+base = "ref"
+htr_per_dr = 2
+
+[policy.te5_htr_per_dr_3]
+base = "ref"
+htr_per_dr = 3
+
+[policy.te5_htr_per_dr_6]
+base = "ref"
+htr_per_dr = 6
+
+[policy.te5_htr_per_dr_8]
+base = "ref"
+htr_per_dr = 8
+
+[policy.te5_fin_min_p_0]
+base = "ref"
+fin_min_p = 0
+
+[policy.te5_fin_min_p_0p01]
+base = "ref"
+fin_min_p = 0.01
+
+[policy.te5_fin_min_p_0p06]
+base = "ref"
+fin_min_p = 0.06
+
+[policy.te5_fin_min_p_0p1]
+base = "ref"
+fin_min_p = 0.1
+
+[policy.te5_fin_min_p_0p2]
+base = "ref"
+fin_min_p = 0.2
+
+[policy.te5_fin_max_1]
+base = "ref"
+fin_max = 1
+
+[policy.te5_fin_max_2]
+base = "ref"
+fin_max = 2
+
+[policy.te5_fin_max_3]
+base = "ref"
+fin_max = 3
+
+[policy.te5_fin_max_4]
+base = "ref"
+fin_max = 4
+
+[policy.te5_fin_max_5]
+base = "ref"
+fin_max = 5
+
+[policy.te5_fin_max_6]
+base = "ref"
+fin_max = 6
+
+[policy.te5_reserve_180]
+base = "ref"
+reserve = 180
+
+[policy.te5_reserve_240]
+base = "ref"
+reserve = 240
+
+[policy.te5_reserve_360]
+base = "ref"
+reserve = 360
+
+[policy.te5_read_on_find_false]
+base = "ref"
+read_on_find = false
+
+[policy.te5_eo_niss_false]
+base = "ref"
+eo_niss = false

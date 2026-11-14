@@ -1,0 +1,9 @@
+c0_s15 cal scrambles_uniform.txt 0 4000
+c0_s25 cal scrambles_uniform.txt 0 4000 --set cost.attempt_sigma=0.25
+c0_s35 cal scrambles_uniform.txt 0 4000 --set cost.attempt_sigma=0.35
+c0_s50 cal scrambles_uniform.txt 0 4000 --set cost.attempt_sigma=0.5
+c0_n40 cal scrambles_uniform.txt 0 4000 --set cost.noise_sigma=0.4
+c0_x07 cal scrambles_uniform.txt 0 4000 --set cost.scale_all=0.7
+c0_x05 cal scrambles_uniform.txt 0 4000 --set cost.scale_all=0.5
+c0_r05 cal scrambles_uniform.txt 0 4000 --set human.read_sd=0.5
+c0_off cal official_scrambles.txt 0 912

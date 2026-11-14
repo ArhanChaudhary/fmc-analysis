@@ -1,0 +1,339 @@
+# E3: budgets that depend on what the attempt shows.
+
+[policy.base]
+eo_len = 5
+eo_niss = true
+eo_cap = 40
+t_eo = 480
+rzp_per_eo = 3
+rzp_short = 4
+rzp_per_eo_long = 1
+read_max = 11.5
+rzp_depth = 3
+switch_pen = 0.3
+dr_cap = 11
+t_dr = 2100
+htr_per_dr = 4
+fin_min_p = 0.03
+reserve = 300
+
+[policy.rich15_tdr1500]
+base = "base"
+rich_n = 15
+t_dr_rich = 1500
+
+[policy.rich15_tdr1800]
+base = "base"
+rich_n = 15
+t_dr_rich = 1800
+
+[policy.rich15_tdr2400]
+base = "base"
+rich_n = 15
+t_dr_rich = 2400
+
+[policy.rich15_tdr2700]
+base = "base"
+rich_n = 15
+t_dr_rich = 2700
+
+[policy.rich25_tdr1500]
+base = "base"
+rich_n = 25
+t_dr_rich = 1500
+
+[policy.rich25_tdr1800]
+base = "base"
+rich_n = 25
+t_dr_rich = 1800
+
+[policy.rich25_tdr2400]
+base = "base"
+rich_n = 25
+t_dr_rich = 2400
+
+[policy.rich25_tdr2700]
+base = "base"
+rich_n = 25
+t_dr_rich = 2700
+
+[policy.rich35_tdr1500]
+base = "base"
+rich_n = 35
+t_dr_rich = 1500
+
+[policy.rich35_tdr1800]
+base = "base"
+rich_n = 35
+t_dr_rich = 1800
+
+[policy.rich35_tdr2400]
+base = "base"
+rich_n = 35
+t_dr_rich = 2400
+
+[policy.rich35_tdr2700]
+base = "base"
+rich_n = 35
+t_dr_rich = 2700
+
+[policy.rich50_tdr1500]
+base = "base"
+rich_n = 50
+t_dr_rich = 1500
+
+[policy.rich50_tdr1800]
+base = "base"
+rich_n = 50
+t_dr_rich = 1800
+
+[policy.rich50_tdr2400]
+base = "base"
+rich_n = 50
+t_dr_rich = 2400
+
+[policy.rich50_tdr2700]
+base = "base"
+rich_n = 50
+t_dr_rich = 2700
+
+[policy.poor6]
+base = "base"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 6
+
+[policy.poor10]
+base = "base"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 10
+
+[policy.poor15]
+base = "base"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 15
+
+[policy.poor25]
+base = "base"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 25
+
+[policy.poor40]
+base = "base"
+eo_len = 4
+eo_len_poor = 5
+poor_n = 40
+
+[policy.eo4only]
+base = "base"
+eo_len = 4
+
+[policy.late8_tdr2400]
+base = "base"
+late_len = 8
+t_dr_late = 2400
+
+[policy.late8_tdr2700]
+base = "base"
+late_len = 8
+t_dr_late = 2700
+
+[policy.late8_tdr3000]
+base = "base"
+late_len = 8
+t_dr_late = 3000
+
+[policy.late9_tdr2400]
+base = "base"
+late_len = 9
+t_dr_late = 2400
+
+[policy.late9_tdr2700]
+base = "base"
+late_len = 9
+t_dr_late = 2700
+
+[policy.late9_tdr3000]
+base = "base"
+late_len = 9
+t_dr_late = 3000
+
+[policy.late10_tdr2400]
+base = "base"
+late_len = 10
+t_dr_late = 2400
+
+[policy.late10_tdr2700]
+base = "base"
+late_len = 10
+t_dr_late = 2700
+
+[policy.late10_tdr3000]
+base = "base"
+late_len = 10
+t_dr_late = 3000
+
+[policy.enough1_len8]
+base = "base"
+dr_enough = 1
+dr_enough_len = 8
+
+[policy.enough1_len9]
+base = "base"
+dr_enough = 1
+dr_enough_len = 9
+
+[policy.enough1_len10]
+base = "base"
+dr_enough = 1
+dr_enough_len = 10
+
+[policy.enough2_len8]
+base = "base"
+dr_enough = 2
+dr_enough_len = 8
+
+[policy.enough2_len9]
+base = "base"
+dr_enough = 2
+dr_enough_len = 9
+
+[policy.enough2_len10]
+base = "base"
+dr_enough = 2
+dr_enough_len = 10
+
+[policy.enough3_len8]
+base = "base"
+dr_enough = 3
+dr_enough_len = 8
+
+[policy.enough3_len9]
+base = "base"
+dr_enough = 3
+dr_enough_len = 9
+
+[policy.enough3_len10]
+base = "base"
+dr_enough = 3
+dr_enough_len = 10
+
+[policy.enough5_len8]
+base = "base"
+dr_enough = 5
+dr_enough_len = 8
+
+[policy.enough5_len9]
+base = "base"
+dr_enough = 5
+dr_enough_len = 9
+
+[policy.enough5_len10]
+base = "base"
+dr_enough = 5
+dr_enough_len = 10
+
+[policy.bk21_tdr2700]
+base = "base"
+backup_len = 21
+t_dr_backup = 2700
+bank_at = 21
+
+[policy.bk21_tdr3000]
+base = "base"
+backup_len = 21
+t_dr_backup = 3000
+bank_at = 21
+
+[policy.bk21_tdr3150]
+base = "base"
+backup_len = 21
+t_dr_backup = 3150
+bank_at = 21
+
+[policy.bk22_tdr2700]
+base = "base"
+backup_len = 22
+t_dr_backup = 2700
+bank_at = 22
+
+[policy.bk22_tdr3000]
+base = "base"
+backup_len = 22
+t_dr_backup = 3000
+bank_at = 22
+
+[policy.bk22_tdr3150]
+base = "base"
+backup_len = 22
+t_dr_backup = 3150
+bank_at = 22
+
+[policy.bk23_tdr2700]
+base = "base"
+backup_len = 23
+t_dr_backup = 2700
+bank_at = 23
+
+[policy.bk23_tdr3000]
+base = "base"
+backup_len = 23
+t_dr_backup = 3000
+bank_at = 23
+
+[policy.bk23_tdr3150]
+base = "base"
+backup_len = 23
+t_dr_backup = 3150
+bank_at = 23
+
+[policy.early1500_late9_2400]
+base = "base"
+t_dr = 1500
+late_len = 9
+t_dr_late = 2400
+
+[policy.early1500_late9_2700]
+base = "base"
+t_dr = 1500
+late_len = 9
+t_dr_late = 2700
+
+[policy.early1500_late10_2400]
+base = "base"
+t_dr = 1500
+late_len = 10
+t_dr_late = 2400
+
+[policy.early1500_late10_2700]
+base = "base"
+t_dr = 1500
+late_len = 10
+t_dr_late = 2700
+
+[policy.early1800_late9_2400]
+base = "base"
+t_dr = 1800
+late_len = 9
+t_dr_late = 2400
+
+[policy.early1800_late9_2700]
+base = "base"
+t_dr = 1800
+late_len = 9
+t_dr_late = 2700
+
+[policy.early1800_late10_2400]
+base = "base"
+t_dr = 1800
+late_len = 10
+t_dr_late = 2400
+
+[policy.early1800_late10_2700]
+base = "base"
+t_dr = 1800
+late_len = 10
+t_dr_late = 2700

@@ -1,0 +1,14 @@
+r4_b1200 scale scrambles_uniform.txt 4000 2000 --set cost.budget=1200
+r4_b1800 scale scrambles_uniform.txt 4000 2000 --set cost.budget=1800
+r4_b2700 scale scrambles_uniform.txt 4000 2000 --set cost.budget=2700
+r4_b3600 scale scrambles_uniform.txt 4000 2000 --set cost.budget=3600
+r4_b4500 scale scrambles_uniform.txt 4000 2000 --set cost.budget=4500
+r4_b5400 scale scrambles_uniform.txt 4000 2000 --set cost.budget=5400
+r4_b7200 scale scrambles_uniform.txt 4000 2000 --set cost.budget=7200
+r4_x05 scale scrambles_uniform.txt 4000 2000 --set cost.scale_all=0.5 --set cost.reserve_scale=0.5
+r4_x07 scale scrambles_uniform.txt 4000 2000 --set cost.scale_all=0.7 --set cost.reserve_scale=0.7
+r4_x14 scale scrambles_uniform.txt 4000 2000 --set cost.scale_all=1.4 --set cost.reserve_scale=1.4
+r4_x2 scale scrambles_uniform.txt 4000 2000 --set cost.scale_all=2 --set cost.reserve_scale=2
+r4_read05 scale scrambles_uniform.txt 4000 2000 --set human.read_sd=0.5
+r4_drsee_hi scale scrambles_uniform.txt 4000 2000 --set human.dr_see_work=[1,1,1,1,1,0.95,0.75,0.4] --set human.dr_see_glance=[1,1,1,1,0.8,0.5,0.2,0.05]
+r4_top scale scrambles_uniform.txt 4000 2000 --set cost.scale_all=0.5 --set cost.reserve_scale=0.5 --set human.read_sd=0.5 --set human.dr_see_work=[1,1,1,1,1,0.95,0.75,0.4] --set human.dr_see_glance=[1,1,1,1,0.8,0.5,0.2,0.05]

@@ -1,0 +1,18 @@
+# The baseline: breadth first, the split the guides give.  EOs until minute 8, DRs until minute 35,
+# then the best DRs finished, the solution written in the last five minutes.
+[policy.base]
+eo_len = 5
+eo_niss = true
+eo_cap = 40
+t_eo = 480
+rzp_per_eo = 3
+rzp_short = 4
+rzp_per_eo_long = 1
+read_max = 11.5
+rzp_depth = 3
+switch_pen = 0.3
+dr_cap = 11
+t_dr = 2100
+htr_per_dr = 4
+fin_min_p = 0.03
+reserve = 300

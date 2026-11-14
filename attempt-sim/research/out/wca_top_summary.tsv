@@ -1,0 +1,5 @@
+group	attempts	solvers	mean	se	sd	dnf_pct	sub20_pct	le22_pct	n_16	n_17	n_18	n_19	n_20	n_21	n_22	n_23	n_24	n_25	n_26	n_27	n_28	n_le15	n_ge29
+top 5 by mean since 2024 (at least 40 attempts)	720	5	21.908	0.067	1.79	1.39	7.36	66.53	0	1	12	40	87	155	184	115	70	26	9	4	4	0	3
+top 10 by mean since 2024 (at least 40 attempts)	1405	10	22.309	0.054	2.0	3.84	5.84	56.01	0	3	17	62	134	245	326	237	171	88	32	18	9	0	9
+top 25 by mean since 2024 (at least 40 attempts)	2926	25	22.769	0.041	2.14	5.4	4.31	44.6	0	5	26	95	222	394	563	561	420	234	117	65	32	0	34
+top 50 by mean since 2024 (at least 40 attempts)	4933	50	23.154	0.034	2.32	6.75	3.69	37.5	1	12	34	135	285	538	845	894	774	495	271	146	75	0	95

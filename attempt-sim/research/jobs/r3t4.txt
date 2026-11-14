@@ -1,0 +1,8 @@
+r3_t0 t_all scrambles_uniform.txt 0 1000
+r3_t1 t_all scrambles_uniform.txt 1000 1000
+r3_t2 t_all scrambles_uniform.txt 2000 1000
+r3_t3 t_all scrambles_uniform.txt 3000 1000
+r3_t4 t_all scrambles_uniform.txt 4000 1000
+r3_t5 t_all scrambles_uniform.txt 5000 1000
+r3_t6 t_all scrambles_uniform.txt 6000 1000
+r3_t7 t_all scrambles_uniform.txt 7000 1000

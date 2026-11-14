@@ -1,0 +1,219 @@
+✔ [44/55] Built AttemptSim.SampleManifest (411ms)
+✔ [45/55] Built AttemptSim.SampleManifest:c.o (68ms)
+✔ [46/55] Built AttemptSim.SampleManifest:dynlib (38ms)
+✔ [47/55] Built AttemptSim.Sample (665ms)
+✔ [48/55] Built AttemptSim.Sample:c.o (793ms)
+✔ [49/55] Built AttemptSim.Sample:dynlib (43ms)
+✔ [50/55] Built AttemptSim.SampleThm (500ms)
+✔ [52/55] Built AttemptSim.SampleThm:dynlib (38ms)
+✔ [53/55] Built AttemptSim (1.9s)
+ℹ [55/55] Built AttemptSim.Audit (1.9s)
+info: AttemptSim/Audit.lean:15:0: 'AttemptSim.perm.run_append' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AttemptSim/Audit.lean:16:0: 'AttemptSim.perm.tabOk' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.tabOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:17:0: 'AttemptSim.perm.invOk' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.invOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:18:0: 'AttemptSim.perm.mv_inv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.invOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:19:0: 'AttemptSim.perm.mv_inv'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.invOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:20:0: 'AttemptSim.perm.invert_cons' depends on axioms: [propext, Quot.sound]
+info: AttemptSim/Audit.lean:21:0: 'AttemptSim.perm.run_invert' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.invOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:22:0: 'AttemptSim.perm.run_invert'' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.invOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:23:0: 'AttemptSim.perm.solved_rotate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.invOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:24:0: 'AttemptSim.perm.niss_convention' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.invOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:25:0: 'AttemptSim.perm.solvedB_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AttemptSim/Audit.lean:26:0: 'AttemptSim.perm.mergeOk' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.mergeOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:27:0: 'AttemptSim.perm.pushBack_run' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.mergeOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:28:0: 'AttemptSim.perm.push_run' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.mergeOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:29:0: 'AttemptSim.perm.foldl_push_run' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.mergeOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:30:0: 'AttemptSim.perm.cancel_run' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.mergeOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:31:0: 'AttemptSim.perm.cancel_solves' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.mergeOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:32:0: 'AttemptSim.perm.written_solution' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ perm.invOk._native.native_decide.ax_1_1,
+ perm.mergeOk._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:34:0: 'AttemptSim.sticker_model' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ sticker_model._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:35:0: 'AttemptSim.turn_directions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ turn_directions._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:36:0: 'AttemptSim.model_shape' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ model_shape._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:37:0: 'AttemptSim.moves_match' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ moves_match._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:38:0: 'AttemptSim.cubie_follows_stickers' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cubie_follows_stickers._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:39:0: 'AttemptSim.then_inverse_follow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ then_inverse_follow._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:40:0: 'AttemptSim.compose_is_concatenation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ compose_is_concatenation._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:41:0: 'AttemptSim.run_is_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ run_is_apply._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:42:0: 'AttemptSim.rotations_match' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ rotations_match._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:43:0: 'AttemptSim.conj_follows' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ conj_follows._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:44:0: 'AttemptSim.views_ok' depends on axioms: [propext, Classical.choice, Quot.sound, views_ok._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:45:0: 'AttemptSim.views_read_axes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ views_read_axes._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:46:0: 'AttemptSim.dr_numbering' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ dr_numbering._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:47:0: 'AttemptSim.cancel_shape' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cancel_shape._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:49:0: 'AttemptSim.move_tables_match' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ move_tables_match._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:50:0: 'AttemptSim.coords_follow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ coords_follow._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:51:0: 'AttemptSim.coords_are_stickers' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ coords_are_stickers._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:52:0: 'AttemptSim.eodist_checked' depends on axioms: [propext, Quot.sound, eodist_checked._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:53:0: 'AttemptSim.drdist_checked' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ drdist_checked._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:54:0: 'AttemptSim.dr_group' depends on axioms: [propext, Classical.choice, Quot.sound, dr_group._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:55:0: 'AttemptSim.cosets_ok' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cosets_ok._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:56:0: 'AttemptSim.htrdist_checked' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ htrdist_checked._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:58:0: 'AttemptSim.drlink.dr_moves_are_drbound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ drlink.dr_moves_are_drbound._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:59:0: 'AttemptSim.drlink.dr_sequences_follow_drbound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ drlink.dr_sequences_follow_drbound._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:60:0: 'AttemptSim.drlink.sticker_dr_moves_are_drbound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ drlink.sticker_dr_moves_are_drbound._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:62:0: 'AttemptSim.sample_counts' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ sample_counts._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:63:0: 'AttemptSim.sample_attempts_ok' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ sample_attempts_ok._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:64:0: 'AttemptSim.sample_ledger' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ sample_ledger._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:65:0: 'AttemptSim.sample_result_is_shortest' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ sample_result_is_shortest._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:66:0: 'AttemptSim.sample_late_better_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ sample_late_better_count._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:67:0: 'AttemptSim.sample_results_solve' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ sample_results_solve._native.native_decide.ax_1_4]
+info: AttemptSim/Audit.lean:68:0: 'AttemptSim.page_solutions_ok' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ page_solutions_ok._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:70:0: 'AttemptSim.fast_tests_agree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ fast_tests_agree._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:71:0: 'AttemptSim.candidate_files' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ candidate_files._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:72:0: 'AttemptSim.eo_candidates_complete' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ eo_candidates_complete._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:73:0: 'AttemptSim.eo_candidates_are_eos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ eo_candidates_are_eos._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:74:0: 'AttemptSim.dr_candidates_complete' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ dr_candidates_complete._native.native_decide.ax_1_1]
+info: AttemptSim/Audit.lean:75:0: 'AttemptSim.dr_candidates_are_drs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ dr_candidates_are_drs._native.native_decide.ax_1_1]
+Build completed successfully (55 jobs).
+lake exit 0

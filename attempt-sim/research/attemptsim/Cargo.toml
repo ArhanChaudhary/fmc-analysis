@@ -1,0 +1,17 @@
+[package]
+name = "attemptsim"
+version = "0.1.0"
+edition = "2021"
+description = "Simulator of human FMC attempts (EO, RZP, DR, HTR, finish) with a time cost per state examined"
+
+[[bin]]
+name = "attemptsim"
+path = "src/main.rs"
+
+[dependencies]
+rayon = "1.10"
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+lto = true

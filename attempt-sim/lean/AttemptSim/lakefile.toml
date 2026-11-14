@@ -1,0 +1,13 @@
+name = "AttemptSim"
+version = "0.1.0"
+defaultTargets = ["AttemptSim"]
+
+[[lean_lib]]
+name = "AttemptSim"
+precompileModules = true
+
+# judging-a-dr's DR model: two files copied unchanged from judging-a-dr/lean/DRBound/DRBound/ (gen.py checks the bytes)
+[[lean_lib]]
+name = "DRBound"
+roots = ["DRBound.Certificate", "DRBound.Cube"]
+precompileModules = true
