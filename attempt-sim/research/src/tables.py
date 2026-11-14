@@ -447,6 +447,7 @@ def main():
     V['n_test'] = f"{TEST[1] - TEST[0]:,}"
     sensitivity()
     per_type_plans()
+    edge_table()
     json.dump(V, open(f'{OUT}/values.json', 'w'), indent=1, ensure_ascii=False)
     print('tables and', len(V), 'values written to', OUT)
 
@@ -463,6 +464,22 @@ def light_load(names, keep_scr):
                 sc[r['policy']][s] = S.score(r)
                 if s not in fr: fr[s] = {'bad': r['bad'], 'eo_min': r['eo_min'], 'n_eo4': r['n_eo4']}
     return sc, fr
+
+def edge_table():
+    """section 6: the RZP sweep past 8 and RZP states for 5-movers, picked on training scrambles 0-3,999, reported on 4,000-7,999"""
+    p = f'{BIG}/r6_edge.tsv'
+    if not os.path.exists(p): return
+    tr = S.load([p], *TRAIN); te = S.load([p], *TEST)
+    lab = {'rzp8': '8 per short EO', 'rzp10': '10 per short EO', 'rzp12': '12 per short EO', 'rzp16': '16 per short EO', 'rzp24': '24 per short EO',
+           'rzp8_long2': '8 per short EO and 2 per 5-mover', 'rzp12_long2': '12 per short EO and 2 per 5-mover'}
+    rows = []
+    for k, l in lab.items():
+        a = S.paired(tr[k], tr['ref']); b = S.paired(te[k], te['ref']); d = S.summ(te[k])
+        rows.append([l, pm(a['d_score'], a['d_score_se'], 3, True), pm(b['d_score'], b['d_score_se'], 3, True), f2(d['mean']), f1(d['le22'])])
+        V[f'edge_{k}'] = pm(b['d_score'], b['d_score_se'], 3, True)
+    best = min(lab, key=lambda k: S.paired(tr[k], tr['ref'])['d_score'])
+    V['edge_best'] = lab[best]; V['edge_best_d'] = V[f'edge_{best}']
+    table('edge', ['RZP states worked', 'Training scrambles: score − tuned plan, moves', 'Held-out: score − tuned plan, moves', 'Held-out mean, moves', 'Held-out ≤ 22, %'], rows)
 
 def per_type_plans():
     """Choose, per scramble type, the plan with the best score on the training scrambles (0-3,999 of round 3), then score

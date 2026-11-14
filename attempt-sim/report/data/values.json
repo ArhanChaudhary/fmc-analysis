@@ -1490,5 +1490,14 @@
  "pertype_bad": "−0.028 ± 0.007",
  "pertype_scramble": "−0.022 ± 0.008",
  "pertype_shortest": "−0.029 ± 0.008",
- "pertype_EOs": "−0.022 ± 0.007"
+ "pertype_EOs": "−0.022 ± 0.007",
+ "edge_rzp8": "−0.020 ± 0.007",
+ "edge_rzp10": "−0.021 ± 0.008",
+ "edge_rzp12": "−0.021 ± 0.008",
+ "edge_rzp16": "−0.022 ± 0.008",
+ "edge_rzp24": "−0.024 ± 0.008",
+ "edge_rzp8_long2": "−0.035 ± 0.009",
+ "edge_rzp12_long2": "−0.038 ± 0.009",
+ "edge_best": "12 per short EO and 2 per 5-mover",
+ "edge_best_d": "−0.038 ± 0.009"
 }

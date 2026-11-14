@@ -26,7 +26,7 @@
   | read cut-off 8 | {{V:d_te5_read_max_8}} |
   | read cut-off 12 | {{V:d_te5_read_max_12}} |
 
-  So: finish every DR you think can beat what you've got, give each one 3 or 4 routes, and work at least 3 RZP states per short EO. The read cut-off has a pretty sharp sweet spot, 9.5 to 10 with these costs.
+  So: finish every DR you think can beat what you've got, give each one 3 or 4 routes, and work every RZP state your read likes (no cap past 8 matters), plus a couple per 5-mover: with that last bit the score against the tuned plan is {{V:edge_best_d}} (section 6). The read cut-off has a pretty sharp sweet spot, 9.5 to 10 with these costs.
 - **Depth first doesn't help, and adapting to the scramble doesn't add anything you can measure.**
   - Depth first all the way (each EO straight to DR, each DR straight to a finish): {{V:d_te2_dfs}}.
   - Every rule that reacts to the scramble (lots of EOs or few, a short DR early or none, a result already in hand) is within 0.01 of the fixed plan, except the ones that keep searching too long (sections 7, 8).

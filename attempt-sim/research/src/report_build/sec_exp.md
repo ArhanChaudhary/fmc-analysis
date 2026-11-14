@@ -22,7 +22,11 @@ EOs of 4 or less are nearly as good as EOs of 5 here. A likely reason, not measu
 
 {{T:r3_e5_rzp_per_eo}}
 
-After how many DRs you finish, this is the steepest curve of the hour: 0 or 1 state per EO loses a lot. Going past 3 still gains a little, and 8 is the best value I tried, so the real best might be even higher.
+After how many DRs you finish, this is the steepest curve of the hour: 0 or 1 state per EO loses a lot. Going past 3 still gains a little, and 8 was the best value in this sweep, so I ran a second sweep past it, picked on the training scrambles and reported on the held-out ones:
+
+{{T:edge}}
+
+Past 8 it's flat. At that point the read cut-off is what decides which states you work, not the per-EO cap, so in practice it means "work every RZP state whose read looks good enough". What does still help is giving the 5-movers 2 RZP states instead of 1: {{V:edge_best}} scores {{V:edge_best_d}} against the tuned plan. So the tuned plan isn't the end of the road; that's just the best version I've measured so far.
 
 **When the DR search stops**, with nothing else changed. Each row is the minute:
 

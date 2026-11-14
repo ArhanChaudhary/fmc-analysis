@@ -93,7 +93,7 @@ November 2026. A date in brackets links to that message on the FMC solvers Disco
   | read cut-off 8 | +0.497 ± 0.025 |
   | read cut-off 12 | +0.133 ± 0.011 |
 
-  So: finish every DR you think can beat what you've got, give each one 3 or 4 routes, and work at least 3 RZP states per short EO. The read cut-off has a pretty sharp sweet spot, 9.5 to 10 with these costs.
+  So: finish every DR you think can beat what you've got, give each one 3 or 4 routes, and work every RZP state your read likes (no cap past 8 matters), plus a couple per 5-mover: with that last bit the score against the tuned plan is −0.038 ± 0.009 (section 6). The read cut-off has a pretty sharp sweet spot, 9.5 to 10 with these costs.
 - **Depth first doesn't help, and adapting to the scramble doesn't add anything you can measure.**
   - Depth first all the way (each EO straight to DR, each DR straight to a finish): +0.026 ± 0.006.
   - Every rule that reacts to the scramble (lots of EOs or few, a short DR early or none, a result already in hand) is within 0.01 of the fixed plan, except the ones that keep searching too long (sections 7, 8).
@@ -346,7 +346,19 @@ EOs of 4 or less are nearly as good as EOs of 5 here. A likely reason, not measu
 | 6 | 21.86 | 0.1 | 70.5 | −0.011 ± 0.007 |
 | 8 | 21.85 | 0.1 | 70.6 | −0.020 ± 0.007 |
 
-After how many DRs you finish, this is the steepest curve of the hour: 0 or 1 state per EO loses a lot. Going past 3 still gains a little, and 8 is the best value I tried, so the real best might be even higher.
+After how many DRs you finish, this is the steepest curve of the hour: 0 or 1 state per EO loses a lot. Going past 3 still gains a little, and 8 was the best value in this sweep, so I ran a second sweep past it, picked on the training scrambles and reported on the held-out ones:
+
+| RZP states worked | Training scrambles: score − tuned plan, moves | Held-out: score − tuned plan, moves | Held-out mean, moves | Held-out ≤ 22, % |
+|---|---|---|---|---|
+| 8 per short EO | −0.043 ± 0.009 | −0.020 ± 0.007 | 21.85 | 70.6 |
+| 10 per short EO | −0.043 ± 0.009 | −0.021 ± 0.008 | 21.85 | 70.6 |
+| 12 per short EO | −0.045 ± 0.009 | −0.021 ± 0.008 | 21.85 | 70.8 |
+| 16 per short EO | −0.048 ± 0.009 | −0.022 ± 0.008 | 21.85 | 70.8 |
+| 24 per short EO | −0.052 ± 0.009 | −0.024 ± 0.008 | 21.85 | 70.8 |
+| 8 per short EO and 2 per 5-mover | −0.058 ± 0.010 | −0.035 ± 0.009 | 21.83 | 70.9 |
+| 12 per short EO and 2 per 5-mover | −0.061 ± 0.010 | −0.038 ± 0.009 | 21.83 | 71.2 |
+
+Past 8 it's flat. At that point the read cut-off is what decides which states you work, not the per-EO cap, so in practice it means "work every RZP state whose read looks good enough". What does still help is giving the 5-movers 2 RZP states instead of 1: 12 per short EO and 2 per 5-mover scores −0.038 ± 0.009 against the tuned plan. So the tuned plan isn't the end of the road; that's just the best version I've measured so far.
 
 **When the DR search stops**, with nothing else changed. Each row is the minute:
 
