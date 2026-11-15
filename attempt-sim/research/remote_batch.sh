@@ -15,7 +15,7 @@ HOST=${ATTEMPTSIM_HOST:-fmc3}
 B4=/data/fmc/tmp/bin
 case "$HOST" in
   fmc3) DIR=${ATTEMPTSIM_DIR:-/var/tmp/fmc-$USER/attempt-sim}; EXACT=${ATTEMPTSIM_EXACT:-$DIR/data/lean_exact_table.u8}; NICE="nice -n 19";;
-  fmc2) DIR=${ATTEMPTSIM_DIR:-/data/disk/attempt-sim/r2}; EXACT=${ATTEMPTSIM_EXACT:-/data/disk/fmc/judging-a-dr/research/data/lean_exact_table.u8}; NICE="nice -n 5";;
+  fmc2) DIR=${ATTEMPTSIM_DIR:-/data/disk/attempt-sim/r2}; EXACT=${ATTEMPTSIM_EXACT:-/data/fmc/judging-a-dr/research/data/lean_exact_table.u8}; NICE="nice -n 5";;
   fmc4) DIR=fmc-work/attempt-sim; EXACT=data/lean_exact_table.u8; NICE="nice -n 19";;
   *) DIR=${ATTEMPTSIM_DIR:?set ATTEMPTSIM_DIR}; EXACT=${ATTEMPTSIM_EXACT:?set ATTEMPTSIM_EXACT}; NICE="";;
 esac
