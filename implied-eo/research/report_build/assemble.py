@@ -10,6 +10,7 @@ DESC = {
  'What was asked': 'The three questions.',
  'The theorems': 'When N (I) is an EO, when one EO implies another, the trick with its order, and why nothing else happens up to 5 moves.',
  'The list': '**The main result.** The dictionary between axes, the seven kinds, a test scramble for each.',
+ 'Sub-6 EOs implied by a longer EO': 'The 6- and 7-movers you never write but can see: one trace after F B covers three axes, the 230 patterns, the shape people use, how often.',
  'Implied EOs that are not the trick': 'The superflip on both sides: first at 6 moves, with an example.',
  'How often': 'Scrambles with an implied pair, by kind.',
  'The claims, checked': 'Every implication stated on the server, and the ones stated not to be.',

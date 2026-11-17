@@ -172,6 +172,46 @@ def full_list():
             out.append(f"| {' ⟺ '.join(eos)} | `{s['scramble']}` |")
         out.append('')
     return '\n'.join(out)
+
+# --- sub-6 EOs implied by a longer EO (out/longer.json) ---------------------------------------------------------
+LG = json.load(open(os.path.join(R, 'out', 'longer.json')))
+PT = LG['pointed']; PROBE = LG['probe']
+pt_scr = scramble([PT['Y'], PT['X']])
+assert len(PROBE) == 230
+def pcount(yl, pl): return sum(1 for r in PROBE if r['ylen'] - 2 == yl and r['pattern_len'] == pl)
+assert [pcount(*k) for k in ((0, 4), (1, 3), (2, 2), (2, 4), (3, 1), (3, 3), (3, 4), (3, 5))] == [1, 2, 1, 24, 2, 10, 28, 162]
+MAINKEYS = {tuple(st['key']): st['type'] for st in SETS}
+KN = {'T1': 1, 'T2': 2, 'P1': 3, 'P2': 4, 'P3': 5, 'P4': 6, 'P5': 7}
+def t_probe():
+    rows = ['| After F B, the other side shows | That case alone takes | The EO on R/L | Its moves | The F/B one has | How many | In section 4 |', '|---|---|---|---|---|---|---|']
+    spec = [((3, 1), 'the F case or the B case', 'R L (B R L), R L (F R L)'), ((2, 2), 'the F B case', 'R L (R L)'),
+            ((1, 3), 'the R F B case or the L F B case', 'R L (L), R L (R)'), ((3, 3), 'F U B, U F B and the like', "R L (R U' L), R L (U R L), …"),
+            ((0, 4), 'the R L F B case: the E slice good, the other eight bad', 'R L'), ((2, 4), 'an X R F B or X L F B case', 'R L (X L), R L (X R)'),
+            ((3, 4), 'one of 28 other 4-move cases', 'R L (a 3-move case)'), ((3, 5), 'one of 162 5-move cases', 'R L (a 3-move case)')]
+    for (yl, pl), what, eo_ in spec:
+        rs = [r for r in PROBE if r['ylen'] - 2 == yl and r['pattern_len'] == pl]
+        inm = [r for r in rs if tuple(r['key']) in MAINKEYS]
+        kinds = sorted({KN[MAINKEYS[tuple(r['key'])]] for r in inm})
+        assert all(tuple(r['key']) in MAINKEYS for r in rs if r['xlen'] <= 5)
+        kt = ('kind ' if len(kinds) == 1 else 'kinds ') + ' and '.join(map(str, kinds))
+        note = kt if len(inm) == len(rs) else (f'{len(inm)} of them, through U/D ({kt})' if inm else 'no')
+        rows.append(f"| {what} | {pl} {'move' if pl == 1 else 'moves'} | {eo_} | {2 + yl} | {2 + pl} | {len(rs)} | {note} |")
+    return '\n'.join(rows)
+def probe_list():
+    rows = ['| Bad edges on the other side after F B | How many | Solving that takes | So the F/B EO has | The EO on R/L | Its moves | In the kinds above | A scramble that has it |', '|---|---|---|---|---|---|---|---|']
+    for r in sorted(PROBE, key=lambda r: (r['xlen'] <= 5, r['ylen'], r['pattern_len'], r['nbad'], r['pattern_names'])):
+        scr = scramble([r['Y'], r['X']])
+        k = MAINKEYS.get(tuple(r['key']))
+        where = 'no' if not k else (f'kind {KN[k]}' if r['xlen'] <= 5 else f'kind {KN[k]}, with its U/D EO')
+        rows.append(f"| {r['pattern_names']} | {r['nbad']} | {r['pattern_len']} | {r['xlen']} | {r['Y']} | {r['ylen']} | {where} | `{scr}` |")
+    return '\n'.join(rows)
+SH = LG['shape']; assert SH['rule_holds'] and SH['n'] == 32 and SH['three_move'] == 16
+BP = LG['by_probe']
+EXS = LG['ex_slice']; EXU = LG['ex_super']; EXF = LG['ex_xf']
+exs_scr = scramble([EXS['Y'], EXS['X']]); exu_scr = scramble([EXU['Y'], EXU['X']]); exf_scr = scramble([EXF['Y'], EXF['X']])
+LF = LG['freq']
+assert PT['good'] == 'UB FR BR BL' and EXS['pattern'] == 'UR DR FL BL'
+assert all(BP[k][q] % 2 == 0 for k in BP for q in ('1', '2', '3'))
 NPRES = 52848; NCLASS = 52144
 assert sum(CNT.values()) == 691 and len(SETS) == 691
 THREE = sum(1 for s in SETS if len(s['pres']) == 3)

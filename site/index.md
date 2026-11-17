@@ -64,7 +64,7 @@ After EO + RZP, when to switch to the inverse and look for a DR there. Every pol
 
 ## Implied EOs
 
-When one EO on a scramble guarantees another: F B (F B) with R L (R L) and U D (U D), F B (F) with R L (B R L), R F B (F) with L (B R L) and the rest. The full list for EOs of 5 moves or less (691 sets of scrambles in seven kinds, all from one small dictionary between axes), the exact test for any two EOs, the proof that nothing but the F B R L trick is behind them up to 5 moves, the other source that starts at 6 moves (a superflip on both sides), and how often a scramble has such a pair (26.9%). Proved in Lean for every scramble.
+When one EO on a scramble guarantees another: F B (F B) with R L (R L) and U D (U D), F B (F) with R L (B R L), R F B (F) with L (B R L) and the rest. The full list for EOs of 5 moves or less (691 sets of scrambles in seven kinds, all from one small dictionary between axes), the exact test for any two EOs, the proof that nothing but the F B R L trick is behind them up to 5 moves, the other source that starts at 6 moves (a superflip on both sides), and how often a scramble has such a pair (26.9%). Also the sub-6 EOs implied by a longer EO that you never write but can see, like F B (F U2 B) from U D (D U2 F U): one trace after F B covers the EOs that start with R L and U D too. Proved in Lean for every scramble.
 
 - [Write-up](implied-eo/): the seven kinds, the four theorems, the dictionary, the claims check. It opens with the short version.
-- [The full list](implied-eo/examples.html): all 691 sets, each with a random scramble that has its EOs.
+- [The full list](implied-eo/examples.html): all 691 sets and the 230 patterns after F B, each with a random scramble that has its EOs.

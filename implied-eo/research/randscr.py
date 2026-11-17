@@ -16,7 +16,9 @@ def parse_eo(txt):
 def key(txt): a, n, i = parse_eo(txt); return E.to_fb(a, E.case_of(i, a), E.case_of(n, a))
 def holds(scr, txt):
     a, n, i = parse_eo(txt); return eo_solved(compose(compose(apply(inv_seq(i)), apply(scr)), apply(n)), a)
-EXTRA = ['F (B)', BY['six']['X'], BY['seven']['X'], 'F B (F R2 B)', 'B (F U2 B)']
+LG = json.load(open(os.path.join(HERE, 'out', 'longer.json')))
+EXTRA = ['F (B)', BY['six']['X'], BY['seven']['X'], 'F B (F R2 B)', 'B (F U2 B)', LG['pointed']['Y'], LG['ex_slice']['Y'], LG['ex_super']['Y'], LG['ex_xf']['Y']]
+EXTRA += [r['Y'] for r in LG['probe'] if r['Y'] not in EXTRA]
 keys = [tuple(s['key']) for s in S['sets']] + [key(t) for t in EXTRA]
 U = np.array([k[0] for k in keys], dtype=np.int64); V = np.array([k[1] for k in keys], dtype=np.int64)
 T = np.array([MOVES[m] for m in MOVE_NAMES]); FACE_AX = np.array([AX[f][0] for f in FACES])

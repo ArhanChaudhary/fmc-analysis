@@ -744,3 +744,242 @@ How to read a row. An EO is written N (I), normal moves then inverse moves in br
 | U2 R U D (D) ⟺ U2 L (U R L) | `U' F2 U B' D2 F' B2 U' L' R D' F' U F2 B D' B' R F' R D F' U L R2` |
 | U2 R U D (U) ⟺ U2 L (D R L) | `L' U2 D2 R L2 B2 U D2 F R L B F' R' D U R2 F L2 D2 R2 L2 U2 R2 B'` |
 
+
+## After F B: all 230 patterns
+
+This part is for section 5 of the write-up. Do F B on one side and look at the bad edges of the other side, on F/B. Each row is one thing you can see there, and the R/L EO it means. The R/L case is the pattern with the eight places of the U and D layers flipped. For U D instead of R L turn the cube: the same table with R, L read as D, U and U, D read as R, L.
+
+The first 215 rows are the ones where the F/B EO has 6 or 7 moves, so you'd never write it, and the R/L one has 5 or less. In the last 15 both are short, and they are in the kinds above. Eight of the 215 are in kind 6 too, through their U/D EO. Each scramble is a random-move scramble that has the row's R/L EO, with F B on normal and the pattern on inverse.
+
+| Bad edges on the other side after F B | How many | Solving that takes | So the F/B EO has | The EO on R/L | Its moves | In the kinds above | A scramble that has it |
+|---|---|---|---|---|---|---|---|
+| UF UB DF DB UR UL DR DL | 8 | 4 | 6 | R L | 2 | no | `D' B' L D' R U L2 F R' B' D L2 D2 F2 D' L2 R' B' R' L F2 R' U2 B2 U'` |
+| UB DF DB UL DL BR | 6 | 4 | 6 | R L (F R) | 4 | no | `R F2 D' B' D2 R L F2 D L U2 F2 B2 L2 B2 U' B' D2 U2 B' D U' L D2 F` |
+| UB DF DB UR DR BL | 6 | 4 | 6 | R L (F' L) | 4 | no | `F2 D' B' R2 U2 D2 B2 L' U L' R F2 U2 D2 F R B' L2 R2 B' R' F B2 U F` |
+| UF DF DB UL DL FR | 6 | 4 | 6 | R L (B' R) | 4 | no | `B U D L2 B' F' U2 F U F' R' U' D2 B L B R' D B' L' R' F B U D` |
+| UF DF DB UR DR FL | 6 | 4 | 6 | R L (B L) | 4 | no | `D' L R B2 F D2 U B D' L' D' F' L U R B2 L2 D R U' R2 U R2 L' U2` |
+| UF UB DB UL DL BR | 6 | 4 | 6 | R L (F' R) | 4 | no | `D2 F D F U R2 D U L' F' U L2 F B2 U R2 L F' B' R' D' R2 B2 F2 R` |
+| UF UB DB UR DR BL | 6 | 4 | 6 | R L (F L) | 4 | no | `B R' F L D2 F' U2 F' U2 F2 R2 B' L2 D U B L2 B2 F U R D' U2 B2 R2` |
+| UF UB DF UL DL FR | 6 | 4 | 6 | R L (B R) | 4 | no | `U' R2 B R2 B2 D F2 D B L2 F2 R D2 U F L' R D' U2 B' U2 B' U2 D2 L'` |
+| UF UB DF UR DR FL | 6 | 4 | 6 | R L (B' L) | 4 | no | `B D' U2 F' U' D' L2 B' D R D2 B' L2 U' B U' F' R U' L F2 D2 L' B2 F2` |
+| UB DF DB UR UL DL FR BR | 8 | 4 | 6 | R L (U' R) | 4 | no | `U2 R2 U D' R' L U' B' F R F' B' U' L' F L2 F2 R D2 R2 L2 B' F R L'` |
+| UB DF DB UR UL DR FL BL | 8 | 4 | 6 | R L (U L) | 4 | no | `R2 D' B2 D' B R F R' D2 L' R2 F2 R U' B2 L U2 R' B2 R' L' D2 R2 F D'` |
+| UF DF DB UR UL DL FR BR | 8 | 4 | 6 | R L (U R) | 4 | no | `F U R D' L' B U' B R F' B R2 D' R2 D' U F U D B2 L U' R' D F'` |
+| UF DF DB UR UL DR FL BL | 8 | 4 | 6 | R L (U' L) | 4 | no | `B D U R D B' D L2 D U' B' U2 L U2 B2 U' D' B' U2 F U F D2 R B` |
+| UF UB DB UL DR DL FR BR | 8 | 4 | 6 | R L (D R) | 4 | no | `B' U' B2 F2 L2 R' D2 L F2 R' F R2 L2 B F R2 B' U2 L2 F' R' U L R D` |
+| UF UB DB UR DR DL FL BL | 8 | 4 | 6 | R L (D' L) | 4 | no | `R' U' L' B D U' F2 R2 F2 R' D2 B U F' B L' D L2 D F L U' F' D L` |
+| UF UB DF DB UL DL FL BR | 8 | 4 | 6 | R L (F2 R) | 4 | no | `R2 B2 L2 F2 U2 D2 R' U2 L R2 F' R' L' D' R2 F U2 B2 D' B' L' F2 U B2 U` |
+| UF UB DF DB UL DL FR BL | 8 | 4 | 6 | R L (B2 R) | 4 | no | `R' U2 F U B' U L U2 B2 L2 U' R' D R' B' F' R F' R U2 D2 F2 L U D'` |
+| UF UB DF DB UL DR FL BL | 8 | 4 | 6 | R L (U2 L) | 4 | no | `B F L' D' U R2 D F' D B R2 B2 F2 L2 D' U' F2 U' R L' F2 B L2 D U2` |
+| UF UB DF DB UL DR FR BR | 8 | 4 | 6 | R L (D2 R) | 4 | no | `F D' R' U2 R2 B' R2 U D2 R2 B2 L2 F L F2 B' R D2 U L2 B U R U' F` |
+| UF UB DF DB UR DL FL BL | 8 | 4 | 6 | R L (D2 L) | 4 | no | `B' D2 F L2 D' R F B D' R' F' D2 F L' R D' R B' D2 F2 B2 L2 R' U2 R` |
+| UF UB DF DB UR DL FR BR | 8 | 4 | 6 | R L (U2 R) | 4 | no | `D L' F U2 F2 B' L2 B U' R' D2 U' F' B' D' F2 D2 U2 L2 R2 U L2 U' L F` |
+| UF UB DF DB UR DR FL BR | 8 | 4 | 6 | R L (B2 L) | 4 | no | `B2 L2 U' R' B' F' L2 R2 F2 R2 U' R' B2 R2 B D' B F' R U B2 F R2 F' B` |
+| UF UB DF DB UR DR FR BL | 8 | 4 | 6 | R L (F2 L) | 4 | no | `R' U2 D' R2 B' U2 B U2 D B' R' U R2 B2 F2 U2 L B F' L2 R' F' L U R2` |
+| UF UB DF UL DR DL FR BR | 8 | 4 | 6 | R L (D' R) | 4 | no | `R F U L D' B R F' U2 B2 F' D2 B' F' U R' U2 R' F B' R U2 B2 R L` |
+| UF UB DF UR DR DL FL BL | 8 | 4 | 6 | R L (D L) | 4 | no | `L B' R F B2 L' D2 B' U D2 R2 L2 D' L F R' L2 U2 L F U' F2 R L2 B2` |
+| UB DF UL DL | 4 | 4 | 6 | R L (F B R) | 5 | no | `R' B D U' R2 F2 B' R2 F' R2 B2 U' L' F U2 R' D2 F' B' U2 B2 R' B2 L' F` |
+| UB DF UR DR | 4 | 4 | 6 | R L (F' B' L) | 5 | no | `B U L' F' D' R D' U L R B' D' R' B R' L D U R U2 R F2 R' B2 L'` |
+| UF DB UL DL | 4 | 4 | 6 | R L (F' B' R) | 5 | no | `F' U2 D F2 B2 D' R U' R2 L F' U R' D2 R2 U' R2 D' L2 U2 F' D F2 R' U` |
+| UF DB UR DR | 4 | 4 | 6 | R L (F B L) | 5 | no | `U2 F' D' L2 B D2 U2 B' F R2 F' U' L' D2 U F U' D' F D' F' U2 B D' F2` |
+| UB DF DB FL BR BL | 6 | 4 | 6 | R L (L F R) | 5 | kind 6, with its U/D EO | `F2 U' R B R L D F' R2 U2 R2 F' U R' L' F' R' L' D' B R' D F2 U' R` |
+| UB DF DB FR BR BL | 6 | 4 | 6 | R L (R F' L) | 5 | kind 6, with its U/D EO | `F D' L R' F2 R' D' L U D F' U2 L' D B L U R B' F' L' U L R B2` |
+| UB DF DB UL DL FR | 6 | 4 | 6 | R L (R2 F R) | 5 | no | `U' R2 L' B2 R2 L2 F L' F2 U2 F' D2 U' F2 D' R' B2 R2 D' L U L' D' L2 F` |
+| UB DF DB UR DR FL | 6 | 4 | 6 | R L (U B L) | 5 | no | `F' U2 D' F' U2 D' F' D' B' R D2 L R D' L2 B' U' R B U F' B D' F' L'` |
+| UF DF DB FR FL BL | 6 | 4 | 6 | R L (L B' R) | 5 | kind 6, with its U/D EO | `U2 D L D2 B2 L B D' R' D F R U' D' F D' F D2 F D L2 B2 D2 F2 B'` |
+| UF DF DB FR FL BR | 6 | 4 | 6 | R L (R B L) | 5 | kind 6, with its U/D EO | `U D F L D2 U2 R2 B R2 B L' D' R L B F U L' U' F U D B' U2 L'` |
+| UF DF DB UL DL BR | 6 | 4 | 6 | R L (U F R) | 5 | no | `B' U2 D B2 L F' D2 L2 B D R D2 B' U' B F2 D U2 L2 F R2 L' D2 R U` |
+| UF DF DB UR DR BL | 6 | 4 | 6 | R L (L2 B L) | 5 | no | `F D B2 F2 U2 F D' R' B2 R2 D' B2 L' D L' R' F' U2 L2 R2 D L B D2 B` |
+| UF UB DB FL BR BL | 6 | 4 | 6 | R L (L F' R) | 5 | kind 6, with its U/D EO | `U2 B' F2 U D L2 R2 B F2 U F' L' R B2 L2 B R U F' B' U R2 B' L2 R'` |
+| UF UB DB FR BR BL | 6 | 4 | 6 | R L (R F L) | 5 | kind 6, with its U/D EO | `F' R' L2 D2 U' F U2 R2 B2 L F U' B L2 U' D2 R' D' L U2 L' B2 L2 D B2` |
+| UF UB DB UL DL FR | 6 | 4 | 6 | R L (D B R) | 5 | no | `F U B' U F' B' R U' B' D' U2 L2 U2 B2 U L2 F U' F' R' L' U2 D2 L2 B'` |
+| UF UB DB UR DR FL | 6 | 4 | 6 | R L (L2 F L) | 5 | no | `F2 U2 R2 F' D B' F' U D L R2 B' U' F2 R2 U' F U2 F U' F' R2 B' F2 R'` |
+| UF UB DF FR FL BL | 6 | 4 | 6 | R L (L B R) | 5 | kind 6, with its U/D EO | `R2 U' D B' U L R' D' L2 U' R L' B' R' U B L' D U' R2 L D2 U2 R2 F` |
+| UF UB DF FR FL BR | 6 | 4 | 6 | R L (R B' L) | 5 | kind 6, with its U/D EO | `D' R2 B2 R2 F' B D2 F' U R' D' B' R B2 L U' F2 U' B' U' F' L' D' L' D2` |
+| UF UB DF UL DL BR | 6 | 4 | 6 | R L (R2 B R) | 5 | no | `B2 R2 B L2 U L D2 L' F' R B U2 L2 U B F' U2 B' F L D2 R U2 R' L2` |
+| UF UB DF UR DR BL | 6 | 4 | 6 | R L (D F L) | 5 | no | `U2 L R F2 B' U' F L' U' R2 U' B2 F' D2 L2 F2 L D U R' B L' U B L2` |
+| UF UB DF DB DL FL BR BL | 8 | 4 | 6 | R L (R' D2 L) | 5 | no | `L2 F' B2 U2 B' L2 B' F L2 D' R' U2 D2 B D F D' L2 R B' F' R2 L2 U L2` |
+| UF UB DF DB DL FR FL BL | 8 | 4 | 6 | R L (R D2 L) | 5 | no | `B' D' B' F' R2 D U2 R2 L' F R U' D' L2 B R2 D' U2 B2 D' F' D2 B' D2 F` |
+| UF UB DF DB DR FR BR BL | 8 | 4 | 6 | R L (R F2 L) | 5 | no | `R L' B F' U L' B' L' B R' F2 U2 F' L' D U2 F' L' D U' F2 L' U' L' D` |
+| UF UB DF DB DR FR FL BR | 8 | 4 | 6 | R L (R' B2 L) | 5 | no | `D' R' B F' D U L2 F U2 F' U' D' R2 F B2 L2 U2 F' L2 F2 D R U F2 L'` |
+| UF UB DF DB UL FL BR BL | 8 | 4 | 6 | R L (R U2 L) | 5 | no | `R' L2 F' D2 R' F2 R2 D' U F2 R' L2 F2 U R D2 F R L' U' D F' L' D2 F'` |
+| UF UB DF DB UL FR FL BL | 8 | 4 | 6 | R L (R' U2 L) | 5 | no | `R2 F' U2 D' R2 U' D2 B F R B' U' L2 U' B' L2 U L U2 D' R D2 F2 R2 D2` |
+| UF UB DF DB UR FR BR BL | 8 | 4 | 6 | R L (R' F2 L) | 5 | no | `D2 F' L2 F R' D2 L F2 U L R D U' B R' B' R2 B2 D U L2 R' B2 F2 D` |
+| UF UB DF DB UR FR FL BR | 8 | 4 | 6 | R L (R B2 L) | 5 | no | `L2 R' B2 F' L' F B' D L2 D U2 L2 F2 B2 R D2 B' F2 D2 B L R2 F2 R2 U2` |
+| DF DB UL DL | 4 | 5 | 7 | R L (F B' R) | 5 | no | `U D' F D2 B' U' D' B' L R D' R D L2 F' B2 L R B' D2 L R' F' D R2` |
+| DF DB UR DR | 4 | 5 | 7 | R L (F' B L) | 5 | no | `U2 F B' D' B2 R' B F R2 U2 L2 D' U' L R' B' D' R L2 U2 L2 F2 R2 L2 F'` |
+| UF UB UL DL | 4 | 5 | 7 | R L (F' B R) | 5 | no | `L U2 D F R2 U2 F2 U' L2 U2 D2 F2 U F2 D2 U2 F' L2 D R' B2 D' B F' U2` |
+| UF UB UR DR | 4 | 5 | 7 | R L (F B' L) | 5 | no | `R2 F' D R2 L' F D2 B2 L D2 U B2 U R' U B U2 L' D' R B' L F' B' U` |
+| DF DB UR UL DL BR | 6 | 5 | 7 | R L (F U R) | 5 | no | `L2 D2 F U D L2 D R D B' F2 U' R2 B' U' F B' R2 U F' D B L R F2` |
+| DF DB UR UL DL FR | 6 | 5 | 7 | R L (B' U' R) | 5 | no | `U' R B2 R2 B2 D' B' F R2 B' L D2 U2 R F' L2 D2 F D2 U' R' F B' L' F2` |
+| DF DB UR UL DR BL | 6 | 5 | 7 | R L (F' U' L) | 5 | no | `L' R' B2 D F' D2 B2 F' L' U2 L' U' L' D2 L U F' R2 D L' B F' U2 B' L2` |
+| DF DB UR UL DR FL | 6 | 5 | 7 | R L (B U L) | 5 | no | `D L R D L U' R2 B U L' B2 U' F2 D' R B2 F' U F' U2 B D2 U2 L U` |
+| UB DB UL DR DL BR | 6 | 5 | 7 | R L (D F R) | 5 | no | `F2 U' D2 F R' L2 D F2 B' L2 R' D B2 R' B L2 R' F U F' R F' B D F'` |
+| UB DB UR DR DL BL | 6 | 5 | 7 | R L (D' F' L) | 5 | no | `R' B' U' R D F D' U' F2 B R B2 R2 L' D2 U B' R' B' L2 U2 D2 R2 F' L2` |
+| UB DB UR UL DL BR | 6 | 5 | 7 | R L (U' F' R) | 5 | no | `F' D' F L2 R U2 R2 F2 B2 R F' L' B U R D' L2 B' F2 U R' L2 B2 D' F` |
+| UB DB UR UL DR BL | 6 | 5 | 7 | R L (U F L) | 5 | no | `R U' D L B F2 L' B2 U' L2 R U F L' F D2 B D U' R2 B2 R' D2 U F'` |
+| UB DF DB UL DL BL | 6 | 5 | 7 | R L (F B2 R) | 5 | no | `R U L2 U' R2 L' B' L' R' B2 F U' L R F' D F' R2 D' L2 D R F B R'` |
+| UB DF DB UL DR BL | 6 | 5 | 7 | R L (U F' L) | 5 | no | `D' F' U L' F2 D' R F D U2 B2 U F R' F U' R U2 B2 U' F2 U R D L` |
+| UB DF DB UL DR BR | 6 | 5 | 7 | R L (D2 F R) | 5 | no | `U' L2 B' U2 F' D B2 U' R2 B2 R2 F' D' B' R2 U2 D' L2 U' R D' U' L2 D' U'` |
+| UB DF DB UL DR DL | 6 | 5 | 7 | R L (R' F R) | 5 | no | `L B' D' F' R2 L2 B' U B R' B' L F' R' L2 F2 B2 U' B' U D' F2 L F R` |
+| UB DF DB UL DR FL | 6 | 5 | 7 | R L (U2 B L) | 5 | no | `D L B L B D' F D2 R' F L' R' D' L2 F' D F L2 R U2 D' F2 U2 R' B2` |
+| UB DF DB UR DL BL | 6 | 5 | 7 | R L (D2 F' L) | 5 | no | `B' R2 D F B2 L2 F R D2 F' R' D2 F2 L2 F2 D2 L B2 R F R' B' D L F` |
+| UB DF DB UR DL BR | 6 | 5 | 7 | R L (F U2 R) | 5 | no | `B2 U R' D L' U' L2 D L' D B U2 B2 L' D U R2 L B2 D B' U F2 B2 R2` |
+| UB DF DB UR DL FR | 6 | 5 | 7 | R L (U2 B' R) | 5 | no | `F2 L2 D' B D U2 F2 B' U2 F B' L2 D2 U' R' U B2 L' F2 L2 R2 U' L U' R'` |
+| UB DF DB UR DR BR | 6 | 5 | 7 | R L (F' B2 L) | 5 | no | `L' U2 D L B F' U' F' B2 U D' L' U' L2 R D2 B' F D2 R2 L D' B F2 R'` |
+| UB DF DB UR DR DL | 6 | 5 | 7 | R L (L F' L) | 5 | no | `D' R2 F' L R2 B' R2 B D' L' D' L2 D2 B' L2 B' F R D2 L' B R B' R2 U2` |
+| UB DF DB UR UL DL | 6 | 5 | 7 | R L (R F R) | 5 | no | `L U2 L2 D2 B D R F B R2 B2 D F B2 R' D2 L2 U R2 D2 R' L2 U2 B' U2` |
+| UB DF DB UR UL DR | 6 | 5 | 7 | R L (L' F' L) | 5 | no | `F D2 L' U' L' F B' R2 D2 B F2 L U2 B2 R2 U' B' F U F2 R U2 D2 B' F2` |
+| UB DF UL DR DL BR | 6 | 5 | 7 | R L (D' F R) | 5 | no | `U D2 L F R F R' B2 F D2 L2 U' F' D U2 B2 R2 B2 L' B' L2 D' R' B R'` |
+| UB DF UR DR DL BL | 6 | 5 | 7 | R L (D F' L) | 5 | no | `D' F2 L R' F2 B2 U2 L U2 L' D' U' F' D' R2 U F' L B2 R B D U2 R' B` |
+| UB DF UR UL DL FR | 6 | 5 | 7 | R L (U' B R) | 5 | no | `D B' U2 L' B2 R' L' U R' B' F' D2 R' D2 F' R B2 F2 R' U' R U2 D' L2 D'` |
+| UB DF UR UL DR FL | 6 | 5 | 7 | R L (U B' L) | 5 | no | `U R' B2 R2 L2 F' L' U R2 L2 U' L' B' F' D2 B' F' R2 B U2 R2 F2 B' L2 B2` |
+| UF DB UL DR DL FR | 6 | 5 | 7 | R L (D B' R) | 5 | no | `R B2 U R2 F' D2 B' L2 B2 L R' D' F D L F2 L2 U F2 B U2 R' L U F'` |
+| UF DB UR DR DL FL | 6 | 5 | 7 | R L (D' B L) | 5 | no | `F2 U' L F2 D' L2 F2 L' B2 D' R2 F' B' R2 B R2 D B' D F' U' F' U2 R L2` |
+| UF DB UR UL DL BR | 6 | 5 | 7 | R L (U F' R) | 5 | no | `F' R2 L D U B F R2 D' U2 L' R U' R2 U' D2 R D2 B' U' F2 B L2 B2 F'` |
+| UF DB UR UL DR BL | 6 | 5 | 7 | R L (U' F L) | 5 | no | `F2 R' U R' F2 D2 L' B2 R2 D' R2 U F2 B' R F' B D' B' R2 F2 U2 D2 R' L'` |
+| UF DF DB UL DL FL | 6 | 5 | 7 | R L (F2 B' R) | 5 | no | `L2 D R' L' D U2 B' F2 R' F2 L2 B' D' F2 U' B2 R' B2 F' D' L' U' B2 R2 F2` |
+| UF DF DB UL DR BL | 6 | 5 | 7 | R L (U2 F' L) | 5 | no | `L2 B' R' L U R B F R D' R' B' R' F' U L F2 U' D F2 B U' D L2 U2` |
+| UF DF DB UL DR DL | 6 | 5 | 7 | R L (R B' R) | 5 | no | `L D B2 R U D' L2 B R' U2 F2 D R D2 L B2 L R B R2 L' D' B L' B2` |
+| UF DF DB UL DR FL | 6 | 5 | 7 | R L (B U2 L) | 5 | no | `R2 U2 D L F2 B2 D' L F2 R2 D' F2 R' U F B2 D F' U F R2 F' D2 U2 R2` |
+| UF DF DB UL DR FR | 6 | 5 | 7 | R L (D2 B' R) | 5 | no | `D' R L2 F2 U' F2 L' F L' U' B' D B2 L2 R2 D' B F L2 F R B D U2 B` |
+| UF DF DB UR DL BR | 6 | 5 | 7 | R L (U2 F R) | 5 | no | `F' D B' R' U D L2 B2 L' D2 U2 B' D B2 R2 L2 U' R' L2 B' F2 R2 D' L' B2` |
+| UF DF DB UR DL FL | 6 | 5 | 7 | R L (D2 B L) | 5 | no | `F R' L' U2 L' R U F2 B' R F' L' R' U' R L B2 D2 L' D B F L' F2 B2` |
+| UF DF DB UR DL FR | 6 | 5 | 7 | R L (U B' R) | 5 | no | `L' B D R' U D2 L U2 B' R' L' B' F L' D2 F B' U2 L' F2 R F' B2 D' U'` |
+| UF DF DB UR DR DL | 6 | 5 | 7 | R L (L' B L) | 5 | no | `U2 R2 D' L2 U' B R' D' F2 U2 D' B' D U2 L' U2 D2 R2 F2 D2 R2 L' B L R` |
+| UF DF DB UR DR FR | 6 | 5 | 7 | R L (F2 B L) | 5 | no | `D2 B' U2 D2 B U2 B2 D F2 R2 L2 B L2 D2 B' L D2 L' B2 L2 F' U' B' R' B'` |
+| UF DF DB UR UL DL | 6 | 5 | 7 | R L (R' B' R) | 5 | no | `F D' L R2 D2 U2 F U B' U2 F2 B' U D F D' R U' B2 F R2 L D2 R' D2` |
+| UF DF DB UR UL DR | 6 | 5 | 7 | R L (L B L) | 5 | no | `R U' R F2 U2 L2 R B R' L2 B U2 B' L' D' F D2 U2 F R' D' F2 D2 U' L` |
+| UF DF UL DR DL FR | 6 | 5 | 7 | R L (D' B' R) | 5 | no | `F2 B2 L2 R2 B L2 B D R' B2 F2 U D2 F L2 D' F' L' F D2 U' R2 L' U' R` |
+| UF DF UR DR DL FL | 6 | 5 | 7 | R L (D B L) | 5 | no | `L F' R2 D2 B' R B2 R' F2 R' F2 D2 B U' B L2 B' R2 U D L R U2 L' F'` |
+| UF DF UR UL DL FR | 6 | 5 | 7 | R L (U B R) | 5 | no | `R2 F' D2 U2 F2 R B2 U B L2 D2 F B D2 R' B' U D' R' F2 D F R' F L2` |
+| UF DF UR UL DR FL | 6 | 5 | 7 | R L (U' B' L) | 5 | no | `R B' R' F2 B' U R' D2 B' R' U B L' F2 R U2 R B' L' R2 U2 F U2 F2 D2` |
+| UF UB DB UL DL BL | 6 | 5 | 7 | R L (F' B2 R) | 5 | no | `L B' L U2 B2 F U B U L' D' L' D' B2 L' B R' L D2 F2 L' D F D' U'` |
+| UF UB DB UL DR BL | 6 | 5 | 7 | R L (U2 F L) | 5 | no | `U F' D' F' R2 L D' U2 B2 L B' U D2 F2 D F2 D2 L F2 U2 F' B D' L' U` |
+| UF UB DB UL DR BR | 6 | 5 | 7 | R L (D F' R) | 5 | no | `D F B2 D2 B F U2 F B2 L2 R B2 L2 F R' F2 L D2 R2 D R' D F B U2` |
+| UF UB DB UL DR DL | 6 | 5 | 7 | R L (R' F' R) | 5 | no | `F2 D2 B L' F' L' D U2 F' L' B R2 B2 L2 B' F D' F2 L' R2 F2 U L B U2` |
+| UF UB DB UL DR FR | 6 | 5 | 7 | R L (D2 B R) | 5 | no | `U' L R B2 D R' L F L2 R' F' D2 L F' U' D2 B' F U' L2 F' B' R2 L' D'` |
+| UF UB DB UR DL BL | 6 | 5 | 7 | R L (F D2 L) | 5 | no | `R2 U' B' D F U2 L2 D B L B D B' L2 F B2 R2 D' R2 F2 B2 R2 F' U' F'` |
+| UF UB DB UR DL BR | 6 | 5 | 7 | R L (U2 F' R) | 5 | no | `L' B D L2 D' U B' L2 B R2 L F2 R2 B D R2 B R2 U F U B F2 U R` |
+| UF UB DB UR DL FL | 6 | 5 | 7 | R L (D2 B' L) | 5 | no | `U2 D' F L2 R B' F' U2 R2 B U' L D' F2 R' U2 R B D L2 F2 R D2 R' B` |
+| UF UB DB UR DR BR | 6 | 5 | 7 | R L (F B2 L) | 5 | no | `D' U' L R F L2 F2 L2 B2 F2 D2 R' D2 R' B' R2 F' R' B' F2 U F2 R' U D2` |
+| UF UB DB UR DR DL | 6 | 5 | 7 | R L (L F L) | 5 | no | `B2 F2 R' L2 D2 F2 U2 B' F2 L U' D F' U R' U' R L B2 R' U2 F2 B' D U2` |
+| UF UB DB UR UL DL | 6 | 5 | 7 | R L (R F' R) | 5 | no | `D' B2 U F' D U' R' D R B2 U2 L' B U R F2 U2 D2 R2 U' F2 R2 L' F' U'` |
+| UF UB DB UR UL DR | 6 | 5 | 7 | R L (L' F L) | 5 | no | `B L2 F2 D B' D2 B D F U' L' D B L' U2 B2 L R2 B' R U B D' U R2` |
+| UF UB DF UL DL FL | 6 | 5 | 7 | R L (F2 B R) | 5 | no | `R2 U B R D' B2 U' L U' F2 D2 R' L2 U R U' D2 R U' B' U B R F2 L'` |
+| UF UB DF UL DR BR | 6 | 5 | 7 | R L (D2 F' R) | 5 | no | `B' R2 F2 R D' U R2 D' R U2 L' U F2 B2 D' L2 F U2 R D2 U' L' R' D2 U'` |
+| UF UB DF UL DR DL | 6 | 5 | 7 | R L (R B R) | 5 | no | `F' B U' F R' F R2 L2 B R2 B2 U F' D2 R' L U F' L2 D' B' U2 R L B` |
+| UF UB DF UL DR FL | 6 | 5 | 7 | R L (U2 B' L) | 5 | no | `D' U F2 R L' U B D' F B2 U2 B2 U D' F' L F2 R2 U' B R' L2 D R' L2` |
+| UF UB DF UL DR FR | 6 | 5 | 7 | R L (B D2 R) | 5 | no | `R2 B2 L' D2 L2 D' F2 U' L' D' L2 F' B2 U F U' B' R F' B' U2 L2 R' D2 R2` |
+| UF UB DF UR DL BL | 6 | 5 | 7 | R L (D2 F L) | 5 | no | `F L' F2 L2 R2 B2 L' U D2 L2 R' D' F' R' B2 F' D R2 L' F' L2 B2 U2 R' B2` |
+| UF UB DF UR DL FL | 6 | 5 | 7 | R L (D B' L) | 5 | no | `L2 F L' U' B' F R D2 L B2 R' L F B L' R' U' R F2 B2 L R2 F2 L2 F` |
+| UF UB DF UR DL FR | 6 | 5 | 7 | R L (U2 B R) | 5 | no | `F R' F' B2 D U F L' B D' R' F2 L' R2 D' R D' U' R' U' R D' U' R' L` |
+| UF UB DF UR DR DL | 6 | 5 | 7 | R L (L' B' L) | 5 | no | `U2 L B' R2 L2 F2 B2 L2 D2 R' D U2 B' D2 R2 B' F2 U' F B2 U D' F' D' L` |
+| UF UB DF UR DR FR | 6 | 5 | 7 | R L (F2 B' L) | 5 | no | `B2 R2 L2 D L' U2 F D2 R2 D2 R B D U2 L' U L D B2 R2 F2 R' B' L R'` |
+| UF UB DF UR UL DL | 6 | 5 | 7 | R L (R' B R) | 5 | no | `L2 U B2 L' U D L B' R2 U R F B2 R D L F' U' R2 L' D2 B2 D' L' U'` |
+| UF UB DF UR UL DR | 6 | 5 | 7 | R L (L B' L) | 5 | no | `R' U F2 L' U' F R F R B2 L2 R D2 L' U L D2 R L D2 F2 R F' U2 F'` |
+| UF UB UL DR DL BR | 6 | 5 | 7 | R L (F' D' R) | 5 | no | `F2 R U' D' L2 U R2 L' B' L R U D B R2 B F' R2 U2 R F' B2 L F' B` |
+| UF UB UL DR DL FR | 6 | 5 | 7 | R L (B D R) | 5 | no | `R F' U' F' U D L2 B' F' D2 R D2 U R' B F' D2 L F' L2 U2 F' B2 L' U'` |
+| UF UB UR DR DL BL | 6 | 5 | 7 | R L (F D L) | 5 | no | `R U' B R D2 B' U' B2 U2 R B' U L2 B L2 U' L2 U2 F' R L2 U' F2 D2 B2` |
+| UF UB UR DR DL FL | 6 | 5 | 7 | R L (B' D' L) | 5 | no | `F' R2 F' B2 R B' D2 F L B' R U' L' B2 F U2 B2 L' U2 F U D R' U' R'` |
+| UB DB UR UL DR DL FL BL | 8 | 5 | 7 | R L (U D' L) | 5 | no | `R' L U2 L2 D' F R L' D R' B' L D R2 U B F U2 R D' B2 D' U B U` |
+| UB DB UR UL DR DL FR BR | 8 | 5 | 7 | R L (U' D R) | 5 | no | `F' B D2 R F U F2 L2 F2 B' R' D2 U2 F' B' R F2 L' U2 R' L2 F2 R L F2` |
+| UB DF DB UL DR DL FL BR | 8 | 5 | 7 | R L (F2 D R) | 5 | no | `U2 D2 B L' U2 B' D2 R' U D R' U D R' B' F2 D' R2 F2 D' L U' L U R2` |
+| UB DF DB UL DR DL FR BR | 8 | 5 | 7 | R L (F D R) | 5 | no | `U F' B U' F U' B2 D F' B' R2 U2 R2 F2 B' R' F2 R F D' F R B D2 L'` |
+| UB DF DB UR DR DL FL BL | 8 | 5 | 7 | R L (L2 U L) | 5 | no | `D' R2 B2 D2 U2 R' U R' U2 L' R' D L' D' B' F' L2 R2 F2 U2 R' B' L F' B2` |
+| UB DF DB UR DR DL FR BL | 8 | 5 | 7 | R L (F2 D' L) | 5 | no | `L' F R' B R' L2 D2 U2 R' L U2 B2 R' F2 D' U B2 D' R B' U' F' L D2 U'` |
+| UB DF DB UR UL DL FL BL | 8 | 5 | 7 | R L (U D2 L) | 5 | no | `F U2 D' F' L D F2 D2 U L' U' L2 F U' F2 R' D' R L U' F U2 R D2 R2` |
+| UB DF DB UR UL DL FL BR | 8 | 5 | 7 | R L (F U' R) | 5 | no | `D' F' U B' D2 U' B2 F' L F' L F U F D R' F2 L2 R' D2 L R U' B' U'` |
+| UB DF DB UR UL DL FR BL | 8 | 5 | 7 | R L (U' B2 R) | 5 | no | `B2 U' D L2 U2 B' U' R F2 L2 B L2 B' F2 R2 L B' D' R U2 D R U' R2 B2` |
+| UB DF DB UR UL DR DL BL | 8 | 5 | 7 | R L (L U L) | 5 | no | `U B2 L U2 B2 R2 L' U' B' L F R2 U B2 D B' L2 B2 D2 R L F2 L B F'` |
+| UB DF DB UR UL DR DL BR | 8 | 5 | 7 | R L (R' U' R) | 5 | no | `U2 F2 R U' B' R' F2 L2 R D U L2 U L D2 U2 L' B2 D2 U2 L D R2 L U'` |
+| UB DF DB UR UL DR DL FL | 8 | 5 | 7 | R L (L' U L) | 5 | no | `L' B L U L2 B R F2 B U2 F2 L' U' R F2 R L U2 L F B D2 U2 F' D` |
+| UB DF DB UR UL DR DL FR | 8 | 5 | 7 | R L (R U' R) | 5 | no | `L2 U D2 L2 U2 B D B2 F' U R' U L U' F2 U' R D2 U2 F2 R' U' R' D R2` |
+| UB DF DB UR UL DR FL BR | 8 | 5 | 7 | R L (U B2 L) | 5 | no | `U R2 U' L2 B' U R2 L2 F2 R D2 B R B' D R2 B2 R' L2 U R U' B L F2` |
+| UB DF DB UR UL DR FR BL | 8 | 5 | 7 | R L (U F2 L) | 5 | no | `B2 D2 U F' R B2 D U B2 D' F' D2 B2 L B' F U D2 L2 B D B2 U R L` |
+| UB DF DB UR UL DR FR BR | 8 | 5 | 7 | R L (U' D2 R) | 5 | no | `B' F U2 L2 D2 F R D' B R U2 F B' L D2 L2 R D' R' F U' R' D U F2` |
+| UB DF UR UL DR DL FL BL | 8 | 5 | 7 | R L (U D L) | 5 | no | `L2 U' B R2 L D2 B' F2 U' B' U2 D2 R2 B F2 D2 L' R2 B R2 L U2 F' R F2` |
+| UB DF UR UL DR DL FR BR | 8 | 5 | 7 | R L (U' D' R) | 5 | no | `D2 L2 R' F2 L' F R' U F U' L B2 R U' F L' R2 F2 L2 D2 R U' F2 B' U2` |
+| UF DB UR UL DR DL FL BL | 8 | 5 | 7 | R L (U' D' L) | 5 | no | `B' R2 B' F2 L D R2 D' L B' U2 B L2 R2 B D' R U L' D' L U L D U'` |
+| UF DB UR UL DR DL FR BR | 8 | 5 | 7 | R L (U D R) | 5 | no | `F D F' B D F U' R2 B2 R2 L U2 R' D R D L2 B2 F D R' F D' B' L` |
+| UF DF DB UL DR DL FR BL | 8 | 5 | 7 | R L (B2 D' R) | 5 | no | `D' U' R2 B' F R B2 R U L' R2 F' L R F2 U2 D' L B F' D U' L2 R D'` |
+| UF DF DB UL DR DL FR BR | 8 | 5 | 7 | R L (R2 U R) | 5 | no | `U' B F L2 U2 D2 L F' D2 L2 D R' U B' L2 D' L D B2 L2 F2 R2 F' L D` |
+| UF DF DB UR DR DL FL BL | 8 | 5 | 7 | R L (B D L) | 5 | no | `L B' L D' R B' U' D2 L2 R' F2 L2 D L2 U2 D' B' L2 B' R L2 F' B2 U D'` |
+| UF DF DB UR DR DL FL BR | 8 | 5 | 7 | R L (B2 D L) | 5 | no | `D2 F' U' R2 D' R2 F B2 U F' U F' L R2 U2 R2 B2 F2 D R2 L' B' R' D2 B'` |
+| UF DF DB UR UL DL FL BL | 8 | 5 | 7 | R L (U' D2 L) | 5 | no | `U B2 D L2 R D2 B R' D2 B' D' F L D2 F R2 U R U' L D2 B' L2 D2 F` |
+| UF DF DB UR UL DL FL BR | 8 | 5 | 7 | R L (U F2 R) | 5 | no | `D2 F' L' D2 B2 L2 B' R U L' R2 D B' F' U2 R D' F' R2 B' D R' B' R U'` |
+| UF DF DB UR UL DL FR BL | 8 | 5 | 7 | R L (U B2 R) | 5 | no | `F' R D F' R' L' B2 R2 D B' D2 R' D' U B' R' F2 R U2 B F2 R2 D2 R L'` |
+| UF DF DB UR UL DR DL BL | 8 | 5 | 7 | R L (L U' L) | 5 | no | `D F L2 B' U' D' L B' L' F' U L' R F' U2 F2 R F' R' D' R B2 F R2 B` |
+| UF DF DB UR UL DR DL BR | 8 | 5 | 7 | R L (R' U R) | 5 | no | `U F2 D2 U2 R2 D2 U2 R' D2 U' R L2 F' D2 B L R' U D' F2 B' R2 D' U' F` |
+| UF DF DB UR UL DR DL FL | 8 | 5 | 7 | R L (L' U' L) | 5 | no | `D B2 F' L B2 L B U L B' D2 U R B R U' B U2 B D L' R' D2 L' U2` |
+| UF DF DB UR UL DR DL FR | 8 | 5 | 7 | R L (R U R) | 5 | no | `B F' L D2 B L' U2 B L2 F B2 U' L2 B2 F D2 L' B' D' L' F' R2 U' L2 F'` |
+| UF DF DB UR UL DR FL BR | 8 | 5 | 7 | R L (B U' L) | 5 | no | `F U2 F2 U' F L' D F' B' D' L R D' R U' L2 F2 B2 R' L B' D U F2 U2` |
+| UF DF DB UR UL DR FR BL | 8 | 5 | 7 | R L (U' F2 L) | 5 | no | `F' R U' L2 F U2 D' R' L2 F' B2 R' L2 U D2 B' F2 U R' D2 B' D2 L2 U R'` |
+| UF DF DB UR UL DR FR BR | 8 | 5 | 7 | R L (U D2 R) | 5 | no | `R L' B F L B2 D2 F' R' F' U' L' D L2 D2 R' L' B F2 D2 B2 U D2 L U'` |
+| UF DF UR UL DR DL FL BL | 8 | 5 | 7 | R L (U' D L) | 5 | no | `F' L2 B F2 L2 R' D' L' B' F2 U2 B' L U F D' U2 B2 R D F' L U2 D' B'` |
+| UF DF UR UL DR DL FR BR | 8 | 5 | 7 | R L (U D' R) | 5 | no | `L' R' U' L2 B L2 B' L F2 R' L2 B2 F2 U' R' U' D2 F2 L2 U L R' B2 F D` |
+| UF UB DB UL DR DL FL BL | 8 | 5 | 7 | R L (U2 D' L) | 5 | no | `B2 D R U' L U' R' F' R2 F' U R' B2 F L2 U2 B' L B' F' D' R2 F L' D` |
+| UF UB DB UL DR DL FL BR | 8 | 5 | 7 | R L (D F2 R) | 5 | no | `F2 L D2 B R2 D R D' F' B D' R F2 U2 L F' B L2 R B' L2 U D2 F2 R` |
+| UF UB DB UL DR DL FR BL | 8 | 5 | 7 | R L (D B2 R) | 5 | no | `D2 B D2 L2 F' U' F2 B U D2 F' U2 F U' L' F' R' B2 D' B D' U2 R' U2 B'` |
+| UF UB DB UR DR DL FL BR | 8 | 5 | 7 | R L (D' B2 L) | 5 | no | `F' D' U2 R2 D2 B' L B' F2 R D2 R2 D' L B L2 D U F' B2 U' D2 B2 F2 L'` |
+| UF UB DB UR DR DL FR BL | 8 | 5 | 7 | R L (F D' L) | 5 | no | `B' F' U R' U L2 R' U2 R2 L B L2 B' D B U' B2 D B' R F' L2 F D R` |
+| UF UB DB UR DR DL FR BR | 8 | 5 | 7 | R L (U2 D R) | 5 | no | `R2 U' F U2 D' B F R2 B2 U L2 F D2 B D2 B' D2 L2 D R D F' L' D' F` |
+| UF UB DB UR UL DL FL BR | 8 | 5 | 7 | R L (F2 U' R) | 5 | no | `L' D2 U2 F2 B2 U R' F L2 U D2 F2 U' B' L B' F' D R' F D F' B' D' F'` |
+| UF UB DB UR UL DL FR BR | 8 | 5 | 7 | R L (R2 D R) | 5 | no | `B R' L D R2 L D U' B L2 R B' L2 R D' U' R2 F B2 L D2 U2 L2 F2 U'` |
+| UF UB DB UR UL DR DL BL | 8 | 5 | 7 | R L (L' D' L) | 5 | no | `R2 L2 D2 L2 B2 F' U2 F2 B R D L U D' R B D2 F2 L R' D2 U R2 D R2` |
+| UF UB DB UR UL DR DL BR | 8 | 5 | 7 | R L (R D R) | 5 | no | `B D2 U F' U2 L U2 L' D R' F U' R U2 R D U B D F R D2 L2 R' B` |
+| UF UB DB UR UL DR DL FL | 8 | 5 | 7 | R L (L D' L) | 5 | no | `R2 D2 R' D' F' D' L2 B L F2 L R' D2 L2 R B2 F' D' R L B L2 U2 R' B'` |
+| UF UB DB UR UL DR DL FR | 8 | 5 | 7 | R L (R' D R) | 5 | no | `R' F' B' U2 D2 R B F' U' L B2 L' B' U D2 F' U2 F L2 F D2 F R2 B' F` |
+| UF UB DB UR UL DR FL BL | 8 | 5 | 7 | R L (F U L) | 5 | no | `R2 F2 U D2 B' D B' L R2 D' U' R U2 F2 U' F' R L' U' D2 L F' U D L2` |
+| UF UB DB UR UL DR FR BL | 8 | 5 | 7 | R L (F2 U L) | 5 | no | `B' R' F' B2 U R' F D' U L2 R2 D' B F' R U' R' F D2 L' F D B' L B2` |
+| UF UB DF DB DR DL FL BL | 8 | 5 | 7 | R L (R2 D2 L) | 5 | no | `U2 B L' F2 L D' F' U' L B' D2 R2 B' U' F' L' U L2 B2 R' B D B L' F` |
+| UF UB DF DB DR DL FR BR | 8 | 5 | 7 | R L (R2 U2 R) | 5 | no | `B2 U2 B' F R F2 R B2 F' U' L B' D U B2 U2 F D2 B D2 F2 D' F' D2 B` |
+| UF UB DF DB UL DL BR BL | 8 | 5 | 7 | R L (R2 B2 R) | 5 | no | `U2 B' R2 U L D2 B2 U R2 B L2 F U B' U2 F2 U' B' R' D' L' R D' R2 L` |
+| UF UB DF DB UL DL FL BL | 8 | 5 | 7 | R L (U2 D2 L) | 5 | no | `R' U D2 B' R2 D F' B2 R2 U' R F2 L F2 D2 U B2 L2 F' L' D U L2 D2 B2` |
+| UF UB DF DB UL DL FR FL | 8 | 5 | 7 | R L (R2 F2 R) | 5 | no | `U' L' D R' L B' D' L R2 U D2 L U F' U2 L2 F2 B2 D' B2 F D' L' D' L2` |
+| UF UB DF DB UL DR DL BL | 8 | 5 | 7 | R L (R B2 R) | 5 | no | `U2 B' R' L2 U B' U2 L' D' B L U2 L D2 U B F2 R U' R' U2 F L' F L2` |
+| UF UB DF DB UL DR DL FL | 8 | 5 | 7 | R L (R' F2 R) | 5 | no | `F2 R' D' U B2 D' R B2 F2 R U D' R' B' L' B D' B F' U L' F' L2 D' F` |
+| UF UB DF DB UL DR FL BR | 8 | 5 | 7 | R L (U2 B2 L) | 5 | no | `B2 F R' F U2 F2 L2 B' L' B R2 U2 L2 D B U2 L' R2 B U R2 F U2 R' B'` |
+| UF UB DF DB UL DR FR BL | 8 | 5 | 7 | R L (U2 F2 L) | 5 | no | `U L' B' R F' L2 U2 F L2 D' F R U2 D' F' D2 R' B' R U' F D' R2 L U` |
+| UF UB DF DB UR DL FL BR | 8 | 5 | 7 | R L (U2 F2 R) | 5 | no | `L R2 U' R L' F2 R F' B2 R F2 B2 D2 L2 R' D2 U' R' L D U F2 B L R` |
+| UF UB DF DB UR DL FR BL | 8 | 5 | 7 | R L (U2 B2 R) | 5 | no | `L F2 R' F2 L' F L B R F' D L2 U' B F2 U' B2 U2 D2 B2 R D B2 D F2` |
+| UF UB DF DB UR DR BR BL | 8 | 5 | 7 | R L (R2 F2 L) | 5 | no | `B2 D' B R' F2 R F' D2 R F' U2 L' D2 F' B2 L R2 B' L' B2 R' F' D F2 B` |
+| UF UB DF DB UR DR DL BR | 8 | 5 | 7 | R L (R' U2 R) | 5 | no | `R B2 F' D' U' R D' L R2 D' R2 F2 B D R D F2 U L' R D' U B U' R'` |
+| UF UB DF DB UR DR DL FR | 8 | 5 | 7 | R L (R U2 R) | 5 | no | `U2 L R2 U' R B U' L2 U2 L F R U D L' D F2 L' B D2 R' L B' U2 B` |
+| UF UB DF DB UR DR FR BR | 8 | 5 | 7 | R L (U2 D2 R) | 5 | no | `F2 R U2 D' L2 U2 F U2 L' D2 F' U B F' D2 R U' F' L' U' F2 B2 U2 B D` |
+| UF UB DF DB UR DR FR FL | 8 | 5 | 7 | R L (R2 B2 L) | 5 | no | `B' R U' L' B R' L' D R2 U' D2 R' L U' R L' U' L R' U' F D2 F' B' R2` |
+| UF UB DF DB UR UL DL BL | 8 | 5 | 7 | R L (R' B2 R) | 5 | no | `D' R F' U' B R2 L D L2 F' L R U2 L' D' R2 U L' B2 U R F D' U2 F` |
+| UF UB DF DB UR UL DL FL | 8 | 5 | 7 | R L (R F2 R) | 5 | no | `L U2 B' U' L R U2 R2 B L2 F' L F2 U2 B2 L' F2 B2 U' B' R2 B U' B L2` |
+| UF UB DF DB UR UL DR BR | 8 | 5 | 7 | R L (R D2 R) | 5 | no | `U2 D B U' B2 L2 U2 R2 B L R' D' B R' B' D U2 L2 F' L D2 L D L D'` |
+| UF UB DF DB UR UL DR FR | 8 | 5 | 7 | R L (R' D2 R) | 5 | no | `B2 R' U' L B' R F' R F' L' F2 U' F' L' D2 B' R2 L D L2 R B D' R' F2` |
+| UF UB DF DB UR UL FL BL | 8 | 5 | 7 | R L (R2 U2 L) | 5 | no | `F R B' F L2 U2 D R2 L B F' U' B' R2 L2 U2 F D U' F2 U' B2 D L F` |
+| UF UB DF DB UR UL FR BR | 8 | 5 | 7 | R L (R2 D2 R) | 5 | no | `D2 B' U' L' R2 F' R U' R' L' F' U2 R U L' U' F' R' B D2 F2 L2 R D' B'` |
+| UF UB DF UL DR DL FL BL | 8 | 5 | 7 | R L (U2 D L) | 5 | no | `F L' F2 L' F' R2 F U L' B F2 L' R B2 F U2 R2 B2 U F B L R' U2 F'` |
+| UF UB DF UL DR DL FL BR | 8 | 5 | 7 | R L (D' F2 R) | 5 | no | `R2 F2 L2 U L2 D U L' U F U D2 B R' U' D' B D2 F R L F D2 L2 F` |
+| UF UB DF UL DR DL FR BL | 8 | 5 | 7 | R L (B D' R) | 5 | no | `F2 D2 U L U2 D' B F R D2 L' D2 L D2 B2 L R2 D' R' B2 F D F' D' U` |
+| UF UB DF UR DR DL FL BR | 8 | 5 | 7 | R L (D B2 L) | 5 | no | `U2 B' L2 U' D' R2 B2 L2 B2 F D' L2 U' F2 U2 D2 R' B' F' U' F2 D L' F2 R` |
+| UF UB DF UR DR DL FR BL | 8 | 5 | 7 | R L (D F2 L) | 5 | no | `L D B' R' F R F2 L2 U2 L' B2 F' L' F2 L U B D2 B2 L2 U' R2 F2 B2 L2` |
+| UF UB DF UR DR DL FR BR | 8 | 5 | 7 | R L (U2 D' R) | 5 | no | `R2 D' B' F' L' D2 R B' F D B2 F U L2 F' R' F2 L U B2 F L' D B2 L'` |
+| UF UB DF UR UL DL FR BL | 8 | 5 | 7 | R L (B2 U R) | 5 | no | `D2 U' F' L2 F D U L2 R2 B' F R2 F R F' B D2 R' F2 L F' D2 R' L' B'` |
+| UF UB DF UR UL DL FR BR | 8 | 5 | 7 | R L (B U R) | 5 | no | `L F2 R' B' L' B' U F2 B2 L D2 F L2 B2 U' L D2 U' F2 U2 L R U2 F2 U'` |
+| UF UB DF UR UL DR DL BL | 8 | 5 | 7 | R L (L' D L) | 5 | no | `L U' B' D' R L' U' L F' B' D L R' D' U2 F U' B R' F B D2 F' D' R` |
+| UF UB DF UR UL DR DL BR | 8 | 5 | 7 | R L (R D' R) | 5 | no | `L' R F' R' L' B F D2 B2 R' L2 D' U L U' L' U2 R' F' R' U2 B2 L' D B'` |
+| UF UB DF UR UL DR DL FL | 8 | 5 | 7 | R L (L D L) | 5 | no | `D' U2 L D L' F U' F2 L' D2 U L F' R' B F2 R2 D2 F2 B2 L D2 L' B2 U'` |
+| UF UB DF UR UL DR DL FR | 8 | 5 | 7 | R L (R' D' R) | 5 | no | `D R' B' U' B R2 D2 U2 R2 L B D' B' L U2 B' F' R' B2 U2 F B2 D B' L2` |
+| UF UB DF UR UL DR FL BL | 8 | 5 | 7 | R L (L2 D L) | 5 | no | `B U D B' U L B L U F B' R' L2 D B' F L2 U D F U2 F2 U2 L' F` |
+| UF UB DF UR UL DR FL BR | 8 | 5 | 7 | R L (B2 U' L) | 5 | no | `L2 F2 U2 B2 U' B F' U2 L U' D L' F' R' F2 R' U' L' U' B' D U B' R L2` |
+| UF UB DF DB UL DL FR BR | 8 | 3 | 5 | R L (R) | 3 | kind 2 | `L2 U L B2 F' D' U B2 L2 F2 U2 D' B2 U D' F L U' L F2 U D2 F2 L2 D2` |
+| UF UB DF DB UR DR FL BL | 8 | 3 | 5 | R L (L) | 3 | kind 2 | `B' L' D L' U F2 D2 B2 F D2 B' R F U2 L2 R U B U D L' R2 B L B2` |
+| UF UB DF DB FR FL BR BL | 8 | 2 | 4 | R L (R L) | 4 | kind 1 | `B' L2 R' U R B D B2 D R B2 U F B2 L F2 R' F2 L R B U2 D R D2` |
+| UB DB BR BL | 4 | 1 | 3 | R L (F R L) | 5 | kind 2 | `U' F' R2 B D F2 U L D U' F2 U2 D F L' D R' L U2 L F' D L R2 U` |
+| UF DF FR FL | 4 | 1 | 3 | R L (B R L) | 5 | kind 2 | `R' D2 U' R' F' B' U2 D L F D F2 R U2 R' B2 U' L' R' B2 U B2 L' R' B` |
+| DF DB UR UL FR FL BR BL | 8 | 3 | 5 | R L (U R L) | 5 | kind 2 | `D2 F' L F B' D' R' D' U R' L D2 R' F' U' R2 B2 R2 D' U B U2 R' F L'` |
+| UB DF DB UL FR FL BR BL | 8 | 3 | 5 | R L (R U L) | 5 | kind 6 | `L' U R U2 B D2 B U' L B2 F2 D' B2 U L2 D2 B' D R2 F' D L U B U` |
+| UB DF DB UR FR FL BR BL | 8 | 3 | 5 | R L (L U' R) | 5 | kind 6 | `U D' L2 U2 F L2 F' R B R2 U L2 U2 F D2 U F' R' D' L F' R' D2 U' B'` |
+| UF DF DB UL FR FL BR BL | 8 | 3 | 5 | R L (R U' L) | 5 | kind 6 | `L2 D U2 L' D R' F' D B' R2 L2 U' B L' U R D R' U' L' R2 U2 F2 L' R` |
+| UF DF DB UR FR FL BR BL | 8 | 3 | 5 | R L (L U R) | 5 | kind 6 | `B' F2 L2 R F2 U2 R2 F' B2 U2 D' L2 B2 L' B2 D L' F U R U R' L D2 B2` |
+| UF UB DB DL FR FL BR BL | 8 | 3 | 5 | R L (R D' L) | 5 | kind 6 | `F2 B R' D2 F' R' B F' R2 D' L B' D R' L' D2 F2 R F' U F' U D L2 D'` |
+| UF UB DB DR FR FL BR BL | 8 | 3 | 5 | R L (L D R) | 5 | kind 6 | `B R2 L2 F2 U' L2 B' R D' U' F' B' R F2 B2 D2 U2 B F' R L U' F2 D2 R2` |
+| UF UB DF DL FR FL BR BL | 8 | 3 | 5 | R L (R D L) | 5 | kind 6 | `R2 B' D' F' L2 D' F2 R D2 F R2 L' U2 L2 U L' U B2 D R' L U B2 L2 F` |
+| UF UB DF DR FR FL BR BL | 8 | 3 | 5 | R L (L D' R) | 5 | kind 6 | `R B2 F U L2 R' F U' B' D' B' L U' F L U2 D F L R D F' B2 R2 U'` |
+| UF UB DR DL FR FL BR BL | 8 | 3 | 5 | R L (D R L) | 5 | kind 2 | `U2 R U2 L D2 B2 F' D2 R' U' F U L2 D2 R2 U L2 D' L2 F' L2 B' F' U2 R` |

@@ -67,4 +67,12 @@ def shared (a b : Axis) : List (Tab × Tab) :=
   side.flatMap fun p => side.filterMap fun q =>
     if p.2.1 + q.2.1 ≤ 5 && p.2.2 + q.2.2 ≤ 5 then some (p.1, q.1) else none
 
+/-- For the cases of axis `b` of at most 3 moves: (moves on `b`, moves of the same axis-free case on `a`, how many). -/
+def probeHist (a b : Axis) : List (Nat × Nat × Nat) :=
+  let ma := mins a
+  let rows := (mins b).filterMap fun p => if p.2 ≤ 3 then some (p.2, lenOn ma p.1) else none
+  [(0, 4), (1, 3), (2, 2), (2, 4), (3, 1), (3, 3), (3, 4), (3, 5)].map fun k =>
+    (k.1, k.2, (rows.filter fun r => r == k).length)
+def probeTotal (b : Axis) : Nat := ((mins b).filter fun p => p.2 ≤ 3).length
+
 end ImpliedEO
