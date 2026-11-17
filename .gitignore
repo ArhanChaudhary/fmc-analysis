@@ -48,3 +48,8 @@ __pycache__/
 /gaps/research/src/htrreal/target/
 htr-routes/research/htfirst/target/
 htr-routes/research/verify/vhtr/target/
+/dr-variants/research/drvar/target/
+/dr-variants/research/out/meta/*.rec
+/dr-variants/research/out/meta/run*.tsv
+/dr-variants/research/out/meta/niss*.tsv
+/dr-variants/research/out/meta/*.log

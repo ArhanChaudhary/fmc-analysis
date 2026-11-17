@@ -68,3 +68,9 @@ When one EO on a scramble guarantees another: F B (F B) with R L (R L) and U D (
 
 - [Write-up](implied-eo/): the seven kinds, the four theorems, the dictionary, the claims check. It opens with the short version.
 - [The full list](implied-eo/examples.html): all 691 sets and the 230 patterns after F B, each with a random scramble that has its EOs.
+
+## Pruning the search for a DR solution
+
+Which HTRs are worth finishing when you look for a leave-slice solution from a 2qt, 3qt or 4qt DR in 12, 13 or 14. The rule bound of Advanced DR Bounding removes 96–97% of the HTRs in reach of the goal and never a within-goal one. A pair count at HTR does the same job again: with n moves left for the finish you need at least 16 − 4n pairs, proved in Lean. Together they leave a few dozen HTRs per DR out of thousands. Then the order to finish them in (most pairs first), what pairs say at 2qt and at HTR, which skeleton to start with, what NISS adds, and when to abandon the DR. Every HTR in reach finished exactly for about 2,000 uniformly random DRs of each kind, 66 million HTRs.
+
+- [Write-up](dr-variants/): the two floors, the order of finishing, skeletons, NISS, abandoning, the meta step by step, ten worked scrambles and the claims check. It opens with the short version.

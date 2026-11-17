@@ -1,0 +1,10 @@
+name = "PairFloor"
+version = "0.1.0"
+defaultTargets = ["PairFloor"]
+
+[[require]]
+name = "DRBound"
+path = "../../../judging-a-dr/lean/DRBound"
+
+[[lean_lib]]
+name = "PairFloor"

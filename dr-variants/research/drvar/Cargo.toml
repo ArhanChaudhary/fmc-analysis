@@ -1,0 +1,13 @@
+[package]
+name = "drvar"
+version = "0.1.0"
+edition = "2021"
+description = "Does a cheap zero-bad-slice variant sit one insertion from the optimal DR finish? (Advanced DR Bounding)"
+
+[dependencies]
+rayon = "1.10"
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+lto = true
