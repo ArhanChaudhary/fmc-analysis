@@ -61,3 +61,10 @@ After EO + RZP, when to switch to the inverse and look for a DR there. Every pol
 - [Write-up](eo-switch/): the yardstick, the current policies by what they miss, the cards, every read done on the normal side by colour, two bars evaluated, what didn't help, the ceilings, other RZP lengths. It opens with the short version.
 - [Worked examples](eo-switch/examples.html): 201 real attempts, with what you see before switching, the reads, the card's verdict next to the pairs rule's, and the optimal DR after the switch, answers folded away.
 - [Errata](eo-switch/errata.html): what the numbers show is wrong in something said on the server, with an example.
+
+## Implied EOs
+
+When one EO on a scramble guarantees another: F B (F B) with R L (R L) and U D (U D), F B (F) with R L (B R L), R F B (F) with L (B R L) and the rest. The full list for EOs of 5 moves or less (691 sets of scrambles in seven kinds, all from one small dictionary between axes), the exact test for any two EOs, the proof that nothing but the F B R L trick is behind them up to 5 moves, the other source that starts at 6 moves (a superflip on both sides), and how often a scramble has such a pair (26.9%). Proved in Lean for every scramble.
+
+- [Write-up](implied-eo/): the seven kinds, the four theorems, the dictionary, the claims check. It opens with the short version.
+- [The full list](implied-eo/examples.html): all 691 sets, each with a random scramble that has its EOs.

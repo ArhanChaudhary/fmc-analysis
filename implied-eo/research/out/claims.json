@@ -1,0 +1,470 @@
+[
+ {
+  "id": "T3441",
+  "who": "Jay (vibing), for Cale",
+  "eos": [
+   "F B (F B)",
+   "R L (R L)",
+   "U D (U D)"
+  ],
+  "lens": [
+   4,
+   4,
+   4
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300,
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T3441",
+  "who": "Jay (vibing)",
+  "eos": [
+   "F B (F)",
+   "U D (B U D)",
+   "R L (B R L)"
+  ],
+  "lens": [
+   3,
+   5,
+   5
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300,
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T3450",
+  "who": "Jay (vibing)",
+  "eos": [
+   "(D) R B U D",
+   "R F (U F B)"
+  ],
+  "lens": [
+   5,
+   5
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T3458",
+  "who": "Jay (vibing)",
+  "eos": [
+   "F (F R F B)",
+   "(F L) B R L"
+  ],
+  "lens": [
+   5,
+   5
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T3459",
+  "who": "Jay (vibing)",
+  "eos": [
+   "F (B2 R F B)",
+   "(B2 L) B R L"
+  ],
+  "lens": [
+   5,
+   5
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T3459",
+  "who": "Jay (vibing)",
+  "eos": [
+   "F (R F B)",
+   "(L) B R L"
+  ],
+  "lens": [
+   4,
+   4
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T3459",
+  "who": "Jay (vibing)",
+  "eos": [
+   "B U D",
+   "F (U D F B)"
+  ],
+  "lens": [
+   3,
+   5
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T3463",
+  "who": "Jay (vibing)",
+  "eos": [
+   "F B (F R B)",
+   "(D R' U) U D"
+  ],
+  "lens": [
+   5,
+   5
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T3587",
+  "who": "Jay (vibing)",
+  "eos": [
+   "R (D L R)",
+   "(U) L U D"
+  ],
+  "lens": [
+   4,
+   4
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T3639",
+  "who": "Cale",
+  "eos": [
+   "F (R L F B)",
+   "B R L"
+  ],
+  "lens": [
+   5,
+   3
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T3662",
+  "who": "trig0n",
+  "eos": [
+   "R F B",
+   "L (F B L R)"
+  ],
+  "lens": [
+   3,
+   5
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T3662",
+  "who": "trig0n",
+  "eos": [
+   "R L F B",
+   "(F B L R)"
+  ],
+  "lens": [
+   4,
+   4
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T3661",
+  "who": "trig0n",
+  "eos": [
+   "U D",
+   "F B (U D F B)",
+   "R L (U D R L)"
+  ],
+  "lens": [
+   2,
+   6,
+   6
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300,
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T3653",
+  "who": "trig0n",
+  "eos": [
+   "F (R U2 F B)",
+   "B U D (R U D)"
+  ],
+  "lens": [
+   5,
+   6
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "D4424",
+  "who": "Jay (vibing)",
+  "eos": [
+   "(U) F2 L D U",
+   "F2 R (D R L)"
+  ],
+  "lens": [
+   5,
+   5
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "D15042",
+  "who": "FakeMMAP",
+  "eos": [
+   "F B (U F2 U' F B)",
+   "U D (U F2 D)"
+  ],
+  "lens": [
+   7,
+   5
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "D13106",
+  "who": "Jay (vibing)",
+  "eos": [
+   "F L F B",
+   "F R (F B R L)"
+  ],
+  "lens": [
+   4,
+   6
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "D17329",
+  "who": "Zagros",
+  "eos": [
+   "(R F) U F B",
+   "D (R B U D)"
+  ],
+  "lens": [
+   5,
+   5
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "D17328",
+  "who": "bpaul",
+  "eos": [
+   "(R F) B U F",
+   "(R F) L' U' L F B",
+   "(R B R L) L' U' R"
+  ],
+  "lens": [
+   5,
+   7,
+   7
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300,
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "D11878",
+  "who": "tseitsei89",
+  "eos": [
+   "B F R L",
+   "(R L F B)"
+  ],
+  "lens": [
+   4,
+   4
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "D11881",
+  "who": "Yura Riabov",
+  "eos": [
+   "F (R F B)",
+   "B R L (L)"
+  ],
+  "lens": [
+   4,
+   4
+  ],
+  "stated": "same",
+  "same": true,
+  "rate": [
+   300
+  ],
+  "witness": null,
+  "ok": true
+ },
+ {
+  "id": "T5344",
+  "who": "Shota",
+  "eos": [
+   "F B (F R2 B)",
+   "U D (U R2 D)"
+  ],
+  "lens": [
+   5,
+   5
+  ],
+  "stated": "different",
+  "same": false,
+  "rate": [
+   0
+  ],
+  "witness": "F R2 B U L' U2 L R' D' R R2 B2 B2 U' R L2 D' L' F2 D L' U2 D B' F'",
+  "ok": true
+ },
+ {
+  "id": "T5344",
+  "who": "Shota",
+  "eos": [
+   "F B (F R2 B)",
+   "R L (R F2 L)"
+  ],
+  "lens": [
+   5,
+   5
+  ],
+  "stated": "different",
+  "same": false,
+  "rate": [
+   0
+  ],
+  "witness": "F R2 B R' D2 U F2 F2 U B2 R2 U2 F2 B2 R2 D U2 L D2 R R D' R2 B' F'",
+  "ok": true
+ },
+ {
+  "id": "T6837",
+  "who": "Jay (vibing)",
+  "eos": [
+   "B (F U2 B)",
+   "(D) D R2 U"
+  ],
+  "lens": [
+   4,
+   4
+  ],
+  "stated": "different",
+  "same": false,
+  "rate": [
+   1
+  ],
+  "witness": "F U2 B L U2 F2 U' R' B2 R' D R' R' F2 F2 R2 L' B2 L2 D' L' U B2 B'",
+  "ok": true
+ }
+]

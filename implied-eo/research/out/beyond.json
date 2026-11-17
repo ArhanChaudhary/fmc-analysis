@@ -1,0 +1,47 @@
+{
+ "six": {
+  "X": "U D' F (U D' F)",
+  "X_axis": "FB",
+  "Y": "R2 B2 R (R2 B2 R)",
+  "Y_axis": "RL",
+  "scramble": "U D' F D U R' L' R U' U' R B2 D2 U' D' R' U2 L' D' D2 D F' D U'",
+  "X_cases": [
+   "UR DR FR FL",
+   "UR DR FR FL"
+  ],
+  "Y_cases": [
+   "UR DR BR BL",
+   "UR DR BR BL"
+  ]
+ },
+ "seven": {
+  "X": "R L F (L U R F)",
+  "X_axis": "FB",
+  "Y": "B U D F (B D F)",
+  "Y_axis": "FB",
+  "scramble": "L U R F U' R U U R' U L' D2 D2 U D L F2 U' U2 B2 B2 B2 F' L' R'",
+  "X_cases": [
+   "UF DF UL DR",
+   "DF UR UL DR"
+  ],
+  "Y_cases": [
+   "UB DB UR DL FR FL BR BL",
+   "UF UB DB DL FR FL BR BL"
+  ]
+ },
+ "counts": {
+  "trick": {
+   "4": 11,
+   "5": 239,
+   "6": 3929
+  },
+  "slice": {
+   "5": 0,
+   "6": 874
+  },
+  "same_axis": {
+   "6": 0,
+   "7": 1861
+  }
+ }
+}

@@ -1,0 +1,7 @@
+name = "ImpliedEO"
+version = "0.1.0"
+defaultTargets = ["ImpliedEO"]
+
+[[lean_lib]]
+name = "ImpliedEO"
+precompileModules = true

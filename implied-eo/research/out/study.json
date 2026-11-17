@@ -1,0 +1,21314 @@
+{
+"sets": [
+{
+"type": "P1",
+"pres": [
+[
+0,
+0,
+4035,
+3
+],
+[
+1,
+3855,
+204,
+5
+]
+],
+"text": [
+"U R L on RL",
+"D (R L U D) on UD"
+],
+"len": [
+3,
+5
+],
+"key": [
+255,
+3900
+],
+"scramble": "D' R2 F' U B' U2 F2 U F D R2 U2 F R2 U B' L' R' U'"
+},
+{
+"type": "P1",
+"pres": [
+[
+0,
+0,
+3900,
+3
+],
+[
+1,
+3855,
+51,
+5
+]
+],
+"text": [
+"D R L on RL",
+"U (R L U D) on UD"
+],
+"len": [
+3,
+5
+],
+"key": [
+255,
+4035
+],
+"scramble": "F2 U2 F' U F2 R2 U F U' R2 U' F U2 F2 D2 F L' R' D'"
+},
+{
+"type": "P1",
+"pres": [
+[
+0,
+0,
+3317,
+3
+],
+[
+2,
+255,
+3082,
+5
+]
+],
+"text": [
+"F R L on RL",
+"B (R L F B) on FB"
+],
+"len": [
+3,
+5
+],
+"key": [
+255,
+3082
+],
+"scramble": "B' U' F2 D F U2 F2 U F2 D L2 F' R2 B2 D' L R' F'"
+},
+{
+"type": "P1",
+"pres": [
+[
+0,
+0,
+1018,
+3
+],
+[
+2,
+255,
+773,
+5
+]
+],
+"text": [
+"B R L on RL",
+"F (R L F B) on FB"
+],
+"len": [
+3,
+5
+],
+"key": [
+255,
+773
+],
+"scramble": "F2 L2 D' B2 U' B D F2 D2 F L2 D' B L2 D2 F2 L' R' B'"
+},
+{
+"type": "P3",
+"pres": [
+[
+1,
+3855,
+0,
+4
+],
+[
+0,
+0,
+3855,
+4
+]
+],
+"text": [
+"(R L U D) on UD",
+"U D R L on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+255,
+4080
+],
+"scramble": "R L U D' F L2 B2 L U2 F' D2 B2 L B L F2 L' F2 L'"
+},
+{
+"type": "P3",
+"pres": [
+[
+2,
+255,
+0,
+4
+],
+[
+0,
+0,
+255,
+4
+]
+],
+"text": [
+"(R L F B) on FB",
+"F B R L on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+255,
+0
+],
+"scramble": "R L F B U2 B2 U2 R2 U2 L' D2 L2 B2 R2 D2 L' D' R2 D' L"
+},
+{
+"type": "T2",
+"pres": [
+[
+0,
+1360,
+4080,
+3
+],
+[
+2,
+1455,
+3855,
+5
+],
+[
+1,
+2655,
+255,
+5
+]
+],
+"text": [
+"R L (R) on RL",
+"F B (L F B) on FB",
+"U D (L U D) on UD"
+],
+"len": [
+3,
+5,
+5
+],
+"key": [
+1455,
+3855
+],
+"scramble": "R U2 L2 U B2 D2 B D R2 B' L2 U2 L2 F D2 B' R2 L' R'"
+},
+{
+"type": "T2",
+"pres": [
+[
+0,
+2720,
+4080,
+3
+],
+[
+2,
+2655,
+3855,
+5
+],
+[
+1,
+1455,
+255,
+5
+]
+],
+"text": [
+"R L (L) on RL",
+"F B (R F B) on FB",
+"U D (R U D) on UD"
+],
+"len": [
+3,
+5,
+5
+],
+"key": [
+1440,
+240
+],
+"scramble": "L B' D2 B R2 D' F' R2 D F' D L2 B' U' R2 F D' L' R'"
+},
+{
+"type": "P2",
+"pres": [
+[
+1,
+2655,
+204,
+4
+],
+[
+0,
+1360,
+4035,
+4
+]
+],
+"text": [
+"D (L U D) on UD",
+"U R L (R) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+1455,
+3900
+],
+"scramble": "L U D F2 L B U2 L' B' L2 D2 L' F' L2 U2 R2 D2 R2 D"
+},
+{
+"type": "P2",
+"pres": [
+[
+1,
+2655,
+51,
+4
+],
+[
+0,
+1360,
+3900,
+4
+]
+],
+"text": [
+"U (L U D) on UD",
+"D R L (R) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+1455,
+4035
+],
+"scramble": "L U D L F2 U2 F2 R F D2 L F2 U2 B' R2 F2 L2 F' R' U'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+1455,
+3082,
+4
+],
+[
+0,
+1360,
+3317,
+4
+]
+],
+"text": [
+"B (L F B) on FB",
+"F R L (R) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+1455,
+3082
+],
+"scramble": "L F B D' L D' R2 U2 B2 R2 D2 L' D' L' D2 R2 B2 L' U' B'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+1455,
+773,
+4
+],
+[
+0,
+1360,
+1018,
+4
+]
+],
+"text": [
+"F (L F B) on FB",
+"B R L (R) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+1455,
+773
+],
+"scramble": "L F B R' U R' D' L' U F2 R' D2 L2 B2 U2 L' B2 D2 R' F'"
+},
+{
+"type": "P2",
+"pres": [
+[
+1,
+1455,
+204,
+4
+],
+[
+0,
+2720,
+4035,
+4
+]
+],
+"text": [
+"D (R U D) on UD",
+"U R L (L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+1440,
+195
+],
+"scramble": "R U D L B2 R2 F L F' R2 F2 R2 B2 R2 B' L2 B R2 F D'"
+},
+{
+"type": "P2",
+"pres": [
+[
+1,
+1455,
+51,
+4
+],
+[
+0,
+2720,
+3900,
+4
+]
+],
+"text": [
+"U (R U D) on UD",
+"D R L (L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+1440,
+60
+],
+"scramble": "R U D L' B U2 B2 R' B L B2 L D2 R2 D2 R2 F2 U2 L' U'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+2655,
+3082,
+4
+],
+[
+0,
+2720,
+3317,
+4
+]
+],
+"text": [
+"B (R F B) on FB",
+"F R L (L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+1440,
+1013
+],
+"scramble": "R F B L2 D' F2 L2 U2 B2 L2 U2 R F2 L' F2 D R2 U' R B'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+2655,
+773,
+4
+],
+[
+0,
+2720,
+1018,
+4
+]
+],
+"text": [
+"F (R F B) on FB",
+"B R L (L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+1440,
+3322
+],
+"scramble": "R F B F2 L2 D' F2 L' U2 L' U' L F2 L2 U' L B2 L D' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+788,
+5
+],
+[
+0,
+1360,
+1003,
+5
+]
+],
+"text": [
+"U F (L F B) on FB",
+"U B R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+788
+],
+"scramble": "L F B U' R' U' F2 L' U2 R' U' R B2 D B2 D R' D F U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+3096,
+5
+],
+[
+0,
+1360,
+3303,
+5
+]
+],
+"text": [
+"U' B (L F B) on FB",
+"F L U R (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3096
+],
+"scramble": "L F B L D' R' B2 U' L' D' R2 B2 R' B2 R' U' R' U' R' B' U"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+3138,
+5
+],
+[
+0,
+1360,
+3261,
+5
+]
+],
+"text": [
+"D B (L F B) on FB",
+"D F R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3138
+],
+"scramble": "L F B R' U B2 R2 F2 U' L U F2 U' R2 U2 R' U L2 F2 B' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+833,
+5
+],
+[
+0,
+1360,
+958,
+5
+]
+],
+"text": [
+"D' F (L F B) on FB",
+"B L D R (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+833
+],
+"scramble": "L F B F2 U2 R' U F2 U2 R' U F2 U2 R2 D' L D L' D2 F' D"
+},
+{
+"type": "P1",
+"pres": [
+[
+1,
+2655,
+0,
+3
+],
+[
+0,
+1360,
+3855,
+5
+]
+],
+"text": [
+"(L U D) on UD",
+"U D R L (R) on RL"
+],
+"len": [
+3,
+5
+],
+"key": [
+1455,
+4080
+],
+"scramble": "L U D L' F L' F R2 B R' F R2 B' L' D2 L2 D2 F' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+396,
+5
+],
+[
+0,
+1360,
+3715,
+5
+]
+],
+"text": [
+"R' D (L U D) on UD",
+"R' U R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3708
+],
+"scramble": "L U D L2 D2 R2 F' R' B2 D2 B2 R B L B D2 L2 F' R2 D' R"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+156,
+5
+],
+[
+0,
+1360,
+3987,
+5
+]
+],
+"text": [
+"R2 D (L U D) on UD",
+"R2 U R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3948
+],
+"scramble": "L U D R B L2 F L2 D2 B L U2 L F L' B U2 L2 F D' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+1164,
+5
+],
+[
+0,
+1360,
+2947,
+5
+]
+],
+"text": [
+"R D (L U D) on UD",
+"R U R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+2940
+],
+"scramble": "L U D F2 R' F D2 B2 R2 D2 R' U2 B2 R B2 R B' L2 B' D' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+2124,
+5
+],
+[
+0,
+1360,
+1859,
+5
+]
+],
+"text": [
+"L' D (L U D) on UD",
+"L' U R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+1980
+],
+"scramble": "L U D F' R' F L' B L D2 R' U2 B2 R D2 R' U2 F' D L"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+108,
+5
+],
+[
+0,
+1360,
+3939,
+5
+]
+],
+"text": [
+"L2 D (L U D) on UD",
+"L2 U R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3996
+],
+"scramble": "L U D B2 R' D2 F2 R2 D2 R' B' D2 L' U2 L F L2 F2 R D' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+588,
+5
+],
+[
+0,
+1360,
+3395,
+5
+]
+],
+"text": [
+"L D (L U D) on UD",
+"L U R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3516
+],
+"scramble": "L U D U2 F R2 D2 R U2 R F' R' F R2 F R B2 U2 R' D' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+712,
+5
+],
+[
+0,
+1360,
+3527,
+5
+]
+],
+"text": [
+"F' D (L U D) on UD",
+"U R F L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3384
+],
+"scramble": "L U D U2 B R2 F L' D2 F' L2 F' L' F L2 F R' B R2 D' F"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+201,
+5
+],
+[
+0,
+1360,
+4038,
+5
+]
+],
+"text": [
+"F2 D (L U D) on UD",
+"F2 U R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3897
+],
+"scramble": "L U D R2 B' R U2 B' R U2 F' R' U2 F' L2 B' R' F2 R2 D' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+456,
+5
+],
+[
+0,
+1360,
+3783,
+5
+]
+],
+"text": [
+"F D (L U D) on UD",
+"F U R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3640
+],
+"scramble": "L U D B R' U2 L' U2 R' F L U2 R' U2 L D2 L' F R2 D' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+1220,
+5
+],
+[
+0,
+1360,
+3019,
+5
+]
+],
+"text": [
+"B' D (L U D) on UD",
+"U L B R (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+2868
+],
+"scramble": "L U D R2 F U2 R' B' D2 R F2 U2 L2 U2 R' F' R2 D2 F2 D' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+198,
+5
+],
+[
+0,
+1360,
+4041,
+5
+]
+],
+"text": [
+"B2 D (L U D) on UD",
+"B2 U R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3894
+],
+"scramble": "L U D F R F' L2 B2 L B L' B R U2 B' L2 B R F D' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+2244,
+5
+],
+[
+0,
+1360,
+1995,
+5
+]
+],
+"text": [
+"B D (L U D) on UD",
+"B U R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+1844
+],
+"scramble": "L U D B2 U2 B' R2 D2 R F' L D2 L2 B' L' F U2 F' U2 D' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+1059,
+5
+],
+[
+0,
+1360,
+2860,
+5
+]
+],
+"text": [
+"R' U (L U D) on UD",
+"R' D R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3027
+],
+"scramble": "L U D F' R2 U2 L' B2 D2 B D2 F' D2 B L' B2 D2 B' R' U' R"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+99,
+5
+],
+[
+0,
+1360,
+3948,
+5
+]
+],
+"text": [
+"R2 U (L U D) on UD",
+"R2 D R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3987
+],
+"scramble": "L U D R2 B R2 B L' B' L2 D2 L' F' R' B2 U2 F2 R2 D2 U' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+291,
+5
+],
+[
+0,
+1360,
+3628,
+5
+]
+],
+"text": [
+"R U (L U D) on UD",
+"R D R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3795
+],
+"scramble": "L U D F2 R F' R' F2 R U2 L' U2 L' F' D2 B R2 F' L' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+531,
+5
+],
+[
+0,
+1360,
+3356,
+5
+]
+],
+"text": [
+"L' U (L U D) on UD",
+"L' D R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3555
+],
+"scramble": "L U D R' B R' B2 D2 F R2 D2 L' U2 R' D2 B' L' D2 F2 U' L"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+147,
+5
+],
+[
+0,
+1360,
+3996,
+5
+]
+],
+"text": [
+"L2 U (L U D) on UD",
+"L2 D R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3939
+],
+"scramble": "L U D' R B R' F2 R' D2 B L U2 R U2 L' F' L' B U' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+2067,
+5
+],
+[
+0,
+1360,
+1820,
+5
+]
+],
+"text": [
+"L U (L U D) on UD",
+"L D R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+2019
+],
+"scramble": "L U D R D2 B' L U2 L B2 L B' L2 D2 R2 B U2 B R' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+306,
+5
+],
+[
+0,
+1360,
+3645,
+5
+]
+],
+"text": [
+"F' U (L U D) on UD",
+"D L F R (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3778
+],
+"scramble": "L U D R' D2 L2 B' D2 L B2 R' B' U2 R' D2 B' R' F' R U' F"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+54,
+5
+],
+[
+0,
+1360,
+3897,
+5
+]
+],
+"text": [
+"F2 U (L U D) on UD",
+"F2 D R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+4038
+],
+"scramble": "L U D R2 F L B2 L B2 L2 U2 B2 L2 F R2 B D2 B L2 U' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+562,
+5
+],
+[
+0,
+1360,
+3389,
+5
+]
+],
+"text": [
+"F U (L U D) on UD",
+"F D R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3522
+],
+"scramble": "L U D L' F2 R F' R' U2 F R B R' F' R2 F L2 D2 R U' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+2097,
+5
+],
+[
+0,
+1360,
+1854,
+5
+]
+],
+"text": [
+"B' U (L U D) on UD",
+"D R B L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+1985
+],
+"scramble": "L U D F' R D2 R2 F L' F R2 B2 L' F R2 D2 R F D2 U' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+57,
+5
+],
+[
+0,
+1360,
+3894,
+5
+]
+],
+"text": [
+"B2 U (L U D) on UD",
+"B2 D R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+4041
+],
+"scramble": "L U D L B2 R2 U2 B L2 B R2 B2 U2 L' F2 L F' R2 D2 U' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2655,
+1073,
+5
+],
+[
+0,
+1360,
+2878,
+5
+]
+],
+"text": [
+"B U (L U D) on UD",
+"B D R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3009
+],
+"scramble": "L U D R' F' L' B' U2 R U2 L2 B L' F2 L' U2 L2 B' L' U' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+3081,
+5
+],
+[
+0,
+1360,
+3318,
+5
+]
+],
+"text": [
+"U2 B (L F B) on FB",
+"U2 F R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3081
+],
+"scramble": "L F B R2 D F2 U2 R' U2 B2 L' B2 R2 U2 R' F2 U F2 U' B' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+3112,
+5
+],
+[
+0,
+1360,
+3287,
+5
+]
+],
+"text": [
+"U B (L F B) on FB",
+"U F R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3112
+],
+"scramble": "L F B D L U L2 D2 L2 D2 R' F2 U2 R' D R D2 F2 L B' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+3202,
+5
+],
+[
+0,
+1360,
+3197,
+5
+]
+],
+"text": [
+"D' B (L F B) on FB",
+"F R D L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3202
+],
+"scramble": "L F B U R' D2 R2 D2 L2 B2 D R2 D R' D R D2 R2 U2 B' D"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+3078,
+5
+],
+[
+0,
+1360,
+3321,
+5
+]
+],
+"text": [
+"D2 B (L F B) on FB",
+"D2 F R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+3078
+],
+"scramble": "L F B D2 L2 D' R2 U L' D' L' D' L2 D F2 D2 L' B2 R' B' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+2122,
+5
+],
+[
+0,
+1360,
+2229,
+5
+]
+],
+"text": [
+"R' B (L F B) on FB",
+"R' F R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+2122
+],
+"scramble": "L F B U2 R2 D F2 D R2 D F2 D2 L U' R2 U L U' R B' R"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+2314,
+5
+],
+[
+0,
+1360,
+2549,
+5
+]
+],
+"text": [
+"R2 B (L F B) on FB",
+"R2 F R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+2314
+],
+"scramble": "L F B U L U' R U L' U R D' L' U2 L2 U L2 B2 D' B' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+2074,
+5
+],
+[
+0,
+1360,
+2277,
+5
+]
+],
+"text": [
+"R B (L F B) on FB",
+"R F R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+2074
+],
+"scramble": "L F B D' R2 U' R U2 R' F2 D R D' F2 D2 B2 R U2 L' B' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+1066,
+5
+],
+[
+0,
+1360,
+1237,
+5
+]
+],
+"text": [
+"L' B (L F B) on FB",
+"L' F R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+1066
+],
+"scramble": "L F B R2 D R' D L' U L2 D F2 L2 F2 R U R U R2 B' L"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+1546,
+5
+],
+[
+0,
+1360,
+1781,
+5
+]
+],
+"text": [
+"L2 B (L F B) on FB",
+"L2 F R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+1546
+],
+"scramble": "L F B U2 F2 U L' U2 L D' L U L' D' L' F2 L F2 L2 B' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+1162,
+5
+],
+[
+0,
+1360,
+1141,
+5
+]
+],
+"text": [
+"L B (L F B) on FB",
+"L F R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+1162
+],
+"scramble": "L F B U2 B2 D R2 F2 R F2 D2 R B2 R2 U' R2 U' F2 L' B' L'"
+},
+{
+"type": "P1",
+"pres": [
+[
+2,
+1455,
+0,
+3
+],
+[
+0,
+1360,
+255,
+5
+]
+],
+"text": [
+"(L F B) on FB",
+"F B R L (R) on RL"
+],
+"len": [
+3,
+5
+],
+"key": [
+1455,
+0
+],
+"scramble": "L F B D2 B2 L' F2 U' L D B2 D' R2 D' F2 L U2 R' D"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+804,
+5
+],
+[
+0,
+1360,
+987,
+5
+]
+],
+"text": [
+"U' F (L F B) on FB",
+"B R U L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+804
+],
+"scramble": "L F B R F2 U' R U2 L2 U R2 D' R U2 L U2 R U' R F' U"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+774,
+5
+],
+[
+0,
+1360,
+1017,
+5
+]
+],
+"text": [
+"U2 F (L F B) on FB",
+"U2 B R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+774
+],
+"scramble": "L F B R2 D L' B2 L2 F2 U2 F2 D2 L D2 L' D2 R2 D L F' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+777,
+5
+],
+[
+0,
+1360,
+1014,
+5
+]
+],
+"text": [
+"D2 F (L F B) on FB",
+"D2 B R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+777
+],
+"scramble": "L F B D R D2 R' D L2 F2 U2 L2 U R2 B2 D B2 R2 D' F' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+897,
+5
+],
+[
+0,
+1360,
+894,
+5
+]
+],
+"text": [
+"D F (L F B) on FB",
+"D B R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+897
+],
+"scramble": "L F B U L B2 L D R' B2 U' R2 D2 F2 L2 U L2 D' L F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+533,
+5
+],
+[
+0,
+1360,
+746,
+5
+]
+],
+"text": [
+"R' F (L F B) on FB",
+"R' B R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+533
+],
+"scramble": "L F B L' D B2 U B2 D' R D' L D2 F2 R2 U2 R U2 F R"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+1541,
+5
+],
+[
+0,
+1360,
+1786,
+5
+]
+],
+"text": [
+"R2 F (L F B) on FB",
+"R2 B R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+1541
+],
+"scramble": "L F B R U' L2 U2 L2 U' R D2 R D2 L2 D2 R U L' D' F' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+581,
+5
+],
+[
+0,
+1360,
+698,
+5
+]
+],
+"text": [
+"R F (L F B) on FB",
+"R B R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+581
+],
+"scramble": "L F B R U B2 D' L2 D R D R U' R U2 B2 U2 R D' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+389,
+5
+],
+[
+0,
+1360,
+378,
+5
+]
+],
+"text": [
+"L' F (L F B) on FB",
+"L' B R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+389
+],
+"scramble": "L F B R2 F2 U' R' U' L2 F2 R U2 L D' L' U' R' U' R F' L"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+2309,
+5
+],
+[
+0,
+1360,
+2554,
+5
+]
+],
+"text": [
+"L2 F (L F B) on FB",
+"L2 B R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+2309
+],
+"scramble": "L F B R2 F2 D B2 U R2 D' L U2 L' B2 U' L2 F2 D L F' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1455,
+293,
+5
+],
+[
+0,
+1360,
+474,
+5
+]
+],
+"text": [
+"L F (L F B) on FB",
+"L B R L (R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1455,
+293
+],
+"scramble": "L F B R B2 D B2 R2 U' L D R U' R D' L' B2 D R' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+788,
+5
+],
+[
+0,
+2720,
+1003,
+5
+]
+],
+"text": [
+"U F (R F B) on FB",
+"U B R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+3307
+],
+"scramble": "R F B' L2 U L2 B2 D' R B2 L2 F2 D2 L2 D2 L D R F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+3096,
+5
+],
+[
+0,
+2720,
+3303,
+5
+]
+],
+"text": [
+"U' B (R F B) on FB",
+"F L U R (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+999
+],
+"scramble": "R F B R D' R2 U' L D R2 F2 L F2 R2 B2 U' F2 R2 U2 B' U"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+3138,
+5
+],
+[
+0,
+2720,
+3261,
+5
+]
+],
+"text": [
+"D B (R F B) on FB",
+"D F R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+957
+],
+"scramble": "R F B U2 R D' F2 R2 U L2 U' L' D' F2 L' U2 F2 R' F2 B' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+833,
+5
+],
+[
+0,
+2720,
+958,
+5
+]
+],
+"text": [
+"D' F (R F B) on FB",
+"B L D R (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+3262
+],
+"scramble": "R F B U' B2 U2 L B2 U2 R2 D2 F2 U' L2 F2 L' D B2 D' F' D"
+},
+{
+"type": "P1",
+"pres": [
+[
+1,
+1455,
+0,
+3
+],
+[
+0,
+2720,
+3855,
+5
+]
+],
+"text": [
+"(R U D) on UD",
+"U D R L (L) on RL"
+],
+"len": [
+3,
+5
+],
+"key": [
+1440,
+15
+],
+"scramble": "R U D F2 R' F2 R' B' L' F L' F2 R' F2 R2 U2 R2 F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+396,
+5
+],
+[
+0,
+2720,
+3715,
+5
+]
+],
+"text": [
+"R' D (R U D) on UD",
+"R' U R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+387
+],
+"scramble": "R U D F' L B2 R' D2 B2 U2 F' L B' L' F D2 R' F L2 D' R"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+156,
+5
+],
+[
+0,
+2720,
+3987,
+5
+]
+],
+"text": [
+"R2 D (R U D) on UD",
+"R2 U R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+147
+],
+"scramble": "R U D B L F2 R B2 D2 L' F2 U2 R' B' R' F' L B U2 D' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+1164,
+5
+],
+[
+0,
+2720,
+2947,
+5
+]
+],
+"text": [
+"R D (R U D) on UD",
+"R U R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+1155
+],
+"scramble": "R U D B U2 R2 F2 L2 F L U2 R F2 U2 F2 L D2 F L D' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+2124,
+5
+],
+[
+0,
+2720,
+1859,
+5
+]
+],
+"text": [
+"L' D (R U D) on UD",
+"L' U R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+2115
+],
+"scramble": "R U D F R2 F2 R' F2 R F2 L' U2 B2 R2 B R D2 F' R D' L"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+108,
+5
+],
+[
+0,
+2720,
+3939,
+5
+]
+],
+"text": [
+"L2 D (R U D) on UD",
+"L2 U R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+99
+],
+"scramble": "R U D B' R' B2 R' U2 F' L F2 L' F2 L' U2 F U2 L2 U2 D' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+588,
+5
+],
+[
+0,
+2720,
+3395,
+5
+]
+],
+"text": [
+"L D (R U D) on UD",
+"L U R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+579
+],
+"scramble": "R U D B2 D2 F2 R2 F L2 B' R F R' D2 R' F' U2 B L' D' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+712,
+5
+],
+[
+0,
+2720,
+3527,
+5
+]
+],
+"text": [
+"F' D (R U D) on UD",
+"U R F L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+711
+],
+"scramble": "R U D B U2 L2 B' L2 B L' D2 B L' D2 R' F' U2 L B D' F"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+201,
+5
+],
+[
+0,
+2720,
+4038,
+5
+]
+],
+"text": [
+"F2 D (R U D) on UD",
+"F2 U R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+198
+],
+"scramble": "R U D B R' B U2 R' F' L2 F' R' F' R2 D2 F U2 R B' D' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+456,
+5
+],
+[
+0,
+2720,
+3783,
+5
+]
+],
+"text": [
+"F D (R U D) on UD",
+"F U R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+455
+],
+"scramble": "R U D B R2 B L F2 R2 B' L' B' U2 B' U2 L2 B R2 F2 D' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+1220,
+5
+],
+[
+0,
+2720,
+3019,
+5
+]
+],
+"text": [
+"B' D (R U D) on UD",
+"U L B R (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+1227
+],
+"scramble": "R U D R' B2 R2 F2 D2 F2 R U2 F2 R B U2 R B U2 B D' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+198,
+5
+],
+[
+0,
+2720,
+4041,
+5
+]
+],
+"text": [
+"B2 D (R U D) on UD",
+"B2 U R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+201
+],
+"scramble": "R U D' B U2 B' L B' D2 B' L2 D2 R2 D2 B' D2 B' R' D' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+2244,
+5
+],
+[
+0,
+2720,
+1995,
+5
+]
+],
+"text": [
+"B D (R U D) on UD",
+"B U R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+2251
+],
+"scramble": "R U D L' D2 R D2 B2 R2 U2 L U2 B L B2 L' B' R' F2 D' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+1059,
+5
+],
+[
+0,
+2720,
+2860,
+5
+]
+],
+"text": [
+"R' U (R U D) on UD",
+"R' D R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+1068
+],
+"scramble": "R U D B U2 B2 L2 U2 L2 F D2 L B U2 F R2 B D2 F2 U' R"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+99,
+5
+],
+[
+0,
+2720,
+3948,
+5
+]
+],
+"text": [
+"R2 U (R U D) on UD",
+"R2 D R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+108
+],
+"scramble": "R U D B' R' U2 F R2 B2 U2 L D2 L' B R F2 L B' R' U' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+291,
+5
+],
+[
+0,
+2720,
+3628,
+5
+]
+],
+"text": [
+"R U (R U D) on UD",
+"R D R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+300
+],
+"scramble": "R U D F2 R B' R2 B R2 D2 F' D2 L' B2 D2 F' L D2 L2 U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+531,
+5
+],
+[
+0,
+2720,
+3356,
+5
+]
+],
+"text": [
+"L' U (R U D) on UD",
+"L' D R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+540
+],
+"scramble": "R U D L2 B D2 L2 F' U2 L F R F' R2 F U2 L F2 L U' L"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+147,
+5
+],
+[
+0,
+2720,
+3996,
+5
+]
+],
+"text": [
+"L2 U (R U D) on UD",
+"L2 D R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+156
+],
+"scramble": "R U D F R B' L' F' L B R' F2 R2 F' R2 F R2 B2 R U' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+2067,
+5
+],
+[
+0,
+2720,
+1820,
+5
+]
+],
+"text": [
+"L U (R U D) on UD",
+"L D R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+2076
+],
+"scramble": "R U D B R B L F2 L B D2 R F' D2 R2 B2 R' B R' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+306,
+5
+],
+[
+0,
+2720,
+3645,
+5
+]
+],
+"text": [
+"F' U (R U D) on UD",
+"D L F R (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+317
+],
+"scramble": "R U D L2 D2 F' D2 R' U2 L2 B' L2 B R2 F R' U2 R F2 U' F"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+54,
+5
+],
+[
+0,
+2720,
+3897,
+5
+]
+],
+"text": [
+"F2 U (R U D) on UD",
+"F2 D R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+57
+],
+"scramble": "R U D B L2 U2 B R2 B' L2 B L2 B' R2 F' R2 F' R F' U' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+562,
+5
+],
+[
+0,
+2720,
+3389,
+5
+]
+],
+"text": [
+"F U (R U D) on UD",
+"F D R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+573
+],
+"scramble": "R U D' L' F' D2 L2 B2 L2 B R B' L2 U2 F2 L2 F R U' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+2097,
+5
+],
+[
+0,
+2720,
+1854,
+5
+]
+],
+"text": [
+"B' U (R U D) on UD",
+"D R B L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+2110
+],
+"scramble": "R U D F' L B2 U2 L2 B' L' D2 R' F R2 B R2 F L D2 U' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+57,
+5
+],
+[
+0,
+2720,
+3894,
+5
+]
+],
+"text": [
+"B2 U (R U D) on UD",
+"B2 D R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+54
+],
+"scramble": "R U D B' L' F R2 B L' F U2 F' L F L B L' F' R U' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1455,
+1073,
+5
+],
+[
+0,
+2720,
+2878,
+5
+]
+],
+"text": [
+"B U (R U D) on UD",
+"B D R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+1086
+],
+"scramble": "R U D L2 F D2 B L F' U2 R' U2 L2 F' L F2 R' D2 R2 U' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+3081,
+5
+],
+[
+0,
+2720,
+3318,
+5
+]
+],
+"text": [
+"U2 B (R F B) on FB",
+"U2 F R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+1014
+],
+"scramble": "R F B D2 L' D F2 R D F2 U2 F2 L2 D R2 D B2 U' L2 B' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+3112,
+5
+],
+[
+0,
+2720,
+3287,
+5
+]
+],
+"text": [
+"U B (R F B) on FB",
+"U F R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+983
+],
+"scramble": "R F B L2 B2 R D2 F2 R' U' F2 R2 D' F2 D L' D2 R U' B' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+3202,
+5
+],
+[
+0,
+2720,
+3197,
+5
+]
+],
+"text": [
+"D' B (R F B) on FB",
+"F R D L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+893
+],
+"scramble": "R F B R2 U F2 L' F2 D2 L2 D2 R2 U2 L2 D' B2 R U B D"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+3078,
+5
+],
+[
+0,
+2720,
+3321,
+5
+]
+],
+"text": [
+"D2 B (R F B) on FB",
+"D2 F R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+1017
+],
+"scramble": "R F B L D' F2 U' R' B2 D' L2 U L2 U L2 D2 L U2 L B' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+2122,
+5
+],
+[
+0,
+2720,
+2229,
+5
+]
+],
+"text": [
+"R' B (R F B) on FB",
+"R' F R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+1973
+],
+"scramble": "R F B U' B2 D F2 R2 D' F2 U' R F2 R' U' L F2 U2 L2 B' R"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+2314,
+5
+],
+[
+0,
+2720,
+2549,
+5
+]
+],
+"text": [
+"R2 B (R F B) on FB",
+"R2 F R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+1781
+],
+"scramble": "R F B R' F2 L2 B2 D2 R2 D R' U2 L' B2 R2 U2 R' U2 R B' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+2074,
+5
+],
+[
+0,
+2720,
+2277,
+5
+]
+],
+"text": [
+"R B (R F B) on FB",
+"R F R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+2021
+],
+"scramble": "R F B D B2 U' R2 U R2 U' L' D R2 U' R' B2 L' U B R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+1066,
+5
+],
+[
+0,
+2720,
+1237,
+5
+]
+],
+"text": [
+"L' B (R F B) on FB",
+"L' F R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+3029
+],
+"scramble": "R F B D' R2 D2 B2 R2 D' R U2 L2 D' L2 U L U L2 D' B' L"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+1546,
+5
+],
+[
+0,
+2720,
+1781,
+5
+]
+],
+"text": [
+"L2 B (R F B) on FB",
+"L2 F R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+2549
+],
+"scramble": "R F B F2 U2 R' F2 U' L' U' B2 L2 D' R2 F2 R' F2 D R B' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+1162,
+5
+],
+[
+0,
+2720,
+1141,
+5
+]
+],
+"text": [
+"L B (R F B) on FB",
+"L F R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+2933
+],
+"scramble": "R F B D' R D2 R' U B2 D2 B2 R2 D' R' D2 B2 R' D' L2 B' L'"
+},
+{
+"type": "P1",
+"pres": [
+[
+2,
+2655,
+0,
+3
+],
+[
+0,
+2720,
+255,
+5
+]
+],
+"text": [
+"(R F B) on FB",
+"F B R L (L) on RL"
+],
+"len": [
+3,
+5
+],
+"key": [
+1440,
+4095
+],
+"scramble": "R F B R2 F2 U2 L' D2 L U2 F2 U R U R D2 B2 R2 F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+804,
+5
+],
+[
+0,
+2720,
+987,
+5
+]
+],
+"text": [
+"U' F (R F B) on FB",
+"B R U L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+3291
+],
+"scramble": "R F B L2 U F2 R' U' L2 U2 L2 F2 U' L2 U' B2 U R F U"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+774,
+5
+],
+[
+0,
+2720,
+1017,
+5
+]
+],
+"text": [
+"U2 F (R F B) on FB",
+"U2 B R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+3321
+],
+"scramble": "R F B U2 L2 U B2 U' F2 D2 R' D2 B2 D2 R U R U R2 F' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+777,
+5
+],
+[
+0,
+2720,
+1014,
+5
+]
+],
+"text": [
+"D2 F (R F B) on FB",
+"D2 B R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+3318
+],
+"scramble": "R F B L U B2 U2 F2 R U2 L2 U' R2 F2 R U2 L2 D L2 F' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+897,
+5
+],
+[
+0,
+2720,
+894,
+5
+]
+],
+"text": [
+"D F (R F B) on FB",
+"D B R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+3198
+],
+"scramble": "R F B U R U L2 U2 B2 U2 B2 U2 R2 U L' D R2 U' F D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+533,
+5
+],
+[
+0,
+2720,
+746,
+5
+]
+],
+"text": [
+"R' F (R F B) on FB",
+"R' B R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+3562
+],
+"scramble": "R F B L' B2 U' L' F2 U2 L2 D2 L' U L2 B2 L U2 R D2 F' R"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+1541,
+5
+],
+[
+0,
+2720,
+1786,
+5
+]
+],
+"text": [
+"R2 F (R F B) on FB",
+"R2 B R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+2554
+],
+"scramble": "R F B D2 L' U' B2 R2 U L U' F2 U2 L2 U' L2 F2 R F R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+581,
+5
+],
+[
+0,
+2720,
+698,
+5
+]
+],
+"text": [
+"R F (R F B) on FB",
+"R B R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+3514
+],
+"scramble": "R F B F2 R2 D2 F2 L D' L F2 L D' B2 L U B2 U' L F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+389,
+5
+],
+[
+0,
+2720,
+378,
+5
+]
+],
+"text": [
+"L' F (R F B) on FB",
+"L' B R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+3706
+],
+"scramble": "R F B' D2 L D R F2 D F2 R2 D2 L' U R U' L B2 F' L"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+2309,
+5
+],
+[
+0,
+2720,
+2554,
+5
+]
+],
+"text": [
+"L2 F (R F B) on FB",
+"L2 B R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+1786
+],
+"scramble": "R F B F2 U B2 U' F2 L U' B2 R' F2 R2 D' R' U2 R' F L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2655,
+293,
+5
+],
+[
+0,
+2720,
+474,
+5
+]
+],
+"text": [
+"L F (R F B) on FB",
+"L B R L (L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1440,
+3802
+],
+"scramble": "R F B R D F2 L' D L U L2 D L F2 U F2 R U2 R' F' L'"
+},
+{
+"type": "T2",
+"pres": [
+[
+0,
+4080,
+1360,
+3
+],
+[
+2,
+3855,
+1455,
+5
+],
+[
+1,
+255,
+2655,
+5
+]
+],
+"text": [
+"R (R L) on RL",
+"L F B (F B) on FB",
+"L U D (U D) on UD"
+],
+"len": [
+3,
+5,
+5
+],
+"key": [
+240,
+2640
+],
+"scramble": "R L B2 D' B2 U2 R2 F2 D2 B' D' L2 F D B2 D2 F2 D' R'"
+},
+{
+"type": "T2",
+"pres": [
+[
+0,
+4080,
+2720,
+3
+],
+[
+2,
+3855,
+2655,
+5
+],
+[
+1,
+255,
+1455,
+5
+]
+],
+"text": [
+"L (R L) on RL",
+"R F B (F B) on FB",
+"R U D (U D) on UD"
+],
+"len": [
+3,
+5,
+5
+],
+"key": [
+240,
+1440
+],
+"scramble": "R L R2 B2 U' L2 D' B' U2 F' L2 B2 U2 F2 U F U B' L'"
+},
+{
+"type": "T1",
+"pres": [
+[
+2,
+3855,
+3855,
+4
+],
+[
+1,
+255,
+255,
+4
+],
+[
+0,
+4080,
+4080,
+4
+]
+],
+"text": [
+"F B (F B) on FB",
+"U D (U D) on UD",
+"R L (R L) on RL"
+],
+"len": [
+4,
+4,
+4
+],
+"key": [
+240,
+240
+],
+"scramble": "F B' L D F2 D2 R U2 R2 F2 L B2 L U' B2 U R B' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2638,
+204,
+5
+],
+[
+0,
+1345,
+4035,
+5
+]
+],
+"text": [
+"D (U' L U D) on UD",
+"U R L (U' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1470,
+3900
+],
+"scramble": "U' L U D' F L B' L' B' D2 B' L2 D2 B D2 R' F2 R2 F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2638,
+51,
+5
+],
+[
+0,
+1345,
+3900,
+5
+]
+],
+"text": [
+"U (U' L U D) on UD",
+"D R L (U' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1470,
+4035
+],
+"scramble": "U' L U D' F' L2 B' R B R2 U2 R' U2 F U2 B' U2 R' B2 U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1470,
+3082,
+5
+],
+[
+0,
+1345,
+3317,
+5
+]
+],
+"text": [
+"B (L B U F) on FB",
+"F R L (U' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1470,
+3082
+],
+"scramble": "L B U F R' F2 R2 U F2 U L2 D2 L F2 L2 U2 R2 D' R U2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1470,
+773,
+5
+],
+[
+0,
+1345,
+1018,
+5
+]
+],
+"text": [
+"F (L B U F) on FB",
+"B R L (U' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1470,
+773
+],
+"scramble": "L B U F D' R2 U' R2 D F2 U' L2 U R2 D F2 U B2 D L F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2671,
+204,
+5
+],
+[
+0,
+1376,
+4035,
+5
+]
+],
+"text": [
+"D (U2 L U D) on UD",
+"U R L (U2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1439,
+3900
+],
+"scramble": "U2 L U D B' L B R B2 L' D2 L2 B' U2 F' D2 L' B' R2 D"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2671,
+51,
+5
+],
+[
+0,
+1376,
+3900,
+5
+]
+],
+"text": [
+"U (U2 L U D) on UD",
+"D R L (U2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1439,
+4035
+],
+"scramble": "U2 L U D F' L B U2 R B L' F R B' R U2 R' F2 R' B2 U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1439,
+3082,
+5
+],
+[
+0,
+1376,
+3317,
+5
+]
+],
+"text": [
+"B (U2 L F B) on FB",
+"F R L (U2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1439,
+3082
+],
+"scramble": "U2 L F B U' R2 U2 R2 U2 R' U L2 F2 L2 D R' B2 D2 F2 D B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1439,
+773,
+5
+],
+[
+0,
+1376,
+1018,
+5
+]
+],
+"text": [
+"F (U2 L F B) on FB",
+"B R L (U2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1439,
+773
+],
+"scramble": "U2 L F B D' R D2 R D2 R U' B2 L' D2 L2 U R2 F2 R' D' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2637,
+204,
+5
+],
+[
+0,
+1346,
+4035,
+5
+]
+],
+"text": [
+"D (U L U D) on UD",
+"U R L (U R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1469,
+3900
+],
+"scramble": "U L U D F R U2 B2 R' U2 L2 F2 R B' R F R2 B R F2 D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2637,
+51,
+5
+],
+[
+0,
+1346,
+3900,
+5
+]
+],
+"text": [
+"U (U L U D) on UD",
+"D R L (U R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1469,
+4035
+],
+"scramble": "U L U D' B' D2 F2 L' B2 R' F2 R2 F2 R' U2 B L2 B' U"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1469,
+3082,
+5
+],
+[
+0,
+1346,
+3317,
+5
+]
+],
+"text": [
+"B (U L F B) on FB",
+"F R L (U R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1469,
+3082
+],
+"scramble": "U L F B R' F2 D' B2 L2 B2 R2 U2 R F2 R2 U' B2 L2 D2 L B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1469,
+773,
+5
+],
+[
+0,
+1346,
+1018,
+5
+]
+],
+"text": [
+"F (U L F B) on FB",
+"B R L (U R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1469,
+773
+],
+"scramble": "U L F B' D' L' D' L B2 U R' U2 L' D B2 D' F2 L' B2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2583,
+204,
+5
+],
+[
+0,
+1304,
+4035,
+5
+]
+],
+"text": [
+"D (D' L U D) on UD",
+"U R L (D' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1511,
+3900
+],
+"scramble": "D' L U D L2 F2 U2 R' B' D2 B L' F U2 F R U2 R2 D2 R2 D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2583,
+51,
+5
+],
+[
+0,
+1304,
+3900,
+5
+]
+],
+"text": [
+"U (D' L U D) on UD",
+"D R L (D' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1511,
+4035
+],
+"scramble": "D' L U D F2 R D2 R' F U2 B R2 U2 B' L' F R2 B L' D2 U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1511,
+3082,
+5
+],
+[
+0,
+1304,
+3317,
+5
+]
+],
+"text": [
+"B (L F D B) on FB",
+"F R L (D' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1511,
+3082
+],
+"scramble": "L F D B D' B2 U2 L' U' R2 F2 D2 R U' R' D B2 D L2 U' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1511,
+773,
+5
+],
+[
+0,
+1304,
+1018,
+5
+]
+],
+"text": [
+"F (L F D B) on FB",
+"B R L (D' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1511,
+773
+],
+"scramble": "L F D B' U L2 B2 L U R U F2 D' R D B2 D' L' B2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2719,
+204,
+5
+],
+[
+0,
+1424,
+4035,
+5
+]
+],
+"text": [
+"D (D2 L U D) on UD",
+"U R L (D2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1391,
+3900
+],
+"scramble": "D2 L U D F2 L B' L2 B' U2 L F R F' L B' L2 F' U2 L D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2719,
+51,
+5
+],
+[
+0,
+1424,
+3900,
+5
+]
+],
+"text": [
+"U (D2 L U D) on UD",
+"D R L (D2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1391,
+4035
+],
+"scramble": "D2 L U D' F R D2 L F U2 R2 B2 L' F' U2 B2 U2 B' R' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1391,
+3082,
+5
+],
+[
+0,
+1424,
+3317,
+5
+]
+],
+"text": [
+"B (D2 L F B) on FB",
+"F R L (D2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1391,
+3082
+],
+"scramble": "D2 L F B L2 D2 L2 F2 U L U2 R' U R D L2 U' L D2 R2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1391,
+773,
+5
+],
+[
+0,
+1424,
+1018,
+5
+]
+],
+"text": [
+"F (D2 L F B) on FB",
+"B R L (D2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1391,
+773
+],
+"scramble": "D2 L F B L U' R2 U2 R' U' R D2 L' U2 L' D2 B2 R2 D L2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2587,
+204,
+5
+],
+[
+0,
+1300,
+4035,
+5
+]
+],
+"text": [
+"D (D L U D) on UD",
+"U R L (D R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1515,
+3900
+],
+"scramble": "D L U D L2 F L F R' F2 L' B' R' U2 R2 F L2 F2 L2 U2 D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2587,
+51,
+5
+],
+[
+0,
+1300,
+3900,
+5
+]
+],
+"text": [
+"U (D L U D) on UD",
+"D R L (D R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1515,
+4035
+],
+"scramble": "D L U D L B' R2 F L U2 B2 U2 R F D2 F2 L F' U2 F U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1515,
+3082,
+5
+],
+[
+0,
+1300,
+3317,
+5
+]
+],
+"text": [
+"B (D L F B) on FB",
+"F R L (D R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1515,
+3082
+],
+"scramble": "D L F B R B2 R2 D' L' F2 U2 R' D L2 U' R D' L2 D' L2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1515,
+773,
+5
+],
+[
+0,
+1300,
+1018,
+5
+]
+],
+"text": [
+"F (D L F B) on FB",
+"B R L (D R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1515,
+773
+],
+"scramble": "D L F B D L B2 D2 B2 R' U2 L' B2 L' F2 R2 D2 F2 L2 U' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+3870,
+5
+],
+[
+0,
+4080,
+4065,
+5
+]
+],
+"text": [
+"B U F (F B) on FB",
+"L U' R (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+225
+],
+"scramble": "F B R B2 U2 R F2 R' U2 R2 U' R B2 D2 B2 L U2 R F' U' B'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+3869,
+5
+],
+[
+0,
+4080,
+4066,
+5
+]
+],
+"text": [
+"F U' B (F B) on FB",
+"L U R (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+226
+],
+"scramble": "F B' R2 D2 L' D' R D' F2 L' B2 R2 D2 R' D2 F2 U' B' U F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+3911,
+5
+],
+[
+0,
+4080,
+4024,
+5
+]
+],
+"text": [
+"F D B (F B) on FB",
+"L D' R (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+184
+],
+"scramble": "F B R D B2 D' B2 L B2 D R U L D2 R' F2 D2 R' B' D' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+3915,
+5
+],
+[
+0,
+4080,
+4020,
+5
+]
+],
+"text": [
+"B D' F (F B) on FB",
+"L D R (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+180
+],
+"scramble": "F B L B2 R' D' L D' R2 U L2 U2 R' D R D' R' U' F' D B'"
+},
+{
+"type": "T2",
+"pres": [
+[
+1,
+255,
+204,
+3
+],
+[
+2,
+3855,
+3900,
+5
+],
+[
+0,
+4080,
+4035,
+5
+]
+],
+"text": [
+"D (U D) on UD",
+"U F B (F B) on FB",
+"U R L (R L) on RL"
+],
+"len": [
+3,
+5,
+5
+],
+"key": [
+240,
+195
+],
+"scramble": "U D R2 B2 L B D2 R D2 B' R' F R D2 F' R' B L D'"
+},
+{
+"type": "T2",
+"pres": [
+[
+1,
+255,
+51,
+3
+],
+[
+2,
+3855,
+4035,
+5
+],
+[
+0,
+4080,
+3900,
+5
+]
+],
+"text": [
+"U (U D) on UD",
+"D F B (F B) on FB",
+"D R L (R L) on RL"
+],
+"len": [
+3,
+5,
+5
+],
+"key": [
+240,
+60
+],
+"scramble": "U D B' L2 F' R F R' B' R2 F R2 U2 F' D2 L F2 U"
+},
+{
+"type": "T2",
+"pres": [
+[
+2,
+3855,
+3082,
+3
+],
+[
+1,
+255,
+1018,
+5
+],
+[
+0,
+4080,
+3317,
+5
+]
+],
+"text": [
+"B (F B) on FB",
+"F U D (U D) on UD",
+"F R L (R L) on RL"
+],
+"len": [
+3,
+5,
+5
+],
+"key": [
+240,
+1013
+],
+"scramble": "F B L' U F2 U L' U R B2 U2 L U L2 U R2 F2 R' B'"
+},
+{
+"type": "T2",
+"pres": [
+[
+2,
+3855,
+773,
+3
+],
+[
+1,
+255,
+3317,
+5
+],
+[
+0,
+4080,
+1018,
+5
+]
+],
+"text": [
+"F (F B) on FB",
+"B U D (U D) on UD",
+"B R L (R L) on RL"
+],
+"len": [
+3,
+5,
+5
+],
+"key": [
+240,
+3322
+],
+"scramble": "F B L D2 B2 L2 U' L D R U2 R' F2 R' U2 R' B2 R2 F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+255,
+507,
+5
+],
+[
+0,
+4080,
+3828,
+5
+]
+],
+"text": [
+"U F D (U D) on UD",
+"L F' R (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+500
+],
+"scramble": "U D F2 L2 B2 U2 F' U2 F' L B R2 U2 R' F' D2 B' D F' U'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+255,
+510,
+5
+],
+[
+0,
+4080,
+3825,
+5
+]
+],
+"text": [
+"D F' U (U D) on UD",
+"L F R (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+497
+],
+"scramble": "U D L F2 L2 U2 R2 F2 U2 L' U2 F2 R2 U2 R F2 R U F D'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+255,
+1277,
+5
+],
+[
+0,
+4080,
+3058,
+5
+]
+],
+"text": [
+"D B U (U D) on UD",
+"L B' R (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+1266
+],
+"scramble": "U D B' L' F2 R' D2 R2 F' L2 F' R2 B L' U2 B2 R2 D2 U' B' D'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+255,
+1271,
+5
+],
+[
+0,
+4080,
+3064,
+5
+]
+],
+"text": [
+"U B' D (U D) on UD",
+"L B R (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+1272
+],
+"scramble": "U D R U2 R' F L D2 L F L2 F' D2 L2 B' L F R2 D' B U'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+3885,
+5
+],
+[
+0,
+4080,
+4050,
+5
+]
+],
+"text": [
+"F U B (F B) on FB",
+"R U' L (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+210
+],
+"scramble": "F B R D R2 D2 R U L2 U F2 U' L' U' R' B2 U' R' B' U' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+3886,
+5
+],
+[
+0,
+4080,
+4049,
+5
+]
+],
+"text": [
+"B U' F (F B) on FB",
+"R U L (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+209
+],
+"scramble": "F B R2 B2 D L' D R2 D B2 R2 U' L' D2 L D' R' D F' U B'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+3979,
+5
+],
+[
+0,
+4080,
+3956,
+5
+]
+],
+"text": [
+"B D F (F B) on FB",
+"R D' L (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+116
+],
+"scramble": "F B R D B2 U2 L2 U2 R' B2 D2 L' F2 R U L2 U' R F' D' B'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+3975,
+5
+],
+[
+0,
+4080,
+3960,
+5
+]
+],
+"text": [
+"F D' B (F B) on FB",
+"R D L (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+120
+],
+"scramble": "F B L' U2 L' U' F2 D L2 U2 R' D' F2 R' F2 D2 L' D2 B' D F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+255,
+766,
+5
+],
+[
+0,
+4080,
+3569,
+5
+]
+],
+"text": [
+"D F U (U D) on UD",
+"R F' L (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+753
+],
+"scramble": "U D' R2 B' L2 B' L' B2 R U2 L F' L U2 F' L' B' U' F' D'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+255,
+763,
+5
+],
+[
+0,
+4080,
+3572,
+5
+]
+],
+"text": [
+"U F' D (U D) on UD",
+"R F L (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+756
+],
+"scramble": "U D L2 F' D2 R D2 R' F2 R2 B U2 L2 U2 F2 R B2 R' D' F U'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+255,
+2295,
+5
+],
+[
+0,
+4080,
+2040,
+5
+]
+],
+"text": [
+"U B D (U D) on UD",
+"R B' L (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+2296
+],
+"scramble": "U D R B U2 F R' F' R F2 R2 F2 L' B R' F' L U2 D' B' U'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+255,
+2301,
+5
+],
+[
+0,
+4080,
+2034,
+5
+]
+],
+"text": [
+"D B' U (U D) on UD",
+"R B L (R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+2290
+],
+"scramble": "U D' B' R' U2 B' U2 R2 F' D2 B2 L B2 L B D2 L2 U' B D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2907,
+204,
+5
+],
+[
+0,
+1108,
+4035,
+5
+]
+],
+"text": [
+"D (L U F D) on UD",
+"U R L (F' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1195,
+3900
+],
+"scramble": "L U F D B L2 B R2 F D2 L B L' F U2 F' R2 F' R B2 D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2907,
+51,
+5
+],
+[
+0,
+1108,
+3900,
+5
+]
+],
+"text": [
+"U (L U F D) on UD",
+"D R L (F' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1195,
+4035
+],
+"scramble": "L U F D R2 U2 B R' F R B2 R2 F R' U2 R D2 R2 F' R' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1195,
+3082,
+5
+],
+[
+0,
+1108,
+3317,
+5
+]
+],
+"text": [
+"B (F' L F B) on FB",
+"F R L (F' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1195,
+3082
+],
+"scramble": "F' L F B U' L2 D L' D R' U' L2 D' L' D2 L' U' L D L2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1195,
+773,
+5
+],
+[
+0,
+1108,
+1018,
+5
+]
+],
+"text": [
+"F (F' L F B) on FB",
+"B R L (F' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1195,
+773
+],
+"scramble": "F' L F B' U2 R' F2 U' L2 U' L B2 R B2 D L' D2 R2 D F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2399,
+204,
+5
+],
+[
+0,
+1616,
+4035,
+5
+]
+],
+"text": [
+"D (F2 L U D) on UD",
+"U R L (F2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1711,
+3900
+],
+"scramble": "F2 L U D U2 R' D2 B R' D2 R F2 L F D2 L' B2 L' D2 B D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2399,
+51,
+5
+],
+[
+0,
+1616,
+3900,
+5
+]
+],
+"text": [
+"U (F2 L U D) on UD",
+"D R L (F2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1711,
+4035
+],
+"scramble": "F2 L U D B L B R' D2 F' L' B2 L U2 L D2 F' R' F' R' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1711,
+3082,
+5
+],
+[
+0,
+1616,
+3317,
+5
+]
+],
+"text": [
+"B (F2 L F B) on FB",
+"F R L (F2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1711,
+3082
+],
+"scramble": "F2 L F B L2 D L' U F2 R B2 U' L2 B2 L2 U' F2 L' B2 D2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1711,
+773,
+5
+],
+[
+0,
+1616,
+1018,
+5
+]
+],
+"text": [
+"F (F2 L F B) on FB",
+"B R L (F2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1711,
+773
+],
+"scramble": "F2 L F B L' D' R U' L2 B2 D' R' D' B2 D2 L F2 L2 B2 L' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2910,
+204,
+5
+],
+[
+0,
+1105,
+4035,
+5
+]
+],
+"text": [
+"D (F L U D) on UD",
+"U R L (F R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1198,
+3900
+],
+"scramble": "F L U D L2 U2 R2 B R F2 D2 R B R2 F' L2 D2 B' L' B D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2910,
+51,
+5
+],
+[
+0,
+1105,
+3900,
+5
+]
+],
+"text": [
+"U (F L U D) on UD",
+"D R L (F R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1198,
+4035
+],
+"scramble": "F L U D L U2 B' L2 D2 F' U2 F L2 D2 L' U2 F' R B R U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1198,
+3082,
+5
+],
+[
+0,
+1105,
+3317,
+5
+]
+],
+"text": [
+"B (F L F B) on FB",
+"F R L (F R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1198,
+3082
+],
+"scramble": "F L F B R D2 R2 F2 L D' L D R2 U2 R' D' R' B2 U' R B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1198,
+773,
+5
+],
+[
+0,
+1105,
+1018,
+5
+]
+],
+"text": [
+"F (F L F B) on FB",
+"B R L (F R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1198,
+773
+],
+"scramble": "F L F B L U2 F2 U L' D' L D2 L D' R2 U' B2 D' R' U F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+3677,
+204,
+5
+],
+[
+0,
+338,
+4035,
+5
+]
+],
+"text": [
+"D (L D B U) on UD",
+"U R L (B' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+429,
+3900
+],
+"scramble": "L D B U B' R2 F' L' B D2 R F' L F L2 F R2 F2 L' D"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+3677,
+51,
+5
+],
+[
+0,
+338,
+3900,
+5
+]
+],
+"text": [
+"U (L D B U) on UD",
+"D R L (B' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+429,
+4035
+],
+"scramble": "L D B U R2 F D2 R2 B' R' F' D2 R2 F R' B L' F L' F U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+429,
+3082,
+5
+],
+[
+0,
+338,
+3317,
+5
+]
+],
+"text": [
+"B (B' L F B) on FB",
+"F R L (B' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+429,
+3082
+],
+"scramble": "B' L F B L U2 L' U2 B2 R U2 F2 R2 U' B2 R' B2 U2 L2 U2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+429,
+773,
+5
+],
+[
+0,
+338,
+1018,
+5
+]
+],
+"text": [
+"F (B' L F B) on FB",
+"B R L (B' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+429,
+773
+],
+"scramble": "B' L F B R2 B2 L2 U' L F2 U2 F2 L U R D L' D R2 D2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1631,
+204,
+5
+],
+[
+0,
+2384,
+4035,
+5
+]
+],
+"text": [
+"D (B2 L U D) on UD",
+"U R L (B2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1616,
+195
+],
+"scramble": "B2 L U D' B R D2 F2 R2 F2 D2 B L B L B2 U2 B' R' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1631,
+51,
+5
+],
+[
+0,
+2384,
+3900,
+5
+]
+],
+"text": [
+"U (B2 L U D) on UD",
+"D R L (B2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1616,
+60
+],
+"scramble": "B2 L U D' R2 F L B L' U2 B' L D2 L F L B2 D2 F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2479,
+3082,
+5
+],
+[
+0,
+2384,
+3317,
+5
+]
+],
+"text": [
+"B (B2 L F B) on FB",
+"F R L (B2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1616,
+1013
+],
+"scramble": "B2 L F B D L' U B2 L U2 F2 U R2 U2 F2 D2 R' D2 B2 L2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2479,
+773,
+5
+],
+[
+0,
+2384,
+1018,
+5
+]
+],
+"text": [
+"F (B2 L F B) on FB",
+"B R L (B2 R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1616,
+3322
+],
+"scramble": "B2 L F B L2 B2 U' L D2 R' F2 D2 R2 U R2 B2 U F2 U L F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+3671,
+204,
+5
+],
+[
+0,
+344,
+4035,
+5
+]
+],
+"text": [
+"D (B L U D) on UD",
+"U R L (B R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+423,
+3900
+],
+"scramble": "B L U D B' L2 B' L' B L' B' D2 L F R2 F2 U2 R2 B' L D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+3671,
+51,
+5
+],
+[
+0,
+344,
+3900,
+5
+]
+],
+"text": [
+"U (B L U D) on UD",
+"D R L (B R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+423,
+4035
+],
+"scramble": "B L U D B L' F2 L' U2 L F2 L' U2 R2 F2 U2 F' R B R U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+423,
+3082,
+5
+],
+[
+0,
+344,
+3317,
+5
+]
+],
+"text": [
+"B (B L F B) on FB",
+"F R L (B R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+423,
+3082
+],
+"scramble": "B L F B D2 R D2 R' D2 L U' L' U R' F2 U2 B2 D F2 R B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+423,
+773,
+5
+],
+[
+0,
+344,
+1018,
+5
+]
+],
+"text": [
+"F (B L F B) on FB",
+"B R L (B R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+423,
+773
+],
+"scramble": "B L F B L2 U2 F2 D2 F2 D B2 U' L2 U2 F2 D' L' D' R' B2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1421,
+204,
+5
+],
+[
+0,
+2690,
+4035,
+5
+]
+],
+"text": [
+"D (U' R U D) on UD",
+"U R L (U' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1410,
+195
+],
+"scramble": "U' R U D F' R2 B' L2 U2 B L F' L B2 L' F L B2 R2 U2 D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1421,
+51,
+5
+],
+[
+0,
+2690,
+3900,
+5
+]
+],
+"text": [
+"U (U' R U D) on UD",
+"D R L (U' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1410,
+60
+],
+"scramble": "U' R U D B' L' F2 R' F2 D2 R B R' B L D2 R2 F2 D2 F2 U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2685,
+3082,
+5
+],
+[
+0,
+2690,
+3317,
+5
+]
+],
+"text": [
+"B (R F U B) on FB",
+"F R L (U' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1410,
+1013
+],
+"scramble": "R F U B U' L D' R2 D' F2 L' B2 U2 B2 R2 D' R' U F2 U' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2685,
+773,
+5
+],
+[
+0,
+2690,
+1018,
+5
+]
+],
+"text": [
+"F (R F U B) on FB",
+"B R L (U' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1410,
+3322
+],
+"scramble": "R F U B L2 D2 L' U R D L D2 B2 R' U2 L' U L U F"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1439,
+204,
+5
+],
+[
+0,
+2704,
+4035,
+5
+]
+],
+"text": [
+"D (U2 R U D) on UD",
+"U R L (U2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1424,
+195
+],
+"scramble": "U2 R U D B' L B R U2 R2 F U2 F' L U2 R2 B' U2 F' L' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1439,
+51,
+5
+],
+[
+0,
+2704,
+3900,
+5
+]
+],
+"text": [
+"U (U2 R U D) on UD",
+"D R L (U2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1424,
+60
+],
+"scramble": "U2 R U D L2 F2 L U2 B' L2 B2 U2 F' L B2 L' F2 L2 B' U"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2671,
+3082,
+5
+],
+[
+0,
+2704,
+3317,
+5
+]
+],
+"text": [
+"B (U2 R F B) on FB",
+"F R L (U2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1424,
+1013
+],
+"scramble": "U2 R F B U L D' R B2 D' R' F2 U2 B2 D' R D' R' B2 R' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2671,
+773,
+5
+],
+[
+0,
+2704,
+1018,
+5
+]
+],
+"text": [
+"F (U2 R F B) on FB",
+"B R L (U2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1424,
+3322
+],
+"scramble": "U2 R F B U' L2 D' L' D2 B2 L' F2 U F2 L2 D2 L2 F2 R' D2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1422,
+204,
+5
+],
+[
+0,
+2689,
+4035,
+5
+]
+],
+"text": [
+"D (U R U D) on UD",
+"U R L (U L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1409,
+195
+],
+"scramble": "U R U D L F R' U2 F L' D2 F' L F' R2 B2 D2 F2 R D"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1422,
+51,
+5
+],
+[
+0,
+2689,
+3900,
+5
+]
+],
+"text": [
+"U (U R U D) on UD",
+"D R L (U L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1409,
+60
+],
+"scramble": "U R U D U2 F R2 F R F2 L B R B' R F U2 L B2 R2 U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2686,
+3082,
+5
+],
+[
+0,
+2689,
+3317,
+5
+]
+],
+"text": [
+"B (U R F B) on FB",
+"F R L (U L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1409,
+1013
+],
+"scramble": "U R F B R2 B2 R2 D L2 D' F2 R D F2 U L2 U F2 L2 B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2686,
+773,
+5
+],
+[
+0,
+2689,
+1018,
+5
+]
+],
+"text": [
+"F (U R F B) on FB",
+"B R L (U L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1409,
+3322
+],
+"scramble": "U R F B D' L B2 D L' D F2 R D2 R2 D L F2 U' R2 B2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1323,
+204,
+5
+],
+[
+0,
+2596,
+4035,
+5
+]
+],
+"text": [
+"D (D' R U D) on UD",
+"U R L (D' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1316,
+195
+],
+"scramble": "D' R U D B' R' B2 R B' R' D2 L U2 L' B' R2 F' L' F2 U2 D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1323,
+51,
+5
+],
+[
+0,
+2596,
+3900,
+5
+]
+],
+"text": [
+"U (D' R U D) on UD",
+"D R L (D' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1316,
+60
+],
+"scramble": "D' R U D B2 R2 B' L U2 B2 L' B' R F' U2 B2 D2 R U2 R U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2779,
+3082,
+5
+],
+[
+0,
+2596,
+3317,
+5
+]
+],
+"text": [
+"B (R B D F) on FB",
+"F R L (D' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1316,
+1013
+],
+"scramble": "R B D F D2 R' D' F2 U' R2 U2 R D' L2 D' L D F2 L2 U B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2779,
+773,
+5
+],
+[
+0,
+2596,
+1018,
+5
+]
+],
+"text": [
+"F (R B D F) on FB",
+"B R L (D' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1316,
+3322
+],
+"scramble": "R B D F U R' D L U2 L' U R2 U' R' U L2 U' L2 U2 R' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1391,
+204,
+5
+],
+[
+0,
+2656,
+4035,
+5
+]
+],
+"text": [
+"D (D2 R U D) on UD",
+"U R L (D2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1376,
+195
+],
+"scramble": "D2 R U D L B' L' D2 L B' R2 B D2 R' B R U2 R' D2 R2 D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1391,
+51,
+5
+],
+[
+0,
+2656,
+3900,
+5
+]
+],
+"text": [
+"U (D2 R U D) on UD",
+"D R L (D2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1376,
+60
+],
+"scramble": "D2 R U D F U2 L2 B2 L U2 L B U2 F' L' F R' F L B U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2719,
+3082,
+5
+],
+[
+0,
+2656,
+3317,
+5
+]
+],
+"text": [
+"B (D2 R F B) on FB",
+"F R L (D2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1376,
+1013
+],
+"scramble": "D2 R F B R B2 L' D2 R D' R' U' R F2 R F2 U' L2 U L B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2719,
+773,
+5
+],
+[
+0,
+2656,
+1018,
+5
+]
+],
+"text": [
+"F (D2 R F B) on FB",
+"B R L (D2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1376,
+3322
+],
+"scramble": "D2 R F B R' D2 L' D B2 D L2 U2 B2 L F2 U L' U R D' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1319,
+204,
+5
+],
+[
+0,
+2600,
+4035,
+5
+]
+],
+"text": [
+"D (D R U D) on UD",
+"U R L (D L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1320,
+195
+],
+"scramble": "D R U D F' L' F L F2 U2 L' B L' F L F2 L2 B' L2 B D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1319,
+51,
+5
+],
+[
+0,
+2600,
+3900,
+5
+]
+],
+"text": [
+"U (D R U D) on UD",
+"D R L (D L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1320,
+60
+],
+"scramble": "D R U D' L2 F R' F2 L D2 F' R2 F2 R' B' L' B' L F U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2775,
+3082,
+5
+],
+[
+0,
+2600,
+3317,
+5
+]
+],
+"text": [
+"B (D R F B) on FB",
+"F R L (D L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1320,
+1013
+],
+"scramble": "D R F B L D F2 R' D' R' D R' U' B2 D' L2 U' B2 L2 U' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2775,
+773,
+5
+],
+[
+0,
+2600,
+1018,
+5
+]
+],
+"text": [
+"F (D R F B) on FB",
+"B R L (D L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1320,
+3322
+],
+"scramble": "D R F B L2 B2 L2 B2 U R D' B2 R U2 R U' L' D2 R U2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1966,
+204,
+5
+],
+[
+0,
+2209,
+4035,
+5
+]
+],
+"text": [
+"D (R D F U) on UD",
+"U R L (F' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1953,
+195
+],
+"scramble": "R D F U L F' R' F' D2 R' B D2 L' F' L' B R B2 R U2 D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1966,
+51,
+5
+],
+[
+0,
+2209,
+3900,
+5
+]
+],
+"text": [
+"U (R D F U) on UD",
+"D R L (F' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1953,
+60
+],
+"scramble": "R D F U F' R F R2 F2 L F L B2 L2 U2 F R2 U2 F2 R' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2142,
+3082,
+5
+],
+[
+0,
+2209,
+3317,
+5
+]
+],
+"text": [
+"B (F' R F B) on FB",
+"F R L (F' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1953,
+1013
+],
+"scramble": "F' R F B U L U' L' D2 B2 R2 U2 R' B2 U2 R F2 D2 L F2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2142,
+773,
+5
+],
+[
+0,
+2209,
+1018,
+5
+]
+],
+"text": [
+"F (F' R F B) on FB",
+"B R L (F' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1953,
+3322
+],
+"scramble": "F' R F B D' L' D' L' F2 D2 R F2 D2 R B2 L U' L D B2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1711,
+204,
+5
+],
+[
+0,
+2464,
+4035,
+5
+]
+],
+"text": [
+"D (F2 R U D) on UD",
+"U R L (F2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1696,
+195
+],
+"scramble": "F2 R U D B L D2 F' R2 B' D2 B2 L' F L2 F' U2 F2 L' B D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1711,
+51,
+5
+],
+[
+0,
+2464,
+3900,
+5
+]
+],
+"text": [
+"U (F2 R U D) on UD",
+"D R L (F2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1696,
+60
+],
+"scramble": "F2 R U D B' L2 D2 L' F U2 F' R2 B R2 F U2 F' R' F L U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2399,
+3082,
+5
+],
+[
+0,
+2464,
+3317,
+5
+]
+],
+"text": [
+"B (F2 R F B) on FB",
+"F R L (F2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1696,
+1013
+],
+"scramble": "F2 R F B F2 R F2 R2 U2 B2 U2 L B2 U R2 U2 B2 D L U B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2399,
+773,
+5
+],
+[
+0,
+2464,
+1018,
+5
+]
+],
+"text": [
+"F (F2 R F B) on FB",
+"B R L (F2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1696,
+3322
+],
+"scramble": "F2 R F B' L2 D L' D' R2 B2 U R' B2 L U' R B2 U B2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1963,
+204,
+5
+],
+[
+0,
+2212,
+4035,
+5
+]
+],
+"text": [
+"D (F R U D) on UD",
+"U R L (F L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1956,
+195
+],
+"scramble": "F R U D F' R F U2 R F R' F R' D2 L F' R' F L2 F D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1963,
+51,
+5
+],
+[
+0,
+2212,
+3900,
+5
+]
+],
+"text": [
+"U (F R U D) on UD",
+"D R L (F L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1956,
+60
+],
+"scramble": "F R U D L2 F' U2 R' B' L2 B2 L2 B' R' U2 R2 F L F' L' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2139,
+3082,
+5
+],
+[
+0,
+2212,
+3317,
+5
+]
+],
+"text": [
+"B (F R F B) on FB",
+"F R L (F L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1956,
+1013
+],
+"scramble": "F R F B L' U' F2 D' R2 U L' D' R' U2 R B2 D' F2 R2 D2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2139,
+773,
+5
+],
+[
+0,
+2212,
+1018,
+5
+]
+],
+"text": [
+"F (F R F B) on FB",
+"B R L (F L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1956,
+3322
+],
+"scramble": "F R F B D L' D F2 L D R B2 L2 U2 B2 U2 B2 L U' L' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+3495,
+204,
+5
+],
+[
+0,
+680,
+4035,
+5
+]
+],
+"text": [
+"D (R U B D) on UD",
+"U R L (B' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+599,
+3900
+],
+"scramble": "R U B D F R F' R' B2 R2 F R B2 R2 F D2 L' D2 R2 B2 D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+3495,
+51,
+5
+],
+[
+0,
+680,
+3900,
+5
+]
+],
+"text": [
+"U (R U B D) on UD",
+"D R L (B' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+599,
+4035
+],
+"scramble": "R U B D' L2 F' R' B L' F' L2 B' U2 B R U2 R B' L' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+599,
+3082,
+5
+],
+[
+0,
+680,
+3317,
+5
+]
+],
+"text": [
+"B (B' R F B) on FB",
+"F R L (B' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+599,
+3082
+],
+"scramble": "B' R F B D2 F2 D B2 L F2 D' L' U' R' B2 D F2 L2 D R B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+599,
+773,
+5
+],
+[
+0,
+680,
+1018,
+5
+]
+],
+"text": [
+"F (B' R F B) on FB",
+"B R L (B' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+599,
+773
+],
+"scramble": "B' R F B U R U' L2 D2 L2 U2 R2 U' L' U' R D' L2 U2 B2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2479,
+204,
+5
+],
+[
+0,
+1696,
+4035,
+5
+]
+],
+"text": [
+"D (B2 R U D) on UD",
+"U R L (B2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1631,
+3900
+],
+"scramble": "B2 R U D L D2 F' R2 F' D2 R' U2 B2 L' D2 R2 B' R' F2 D"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2479,
+51,
+5
+],
+[
+0,
+1696,
+3900,
+5
+]
+],
+"text": [
+"U (B2 R U D) on UD",
+"D R L (B2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1631,
+4035
+],
+"scramble": "B2 R U D R2 B2 R2 F2 R' U2 F2 D2 L F' R' U2 R B L D2 U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1631,
+3082,
+5
+],
+[
+0,
+1696,
+3317,
+5
+]
+],
+"text": [
+"B (B2 R F B) on FB",
+"F R L (B2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1631,
+3082
+],
+"scramble": "B2 R F B F2 D2 F2 U2 L' U2 L' U2 F2 U' L U R' U2 R U' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1631,
+773,
+5
+],
+[
+0,
+1696,
+1018,
+5
+]
+],
+"text": [
+"F (B2 R F B) on FB",
+"B R L (B2 L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1631,
+773
+],
+"scramble": "B2 R F B R B2 D' L' U' L2 U2 B2 L2 B2 R2 D2 R2 D2 R' U2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+3501,
+204,
+5
+],
+[
+0,
+674,
+4035,
+5
+]
+],
+"text": [
+"D (B R U D) on UD",
+"U R L (B L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+605,
+3900
+],
+"scramble": "B R U D L F2 U2 F R' F R2 B R2 D2 L' B2 R2 B R2 D"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+3501,
+51,
+5
+],
+[
+0,
+674,
+3900,
+5
+]
+],
+"text": [
+"U (B R U D) on UD",
+"D R L (B L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+605,
+4035
+],
+"scramble": "B R U D B2 R B' R' U2 L2 F2 D2 R' F2 D2 F' R2 F2 U2 B' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+605,
+3082,
+5
+],
+[
+0,
+674,
+3317,
+5
+]
+],
+"text": [
+"B (B R F B) on FB",
+"F R L (B L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+605,
+3082
+],
+"scramble": "B R F B D L D' L F2 L' U' B2 D2 F2 R2 U' R F2 R U B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+605,
+773,
+5
+],
+[
+0,
+674,
+1018,
+5
+]
+],
+"text": [
+"F (B R F B) on FB",
+"B R L (B L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+605,
+773
+],
+"scramble": "B R F B U2 F2 D L' U' F2 D' F2 U' L2 D' L' U2 F2 R2 U F'"
+},
+{
+"type": "P1",
+"pres": [
+[
+0,
+4035,
+0,
+3
+],
+[
+1,
+204,
+3855,
+5
+]
+],
+"text": [
+"(U R L) on RL",
+"R L U D (D) on UD"
+],
+"len": [
+3,
+5
+],
+"key": [
+195,
+3840
+],
+"scramble": "U R L' F D' B2 U2 B' U B' D' B2 R2 U2 F' D' F2 U'"
+},
+{
+"type": "P1",
+"pres": [
+[
+0,
+3900,
+0,
+3
+],
+[
+1,
+51,
+3855,
+5
+]
+],
+"text": [
+"(D R L) on RL",
+"R L U D (U) on UD"
+],
+"len": [
+3,
+5
+],
+"key": [
+60,
+3840
+],
+"scramble": "D R L B2 L2 F' L2 U' B' D2 B L2 B' U' R2 B' D2 B U2"
+},
+{
+"type": "P1",
+"pres": [
+[
+0,
+3317,
+0,
+3
+],
+[
+2,
+3082,
+255,
+5
+]
+],
+"text": [
+"(F R L) on RL",
+"R L F B (B) on FB"
+],
+"len": [
+3,
+5
+],
+"key": [
+1013,
+3840
+],
+"scramble": "F R L U2 B2 D2 B2 D F2 L2 F D L2 F2 U R2 F' R2 B2"
+},
+{
+"type": "P1",
+"pres": [
+[
+0,
+1018,
+0,
+3
+],
+[
+2,
+773,
+255,
+5
+]
+],
+"text": [
+"(B R L) on RL",
+"R L F B (F) on FB"
+],
+"len": [
+3,
+5
+],
+"key": [
+773,
+255
+],
+"scramble": "B R L F' D' B' R2 U2 F' D' F' R2 B2 D2 L2 F2 U B2 L2"
+},
+{
+"type": "P2",
+"pres": [
+[
+1,
+204,
+2655,
+4
+],
+[
+0,
+4035,
+1360,
+4
+]
+],
+"text": [
+"L U D (D) on UD",
+"R (U R L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+195,
+2640
+],
+"scramble": "D L2 F2 R' F R2 D2 L B' L' F2 U2 R' D2 R' B L' D' U' L'"
+},
+{
+"type": "P2",
+"pres": [
+[
+1,
+204,
+1455,
+4
+],
+[
+0,
+4035,
+2720,
+4
+]
+],
+"text": [
+"R U D (D) on UD",
+"L (U R L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+195,
+1440
+],
+"scramble": "D L2 F' R2 D2 R2 F' U2 L2 B' R B' L2 F R2 B' R D' U' R'"
+},
+{
+"type": "P2",
+"pres": [
+[
+1,
+51,
+2655,
+4
+],
+[
+0,
+3900,
+1360,
+4
+]
+],
+"text": [
+"L U D (U) on UD",
+"R (D R L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+60,
+2640
+],
+"scramble": "U L2 F U2 B' R D2 R2 F2 R' B L F' D2 F L2 B2 D' U' L'"
+},
+{
+"type": "P2",
+"pres": [
+[
+1,
+51,
+1455,
+4
+],
+[
+0,
+3900,
+2720,
+4
+]
+],
+"text": [
+"R U D (U) on UD",
+"L (D R L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+60,
+1440
+],
+"scramble": "U R' F' L2 D2 F L F' L2 F U2 F' L' B U2 B' D U' R'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+3082,
+1455,
+4
+],
+[
+0,
+3317,
+1360,
+4
+]
+],
+"text": [
+"L F B (B) on FB",
+"R (F R L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+1013,
+2640
+],
+"scramble": "B R' D2 F2 R' U' L' U R2 U' L U R U' L' D2 L2 B' F' L'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+3082,
+2655,
+4
+],
+[
+0,
+3317,
+2720,
+4
+]
+],
+"text": [
+"R F B (B) on FB",
+"L (F R L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+1013,
+1440
+],
+"scramble": "B F2 D F2 R' U R U2 F2 L2 D' L' D2 B2 L B2 U B' F' R'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+773,
+1455,
+4
+],
+[
+0,
+1018,
+1360,
+4
+]
+],
+"text": [
+"L F B (F) on FB",
+"R (B R L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+773,
+1455
+],
+"scramble": "F' R' D' R' F2 U L' U' L2 D2 L D2 R F2 D' L' B' F' L'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+773,
+2655,
+4
+],
+[
+0,
+1018,
+2720,
+4
+]
+],
+"text": [
+"R F B (F) on FB",
+"L (B R L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+773,
+2655
+],
+"scramble": "F U' R2 D L D' R2 U2 L2 D2 R D' R F2 R2 D2 L B' F' R'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3870,
+3855,
+5
+],
+[
+0,
+4065,
+4080,
+5
+]
+],
+"text": [
+"F B (B U F) on FB",
+"R L (L U' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+225,
+240
+],
+"scramble": "B U F R2 B2 R U' F2 D' F2 R' B2 L2 F2 U2 R D' L' F2 B' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3869,
+3855,
+5
+],
+[
+0,
+4066,
+4080,
+5
+]
+],
+"text": [
+"F B (F U' B) on FB",
+"R L (L U R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+226,
+240
+],
+"scramble": "F U' B D2 B2 L2 U2 R2 F2 U R' B2 L' D2 L D' R' U2 F2 B' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3911,
+3855,
+5
+],
+[
+0,
+4024,
+4080,
+5
+]
+],
+"text": [
+"F B (F D B) on FB",
+"R L (L D' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+184,
+240
+],
+"scramble": "F D B L B2 R B2 L' U2 L2 U' L' U2 F2 R B2 L' B2 D' B' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3915,
+3855,
+5
+],
+[
+0,
+4020,
+4080,
+5
+]
+],
+"text": [
+"F B (B D' F) on FB",
+"R L (L D R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+180,
+240
+],
+"scramble": "B D' F R F2 D' B2 U' L' B2 U' R' D2 L2 U2 R U2 R' U B' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+2638,
+5
+],
+[
+0,
+4035,
+1345,
+5
+]
+],
+"text": [
+"U' L U D (D) on UD",
+"U' R (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2625
+],
+"scramble": "D B' R2 F2 L2 F2 R' B2 R F' R2 F D2 R' U2 B L2 D' U' L' U"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+2671,
+5
+],
+[
+0,
+4035,
+1376,
+5
+]
+],
+"text": [
+"U2 L U D (D) on UD",
+"U2 R (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2656
+],
+"scramble": "D R' F' L2 F2 R' B D2 B2 R' F2 R2 D2 L F' D2 L D' U' L' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+2637,
+5
+],
+[
+0,
+4035,
+1346,
+5
+]
+],
+"text": [
+"U L U D (D) on UD",
+"U R (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2626
+],
+"scramble": "D U2 B D2 B' L U2 L' F' R F U2 L' F2 U2 F L' D' U' L' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+2583,
+5
+],
+[
+0,
+4035,
+1304,
+5
+]
+],
+"text": [
+"D' L U D (D) on UD",
+"D' R (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2584
+],
+"scramble": "D' L' F' L F R2 F R2 B' U2 R2 B2 R U2 B2 R' D' U' L' D"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+2719,
+5
+],
+[
+0,
+4035,
+1424,
+5
+]
+],
+"text": [
+"D2 L U D (D) on UD",
+"D2 R (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2704
+],
+"scramble": "D L2 D2 F' R' B D2 F2 D2 L2 F L2 F' U2 B2 L F D' U' L' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+2587,
+5
+],
+[
+0,
+4035,
+1300,
+5
+]
+],
+"text": [
+"D L U D (D) on UD",
+"D R (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2580
+],
+"scramble": "D L F' R' D2 F' L' F2 R F' L' F2 R2 D2 L2 B2 R2 D' U' L' D'"
+},
+{
+"type": "T2",
+"pres": [
+[
+1,
+204,
+255,
+3
+],
+[
+2,
+3900,
+3855,
+5
+],
+[
+0,
+4035,
+4080,
+5
+]
+],
+"text": [
+"U D (D) on UD",
+"F B (U F B) on FB",
+"R L (U R L) on RL"
+],
+"len": [
+3,
+5,
+5
+],
+"key": [
+195,
+240
+],
+"scramble": "D' B U2 L' B2 R2 B2 R2 B2 R' F R' B U2 B U2 D' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+2907,
+5
+],
+[
+0,
+4035,
+1108,
+5
+]
+],
+"text": [
+"L U F D (D) on UD",
+"F' R (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2900
+],
+"scramble": "D' L U2 B' R' F L F' R F2 L D2 B R B L D' F' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+2399,
+5
+],
+[
+0,
+4035,
+1616,
+5
+]
+],
+"text": [
+"F2 L U D (D) on UD",
+"F2 R (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2384
+],
+"scramble": "D L2 U2 B2 L' B2 D2 L D2 B' R B2 L' D2 L B2 L D' U' L' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+2910,
+5
+],
+[
+0,
+4035,
+1105,
+5
+]
+],
+"text": [
+"F L U D (D) on UD",
+"F R (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2897
+],
+"scramble": "D L' B' R B' D2 F R' F L2 F' U2 R2 B R' B' L2 D' U' L' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+3677,
+5
+],
+[
+0,
+4035,
+338,
+5
+]
+],
+"text": [
+"L D B U (D) on UD",
+"B' R (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3666
+],
+"scramble": "D B2 L2 B2 L2 U2 R2 B L2 U2 B' D2 L' B2 U2 R2 F2 U' B' D' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+1631,
+5
+],
+[
+0,
+4035,
+2384,
+5
+]
+],
+"text": [
+"B2 L U D (D) on UD",
+"B2 R (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1616
+],
+"scramble": "D F D2 B' L F2 L' B2 R2 U2 R2 D2 F2 R F2 L' B2 D' U' L' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+3671,
+5
+],
+[
+0,
+4035,
+344,
+5
+]
+],
+"text": [
+"B L U D (D) on UD",
+"B R (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3672
+],
+"scramble": "D' F2 U2 B' L' F' R2 B L' B L' F2 R D2 L' F2 D' U' L' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+1421,
+5
+],
+[
+0,
+4035,
+2690,
+5
+]
+],
+"text": [
+"U' R U D (D) on UD",
+"U' L (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1410
+],
+"scramble": "D L2 D2 B R2 B2 R2 U2 L2 F2 R2 F' U2 R2 D2 R2 B2 D' U' R' U"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+1439,
+5
+],
+[
+0,
+4035,
+2704,
+5
+]
+],
+"text": [
+"U2 R U D (D) on UD",
+"U2 L (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1424
+],
+"scramble": "D U2 L' U2 L2 B2 U2 F L2 U2 R U2 L' B2 D2 B2 D U' R' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+1422,
+5
+],
+[
+0,
+4035,
+2689,
+5
+]
+],
+"text": [
+"U R U D (D) on UD",
+"U L (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1409
+],
+"scramble": "D R B2 R F2 L D2 F L2 U2 B' U2 F D2 F D2 B D' U' R' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+1323,
+5
+],
+[
+0,
+4035,
+2596,
+5
+]
+],
+"text": [
+"D' R U D (D) on UD",
+"D' L (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1316
+],
+"scramble": "D U2 F' R' F' U2 F R2 U2 R B' L' D2 B R2 F' L2 D' U' R' D"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+1391,
+5
+],
+[
+0,
+4035,
+2656,
+5
+]
+],
+"text": [
+"D2 R U D (D) on UD",
+"D2 L (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1376
+],
+"scramble": "D' F2 D2 F L F' D2 B R2 B' D2 L B2 R' F2 L D' U' R' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+1319,
+5
+],
+[
+0,
+4035,
+2600,
+5
+]
+],
+"text": [
+"D R U D (D) on UD",
+"D L (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1320
+],
+"scramble": "D B2 R2 U2 F' R2 F L2 F2 R2 B2 D2 B' U2 B U2 F' D' U' R' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+1966,
+5
+],
+[
+0,
+4035,
+2209,
+5
+]
+],
+"text": [
+"R D F U (D) on UD",
+"F' L (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1953
+],
+"scramble": "D F' R B' L2 B2 U2 R F2 R' B R B2 R' B' L U F' D' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+1711,
+5
+],
+[
+0,
+4035,
+2464,
+5
+]
+],
+"text": [
+"F2 R U D (D) on UD",
+"F2 L (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1696
+],
+"scramble": "D L D2 R F' L' B2 L B2 R2 U2 L2 F U2 L F L D' U' R' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+1963,
+5
+],
+[
+0,
+4035,
+2212,
+5
+]
+],
+"text": [
+"F R U D (D) on UD",
+"F L (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1956
+],
+"scramble": "D B' L U2 B2 R2 B2 D2 F R D2 B' L F' L D2 F D' U' R' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+3495,
+5
+],
+[
+0,
+4035,
+680,
+5
+]
+],
+"text": [
+"R U B D (D) on UD",
+"B' L (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3496
+],
+"scramble": "D' L' F U2 F' R2 F D2 F' R2 B2 U2 B R' B D B' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+2479,
+5
+],
+[
+0,
+4035,
+1696,
+5
+]
+],
+"text": [
+"B2 R U D (D) on UD",
+"B2 L (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2464
+],
+"scramble": "D R F2 L' F2 R B R' B2 L2 U2 B R2 F' R' F2 R D' U' R' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+204,
+3501,
+5
+],
+[
+0,
+4035,
+674,
+5
+]
+],
+"text": [
+"B R U D (D) on UD",
+"B L (U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3490
+],
+"scramble": "D F' D2 F2 D2 B L2 D2 B D2 F U2 L D2 R F D U' R' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+2638,
+5
+],
+[
+0,
+3900,
+1345,
+5
+]
+],
+"text": [
+"U' L U D (U) on UD",
+"U' R (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2625
+],
+"scramble": "U B L' F' R' B2 L' D2 R' B R B D2 B' L' B' R2 D' U' L' U"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+2671,
+5
+],
+[
+0,
+3900,
+1376,
+5
+]
+],
+"text": [
+"U2 L U D (U) on UD",
+"U2 R (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2656
+],
+"scramble": "U' L2 B' R2 D2 B' R2 B2 L F' L F2 U2 B' R2 D U' L' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+2637,
+5
+],
+[
+0,
+3900,
+1346,
+5
+]
+],
+"text": [
+"U L U D (U) on UD",
+"U R (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2626
+],
+"scramble": "U D2 R B2 R' F' R' U2 R D2 B' U2 L2 F' D2 F2 R2 D' U' L' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+2583,
+5
+],
+[
+0,
+3900,
+1304,
+5
+]
+],
+"text": [
+"D' L U D (U) on UD",
+"D' R (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2584
+],
+"scramble": "U' R' U2 R' B' R F R B2 R' F D2 B' R2 B2 R D' U' L' D"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+2719,
+5
+],
+[
+0,
+3900,
+1424,
+5
+]
+],
+"text": [
+"D2 L U D (U) on UD",
+"D2 R (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2704
+],
+"scramble": "U R' B2 L2 B2 U2 R2 F' R2 B2 L2 B' L F' L' B' U2 D' U' L' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+2587,
+5
+],
+[
+0,
+3900,
+1300,
+5
+]
+],
+"text": [
+"D L U D (U) on UD",
+"D R (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2580
+],
+"scramble": "U' F' L2 B' L U2 L' D2 L' F L' D2 L2 D2 L' U2 D' U' L' D'"
+},
+{
+"type": "T2",
+"pres": [
+[
+1,
+51,
+255,
+3
+],
+[
+2,
+4035,
+3855,
+5
+],
+[
+0,
+3900,
+4080,
+5
+]
+],
+"text": [
+"U D (U) on UD",
+"F B (D F B) on FB",
+"R L (D R L) on RL"
+],
+"len": [
+3,
+5,
+5
+],
+"key": [
+60,
+240
+],
+"scramble": "U D2 R2 D2 R' F U2 F R2 B R2 F2 L2 D2 L2 F U2 D' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+2907,
+5
+],
+[
+0,
+3900,
+1108,
+5
+]
+],
+"text": [
+"L U F D (U) on UD",
+"F' R (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2900
+],
+"scramble": "U R2 F R F L D2 L' B2 R D2 B2 L' F' L D2 R2 D' F' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+2399,
+5
+],
+[
+0,
+3900,
+1616,
+5
+]
+],
+"text": [
+"F2 L U D (U) on UD",
+"F2 R (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2384
+],
+"scramble": "U R' F' L D2 B L' F U2 F' U2 F' L' F' U2 F R2 D' U' L' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+2910,
+5
+],
+[
+0,
+3900,
+1105,
+5
+]
+],
+"text": [
+"F L U D (U) on UD",
+"F R (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2897
+],
+"scramble": "U B2 L' F' R F' L B2 L B U2 B' L F' R B R2 D' U' L' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+3677,
+5
+],
+[
+0,
+3900,
+338,
+5
+]
+],
+"text": [
+"L D B U (U) on UD",
+"B' R (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3666
+],
+"scramble": "U' F2 L' B D2 L' B' U2 R' B' R2 B L F2 R2 D2 U' B' D' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+1631,
+5
+],
+[
+0,
+3900,
+2384,
+5
+]
+],
+"text": [
+"B2 L U D (U) on UD",
+"B2 R (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1616
+],
+"scramble": "U L2 U2 F' R U2 L D2 L' F L' F' R2 F2 R2 B' L' D' U' L' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+3671,
+5
+],
+[
+0,
+3900,
+344,
+5
+]
+],
+"text": [
+"B L U D (U) on UD",
+"B R (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3672
+],
+"scramble": "U R2 B2 L' B2 L U2 L2 F' U2 F2 L B2 R B' U2 R D' U' L' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+1421,
+5
+],
+[
+0,
+3900,
+2690,
+5
+]
+],
+"text": [
+"U' R U D (U) on UD",
+"U' L (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1410
+],
+"scramble": "U F2 R' F2 L' F L2 F D2 R' F R F2 L B2 U2 R D' U' R' U"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+1439,
+5
+],
+[
+0,
+3900,
+2704,
+5
+]
+],
+"text": [
+"U2 R U D (U) on UD",
+"U2 L (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1424
+],
+"scramble": "U R2 D2 F2 L' B2 L2 F2 R2 B' R B R' B L2 D2 L2 D' U' R' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+1422,
+5
+],
+[
+0,
+3900,
+2689,
+5
+]
+],
+"text": [
+"U R U D (U) on UD",
+"U L (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1409
+],
+"scramble": "U B' D2 R' D2 R' B2 R B' R D2 F L2 B' R' B2 D U' R' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+1323,
+5
+],
+[
+0,
+3900,
+2596,
+5
+]
+],
+"text": [
+"D' R U D (U) on UD",
+"D' L (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1316
+],
+"scramble": "U L' F' L F R2 D2 F2 R' F2 L2 B' R' F' R2 F R' D' U' R' D"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+1391,
+5
+],
+[
+0,
+3900,
+2656,
+5
+]
+],
+"text": [
+"D2 R U D (U) on UD",
+"D2 L (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1376
+],
+"scramble": "U F' D2 B U2 F2 L' F' L B2 U2 L' F' R B2 R2 D U' R' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+1319,
+5
+],
+[
+0,
+3900,
+2600,
+5
+]
+],
+"text": [
+"D R U D (U) on UD",
+"D L (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1320
+],
+"scramble": "U R2 F L2 B R2 B L F' L' B2 L F' R2 D2 F R D' U' R' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+1966,
+5
+],
+[
+0,
+3900,
+2209,
+5
+]
+],
+"text": [
+"R D F U (U) on UD",
+"F' L (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1953
+],
+"scramble": "U L2 F2 L2 F' D2 L' F2 L' F2 L B L2 B2 L' B U F' D' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+1711,
+5
+],
+[
+0,
+3900,
+2464,
+5
+]
+],
+"text": [
+"F2 R U D (U) on UD",
+"F2 L (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1696
+],
+"scramble": "U F' R D2 F' R' B' R2 F' R2 B R2 B2 R' F' R' B' D' U' R' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+1963,
+5
+],
+[
+0,
+3900,
+2212,
+5
+]
+],
+"text": [
+"F R U D (U) on UD",
+"F L (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1956
+],
+"scramble": "U D2 F2 L' B' U2 R2 U2 F2 L2 B R' U2 B2 U2 B' R D' U' R' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+3495,
+5
+],
+[
+0,
+3900,
+680,
+5
+]
+],
+"text": [
+"R U B D (U) on UD",
+"B' L (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3496
+],
+"scramble": "U D2 B R2 U2 R B R2 U2 R2 D2 F L B L' B' R' D' B' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+2479,
+5
+],
+[
+0,
+3900,
+1696,
+5
+]
+],
+"text": [
+"B2 R U D (U) on UD",
+"B2 L (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2464
+],
+"scramble": "U L U2 R' D2 F2 U2 B R' B2 L F L' F2 U2 B2 R D' U' R' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+51,
+3501,
+5
+],
+[
+0,
+3900,
+674,
+5
+]
+],
+"text": [
+"B R U D (U) on UD",
+"B L (D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3490
+],
+"scramble": "U B' L2 B U2 R2 B2 D2 B2 L' D2 F2 R B2 L' B2 L' D' U' R' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+1470,
+5
+],
+[
+0,
+3317,
+1345,
+5
+]
+],
+"text": [
+"L B U F (B) on FB",
+"U' R (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2625
+],
+"scramble": "B F2 D L U2 B2 L2 U' L D B2 L2 D F2 D2 R' D' F' U' B' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+1439,
+5
+],
+[
+0,
+3317,
+1376,
+5
+]
+],
+"text": [
+"U2 L F B (B) on FB",
+"U2 R (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2656
+],
+"scramble": "B L' U L' U R' D2 L2 D L2 D2 R2 F2 D' B2 L' F2 B' F' L' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+1469,
+5
+],
+[
+0,
+3317,
+1346,
+5
+]
+],
+"text": [
+"U L F B (B) on FB",
+"U R (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2626
+],
+"scramble": "B F2 D2 R D' R' D2 F2 L D' R' D L2 D R2 U F2 B' F' L' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+1511,
+5
+],
+[
+0,
+3317,
+1304,
+5
+]
+],
+"text": [
+"L F D B (B) on FB",
+"D' R (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2584
+],
+"scramble": "B R' B2 D' L2 D2 F2 U2 L2 U2 L U2 F2 L2 D R2 D' B' D' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+1391,
+5
+],
+[
+0,
+3317,
+1424,
+5
+]
+],
+"text": [
+"D2 L F B (B) on FB",
+"D2 R (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2704
+],
+"scramble": "B' R2 F2 L' D' R' F2 L' D' L U F2 R2 U2 L2 D2 B' F' L' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+1515,
+5
+],
+[
+0,
+3317,
+1300,
+5
+]
+],
+"text": [
+"D L F B (B) on FB",
+"D R (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2580
+],
+"scramble": "B U' B2 R' U' R2 U L2 U2 B2 L2 F2 D' R U2 R U2 B' F' L' D'"
+},
+{
+"type": "T2",
+"pres": [
+[
+2,
+3082,
+3855,
+3
+],
+[
+1,
+1018,
+255,
+5
+],
+[
+0,
+3317,
+4080,
+5
+]
+],
+"text": [
+"F B (B) on FB",
+"U D (F U D) on UD",
+"R L (F R L) on RL"
+],
+"len": [
+3,
+5,
+5
+],
+"key": [
+1013,
+240
+],
+"scramble": "B L' U F2 L2 U' R' U2 L' U2 B2 R' B2 R U' R F2 B' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+1195,
+5
+],
+[
+0,
+3317,
+1108,
+5
+]
+],
+"text": [
+"F' L F B (B) on FB",
+"F' R (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2900
+],
+"scramble": "B F2 R D' R2 U2 L' D L F2 D2 F2 R2 D L' F2 U' B' F' L' F"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+1711,
+5
+],
+[
+0,
+3317,
+1616,
+5
+]
+],
+"text": [
+"F2 L F B (B) on FB",
+"F2 R (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2384
+],
+"scramble": "B L' D R2 U2 B2 R' D' F2 D R' B2 L' U' B2 L D' B' F' L' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+1198,
+5
+],
+[
+0,
+3317,
+1105,
+5
+]
+],
+"text": [
+"F L F B (B) on FB",
+"F R (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2897
+],
+"scramble": "B D' L' B2 D' L2 D L2 U B2 U B2 D L D' F2 D2 B' F' L' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+429,
+5
+],
+[
+0,
+3317,
+338,
+5
+]
+],
+"text": [
+"B' L F B (B) on FB",
+"B' R (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+3666
+],
+"scramble": "B L U B2 D' B2 D2 L D' R D2 L2 F2 L2 F2 L F2 B' F' L' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+2479,
+5
+],
+[
+0,
+3317,
+2384,
+5
+]
+],
+"text": [
+"B2 L F B (B) on FB",
+"B2 R (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1616
+],
+"scramble": "B D B2 L2 F2 U L' U' F2 U' B2 D2 R' D' R B2 D2 B' F' L' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+423,
+5
+],
+[
+0,
+3317,
+344,
+5
+]
+],
+"text": [
+"B L F B (B) on FB",
+"B R (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+3672
+],
+"scramble": "B U' R' D' L2 B2 U B2 U' B2 D' F2 U' B2 L' B2 L2 B' F' L' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+2685,
+5
+],
+[
+0,
+3317,
+2690,
+5
+]
+],
+"text": [
+"R F U B (B) on FB",
+"U' L (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1410
+],
+"scramble": "B R' U F2 R' D' R2 F2 R2 F2 L' B2 D L' D' F2 U B' U' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+2671,
+5
+],
+[
+0,
+3317,
+2704,
+5
+]
+],
+"text": [
+"U2 R F B (B) on FB",
+"U2 L (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1424
+],
+"scramble": "B D L U2 R2 U B2 R2 D2 F2 R2 D2 L2 D' L' B2 D2 B' F' R' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+2686,
+5
+],
+[
+0,
+3317,
+2689,
+5
+]
+],
+"text": [
+"U R F B (B) on FB",
+"U L (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1409
+],
+"scramble": "B L' B2 D' L U2 L B2 R' U2 R2 U L2 D R' D' L2 B' F' R' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+2779,
+5
+],
+[
+0,
+3317,
+2596,
+5
+]
+],
+"text": [
+"R B D F (B) on FB",
+"D' L (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1316
+],
+"scramble": "B L' B2 U2 L2 U R2 U L' U' R U2 R' D2 B2 R' F D' B' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+2719,
+5
+],
+[
+0,
+3317,
+2656,
+5
+]
+],
+"text": [
+"D2 R F B (B) on FB",
+"D2 L (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1376
+],
+"scramble": "B L' D' F2 L' F2 U L' U' R U2 R D R' U' R2 F2 B' F' R' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+2775,
+5
+],
+[
+0,
+3317,
+2600,
+5
+]
+],
+"text": [
+"D R F B (B) on FB",
+"D L (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1320
+],
+"scramble": "B R' U L2 B2 U' L B2 R' F2 U' L2 F2 U2 B2 L D' B' F' R' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+2142,
+5
+],
+[
+0,
+3317,
+2209,
+5
+]
+],
+"text": [
+"F' R F B (B) on FB",
+"F' L (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1953
+],
+"scramble": "B U R' U R' B2 L' D R' U' R' D L2 F2 U R U' B' F' R' F"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+2399,
+5
+],
+[
+0,
+3317,
+2464,
+5
+]
+],
+"text": [
+"F2 R F B (B) on FB",
+"F2 L (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1696
+],
+"scramble": "B L D2 L D2 R D R' U F2 U F2 D' L' U' L' F2 B' F' R' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+2139,
+5
+],
+[
+0,
+3317,
+2212,
+5
+]
+],
+"text": [
+"F R F B (B) on FB",
+"F L (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1956
+],
+"scramble": "B D R' D2 R' B2 U' L U' B2 D L U2 L' D B2 R B' F' R' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+599,
+5
+],
+[
+0,
+3317,
+680,
+5
+]
+],
+"text": [
+"B' R F B (B) on FB",
+"B' L (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+3496
+],
+"scramble": "B R' U R2 U R2 B2 U2 B2 U2 F2 R' U' R2 U' L2 D B' F' R' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+1631,
+5
+],
+[
+0,
+3317,
+1696,
+5
+]
+],
+"text": [
+"B2 R F B (B) on FB",
+"B2 L (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2464
+],
+"scramble": "B R' D' R F2 L' D B2 R D' L D2 L2 D R2 U2 L B' F' R' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+605,
+5
+],
+[
+0,
+3317,
+674,
+5
+]
+],
+"text": [
+"B R F B (B) on FB",
+"B L (F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+3490
+],
+"scramble": "B D' R' D2 R B2 R2 F2 L D2 R2 D R2 U' R' U' L' B' F' R' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+1470,
+5
+],
+[
+0,
+1018,
+1345,
+5
+]
+],
+"text": [
+"L B U F (F) on FB",
+"U' R (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+1470
+],
+"scramble": "F R U2 R U2 L' D' L' B2 R U' R2 B2 L U B2 L' F' U' B' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+1439,
+5
+],
+[
+0,
+1018,
+1376,
+5
+]
+],
+"text": [
+"U2 L F B (F) on FB",
+"U2 R (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+1439
+],
+"scramble": "F R2 D' R' D2 R' U L2 U' L2 D' L2 B2 R F2 D' L B' F' L' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+1469,
+5
+],
+[
+0,
+1018,
+1346,
+5
+]
+],
+"text": [
+"U L F B (F) on FB",
+"U R (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+1469
+],
+"scramble": "F L D F2 U' R' U' F2 U L D' F2 R2 D2 R' U R' B' F' L' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+1511,
+5
+],
+[
+0,
+1018,
+1304,
+5
+]
+],
+"text": [
+"L F D B (F) on FB",
+"D' R (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+1511
+],
+"scramble": "F R' F2 D' L2 U2 R F2 D2 F2 R U2 F2 L2 U B2 R2 B' D' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+1391,
+5
+],
+[
+0,
+1018,
+1424,
+5
+]
+],
+"text": [
+"D2 L F B (F) on FB",
+"D2 R (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+1391
+],
+"scramble": "F U' L' U L' F2 U' R D2 L' U2 R' U2 F2 U' R B F' L' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+1515,
+5
+],
+[
+0,
+1018,
+1300,
+5
+]
+],
+"text": [
+"D L F B (F) on FB",
+"D R (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+1515
+],
+"scramble": "F D L' B2 L' U2 L2 B2 L' F2 U' L U' L' U' R2 U' B' F' L' D'"
+},
+{
+"type": "T2",
+"pres": [
+[
+2,
+773,
+3855,
+3
+],
+[
+1,
+3317,
+255,
+5
+],
+[
+0,
+1018,
+4080,
+5
+]
+],
+"text": [
+"F B (F) on FB",
+"U D (B U D) on UD",
+"R L (B R L) on RL"
+],
+"len": [
+3,
+5,
+5
+],
+"key": [
+773,
+3855
+],
+"scramble": "F U2 L D' L2 D B2 R D' R D2 R2 D R2 U L2 U' B' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+1195,
+5
+],
+[
+0,
+1018,
+1108,
+5
+]
+],
+"text": [
+"F' L F B (F) on FB",
+"F' R (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+1195
+],
+"scramble": "F U' F2 D' L2 U R2 U F2 R2 F2 L U R2 U L D' B' F' L' F"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+1711,
+5
+],
+[
+0,
+1018,
+1616,
+5
+]
+],
+"text": [
+"F2 L F B (F) on FB",
+"F2 R (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+1711
+],
+"scramble": "F L2 U' B2 U F2 R' U' R2 U' L' U' L' U R' F2 L' B' F' L' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+1198,
+5
+],
+[
+0,
+1018,
+1105,
+5
+]
+],
+"text": [
+"F L F B (F) on FB",
+"F R (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+1198
+],
+"scramble": "F R' U B2 D' R D L D' R2 U' R D F2 L2 F2 L B' F' L' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+429,
+5
+],
+[
+0,
+1018,
+338,
+5
+]
+],
+"text": [
+"B' L F B (F) on FB",
+"B' R (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+429
+],
+"scramble": "F B2 U L D' L2 F2 R' D2 F2 L D' L B2 R' D2 B F' L' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+2479,
+5
+],
+[
+0,
+1018,
+2384,
+5
+]
+],
+"text": [
+"B2 L F B (F) on FB",
+"B2 R (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+2479
+],
+"scramble": "F U2 R2 B2 U R F2 U2 L D2 L U L F2 U' R D2 B' F' L' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+423,
+5
+],
+[
+0,
+1018,
+344,
+5
+]
+],
+"text": [
+"B L F B (F) on FB",
+"B R (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+423
+],
+"scramble": "F U2 L B2 R F2 D2 L' D' R2 B2 L' D2 L2 D2 F2 D' B' F' L' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+2685,
+5
+],
+[
+0,
+1018,
+2690,
+5
+]
+],
+"text": [
+"R F U B (F) on FB",
+"U' L (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+2685
+],
+"scramble": "F D R' F2 L F2 L2 F2 D2 R2 B2 D' R U2 L' B2 U' B' U' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+2671,
+5
+],
+[
+0,
+1018,
+2704,
+5
+]
+],
+"text": [
+"U2 R F B (F) on FB",
+"U2 L (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+2671
+],
+"scramble": "F' L2 D2 L B2 R' U' L2 B2 R B2 D B2 R' U R2 B' F' R' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+2686,
+5
+],
+[
+0,
+1018,
+2689,
+5
+]
+],
+"text": [
+"U R F B (F) on FB",
+"U L (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+2686
+],
+"scramble": "F R2 U B2 U R2 U2 L' D2 B2 L U' L2 B2 U2 L2 U' B' F' R' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+2779,
+5
+],
+[
+0,
+1018,
+2596,
+5
+]
+],
+"text": [
+"R B D F (F) on FB",
+"D' L (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+2779
+],
+"scramble": "F B2 R' D2 R2 B2 D L D2 F2 U2 L2 B2 R2 D R F D' B' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+2719,
+5
+],
+[
+0,
+1018,
+2656,
+5
+]
+],
+"text": [
+"D2 R F B (F) on FB",
+"D2 L (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+2719
+],
+"scramble": "F D' L2 U L' D L2 B2 R' D R' U2 R' D' R U' R2 B' F' R' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+2775,
+5
+],
+[
+0,
+1018,
+2600,
+5
+]
+],
+"text": [
+"D R F B (F) on FB",
+"D L (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+2775
+],
+"scramble": "F R2 D2 L D' R' F2 L D' R U2 R2 D2 R U' F2 U B' F' R' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+2142,
+5
+],
+[
+0,
+1018,
+2209,
+5
+]
+],
+"text": [
+"F' R F B (F) on FB",
+"F' L (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+2142
+],
+"scramble": "F D' R2 U2 R2 D' L F2 L2 D' R2 D R' B2 L2 U' L B' F' R' F"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+2399,
+5
+],
+[
+0,
+1018,
+2464,
+5
+]
+],
+"text": [
+"F2 R F B (F) on FB",
+"F2 L (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+2399
+],
+"scramble": "F D L' D L' U2 R U R' U2 R' U2 F2 D L2 U2 L2 B' F' R' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+2139,
+5
+],
+[
+0,
+1018,
+2212,
+5
+]
+],
+"text": [
+"F R F B (F) on FB",
+"F L (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+2139
+],
+"scramble": "F D2 L2 U R U2 L U R' D' L' B2 U' L D B2 D B' F' R' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+599,
+5
+],
+[
+0,
+1018,
+680,
+5
+]
+],
+"text": [
+"B' R F B (F) on FB",
+"B' L (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+599
+],
+"scramble": "F U2 L D' L2 U L B2 L' U2 B2 L' D2 R' U' R D' B' F' R' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+1631,
+5
+],
+[
+0,
+1018,
+1696,
+5
+]
+],
+"text": [
+"B2 R F B (F) on FB",
+"B2 L (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+1631
+],
+"scramble": "F B2 L2 U R U' L' D' R' U' R' U' L F2 U2 R' U2 B' F' R' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+605,
+5
+],
+[
+0,
+1018,
+674,
+5
+]
+],
+"text": [
+"B R F B (F) on FB",
+"B L (B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+605
+],
+"scramble": "F R' F2 U L' U R U' F2 U B2 D' F2 U2 B2 R2 D' B' F' R' B'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+507,
+255,
+5
+],
+[
+0,
+3828,
+4080,
+5
+]
+],
+"text": [
+"U D (U F D) on UD",
+"R L (L F' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+500,
+240
+],
+"scramble": "U F D L' B2 U2 R2 F' U2 L' F R2 U2 F2 R D2 R' D2 B2 D' U'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+510,
+255,
+5
+],
+[
+0,
+3825,
+4080,
+5
+]
+],
+"text": [
+"U D (D F' U) on UD",
+"R L (L F R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+497,
+240
+],
+"scramble": "D F' U L B2 D2 L F' D2 L2 B2 R' D2 F L' F' R D2 B D' U'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+1277,
+255,
+5
+],
+[
+0,
+3058,
+4080,
+5
+]
+],
+"text": [
+"U D (D B U) on UD",
+"R L (L B' R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1266,
+240
+],
+"scramble": "D B U F L2 F2 U2 L' D2 B' R B' U2 R' F U2 L U2 F D' U'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+1271,
+255,
+5
+],
+[
+0,
+3064,
+4080,
+5
+]
+],
+"text": [
+"U D (U B' D) on UD",
+"R L (L B R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1272,
+240
+],
+"scramble": "U B' D B R2 F L2 F' R2 F' L' D2 R2 U2 B R2 F' L2 D U'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3885,
+3855,
+5
+],
+[
+0,
+4050,
+4080,
+5
+]
+],
+"text": [
+"F B (F U B) on FB",
+"R L (R U' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+210,
+240
+],
+"scramble": "F U B D R U2 R' D2 L2 D' R B2 R U2 R' D L2 U2 R B' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3886,
+3855,
+5
+],
+[
+0,
+4049,
+4080,
+5
+]
+],
+"text": [
+"F B (B U' F) on FB",
+"R L (R U L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+209,
+240
+],
+"scramble": "B U' F R' D2 L2 F2 R2 D2 L B2 R2 U' R2 U' L2 U L' U' B' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3979,
+3855,
+5
+],
+[
+0,
+3956,
+4080,
+5
+]
+],
+"text": [
+"F B (B D F) on FB",
+"R L (R D' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+116,
+240
+],
+"scramble": "B D F L U F2 L' F2 U2 F2 D' L D2 L' B2 D' R B2 D2 B' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3975,
+3855,
+5
+],
+[
+0,
+3960,
+4080,
+5
+]
+],
+"text": [
+"F B (F D' B) on FB",
+"R L (R D L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+120,
+240
+],
+"scramble": "F D' B U' R2 U' R' B2 D L2 U' L2 B2 D2 L' U2 F2 R U2 B' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+766,
+255,
+5
+],
+[
+0,
+3569,
+4080,
+5
+]
+],
+"text": [
+"U D (D F U) on UD",
+"R L (R F' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+753,
+240
+],
+"scramble": "D F U F' R2 U2 R U2 B' L D2 B' R' F2 L B' L' F' R2 D' U'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+763,
+255,
+5
+],
+[
+0,
+3572,
+4080,
+5
+]
+],
+"text": [
+"U D (U F' D) on UD",
+"R L (R F L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+756,
+240
+],
+"scramble": "U F' D R' F R2 B L F R2 F2 R' F' R F U2 L2 F' R D' U'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+2295,
+255,
+5
+],
+[
+0,
+2040,
+4080,
+5
+]
+],
+"text": [
+"U D (U B D) on UD",
+"R L (R B' L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1799,
+3855
+],
+"scramble": "U B D U2 F R' D2 B2 L' B2 L F L' B L2 F R' B' U2 D' U'"
+},
+{
+"type": "P4",
+"pres": [
+[
+1,
+2301,
+255,
+5
+],
+[
+0,
+2034,
+4080,
+5
+]
+],
+"text": [
+"U D (D B' U) on UD",
+"R L (R B L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1805,
+3855
+],
+"scramble": "D B' U B' R' B R2 B L' B' L B R' D2 B2 L B R2 B' D' U'"
+},
+{
+"type": "P3",
+"pres": [
+[
+1,
+0,
+3855,
+4
+],
+[
+0,
+3855,
+0,
+4
+]
+],
+"text": [
+"R L U D on UD",
+"(U D R L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+15,
+3840
+],
+"scramble": "R2 B2 L2 F' R' F' L B U2 R' F U2 L U2 L2 F2 D' U' L' R'"
+},
+{
+"type": "P3",
+"pres": [
+[
+2,
+0,
+255,
+4
+],
+[
+0,
+255,
+0,
+4
+]
+],
+"text": [
+"R L F B on FB",
+"(F B R L) on RL"
+],
+"len": [
+4,
+4
+],
+"key": [
+0,
+255
+],
+"scramble": "R' B2 D2 F2 D R2 U2 L' F2 L' U' R2 U2 R2 U L' B' F' L' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+788,
+1455,
+5
+],
+[
+0,
+1003,
+1360,
+5
+]
+],
+"text": [
+"L F B (U F) on FB",
+"R (U B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+788,
+1455
+],
+"scramble": "U F U' B2 R B2 R2 D2 R U' L2 U' L' U' L2 B2 D B F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+788,
+2655,
+5
+],
+[
+0,
+1003,
+2720,
+5
+]
+],
+"text": [
+"R F B (U F) on FB",
+"L (U B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+788,
+2655
+],
+"scramble": "U F U' R D F2 D' R' U2 R2 D2 R U' R F2 U L' D' B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3096,
+1455,
+5
+],
+[
+0,
+3303,
+1360,
+5
+]
+],
+"text": [
+"L F B (U' B) on FB",
+"R (F L U R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+999,
+2640
+],
+"scramble": "U' B U2 F2 D' L2 U L D L D L' B2 D R2 F2 L D' B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3096,
+2655,
+5
+],
+[
+0,
+3303,
+2720,
+5
+]
+],
+"text": [
+"R F B (U' B) on FB",
+"L (F L U R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+999,
+1440
+],
+"scramble": "U' B U2 L D' R' B2 L U2 R' U2 R2 D2 R D' R D L2 B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3138,
+1455,
+5
+],
+[
+0,
+3261,
+1360,
+5
+]
+],
+"text": [
+"L F B (D B) on FB",
+"R (D F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+957,
+2640
+],
+"scramble": "D B' R D L D R U R' F2 R' F2 D2 R2 F2 L' U B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3138,
+2655,
+5
+],
+[
+0,
+3261,
+2720,
+5
+]
+],
+"text": [
+"R F B (D B) on FB",
+"L (D F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+957,
+1440
+],
+"scramble": "D B U L2 D L U' F2 L B2 R2 U' F2 U2 F2 L' U2 R2 B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+833,
+1455,
+5
+],
+[
+0,
+958,
+1360,
+5
+]
+],
+"text": [
+"L F B (D' F) on FB",
+"R (B L D R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+833,
+1455
+],
+"scramble": "D' F B2 D L' U R D2 L' D' R' D' L' U' R' U2 B2 R' B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+833,
+2655,
+5
+],
+[
+0,
+958,
+2720,
+5
+]
+],
+"text": [
+"R F B (D' F) on FB",
+"L (B L D R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+833,
+2655
+],
+"scramble": "D' F D R D' B2 D' L D2 F2 U2 L D' B2 U2 L2 D' L2 B' F' R'"
+},
+{
+"type": "P1",
+"pres": [
+[
+1,
+0,
+2655,
+3
+],
+[
+0,
+3855,
+1360,
+5
+]
+],
+"text": [
+"L U D on UD",
+"R (U D R L) on RL"
+],
+"len": [
+3,
+5
+],
+"key": [
+15,
+2640
+],
+"scramble": "B' D2 L U2 L U2 R F' R2 F' L' B2 L' B' L B' D' U' L'"
+},
+{
+"type": "P1",
+"pres": [
+[
+1,
+0,
+1455,
+3
+],
+[
+0,
+3855,
+2720,
+5
+]
+],
+"text": [
+"R U D on UD",
+"L (U D R L) on RL"
+],
+"len": [
+3,
+5
+],
+"key": [
+15,
+1440
+],
+"scramble": "B U2 L2 F' L2 F' U2 L' F L' B2 R2 F R D2 F' D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+396,
+2655,
+5
+],
+[
+0,
+3715,
+1360,
+5
+]
+],
+"text": [
+"L U D (R' D) on UD",
+"R (R' U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+387,
+2640
+],
+"scramble": "R' D R B R B2 R B R F' L F R B L' B D2 R D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+396,
+1455,
+5
+],
+[
+0,
+3715,
+2720,
+5
+]
+],
+"text": [
+"R U D (R' D) on UD",
+"L (R' U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+387,
+1440
+],
+"scramble": "R' D R' F' R2 F R2 F' L' B L F2 R B2 L F R B' D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+156,
+2655,
+5
+],
+[
+0,
+3987,
+1360,
+5
+]
+],
+"text": [
+"L U D (R2 D) on UD",
+"R (R2 U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+147,
+2640
+],
+"scramble": "R2 D U2 F' D2 F2 U2 F2 R B2 D2 R B' U2 F2 R2 D2 B' D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+156,
+1455,
+5
+],
+[
+0,
+3987,
+2720,
+5
+]
+],
+"text": [
+"R U D (R2 D) on UD",
+"L (R2 U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+147,
+1440
+],
+"scramble": "R2 D B' L' F R2 B' R F' L F2 U2 R D2 F2 D2 R B D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1164,
+2655,
+5
+],
+[
+0,
+2947,
+1360,
+5
+]
+],
+"text": [
+"L U D (R D) on UD",
+"R (R U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1155,
+2640
+],
+"scramble": "R D R' F' R' B D2 B' R2 F2 R' F U2 B2 U2 B R' D U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1164,
+1455,
+5
+],
+[
+0,
+2947,
+2720,
+5
+]
+],
+"text": [
+"R U D (R D) on UD",
+"L (R U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1155,
+1440
+],
+"scramble": "R D F' L' F2 R B L' B2 L' B' R2 B R2 B R' U2 R2 D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2124,
+2655,
+5
+],
+[
+0,
+1859,
+1360,
+5
+]
+],
+"text": [
+"L U D (L' D) on UD",
+"R (L' U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1980,
+1455
+],
+"scramble": "L' D' R2 B2 L F L F L' U2 F2 L B L2 F R F D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2124,
+1455,
+5
+],
+[
+0,
+1859,
+2720,
+5
+]
+],
+"text": [
+"R U D (L' D) on UD",
+"L (L' U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1980,
+2655
+],
+"scramble": "L' D R2 B2 R2 F' R2 F2 D2 R' F' D2 L' F2 R2 B2 U2 B' D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+108,
+2655,
+5
+],
+[
+0,
+3939,
+1360,
+5
+]
+],
+"text": [
+"L U D (L2 D) on UD",
+"R (L2 U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+99,
+2640
+],
+"scramble": "L2 D B2 R' B2 R F R B R F' D2 B2 L2 B' L' B' L2 D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+108,
+1455,
+5
+],
+[
+0,
+3939,
+2720,
+5
+]
+],
+"text": [
+"R U D (L2 D) on UD",
+"L (L2 U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+99,
+1440
+],
+"scramble": "L2 D R2 B' D2 R F R F' L2 D2 R B R2 F2 R2 F' L' D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+588,
+2655,
+5
+],
+[
+0,
+3395,
+1360,
+5
+]
+],
+"text": [
+"L U D (L D) on UD",
+"R (L U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+579,
+2640
+],
+"scramble": "L D B' D2 B' R2 U2 B2 D2 F L2 B' R' F' R2 F2 R F' D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+588,
+1455,
+5
+],
+[
+0,
+3395,
+2720,
+5
+]
+],
+"text": [
+"R U D (L D) on UD",
+"L (L U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+579,
+1440
+],
+"scramble": "L D L D2 L' B2 D2 F' R B R' F D2 B' U2 R2 D2 R' D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+712,
+2655,
+5
+],
+[
+0,
+3527,
+1360,
+5
+]
+],
+"text": [
+"L U D (F' D) on UD",
+"R (U R F L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+711,
+2640
+],
+"scramble": "F' D R' B' D2 R' U2 R' B2 L2 D2 B2 R2 B' U2 L B D U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+712,
+1455,
+5
+],
+[
+0,
+3527,
+2720,
+5
+]
+],
+"text": [
+"R U D (F' D) on UD",
+"L (U R F L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+711,
+1440
+],
+"scramble": "F' D L' B L' B2 U2 R2 U2 L B2 L2 F' L2 D2 F2 L' F' D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+201,
+2655,
+5
+],
+[
+0,
+4038,
+1360,
+5
+]
+],
+"text": [
+"L U D (F2 D) on UD",
+"R (F2 U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+198,
+2640
+],
+"scramble": "F2 D L2 F2 L' B' L2 B' L2 F' U2 F R2 F2 R2 F D2 F' D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+201,
+1455,
+5
+],
+[
+0,
+4038,
+2720,
+5
+]
+],
+"text": [
+"R U D (F2 D) on UD",
+"L (F2 U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+198,
+1440
+],
+"scramble": "F2 D L U2 R' F' L' F' R B' R2 B' R B' R' B R2 F' D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+456,
+2655,
+5
+],
+[
+0,
+3783,
+1360,
+5
+]
+],
+"text": [
+"L U D (F D) on UD",
+"R (F U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+455,
+2640
+],
+"scramble": "F D L2 F' U2 F' R' U2 L2 B L F R2 D2 R U2 F' D U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+456,
+1455,
+5
+],
+[
+0,
+3783,
+2720,
+5
+]
+],
+"text": [
+"R U D (F D) on UD",
+"L (F U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+455,
+1440
+],
+"scramble": "F D R' U2 B2 R' B2 R D2 B D2 R' U2 B2 L B R F2 D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1220,
+2655,
+5
+],
+[
+0,
+3019,
+1360,
+5
+]
+],
+"text": [
+"L U D (B' D) on UD",
+"R (U L B R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1227,
+2640
+],
+"scramble": "B' D L2 F' L2 D2 F L' D2 L2 F' L2 F R' B' D2 F2 U2 D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1220,
+1455,
+5
+],
+[
+0,
+3019,
+2720,
+5
+]
+],
+"text": [
+"R U D (B' D) on UD",
+"L (U L B R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1227,
+1440
+],
+"scramble": "B' D F' L' B' R2 B2 R' F2 R B' R2 D2 F U2 L2 D2 F2 D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+198,
+2655,
+5
+],
+[
+0,
+4041,
+1360,
+5
+]
+],
+"text": [
+"L U D (B2 D) on UD",
+"R (B2 U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+201,
+2640
+],
+"scramble": "B2 D L' F' R' F2 L' B D2 B2 D2 L2 F U2 B2 L2 B2 L' D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+198,
+1455,
+5
+],
+[
+0,
+4041,
+2720,
+5
+]
+],
+"text": [
+"R U D (B2 D) on UD",
+"L (B2 U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+201,
+1440
+],
+"scramble": "B2 D' R F R2 F' D2 B' D2 F R2 F2 D2 R B' L2 F2 D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2244,
+2655,
+5
+],
+[
+0,
+1995,
+1360,
+5
+]
+],
+"text": [
+"L U D (B D) on UD",
+"R (B U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1844,
+1455
+],
+"scramble": "B D R2 B' U2 F2 D2 F L2 F2 U2 B' D2 L2 D2 F2 R2 F2 D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2244,
+1455,
+5
+],
+[
+0,
+1995,
+2720,
+5
+]
+],
+"text": [
+"R U D (B D) on UD",
+"L (B U R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1844,
+2655
+],
+"scramble": "B D B' R' F' L' F2 L2 U2 R' F2 L F R' F' D2 B2 L' D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1059,
+2655,
+5
+],
+[
+0,
+2860,
+1360,
+5
+]
+],
+"text": [
+"L U D (R' U) on UD",
+"R (R' D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1068,
+2640
+],
+"scramble": "R' U L D2 L F R' B R' F R' F2 R2 B' R2 F R B2 D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1059,
+1455,
+5
+],
+[
+0,
+2860,
+2720,
+5
+]
+],
+"text": [
+"R U D (R' U) on UD",
+"L (R' D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1068,
+1440
+],
+"scramble": "R' U B2 U2 R' B' R B R2 B D2 R' F' D2 R F' L2 U2 D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+99,
+2655,
+5
+],
+[
+0,
+3948,
+1360,
+5
+]
+],
+"text": [
+"L U D (R2 U) on UD",
+"R (R2 D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+108,
+2640
+],
+"scramble": "R2 U R2 F' L2 F' R' F' L2 F L2 F L F L' U2 B' D U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+99,
+1455,
+5
+],
+[
+0,
+3948,
+2720,
+5
+]
+],
+"text": [
+"R U D (R2 U) on UD",
+"L (R2 D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+108,
+1440
+],
+"scramble": "R2 U R2 F' D2 B R B' L B2 R' B2 L' F2 L B2 R B' D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+291,
+2655,
+5
+],
+[
+0,
+3628,
+1360,
+5
+]
+],
+"text": [
+"L U D (R U) on UD",
+"R (R D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+300,
+2640
+],
+"scramble": "R U F R D2 R F2 R2 B' D2 F R B R2 B' L B' R' D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+291,
+1455,
+5
+],
+[
+0,
+3628,
+2720,
+5
+]
+],
+"text": [
+"R U D (R U) on UD",
+"L (R D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+300,
+1440
+],
+"scramble": "R U R' D2 R' U2 L2 U2 L' B' L2 B2 U2 R2 U2 F2 D2 L' D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+531,
+2655,
+5
+],
+[
+0,
+3356,
+1360,
+5
+]
+],
+"text": [
+"L U D (L' U) on UD",
+"R (L' D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+540,
+2640
+],
+"scramble": "L' U B L2 F2 D2 R2 U2 L F2 U2 B' D2 B2 U2 F' L' F D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+531,
+1455,
+5
+],
+[
+0,
+3356,
+2720,
+5
+]
+],
+"text": [
+"R U D (L' U) on UD",
+"L (L' D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+540,
+1440
+],
+"scramble": "L' U R B' L2 F L' D2 B L F2 L2 B2 R' F2 L U2 F D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+147,
+2655,
+5
+],
+[
+0,
+3996,
+1360,
+5
+]
+],
+"text": [
+"L U D (L2 U) on UD",
+"R (L2 D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+156,
+2640
+],
+"scramble": "L2 U L F D2 L B R' F' R' B2 L' B2 L D2 B R B2 D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+147,
+1455,
+5
+],
+[
+0,
+3996,
+2720,
+5
+]
+],
+"text": [
+"R U D (L2 U) on UD",
+"L (L2 D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+156,
+1440
+],
+"scramble": "L2 U D2 R2 B R F' L B L' B2 U2 F' R B' U2 R D U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2067,
+2655,
+5
+],
+[
+0,
+1820,
+1360,
+5
+]
+],
+"text": [
+"L U D (L U) on UD",
+"R (L D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+2019,
+1455
+],
+"scramble": "L U D2 L' U2 L' B L2 F D2 L2 B' R B2 U2 F2 L2 F' D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2067,
+1455,
+5
+],
+[
+0,
+1820,
+2720,
+5
+]
+],
+"text": [
+"R U D (L U) on UD",
+"L (L D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+2019,
+2655
+],
+"scramble": "L U L' U2 F' U2 L U2 F2 L2 U2 B' U2 B' L2 B' L' B D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+306,
+2655,
+5
+],
+[
+0,
+3645,
+1360,
+5
+]
+],
+"text": [
+"L U D (F' U) on UD",
+"R (D L F R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+317,
+2640
+],
+"scramble": "F' U L' B' D2 F2 L2 F2 L U2 L2 F' R' F2 D2 L' F L2 D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+306,
+1455,
+5
+],
+[
+0,
+3645,
+2720,
+5
+]
+],
+"text": [
+"R U D (F' U) on UD",
+"L (D L F R) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+317,
+1440
+],
+"scramble": "F' U D2 L' D2 L2 F' D2 L' B L2 B2 U2 B L' B' R' U2 D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+54,
+2655,
+5
+],
+[
+0,
+3897,
+1360,
+5
+]
+],
+"text": [
+"L U D (F2 U) on UD",
+"R (F2 D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+57,
+2640
+],
+"scramble": "F2 U F2 L2 F' R' F' U2 B' L' F2 L' D2 R' F' U2 L F D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+54,
+1455,
+5
+],
+[
+0,
+3897,
+2720,
+5
+]
+],
+"text": [
+"R U D (F2 U) on UD",
+"L (F2 D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+57,
+1440
+],
+"scramble": "F2 U R2 B' L2 F2 U2 L2 F R F2 L' F' U2 B R' F' U2 D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+562,
+2655,
+5
+],
+[
+0,
+3389,
+1360,
+5
+]
+],
+"text": [
+"L U D (F U) on UD",
+"R (F D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+573,
+2640
+],
+"scramble": "F U R B U2 B2 R2 U2 F' R B2 R' B L2 B' R2 B L D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+562,
+1455,
+5
+],
+[
+0,
+3389,
+2720,
+5
+]
+],
+"text": [
+"R U D (F U) on UD",
+"L (F D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+573,
+1440
+],
+"scramble": "F U F2 R B2 D2 R2 F L2 B2 L' B' R' U2 F R' B2 L' D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2097,
+2655,
+5
+],
+[
+0,
+1854,
+1360,
+5
+]
+],
+"text": [
+"L U D (B' U) on UD",
+"R (D R B L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1985,
+1455
+],
+"scramble": "B' U' R B' U2 L2 B' D2 L D2 R F U2 F2 D2 B' L' D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+2097,
+1455,
+5
+],
+[
+0,
+1854,
+2720,
+5
+]
+],
+"text": [
+"R U D (B' U) on UD",
+"L (D R B L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1985,
+2655
+],
+"scramble": "B' U F R B' D2 R2 B2 R' U2 B' R' D2 B2 R B2 L' F' D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+57,
+2655,
+5
+],
+[
+0,
+3894,
+1360,
+5
+]
+],
+"text": [
+"L U D (B2 U) on UD",
+"R (B2 D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+54,
+2640
+],
+"scramble": "B2 U F L B' R B L2 F' R B' L' B2 R' F2 R F2 L D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+57,
+1455,
+5
+],
+[
+0,
+3894,
+2720,
+5
+]
+],
+"text": [
+"R U D (B2 U) on UD",
+"L (B2 D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+54,
+1440
+],
+"scramble": "B2 U R B U2 F' D2 R2 B2 R' B2 U2 R' D2 B R' B2 L' D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1073,
+2655,
+5
+],
+[
+0,
+2878,
+1360,
+5
+]
+],
+"text": [
+"L U D (B U) on UD",
+"R (B D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1086,
+2640
+],
+"scramble": "B U B2 R D2 L D2 B2 U2 F' L2 D2 R F' U2 B' L2 F' D' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+1,
+1073,
+1455,
+5
+],
+[
+0,
+2878,
+2720,
+5
+]
+],
+"text": [
+"R U D (B U) on UD",
+"L (B D R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1086,
+1440
+],
+"scramble": "B U L' D2 L2 F2 L2 B L B2 L' F L B R D2 R' B D' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3081,
+1455,
+5
+],
+[
+0,
+3318,
+1360,
+5
+]
+],
+"text": [
+"L F B (U2 B) on FB",
+"R (U2 F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1014,
+2640
+],
+"scramble": "U2 B U2 R D' R2 D2 B2 L2 F2 R2 D2 R U2 R2 U2 L B F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3081,
+2655,
+5
+],
+[
+0,
+3318,
+2720,
+5
+]
+],
+"text": [
+"R F B (U2 B) on FB",
+"L (U2 F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1014,
+1440
+],
+"scramble": "U2 B R D2 R2 D2 R U2 R' F2 L2 U' R' D R2 B2 D' R B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3112,
+1455,
+5
+],
+[
+0,
+3287,
+1360,
+5
+]
+],
+"text": [
+"L F B (U B) on FB",
+"R (U F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+983,
+2640
+],
+"scramble": "U B L2 U2 R' U2 R U' R U' R2 B2 R2 D2 B2 L U' L2 B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3112,
+2655,
+5
+],
+[
+0,
+3287,
+2720,
+5
+]
+],
+"text": [
+"R F B (U B) on FB",
+"L (U F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+983,
+1440
+],
+"scramble": "U B R' B2 U R F2 U B2 R' B2 R2 D' B2 D R F2 U B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3202,
+1455,
+5
+],
+[
+0,
+3197,
+1360,
+5
+]
+],
+"text": [
+"L F B (D' B) on FB",
+"R (F R D L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+893,
+2640
+],
+"scramble": "D' B R2 D L' F2 L2 U2 L2 D R D R D' L D' R U2 B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3202,
+2655,
+5
+],
+[
+0,
+3197,
+2720,
+5
+]
+],
+"text": [
+"R F B (D' B) on FB",
+"L (F R D L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+893,
+1440
+],
+"scramble": "D' B D R' U2 L F2 R D' L U' L2 D' R D' R2 U R2 B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3078,
+1455,
+5
+],
+[
+0,
+3321,
+1360,
+5
+]
+],
+"text": [
+"L F B (D2 B) on FB",
+"R (D2 F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1017,
+2640
+],
+"scramble": "D2 B L D L2 U B2 U' F2 U2 R2 F2 D2 R2 U2 L' U2 L2 B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3078,
+2655,
+5
+],
+[
+0,
+3321,
+2720,
+5
+]
+],
+"text": [
+"R F B (D2 B) on FB",
+"L (D2 F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1017,
+1440
+],
+"scramble": "D2 B D L' U2 R U' R' B2 L' D2 R' D' L2 D R2 D' B F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2122,
+1455,
+5
+],
+[
+0,
+2229,
+1360,
+5
+]
+],
+"text": [
+"L F B (R' B) on FB",
+"R (R' F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1973,
+2640
+],
+"scramble": "R' B L' D2 R2 D R2 U' B2 R2 D' F2 U' L F2 R F2 R' B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2122,
+2655,
+5
+],
+[
+0,
+2229,
+2720,
+5
+]
+],
+"text": [
+"R F B (R' B) on FB",
+"L (R' F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1973,
+1440
+],
+"scramble": "R' B U2 L2 D2 R' D L2 F2 U2 R' D' R D L B2 D' R2 B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2314,
+1455,
+5
+],
+[
+0,
+2549,
+1360,
+5
+]
+],
+"text": [
+"L F B (R2 B) on FB",
+"R (R2 F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1781,
+2640
+],
+"scramble": "R2 B L' B2 R F2 L2 D' R2 D L D L' D' R' F2 R2 D' B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2314,
+2655,
+5
+],
+[
+0,
+2549,
+2720,
+5
+]
+],
+"text": [
+"R F B (R2 B) on FB",
+"L (R2 F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1781,
+1440
+],
+"scramble": "R2 B' L' U2 B2 U L F2 U L F2 L2 D' R2 D R F2 B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2074,
+1455,
+5
+],
+[
+0,
+2277,
+1360,
+5
+]
+],
+"text": [
+"L F B (R B) on FB",
+"R (R F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+2021,
+2640
+],
+"scramble": "R B L2 F2 D R2 U R2 F2 D R2 F2 U L' D2 L2 F2 U' B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2074,
+2655,
+5
+],
+[
+0,
+2277,
+2720,
+5
+]
+],
+"text": [
+"R F B (R B) on FB",
+"L (R F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+2021,
+1440
+],
+"scramble": "R B L2 F2 R2 F2 L' B2 D R' U' L' D R D' L' D L B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1066,
+1455,
+5
+],
+[
+0,
+1237,
+1360,
+5
+]
+],
+"text": [
+"L F B (L' B) on FB",
+"R (L' F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1066,
+1455
+],
+"scramble": "L' B U' R D2 F2 L U' F2 R' D2 L2 D2 F2 L' D' L2 U B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1066,
+2655,
+5
+],
+[
+0,
+1237,
+2720,
+5
+]
+],
+"text": [
+"R F B (L' B) on FB",
+"L (L' F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1066,
+2655
+],
+"scramble": "L' B D F2 D F2 R D2 L' B2 L2 D2 R' D2 L2 D' R' U' B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1546,
+1455,
+5
+],
+[
+0,
+1781,
+1360,
+5
+]
+],
+"text": [
+"L F B (L2 B) on FB",
+"R (L2 F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1546,
+1455
+],
+"scramble": "L2 B R D2 L D2 R' F2 L' U R F2 D2 R' U' R2 D' L B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1546,
+2655,
+5
+],
+[
+0,
+1781,
+2720,
+5
+]
+],
+"text": [
+"R F B (L2 B) on FB",
+"L (L2 F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1546,
+2655
+],
+"scramble": "L2 B L' U2 L' D R' B2 R2 D' B2 R2 D' L2 U L2 D R B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1162,
+1455,
+5
+],
+[
+0,
+1141,
+1360,
+5
+]
+],
+"text": [
+"L F B (L B) on FB",
+"R (L F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1162,
+1455
+],
+"scramble": "L B R' D L' D' R2 U' R' U' F2 L2 U2 R' U' B2 R U' B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1162,
+2655,
+5
+],
+[
+0,
+1141,
+2720,
+5
+]
+],
+"text": [
+"R F B (L B) on FB",
+"L (L F R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1162,
+2655
+],
+"scramble": "L B D2 L F2 D' R2 U2 R2 D' F2 R D F2 D' R2 D R' B' F' R'"
+},
+{
+"type": "P1",
+"pres": [
+[
+2,
+0,
+1455,
+3
+],
+[
+0,
+255,
+1360,
+5
+]
+],
+"text": [
+"L F B on FB",
+"R (F B R L) on RL"
+],
+"len": [
+3,
+5
+],
+"key": [
+0,
+1455
+],
+"scramble": "R' U2 L' B2 R2 F2 L' D L F2 U2 F2 R' D' L2 U2 B' F' L'"
+},
+{
+"type": "P1",
+"pres": [
+[
+2,
+0,
+2655,
+3
+],
+[
+0,
+255,
+2720,
+5
+]
+],
+"text": [
+"R F B on FB",
+"L (F B R L) on RL"
+],
+"len": [
+3,
+5
+],
+"key": [
+0,
+2655
+],
+"scramble": "R U2 F2 R' U L2 F2 R2 D2 F2 D' B2 R' B2 U R2 B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+804,
+1455,
+5
+],
+[
+0,
+987,
+1360,
+5
+]
+],
+"text": [
+"L F B (U' F) on FB",
+"R (B R U L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+804,
+1455
+],
+"scramble": "U' F U' B2 D' L2 D L' U2 L2 U2 R' B2 L' U L U' R' B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+804,
+2655,
+5
+],
+[
+0,
+987,
+2720,
+5
+]
+],
+"text": [
+"R F B (U' F) on FB",
+"L (B R U L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+804,
+2655
+],
+"scramble": "U' F R2 B2 D2 R D2 R' U R2 D L' B2 D L2 D2 R2 D' B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+774,
+1455,
+5
+],
+[
+0,
+1017,
+1360,
+5
+]
+],
+"text": [
+"L F B (U2 F) on FB",
+"R (U2 B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+774,
+1455
+],
+"scramble": "U2 F U R U R' U2 R2 B2 L' B2 U R U' R2 F2 R2 U' B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+774,
+2655,
+5
+],
+[
+0,
+1017,
+2720,
+5
+]
+],
+"text": [
+"R F B (U2 F) on FB",
+"L (U2 B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+774,
+2655
+],
+"scramble": "U2 F U' F2 R' F2 U' R' D2 R2 D' L U2 B2 R' U' R' D B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+777,
+1455,
+5
+],
+[
+0,
+1014,
+1360,
+5
+]
+],
+"text": [
+"L F B (D2 F) on FB",
+"R (D2 B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+777,
+1455
+],
+"scramble": "D2 F U' R U' R2 B2 L2 D F2 R D2 F2 L' D R' F2 R2 B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+777,
+2655,
+5
+],
+[
+0,
+1014,
+2720,
+5
+]
+],
+"text": [
+"R F B (D2 F) on FB",
+"L (D2 B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+777,
+2655
+],
+"scramble": "D2 F U' R' B2 D F2 D' L' D R2 U2 L' D' L2 F2 R' U' B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+897,
+1455,
+5
+],
+[
+0,
+894,
+1360,
+5
+]
+],
+"text": [
+"L F B (D F) on FB",
+"R (D B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+897,
+1455
+],
+"scramble": "D F L2 U L2 D2 L U R2 F2 R U R U2 R D R' D' B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+897,
+2655,
+5
+],
+[
+0,
+894,
+2720,
+5
+]
+],
+"text": [
+"R F B (D F) on FB",
+"L (D B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+897,
+2655
+],
+"scramble": "D F R' U' R D2 L U2 R2 U L' U2 R U' L U2 L U B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+533,
+1455,
+5
+],
+[
+0,
+746,
+1360,
+5
+]
+],
+"text": [
+"L F B (R' F) on FB",
+"R (R' B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+533,
+1455
+],
+"scramble": "R' F U' B2 U L' D2 B2 R2 D' B2 L2 D R2 D2 B2 L' B F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+533,
+2655,
+5
+],
+[
+0,
+746,
+2720,
+5
+]
+],
+"text": [
+"R F B (R' F) on FB",
+"L (R' B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+533,
+2655
+],
+"scramble": "R' F' R2 U2 F2 D' L B2 L' F2 R2 U' R D L' F2 R2 B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1541,
+1455,
+5
+],
+[
+0,
+1786,
+1360,
+5
+]
+],
+"text": [
+"L F B (R2 F) on FB",
+"R (R2 B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1541,
+1455
+],
+"scramble": "R2 F L2 F2 L U' L' U R D R' U2 L D R2 D' L D' B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1541,
+2655,
+5
+],
+[
+0,
+1786,
+2720,
+5
+]
+],
+"text": [
+"R F B (R2 F) on FB",
+"L (R2 B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1541,
+2655
+],
+"scramble": "R2 F U2 R2 B2 U' L' D' L' U2 B2 L U R U' L2 D' B F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+581,
+1455,
+5
+],
+[
+0,
+698,
+1360,
+5
+]
+],
+"text": [
+"L F B (R F) on FB",
+"R (R B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+581,
+1455
+],
+"scramble": "R F U R2 U2 R' D B2 D2 R' U' R' D2 L D2 R2 F2 L' B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+581,
+2655,
+5
+],
+[
+0,
+698,
+2720,
+5
+]
+],
+"text": [
+"R F B (R F) on FB",
+"L (R B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+581,
+2655
+],
+"scramble": "R F U' L' D L U' L D R2 U' L' D' R B2 D2 R B F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+389,
+1455,
+5
+],
+[
+0,
+378,
+1360,
+5
+]
+],
+"text": [
+"L F B (L' F) on FB",
+"R (L' B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+389,
+1455
+],
+"scramble": "L' F R2 U' F2 D' R B2 L2 D2 R' D' L2 D R D2 B2 U' B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+389,
+2655,
+5
+],
+[
+0,
+378,
+2720,
+5
+]
+],
+"text": [
+"R F B (L' F) on FB",
+"L (L' B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+389,
+2655
+],
+"scramble": "L' F U' L' B2 R2 D L2 D' L2 F2 R' D2 L2 U' B2 D2 R' B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2309,
+1455,
+5
+],
+[
+0,
+2554,
+1360,
+5
+]
+],
+"text": [
+"L F B (L2 F) on FB",
+"R (L2 B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1786,
+2640
+],
+"scramble": "L2 F R2 D' L D B2 D2 F2 D' L2 F2 L' F2 U L' U2 L B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2309,
+2655,
+5
+],
+[
+0,
+2554,
+2720,
+5
+]
+],
+"text": [
+"R F B (L2 F) on FB",
+"L (L2 B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+1786,
+1440
+],
+"scramble": "L2 F U L D2 B2 R' U2 B2 L2 B2 R D R2 F2 D' R2 U B' F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+293,
+1455,
+5
+],
+[
+0,
+474,
+1360,
+5
+]
+],
+"text": [
+"L F B (L F) on FB",
+"R (L B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+293,
+1455
+],
+"scramble": "L F B2 D2 B2 U2 R F2 D' F2 R' D2 L' U2 L' D F2 L B' F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+293,
+2655,
+5
+],
+[
+0,
+474,
+2720,
+5
+]
+],
+"text": [
+"R F B (L F) on FB",
+"L (L B R L) on RL"
+],
+"len": [
+5,
+5
+],
+"key": [
+293,
+2655
+],
+"scramble": "L F L2 D' L U2 F2 U L D' L U' L2 D' L2 U' B2 L2 B' F' R'"
+},
+{
+"type": "P1",
+"pres": [
+[
+1,
+0,
+1018,
+3
+],
+[
+2,
+4080,
+3082,
+5
+]
+],
+"text": [
+"F U D on UD",
+"B (U D F B) on FB"
+],
+"len": [
+3,
+5
+],
+"key": [
+15,
+1013
+],
+"scramble": "F' R' F2 D2 F R U2 R2 F L' F L2 F2 L' U2 L D' U' F'"
+},
+{
+"type": "P1",
+"pres": [
+[
+1,
+0,
+3317,
+3
+],
+[
+2,
+4080,
+773,
+5
+]
+],
+"text": [
+"B U D on UD",
+"F (U D F B) on FB"
+],
+"len": [
+3,
+5
+],
+"key": [
+15,
+3322
+],
+"scramble": "B' D2 F' L B' R U2 F2 U2 B2 R B' D2 F R B2 D' U' B'"
+},
+{
+"type": "P3",
+"pres": [
+[
+2,
+4080,
+0,
+4
+],
+[
+1,
+0,
+4080,
+4
+]
+],
+"text": [
+"(U D F B) on FB",
+"F B U D on UD"
+],
+"len": [
+4,
+4
+],
+"key": [
+15,
+4095
+],
+"scramble": "U D F B R U' R' D2 R2 U' R2 U' R U' R' D' R' D R D'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+4035,
+3082,
+4
+],
+[
+1,
+51,
+1018,
+4
+]
+],
+"text": [
+"B (D F B) on FB",
+"F U D (U) on UD"
+],
+"len": [
+4,
+4
+],
+"key": [
+60,
+1013
+],
+"scramble": "D F B F2 U2 R' D' L B2 L' U2 F2 R' F2 L2 B2 U2 L D2 B'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+4035,
+773,
+4
+],
+[
+1,
+51,
+3317,
+4
+]
+],
+"text": [
+"F (D F B) on FB",
+"B U D (U) on UD"
+],
+"len": [
+4,
+4
+],
+"key": [
+60,
+3322
+],
+"scramble": "D F B L U2 B2 R U R' U2 L' F2 R F2 D2 L' F2 D2 L' F'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+3900,
+3082,
+4
+],
+[
+1,
+204,
+1018,
+4
+]
+],
+"text": [
+"B (U F B) on FB",
+"F U D (D) on UD"
+],
+"len": [
+4,
+4
+],
+"key": [
+195,
+1013
+],
+"scramble": "U F B U2 L2 U' B2 R2 F2 U L' U2 L' D' L' B2 D' F2 R' B'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+3900,
+773,
+4
+],
+[
+1,
+204,
+3317,
+4
+]
+],
+"text": [
+"F (U F B) on FB",
+"B U D (D) on UD"
+],
+"len": [
+4,
+4
+],
+"key": [
+195,
+3322
+],
+"scramble": "U F B R' D' R2 D2 F2 D2 L2 U2 L' D L2 U F2 R' D2 R' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+3096,
+5
+],
+[
+1,
+51,
+1000,
+5
+]
+],
+"text": [
+"U' B (D F B) on FB",
+"U' F U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+999
+],
+"scramble": "D F B R' U' R U2 L2 U' L2 F2 L' U L' D F2 U' R F2 B' U"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+3081,
+5
+],
+[
+1,
+51,
+1017,
+5
+]
+],
+"text": [
+"U2 B (D F B) on FB",
+"U2 F U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1014
+],
+"scramble": "D F B U' B2 R' B2 L' F2 D2 B2 D L2 D' R' F2 R2 F2 U B' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+3112,
+5
+],
+[
+1,
+51,
+984,
+5
+]
+],
+"text": [
+"U B (D F B) on FB",
+"U F U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+983
+],
+"scramble": "D F B D' R U' L2 U' L F2 L2 D' L2 U L' B2 R' U' R2 B' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+3202,
+5
+],
+[
+1,
+51,
+882,
+5
+]
+],
+"text": [
+"D' B (D F B) on FB",
+"D' F U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+893
+],
+"scramble": "D F B L' B2 R D' L U L2 U R2 U2 L D' L2 U2 R2 B D"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+3078,
+5
+],
+[
+1,
+51,
+1014,
+5
+]
+],
+"text": [
+"D2 B (D F B) on FB",
+"D2 F U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1017
+],
+"scramble": "D F B' R' D2 R' D' R2 B2 L' D B2 R U2 R U2 R' D' B' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+3138,
+5
+],
+[
+1,
+51,
+946,
+5
+]
+],
+"text": [
+"D B (D F B) on FB",
+"D F U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+957
+],
+"scramble": "D F B L' U' R' B2 D R D2 R' D2 L2 F2 R' D2 F2 L' U' B' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+2122,
+5
+],
+[
+1,
+51,
+1978,
+5
+]
+],
+"text": [
+"R' B (D F B) on FB",
+"F U R D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1973
+],
+"scramble": "D F B R2 B2 D2 R U R2 D' L2 B2 R' U B2 L' B2 R2 B R"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+2314,
+5
+],
+[
+1,
+51,
+1786,
+5
+]
+],
+"text": [
+"R2 B (D F B) on FB",
+"R2 F U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1781
+],
+"scramble": "D F B U' L' U2 L D' R F2 U2 B2 D' L' D' B2 D2 F2 U B' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+2074,
+5
+],
+[
+1,
+51,
+2026,
+5
+]
+],
+"text": [
+"R B (D F B) on FB",
+"R F U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2021
+],
+"scramble": "D F B L B2 U2 R2 D' R' U2 R D2 R' U R' D2 L' D' L B' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+1066,
+5
+],
+[
+1,
+51,
+3034,
+5
+]
+],
+"text": [
+"L' B (D F B) on FB",
+"F D L U (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3029
+],
+"scramble": "D F B R' D2 B2 U R U L U R' U2 L D' R' D2 L' F2 B' L"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+1546,
+5
+],
+[
+1,
+51,
+2554,
+5
+]
+],
+"text": [
+"L2 B (D F B) on FB",
+"L2 F U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2549
+],
+"scramble": "D F B F2 R2 F2 D L' F2 D2 R' D' B2 L' F2 D2 R B2 D B' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+1162,
+5
+],
+[
+1,
+51,
+2938,
+5
+]
+],
+"text": [
+"L B (D F B) on FB",
+"L F U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2933
+],
+"scramble": "D F B U2 B2 U R' B2 L U F2 R2 D' R B2 L D2 R D B' L'"
+},
+{
+"type": "P1",
+"pres": [
+[
+2,
+4035,
+0,
+3
+],
+[
+1,
+51,
+4080,
+5
+]
+],
+"text": [
+"(D F B) on FB",
+"F B U D (U) on UD"
+],
+"len": [
+3,
+5
+],
+"key": [
+60,
+4095
+],
+"scramble": "D F B U L2 U2 B2 L' U' R2 F2 L B2 L2 U' L' U F2 U"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+804,
+5
+],
+[
+1,
+51,
+3284,
+5
+]
+],
+"text": [
+"U' F (D F B) on FB",
+"U' B U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3291
+],
+"scramble": "D F B L B2 D' R D2 L U2 R2 D L2 D R2 U2 R D' R2 F' U"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+774,
+5
+],
+[
+1,
+51,
+3318,
+5
+]
+],
+"text": [
+"U2 F (D F B) on FB",
+"U2 B U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3321
+],
+"scramble": "D F B U' F2 R U' R F2 R2 U' R' U2 L2 U2 R2 U2 L' D F' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+788,
+5
+],
+[
+1,
+51,
+3300,
+5
+]
+],
+"text": [
+"U F (D F B) on FB",
+"U B U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3307
+],
+"scramble": "D F B L2 F2 D' B2 U' L F2 R U' L B2 R U' R2 D2 R' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+833,
+5
+],
+[
+1,
+51,
+3249,
+5
+]
+],
+"text": [
+"D' F (D F B) on FB",
+"D' B U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3262
+],
+"scramble": "D F B U2 L U' L B2 L' D R2 B2 R F2 U' B2 D' R2 U' F' D"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+777,
+5
+],
+[
+1,
+51,
+3321,
+5
+]
+],
+"text": [
+"D2 F (D F B) on FB",
+"D2 B U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3318
+],
+"scramble": "D F B L' U R U2 L U R' D R' U' F2 D' R D' L2 D F' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+897,
+5
+],
+[
+1,
+51,
+3185,
+5
+]
+],
+"text": [
+"D F (D F B) on FB",
+"D B U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3198
+],
+"scramble": "D F B R' D2 F2 U L' B2 R' U L2 D2 L F2 U2 F2 R B2 F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+533,
+5
+],
+[
+1,
+51,
+3557,
+5
+]
+],
+"text": [
+"R' F (D F B) on FB",
+"B D R U (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3562
+],
+"scramble": "D F B R D' B2 U L2 U' L U B2 L2 D' L D2 F2 R' U F' R"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+1541,
+5
+],
+[
+1,
+51,
+2549,
+5
+]
+],
+"text": [
+"R2 F (D F B) on FB",
+"R2 B U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+2554
+],
+"scramble": "D F B D2 F2 U2 R2 B2 U R' B2 U2 F2 L' F2 U2 F2 U2 R F' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+581,
+5
+],
+[
+1,
+51,
+3509,
+5
+]
+],
+"text": [
+"R F (D F B) on FB",
+"R B U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3514
+],
+"scramble": "D F B U2 B2 R' B2 L2 D R B2 D L2 D' L U L' F2 L F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+389,
+5
+],
+[
+1,
+51,
+3701,
+5
+]
+],
+"text": [
+"L' F (D F B) on FB",
+"B U L D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3706
+],
+"scramble": "D F B L U' R' F2 L2 U F2 D R B2 U R U' R' B2 R2 F' L"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+2309,
+5
+],
+[
+1,
+51,
+1781,
+5
+]
+],
+"text": [
+"L2 F (D F B) on FB",
+"L2 B U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+1786
+],
+"scramble": "D F B D L' D2 R' U F2 D R D L' D B2 D' L' D R F' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4035,
+293,
+5
+],
+[
+1,
+51,
+3797,
+5
+]
+],
+"text": [
+"L F (D F B) on FB",
+"L B U D (U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+60,
+3802
+],
+"scramble": "D F B L U2 R' U2 R2 U B2 L' U2 L' U L' U' B2 L D F' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+3096,
+5
+],
+[
+1,
+204,
+1000,
+5
+]
+],
+"text": [
+"U' B (U F B) on FB",
+"U' F U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+999
+],
+"scramble": "U F B L D L2 B2 D' L2 U' R2 D2 R' U B2 D2 R' D R2 B' U"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+3081,
+5
+],
+[
+1,
+204,
+1017,
+5
+]
+],
+"text": [
+"U2 B (U F B) on FB",
+"U2 F U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1014
+],
+"scramble": "U F B D2 L F2 R' D' L2 U L' F2 L' U' L' U' B2 U R2 B' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+3112,
+5
+],
+[
+1,
+204,
+984,
+5
+]
+],
+"text": [
+"U B (U F B) on FB",
+"U F U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+983
+],
+"scramble": "U F B U' R' D2 R B2 D R2 U B2 D2 L2 D B2 D' R D2 B' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+3202,
+5
+],
+[
+1,
+204,
+882,
+5
+]
+],
+"text": [
+"D' B (U F B) on FB",
+"D' F U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+893
+],
+"scramble": "U F B D' R' B2 D2 L' U L2 D R2 D B2 R2 U' R' U2 L B' D"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+3078,
+5
+],
+[
+1,
+204,
+1014,
+5
+]
+],
+"text": [
+"D2 B (U F B) on FB",
+"D2 F U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1017
+],
+"scramble": "U F B R' D L2 F2 R U2 L2 U B2 L B2 D2 F2 U2 R2 D' B' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+3138,
+5
+],
+[
+1,
+204,
+946,
+5
+]
+],
+"text": [
+"D B (U F B) on FB",
+"D F U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+957
+],
+"scramble": "U F B U2 L B2 R D2 R U2 L2 D R U2 R F2 R' U' B D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+2122,
+5
+],
+[
+1,
+204,
+1978,
+5
+]
+],
+"text": [
+"R' B (U F B) on FB",
+"F U R D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1973
+],
+"scramble": "U F B D2 L2 U' R' F2 L' F2 D R2 U' R U2 R2 D' L' D' B' R"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+2314,
+5
+],
+[
+1,
+204,
+1786,
+5
+]
+],
+"text": [
+"R2 B (U F B) on FB",
+"R2 F U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1781
+],
+"scramble": "U F B L2 U2 L U L2 U2 L F2 U2 F2 D' L D' L' B2 L' B' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+2074,
+5
+],
+[
+1,
+204,
+2026,
+5
+]
+],
+"text": [
+"R B (U F B) on FB",
+"R F U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2021
+],
+"scramble": "U F B U' F2 L2 F2 L2 U F2 D L D R F2 R2 D L' U2 B' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+1066,
+5
+],
+[
+1,
+204,
+3034,
+5
+]
+],
+"text": [
+"L' B (U F B) on FB",
+"F D L U (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3029
+],
+"scramble": "U F B R2 F2 R D2 L' D2 R F2 L' D2 L' B2 R2 U R2 D' B' L"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+1546,
+5
+],
+[
+1,
+204,
+2554,
+5
+]
+],
+"text": [
+"L2 B (U F B) on FB",
+"L2 F U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2549
+],
+"scramble": "U F B R' U L2 U' R' B2 D2 R2 U2 R2 D' R2 D2 R' D' R B' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+1162,
+5
+],
+[
+1,
+204,
+2938,
+5
+]
+],
+"text": [
+"L B (U F B) on FB",
+"L F U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2933
+],
+"scramble": "U F B L U' R2 U L2 U2 F2 D' L' F2 U R D' R U' L B' L'"
+},
+{
+"type": "P1",
+"pres": [
+[
+2,
+3900,
+0,
+3
+],
+[
+1,
+204,
+4080,
+5
+]
+],
+"text": [
+"(U F B) on FB",
+"F B U D (D) on UD"
+],
+"len": [
+3,
+5
+],
+"key": [
+195,
+4095
+],
+"scramble": "U F B R2 U L2 B2 D L' U L' U' R' U2 L' D2 R D2 R"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+804,
+5
+],
+[
+1,
+204,
+3284,
+5
+]
+],
+"text": [
+"U' F (U F B) on FB",
+"U' B U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3291
+],
+"scramble": "U F B R' D' R' D R2 D2 R2 U2 R2 F2 U2 R F2 L' D2 F U"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+774,
+5
+],
+[
+1,
+204,
+3318,
+5
+]
+],
+"text": [
+"U2 F (U F B) on FB",
+"U2 B U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3321
+],
+"scramble": "U F B U2 F2 U2 R2 B2 D R2 U2 R2 D' B2 U' R2 U' B2 U' F' U2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+788,
+5
+],
+[
+1,
+204,
+3300,
+5
+]
+],
+"text": [
+"U F (U F B) on FB",
+"U B U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3307
+],
+"scramble": "U F B L' B2 D L B2 L U' R2 D2 R2 U R D2 L' D R' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+833,
+5
+],
+[
+1,
+204,
+3249,
+5
+]
+],
+"text": [
+"D' F (U F B) on FB",
+"D' B U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3262
+],
+"scramble": "U F B' L D2 B2 U2 L B2 U B2 L2 U' L2 U' L U' R2 F' D"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+777,
+5
+],
+[
+1,
+204,
+3321,
+5
+]
+],
+"text": [
+"D2 F (U F B) on FB",
+"D2 B U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3318
+],
+"scramble": "U F B U L' F2 R' D' B2 U R2 U2 R D2 R2 U' F2 L' B2 F' D2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+897,
+5
+],
+[
+1,
+204,
+3185,
+5
+]
+],
+"text": [
+"D F (U F B) on FB",
+"D B U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3198
+],
+"scramble": "U F B U2 R' D B2 R2 U' R2 D' R' F2 U' R U F2 L U2 F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+533,
+5
+],
+[
+1,
+204,
+3557,
+5
+]
+],
+"text": [
+"R' F (U F B) on FB",
+"B D R U (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3562
+],
+"scramble": "U F B U2 F2 U2 R U' L' U2 L2 U2 F2 R D' L' U B2 R' F' R"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+1541,
+5
+],
+[
+1,
+204,
+2549,
+5
+]
+],
+"text": [
+"R2 F (U F B) on FB",
+"R2 B U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+2554
+],
+"scramble": "U F B U' R' U2 R2 B2 D' B2 D' L' U2 R U2 L U B2 D' F' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+581,
+5
+],
+[
+1,
+204,
+3509,
+5
+]
+],
+"text": [
+"R F (U F B) on FB",
+"R B U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3514
+],
+"scramble": "U F B U2 L2 F2 R2 D L U2 L' U' L U' L F2 L' U L F' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+389,
+5
+],
+[
+1,
+204,
+3701,
+5
+]
+],
+"text": [
+"L' F (U F B) on FB",
+"B U L D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3706
+],
+"scramble": "U F B D2 B2 U2 F2 D' R' B2 U L D L F2 R' U L2 U F' L"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+2309,
+5
+],
+[
+1,
+204,
+1781,
+5
+]
+],
+"text": [
+"L2 F (U F B) on FB",
+"L2 B U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+1786
+],
+"scramble": "U F B U2 L' U2 L' F2 R D' R2 U L D L B2 U L2 U' F' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3900,
+293,
+5
+],
+[
+1,
+204,
+3797,
+5
+]
+],
+"text": [
+"L F (U F B) on FB",
+"L B U D (D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+195,
+3802
+],
+"scramble": "U F B U L B2 D' L U L' U' B2 R' D2 R' B2 R2 U2 R' F' L'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+2847,
+5
+],
+[
+1,
+255,
+1263,
+5
+]
+],
+"text": [
+"F R B (F B) on FB",
+"D R' U (U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+1248
+],
+"scramble": "F B U R' B2 D R F2 R2 D B2 D2 L2 D' L U B2 L2 B' R' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+3615,
+5
+],
+[
+1,
+255,
+495,
+5
+]
+],
+"text": [
+"B R' F (F B) on FB",
+"D R U (U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+480
+],
+"scramble": "F B D2 L D2 L2 D2 R D' F2 U2 L2 F2 U2 R' D2 B2 U F' R B'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+3375,
+5
+],
+[
+1,
+255,
+735,
+5
+]
+],
+"text": [
+"B L F (F B) on FB",
+"D L' U (U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+720
+],
+"scramble": "F B D2 L2 U R' D' R2 U R2 U L U R' D' F2 U' R F' L' B'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+1839,
+5
+],
+[
+1,
+255,
+2271,
+5
+]
+],
+"text": [
+"F L' B (F B) on FB",
+"D L U (U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+2256
+],
+"scramble": "F B U L' U2 L2 U R B2 U L U' L2 U2 R' F2 U' L' B' L F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+3663,
+5
+],
+[
+1,
+255,
+447,
+5
+]
+],
+"text": [
+"B R F (F B) on FB",
+"U R' D (U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+432
+],
+"scramble": "F B' L2 F2 U2 R2 F2 R D' L2 U' B2 L D' R' B2 L F' R' B'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+2895,
+5
+],
+[
+1,
+255,
+1215,
+5
+]
+],
+"text": [
+"F R' B (F B) on FB",
+"U R D (U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+1200
+],
+"scramble": "F B R2 U2 L D' F2 D' R2 U L2 B2 L2 D F2 U2 F2 L B' R F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+1935,
+5
+],
+[
+1,
+255,
+2175,
+5
+]
+],
+"text": [
+"F L B (F B) on FB",
+"U L' D (U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+2160
+],
+"scramble": "F B R' D' R2 U2 L' U' F2 R' U' R2 D' L2 D2 L' D R2 B' L' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3855,
+3471,
+5
+],
+[
+1,
+255,
+639,
+5
+]
+],
+"text": [
+"B L' F (F B) on FB",
+"U L D (U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+240,
+624
+],
+"scramble": "F B L D2 R D2 L' D R2 D' L2 U2 F2 D2 R2 U F2 L2 F' L B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3027,
+3082,
+5
+],
+[
+1,
+1059,
+1018,
+5
+]
+],
+"text": [
+"B (D F R B) on FB",
+"F U D (R' U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1068,
+1013
+],
+"scramble": "D F R B D2 R2 U' B2 D' L' F2 L2 D R' U' L' U' L2 D2 B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3027,
+773,
+5
+],
+[
+1,
+1059,
+3317,
+5
+]
+],
+"text": [
+"F (D F R B) on FB",
+"B U D (R' U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1068,
+3322
+],
+"scramble": "D F R B U2 L B2 R' B2 L' U' R U L2 D' R U R' U2 L2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3987,
+3082,
+5
+],
+[
+1,
+99,
+1018,
+5
+]
+],
+"text": [
+"B (R2 D F B) on FB",
+"F U D (R2 U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+108,
+1013
+],
+"scramble": "R2 D F B D' R2 B2 D R2 F2 U2 L2 U' L D2 B2 R' B2 D R B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3987,
+773,
+5
+],
+[
+1,
+99,
+3317,
+5
+]
+],
+"text": [
+"F (R2 D F B) on FB",
+"B U D (R2 U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+108,
+3322
+],
+"scramble": "R2 D F B D' R' U2 F2 L D2 R2 U2 L2 U' R' U R2 D2 B2 D F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3795,
+3082,
+5
+],
+[
+1,
+291,
+1018,
+5
+]
+],
+"text": [
+"B (R D F B) on FB",
+"F U D (R U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+300,
+1013
+],
+"scramble": "R D F B F2 L2 U L D' L D R' U2 R2 F2 D B2 U L' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3795,
+773,
+5
+],
+[
+1,
+291,
+3317,
+5
+]
+],
+"text": [
+"F (R D F B) on FB",
+"B U D (R U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+300,
+3322
+],
+"scramble": "R D F B L B2 D L2 D R D2 L D' R' F2 D' R' D' F2 R' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3555,
+3082,
+5
+],
+[
+1,
+531,
+1018,
+5
+]
+],
+"text": [
+"B (D B L F) on FB",
+"F U D (L' U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+540,
+1013
+],
+"scramble": "D B L F L2 U2 R2 U2 L' D' R' U L D R' U' F2 D' B2 U' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3555,
+773,
+5
+],
+[
+1,
+531,
+3317,
+5
+]
+],
+"text": [
+"F (D B L F) on FB",
+"B U D (L' U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+540,
+3322
+],
+"scramble": "D B L F D' L' D R' B2 L2 F2 L2 U' B2 D' R2 B2 L' F2 D F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3939,
+3082,
+5
+],
+[
+1,
+147,
+1018,
+5
+]
+],
+"text": [
+"B (L2 D F B) on FB",
+"F U D (L2 U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+156,
+1013
+],
+"scramble": "L2 D F B D2 R2 U R2 D' L' U2 L U' R D' B2 U2 R' D L2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3939,
+773,
+5
+],
+[
+1,
+147,
+3317,
+5
+]
+],
+"text": [
+"F (L2 D F B) on FB",
+"B U D (L2 U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+156,
+3322
+],
+"scramble": "L2 D F B R2 B2 R' D2 L2 U' R' U2 F2 R U R U' B2 L' U F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2019,
+3082,
+5
+],
+[
+1,
+2067,
+1018,
+5
+]
+],
+"text": [
+"B (L D F B) on FB",
+"F U D (L U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+2019,
+3082
+],
+"scramble": "L D F B L2 U' B2 D2 R' U2 F2 R2 D' R F2 R' B2 D2 R' D B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2019,
+773,
+5
+],
+[
+1,
+2067,
+3317,
+5
+]
+],
+"text": [
+"F (L D F B) on FB",
+"B U D (L U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+2019,
+773
+],
+"scramble": "L D F B L' U' F2 R' D' L' D' L2 B2 D' R D R' U2 L2 D' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3778,
+3082,
+5
+],
+[
+1,
+306,
+1018,
+5
+]
+],
+"text": [
+"B (F' D F B) on FB",
+"F U D (F' U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+317,
+1013
+],
+"scramble": "F' D F B D2 R2 D' L' U2 R2 U' L U' L2 F2 D' B2 D F2 D B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3778,
+773,
+5
+],
+[
+1,
+306,
+3317,
+5
+]
+],
+"text": [
+"F (F' D F B) on FB",
+"B U D (F' U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+317,
+3322
+],
+"scramble": "F' D F B' U' R2 U' L' F2 D2 F2 U2 L2 B2 L F2 L2 U2 B2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4038,
+3082,
+5
+],
+[
+1,
+54,
+1018,
+5
+]
+],
+"text": [
+"B (F2 D F B) on FB",
+"F U D (F2 U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+57,
+1013
+],
+"scramble": "F2 D F B D' R2 D' L2 U2 R F2 U2 B2 D' R' D2 B2 U' L2 D B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4038,
+773,
+5
+],
+[
+1,
+54,
+3317,
+5
+]
+],
+"text": [
+"F (F2 D F B) on FB",
+"B U D (F2 U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+57,
+3322
+],
+"scramble": "F2 D F B D' B2 R2 U' B2 R U B2 U' B2 D2 L D2 L D' R F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3522,
+3082,
+5
+],
+[
+1,
+562,
+1018,
+5
+]
+],
+"text": [
+"B (F D F B) on FB",
+"F U D (F U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+573,
+1013
+],
+"scramble": "F D F B U' R U' L2 D2 B2 R F2 D2 B2 L D2 B2 U2 B2 L2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3522,
+773,
+5
+],
+[
+1,
+562,
+3317,
+5
+]
+],
+"text": [
+"F (F D F B) on FB",
+"B U D (F U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+573,
+3322
+],
+"scramble": "F D F B U' R' F2 D' R2 F2 L2 D R U' R' D2 F2 U L2 U' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1985,
+3082,
+5
+],
+[
+1,
+2097,
+1018,
+5
+]
+],
+"text": [
+"B (B' D F B) on FB",
+"F U D (B' U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1985,
+3082
+],
+"scramble": "B' D F B U R' U2 L' D' R' D' R U R U R D' F2 L2 B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1985,
+773,
+5
+],
+[
+1,
+2097,
+3317,
+5
+]
+],
+"text": [
+"F (B' D F B) on FB",
+"B U D (B' U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1985,
+773
+],
+"scramble": "B' D F B F2 R U R' D R' U L' B2 U' L U R U B2 U' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4041,
+3082,
+5
+],
+[
+1,
+57,
+1018,
+5
+]
+],
+"text": [
+"B (B2 D F B) on FB",
+"F U D (B2 U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+54,
+1013
+],
+"scramble": "B2 D F B D L2 U2 R' U' R F2 R2 B2 U B2 R2 U2 R F2 U2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+4041,
+773,
+5
+],
+[
+1,
+57,
+3317,
+5
+]
+],
+"text": [
+"F (B2 D F B) on FB",
+"B U D (B2 U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+54,
+3322
+],
+"scramble": "B2 D F B L D L' U' R U2 L' D2 R2 U R D' R' B2 L F"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3009,
+3082,
+5
+],
+[
+1,
+1073,
+1018,
+5
+]
+],
+"text": [
+"B (B D F B) on FB",
+"F U D (B U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1086,
+1013
+],
+"scramble": "B D F B R' D R2 U R' B2 U L2 B2 L F2 L D2 F2 R B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3009,
+773,
+5
+],
+[
+1,
+1073,
+3317,
+5
+]
+],
+"text": [
+"F (B D F B) on FB",
+"B U D (B U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1086,
+3322
+],
+"scramble": "B D F B R' B2 D R2 U2 R' B2 U' L D F2 L2 F2 L U R' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3708,
+3082,
+5
+],
+[
+1,
+396,
+1018,
+5
+]
+],
+"text": [
+"B (U B R F) on FB",
+"F U D (R' D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+387,
+1013
+],
+"scramble": "U B R F D' L' U2 R' U' R U' L' U2 F2 L' F2 U2 R' D' L B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3708,
+773,
+5
+],
+[
+1,
+396,
+3317,
+5
+]
+],
+"text": [
+"F (U B R F) on FB",
+"B U D (R' D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+387,
+3322
+],
+"scramble": "U B R F U2 R' F2 L' B2 L U' L' F2 D R2 U' B2 R2 U' L F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3948,
+3082,
+5
+],
+[
+1,
+156,
+1018,
+5
+]
+],
+"text": [
+"B (R2 U F B) on FB",
+"F U D (R2 D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+147,
+1013
+],
+"scramble": "R2 U F B R' D R2 D2 B2 R2 U R D R2 D' B2 L2 F2 U F2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3948,
+773,
+5
+],
+[
+1,
+156,
+3317,
+5
+]
+],
+"text": [
+"F (R2 U F B) on FB",
+"B U D (R2 D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+147,
+3322
+],
+"scramble": "R2 U F B R' D2 B2 U2 R' U' L2 D2 R' D' L2 D2 R2 D B2 L F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2940,
+3082,
+5
+],
+[
+1,
+1164,
+1018,
+5
+]
+],
+"text": [
+"B (R U F B) on FB",
+"F U D (R D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1155,
+1013
+],
+"scramble": "R U F B U2 L2 U L2 U2 F2 R' D2 R' U' F2 L U' R U' L' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2940,
+773,
+5
+],
+[
+1,
+1164,
+3317,
+5
+]
+],
+"text": [
+"F (R U F B) on FB",
+"B U D (R D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1155,
+3322
+],
+"scramble": "R U F B L' F2 U' R' U R2 F2 R' U F2 R' D2 L F2 R D2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1980,
+3082,
+5
+],
+[
+1,
+2124,
+1018,
+5
+]
+],
+"text": [
+"B (U F L B) on FB",
+"F U D (L' D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1980,
+3082
+],
+"scramble": "U F L B R2 U2 R' U' R2 B2 U' L' B2 L' D' R' U F2 U' L' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1980,
+773,
+5
+],
+[
+1,
+2124,
+3317,
+5
+]
+],
+"text": [
+"F (U F L B) on FB",
+"B U D (L' D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1980,
+773
+],
+"scramble": "U F L B F2 U F2 D2 L' U2 R' U' R2 U2 R2 F2 R' B2 U2 R2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3996,
+3082,
+5
+],
+[
+1,
+108,
+1018,
+5
+]
+],
+"text": [
+"B (L2 U F B) on FB",
+"F U D (L2 D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+99,
+1013
+],
+"scramble": "L2 U F B U2 L U' L' D L U F2 D' L B2 D' B2 D2 R' D' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3996,
+773,
+5
+],
+[
+1,
+108,
+3317,
+5
+]
+],
+"text": [
+"F (L2 U F B) on FB",
+"B U D (L2 D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+99,
+3322
+],
+"scramble": "L2 U F B L2 D L' D2 B2 U L2 B2 R' D2 L' U2 R2 F2 U2 R' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3516,
+3082,
+5
+],
+[
+1,
+588,
+1018,
+5
+]
+],
+"text": [
+"B (L U F B) on FB",
+"F U D (L D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+579,
+1013
+],
+"scramble": "L U F B U' L D2 R2 D R2 D' L' U L' D2 R' F2 U L' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3516,
+773,
+5
+],
+[
+1,
+588,
+3317,
+5
+]
+],
+"text": [
+"F (L U F B) on FB",
+"B U D (L D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+579,
+3322
+],
+"scramble": "L U F B U2 L' F2 D2 R' U2 B2 R2 U' L' U2 B2 R U F2 D2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3384,
+3082,
+5
+],
+[
+1,
+712,
+1018,
+5
+]
+],
+"text": [
+"B (F' U F B) on FB",
+"F U D (F' D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+711,
+1013
+],
+"scramble": "F' U F B D F2 R' D R2 F2 D' L U' L' D R2 B2 U' B2 D' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3384,
+773,
+5
+],
+[
+1,
+712,
+3317,
+5
+]
+],
+"text": [
+"F (F' U F B) on FB",
+"B U D (F' D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+711,
+3322
+],
+"scramble": "F' U F B L' D2 L' U2 R' U' L2 U R2 D2 R D R2 U R2 B2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3897,
+3082,
+5
+],
+[
+1,
+201,
+1018,
+5
+]
+],
+"text": [
+"B (F2 U F B) on FB",
+"F U D (F2 D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+198,
+1013
+],
+"scramble": "F2 U F B U' F2 L F2 R B2 U' R' D' R' D' L2 U L' D2 R B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3897,
+773,
+5
+],
+[
+1,
+201,
+3317,
+5
+]
+],
+"text": [
+"F (F2 U F B) on FB",
+"B U D (F2 D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+198,
+3322
+],
+"scramble": "F2 U F B U2 B2 D R' F2 D F2 L' D' B2 R' U2 L' B2 U F"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3640,
+3082,
+5
+],
+[
+1,
+456,
+1018,
+5
+]
+],
+"text": [
+"B (F U F B) on FB",
+"F U D (F D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+455,
+1013
+],
+"scramble": "F U F B U2 L D L' B2 D' B2 D' F2 L' U' R2 U2 R' U R2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3640,
+773,
+5
+],
+[
+1,
+456,
+3317,
+5
+]
+],
+"text": [
+"F (F U F B) on FB",
+"B U D (F D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+455,
+3322
+],
+"scramble": "F U F B L2 U' L' U' L' F2 D' F2 R' U L D2 L2 B2 D' L2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2868,
+3082,
+5
+],
+[
+1,
+1220,
+1018,
+5
+]
+],
+"text": [
+"B (B' U F B) on FB",
+"F U D (B' D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1227,
+1013
+],
+"scramble": "B' U F B F2 L' U2 L2 B2 U2 L D' F2 L' F2 D' L2 F2 U2 R2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2868,
+773,
+5
+],
+[
+1,
+1220,
+3317,
+5
+]
+],
+"text": [
+"F (B' U F B) on FB",
+"B U D (B' D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1227,
+3322
+],
+"scramble": "B' U F B D2 L D' R2 U' R' F2 L D2 L2 U2 R' B2 U L' D' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3894,
+3082,
+5
+],
+[
+1,
+198,
+1018,
+5
+]
+],
+"text": [
+"B (B2 U F B) on FB",
+"F U D (B2 D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+201,
+1013
+],
+"scramble": "B2 U F B U B2 R' D' R2 U2 B2 D R' U L D2 B2 R2 F2 U' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3894,
+773,
+5
+],
+[
+1,
+198,
+3317,
+5
+]
+],
+"text": [
+"F (B2 U F B) on FB",
+"B U D (B2 D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+201,
+3322
+],
+"scramble": "B2 U F B' U2 R' D' L' U2 B2 L U L F2 R2 B2 D L2 D2 F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1844,
+3082,
+5
+],
+[
+1,
+2244,
+1018,
+5
+]
+],
+"text": [
+"B (B U F B) on FB",
+"F U D (B D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1844,
+3082
+],
+"scramble": "B U F B U2 B2 R U2 R2 U F2 L' U L U2 R F2 U' F2 L2 B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1844,
+773,
+5
+],
+[
+1,
+2244,
+3317,
+5
+]
+],
+"text": [
+"F (B U F B) on FB",
+"B U D (B D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1844,
+773
+],
+"scramble": "B U F B D2 L2 D R D R B2 L2 B2 L U' L F2 R' D L F'"
+},
+{
+"type": "P1",
+"pres": [
+[
+1,
+1018,
+0,
+3
+],
+[
+2,
+3082,
+4080,
+5
+]
+],
+"text": [
+"(F U D) on UD",
+"U D F B (B) on FB"
+],
+"len": [
+3,
+5
+],
+"key": [
+1013,
+15
+],
+"scramble": "F U D F2 L' B R' F R2 U2 L2 F R F U2 L' F L' U2"
+},
+{
+"type": "P1",
+"pres": [
+[
+1,
+3317,
+0,
+3
+],
+[
+2,
+773,
+4080,
+5
+]
+],
+"text": [
+"(B U D) on UD",
+"U D F B (F) on FB"
+],
+"len": [
+3,
+5
+],
+"key": [
+773,
+4080
+],
+"scramble": "B U D F U2 B2 U2 F' L2 D2 B R' B R' F L B2 R' B'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+3082,
+4035,
+4
+],
+[
+1,
+1018,
+51,
+4
+]
+],
+"text": [
+"D F B (B) on FB",
+"U (F U D) on UD"
+],
+"len": [
+4,
+4
+],
+"key": [
+1013,
+60
+],
+"scramble": "B R U2 F2 D' L' U' R2 F2 L D' R2 F2 L' F2 D' L2 B' F' D'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+3082,
+3900,
+4
+],
+[
+1,
+1018,
+204,
+4
+]
+],
+"text": [
+"U F B (B) on FB",
+"D (F U D) on UD"
+],
+"len": [
+4,
+4
+],
+"key": [
+1013,
+195
+],
+"scramble": "B R2 U' L' D L2 U B2 D F2 L' F2 D2 L' U' L2 U B' F' U'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+773,
+4035,
+4
+],
+[
+1,
+3317,
+51,
+4
+]
+],
+"text": [
+"D F B (F) on FB",
+"U (B U D) on UD"
+],
+"len": [
+4,
+4
+],
+"key": [
+773,
+4035
+],
+"scramble": "F R' D B2 R U' L U2 F2 D L' F2 L' U' B2 R' U2 B' F' D'"
+},
+{
+"type": "P2",
+"pres": [
+[
+2,
+773,
+3900,
+4
+],
+[
+1,
+3317,
+204,
+4
+]
+],
+"text": [
+"U F B (F) on FB",
+"D (B U D) on UD"
+],
+"len": [
+4,
+4
+],
+"key": [
+773,
+3900
+],
+"scramble": "F D B2 U' F2 U2 L2 U' R F2 D2 B2 U R' D2 F2 D' B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3027,
+5
+],
+[
+1,
+1018,
+1059,
+5
+]
+],
+"text": [
+"D F R B (B) on FB",
+"R' U (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1068
+],
+"scramble": "B L' U R' U' R' F2 D R D2 L' D F2 L' U2 L' F2 B' R' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3987,
+5
+],
+[
+1,
+1018,
+99,
+5
+]
+],
+"text": [
+"R2 D F B (B) on FB",
+"R2 U (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+108
+],
+"scramble": "B U L D2 F2 R' U R2 D' L' U B2 L D' R' U' L2 B' F' D' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3795,
+5
+],
+[
+1,
+1018,
+291,
+5
+]
+],
+"text": [
+"R D F B (B) on FB",
+"R U (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+300
+],
+"scramble": "B R F2 R2 U R' D F2 R U B2 D2 F2 L' D L2 D B' F' D' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3555,
+5
+],
+[
+1,
+1018,
+531,
+5
+]
+],
+"text": [
+"D B L F (B) on FB",
+"L' U (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+540
+],
+"scramble": "B' R' U' R' D L' U2 F2 R U' L' U2 B2 U2 L U' F' L' B' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3939,
+5
+],
+[
+1,
+1018,
+147,
+5
+]
+],
+"text": [
+"L2 D F B (B) on FB",
+"L2 U (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+156
+],
+"scramble": "B R B2 D2 L2 U' F2 R' F2 L U' F2 U' L U' L' F2 B' F' D' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+2019,
+5
+],
+[
+1,
+1018,
+2067,
+5
+]
+],
+"text": [
+"L D F B (B) on FB",
+"L U (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2076
+],
+"scramble": "B L' F2 L2 D2 R2 F2 D2 L2 U2 F2 U L2 D' R' U2 R B' F' D' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3778,
+5
+],
+[
+1,
+1018,
+306,
+5
+]
+],
+"text": [
+"F' D F B (B) on FB",
+"F' U (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+317
+],
+"scramble": "B L' U2 B2 U2 R' F2 U2 L2 F2 R' D' R' D F2 U' B F' D' F"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+4038,
+5
+],
+[
+1,
+1018,
+54,
+5
+]
+],
+"text": [
+"F2 D F B (B) on FB",
+"F2 U (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+57
+],
+"scramble": "B R U' L' D' R' U' R F2 U R U F2 U' L D' R' B' F' D' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3522,
+5
+],
+[
+1,
+1018,
+562,
+5
+]
+],
+"text": [
+"F D F B (B) on FB",
+"F U (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+573
+],
+"scramble": "B D R' U2 L2 D R U L D' F2 U L U' L U F2 B' F' D' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+1985,
+5
+],
+[
+1,
+1018,
+2097,
+5
+]
+],
+"text": [
+"B' D F B (B) on FB",
+"B' U (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2110
+],
+"scramble": "B R U2 R' D' L' U L D2 L' D2 R' U L U2 B2 R B' F' D' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+4041,
+5
+],
+[
+1,
+1018,
+57,
+5
+]
+],
+"text": [
+"B2 D F B (B) on FB",
+"B2 U (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+54
+],
+"scramble": "B U' R B2 R' F2 D2 F2 R U R U L' D L D L B' F' D' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3009,
+5
+],
+[
+1,
+1018,
+1073,
+5
+]
+],
+"text": [
+"B D F B (B) on FB",
+"B U (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1086
+],
+"scramble": "B D L' U2 L B2 U2 L B2 U F2 L2 D' F2 D' R' U' B' F' D' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3708,
+5
+],
+[
+1,
+1018,
+396,
+5
+]
+],
+"text": [
+"U B R F (B) on FB",
+"R' D (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+387
+],
+"scramble": "B L D' B2 D' F2 L2 U2 L D2 F2 U' R2 D' R' B2 L' F' R' B' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3948,
+5
+],
+[
+1,
+1018,
+156,
+5
+]
+],
+"text": [
+"R2 U F B (B) on FB",
+"R2 D (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+147
+],
+"scramble": "B' R2 D L D2 B2 U R D' R U' B2 R' D' R U' B' F' U' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+2940,
+5
+],
+[
+1,
+1018,
+1164,
+5
+]
+],
+"text": [
+"R U F B (B) on FB",
+"R D (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1155
+],
+"scramble": "B R' B2 L D' F2 R2 D' F2 R D' L' U R' D L U B' F' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+1980,
+5
+],
+[
+1,
+1018,
+2124,
+5
+]
+],
+"text": [
+"U F L B (B) on FB",
+"L' D (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2115
+],
+"scramble": "B U2 R U' B2 R D' B2 L D2 L D L2 D' F2 U R' B' L' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3996,
+5
+],
+[
+1,
+1018,
+108,
+5
+]
+],
+"text": [
+"L2 U F B (B) on FB",
+"L2 D (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+99
+],
+"scramble": "B L' F2 L U2 R2 F2 R D' L' D' R D' L' B2 U' F2 B' F' U' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3516,
+5
+],
+[
+1,
+1018,
+588,
+5
+]
+],
+"text": [
+"L U F B (B) on FB",
+"L D (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+579
+],
+"scramble": "B D F2 D' R2 D' R2 B2 U2 R D B2 U L2 U2 R2 U2 B' F' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3384,
+5
+],
+[
+1,
+1018,
+712,
+5
+]
+],
+"text": [
+"F' U F B (B) on FB",
+"F' D (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+711
+],
+"scramble": "B U2 L' F2 D' R' U' L U R D R2 D' F2 D2 F2 D' B' F' U' F"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3897,
+5
+],
+[
+1,
+1018,
+201,
+5
+]
+],
+"text": [
+"F2 U F B (B) on FB",
+"F2 D (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+198
+],
+"scramble": "B D' L D' L2 B2 D' L2 F2 D F2 U F2 R2 D R2 D B' F' U' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3640,
+5
+],
+[
+1,
+1018,
+456,
+5
+]
+],
+"text": [
+"F U F B (B) on FB",
+"F D (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+455
+],
+"scramble": "B R B2 L U' L' F2 R2 U R2 D L' D2 L2 B2 D R' B' F' U' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+2868,
+5
+],
+[
+1,
+1018,
+1220,
+5
+]
+],
+"text": [
+"B' U F B (B) on FB",
+"B' D (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+1227
+],
+"scramble": "B U L2 U R2 U2 L U' R U B2 U L2 D2 L F2 D' B' F' U' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+3894,
+5
+],
+[
+1,
+1018,
+198,
+5
+]
+],
+"text": [
+"B2 U F B (B) on FB",
+"B2 D (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+201
+],
+"scramble": "B D' R' U L2 D L' U L D' L D2 R2 U2 R' U2 R2 B' F' U' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3082,
+1844,
+5
+],
+[
+1,
+1018,
+2244,
+5
+]
+],
+"text": [
+"B U F B (B) on FB",
+"B D (F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1013,
+2251
+],
+"scramble": "B D2 L F2 R' D2 R2 D F2 U R D2 F2 L' D L2 D2 B' F' U' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3027,
+5
+],
+[
+1,
+3317,
+1059,
+5
+]
+],
+"text": [
+"D F R B (F) on FB",
+"R' U (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3027
+],
+"scramble": "F' U' R2 U2 L' D' L2 F2 L' B2 U' R2 U' R D2 L2 B' R' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3987,
+5
+],
+[
+1,
+3317,
+99,
+5
+]
+],
+"text": [
+"R2 D F B (F) on FB",
+"R2 U (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3987
+],
+"scramble": "F R U' R' D2 F2 L2 U2 R B2 R2 U R' D2 R' U' R' B' F' D' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3795,
+5
+],
+[
+1,
+3317,
+291,
+5
+]
+],
+"text": [
+"R D F B (F) on FB",
+"R U (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3795
+],
+"scramble": "F R2 U R2 U R2 F2 U2 R D' R' D B2 L2 F2 U' L2 B' F' D' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3555,
+5
+],
+[
+1,
+3317,
+531,
+5
+]
+],
+"text": [
+"D B L F (F) on FB",
+"L' U (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3555
+],
+"scramble": "F' R U2 B2 U2 R F2 L' F2 L' U R' D F2 L2 U F' L' B' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3939,
+5
+],
+[
+1,
+3317,
+147,
+5
+]
+],
+"text": [
+"L2 D F B (F) on FB",
+"L2 U (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3939
+],
+"scramble": "F D' R' U L' B2 D' L D' R D2 L2 U R' B2 D2 F2 B' F' D' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+2019,
+5
+],
+[
+1,
+3317,
+2067,
+5
+]
+],
+"text": [
+"L D F B (F) on FB",
+"L U (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+2019
+],
+"scramble": "F D2 R U' R' U2 L' U' R U R B2 U2 L D' L' D' B' F' D' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3778,
+5
+],
+[
+1,
+3317,
+306,
+5
+]
+],
+"text": [
+"F' D F B (F) on FB",
+"F' U (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3778
+],
+"scramble": "F L2 U' R2 U' L D' L' D' R' U' F2 D2 L U2 R F2 B' F' D' F"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+4038,
+5
+],
+[
+1,
+3317,
+54,
+5
+]
+],
+"text": [
+"F2 D F B (F) on FB",
+"F2 U (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+4038
+],
+"scramble": "F D2 R D' L2 B2 U R2 U R2 B2 U' R2 D' R2 D L2 B' F' D' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3522,
+5
+],
+[
+1,
+3317,
+562,
+5
+]
+],
+"text": [
+"F D F B (F) on FB",
+"F U (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3522
+],
+"scramble": "F D' R D2 R2 D2 L U L U' R U' R U' R' B2 D2 B' F' D' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+1985,
+5
+],
+[
+1,
+3317,
+2097,
+5
+]
+],
+"text": [
+"B' D F B (F) on FB",
+"B' U (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+1985
+],
+"scramble": "F L U2 L2 U R D2 R2 U' R D R2 U2 R U' R2 U' B' F' D' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+4041,
+5
+],
+[
+1,
+3317,
+57,
+5
+]
+],
+"text": [
+"B2 D F B (F) on FB",
+"B2 U (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+4041
+],
+"scramble": "F U L' U F2 U2 L' D2 L' D2 F2 D' L' U2 L' D2 L B' F' D' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3009,
+5
+],
+[
+1,
+3317,
+1073,
+5
+]
+],
+"text": [
+"B D F B (F) on FB",
+"B U (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3009
+],
+"scramble": "F D' F2 R D' F2 D L' D2 F2 L' U' B2 R2 D B2 U2 B' F' D' B'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3708,
+5
+],
+[
+1,
+3317,
+396,
+5
+]
+],
+"text": [
+"U B R F (F) on FB",
+"R' D (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3708
+],
+"scramble": "F R D2 R F2 D' F2 D' L' B2 U' L' U' R' D2 F2 U F' R' B' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3948,
+5
+],
+[
+1,
+3317,
+156,
+5
+]
+],
+"text": [
+"R2 U F B (F) on FB",
+"R2 D (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3948
+],
+"scramble": "F U' R2 D2 L' D' F2 U L2 F2 L2 D' R2 F2 U2 B2 L B' F' U' R2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+2940,
+5
+],
+[
+1,
+3317,
+1164,
+5
+]
+],
+"text": [
+"R U F B (F) on FB",
+"R D (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+2940
+],
+"scramble": "F' L' F2 R' U' F2 R D' R2 D' L F2 D R B2 R B' F' U' R'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+1980,
+5
+],
+[
+1,
+3317,
+2124,
+5
+]
+],
+"text": [
+"U F L B (F) on FB",
+"L' D (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+1980
+],
+"scramble": "F U L' F2 U2 R D' B2 R U F2 R' D2 R' U2 F2 L B' L' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3996,
+5
+],
+[
+1,
+3317,
+108,
+5
+]
+],
+"text": [
+"L2 U F B (F) on FB",
+"L2 D (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3996
+],
+"scramble": "F D L' U F2 R2 U2 B2 R' U' L' B2 D L D' F2 R2 B' F' U' L2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3516,
+5
+],
+[
+1,
+3317,
+588,
+5
+]
+],
+"text": [
+"L U F B (F) on FB",
+"L D (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3516
+],
+"scramble": "F' R2 D L' B2 U' F2 U R F2 L D' L D B2 R2 B' F' U' L'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3384,
+5
+],
+[
+1,
+3317,
+712,
+5
+]
+],
+"text": [
+"F' U F B (F) on FB",
+"F' D (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3384
+],
+"scramble": "F L U2 R' U2 L2 D B2 L2 B2 D F2 R D2 R D B F' U' F"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3897,
+5
+],
+[
+1,
+3317,
+201,
+5
+]
+],
+"text": [
+"F2 U F B (F) on FB",
+"F2 D (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3897
+],
+"scramble": "F L2 U F2 R' D2 F2 U' B2 R F2 D F2 D2 B2 R' U' B' F' U' F2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3640,
+5
+],
+[
+1,
+3317,
+456,
+5
+]
+],
+"text": [
+"F U F B (F) on FB",
+"F D (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3640
+],
+"scramble": "F U F2 D' L' D2 R' U L' D2 L D' L' D L' D L B' F' U' F'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+2868,
+5
+],
+[
+1,
+3317,
+1220,
+5
+]
+],
+"text": [
+"B' U F B (F) on FB",
+"B' D (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+2868
+],
+"scramble": "F B2 U2 R' F2 R' U R' D' R U' B2 L U' R F2 U' B' F' U' B"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+3894,
+5
+],
+[
+1,
+3317,
+198,
+5
+]
+],
+"text": [
+"B2 U F B (F) on FB",
+"B2 D (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+3894
+],
+"scramble": "F R2 B2 D F2 U2 R' B2 L2 U' R2 D2 L2 D' F2 L2 U' B' F' U' B2"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+773,
+1844,
+5
+],
+[
+1,
+3317,
+2244,
+5
+]
+],
+"text": [
+"B U F B (F) on FB",
+"B D (B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+773,
+1844
+],
+"scramble": "F D2 R U2 B2 U L2 D' L' U2 R U B2 D' F2 L2 D' B' F' U' B'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+2847,
+3855,
+5
+],
+[
+1,
+1263,
+255,
+5
+]
+],
+"text": [
+"F B (F R B) on FB",
+"U D (D R' U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1248,
+240
+],
+"scramble": "F R B R' B2 D2 R D' R B2 R D F2 L' D L2 D L F2 B' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3615,
+3855,
+5
+],
+[
+1,
+495,
+255,
+5
+]
+],
+"text": [
+"F B (B R' F) on FB",
+"U D (D R U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+480,
+240
+],
+"scramble": "B R' F D L D L2 B2 D R2 D R' D2 B2 D2 R D L' U2 B' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3375,
+3855,
+5
+],
+[
+1,
+735,
+255,
+5
+]
+],
+"text": [
+"F B (B L F) on FB",
+"U D (D L' U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+720,
+240
+],
+"scramble": "B L F' R D F2 L' D2 R' U L' F2 L' D2 R2 D2 L U B' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+1839,
+3855,
+5
+],
+[
+1,
+2271,
+255,
+5
+]
+],
+"text": [
+"F B (F L' B) on FB",
+"U D (D L U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1839,
+3855
+],
+"scramble": "F L' B L' D R2 B2 D' R' F2 U2 L U2 L2 F2 R2 U2 B2 L B' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3663,
+3855,
+5
+],
+[
+1,
+447,
+255,
+5
+]
+],
+"text": [
+"F B (B R F) on FB",
+"U D (U R' D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+432,
+240
+],
+"scramble": "B R F D' R' B2 L U2 R2 B2 L' U2 B2 L2 D2 R2 U R' B F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+2895,
+3855,
+5
+],
+[
+1,
+1215,
+255,
+5
+]
+],
+"text": [
+"F B (F R' B) on FB",
+"U D (U R D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1200,
+240
+],
+"scramble": "F R' B U F2 D R2 B2 U' B2 U2 R' U2 L' D L U L2 D B' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+1935,
+3855,
+5
+],
+[
+1,
+2175,
+255,
+5
+]
+],
+"text": [
+"F B (F L B) on FB",
+"U D (U L' D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1935,
+3855
+],
+"scramble": "F L B F2 U B2 U' R' D' R2 D' R2 U B2 R' F2 D2 B2 U B' F'"
+},
+{
+"type": "P4",
+"pres": [
+[
+2,
+3471,
+3855,
+5
+],
+[
+1,
+639,
+255,
+5
+]
+],
+"text": [
+"F B (B L' F) on FB",
+"U D (U L D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+624,
+240
+],
+"scramble": "B L' F U B2 R U' R2 F2 U' L' D' L U2 L2 B2 L2 U' L B' F'"
+},
+{
+"type": "P3",
+"pres": [
+[
+2,
+0,
+4080,
+4
+],
+[
+1,
+4080,
+0,
+4
+]
+],
+"text": [
+"U D F B on FB",
+"(F B U D) on UD"
+],
+"len": [
+4,
+4
+],
+"key": [
+0,
+4080
+],
+"scramble": "L' U2 B2 R U R' B2 U' R U R' U' L2 D L' U2 B' F' D' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3096,
+4035,
+5
+],
+[
+1,
+1000,
+51,
+5
+]
+],
+"text": [
+"D F B (U' B) on FB",
+"U (U' F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+999,
+60
+],
+"scramble": "U' B R U2 L' D' F2 U' R D2 L U L2 D2 L2 F2 U' L B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3096,
+3900,
+5
+],
+[
+1,
+1000,
+204,
+5
+]
+],
+"text": [
+"U F B (U' B) on FB",
+"D (U' F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+999,
+195
+],
+"scramble": "U' B U B2 R U2 R' D2 R U2 L' U B2 L' F2 U' F2 U2 B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3081,
+4035,
+5
+],
+[
+1,
+1017,
+51,
+5
+]
+],
+"text": [
+"D F B (U2 B) on FB",
+"U (U2 F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1014,
+60
+],
+"scramble": "U2 B R U2 R' B2 U2 B2 R D F2 L' B2 R U R B2 D' B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3081,
+3900,
+5
+],
+[
+1,
+1017,
+204,
+5
+]
+],
+"text": [
+"U F B (U2 B) on FB",
+"D (U2 F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1014,
+195
+],
+"scramble": "U2 B L D' L2 D2 L2 U L2 F2 U' L2 B2 D2 R' F2 U2 B F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3112,
+4035,
+5
+],
+[
+1,
+984,
+51,
+5
+]
+],
+"text": [
+"D F B (U B) on FB",
+"U (U F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+983,
+60
+],
+"scramble": "U B L2 U2 L D2 R U F2 L' D2 L' B2 U L2 U2 L2 D' B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3112,
+3900,
+5
+],
+[
+1,
+984,
+204,
+5
+]
+],
+"text": [
+"U F B (U B) on FB",
+"D (U F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+983,
+195
+],
+"scramble": "U B U' R U B2 R B2 L' U2 R2 U2 L2 U2 L F2 U L' B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3202,
+4035,
+5
+],
+[
+1,
+882,
+51,
+5
+]
+],
+"text": [
+"D F B (D' B) on FB",
+"U (D' F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+893,
+60
+],
+"scramble": "D' B U2 L' D' F2 R2 U2 L2 B2 D2 R2 B2 R' U2 R' D' R B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3202,
+3900,
+5
+],
+[
+1,
+882,
+204,
+5
+]
+],
+"text": [
+"U F B (D' B) on FB",
+"D (D' F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+893,
+195
+],
+"scramble": "D' B L' U' L2 U' R' U2 L' U R U2 L2 D F2 L2 F2 U' B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3078,
+4035,
+5
+],
+[
+1,
+1014,
+51,
+5
+]
+],
+"text": [
+"D F B (D2 B) on FB",
+"U (D2 F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1017,
+60
+],
+"scramble": "D2 B L B2 L D F2 D' R B2 U L U L B2 R2 D2 R B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3078,
+3900,
+5
+],
+[
+1,
+1014,
+204,
+5
+]
+],
+"text": [
+"U F B (D2 B) on FB",
+"D (D2 F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1017,
+195
+],
+"scramble": "D2 B R2 U R U2 B2 R F2 D' F2 D' R' F2 R' D B2 D' B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3138,
+4035,
+5
+],
+[
+1,
+946,
+51,
+5
+]
+],
+"text": [
+"D F B (D B) on FB",
+"U (D F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+957,
+60
+],
+"scramble": "D B L' F2 U L U' L' U' R F2 U L U F2 D2 R U' B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+3138,
+3900,
+5
+],
+[
+1,
+946,
+204,
+5
+]
+],
+"text": [
+"U F B (D B) on FB",
+"D (D F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+957,
+195
+],
+"scramble": "D B R' D2 R D' F2 D' L' U2 R2 F2 D2 L U L' U2 R' B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2122,
+4035,
+5
+],
+[
+1,
+1978,
+51,
+5
+]
+],
+"text": [
+"D F B (R' B) on FB",
+"U (F U R D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1973,
+60
+],
+"scramble": "R' B' U2 B2 L D' R F2 L B2 U' F2 L' U' L' U L' B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2122,
+3900,
+5
+],
+[
+1,
+1978,
+204,
+5
+]
+],
+"text": [
+"U F B (R' B) on FB",
+"D (F U R D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1973,
+195
+],
+"scramble": "R' B L' U' F2 D2 L' F2 D' L2 B2 L U2 L' F2 L2 D' R2 B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2314,
+4035,
+5
+],
+[
+1,
+1786,
+51,
+5
+]
+],
+"text": [
+"D F B (R2 B) on FB",
+"U (R2 F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1781,
+60
+],
+"scramble": "R2 B D' L D2 F2 R U' R B2 U' F2 L B2 L F2 L2 B F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2314,
+3900,
+5
+],
+[
+1,
+1786,
+204,
+5
+]
+],
+"text": [
+"U F B (R2 B) on FB",
+"D (R2 F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1781,
+195
+],
+"scramble": "R2 B U2 R2 D' F2 U' R' B2 D' L U' R D' L2 B2 U2 L B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2074,
+4035,
+5
+],
+[
+1,
+2026,
+51,
+5
+]
+],
+"text": [
+"D F B (R B) on FB",
+"U (R F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+2021,
+60
+],
+"scramble": "R B D R D' R2 F2 R D2 F2 D' R' B2 D2 L U2 L U B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2074,
+3900,
+5
+],
+[
+1,
+2026,
+204,
+5
+]
+],
+"text": [
+"U F B (R B) on FB",
+"D (R F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+2021,
+195
+],
+"scramble": "R B R U2 L' B2 L U2 B2 U2 R U2 B2 U R D L U B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1066,
+4035,
+5
+],
+[
+1,
+3034,
+51,
+5
+]
+],
+"text": [
+"D F B (L' B) on FB",
+"U (F D L U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1066,
+4035
+],
+"scramble": "L' B U' L D2 F2 D2 R2 U' R U' L2 D' R2 D F2 R D2 B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1066,
+3900,
+5
+],
+[
+1,
+3034,
+204,
+5
+]
+],
+"text": [
+"U F B (L' B) on FB",
+"D (F D L U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1066,
+3900
+],
+"scramble": "L' B L' U' L U B2 R U L' B2 U' F2 R' D R F2 L2 B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1546,
+4035,
+5
+],
+[
+1,
+2554,
+51,
+5
+]
+],
+"text": [
+"D F B (L2 B) on FB",
+"U (L2 F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1546,
+4035
+],
+"scramble": "L2 B D L' D' F2 U L F2 D' R D' L D R D' L2 F2 B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1546,
+3900,
+5
+],
+[
+1,
+2554,
+204,
+5
+]
+],
+"text": [
+"U F B (L2 B) on FB",
+"D (L2 F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1546,
+3900
+],
+"scramble": "L2 B R2 U2 B2 L2 D' R2 U2 R2 U' R D2 R' U2 F2 U' L2 B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1162,
+4035,
+5
+],
+[
+1,
+2938,
+51,
+5
+]
+],
+"text": [
+"D F B (L B) on FB",
+"U (L F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1162,
+4035
+],
+"scramble": "L B L' B2 U L' D2 F2 R' U R U B2 U' L D2 R' B F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1162,
+3900,
+5
+],
+[
+1,
+2938,
+204,
+5
+]
+],
+"text": [
+"U F B (L B) on FB",
+"D (L F U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1162,
+3900
+],
+"scramble": "L B D2 R2 U' R2 B2 L2 F2 U2 R U2 L' D' L U2 L B F' U'"
+},
+{
+"type": "P1",
+"pres": [
+[
+2,
+0,
+4035,
+3
+],
+[
+1,
+4080,
+51,
+5
+]
+],
+"text": [
+"D F B on FB",
+"U (F B U D) on UD"
+],
+"len": [
+3,
+5
+],
+"key": [
+0,
+4035
+],
+"scramble": "D2 R' D' R2 F2 U2 R2 D2 B2 D2 R F2 R U2 B2 L2 B' F' D'"
+},
+{
+"type": "P1",
+"pres": [
+[
+2,
+0,
+3900,
+3
+],
+[
+1,
+4080,
+204,
+5
+]
+],
+"text": [
+"U F B on FB",
+"D (F B U D) on UD"
+],
+"len": [
+3,
+5
+],
+"key": [
+0,
+3900
+],
+"scramble": "U' L2 U2 R B2 D' R' D' L2 D' L B2 R2 D' R2 D' B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+804,
+4035,
+5
+],
+[
+1,
+3284,
+51,
+5
+]
+],
+"text": [
+"D F B (U' F) on FB",
+"U (U' B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+804,
+4035
+],
+"scramble": "U' F R' B2 L' D' L2 U' R D2 F2 D' R' U' L D' R' U2 B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+804,
+3900,
+5
+],
+[
+1,
+3284,
+204,
+5
+]
+],
+"text": [
+"U F B (U' F) on FB",
+"D (U' B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+804,
+3900
+],
+"scramble": "U' F B2 L' D B2 D L U' B2 L2 U R F2 D R' D' R' B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+774,
+4035,
+5
+],
+[
+1,
+3318,
+51,
+5
+]
+],
+"text": [
+"D F B (U2 F) on FB",
+"U (U2 B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+774,
+4035
+],
+"scramble": "U2 F' L2 U2 B2 L' U R D' R D2 B2 D' L F2 U' R2 B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+774,
+3900,
+5
+],
+[
+1,
+3318,
+204,
+5
+]
+],
+"text": [
+"U F B (U2 F) on FB",
+"D (U2 B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+774,
+3900
+],
+"scramble": "U2 F R D2 R D' L U R2 B2 R2 D2 L' U R2 F2 U R2 B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+788,
+4035,
+5
+],
+[
+1,
+3300,
+51,
+5
+]
+],
+"text": [
+"D F B (U F) on FB",
+"U (U B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+788,
+4035
+],
+"scramble": "U F D' L' U L D L' D2 L2 D R U2 L' U2 R D2 B F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+788,
+3900,
+5
+],
+[
+1,
+3300,
+204,
+5
+]
+],
+"text": [
+"U F B (U F) on FB",
+"D (U B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+788,
+3900
+],
+"scramble": "U F U L2 F2 D2 L' B2 U' F2 U L2 U B2 R2 U2 B2 U2 B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+833,
+4035,
+5
+],
+[
+1,
+3249,
+51,
+5
+]
+],
+"text": [
+"D F B (D' F) on FB",
+"U (D' B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+833,
+4035
+],
+"scramble": "D' F R' U2 R2 F2 R2 U' L2 U2 B2 R2 U R F2 R2 U' B F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+833,
+3900,
+5
+],
+[
+1,
+3249,
+204,
+5
+]
+],
+"text": [
+"U F B (D' F) on FB",
+"D (D' B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+833,
+3900
+],
+"scramble": "D' F R' B2 R' D' B2 L' U' L U R' D2 L' U2 R' U L' B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+777,
+4035,
+5
+],
+[
+1,
+3321,
+51,
+5
+]
+],
+"text": [
+"D F B (D2 F) on FB",
+"U (D2 B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+777,
+4035
+],
+"scramble": "D2 F D' B2 U' B2 L' U' L' U2 L' D R B2 R2 U2 R2 U2 B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+777,
+3900,
+5
+],
+[
+1,
+3321,
+204,
+5
+]
+],
+"text": [
+"U F B (D2 F) on FB",
+"D (D2 B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+777,
+3900
+],
+"scramble": "D2 F L' B2 U' L' D' L' D F2 L D R2 U2 L' F2 L2 U2 B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+897,
+4035,
+5
+],
+[
+1,
+3185,
+51,
+5
+]
+],
+"text": [
+"D F B (D F) on FB",
+"U (D B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+897,
+4035
+],
+"scramble": "D F U' L U2 L' D2 R' U B2 R B2 R' D L U R2 F2 B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+897,
+3900,
+5
+],
+[
+1,
+3185,
+204,
+5
+]
+],
+"text": [
+"U F B (D F) on FB",
+"D (D B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+897,
+3900
+],
+"scramble": "D F L2 F2 L2 U2 R2 D' R U F2 L' D2 R' U' L2 U' R2 B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+533,
+4035,
+5
+],
+[
+1,
+3557,
+51,
+5
+]
+],
+"text": [
+"D F B (R' F) on FB",
+"U (B D R U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+533,
+4035
+],
+"scramble": "R' F' R F2 D2 R D R B2 L2 D L' D2 R' D' R2 D B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+533,
+3900,
+5
+],
+[
+1,
+3557,
+204,
+5
+]
+],
+"text": [
+"U F B (R' F) on FB",
+"D (B D R U) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+533,
+3900
+],
+"scramble": "R' F D' B2 L' D' R2 U L2 F2 R' D L2 D2 R' D R F2 B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1541,
+4035,
+5
+],
+[
+1,
+2549,
+51,
+5
+]
+],
+"text": [
+"D F B (R2 F) on FB",
+"U (R2 B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1541,
+4035
+],
+"scramble": "R2 F D' R' U2 L D2 F2 R' F2 U' R2 U2 R' U L2 D' L2 B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+1541,
+3900,
+5
+],
+[
+1,
+2549,
+204,
+5
+]
+],
+"text": [
+"U F B (R2 F) on FB",
+"D (R2 B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1541,
+3900
+],
+"scramble": "R2 F D' R D' B2 L' B2 R D R2 D' L' U R2 F2 R2 D B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+581,
+4035,
+5
+],
+[
+1,
+3509,
+51,
+5
+]
+],
+"text": [
+"D F B (R F) on FB",
+"U (R B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+581,
+4035
+],
+"scramble": "R F L' U R' U' L U L' B2 R2 D' B2 D R D' R' D' B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+581,
+3900,
+5
+],
+[
+1,
+3509,
+204,
+5
+]
+],
+"text": [
+"U F B (R F) on FB",
+"D (R B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+581,
+3900
+],
+"scramble": "R F' D R2 U L' D' R' D' L' D R B2 L U2 L' D B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+389,
+4035,
+5
+],
+[
+1,
+3701,
+51,
+5
+]
+],
+"text": [
+"D F B (L' F) on FB",
+"U (B U L D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+389,
+4035
+],
+"scramble": "L' F' D L2 B2 D2 L F2 U B2 D R' D B2 R' U' L' B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+389,
+3900,
+5
+],
+[
+1,
+3701,
+204,
+5
+]
+],
+"text": [
+"U F B (L' F) on FB",
+"D (B U L D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+389,
+3900
+],
+"scramble": "L' F R' U' R U2 B2 L2 D' R U2 F2 D2 L' F2 D' L' U' B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2309,
+4035,
+5
+],
+[
+1,
+1781,
+51,
+5
+]
+],
+"text": [
+"D F B (L2 F) on FB",
+"U (L2 B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1786,
+60
+],
+"scramble": "L2 F U' R D L2 D2 F2 L2 D R' U' R' D L' D L B F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+2309,
+3900,
+5
+],
+[
+1,
+1781,
+204,
+5
+]
+],
+"text": [
+"U F B (L2 F) on FB",
+"D (L2 B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+1786,
+195
+],
+"scramble": "L2 F R U2 L' B2 R' D L' F2 D' R U2 R' D' R2 D R' B' F' U'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+293,
+4035,
+5
+],
+[
+1,
+3797,
+51,
+5
+]
+],
+"text": [
+"D F B (L F) on FB",
+"U (L B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+293,
+4035
+],
+"scramble": "L F D R2 U' L' U R D R D2 R D B2 D' F2 D2 R B' F' D'"
+},
+{
+"type": "P5",
+"pres": [
+[
+2,
+293,
+3900,
+5
+],
+[
+1,
+3797,
+204,
+5
+]
+],
+"text": [
+"U F B (L F) on FB",
+"D (L B U D) on UD"
+],
+"len": [
+5,
+5
+],
+"key": [
+293,
+3900
+],
+"scramble": "L F D' R D R F2 L' B2 D2 B2 R D R D' L' U R' B' F' U'"
+}
+],
+"counts": {
+"P1": 24,
+"P3": 6,
+"T2": 12,
+"P2": 24,
+"P5": 576,
+"T1": 1,
+"P4": 48
+},
+"freq": {
+"any": [
+0.2685725,
+0.0006142674275572449
+],
+"le4": [
+0.0149755,
+0.00016832757063250155
+],
+"P1": [
+0.011614,
+0.00014848934002036375
+],
+"P3": [
+0.0029435,
+7.508150650810225e-05
+],
+"T2": [
+0.0058495,
+0.00010568820302285303
+],
+"P2": [
+0.0116625,
+0.00014879541151821516
+],
+"P5": [
+0.2301315,
+0.0005833609884051608
+],
+"T1": [
+0.000505,
+3.113702214374393e-05
+],
+"P4": [
+0.019004,
+0.00018923314299473863
+],
+"n1": [
+0.2103485,
+0.000564843994407764
+],
+"n2": [
+0.048877,
+0.00029882139324923976
+],
+"n3": [
+0.0079255,
+0.00012289283190113163
+],
+"n4": [
+0.00122,
+4.837889086450825e-05
+],
+"n5": [
+0.000171,
+1.812182755373199e-05
+]
+},
+"n_sample": 2000000,
+"dict": {
+"0-4": [
+[
+"",
+"F B R L",
+"-",
+"UF UB DF DB UR UL DR DL"
+]
+],
+"1-3": [
+[
+"B",
+"F R L",
+"UB DB BR BL",
+"UF DF UR UL DR DL BR BL"
+],
+[
+"F",
+"B R L",
+"UF DF FR FL",
+"UB DB UR UL DR DL FR FL"
+]
+],
+"2-4": [
+[
+"D B",
+"D F R L",
+"UB DR BR BL",
+"UF DF DB UR UL DL BR BL"
+],
+[
+"D F",
+"D B R L",
+"UF DL FR FL",
+"UB DF DB UR UL DR FR FL"
+],
+[
+"D' B",
+"F R D L",
+"UB DL BR BL",
+"UF DF DB UR UL DR BR BL"
+],
+[
+"D' F",
+"B L D R",
+"UF DR FR FL",
+"UB DF DB UR UL DL FR FL"
+],
+[
+"D2 B",
+"D2 F R L",
+"UB DF BR BL",
+"UF DB UR UL DR DL BR BL"
+],
+[
+"D2 F",
+"D2 B R L",
+"UF DB FR FL",
+"UB DF UR UL DR DL FR FL"
+],
+[
+"L B",
+"L F R L",
+"UB DB DL BR",
+"UF DF UR UL DR BR"
+],
+[
+"L F",
+"L B R L",
+"UF DF UL FR",
+"UB DB UR DR DL FR"
+],
+[
+"L' B",
+"L' F R L",
+"UB DB UL BR",
+"UF DF UR DR DL BR"
+],
+[
+"L' F",
+"L' B R L",
+"UF DF DL FR",
+"UB DB UR UL DR FR"
+],
+[
+"L2 B",
+"L2 F R L",
+"UB DB FL BR",
+"UF DF UR UL DR DL FL BR"
+],
+[
+"L2 F",
+"L2 B R L",
+"UF DF FR BL",
+"UB DB UR UL DR DL FR BL"
+],
+[
+"R B",
+"R F R L",
+"UB DB UR BL",
+"UF DF UL DR DL BL"
+],
+[
+"R F",
+"R B R L",
+"UF DF DR FL",
+"UB DB UR UL DL FL"
+],
+[
+"R' B",
+"R' F R L",
+"UB DB DR BL",
+"UF DF UR UL DL BL"
+],
+[
+"R' F",
+"R' B R L",
+"UF DF UR FL",
+"UB DB UL DR DL FL"
+],
+[
+"R2 B",
+"R2 F R L",
+"UB DB FR BL",
+"UF DF UR UL DR DL FR BL"
+],
+[
+"R2 F",
+"R2 B R L",
+"UF DF FL BR",
+"UB DB UR UL DR DL FL BR"
+],
+[
+"U B",
+"U F R L",
+"DB UL BR BL",
+"UF UB DF UR DR DL BR BL"
+],
+[
+"U F",
+"U B R L",
+"DF UR FR FL",
+"UF UB DB UL DR DL FR FL"
+],
+[
+"U' B",
+"F L U R",
+"DB UR BR BL",
+"UF UB DF UL DR DL BR BL"
+],
+[
+"U' F",
+"B R U L",
+"DF UL FR FL",
+"UF UB DB UR DR DL FR FL"
+],
+[
+"U2 B",
+"U2 F R L",
+"UF DB BR BL",
+"UB DF UR UL DR DL BR BL"
+],
+[
+"U2 F",
+"U2 B R L",
+"UB DF FR FL",
+"UF DB UR UL DR DL FR FL"
+]
+],
+"2-2": [
+[
+"F B",
+"R L",
+"UF UB DF DB FR FL BR BL",
+"UR UL DR DL FR FL BR BL"
+]
+],
+"3-3": [
+[
+"B D F",
+"R D' L",
+"UF UB DB DL FR FL BR BL",
+"DF UR UL DR FR FL BR BL"
+],
+[
+"B D' F",
+"L D R",
+"UF UB DB DR FR FL BR BL",
+"DF UR UL DL FR FL BR BL"
+],
+[
+"B U F",
+"L U' R",
+"UB DF DB UR FR FL BR BL",
+"UF UL DR DL FR FL BR BL"
+],
+[
+"B U' F",
+"R U L",
+"UB DF DB UL FR FL BR BL",
+"UF UR DR DL FR FL BR BL"
+],
+[
+"D F B",
+"D R L",
+"UF UB DR DL FR FL BR BL",
+"DF DB UR UL FR FL BR BL"
+],
+[
+"F D B",
+"L D' R",
+"UF UB DF DR FR FL BR BL",
+"DB UR UL DL FR FL BR BL"
+],
+[
+"F D' B",
+"R D L",
+"UF UB DF DL FR FL BR BL",
+"DB UR UL DR FR FL BR BL"
+],
+[
+"F U B",
+"R U' L",
+"UF DF DB UL FR FL BR BL",
+"UB UR DR DL FR FL BR BL"
+],
+[
+"F U' B",
+"L U R",
+"UF DF DB UR FR FL BR BL",
+"UB UL DR DL FR FL BR BL"
+],
+[
+"U F B",
+"U R L",
+"DF DB UR UL FR FL BR BL",
+"UF UB DR DL FR FL BR BL"
+]
+],
+"3-1": [
+[
+"L F B",
+"R",
+"UF UB DF DB UL DL FR BR",
+"UR DR FR BR"
+],
+[
+"R F B",
+"L",
+"UF UB DF DB UR DR FL BL",
+"UL DL FL BL"
+]
+],
+"4-2": [
+[
+"B L F B",
+"B R",
+"UF UB DF UL DL FR",
+"DB UR DR FR"
+],
+[
+"B R F B",
+"B L",
+"UF DF DB UR DR FL",
+"UB UL DL FL"
+],
+[
+"B' L F B",
+"B' R",
+"UF DF DB UL DL FR",
+"UB UR DR FR"
+],
+[
+"B' R F B",
+"B' L",
+"UF UB DF UR DR FL",
+"DB UL DL FL"
+],
+[
+"B2 L F B",
+"B2 R",
+"UF UB DF DB UL DL FR BL",
+"UR DR FR BL"
+],
+[
+"B2 R F B",
+"B2 L",
+"UF UB DF DB UR DR FL BR",
+"UL DL FL BR"
+],
+[
+"D L F B",
+"D R",
+"UF UB DB UL DR DL FR BR",
+"DF UR FR BR"
+],
+[
+"D R F B",
+"D L",
+"UF UB DF UR DR DL FL BL",
+"DB UL FL BL"
+],
+[
+"D2 L F B",
+"D2 R",
+"UF UB DF DB UL DR FR BR",
+"UR DL FR BR"
+],
+[
+"D2 R F B",
+"D2 L",
+"UF UB DF DB UR DL FL BL",
+"UL DR FL BL"
+],
+[
+"F L F B",
+"F R",
+"UB DF DB UL DL BR",
+"UF UR DR BR"
+],
+[
+"F R F B",
+"F L",
+"UF UB DB UR DR BL",
+"DF UL DL BL"
+],
+[
+"F' L F B",
+"F' R",
+"UF UB DB UL DL BR",
+"DF UR DR BR"
+],
+[
+"F' R F B",
+"F' L",
+"UB DF DB UR DR BL",
+"UF UL DL BL"
+],
+[
+"F2 L F B",
+"F2 R",
+"UF UB DF DB UL DL FL BR",
+"UR DR FL BR"
+],
+[
+"F2 R F B",
+"F2 L",
+"UF UB DF DB UR DR FR BL",
+"UL DL FR BL"
+],
+[
+"L B U F",
+"U' R",
+"UB DF DB UR UL DL FR BR",
+"UF DR FR BR"
+],
+[
+"L F D B",
+"D' R",
+"UF UB DF UL DR DL FR BR",
+"DB UR FR BR"
+],
+[
+"R B D F",
+"D' L",
+"UF UB DB UR DR DL FL BL",
+"DF UL FL BL"
+],
+[
+"R F U B",
+"U' L",
+"UF DF DB UR UL DR FL BL",
+"UB DL FL BL"
+],
+[
+"U L F B",
+"U R",
+"UF DF DB UR UL DL FR BR",
+"UB DR FR BR"
+],
+[
+"U R F B",
+"U L",
+"UB DF DB UR UL DR FL BL",
+"UF DL FL BL"
+],
+[
+"U2 L F B",
+"U2 R",
+"UF UB DF DB UR DL FR BR",
+"UL DR FR BR"
+],
+[
+"U2 R F B",
+"U2 L",
+"UF UB DF DB UL DR FL BL",
+"UR DL FL BL"
+]
+],
+"4-0": [
+[
+"R L F B",
+"",
+"UF UB DF DB UR UL DR DL",
+"-"
+]
+]
+}
+}
