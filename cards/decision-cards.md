@@ -83,85 +83,87 @@ Read each row as "what's still out there". The DRs counted are the best that exi
 
 ### Should I switch this EO?
 
-**On 4c4e, keep switching what you switch now: 2 or more top pairs, or 1 top pair with ARM 21. Of all non-JZP 4c4e cases that have a DR in 5 or less after the switch, that rule switches 94.3%. What NISS tracing adds is which of those switches to work first (below). For the other DRMs, use the pair card further down. JZP you check directly.**
+**Count the pairs on the inverse like you do now, then take one more look, and which one depends on the pair count. On 4c4e: 3 or 4 pairs, switch. 2 pairs on two edges, switch. 2 pairs on one edge, switch if the two E-slice edges that are out of the slice share red or orange. 1 pair, switch if it's ARM 21, unless the corners are 4b with exactly one side pair, or 4a and not in two columns (Evan's stacked corners). 0 pairs, only if there's no fake pair either and the misoriented corners are two white and two yellow. That switches 24.9% of 4c4e, a little less than 2+ pairs (26.0%), and it misses no case of 4 or less (2+ pairs: 8.0%), 8.8% of the 5-movers (20.4%) and 35.4% of the 6-movers (42.8%).**
 
-Switching means: after EO + RZP, go to the inverse, keep the EO and look for a DR there. All the odds on this card are for the switched side and are exact, over every EO-solved case of the DRM. They hold after any RZP, because the switched case is exactly uniform whatever path made it ([section 8](eo-switch/#8-real-rzps-does-the-uniform-table-apply-after-a-switch)).
+Switching means: after EO + RZP, go to the inverse, keep the EO and look for a DR there. All the odds on this card are for the switched side and are exact, over every EO-solved case of the DRM. They hold after any RZP, because given what you see on normal the switched case is spread evenly over its DRM ([section 3](eo-switch/#3-definitions-and-the-yardstick)). A case is an N-mover if its shortest DR after the switch has N moves.
 
-*What you check:* NISS trace the switched case from normal: top pairs (wen's tracing), side pairs (rodneykinney's), ARM (the R/L stickers on U/D for corner ARM), and the corner case. On 4c4e with 2 or more top pairs, also trace the leftover bad corners and the two U/D edges stuck in the E slice, and work out the half turns to two bars, explained below.
+*What you check:* everything is a colour match on the side you're on ([section 6](eo-switch/#6-reading-the-card-on-normal-and-how-long-it-takes)): the U/D edges in the E slice, the misoriented corners with the colour they show on the U/D face, and the E-slice edges that are out of the slice. Pairs by wen's tracing, edge by edge, so you know whether 2 pairs sit on one edge or on two. Fake pairs are the corners that have an edge's two colours the wrong way round. ARM is the red/orange on U/D and the green/blue on those edges.
 
-**4c4e, your rule split up.** Each row is one group of switched non-JZP 4c4e cases, by what you trace. The second column says how common the group is among all non-JZP 4c4e cases. The next two say how often a case in that row has a DR in 6 (or 5) or less after the switch. The last says how much of all the 5-or-less cases sit in that row:
+**4c4e.** Each row is a group of switched cases. The last three columns say how much of all of 4c4e's 4-or-less, 5-movers and 6-movers sits in the row:
 
-| What you NISS trace on the switched case | Share of all non-JZP 4c4e cases | DR in 6 or less after the switch (share of the row) | DR in 5 or less after the switch (share of the row) | Share of all non-JZP 4c4e cases with a DR in 5 or less |
-|---|---:|---:|---:|---:|
-| 2+ top pairs, 2 or fewer half turns to two bars | 12.0% | 73.6% | 26.5% | 77.5% |
-| 2+ top pairs, 3 half turns to two bars | 12.3% | 21.2% | 1.2% | 3.5% |
-| 2+ top pairs, 4 or 5 half turns to two bars | 0.7% | 8.7% | 0.8% | 0.1% |
-| 1 top pair, ARM 21 | 9.3% | 31.2% | 5.8% | 13.2% |
-| 1 top pair, other ARM | 35.3% | 8.5% | 0.4% | 3.6% |
-| no top pair | 30.3% | 4.2% | 0.3% | 2.0% |
+| What you read (4c4e) | Verdict | Share of 4c4e | Sub-7 rate | Of its 4-or-less | Of its 5-movers | Of its 6-movers |
+|---|---|---|---|---|---|---|
+| 3 or 4 pairs | **switch** | 3.6% | 79.9% | 57.4% | 21.0% | 11.0% |
+| 2 pairs on two edges | **switch** | 11.9% | 53.9% | 31.1% | 46.5% | 30.4% |
+| 2 pairs on one edge (a bar), holes on one R/L face | **switch** | 3.5% | 43.7% | 3.5% | 9.8% | 7.8% |
+| 1 pair, ARM 21, 4d corners | **switch** | 0.82% | 88.9% | 5.5% | 3.9% | 3.7% |
+| 1 pair, ARM 21, 4b corners, 0 or 2 side pairs | **switch** | 2.8% | 50.4% | 0% | 6.4% | 8.0% |
+| 1 pair, ARM 21, 4a corners in two columns | **switch** | 1.5% | 34.8% | 0% | 2.6% | 2.9% |
+| 0 pairs, no fake pairs, corners 2 and 2 in the layers | **switch** | 0.82% | 21.9% | 2.4% | 0.97% | 0.84% |
+| 2 pairs on one edge (a bar), holes not on one R/L face | if you have time | 7.0% | 18.1% | 0% | 2.3% | 8.0% |
+| 1 pair, not ARM 21, 2+ side pairs, not 4b corners | if you have time | 6.8% | 19.2% | 0% | 1.9% | 8.4% |
 
-Your rule is the first four rows: 2+ top pairs, any number of half turns, plus 1 top pair with ARM 21. The 2+ top pair cases with 2 or fewer half turns to two bars are where the short DRs are, about 3 in 4 with a DR in 6 or less and 1 in 4 with a DR in 5 or less. The 2+ top pair cases with 3 or more are barely better than an average 4c4e, and almost never a 5. Your 1-pair ARM 21 rule sits in between, and it holds 13.2% of all the 5-or-less cases, so it's worth keeping.
+Everything else is a skip.
 
-The same thing as rules. Each row is a switch rule over all non-JZP 4c4e cases: how many it switches, how many of the switched have a DR in 6 or less, and how many of all the 6-or-less and 5-or-less cases it catches:
+**Against what people switch now.** Each row is a rule over all 4c4e cases:
 
-| Switch when | Share of all non-JZP 4c4e cases switched | DR in 6 or less, among the switched | Share of all non-JZP 4c4e cases with a DR in 6 or less that get switched | Share of all non-JZP 4c4e cases with a DR in 5 or less that get switched |
-|---|---:|---:|---:|---:|
-| 2+ top pairs, or 1 top pair with ARM 21 (what people switch now) | 34.4% | 42.0% | 77.2% | 94.3% |
-| only 2+ top pairs with 2 or fewer half turns to two bars | 12.0% | 73.6% | 47.4% | 77.5% |
-| that, plus 1 top pair with ARM 21 | 21.3% | 55.1% | 62.9% | 90.7% |
+| Policy | From | Switched | Missed: 4 or less | Missed: 5-movers | Missed: 6-movers | Cost per case |
+|---|---|---|---|---|---|---|
+| 2+ pairs | *DRM Subsets Meta*; tseitsei89, [25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409603207239307457) | 26.0% | 8.0% | 20.4% | 42.8% | 0.413 |
+| 2+ pairs, or 1 pair with 4d corners | tseitsei89, [25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409579685716689018) | 27.7% | 2.4% | 16.6% | 39.2% | 0.381 |
+| 2+ pairs; 1 pair with ARM 21; 0 pairs with JZP or ARM 42 | Fanti, [6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436034830046466069) | 35.2% | 1.4% | 5.8% | 27.0% | 0.345 |
+| **the card** | this page | 24.9% | 0% | 8.8% | 35.4% | 0.299 |
+| the card with its *if you have time* groups | this page | 38.8% | 0% | 4.7% | 19.1% | 0.326 |
 
-So if missing a short DR hurts you more than a wasted switch, keep your rule and use half turns to two bars only to order the switches: 2 or fewer first, then 1 top pair with ARM 21, then the 2+ top pair cases with 3 or more. Dropping that last group saves about 13.1% of all non-JZP 4c4e cases' worth of switches and loses 3.6% of the 5-or-less cases.
+So it beats 2+ pairs at every length for no more switches. Against the pairs + ARM list (2+ pairs, 1 pair with ARM 21, 0 pairs with JZP or ARM 42) it's a trade, fewer switches for more missed 5- and 6-movers, and with the two *if you have time* rows it misses less at every length for 3.6 points more switches.
 
-JZP is 1.8% of all 4c4e cases (on 4c4e it's exactly ARM 00), and 47.5% of those have a DR in 6 or less after the switch.
+**The other DRMs.** What to switch, one row per group ([section 5](eo-switch/#5-the-cards) has the full cards, with the groups to add if you have time):
 
-**Half turns to two bars, by NISS tracing.** A switched 4c4e is one R or L quarter turn away from DR when three things line up:
+| DRM | Switch when | Share of the DRM | DR in 6 or less after the switch (share of the row) |
+|---|---|---|---|
+| 4c2e | 2 pairs (a bar) | 7.1% | 60.0% |
+| 4c2e | 1 pair and a side pair | 15.1% | 55.5% |
+| 4c2e | 0 pairs, JZP (ARM 00) with 4b corners | 0.71% | 66.7% |
+| 4c2e | 1 pair, no side pair, 4b-0 corners | 1.8% | 43.3% |
+| 3c2e | 1 pair | 37.5% | 88.7% |
+| 3c2e | 0 pairs, a fake pair or a split pair | 44.6% | 56.5% |
+| 7c8e | 6 pairs, not ARM 64 | 1.9% | 96.5% |
+| 7c8e | 5 pairs, not ARM 20 or 54 | 13.9% | 55.9% |
+| 7c8e | 4 pairs, ARM 21, 31 or 43 | 6.5% | 34.9% |
+| 7c8e | 3 pairs, ARM 21 | 0.61% | 27.8% |
+| 8c8e | 8 pairs | 0.07% | 100% |
+| 8c8e | 6 pairs, corner ARM 4 | 3.7% | 50.0% |
+| 8c8e | 5 pairs, edge ARM 1 or 3 | 11.7% | 45.5% |
+| 8c8e | 2 pairs, ARM 42 | 2.7% | 32.5% |
+| 8c8e | 4 pairs, ARM 42 | 9.8% | 25.2% |
+| 2c2e | 1 pair | 21.4% | 62.5% |
+| 2c2e | 2 pairs and a side pair | 0.45% | 100% |
+| 2c2e | 0 pairs, 1 side pair, ARM 00 or 11 | 7.1% | 68.8% |
+| 4c6e | 4 pairs on three edges | 0.85% | 74.0% |
+| 4c6e | 3 pairs, JZP (ARM 00) | 0.31% | 61.1% |
+| 4c6e | 3 pairs on three edges, the three bad edges in one layer | 0.27% | 62.5% |
+| 4c6e | 3 pairs on three edges, corners 2 and 2 in the layers | 2.2% | 25.8% |
+| 3c4e | 2 pairs and a side pair | 6.9% | 43.2% |
+| 3c4e | 2 pairs, no side pair, a fake pair | 1.9% | 27.3% |
+| 3c4e | 1 pair, 2 side pairs | 5.7% | 28.1% |
+| 3c4e | 1 pair, ARM 21, 1 side pair, 2 fake pairs or holes on one R/L face | 2.6% | 40.3% |
+| 3c6e | 2 pairs, ARM 21, 1 or 2 fake pairs | 4.1% | 31.3% |
+| 3c6e | 2 pairs, ARM 12, 2 fake pairs | 1.4% | 38.6% |
+| 3c6e | 2 pairs, ARM 01 | 1.5% | 22.9% |
+| 5c4e | 3 pairs, 2+ side pairs | 2.2% | 38.3% |
+| 5c4e | 2 pairs, ARM 21, 2+ side pairs | 2.8% | 32.7% |
+| 5c4e | 1 pair, ARM 21, 2+ side pairs, 2+ fake pairs | 1.8% | 24.3% |
+| 5c6e | 4 pairs | 3.1% | 37.9% |
+| 5c6e | 3 pairs, ARM 21, 3 side pairs | 1.2% | 38.3% |
+| 5c6e | 2 pairs, ARM 21, 3 side pairs | 2.0% | 20.6% |
+| 6c6e | 5 or 6 pairs | 1.2% | 39.0% |
+| 6c6e | 3 pairs, 3 fake pairs, corners 3 and 3 in the layers | 1.9% | 34.1% |
 
-- each of the two bad U/D edges is a **bar**: it has a top pair on both sides, so both corners next to it are bad and both pair with it;
-- the two bars are on the same R or L side, one in U and one in D;
-- the two U/D edges stuck in the E slice (the ones you look at for side pairs) are on that same R/L side.
+For 4c6e, 3c4e, 3c6e, 5c4e, 5c6e and 6c6e these are small pockets in DRMs that are 5% to 10% sub-7 overall. A short DR out of them costs about four times the tracing it costs on 4c4e, so they're for when the good DRMs have run dry.
 
-U and D turns are free, and each R2, L2, F2 or B2 swaps the corner, edge and corner of that side in U with the three in D. *Half turns to two bars* is the fewest of those R2/L2/F2/B2 that get you there. Here's how to read it off your tracing, by top pairs:
+**Half turns to two bars** (how many R2, L2, F2, B2 until each layer has a bar and both stuck E-slice edges are on that R/L side, U and D turns free) is a good read on a cube you can see: 2 or fewer is 74.1% sub-7 and holds every 4-or-less. Before switching it needs the place of all eight bad pieces on the inverse and then a search, and nobody has shown that done in a few seconds, so it's not on this card. If you can read it, *2 or fewer: switch* on top of the card takes the missed 5-movers from 8.8% to 3.2% ([section 7](eo-switch/#7-two-bars-evaluated)).
 
-- **4 top pairs:** you have two bars already. If they're in different layers, you need 0 half turns for the bars. If they're both in one layer, you need 1 to move one over.
-- **3 top pairs:** one bad corner is left over, and one bad edge is missing its second pair. Start at 1. Add 1 if the leftover corner is in the same layer as that edge. Add 1 if the leftover corner is blocked: a bad piece on its other side, meaning the neighbouring edge it would *not* pair with, or the corner just past that edge. Add 1 if both bad edges are in the same layer, opposite each other. This is exact on every 3-pair case ([section 4.4](eo-switch/#44-reading-the-count)).
-- **2 top pairs:** check whether one half turn gets you to one of the four shapes that are a single half turn from two bars ([section 4.4](eo-switch/#44-reading-the-count) lists them; one of them has only 2 top pairs, one on each bad edge, with each layer holding the corner the other needs).
-- **0 or 1 top pair:** it's always 2 or more, nearly always 3 or more, and by hand you can't tell a 3 from a 4 or 5. Use ARM instead (your ARM 21 rule, or the pair card).
-
-Then the stuck E-slice edges: they cost nothing if they share an R/L colour (they're on one R/L side), 1 half turn if they share no colour, and 2 if they share an F/B colour. The answer is always the larger of the two numbers, bars and stuck edges (checked on every 4c4e case): you choose which side each half turn is on, so the turns that make the bars can fix the stuck edges at no extra cost. Every 4c4e with 0 or 1 half turns to two bars has a DR in 6 or less (1.0% of all 4c4e cases). Two bars as the target goes back to Andrew's 2019 video and rodneykinney's *DR - 4c4e Theory*. The exact count and its odds are the EO-switch study's ([section 4](eo-switch/#4-two-rings-count-the-half-turns-4c4e)).
-
-**The pair card, every DRM.** Each row is one verdict group of a DRM: what you trace on the switched case, how much of that DRM lands in the group (share of all cases of the DRM), and how often a case in the group has a DR in 6 or less after the switch ([section 6](eo-switch/#6-the-switch-cards-drm-by-drm)). For 4c4e this card splits by paired edges instead of top pairs, so it's a bit different from your rule above:
-
-| DRM | Verdict | What you NISS trace on the switched case | Share of all cases of this DRM | DR in 6 or less after the switch (share of the row) |
-|---|---|---|---|---|
-| 4c4e | **switch** | both bad U/D edges paired | 15.5% | 59.9% |
-|  | **your call** | one paired, edge ARM 1 (the two bad edges in different slices) | 32.5% | 20.0% |
-|  | **discard** | one paired, edge ARM 0 or 2 (both bad edges in one slice); no bad edge paired | 52.0% | 6.7% |
-| 4c2e | **switch** | pairs + side pairs/2 is 1.5 or more | 22.3% | 57.0% |
-|  | **your call** | pairs + side pairs/2 is exactly 1 | 24.6% | 15.7% |
-|  | **discard** | pairs + side pairs/2 is 0 or 0.5 | 53.2% | 4.0% |
-| 3c2e | **switch** | always | >99.9% | 61.6% |
-| 7c8e | **switch** | 5 or 6 pairs | 16.3% | 59.0% |
-|  | **your call** | 4 pairs | 33.7% | 15.9% |
-|  | **discard** | 3 pairs or fewer | 50.0% | 2.9% |
-| 8c8e | **your call** | corner ARM 0, 4 or 8 | 44.2% | 20.5% |
-|  | **discard** | corner ARM 2, 3, 5 or 6 | 55.8% | 9.8% |
-| 2c2e | **switch** | a bad U/D edge with a pair | 23.2% | 59.6% |
-|  | **your call** | no pair, but JZP | 8.0% | 38.9% |
-|  | **discard** | no pair, not JZP | 68.8% | 9.7% |
-| 4c6e | **switch** | JZP | 0.61% | 61.1% |
-|  | **your call** | 4 pairs | 1.2% | 47.9% |
-|  | **discard** | anything else | 98.2% | 3.7% |
-| 3c4e | **your call** | 2 pairs | 10.7% | 33.7% |
-|  | **discard** | 0 or 1 pair | 89.3% | 7.1% |
-| 3c6e | **discard** | always | >99.9% | 4.8% |
-| 5c4e | **your call** | 3 pairs | 6.1% | 27.6% |
-|  | **discard** | 2 pairs or fewer | 93.9% | 5.9% |
-| 5c6e | **your call** | 4 pairs | 3.1% | 37.9% |
-|  | **discard** | 3 pairs or fewer | 96.9% | 5.1% |
-| 6c6e | **your call** | JZP, or 5 or 6 pairs | 1.3% | 39.0% |
-|  | **discard** | anything else | 98.7% | 5.2% |
-
-One more thing after you switch: checking the other DR axis beats turning the EO's last move the other way. On 4c4e it adds 5.9 percentage points to the share of switched cases with a DR in 6 or less, against 2.1 for the last move ([section 8](eo-switch/#8-real-rzps-does-the-uniform-table-apply-after-a-switch)).
+One more thing after you switch: checking the other DR axis beats turning the EO's last move the other way. On 4c4e it adds 5.9 percentage points to the share of switched cases with a DR in 6 or less, against 2.1 for the last move.
 
 ### Should I add some random moves to this EO?
 
@@ -192,7 +194,7 @@ With a single DR axis and normal only, the odds drop to 5.9% for 6 or fewer more
 | 6c8e | 4.0% | 2.7% | 19.7% | 77.4% | 3.2% |
 | 3c6e | 2.3% | 4.1% | 25.2% | 80.8% | 4.8% |
 
-The DRM matters more than the RZP does. A natural 4c4e or 4c2e has a DR in 6 or fewer more moves about half the time with every option, a 6c6e about one time in four. And a 6-move RZP is a much tougher target than a 4 or 5. On real attempts, after a switch, the share of cases with a DR in 5 after a 6-move RZP is 3.2 to 10.3 times smaller than the share with a DR in 6 after a 5-move one, depending on the DRM ([section 8](eo-switch/#8-real-rzps-does-the-uniform-table-apply-after-a-switch)). The DR lengths are optimal DRs after the EO, **computer only**. The DRM is the part you can actually read.
+The DRM matters more than the RZP does. A natural 4c4e or 4c2e has a DR in 6 or fewer more moves about half the time with every option, a 6c6e about one time in four. And a 6-move RZP is a much tougher target than a 4 or 5. On real attempts, after a switch, the share of cases with a DR in 5 after a 6-move RZP is 3.2 to 10.3 times smaller than the share with a DR in 6 after a 5-move one, depending on the DRM ([section 10](eo-switch/#10-other-rzp-lengths-real-attempts-other-weights)). The DR lengths are optimal DRs after the EO, **computer only**. The DRM is the part you can actually read.
 
 ## DR to HTR
 

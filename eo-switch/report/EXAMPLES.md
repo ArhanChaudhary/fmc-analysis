@@ -1,3244 +1,4629 @@
 # Worked examples: when to switch an EO
 
-Examples to play along with [the write-up](index.html). Do the EO and RZP, trace the inverse (pairs for the card, the rings for the half-turn count), decide, then open the answer.
+Examples to play along with [the write-up](index.html). Do the EO and RZP, look at the bad pieces, do the reads, decide, then open the answer.
 
-These are 200 real attempts from the study's uniformly random scrambles: an EO and an RZP that reach the DRM at a total of 5 moves, so the target after the switch is a DR in 6 (sub-7). They're spread over the cells of the switch cards (more where the cards have more to say, 4c4e most) and picked at random within each cell. Nothing is hand-picked, so within each cell about as many reach a sub-7 as the cell's rate says.
+These are 201 real attempts from uniformly random scrambles: an EO and an RZP that reach the DRM at 5 moves total, so a good switch is a DR in 6 or less on the other side (sub-7). They're spread over the groups of the cards, 4c4e most, and random within a group. Nothing is hand-picked. A handful of examples per group is a small sample, so the tallies below wobble. The exact numbers of each group are in the answers.
 
 **How to read it.**
 
-- Every attempt is turned so that its EO is on F/B and its DR on U/D, the frame of the write-up: the scramble printed is the generated one with the faces renamed, which is the same scramble held in another orientation.
-- An EO and RZP in brackets were found on the inverse scramble; the DR is then done on the other side, as usual with NISS.
-- Colours are named by their home face (the *F/B colour* is the EO axis's colour, green or blue with green front).
-- *Traced before switching* is what section 7 of the write-up reads on the side where the EO and RZP were done, from the cube after them: how many of the U/D-coloured edges in the E slice find a misoriented corner showing their colours on its side stickers (paired edges on the inverse), how many of them have an F/B-colour sticker (edge ARM on the inverse), the R/L stickers on the U/D faces (corner ARM on the inverse), the pairs and the side pairs.
-- *Rings* are the two rings and the holes of the switched case as section 4.1 of the write-up writes them (clockwise from a corner: `>` and `<` bad corners pointing clockwise and counter-clockwise, `o` a good corner, `E` a bad edge place, `-` a good one), read on normal by colour as in section 7.
-- The answer gives the count of sections 4 and 5 (for 4c4e the half turns to two bars, for the other DRMs the side turns of the shortest setup, U and D turns not counted) with its sub-7 rate, then the card's verdict with the sub-7 rate of that group (both exact, every case once), the switched case, and one optimal DR on the inverse with the EO kept.
+- Every attempt is turned so the EO is on F/B and the DR on U/D, like in the write-up. The scramble printed is the generated one with the faces renamed, so it is the same scramble held another way.
+- An EO and RZP in brackets were found on the inverse scramble. The DR is then on the other side, as usual with NISS.
+- Colours are for white top, green front: the U/D colours are white and yellow, F/B green and blue, R/L red and orange.
+- *What you see* is the cube after the EO and RZP, before you switch: the U/D edges sitting in the E slice, the misoriented corners with the colour each one shows on the U/D face, and the E-slice edges that are out of the slice.
+- *Reads* are what the card of that DRM asks for, all counted on the side you are on, the way the write-up traces them:
+  - a *pair* is a misoriented corner whose two side stickers are the two colours of a U/D edge in the E slice, and two pairs on one edge are a *bar*;
+  - a *fake pair* is a corner with both of that edge's colours that shows the edge's side colour on U/D;
+  - a *side pair* is a corner with both colours of an E-slice edge that is out of the slice, showing green or blue on U/D;
+  - *ARM* is the corners showing red or orange on U/D, then the U/D edges in the E slice with green or blue;
+  - the *holes* are where the E-slice edges that are out of the slice belong: on one R/L face if the two share red or orange, on one F/B face if they share green or blue, diagonal if they share nothing;
+  - 4a corners are *in two columns* when they are two twins, each a white corner and a yellow corner with the same two other colours (Evan's stacked corners);
+  - *bad edges in one layer* (4c6e) means the U/D edges in the E slice are all white or all yellow, and the corner count is the misoriented corners by their white or yellow sticker;
+  - a *split pair* (3c2e) is wen's ([12 Feb 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1471458126539526323)), read in colours: a U/D edge in the E slice and a misoriented corner with the same white or yellow and without the edge's other colour, where the edge has green or blue and the corner shows red or orange on U/D, or the other way round.
+- The answer has the card's group and verdict (**switch**, **if you have time** or **skip**), how big that group is and how its cases split by DR length (exact, every case of the DRM once), what the pairs rule says, what Fanti's pairs + ARM list says where there is one, and one optimal DR on the other side with the EO kept.
 
-**Replay check.** Every move sequence on this page was replayed on the sticker model before the page was written: 2,862 checks (the turned scramble is the generated one after a rotation; EO + RZP solves the F/B EO and gives the stated DRM; the switched case is the attempt's; every value traced on normal equals the feature of the inverse, the two rings and the holes included; the DR solves the inverse to DR on U/D with the EO kept, in the table's optimal number of moves, and nissy 2.0.8 finds the same length), 0 mismatches.
+The rules the card is put next to, one row per DRM. The pairs rules are the NISS column of rodneykinney's [*DRM Subsets Meta*](https://docs.google.com/document/d/1Jnd1Qy_6b1W5dR5fZQScloMoMPR2LCAF7VPrgeTaRgg) where it has one, with plain 5+ pairs for 7c8e and rodneykinney's decision tree for 8c8e ([2 Sep 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1412510225906401403)). The pairs + ARM lists are Fanti's ([6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436034830046466069), and [6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436042954501390401) for 3c4e and 3c6e). [The write-up](index.html) has who said what, with the quotes.
 
-**In these 200**, a DR in 6 or less exists after the switch in 33 of the 54 *switch*, 16 of the 64 *your call* and 5 of the 82 *discard* attempts.
-By the half-turn count, the 62 4c4e attempts: 11 of the 15 with 2 or fewer half turns to two bars, 6 of the 30 with 3 half turns to two bars, 0 of the 17 with 4 or 5 half turns to two bars have a DR in 6 or less.
-By side turns, the 138 attempts of the other DRMs: 26 of the 30 *short* and 11 of the 108 *not short* (short: 3 side turns or fewer, 2 of them quarter turns).
+| DRM | Pairs rule | From | Pairs + ARM list (Fanti) |
+|---|---|---|---|
+| 4c4e | 2+ pairs | *DRM Subsets Meta*; tseitsei89 | 2+ pairs; 1 pair with ARM 21; 0 pairs with JZP or ARM 42 |
+| 4c2e | 1.5+ pairs (2 side pairs = 1 pair) | *DRM Subsets Meta*; rodneykinney; Jay | 1+ pairs; 0 pairs with JZP |
+| 3c2e | always | *DRM Subsets Meta*; tseitsei89 | none |
+| 7c8e | 5+ pairs, counting edge ARM under 2 as a pair | *DRM Subsets Meta*; tseitsei89 | 5+ pairs; 4 pairs with ARM 21, 31, 43; 3 pairs with ARM 21 |
+| 8c8e | 3 or fewer fake pairs (5+ pairs), with edge ARM not 2 or 6+ pairs | rodneykinney's tree | none |
+| 2c2e | 1+ pairs | *DRM Subsets Meta* | none |
+| 4c6e | never | *DRM Subsets Meta* | none |
+| 3c4e | 2+ pairs | *DRM Subsets Meta* (sometimes) | 2 pairs; 1 pair with ARM 00 or 21 |
+| 3c6e | never | not on the *DRM Subsets Meta* list | 3 pairs with ARM 00; 2 pairs with ARM 21 |
+| 5c4e | never | *DRM Subsets Meta* | none |
+| 5c6e | never | *DRM Subsets Meta* | none |
+| 6c6e | never | *DRM Subsets Meta* | none |
 
-## DRM 4c4e: examples 1–62
+**Replay check.** Every move sequence here was replayed on a sticker model of the cube before the page was written: 4,708 checks, 0 mismatches. The turned scramble is the generated one after a rotation. EO + RZP solves the F/B EO in 5 moves and gives the stated DRM. Every read done on the side you are on equals the same count taken on the other side directly. The card group is the one the case falls in. The DR takes the other side to DR on U/D with the EO kept, in the optimal number of moves, and nissy 2.0.8 finds the same length for all 201.
 
-**4c4e, example 1.** `L2 R2 B' U2 F2 U2 L2 F' U2 B2 U2 R2 F B2 R2 U' B2 L B R U B L' D L'`
+**How these 201 came out.** One row per verdict, the columns are the examples by the length of the optimal DR after the switch:
 
-EO `(D2 F D' B)`, RZP `(R)`, on the inverse scramble: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 3 pairs, 1 side pair. Rings: U `>E>E<-o-`, D `<-o-o-o-`, holes BL BR.
+| Verdict | Examples | DR in 4 or less | DR in 5 | DR in 6 | DR in 7 or more | DR in 6 or less, expected from the groups' exact rates |
+|---|---|---|---|---|---|---|
+| Card: switch | 127 | 5 | 14 | 52 | 56 | 70 |
+| Card: if you have time | 34 | 0 | 0 | 2 | 32 | 7 |
+| Card: skip | 40 | 0 | 0 | 1 | 39 | 2 |
+| Pairs rule: switch | 90 | 4 | 13 | 32 | 41 | 49 |
+| Pairs rule: skip | 111 | 1 | 1 | 23 | 86 | 30 |
 
+The examples are spread over the groups, not drawn the way attempts come up, so read the rows as what each verdict looks like, not as how often you get it. The last column is how many of the row's examples would have a DR in 6 or less if every group came out at its exact rate. This draw is short on the *if you have time* row.
+
+**Where the card and the pairs rule disagree.**
+
+- Card switches, pairs rule skips (53 examples, 23 with a DR in 6 or less): 4, 7, 8, 9, 11, 29, 32, 36, 38, 40, 44, 47, 53, 64, 66, 67, 71, 74, 76, 77, 78, 79, 82, 85, 89, 94, 95, 98, 100, 103, 119, 147, 149, 151, 160, 162, 166, 173, 177, 180, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 196, 200, 201.
+- Card says if you have time, pairs rule switches (15 examples, 1 with a DR in 6 or less): 1, 3, 5, 35, 43, 60, 65, 87, 122, 125, 130, 134, 136, 137, 156.
+- Card skips, pairs rule switches (1 example, 0 with a DR in 6 or less): 165.
+
+## 4c4e: examples 1–90
+
+The 4c4e card, one row per group, best first. *Sub-7* is the share of the group with a DR in 6 or less after the switch (exact, every case of 4c4e once; 19.2% for 4c4e as a whole):
+
+| What you read | Verdict | Share of 4c4e | Sub-7 |
+|---|---|---|---|
+| 3 or 4 pairs | switch | 3.6% | 79.9% |
+| 2 pairs on two edges | switch | 11.9% | 53.9% |
+| 2 pairs on one edge (a bar), holes on one R/L face | switch | 3.5% | 43.7% |
+| 1 pair, ARM 21, 4d corners | switch | 0.82% | 88.9% |
+| 1 pair, ARM 21, 4b corners, 0 or 2 side pairs | switch | 2.8% | 50.4% |
+| 1 pair, ARM 21, 4a corners in two columns | switch | 1.5% | 34.8% |
+| 0 pairs, no fake pairs, corners 2 and 2 in the layers | switch | 0.82% | 21.9% |
+| 2 pairs on one edge (a bar), holes not on one R/L face | if you have time | 7.0% | 18.1% |
+| 1 pair, not ARM 21, 2+ side pairs, not 4b corners | if you have time | 6.8% | 19.2% |
+| 1 pair, ARM 21, 4a corners not in two columns | skip | 1.4% | 2.5% |
+| 1 pair, ARM 21, 4b corners, exactly 1 side pair | skip | 2.6% | 5.6% |
+| 1 pair, anything else | skip | 28.3% | 6.1% |
+| 0 pairs, anything else | skip | 28.9% | 3.8% |
+
+**Example 1 (4c4e).** `L' F2 L' D2 R2 U2 F2 R' U2 L' U2 B2 U2 L' B' D L' B2 U L' D' F D`
+
+EO `(B U R2 L B')`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-red, yellow-orange
+- Misoriented corners: yellow-green-orange showing green, yellow-green-red showing red, white-green-red showing red, yellow-blue-orange showing blue
+- E-slice edges out of the slice: green-orange, blue-red
+
+Reads: 2 pairs, both on yellow-orange (a bar), 1 fake pair, 1 side pair, ARM 20, 4b-2 corners, holes diagonal (the edges out of the slice share no colour), corners 1 white, 3 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **if you have time** (*2 pairs on one edge (a bar), holes not on one R/L face*). That group is 7.0% of 4c4e, 4,960 cases: 0 with a DR in 4 or less, 56 in 5, 840 in 6, 4,064 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `L' U' R2 U' F2 L` (6 moves, good). The whole attempt: `(B U R2 L B') L' U' R2 U' F2 L`, 11 to DR.
+
+</details>
+
+**Example 2 (4c4e).** `R2 L2 D F2 U F2 U R2 F2 L2 B2 D B' U B R' D' F' D' U' B U'`
+
+EO `(B L2 F' D2 B')`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-orange, white-blue
+- Misoriented corners: white-blue-red showing red, white-green-red showing red, white-blue-orange showing blue, yellow-blue-red showing red
+- E-slice edges out of the slice: green-red, blue-orange
+
+Reads: 2 pairs, one on each edge, 1 fake pair, 1 side pair, ARM 31, 4c-1 corners, holes diagonal (the edges out of the slice share no colour), corners 3 white, 1 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*2 pairs on two edges*). That group is 11.9% of 4c4e, 8,400 cases: 180 with a DR in 4 or less, 1,156 in 5, 3,192 in 6, 3,872 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `D' F2 L2 U' L` (5 moves, good). The whole attempt: `(B L2 F' D2 B') D' F2 L2 U' L`, 10 to DR.
+
+</details>
+
+**Example 3 (4c4e).** `D2 R D2 R' B2 L' F2 R2 B2 F2 R' B2 L' F' D' B2 F2 L' D F R2 U`
+
+EO `(D' B2 D' R2 B)`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-green, white-blue
+- Misoriented corners: white-blue-orange showing orange, white-blue-red showing red, yellow-green-red showing green, yellow-blue-red showing blue
+- E-slice edges out of the slice: green-orange, blue-red
+
+Reads: 2 pairs, both on white-blue (a bar), 0 fake pairs, 1 side pair, ARM 22, 4b-2 corners, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **if you have time** (*2 pairs on one edge (a bar), holes not on one R/L face*). That group is 7.0% of 4c4e, 4,960 cases: 0 with a DR in 4 or less, 56 in 5, 840 in 6, 4,064 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `U' R2 F2 U2 R2 F2 R` (7 moves, too long). The whole attempt: `(D' B2 D' R2 B) U' R2 F2 U2 R2 F2 R`, 12 to DR.
+
+</details>
+
+**Example 4 (4c4e).** `D R2 D2 R2 F2 D R2 D L2 F2 R2 U' R2 U' F2 L' U2 L2 B F2 L' F R' L'`
+
+EO `R' L2 B' L' F`, no RZP needed: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-red, yellow-green
+- Misoriented corners: yellow-blue-orange showing blue, white-green-red showing red, yellow-blue-red showing blue, yellow-green-red showing red
+- E-slice edges out of the slice: blue-red, blue-orange
+
+Reads: 1 pair (on yellow-green), 1 fake pair, 2 side pairs, ARM 21, 4b-2 corners, holes on one F/B face (both edges out of the slice have blue), corners 1 white, 3 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*1 pair, ARM 21, 4b corners, 0 or 2 side pairs*). That group is 2.8% of 4c4e, 1,984 cases: 0 with a DR in 4 or less, 160 in 5, 840 in 6, 984 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `B2 D2 R2 B2 U R` (6 moves, good). The whole attempt: `R' L2 B' L' F (B2 D2 R2 B2 U R)`, 11 to DR.
+
+</details>
+
+**Example 5 (4c4e).** `F2 R2 U L2 D2 F2 U R2 U' R2 U B2 R2 R' B D B R' D B' R' F' D'`
+
+EO `(F L' F' D B')`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: yellow-red, white-green
+- Misoriented corners: white-blue-red showing red, white-green-orange showing green, yellow-blue-red showing blue, yellow-green-red showing green
+- E-slice edges out of the slice: green-orange, blue-red
+
+Reads: 2 pairs, both on yellow-red (a bar), 1 fake pair, 2 side pairs, ARM 11, 4c-1 corners, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **if you have time** (*2 pairs on one edge (a bar), holes not on one R/L face*). That group is 7.0% of 4c4e, 4,960 cases: 0 with a DR in 4 or less, 56 in 5, 840 in 6, 4,064 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `D' F2 R' U' L2 D R` (7 moves, too long). The whole attempt: `(F L' F' D B') D' F2 R' U' L2 D R`, 12 to DR.
+
+</details>
+
+**Example 6 (4c4e).** `B2 F2 L D2 R D2 R B2 D2 F2 U2 L U' R U B' L' D' L' R' U R'`
+
+EO `R L' U2 L' B'`, no RZP needed: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-green, yellow-blue
+- Misoriented corners: yellow-blue-orange showing orange, white-green-orange showing green, yellow-green-orange showing green, white-blue-red showing blue
+- E-slice edges out of the slice: green-orange, blue-orange
+
+Reads: 1 pair (on yellow-blue), 1 fake pair, 2 side pairs, ARM 12, 4c-1 corners, holes on one R/L face (both edges out of the slice have orange), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **if you have time** (*1 pair, not ARM 21, 2+ side pairs, not 4b corners*). That group is 6.8% of 4c4e, 4,832 cases: 0 with a DR in 4 or less, 48 in 5, 880 in 6, 3,904 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the inverse: `U' R2 U' F2 U2 B2 U R` (8 moves, too long). The whole attempt: `R L' U2 L' B' (U' R2 U' F2 U2 B2 U R)`, 13 to DR.
+
+</details>
+
+**Example 7 (4c4e).** `D R2 U2 F2 L2 R2 U L2 D' F2 U R2 F2 L2 U' R' U' R' B L' D2 R B' U2`
+
+EO `F R U2 R2 B`, no RZP needed: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-orange, yellow-blue
+- Misoriented corners: white-green-red showing red, white-blue-orange showing blue, yellow-green-orange showing orange, yellow-blue-red showing blue
+- E-slice edges out of the slice: blue-red, green-red
+
+Reads: 1 pair (on white-orange), 1 fake pair, 1 side pair, ARM 21, 4d-2 corners, holes on one R/L face (both edges out of the slice have red), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*1 pair, ARM 21, 4d corners*). That group is 0.82% of 4c4e, 576 cases: 32 with a DR in 4 or less, 96 in 5, 384 in 6, 64 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `U' D B2 U F2 L` (6 moves, good). The whole attempt: `F R U2 R2 B (U' D B2 U F2 L)`, 11 to DR.
+
+</details>
+
+**Example 8 (4c4e).** `D2 F D2 L2 U2 F' L2 B2 R2 L2 B R2 F2 D' B2 F L B F L F2 D`
+
+EO `D' B L F'`, RZP `R'`: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: yellow-blue, yellow-orange
+- Misoriented corners: white-blue-orange showing orange, yellow-blue-red showing blue, yellow-blue-orange showing orange, white-blue-red showing blue
+- E-slice edges out of the slice: green-orange, green-red
+
+Reads: 1 pair (on yellow-blue), 2 fake pairs, 0 side pairs, ARM 21, 4a-2 corners, in two columns (two twins), holes on one F/B face (both edges out of the slice have green), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*1 pair, ARM 21, 4a corners in two columns*). That group is 1.5% of 4c4e, 1,056 cases: 0 with a DR in 4 or less, 64 in 5, 304 in 6, 688 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `U2 D' R' D' R2 F2 R` (7 moves, too long). The whole attempt: `D' B L F' R' (U2 D' R' D' R2 F2 R)`, 12 to DR.
+
+</details>
+
+**Example 9 (4c4e).** `F2 U2 F2 L U2 R U2 R' U2 F2 R2 U2 F2 R' U' L D R B R' F L B2 R`
+
+EO `R' L F R B'`, no RZP needed: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: yellow-green, white-green
+- Misoriented corners: yellow-blue-red showing red, yellow-blue-orange showing orange, white-blue-red showing red, white-blue-orange showing orange
+- E-slice edges out of the slice: green-red, blue-red
+
+Reads: 0 pairs, 0 fake pairs, 0 side pairs, ARM 42, 4a-4 corners, in two columns (two twins), holes on one R/L face (both edges out of the slice have red), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*0 pairs, no fake pairs, corners 2 and 2 in the layers*). That group is 0.82% of 4c4e, 576 cases: 14 with a DR in 4 or less, 24 in 5, 88 in 6, 450 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `U D' F2 B2 L` (5 moves, good). The whole attempt: `R' L F R B' (U D' F2 B2 L)`, 10 to DR.
+
+</details>
+
+**Example 10 (4c4e).** `U2 F2 U2 B2 L2 B2 L2 R' B2 L' B2 D2 L' B' U' F2 L D2 B' U F' L2 R2`
+
+EO `(U2 D' F L2 B)`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: yellow-green, white-blue
+- Misoriented corners: white-blue-orange showing orange, white-green-red showing green, white-green-orange showing green, white-blue-red showing red
+- E-slice edges out of the slice: green-red, blue-red
+
+Reads: 2 pairs, both on white-blue (a bar), 0 fake pairs, 1 side pair, ARM 22, 4a-2 corners, not in two columns, holes on one R/L face (both edges out of the slice have red), corners 4 white, 0 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*2 pairs on one edge (a bar), holes on one R/L face*). That group is 3.5% of 4c4e, 2,480 cases: 20 with a DR in 4 or less, 244 in 5, 820 in 6, 1,396 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `D B2 R U2 R' B2 U R` (8 moves, too long). The whole attempt: `(U2 D' F L2 B) D B2 R U2 R' B2 U R`, 13 to DR.
+
+</details>
+
+**Example 11 (4c4e).** `U2 F2 U2 B2 L2 B2 L2 R' B2 L' B2 D2 L' B' U' F2 L D2 B' U F' L2 R2`
+
+EO `L2 D F' R2 B'`, no RZP needed: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-blue, white-orange
+- Misoriented corners: white-green-red showing green, white-green-orange showing green, yellow-green-red showing red, yellow-green-orange showing orange
+- E-slice edges out of the slice: green-red, blue-orange
+
+Reads: 1 pair (on white-orange), 0 fake pairs, 1 side pair, ARM 21, 4a-2 corners, in two columns (two twins), holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*1 pair, ARM 21, 4a corners in two columns*). That group is 1.5% of 4c4e, 1,056 cases: 0 with a DR in 4 or less, 64 in 5, 304 in 6, 688 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `R2 U' L2 U B2 L` (6 moves, good). The whole attempt: `L2 D F' R2 B' (R2 U' L2 U B2 L)`, 11 to DR.
+
+</details>
+
+**Example 12 (4c4e).** `L2 B2 D2 F U2 R2 F U2 D2 B R2 F2 R2 R' D' F U F2 L' D' R' U'`
+
+EO `D2 F' U' R B'`, no RZP needed: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: yellow-green, white-red
+- Misoriented corners: white-blue-orange showing blue, yellow-green-red showing green, yellow-green-orange showing green, white-blue-red showing blue
+- E-slice edges out of the slice: blue-orange, green-orange
+
+Reads: 1 pair (on white-red), 2 fake pairs, 2 side pairs, ARM 01, 4a-0 corners, not in two columns, holes on one R/L face (both edges out of the slice have orange), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **if you have time** (*1 pair, not ARM 21, 2+ side pairs, not 4b corners*). That group is 6.8% of 4c4e, 4,832 cases: 0 with a DR in 4 or less, 48 in 5, 880 in 6, 3,904 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the inverse: `R' D' L' D2 L2 F2 D' R` (8 moves, too long). The whole attempt: `D2 F' U' R B' (R' D' L' D2 L2 F2 D' R)`, 13 to DR.
+
+</details>
+
+**Example 13 (4c4e).** `F2 R2 U L2 D2 F2 U R2 U' R2 U B2 R2 R' B D B R' D B' R' F' D'`
+
+EO `(D' F L' F B')`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-red, white-green
+- Misoriented corners: yellow-blue-orange showing orange, white-green-orange showing green, yellow-blue-red showing blue, white-green-red showing red
+- E-slice edges out of the slice: green-orange, blue-red
+
+Reads: 1 pair (on white-green), 2 fake pairs, 2 side pairs, ARM 21, 4a-2 corners, not in two columns, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*1 pair, ARM 21, 4a corners not in two columns*). That group is 1.4% of 4c4e, 960 cases: 0 with a DR in 4 or less, 0 in 5, 24 in 6, 936 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `U L B2 R2 F2 D' L` (7 moves, too long). The whole attempt: `(D' F L' F B') U L B2 R2 F2 D' L`, 12 to DR.
+
+</details>
+
+**Example 14 (4c4e).** `R2 B R2 B' D2 F' U2 B2 D2 U2 B' D2 F' U' R' D2 U2 F' R U B2 L`
+
+EO `(L U2 D2 L F)`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-green, yellow-blue
+- Misoriented corners: yellow-blue-orange showing orange, white-blue-red showing blue, white-green-red showing red, yellow-green-red showing red
+- E-slice edges out of the slice: blue-red, blue-orange
+
+Reads: 2 pairs, one on each edge, 0 fake pairs, 1 side pair, ARM 32, 4c-1 corners, holes on one F/B face (both edges out of the slice have blue), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*2 pairs on two edges*). That group is 11.9% of 4c4e, 8,400 cases: 180 with a DR in 4 or less, 1,156 in 5, 3,192 in 6, 3,872 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `D2 L2 D' B2 U L` (6 moves, good). The whole attempt: `(L U2 D2 L F) D2 L2 D' B2 U L`, 11 to DR.
+
+</details>
+
+**Example 15 (4c4e).** `F R2 B2 U2 L2 R2 B L2 F' U2 B R2 U2 L2 B' R' B' R' D L' F2 R D' B2`
+
+EO `R U' D2 B'`, RZP `L'`: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: yellow-orange, white-red
+- Misoriented corners: yellow-green-orange showing green, yellow-green-red showing green, white-blue-red showing blue, yellow-blue-orange showing orange
+- E-slice edges out of the slice: blue-red, blue-orange
+
+Reads: 2 pairs, one on each edge, 1 fake pair, 1 side pair, ARM 10, 4c-1 corners, holes on one F/B face (both edges out of the slice have blue), corners 1 white, 3 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*2 pairs on two edges*). That group is 11.9% of 4c4e, 8,400 cases: 180 with a DR in 4 or less, 1,156 in 5, 3,192 in 6, 3,872 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `U L2 F2 U2 D R` (6 moves, good). The whole attempt: `R U' D2 B' L' (U L2 F2 U2 D R)`, 11 to DR.
+
+</details>
+
+**Example 16 (4c4e).** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
+
+EO `R' B' R L B`, no RZP needed: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-orange, yellow-green
+- Misoriented corners: white-green-red showing red, white-green-orange showing orange, yellow-green-orange showing green, white-blue-orange showing orange
+- E-slice edges out of the slice: blue-orange, blue-red
+
+Reads: 0 pairs, 3 fake pairs, 0 side pairs, ARM 31, 4c-1 corners, holes on one F/B face (both edges out of the slice have blue), corners 3 white, 1 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*0 pairs, anything else*). That group is 28.9% of 4c4e, 20,424 cases: 0 with a DR in 4 or less, 36 in 5, 748 in 6, 19,640 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the inverse: `U2 R2 D' L' F2 L2 U L` (8 moves, too long). The whole attempt: `R' B' R L B (U2 R2 D' L' F2 L2 U L)`, 13 to DR.
+
+</details>
+
+**Example 17 (4c4e).** `R2 U2 L2 D2 F' U2 F R2 B2 D2 R2 F' B2 U' L' R2 F L R D L' F' B'`
+
+EO `(R' B L U F)`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: yellow-green, white-blue
+- Misoriented corners: white-green-red showing green, white-blue-red showing blue, yellow-blue-red showing red, yellow-green-orange showing green
+- E-slice edges out of the slice: green-red, blue-red
+
+Reads: 0 pairs, 2 fake pairs, 2 side pairs, ARM 12, 4c-1 corners, holes on one R/L face (both edges out of the slice have red), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*0 pairs, anything else*). That group is 28.9% of 4c4e, 20,424 cases: 0 with a DR in 4 or less, 36 in 5, 748 in 6, 19,640 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the normal side: `L' U' R2 L U' D R` (7 moves, too long). The whole attempt: `(R' B L U F) L' U' R2 L U' D R`, 12 to DR.
+
+</details>
+
+**Example 18 (4c4e).** `L2 B R2 D2 R2 L2 F' L2 F2 U2 F U2 F D2 B' L' F D R' U2 F' U' F' L F2`
+
+EO `(F U' D' L' F)`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: yellow-green, white-red
+- Misoriented corners: white-blue-orange showing orange, white-green-red showing green, yellow-blue-orange showing orange, white-blue-red showing blue
+- E-slice edges out of the slice: green-orange, blue-orange
+
+Reads: 2 pairs, both on white-red (a bar), 0 fake pairs, 0 side pairs, ARM 21, 4b-2 corners, holes on one R/L face (both edges out of the slice have orange), corners 3 white, 1 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*2 pairs on one edge (a bar), holes on one R/L face*). That group is 3.5% of 4c4e, 2,480 cases: 20 with a DR in 4 or less, 244 in 5, 820 in 6, 1,396 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `L2 U2 R2 D' L` (5 moves, good). The whole attempt: `(F U' D' L' F) L2 U2 R2 D' L`, 10 to DR.
+
+</details>
+
+**Example 19 (4c4e).** `R2 D2 L' F2 D2 R2 D2 R' B2 D2 R2 D2 R F2 R' F' L F2 U2 R' D L F2 D'`
+
+EO `(R2 L2 U2 L B)`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-green, yellow-blue
+- Misoriented corners: yellow-blue-red showing blue, yellow-green-red showing green, white-blue-red showing red, yellow-green-orange showing orange
+- E-slice edges out of the slice: blue-orange, green-orange
+
+Reads: 0 pairs, 1 fake pair, 0 side pairs, ARM 22, 4b-2 corners, holes on one R/L face (both edges out of the slice have orange), corners 1 white, 3 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*0 pairs, anything else*). That group is 28.9% of 4c4e, 20,424 cases: 0 with a DR in 4 or less, 36 in 5, 748 in 6, 19,640 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the normal side: `U2 L2 D R' U' L U R` (8 moves, too long). The whole attempt: `(R2 L2 U2 L B) U2 L2 D R' U' L U R`, 13 to DR.
+
+</details>
+
+**Example 20 (4c4e).** `L2 U2 B2 R U2 R' U2 L' D2 L D2 B2 D' F2 L F2 R U B' U' F'`
+
+EO `(B' L' U' L2 F')`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-red, white-orange
+- Misoriented corners: yellow-blue-red showing blue, white-blue-red showing red, white-green-orange showing green, yellow-green-orange showing orange
+- E-slice edges out of the slice: blue-orange, green-red
+
+Reads: 1 pair (on white-orange), 1 fake pair, 0 side pairs, ARM 20, 4a-2 corners, in two columns (two twins), holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*1 pair, anything else*). That group is 28.3% of 4c4e, 19,936 cases: 0 with a DR in 4 or less, 56 in 5, 1,152 in 6, 18,728 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the normal side: `B2 U2 D F2 R' U2 F2 R` (8 moves, too long). The whole attempt: `(B' L' U' L2 F') B2 U2 D F2 R' U2 F2 R`, 13 to DR.
+
+</details>
+
+**Example 21 (4c4e).** `D' R2 U' L2 U R2 B2 U L2 D' R2 U R2 U F' R L' D' L' B' R' F2 L2`
+
+EO `L2 F R U' B`, no RZP needed: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-blue, white-orange
+- Misoriented corners: white-green-red showing green, white-blue-red showing blue, yellow-blue-red showing red, white-blue-orange showing blue
+- E-slice edges out of the slice: blue-orange, blue-red
+
+Reads: 1 pair (on white-orange), 2 fake pairs, 2 side pairs, ARM 11, 4c-1 corners, holes on one F/B face (both edges out of the slice have blue), corners 3 white, 1 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **if you have time** (*1 pair, not ARM 21, 2+ side pairs, not 4b corners*). That group is 6.8% of 4c4e, 4,832 cases: 0 with a DR in 4 or less, 48 in 5, 880 in 6, 3,904 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the inverse: `D2 L2 B2 U L2 D L` (7 moves, too long). The whole attempt: `L2 F R U' B (D2 L2 B2 U L2 D L)`, 12 to DR.
+
+</details>
+
+**Example 22 (4c4e).** `L2 R2 B' U2 F2 U2 L2 F' U2 B2 U2 R2 F B2 R2 U' B2 L B R U B L' D L'`
+
+EO `(U2 B D' F)`, RZP `(L)`, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-orange, white-green
+- Misoriented corners: white-blue-orange showing blue, white-green-red showing red, white-green-orange showing green, yellow-blue-orange showing orange
+- E-slice edges out of the slice: blue-red, blue-orange
+
+Reads: 3 pairs (white-orange 2, white-green 1), 1 fake pair, 1 side pair, ARM 21, 4b-2 corners, holes on one F/B face (both edges out of the slice have blue), corners 3 white, 1 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*3 or 4 pairs*). That group is 3.6% of 4c4e, 2,520 cases: 332 with a DR in 4 or less, 522 in 5, 1,160 in 6, 506 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `L2 U' F2 D2 R` (5 moves, good). The whole attempt: `(U2 B D' F L) L2 U' F2 D2 R`, 10 to DR.
+
+</details>
+
+**Example 23 (4c4e).** `B D2 F2 L2 U2 D2 F U2 B' L2 F D2 L2 U2 F' D' F' D' R U' B2 D R' F2`
+
+EO `U L2 U L B`, no RZP needed: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: yellow-red, white-blue
+- Misoriented corners: yellow-blue-red showing blue, white-blue-red showing red, white-blue-orange showing orange, yellow-blue-orange showing blue
+- E-slice edges out of the slice: green-red, blue-red
+
+Reads: 3 pairs (yellow-red 1, white-blue 2), 0 fake pairs, 1 side pair, ARM 21, 4a-2 corners, in two columns (two twins), holes on one R/L face (both edges out of the slice have red), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*3 or 4 pairs*). That group is 3.6% of 4c4e, 2,520 cases: 332 with a DR in 4 or less, 522 in 5, 1,160 in 6, 506 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `R2 D B2 D' B2 R` (6 moves, good). The whole attempt: `U L2 U L B (R2 D B2 D' B2 R)`, 11 to DR.
+
+</details>
+
+**Example 24 (4c4e).** `F2 U F2 U' R2 D' L2 U2 R2 L2 U' R2 D' L' F' R2 L2 D' F L U2 B`
+
+EO `D2 B2 D R B`, no RZP needed: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-red, white-green
+- Misoriented corners: white-green-red showing green, yellow-blue-red showing blue, yellow-blue-orange showing blue, white-green-orange showing green
+- E-slice edges out of the slice: green-orange, blue-red
+
+Reads: 1 pair (on white-red), 2 fake pairs, 2 side pairs, ARM 01, 4a-0 corners, not in two columns, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **if you have time** (*1 pair, not ARM 21, 2+ side pairs, not 4b corners*). That group is 6.8% of 4c4e, 4,832 cases: 0 with a DR in 4 or less, 48 in 5, 880 in 6, 3,904 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the inverse: `R D L2 B2 R2 U' R` (7 moves, too long). The whole attempt: `D2 B2 D R B (R D L2 B2 R2 U' R)`, 12 to DR.
+
+</details>
+
+**Example 25 (4c4e).** `L2 U2 B2 R U2 R' U2 L' D2 L D2 B2 D' F2 L F2 R U B' U' F'`
+
+EO `(B U' F)`, RZP `(R2 L')`, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-red, white-green
+- Misoriented corners: white-green-orange showing green, white-green-red showing green, yellow-blue-orange showing orange, yellow-blue-red showing red
+- E-slice edges out of the slice: green-orange, blue-red
+
+Reads: 1 pair (on white-red), 2 fake pairs, 1 side pair, ARM 21, 4a-2 corners, not in two columns, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*1 pair, ARM 21, 4a corners not in two columns*). That group is 1.4% of 4c4e, 960 cases: 0 with a DR in 4 or less, 0 in 5, 24 in 6, 936 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `L2 U R2 U2 B2 D' R` (7 moves, too long). The whole attempt: `(B U' F R2 L') L2 U R2 U2 B2 D' R`, 12 to DR.
+
+</details>
+
+**Example 26 (4c4e).** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
+
+EO `L B`, RZP `L' U' R`: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: yellow-orange, white-orange
+- Misoriented corners: white-blue-red showing red, white-blue-orange showing blue, white-green-orange showing green, yellow-blue-orange showing blue
+- E-slice edges out of the slice: green-red, blue-orange
+
+Reads: 3 pairs (yellow-orange 1, white-orange 2), 0 fake pairs, 2 side pairs, ARM 10, 4c-1 corners, holes diagonal (the edges out of the slice share no colour), corners 3 white, 1 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*3 or 4 pairs*). That group is 3.6% of 4c4e, 2,520 cases: 332 with a DR in 4 or less, 522 in 5, 1,160 in 6, 506 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `U F2 U' L` (4 moves, good). The whole attempt: `L B L' U' R (U F2 U' L)`, 9 to DR.
+
+</details>
+
+**Example 27 (4c4e).** `F2 R2 D' U2 L2 U' F2 D L2 U' L2 B2 L2 R2 F' L D2 B' F R F' D`
+
+EO `R2 L B'`, RZP `R' L'`: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-orange, white-blue
+- Misoriented corners: white-green-red showing green, white-green-orange showing orange, white-blue-orange showing orange, yellow-blue-orange showing blue
+- E-slice edges out of the slice: blue-red, blue-orange
+
+Reads: 1 pair (on white-blue), 2 fake pairs, 1 side pair, ARM 21, 4b-2 corners, holes on one F/B face (both edges out of the slice have blue), corners 3 white, 1 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*1 pair, ARM 21, 4b corners, exactly 1 side pair*). That group is 2.6% of 4c4e, 1,856 cases: 0 with a DR in 4 or less, 24 in 5, 80 in 6, 1,752 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `U2 B2 L2 U2 B2 D L` (7 moves, too long). The whole attempt: `R2 L B' R' L' (U2 B2 L2 U2 B2 D L)`, 12 to DR.
+
+</details>
+
+**Example 28 (4c4e).** `B2 F2 D R2 U R2 U B2 R2 F2 L2 D L' U L B' D' R' D' U' L U'`
+
+EO `L D R2 F`, RZP `R'`: 4c4e in 5.
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+What you see:
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+- U/D edges in the E slice: yellow-orange, white-blue
+- Misoriented corners: white-blue-red showing blue, yellow-blue-red showing blue, white-green-orange showing orange, yellow-green-orange showing orange
+- E-slice edges out of the slice: green-orange, blue-orange
 
-Switched case: 4c4e, ARM 21, 3 pairs on 2 edges, 1 fake, 1 side pair, corners 4b-2.
+Reads: 0 pairs, 2 fake pairs, 0 side pairs, ARM 21, 4a-2 corners, in two columns (two twins), holes on one R/L face (both edges out of the slice have orange), corners 2 white, 2 yellow.
 
-Optimal DR on the normal side: `L2 U' F2 D2 R` (5 moves, sub-7). The whole attempt: `(D2 F D' B R) L2 U' F2 D2 R`, 10 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*0 pairs, anything else*). That group is 28.9% of 4c4e, 20,424 cases: 0 with a DR in 4 or less, 36 in 5, 748 in 6, 19,640 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the inverse: `R2 L2 U2 D F2 D B2 R` (8 moves, too long). The whole attempt: `L D R2 F R' (R2 L2 U2 D F2 D B2 R)`, 13 to DR.
 
 </details>
 
-**4c4e, example 2.** `B2 D' L2 F2 U' F2 D2 B2 R2 D' L2 F2 U R2 U L' B2 U' B F2 L F2 R`
+**Example 29 (4c4e).** `L2 F2 U2 R F2 R' F2 L' B2 L B2 U2 B' D2 L D2 R F U' F' D'`
 
-EO `R' F2 L' F2 B`, no RZP needed: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 3 pairs, 0 side pairs. Rings: U `oE<-o-o-`, D `>E<->-o-`, holes FL BR.
+EO `L F' D' R' F`, no RZP needed: 4c4e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: white-green, white-orange
+- Misoriented corners: yellow-green-orange showing green, white-blue-orange showing orange, white-green-orange showing green, white-blue-red showing red
+- E-slice edges out of the slice: green-red, blue-red
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+Reads: 1 pair (on white-orange), 2 fake pairs, 0 side pairs, ARM 21, 4b-2 corners, holes on one R/L face (both edges out of the slice have red), corners 3 white, 1 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+Card: **switch** (*1 pair, ARM 21, 4b corners, 0 or 2 side pairs*). That group is 2.8% of 4c4e, 1,984 cases: 0 with a DR in 4 or less, 160 in 5, 840 in 6, 984 in 7 or more.
 
-Switched case: 4c4e, ARM 31, 3 pairs on 2 edges, 0 fake, 0 side pairs, corners 4c-1.
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the inverse: `U2 B2 U' L2 U' L` (6 moves, sub-7). The whole attempt: `R' F2 L' F2 B (U2 B2 U' L2 U' L)`, 11 moves to DR.
+Optimal DR on the inverse: `U D R2 F2 B2 D L` (7 moves, too long). The whole attempt: `L F' D' R' F (U D R2 F2 B2 D L)`, 12 to DR.
 
 </details>
 
-**4c4e, example 3.** `B2 F2 L D2 R D2 R B2 D2 F2 U2 L U' R U B' L' D' L' R' U R'`
+**Example 30 (4c4e).** `L2 U2 L2 D2 F2 D2 F2 B' D2 F' D2 R2 F' D' L' U2 F R2 D' L U' F2 B2`
 
-EO `F2 B2 R' U2 F'`, no RZP needed: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 3 (R/L stickers on U/D), 3 pairs, 1 side pair. Rings: U `>E<-o-o-`, D `>Eo-<-o-`, holes FR FL.
+EO `(L D2 R' B)`, RZP `(L')`, on the inverse scramble: 4c4e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: white-red, yellow-red
+- Misoriented corners: yellow-green-orange showing orange, white-green-red showing green, yellow-green-red showing green, white-green-orange showing orange
+- E-slice edges out of the slice: blue-red, green-orange
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+Reads: 2 pairs, one on each edge, 0 fake pairs, 0 side pairs, ARM 20, 4a-2 corners, in two columns (two twins), holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+Card: **switch** (*2 pairs on two edges*). That group is 11.9% of 4c4e, 8,400 cases: 180 with a DR in 4 or less, 1,156 in 5, 3,192 in 6, 3,872 in 7 or more.
 
-Switched case: 4c4e, ARM 32, 3 pairs on 2 edges, 0 fake, 1 side pair, corners 4c-1.
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the inverse: `U L2 D' B2 U R` (6 moves, sub-7). The whole attempt: `F2 B2 R' U2 F' (U L2 D' B2 U R)`, 11 moves to DR.
+Optimal DR on the normal side: `U B2 D2 R2 U L` (6 moves, good). The whole attempt: `(L D2 R' B L') U B2 D2 R2 U L`, 11 to DR.
 
 </details>
 
-**4c4e, example 4.** `U2 L2 F R2 F D2 B D2 B' D2 R2 F' D2 U' R' F' L D R' U2 L2 U2`
+**Example 31 (4c4e).** `D R2 D2 R2 F2 D R2 D L2 F2 R2 U' R2 U' F2 L' U2 L2 B F2 L' F R' L'`
 
-EO `R' L F'`, RZP `D L'`: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 3 pairs, 1 side pair. Rings: U `oE<-o->-`, D `>E<-o-o-`, holes FR BL.
+EO `B' R F L' B'`, no RZP needed: 4c4e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: yellow-orange, yellow-green
+- Misoriented corners: yellow-green-orange showing green, white-green-orange showing green, yellow-green-red showing green, yellow-blue-orange showing orange
+- E-slice edges out of the slice: green-orange, blue-orange
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+Reads: 1 pair (on yellow-orange), 3 fake pairs, 2 side pairs, ARM 11, 4c-1 corners, holes on one R/L face (both edges out of the slice have orange), corners 1 white, 3 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+Card: **if you have time** (*1 pair, not ARM 21, 2+ side pairs, not 4b corners*). That group is 6.8% of 4c4e, 4,832 cases: 0 with a DR in 4 or less, 48 in 5, 880 in 6, 3,904 in 7 or more.
 
-Switched case: 4c4e, ARM 11, 3 pairs on 2 edges, 0 fake, 1 side pair, corners 4c-1.
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Optimal DR on the inverse: `U D F2 U L2 U' L` (7 moves, not sub-7). The whole attempt: `R' L F' D L' (U D F2 U L2 U' L)`, 12 moves to DR.
+Optimal DR on the inverse: `R2 L' U' F2 L U L` (7 moves, too long). The whole attempt: `B' R F L' B' (R2 L' U' F2 L U L)`, 12 to DR.
 
 </details>
 
-**4c4e, example 5.** `R2 D2 B2 D' B2 U' R2 F2 D' R2 F2 U' B2 R2 D' B' L' F' L D' U R B2 D'`
+**Example 32 (4c4e).** `F L2 R2 U2 B L2 D2 B D2 R2 F2 L2 F R2 R' F L2 R U L2 U2 F2 B2`
 
-EO `L U' F L' B'`, no RZP needed: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 3 pairs, 1 side pair. Rings: U `>Eo-o-o-`, D `>E<-o-<-`, holes FR BL.
+EO `(R F' B2 L' F)`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: yellow-green, white-red
+- Misoriented corners: white-blue-orange showing orange, white-green-orange showing orange, yellow-blue-orange showing blue, yellow-blue-red showing blue
+- E-slice edges out of the slice: green-orange, blue-red
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+Reads: 0 pairs, 0 fake pairs, 1 side pair, ARM 21, 4b-2 corners, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+Card: **switch** (*0 pairs, no fake pairs, corners 2 and 2 in the layers*). That group is 0.82% of 4c4e, 576 cases: 14 with a DR in 4 or less, 24 in 5, 88 in 6, 450 in 7 or more.
 
-Switched case: 4c4e, ARM 11, 3 pairs on 2 edges, 0 fake, 1 side pair, corners 4c-1.
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Optimal DR on the inverse: `U D' B2 U R2 U R` (7 moves, not sub-7). The whole attempt: `L U' F L' B' (U D' B2 U R2 U R)`, 12 moves to DR.
+Optimal DR on the normal side: `U' F2 U R2 D2 F2 B2 L` (8 moves, too long). The whole attempt: `(R F' B2 L' F) U' F2 U R2 D2 F2 B2 L`, 13 to DR.
 
 </details>
 
-**4c4e, example 6.** `L2 U2 B2 U2 F2 R' F2 D2 R2 F2 R' D2 R B' L D' U2 R' D L U2 R'`
+**Example 33 (4c4e).** `L2 F2 D R2 D' F2 U B2 L2 D R2 U' F2 U' B2 F' L' D R' D L' D B2 D2 U2`
 
-EO `U2 L D' R' F'`, no RZP needed: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 2 pairs, 0 side pairs. Rings: U `<-o-o-o-`, D `>E>Eo-<-`, holes FR FL.
+EO `(R' U F2 R2 B')`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: yellow-red, yellow-green
+- Misoriented corners: yellow-green-red showing green, white-green-orange showing green, white-blue-orange showing blue, white-blue-red showing red
+- E-slice edges out of the slice: blue-orange, green-orange
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+Reads: 1 pair (on yellow-red), 1 fake pair, 2 side pairs, ARM 11, 4c-1 corners, holes on one R/L face (both edges out of the slice have orange), corners 3 white, 1 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+Card: **if you have time** (*1 pair, not ARM 21, 2+ side pairs, not 4b corners*). That group is 6.8% of 4c4e, 4,832 cases: 0 with a DR in 4 or less, 48 in 5, 880 in 6, 3,904 in 7 or more.
 
-Switched case: 4c4e, ARM 31, 2 pairs on 2 edges, 1 fake, 0 side pairs, corners 4c-1.
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Optimal DR on the inverse: `U2 D' L2 B2 U R` (6 moves, sub-7). The whole attempt: `U2 L D' R' F' (U2 D' L2 B2 U R)`, 11 moves to DR.
+Optimal DR on the normal side: `D L' U' B2 U F2 R` (7 moves, too long). The whole attempt: `(R' U F2 R2 B') D L' U' B2 U F2 R`, 12 to DR.
 
 </details>
 
-**4c4e, example 7.** `D2 F D2 F' R2 B' L2 F2 R2 L2 F' R2 B' L' D' R2 L2 B' D L F2 U`
+**Example 34 (4c4e).** `L2 U' B2 U R2 D' L2 D L2 F2 L2 B2 U' R2 U2 L' F U R' D L' R2 U2 F L U'`
 
-EO `(U' D L' U' F')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 2 pairs, 0 side pairs. Rings: U `<E<-o-o-`, D `>E>-o-o-`, holes FL BL.
+EO `(L D F' B)`, RZP `(L')`, on the inverse scramble: 4c4e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: yellow-red, yellow-blue
+- Misoriented corners: white-blue-red showing blue, yellow-green-orange showing orange, white-green-orange showing orange, white-green-red showing green
+- E-slice edges out of the slice: green-red, blue-red
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+Reads: 0 pairs, 0 fake pairs, 2 side pairs, ARM 21, 4b-2 corners, holes on one R/L face (both edges out of the slice have red), corners 3 white, 1 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+Card: **skip** (*0 pairs, anything else*). That group is 28.9% of 4c4e, 20,424 cases: 0 with a DR in 4 or less, 36 in 5, 748 in 6, 19,640 in 7 or more.
 
-Switched case: 4c4e, ARM 21, 2 pairs on 2 edges, 2 fake, 0 side pairs, corners 4b-2.
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Optimal DR on the normal side: `R2 U' D' L2 D' L` (6 moves, sub-7). The whole attempt: `(U' D L' U' F') R2 U' D' L2 D' L`, 11 moves to DR.
+Optimal DR on the normal side: `D2 L2 D' F2 B2 L` (6 moves, good). The whole attempt: `(L D F' B L') D2 L2 D' F2 B2 L`, 11 to DR.
 
 </details>
 
-**4c4e, example 8.** `F R2 B2 U2 L2 R2 B L2 F' U2 B R2 U2 L2 B' R' B' R' D L' F2 R D' B2`
+**Example 35 (4c4e).** `D2 L2 B2 U L2 U' L2 D' R2 D R2 B2 R' F2 D F2 U L B' L' F'`
 
-EO `R U' D2 B'`, RZP `L`: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 2 pairs, 1 side pair. Rings: U `>Eo-o-o-`, D `<E<->-o-`, holes BL BR.
+EO `(L' F L B')`, RZP `(R)`, on the inverse scramble: 4c4e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: white-red, white-orange
+- Misoriented corners: white-blue-red showing blue, yellow-green-orange showing orange, white-green-red showing green, yellow-green-red showing red
+- E-slice edges out of the slice: green-orange, blue-red
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+Reads: 2 pairs, both on white-red (a bar), 0 fake pairs, 1 side pair, ARM 20, 4b-2 corners, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+Card: **if you have time** (*2 pairs on one edge (a bar), holes not on one R/L face*). That group is 7.0% of 4c4e, 4,960 cases: 0 with a DR in 4 or less, 56 in 5, 840 in 6, 4,064 in 7 or more.
 
-Switched case: 4c4e, ARM 10, 2 pairs on 2 edges, 1 fake, 1 side pair, corners 4c-1.
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the inverse: `U L2 F2 U2 D R` (6 moves, sub-7). The whole attempt: `R U' D2 B' L (U L2 F2 U2 D R)`, 11 moves to DR.
+Optimal DR on the normal side: `D' R2 F2 D2 R2 B2 L` (7 moves, too long). The whole attempt: `(L' F L B' R) D' R2 F2 D2 R2 B2 L`, 12 to DR.
 
 </details>
 
-**4c4e, example 9.** `F2 U2 R F2 D2 F2 U2 L' F2 L2 R D2 U' R D R2 D F R2 F R`
+**Example 36 (4c4e).** `D2 L2 B2 U L2 U' L2 D' R2 D R2 B2 R' F2 D F2 U L B' L' F'`
 
-EO `R D2 B R2 B'`, no RZP needed: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 2 pairs, 3 side pairs. Rings: U `>Eo-<-o-`, D `oE<->-o-`, holes BL BR.
+EO `(L' F' L B)`, RZP `(L')`, on the inverse scramble: 4c4e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: yellow-red, white-blue
+- Misoriented corners: yellow-green-red showing green, yellow-blue-orange showing orange, white-blue-red showing blue, white-green-orange showing orange
+- E-slice edges out of the slice: blue-orange, green-orange
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Reads: 1 pair (on yellow-red), 1 fake pair, 0 side pairs, ARM 21, 4d-2 corners, holes on one R/L face (both edges out of the slice have orange), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+Card: **switch** (*1 pair, ARM 21, 4d corners*). That group is 0.82% of 4c4e, 576 cases: 32 with a DR in 4 or less, 96 in 5, 384 in 6, 64 in 7 or more.
 
-Switched case: 4c4e, ARM 11, 2 pairs on 2 edges, 0 fake, 3 side pairs, corners 4c-1.
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the inverse: `L U' R U2 L` (5 moves, sub-7). The whole attempt: `R D2 B R2 B' (L U' R U2 L)`, 10 moves to DR.
+Optimal DR on the normal side: `U D F2 D' B2 R` (6 moves, good). The whole attempt: `(L' F' L B L') U D F2 D' B2 R`, 11 to DR.
 
 </details>
 
-**4c4e, example 10.** `U2 R2 F L2 F R2 D2 F R2 F' L2 D2 B U2 F' R' D' R' L2 U B' R' F D F'`
+**Example 37 (4c4e).** `L D2 L2 D2 F2 L D2 L U2 F2 D2 R' D2 R' F2 U' R2 U2 B F2 U' F D' U'`
 
-EO `R2 B U' R F'`, no RZP needed: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 2 pairs, 2 side pairs. Rings: U `>Eo-o-o-`, D `oE<->-<-`, holes FL BR.
+EO `(D' F U' B')`, RZP `(L)`, on the inverse scramble: 4c4e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: white-orange, yellow-green
+- Misoriented corners: white-green-red showing red, white-green-orange showing green, white-blue-red showing red, yellow-blue-red showing blue
+- E-slice edges out of the slice: green-orange, green-red
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Reads: 1 pair (on white-orange), 0 fake pairs, 1 side pair, ARM 21, 4b-2 corners, holes on one F/B face (both edges out of the slice have green), corners 3 white, 1 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+Card: **skip** (*1 pair, ARM 21, 4b corners, exactly 1 side pair*). That group is 2.6% of 4c4e, 1,856 cases: 0 with a DR in 4 or less, 24 in 5, 80 in 6, 1,752 in 7 or more.
 
-Switched case: 4c4e, ARM 11, 2 pairs on 2 edges, 0 fake, 2 side pairs, corners 4c-1.
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the inverse: `U R' B2 R D2 R U2 L` (8 moves, not sub-7). The whole attempt: `R2 B U' R F' (U R' B2 R D2 R U2 L)`, 13 moves to DR.
+Optimal DR on the normal side: `U D' F2 U' R2 B2 L` (7 moves, too long). The whole attempt: `(D' F U' B' L) U D' F2 U' R2 B2 L`, 12 to DR.
 
 </details>
 
-**4c4e, example 11.** `D2 R D2 F2 U2 R' F2 L2 B2 F2 L B2 R2 D' L2 R F L R F R2 D`
+**Example 38 (4c4e).** `B2 L2 D2 B2 L F2 D2 L' U2 L U2 B2 L F2 R D' F' L' B2 U L2 B L2 F L'`
 
-EO `(F2 D2 R B')`, RZP `(L)`, on the inverse scramble: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 2 pairs, 2 side pairs. Rings: U `<-o-o->-`, D `>EoE<-o-`, holes FR FL.
+EO `(U2 F L2 B)`, RZP `(R')`, on the inverse scramble: 4c4e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: yellow-orange, yellow-green
+- Misoriented corners: white-blue-orange showing blue, white-green-red showing red, yellow-green-orange showing green, yellow-blue-red showing red
+- E-slice edges out of the slice: green-red, blue-orange
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Reads: 1 pair (on yellow-orange), 1 fake pair, 1 side pair, ARM 21, 4d-2 corners, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+Card: **switch** (*1 pair, ARM 21, 4d corners*). That group is 0.82% of 4c4e, 576 cases: 32 with a DR in 4 or less, 96 in 5, 384 in 6, 64 in 7 or more.
 
-Switched case: 4c4e, ARM 11, 2 pairs on 2 edges, 0 fake, 2 side pairs, corners 4c-1.
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the normal side: `L' B2 D' R' U D' R` (7 moves, not sub-7). The whole attempt: `(F2 D2 R B' L) L' B2 D' R' U D' R`, 12 moves to DR.
+Optimal DR on the normal side: `R2 D2 R2 D' B2 R` (6 moves, good). The whole attempt: `(U2 F L2 B R') R2 D2 R2 D' B2 R`, 11 to DR.
 
 </details>
 
-**4c4e, example 12.** `U2 R2 F' B2 L2 B' U2 F L2 B' L2 D2 L2 R2 U' L F2 D' U R U' F`
+**Example 39 (4c4e).** `F2 U F2 L2 B2 U' L2 D2 R2 L2 D R2 U2 F' D2 U L D U L U2 F`
 
-EO `(L2 B L F')`, RZP `(R')`, on the inverse scramble: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 3 pairs, 2 side pairs. Rings: U `<-o-o-o-`, D `>E>E<-o-`, holes FR FL.
+EO `L D2 L2 D F`, no RZP needed: 4c4e in 5.
 
+What you see:
+
+- U/D edges in the E slice: white-orange, yellow-red
+- Misoriented corners: white-green-orange showing green, yellow-blue-red showing red, white-blue-orange showing blue, white-blue-red showing red
+- E-slice edges out of the slice: blue-red, green-red
+
+Reads: 2 pairs, both on white-orange (a bar), 1 fake pair, 0 side pairs, ARM 20, 4b-2 corners, holes on one R/L face (both edges out of the slice have red), corners 3 white, 1 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*2 pairs on one edge (a bar), holes on one R/L face*). That group is 3.5% of 4c4e, 2,480 cases: 20 with a DR in 4 or less, 244 in 5, 820 in 6, 1,396 in 7 or more.
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+Optimal DR on the inverse: `U2 D' L D R D' L` (7 moves, too long). The whole attempt: `L D2 L2 D F (U2 D' L D R D' L)`, 12 to DR.
 
-Switched case: 4c4e, ARM 11, 3 pairs on 2 edges, 1 fake, 2 side pairs, corners 4c-1.
+</details>
+
+**Example 40 (4c4e).** `F2 R F2 R' D2 L' U2 R2 D2 U2 R' D2 L' U' F' D2 U2 L' F U R2 B`
+
+EO `(U2 L U2 R F)`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: yellow-orange, yellow-blue
+- Misoriented corners: yellow-blue-orange showing blue, white-blue-red showing red, white-blue-orange showing orange, yellow-blue-red showing blue
+- E-slice edges out of the slice: blue-red, blue-orange
+
+Reads: 1 pair (on yellow-orange), 2 fake pairs, 2 side pairs, ARM 21, 4a-2 corners, in two columns (two twins), holes on one F/B face (both edges out of the slice have blue), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Optimal DR on the normal side: `U L2 D' F2 D2 L` (6 moves, sub-7). The whole attempt: `(L2 B L F' R') U L2 D' F2 D2 L`, 11 moves to DR.
+Card: **switch** (*1 pair, ARM 21, 4a corners in two columns*). That group is 1.5% of 4c4e, 1,056 cases: 0 with a DR in 4 or less, 64 in 5, 304 in 6, 688 in 7 or more.
 
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `R D F2 L F2 D R` (7 moves, too long). The whole attempt: `(U2 L U2 R F) R D F2 L F2 D R`, 12 to DR.
+
 </details>
+
+**Example 41 (4c4e).** `R2 F' D2 R2 F D2 F R2 F' R2 F L2 B' D2 D' F R F2 L' D B R B F2`
+
+EO `F R U' L2 B'`, no RZP needed: 4c4e in 5.
 
-**4c4e, example 13.** `B2 L2 D2 B2 L F2 D2 L' U2 L U2 B2 L F2 R D' F' L' B2 U L2 B L2 F L'`
+What you see:
 
-EO `(B D2 F)`, RZP `(U' L)`, on the inverse scramble: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 2 (R/L stickers on U/D), 2 pairs, 0 side pairs. Rings: U `>Eo-o->-`, D `oE<-<-o-`, holes FR FL.
+- U/D edges in the E slice: yellow-orange, white-blue
+- Misoriented corners: yellow-blue-red showing red, white-blue-orange showing blue, white-green-orange showing green, white-blue-red showing red
+- E-slice edges out of the slice: blue-red, blue-orange
 
+Reads: 1 pair (on white-blue), 1 fake pair, 1 side pair, ARM 21, 4b-2 corners, holes on one F/B face (both edges out of the slice have blue), corners 3 white, 1 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*1 pair, ARM 21, 4b corners, exactly 1 side pair*). That group is 2.6% of 4c4e, 1,856 cases: 0 with a DR in 4 or less, 24 in 5, 80 in 6, 1,752 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `L' U2 D R2 U' B2 R` (7 moves, too long). The whole attempt: `F R U' L2 B' (L' U2 D R2 U' B2 R)`, 12 to DR.
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+</details>
+
+**Example 42 (4c4e).** `R2 B R2 U2 L2 B' U2 F2 D2 U2 F D2 B2 R' F2 B U F B U B2 R`
+
+EO `R D2 F U B'`, no RZP needed: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-orange, yellow-red
+- Misoriented corners: yellow-blue-orange showing blue, white-blue-orange showing blue, yellow-blue-red showing blue, yellow-green-orange showing orange
+- E-slice edges out of the slice: blue-orange, green-red
+
+Reads: 2 pairs, one on each edge, 0 fake pairs, 2 side pairs, ARM 10, 4c-1 corners, holes diagonal (the edges out of the slice share no colour), corners 1 white, 3 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+Card: **switch** (*2 pairs on two edges*). That group is 11.9% of 4c4e, 8,400 cases: 180 with a DR in 4 or less, 1,156 in 5, 3,192 in 6, 3,872 in 7 or more.
 
-Switched case: 4c4e, ARM 22, 2 pairs on 2 edges, 0 fake, 0 side pairs, corners 4a-2.
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the normal side: `U D2 R2 U2 F2 D' R` (7 moves, not sub-7). The whole attempt: `(B D2 F U' L) U D2 R2 U2 F2 D' R`, 12 moves to DR.
+Optimal DR on the inverse: `D F2 R2 D L` (5 moves, good). The whole attempt: `R D2 F U B' (D F2 R2 D L)`, 10 to DR.
 
 </details>
 
-**4c4e, example 14.** `L2 D2 F2 U B2 R2 U B2 F2 D R2 U2 R2 R' F' U B U2 L' F' R' B'`
+**Example 43 (4c4e).** `F2 L2 U F2 R2 F2 L2 D' F2 D2 U R2 L' U R U2 R F U2 F U`
 
-EO `(L' F B)`, RZP `(U R)`, on the inverse scramble: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 2 pairs, 1 side pair. Rings: U `>EoE<-o-`, D `<->-o-o-`, holes FL BL.
+EO `U' B' R2 B`, RZP `R'`: 4c4e in 5.
 
+What you see:
+
+- U/D edges in the E slice: white-blue, white-orange
+- Misoriented corners: white-blue-orange showing blue, yellow-blue-red showing red, white-green-orange showing green, white-green-red showing green
+- E-slice edges out of the slice: blue-red, green-orange
+
+Reads: 2 pairs, both on white-orange (a bar), 1 fake pair, 1 side pair, ARM 11, 4c-1 corners, holes diagonal (the edges out of the slice share no colour), corners 3 white, 1 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **if you have time** (*2 pairs on one edge (a bar), holes not on one R/L face*). That group is 7.0% of 4c4e, 4,960 cases: 0 with a DR in 4 or less, 56 in 5, 840 in 6, 4,064 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `U R D' R' F2 R2 U R` (8 moves, too long). The whole attempt: `U' B' R2 B R' (U R D' R' F2 R2 U R)`, 13 to DR.
+
+</details>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+**Example 44 (4c4e).** `L2 U2 B D2 B R2 F R2 F' R2 D2 B' R2 L' D' B' U R D' L2 U2 L2`
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+EO `F2 U D' B`, RZP `L'`: 4c4e in 5.
 
-Switched case: 4c4e, ARM 11, 2 pairs on 2 edges, 0 fake, 1 side pair, corners 4c-1.
+What you see:
 
-Optimal DR on the normal side: `U2 F2 U' F2 R2 D' L` (7 moves, not sub-7). The whole attempt: `(L' F B U R) U2 F2 U' F2 R2 D' L`, 12 moves to DR.
+- U/D edges in the E slice: yellow-blue, yellow-orange
+- Misoriented corners: white-blue-red showing blue, white-blue-orange showing blue, yellow-green-red showing red, yellow-blue-red showing red
+- E-slice edges out of the slice: green-red, green-orange
 
+Reads: 1 pair (on yellow-blue), 0 fake pairs, 0 side pairs, ARM 21, 4b-2 corners, holes on one F/B face (both edges out of the slice have green), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*1 pair, ARM 21, 4b corners, 0 or 2 side pairs*). That group is 2.8% of 4c4e, 1,984 cases: 0 with a DR in 4 or less, 160 in 5, 840 in 6, 984 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `U2 F2 L2 F2 D L` (6 moves, good). The whole attempt: `F2 U D' B L' (U2 F2 L2 F2 D L)`, 11 to DR.
+
 </details>
+
+**Example 45 (4c4e).** `R2 D2 B2 D' B2 U' R2 F2 D' R2 F2 U' B2 R2 D' B' L' F' L D' U R B2 D'`
+
+EO `U' B L F`, RZP `L'`: 4c4e in 5.
 
-**4c4e, example 15.** `U2 F2 U2 B2 L2 B2 L2 R' B2 L' B2 D2 L' B' U' F2 L D2 B' U F' L2 R2`
+What you see:
 
-EO `D2 F' D' R2 B'`, no RZP needed: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 2 pairs, 0 side pairs. Rings: U `>E>Eo-o-`, D `<-<-o-o-`, holes FR BL.
+- U/D edges in the E slice: white-green, yellow-orange
+- Misoriented corners: yellow-green-orange showing green, white-green-red showing red, yellow-green-red showing red, yellow-blue-orange showing blue
+- E-slice edges out of the slice: green-orange, green-red
 
+Reads: 3 pairs (white-green 1, yellow-orange 2), 0 fake pairs, 1 side pair, ARM 21, 4b-2 corners, holes on one F/B face (both edges out of the slice have green), corners 1 white, 3 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*3 or 4 pairs*). That group is 3.6% of 4c4e, 2,520 cases: 332 with a DR in 4 or less, 522 in 5, 1,160 in 6, 506 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `U2 R2 U F2 D2 R` (6 moves, good). The whole attempt: `U' B L F L' (U2 R2 U F2 D2 R)`, 11 to DR.
+
+</details>
+
+**Example 46 (4c4e).** `U2 D2 F' L2 B2 L2 U2 B' L2 F2 L2 D2 B F2 D2 L' F2 U F D L F U' R U'`
+
+EO `D' F U B'`, RZP `L'`: 4c4e in 5.
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+What you see:
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+- U/D edges in the E slice: white-red, white-green
+- Misoriented corners: yellow-blue-orange showing orange, yellow-blue-red showing blue, white-green-red showing red, yellow-green-red showing green
+- E-slice edges out of the slice: green-orange, blue-red
 
-Switched case: 4c4e, ARM 21, 2 pairs on 2 edges, 1 fake, 0 side pairs, corners 4a-2.
+Reads: 1 pair (on white-green), 1 fake pair, 1 side pair, ARM 21, 4b-2 corners, holes diagonal (the edges out of the slice share no colour), corners 1 white, 3 yellow.
 
-Optimal DR on the inverse: `U F2 U2 L2 U L` (6 moves, sub-7). The whole attempt: `D2 F' D' R2 B' (U F2 U2 L2 U L)`, 11 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*1 pair, ARM 21, 4b corners, exactly 1 side pair*). That group is 2.6% of 4c4e, 1,856 cases: 0 with a DR in 4 or less, 24 in 5, 80 in 6, 1,752 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `U D R2 L2 U2 F2 U' L` (8 moves, too long). The whole attempt: `D' F U B' L' (U D R2 L2 U2 F2 U' L)`, 13 to DR.
 
 </details>
 
-**4c4e, example 16.** `U2 L D2 F2 D2 U2 R' U2 R2 B2 R B2 R F2 L' U' R F D' B2 R' B' R' U R2`
+**Example 47 (4c4e).** `L2 F2 U R2 U' B2 D U2 F2 R2 U B2 F2 U' F' L' B2 F2 U' L D2 L' D U2`
 
-EO `(D2 R' B' U' F')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 2 pairs, 2 side pairs. Rings: U `<-o-<-o-`, D `>E>Eo-o-`, holes FR BR.
+EO `(U2 R L2 D B)`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
+What you see:
+
+- U/D edges in the E slice: yellow-blue, yellow-orange
+- Misoriented corners: white-green-red showing red, white-blue-orange showing blue, yellow-blue-orange showing orange, yellow-green-red showing green
+- E-slice edges out of the slice: green-orange, blue-red
+
+Reads: 1 pair (on yellow-blue), 1 fake pair, 0 side pairs, ARM 21, 4a-2 corners, in two columns (two twins), holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*1 pair, ARM 21, 4a corners in two columns*). That group is 1.5% of 4c4e, 1,056 cases: 0 with a DR in 4 or less, 64 in 5, 304 in 6, 688 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `U F2 U2 B2 U' F2 L` (7 moves, too long). The whole attempt: `(U2 R L2 D B) U F2 U2 B2 U' F2 L`, 12 to DR.
+
+</details>
+
+**Example 48 (4c4e).** `B2 U' R2 U' F2 D' R2 L2 D2 F2 L2 U R2 B2 F' D B' R L' U B' D2 L'`
+
+EO `F' B' U' R' B'`, no RZP needed: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-blue, yellow-green
+- Misoriented corners: white-green-red showing green, yellow-green-red showing red, white-blue-orange showing orange, white-blue-red showing blue
+- E-slice edges out of the slice: green-red, green-orange
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+Reads: 2 pairs, one on each edge, 1 fake pair, 1 side pair, ARM 22, 4b-2 corners, holes on one F/B face (both edges out of the slice have green), corners 3 white, 1 yellow.
 
-Card: **switch** (both bad U/D edges paired: 15.5% of 4c4e, 59.9% sub-7).
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*2 pairs on two edges*). That group is 11.9% of 4c4e, 8,400 cases: 180 with a DR in 4 or less, 1,156 in 5, 3,192 in 6, 3,872 in 7 or more.
 
-Switched case: 4c4e, ARM 11, 2 pairs on 2 edges, 1 fake, 2 side pairs, corners 4c-1.
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the normal side: `U L2 D' R2 D R` (6 moves, sub-7). The whole attempt: `(D2 R' B' U' F') U L2 D' R2 D R`, 11 moves to DR.
+Optimal DR on the inverse: `U' L2 U F2 U L` (6 moves, good). The whole attempt: `F' B' U' R' B' (U' L2 U F2 U L)`, 11 to DR.
 
 </details>
+
+**Example 49 (4c4e).** `R2 D2 L' F2 D2 R2 D2 R' B2 D2 R2 D2 R F2 R' F' L F2 U2 R' D L F2 D'`
+
+EO `(B' L B D2 F)`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-**4c4e, example 17.** `L2 D2 F2 U B2 R2 U B2 F2 D R2 U2 R2 R' F' U B U2 L' F' R' B'`
+What you see:
 
-EO `(L' F B)`, RZP `(R L)`, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 2 pairs, 2 side pairs. Rings: U `oEo->-o-`, D `>E<-<-o-`, holes FR BR.
+- U/D edges in the E slice: white-red, white-green
+- Misoriented corners: white-green-orange showing orange, white-green-red showing green, yellow-blue-red showing red, yellow-green-orange showing orange
+- E-slice edges out of the slice: green-red, blue-orange
 
+Reads: 2 pairs, one on each edge, 1 fake pair, 1 side pair, ARM 31, 4c-1 corners, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*2 pairs on two edges*). That group is 11.9% of 4c4e, 8,400 cases: 180 with a DR in 4 or less, 1,156 in 5, 3,192 in 6, 3,872 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `D B2 D R2 U' R` (6 moves, good). The whole attempt: `(B' L B D2 F) D B2 D R2 U' R`, 11 to DR.
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+</details>
+
+**Example 50 (4c4e).** `D2 F2 L2 F2 R2 U' R2 B2 U2 R2 U' B2 U L' D B' F2 U' B D F2 U'`
+
+EO `(U' B L F2 B')`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-blue, yellow-orange
+- Misoriented corners: yellow-green-red showing red, yellow-green-orange showing green, yellow-blue-red showing red, yellow-blue-orange showing blue
+- E-slice edges out of the slice: green-orange, blue-orange
+
+Reads: 2 pairs, both on yellow-orange (a bar), 0 fake pairs, 2 side pairs, ARM 21, 4a-2 corners, not in two columns, holes on one R/L face (both edges out of the slice have orange), corners 0 white, 4 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+Card: **switch** (*2 pairs on one edge (a bar), holes on one R/L face*). That group is 3.5% of 4c4e, 2,480 cases: 20 with a DR in 4 or less, 244 in 5, 820 in 6, 1,396 in 7 or more.
 
-Switched case: 4c4e, ARM 21, 2 pairs on 1 edge, 0 fake, 2 side pairs, corners 4b-2.
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the normal side: `L2 U2 L2 U R` (5 moves, sub-7). The whole attempt: `(L' F B R L) L2 U2 L2 U R`, 10 moves to DR.
+Optimal DR on the normal side: `U R2 U F2 R' F2 U2 L` (8 moves, too long). The whole attempt: `(U' B L F2 B') U R2 U F2 R' F2 U2 L`, 13 to DR.
 
 </details>
 
-**4c4e, example 18.** `U2 R' B2 R D2 L' U2 L U2 F2 U2 B2 R' D2 R2 U' F R D' L U' D2 R2 F U R'`
+**Example 51 (4c4e).** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
 
-EO `(L2 U L F' B')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 2 pairs, 2 side pairs. Rings: U `oEo->-o-`, D `>E<-<-o-`, holes FL BR.
+EO `L' U' L' U B'`, no RZP needed: 4c4e in 5.
 
+What you see:
+
+- U/D edges in the E slice: white-red, yellow-green
+- Misoriented corners: white-blue-red showing red, yellow-green-red showing red, white-green-red showing red, white-blue-orange showing orange
+- E-slice edges out of the slice: green-red, blue-red
+
+Reads: 1 pair (on yellow-green), 2 fake pairs, 0 side pairs, ARM 41, 4b-0 corners, holes on one R/L face (both edges out of the slice have red), corners 3 white, 1 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*1 pair, anything else*). That group is 28.3% of 4c4e, 19,936 cases: 0 with a DR in 4 or less, 56 in 5, 1,152 in 6, 18,728 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the inverse: `U F2 D R D' F2 D R` (8 moves, too long). The whole attempt: `L' U' L' U B' (U F2 D R D' F2 D R)`, 13 to DR.
+
+</details>
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+**Example 52 (4c4e).** `R D2 R' F2 R B2 U2 R' U2 R F2 L B' R' D L' U L' D2 B D2 L`
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+EO `(D L2 B' R F)`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-Switched case: 4c4e, ARM 21, 2 pairs on 1 edge, 0 fake, 2 side pairs, corners 4b-2.
+What you see:
 
-Optimal DR on the normal side: `F2 B2 U2 B2 D' R` (6 moves, sub-7). The whole attempt: `(L2 U L F' B') F2 B2 U2 B2 D' R`, 11 moves to DR.
+- U/D edges in the E slice: white-blue, yellow-green
+- Misoriented corners: white-green-orange showing orange, yellow-green-red showing green, white-green-red showing red, white-blue-orange showing blue
+- E-slice edges out of the slice: green-red, green-orange
 
+Reads: 0 pairs, 2 fake pairs, 1 side pair, ARM 22, 4b-2 corners, holes on one F/B face (both edges out of the slice have green), corners 3 white, 1 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*0 pairs, anything else*). That group is 28.9% of 4c4e, 20,424 cases: 0 with a DR in 4 or less, 36 in 5, 748 in 6, 19,640 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the normal side: `U R B2 L2 U' R' B2 D R` (9 moves, too long). The whole attempt: `(D L2 B' R F) U R B2 L2 U' R' B2 D R`, 14 to DR.
+
 </details>
+
+**Example 53 (4c4e).** `R2 F' D2 R2 F D2 F R2 F' R2 F L2 B' D2 D' F R F2 L' D B R B F2`
+
+EO `F2 R U' L2 B'`, no RZP needed: 4c4e in 5.
 
-**4c4e, example 19.** `L2 D2 B' F2 U2 F' L2 B U2 F' U2 R2 U2 D2 L' U B2 R' L D L' B`
+What you see:
 
-EO `(D2 L2 B U F)`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `oEo->-o-`, D `<E<->-o-`, holes FR BR.
+- U/D edges in the E slice: yellow-orange, white-blue
+- Misoriented corners: yellow-green-orange showing orange, white-blue-orange showing blue, white-green-orange showing green, white-blue-red showing red
+- E-slice edges out of the slice: green-red, blue-red
 
+Reads: 1 pair (on white-blue), 2 fake pairs, 0 side pairs, ARM 21, 4b-2 corners, holes on one R/L face (both edges out of the slice have red), corners 3 white, 1 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*1 pair, ARM 21, 4b corners, 0 or 2 side pairs*). That group is 2.8% of 4c4e, 1,984 cases: 0 with a DR in 4 or less, 160 in 5, 840 in 6, 984 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `L2 D2 F2 B2 D L` (6 moves, good). The whole attempt: `F2 R U' L2 B' (L2 D2 F2 B2 D L)`, 11 to DR.
+
+</details>
+
+**Example 54 (4c4e).** `B2 R' D2 B2 R D2 R B2 R' B2 R F2 L' D2 D' R B R2 F' D L B L R2`
+
+EO `(B' D2 L2 U2 B)`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+What you see:
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+- U/D edges in the E slice: white-blue, yellow-orange
+- Misoriented corners: white-green-red showing green, white-green-orange showing orange, yellow-blue-red showing red, yellow-blue-orange showing blue
+- E-slice edges out of the slice: green-red, blue-red
 
-Switched case: 4c4e, ARM 21, 1 pair on 1 edge, 1 fake, 1 side pair, corners 4b-2.
+Reads: 1 pair (on yellow-orange), 0 fake pairs, 1 side pair, ARM 21, 4a-2 corners, not in two columns, holes on one R/L face (both edges out of the slice have red), corners 2 white, 2 yellow.
 
-Optimal DR on the normal side: `U2 L2 F2 U D F2 U R` (8 moves, not sub-7). The whole attempt: `(D2 L2 B U F) U2 L2 F2 U D F2 U R`, 13 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*1 pair, ARM 21, 4a corners not in two columns*). That group is 1.4% of 4c4e, 960 cases: 0 with a DR in 4 or less, 0 in 5, 24 in 6, 936 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `D2 R2 U' B2 D F2 L` (7 moves, too long). The whole attempt: `(B' D2 L2 U2 B) D2 R2 U' B2 D F2 L`, 12 to DR.
 
 </details>
 
-**4c4e, example 20.** `U2 R F2 L B2 U2 L D2 R D2 L2 B2 R' B' D' B' R' F' L' D R2 D' B'`
+**Example 55 (4c4e).** `R2 D' B2 L2 U' L2 D2 R2 F2 D' B2 L2 U F2 U B' R2 U' R L2 B L2 F`
 
-EO `(L' F R' U' B')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 1 pair, 2 side pairs. Rings: U `>E>-o-o-`, D `oEo-<-<-`, holes FL BL.
+EO `U F R B`, RZP `L`: 4c4e in 5.
 
+What you see:
+
+- U/D edges in the E slice: white-orange, white-red
+- Misoriented corners: yellow-green-red showing green, white-green-red showing red, yellow-green-orange showing green, white-blue-orange showing blue
+- E-slice edges out of the slice: blue-orange, green-red
+
+Reads: 1 pair (on white-orange), 1 fake pair, 2 side pairs, ARM 10, 4c-1 corners, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **if you have time** (*1 pair, not ARM 21, 2+ side pairs, not 4b corners*). That group is 6.8% of 4c4e, 4,832 cases: 0 with a DR in 4 or less, 48 in 5, 880 in 6, 3,904 in 7 or more.
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+Optimal DR on the inverse: `F2 D2 R2 D R2 D L` (7 moves, too long). The whole attempt: `U F R B L (F2 D2 R2 D R2 D L)`, 12 to DR.
 
-Switched case: 4c4e, ARM 21, 1 pair on 1 edge, 1 fake, 2 side pairs, corners 4b-2.
+</details>
+
+**Example 56 (4c4e).** `F2 U F2 U' R2 D' L2 U2 R2 L2 U' R2 D' L' F' R2 L2 D' F L U2 B`
+
+EO `L' F' R2 D' F'`, no RZP needed: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: yellow-orange, white-orange
+- Misoriented corners: white-blue-orange showing blue, yellow-blue-orange showing blue, white-green-orange showing green, yellow-green-orange showing green
+- E-slice edges out of the slice: blue-orange, green-orange
+
+Reads: 4 pairs (yellow-orange 2, white-orange 2), 0 fake pairs, 4 side pairs, ARM 00, 4a-0 corners, in two columns (two twins), holes on one R/L face (both edges out of the slice have orange), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Optimal DR on the normal side: `U' R2 U' F2 D' B2 R` (7 moves, not sub-7). The whole attempt: `(L' F R' U' B') U' R2 U' F2 D' B2 R`, 12 moves to DR.
+Card: **switch** (*3 or 4 pairs*). That group is 3.6% of 4c4e, 2,520 cases: 332 with a DR in 4 or less, 522 in 5, 1,160 in 6, 506 in 7 or more.
 
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `L` (1 moves, good). The whole attempt: `L' F' R2 D' F' (L)`, 6 to DR.
+
 </details>
+
+**Example 57 (4c4e).** `D2 F2 L2 F2 R2 U' R2 B2 U2 R2 U' B2 U L' D B' F2 U' B D F2 U'`
+
+EO `D' F2 B D2 B`, no RZP needed: 4c4e in 5.
 
-**4c4e, example 21.** `R2 L2 D F2 U F2 U R2 F2 L2 B2 D B' U B R' D' F' D' U' B U'`
+What you see:
 
-EO `(B D2 F L2 B')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 2 pairs, 0 side pairs. Rings: U `oE>E<->-`, D `<-o-o-o-`, holes FR BL.
+- U/D edges in the E slice: white-red, white-orange
+- Misoriented corners: yellow-blue-red showing blue, white-green-orange showing green, white-blue-red showing blue, yellow-green-orange showing green
+- E-slice edges out of the slice: blue-orange, green-orange
 
+Reads: 2 pairs, one on each edge, 0 fake pairs, 2 side pairs, ARM 00, 4a-0 corners, in two columns (two twins), holes on one R/L face (both edges out of the slice have orange), corners 2 white, 2 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*2 pairs on two edges*). That group is 11.9% of 4c4e, 8,400 cases: 180 with a DR in 4 or less, 1,156 in 5, 3,192 in 6, 3,872 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `R U2 F2 U2 R D2 L` (7 moves, too long). The whole attempt: `D' F2 B D2 B (R U2 F2 U2 R D2 L)`, 12 to DR.
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+</details>
+
+**Example 58 (4c4e).** `F2 D2 L' R2 U2 R' F2 L U2 R' U2 B2 U2 D2 F' U L2 B' F D F' L`
+
+EO `B2 U D2 B`, RZP `R`: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-blue, yellow-red
+- Misoriented corners: white-green-orange showing green, white-green-red showing green, white-blue-orange showing blue, yellow-green-red showing green
+- E-slice edges out of the slice: green-orange, blue-orange
+
+Reads: 1 pair (on yellow-red), 1 fake pair, 2 side pairs, ARM 01, 4b-0 corners, holes on one R/L face (both edges out of the slice have orange), corners 3 white, 1 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+Card: **skip** (*1 pair, anything else*). That group is 28.3% of 4c4e, 19,936 cases: 0 with a DR in 4 or less, 56 in 5, 1,152 in 6, 18,728 in 7 or more.
 
-Switched case: 4c4e, ARM 31, 2 pairs on 1 edge, 1 fake, 0 side pairs, corners 4c-1.
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Optimal DR on the normal side: `B2 U2 B2 D B2 D' R` (7 moves, not sub-7). The whole attempt: `(B D2 F L2 B') B2 U2 B2 D B2 D' R`, 12 moves to DR.
+Optimal DR on the inverse: `D L2 U F2 B2 R2 U R` (8 moves, too long). The whole attempt: `B2 U D2 B R (D L2 U F2 B2 R2 U R)`, 13 to DR.
 
 </details>
 
-**4c4e, example 22.** `D2 B' R2 D2 B R2 B D2 B' D2 B U2 F' R2 R' B D B2 U' R F D F B2`
+**Example 59 (4c4e).** `U2 L2 F R2 F D2 B D2 B' D2 R2 F' D2 U' R' F' L D R' U2 L2 U2`
 
-EO `L' U2 D2 F'`, RZP `L'`: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 4 (R/L stickers on U/D), 2 pairs, 0 side pairs. Rings: U `o-o-o-o-`, D `<E>E<->-`, holes FR BL.
+EO `F' B2 R' L F'`, no RZP needed: 4c4e in 5.
 
+What you see:
+
+- U/D edges in the E slice: white-orange, yellow-red
+- Misoriented corners: white-blue-orange showing blue, white-green-red showing green, yellow-green-red showing green, yellow-blue-red showing red
+- E-slice edges out of the slice: blue-red, green-red
+
+Reads: 2 pairs, one on each edge, 1 fake pair, 2 side pairs, ARM 10, 4c-1 corners, holes on one R/L face (both edges out of the slice have red), corners 2 white, 2 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*2 pairs on two edges*). That group is 11.9% of 4c4e, 8,400 cases: 180 with a DR in 4 or less, 1,156 in 5, 3,192 in 6, 3,872 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `U L' U R' U' L` (6 moves, good). The whole attempt: `F' B2 R' L F' (U L' U R' U' L)`, 11 to DR.
+
+</details>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+**Example 60 (4c4e).** `B D2 F2 L2 U2 D2 F U2 B' L2 F D2 L2 U2 F' D' F' D' R U' B2 D R' F2`
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+EO `R D2 R L' F`, no RZP needed: 4c4e in 5.
 
-Switched case: 4c4e, ARM 41, 2 pairs on 1 edge, 2 fake, 0 side pairs, corners 4a-4.
+What you see:
 
-Optimal DR on the inverse: `B2 U F2 B2 U L` (6 moves, sub-7). The whole attempt: `L' U2 D2 F' L' (B2 U F2 B2 U L)`, 11 moves to DR.
+- U/D edges in the E slice: white-green, white-blue
+- Misoriented corners: yellow-green-orange showing green, white-blue-orange showing orange, white-green-orange showing green, white-blue-red showing red
+- E-slice edges out of the slice: blue-red, green-orange
 
+Reads: 2 pairs, both on white-blue (a bar), 1 fake pair, 2 side pairs, ARM 22, 4b-2 corners, holes diagonal (the edges out of the slice share no colour), corners 3 white, 1 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **if you have time** (*2 pairs on one edge (a bar), holes not on one R/L face*). That group is 7.0% of 4c4e, 4,960 cases: 0 with a DR in 4 or less, 56 in 5, 840 in 6, 4,064 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `F2 U L D R D' L` (7 moves, too long). The whole attempt: `R D2 R L' F (F2 U L D R D' L)`, 12 to DR.
+
 </details>
+
+**Example 61 (4c4e).** `F2 L2 U F2 R2 F2 L2 D' F2 D2 U R2 L' U R U2 R F U2 F U`
+
+EO `(U D2 F L F')`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-**4c4e, example 23.** `L2 F2 U R2 U' B2 D U2 F2 R2 U B2 F2 U' F' L' B2 F2 U' L D2 L' D U2`
+What you see:
 
-EO `(U2 R L2 D B')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `<-o->-o-`, D `oE<Eo->-`, holes FL BR.
+- U/D edges in the E slice: yellow-green, yellow-orange
+- Misoriented corners: white-green-red showing green, yellow-green-red showing green, yellow-blue-orange showing blue, yellow-blue-red showing blue
+- E-slice edges out of the slice: green-red, blue-orange
 
+Reads: 1 pair (on yellow-orange), 1 fake pair, 3 side pairs, ARM 01, 4b-0 corners, holes diagonal (the edges out of the slice share no colour), corners 1 white, 3 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*1 pair, anything else*). That group is 28.3% of 4c4e, 19,936 cases: 0 with a DR in 4 or less, 56 in 5, 1,152 in 6, 18,728 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the normal side: `F2 D L' D' R2 U L` (7 moves, too long). The whole attempt: `(U D2 F L F') F2 D L' D' R2 U L`, 12 to DR.
+
+</details>
+
+**Example 62 (4c4e).** `F2 R F2 U2 B2 R' U2 L2 D2 U2 L D2 R2 F' L2 R U L R U R2 F`
+
+EO `U' L F`, RZP `U' R'`: 4c4e in 5.
 
-Half turns to two bars: **2** (13.2% of 4c4e, 72.1% sub-7).
+What you see:
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+- U/D edges in the E slice: yellow-blue, white-blue
+- Misoriented corners: yellow-blue-orange showing blue, white-green-red showing green, yellow-blue-red showing red, yellow-green-red showing red
+- E-slice edges out of the slice: green-orange, blue-red
 
-Switched case: 4c4e, ARM 21, 1 pair on 1 edge, 1 fake, 0 side pairs, corners 4a-2.
+Reads: 1 pair (on yellow-blue), 1 fake pair, 0 side pairs, ARM 22, 4b-2 corners, holes diagonal (the edges out of the slice share no colour), corners 1 white, 3 yellow.
 
-Optimal DR on the normal side: `U F2 U2 B2 U' F2 L` (7 moves, not sub-7). The whole attempt: `(U2 R L2 D B') U F2 U2 B2 U' F2 L`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*1 pair, anything else*). That group is 28.3% of 4c4e, 19,936 cases: 0 with a DR in 4 or less, 56 in 5, 1,152 in 6, 18,728 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the inverse: `D L2 U2 D L2 F2 D R` (8 moves, too long). The whole attempt: `U' L F U' R' (D L2 U2 D L2 F2 D R)`, 13 to DR.
 
 </details>
 
-**4c4e, example 24.** `U2 R2 D' F2 R2 U2 R2 U' B2 R2 U2 R2 U F2 U' F' D F2 L2 U' R D F2 R'`
+**Example 63 (4c4e).** `D2 B' R2 D2 B R2 B D2 B' D2 B U2 F' R2 R' B D B2 U' R F D F B2`
 
-EO `(D L2 U2 D2 B')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `<-o->-o-`, D `oEoE<->-`, holes FL BR.
+EO `R2 L B`, RZP `U' L'`: 4c4e in 5.
 
+What you see:
+
+- U/D edges in the E slice: white-blue, yellow-green
+- Misoriented corners: white-blue-orange showing orange, yellow-blue-orange showing blue, white-green-red showing green, white-blue-red showing red
+- E-slice edges out of the slice: blue-orange, green-orange
+
+Reads: 2 pairs, both on white-blue (a bar), 0 fake pairs, 1 side pair, ARM 22, 4b-2 corners, holes on one R/L face (both edges out of the slice have orange), corners 3 white, 1 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*2 pairs on one edge (a bar), holes on one R/L face*). That group is 3.5% of 4c4e, 2,480 cases: 20 with a DR in 4 or less, 244 in 5, 820 in 6, 1,396 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `U' R2 L2 U L2 D' L` (7 moves, too long). The whole attempt: `R2 L B U' L' (U' R2 L2 U L2 D' L)`, 12 to DR.
+
+</details>
+
+**Example 64 (4c4e).** `R2 F2 L2 B2 D' F2 D R2 U2 B2 R2 D' U2 F' L' R2 D L R B L' D' U'`
+
+EO `(L' U F' R B)`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: white-orange, yellow-blue
+- Misoriented corners: yellow-green-orange showing orange, white-blue-red showing red, yellow-blue-red showing blue, white-green-orange showing green
+- E-slice edges out of the slice: green-orange, blue-red
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+Reads: 1 pair (on white-orange), 1 fake pair, 2 side pairs, ARM 21, 4a-2 corners, in two columns (two twins), holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*1 pair, ARM 21, 4a corners in two columns*). That group is 1.5% of 4c4e, 1,056 cases: 0 with a DR in 4 or less, 64 in 5, 304 in 6, 688 in 7 or more.
 
-Switched case: 4c4e, ARM 31, 1 pair on 1 edge, 0 fake, 0 side pairs, corners 4c-1.
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the normal side: `D R2 U2 L' D F2 U L` (8 moves, not sub-7). The whole attempt: `(D L2 U2 D2 B') D R2 U2 L' D F2 U L`, 13 moves to DR.
+Optimal DR on the normal side: `R' U2 L F2 R' D L` (7 moves, too long). The whole attempt: `(L' U F' R B) R' U2 L F2 R' D L`, 12 to DR.
 
 </details>
+
+**Example 65 (4c4e).** `R2 L2 D F2 U F2 U R2 F2 L2 B2 D B' U B R' D' F' D' U' B U'`
+
+EO `(F L2 B L2 B)`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-**4c4e, example 25.** `D R2 D2 R2 F2 D R2 D L2 F2 R2 U' R2 U' F2 L' U2 L2 B F2 L' F R' L'`
+What you see:
 
-EO `B' R F L' B`, no RZP needed: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 1 pair, 2 side pairs. Rings: U `>-o-o-o-`, D `<E<E>-o-`, holes FL BL.
+- U/D edges in the E slice: white-blue, white-orange
+- Misoriented corners: white-blue-red showing red, white-green-red showing red, yellow-blue-red showing blue, white-blue-orange showing orange
+- E-slice edges out of the slice: green-red, blue-orange
 
+Reads: 2 pairs, both on white-blue (a bar), 1 fake pair, 0 side pairs, ARM 31, 4c-1 corners, holes diagonal (the edges out of the slice share no colour), corners 3 white, 1 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **if you have time** (*2 pairs on one edge (a bar), holes not on one R/L face*). That group is 7.0% of 4c4e, 4,960 cases: 0 with a DR in 4 or less, 56 in 5, 840 in 6, 4,064 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the normal side: `B2 U2 B2 D B2 D' R` (7 moves, too long). The whole attempt: `(F L2 B L2 B) B2 U2 B2 D B2 D' R`, 12 to DR.
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+</details>
+
+**Example 66 (4c4e).** `L2 F2 D R2 D' F2 U B2 L2 D R2 U' F2 U' B2 F' L' D R' D L' D B2 D2 U2`
+
+EO `(U R F2 R2 B)`, no RZP needed, on the inverse scramble: 4c4e in 5.
+
+What you see:
+
+- U/D edges in the E slice: yellow-red, yellow-green
+- Misoriented corners: white-blue-red showing red, white-green-orange showing green, yellow-blue-orange showing orange, yellow-green-red showing green
+- E-slice edges out of the slice: green-red, blue-orange
+
+Reads: 1 pair (on yellow-red), 1 fake pair, 1 side pair, ARM 21, 4d-2 corners, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+Card: **switch** (*1 pair, ARM 21, 4d corners*). That group is 0.82% of 4c4e, 576 cases: 32 with a DR in 4 or less, 96 in 5, 384 in 6, 64 in 7 or more.
 
-Switched case: 4c4e, ARM 11, 1 pair on 1 edge, 3 fake, 2 side pairs, corners 4c-1.
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the inverse: `R2 L' U' F2 L U L` (7 moves, not sub-7). The whole attempt: `B' R F L' B (R2 L' U' F2 L U L)`, 12 moves to DR.
+Optimal DR on the normal side: `U2 R D2 L2 D B2 L` (7 moves, too long). The whole attempt: `(U R F2 R2 B) U2 R D2 L2 D B2 L`, 12 to DR.
 
 </details>
 
-**4c4e, example 26.** `R2 U R2 F2 L2 U' F2 D2 B2 F2 D B2 U2 R' D2 U F D U F U2 R`
+**Example 67 (4c4e).** `R2 B2 D2 B2 R2 D2 F2 U B2 D' F2 U2 R' B L D2 L B2 D' U F' U2`
 
-EO `(B' D2 R2 U' F')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `oE>-o->-`, D `<E<-o-o-`, holes FL BR.
+EO `(F R2 U F B')`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
+What you see:
+
+- U/D edges in the E slice: white-blue, yellow-red
+- Misoriented corners: white-green-red showing green, white-green-orange showing green, yellow-green-orange showing green, yellow-blue-orange showing blue
+- E-slice edges out of the slice: green-red, green-orange
+
+Reads: 0 pairs, 0 fake pairs, 3 side pairs, ARM 01, 4b-0 corners, holes on one F/B face (both edges out of the slice have green), corners 2 white, 2 yellow.
+
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*0 pairs, no fake pairs, corners 2 and 2 in the layers*). That group is 0.82% of 4c4e, 576 cases: 14 with a DR in 4 or less, 24 in 5, 88 in 6, 450 in 7 or more.
+
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
+
+Optimal DR on the normal side: `U F2 D' L2 D B2 R` (7 moves, too long). The whole attempt: `(F R2 U F B') U F2 D' L2 D B2 R`, 12 to DR.
+
+</details>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+**Example 68 (4c4e).** `B D2 F2 L2 U2 D2 F U2 B' L2 F D2 L2 U2 F' D' F' D' R U' B2 D R' F2`
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+EO `U' L U' B`, RZP `L`: 4c4e in 5.
 
-Switched case: 4c4e, ARM 31, 1 pair on 1 edge, 2 fake, 1 side pair, corners 4c-1.
+What you see:
 
-Optimal DR on the normal side: `U D' L2 D' R2 F2 D' L` (8 moves, not sub-7). The whole attempt: `(B' D2 R2 U' F') U D' L2 D' R2 F2 D' L`, 13 moves to DR.
+- U/D edges in the E slice: yellow-blue, white-blue
+- Misoriented corners: yellow-blue-orange showing blue, yellow-green-orange showing green, white-blue-red showing red, white-blue-orange showing orange
+- E-slice edges out of the slice: green-red, blue-red
 
+Reads: 2 pairs, both on white-blue (a bar), 1 fake pair, 0 side pairs, ARM 22, 4b-2 corners, holes on one R/L face (both edges out of the slice have red), corners 2 white, 2 yellow.
+
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*2 pairs on one edge (a bar), holes on one R/L face*). That group is 3.5% of 4c4e, 2,480 cases: 20 with a DR in 4 or less, 244 in 5, 820 in 6, 1,396 in 7 or more.
+
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
+
+Optimal DR on the inverse: `D L2 U R2 L2 U R` (7 moves, too long). The whole attempt: `U' L U' B L (D L2 U R2 L2 U R)`, 12 to DR.
+
 </details>
+
+**Example 69 (4c4e).** `L2 D2 F2 U B2 R2 U B2 F2 D R2 U2 R2 R' F' U B U2 L' F' R' B'`
+
+EO `(L' F' B')`, RZP `(R L)`, on the inverse scramble: 4c4e in 5.
+
+What you see:
 
-**4c4e, example 27.** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
+- U/D edges in the E slice: yellow-red, white-green
+- Misoriented corners: yellow-blue-orange showing orange, yellow-blue-red showing blue, yellow-green-red showing green, white-blue-orange showing orange
+- E-slice edges out of the slice: blue-red, green-red
 
-EO `L B`, RZP `U D2 L`: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 2 pairs, 2 side pairs. Rings: U `>E<-o-<-`, D `oEo->-o-`, holes FR FL.
+Reads: 2 pairs, both on yellow-red (a bar), 0 fake pairs, 2 side pairs, ARM 21, 4b-2 corners, holes on one R/L face (both edges out of the slice have red), corners 1 white, 3 yellow.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Card: **switch** (*2 pairs on one edge (a bar), holes on one R/L face*). That group is 3.5% of 4c4e, 2,480 cases: 20 with a DR in 4 or less, 244 in 5, 820 in 6, 1,396 in 7 or more.
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c4e, ARM 11, 2 pairs on 1 edge, 0 fake, 2 side pairs, corners 4c-1.
+Optimal DR on the normal side: `L2 U2 L2 U R` (5 moves, good). The whole attempt: `(L' F' B' R L) L2 U2 L2 U R`, 10 to DR.
 
-Optimal DR on the inverse: `F2 R2 U' F2 L2 D R` (7 moves, not sub-7). The whole attempt: `L B U D2 L (F2 R2 U' F2 L2 D R)`, 12 moves to DR.
-
 </details>
-
-**4c4e, example 28.** `L2 D R2 F2 R2 L2 U' L2 U2 B2 U B2 U F2 D' L' U F R' B2 U' B' U' L U2`
 
-EO `R' F' U' L B`, no RZP needed: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `<E<-o-o-`, D `oE>->-o-`, holes FR FL.
+**Example 70 (4c4e).** `U2 F D2 R2 D2 U2 B' U2 B2 L2 B L2 B R2 F' U' B R D' L2 B' L' B' U B2`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `R L B`, RZP `U' R'`: 4c4e in 5.
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+What you see:
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+- U/D edges in the E slice: white-red, yellow-green
+- Misoriented corners: white-green-red showing green, yellow-blue-orange showing blue, white-blue-red showing red, white-blue-orange showing orange
+- E-slice edges out of the slice: green-orange, blue-orange
 
-Switched case: 4c4e, ARM 21, 1 pair on 1 edge, 2 fake, 1 side pair, corners 4a-2.
+Reads: 1 pair (on white-red), 1 fake pair, 1 side pair, ARM 21, 4b-2 corners, holes on one R/L face (both edges out of the slice have orange), corners 3 white, 1 yellow.
 
-Optimal DR on the inverse: `L U2 B2 R' F2 D R` (7 moves, not sub-7). The whole attempt: `R' F' U' L B (L U2 B2 R' F2 D R)`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **skip** (*1 pair, ARM 21, 4b corners, exactly 1 side pair*). That group is 2.6% of 4c4e, 1,856 cases: 0 with a DR in 4 or less, 24 in 5, 80 in 6, 1,752 in 7 or more.
 
-**4c4e, example 29.** `L2 U' B2 U' R2 D' B2 F2 D2 R2 F2 U B2 L2 R' D L' B F' U L' D2 F'`
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-EO `U' B' R F'`, RZP `L'`: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `<Eo-o-<-`, D `>E>-o-o-`, holes FR FL.
+Optimal DR on the inverse: `U2 L U2 F2 L U L` (7 moves, too long). The whole attempt: `R L B U' R' (U2 L U2 F2 L U L)`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+**Example 71 (4c4e).** `F2 U2 R F2 D2 F2 U2 L' F2 L2 R D2 U' R D R2 D F R2 F R`
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+EO `R' F2 B U2 B`, no RZP needed: 4c4e in 5.
 
-Switched case: 4c4e, ARM 21, 1 pair on 1 edge, 2 fake, 1 side pair, corners 4a-2.
+What you see:
 
-Optimal DR on the inverse: `R' D2 L F2 R D' L` (7 moves, not sub-7). The whole attempt: `U' B' R F' L' (R' D2 L F2 R D' L)`, 12 moves to DR.
+- U/D edges in the E slice: yellow-red, white-green
+- Misoriented corners: yellow-blue-orange showing blue, white-green-red showing red, yellow-green-red showing red, white-blue-orange showing blue
+- E-slice edges out of the slice: blue-red, blue-orange
 
-</details>
+Reads: 1 pair (on white-green), 1 fake pair, 2 side pairs, ARM 21, 4a-2 corners, in two columns (two twins), holes on one F/B face (both edges out of the slice have blue), corners 2 white, 2 yellow.
 
-**4c4e, example 30.** `L2 U2 B D2 B R2 F R2 F' R2 D2 B' R2 L' D' B' U R D' L2 U2 L2`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(R U2 L' U B)`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 2 pairs, 1 side pair. Rings: U `oE>-o-o-`, D `>E<-<-o-`, holes FR BR.
+Card: **switch** (*1 pair, ARM 21, 4a corners in two columns*). That group is 1.5% of 4c4e, 1,056 cases: 0 with a DR in 4 or less, 64 in 5, 304 in 6, 688 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Optimal DR on the inverse: `F2 B2 U R2 D B2 R` (7 moves, too long). The whole attempt: `R' F2 B U2 B (F2 B2 U R2 D B2 R)`, 12 to DR.
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+</details>
 
-Switched case: 4c4e, ARM 11, 2 pairs on 1 edge, 1 fake, 1 side pair, corners 4c-1.
+**Example 72 (4c4e).** `L2 F2 D R2 D' F2 U B2 L2 D R2 U' F2 U' B2 F' L' D R' D L' D B2 D2 U2`
 
-Optimal DR on the normal side: `D2 L U R U' L` (6 moves, sub-7). The whole attempt: `(R U2 L' U B) D2 L U R U' L`, 11 moves to DR.
+EO `D B`, RZP `U' D2 R'`: 4c4e in 5.
 
-</details>
+What you see:
 
-**4c4e, example 31.** `D2 F2 R' F2 R U2 L F2 L' R2 U2 B' D R F' U2 B' U D' L B`
+- U/D edges in the E slice: white-blue, yellow-green
+- Misoriented corners: yellow-blue-red showing blue, yellow-green-orange showing orange, yellow-green-red showing green, white-blue-red showing red
+- E-slice edges out of the slice: green-orange, blue-red
 
-EO `(F' B D' L F)`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 1 pair, 2 side pairs. Rings: U `<-<-o->-`, D `oE>Eo-o-`, holes FL BL.
+Reads: 2 pairs, one on each edge, 1 fake pair, 1 side pair, ARM 22, 4b-2 corners, holes diagonal (the edges out of the slice share no colour), corners 1 white, 3 yellow.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Card: **switch** (*2 pairs on two edges*). That group is 11.9% of 4c4e, 8,400 cases: 180 with a DR in 4 or less, 1,156 in 5, 3,192 in 6, 3,872 in 7 or more.
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c4e, ARM 11, 1 pair on 1 edge, 1 fake, 2 side pairs, corners 4c-1.
+Optimal DR on the inverse: `U' F2 U2 D' R2 U R` (7 moves, too long). The whole attempt: `D B U' D2 R' (U' F2 U2 D' R2 U R)`, 12 to DR.
 
-Optimal DR on the normal side: `D L' U' B2 U F2 R` (7 moves, not sub-7). The whole attempt: `(F' B D' L F) D L' U' B2 U F2 R`, 12 moves to DR.
-
 </details>
-
-**4c4e, example 32.** `R D2 R' F2 R B2 U2 R' U2 R F2 L B' R' D L' U L' D2 B D2 L`
 
-EO `(D2 B R D F)`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `<-<-o->-`, D `oE>Eo-o-`, holes FR FL.
+**Example 73 (4c4e).** `L2 U2 L2 D2 F2 D2 F2 B' D2 F' D2 R2 F' D' L' U2 F R2 D' L U' F2 B2`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `R L B'`, RZP `D2 R`: 4c4e in 5.
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+What you see:
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+- U/D edges in the E slice: white-green, yellow-red
+- Misoriented corners: yellow-green-red showing green, white-green-red showing red, white-blue-red showing red, yellow-blue-red showing blue
+- E-slice edges out of the slice: blue-orange, green-red
 
-Switched case: 4c4e, ARM 31, 1 pair on 1 edge, 1 fake, 0 side pairs, corners 4c-1.
+Reads: 3 pairs (white-green 1, yellow-red 2), 0 fake pairs, 1 side pair, ARM 21, 4a-2 corners, in two columns (two twins), holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
 
-Optimal DR on the normal side: `U2 F2 L2 D F2 R2 D' L` (8 moves, not sub-7). The whole attempt: `(D2 B R D F) U2 F2 L2 D F2 R2 D' L`, 13 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*3 or 4 pairs*). That group is 3.6% of 4c4e, 2,520 cases: 332 with a DR in 4 or less, 522 in 5, 1,160 in 6, 506 in 7 or more.
 
-**4c4e, example 33.** `U' L2 U' R2 D L2 D' F2 D L2 U L2 U' B2 U' L' B' D U2 R U B' L' D'`
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-EO `B' R2 U F'`, RZP `L`: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `>Eo-<-<-`, D `oEo-o->-`, holes BL BR.
+Optimal DR on the inverse: `F2 D' F2 U F2 L` (6 moves, good). The whole attempt: `R L B' D2 R (F2 D' F2 U F2 L)`, 11 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+**Example 74 (4c4e).** `B2 L' U2 F2 R' F2 L2 B2 D2 L' U2 F2 R D2 R U' B2 R' B F2 U F2 D`
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+EO `B U' D' B`, RZP `R'`: 4c4e in 5.
 
-Switched case: 4c4e, ARM 31, 1 pair on 1 edge, 0 fake, 0 side pairs, corners 4c-1.
+What you see:
 
-Optimal DR on the inverse: `F2 D R2 D F2 U' L` (7 moves, not sub-7). The whole attempt: `B' R2 U F' L (F2 D R2 D F2 U' L)`, 12 moves to DR.
+- U/D edges in the E slice: white-orange, white-blue
+- Misoriented corners: yellow-green-orange showing green, yellow-blue-red showing red, white-green-red showing green, white-blue-orange showing orange
+- E-slice edges out of the slice: green-orange, blue-red
 
-</details>
+Reads: 1 pair (on white-blue), 1 fake pair, 1 side pair, ARM 21, 4d-2 corners, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
 
-**4c4e, example 34.** `B2 L2 U2 F L2 F' L2 B' R2 B R2 U2 R' D2 B D2 F L U' L' D'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(D2 F' R' L' F)`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `oE>->-o-`, D `oE<-<-o-`, holes FL BL.
+Card: **switch** (*1 pair, ARM 21, 4d corners*). That group is 0.82% of 4c4e, 576 cases: 32 with a DR in 4 or less, 96 in 5, 384 in 6, 64 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Optimal DR on the inverse: `F2 D2 B2 D F2 L` (6 moves, good). The whole attempt: `B U' D' B R' (F2 D2 B2 D F2 L)`, 11 to DR.
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+</details>
 
-Switched case: 4c4e, ARM 21, 1 pair on 1 edge, 1 fake, 1 side pair, corners 4b-2.
+**Example 75 (4c4e).** `U2 R2 D' F2 R2 U2 R2 U' B2 R2 U2 R2 U F2 U' F' D F2 L2 U' R D F2 R'`
 
-Optimal DR on the normal side: `U2 R2 F2 U2 B2 U R` (7 moves, not sub-7). The whole attempt: `(D2 F' R' L' F) U2 R2 F2 U2 B2 U R`, 12 moves to DR.
+EO `(L D R2 L2 F)`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-</details>
+What you see:
 
-**4c4e, example 35.** `B2 D2 R2 B2 D F2 R2 D' L2 D L2 B2 D F2 U R' F' D' B2 L D2 B D2 F D'`
+- U/D edges in the E slice: yellow-orange, yellow-red
+- Misoriented corners: yellow-green-red showing green, yellow-blue-red showing blue, white-green-orange showing green, white-blue-orange showing blue
+- E-slice edges out of the slice: blue-red, green-red
 
-EO `(F D2 B)`, RZP `(D R)`, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 0 (R/L stickers on U/D), 2 pairs, 3 side pairs. Rings: U `>-o-o-o-`, D `>E<Eo-<-`, holes FL BR.
+Reads: 2 pairs, both on yellow-red (a bar), 0 fake pairs, 2 side pairs, ARM 00, 4a-0 corners, not in two columns, holes on one R/L face (both edges out of the slice have red), corners 2 white, 2 yellow.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Card: **switch** (*2 pairs on one edge (a bar), holes on one R/L face*). That group is 3.5% of 4c4e, 2,480 cases: 20 with a DR in 4 or less, 244 in 5, 820 in 6, 1,396 in 7 or more.
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c4e, ARM 01, 2 pairs on 1 edge, 1 fake, 3 side pairs, corners 4b-0.
+Optimal DR on the normal side: `U2 R2 F2 U2 B2 L` (6 moves, good). The whole attempt: `(L D R2 L2 F) U2 R2 F2 U2 B2 L`, 11 to DR.
 
-Optimal DR on the normal side: `U R2 U2 L2 D' B2 U R` (8 moves, not sub-7). The whole attempt: `(F D2 B D R) U R2 U2 L2 D' B2 U R`, 13 moves to DR.
-
 </details>
-
-**4c4e, example 36.** `U2 F2 U2 B2 L2 B2 L2 R' B2 L' B2 D2 L' B' U' F2 L D2 B' U F' L2 R2`
 
-EO `L2 D F' R2 B`, no RZP needed: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `>EoEo-<-`, D `<-o-o->-`, holes FR BL.
+**Example 76 (4c4e).** `F2 U2 L2 U2 R2 B' R2 D2 B2 R2 B' D2 B L' F D' U2 B' D F U2 B'`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `F B' L D' B'`, no RZP needed: 4c4e in 5.
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+What you see:
 
-Card: **your call** (one paired, edge ARM 1: 32.5% of 4c4e, 20.0% sub-7).
+- U/D edges in the E slice: yellow-green, white-orange
+- Misoriented corners: yellow-green-red showing green, white-green-orange showing orange, white-blue-orange showing blue, white-green-red showing red
+- E-slice edges out of the slice: blue-red, green-orange
 
-Switched case: 4c4e, ARM 21, 1 pair on 1 edge, 0 fake, 1 side pair, corners 4a-2.
+Reads: 1 pair (on white-orange), 2 fake pairs, 0 side pairs, ARM 21, 4b-2 corners, holes diagonal (the edges out of the slice share no colour), corners 3 white, 1 yellow.
 
-Optimal DR on the inverse: `R2 U' L2 U B2 L` (6 moves, sub-7). The whole attempt: `L2 D F' R2 B (R2 U' L2 U B2 L)`, 11 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*1 pair, ARM 21, 4b corners, 0 or 2 side pairs*). That group is 2.8% of 4c4e, 1,984 cases: 0 with a DR in 4 or less, 160 in 5, 840 in 6, 984 in 7 or more.
 
-**4c4e, example 37.** `B D2 F2 L2 U2 D2 F U2 B' L2 F D2 L2 U2 F' D' F' D' R U' B2 D R' F2`
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-EO `(D L F2 L2 B)`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `<->-o-o-`, D `<EoE>-o-`, holes FR BR.
+Optimal DR on the inverse: `F2 U2 R2 L2 U R` (6 moves, good). The whole attempt: `F B' L D' B' (F2 U2 R2 L2 U R)`, 11 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+**Example 77 (4c4e).** `F2 U2 R F2 D2 F2 U2 L' F2 L2 R D2 U' R D R2 D F R2 F R`
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+EO `R' L2 F' R2 F'`, no RZP needed: 4c4e in 5.
 
-Switched case: 4c4e, ARM 31, 0 pairs on 0 edges, 2 fake, 1 side pair, corners 4c-1.
+What you see:
 
-Optimal DR on the normal side: `L2 B2 D F2 D L2 U' L` (8 moves, not sub-7). The whole attempt: `(D L F2 L2 B) L2 B2 D F2 D L2 U' L`, 13 moves to DR.
+- U/D edges in the E slice: white-green, yellow-red
+- Misoriented corners: white-green-red showing red, yellow-green-red showing red, white-blue-red showing blue, white-blue-orange showing blue
+- E-slice edges out of the slice: blue-red, blue-orange
 
-</details>
+Reads: 1 pair (on white-green), 1 fake pair, 2 side pairs, ARM 21, 4b-2 corners, holes on one F/B face (both edges out of the slice have blue), corners 3 white, 1 yellow.
 
-**4c4e, example 38.** `U2 R2 D' F2 R2 U2 R2 U' B2 R2 U2 R2 U F2 U' F' D F2 L2 U' R D F2 R'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(R' D' R' D2 F')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `oE>-o-<-`, D `oE>-o-<-`, holes FL BR.
+Card: **switch** (*1 pair, ARM 21, 4b corners, 0 or 2 side pairs*). That group is 2.8% of 4c4e, 1,984 cases: 0 with a DR in 4 or less, 160 in 5, 840 in 6, 984 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+Optimal DR on the inverse: `B2 U2 R2 B2 D' R` (6 moves, good). The whole attempt: `R' L2 F' R2 F' (B2 U2 R2 B2 D' R)`, 11 to DR.
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+</details>
 
-Switched case: 4c4e, ARM 21, 0 pairs on 0 edges, 2 fake, 0 side pairs, corners 4a-2.
+**Example 78 (4c4e).** `D2 F D2 L2 U2 F' L2 B2 R2 L2 B R2 F2 D' B2 F L B F L F2 D`
 
-Optimal DR on the normal side: `U' R D' L' U' R' U' L` (8 moves, not sub-7). The whole attempt: `(R' D' R' D2 F') U' R D' L' U' R' U' L`, 13 moves to DR.
+EO `D2 L' D' F' B'`, no RZP needed: 4c4e in 5.
 
-</details>
+What you see:
 
-**4c4e, example 39.** `D2 L2 B' R2 B2 D2 B' U2 F D2 B2 F' L2 U' D' F' R' U L F' U'`
+- U/D edges in the E slice: yellow-red, white-green
+- Misoriented corners: yellow-green-orange showing orange, yellow-blue-red showing blue, white-green-orange showing green, yellow-green-red showing red
+- E-slice edges out of the slice: green-orange, blue-red
 
-EO `R F L' D F'`, no RZP needed: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 2, corner ARM 1 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `<Eo-o-o-`, D `>Eo-<->-`, holes BL BR.
+Reads: 1 pair (on yellow-red), 2 fake pairs, 2 side pairs, ARM 21, 4b-2 corners, holes diagonal (the edges out of the slice share no colour), corners 1 white, 3 yellow.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Card: **switch** (*1 pair, ARM 21, 4b corners, 0 or 2 side pairs*). That group is 2.8% of 4c4e, 1,984 cases: 0 with a DR in 4 or less, 160 in 5, 840 in 6, 984 in 7 or more.
 
-Card: **discard** (one paired, edge ARM 0 or 2: 52.0% of 4c4e, 6.7% sub-7).
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c4e, ARM 12, 1 pair on 1 edge, 1 fake, 1 side pair, corners 4c-1.
+Optimal DR on the inverse: `F2 U2 R2 L2 D R` (6 moves, good). The whole attempt: `D2 L' D' F' B' (F2 U2 R2 L2 D R)`, 11 to DR.
 
-Optimal DR on the inverse: `U R F2 L2 U2 D L` (7 moves, not sub-7). The whole attempt: `R F L' D F' (U R F2 L2 U2 D L)`, 12 moves to DR.
-
 </details>
-
-**4c4e, example 40.** `U2 R2 F D2 F' R2 B L2 U2 F D2 B' R2 B' L2 R' U' F D' F U' F L2 F2 B2`
 
-EO `U F' L' D2 B`, no RZP needed: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `oEoEo->-`, D `<-<-o->-`, holes BL BR.
+**Example 79 (4c4e).** `R2 D2 L' F2 D2 R2 D2 R' B2 D2 R2 D2 R F2 R' F' L F2 U2 R' D L F2 D'`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `(D' L D' F)`, RZP `(L')`, on the inverse scramble: 4c4e in 5.
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+What you see:
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+- U/D edges in the E slice: white-red, white-green
+- Misoriented corners: yellow-blue-red showing blue, white-blue-red showing blue, yellow-green-red showing red, yellow-green-orange showing orange
+- E-slice edges out of the slice: blue-orange, green-orange
 
-Switched case: 4c4e, ARM 11, 0 pairs on 0 edges, 0 fake, 1 side pair, corners 4c-1.
+Reads: 1 pair (on white-red), 0 fake pairs, 0 side pairs, ARM 21, 4b-2 corners, holes on one R/L face (both edges out of the slice have orange), corners 1 white, 3 yellow.
 
-Optimal DR on the inverse: `U' L2 U F2 U2 F2 B2 L` (8 moves, not sub-7). The whole attempt: `U F' L' D2 B (U' L2 U F2 U2 F2 B2 L)`, 13 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*1 pair, ARM 21, 4b corners, 0 or 2 side pairs*). That group is 2.8% of 4c4e, 1,984 cases: 0 with a DR in 4 or less, 160 in 5, 840 in 6, 984 in 7 or more.
 
-**4c4e, example 41.** `L2 B R2 D2 R2 L2 F' L2 F2 U2 F U2 F D2 B' L' F D R' U2 F' U' F' L F2`
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-EO `(R U' F')`, RZP `(U L)`, on the inverse scramble: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `<E>-<-o-`, D `oE>-o-o-`, holes BL BR.
+Optimal DR on the normal side: `U' D' F2 B2 L2 D' R` (7 moves, too long). The whole attempt: `(D' L D' F L') U' D' F2 B2 L2 D' R`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+**Example 80 (4c4e).** `F2 R2 D' U2 L2 U' F2 D L2 U' L2 B2 L2 R2 F' L D2 B' F R F' D`
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+EO `D L D2 R2 B`, no RZP needed: 4c4e in 5.
 
-Switched case: 4c4e, ARM 31, 0 pairs on 0 edges, 3 fake, 1 side pair, corners 4c-1.
+What you see:
 
-Optimal DR on the normal side: `L' D L' D' R D' R` (7 moves, not sub-7). The whole attempt: `(R U' F' U L) L' D L' D' R D' R`, 12 moves to DR.
+- U/D edges in the E slice: yellow-green, white-green
+- Misoriented corners: yellow-green-orange showing orange, white-blue-red showing red, yellow-green-red showing red, white-green-red showing red
+- E-slice edges out of the slice: green-orange, green-red
 
-</details>
+Reads: 3 pairs (yellow-green 2, white-green 1), 0 fake pairs, 0 side pairs, ARM 42, 4b-0 corners, holes on one F/B face (both edges out of the slice have green), corners 2 white, 2 yellow.
 
-**4c4e, example 42.** `F2 U F2 U' R2 D' L2 U2 R2 L2 U' R2 D' L' F' R2 L2 D' F L U2 B`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(F' U F2 U2 F)`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `oEo->->-`, D `oE<-o-<-`, holes BL BR.
+Card: **switch** (*3 or 4 pairs*). That group is 3.6% of 4c4e, 2,520 cases: 332 with a DR in 4 or less, 522 in 5, 1,160 in 6, 506 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Optimal DR on the inverse: `R U R B2 D' L` (6 moves, good). The whole attempt: `D L D2 R2 B (R U R B2 D' L)`, 11 to DR.
 
-Card: **discard** (one paired, edge ARM 0 or 2: 52.0% of 4c4e, 6.7% sub-7).
+</details>
 
-Switched case: 4c4e, ARM 10, 1 pair on 1 edge, 0 fake, 1 side pair, corners 4c-1.
+**Example 81 (4c4e).** `R2 U R2 F2 L2 U' F2 D2 B2 F2 D B2 U2 R' D2 U F D U F U2 R`
 
-Optimal DR on the normal side: `U2 B2 R2 D' F2 D L` (7 moves, not sub-7). The whole attempt: `(F' U F2 U2 F) U2 B2 R2 D' F2 D L`, 12 moves to DR.
+EO `(B' L' U B')`, RZP `(L)`, on the inverse scramble: 4c4e in 5.
 
-</details>
+What you see:
 
-**4c4e, example 43.** `F2 R2 U L2 D2 F2 U R2 U' R2 U B2 R2 R' B D B R' D B' R' F' D'`
+- U/D edges in the E slice: white-red, white-green
+- Misoriented corners: white-green-orange showing green, white-blue-red showing red, white-green-red showing red, white-blue-orange showing blue
+- E-slice edges out of the slice: green-red, blue-red
 
-EO `(F L F' D B')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 2 side pairs. Rings: U `oE>-o->-`, D `<Eo-<-o-`, holes FL BR.
+Reads: 1 pair (on white-green), 3 fake pairs, 0 side pairs, ARM 21, 4a-2 corners, not in two columns, holes on one R/L face (both edges out of the slice have red), corners 4 white, 0 yellow.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Card: **skip** (*1 pair, ARM 21, 4a corners not in two columns*). That group is 1.4% of 4c4e, 960 cases: 0 with a DR in 4 or less, 0 in 5, 24 in 6, 936 in 7 or more.
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c4e, ARM 21, 0 pairs on 0 edges, 2 fake, 2 side pairs, corners 4d-2.
+Optimal DR on the normal side: `U R U2 R U2 R U' R` (8 moves, too long). The whole attempt: `(B' L' U B' L) U R U2 R U2 R U' R`, 13 to DR.
 
-Optimal DR on the normal side: `R2 L2 F2 B2 D F2 R` (7 moves, not sub-7). The whole attempt: `(F L F' D B') R2 L2 F2 B2 D F2 R`, 12 moves to DR.
-
 </details>
-
-**4c4e, example 44.** `D2 F2 L2 F2 R2 U' R2 B2 U2 R2 U' B2 U L' D B' F2 U' B D F2 U'`
 
-EO `B' L2 U2 L2 B'`, no RZP needed: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `oE>-oEo-`, D `<->-<-o-`, holes FL BL.
+**Example 82 (4c4e).** `R2 U R2 F2 L2 U' F2 D2 B2 F2 D B2 U2 R' D2 U F D U F U2 R`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `(B2 D' L2 D' B)`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+What you see:
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+- U/D edges in the E slice: white-red, yellow-green
+- Misoriented corners: white-green-red showing green, white-blue-orange showing orange, yellow-blue-red showing red, yellow-green-orange showing green
+- E-slice edges out of the slice: green-orange, blue-red
 
-Switched case: 4c4e, ARM 10, 0 pairs on 0 edges, 1 fake, 1 side pair, corners 4c-1.
+Reads: 1 pair (on white-red), 1 fake pair, 1 side pair, ARM 21, 4d-2 corners, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
 
-Optimal DR on the inverse: `U' L' U R2 U2 F2 B2 R` (8 moves, not sub-7). The whole attempt: `B' L2 U2 L2 B' (U' L' U R2 U2 F2 B2 R)`, 13 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*1 pair, ARM 21, 4d corners*). That group is 0.82% of 4c4e, 576 cases: 32 with a DR in 4 or less, 96 in 5, 384 in 6, 64 in 7 or more.
 
-**4c4e, example 45.** `L2 U' B2 U R2 D' L2 D L2 F2 L2 B2 U' R2 U2 L' F U R' D L' R2 U2 F L U'`
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-EO `(L D F' B)`, RZP `(L')`, on the inverse scramble: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 2 side pairs. Rings: U `<-<-o->-`, D `oEoEo->-`, holes FR BR.
+Optimal DR on the normal side: `U2 R2 U2 L2 D B2 R` (7 moves, too long). The whole attempt: `(B2 D' L2 D' B) U2 R2 U2 L2 D B2 R`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+**Example 83 (4c4e).** `B2 L2 U2 F L2 F' L2 B' R2 B R2 U2 R' D2 B D2 F L U' L' D'`
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+EO `F2 B D' L B'`, no RZP needed: 4c4e in 5.
 
-Switched case: 4c4e, ARM 21, 0 pairs on 0 edges, 0 fake, 2 side pairs, corners 4b-2.
+What you see:
 
-Optimal DR on the normal side: `D2 L2 D' F2 B2 L` (6 moves, sub-7). The whole attempt: `(L D F' B L') D2 L2 D' F2 B2 L`, 11 moves to DR.
+- U/D edges in the E slice: white-red, yellow-orange
+- Misoriented corners: yellow-blue-orange showing blue, yellow-green-red showing red, white-blue-orange showing blue, white-blue-red showing blue
+- E-slice edges out of the slice: green-red, blue-orange
 
-</details>
+Reads: 2 pairs, one on each edge, 0 fake pairs, 2 side pairs, ARM 10, 4c-1 corners, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
 
-**4c4e, example 46.** `B2 D' L2 F2 U' F2 D2 B2 R2 D' L2 F2 U R2 U L' B2 U' B F2 L F2 R`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `U' R D2 L F'`, no RZP needed: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 0, corner ARM 3 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `<Eo-<-o-`, D `oE>->-o-`, holes FR BR.
+Card: **switch** (*2 pairs on two edges*). That group is 11.9% of 4c4e, 8,400 cases: 180 with a DR in 4 or less, 1,156 in 5, 3,192 in 6, 3,872 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+Optimal DR on the inverse: `U L2 U R2 B2 D L` (7 moves, too long). The whole attempt: `F2 B D' L B' (U L2 U R2 B2 D L)`, 12 to DR.
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+</details>
 
-Switched case: 4c4e, ARM 30, 0 pairs on 0 edges, 2 fake, 1 side pair, corners 4c-1.
+**Example 84 (4c4e).** `B2 U' R2 B2 U R2 U B2 U' B2 U F2 D' R2 R' U B U2 F' R D B D U2`
 
-Optimal DR on the inverse: `U2 F2 D R2 D' R2 B2 L` (8 moves, not sub-7). The whole attempt: `U' R D2 L F' (U2 F2 D R2 D' R2 B2 L)`, 13 moves to DR.
+EO `(F' L2 B)`, RZP `(R' L)`, on the inverse scramble: 4c4e in 5.
 
-</details>
+What you see:
 
-**4c4e, example 47.** `U2 L2 F2 R B2 D2 R B2 F2 L D2 R2 D2 D' F' R B R2 U' F' D' B'`
+- U/D edges in the E slice: yellow-orange, white-red
+- Misoriented corners: yellow-blue-red showing red, white-blue-orange showing blue, white-blue-red showing blue, yellow-green-orange showing green
+- E-slice edges out of the slice: green-red, blue-orange
 
-EO `(U F B)`, RZP `(D R)`, on the inverse scramble: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `<EoE>-o-`, D `<-o->-o-`, holes FR FL.
+Reads: 2 pairs, one on each edge, 0 fake pairs, 1 side pair, ARM 10, 4c-1 corners, holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+Card: **switch** (*2 pairs on two edges*). That group is 11.9% of 4c4e, 8,400 cases: 180 with a DR in 4 or less, 1,156 in 5, 3,192 in 6, 3,872 in 7 or more.
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c4e, ARM 21, 0 pairs on 0 edges, 2 fake, 1 side pair, corners 4a-2.
+Optimal DR on the normal side: `R B2 R U' R D2 R` (7 moves, too long). The whole attempt: `(F' L2 B R' L) R B2 R U' R D2 R`, 12 to DR.
 
-Optimal DR on the normal side: `U L2 F2 B2 D F2 R` (7 moves, not sub-7). The whole attempt: `(U F B D R) U L2 F2 B2 D F2 R`, 12 moves to DR.
-
 </details>
-
-**4c4e, example 48.** `L2 F2 L2 B2 D2 B2 D2 U' B2 D' B2 R2 D' B' L' F2 D R2 B' L F' D2 U2`
 
-EO `F B R D2 B`, no RZP needed: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 2 side pairs. Rings: U `<->-o-o-`, D `oEoE>-<-`, holes FL BL.
+**Example 85 (4c4e).** `L2 B2 R2 D' R2 D' L2 D' L2 R2 U2 B2 U' F2 F' R B D L' D' B F D' R2`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `(F B L' F' B)`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+What you see:
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+- U/D edges in the E slice: yellow-green, white-green
+- Misoriented corners: white-blue-orange showing blue, white-blue-red showing blue, yellow-blue-red showing red, yellow-blue-orange showing orange
+- E-slice edges out of the slice: blue-orange, green-red
 
-Switched case: 4c4e, ARM 21, 0 pairs on 0 edges, 1 fake, 2 side pairs, corners 4a-2.
+Reads: 0 pairs, 0 fake pairs, 1 side pair, ARM 22, 4a-2 corners, in two columns (two twins), holes diagonal (the edges out of the slice share no colour), corners 2 white, 2 yellow.
 
-Optimal DR on the inverse: `D R' L2 D F2 L' D' R` (8 moves, not sub-7). The whole attempt: `F B R D2 B (D R' L2 D F2 L' D' R)`, 13 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*0 pairs, no fake pairs, corners 2 and 2 in the layers*). That group is 0.82% of 4c4e, 576 cases: 14 with a DR in 4 or less, 24 in 5, 88 in 6, 450 in 7 or more.
 
-**4c4e, example 49.** `U2 R2 F' B2 L2 B' U2 F L2 B' L2 D2 L2 R2 U' L F2 D' U R U' F`
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
 
-EO `(D2 F' D L B')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `<-<->-o-`, D `>Eo-oEo-`, holes BL BR.
+Optimal DR on the normal side: `L2 U' L2 D B2 R` (6 moves, good). The whole attempt: `(F B L' F' B) L2 U' L2 D B2 R`, 11 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+**Example 86 (4c4e).** `U2 R2 D' F2 R2 U2 R2 U' B2 R2 U2 R2 U F2 U' F' D F2 L2 U' R D F2 R'`
 
-Card: **discard** (one paired, edge ARM 0 or 2: 52.0% of 4c4e, 6.7% sub-7).
+EO `(L2 U L' D' B')`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-Switched case: 4c4e, ARM 10, 1 pair on 1 edge, 0 fake, 1 side pair, corners 4c-1.
+What you see:
 
-Optimal DR on the normal side: `F2 R2 D' F2 U2 D L` (7 moves, not sub-7). The whole attempt: `(D2 F' D L B') F2 R2 D' F2 U2 D L`, 12 moves to DR.
+- U/D edges in the E slice: yellow-orange, yellow-red
+- Misoriented corners: yellow-green-orange showing orange, yellow-blue-orange showing orange, yellow-green-red showing green, white-green-red showing green
+- E-slice edges out of the slice: blue-red, blue-orange
 
-</details>
+Reads: 1 pair (on yellow-red), 2 fake pairs, 0 side pairs, ARM 20, 4b-2 corners, holes on one F/B face (both edges out of the slice have blue), corners 1 white, 3 yellow.
 
-**4c4e, example 50.** `B2 U' L2 U2 B2 R2 L2 U' F2 U2 R2 U' L2 F2 U' L' B' U' R L' U2 F' U L'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(R' B' U' D F)`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 2 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `<Eo->->-`, D `oE<-o-o-`, holes FR BR.
+Card: **skip** (*1 pair, anything else*). That group is 28.3% of 4c4e, 19,936 cases: 0 with a DR in 4 or less, 56 in 5, 1,152 in 6, 18,728 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+Optimal DR on the normal side: `U R2 U L' D F2 D' L` (8 moves, too long). The whole attempt: `(L2 U L' D' B') U R2 U L' D F2 D' L`, 13 to DR.
 
-Card: **discard** (one paired, edge ARM 0 or 2: 52.0% of 4c4e, 6.7% sub-7).
+</details>
 
-Switched case: 4c4e, ARM 20, 1 pair on 1 edge, 1 fake, 1 side pair, corners 4b-2.
+**Example 87 (4c4e).** `L2 B' R2 B2 R2 D2 F L2 U2 F' U2 R2 F2 U' B2 L' B U F' L2 D' R' L'`
 
-Optimal DR on the normal side: `D2 R' B2 U' R U' R` (7 moves, not sub-7). The whole attempt: `(R' B' U' D F) D2 R' B2 U' R U' R`, 12 moves to DR.
+EO `(L D2 B' R F)`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-</details>
+What you see:
 
-**4c4e, example 51.** `R2 F' D2 R2 F D2 F R2 F' R2 F L2 B' D2 D' F R F2 L' D B R B F2`
+- U/D edges in the E slice: white-orange, yellow-green
+- Misoriented corners: yellow-blue-orange showing blue, yellow-green-red showing red, yellow-blue-red showing blue, yellow-green-orange showing orange
+- E-slice edges out of the slice: green-red, green-orange
 
-EO `D2 R U R2 F`, no RZP needed: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 1 pair, 2 side pairs. Rings: U `oE<->-<-`, D `oE>-o-o-`, holes FR BL.
+Reads: 2 pairs, both on yellow-green (a bar), 0 fake pairs, 0 side pairs, ARM 21, 4a-2 corners, not in two columns, holes on one F/B face (both edges out of the slice have green), corners 0 white, 4 yellow.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Card: **if you have time** (*2 pairs on one edge (a bar), holes not on one R/L face*). That group is 7.0% of 4c4e, 4,960 cases: 0 with a DR in 4 or less, 56 in 5, 840 in 6, 4,064 in 7 or more.
 
-Card: **discard** (one paired, edge ARM 0 or 2: 52.0% of 4c4e, 6.7% sub-7).
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c4e, ARM 10, 1 pair on 1 edge, 1 fake, 2 side pairs, corners 4c-1.
+Optimal DR on the normal side: `U R2 U B2 U2 R2 D' L` (8 moves, too long). The whole attempt: `(L D2 B' R F) U R2 U B2 U2 R2 D' L`, 13 to DR.
 
-Optimal DR on the inverse: `D R B2 U R2 L2 D R` (8 moves, not sub-7). The whole attempt: `D2 R U R2 F (D R B2 U R2 L2 D R)`, 13 moves to DR.
-
 </details>
-
-**4c4e, example 52.** `L2 B U2 F D2 L2 F R2 B R2 F2 D2 B' D' R' D' B' U' F' R B2 R' D'`
 
-EO `(R2 F L U' B')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 2, corner ARM 2 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `>E>-o-<-`, D `<Eo-o-o-`, holes FR BL.
+**Example 88 (4c4e).** `F2 R2 U L2 D2 F2 U R2 U' R2 U B2 R2 R' B D B R' D B' R' F' D'`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `(F D' L' F B')`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+What you see:
 
-Card: **discard** (one paired, edge ARM 0 or 2: 52.0% of 4c4e, 6.7% sub-7).
+- U/D edges in the E slice: white-red, yellow-red
+- Misoriented corners: yellow-blue-orange showing orange, white-green-orange showing green, yellow-green-red showing green, yellow-green-orange showing green
+- E-slice edges out of the slice: green-orange, blue-red
 
-Switched case: 4c4e, ARM 22, 1 pair on 1 edge, 2 fake, 0 side pairs, corners 4b-2.
+Reads: 1 pair (on yellow-red), 0 fake pairs, 2 side pairs, ARM 10, 4c-1 corners, holes diagonal (the edges out of the slice share no colour), corners 1 white, 3 yellow.
 
-Optimal DR on the normal side: `D' B2 D' L2 D' R2 D R` (8 moves, not sub-7). The whole attempt: `(R2 F L U' B') D' B2 D' L2 D' R2 D R`, 13 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **if you have time** (*1 pair, not ARM 21, 2+ side pairs, not 4b corners*). That group is 6.8% of 4c4e, 4,832 cases: 0 with a DR in 4 or less, 48 in 5, 880 in 6, 3,904 in 7 or more.
 
-**4c4e, example 53.** `R2 U R2 F2 L2 U' F2 D2 B2 F2 D B2 U2 R' D2 U F D U F U2 R`
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
 
-EO `(U' D2 F2 L2 F')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 0 pairs, 2 side pairs. Rings: U `<Eo->-o-`, D `<E>-o-o-`, holes FL BR.
+Optimal DR on the normal side: `D' R2 F2 L2 B2 U' R` (7 moves, too long). The whole attempt: `(F D' L' F B') D' R2 F2 L2 B2 U' R`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+**Example 89 (4c4e).** `F2 D' B2 U2 B2 L2 F2 L2 F2 U' B2 D' B2 U2 L' U' F D2 L' R D L' B' U'`
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+EO `(D' R2 F' D2 B')`, no RZP needed, on the inverse scramble: 4c4e in 5.
 
-Switched case: 4c4e, ARM 11, 0 pairs on 0 edges, 3 fake, 2 side pairs, corners 4c-1.
+What you see:
 
-Optimal DR on the normal side: `U2 L D R' U' B2 U' R` (8 moves, not sub-7). The whole attempt: `(U' D2 F2 L2 F') U2 L D R' U' B2 U' R`, 13 moves to DR.
+- U/D edges in the E slice: yellow-blue, white-red
+- Misoriented corners: yellow-green-orange showing orange, yellow-green-red showing red, white-green-orange showing green, white-blue-orange showing blue
+- E-slice edges out of the slice: green-orange, blue-orange
 
-</details>
+Reads: 0 pairs, 0 fake pairs, 2 side pairs, ARM 21, 4b-2 corners, holes on one R/L face (both edges out of the slice have orange), corners 2 white, 2 yellow.
 
-**4c4e, example 54.** `U2 R' B2 R' D2 L' B2 F2 L2 D2 F2 R B2 U2 D' L U' B F' R U' L2 F'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `R2 D' R' F' B`, no RZP needed: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `oEo-<-o-`, D `oE>->-<-`, holes FR BL.
+Card: **switch** (*0 pairs, no fake pairs, corners 2 and 2 in the layers*). That group is 0.82% of 4c4e, 576 cases: 14 with a DR in 4 or less, 24 in 5, 88 in 6, 450 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+Optimal DR on the normal side: `D' F2 B2 R` (4 moves, good). The whole attempt: `(D' R2 F' D2 B') D' F2 B2 R`, 9 to DR.
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+</details>
 
-Switched case: 4c4e, ARM 31, 0 pairs on 0 edges, 1 fake, 1 side pair, corners 4c-1.
+**Example 90 (4c4e).** `B2 L2 U2 F L2 F' L2 B' R2 B R2 U2 R' D2 B D2 F L U' L' D'`
 
-Optimal DR on the inverse: `R2 L2 D B2 U F2 B2 R` (8 moves, not sub-7). The whole attempt: `R2 D' R' F' B (R2 L2 D B2 U F2 B2 R)`, 13 moves to DR.
+EO `(U2 R' L' B')`, RZP `(R')`, on the inverse scramble: 4c4e in 5.
 
-</details>
+What you see:
 
-**4c4e, example 55.** `D R2 D2 R2 F2 D R2 D L2 F2 R2 U' R2 U' F2 L' U2 L2 B F2 L' F R' L'`
+- U/D edges in the E slice: white-green, white-orange
+- Misoriented corners: white-blue-orange showing blue, white-green-orange showing orange, white-blue-red showing blue, white-green-red showing red
+- E-slice edges out of the slice: blue-red, blue-orange
 
-EO `R' F' L' F2 B`, no RZP needed: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 2 (R/L stickers on U/D), 1 pair, 2 side pairs. Rings: U `oE<-oE>-`, D `<-o->-o-`, holes BL BR.
+Reads: 3 pairs (white-green 2, white-orange 1), 1 fake pair, 2 side pairs, ARM 21, 4a-2 corners, not in two columns, holes on one F/B face (both edges out of the slice have blue), corners 4 white, 0 yellow.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+Card: **switch** (*3 or 4 pairs*). That group is 3.6% of 4c4e, 2,520 cases: 332 with a DR in 4 or less, 522 in 5, 1,160 in 6, 506 in 7 or more.
 
-Card: **discard** (one paired, edge ARM 0 or 2: 52.0% of 4c4e, 6.7% sub-7).
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c4e, ARM 20, 1 pair on 1 edge, 1 fake, 2 side pairs, corners 4a-2.
+Optimal DR on the normal side: `U L' U2 F2 L2 D R` (7 moves, too long). The whole attempt: `(U2 R' L' B' R') U L' U2 F2 L2 D R`, 12 to DR.
 
-Optimal DR on the inverse: `R U2 B2 R U' R U' R` (8 moves, not sub-7). The whole attempt: `R' F' L' F2 B (R U2 B2 R U' R U' R)`, 13 moves to DR.
-
 </details>
 
-**4c4e, example 56.** `B2 U2 R F2 R' D2 L R2 U2 F2 R D2 U2 R' U' B' D2 U2 R' B L2 B' L R2`
+## 4c2e: examples 91–120
 
-EO `L' F R' D2 B'`, no RZP needed: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 0, corner ARM 2 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `<->-o-o-`, D `<Eo-oE>-`, holes FL BR.
+The 4c2e card, one row per group, best first. *Sub-7* is the share of the group with a DR in 6 or less after the switch (exact, every case of 4c2e once; 18.7% for 4c2e as a whole):
 
-<details><summary>Verdict and the DR after the switch</summary>
+| What you read | Verdict | Share of 4c2e | Sub-7 |
+|---|---|---|---|
+| 2 pairs (a bar) | switch | 7.1% | 60.0% |
+| 1 pair and a side pair | switch | 15.1% | 55.5% |
+| 0 pairs, JZP (ARM 00) with 4b corners | switch | 0.71% | 66.7% |
+| 1 pair, no side pair, 4b-0 corners | switch | 1.8% | 43.3% |
+| 1 pair, no side pair, 4a-2 corners | if you have time | 2.5% | 23.8% |
+| 1 pair, no side pair, ARM 31 | if you have time | 4.3% | 19.4% |
+| 1 pair, anything else | skip | 12.0% | 9.4% |
+| 0 pairs, anything else | skip | 56.4% | 3.9% |
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+**Example 91 (4c2e).** `F2 R F2 U2 B2 R' U2 L2 D2 U2 L D2 R2 F' L2 R U L R U R2 F`
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+EO `U' B2 L F'`, RZP `R`: 4c2e in 5.
 
-Switched case: 4c4e, ARM 20, 0 pairs on 0 edges, 2 fake, 1 side pair, corners 4a-2.
+What you see:
 
-Optimal DR on the inverse: `U2 B2 U' F2 R' U2 F2 L` (8 moves, not sub-7). The whole attempt: `L' F R' D2 B' (U2 B2 U' F2 R' U2 F2 L)`, 13 moves to DR.
+- U/D edges in the E slice: yellow-green
+- Misoriented corners: white-green-orange showing green, yellow-green-red showing red, white-blue-red showing red, white-green-red showing red
+- E-slice edges out of the slice: green-orange
 
-</details>
+Reads: 1 pair, 1 side pair, ARM 31, 4c-1 corners.
 
-**4c4e, example 57.** `L' B2 R' F2 R B2 U2 R F2 L' B2 R B2 R D' B F' L' F' U' B' D2 F2`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `B' L' D R' B`, no RZP needed: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 2, corner ARM 2 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `<-<-o-o-`, D `>E>-oEo-`, holes BL BR.
+Card: **switch** (*1 pair and a side pair*). That group is 15.1% of 4c2e, 2,032 cases: 8 with a DR in 4 or less, 216 in 5, 904 in 6, 904 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **switch**. Fanti's pairs + ARM list: **switch**.
 
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+Optimal DR on the inverse: `D2 R2 D' R F2 R` (6 moves, good). The whole attempt: `U' B2 L F' R (D2 R2 D' R F2 R)`, 11 to DR.
 
-Card: **discard** (one paired, edge ARM 0 or 2: 52.0% of 4c4e, 6.7% sub-7).
+</details>
 
-Switched case: 4c4e, ARM 22, 1 pair on 1 edge, 1 fake, 1 side pair, corners 4a-2.
+**Example 92 (4c2e).** `U2 R2 F D2 F' R2 B L2 U2 F D2 B' R2 B' L2 R' U' F D' F U' F L2 F2 B2`
 
-Optimal DR on the inverse: `D2 F2 D' R' B2 L2 U' R` (8 moves, not sub-7). The whole attempt: `B' L' D R' B (D2 F2 D' R' B2 L2 U' R)`, 13 moves to DR.
+EO `L F B U' B'`, no RZP needed: 4c2e in 5.
 
-</details>
+What you see:
 
-**4c4e, example 58.** `L2 U2 B D2 B R2 F R2 F' R2 D2 B' R2 L' D' B' U R D' L2 U2 L2`
+- U/D edges in the E slice: white-blue
+- Misoriented corners: white-blue-red showing red, white-blue-orange showing orange, yellow-blue-red showing red, yellow-blue-orange showing orange
+- E-slice edges out of the slice: green-red
 
-EO `U D' B`, RZP `R' L`: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `oEo-<->-`, D `oEo-<->-`, holes FR FL.
+Reads: 2 pairs (a bar), 0 side pairs, ARM 41, 4a-4 corners.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+Card: **switch** (*2 pairs (a bar)*). That group is 7.1% of 4c2e, 960 cases: 64 with a DR in 4 or less, 152 in 5, 360 in 6, 384 in 7 or more.
 
-Switched case: 4c4e, ARM 21, 0 pairs on 0 edges, 0 fake, 0 side pairs, corners 4b-2.
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **switch**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the inverse: `U2 R2 L2 B2 L2 F2 D' R` (8 moves, not sub-7). The whole attempt: `U D' B R' L (U2 R2 L2 B2 L2 F2 D' R)`, 13 moves to DR.
+Optimal DR on the inverse: `U D R' F2 B2 R B2 R` (8 moves, too long). The whole attempt: `L F B U' B' (U D R' F2 B2 R B2 R)`, 13 to DR.
 
 </details>
 
-**4c4e, example 59.** `L2 U2 B2 R U2 R' U2 L' D2 L D2 B2 D' F2 L F2 R U B' U' F'`
+**Example 93 (4c2e).** `F2 U2 L2 U2 R2 B' R2 D2 B2 R2 B' D2 B L' F D' U2 B' D F U2 B'`
 
-EO `R2 D2 F' U B`, no RZP needed: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 2, corner ARM 2 (R/L stickers on U/D), 2 pairs, 2 side pairs. Rings: U `>-o-o-o-`, D `>E<-<Eo-`, holes FL BR.
+EO `(F2 L' F R2 B')`, no RZP needed, on the inverse scramble: 4c2e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
-
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
+What you see:
 
-Card: **discard** (one paired, edge ARM 0 or 2: 52.0% of 4c4e, 6.7% sub-7).
+- U/D edges in the E slice: white-blue
+- Misoriented corners: white-green-red showing red, white-blue-orange showing blue, yellow-green-orange showing orange, white-blue-red showing red
+- E-slice edges out of the slice: blue-orange
 
-Switched case: 4c4e, ARM 22, 2 pairs on 1 edge, 1 fake, 2 side pairs, corners 4b-2.
+Reads: 1 pair, 1 side pair, ARM 31, 4c-1 corners.
 
-Optimal DR on the inverse: `F2 U' L' D L' D R` (7 moves, not sub-7). The whole attempt: `R2 D2 F' U B (F2 U' L' D L' D R)`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*1 pair and a side pair*). That group is 15.1% of 4c2e, 2,032 cases: 8 with a DR in 4 or less, 216 in 5, 904 in 6, 904 in 7 or more.
 
-**4c4e, example 60.** `B2 F2 L D2 R D2 R B2 D2 F2 U2 L U' R U B' L' D' L' R' U R'`
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **switch**. Fanti's pairs + ARM list: **switch**.
 
-EO `L' U2 R2 L' B'`, no RZP needed: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 2, corner ARM 3 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `oE>->-<-`, D `oE<-o-o-`, holes FL BR.
+Optimal DR on the normal side: `L2 U R' F2 R` (5 moves, good). The whole attempt: `(F2 L' F R2 B') L2 U R' F2 R`, 10 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+**Example 94 (4c2e).** `L2 R2 F2 D2 B' D2 B L2 D2 B R2 U2 F' U' R D' R D F' B2 D B2`
 
-Card: **discard** (one paired, edge ARM 0 or 2: 52.0% of 4c4e, 6.7% sub-7).
+EO `L' U L F2 B`, no RZP needed: 4c2e in 5.
 
-Switched case: 4c4e, ARM 32, 1 pair on 1 edge, 1 fake, 1 side pair, corners 4c-1.
+What you see:
 
-Optimal DR on the inverse: `D' F2 R2 L2 D R` (6 moves, sub-7). The whole attempt: `L' U2 R2 L' B' (D' F2 R2 L2 D R)`, 11 moves to DR.
+- U/D edges in the E slice: yellow-orange
+- Misoriented corners: white-blue-red showing blue, yellow-blue-red showing blue, white-green-orange showing green, white-blue-orange showing blue
+- E-slice edges out of the slice: blue-orange
 
-</details>
+Reads: 0 pairs, 1 side pair, ARM 00, 4b-0 corners.
 
-**4c4e, example 61.** `D2 F2 R' F2 R U2 L F2 L' R2 U2 B' D R F' U2 B' U D' L B`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(F' B L D' F')`, no RZP needed, on the inverse scramble: 4c4e in 5. Traced before switching: 1 paired edge, edge ARM 2, corner ARM 1 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `oE<-o->-`, D `oE>-<-o-`, holes FL BL.
+Card: **switch** (*0 pairs, JZP (ARM 00) with 4b corners*). That group is 0.71% of 4c2e, 96 cases: 0 with a DR in 4 or less, 8 in 5, 56 in 6, 32 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-Half turns to two bars: **3** (51.0% of 4c4e, 16.0% sub-7).
+Optimal DR on the inverse: `B2 U2 F2 R D2 R` (6 moves, good). The whole attempt: `L' U L F2 B (B2 U2 F2 R D2 R)`, 11 to DR.
 
-Card: **discard** (one paired, edge ARM 0 or 2: 52.0% of 4c4e, 6.7% sub-7).
+</details>
 
-Switched case: 4c4e, ARM 12, 1 pair on 1 edge, 1 fake, 0 side pairs, corners 4c-1.
+**Example 95 (4c2e).** `U2 R2 U' L2 F2 D' L2 R2 F2 L2 D2 U' R' D2 R B' D B L2 R2 U'`
 
-Optimal DR on the normal side: `U' L2 D2 B2 U F2 D R` (8 moves, not sub-7). The whole attempt: `(F' B L D' F') U' L2 D2 B2 U F2 D R`, 13 moves to DR.
+EO `U' D' F' U F'`, no RZP needed: 4c2e in 5.
 
-</details>
+What you see:
 
-**4c4e, example 62.** `R2 B2 D2 R2 B L2 D2 B' U2 B U2 R2 B L2 F D' L' B' R2 U B2 R B2 L B'`
+- U/D edges in the E slice: white-blue
+- Misoriented corners: white-blue-red showing red, yellow-blue-orange showing orange, yellow-blue-red showing red, yellow-green-orange showing orange
+- E-slice edges out of the slice: green-orange
 
-EO `B' D L' U B`, no RZP needed: 4c4e in 5. Traced before switching: 0 paired edges, edge ARM 0, corner ARM 3 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `oE>-oEo-`, D `<-<-o->-`, holes BL BR.
+Reads: 1 pair, 0 side pairs, ARM 41, 4b-0 corners.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Half turns to two bars: **4** (33.8% of 4c4e, 1.7% sub-7).
 
-Card: **discard** (no bad edge paired: 52.0% of 4c4e, 6.7% sub-7).
+Card: **switch** (*1 pair, no side pair, 4b-0 corners*). That group is 1.8% of 4c2e, 240 cases: 0 with a DR in 4 or less, 0 in 5, 104 in 6, 136 in 7 or more.
 
-Switched case: 4c4e, ARM 30, 0 pairs on 0 edges, 1 fake, 1 side pair, corners 4c-1.
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the inverse: `U2 R2 D' B2 D' F2 B2 L` (8 moves, not sub-7). The whole attempt: `B' D L' U B (U2 R2 D' B2 D' F2 B2 L)`, 13 moves to DR.
+Optimal DR on the inverse: `L2 U D R B2 R` (6 moves, good). The whole attempt: `U' D' F' U F' (L2 U D R B2 R)`, 11 to DR.
 
 </details>
 
-## DRM 4c2e: examples 1–30
+**Example 96 (4c2e).** `L2 D2 B' F2 U2 F' L2 B U2 F' U2 R2 U2 D2 L' U B2 R' L D L' B`
 
-**4c2e, example 1.** `L D2 L2 D2 F2 L D2 L U2 F2 D2 R' D2 R' F2 U' R2 U2 B F2 U' F D' U'`
+EO `(L2 B U F)`, RZP `(R')`, on the inverse scramble: 4c2e in 5.
 
-EO `(B D' F' U' B)`, no RZP needed, on the inverse scramble: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 1 pair, 2 side pairs. Rings: U `<E<-o-o-`, D `>->-o-o-`, holes FR.
+What you see:
 
-<details><summary>Verdict and the DR after the switch</summary>
+- U/D edges in the E slice: white-green
+- Misoriented corners: yellow-green-orange showing orange, white-blue-orange showing orange, yellow-blue-red showing blue, white-green-orange showing orange
+- E-slice edges out of the slice: green-red
+
+Reads: 1 pair, 0 side pairs, ARM 31, 4c-1 corners.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (23.3% of 4c2e, 57.4% sub-7).
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **switch** (pairs + side pairs/2 is 1.5 or more: 22.3% of 4c2e, 57.0% sub-7).
+Card: **if you have time** (*1 pair, no side pair, ARM 31*). That group is 4.3% of 4c2e, 576 cases: 0 with a DR in 4 or less, 0 in 5, 112 in 6, 464 in 7 or more.
 
-Switched case: 4c2e, ARM 21, 1 pair on 1 edge, 1 fake, 2 side pairs, corners 4a-2.
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the normal side: `R U2 L2 U R` (5 moves, sub-7). The whole attempt: `(B D' F' U' B) R U2 L2 U R`, 10 moves to DR.
+Optimal DR on the normal side: `U' R F2 U R F2 R` (7 moves, too long). The whole attempt: `(L2 B U F R') U' R F2 U R F2 R`, 12 to DR.
 
 </details>
-
-**4c2e, example 2.** `F2 R F2 R' D2 L' U2 R2 D2 U2 R' D2 L' U' F' D2 U2 L' F U R2 B`
 
-EO `(F R' F2 R2 F')`, no RZP needed, on the inverse scramble: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 2 pairs, 1 side pair. Rings: U `>E<-o-o-`, D `<-o->-o-`, holes BR.
+**Example 97 (4c2e).** `F2 R F2 R' D2 L' U2 R2 D2 U2 R' D2 L' U' F' D2 U2 L' F U R2 B`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `U' D' R F`, RZP `R'`: 4c2e in 5.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (23.3% of 4c2e, 57.4% sub-7).
+What you see:
 
-Card: **switch** (pairs + side pairs/2 is 1.5 or more: 22.3% of 4c2e, 57.0% sub-7).
+- U/D edges in the E slice: white-red
+- Misoriented corners: white-green-orange showing orange, yellow-green-orange showing green, white-blue-orange showing orange, yellow-blue-red showing red
+- E-slice edges out of the slice: green-orange
 
-Switched case: 4c2e, ARM 31, 2 pairs on 1 edge, 0 fake, 1 side pair, corners 4c-1.
+Reads: 0 pairs, 1 side pair, ARM 30, 4c-1 corners.
 
-Optimal DR on the normal side: `F2 U' R' U2 R` (5 moves, sub-7). The whole attempt: `(F R' F2 R2 F') F2 U' R' U2 R`, 10 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **skip** (*0 pairs, anything else*). That group is 56.4% of 4c2e, 7,584 cases: 0 with a DR in 4 or less, 0 in 5, 296 in 6, 7,288 in 7 or more.
 
-**4c2e, example 3.** `U2 R2 F' B2 L2 B' U2 F L2 B' L2 D2 L2 R2 U' L F2 D' U R U' F`
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **skip**.
 
-EO `(R2 F L B')`, RZP `(R)`, on the inverse scramble: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 2 pairs, 1 side pair. Rings: U `<-o-o-o-`, D `>E<-o->-`, holes FL.
+Optimal DR on the inverse: `L' D F2 B2 R2 U' R` (7 moves, too long). The whole attempt: `U' D' R F R' (L' D F2 B2 R2 U' R)`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (23.3% of 4c2e, 57.4% sub-7).
+**Example 98 (4c2e).** `L2 B' R2 F U2 F' D2 F L2 R2 U2 B2 R' U2 B' R' U' L U2 B' L B'`
 
-Card: **switch** (pairs + side pairs/2 is 1.5 or more: 22.3% of 4c2e, 57.0% sub-7).
+EO ``, RZP `D' R U D2 L`: 4c2e in 5.
 
-Switched case: 4c2e, ARM 10, 2 pairs on 1 edge, 0 fake, 1 side pair, corners 4c-1.
+What you see:
 
-Optimal DR on the normal side: `R2 U D2 R F2 R` (6 moves, sub-7). The whole attempt: `(R2 F L B' R) R2 U D2 R F2 R`, 11 moves to DR.
+- U/D edges in the E slice: yellow-red
+- Misoriented corners: yellow-blue-orange showing blue, white-green-orange showing green, white-green-red showing green, yellow-green-orange showing green
+- E-slice edges out of the slice: green-red
 
-</details>
+Reads: 0 pairs, 1 side pair, ARM 00, 4b-0 corners.
 
-**4c2e, example 4.** `B2 F2 R' U2 L2 U2 B2 L' U2 R2 U2 F2 L R2 F2 U' R2 B R F U R B' D B'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(R' L F' U' B)`, no RZP needed, on the inverse scramble: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `<-<->-o-`, D `>Eo-o-o-`, holes BL.
+Card: **switch** (*0 pairs, JZP (ARM 00) with 4b corners*). That group is 0.71% of 4c2e, 96 cases: 0 with a DR in 4 or less, 8 in 5, 56 in 6, 32 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (23.3% of 4c2e, 57.4% sub-7).
+Optimal DR on the inverse: `U2 F2 R B2 U2 D2 L` (7 moves, too long). The whole attempt: `D' R U D2 L (U2 F2 R B2 U2 D2 L)`, 12 to DR.
 
-Card: **switch** (pairs + side pairs/2 is 1.5 or more: 22.3% of 4c2e, 57.0% sub-7).
+</details>
 
-Switched case: 4c2e, ARM 10, 1 pair on 1 edge, 0 fake, 1 side pair, corners 4c-1.
+**Example 99 (4c2e).** `L2 F2 U2 F2 D2 R' D2 B2 R2 D2 R' B2 R U' L B' F2 R' B L F2 R'`
 
-Optimal DR on the normal side: `R D L2 F2 D' R` (6 moves, sub-7). The whole attempt: `(R' L F' U' B) R D L2 F2 D' R`, 11 moves to DR.
+EO `D2 F' U2 F`, RZP `R'`: 4c2e in 5.
 
-</details>
+What you see:
 
-**4c2e, example 5.** `U2 R2 F D2 F' R2 B L2 U2 F D2 B' R2 B' L2 R' U' F D' F U' F L2 F2 B2`
+- U/D edges in the E slice: white-green
+- Misoriented corners: yellow-blue-red showing blue, yellow-blue-orange showing blue, white-green-orange showing orange, white-blue-red showing blue
+- E-slice edges out of the slice: green-red
 
-EO `L F B U' B'`, no RZP needed: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 4 (R/L stickers on U/D), 2 pairs, 0 side pairs. Rings: U `>E<-o-o-`, D `<-o-o->-`, holes FR.
+Reads: 1 pair, 0 side pairs, ARM 11, 4c-1 corners.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (76.7% of 4c2e, 6.9% sub-7).
+Card: **skip** (*1 pair, anything else*). That group is 12.0% of 4c2e, 1,616 cases: 0 with a DR in 4 or less, 0 in 5, 152 in 6, 1,464 in 7 or more.
 
-Card: **switch** (pairs + side pairs/2 is 1.5 or more: 22.3% of 4c2e, 57.0% sub-7).
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c2e, ARM 41, 2 pairs on 1 edge, 0 fake, 0 side pairs, corners 4a-4.
+Optimal DR on the inverse: `U' R' B2 D R B2 R` (7 moves, too long). The whole attempt: `D2 F' U2 F R' (U' R' B2 D R B2 R)`, 12 to DR.
 
-Optimal DR on the inverse: `U D R' F2 B2 R B2 R` (8 moves, not sub-7). The whole attempt: `L F B U' B' (U D R' F2 B2 R B2 R)`, 13 moves to DR.
-
 </details>
-
-**4c2e, example 6.** `F2 U2 L2 U2 R2 B' R2 D2 B2 R2 B' D2 B L' F D' U2 B' D F U2 B'`
 
-EO `(F2 L' F R2 B')`, no RZP needed, on the inverse scramble: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `<E<->-o-`, D `>-o-o-o-`, holes BL.
+**Example 100 (4c2e).** `L2 F2 L2 B' R2 D2 F2 D2 F2 R2 F R2 L2 F L' D' R2 D' L F2 D B L`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `R' F2 R L B'`, no RZP needed: 4c2e in 5.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (23.3% of 4c2e, 57.4% sub-7).
+What you see:
 
-Card: **switch** (pairs + side pairs/2 is 1.5 or more: 22.3% of 4c2e, 57.0% sub-7).
+- U/D edges in the E slice: white-red
+- Misoriented corners: white-blue-orange showing blue, white-green-orange showing green, yellow-blue-orange showing blue, white-green-red showing green
+- E-slice edges out of the slice: blue-red
 
-Switched case: 4c2e, ARM 31, 1 pair on 1 edge, 1 fake, 1 side pair, corners 4c-1.
+Reads: 1 pair, 0 side pairs, ARM 00, 4b-0 corners.
 
-Optimal DR on the normal side: `L2 U R' F2 R` (5 moves, sub-7). The whole attempt: `(F2 L' F R2 B') L2 U R' F2 R`, 10 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*1 pair, no side pair, 4b-0 corners*). That group is 1.8% of 4c2e, 240 cases: 0 with a DR in 4 or less, 0 in 5, 104 in 6, 136 in 7 or more.
 
-**4c2e, example 7.** `L' D2 R' U2 R D2 B2 R U2 L' D2 R D2 R F' D U' L' U' B' D' F2 U2`
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-EO `F D R' B'`, RZP `L`: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 2 pairs, 0 side pairs. Rings: U `<-o->-o-`, D `>E<-o-o-`, holes BR.
+Optimal DR on the inverse: `U2 D2 F2 D2 R' U2 R` (7 moves, too long). The whole attempt: `R' F2 R L B' (U2 D2 F2 D2 R' U2 R)`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (23.3% of 4c2e, 57.4% sub-7).
+**Example 101 (4c2e).** `U2 R2 F' B2 L2 B' U2 F L2 B' L2 D2 L2 R2 U' L F2 D' U R U' F`
 
-Card: **switch** (pairs + side pairs/2 is 1.5 or more: 22.3% of 4c2e, 57.0% sub-7).
+EO `(U2 F' L B')`, RZP `(R')`, on the inverse scramble: 4c2e in 5.
 
-Switched case: 4c2e, ARM 10, 2 pairs on 1 edge, 0 fake, 0 side pairs, corners 4c-1.
+What you see:
 
-Optimal DR on the inverse: `U2 R2 U' R' D2 R` (6 moves, sub-7). The whole attempt: `F D R' B' L (U2 R2 U' R' D2 R)`, 11 moves to DR.
+- U/D edges in the E slice: yellow-orange
+- Misoriented corners: white-green-orange showing green, white-green-red showing green, yellow-green-orange showing green, yellow-blue-red showing red
+- E-slice edges out of the slice: green-orange
 
-</details>
+Reads: 1 pair, 2 side pairs, ARM 10, 4c-1 corners.
 
-**4c2e, example 8.** `F2 U F2 L2 B2 U' L2 D2 R2 L2 D R2 U2 F' D2 U L D U L U2 F`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `R U' R D' B`, no RZP needed: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 4 (R/L stickers on U/D), 2 pairs, 0 side pairs. Rings: U `>E<-o-<-`, D `>-o-o-o-`, holes BL.
+Card: **switch** (*1 pair and a side pair*). That group is 15.1% of 4c2e, 2,032 cases: 8 with a DR in 4 or less, 216 in 5, 904 in 6, 904 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **switch**. Fanti's pairs + ARM list: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt**, short (23.3% of 4c2e, 57.4% sub-7).
+Optimal DR on the normal side: `U2 L' B2 U R D2 R` (7 moves, too long). The whole attempt: `(U2 F' L B' R') U2 L' B2 U R D2 R`, 12 to DR.
 
-Card: **switch** (pairs + side pairs/2 is 1.5 or more: 22.3% of 4c2e, 57.0% sub-7).
+</details>
 
-Switched case: 4c2e, ARM 41, 2 pairs on 1 edge, 0 fake, 0 side pairs, corners 4b-0.
+**Example 102 (4c2e).** `B2 L2 U2 L2 D2 F' D2 R2 F2 D2 F' R2 F U' B R' L2 F' R B L2 F'`
 
-Optimal DR on the inverse: `U D R B2 R` (5 moves, sub-7). The whole attempt: `R U' R D' B (U D R B2 R)`, 10 moves to DR.
+EO `(B2 U' F L2 B')`, no RZP needed, on the inverse scramble: 4c2e in 5.
 
-</details>
+What you see:
 
-**4c2e, example 9.** `B D2 F2 L2 U2 D2 F U2 B' L2 F D2 L2 U2 F' D' F' D' R U' B2 D R' F2`
+- U/D edges in the E slice: white-red
+- Misoriented corners: yellow-blue-orange showing blue, white-blue-red showing red, white-green-red showing green, yellow-green-orange showing orange
+- E-slice edges out of the slice: green-orange
 
-EO `U2 L B`, RZP `U R`: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 2 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `o-o-o-o-`, D `>E>-<-<-`, holes BL.
+Reads: 1 pair, 0 side pairs, ARM 20, 4a-2 corners.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.7% of 4c2e, 6.9% sub-7).
+Card: **if you have time** (*1 pair, no side pair, 4a-2 corners*). That group is 2.5% of 4c2e, 336 cases: 0 with a DR in 4 or less, 0 in 5, 80 in 6, 256 in 7 or more.
 
-Card: **switch** (pairs + side pairs/2 is 1.5 or more: 22.3% of 4c2e, 57.0% sub-7).
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c2e, ARM 20, 1 pair on 1 edge, 1 fake, 1 side pair, corners 4a-2.
+Optimal DR on the normal side: `B2 U2 D F2 R U2 R` (7 moves, too long). The whole attempt: `(B2 U' F L2 B') B2 U2 D F2 R U2 R`, 12 to DR.
 
-Optimal DR on the inverse: `D' L2 D' B2 R F2 R` (7 moves, not sub-7). The whole attempt: `U2 L B U R (D' L2 D' B2 R F2 R)`, 12 moves to DR.
-
 </details>
-
-**4c2e, example 10.** `D2 F2 L2 U F2 U' F2 D' B2 D B2 L2 B' R2 D R2 U F L' F' R'`
 
-EO `(R' L U' R2 F')`, no RZP needed, on the inverse scramble: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 0 (R/L stickers on U/D), 2 pairs, 2 side pairs. Rings: U `>E<->-o-`, D `<-o-o-o-`, holes FL.
+**Example 103 (4c2e).** `U2 R U2 R' D2 B2 L2 U2 F2 L' F2 D2 R D' R D R' B L B' L F`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `F D B' R2 B`, no RZP needed: 4c2e in 5.
 
-Shortest setup, U/D turns not counted: **2 qt**, short (23.3% of 4c2e, 57.4% sub-7).
+What you see:
 
-Card: **switch** (pairs + side pairs/2 is 1.5 or more: 22.3% of 4c2e, 57.0% sub-7).
+- U/D edges in the E slice: yellow-orange
+- Misoriented corners: white-green-red showing green, white-green-orange showing green, yellow-green-red showing green, white-blue-orange showing blue
+- E-slice edges out of the slice: green-red
 
-Switched case: 4c2e, ARM 00, 2 pairs on 1 edge, 0 fake, 2 side pairs, corners 4b-0, JZP.
+Reads: 0 pairs, 2 side pairs, ARM 00, 4b-0 corners.
 
-Optimal DR on the normal side: `R' F2 R` (3 moves, sub-7). The whole attempt: `(R' L U' R2 F') R' F2 R`, 8 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*0 pairs, JZP (ARM 00) with 4b corners*). That group is 0.71% of 4c2e, 96 cases: 0 with a DR in 4 or less, 8 in 5, 56 in 6, 32 in 7 or more.
 
-**4c2e, example 11.** `F' R2 F' D2 B2 U2 R2 B' U2 F' U2 L2 U2 F' L' D F' L2 U F' D' R D`
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-EO `F' B2 U L' B'`, no RZP needed: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `<-o-o-o-`, D `oE<->->-`, holes BR.
+Optimal DR on the inverse: `U2 F2 B2 D2 R F2 R` (7 moves, too long). The whole attempt: `F D B' R2 B (U2 F2 B2 D2 R F2 R)`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.7% of 4c2e, 6.9% sub-7).
+**Example 104 (4c2e).** `R2 B R2 B' D2 F' U2 B2 D2 U2 B' D2 F' U' R' D2 U2 F' R U B2 L`
 
-Card: **your call** (pairs + side pairs/2 is exactly 1: 24.6% of 4c2e, 15.7% sub-7).
+EO `(U2 D2 L F')`, RZP `(L')`, on the inverse scramble: 4c2e in 5.
 
-Switched case: 4c2e, ARM 10, 1 pair on 1 edge, 0 fake, 0 side pairs, corners 4c-1.
+What you see:
 
-Optimal DR on the inverse: `L D' F2 R2 U2 D' R` (7 moves, not sub-7). The whole attempt: `F' B2 U L' B' (L D' F2 R2 U2 D' R)`, 12 moves to DR.
+- U/D edges in the E slice: white-green
+- Misoriented corners: yellow-green-orange showing green, yellow-green-red showing green, white-blue-orange showing blue, white-green-red showing red
+- E-slice edges out of the slice: green-red
 
-</details>
+Reads: 1 pair, 1 side pair, ARM 11, 4c-1 corners.
 
-**4c2e, example 12.** `R2 B R2 B' D2 F' U2 B2 D2 U2 B' D2 F' U' R' D2 U2 F' R U B2 L`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(F2 B R L2 B)`, no RZP needed, on the inverse scramble: 4c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 2 side pairs. Rings: U `>-o-o-o-`, D `<Eo->-<-`, holes BR.
+Card: **switch** (*1 pair and a side pair*). That group is 15.1% of 4c2e, 2,032 cases: 8 with a DR in 4 or less, 216 in 5, 904 in 6, 904 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **switch**. Fanti's pairs + ARM list: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.7% of 4c2e, 6.9% sub-7).
+Optimal DR on the normal side: `U2 R' D R2 U R` (6 moves, good). The whole attempt: `(U2 D2 L F' L') U2 R' D R2 U R`, 11 to DR.
 
-Card: **your call** (pairs + side pairs/2 is exactly 1: 24.6% of 4c2e, 15.7% sub-7).
+</details>
 
-Switched case: 4c2e, ARM 21, 0 pairs on 0 edges, 1 fake, 2 side pairs, corners 4b-2.
+**Example 105 (4c2e).** `L2 F2 U2 F2 D2 R' D2 B2 R2 D2 R' B2 R U' L B' F2 R' B L F2 R'`
 
-Optimal DR on the normal side: `R D2 R' F2 R' U' R` (7 moves, not sub-7). The whole attempt: `(F2 B R L2 B) R D2 R' F2 R' U' R`, 12 moves to DR.
+EO `F2 B L2 B`, RZP `L`: 4c2e in 5.
 
-</details>
+What you see:
 
-**4c2e, example 13.** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
+- U/D edges in the E slice: white-green
+- Misoriented corners: white-blue-red showing blue, white-blue-orange showing blue, yellow-blue-red showing red, yellow-blue-orange showing orange
+- E-slice edges out of the slice: green-red
 
-EO `L B`, RZP `R U' R'`: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `<E<-o-o-`, D `>->-o-o-`, holes FL.
+Reads: 0 pairs, 0 side pairs, ARM 21, 4a-2 corners.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.7% of 4c2e, 6.9% sub-7).
+Card: **skip** (*0 pairs, anything else*). That group is 56.4% of 4c2e, 7,584 cases: 0 with a DR in 4 or less, 0 in 5, 296 in 6, 7,288 in 7 or more.
 
-Card: **your call** (pairs + side pairs/2 is exactly 1: 24.6% of 4c2e, 15.7% sub-7).
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **skip**.
 
-Switched case: 4c2e, ARM 21, 1 pair on 1 edge, 1 fake, 0 side pairs, corners 4b-2.
+Optimal DR on the inverse: `L2 D' R B2 U' B2 R` (7 moves, too long). The whole attempt: `F2 B L2 B L (L2 D' R B2 U' B2 R)`, 12 to DR.
 
-Optimal DR on the inverse: `D R' D2 R' B2 U L` (7 moves, not sub-7). The whole attempt: `L B R U' R' (D R' D2 R' B2 U L)`, 12 moves to DR.
-
 </details>
-
-**4c2e, example 14.** `L2 F2 U2 F2 D2 R' D2 B2 R2 D2 R' B2 R U' L B' F2 R' B L F2 R'`
 
-EO `F' U2 F`, RZP `D2 R'`: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `oE<-o->-`, D `<->-o-o-`, holes FR.
+**Example 106 (4c2e).** `F' R2 F' D2 B2 U2 R2 B' U2 F' U2 L2 U2 F' L' D F' L2 U F' D' R D`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `F' B2 U L' B`, no RZP needed: 4c2e in 5.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (23.3% of 4c2e, 57.4% sub-7).
+What you see:
 
-Card: **your call** (pairs + side pairs/2 is exactly 1: 24.6% of 4c2e, 15.7% sub-7).
+- U/D edges in the E slice: yellow-orange
+- Misoriented corners: white-blue-orange showing blue, yellow-green-red showing green, yellow-blue-red showing red, yellow-green-orange showing green
+- E-slice edges out of the slice: blue-red
 
-Switched case: 4c2e, ARM 31, 1 pair on 1 edge, 0 fake, 0 side pairs, corners 4c-1.
+Reads: 1 pair, 0 side pairs, ARM 10, 4c-1 corners.
 
-Optimal DR on the inverse: `U R U L F2 L' U R` (8 moves, not sub-7). The whole attempt: `F' U2 F D2 R' (U R U L F2 L' U R)`, 13 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **skip** (*1 pair, anything else*). That group is 12.0% of 4c2e, 1,616 cases: 0 with a DR in 4 or less, 0 in 5, 152 in 6, 1,464 in 7 or more.
 
-**4c2e, example 15.** `B2 R' D2 B2 R D2 R B2 R' B2 R F2 L' D2 D' R B R2 F' D L B L R2`
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-EO `(B' R2 F)`, RZP `(U R')`, on the inverse scramble: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 4 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `oE<-o-<-`, D `>-o->-o-`, holes FR.
+Optimal DR on the inverse: `L D' F2 R2 U2 D' R` (7 moves, too long). The whole attempt: `F' B2 U L' B (L D' F2 R2 U2 D' R)`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (76.7% of 4c2e, 6.9% sub-7).
+**Example 107 (4c2e).** `F2 R F2 R' D2 L' U2 R2 D2 U2 R' D2 L' U' F' D2 U2 L' F U R2 B`
 
-Card: **your call** (pairs + side pairs/2 is exactly 1: 24.6% of 4c2e, 15.7% sub-7).
+EO `(F R' B2 L2 F')`, no RZP needed, on the inverse scramble: 4c2e in 5.
 
-Switched case: 4c2e, ARM 41, 1 pair on 1 edge, 0 fake, 0 side pairs, corners 4a-4.
+What you see:
 
-Optimal DR on the normal side: `U' L' D L B2 D R` (7 moves, not sub-7). The whole attempt: `(B' R2 F U R') U' L' D L B2 D R`, 12 moves to DR.
+- U/D edges in the E slice: white-blue
+- Misoriented corners: yellow-blue-red showing blue, white-blue-red showing red, white-blue-orange showing orange, yellow-green-orange showing orange
+- E-slice edges out of the slice: blue-red
 
-</details>
+Reads: 2 pairs (a bar), 1 side pair, ARM 31, 4c-1 corners.
 
-**4c2e, example 16.** `L2 U2 B D2 B R2 F R2 F' R2 D2 B' R2 L' D' B' U R D' L2 U2 L2`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `B' U D' B'`, RZP `L`: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `>->-o-o-`, D `oE<-o-<-`, holes FL.
+Card: **switch** (*2 pairs (a bar)*). That group is 7.1% of 4c2e, 960 cases: 64 with a DR in 4 or less, 152 in 5, 360 in 6, 384 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **switch**. Fanti's pairs + ARM list: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (23.3% of 4c2e, 57.4% sub-7).
+Optimal DR on the normal side: `F2 U' R' U2 R` (5 moves, good). The whole attempt: `(F R' B2 L2 F') F2 U' R' U2 R`, 10 to DR.
 
-Card: **your call** (pairs + side pairs/2 is exactly 1: 24.6% of 4c2e, 15.7% sub-7).
+</details>
 
-Switched case: 4c2e, ARM 31, 1 pair on 1 edge, 0 fake, 0 side pairs, corners 4c-1.
+**Example 108 (4c2e).** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
 
-Optimal DR on the inverse: `U2 D L D R2 D L` (7 moves, not sub-7). The whole attempt: `B' U D' B' L (U2 D L D R2 D L)`, 12 moves to DR.
+EO `L F2 B`, RZP `D2 L`: 4c2e in 5.
 
-</details>
+What you see:
 
-**4c2e, example 17.** `D2 R D2 F2 U2 R' F2 L2 B2 F2 L B2 R2 D' L2 R F L R F R2 D`
+- U/D edges in the E slice: white-orange
+- Misoriented corners: white-green-orange showing green, white-blue-red showing red, white-blue-orange showing orange, white-green-red showing green
+- E-slice edges out of the slice: blue-red
 
-EO `D' F R L' F'`, no RZP needed: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 4 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `>-o->-o-`, D `oE<-o-<-`, holes BL.
+Reads: 1 pair, 0 side pairs, ARM 20, 4a-2 corners.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.7% of 4c2e, 6.9% sub-7).
+Card: **if you have time** (*1 pair, no side pair, 4a-2 corners*). That group is 2.5% of 4c2e, 336 cases: 0 with a DR in 4 or less, 0 in 5, 80 in 6, 256 in 7 or more.
 
-Card: **your call** (pairs + side pairs/2 is exactly 1: 24.6% of 4c2e, 15.7% sub-7).
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c2e, ARM 41, 1 pair on 1 edge, 0 fake, 0 side pairs, corners 4a-4.
+Optimal DR on the inverse: `U R2 U' B2 R U2 R` (7 moves, too long). The whole attempt: `L F2 B D2 L (U R2 U' B2 R U2 R)`, 12 to DR.
 
-Optimal DR on the inverse: `U R2 D2 L F2 U F2 L` (8 moves, not sub-7). The whole attempt: `D' F R L' F' (U R2 D2 L F2 U F2 L)`, 13 moves to DR.
-
 </details>
-
-**4c2e, example 18.** `L D2 L2 D2 F2 L D2 L U2 F2 D2 R' D2 R' F2 U' R2 U2 B F2 U' F D' U'`
 
-EO `(B D F' U' B)`, no RZP needed, on the inverse scramble: 4c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 0 (R/L stickers on U/D), 0 pairs, 2 side pairs. Rings: U `<E>-o-o-`, D `<->-o-o-`, holes FR.
+**Example 109 (4c2e).** `F R2 B2 U2 L2 R2 B L2 F' U2 B R2 U2 L2 B' R' B' R' D L' F2 R D' B2`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `L2 U F`, RZP `D2 R`: 4c2e in 5.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.7% of 4c2e, 6.9% sub-7).
+What you see:
 
-Card: **your call** (pairs + side pairs/2 is exactly 1: 24.6% of 4c2e, 15.7% sub-7).
+- U/D edges in the E slice: yellow-green
+- Misoriented corners: white-blue-red showing red, yellow-green-orange showing green, white-green-orange showing green, white-green-red showing red
+- E-slice edges out of the slice: green-orange
 
-Switched case: 4c2e, ARM 01, 0 pairs on 0 edges, 2 fake, 2 side pairs, corners 4a-0.
+Reads: 0 pairs, 2 side pairs, ARM 21, 4b-2 corners.
 
-Optimal DR on the normal side: `R' D' L2 D' R2 U' R` (7 moves, not sub-7). The whole attempt: `(B D F' U' B) R' D' L2 D' R2 U' R`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **skip** (*0 pairs, anything else*). That group is 56.4% of 4c2e, 7,584 cases: 0 with a DR in 4 or less, 0 in 5, 296 in 6, 7,288 in 7 or more.
 
-**4c2e, example 19.** `D2 L2 B2 U L2 U' L2 D' R2 D R2 B2 R' F2 D F2 U L B' L' F'`
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **skip**.
 
-EO `(B L' F)`, RZP `(D' L')`, on the inverse scramble: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 0 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `<-o-o->-`, D `>Eo-o-<-`, holes FL.
+Optimal DR on the inverse: `R2 U L2 D R' B2 R` (7 moves, too long). The whole attempt: `L2 U F D2 R (R2 U L2 D R' B2 R)`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (23.3% of 4c2e, 57.4% sub-7).
+**Example 110 (4c2e).** `B2 F2 R' U2 L2 U2 B2 L' U2 R2 U2 F2 L R2 F2 U' R2 B R F U R B' D B'`
 
-Card: **your call** (pairs + side pairs/2 is exactly 1: 24.6% of 4c2e, 15.7% sub-7).
+EO `(R' L F' U' B)`, no RZP needed, on the inverse scramble: 4c2e in 5.
 
-Switched case: 4c2e, ARM 00, 1 pair on 1 edge, 0 fake, 0 side pairs, corners 4b-0, JZP.
+What you see:
 
-Optimal DR on the normal side: `U2 D2 B2 R F2 R` (6 moves, sub-7). The whole attempt: `(B L' F D' L') U2 D2 B2 R F2 R`, 11 moves to DR.
+- U/D edges in the E slice: yellow-red
+- Misoriented corners: yellow-green-red showing green, white-blue-red showing blue, white-green-orange showing orange, white-blue-orange showing blue
+- E-slice edges out of the slice: blue-orange
 
-</details>
+Reads: 1 pair, 1 side pair, ARM 10, 4c-1 corners.
 
-**4c2e, example 20.** `L2 U F2 D B2 L2 D R2 U R2 D2 B2 U' B' R' B' U' F' D' R U2 R' B'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(D F U' L' B')`, no RZP needed, on the inverse scramble: 4c2e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `>Eo-o-<-`, D `<-o->-o-`, holes BR.
+Card: **switch** (*1 pair and a side pair*). That group is 15.1% of 4c2e, 2,032 cases: 8 with a DR in 4 or less, 216 in 5, 904 in 6, 904 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **switch**. Fanti's pairs + ARM list: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (23.3% of 4c2e, 57.4% sub-7).
+Optimal DR on the normal side: `R D L2 F2 D' R` (6 moves, good). The whole attempt: `(R' L F' U' B) R D L2 F2 D' R`, 11 to DR.
 
-Card: **your call** (pairs + side pairs/2 is exactly 1: 24.6% of 4c2e, 15.7% sub-7).
+</details>
 
-Switched case: 4c2e, ARM 10, 1 pair on 1 edge, 0 fake, 0 side pairs, corners 4c-1.
+**Example 111 (4c2e).** `B2 U' R2 B2 U R2 U B2 U' B2 U F2 D' R2 R' U B U2 F' R D B D U2`
 
-Optimal DR on the normal side: `U R2 U' D2 R U2 R` (7 moves, not sub-7). The whole attempt: `(D F U' L' B') U R2 U' D2 R U2 R`, 12 moves to DR.
+EO `(B' U2 F')`, RZP `(D R)`, on the inverse scramble: 4c2e in 5.
 
-</details>
+What you see:
 
-**4c2e, example 21.** `L2 F2 U2 F2 D2 R' D2 B2 R2 D2 R' B2 R U' L B' F2 R' B L F2 R'`
+- U/D edges in the E slice: white-blue
+- Misoriented corners: white-blue-red showing red, white-green-orange showing orange, white-green-red showing red, white-blue-orange showing orange
+- E-slice edges out of the slice: blue-red
 
-EO `B L B2 R2 B'`, no RZP needed: 4c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 4 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `oEo-o-<-`, D `<->-o->-`, holes FR.
+Reads: 2 pairs (a bar), 0 side pairs, ARM 41, 4a-4 corners.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.7% of 4c2e, 6.9% sub-7).
+Card: **switch** (*2 pairs (a bar)*). That group is 7.1% of 4c2e, 960 cases: 64 with a DR in 4 or less, 152 in 5, 360 in 6, 384 in 7 or more.
 
-Card: **discard** (pairs + side pairs/2 is 0 or 0.5: 53.2% of 4c2e, 4.0% sub-7).
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **switch**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c2e, ARM 41, 0 pairs on 0 edges, 0 fake, 0 side pairs, corners 4b-0.
+Optimal DR on the normal side: `U R' F2 B2 R' B2 R` (7 moves, too long). The whole attempt: `(B' U2 F' D R) U R' F2 B2 R' B2 R`, 12 to DR.
 
-Optimal DR on the inverse: `L2 U' D' B2 R U2 R` (7 moves, not sub-7). The whole attempt: `B L B2 R2 B' (L2 U' D' B2 R U2 R)`, 12 moves to DR.
-
 </details>
-
-**4c2e, example 22.** `B2 U' R2 B2 U R2 U B2 U' B2 U F2 D' R2 R' U B U2 F' R D B D U2`
 
-EO `(B' U2 F)`, RZP `(U L')`, on the inverse scramble: 4c2e in 5. Traced before switching: 0 paired edges, edge ARM 0, corner ARM 4 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `oE>-<->-`, D `<-o-o-o-`, holes FL.
+**Example 112 (4c2e).** `L D2 L2 D2 F2 L D2 L U2 F2 D2 R' D2 R' F2 U' R2 U2 B F2 U' F D' U'`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `(U D' F' U B')`, no RZP needed, on the inverse scramble: 4c2e in 5.
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (76.7% of 4c2e, 6.9% sub-7).
+What you see:
 
-Card: **discard** (pairs + side pairs/2 is 0 or 0.5: 53.2% of 4c2e, 4.0% sub-7).
+- U/D edges in the E slice: white-green
+- Misoriented corners: yellow-green-orange showing green, yellow-blue-orange showing blue, white-green-orange showing orange, yellow-green-red showing green
+- E-slice edges out of the slice: green-red
 
-Switched case: 4c2e, ARM 40, 0 pairs on 0 edges, 1 fake, 0 side pairs, corners 4b-0.
+Reads: 1 pair, 1 side pair, ARM 11, 4c-1 corners.
 
-Optimal DR on the normal side: `B2 D' F2 B2 D R U2 R` (8 moves, not sub-7). The whole attempt: `(B' U2 F U L') B2 D' F2 B2 D R U2 R`, 13 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*1 pair and a side pair*). That group is 15.1% of 4c2e, 2,032 cases: 8 with a DR in 4 or less, 216 in 5, 904 in 6, 904 in 7 or more.
 
-**4c2e, example 23.** `F' D2 B' U2 B D2 L2 B U2 F' D2 B D2 B R' D U' F' U' L' D' R2 U2`
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **switch**. Fanti's pairs + ARM list: **switch**.
 
-EO `(L F2 U' F B)`, no RZP needed, on the inverse scramble: 4c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `>-o-o-o-`, D `oE>-<-<-`, holes FR.
+Optimal DR on the normal side: `U' F2 B2 R' F2 R` (6 moves, good). The whole attempt: `(U D' F' U B') U' F2 B2 R' F2 R`, 11 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.7% of 4c2e, 6.9% sub-7).
+**Example 113 (4c2e).** `U2 L2 F2 R B2 D2 R B2 F2 L D2 R2 D2 D' F' R B R2 U' F' D' B'`
 
-Card: **discard** (pairs + side pairs/2 is 0 or 0.5: 53.2% of 4c2e, 4.0% sub-7).
+EO `(U F' B)`, RZP `(U L')`, on the inverse scramble: 4c2e in 5.
 
-Switched case: 4c2e, ARM 21, 0 pairs on 0 edges, 1 fake, 0 side pairs, corners 4b-2.
+What you see:
 
-Optimal DR on the normal side: `R D2 R' D2 R2 D' R` (7 moves, not sub-7). The whole attempt: `(L F2 U' F B) R D2 R' D2 R2 D' R`, 12 moves to DR.
+- U/D edges in the E slice: yellow-blue
+- Misoriented corners: yellow-green-red showing green, white-green-red showing red, yellow-blue-orange showing orange, white-blue-red showing red
+- E-slice edges out of the slice: green-orange
 
-</details>
+Reads: 1 pair, 0 side pairs, ARM 31, 4c-1 corners.
 
-**4c2e, example 24.** `F2 D2 L' R2 U2 R' F2 L U2 R' U2 B2 U2 D2 F' U L2 B' F D F' L`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(B L D' B')`, RZP `(R)`, on the inverse scramble: 4c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `oE>-<-o-`, D `<->-o-o-`, holes FL.
+Card: **if you have time** (*1 pair, no side pair, ARM 31*). That group is 4.3% of 4c2e, 576 cases: 0 with a DR in 4 or less, 0 in 5, 112 in 6, 464 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.7% of 4c2e, 6.9% sub-7).
+Optimal DR on the normal side: `R2 U2 D' R F2 R` (6 moves, good). The whole attempt: `(U F' B U L') R2 U2 D' R F2 R`, 11 to DR.
 
-Card: **discard** (pairs + side pairs/2 is 0 or 0.5: 53.2% of 4c2e, 4.0% sub-7).
+</details>
 
-Switched case: 4c2e, ARM 21, 0 pairs on 0 edges, 1 fake, 1 side pair, corners 4a-2.
+**Example 114 (4c2e).** `D B2 D2 B2 R2 D B2 D F2 R2 B2 U' B2 U' R2 F' U2 F2 L R2 F' R B' F'`
 
-Optimal DR on the normal side: `U' R' D' B2 L U2 D' L` (8 moves, not sub-7). The whole attempt: `(B L D' B' R) U' R' D' B2 L U2 D' L`, 13 moves to DR.
+EO `R B L' F`, RZP `R'`: 4c2e in 5.
 
-</details>
+What you see:
 
-**4c2e, example 25.** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
+- U/D edges in the E slice: yellow-blue
+- Misoriented corners: yellow-blue-orange showing orange, white-green-orange showing green, yellow-blue-red showing red, white-blue-orange showing blue
+- E-slice edges out of the slice: blue-orange
 
-EO `L F2 B`, RZP `D L`: 4c2e in 5. Traced before switching: 0 paired edges, edge ARM 0, corner ARM 3 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `<E>-o->-`, D `<-o-o-o-`, holes BR.
+Reads: 2 pairs (a bar), 1 side pair, ARM 21, 4b-2 corners.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (76.7% of 4c2e, 6.9% sub-7).
+Card: **switch** (*2 pairs (a bar)*). That group is 7.1% of 4c2e, 960 cases: 64 with a DR in 4 or less, 152 in 5, 360 in 6, 384 in 7 or more.
 
-Card: **discard** (pairs + side pairs/2 is 0 or 0.5: 53.2% of 4c2e, 4.0% sub-7).
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **switch**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c2e, ARM 30, 0 pairs on 0 edges, 2 fake, 1 side pair, corners 4c-1.
+Optimal DR on the inverse: `U2 R' F2 R U2 D L` (7 moves, too long). The whole attempt: `R B L' F R' (U2 R' F2 R U2 D L)`, 12 to DR.
 
-Optimal DR on the inverse: `U2 R' U' R U2 R' U R` (8 moves, not sub-7). The whole attempt: `L F2 B D L (U2 R' U' R U2 R' U R)`, 13 moves to DR.
-
 </details>
-
-**4c2e, example 26.** `R2 U R2 U' B2 D' F2 U2 B2 F2 U' B2 D' F' R' B2 F2 D' R F U2 L`
 
-EO `B D2 L2 B'`, RZP `L'`: 4c2e in 5. Traced before switching: 0 paired edges, edge ARM 0, corner ARM 2 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `oEo-o->-`, D `<-<-o->-`, holes FR.
+**Example 115 (4c2e).** `F2 U2 L2 B U2 B' U2 F' D2 F D2 L2 D' R2 F R2 B U L' U' R'`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `(L U R' D B')`, no RZP needed, on the inverse scramble: 4c2e in 5.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.7% of 4c2e, 6.9% sub-7).
+What you see:
 
-Card: **discard** (pairs + side pairs/2 is 0 or 0.5: 53.2% of 4c2e, 4.0% sub-7).
+- U/D edges in the E slice: yellow-green
+- Misoriented corners: yellow-blue-orange showing blue, white-green-orange showing orange, yellow-green-orange showing orange, white-blue-orange showing blue
+- E-slice edges out of the slice: blue-red
 
-Switched case: 4c2e, ARM 20, 0 pairs on 0 edges, 0 fake, 1 side pair, corners 4b-2.
+Reads: 1 pair, 0 side pairs, ARM 21, 4a-2 corners.
 
-Optimal DR on the inverse: `U2 R' U R F2 D F2 R` (8 moves, not sub-7). The whole attempt: `B D2 L2 B' L' (U2 R' U R F2 D F2 R)`, 13 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **if you have time** (*1 pair, no side pair, 4a-2 corners*). That group is 2.5% of 4c2e, 336 cases: 0 with a DR in 4 or less, 0 in 5, 80 in 6, 256 in 7 or more.
 
-**4c2e, example 27.** `F2 D2 R2 U L2 B2 U L2 R2 D B2 U2 B2 B' R' U L U2 F' R' B' L'`
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-EO `(L' F' R D' B)`, no RZP needed, on the inverse scramble: 4c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `<->-o->-`, D `<Eo-o-o-`, holes FL.
+Optimal DR on the normal side: `D B2 U R2 D' R B2 R` (8 moves, too long). The whole attempt: `(L U R' D B') D B2 U R2 D' R B2 R`, 13 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.7% of 4c2e, 6.9% sub-7).
+**Example 116 (4c2e).** `F2 R2 D' U2 L2 U' F2 D L2 U' L2 B2 L2 R2 F' L D2 B' F R F' D`
 
-Card: **discard** (pairs + side pairs/2 is 0 or 0.5: 53.2% of 4c2e, 4.0% sub-7).
+EO `F2 D' R' L2 B`, no RZP needed: 4c2e in 5.
 
-Switched case: 4c2e, ARM 31, 0 pairs on 0 edges, 1 fake, 1 side pair, corners 4c-1.
+What you see:
 
-Optimal DR on the normal side: `R2 L2 D R' B2 R` (6 moves, sub-7). The whole attempt: `(L' F' R D' B) R2 L2 D R' B2 R`, 11 moves to DR.
+- U/D edges in the E slice: yellow-green
+- Misoriented corners: yellow-green-orange showing orange, yellow-blue-orange showing orange, yellow-green-red showing red, white-blue-orange showing orange
+- E-slice edges out of the slice: blue-red
 
-</details>
+Reads: 2 pairs (a bar), 0 side pairs, ARM 41, 4b-0 corners.
 
-**4c2e, example 28.** `F2 U F2 L2 B2 U' L2 D2 R2 L2 D R2 U2 F' D2 U L D U L U2 F`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `U D L U' F`, no RZP needed: 4c2e in 5. Traced before switching: 0 paired edges, edge ARM 0, corner ARM 2 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `<Eo-o-o-`, D `<->->-o-`, holes BR.
+Card: **switch** (*2 pairs (a bar)*). That group is 7.1% of 4c2e, 960 cases: 64 with a DR in 4 or less, 152 in 5, 360 in 6, 384 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **switch**. Fanti's pairs + ARM list: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.7% of 4c2e, 6.9% sub-7).
+Optimal DR on the inverse: `U D' R D2 R` (5 moves, good). The whole attempt: `F2 D' R' L2 B (U D' R D2 R)`, 10 to DR.
 
-Card: **discard** (pairs + side pairs/2 is 0 or 0.5: 53.2% of 4c2e, 4.0% sub-7).
+</details>
 
-Switched case: 4c2e, ARM 20, 0 pairs on 0 edges, 1 fake, 0 side pairs, corners 4b-2.
+**Example 117 (4c2e).** `B D2 F2 L2 U2 D2 F U2 B' L2 F D2 L2 U2 F' D' F' D' R U' B2 D R' F2`
 
-Optimal DR on the inverse: `R D' F2 D R' F2 R` (7 moves, not sub-7). The whole attempt: `U D L U' F (R D' F2 D R' F2 R)`, 12 moves to DR.
+EO `U2 L B`, RZP `U R'`: 4c2e in 5.
 
-</details>
+What you see:
 
-**4c2e, example 29.** `U2 R' F2 R2 U2 B2 F2 R' D2 R2 B2 R' F2 D2 R' F' U' R' B F' R2 D' R F'`
+- U/D edges in the E slice: yellow-orange
+- Misoriented corners: yellow-blue-red showing blue, yellow-blue-orange showing blue, yellow-green-orange showing orange, yellow-green-red showing red
+- E-slice edges out of the slice: blue-orange
 
-EO `(B' U R' L2 B')`, no RZP needed, on the inverse scramble: 4c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `<->->-o-`, D `<Eo-o-o-`, holes FL.
+Reads: 1 pair, 1 side pair, ARM 20, 4a-2 corners.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.7% of 4c2e, 6.9% sub-7).
+Card: **switch** (*1 pair and a side pair*). That group is 15.1% of 4c2e, 2,032 cases: 8 with a DR in 4 or less, 216 in 5, 904 in 6, 904 in 7 or more.
 
-Card: **discard** (pairs + side pairs/2 is 0 or 0.5: 53.2% of 4c2e, 4.0% sub-7).
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **switch**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 4c2e, ARM 11, 0 pairs on 0 edges, 1 fake, 0 side pairs, corners 4c-1.
+Optimal DR on the inverse: `D' L2 D' B2 R F2 R` (7 moves, too long). The whole attempt: `U2 L B U R' (D' L2 D' B2 R F2 R)`, 12 to DR.
 
-Optimal DR on the normal side: `F2 L U2 D L' B2 D R` (8 moves, not sub-7). The whole attempt: `(B' U R' L2 B') F2 L U2 D L' B2 D R`, 13 moves to DR.
-
 </details>
 
-**4c2e, example 30.** `L D2 L2 D2 F2 L D2 L U2 F2 D2 R' D2 R' F2 U' R2 U2 B F2 U' F D' U'`
+**Example 118 (4c2e).** `L2 F2 U2 F2 D2 R' D2 B2 R2 D2 R' B2 R U' L B' F2 R' B L F2 R'`
 
-EO `(R2 D F' U' B')`, no RZP needed, on the inverse scramble: 4c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 0 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `oE>-o-o-`, D `<->-<-o-`, holes FR.
+EO `F' U2 F`, RZP `D2 R`: 4c2e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (76.7% of 4c2e, 6.9% sub-7).
+- U/D edges in the E slice: white-green
+- Misoriented corners: yellow-green-red showing red, yellow-blue-red showing red, white-blue-red showing blue, white-green-orange showing orange
+- E-slice edges out of the slice: green-red
 
-Card: **discard** (pairs + side pairs/2 is 0 or 0.5: 53.2% of 4c2e, 4.0% sub-7).
+Reads: 1 pair, 0 side pairs, ARM 31, 4c-1 corners.
 
-Switched case: 4c2e, ARM 01, 0 pairs on 0 edges, 1 fake, 0 side pairs, corners 4b-0.
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **if you have time** (*1 pair, no side pair, ARM 31*). That group is 4.3% of 4c2e, 576 cases: 0 with a DR in 4 or less, 0 in 5, 112 in 6, 464 in 7 or more.
 
-Optimal DR on the normal side: `U' D2 R U D R' D' R` (8 moves, not sub-7). The whole attempt: `(R2 D F' U' B') U' D2 R U D R' D' R`, 13 moves to DR.
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
+Optimal DR on the inverse: `U R U L F2 L' U R` (8 moves, too long). The whole attempt: `F' U2 F D2 R (U R U L F2 L' U R)`, 13 to DR.
+
 </details>
 
-## DRM 3c2e: examples 1–10
+**Example 119 (4c2e).** `R2 D' U' L2 U' B2 L2 D L2 B2 U2 B2 L' U2 B D' F2 R B' D' F2 U2`
 
-**3c2e, example 1.** `L2 U2 B2 R U2 R' U2 L' D2 L D2 B2 D' F2 L F2 R U B' U' F'`
+EO `(U' D2 R2 U2 B')`, no RZP needed, on the inverse scramble: 4c2e in 5.
 
-EO `(B U' F')`, RZP `(D R)`, on the inverse scramble: 3c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `oE>-o-o-`, D `>->-o-o-`, holes BL.
+What you see:
 
-<details><summary>Verdict and the DR after the switch</summary>
+- U/D edges in the E slice: white-blue
+- Misoriented corners: white-blue-red showing red, yellow-green-orange showing orange, yellow-blue-red showing red, yellow-green-red showing red
+- E-slice edges out of the slice: blue-orange
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (71.4% of 3c2e, 76.6% sub-7).
+Reads: 1 pair, 0 side pairs, ARM 41, 4b-0 corners.
 
-Card: **switch** (always: 100.0% of 3c2e, 61.6% sub-7).
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*1 pair, no side pair, 4b-0 corners*). That group is 1.8% of 4c2e, 240 cases: 0 with a DR in 4 or less, 0 in 5, 104 in 6, 136 in 7 or more.
 
-Switched case: 3c2e, ARM 11, 0 pairs on 0 edges, 1 fake, 0 side pairs.
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the normal side: `U' F2 B2 U R' U R` (7 moves, not sub-7). The whole attempt: `(B U' F' D R) U' F2 B2 U R' U R`, 12 moves to DR.
+Optimal DR on the normal side: `U2 R2 U' D' R B2 R` (7 moves, too long). The whole attempt: `(U' D2 R2 U2 B') U2 R2 U' D' R B2 R`, 12 to DR.
 
 </details>
 
-**3c2e, example 2.** `D2 L2 B2 L2 F2 U' F2 R2 U2 F2 U' R2 U B' D R' L2 U' R D L2 U'`
+**Example 120 (4c2e).** `B2 R' D2 B2 R D2 R B2 R' B2 R F2 L' D2 D' R B R2 F' D L B L R2`
 
-EO `(L2 F R2 U2 F')`, no RZP needed, on the inverse scramble: 3c2e in 5. Traced before switching: 0 paired edges, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `oE>->-o-`, D `>-o-o-o-`, holes BR.
+EO `(F' U2 B)`, RZP `(D L')`, on the inverse scramble: 4c2e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (28.6% of 3c2e, 24.2% sub-7).
+- U/D edges in the E slice: white-green
+- Misoriented corners: yellow-green-orange showing orange, white-green-orange showing orange, yellow-blue-red showing red, white-blue-red showing red
+- E-slice edges out of the slice: green-red
 
-Card: **switch** (always: 100.0% of 3c2e, 61.6% sub-7).
+Reads: 1 pair, 0 side pairs, ARM 41, 4a-4 corners.
 
-Switched case: 3c2e, ARM 10, 0 pairs on 0 edges, 1 fake, 1 side pair.
+<details><summary>Verdict and the DR after the switch</summary>
 
-Optimal DR on the normal side: `U D F2 R' L2 U R` (7 moves, not sub-7). The whole attempt: `(L2 F R2 U2 F') U D F2 R' L2 U R`, 12 moves to DR.
+Card: **skip** (*1 pair, anything else*). That group is 12.0% of 4c2e, 1,616 cases: 0 with a DR in 4 or less, 0 in 5, 152 in 6, 1,464 in 7 or more.
 
-</details>
+Pairs rule, 1.5+ pairs (2 side pairs = 1 pair): **skip**. Fanti's pairs + ARM list: **switch**.
 
-**3c2e, example 3.** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
+Optimal DR on the normal side: `U' L' D L B2 D R` (7 moves, too long). The whole attempt: `(F' U2 B D L') U' L' D L B2 D R`, 12 to DR.
 
-EO `(D2 R B2 U2 B')`, no RZP needed, on the inverse scramble: 3c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `oEo-o-o-`, D `>->->-o-`, holes FR.
+</details>
 
-<details><summary>Verdict and the DR after the switch</summary>
+## 3c2e: examples 121–140
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (28.6% of 3c2e, 24.2% sub-7).
+The 3c2e card, one row per group, best first. *Sub-7* is the share of the group with a DR in 6 or less after the switch (exact, every case of 3c2e once; 61.6% for 3c2e as a whole):
 
-Card: **switch** (always: 100.0% of 3c2e, 61.6% sub-7).
+| What you read | Verdict | Share of 3c2e | Sub-7 |
+|---|---|---|---|
+| 1 pair | switch | 37.5% | 88.7% |
+| 0 pairs, a fake pair or a split pair | switch | 44.6% | 56.5% |
+| 0 pairs, no fake pair, no split pair | if you have time | 17.9% | 17.5% |
 
-Switched case: 3c2e, ARM 11, 0 pairs on 0 edges, 0 fake, 1 side pair.
+**Example 121 (3c2e).** `D2 B' R2 D2 B R2 B D2 B' D2 B U2 F' R2 R' B D B2 U' R F D F B2`
 
-Optimal DR on the normal side: `U' B2 U R L2 U R` (7 moves, not sub-7). The whole attempt: `(D2 R B2 U2 B') U' B2 U R L2 U R`, 12 moves to DR.
+EO `R2 L B`, RZP `D2 R`: 3c2e in 5.
 
-</details>
+What you see:
 
-**3c2e, example 4.** `L2 R2 B' U2 F2 U2 L2 F' U2 B2 U2 R2 F B2 R2 U' B2 L B R U B L' D L'`
+- U/D edges in the E slice: white-green
+- Misoriented corners: white-blue-red showing red, white-green-red showing green, yellow-blue-red showing blue
+- E-slice edges out of the slice: blue-red
 
-EO `(B D' F)`, RZP `(R L)`, on the inverse scramble: 3c2e in 5. Traced before switching: 0 paired edges, edge ARM 0, corner ARM 0 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `<-o-<-o-`, D `oEo-o-<-`, holes BR.
+Reads: 0 pairs, 1 fake pair, 1 split pair.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (71.4% of 3c2e, 76.6% sub-7).
+Card: **switch** (*0 pairs, a fake pair or a split pair*). That group is 44.6% of 3c2e, 1,600 cases: 16 with a DR in 4 or less, 152 in 5, 736 in 6, 696 in 7 or more.
 
-Card: **switch** (always: 100.0% of 3c2e, 61.6% sub-7).
+Pairs rule, always: **switch**.
 
-Switched case: 3c2e, ARM 00, 0 pairs on 0 edges, 0 fake, 1 side pair.
+Optimal DR on the inverse: `U' R U2 D' R U2 R` (7 moves, too long). The whole attempt: `R2 L B D2 R (U' R U2 D' R U2 R)`, 12 to DR.
 
-Optimal DR on the normal side: `F2 B2 D L' D' L` (6 moves, sub-7). The whole attempt: `(B D' F R L) F2 B2 D L' D' L`, 11 moves to DR.
-
 </details>
-
-**3c2e, example 5.** `D2 B' R2 D2 B R2 B D2 B' D2 B U2 F' R2 R' B D B2 U' R F D F B2`
 
-EO `R2 L B`, RZP `D2 R'`: 3c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `<Eo-o-<-`, D `<-o-o-o-`, holes BR.
+**Example 122 (3c2e).** `F2 U' B2 L2 D' B2 R2 U' L2 U F2 D R2 F2 U2 F' D L U' L2 U' B2 F2 U`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `(D' F)`, RZP `(R' U2 R')`, on the inverse scramble: 3c2e in 5.
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (28.6% of 3c2e, 24.2% sub-7).
+What you see:
 
-Card: **switch** (always: 100.0% of 3c2e, 61.6% sub-7).
+- U/D edges in the E slice: yellow-green
+- Misoriented corners: white-blue-red showing red, white-green-orange showing orange, white-blue-orange showing blue
+- E-slice edges out of the slice: green-red
 
-Switched case: 3c2e, ARM 11, 0 pairs on 0 edges, 1 fake, 1 side pair.
+Reads: 0 pairs, 0 fake pairs, 0 split pairs.
 
-Optimal DR on the inverse: `U' R U2 D' R U2 R` (7 moves, not sub-7). The whole attempt: `R2 L B D2 R' (U' R U2 D' R U2 R)`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **if you have time** (*0 pairs, no fake pair, no split pair*). That group is 17.9% of 3c2e, 640 cases: 0 with a DR in 4 or less, 0 in 5, 112 in 6, 528 in 7 or more.
 
-**3c2e, example 6.** `U2 L2 F2 R B2 D2 R B2 F2 L D2 R2 D2 D' F' R B R2 U' F' D' B'`
+Pairs rule, always: **switch**.
 
-EO `(U' F' B')`, RZP `(U' L')`, on the inverse scramble: 3c2e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `<E<-o-<-`, D `o-o-o-o-`, holes BR.
+Optimal DR on the normal side: `U R2 U F2 R' U' R` (7 moves, too long). The whole attempt: `(D' F R' U2 R') U R2 U F2 R' U' R`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (71.4% of 3c2e, 76.6% sub-7).
+**Example 123 (3c2e).** `D2 L' B2 U2 R' U2 L2 D2 F2 L' B2 U2 R F2 R B' D2 R' D U2 B U2 F`
 
-Card: **switch** (always: 100.0% of 3c2e, 61.6% sub-7).
+EO `R F D B'`, RZP `R'`: 3c2e in 5.
 
-Switched case: 3c2e, ARM 10, 1 pair on 1 edge, 1 fake, 0 side pairs.
+What you see:
 
-Optimal DR on the normal side: `U' F2 D2 R D' R` (6 moves, sub-7). The whole attempt: `(U' F' B' U' L') U' F2 D2 R D' R`, 11 moves to DR.
+- U/D edges in the E slice: yellow-red
+- Misoriented corners: yellow-blue-orange showing blue, yellow-green-orange showing orange, white-green-red showing red
+- E-slice edges out of the slice: green-orange
 
-</details>
+Reads: 0 pairs, 0 fake pairs, 1 split pair.
 
-**3c2e, example 7.** `L2 D2 B' F2 U2 F' L2 B U2 F' U2 R2 U2 D2 L' U B2 R' L D L' B`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(B U F)`, RZP `(D R')`, on the inverse scramble: 3c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `>->-o-o-`, D `oEo->-o-`, holes FR.
+Card: **switch** (*0 pairs, a fake pair or a split pair*). That group is 44.6% of 3c2e, 1,600 cases: 16 with a DR in 4 or less, 152 in 5, 736 in 6, 696 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, always: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (71.4% of 3c2e, 76.6% sub-7).
+Optimal DR on the inverse: `D R2 U2 L D L` (6 moves, good). The whole attempt: `R F D B' R' (D R2 U2 L D L)`, 11 to DR.
 
-Card: **switch** (always: 100.0% of 3c2e, 61.6% sub-7).
+</details>
 
-Switched case: 3c2e, ARM 21, 0 pairs on 0 edges, 0 fake, 0 side pairs.
+**Example 124 (3c2e).** `D' B2 U R2 U' B2 U2 R2 U R2 B2 R2 B2 U R' F D2 L F D L2 F' D2 U'`
 
-Optimal DR on the normal side: `R2 U2 D2 R D R` (6 moves, sub-7). The whole attempt: `(B U F D R') R2 U2 D2 R D R`, 11 moves to DR.
+EO `R U2 B`, RZP `U L`: 3c2e in 5.
 
-</details>
+What you see:
 
-**3c2e, example 8.** `R2 D' B2 L2 U' L2 D2 R2 F2 D' B2 L2 U F2 U B' R2 U' R L2 B L2 F`
+- U/D edges in the E slice: white-green
+- Misoriented corners: white-blue-red showing red, white-green-orange showing orange, white-blue-orange showing blue
+- E-slice edges out of the slice: green-orange
 
-EO `U F' R F2 B'`, no RZP needed: 3c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `<E<-o-o-`, D `<-o-o-o-`, holes FR.
+Reads: 1 pair, 0 fake pairs, 1 split pair.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **2 qt**, short (71.4% of 3c2e, 76.6% sub-7).
+Card: **switch** (*1 pair*). That group is 37.5% of 3c2e, 1,344 cases: 120 with a DR in 4 or less, 400 in 5, 672 in 6, 152 in 7 or more.
 
-Card: **switch** (always: 100.0% of 3c2e, 61.6% sub-7).
+Pairs rule, always: **switch**.
 
-Switched case: 3c2e, ARM 11, 1 pair on 1 edge, 1 fake, 0 side pairs.
+Optimal DR on the inverse: `U2 R2 D' R2 L' U' L` (7 moves, too long). The whole attempt: `R U2 B U L (U2 R2 D' R2 L' U' L)`, 12 to DR.
 
-Optimal DR on the inverse: `U2 D R U' R` (5 moves, sub-7). The whole attempt: `U F' R F2 B' (U2 D R U' R)`, 10 moves to DR.
-
 </details>
 
-**3c2e, example 9.** `R F2 R' U2 R D2 B2 R' B2 R U2 L D' R' F L' B L' F2 D F2 L`
+**Example 125 (3c2e).** `B2 D2 U' L2 D L2 B2 D F2 L2 U F2 U2 L' U' F2 L' U R F' L2 B2 U'`
 
-EO `(D' L F R B')`, no RZP needed, on the inverse scramble: 3c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `oE>-o-o-`, D `>->-o-o-`, holes FR.
+EO `(F U D2 F)`, RZP `(L)`, on the inverse scramble: 3c2e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (71.4% of 3c2e, 76.6% sub-7).
+- U/D edges in the E slice: yellow-red
+- Misoriented corners: white-green-red showing red, yellow-green-orange showing orange, white-blue-orange showing orange
+- E-slice edges out of the slice: green-orange
 
-Card: **switch** (always: 100.0% of 3c2e, 61.6% sub-7).
+Reads: 0 pairs, 0 fake pairs, 0 split pairs.
 
-Switched case: 3c2e, ARM 11, 0 pairs on 0 edges, 1 fake, 0 side pairs.
+<details><summary>Verdict and the DR after the switch</summary>
 
-Optimal DR on the normal side: `R2 U2 D' R' U R` (6 moves, sub-7). The whole attempt: `(D' L F R B') R2 U2 D' R' U R`, 11 moves to DR.
+Card: **if you have time** (*0 pairs, no fake pair, no split pair*). That group is 17.9% of 3c2e, 640 cases: 0 with a DR in 4 or less, 0 in 5, 112 in 6, 528 in 7 or more.
 
-</details>
+Pairs rule, always: **switch**.
 
-**3c2e, example 10.** `L D2 L2 D2 F2 L D2 L U2 F2 D2 R' D2 R' F2 U' R2 U2 B F2 U' F D' U'`
+Optimal DR on the normal side: `B2 U F2 D' R' D R` (7 moves, too long). The whole attempt: `(F U D2 F L) B2 U F2 D' R' D R`, 12 to DR.
 
-EO `(D' F' U' F2 B')`, no RZP needed, on the inverse scramble: 3c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `oE<-o-o-`, D `<-o-<-o-`, holes FR.
+</details>
 
-<details><summary>Verdict and the DR after the switch</summary>
+**Example 126 (3c2e).** `L2 R2 B' U2 F2 U2 L2 F' U2 B2 U2 R2 F B2 R2 U' B2 L B R U B L' D L'`
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (71.4% of 3c2e, 76.6% sub-7).
+EO `(B D' F')`, RZP `(R' L')`, on the inverse scramble: 3c2e in 5.
 
-Card: **switch** (always: 100.0% of 3c2e, 61.6% sub-7).
+What you see:
 
-Switched case: 3c2e, ARM 11, 1 pair on 1 edge, 0 fake, 0 side pairs.
+- U/D edges in the E slice: yellow-orange
+- Misoriented corners: yellow-blue-red showing blue, white-green-red showing green, white-blue-orange showing blue
+- E-slice edges out of the slice: blue-red
 
-Optimal DR on the normal side: `U' R D R' D' R` (6 moves, sub-7). The whole attempt: `(D' F' U' F2 B') U' R D R' D' R`, 11 moves to DR.
+Reads: 0 pairs, 0 fake pairs, 1 split pair.
 
-</details>
+<details><summary>Verdict and the DR after the switch</summary>
 
-## DRM 7c8e: examples 1–30
+Card: **switch** (*0 pairs, a fake pair or a split pair*). That group is 44.6% of 3c2e, 1,600 cases: 16 with a DR in 4 or less, 152 in 5, 736 in 6, 696 in 7 or more.
 
-**7c8e, example 1.** `F2 U2 L2 B U2 B' U2 F' D2 F D2 L2 D' R2 F R2 B U L' U' R'`
+Pairs rule, always: **switch**.
 
-EO `(D2 R2 U' D' B')`, no RZP needed, on the inverse scramble: 7c8e in 5. Traced before switching: 4 paired edges, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 5 pairs, 4 side pairs. Rings: U `>E<E<->-`, D `>E>->Eo-`, holes FR FL BL BR.
+Optimal DR on the normal side: `F2 B2 D L' D' L` (6 moves, good). The whole attempt: `(B D' F' R' L') F2 B2 D L' D' L`, 11 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
+**Example 127 (3c2e).** `L2 U2 B2 R U2 R' U2 L' D2 L D2 B2 D' F2 L F2 R U B' U' F'`
 
-Card: **switch** (5 or 6 pairs: 16.3% of 7c8e, 59.0% sub-7).
+EO `(B U' F')`, RZP `(D R')`, on the inverse scramble: 3c2e in 5.
 
-Switched case: 7c8e, ARM 31, 5 pairs on 4 edges, 2 fake, 4 side pairs.
+What you see:
 
-Optimal DR on the normal side: `B2 R2 U L' U' R` (6 moves, sub-7). The whole attempt: `(D2 R2 U' D' B') B2 R2 U L' U' R`, 11 moves to DR.
+- U/D edges in the E slice: white-blue
+- Misoriented corners: yellow-blue-red showing red, white-blue-red showing blue, yellow-green-red showing green
+- E-slice edges out of the slice: blue-orange
 
-</details>
+Reads: 0 pairs, 1 fake pair, 0 split pairs.
 
-**7c8e, example 2.** `L2 F2 D R2 D' F2 U B2 L2 D R2 U' F2 U' B2 F' L' D R' D L' D B2 D2 U2`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `D B`, RZP `R U2 L`: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 5 pairs, 5 side pairs. Rings: U `<E<-<-o-`, D `>E<E>E<-`, holes FR FL BL BR.
+Card: **switch** (*0 pairs, a fake pair or a split pair*). That group is 44.6% of 3c2e, 1,600 cases: 16 with a DR in 4 or less, 152 in 5, 736 in 6, 696 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, always: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (6.7% of 7c8e, 95.4% sub-7).
+Optimal DR on the normal side: `U' F2 B2 U R' U R` (7 moves, too long). The whole attempt: `(B U' F' D R') U' F2 B2 U R' U R`, 12 to DR.
 
-Card: **switch** (5 or 6 pairs: 16.3% of 7c8e, 59.0% sub-7).
+</details>
 
-Switched case: 7c8e, ARM 21, 5 pairs on 3 edges, 3 fake, 5 side pairs.
+**Example 128 (3c2e).** `F2 R2 D' U2 L2 U' F2 D L2 U' L2 B2 L2 R2 F' L D2 B' F R F' D`
 
-Optimal DR on the inverse: `U2 R2 L D R` (5 moves, sub-7). The whole attempt: `D B R U2 L (U2 R2 L D R)`, 10 moves to DR.
+EO `U2 L' D2 F'`, RZP `R`: 3c2e in 5.
 
-</details>
+What you see:
 
-**7c8e, example 3.** `L2 B R2 D2 R2 L2 F' L2 F2 U2 F U2 F D2 B' L' F D R' U2 F' U' F' L F2`
+- U/D edges in the E slice: yellow-green
+- Misoriented corners: yellow-green-red showing green, white-blue-orange showing orange, white-blue-red showing blue
+- E-slice edges out of the slice: blue-orange
 
-EO `(U' R F')`, RZP `(U R)`, on the inverse scramble: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 3, corner ARM 5 (R/L stickers on U/D), 5 pairs, 2 side pairs. Rings: U `<EoE<-<-`, D `>E<->E<-`, holes FR FL BL BR.
+Reads: 0 pairs, 1 fake pair, 0 split pairs.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
 
-Card: **switch** (5 or 6 pairs: 16.3% of 7c8e, 59.0% sub-7).
+Card: **switch** (*0 pairs, a fake pair or a split pair*). That group is 44.6% of 3c2e, 1,600 cases: 16 with a DR in 4 or less, 152 in 5, 736 in 6, 696 in 7 or more.
 
-Switched case: 7c8e, ARM 53, 5 pairs on 3 edges, 1 fake, 2 side pairs.
+Pairs rule, always: **switch**.
 
-Optimal DR on the normal side: `U D R2 B2 R U L` (7 moves, not sub-7). The whole attempt: `(U' R F' U R) U D R2 B2 R U L`, 12 moves to DR.
+Optimal DR on the inverse: `U2 D2 R2 U L' D L` (7 moves, too long). The whole attempt: `U2 L' D2 F' R (U2 D2 R2 U L' D L)`, 12 to DR.
 
 </details>
 
-**7c8e, example 4.** `L2 D2 F2 U B2 R2 U B2 F2 D R2 U2 R2 R' F' U B U2 L' F' R' B'`
+**Example 129 (3c2e).** `U2 L D2 F2 D2 U2 R' U2 R2 B2 R B2 R F2 L' U' R F D' B2 R' B' R' U R2`
 
-EO `(D' L B' D' F')`, no RZP needed, on the inverse scramble: 7c8e in 5. Traced before switching: 4 paired edges, edge ARM 2, corner ARM 4 (R/L stickers on U/D), 5 pairs, 3 side pairs. Rings: U `>E>EoE<-`, D `>E<->->-`, holes FR FL BL BR.
+EO `D' F' R' U B'`, no RZP needed: 3c2e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
+What you see:
 
-Card: **switch** (5 or 6 pairs: 16.3% of 7c8e, 59.0% sub-7).
+- U/D edges in the E slice: white-red
+- Misoriented corners: yellow-green-red showing green, white-green-orange showing green, yellow-blue-red showing red
+- E-slice edges out of the slice: blue-red
 
-Switched case: 7c8e, ARM 42, 5 pairs on 4 edges, 1 fake, 3 side pairs.
+Reads: 0 pairs, 0 fake pairs, 1 split pair.
 
-Optimal DR on the normal side: `D R2 L2 F2 R U' L` (7 moves, not sub-7). The whole attempt: `(D' L B' D' F') D R2 L2 F2 R U' L`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*0 pairs, a fake pair or a split pair*). That group is 44.6% of 3c2e, 1,600 cases: 16 with a DR in 4 or less, 152 in 5, 736 in 6, 696 in 7 or more.
 
-**7c8e, example 5.** `U2 L2 U2 R2 B2 R2 B2 F' R2 B' R2 D2 B' R' U' L2 B D2 R' U L' B2 F2`
+Pairs rule, always: **switch**.
 
-EO `(B U' L2 B')`, RZP `(L')`, on the inverse scramble: 7c8e in 5. Traced before switching: 4 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 5 pairs, 5 side pairs. Rings: U `>E<-<-<-`, D `>EoE<E<-`, holes FR FL BL BR.
+Optimal DR on the inverse: `U F2 U R L2 D R` (7 moves, too long). The whole attempt: `D' F' R' U B' (U F2 U R L2 D R)`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
+**Example 130 (3c2e).** `L2 U2 B2 R2 U' L2 D2 U L2 B2 U' F2 B' L2 R2 U L' U B R U'`
 
-Card: **switch** (5 or 6 pairs: 16.3% of 7c8e, 59.0% sub-7).
+EO `R' U' L D2 F`, no RZP needed: 3c2e in 5.
 
-Switched case: 7c8e, ARM 21, 5 pairs on 4 edges, 1 fake, 5 side pairs.
+What you see:
 
-Optimal DR on the normal side: `U2 R2 L2 B2 L' D R` (7 moves, not sub-7). The whole attempt: `(B U' L2 B' L') U2 R2 L2 B2 L' D R`, 12 moves to DR.
+- U/D edges in the E slice: white-green
+- Misoriented corners: yellow-green-red showing red, yellow-blue-red showing blue, yellow-blue-orange showing orange
+- E-slice edges out of the slice: green-red
 
-</details>
+Reads: 0 pairs, 0 fake pairs, 0 split pairs.
 
-**7c8e, example 6.** `U2 R' B2 R' D2 L' B2 F2 L2 D2 F2 R B2 U2 D' L U' B F' R U' L2 F'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(L2 U' B R' F')`, no RZP needed, on the inverse scramble: 7c8e in 5. Traced before switching: 4 paired edges, edge ARM 3, corner ARM 3 (R/L stickers on U/D), 5 pairs, 4 side pairs. Rings: U `>E>-oE<-`, D `>E>E<->-`, holes FR FL BL BR.
+Card: **if you have time** (*0 pairs, no fake pair, no split pair*). That group is 17.9% of 3c2e, 640 cases: 0 with a DR in 4 or less, 0 in 5, 112 in 6, 528 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, always: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (6.7% of 7c8e, 95.4% sub-7).
+Optimal DR on the inverse: `U B2 U F2 L' U' L` (7 moves, too long). The whole attempt: `R' U' L D2 F (U B2 U F2 L' U' L)`, 12 to DR.
 
-Card: **switch** (5 or 6 pairs: 16.3% of 7c8e, 59.0% sub-7).
+</details>
 
-Switched case: 7c8e, ARM 33, 5 pairs on 4 edges, 2 fake, 4 side pairs.
+**Example 131 (3c2e).** `D L2 U B2 D2 F2 U' F2 U' F2 R2 U' F2 L2 B' D' B' F2 R' D' L R U`
 
-Optimal DR on the normal side: `U B2 R D' L` (5 moves, sub-7). The whole attempt: `(L2 U' B R' F') U B2 R D' L`, 10 moves to DR.
+EO `B L2 D L B`, no RZP needed: 3c2e in 5.
 
-</details>
+What you see:
 
-**7c8e, example 7.** `R2 F2 D' B2 D2 R2 D' L2 U R2 D2 U' F2 L' R' U' B' L F U' L'`
+- U/D edges in the E slice: white-orange
+- Misoriented corners: yellow-blue-red showing blue, white-blue-orange showing blue, yellow-blue-orange showing orange
+- E-slice edges out of the slice: blue-red
 
-EO `(B' R' F U B')`, no RZP needed, on the inverse scramble: 7c8e in 5. Traced before switching: 4 paired edges, edge ARM 2, corner ARM 5 (R/L stickers on U/D), 5 pairs, 2 side pairs. Rings: U `<E<-o->-`, D `>E<E<E<-`, holes FR FL BL BR.
+Reads: 1 pair, 0 fake pairs, 0 split pairs.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (6.7% of 7c8e, 95.4% sub-7).
 
-Card: **switch** (5 or 6 pairs: 16.3% of 7c8e, 59.0% sub-7).
+Card: **switch** (*1 pair*). That group is 37.5% of 3c2e, 1,344 cases: 120 with a DR in 4 or less, 400 in 5, 672 in 6, 152 in 7 or more.
 
-Switched case: 7c8e, ARM 52, 5 pairs on 4 edges, 3 fake, 2 side pairs.
+Pairs rule, always: **switch**.
 
-Optimal DR on the normal side: `U' B2 U L D R` (6 moves, sub-7). The whole attempt: `(B' R' F U B') U' B2 U L D R`, 11 moves to DR.
+Optimal DR on the inverse: `U L2 U2 R' U' R` (6 moves, good). The whole attempt: `B L2 D L B (U L2 U2 R' U' R)`, 11 to DR.
 
 </details>
 
-**7c8e, example 8.** `D2 R2 F L2 B2 D2 F R2 F' R2 F U2 R2 R' U B U R' B U' R' D' B'`
+**Example 132 (3c2e).** `D2 B U2 R2 B D2 F' U2 R2 B' D2 L2 B2 R2 D' U' B' D' L' F' L' U2 B'`
 
-EO `F' U' L U B`, no RZP needed: 7c8e in 5. Traced before switching: 4 paired edges, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 5 pairs, 4 side pairs. Rings: U `>E<-<E<-`, D `>EoE<-<-`, holes FR FL BL BR.
+EO `(D R B' R' F)`, no RZP needed, on the inverse scramble: 3c2e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
+What you see:
 
-Card: **switch** (5 or 6 pairs: 16.3% of 7c8e, 59.0% sub-7).
+- U/D edges in the E slice: yellow-green
+- Misoriented corners: white-green-red showing red, white-blue-red showing blue, yellow-green-orange showing orange
+- E-slice edges out of the slice: blue-orange
 
-Switched case: 7c8e, ARM 31, 5 pairs on 4 edges, 1 fake, 4 side pairs.
+Reads: 1 pair, 0 fake pairs, 0 split pairs.
 
-Optimal DR on the inverse: `D R2 F2 R' D L` (6 moves, sub-7). The whole attempt: `F' U' L U B (D R2 F2 R' D L)`, 11 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*1 pair*). That group is 37.5% of 3c2e, 1,344 cases: 120 with a DR in 4 or less, 400 in 5, 672 in 6, 152 in 7 or more.
 
-**7c8e, example 9.** `U2 F U2 B D2 B2 R2 F R2 U2 L2 B' U' R2 L B2 U' D2 F' D L U`
+Pairs rule, always: **switch**.
 
-EO `L' F R2 L B`, no RZP needed: 7c8e in 5. Traced before switching: 4 paired edges, edge ARM 3, corner ARM 4 (R/L stickers on U/D), 5 pairs, 3 side pairs. Rings: U `>E<E<E<-`, D `oE<-<->-`, holes FR FL BL BR.
+Optimal DR on the normal side: `U2 F2 D2 L U L` (6 moves, good). The whole attempt: `(D R B' R' F) U2 F2 D2 L U L`, 11 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
+**Example 133 (3c2e).** `R F2 R' U2 R D2 B2 R' B2 R U2 L D' R' F L' B L' F2 D F2 L`
 
-Card: **switch** (5 or 6 pairs: 16.3% of 7c8e, 59.0% sub-7).
+EO `(D' L F R B)`, no RZP needed, on the inverse scramble: 3c2e in 5.
 
-Switched case: 7c8e, ARM 43, 5 pairs on 4 edges, 2 fake, 3 side pairs.
+What you see:
 
-Optimal DR on the inverse: `U2 F2 R2 D L U R` (7 moves, not sub-7). The whole attempt: `L' F R2 L B (U2 F2 R2 D L U R)`, 12 moves to DR.
+- U/D edges in the E slice: white-green
+- Misoriented corners: yellow-blue-red showing red, yellow-blue-orange showing blue, white-green-orange showing green
+- E-slice edges out of the slice: green-red
 
-</details>
+Reads: 0 pairs, 1 fake pair, 0 split pairs.
 
-**7c8e, example 10.** `F D2 F2 D2 R2 F D2 F U2 R2 D2 B' D2 B' R2 U' B2 U2 L R2 U' R D' U'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(U2 D2 B R2 B')`, no RZP needed, on the inverse scramble: 7c8e in 5. Traced before switching: 4 paired edges, edge ARM 3, corner ARM 5 (R/L stickers on U/D), 5 pairs, 2 side pairs. Rings: U `>EoE<-<-`, D `>E<-<E<-`, holes FR FL BL BR.
+Card: **switch** (*0 pairs, a fake pair or a split pair*). That group is 44.6% of 3c2e, 1,600 cases: 16 with a DR in 4 or less, 152 in 5, 736 in 6, 696 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, always: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
+Optimal DR on the normal side: `R2 U2 D' R' U R` (6 moves, good). The whole attempt: `(D' L F R B) R2 U2 D' R' U R`, 11 to DR.
 
-Card: **switch** (5 or 6 pairs: 16.3% of 7c8e, 59.0% sub-7).
+</details>
 
-Switched case: 7c8e, ARM 53, 5 pairs on 4 edges, 1 fake, 2 side pairs.
+**Example 134 (3c2e).** `L2 U R2 F2 U L2 B2 D L2 U R2 D L2 D' F' L U' R' D L F D B2`
 
-Optimal DR on the normal side: `U D' R2 B2 R' U L` (7 moves, not sub-7). The whole attempt: `(U2 D2 B R2 B') U D' R2 B2 R' U L`, 12 moves to DR.
+EO `(F')`, RZP `(L' B2 U R')`, on the inverse scramble: 3c2e in 5.
 
-</details>
+What you see:
 
-**7c8e, example 11.** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
+- U/D edges in the E slice: yellow-red
+- Misoriented corners: white-green-red showing red, yellow-green-orange showing orange, white-green-orange showing green
+- E-slice edges out of the slice: green-red
 
-EO `D L2 D2 L' B'`, no RZP needed: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 2, corner ARM 6 (R/L stickers on U/D), 4 pairs, 1 side pair. Rings: U `oE>E<->-`, D `>E>E>-<-`, holes FR FL BL BR.
+Reads: 0 pairs, 0 fake pairs, 0 split pairs.
 
 <details><summary>Verdict and the DR after the switch</summary>
+
+Card: **if you have time** (*0 pairs, no fake pair, no split pair*). That group is 17.9% of 3c2e, 640 cases: 0 with a DR in 4 or less, 0 in 5, 112 in 6, 528 in 7 or more.
+
+Pairs rule, always: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
+Optimal DR on the normal side: `U F2 U B2 D L D L` (8 moves, too long). The whole attempt: `(F' L' B2 U R') U F2 U B2 D L D L`, 13 to DR.
 
-Card: **your call** (4 pairs: 33.7% of 7c8e, 15.9% sub-7).
+</details>
 
-Switched case: 7c8e, ARM 62, 4 pairs on 3 edges, 3 fake, 1 side pair.
+**Example 135 (3c2e).** `L' D2 L2 U2 R B2 D2 R' F2 R B2 D2 R D' B D' U' F' U' L2 B L' R2`
 
-Optimal DR on the inverse: `U R2 D F2 R D' L` (7 moves, not sub-7). The whole attempt: `D L2 D2 L' B' (U R2 D F2 R D' L)`, 12 moves to DR.
+EO `(R2 L' F B)`, RZP `(R')`, on the inverse scramble: 3c2e in 5.
 
-</details>
+What you see:
 
-**7c8e, example 12.** `F D2 F2 D2 R2 F D2 F U2 R2 D2 B' D2 B' R2 U' B2 U2 L R2 U' R D' U'`
+- U/D edges in the E slice: yellow-blue
+- Misoriented corners: yellow-green-red showing red, yellow-green-orange showing green, yellow-blue-orange showing orange
+- E-slice edges out of the slice: green-orange
 
-EO `L2 U F R2 F`, no RZP needed: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 3, corner ARM 3 (R/L stickers on U/D), 4 pairs, 4 side pairs. Rings: U `<EoE<->-`, D `>E<-<E<-`, holes FR FL BL BR.
+Reads: 1 pair, 0 fake pairs, 1 split pair.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
+Card: **switch** (*1 pair*). That group is 37.5% of 3c2e, 1,344 cases: 120 with a DR in 4 or less, 400 in 5, 672 in 6, 152 in 7 or more.
 
-Card: **your call** (4 pairs: 33.7% of 7c8e, 15.9% sub-7).
+Pairs rule, always: **switch**.
 
-Switched case: 7c8e, ARM 33, 4 pairs on 3 edges, 2 fake, 4 side pairs.
+Optimal DR on the normal side: `R2 U2 F2 R' D' R` (6 moves, good). The whole attempt: `(R2 L' F B R') R2 U2 F2 R' D' R`, 11 to DR.
 
-Optimal DR on the inverse: `U F2 L2 D R' U L` (7 moves, not sub-7). The whole attempt: `L2 U F R2 F (U F2 L2 D R' U L)`, 12 moves to DR.
-
 </details>
-
-**7c8e, example 13.** `U2 D2 F' L2 B2 L2 U2 B' L2 F2 L2 D2 B F2 D2 L' F2 U F D L F U' R U'`
 
-EO `(U2 F R' B')`, RZP `(L')`, on the inverse scramble: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 3, corner ARM 3 (R/L stickers on U/D), 4 pairs, 4 side pairs. Rings: U `>E>E<-o-`, D `>E>-<E>-`, holes FR FL BL BR.
+**Example 136 (3c2e).** `D R2 B2 R2 L2 D B2 D B2 U' R2 U F2 L2 R' B2 F' D' R2 D R2 F2`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `F'`, RZP `U2 D' B2 R'`: 3c2e in 5.
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (93.3% of 7c8e, 10.8% sub-7).
+What you see:
 
-Card: **your call** (4 pairs: 33.7% of 7c8e, 15.9% sub-7).
+- U/D edges in the E slice: yellow-red
+- Misoriented corners: white-blue-orange showing orange, white-blue-red showing blue, white-green-red showing red
+- E-slice edges out of the slice: green-red
 
-Switched case: 7c8e, ARM 33, 4 pairs on 3 edges, 4 fake, 4 side pairs.
+Reads: 0 pairs, 0 fake pairs, 0 split pairs.
 
-Optimal DR on the normal side: `F2 U' B2 D R U' L` (7 moves, not sub-7). The whole attempt: `(U2 F R' B' L') F2 U' B2 D R U' L`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **if you have time** (*0 pairs, no fake pair, no split pair*). That group is 17.9% of 3c2e, 640 cases: 0 with a DR in 4 or less, 0 in 5, 112 in 6, 528 in 7 or more.
 
-**7c8e, example 14.** `R2 D2 B U2 F2 R2 B D2 B' D2 B L2 D2 D' L F L D' F L' D' R' F'`
+Pairs rule, always: **switch**.
 
-EO `B U L F`, RZP `R'`: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 2, corner ARM 2 (R/L stickers on U/D), 4 pairs, 5 side pairs. Rings: U `>E<-<-o-`, D `<E<E<E>-`, holes FR FL BL BR.
+Optimal DR on the inverse: `D F2 U2 R2 L D L` (7 moves, too long). The whole attempt: `F' U2 D' B2 R' (D F2 U2 R2 L D L)`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
+**Example 137 (3c2e).** `F2 L' D2 B2 F2 R B2 L2 R' B2 L2 F2 R' U' L' U L2 U L' F L R'`
 
-Card: **your call** (4 pairs: 33.7% of 7c8e, 15.9% sub-7).
+EO `U2 L D R' B`, no RZP needed: 3c2e in 5.
 
-Switched case: 7c8e, ARM 22, 4 pairs on 3 edges, 4 fake, 5 side pairs.
+What you see:
 
-Optimal DR on the inverse: `U' B2 R D' L U F2 R` (8 moves, not sub-7). The whole attempt: `B U L F R' (U' B2 R D' L U F2 R)`, 13 moves to DR.
+- U/D edges in the E slice: yellow-green
+- Misoriented corners: white-green-red showing red, white-blue-red showing blue, white-blue-orange showing orange
+- E-slice edges out of the slice: blue-red
 
-</details>
+Reads: 0 pairs, 0 fake pairs, 0 split pairs.
 
-**7c8e, example 15.** `L2 F2 U2 F2 D2 R' D2 B2 R2 D2 R' B2 R U' L B' F2 R' B L F2 R'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `D' F' U2 F`, RZP `L`: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 2, corner ARM 6 (R/L stickers on U/D), 4 pairs, 1 side pair. Rings: U `>E>Eo->-`, D `<E>E<->-`, holes FR FL BL BR.
+Card: **if you have time** (*0 pairs, no fake pair, no split pair*). That group is 17.9% of 3c2e, 640 cases: 0 with a DR in 4 or less, 0 in 5, 112 in 6, 528 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, always: **switch**.
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (93.3% of 7c8e, 10.8% sub-7).
+Optimal DR on the inverse: `D2 R2 U2 F2 L D L` (7 moves, too long). The whole attempt: `U2 L D R' B (D2 R2 U2 F2 L D L)`, 12 to DR.
 
-Card: **your call** (4 pairs: 33.7% of 7c8e, 15.9% sub-7).
+</details>
 
-Switched case: 7c8e, ARM 62, 4 pairs on 3 edges, 3 fake, 1 side pair.
+**Example 138 (3c2e).** `U2 R D2 L' U2 L F2 L' B2 R2 B2 U2 R2 D' L2 R' B2 D' U2 L F`
 
-Optimal DR on the inverse: `U2 L2 U' R2 U' R' D' L` (8 moves, not sub-7). The whole attempt: `D' F' U2 F L (U2 L2 U' R2 U' R' D' L)`, 13 moves to DR.
+EO `F`, RZP `L' D2 F2 L`: 3c2e in 5.
 
-</details>
+What you see:
 
-**7c8e, example 16.** `D2 L2 U2 R2 B' L2 B D2 F2 R2 D2 B' F2 L' U' D2 B U D R U' B' F'`
+- U/D edges in the E slice: yellow-blue
+- Misoriented corners: yellow-blue-orange showing orange, yellow-green-orange showing green, yellow-green-red showing red
+- E-slice edges out of the slice: blue-orange
 
-EO `U' F' U' L B`, no RZP needed: 7c8e in 5. Traced before switching: 4 paired edges, edge ARM 3, corner ARM 4 (R/L stickers on U/D), 4 pairs, 3 side pairs. Rings: U `>Eo-<-<-`, D `>E>E>E>-`, holes FR FL BL BR.
+Reads: 1 pair, 0 fake pairs, 1 split pair.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
+Card: **switch** (*1 pair*). That group is 37.5% of 3c2e, 1,344 cases: 120 with a DR in 4 or less, 400 in 5, 672 in 6, 152 in 7 or more.
 
-Card: **your call** (4 pairs: 33.7% of 7c8e, 15.9% sub-7).
+Pairs rule, always: **switch**.
 
-Switched case: 7c8e, ARM 43, 4 pairs on 4 edges, 3 fake, 3 side pairs.
+Optimal DR on the inverse: `D2 R2 U' R2 L' D' L` (7 moves, too long). The whole attempt: `F L' D2 F2 L (D2 R2 U' R2 L' D' L)`, 12 to DR.
 
-Optimal DR on the inverse: `U2 F2 R2 U L' D' R` (7 moves, not sub-7). The whole attempt: `U' F' U' L B (U2 F2 R2 U L' D' R)`, 12 moves to DR.
-
 </details>
 
-**7c8e, example 17.** `L2 U2 B R2 B' D2 F B2 U2 R2 B D2 U2 B' U' L' D2 U2 B' L F2 L' F B2`
+**Example 139 (3c2e).** `B2 L' F2 L2 F2 R U2 R B2 F2 D2 F2 L' D' U' L' B F' D R F'`
 
-EO `(L' F R F B')`, no RZP needed, on the inverse scramble: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 4 pairs, 4 side pairs. Rings: U `<E<-o->-`, D `<E<E>E<-`, holes FR FL BL BR.
+EO `(L2 F D' F B)`, no RZP needed, on the inverse scramble: 3c2e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
+- U/D edges in the E slice: yellow-orange
+- Misoriented corners: yellow-green-orange showing green, yellow-green-red showing red, white-blue-red showing red
+- E-slice edges out of the slice: blue-red
 
-Card: **your call** (4 pairs: 33.7% of 7c8e, 15.9% sub-7).
+Reads: 1 pair, 0 fake pairs, 0 split pairs.
 
-Switched case: 7c8e, ARM 31, 4 pairs on 3 edges, 4 fake, 4 side pairs.
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*1 pair*). That group is 37.5% of 3c2e, 1,344 cases: 120 with a DR in 4 or less, 400 in 5, 672 in 6, 152 in 7 or more.
 
-Optimal DR on the normal side: `R2 L2 D' L D R` (6 moves, sub-7). The whole attempt: `(L' F R F B') R2 L2 D' L D R`, 11 moves to DR.
+Pairs rule, always: **switch**.
 
+Optimal DR on the normal side: `D F2 R' U' R` (5 moves, good). The whole attempt: `(L2 F D' F B) D F2 R' U' R`, 10 to DR.
+
 </details>
 
-**7c8e, example 18.** `D2 L2 B' R2 B2 D2 B' U2 F D2 B2 F' L2 U' D' F' R' U L F' U'`
+**Example 140 (3c2e).** `R2 D2 L' F2 D2 R2 D2 R' B2 D2 R2 D2 R F2 R' F' L F2 U2 R' D L F2 D'`
 
-EO `U2 R L2 U' F`, no RZP needed: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 3, corner ARM 3 (R/L stickers on U/D), 4 pairs, 4 side pairs. Rings: U `>E>E<-<-`, D `>E>-oE>-`, holes FR FL BL BR.
+EO `(D2 L F')`, RZP `(U R')`, on the inverse scramble: 3c2e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
+- U/D edges in the E slice: white-green
+- Misoriented corners: white-blue-red showing red, white-green-red showing green, yellow-green-red showing red
+- E-slice edges out of the slice: blue-red
 
-Card: **your call** (4 pairs: 33.7% of 7c8e, 15.9% sub-7).
+Reads: 0 pairs, 1 fake pair, 1 split pair.
 
-Switched case: 7c8e, ARM 33, 4 pairs on 3 edges, 3 fake, 4 side pairs.
+<details><summary>Verdict and the DR after the switch</summary>
 
-Optimal DR on the inverse: `U L2 D' F2 R U' L` (7 moves, not sub-7). The whole attempt: `U2 R L2 U' F (U L2 D' F2 R U' L)`, 12 moves to DR.
+Card: **switch** (*0 pairs, a fake pair or a split pair*). That group is 44.6% of 3c2e, 1,600 cases: 16 with a DR in 4 or less, 152 in 5, 736 in 6, 696 in 7 or more.
 
-</details>
+Pairs rule, always: **switch**.
 
-**7c8e, example 19.** `U2 L2 F2 R B2 D2 R B2 F2 L D2 R2 D2 D' F' R B R2 U' F' D' B'`
+Optimal DR on the normal side: `F2 D2 R L2 D' R` (6 moves, good). The whole attempt: `(D2 L F' U R') F2 D2 R L2 D' R`, 11 to DR.
 
-EO `(U R2 F' B)`, RZP `(R)`, on the inverse scramble: 7c8e in 5. Traced before switching: 4 paired edges, edge ARM 2, corner ARM 3 (R/L stickers on U/D), 4 pairs, 4 side pairs. Rings: U `<E<E<E<E`, D `<-o->->-`, holes FR FL BL BR.
+</details>
 
-<details><summary>Verdict and the DR after the switch</summary>
+## 7c8e: examples 141–170
 
-Shortest setup, U/D turns not counted: **4 qt**, not short (93.3% of 7c8e, 10.8% sub-7).
+The 7c8e card, one row per group, best first. *Sub-7* is the share of the group with a DR in 6 or less after the switch (exact, every case of 7c8e once; 16.4% for 7c8e as a whole):
 
-Card: **your call** (4 pairs: 33.7% of 7c8e, 15.9% sub-7).
+| What you read | Verdict | Share of 7c8e | Sub-7 |
+|---|---|---|---|
+| 6 pairs, not ARM 64 | switch | 1.9% | 96.5% |
+| 5 pairs, not ARM 20 or 54 | switch | 13.9% | 55.9% |
+| 4 pairs, ARM 21, 31 or 43 | switch | 6.5% | 34.9% |
+| 3 pairs, ARM 21 | switch | 0.61% | 27.8% |
+| 4 pairs, ARM 11, 12, 33, 41 or 62 | if you have time | 8.1% | 21.8% |
+| 4 pairs, anything else | skip | 19.0% | 6.8% |
+| 5 or 6 pairs with ARM 20, 54 or 64 | skip | 0.51% | 0% |
+| 3 pairs or fewer | skip | 49.4% | 2.5% |
 
-Switched case: 7c8e, ARM 32, 4 pairs on 4 edges, 4 fake, 4 side pairs.
+**Example 141 (7c8e).** `B D2 F2 L2 U2 D2 F U2 B' L2 F D2 L2 U2 F' D' F' D' R U' B2 D R' F2`
 
-Optimal DR on the normal side: `R' L' U' R' F2 U2 R` (7 moves, not sub-7). The whole attempt: `(U R2 F' B R) R' L' U' R' F2 U2 R`, 12 moves to DR.
+EO `L U2 B'`, RZP `D2 R'`: 7c8e in 5.
 
-</details>
+What you see:
 
-**7c8e, example 20.** `L2 U' B2 U' R2 D' B2 F2 D2 R2 F2 U B2 L2 R' D L' B F' U L' D2 F'`
+- U/D edges in the E slice: white-blue, white-green, yellow-blue, white-orange
+- Misoriented corners: white-blue-red showing red, yellow-blue-orange showing orange, yellow-green-orange showing green, yellow-blue-red showing red, white-blue-orange showing blue, white-green-red showing red, yellow-green-red showing red
+- E-slice edges out of the slice: green-orange, blue-red, blue-orange, green-red
 
-EO `U' R F' R' B'`, no RZP needed: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 2, corner ARM 2 (R/L stickers on U/D), 4 pairs, 5 side pairs. Rings: U `>Eo-<-<-`, D `<E>E<E<-`, holes FR FL BL BR.
+Reads: 5 pairs (white-blue 1, white-green 1, yellow-blue 2, white-orange 1), ARM 53.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (93.3% of 7c8e, 10.8% sub-7).
 
-Card: **your call** (4 pairs: 33.7% of 7c8e, 15.9% sub-7).
+Card: **switch** (*5 pairs, not ARM 20 or 54*). That group is 13.9% of 7c8e, 3,264 cases: 40 with a DR in 4 or less, 440 in 5, 1,344 in 6, 1,440 in 7 or more.
 
-Switched case: 7c8e, ARM 22, 4 pairs on 3 edges, 3 fake, 5 side pairs.
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the inverse: `U R2 L2 D' B2 R' U L` (8 moves, not sub-7). The whole attempt: `U' R F' R' B' (U R2 L2 D' B2 R' U L)`, 13 moves to DR.
+Optimal DR on the inverse: `F2 D' F2 U2 R U L` (7 moves, too long). The whole attempt: `L U2 B' D2 R' (F2 D' F2 U2 R U L)`, 12 to DR.
 
 </details>
 
-**7c8e, example 21.** `R2 F2 D' B2 D2 R2 D' L2 U R2 D2 U' F2 L' R' U' B' L F U' L'`
+**Example 142 (7c8e).** `D2 L2 B2 L' B2 R' D2 F2 L' D2 F2 R' B2 D2 L' B' U' F' U L' R D B2 L'`
 
-EO `(B' U' R' F B')`, no RZP needed, on the inverse scramble: 7c8e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 4 (R/L stickers on U/D), 2 pairs, 3 side pairs. Rings: U `<E>-<Eo-`, D `<E<E<->-`, holes FR FL BL BR.
-
-<details><summary>Verdict and the DR after the switch</summary>
+EO `R' B U F'`, RZP `L`: 7c8e in 5.
 
-Shortest setup, U/D turns not counted: **4 qt**, not short (93.3% of 7c8e, 10.8% sub-7).
+What you see:
 
-Card: **discard** (3 pairs or fewer: 50.0% of 7c8e, 2.9% sub-7).
+- U/D edges in the E slice: yellow-orange, yellow-blue, white-red, yellow-green
+- Misoriented corners: yellow-blue-red showing red, yellow-blue-orange showing blue, yellow-green-orange showing green, white-green-orange showing green, white-blue-orange showing orange, yellow-green-red showing red, white-blue-red showing blue
+- E-slice edges out of the slice: blue-orange, green-orange, blue-red, green-red
 
-Switched case: 7c8e, ARM 41, 2 pairs on 2 edges, 5 fake, 3 side pairs.
+Reads: 5 pairs (yellow-orange 2, yellow-blue 1, white-red 1, yellow-green 1), ARM 32.
 
-Optimal DR on the normal side: `R L2 D L U R' D R` (8 moves, not sub-7). The whole attempt: `(B' U' R' F B') R L2 D L U R' D R`, 13 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*5 pairs, not ARM 20 or 54*). That group is 13.9% of 7c8e, 3,264 cases: 40 with a DR in 4 or less, 440 in 5, 1,344 in 6, 1,440 in 7 or more.
 
-**7c8e, example 22.** `L2 U2 B R2 B' D2 F B2 U2 R2 B D2 U2 B' U' L' D2 U2 B' L F2 L' F B2`
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-EO `(F R F' L' B')`, no RZP needed, on the inverse scramble: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 1, corner ARM 5 (R/L stickers on U/D), 3 pairs, 2 side pairs. Rings: U `<E<-o->-`, D `<E<E<E>-`, holes FR FL BL BR.
+Optimal DR on the inverse: `U' R' U L2 D R L` (7 moves, too long). The whole attempt: `R' B U F' L (U' R' U L2 D R L)`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (93.3% of 7c8e, 10.8% sub-7).
+**Example 143 (7c8e).** `F R2 B2 U2 L2 R2 B L2 F' U2 B R2 U2 L2 B' R' B' R' D L' F2 R D' B2`
 
-Card: **discard** (3 pairs or fewer: 50.0% of 7c8e, 2.9% sub-7).
+EO `U L2 F`, RZP `D2 L`: 7c8e in 5.
 
-Switched case: 7c8e, ARM 51, 3 pairs on 3 edges, 5 fake, 2 side pairs.
+What you see:
 
-Optimal DR on the normal side: `U R' U' L' D B2 R` (7 moves, not sub-7). The whole attempt: `(F R F' L' B') U R' U' L' D B2 R`, 12 moves to DR.
+- U/D edges in the E slice: white-red, white-blue, yellow-orange, yellow-red
+- Misoriented corners: yellow-green-orange showing orange, white-green-red showing green, yellow-green-red showing green, white-green-orange showing orange, yellow-blue-orange showing orange, yellow-blue-red showing blue, white-blue-orange showing blue
+- E-slice edges out of the slice: blue-red, green-orange, blue-orange, green-red
 
-</details>
+Reads: 3 pairs (white-red 1, yellow-red 2), ARM 31.
 
-**7c8e, example 23.** `D2 L2 B2 L2 F2 U' F2 R2 U2 F2 U' R2 U B' D R' L2 U' R D L2 U'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(B2 U2 B')`, RZP `(R' L')`, on the inverse scramble: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 3, corner ARM 4 (R/L stickers on U/D), 3 pairs, 3 side pairs. Rings: U `<E<-o-<-`, D `<E<E>E>-`, holes FR FL BL BR.
+Card: **skip** (*3 pairs or fewer*). That group is 49.4% of 7c8e, 11,616 cases: 0 with a DR in 4 or less, 0 in 5, 296 in 6, 11,320 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (93.3% of 7c8e, 10.8% sub-7).
+Optimal DR on the inverse: `U' L2 U' F2 R2 L' D R` (8 moves, too long). The whole attempt: `U L2 F D2 L (U' L2 U' F2 R2 L' D R)`, 13 to DR.
 
-Card: **discard** (3 pairs or fewer: 50.0% of 7c8e, 2.9% sub-7).
+</details>
 
-Switched case: 7c8e, ARM 43, 3 pairs on 3 edges, 5 fake, 3 side pairs.
+**Example 144 (7c8e).** `R2 U2 F' D2 F2 R2 F' L2 B R2 F2 B' U2 L' R' B' D' L U B' L'`
 
-Optimal DR on the normal side: `U D R' L D R' D2 R` (8 moves, not sub-7). The whole attempt: `(B2 U2 B' R' L') U D R' L D R' D2 R`, 13 moves to DR.
+EO `R F R D' F'`, no RZP needed: 7c8e in 5.
 
-</details>
+What you see:
 
-**7c8e, example 24.** `L2 U2 B D2 B R2 F R2 F' R2 D2 B' R2 L' D' B' U R D' L2 U2 L2`
+- U/D edges in the E slice: white-green, yellow-red, white-red, white-orange
+- Misoriented corners: white-green-orange showing orange, yellow-green-orange showing green, white-blue-red showing blue, yellow-blue-orange showing blue, yellow-blue-red showing blue, yellow-green-red showing red, white-blue-orange showing blue
+- E-slice edges out of the slice: green-orange, blue-orange, green-red, blue-red
 
-EO `(R U D2 R2 F)`, no RZP needed, on the inverse scramble: 7c8e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 4 (R/L stickers on U/D), 2 pairs, 3 side pairs. Rings: U `<E<EoE>-`, D `<E<-<->-`, holes FR FL BL BR.
+Reads: 4 pairs (white-green 1, yellow-red 1, white-red 1, white-orange 1), ARM 21.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (93.3% of 7c8e, 10.8% sub-7).
 
-Card: **discard** (3 pairs or fewer: 50.0% of 7c8e, 2.9% sub-7).
+Card: **switch** (*4 pairs, ARM 21, 31 or 43*). That group is 6.5% of 7c8e, 1,536 cases: 0 with a DR in 4 or less, 40 in 5, 496 in 6, 1,000 in 7 or more.
 
-Switched case: 7c8e, ARM 42, 2 pairs on 2 edges, 4 fake, 3 side pairs.
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the normal side: `F2 L' D' R' U D2 R` (7 moves, not sub-7). The whole attempt: `(R U D2 R2 F) F2 L' D' R' U D2 R`, 12 moves to DR.
+Optimal DR on the inverse: `U2 B2 R2 F2 R D L` (7 moves, too long). The whole attempt: `R F R D' F' (U2 B2 R2 F2 R D L)`, 12 to DR.
 
 </details>
 
-**7c8e, example 25.** `F2 D2 L' R2 U2 R' F2 L U2 R' U2 B2 U2 D2 F' U L2 B' F D F' L`
+**Example 145 (7c8e).** `U2 F L2 B R2 U2 B D2 F D2 B2 R2 F' R' D' R' F' L' B' D F2 D' R'`
 
-EO `F2 U2 B2 U' B'`, no RZP needed: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 3 pairs, 4 side pairs. Rings: U `oE>E>-<-`, D `<E<-<E<-`, holes FR FL BL BR.
-
-<details><summary>Verdict and the DR after the switch</summary>
+EO `D2 R F' B`, RZP `R'`: 7c8e in 5.
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (93.3% of 7c8e, 10.8% sub-7).
+What you see:
 
-Card: **discard** (3 pairs or fewer: 50.0% of 7c8e, 2.9% sub-7).
+- U/D edges in the E slice: yellow-red, yellow-green, white-orange, yellow-orange
+- Misoriented corners: yellow-green-orange showing green, yellow-green-red showing red, white-blue-orange showing blue, yellow-blue-red showing blue, white-green-orange showing orange, yellow-blue-orange showing blue, white-green-red showing red
+- E-slice edges out of the slice: green-orange, green-red, blue-red, blue-orange
 
-Switched case: 7c8e, ARM 31, 3 pairs on 3 edges, 4 fake, 4 side pairs.
+Reads: 5 pairs (yellow-red 1, yellow-green 1, white-orange 1, yellow-orange 2), ARM 31.
 
-Optimal DR on the inverse: `R2 F2 B2 D' R D L` (7 moves, not sub-7). The whole attempt: `F2 U2 B2 U' B' (R2 F2 B2 D' R D L)`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*5 pairs, not ARM 20 or 54*). That group is 13.9% of 7c8e, 3,264 cases: 40 with a DR in 4 or less, 440 in 5, 1,344 in 6, 1,440 in 7 or more.
 
-**7c8e, example 26.** `F2 U F2 L2 B2 U' L2 D2 R2 L2 D R2 U2 F' D2 U L D U L U2 F`
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-EO `D L2 F'`, RZP `U R`: 7c8e in 5. Traced before switching: 1 paired edge, edge ARM 2, corner ARM 3 (R/L stickers on U/D), 1 pair, 4 side pairs. Rings: U `<E>-<-<-`, D `<E<EoE>-`, holes FR FL BL BR.
+Optimal DR on the inverse: `L D R2 D' R` (5 moves, good). The whole attempt: `D2 R F' B R' (L D R2 D' R)`, 10 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **4 qt**, not short (93.3% of 7c8e, 10.8% sub-7).
+**Example 146 (7c8e).** `L2 U' B2 U' R2 D' B2 F2 D2 R2 F2 U B2 L2 R' D L' B F' U L' D2 F'`
 
-Card: **discard** (3 pairs or fewer: 50.0% of 7c8e, 2.9% sub-7).
+EO `U' R F' R' B'`, no RZP needed: 7c8e in 5.
 
-Switched case: 7c8e, ARM 32, 1 pair on 1 edge, 5 fake, 4 side pairs.
+What you see:
 
-Optimal DR on the inverse: `R L U F2 U' R2 U R` (8 moves, not sub-7). The whole attempt: `D L2 F' U R (R L U F2 U' R2 U R)`, 13 moves to DR.
+- U/D edges in the E slice: yellow-blue, yellow-green, yellow-red, white-red
+- Misoriented corners: white-green-orange showing orange, yellow-blue-orange showing orange, yellow-green-orange showing green, white-blue-red showing blue, yellow-blue-red showing blue, white-blue-orange showing blue, yellow-green-red showing green
+- E-slice edges out of the slice: blue-orange, green-orange, green-red, blue-red
 
-</details>
+Reads: 4 pairs (yellow-blue 1, yellow-red 2, white-red 1), ARM 22.
 
-**7c8e, example 27.** `D2 R D2 R' B2 L' F2 R2 B2 F2 R' B2 L' F' D' B2 F2 L' D F R2 U`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `R' B2 D2 R' F'`, no RZP needed: 7c8e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 2 (R/L stickers on U/D), 3 pairs, 5 side pairs. Rings: U `<E<-<-<-`, D `oE>E<E>-`, holes FR FL BL BR.
+Card: **skip** (*4 pairs, anything else*). That group is 19.0% of 7c8e, 4,480 cases: 0 with a DR in 4 or less, 0 in 5, 304 in 6, 4,176 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Shortest setup, U/D turns not counted: **4 qt**, not short (93.3% of 7c8e, 10.8% sub-7).
+Optimal DR on the inverse: `U R2 L2 D' B2 R' U L` (8 moves, too long). The whole attempt: `U' R F' R' B' (U R2 L2 D' B2 R' U L)`, 13 to DR.
 
-Card: **discard** (3 pairs or fewer: 50.0% of 7c8e, 2.9% sub-7).
+</details>
 
-Switched case: 7c8e, ARM 22, 3 pairs on 2 edges, 4 fake, 5 side pairs.
+**Example 147 (7c8e).** `U2 F2 R2 B L2 D2 B L2 R2 F D2 B2 D2 D' R' B L B2 U' R' D' L'`
 
-Optimal DR on the inverse: `R L2 D' L U2 R2 D' R` (8 moves, not sub-7). The whole attempt: `R' B2 D2 R' F' (R L2 D' L U2 R2 D' R)`, 13 moves to DR.
+EO `(L' F L' D2 B)`, no RZP needed, on the inverse scramble: 7c8e in 5.
 
-</details>
+What you see:
 
-**7c8e, example 28.** `L2 D2 F2 U B2 R2 U B2 F2 D R2 U2 R2 R' F' U B U2 L' F' R' B'`
+- U/D edges in the E slice: white-green, yellow-blue, yellow-red, white-blue
+- Misoriented corners: white-blue-orange showing blue, yellow-blue-red showing red, white-blue-red showing red, white-green-orange showing green, white-green-red showing red, yellow-green-red showing green, yellow-green-orange showing orange
+- E-slice edges out of the slice: green-orange, blue-red, green-red, blue-orange
 
-EO `(L F B')`, RZP `(U' L)`, on the inverse scramble: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 3 pairs, 4 side pairs. Rings: U `<E<EoE<-`, D `<E<->->-`, holes FR FL BL BR.
+Reads: 4 pairs (white-green 1, yellow-blue 1, yellow-red 1, white-blue 1), ARM 43.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (93.3% of 7c8e, 10.8% sub-7).
 
-Card: **discard** (3 pairs or fewer: 50.0% of 7c8e, 2.9% sub-7).
+Card: **switch** (*4 pairs, ARM 21, 31 or 43*). That group is 6.5% of 7c8e, 1,536 cases: 0 with a DR in 4 or less, 40 in 5, 496 in 6, 1,000 in 7 or more.
 
-Switched case: 7c8e, ARM 31, 3 pairs on 3 edges, 3 fake, 4 side pairs.
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the normal side: `R2 L2 F2 U' L U R` (7 moves, not sub-7). The whole attempt: `(L F B' U' L) R2 L2 F2 U' L U R`, 12 moves to DR.
+Optimal DR on the normal side: `L2 U' F2 D L D' R` (7 moves, too long). The whole attempt: `(L' F L' D2 B) L2 U' F2 D L D' R`, 12 to DR.
 
 </details>
 
-**7c8e, example 29.** `F D2 F2 D2 R2 F D2 F U2 R2 D2 B' D2 B' R2 U' B2 U2 L R2 U' R D' U'`
+**Example 148 (7c8e).** `F D2 F2 D2 R2 F D2 F U2 R2 D2 B' D2 B' R2 U' B2 U2 L R2 U' R D' U'`
 
-EO `(F2 L2 B' U2 B')`, no RZP needed, on the inverse scramble: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 3, corner ARM 3 (R/L stickers on U/D), 3 pairs, 4 side pairs. Rings: U `<EoE<-<-`, D `<E<->E>-`, holes FR FL BL BR.
+EO `B U2 F2 U B`, no RZP needed: 7c8e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (93.3% of 7c8e, 10.8% sub-7).
+- U/D edges in the E slice: yellow-green, yellow-blue, white-red, white-blue
+- Misoriented corners: white-green-orange showing orange, yellow-green-red showing red, white-blue-red showing blue, white-green-red showing green, yellow-blue-orange showing orange, white-blue-orange showing blue, yellow-blue-red showing red
+- E-slice edges out of the slice: blue-orange, blue-red, green-red, green-orange
 
-Card: **discard** (3 pairs or fewer: 50.0% of 7c8e, 2.9% sub-7).
+Reads: 5 pairs (yellow-green 1, yellow-blue 2, white-red 2), ARM 43.
 
-Switched case: 7c8e, ARM 33, 3 pairs on 3 edges, 3 fake, 4 side pairs.
+<details><summary>Verdict and the DR after the switch</summary>
 
-Optimal DR on the normal side: `D' R D L D' R2 U' L` (8 moves, not sub-7). The whole attempt: `(F2 L2 B' U2 B') D' R D L D' R2 U' L`, 13 moves to DR.
+Card: **switch** (*5 pairs, not ARM 20 or 54*). That group is 13.9% of 7c8e, 3,264 cases: 40 with a DR in 4 or less, 440 in 5, 1,344 in 6, 1,440 in 7 or more.
 
-</details>
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-**7c8e, example 30.** `L2 B U2 F D2 L2 F R2 B R2 F2 D2 B' D' R' D' B' U' F' R B2 R' D'`
+Optimal DR on the inverse: `L D' R' U' L` (5 moves, good). The whole attempt: `B U2 F2 U B (L D' R' U' L)`, 10 to DR.
 
-EO `R D' B R' F'`, no RZP needed: 7c8e in 5. Traced before switching: 3 paired edges, edge ARM 2, corner ARM 4 (R/L stickers on U/D), 3 pairs, 3 side pairs. Rings: U `oE<E>->-`, D `>E>E>-<-`, holes FR FL BL BR.
+</details>
 
-<details><summary>Verdict and the DR after the switch</summary>
+**Example 149 (7c8e).** `L2 R2 D' L2 U L2 D2 B2 D' B2 L2 U' L2 B2 B' R U' F D2 L F2 D' L`
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (93.3% of 7c8e, 10.8% sub-7).
+EO `D' F R' U B`, no RZP needed: 7c8e in 5.
 
-Card: **discard** (3 pairs or fewer: 50.0% of 7c8e, 2.9% sub-7).
+What you see:
 
-Switched case: 7c8e, ARM 42, 3 pairs on 3 edges, 4 fake, 3 side pairs.
+- U/D edges in the E slice: white-red, yellow-green, yellow-orange, white-orange
+- Misoriented corners: yellow-blue-red showing blue, yellow-green-red showing green, yellow-green-orange showing green, white-blue-red showing blue, yellow-blue-orange showing orange, white-green-orange showing orange, white-green-red showing green
+- E-slice edges out of the slice: blue-orange, green-red, green-orange, blue-red
 
-Optimal DR on the inverse: `L' B2 U R F2 D' L` (7 moves, not sub-7). The whole attempt: `R D' B R' F' (L' B2 U R F2 D' L)`, 12 moves to DR.
+Reads: 3 pairs (white-red 2, yellow-orange 1), ARM 21.
 
-</details>
+<details><summary>Verdict and the DR after the switch</summary>
 
-## DRM 8c8e: examples 1–16
+Card: **switch** (*3 pairs, ARM 21*). That group is 0.61% of 7c8e, 144 cases: 0 with a DR in 4 or less, 0 in 5, 40 in 6, 104 in 7 or more.
 
-**8c8e, example 1.** `L2 R2 B' U2 F2 U2 L2 F' U2 B2 U2 R2 F B2 R2 U' B2 L B R U B L' D L'`
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **switch**.
 
-EO `(R2 F2 B U F')`, no RZP needed, on the inverse scramble: 8c8e in 5. Traced before switching: 2 paired edges, edge ARM 3, corner ARM 4 (R/L stickers on U/D), 4 pairs, 4 side pairs. Rings: U `<E>E<E>-`, D `>E<->-<-`, holes FR FL BL BR.
+Optimal DR on the inverse: `L U2 R' U2 D R` (6 moves, good). The whole attempt: `D' F R' U B (L U2 R' U2 D R)`, 11 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (99.4% of 8c8e, 14.0% sub-7).
+**Example 150 (7c8e).** `D2 L2 B2 L' B2 R' D2 F2 L' D2 F2 R' B2 D2 L' B' U' F' U L' R D B2 L'`
 
-Card: **your call** (corner ARM 0, 4 or 8: 44.2% of 8c8e, 20.5% sub-7).
+EO `R' U' B' U' F'`, no RZP needed: 7c8e in 5.
 
-Switched case: 8c8e, ARM 43, 4 pairs on 2 edges, 4 fake, 4 side pairs.
+What you see:
 
-Optimal DR on the normal side: `U R2 U R' L U' D L` (8 moves, not sub-7). The whole attempt: `(R2 F2 B U F') U R2 U R' L U' D L`, 13 moves to DR.
+- U/D edges in the E slice: white-red, white-green, yellow-red, yellow-green
+- Misoriented corners: yellow-blue-orange showing orange, white-green-red showing green, yellow-green-orange showing orange, yellow-blue-red showing blue, yellow-green-red showing red, white-green-orange showing orange, white-blue-red showing blue
+- E-slice edges out of the slice: green-red, blue-orange, blue-red, green-orange
 
-</details>
+Reads: 6 pairs (white-red 2, white-green 1, yellow-red 1, yellow-green 2), ARM 42.
 
-**8c8e, example 2.** `L2 U' B2 U' R2 D' B2 F2 D2 R2 F2 U B2 L2 R' D L' B F' U L' D2 F'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `U B' R F'`, RZP `R'`: 8c8e in 5. Traced before switching: 4 paired edges, edge ARM 2, corner ARM 4 (R/L stickers on U/D), 4 pairs, 4 side pairs. Rings: U `>E>->->-`, D `<E<E<E<-`, holes FR FL BL BR.
+Card: **switch** (*6 pairs, not ARM 64*). That group is 1.9% of 7c8e, 456 cases: 80 with a DR in 4 or less, 144 in 5, 216 in 6, 16 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (99.4% of 8c8e, 14.0% sub-7).
+Optimal DR on the inverse: `U D' L D L2 U' R` (7 moves, too long). The whole attempt: `R' U' B' U' F' (U D' L D L2 U' R)`, 12 to DR.
 
-Card: **your call** (corner ARM 0, 4 or 8: 44.2% of 8c8e, 20.5% sub-7).
+</details>
 
-Switched case: 8c8e, ARM 42, 4 pairs on 4 edges, 4 fake, 4 side pairs.
+**Example 151 (7c8e).** `D' B2 D2 R2 D R2 D L2 B2 F2 U2 F2 R2 R' U2 B L D L F D R' D`
 
-Optimal DR on the inverse: `R' L' D R2 U2 L` (6 moves, sub-7). The whole attempt: `U B' R F' R' (R' L' D R2 U2 L)`, 11 moves to DR.
+EO `U' F B' U' F'`, no RZP needed: 7c8e in 5.
 
-</details>
+What you see:
 
-**8c8e, example 3.** `F D2 F2 D2 R2 F D2 F U2 R2 D2 B' D2 B' R2 U' B2 U2 L R2 U' R D' U'`
+- U/D edges in the E slice: yellow-red, white-red, yellow-orange, white-blue
+- Misoriented corners: white-green-orange showing green, yellow-green-orange showing orange, yellow-blue-orange showing blue, white-green-red showing red, yellow-blue-red showing blue, white-blue-red showing blue, white-blue-orange showing blue
+- E-slice edges out of the slice: blue-orange, green-orange, green-red, blue-red
 
-EO `U F2 B' D2 B`, no RZP needed: 8c8e in 5. Traced before switching: 3 paired edges, edge ARM 3, corner ARM 4 (R/L stickers on U/D), 4 pairs, 4 side pairs. Rings: U `<E>E>->-`, D `>E<-<E<-`, holes FR FL BL BR.
+Reads: 3 pairs (yellow-red 1, white-red 1, yellow-orange 1), ARM 21.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (99.4% of 8c8e, 14.0% sub-7).
+Card: **switch** (*3 pairs, ARM 21*). That group is 0.61% of 7c8e, 144 cases: 0 with a DR in 4 or less, 0 in 5, 40 in 6, 104 in 7 or more.
 
-Card: **your call** (corner ARM 0, 4 or 8: 44.2% of 8c8e, 20.5% sub-7).
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 8c8e, ARM 43, 4 pairs on 3 edges, 4 fake, 4 side pairs.
+Optimal DR on the inverse: `R F2 L' F2 L2 U' L` (7 moves, too long). The whole attempt: `U' F B' U' F' (R F2 L' F2 L2 U' L)`, 12 to DR.
 
-Optimal DR on the inverse: `R' D' L U' F2 U2 R` (7 moves, not sub-7). The whole attempt: `U F2 B' D2 B (R' D' L U' F2 U2 R)`, 12 moves to DR.
-
 </details>
-
-**8c8e, example 4.** `B2 R' D2 B2 R D2 R B2 R' B2 R F2 L' D2 D' R B R2 F' D L B L R2`
 
-EO `(F B2 D2 B)`, RZP `(L)`, on the inverse scramble: 8c8e in 5. Traced before switching: 4 paired edges, edge ARM 2, corner ARM 4 (R/L stickers on U/D), 5 pairs, 4 side pairs. Rings: U `>E>->-<-`, D `>E<E<E<-`, holes FR FL BL BR.
+**Example 152 (7c8e).** `R2 F2 D' B2 D2 R2 D' L2 U R2 D2 U' F2 L' R' U' B' L F U' L'`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `(B' R' F' U B')`, no RZP needed, on the inverse scramble: 7c8e in 5.
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (99.4% of 8c8e, 14.0% sub-7).
+What you see:
 
-Card: **your call** (corner ARM 0, 4 or 8: 44.2% of 8c8e, 20.5% sub-7).
+- U/D edges in the E slice: yellow-orange, yellow-green, yellow-blue, white-orange
+- Misoriented corners: white-green-orange showing orange, yellow-green-red showing red, yellow-green-orange showing green, yellow-blue-red showing red, yellow-blue-orange showing orange, white-blue-red showing red, white-green-red showing red
+- E-slice edges out of the slice: green-orange, green-red, blue-orange, blue-red
 
-Switched case: 8c8e, ARM 42, 5 pairs on 4 edges, 3 fake, 4 side pairs.
+Reads: 4 pairs (yellow-orange 1, yellow-green 1, yellow-blue 2), ARM 62.
 
-Optimal DR on the normal side: `U R B2 L B2 D L` (7 moves, not sub-7). The whole attempt: `(F B2 D2 B L) U R B2 L B2 D L`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **if you have time** (*4 pairs, ARM 11, 12, 33, 41 or 62*). That group is 8.1% of 7c8e, 1,904 cases: 0 with a DR in 4 or less, 0 in 5, 416 in 6, 1,488 in 7 or more.
 
-**8c8e, example 5.** `U2 F2 R2 B L2 D2 B L2 R2 F D2 B2 D2 D' R' B L B2 U' R' D' L'`
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **skip**.
 
-EO `D B' L2 F`, RZP `R`: 8c8e in 5. Traced before switching: 3 paired edges, edge ARM 1, corner ARM 0 (R/L stickers on U/D), 6 pairs, 8 side pairs. Rings: U `>E<->-<-`, D `>E<E>E<-`, holes FR FL BL BR.
+Optimal DR on the normal side: `U' B2 U B2 L D R` (7 moves, too long). The whole attempt: `(B' R' F' U B') U' B2 U B2 L D R`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (99.4% of 8c8e, 14.0% sub-7).
+**Example 153 (7c8e).** `U2 F2 R2 B L2 D2 B L2 R2 F D2 B2 D2 D' R' B L B2 U' R' D' L'`
 
-Card: **your call** (corner ARM 0, 4 or 8: 44.2% of 8c8e, 20.5% sub-7).
+EO `D R2 B' L2 F'`, no RZP needed: 7c8e in 5.
 
-Switched case: 8c8e, ARM 01, 6 pairs on 3 edges, 2 fake, 8 side pairs.
+What you see:
 
-Optimal DR on the inverse: `R U' R2 L2 D L` (6 moves, sub-7). The whole attempt: `D B' L2 F R (R U' R2 L2 D L)`, 11 moves to DR.
+- U/D edges in the E slice: yellow-red, white-blue, white-green, yellow-orange
+- Misoriented corners: white-green-red showing green, white-green-orange showing orange, yellow-green-red showing green, white-blue-orange showing orange, yellow-green-orange showing green, yellow-blue-red showing blue, white-blue-red showing red
+- E-slice edges out of the slice: blue-orange, green-orange, green-red, blue-red
 
-</details>
+Reads: 6 pairs (yellow-red 2, white-blue 2, white-green 1, yellow-orange 1), ARM 32.
 
-**8c8e, example 6.** `L2 U2 L2 D2 F2 D2 F2 B' D2 F' D2 R2 F' D' L' U2 F R2 D' L U' F2 B2`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `R L F2 B`, RZP `R`: 8c8e in 5. Traced before switching: 3 paired edges, edge ARM 2, corner ARM 4 (R/L stickers on U/D), 4 pairs, 4 side pairs. Rings: U `<E<E>->-`, D `>E<E<->-`, holes FR FL BL BR.
+Card: **switch** (*6 pairs, not ARM 64*). That group is 1.9% of 7c8e, 456 cases: 80 with a DR in 4 or less, 144 in 5, 216 in 6, 16 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (99.4% of 8c8e, 14.0% sub-7).
+Optimal DR on the inverse: `U' R' D' R2 D L` (6 moves, good). The whole attempt: `D R2 B' L2 F' (U' R' D' R2 D L)`, 11 to DR.
 
-Card: **your call** (corner ARM 0, 4 or 8: 44.2% of 8c8e, 20.5% sub-7).
+</details>
 
-Switched case: 8c8e, ARM 42, 4 pairs on 3 edges, 4 fake, 4 side pairs.
+**Example 154 (7c8e).** `F2 D2 L' R2 U2 R' F2 L U2 R' U2 B2 U2 D2 F' U L2 B' F D F' L`
 
-Optimal DR on the inverse: `R L U' D L` (5 moves, sub-7). The whole attempt: `R L F2 B R (R L U' D L)`, 10 moves to DR.
+EO `U2 B2 U' D2 B`, no RZP needed: 7c8e in 5.
 
-</details>
+What you see:
 
-**8c8e, example 7.** `L2 U2 B D2 B R2 F R2 F' R2 D2 B' R2 L' D' B' U R D' L2 U2 L2`
+- U/D edges in the E slice: white-blue, yellow-red, yellow-orange, white-orange
+- Misoriented corners: yellow-blue-orange showing orange, white-green-red showing green, white-blue-red showing blue, yellow-green-red showing red, yellow-green-orange showing green, white-blue-orange showing orange, yellow-blue-red showing blue
+- E-slice edges out of the slice: green-red, green-orange, blue-orange, blue-red
 
-EO `(R L U' L B)`, no RZP needed, on the inverse scramble: 8c8e in 5. Traced before switching: 3 paired edges, edge ARM 1, corner ARM 4 (R/L stickers on U/D), 3 pairs, 4 side pairs. Rings: U `<E<E>->-`, D `<E<->E>-`, holes FR FL BL BR.
+Reads: 3 pairs (white-blue 1, yellow-red 1, yellow-orange 1), ARM 31.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (99.4% of 8c8e, 14.0% sub-7).
+Card: **skip** (*3 pairs or fewer*). That group is 49.4% of 7c8e, 11,616 cases: 0 with a DR in 4 or less, 0 in 5, 296 in 6, 11,320 in 7 or more.
 
-Card: **your call** (corner ARM 0, 4 or 8: 44.2% of 8c8e, 20.5% sub-7).
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Switched case: 8c8e, ARM 41, 3 pairs on 3 edges, 5 fake, 4 side pairs.
+Optimal DR on the inverse: `R2 F2 B2 D' R D L` (7 moves, too long). The whole attempt: `U2 B2 U' D2 B (R2 F2 B2 D' R D L)`, 12 to DR.
 
-Optimal DR on the normal side: `R' U' R U L U R` (7 moves, not sub-7). The whole attempt: `(R L U' L B) R' U' R U L U R`, 12 moves to DR.
-
 </details>
-
-**8c8e, example 8.** `D R2 U2 F2 L2 R2 U L2 D' F2 U R2 F2 L2 U' R' U' R' B L' D2 R B' U2`
 
-EO `F U2 F2 R' B'`, no RZP needed: 8c8e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 4 (R/L stickers on U/D), 4 pairs, 4 side pairs. Rings: U `<E>E<-<-`, D `>E<E>->-`, holes FR FL BL BR.
+**Example 155 (7c8e).** `R2 F2 D' B2 D2 R2 D' L2 U R2 D2 U' F2 L' R' U' B' L F U' L'`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `(B' U' R F' B)`, no RZP needed, on the inverse scramble: 7c8e in 5.
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (99.4% of 8c8e, 14.0% sub-7).
+What you see:
 
-Card: **your call** (corner ARM 0, 4 or 8: 44.2% of 8c8e, 20.5% sub-7).
+- U/D edges in the E slice: white-red, yellow-blue, yellow-orange, white-orange
+- Misoriented corners: white-blue-orange showing orange, yellow-blue-orange showing orange, yellow-green-red showing green, white-green-orange showing orange, yellow-green-orange showing green, white-blue-red showing red, yellow-blue-red showing blue
+- E-slice edges out of the slice: green-orange, blue-red, green-red, blue-orange
 
-Switched case: 8c8e, ARM 42, 4 pairs on 2 edges, 4 fake, 4 side pairs.
+Reads: 2 pairs (yellow-blue 1, yellow-orange 1), ARM 41.
 
-Optimal DR on the inverse: `L' U' R D' F2 U2 R` (7 moves, not sub-7). The whole attempt: `F U2 F2 R' B' (L' U' R D' F2 U2 R)`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **skip** (*3 pairs or fewer*). That group is 49.4% of 7c8e, 11,616 cases: 0 with a DR in 4 or less, 0 in 5, 296 in 6, 11,320 in 7 or more.
 
-**8c8e, example 9.** `F D2 F2 D2 R2 F D2 F U2 R2 D2 B' D2 B' R2 U' B2 U2 L R2 U' R D' U'`
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **skip**.
 
-EO `(U2 R2 F' R2 F)`, no RZP needed, on the inverse scramble: 8c8e in 5. Traced before switching: 4 paired edges, edge ARM 3, corner ARM 5 (R/L stickers on U/D), 5 pairs, 3 side pairs. Rings: U `>E<E<-<-`, D `<E<-<E<-`, holes FR FL BL BR.
+Optimal DR on the normal side: `R L2 D L U R' D R` (8 moves, too long). The whole attempt: `(B' U' R F' B) R L2 D L U R' D R`, 13 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (99.4% of 8c8e, 14.0% sub-7).
+**Example 156 (7c8e).** `D2 B2 R F2 L2 D2 R B2 R' B2 R U2 B2 B' U L U B' L U' B' D' L'`
 
-Card: **discard** (corner ARM 2, 3, 5 or 6: 55.8% of 8c8e, 9.8% sub-7).
+EO `(B D B2 R2 F)`, no RZP needed, on the inverse scramble: 7c8e in 5.
 
-Switched case: 8c8e, ARM 53, 5 pairs on 4 edges, 3 fake, 3 side pairs.
+What you see:
 
-Optimal DR on the normal side: `L' U D' R U L` (6 moves, sub-7). The whole attempt: `(U2 R2 F' R2 F) L' U D' R U L`, 11 moves to DR.
+- U/D edges in the E slice: yellow-red, white-red, yellow-green, yellow-orange
+- Misoriented corners: yellow-green-orange showing orange, white-blue-orange showing blue, white-green-red showing green, white-green-orange showing orange, yellow-green-red showing red, yellow-blue-orange showing orange, white-blue-red showing blue
+- E-slice edges out of the slice: blue-orange, green-red, green-orange, blue-red
 
-</details>
+Reads: 4 pairs (white-red 2, yellow-green 2), ARM 41.
 
-**8c8e, example 10.** `U2 L2 F2 R B2 D2 R B2 F2 L D2 R2 D2 D' F' R B R2 U' F' D' B'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(U' F' B')`, RZP `(D R')`, on the inverse scramble: 8c8e in 5. Traced before switching: 4 paired edges, edge ARM 2, corner ARM 3 (R/L stickers on U/D), 4 pairs, 5 side pairs. Rings: U `<E<->-<-`, D `<E<E<E<-`, holes FR FL BL BR.
+Card: **if you have time** (*4 pairs, ARM 11, 12, 33, 41 or 62*). That group is 8.1% of 7c8e, 1,904 cases: 0 with a DR in 4 or less, 0 in 5, 416 in 6, 1,488 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **skip**.
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (99.4% of 8c8e, 14.0% sub-7).
+Optimal DR on the normal side: `U2 F2 U' B2 R' U L` (7 moves, too long). The whole attempt: `(B D B2 R2 F) U2 F2 U' B2 R' U L`, 12 to DR.
 
-Card: **discard** (corner ARM 2, 3, 5 or 6: 55.8% of 8c8e, 9.8% sub-7).
+</details>
 
-Switched case: 8c8e, ARM 32, 4 pairs on 4 edges, 4 fake, 5 side pairs.
+**Example 157 (7c8e).** `U2 L2 U2 R2 B2 R2 B2 F' R2 B' R2 D2 B' R' U' L2 B D2 R' U L' B2 F2`
 
-Optimal DR on the normal side: `U D R U R L' D R` (8 moves, not sub-7). The whole attempt: `(U' F' B' D R') U D R U R L' D R`, 13 moves to DR.
+EO `(U R D' R2 F)`, no RZP needed, on the inverse scramble: 7c8e in 5.
 
-</details>
+What you see:
 
-**8c8e, example 11.** `U2 F' R2 F D2 B' U2 B U2 L2 U2 R2 F' D2 F2 U' L F D' B U' D2 F2 L U F'`
+- U/D edges in the E slice: white-orange, yellow-orange, yellow-blue, white-red
+- Misoriented corners: white-blue-orange showing orange, white-blue-red showing blue, yellow-green-red showing red, yellow-green-orange showing orange, yellow-blue-orange showing blue, white-green-orange showing green, white-green-red showing green
+- E-slice edges out of the slice: green-red, blue-red, green-orange, blue-orange
 
-EO `(D' B' R2 U' F')`, no RZP needed, on the inverse scramble: 8c8e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 6 (R/L stickers on U/D), 3 pairs, 2 side pairs. Rings: U `<E>E<->-`, D `<E>E>-<-`, holes FR FL BL BR.
+Reads: 4 pairs (white-orange 1, yellow-orange 1, white-red 2), ARM 31.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (99.4% of 8c8e, 14.0% sub-7).
+Card: **switch** (*4 pairs, ARM 21, 31 or 43*). That group is 6.5% of 7c8e, 1,536 cases: 0 with a DR in 4 or less, 40 in 5, 496 in 6, 1,000 in 7 or more.
 
-Card: **discard** (corner ARM 2, 3, 5 or 6: 55.8% of 8c8e, 9.8% sub-7).
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 8c8e, ARM 62, 3 pairs on 2 edges, 5 fake, 2 side pairs.
+Optimal DR on the normal side: `U2 R2 L D' R2 D R` (7 moves, too long). The whole attempt: `(U R D' R2 F) U2 R2 L D' R2 D R`, 12 to DR.
 
-Optimal DR on the normal side: `D' L' U' R' U2 D' R` (7 moves, not sub-7). The whole attempt: `(D' B' R2 U' F') D' L' U' R' U2 D' R`, 12 moves to DR.
-
 </details>
-
-**8c8e, example 12.** `D2 F2 L2 U F2 U' F2 D' B2 D B2 L2 B' R2 D R2 U F L' F' R'`
 
-EO `U' B2 L' D2 F'`, no RZP needed: 8c8e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 2 (R/L stickers on U/D), 3 pairs, 6 side pairs. Rings: U `<E>E<-<-`, D `<E>E>->-`, holes FR FL BL BR.
+**Example 158 (7c8e).** `F R2 B2 U2 L2 R2 B L2 F' U2 B R2 U2 L2 B' R' B' R' D L' F2 R D' B2`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `U L2 F`, RZP `R2 L'`: 7c8e in 5.
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (99.4% of 8c8e, 14.0% sub-7).
+What you see:
 
-Card: **discard** (corner ARM 2, 3, 5 or 6: 55.8% of 8c8e, 9.8% sub-7).
+- U/D edges in the E slice: white-blue, white-orange, yellow-red, yellow-orange
+- Misoriented corners: yellow-green-red showing green, white-green-red showing green, white-green-orange showing green, white-blue-orange showing blue, yellow-blue-red showing blue, white-blue-red showing red, yellow-green-orange showing green
+- E-slice edges out of the slice: blue-red, green-orange, blue-orange, green-red
 
-Switched case: 8c8e, ARM 22, 3 pairs on 2 edges, 5 fake, 6 side pairs.
+Reads: 6 pairs (white-blue 1, white-orange 2, yellow-red 2, yellow-orange 1), ARM 11.
 
-Optimal DR on the inverse: `U R' U' L U2 D' L` (7 moves, not sub-7). The whole attempt: `U' B2 L' D2 F' (U R' U' L U2 D' L)`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*6 pairs, not ARM 64*). That group is 1.9% of 7c8e, 456 cases: 80 with a DR in 4 or less, 144 in 5, 216 in 6, 16 in 7 or more.
 
-**8c8e, example 13.** `R2 D' B2 L2 U' L2 D2 R2 F2 D' B2 L2 U F2 U B' R2 U' R L2 B L2 F`
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-EO `B2 U' F' L' B'`, no RZP needed: 8c8e in 5. Traced before switching: 3 paired edges, edge ARM 3, corner ARM 5 (R/L stickers on U/D), 4 pairs, 3 side pairs. Rings: U `<E>E<-<-`, D `<E<-<E<-`, holes FR FL BL BR.
+Optimal DR on the inverse: `U' B2 U L U R` (6 moves, good). The whole attempt: `U L2 F R2 L' (U' B2 U L U R)`, 11 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (99.4% of 8c8e, 14.0% sub-7).
+**Example 159 (7c8e).** `B R2 B2 R2 D2 B R2 B L2 D2 R2 F' R2 F' D2 L' F2 L2 U D2 L' D R' L'`
 
-Card: **discard** (corner ARM 2, 3, 5 or 6: 55.8% of 8c8e, 9.8% sub-7).
+EO `F' R2 F2 L' F`, no RZP needed: 7c8e in 5.
 
-Switched case: 8c8e, ARM 53, 4 pairs on 3 edges, 4 fake, 3 side pairs.
+What you see:
 
-Optimal DR on the inverse: `B2 L' U L D R L` (7 moves, not sub-7). The whole attempt: `B2 U' F' L' B' (B2 L' U L D R L)`, 12 moves to DR.
+- U/D edges in the E slice: white-red, white-blue, yellow-blue, yellow-green
+- Misoriented corners: yellow-green-red showing green, yellow-green-orange showing orange, yellow-blue-red showing red, white-green-red showing green, yellow-blue-orange showing orange, white-blue-orange showing orange, white-blue-red showing blue
+- E-slice edges out of the slice: green-red, green-orange, blue-red, blue-orange
 
-</details>
+Reads: 6 pairs (white-red 2, white-blue 1, yellow-blue 2, yellow-green 1), ARM 43.
 
-**8c8e, example 14.** `D2 L2 B2 L' B2 R' D2 F2 L' D2 F2 R' B2 D2 L' B' U' F' U L' R D B2 L'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `R' U F U' B`, no RZP needed: 8c8e in 5. Traced before switching: 3 paired edges, edge ARM 2, corner ARM 6 (R/L stickers on U/D), 5 pairs, 2 side pairs. Rings: U `>E<E<->-`, D `>E<E>-<-`, holes FR FL BL BR.
+Card: **switch** (*6 pairs, not ARM 64*). That group is 1.9% of 7c8e, 456 cases: 80 with a DR in 4 or less, 144 in 5, 216 in 6, 16 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (99.4% of 8c8e, 14.0% sub-7).
+Optimal DR on the inverse: `D R' U' L` (4 moves, good). The whole attempt: `F' R2 F2 L' F (D R' U' L)`, 9 to DR.
 
-Card: **discard** (corner ARM 2, 3, 5 or 6: 55.8% of 8c8e, 9.8% sub-7).
+</details>
 
-Switched case: 8c8e, ARM 62, 5 pairs on 3 edges, 3 fake, 2 side pairs.
+**Example 160 (7c8e).** `U2 L2 F R2 F D2 B D2 B' D2 R2 F' D2 U' R' F' L D R' U2 L2 U2`
 
-Optimal DR on the inverse: `F2 R U' L' U2 D' L` (7 moves, not sub-7). The whole attempt: `R' U F U' B (F2 R U' L' U2 D' L)`, 12 moves to DR.
+EO `(D' R2 B2 R B)`, no RZP needed, on the inverse scramble: 7c8e in 5.
 
-</details>
+What you see:
 
-**8c8e, example 15.** `U2 F2 R D2 R' B2 L R2 F2 D2 R B2 F2 R' F' U' B2 F2 R' U L2 U' L R2`
+- U/D edges in the E slice: yellow-green, yellow-red, white-green, white-blue
+- Misoriented corners: yellow-blue-orange showing blue, yellow-green-orange showing orange, white-green-orange showing orange, white-blue-orange showing blue, yellow-green-red showing green, yellow-blue-red showing red, white-green-red showing red
+- E-slice edges out of the slice: blue-red, green-orange, blue-orange, green-red
 
-EO `(R U2 L' B)`, RZP `(R')`, on the inverse scramble: 8c8e in 5. Traced before switching: 4 paired edges, edge ARM 3, corner ARM 3 (R/L stickers on U/D), 4 pairs, 5 side pairs. Rings: U `>E>E>-<-`, D `>E>->E>-`, holes FR FL BL BR.
+Reads: 4 pairs (yellow-green 1, yellow-red 1, white-green 2), ARM 43.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (99.4% of 8c8e, 14.0% sub-7).
+Card: **switch** (*4 pairs, ARM 21, 31 or 43*). That group is 6.5% of 7c8e, 1,536 cases: 0 with a DR in 4 or less, 40 in 5, 496 in 6, 1,000 in 7 or more.
 
-Card: **discard** (corner ARM 2, 3, 5 or 6: 55.8% of 8c8e, 9.8% sub-7).
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Switched case: 8c8e, ARM 33, 4 pairs on 4 edges, 4 fake, 5 side pairs.
+Optimal DR on the normal side: `D' R' F2 U' L D R` (7 moves, too long). The whole attempt: `(D' R2 B2 R B) D' R' F2 U' L D R`, 12 to DR.
 
-Optimal DR on the normal side: `U D L D' R' U' D R` (8 moves, not sub-7). The whole attempt: `(R U2 L' B R') U D L D' R' U' D R`, 13 moves to DR.
-
 </details>
 
-**8c8e, example 16.** `U2 L2 F R2 F D2 B D2 B' D2 R2 F' D2 U' R' F' L D R' U2 L2 U2`
+**Example 161 (7c8e).** `L2 R2 B' U2 F2 U2 L2 F' U2 B2 U2 R2 F B2 R2 U' B2 L B R U B L' D L'`
 
-EO `R' L2 B2 L' F'`, no RZP needed: 8c8e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 6 (R/L stickers on U/D), 1 pair, 2 side pairs. Rings: U `<E<E>->-`, D `<E>-<E>-`, holes FR FL BL BR.
+EO `(B2 D B' D F)`, no RZP needed, on the inverse scramble: 7c8e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
 
-Shortest setup, U/D turns not counted: **3 qt + 2 half turns**, not short (99.4% of 8c8e, 14.0% sub-7).
+- U/D edges in the E slice: yellow-blue, white-green, white-orange, white-blue
+- Misoriented corners: yellow-green-red showing red, white-green-orange showing orange, white-blue-orange showing blue, white-blue-red showing red, white-green-red showing red, yellow-blue-orange showing orange, yellow-green-orange showing orange
+- E-slice edges out of the slice: blue-orange, green-orange, blue-red, green-red
 
-Card: **discard** (corner ARM 2, 3, 5 or 6: 55.8% of 8c8e, 9.8% sub-7).
+Reads: 5 pairs (yellow-blue 1, white-green 2, white-orange 1, white-blue 1), ARM 63.
 
-Switched case: 8c8e, ARM 61, 1 pair on 1 edge, 7 fake, 2 side pairs.
+<details><summary>Verdict and the DR after the switch</summary>
 
-Optimal DR on the inverse: `R U L D R' U F2 R` (8 moves, not sub-7). The whole attempt: `R' L2 B2 L' F' (R U L D R' U F2 R)`, 13 moves to DR.
+Card: **switch** (*5 pairs, not ARM 20 or 54*). That group is 13.9% of 7c8e, 3,264 cases: 40 with a DR in 4 or less, 440 in 5, 1,344 in 6, 1,440 in 7 or more.
 
-</details>
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-## DRM 2c2e: examples 1–10
+Optimal DR on the normal side: `F2 R2 D L' U R` (6 moves, good). The whole attempt: `(B2 D B' D F) F2 R2 D L' U R`, 11 to DR.
 
-**2c2e, example 1.** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
+</details>
 
-EO `B2 R2 B2 L B'`, no RZP needed: 2c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `oE<-o-o-`, D `>-o-o-o-`, holes BR.
+**Example 162 (7c8e).** `R2 B2 U2 R F2 L' U2 L2 U2 R D2 B2 D2 R' D' R' F D' B' R B2 L2 U R'`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `F' U' B' L F`, no RZP needed: 7c8e in 5.
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (76.8% of 2c2e, 16.9% sub-7).
+What you see:
 
-Card: **switch** (a bad U/D edge with a pair: 23.2% of 2c2e, 59.6% sub-7).
+- U/D edges in the E slice: white-red, white-orange, white-green, yellow-red
+- Misoriented corners: yellow-green-red showing green, yellow-green-orange showing green, white-green-red showing green, white-blue-orange showing orange, yellow-blue-red showing red, white-green-orange showing green, yellow-blue-orange showing blue
+- E-slice edges out of the slice: green-red, green-orange, blue-orange, blue-red
 
-Switched case: 2c2e, ARM 11, 1 pair on 1 edge, 0 fake, 0 side pairs.
+Reads: 3 pairs (white-red 1, white-orange 1, yellow-red 1), ARM 21.
 
-Optimal DR on the inverse: `U R F2 R' F2 U2 R` (7 moves, not sub-7). The whole attempt: `B2 R2 B2 L B' (U R F2 R' F2 U2 R)`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*3 pairs, ARM 21*). That group is 0.61% of 7c8e, 144 cases: 0 with a DR in 4 or less, 0 in 5, 40 in 6, 104 in 7 or more.
 
-**2c2e, example 2.** `D B2 D2 B2 R2 D B2 D F2 R2 B2 U' B2 U' R2 F' U2 F2 L R2 F' R B' F'`
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **switch**.
 
-EO `R B' L' F`, RZP `R`: 2c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 2 pairs, 0 side pairs. Rings: U `o-o-o-o-`, D `>E<-o-o-`, holes BL.
+Optimal DR on the inverse: `U2 F2 L2 F2 R' U' L` (7 moves, too long). The whole attempt: `F' U' B' L F (U2 F2 L2 F2 R' U' L)`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.8% of 2c2e, 16.9% sub-7).
+**Example 163 (7c8e).** `L2 B R2 D2 R2 L2 F' L2 F2 U2 F U2 F D2 B' L' F D R' U2 F' U' F' L F2`
 
-Card: **switch** (a bad U/D edge with a pair: 23.2% of 2c2e, 59.6% sub-7).
+EO `(U' R F')`, RZP `(D R)`, on the inverse scramble: 7c8e in 5.
 
-Switched case: 2c2e, ARM 21, 2 pairs on 1 edge, 0 fake, 0 side pairs.
+What you see:
 
-Optimal DR on the inverse: `D F2 R U2 R' F2 L` (7 moves, not sub-7). The whole attempt: `R B' L' F R (D F2 R U2 R' F2 L)`, 12 moves to DR.
+- U/D edges in the E slice: white-blue, white-red, yellow-red, yellow-orange
+- Misoriented corners: yellow-green-orange showing green, white-green-red showing green, white-green-orange showing green, white-blue-orange showing blue, white-blue-red showing red, yellow-green-red showing green, yellow-blue-red showing blue
+- E-slice edges out of the slice: blue-orange, blue-red, green-red, green-orange
 
-</details>
+Reads: 5 pairs (white-blue 1, white-red 1, yellow-red 2, yellow-orange 1), ARM 11.
 
-**2c2e, example 3.** `D2 L2 B2 L2 F2 U' F2 R2 U2 F2 U' R2 U B' D R' L2 U' R D L2 U'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(R2 L2 B2 D2 F)`, no RZP needed, on the inverse scramble: 2c2e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `oE<-o->-`, D `o-o-o-o-`, holes BR.
+Card: **switch** (*5 pairs, not ARM 20 or 54*). That group is 13.9% of 7c8e, 3,264 cases: 40 with a DR in 4 or less, 440 in 5, 1,344 in 6, 1,440 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (23.2% of 2c2e, 46.2% sub-7).
+Optimal DR on the normal side: `U2 B2 U L' U R` (6 moves, good). The whole attempt: `(U' R F' D R) U2 B2 U L' U R`, 11 to DR.
 
-Card: **switch** (a bad U/D edge with a pair: 23.2% of 2c2e, 59.6% sub-7).
+</details>
 
-Switched case: 2c2e, ARM 10, 1 pair on 1 edge, 0 fake, 0 side pairs.
+**Example 164 (7c8e).** `B2 R' D2 B2 R D2 R B2 R' B2 R F2 L' D2 D' R B R2 F' D L B L R2`
 
-Optimal DR on the normal side: `L' U' B2 U L` (5 moves, sub-7). The whole attempt: `(R2 L2 B2 D2 F) L' U' B2 U L`, 10 moves to DR.
+EO `(D2 B' R2 F)`, RZP `(L)`, on the inverse scramble: 7c8e in 5.
 
-</details>
+What you see:
 
-**2c2e, example 4.** `D2 R D2 R' B2 L' F2 R2 B2 F2 R' B2 L' F' D' B2 F2 L' D F R2 U`
+- U/D edges in the E slice: yellow-red, yellow-blue, yellow-orange, white-blue
+- Misoriented corners: white-blue-red showing blue, yellow-blue-red showing blue, white-blue-orange showing orange, yellow-green-red showing red, yellow-green-orange showing green, yellow-blue-orange showing orange, white-green-orange showing orange
+- E-slice edges out of the slice: blue-orange, green-orange, blue-red, green-red
 
-EO `B U L' U B'`, no RZP needed: 2c2e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `>-o-o-o-`, D `oE<-o-o-`, holes FR.
+Reads: 4 pairs (yellow-red 1, yellow-blue 1, yellow-orange 1, white-blue 1), ARM 42.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **3 qt**, not short (76.8% of 2c2e, 16.9% sub-7).
 
-Card: **switch** (a bad U/D edge with a pair: 23.2% of 2c2e, 59.6% sub-7).
+Card: **skip** (*4 pairs, anything else*). That group is 19.0% of 7c8e, 4,480 cases: 0 with a DR in 4 or less, 0 in 5, 304 in 6, 4,176 in 7 or more.
 
-Switched case: 2c2e, ARM 21, 1 pair on 1 edge, 0 fake, 0 side pairs.
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Optimal DR on the inverse: `U' R' U' R U D' R` (7 moves, not sub-7). The whole attempt: `B U L' U B' (U' R' U' R U D' R)`, 12 moves to DR.
+Optimal DR on the normal side: `U R2 B2 U' L U R` (7 moves, too long). The whole attempt: `(D2 B' R2 F L) U R2 B2 U' L U R`, 12 to DR.
 
 </details>
 
-**2c2e, example 5.** `F2 R F2 R' D2 L' U2 R2 D2 U2 R' D2 L' U' F' D2 U2 L' F U R2 B`
+**Example 165 (7c8e).** `D L2 R2 F2 U L2 B2 U B2 R2 D2 L2 D R2 R' D L2 R F L2 F2 D2 U2`
 
-EO `(F2 R' F2 R2 F')`, no RZP needed, on the inverse scramble: 2c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `<-o-o->-`, D `oEo-o-o-`, holes BR.
+EO `B2 L2 B'`, RZP `R' L`: 7c8e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.8% of 2c2e, 16.9% sub-7).
+What you see:
 
-Card: **discard** (no pair, not JZP: 68.8% of 2c2e, 9.7% sub-7).
+- U/D edges in the E slice: white-orange, white-red, yellow-orange, yellow-red
+- Misoriented corners: yellow-blue-red showing blue, white-blue-red showing red, yellow-green-red showing green, white-blue-orange showing blue, white-green-red showing green, yellow-blue-orange showing blue, white-green-orange showing orange
+- E-slice edges out of the slice: green-red, blue-orange, blue-red, green-orange
 
-Switched case: 2c2e, ARM 21, 0 pairs on 0 edges, 0 fake, 0 side pairs.
+Reads: 5 pairs (white-orange 1, white-red 1, yellow-orange 1, yellow-red 2), ARM 20.
 
-Optimal DR on the normal side: `L' D L' D2 R D' R` (7 moves, not sub-7). The whole attempt: `(F2 R' F2 R2 F') L' D L' D2 R D' R`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **skip** (*5 or 6 pairs with ARM 20, 54 or 64*). That group is 0.51% of 7c8e, 120 cases: 0 with a DR in 4 or less, 0 in 5, 0 in 6, 120 in 7 or more.
 
-**2c2e, example 6.** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-EO `L B'`, RZP `L F2 L'`: 2c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 0 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `<E>-o-o-`, D `o-o-o-o-`, holes BR.
+Optimal DR on the inverse: `R' D R' D' L D R` (7 moves, too long). The whole attempt: `B2 L2 B' R' L (R' D R' D' L D R)`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.8% of 2c2e, 16.9% sub-7).
+**Example 166 (7c8e).** `D2 F2 L2 F2 R2 U' R2 B2 U2 R2 U' B2 U L' D B' F2 U' B D F2 U'`
 
-Card: **discard** (no pair, not JZP: 68.8% of 2c2e, 9.7% sub-7).
+EO `R L' F' L' F`, no RZP needed: 7c8e in 5.
 
-Switched case: 2c2e, ARM 01, 0 pairs on 0 edges, 2 fake, 0 side pairs.
+What you see:
 
-Optimal DR on the inverse: `U L U L2 U2 F2 D R` (8 moves, not sub-7). The whole attempt: `L B' L F2 L' (U L U L2 U2 F2 D R)`, 13 moves to DR.
+- U/D edges in the E slice: white-orange, white-blue, white-green, yellow-green
+- Misoriented corners: white-blue-orange showing orange, white-green-red showing red, yellow-green-orange showing green, white-green-orange showing green, yellow-blue-orange showing blue, yellow-blue-red showing red, white-blue-red showing red
+- E-slice edges out of the slice: green-orange, blue-orange, blue-red, green-red
 
-</details>
+Reads: 4 pairs (white-orange 1, white-blue 2, white-green 1), ARM 43.
 
-**2c2e, example 7.** `U2 B2 R F2 R B2 D2 R B2 R' F2 D2 L U2 R' B' D' B' F2 U L' B' R D R'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `R B L' U2 F`, no RZP needed: 2c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `<-o-o->-`, D `oEo-o-o-`, holes BR.
+Card: **switch** (*4 pairs, ARM 21, 31 or 43*). That group is 6.5% of 7c8e, 1,536 cases: 0 with a DR in 4 or less, 40 in 5, 496 in 6, 1,000 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.8% of 2c2e, 16.9% sub-7).
+Optimal DR on the inverse: `U2 R U L D' F2 U2 L` (8 moves, too long). The whole attempt: `R L' F' L' F (U2 R U L D' F2 U2 L)`, 13 to DR.
 
-Card: **discard** (no pair, not JZP: 68.8% of 2c2e, 9.7% sub-7).
+</details>
 
-Switched case: 2c2e, ARM 21, 0 pairs on 0 edges, 0 fake, 0 side pairs.
+**Example 167 (7c8e).** `F2 U2 L2 B U2 B' U2 F' D2 F D2 L2 D' R2 F R2 B U L' U' R'`
 
-Optimal DR on the inverse: `R' F2 R F2 D R` (6 moves, sub-7). The whole attempt: `R B L' U2 F (R' F2 R F2 D R)`, 11 moves to DR.
+EO `(R D' R U' B)`, no RZP needed, on the inverse scramble: 7c8e in 5.
 
-</details>
+What you see:
 
-**2c2e, example 8.** `L2 U2 B2 R U2 R' U2 L' D2 L D2 B2 D' F2 L F2 R U B' U' F'`
+- U/D edges in the E slice: white-green, yellow-red, white-red, yellow-blue
+- Misoriented corners: white-blue-red showing blue, yellow-green-red showing green, yellow-blue-red showing red, yellow-green-orange showing orange, yellow-blue-orange showing blue, white-blue-orange showing blue, white-green-red showing green
+- E-slice edges out of the slice: green-orange, blue-orange, green-red, blue-red
 
-EO `(B' U' F)`, RZP `(U L)`, on the inverse scramble: 2c2e in 5. Traced before switching: 0 paired edges, edge ARM 0, corner ARM 2 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `<Eo-o-o-`, D `>-o-o-o-`, holes BL.
+Reads: 4 pairs (yellow-red 1, white-red 2, yellow-blue 1), ARM 22.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **3 qt**, not short (76.8% of 2c2e, 16.9% sub-7).
 
-Card: **discard** (no pair, not JZP: 68.8% of 2c2e, 9.7% sub-7).
+Card: **skip** (*4 pairs, anything else*). That group is 19.0% of 7c8e, 4,480 cases: 0 with a DR in 4 or less, 0 in 5, 304 in 6, 4,176 in 7 or more.
 
-Switched case: 2c2e, ARM 20, 0 pairs on 0 edges, 1 fake, 0 side pairs.
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Optimal DR on the normal side: `U' R' L U R' U L` (7 moves, not sub-7). The whole attempt: `(B' U' F U L) U' R' L U R' U L`, 12 moves to DR.
+Optimal DR on the normal side: `R' D' R2 D' F2 D B2 R` (8 moves, too long). The whole attempt: `(R D' R U' B) R' D' R2 D' F2 D B2 R`, 13 to DR.
 
 </details>
 
-**2c2e, example 9.** `B2 D' L2 F2 U' F2 D2 B2 R2 D' L2 F2 U R2 U L' B2 U' B F2 L F2 R`
+**Example 168 (7c8e).** `L2 B L2 F R2 F2 D2 B D2 L2 U2 F' L' D2 U F2 L' R2 B' R U L`
 
-EO `B R' L' B'`, RZP `R'`: 2c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `<-o-o-o-`, D `oEo->-o-`, holes FL.
+EO `D2 F B U' B'`, no RZP needed: 7c8e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: yellow-red, white-orange, yellow-green, white-blue
+- Misoriented corners: white-blue-orange showing orange, yellow-green-orange showing green, white-green-orange showing green, yellow-blue-orange showing orange, yellow-blue-red showing blue, white-blue-red showing red, yellow-green-red showing red
+- E-slice edges out of the slice: green-red, blue-orange, blue-red, green-orange
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.8% of 2c2e, 16.9% sub-7).
+Reads: 5 pairs (yellow-red 1, white-orange 1, yellow-green 1, white-blue 2), ARM 42.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **discard** (no pair, not JZP: 68.8% of 2c2e, 9.7% sub-7).
+Card: **switch** (*5 pairs, not ARM 20 or 54*). That group is 13.9% of 7c8e, 3,264 cases: 40 with a DR in 4 or less, 440 in 5, 1,344 in 6, 1,440 in 7 or more.
 
-Switched case: 2c2e, ARM 21, 0 pairs on 0 edges, 0 fake, 0 side pairs.
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **switch**. Fanti's pairs + ARM list: **switch**.
 
-Optimal DR on the inverse: `R2 U L' U L2 D' L` (7 moves, not sub-7). The whole attempt: `B R' L' B' R' (R2 U L' U L2 D' L)`, 12 moves to DR.
+Optimal DR on the inverse: `F2 U' R' L2 U L` (6 moves, good). The whole attempt: `D2 F B U' B' (F2 U' R' L2 U L)`, 11 to DR.
 
 </details>
 
-**2c2e, example 10.** `L2 U2 L2 D2 F2 D2 F2 B' D2 F' D2 R2 F' D' L' U2 F R2 D' L U' F2 B2`
+**Example 169 (7c8e).** `L2 F2 U2 F2 D2 R' D2 B2 R2 D2 R' B2 R U' L B' F2 R' B L F2 R'`
 
-EO `U L' D2 R' F'`, no RZP needed: 2c2e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 0 side pairs. Rings: U `<->-o-o-`, D `oEo-o-o-`, holes BR.
+EO `D' F' U2 F`, RZP `L`: 7c8e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: yellow-green, yellow-orange, white-blue, white-orange
+- Misoriented corners: yellow-blue-red showing red, yellow-green-orange showing orange, white-green-orange showing green, white-blue-orange showing orange, yellow-blue-orange showing orange, yellow-green-red showing red, white-green-red showing red
+- E-slice edges out of the slice: blue-orange, green-orange, green-red, blue-red
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (76.8% of 2c2e, 16.9% sub-7).
+Reads: 4 pairs (yellow-green 2, white-blue 1, white-orange 1), ARM 62.
+
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **discard** (no pair, not JZP: 68.8% of 2c2e, 9.7% sub-7).
+Card: **if you have time** (*4 pairs, ARM 11, 12, 33, 41 or 62*). That group is 8.1% of 7c8e, 1,904 cases: 0 with a DR in 4 or less, 0 in 5, 416 in 6, 1,488 in 7 or more.
 
-Switched case: 2c2e, ARM 21, 0 pairs on 0 edges, 0 fake, 0 side pairs.
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Optimal DR on the inverse: `U D R U2 F2 R' U2 R` (8 moves, not sub-7). The whole attempt: `U L' D2 R' F' (U D R U2 F2 R' U2 R)`, 13 moves to DR.
+Optimal DR on the inverse: `U2 L2 U' R2 U' R' D' L` (8 moves, too long). The whole attempt: `D' F' U2 F L (U2 L2 U' R2 U' R' D' L)`, 13 to DR.
 
 </details>
 
-## DRM 4c6e: examples 1–14
+**Example 170 (7c8e).** `U2 D2 F' L2 B2 L2 U2 B' L2 F2 L2 D2 B F2 D2 L' F2 U F D L F U' R U'`
 
-**4c6e, example 1.** `U2 R2 D' F2 R2 U2 R2 U' B2 R2 U2 R2 U F2 U' F' D F2 L2 U' R D F2 R'`
+EO `(U2 F R' B')`, RZP `(L)`, on the inverse scramble: 7c8e in 5.
 
-EO `(R2 D F)`, RZP `(D2 L)`, on the inverse scramble: 4c6e in 5. Traced before switching: 2 paired edges, edge ARM 0, corner ARM 0 (R/L stickers on U/D), 3 pairs, 2 side pairs. Rings: U `oEo-o-<-`, D `>E<->Eo-`, holes FR FL BR.
+What you see:
 
-<details><summary>Verdict and the DR after the switch</summary>
+- U/D edges in the E slice: yellow-blue, yellow-green, white-green, white-red
+- Misoriented corners: white-green-red showing red, yellow-green-red showing green, white-blue-red showing blue, yellow-blue-orange showing blue, white-green-orange showing orange, yellow-green-orange showing green, yellow-blue-red showing red
+- E-slice edges out of the slice: blue-red, green-red, green-orange, blue-orange
+
+Reads: 4 pairs (yellow-blue 1, white-green 2, white-red 1), ARM 33.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (4.8% of 4c6e, 49.6% sub-7).
+<details><summary>Verdict and the DR after the switch</summary>
 
-Card: **switch** (JZP: 0.61% of 4c6e, 61.1% sub-7).
+Card: **if you have time** (*4 pairs, ARM 11, 12, 33, 41 or 62*). That group is 8.1% of 7c8e, 1,904 cases: 0 with a DR in 4 or less, 0 in 5, 416 in 6, 1,488 in 7 or more.
 
-Switched case: 4c6e, ARM 00, 3 pairs on 2 edges, 0 fake, 2 side pairs, corners 4b-0, JZP.
+Pairs rule, 5+ pairs, counting edge ARM under 2 as a pair: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Optimal DR on the normal side: `U2 F2 D2 R B2 L` (6 moves, sub-7). The whole attempt: `(R2 D F D2 L) U2 F2 D2 R B2 L`, 11 moves to DR.
+Optimal DR on the normal side: `F2 U' B2 D R U' L` (7 moves, too long). The whole attempt: `(U2 F R' B' L) F2 U' B2 D R U' L`, 12 to DR.
 
 </details>
 
-**4c6e, example 2.** `R2 F' D2 R2 F D2 F R2 F' R2 F L2 B' D2 D' F R F2 L' D B R B F2`
+## 8c8e: examples 171–178
 
-EO `D' B2 U D' F'`, no RZP needed: 4c6e in 5. Traced before switching: 2 paired edges, edge ARM 0, corner ARM 0 (R/L stickers on U/D), 3 pairs, 3 side pairs. Rings: U `>E<-o-<-`, D `>Eo-oEo-`, holes FR BL BR.
+The 8c8e card, one row per group, best first. *Sub-7* is the share of the group with a DR in 6 or less after the switch (exact, every case of 8c8e once; 14.5% for 8c8e as a whole):
 
-<details><summary>Verdict and the DR after the switch</summary>
+| What you read | Verdict | Share of 8c8e | Sub-7 |
+|---|---|---|---|
+| 8 pairs | switch | 0.07% | 100% |
+| 6 pairs, corner ARM 4 | switch | 3.7% | 50.0% |
+| 5 pairs, edge ARM 1 or 3 | switch | 11.7% | 45.5% |
+| 2 pairs, ARM 42 | switch | 2.7% | 32.5% |
+| 4 pairs, ARM 42 | switch | 9.8% | 25.2% |
+| 4 pairs, ARM 02, 43, 63 or 82 | if you have time | 5.7% | 22.1% |
+| 6 pairs, corner ARM not 4 | skip | 3.7% | 14.3% |
+| 5 pairs, edge ARM 2 | skip | 11.2% | 3.6% |
+| anything else | skip | 51.5% | 3.4% |
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (4.8% of 4c6e, 49.6% sub-7).
+**Example 171 (8c8e).** `U2 L2 F R2 F D2 B D2 B' D2 R2 F' D2 U' R' F' L D R' U2 L2 U2`
 
-Card: **switch** (JZP: 0.61% of 4c6e, 61.1% sub-7).
+EO `R' L F'`, RZP `B2 L`: 8c8e in 5.
 
-Switched case: 4c6e, ARM 00, 3 pairs on 2 edges, 0 fake, 3 side pairs, corners 4b-0, JZP.
+What you see:
 
-Optimal DR on the inverse: `U2 F2 B2 R U2 L` (6 moves, sub-7). The whole attempt: `D' B2 U D' F' (U2 F2 B2 R U2 L)`, 11 moves to DR.
+- U/D edges in the E slice: yellow-red, white-green, white-orange, yellow-orange
+- Misoriented corners: white-green-orange showing green, yellow-green-orange showing green, white-blue-orange showing orange, yellow-blue-red showing red, white-green-red showing red, yellow-blue-orange showing blue, yellow-green-red showing green, white-blue-red showing blue
+- E-slice edges out of the slice: green-orange, blue-red, green-red, blue-orange
 
-</details>
+Reads: 5 pairs (yellow-red 1, white-green 1, white-orange 1, yellow-orange 2), ARM 31.
 
-**4c6e, example 3.** `F R2 B2 U2 L2 R2 B L2 F' U2 B R2 U2 L2 B' R' B' R' D L' F2 R D' B2`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `U' L2 U2 F`, RZP `L'`: 4c6e in 5. Traced before switching: 2 paired edges, edge ARM 0, corner ARM 0 (R/L stickers on U/D), 3 pairs, 3 side pairs. Rings: U `>Eo-o-<-`, D `>E<-oEo-`, holes FL BL BR.
+Card: **switch** (*5 pairs, edge ARM 1 or 3*). That group is 11.7% of 8c8e, 704 cases: 0 with a DR in 4 or less, 32 in 5, 288 in 6, 384 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 3 or fewer fake pairs (5+ pairs), with edge ARM not 2 or 6+ pairs: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (4.8% of 4c6e, 49.6% sub-7).
+Optimal DR on the inverse: `R L D R' U' R` (6 moves, good). The whole attempt: `R' L F' B2 L (R L D R' U' R)`, 11 to DR.
 
-Card: **switch** (JZP: 0.61% of 4c6e, 61.1% sub-7).
+</details>
 
-Switched case: 4c6e, ARM 00, 3 pairs on 2 edges, 0 fake, 3 side pairs, corners 4b-0, JZP.
+**Example 172 (8c8e).** `R2 D2 B2 D' B2 U' R2 F2 D' R2 F2 U' B2 R2 D' B' L' F' L D' U R B2 D'`
 
-Optimal DR on the inverse: `U2 B2 R U2 L` (5 moves, sub-7). The whole attempt: `U' L2 U2 F L' (U2 B2 R U2 L)`, 10 moves to DR.
+EO `U' B L F`, RZP `R`: 8c8e in 5.
 
-</details>
+What you see:
 
-**4c6e, example 4.** `U2 F D2 R2 D2 U2 B' U2 B2 L2 B L2 B R2 F' U' B R D' L2 B' L' B' U B2`
+- U/D edges in the E slice: yellow-green, yellow-blue, white-blue, yellow-red
+- Misoriented corners: yellow-green-orange showing orange, white-green-red showing green, white-green-orange showing green, white-blue-red showing red, yellow-blue-orange showing orange, yellow-green-red showing green, yellow-blue-red showing blue, white-blue-orange showing orange
+- E-slice edges out of the slice: blue-red, green-orange, green-red, blue-orange
 
-EO `B R L B'`, RZP `R`: 4c6e in 5. Traced before switching: 1 paired edge, edge ARM 0, corner ARM 0 (R/L stickers on U/D), 2 pairs, 3 side pairs. Rings: U `>E<->-<-`, D `oEo-oEo-`, holes FR FL BR.
+Reads: 6 pairs (yellow-green 1, yellow-blue 1, white-blue 2, yellow-red 2), ARM 43.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (95.2% of 4c6e, 2.3% sub-7).
 
-Card: **switch** (JZP: 0.61% of 4c6e, 61.1% sub-7).
+Card: **switch** (*6 pairs, corner ARM 4*). That group is 3.7% of 8c8e, 224 cases: 8 with a DR in 4 or less, 32 in 5, 72 in 6, 112 in 7 or more.
 
-Switched case: 4c6e, ARM 00, 2 pairs on 1 edge, 0 fake, 3 side pairs, corners 4a-0, JZP.
+Pairs rule, 3 or fewer fake pairs (5+ pairs), with edge ARM not 2 or 6+ pairs: **switch**.
 
-Optimal DR on the inverse: `R F2 U2 B2 R' D2 R` (7 moves, not sub-7). The whole attempt: `B R L B' R (R F2 U2 B2 R' D2 R)`, 12 moves to DR.
+Optimal DR on the inverse: `U' R2 D R L` (5 moves, good). The whole attempt: `U' B L F R (U' R2 D R L)`, 10 to DR.
 
 </details>
 
-**4c6e, example 5.** `L' D2 R' U2 R D2 B2 R U2 L' D2 R D2 R F' D U' L' U' B' D' F2 U2`
+**Example 173 (8c8e).** `L2 F2 U2 F2 D2 R' D2 B2 R2 D2 R' B2 R U' L B' F2 R' B L F2 R'`
 
-EO `D B' D' R F`, no RZP needed: 4c6e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 4 (R/L stickers on U/D), 4 pairs, 0 side pairs. Rings: U `>E<-o-o-`, D `oE>E<-o-`, holes FR BL BR.
-
-<details><summary>Verdict and the DR after the switch</summary>
+EO `(L F' D' F')`, RZP `(R)`, on the inverse scramble: 8c8e in 5.
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (95.2% of 4c6e, 2.3% sub-7).
+What you see:
 
-Card: **your call** (4 pairs: 1.2% of 4c6e, 47.9% sub-7).
+- U/D edges in the E slice: white-red, yellow-red, white-green, yellow-blue
+- Misoriented corners: yellow-blue-red showing red, white-blue-red showing blue, yellow-blue-orange showing orange, white-blue-orange showing blue, white-green-red showing green, white-green-orange showing green, yellow-green-red showing red, yellow-green-orange showing orange
+- E-slice edges out of the slice: blue-orange, green-orange, blue-red, green-red
 
-Switched case: 4c6e, ARM 42, 4 pairs on 2 edges, 1 fake, 0 side pairs, corners 4a-4.
+Reads: 4 pairs (white-red 2, yellow-blue 2), ARM 42.
 
-Optimal DR on the inverse: `U R U2 D2 L' D' L` (7 moves, not sub-7). The whole attempt: `D B' D' R F (U R U2 D2 L' D' L)`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*4 pairs, ARM 42*). That group is 9.8% of 8c8e, 588 cases: 0 with a DR in 4 or less, 20 in 5, 128 in 6, 440 in 7 or more.
 
-**4c6e, example 6.** `U2 R2 F' B2 L2 B' U2 F L2 B' L2 D2 L2 R2 U' L F2 D' U R U' F`
+Pairs rule, 3 or fewer fake pairs (5+ pairs), with edge ARM not 2 or 6+ pairs: **skip**.
 
-EO `(F L B)`, RZP `(U' L')`, on the inverse scramble: 4c6e in 5. Traced before switching: 3 paired edges, edge ARM 3, corner ARM 4 (R/L stickers on U/D), 4 pairs, 0 side pairs. Rings: U `>Eo-o-o-`, D `>E<-oE<-`, holes FL BL BR.
+Optimal DR on the normal side: `U2 R' L F2 U' D L` (7 moves, too long). The whole attempt: `(L F' D' F' R) U2 R' L F2 U' D L`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt**, short (4.8% of 4c6e, 49.6% sub-7).
+**Example 174 (8c8e).** `U2 D2 F' L2 B2 L2 U2 B' L2 F2 L2 D2 B F2 D2 L' F2 U F D L F U' R U'`
 
-Card: **your call** (4 pairs: 1.2% of 4c6e, 47.9% sub-7).
+EO `(F' R' B)`, RZP `(U2 R')`, on the inverse scramble: 8c8e in 5.
 
-Switched case: 4c6e, ARM 43, 4 pairs on 3 edges, 0 fake, 0 side pairs, corners 4b-0.
+What you see:
 
-Optimal DR on the normal side: `U' D R U2 L` (5 moves, sub-7). The whole attempt: `(F L B U' L') U' D R U2 L`, 10 moves to DR.
+- U/D edges in the E slice: yellow-orange, white-green, yellow-red, white-red
+- Misoriented corners: white-blue-red showing blue, white-blue-orange showing orange, yellow-green-orange showing green, yellow-green-red showing red, white-green-red showing green, white-green-orange showing green, yellow-blue-orange showing blue, yellow-blue-red showing blue
+- E-slice edges out of the slice: green-orange, blue-orange, green-red, blue-red
 
-</details>
+Reads: 5 pairs (yellow-orange 2, yellow-red 1, white-red 2), ARM 21.
 
-**4c6e, example 7.** `R2 B R2 U2 L2 B' U2 F2 D2 U2 F D2 B2 R' F2 B U F B U B2 R`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `R' F' U B`, RZP `R'`: 4c6e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 0 (R/L stickers on U/D), 4 pairs, 3 side pairs. Rings: U `>E<Eo-o-`, D `>E<-o-o-`, holes FL BL BR.
+Card: **switch** (*5 pairs, edge ARM 1 or 3*). That group is 11.7% of 8c8e, 704 cases: 0 with a DR in 4 or less, 32 in 5, 288 in 6, 384 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 3 or fewer fake pairs (5+ pairs), with edge ARM not 2 or 6+ pairs: **switch**.
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (95.2% of 4c6e, 2.3% sub-7).
+Optimal DR on the normal side: `D L' D' R U L` (6 moves, good). The whole attempt: `(F' R' B U2 R') D L' D' R U L`, 11 to DR.
 
-Card: **your call** (4 pairs: 1.2% of 4c6e, 47.9% sub-7).
+</details>
 
-Switched case: 4c6e, ARM 01, 4 pairs on 2 edges, 1 fake, 3 side pairs, corners 4a-0.
+**Example 175 (8c8e).** `R2 F2 D' B2 D2 R2 D' L2 U R2 D2 U' F2 L' R' U' B' L F U' L'`
 
-Optimal DR on the inverse: `U2 R' U' R U2 D2 L` (7 moves, not sub-7). The whole attempt: `R' F' U B R' (U2 R' U' R U2 D2 L)`, 12 moves to DR.
+EO `L2 F' U' L B`, no RZP needed: 8c8e in 5.
 
-</details>
+What you see:
 
-**4c6e, example 8.** `L2 U2 L2 D2 F2 D2 F2 B' D2 F' D2 R2 F' D' L' U2 F R2 D' L U' F2 B2`
+- U/D edges in the E slice: white-red, yellow-blue, white-orange, white-green
+- Misoriented corners: yellow-green-red showing red, yellow-blue-red showing blue, white-green-orange showing green, yellow-green-orange showing orange, yellow-blue-orange showing orange, white-blue-orange showing blue, white-green-red showing red, white-blue-red showing blue
+- E-slice edges out of the slice: blue-orange, blue-red, green-red, green-orange
 
-EO `R L B`, RZP `D2 R'`: 4c6e in 5. Traced before switching: 3 paired edges, edge ARM 2, corner ARM 2 (R/L stickers on U/D), 4 pairs, 1 side pair. Rings: U `>Eo-oE<-`, D `>E<-o-o-`, holes FR FL BL.
+Reads: 5 pairs (white-red 1, yellow-blue 1, white-orange 2, white-green 1), ARM 42.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (4.8% of 4c6e, 49.6% sub-7).
 
-Card: **your call** (4 pairs: 1.2% of 4c6e, 47.9% sub-7).
+Card: **skip** (*5 pairs, edge ARM 2*). That group is 11.2% of 8c8e, 672 cases: 0 with a DR in 4 or less, 0 in 5, 24 in 6, 648 in 7 or more.
 
-Switched case: 4c6e, ARM 22, 4 pairs on 3 edges, 0 fake, 1 side pair, corners 4a-2.
+Pairs rule, 3 or fewer fake pairs (5+ pairs), with edge ARM not 2 or 6+ pairs: **skip**.
 
-Optimal DR on the inverse: `U D2 B2 R' B2 L` (6 moves, sub-7). The whole attempt: `R L B D2 R' (U D2 B2 R' B2 L)`, 11 moves to DR.
+Optimal DR on the inverse: `U R L2 U L D' R` (7 moves, too long). The whole attempt: `L2 F' U' L B (U R L2 U L D' R)`, 12 to DR.
 
 </details>
 
-**4c6e, example 9.** `D2 R D2 R' B2 L' F2 R2 B2 F2 R' B2 L' F' D' B2 F2 L' D F R2 U`
+**Example 176 (8c8e).** `D2 F' U2 B' D2 R2 B2 D2 R2 B' U2 B2 D2 R' B' R2 B L D' B' D R'`
 
-EO `B R D' R F`, no RZP needed: 4c6e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 2 (R/L stickers on U/D), 2 pairs, 1 side pair. Rings: U `>Eo-o-o-`, D `<E<E>-o-`, holes FR BL BR.
+EO `(R L U' F)`, RZP `(L')`, on the inverse scramble: 8c8e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: yellow-green, white-orange, white-red, yellow-blue
+- Misoriented corners: yellow-green-orange showing orange, yellow-blue-red showing red, yellow-blue-orange showing orange, white-green-red showing green, white-blue-red showing blue, white-blue-orange showing blue, yellow-green-red showing red, white-green-orange showing green
+- E-slice edges out of the slice: green-orange, green-red, blue-red, blue-orange
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (95.2% of 4c6e, 2.3% sub-7).
+Reads: 8 pairs (yellow-green 2, white-orange 2, white-red 2, yellow-blue 2), ARM 42.
 
-Card: **discard** (anything else: 98.2% of 4c6e, 3.7% sub-7).
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*8 pairs*). That group is 0.07% of 8c8e, 4 cases: 4 with a DR in 4 or less, 0 in 5, 0 in 6, 0 in 7 or more.
 
-Switched case: 4c6e, ARM 22, 2 pairs on 2 edges, 3 fake, 1 side pair, corners 4b-2.
+Pairs rule, 3 or fewer fake pairs (5+ pairs), with edge ARM not 2 or 6+ pairs: **switch**.
 
-Optimal DR on the inverse: `U D2 R' F2 U L' D L` (8 moves, not sub-7). The whole attempt: `B R D' R F (U D2 R' F2 U L' D L)`, 13 moves to DR.
+Optimal DR on the normal side: `D R L` (3 moves, good). The whole attempt: `(R L U' F L') D R L`, 8 to DR.
 
 </details>
 
-**4c6e, example 10.** `U2 R2 F' B2 L2 B' U2 F L2 B' L2 D2 L2 R2 U' L F2 D' U R U' F`
+**Example 177 (8c8e).** `F2 R F2 R' D2 L' U2 R2 D2 U2 R' D2 L' U' F' D2 U2 L' F U R2 B`
 
-EO `F R' F2 L2 B`, no RZP needed: 4c6e in 5. Traced before switching: 1 paired edge, edge ARM 2, corner ARM 3 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `>Eo-<-<-`, D `oEoE>-o-`, holes FR BL BR.
+EO `(R F2 R2 F')`, RZP `(L')`, on the inverse scramble: 8c8e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: white-red, yellow-orange, white-blue, yellow-blue
+- Misoriented corners: white-blue-red showing blue, white-green-red showing red, yellow-green-red showing green, white-green-orange showing orange, yellow-blue-orange showing orange, yellow-blue-red showing blue, yellow-green-orange showing orange, white-blue-orange showing blue
+- E-slice edges out of the slice: green-red, green-orange, blue-orange, blue-red
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (95.2% of 4c6e, 2.3% sub-7).
+Reads: 2 pairs (white-red 1, yellow-blue 1), ARM 42.
 
-Card: **discard** (anything else: 98.2% of 4c6e, 3.7% sub-7).
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **switch** (*2 pairs, ARM 42*). That group is 2.7% of 8c8e, 160 cases: 0 with a DR in 4 or less, 4 in 5, 48 in 6, 108 in 7 or more.
 
-Switched case: 4c6e, ARM 32, 1 pair on 1 edge, 1 fake, 1 side pair, corners 4c-1.
+Pairs rule, 3 or fewer fake pairs (5+ pairs), with edge ARM not 2 or 6+ pairs: **skip**.
 
-Optimal DR on the inverse: `U R U2 D R2 B2 R` (7 moves, not sub-7). The whole attempt: `F R' F2 L2 B (U R U2 D R2 B2 R)`, 12 moves to DR.
+Optimal DR on the normal side: `U R L' U D F2 L` (7 moves, too long). The whole attempt: `(R F2 R2 F' L') U R L' U D F2 L`, 12 to DR.
 
 </details>
 
-**4c6e, example 11.** `U2 L2 U2 R2 B2 R2 B2 F' R2 B' R2 D2 B' R' U' L2 B D2 R' U L' B2 F2`
+**Example 178 (8c8e).** `F D2 F2 D2 R2 F D2 F U2 R2 D2 B' D2 B' R2 U' B2 U2 L R2 U' R D' U'`
 
-EO `D2 F2 U D' F`, no RZP needed: 4c6e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 3 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `oE>-oEo-`, D `>Eo-<-<-`, holes FR FL BL.
+EO `U F2 B' D2 B'`, no RZP needed: 8c8e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (95.2% of 4c6e, 2.3% sub-7).
+- U/D edges in the E slice: yellow-green, yellow-blue, white-red, white-blue
+- Misoriented corners: white-green-orange showing green, white-green-red showing red, yellow-green-red showing red, yellow-green-orange showing green, yellow-blue-red showing red, yellow-blue-orange showing orange, white-blue-orange showing blue, white-blue-red showing blue
+- E-slice edges out of the slice: green-red, green-orange, blue-orange, blue-red
 
-Card: **discard** (anything else: 98.2% of 4c6e, 3.7% sub-7).
+Reads: 4 pairs (yellow-green 1, yellow-blue 2, white-red 1), ARM 43.
 
-Switched case: 4c6e, ARM 31, 1 pair on 1 edge, 1 fake, 1 side pair, corners 4c-1.
+<details><summary>Verdict and the DR after the switch</summary>
 
-Optimal DR on the inverse: `L' F2 U' D L' F2 U' L` (8 moves, not sub-7). The whole attempt: `D2 F2 U D' F (L' F2 U' D L' F2 U' L)`, 13 moves to DR.
+Card: **if you have time** (*4 pairs, ARM 02, 43, 63 or 82*). That group is 5.7% of 8c8e, 344 cases: 0 with a DR in 4 or less, 0 in 5, 76 in 6, 268 in 7 or more.
 
-</details>
+Pairs rule, 3 or fewer fake pairs (5+ pairs), with edge ARM not 2 or 6+ pairs: **skip**.
 
-**4c6e, example 12.** `B2 D2 R2 B2 D F2 R2 D' L2 D L2 B2 D F2 U R' F' D' B2 L D2 B D2 F D'`
+Optimal DR on the inverse: `R' D' L U' F2 U2 R` (7 moves, too long). The whole attempt: `U F2 B' D2 B' (R' D' L U' F2 U2 R)`, 12 to DR.
 
-EO `(F R2 L2 U2 F')`, no RZP needed, on the inverse scramble: 4c6e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 2 (R/L stickers on U/D), 2 pairs, 2 side pairs. Rings: U `>EoE<->-`, D `oEo-<-o-`, holes FR FL BR.
+</details>
 
-<details><summary>Verdict and the DR after the switch</summary>
+## 2c2e: examples 179–183
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (95.2% of 4c6e, 2.3% sub-7).
+The 2c2e card, one row per group, best first. *Sub-7* is the share of the group with a DR in 6 or less after the switch (exact, every case of 2c2e once; 23.7% for 2c2e as a whole):
 
-Card: **discard** (anything else: 98.2% of 4c6e, 3.7% sub-7).
+| What you read | Verdict | Share of 2c2e | Sub-7 |
+|---|---|---|---|
+| 1 pair | switch | 21.4% | 62.5% |
+| 2 pairs and a side pair | switch | 0.45% | 100% |
+| 0 pairs, 1 side pair, ARM 00 or 11 | switch | 7.1% | 68.8% |
+| 0 pairs, JZP (ARM 00), no side pair | if you have time | 4.9% | 18.2% |
+| anything else | skip | 66.1% | 6.1% |
 
-Switched case: 4c6e, ARM 22, 2 pairs on 2 edges, 0 fake, 2 side pairs, corners 4b-2.
+**Example 179 (2c2e).** `D2 F' U2 B R2 U2 R2 U2 B D2 F2 R2 B' L2 F' L' D' L F2 D B R2 F' U`
 
-Optimal DR on the normal side: `U F2 D' R F2 U2 D2 R` (8 moves, not sub-7). The whole attempt: `(F R2 L2 U2 F') U F2 D' R F2 U2 D2 R`, 13 moves to DR.
+EO `L D L2 F'`, RZP `L'`: 2c2e in 5.
 
-</details>
+What you see:
 
-**4c6e, example 13.** `R2 F2 L' U2 F2 R2 F2 R' D2 F2 R2 F2 R U2 R' U' L U2 B2 R' F L U2 F'`
+- U/D edges in the E slice: yellow-orange
+- Misoriented corners: yellow-green-red showing green, white-green-red showing green
+- E-slice edges out of the slice: blue-orange
 
-EO `L2 B L' D2 B'`, no RZP needed: 4c6e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 1 pair, 2 side pairs. Rings: U `>Eo-o-o-`, D `<EoE>-<-`, holes FR BL BR.
+Reads: 0 pairs, 0 side pairs, ARM 00.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (95.2% of 4c6e, 2.3% sub-7).
+Card: **if you have time** (*0 pairs, JZP (ARM 00), no side pair*). That group is 4.9% of 2c2e, 88 cases: 0 with a DR in 4 or less, 0 in 5, 16 in 6, 72 in 7 or more.
 
-Card: **discard** (anything else: 98.2% of 4c6e, 3.7% sub-7).
+Pairs rule, 1+ pairs: **skip**.
 
-Switched case: 4c6e, ARM 11, 1 pair on 1 edge, 2 fake, 2 side pairs, corners 4c-1.
+Optimal DR on the inverse: `U2 R' B2 U2 R' F2 L` (7 moves, too long). The whole attempt: `L D L2 F' L' (U2 R' B2 U2 R' F2 L)`, 12 to DR.
 
-Optimal DR on the inverse: `U F2 L U' B2 R2 D2 L` (8 moves, not sub-7). The whole attempt: `L2 B L' D2 B' (U F2 L U' B2 R2 D2 L)`, 13 moves to DR.
-
 </details>
 
-**4c6e, example 14.** `F2 U2 R F2 D2 F2 U2 L' F2 L2 R D2 U' R D R2 D F R2 F R`
+**Example 180 (2c2e).** `B2 U B2 F2 R2 U' B2 L2 D L2 D2 L2 U2 F' U' R' B2 D2 B2 D L2 U'`
 
-EO `D' F L' F'`, RZP `R`: 4c6e in 5. Traced before switching: 1 paired edge, edge ARM 2, corner ARM 3 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `>Eo->-<-`, D `<EoEo-o-`, holes FR BL BR.
+EO `(U' R D' R F')`, no RZP needed, on the inverse scramble: 2c2e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (95.2% of 4c6e, 2.3% sub-7).
+- U/D edges in the E slice: white-blue
+- Misoriented corners: yellow-green-orange showing orange, yellow-blue-red showing blue
+- E-slice edges out of the slice: blue-red
 
-Card: **discard** (anything else: 98.2% of 4c6e, 3.7% sub-7).
+Reads: 0 pairs, 1 side pair, ARM 11.
 
-Switched case: 4c6e, ARM 32, 1 pair on 1 edge, 1 fake, 1 side pair, corners 4c-1.
+<details><summary>Verdict and the DR after the switch</summary>
 
-Optimal DR on the inverse: `U D' L' D R' L U2 D' R` (9 moves, not sub-7). The whole attempt: `D' F L' F' R (U D' L' D R' L U2 D' R)`, 14 moves to DR.
+Card: **switch** (*0 pairs, 1 side pair, ARM 00 or 11*). That group is 7.1% of 2c2e, 128 cases: 0 with a DR in 4 or less, 0 in 5, 88 in 6, 40 in 7 or more.
 
-</details>
+Pairs rule, 1+ pairs: **skip**.
 
-## DRM 3c4e: examples 1–10
+Optimal DR on the normal side: `R L2 D' R2 U R` (6 moves, good). The whole attempt: `(U' R D' R F') R L2 D' R2 U R`, 11 to DR.
 
-**3c4e, example 1.** `R2 L2 D F2 U F2 U R2 F2 L2 B2 D B' U B R' D' F' D' U' B U'`
+</details>
 
-EO `(F' L' B L B)`, no RZP needed, on the inverse scramble: 3c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 2 pairs, 1 side pair. Rings: U `>Eo-o-o-`, D `>E>-o-o-`, holes FR BL.
+**Example 181 (2c2e).** `F L2 B' R2 F2 U2 B U2 R2 U2 R2 D2 F' D' R' F2 L U R U L2 D2 F'`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `D2 F2 D' R F'`, no RZP needed: 2c2e in 5.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (9.3% of 3c4e, 29.8% sub-7).
+What you see:
 
-Card: **your call** (2 pairs: 10.7% of 3c4e, 33.7% sub-7).
+- U/D edges in the E slice: white-red
+- Misoriented corners: white-blue-red showing blue, white-green-red showing green
+- E-slice edges out of the slice: blue-red
 
-Switched case: 3c4e, ARM 21, 2 pairs on 2 edges, 1 fake, 1 side pair.
+Reads: 2 pairs (a bar), 1 side pair, ARM 00.
 
-Optimal DR on the normal side: `R' U2 F2 D' L` (5 moves, sub-7). The whole attempt: `(F' L' B L B) R' U2 F2 D' L`, 10 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*2 pairs and a side pair*). That group is 0.45% of 2c2e, 8 cases: 0 with a DR in 4 or less, 0 in 5, 8 in 6, 0 in 7 or more.
 
-**3c4e, example 2.** `R2 D2 B U2 F2 R2 B D2 B' D2 B L2 D2 D' L F L D' F L' D' R' F'`
+Pairs rule, 1+ pairs: **switch**.
 
-EO `B U L F`, RZP `L'`: 3c4e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 3 (R/L stickers on U/D), 2 pairs, 0 side pairs. Rings: U `>Eo->Eo-`, D `>-o-o-o-`, holes FR BL.
+Optimal DR on the inverse: `F2 R F2 R' F2 R` (6 moves, good). The whole attempt: `D2 F2 D' R F' (F2 R F2 R' F2 R)`, 11 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (90.7% of 3c4e, 7.9% sub-7).
+**Example 182 (2c2e).** `B D2 F2 L2 U2 D2 F U2 B' L2 F D2 L2 U2 F' D' F' D' R U' B2 D R' F2`
 
-Card: **your call** (2 pairs: 10.7% of 3c4e, 33.7% sub-7).
+EO `(D B2 R2 B)`, RZP `(L)`, on the inverse scramble: 2c2e in 5.
 
-Switched case: 3c4e, ARM 32, 2 pairs on 2 edges, 0 fake, 0 side pairs.
+What you see:
 
-Optimal DR on the inverse: `L F2 L D R U F2 R` (8 moves, not sub-7). The whole attempt: `B U L F L' (L F2 L D R U F2 R)`, 13 moves to DR.
+- U/D edges in the E slice: yellow-blue
+- Misoriented corners: white-blue-orange showing orange, white-blue-red showing red
+- E-slice edges out of the slice: blue-red
 
-</details>
+Reads: 0 pairs, 0 side pairs, ARM 21.
 
-**3c4e, example 3.** `D2 B L2 B2 F D2 F2 D2 L2 D2 B' D2 F R' D2 B' U' F' R2 U' R D`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `B2 D' B R' F'`, no RZP needed: 3c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 2 pairs, 0 side pairs. Rings: U `>Eo-o-o-`, D `>E>-o-o-`, holes BL BR.
+Card: **skip** (*anything else*). That group is 66.1% of 2c2e, 1,184 cases: 0 with a DR in 4 or less, 0 in 5, 72 in 6, 1,112 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 1+ pairs: **skip**.
 
-Shortest setup, U/D turns not counted: **2 qt + 1 half turn**, short (9.3% of 3c4e, 29.8% sub-7).
+Optimal DR on the normal side: `L' D L' D2 R D' R` (7 moves, too long). The whole attempt: `(D B2 R2 B L) L' D L' D2 R D' R`, 12 to DR.
 
-Card: **your call** (2 pairs: 10.7% of 3c4e, 33.7% sub-7).
+</details>
 
-Switched case: 3c4e, ARM 21, 2 pairs on 2 edges, 1 fake, 0 side pairs.
+**Example 183 (2c2e).** `D2 L2 B2 L2 F2 U' F2 R2 U2 F2 U' R2 U B' D R' L2 U' R D L2 U'`
 
-Optimal DR on the inverse: `R' U2 B2 U' R` (5 moves, sub-7). The whole attempt: `B2 D' B R' F' (R' U2 B2 U' R)`, 10 moves to DR.
+EO `(F2 U2 R2 L2 F')`, no RZP needed, on the inverse scramble: 2c2e in 5.
 
-</details>
+What you see:
 
-**3c4e, example 4.** `U2 F2 U2 B2 L2 B2 L2 R' B2 L' B2 D2 L' B' U' F2 L D2 B' U F' L2 R2`
+- U/D edges in the E slice: white-orange
+- Misoriented corners: white-blue-orange showing blue, white-green-red showing red
+- E-slice edges out of the slice: blue-red
 
-EO `D F2 B U2 F`, no RZP needed: 3c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 2 pairs, 1 side pair. Rings: U `>E>Eo-o-`, D `>-o-o-o-`, holes FR BL.
+Reads: 1 pair, 0 side pairs, ARM 10.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (90.7% of 3c4e, 7.9% sub-7).
 
-Card: **your call** (2 pairs: 10.7% of 3c4e, 33.7% sub-7).
+Card: **switch** (*1 pair*). That group is 21.4% of 2c2e, 384 cases: 0 with a DR in 4 or less, 48 in 5, 192 in 6, 144 in 7 or more.
 
-Switched case: 3c4e, ARM 11, 2 pairs on 2 edges, 1 fake, 1 side pair.
+Pairs rule, 1+ pairs: **switch**.
 
-Optimal DR on the inverse: `R2 U R U2 F2 D' L` (7 moves, not sub-7). The whole attempt: `D F2 B U2 F (R2 U R U2 F2 D' L)`, 12 moves to DR.
+Optimal DR on the normal side: `L' U' B2 U L` (5 moves, good). The whole attempt: `(F2 U2 R2 L2 F') L' U' B2 U L`, 10 to DR.
 
 </details>
 
-**3c4e, example 5.** `D2 F2 L2 F2 R2 U' R2 B2 U2 R2 U' B2 U L' D B' F2 U' B D F2 U'`
+## The low DRMs (4c6e, 3c4e, 3c6e, 5c4e, 5c6e, 6c6e): examples 184–201
 
-EO `B' U2 B`, RZP `U L`: 3c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 2 pairs, 1 side pair. Rings: U `oE<-o-o-`, D `oE<-o-<-`, holes FL BL.
+The 4c6e card, one row per group, best first. *Sub-7* is the share of the group with a DR in 6 or less after the switch (exact, every case of 4c6e once; 4.6% for 4c6e as a whole):
 
-<details><summary>Verdict and the DR after the switch</summary>
+| What you read | Verdict | Share of 4c6e | Sub-7 |
+|---|---|---|---|
+| 4 pairs on three edges | switch | 0.85% | 74.0% |
+| 3 pairs, JZP (ARM 00) | switch | 0.31% | 61.1% |
+| 3 pairs on three edges, the three bad edges in one layer | switch | 0.27% | 62.5% |
+| 3 pairs on three edges, corners 2 and 2 in the layers | switch | 2.2% | 25.8% |
+| anything else | skip | 96.4% | 3.2% |
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (90.7% of 3c4e, 7.9% sub-7).
+The 3c4e card, one row per group, best first. *Sub-7* is the share of the group with a DR in 6 or less after the switch (exact, every case of 3c4e once; 9.9% for 3c4e as a whole):
 
-Card: **your call** (2 pairs: 10.7% of 3c4e, 33.7% sub-7).
+| What you read | Verdict | Share of 3c4e | Sub-7 |
+|---|---|---|---|
+| 2 pairs and a side pair | switch | 6.9% | 43.2% |
+| 2 pairs, no side pair, a fake pair | switch | 1.9% | 27.3% |
+| 1 pair, 2 side pairs | switch | 5.7% | 28.1% |
+| 1 pair, ARM 21, 1 side pair, 2 fake pairs or holes on one R/L face | switch | 2.6% | 40.3% |
+| 1 pair, ARM 21, 1 side pair, the rest | if you have time | 3.5% | 19.5% |
+| anything else | skip | 79.4% | 3.9% |
 
-Switched case: 3c4e, ARM 11, 2 pairs on 2 edges, 0 fake, 1 side pair.
+The 3c6e card, one row per group, best first. *Sub-7* is the share of the group with a DR in 6 or less after the switch (exact, every case of 3c6e once; 4.8% for 3c6e as a whole):
 
-Optimal DR on the inverse: `U' D2 L D' L' D' L` (7 moves, not sub-7). The whole attempt: `B' U2 B U L (U' D2 L D' L' D' L)`, 12 moves to DR.
+| What you read | Verdict | Share of 3c6e | Sub-7 |
+|---|---|---|---|
+| 2 pairs, ARM 21, 1 or 2 fake pairs | switch | 4.1% | 31.3% |
+| 2 pairs, ARM 12, 2 fake pairs | switch | 1.4% | 38.6% |
+| 2 pairs, ARM 01 | switch | 1.5% | 22.9% |
+| anything else | skip | 93.0% | 2.9% |
 
-</details>
+The 5c4e card, one row per group, best first. *Sub-7* is the share of the group with a DR in 6 or less after the switch (exact, every case of 5c4e once; 7.2% for 5c4e as a whole):
 
-**3c4e, example 6.** `D2 R D2 R' B2 L' F2 R2 B2 F2 R' B2 L' F' D' B2 F2 L' D F R2 U`
+| What you read | Verdict | Share of 5c4e | Sub-7 |
+|---|---|---|---|
+| 3 pairs, 2+ side pairs | switch | 2.2% | 38.3% |
+| 2 pairs, ARM 21, 2+ side pairs | switch | 2.8% | 32.7% |
+| 1 pair, ARM 21, 2+ side pairs, 2+ fake pairs | switch | 1.8% | 24.3% |
+| 3 pairs, 0 or 1 side pair | if you have time | 3.9% | 21.5% |
+| anything else | skip | 89.3% | 4.7% |
 
-EO `U2 B R2 D2 F`, no RZP needed: 3c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `>-o-o-o-`, D `>EoE>-o-`, holes FR BR.
+The 5c6e card, one row per group, best first. *Sub-7* is the share of the group with a DR in 6 or less after the switch (exact, every case of 5c6e once; 6.1% for 5c6e as a whole):
 
-<details><summary>Verdict and the DR after the switch</summary>
+| What you read | Verdict | Share of 5c6e | Sub-7 |
+|---|---|---|---|
+| 4 pairs | switch | 3.1% | 37.9% |
+| 3 pairs, ARM 21, 3 side pairs | switch | 1.2% | 38.3% |
+| 2 pairs, ARM 21, 3 side pairs | switch | 2.0% | 20.6% |
+| 3 pairs, ARM 21, fewer than 3 side pairs | if you have time | 2.1% | 17.4% |
+| anything else | skip | 91.6% | 4.1% |
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (90.7% of 3c4e, 7.9% sub-7).
+The 6c6e card, one row per group, best first. *Sub-7* is the share of the group with a DR in 6 or less after the switch (exact, every case of 6c6e once; 5.6% for 6c6e as a whole):
 
-Card: **discard** (0 or 1 pair: 89.3% of 3c4e, 7.1% sub-7).
+| What you read | Verdict | Share of 6c6e | Sub-7 |
+|---|---|---|---|
+| 5 or 6 pairs | switch | 1.2% | 39.0% |
+| 3 pairs, 3 fake pairs, corners 3 and 3 in the layers | switch | 1.9% | 34.1% |
+| anything else | skip | 97.0% | 4.6% |
 
-Switched case: 3c4e, ARM 11, 1 pair on 1 edge, 1 fake, 1 side pair.
+**Example 184 (5c4e).** `L D2 R2 F2 U2 D2 R U2 L' F2 R D2 F2 U2 R' D' R' D' B U' L2 D B' R2`
 
-Optimal DR on the inverse: `U' L D' L U2 D' R` (7 moves, not sub-7). The whole attempt: `U2 B R2 D2 F (U' L D' L U2 D' R)`, 12 moves to DR.
+EO `F' D' B2 L2 B'`, no RZP needed: 5c4e in 5.
 
-</details>
+What you see:
 
-**3c4e, example 7.** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
+- U/D edges in the E slice: white-orange, yellow-blue
+- Misoriented corners: yellow-blue-orange showing orange, yellow-blue-red showing blue, white-green-red showing red, yellow-green-orange showing green, white-blue-orange showing blue
+- E-slice edges out of the slice: blue-orange, blue-red
 
-EO `L B`, RZP `R2 B2 L'`: 3c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `<E<-o-o-`, D `<Eo-o-o-`, holes FR BR.
+Reads: 2 pairs, one on each edge, 1 fake pair, 2 side pairs, ARM 21.
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (90.7% of 3c4e, 7.9% sub-7).
+Card: **switch** (*2 pairs, ARM 21, 2+ side pairs*). That group is 2.8% of 5c4e, 2,616 cases: 24 with a DR in 4 or less, 144 in 5, 688 in 6, 1,760 in 7 or more.
 
-Card: **discard** (0 or 1 pair: 89.3% of 3c4e, 7.1% sub-7).
+Pairs rule, never: **skip**.
 
-Switched case: 3c4e, ARM 21, 1 pair on 1 edge, 2 fake, 1 side pair.
+Optimal DR on the inverse: `L B2 D2 L2 U F2 R` (7 moves, too long). The whole attempt: `F' D' B2 L2 B' (L B2 D2 L2 U F2 R)`, 12 to DR.
 
-Optimal DR on the inverse: `L2 D2 R F2 B2 D' L` (7 moves, not sub-7). The whole attempt: `L B R2 B2 L' (L2 D2 R F2 B2 D' L)`, 12 moves to DR.
-
 </details>
 
-**3c4e, example 8.** `U2 R2 D' F2 R2 U2 R2 U' B2 R2 U2 R2 U F2 U' F' D F2 L2 U' R D F2 R'`
+**Example 185 (3c6e).** `R' B2 R' F2 L B2 L' U2 L B2 R B2 R' D2 R' B' D' L R2 F R D' B' L'`
 
-EO `(U' D R' U F)`, no RZP needed, on the inverse scramble: 3c4e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `<Eo-o-o-`, D `oEo-<-<-`, holes FL BL.
+EO `(D2 F D2 R' B')`, no RZP needed, on the inverse scramble: 3c6e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (90.7% of 3c4e, 7.9% sub-7).
+- U/D edges in the E slice: white-blue, white-red, yellow-red
+- Misoriented corners: white-green-red showing red, white-blue-orange showing orange, white-blue-red showing blue
+- E-slice edges out of the slice: blue-red, green-orange, blue-orange
 
-Card: **discard** (0 or 1 pair: 89.3% of 3c4e, 7.1% sub-7).
+Reads: 2 pairs (white-blue 1, white-red 1), 2 fake pairs, ARM 21.
 
-Switched case: 3c4e, ARM 21, 0 pairs on 0 edges, 1 fake, 1 side pair.
+<details><summary>Verdict and the DR after the switch</summary>
 
-Optimal DR on the normal side: `U2 L2 D2 L' F2 B2 U' R` (8 moves, not sub-7). The whole attempt: `(U' D R' U F) U2 L2 D2 L' F2 B2 U' R`, 13 moves to DR.
+Card: **switch** (*2 pairs, ARM 21, 1 or 2 fake pairs*). That group is 4.1% of 3c6e, 1,024 cases: 16 with a DR in 4 or less, 64 in 5, 240 in 6, 704 in 7 or more.
 
-</details>
+Pairs rule, never: **skip**. Fanti's pairs + ARM list: **switch**.
 
-**3c4e, example 9.** `L2 U2 B2 R U2 R' U2 L' D2 L D2 B2 D' F2 L F2 R U B' U' F'`
+Optimal DR on the normal side: `R U' D' L2 U' L` (6 moves, good). The whole attempt: `(D2 F D2 R' B') R U' D' L2 U' L`, 11 to DR.
 
-EO `(U2 L2 F' U' B)`, no RZP needed, on the inverse scramble: 3c4e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 0 pairs, 1 side pair. Rings: U `oEoEo->-`, D `>->-o-o-`, holes BL BR.
+</details>
 
-<details><summary>Verdict and the DR after the switch</summary>
+**Example 186 (5c6e).** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (90.7% of 3c4e, 7.9% sub-7).
+EO `D L D2 B'`, RZP `R'`: 5c6e in 5.
 
-Card: **discard** (0 or 1 pair: 89.3% of 3c4e, 7.1% sub-7).
+What you see:
 
-Switched case: 3c4e, ARM 11, 0 pairs on 0 edges, 0 fake, 1 side pair.
+- U/D edges in the E slice: white-red, yellow-orange, yellow-blue
+- Misoriented corners: yellow-blue-orange showing blue, yellow-green-red showing red, yellow-blue-red showing blue, white-blue-red showing red, yellow-green-orange showing green
+- E-slice edges out of the slice: green-orange, blue-orange, blue-red
 
-Optimal DR on the normal side: `D2 L' U' B2 R2 U D2 L` (8 moves, not sub-7). The whole attempt: `(U2 L2 F' U' B) D2 L' U' B2 R2 U D2 L`, 13 moves to DR.
+Reads: 2 pairs (yellow-orange 2), 3 side pairs, ARM 21.
 
-</details>
+<details><summary>Verdict and the DR after the switch</summary>
 
-**3c4e, example 10.** `U2 L2 U2 R2 B2 R2 B2 F' R2 B' R2 D2 B' R' U' L2 B D2 R' U L' B2 F2`
+Card: **switch** (*2 pairs, ARM 21, 3 side pairs*). That group is 2.0% of 5c6e, 2,568 cases: 16 with a DR in 4 or less, 96 in 5, 416 in 6, 2,040 in 7 or more.
 
-EO `R' L' U' D' F`, no RZP needed: 3c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 1 pair, 0 side pairs. Rings: U `oEo-o-o-`, D `>E>-o->-`, holes FR BR.
+Pairs rule, never: **skip**.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Optimal DR on the inverse: `F2 L2 B2 L B2 D' R` (7 moves, too long). The whole attempt: `D L D2 B' R' (F2 L2 B2 L B2 D' R)`, 12 to DR.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (90.7% of 3c4e, 7.9% sub-7).
+</details>
 
-Card: **discard** (0 or 1 pair: 89.3% of 3c4e, 7.1% sub-7).
+**Example 187 (3c4e).** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
 
-Switched case: 3c4e, ARM 21, 1 pair on 1 edge, 1 fake, 0 side pairs.
+EO `L B'`, RZP `R2 B2 L'`: 3c4e in 5.
 
-Optimal DR on the inverse: `R2 D2 R' F2 L' U' L` (7 moves, not sub-7). The whole attempt: `R' L' U' D' F (R2 D2 R' F2 L' U' L)`, 12 moves to DR.
+What you see:
 
-</details>
+- U/D edges in the E slice: yellow-orange, white-green
+- Misoriented corners: yellow-blue-orange showing orange, white-green-orange showing orange, white-green-red showing green
+- E-slice edges out of the slice: green-red, blue-red
 
-## DRM 3c6e: examples 1–4
+Reads: 1 pair (on white-green), 2 fake pairs, 1 side pair, ARM 21, holes on one R/L face (both edges out of the slice have red).
 
-**3c6e, example 1.** `B D2 F2 L2 U2 D2 F U2 B' L2 F D2 L2 U2 F' D' F' D' R U' B2 D R' F2`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(L F2 L2 D B)`, no RZP needed, on the inverse scramble: 3c6e in 5. Traced before switching: 0 paired edges, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 0 pairs, 2 side pairs. Rings: U `>-o->-o-`, D `oEoEoE>-`, holes FR FL BR.
+Card: **switch** (*1 pair, ARM 21, 1 side pair, 2 fake pairs or holes on one R/L face*). That group is 2.6% of 3c4e, 496 cases: 0 with a DR in 4 or less, 48 in 5, 152 in 6, 296 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **switch**.
 
-Shortest setup, U/D turns not counted: **2 qt + 3 half turns**, not short (80.9% of 3c6e, 0.87% sub-7).
+Optimal DR on the inverse: `L2 D2 R F2 B2 D' L` (7 moves, too long). The whole attempt: `L B' R2 B2 L' (L2 D2 R F2 B2 D' L)`, 12 to DR.
 
-Card: **discard** (always: 100.0% of 3c6e, 4.8% sub-7).
+</details>
 
-Switched case: 3c6e, ARM 11, 0 pairs on 0 edges, 1 fake, 2 side pairs.
+**Example 188 (3c6e).** `B2 D2 R2 B2 D F2 R2 D' L2 D L2 B2 D F2 U R' F' D' B2 L D2 B D2 F D'`
 
-Optimal DR on the normal side: `D2 R F2 D R U' L2 D R` (9 moves, not sub-7). The whole attempt: `(L F2 L2 D B) D2 R F2 D R U' L2 D R`, 14 moves to DR.
+EO `F' D2 B' L2 F'`, no RZP needed: 3c6e in 5.
 
-</details>
+What you see:
 
-**3c6e, example 2.** `L2 U2 L2 D2 F2 D2 F2 B' D2 F' D2 R2 F' D' L' U2 F R2 D' L U' F2 B2`
+- U/D edges in the E slice: white-green, white-red, white-blue
+- Misoriented corners: white-blue-orange showing blue, white-green-orange showing orange, white-green-red showing green
+- E-slice edges out of the slice: blue-orange, blue-red, green-red
 
-EO `R2 B' R' L B`, no RZP needed: 3c6e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 1 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `oEoEo-o-`, D `>E>->-o-`, holes FR FL BR.
+Reads: 2 pairs (white-green 1, white-red 1), 2 fake pairs, ARM 12.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (80.9% of 3c6e, 0.87% sub-7).
 
-Card: **discard** (always: 100.0% of 3c6e, 4.8% sub-7).
+Card: **switch** (*2 pairs, ARM 12, 2 fake pairs*). That group is 1.4% of 3c6e, 352 cases: 0 with a DR in 4 or less, 16 in 5, 120 in 6, 216 in 7 or more.
 
-Switched case: 3c6e, ARM 11, 1 pair on 1 edge, 1 fake, 1 side pair.
+Pairs rule, never: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Optimal DR on the inverse: `U R D' R2 F2 R2 B2 D' L` (9 moves, not sub-7). The whole attempt: `R2 B' R' L B (U R D' R2 F2 R2 B2 D' L)`, 14 moves to DR.
+Optimal DR on the inverse: `B2 U2 D L U D2 R` (7 moves, too long). The whole attempt: `F' D2 B' L2 F' (B2 U2 D L U D2 R)`, 12 to DR.
 
 </details>
 
-**3c6e, example 3.** `B2 F2 D R2 U R2 U B2 R2 F2 L2 D L' U L B' D' R' D' U' L U'`
+**Example 189 (6c6e).** `F2 R F2 R' D2 L' U2 R2 D2 U2 R' D2 L' U' F' D2 U2 L' F U R2 B`
 
-EO `U2 B L2 U' B`, no RZP needed: 3c6e in 5. Traced before switching: 2 paired edges, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 2 pairs, 2 side pairs. Rings: U `>Eo-oEo-`, D `>E>-o-o-`, holes FR FL BR.
+EO `(R L' B2 L2 F')`, no RZP needed, on the inverse scramble: 6c6e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (80.9% of 3c6e, 0.87% sub-7).
+- U/D edges in the E slice: yellow-orange, yellow-blue, white-red
+- Misoriented corners: yellow-blue-orange showing blue, white-blue-orange showing blue, white-green-red showing red, yellow-blue-red showing blue, yellow-green-orange showing green, white-blue-red showing blue
+- E-slice edges out of the slice: green-red, blue-red, blue-orange
 
-Card: **discard** (always: 100.0% of 3c6e, 4.8% sub-7).
+Reads: 3 pairs (yellow-orange 2, white-red 1), 3 fake pairs, corners 3 white, 3 yellow.
 
-Switched case: 3c6e, ARM 10, 2 pairs on 2 edges, 1 fake, 2 side pairs.
+<details><summary>Verdict and the DR after the switch</summary>
 
-Optimal DR on the inverse: `U2 R' F2 L U F2 U' L` (8 moves, not sub-7). The whole attempt: `U2 B L2 U' B (U2 R' F2 L U F2 U' L)`, 13 moves to DR.
+Card: **switch** (*3 pairs, 3 fake pairs, corners 3 and 3 in the layers*). That group is 1.9% of 6c6e, 2,560 cases: 16 with a DR in 4 or less, 160 in 5, 696 in 6, 1,688 in 7 or more.
 
-</details>
+Pairs rule, never: **skip**.
 
-**3c6e, example 4.** `U2 R' B2 R D2 L' U2 L U2 F2 U2 B2 R' D2 R2 U' F R D' L U' D2 R2 F U R'`
+Optimal DR on the normal side: `D2 R' L2 U' L D' L` (7 moves, too long). The whole attempt: `(R L' B2 L2 F') D2 R' L2 U' L D' L`, 12 to DR.
 
-EO `F' U D B'`, RZP `L'`: 3c6e in 5. Traced before switching: 1 paired edge, edge ARM 2, corner ARM 1 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `oEo->-o-`, D `>E>-oEo-`, holes FR BL BR.
+</details>
 
-<details><summary>Verdict and the DR after the switch</summary>
+**Example 190 (6c6e).** `B D2 F2 L2 U2 D2 F U2 B' L2 F D2 L2 U2 F' D' F' D' R U' B2 D R' F2`
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (80.9% of 3c6e, 0.87% sub-7).
+EO `(D F2 L2 B')`, RZP `(R')`, on the inverse scramble: 6c6e in 5.
 
-Card: **discard** (always: 100.0% of 3c6e, 4.8% sub-7).
+What you see:
 
-Switched case: 3c6e, ARM 12, 1 pair on 1 edge, 1 fake, 1 side pair.
+- U/D edges in the E slice: yellow-orange, white-blue, yellow-green
+- Misoriented corners: white-green-orange showing orange, yellow-green-orange showing orange, white-blue-red showing red, white-blue-orange showing orange, yellow-green-red showing red, yellow-blue-orange showing blue
+- E-slice edges out of the slice: blue-orange, green-orange, blue-red
 
-Optimal DR on the inverse: `U2 D2 B2 D' B2 L' U2 D' R` (9 moves, not sub-7). The whole attempt: `F' U D B' L' (U2 D2 B2 D' B2 L' U2 D' R)`, 14 moves to DR.
+Reads: 5 pairs (yellow-orange 1, white-blue 2, yellow-green 2), 1 fake pair, corners 3 white, 3 yellow.
 
-</details>
+<details><summary>Verdict and the DR after the switch</summary>
 
-## DRM 5c4e: examples 1–6
+Card: **switch** (*5 or 6 pairs*). That group is 1.2% of 6c6e, 1,600 cases: 8 with a DR in 4 or less, 112 in 5, 504 in 6, 976 in 7 or more.
 
-**5c4e, example 1.** `D2 R D2 F2 U2 R' F2 L2 B2 F2 L B2 R2 D' L2 R F L R F R2 D`
+Pairs rule, never: **skip**.
 
-EO `(F2 R' L2 U2 F)`, no RZP needed, on the inverse scramble: 5c4e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 4 (R/L stickers on U/D), 3 pairs, 1 side pair. Rings: U `>E<-o-<-`, D `oE<-<-o-`, holes FL BR.
+Optimal DR on the normal side: `R2 U' R F2 L' U' R` (7 moves, too long). The whole attempt: `(D F2 L2 B' R') R2 U' R F2 L' U' R`, 12 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (96.3% of 5c4e, 5.7% sub-7).
+**Example 191 (4c6e).** `U2 R2 D' F2 R2 U2 R2 U' B2 R2 U2 R2 U F2 U' F' D F2 L2 U' R D F2 R'`
 
-Card: **your call** (3 pairs: 6.1% of 5c4e, 27.6% sub-7).
+EO `(R2 D F')`, RZP `(D2 L')`, on the inverse scramble: 4c6e in 5.
 
-Switched case: 5c4e, ARM 42, 3 pairs on 2 edges, 0 fake, 1 side pair.
+What you see:
 
-Optimal DR on the normal side: `U D L U' D R' U' R` (8 moves, not sub-7). The whole attempt: `(F2 R' L2 U2 F) U D L U' D R' U' R`, 13 moves to DR.
+- U/D edges in the E slice: yellow-orange, white-red, yellow-red
+- Misoriented corners: yellow-green-red showing green, white-blue-orange showing blue, yellow-blue-red showing blue, yellow-blue-orange showing blue
+- E-slice edges out of the slice: blue-orange, green-orange, blue-red
 
-</details>
+Reads: 3 pairs on 2 edges (yellow-orange 1, yellow-red 2), ARM 00, bad edges in both layers, corners 1 white, 3 yellow.
 
-**5c4e, example 2.** `L B2 L2 B2 D2 L B2 L F2 D2 B2 R' B2 R' D2 F' R2 F2 U D2 F' D B' F'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `D' B U' F'`, RZP `R`: 5c4e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 3 (R/L stickers on U/D), 3 pairs, 1 side pair. Rings: U `>E<->E>-`, D `>-o-o-o-`, holes BL BR.
+Card: **switch** (*3 pairs, JZP (ARM 00)*). That group is 0.31% of 4c6e, 288 cases: 8 with a DR in 4 or less, 56 in 5, 112 in 6, 112 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, never: **skip**.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (96.3% of 5c4e, 5.7% sub-7).
+Optimal DR on the normal side: `D2 B2 D2 R U2 L` (6 moves, good). The whole attempt: `(R2 D F' D2 L') D2 B2 D2 R U2 L`, 11 to DR.
 
-Card: **your call** (3 pairs: 6.1% of 5c4e, 27.6% sub-7).
+</details>
 
-Switched case: 5c4e, ARM 32, 3 pairs on 2 edges, 1 fake, 1 side pair.
+**Example 192 (3c4e).** `D2 F2 L2 F2 R2 U' R2 B2 U2 R2 U' B2 U L' D B' F2 U' B D F2 U'`
 
-Optimal DR on the inverse: `D R U R F2 D' L` (7 moves, not sub-7). The whole attempt: `D' B U' F' R (D R U R F2 D' L)`, 12 moves to DR.
+EO `U L F U' F'`, no RZP needed: 3c4e in 5.
 
-</details>
+What you see:
 
-**5c4e, example 3.** `D2 F2 L2 F2 R2 U' R2 B2 U2 R2 U' B2 U L' D B' F2 U' B D F2 U'`
+- U/D edges in the E slice: white-blue, yellow-orange
+- Misoriented corners: yellow-blue-red showing blue, yellow-green-orange showing green, white-blue-orange showing blue
+- E-slice edges out of the slice: green-orange, blue-orange
 
-EO `F2 L F L F'`, no RZP needed: 5c4e in 5. Traced before switching: 2 paired edges, edge ARM 0, corner ARM 1 (R/L stickers on U/D), 3 pairs, 1 side pair. Rings: U `<E<-o-<-`, D `>E<-o-o-`, holes FL BL.
+Reads: 1 pair (on yellow-orange), 1 fake pair, 2 side pairs, ARM 01, holes on one R/L face (both edges out of the slice have orange).
 
 <details><summary>Verdict and the DR after the switch</summary>
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (96.3% of 5c4e, 5.7% sub-7).
+Card: **switch** (*1 pair, 2 side pairs*). That group is 5.7% of 3c4e, 1,080 cases: 0 with a DR in 4 or less, 32 in 5, 272 in 6, 776 in 7 or more.
 
-Card: **your call** (3 pairs: 6.1% of 5c4e, 27.6% sub-7).
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Switched case: 5c4e, ARM 10, 3 pairs on 2 edges, 1 fake, 1 side pair.
+Optimal DR on the inverse: `L' D R2 L U' L` (6 moves, good). The whole attempt: `U L F U' F' (L' D R2 L U' L)`, 11 to DR.
 
-Optimal DR on the inverse: `U2 L U' L' U' D2 L` (7 moves, not sub-7). The whole attempt: `F2 L F L F' (U2 L U' L' U' D2 L)`, 12 moves to DR.
-
 </details>
 
-**5c4e, example 4.** `U2 F2 L D2 L' F2 R B2 U2 L D2 R' F2 R' B2 F' U' L D' L U' L B2 L2 R2`
+**Example 193 (4c6e).** `D2 F2 L' B2 L2 D2 L' U2 R D2 L2 R' F2 U' D' R' B' U F R' U'`
 
-EO `U2 L U2 B'`, RZP `R'`: 5c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 4 (R/L stickers on U/D), 1 pair, 1 side pair. Rings: U `<E>-<-o-`, D `<E<-o-o-`, holes FR BR.
+EO `R2 B U R F'`, no RZP needed: 4c6e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (96.3% of 5c4e, 5.7% sub-7).
+- U/D edges in the E slice: yellow-red, yellow-orange, white-green
+- Misoriented corners: white-green-orange showing orange, yellow-blue-orange showing blue, yellow-blue-red showing blue, white-green-red showing red
+- E-slice edges out of the slice: green-red, green-orange, blue-orange
 
-Card: **discard** (2 pairs or fewer: 93.9% of 5c4e, 5.9% sub-7).
+Reads: 4 pairs on 3 edges (yellow-red 1, yellow-orange 1, white-green 2), ARM 21, bad edges in both layers, corners 2 white, 2 yellow.
 
-Switched case: 5c4e, ARM 41, 1 pair on 1 edge, 3 fake, 1 side pair.
+<details><summary>Verdict and the DR after the switch</summary>
 
-Optimal DR on the inverse: `U R2 D' B2 R' D' B2 R` (8 moves, not sub-7). The whole attempt: `U2 L U2 B' R' (U R2 D' B2 R' D' B2 R)`, 13 moves to DR.
+Card: **switch** (*4 pairs on three edges*). That group is 0.85% of 4c6e, 800 cases: 64 with a DR in 4 or less, 168 in 5, 360 in 6, 208 in 7 or more.
 
-</details>
+Pairs rule, never: **skip**.
 
-**5c4e, example 5.** `F2 R F2 U2 B2 R' U2 L2 D2 U2 L D2 R2 F' L2 R U L R U R2 F`
+Optimal DR on the inverse: `U D2 B2 R B2 L` (6 moves, good). The whole attempt: `R2 B U R F' (U D2 B2 R B2 L)`, 11 to DR.
 
-EO `L U2 F`, RZP `U2 R'`: 5c4e in 5. Traced before switching: 1 paired edge, edge ARM 1, corner ARM 4 (R/L stickers on U/D), 2 pairs, 0 side pairs. Rings: U `oEo-<-<-`, D `>E<-o-<-`, holes FL BR.
+</details>
 
-<details><summary>Verdict and the DR after the switch</summary>
+**Example 194 (5c4e).** `D2 U2 L F2 R F2 R D2 F2 U2 B2 L B' R B D' L' F' L' R' B R'`
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (96.3% of 5c4e, 5.7% sub-7).
+EO `(D2 B D2 F')`, RZP `(L)`, on the inverse scramble: 5c4e in 5.
 
-Card: **discard** (2 pairs or fewer: 93.9% of 5c4e, 5.9% sub-7).
+What you see:
 
-Switched case: 5c4e, ARM 41, 2 pairs on 1 edge, 0 fake, 0 side pairs.
+- U/D edges in the E slice: yellow-red, white-blue
+- Misoriented corners: white-blue-red showing red, yellow-blue-red showing red, yellow-green-orange showing orange, yellow-blue-orange showing blue, white-green-red showing red
+- E-slice edges out of the slice: blue-red, green-red
 
-Optimal DR on the inverse: `B2 U2 B2 D L' U B2 L` (8 moves, not sub-7). The whole attempt: `L U2 F U2 R' (B2 U2 B2 D L' U B2 L)`, 13 moves to DR.
+Reads: 1 pair (on white-blue), 1 fake pair, 0 side pairs, ARM 41.
 
-</details>
+<details><summary>Verdict and the DR after the switch</summary>
 
-**5c4e, example 6.** `U2 L2 F2 R B2 D2 R B2 F2 L D2 R2 D2 D' F' R B R2 U' F' D' B'`
+Card: **skip** (*anything else*). That group is 89.3% of 5c4e, 84,024 cases: 0 with a DR in 4 or less, 256 in 5, 3,672 in 6, 80,096 in 7 or more.
 
-EO `(U' D2 F B')`, RZP `(R')`, on the inverse scramble: 5c4e in 5. Traced before switching: 2 paired edges, edge ARM 1, corner ARM 4 (R/L stickers on U/D), 2 pairs, 1 side pair. Rings: U `<->-<-o-`, D `oE<E<-o-`, holes FL BR.
+Pairs rule, never: **skip**.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Optimal DR on the normal side: `U2 R2 B2 D R U' B2 R` (8 moves, too long). The whole attempt: `(D2 B D2 F' L) U2 R2 B2 D R U' B2 R`, 13 to DR.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (96.3% of 5c4e, 5.7% sub-7).
+</details>
 
-Card: **discard** (2 pairs or fewer: 93.9% of 5c4e, 5.9% sub-7).
+**Example 195 (3c6e).** `F2 R2 D' U2 L2 U' F2 D L2 U' L2 B2 L2 R2 F' L D2 B' F R F' D`
 
-Switched case: 5c4e, ARM 41, 2 pairs on 2 edges, 1 fake, 1 side pair.
+EO `(F2 U2 R' B')`, RZP `(R)`, on the inverse scramble: 3c6e in 5.
 
-Optimal DR on the normal side: `U2 F2 D B2 L' D' F2 L` (8 moves, not sub-7). The whole attempt: `(U' D2 F B' R') U2 F2 D B2 L' D' F2 L`, 13 moves to DR.
+What you see:
 
-</details>
+- U/D edges in the E slice: yellow-blue, white-red, white-orange
+- Misoriented corners: yellow-green-red showing red, yellow-blue-orange showing orange, yellow-blue-red showing blue
+- E-slice edges out of the slice: green-red, blue-red, green-orange
 
-## DRM 5c6e: examples 1–4
+Reads: 1 pair (on yellow-blue), 1 fake pair, ARM 21.
 
-**5c6e, example 1.** `R2 D2 L' F2 D2 R2 D2 R' B2 D2 R2 D2 R F2 R' F' L F2 U2 R' D L F2 D'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `(B2 L F2 U2 F')`, no RZP needed, on the inverse scramble: 5c6e in 5. Traced before switching: 3 paired edges, edge ARM 2, corner ARM 4 (R/L stickers on U/D), 4 pairs, 1 side pair. Rings: U `<E<E<-o-`, D `>E<-o-o-`, holes FR BL BR.
+Card: **skip** (*anything else*). That group is 93.0% of 3c6e, 23,328 cases: 0 with a DR in 4 or less, 48 in 5, 624 in 6, 22,656 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, never: **skip**. Fanti's pairs + ARM list: **skip**.
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (96.9% of 5c6e, 4.7% sub-7).
+Optimal DR on the normal side: `R' F2 U' D' L2 U' R` (7 moves, too long). The whole attempt: `(F2 U2 R' B' R) R' F2 U' D' L2 U' R`, 12 to DR.
 
-Card: **your call** (4 pairs: 3.1% of 5c6e, 37.9% sub-7).
+</details>
 
-Switched case: 5c6e, ARM 42, 4 pairs on 3 edges, 2 fake, 1 side pair.
+**Example 196 (5c6e).** `D' R2 U' L2 U R2 B2 U L2 D' R2 U R2 U F' R L' D' L' B' R' F2 L2`
 
-Optimal DR on the normal side: `U' D' L U R' U L` (7 moves, not sub-7). The whole attempt: `(B2 L F2 U2 F') U' D' L U R' U L`, 12 moves to DR.
+EO `F U' R2 F2 B'`, no RZP needed: 5c6e in 5.
 
-</details>
+What you see:
 
-**5c6e, example 2.** `D' R2 U' L2 U R2 B2 U L2 D' R2 U R2 U F' R L' D' L' B' R' F2 L2`
+- U/D edges in the E slice: white-blue, white-green, white-red
+- Misoriented corners: yellow-blue-orange showing orange, white-blue-red showing red, white-green-red showing green, white-green-orange showing orange, white-blue-orange showing orange
+- E-slice edges out of the slice: green-orange, blue-red, blue-orange
 
-EO `F U D2 L2 F`, no RZP needed: 5c6e in 5. Traced before switching: 3 paired edges, edge ARM 2, corner ARM 4 (R/L stickers on U/D), 4 pairs, 0 side pairs. Rings: U `>E<E<E<-`, D `<-o-o-o-`, holes FL BL BR.
+Reads: 4 pairs (white-blue 2, white-green 1, white-red 1), 0 side pairs, ARM 42.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **3 qt**, not short (96.9% of 5c6e, 4.7% sub-7).
 
-Card: **your call** (4 pairs: 3.1% of 5c6e, 37.9% sub-7).
+Card: **switch** (*4 pairs*). That group is 3.1% of 5c6e, 3,840 cases: 24 with a DR in 4 or less, 232 in 5, 1,200 in 6, 2,384 in 7 or more.
 
-Switched case: 5c6e, ARM 42, 4 pairs on 3 edges, 2 fake, 0 side pairs.
+Pairs rule, never: **skip**.
 
-Optimal DR on the inverse: `D' R' U R' D2 L` (6 moves, sub-7). The whole attempt: `F U D2 L2 F (D' R' U R' D2 L)`, 11 moves to DR.
+Optimal DR on the inverse: `D' R' U R' D2 L` (6 moves, good). The whole attempt: `F U' R2 F2 B' (D' R' U R' D2 L)`, 11 to DR.
 
 </details>
 
-**5c6e, example 3.** `B2 L2 U2 F L2 F' L2 B' R2 B R2 U2 R' D2 B D2 F L U' L' D'`
+**Example 197 (4c6e).** `L2 F2 U2 F2 D2 R' D2 B2 R2 D2 R' B2 R U' L B' F2 R' B L F2 R'`
 
-EO `(U' R F2 L2 B)`, no RZP needed, on the inverse scramble: 5c6e in 5. Traced before switching: 2 paired edges, edge ARM 2, corner ARM 4 (R/L stickers on U/D), 2 pairs, 1 side pair. Rings: U `>Eo->-<-`, D `oE>E>-o-`, holes FR FL BL.
+EO `(L F' D' F)`, RZP `(R)`, on the inverse scramble: 4c6e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
+
+- U/D edges in the E slice: white-red, white-green, yellow-blue
+- Misoriented corners: yellow-blue-red showing red, yellow-blue-orange showing orange, white-green-red showing green, white-green-orange showing green
+- E-slice edges out of the slice: blue-orange, blue-red, green-orange
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (96.9% of 5c6e, 4.7% sub-7).
+Reads: 3 pairs on 2 edges (white-red 1, yellow-blue 2), ARM 22, bad edges in both layers, corners 2 white, 2 yellow.
 
-Card: **discard** (3 pairs or fewer: 96.9% of 5c6e, 5.1% sub-7).
+<details><summary>Verdict and the DR after the switch</summary>
+
+Card: **skip** (*anything else*). That group is 96.4% of 4c6e, 90,656 cases: 0 with a DR in 4 or less, 192 in 5, 2,688 in 6, 87,776 in 7 or more.
 
-Switched case: 5c6e, ARM 42, 2 pairs on 2 edges, 2 fake, 1 side pair.
+Pairs rule, never: **skip**.
 
-Optimal DR on the normal side: `U B2 D R B2 D' L` (7 moves, not sub-7). The whole attempt: `(U' R F2 L2 B) U B2 D R B2 D' L`, 12 moves to DR.
+Optimal DR on the normal side: `U' R B2 D R' U' B2 L` (8 moves, too long). The whole attempt: `(L F' D' F R) U' R B2 D R' U' B2 L`, 13 to DR.
 
 </details>
 
-**5c6e, example 4.** `R2 U R2 U' B2 D' F2 U2 B2 F2 U' B2 D' F' R' B2 F2 D' R F U2 L`
+**Example 198 (3c4e).** `U2 R2 F' B2 L2 B' U2 F L2 B' L2 D2 L2 R2 U' L F2 D' U R U' F`
 
-EO `B R' U R' F'`, no RZP needed: 5c6e in 5. Traced before switching: 1 paired edge, edge ARM 3, corner ARM 3 (R/L stickers on U/D), 2 pairs, 1 side pair. Rings: U `<Eo-oEo-`, D `>E<-<-<-`, holes FR BL BR.
+EO `(L B L' F')`, RZP `(R')`, on the inverse scramble: 3c4e in 5.
 
-<details><summary>Verdict and the DR after the switch</summary>
+What you see:
 
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (96.9% of 5c6e, 4.7% sub-7).
+- U/D edges in the E slice: white-orange, yellow-blue
+- Misoriented corners: white-blue-red showing blue, white-blue-orange showing orange, yellow-blue-orange showing blue
+- E-slice edges out of the slice: green-orange, green-red
 
-Card: **discard** (3 pairs or fewer: 96.9% of 5c6e, 5.1% sub-7).
+Reads: 0 pairs, 2 fake pairs, 0 side pairs, ARM 11, holes on one F/B face (both edges out of the slice have green).
 
-Switched case: 5c6e, ARM 33, 2 pairs on 1 edge, 1 fake, 1 side pair.
+<details><summary>Verdict and the DR after the switch</summary>
 
-Optimal DR on the inverse: `R D R L U R' B2 L` (8 moves, not sub-7). The whole attempt: `B R' U R' F' (R D R L U R' B2 L)`, 13 moves to DR.
+Card: **skip** (*anything else*). That group is 79.4% of 3c4e, 14,936 cases: 0 with a DR in 4 or less, 8 in 5, 576 in 6, 14,352 in 7 or more.
 
-</details>
+Pairs rule, 2+ pairs: **skip**. Fanti's pairs + ARM list: **skip**.
 
-## DRM 6c6e: examples 1–4
+Optimal DR on the normal side: `D2 F2 L U' B2 R2 U' R` (8 moves, too long). The whole attempt: `(L B L' F' R') D2 F2 L U' B2 R2 U' R`, 13 to DR.
 
-**6c6e, example 1.** `D2 F2 L2 F2 R2 U' R2 B2 U2 R2 U' B2 U L' D B' F2 U' B D F2 U'`
+</details>
 
-EO `F' L2 F'`, RZP `R2 L`: 6c6e in 5. Traced before switching: 3 paired edges, edge ARM 1, corner ARM 2 (R/L stickers on U/D), 5 pairs, 3 side pairs. Rings: U `>E<E<->-`, D `>E<-o-o-`, holes FR FL BL.
+**Example 199 (3c4e).** `D2 F2 L2 F2 R2 U' R2 B2 U2 R2 U' B2 U L' D B' F2 U' B D F2 U'`
 
-<details><summary>Verdict and the DR after the switch</summary>
+EO `F' D' L' D F`, no RZP needed: 3c4e in 5.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (97.3% of 6c6e, 4.8% sub-7).
+What you see:
 
-Card: **your call** (JZP, or 5 or 6 pairs: 1.3% of 6c6e, 39.0% sub-7).
+- U/D edges in the E slice: yellow-red, yellow-orange
+- Misoriented corners: white-blue-red showing red, yellow-blue-red showing blue, yellow-green-orange showing green
+- E-slice edges out of the slice: green-orange, blue-orange
 
-Switched case: 6c6e, ARM 21, 5 pairs on 3 edges, 1 fake, 3 side pairs.
+Reads: 2 pairs, one on each edge, 0 fake pairs, 1 side pair, ARM 10, holes on one R/L face (both edges out of the slice have orange).
 
-Optimal DR on the inverse: `R F2 R' F2 L2 U' L` (7 moves, not sub-7). The whole attempt: `F' L2 F' R2 L (R F2 R' F2 L2 U' L)`, 12 moves to DR.
+<details><summary>Verdict and the DR after the switch</summary>
 
-</details>
+Card: **switch** (*2 pairs and a side pair*). That group is 6.9% of 3c4e, 1,296 cases: 0 with a DR in 4 or less, 72 in 5, 488 in 6, 736 in 7 or more.
 
-**6c6e, example 2.** `B2 U L2 D R2 B2 D F2 U F2 D2 R2 U' R' F' R' U' L' D' F U2 F' R'`
+Pairs rule, 2+ pairs: **switch**. Fanti's pairs + ARM list: **switch**.
 
-EO `F R2 D' L' B'`, no RZP needed: 6c6e in 5. Traced before switching: 3 paired edges, edge ARM 3, corner ARM 6 (R/L stickers on U/D), 6 pairs, 0 side pairs. Rings: U `>E<->E<-`, D `>E<-o-o-`, holes FR FL BL.
+Optimal DR on the inverse: `U' L' D' L' D' L` (6 moves, good). The whole attempt: `F' D' L' D F (U' L' D' L' D' L)`, 11 to DR.
 
-<details><summary>Verdict and the DR after the switch</summary>
+</details>
 
-Shortest setup, U/D turns not counted: **3 qt**, not short (97.3% of 6c6e, 4.8% sub-7).
+**Example 200 (5c4e).** `F2 U F2 U' R2 D' L2 U2 R2 L2 U' R2 D' L' F' R2 L2 D' F L U2 B`
 
-Card: **your call** (JZP, or 5 or 6 pairs: 1.3% of 6c6e, 39.0% sub-7).
+EO `(F L U D F)`, no RZP needed, on the inverse scramble: 5c4e in 5.
 
-Switched case: 6c6e, ARM 63, 6 pairs on 3 edges, 0 fake, 0 side pairs.
+What you see:
 
-Optimal DR on the inverse: `R U R D' L` (5 moves, sub-7). The whole attempt: `F R2 D' L' B' (R U R D' L)`, 10 moves to DR.
+- U/D edges in the E slice: white-orange, yellow-orange
+- Misoriented corners: white-green-orange showing green, white-blue-red showing red, yellow-green-orange showing green, white-blue-orange showing blue, yellow-blue-orange showing orange
+- E-slice edges out of the slice: blue-red, green-orange
 
-</details>
+Reads: 3 pairs (white-orange 2, yellow-orange 1), 1 fake pair, 2 side pairs, ARM 20.
 
-**6c6e, example 3.** `R2 F2 L' U2 F2 R2 F2 R' D2 F2 R2 F2 R U2 R' U' L U2 B2 R' F L U2 F'`
+<details><summary>Verdict and the DR after the switch</summary>
 
-EO `L2 U R D2 B'`, no RZP needed: 6c6e in 5. Traced before switching: 1 paired edge, edge ARM 2, corner ARM 3 (R/L stickers on U/D), 2 pairs, 3 side pairs. Rings: U `<-<-o->-`, D `>E<EoE>-`, holes FR FL BL.
+Card: **switch** (*3 pairs, 2+ side pairs*). That group is 2.2% of 5c4e, 2,112 cases: 24 with a DR in 4 or less, 184 in 5, 600 in 6, 1,304 in 7 or more.
 
-<details><summary>Verdict and the DR after the switch</summary>
+Pairs rule, never: **skip**.
 
-Shortest setup, U/D turns not counted: **2 qt + 2 half turns**, not short (97.3% of 6c6e, 4.8% sub-7).
+Optimal DR on the normal side: `R2 F2 D L D' F2 L` (7 moves, too long). The whole attempt: `(F L U D F) R2 F2 D L D' F2 L`, 12 to DR.
 
-Card: **discard** (anything else: 98.7% of 6c6e, 5.2% sub-7).
+</details>
 
-Switched case: 6c6e, ARM 32, 2 pairs on 1 edge, 2 fake, 3 side pairs.
+**Example 201 (4c6e).** `F2 R F2 R' D2 L' U2 R2 D2 U2 R' D2 L' U' F' D2 U2 L' F U R2 B`
 
-Optimal DR on the inverse: `U L' B2 L' F2 U R L` (8 moves, not sub-7). The whole attempt: `L2 U R D2 B' (U L' B2 L' F2 U R L)`, 13 moves to DR.
+EO `(L D' R' L' F)`, no RZP needed, on the inverse scramble: 4c6e in 5.
 
-</details>
+What you see:
 
-**6c6e, example 4.** `U2 R' B2 R D2 L' U2 L U2 F2 U2 B2 R' D2 R2 U' F R D' L U' D2 R2 F U R'`
+- U/D edges in the E slice: white-orange, yellow-green, yellow-blue
+- Misoriented corners: white-blue-orange showing blue, white-blue-red showing red, yellow-green-orange showing orange, yellow-blue-red showing red
+- E-slice edges out of the slice: green-orange, blue-orange, blue-red
 
-EO `(L U F' U B)`, no RZP needed, on the inverse scramble: 6c6e in 5. Traced before switching: 1 paired edge, edge ARM 2, corner ARM 3 (R/L stickers on U/D), 2 pairs, 2 side pairs. Rings: U `<EoE>->-`, D `>E<-<-o-`, holes FL BL BR.
+Reads: 3 pairs on 3 edges (white-orange 1, yellow-green 1, yellow-blue 1), ARM 32, bad edges in both layers, corners 2 white, 2 yellow.
 
 <details><summary>Verdict and the DR after the switch</summary>
-
-Shortest setup, U/D turns not counted: **3 qt + 1 half turn**, not short (97.3% of 6c6e, 4.8% sub-7).
 
-Card: **discard** (anything else: 98.7% of 6c6e, 5.2% sub-7).
+Card: **switch** (*3 pairs on three edges, corners 2 and 2 in the layers*). That group is 2.2% of 4c6e, 2,080 cases: 0 with a DR in 4 or less, 56 in 5, 480 in 6, 1,544 in 7 or more.
 
-Switched case: 6c6e, ARM 32, 2 pairs on 1 edge, 2 fake, 2 side pairs.
+Pairs rule, never: **skip**.
 
-Optimal DR on the normal side: `R D' L F2 B2 U2 D' L` (8 moves, not sub-7). The whole attempt: `(L U F' U B) R D' L F2 B2 U2 D' L`, 13 moves to DR.
+Optimal DR on the normal side: `U' R D' B2 R U L` (7 moves, too long). The whole attempt: `(L D' R' L' F) U' R D' B2 R U L`, 12 to DR.
 
 </details>

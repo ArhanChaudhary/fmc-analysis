@@ -1,50 +1,45 @@
 # When to switch an EO
 
-The sixth case study of this repository: after EO + RZP, when to switch (go to the inverse, keep the EO and look for a short DR there). Its main result is a count: how many turns of the side faces the DR needs when U and D turns are free. A U or D turn never makes or breaks a pair, so a switched case is two rings (the U and D layers up to turning) and the four E-slice places, a half turn swaps a row between the rings, and a quarter turn has a one-line rule. For 4c4e the count is the number of half turns to two bars: 0 or 1 is a certain sub-7, 2 is 72.1%, 3 is 16.0%, 4 or 5 is 1.7%. For every DRM, 2 side turns or fewer is a certain sub-7, and 3 with no extra quarter turn is the switch group. The study also gives a switch card per DRM for a pair trace alone, shows how to read every feature (the rings included) from the normal side, covers what a real RZP changes (the RZP bias, gone after a switch; the last RZP and EO turns; the second DR axis; RZP length), grades every switch rule from the FMC solvers Discord on the same terms, reproduces the published tables, and checks every concrete claim.
+The sixth case study of this repository: after EO + RZP, when to switch (go to the inverse, keep the EO and look for a short DR there).
 
-It builds on Cale's *DR setup stats*, Louis's *DRM/ARM average optimals*, rodneykinney's corner cases, the two-bar target (a 2019 FewestMoves video, then rodneykinney's *DR - 4c4e Theory*, which also counts the half turns still missing along one corner solution), *Domino Setup Theory* (top pairs come from side-face moves only; the side-pair tracing), *DRM Subsets*, its trees and *Axial Reduction Theory* (DRs sorted by trigger and by the quarter turns before it), *DRM corner variant+pair stats*, Jay's same-axis reading of the inverse's ARM, Evan's *arm/pairs* sheets, Fanti's rule sets, Radek B's and Levi Gibson's tables, wen's pair tracing, torchlight's RZP bias, and the hand rules of Yura Riabov, tseitsei89, wen, Jay, Noah Swor, Lewis Isom, caycala, compLex, Daichi and Zagros. What it adds:
+The question is whether there is a better policy than the one in use (the number of pairs on the inverse, with ARM or the corner case for some cases) that a solver can still run in a few seconds. Every policy is graded by what it misses: how much it switches, and which share of the cases with a DR in 4 or less, in 5 and in 6 it does not switch, because a missed 4-mover costs more than a missed 5-mover and both cost more than a wasted switch. The answer is a switch card per DRM: pairs first, then one more look that depends on the pair count. On 4c4e, 4c2e, 3c2e and 7c8e together it switches a little less than the pairs rule and misses less at every length. Most of each card is reads the server already had (caycala, Evan, Fanti, wen, Daichi, Jay, rodneykinney), credited where they are used. The study also judges the half-turns-to-two-bars count (the main rule of the page's earlier version) as a switch test, lists what did not help, and gives the ceilings: how far any rule on the quick reads could go.
 
-- The two-ring picture, exact for every case: what U/D turns, half turns and quarter turns do to it.
-- For 4c4e, the half turns to two bars counted exactly, over every route: the bands above, the count as the larger of row swaps and a hole number, how to read it from a pair trace (exact rule for 3 and 4 pairs, a one-swap look for 2), and every ring picture with 2 swaps or fewer.
-- For every DRM, side turns: the certain class, quarter turns against half turns, the trigger cases in ring notation, and each card's groups split by them (7c8e with 5-6 pairs: 95.4% against 33.8%).
-- For 4c4e by a pair trace alone, a rule that settles about twice as many cases as pairs or ARM: count the paired edges, then look at edge ARM.
-- The your-call groups split by the corner case.
-- The rings and holes read on the normal side, and a check on 20,000 random cubes of the side-pair and edge-ARM readings the server had (rodneykinney's and Jay's).
-- Proof that the uniform tables are exact for switched RZPs.
-- A grade for every rule, as its author stated it, on exact cases and on 121.5 million real attempts.
-- That Fanti's figures are any-turn numbers.
+It builds on rodneykinney's *DRM Subsets Meta*, *DRM Subsets*, *DR - 4c4e Theory*, *Domino Setup Theory* and *DRM corner variant+pair stats*, Louis's *DRM/ARM average optimals*, Cale's *DR setup stats*, Evan's *arm/pairs*, Fanti's rule sets, and the rules and reads of tseitsei89, wen, Jay, Daichi, caycala, Yura Riabov, bpaul, Radek B, compLex and Zagros.
 
 | Where | What |
 |---|---|
 | [report/WRITEUP.md](report/WRITEUP.md) | the write-up |
-| [report/EXAMPLES.md](report/EXAMPLES.md) | worked examples: 200 real attempts from uniform scrambles, with what to trace, the card's verdict and the optimal DR after the switch, folded away |
+| [report/EXAMPLES.md](report/EXAMPLES.md) | worked examples: 201 real attempts from uniform scrambles, with what you see before switching, the reads, the card's verdict next to the pairs rule's and the optimal DR after the switch, folded away |
 | [report/BUGS.md](report/BUGS.md) | errata: the one statement from the server that the numbers go against, with an example |
-| `research/SPEC.md` | the questions and the model |
-| `research/eoswtools/` | the Rust side: the BFS over all 1,082,565 EO-solved cases, the second-axis completions, the RZP weights, the sampled attempts |
-| `research/src/` | the Python side: features (sticker model), the two-ring model and its counts (`rings.py`, `xrings.py`, `xtrace_rings.py`), populations, reproduction, grading, rule search, NISS and tracing checks, claims, witnesses, report tables, examples page |
-| `research/out/` | the result tables (`SUMMARY.md` states every answer) |
-| `lean/EOSwitch/` | Lean certificate: its own BFS over all cases, the features from stickers, the distance histogram, the per-DRM counts and every cell of the card tables, and that the printed tables match; the two-ring picture and its turn rules on every case, side turns, half turns to two bars as the larger of row swaps and hole number, the band tables, the 3-pair recipe and the list of ring pictures with 2 swaps or fewer |
+| `research/v2/` | this version's analysis (below) |
+| `research/src/`, `research/eoswtools/` | the earlier version's code, still used: the BFS over all 1,082,565 EO-solved cases, the features defined from stickers, the server's rules as code (`rules.py`), the real attempts, the two-ring model behind the half-turn count |
+| `report/data/`, `research/out/SUMMARY.md` | tables of the earlier version (the ring pictures and the half-turn count among them), kept because section 7 of the write-up and parts E and F of the Lean project refer to that count |
+| `lean/EOSwitch/` | Lean certificate: its own BFS over all cases, the features from stickers, and (part G) every group of every card and every current policy recounted, by DR length |
 
-## How the numbers are made
+## The v2 analysis (`research/v2/`)
 
-`research/run_all.sh` regenerates everything in about six minutes on four cores, each heavy step capped at 4 GB. It needs is-dr-xs-worth-it's `out/tables/` and eo-to-dr's `eodrtools` and `out/big/` tables. The distances come from a BFS with the 14 EO-keeping turns. They are checked against eo-to-dr's table on every case and against nissy 2.0.8 on 1,000. The features are defined from stickers and checked against rodneykinney's own code on every case. The real attempts are every EO of up to 6 moves, with every RZP to a total of 4, 5 or 6, on 6,000 uniformly random scrambles.
+| File | What it does |
+|---|---|
+| `lib.py` | the yardstick: the prices of a miss, the grade of a policy (switched, missed 4-or-less / 5 / 6, cost per case), the best rule on a set of reads |
+| `feat2.py` | extra reads per case (where the pairs are, the holes, the layers, …) → `out/feat2.npz` |
+| `cards.py` | **the cards** (`CARDS`) and the current policies they are compared with (`BASE`); `python cards.py` prints every card with its exact numbers |
+| `induce.py`, `tree.py`, `fastsearch.py`, `linfit.py`, `relfeat.py` | the searches: greedy rule lists, small trees, the best rule per set of reads, weighted sums, every relation between two bad pieces |
+| `trace2.py` | every read done on the normal side by colour, checked against the inverse on random cubes → `out/checks_trace2.tsv` |
+| `results.py` | everything the report prints → `out/results.json` |
+| `witness2.py` | the example cases of the write-up, replayed → `out/witness2.json` |
+| `xexamples2.py` | the examples page |
+| `report/` | the write-up's text (`writeup.md`), its numbers and tables (`env2.py`), the builder (`assemble2.py`), the decision-cards entry (`decision_card.py`) |
 
-Large outputs (`research/out/big/`, per-case data and the attempts) are not in the repository. `run_all.sh` regenerates them.
-
-## Rebuilding the report
+## Rebuilding
 
     source /data/fmc/env.sh
-    cd eo-switch/research/src
-    python xtrace.py 20000                         # out/checks_trace.tsv: the tracings of section 5 on random cubes (a few minutes)
-    python rings.py                                # out/big/rings.npz, out/checks_rings.txt: the ring picture checked on every case, side turns, half turns to two bars
-    python xrings.py                               # report/data/ring_*.md, out/rings.json, out/ring_examples.json (every example replayed), out/rings_lean_ref.json
-    python xtrace_rings.py 20000                   # out/checks_trace_rings.tsv: the rings read on normal, on random cubes
-    python xtables.py                              # report/data/*.md and out/report_extra.json
-    python report_build/assemble.py --final        # report/WRITEUP.md (every number is computed; --final fails if one is missing)
-    python report_build/assemble.py --bugs --final # report/BUGS.md
-    python xexamples.py                            # report/EXAMPLES.md, every move sequence replayed on the sticker model, lengths checked with nissy
-    python report_build/check_quotes.py            # every quotation against its message or document
+    cd eo-switch/research/v2
+    python feat2.py && python cards.py          # needs ../out/big (run ../run_all.sh first: about six minutes)
+    python trace2.py 5000                       # the reads on normal, 65,000 random cubes
+    python results.py && python witness2.py
+    python xexamples2.py                        # report/EXAMPLES.md
+    python report/assemble2.py                  # report/WRITEUP.md
+    python report/decision_card.py              # the switch card of cards/decision-cards.md
+    python ../src/report_build/check_quotes.py report/writeup.md
 
-The text is `research/src/report_build/writeup.md`, with the `sec_*.md` and `app.md` parts next to it, and `bugs.md`. `{{table}}` includes a table from `report/data`, `{{PART}}` another text file of that folder, `{= expression =}` a computed number (names in `report_build/xenv.py`), and `[[T123]]` a link to a Discord message.
-
-The reading notes, the register of what was said and the Discord export are not in the repository; the quote check needs them.
+Large outputs (`research/out/big/`, `research/v2/out/*.npz`, `*.npy`) are not in the repository. The reading notes, the register of what was said and the Discord export are not in the repository either; the quote check needs them.

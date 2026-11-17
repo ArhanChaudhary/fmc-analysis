@@ -12,3 +12,7 @@ import EOSwitch.Rings
 import EOSwitch.RingsRef
 import EOSwitch.RingsThm
 import EOSwitch.Audit
+import EOSwitch.Cards
+import EOSwitch.CardsRef
+import EOSwitch.CardsThm
+import EOSwitch.CardsAudit

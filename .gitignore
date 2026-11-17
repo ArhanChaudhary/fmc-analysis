@@ -37,6 +37,9 @@ __pycache__/
 /htr-routes/research/out/big/
 /eo-switch/research/eoswtools/target/
 /eo-switch/research/out/big/
+/eo-switch/research/v2/out/*.npz
+/eo-switch/research/v2/out/*.npy
+/eo-switch/research/v2/out/examples_extra.tsv
 /gaps/research/big/*
 !/gaps/research/big/g2/
 /gaps/research/big/g2/*

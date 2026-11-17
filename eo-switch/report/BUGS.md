@@ -9,7 +9,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 - **The exact EO-kept distance to DR of every EO-solved case** (1,082,565 for one EO axis and one DR axis: corner twists × the places of the E-slice edges), from a breadth-first search with U, D, R, L, F2, B2. It agrees with Cale's table, my EO-to-DR study and nissy, and a Lean certificate proves its histogram.
 - **The features** (ARM, pairs, side pairs, corner case) defined from stickers. They agree with rodneykinney's own code on every case.
 
-The example below is a scramble: apply it to a solved cube held with the EO on F/B, and you have the case. The DR given is optimal (EO kept) and was replayed on a sticker-level cube. The item also says how much of its example is checked in Lean; the rest is computed, not proved. ✓ after a number: proved in Lean. Below is the one statement the numbers go against. Most of what was said holds up, and that's in the write-up's section 13.
+The example below is a scramble: apply it to a solved cube held with the EO on F/B, and you have the case. The DR given is optimal (EO kept) and was replayed on a sticker-level cube. The item also says how much of its example is checked in Lean; the rest is computed, not proved. ✓ after a number: proved in Lean. Below is the one statement the numbers go against. Most of what was said holds up, and that's in the write-up's section 11.
 
 ---
 
