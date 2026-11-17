@@ -13,7 +13,7 @@ def others():
 X = D('4c4e'); c = X['card']; p = B_ = X['base']['pairs']; f = X['base']['pairs+arm']
 text = f"""### Should I switch this EO?
 
-**Count the pairs on the inverse like you do now, then take one more look, and which one depends on the pair count. On 4c4e: 3 or 4 pairs, switch. 2 pairs on two edges, switch. 2 pairs on one edge, switch if the two E-slice edges that are out of the slice share red or orange. 1 pair, switch if it's ARM 21, unless the corners are 4b with exactly one side pair, or 4a and not in two columns (Evan's stacked corners). 0 pairs, only if there's no fake pair either and the misoriented corners are two white and two yellow. That switches {pc(c['switch'])} of 4c4e, a little less than 2+ pairs ({pc(p['switch'])}), and it misses no case of 4 or less (2+ pairs: {pc(p['miss_le4'])}), {pc(c['miss_d5'])} of the 5-movers ({pc(p['miss_d5'])}) and {pc(c['miss_d6'])} of the 6-movers ({pc(p['miss_d6'])}).**
+**Count the pairs on the inverse like you do now, then take one more look, and which one depends on the pair count. On 4c4e: 3 or 4 pairs, switch. 2 pairs on two edges, switch. 2 pairs on one edge, switch if there are 2 fake pairs or if the two E-slice edges that are out of the slice share red or orange. 1 pair, check ARM: with ARM 21 switch 4d corners, 4b corners unless there's exactly one side pair, and 4a corners in two columns (Evan's stacked corners) with a side pair; with ARM 20 or 22 only that last one. 0 pairs, only if there's no fake pair either and the misoriented corners are two white and two yellow. That switches {pc(c['switch'])} of 4c4e, the same as 2+ pairs ({pc(p['switch'])}), and it misses no case of 4 or less (2+ pairs: {pc(p['miss_le4'])}), {pc(c['miss_d5'])} of the 5-movers ({pc(p['miss_d5'])}) and {pc(c['miss_d6'])} of the 6-movers ({pc(p['miss_d6'])}).**
 
 Switching means: after EO + RZP, go to the inverse, keep the EO and look for a DR there. All the odds on this card are for the switched side and are exact, over every EO-solved case of the DRM. They hold after any RZP, because given what you see on normal the switched case is spread evenly over its DRM ([section 3](eo-switch/#3-definitions-and-the-yardstick)). A case is an N-mover if its shortest DR after the switch has N moves.
 
@@ -29,7 +29,7 @@ Everything else is a skip.
 
 {t_cmp('4c4e', keys=('pairs', 'pairs+case', 'pairs+arm'))}
 
-So it beats 2+ pairs at every length for no more switches. Against the pairs + ARM list (2+ pairs, 1 pair with ARM 21, 0 pairs with JZP or ARM 42) it's a trade, fewer switches for more missed 5- and 6-movers, and with the two *if you have time* rows it misses less at every length for {pts(X['card_time']['switch'] - f['switch'])} more switches.
+So it beats 2+ pairs at every length for no more switches. Against the pairs + ARM list (2+ pairs, 1 pair with ARM 21, 0 pairs with JZP or ARM 42) it switches {pts(f['switch'] - c['switch'])} less, misses no 4-or-less and a few 5-movers fewer, and leaves more 6-movers. With the two *if you have time* rows it misses less at every length for {pts(X['card_time']['switch'] - f['switch'])} more switches.
 
 **The other DRMs.** What to switch, one row per group ([section 5](eo-switch/#5-the-cards) has the full cards, with the groups to add if you have time):
 

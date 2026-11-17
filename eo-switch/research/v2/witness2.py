@@ -28,7 +28,8 @@ W['0p_4mover'] = first(m44 & (P == 0) & (dd == 4))                              
 W['1p_4d_4mover'] = first(G44['1 pair, ARM 21, 4d corners'] & (dd == 4))
 W['1p_4b_side2_5mover'] = first(G44['1 pair, ARM 21, 4b corners, 0 or 2 side pairs'] & (dd == 5))
 W['1p_4b_side1_8mover'] = first(G44['1 pair, ARM 21, 4b corners, exactly 1 side pair'] & (dd == 8))
-W['bar_holes_bad_8mover'] = first(G44['2 pairs on one edge (a bar), holes not on one R/L face'] & (dd == 8))
+W['bar_holes_bad_8mover'] = first(G44['2 pairs on one edge (a bar), holes not on one R/L face, 0 or 1 fake pairs'] & (F['hole_cfg'] == 2) & (dd == 8))
+W['bar_fake2_5mover'] = first(G44['2 pairs on one edge (a bar), holes not on one R/L face, 2 fake pairs'] & (dd == 5))   # holes off, 2 fake pairs, DR in 5
 W['bar_holes_good_5mover'] = first(G44['2 pairs on one edge (a bar), holes on one R/L face'] & (dd == 5))
 W['card_miss_5mover'] = first(G44['1 pair, anything else'] & (dd == 5))                              # a 5-mover the card skips
 W['card_miss_0p_5mover'] = first(G44['0 pairs, anything else'] & (dd == 5))
@@ -45,8 +46,12 @@ W['78_4p_arm21_5mover'] = first(m78 & (P == 4) & (ARM == 21) & (dd == 5))
 m88 = drm_mask(8, 8); G88 = {label: g for label, g, v in CARDS[(8, 8)]}
 W['88_4p_arm42_5mover'] = first(G88['4 pairs, ARM 42'] & (dd == 5) & ~BASE[(8, 8)][0][3])
 W['88_2p_arm42_5mover'] = first(G88['2 pairs, ARM 42'] & (dd == 5))
-W['1p_4a_cols_5mover'] = first(G44['1 pair, ARM 21, 4a corners in two columns'] & (dd == 5))
-W['1p_4a_nocols'] = first(G44['1 pair, ARM 21, 4a corners not in two columns'] & (dd == 8))
+G4A = G44['1 pair, ARM 20, 21 or 22, 4a corners in two columns, 1+ side pairs']
+W['1p_4a_cols_5mover'] = first(G4A & (ARM == 21) & (dd == 5))
+W['1p_4a_cols_arm22_5mover'] = first(G4A & (ARM == 22) & (dd == 5))                                 # stacked 4a outside ARM 21
+W['1p_4a_cols_arm20_5mover'] = first(G4A & (ARM == 20) & (dd == 5))
+W['1p_4a_cols_noside_8mover'] = first(G44['1 pair, ARM 20, 21 or 22, 4a corners in two columns, no side pair'] & (dd == 8))
+W['1p_4a_nocols'] = first(G44['1 pair, ARM 20, 21 or 22, 4a corners not in two columns'] & (ARM == 21) & (dd == 8))
 W['54_pocket_4mover'] = first(drm_mask(5, 4) & card_mask((5, 4)) & (dd == 4))
 W['66_pocket_4mover'] = first(drm_mask(6, 6) & card_mask((6, 6)) & (dd == 4))
 W['46_pocket_4mover'] = first(drm_mask(4, 6) & card_mask((4, 6)) & (dd == 4) & (ARM != 0))
@@ -76,6 +81,6 @@ def attempt(group, want_d, pick=0):
                     out=['-'.join(sorted(COL[x] for x in h)) for h in hs], case=state(ix)['case'], arm=state(ix)['arm'])
     raise SystemExit('no attempt')
 W['attempt_1p_4b_side2'] = attempt(G44['1 pair, ARM 21, 4b corners, 0 or 2 side pairs'], (5, 6))
-W['attempt_bar_holes_bad'] = attempt(G44['2 pairs on one edge (a bar), holes not on one R/L face'], (7, 8))
+W['attempt_bar_holes_bad'] = attempt(G44['2 pairs on one edge (a bar), holes not on one R/L face, 0 or 1 fake pairs'], (7, 8))
 json.dump(W, open(os.path.join(HERE, 'out', 'witness2.json'), 'w'), indent=1)
 for k, v in W.items(): print(k, {a: b for a, b in v.items() if a not in ('ix',)})

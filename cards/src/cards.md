@@ -69,7 +69,7 @@ Read each row as "what's still out there". The DRs counted are the best that exi
 
 ### Should I switch this EO?
 
-**Count the pairs on the inverse like you do now, then take one more look, and which one depends on the pair count. On 4c4e: 3 or 4 pairs, switch. 2 pairs on two edges, switch. 2 pairs on one edge, switch if the two E-slice edges that are out of the slice share red or orange. 1 pair, switch if it's ARM 21, unless the corners are 4b with exactly one side pair, or 4a and not in two columns (Evan's stacked corners). 0 pairs, only if there's no fake pair either and the misoriented corners are two white and two yellow. That switches 24.9% of 4c4e, a little less than 2+ pairs (26.0%), and it misses no case of 4 or less (2+ pairs: 8.0%), 8.8% of the 5-movers (20.4%) and 35.4% of the 6-movers (42.8%).**
+**Count the pairs on the inverse like you do now, then take one more look, and which one depends on the pair count. On 4c4e: 3 or 4 pairs, switch. 2 pairs on two edges, switch. 2 pairs on one edge, switch if there are 2 fake pairs or if the two E-slice edges that are out of the slice share red or orange. 1 pair, check ARM: with ARM 21 switch 4d corners, 4b corners unless there's exactly one side pair, and 4a corners in two columns (Evan's stacked corners) with a side pair; with ARM 20 or 22 only that last one. 0 pairs, only if there's no fake pair either and the misoriented corners are two white and two yellow. That switches 26.0% of 4c4e, the same as 2+ pairs (26.0%), and it misses no case of 4 or less (2+ pairs: 8.0%), 5.3% of the 5-movers (20.4%) and 32.8% of the 6-movers (42.8%).**
 
 Switching means: after EO + RZP, go to the inverse, keep the EO and look for a DR there. All the odds on this card are for the switched side and are exact, over every EO-solved case of the DRM. They hold after any RZP, because given what you see on normal the switched case is spread evenly over its DRM ([section 3](eo-switch/#3-definitions-and-the-yardstick)). A case is an N-mover if its shortest DR after the switch has N moves.
 
@@ -82,12 +82,13 @@ Switching means: after EO + RZP, go to the inverse, keep the EO and look for a D
 | 3 or 4 pairs | **switch** | 3.6% | 79.9% | 57.4% | 21.0% | 11.0% |
 | 2 pairs on two edges | **switch** | 11.9% | 53.9% | 31.1% | 46.5% | 30.4% |
 | 2 pairs on one edge (a bar), holes on one R/L face | **switch** | 3.5% | 43.7% | 3.5% | 9.8% | 7.8% |
+| 2 pairs on one edge (a bar), holes not on one R/L face, 2 fake pairs | **switch** | 0.68% | 41.7% | 0% | 0.97% | 1.7% |
 | 1 pair, ARM 21, 4d corners | **switch** | 0.82% | 88.9% | 5.5% | 3.9% | 3.7% |
 | 1 pair, ARM 21, 4b corners, 0 or 2 side pairs | **switch** | 2.8% | 50.4% | 0% | 6.4% | 8.0% |
-| 1 pair, ARM 21, 4a corners in two columns | **switch** | 1.5% | 34.8% | 0% | 2.6% | 2.9% |
+| 1 pair, ARM 20, 21 or 22, 4a corners in two columns, 1+ side pairs | **switch** | 1.8% | 40.7% | 0% | 5.1% | 3.8% |
 | 0 pairs, no fake pairs, corners 2 and 2 in the layers | **switch** | 0.82% | 21.9% | 2.4% | 0.97% | 0.84% |
-| 2 pairs on one edge (a bar), holes not on one R/L face | if you have time | 7.0% | 18.1% | 0% | 2.3% | 8.0% |
-| 1 pair, not ARM 21, 2+ side pairs, not 4b corners | if you have time | 6.8% | 19.2% | 0% | 1.9% | 8.4% |
+| 2 pairs on one edge (a bar), holes not on one R/L face, 0 or 1 fake pairs | if you have time | 6.3% | 15.5% | 0% | 1.3% | 6.3% |
+| 1 pair, ARM 10 or 11, 2 or 3 side pairs | if you have time | 4.1% | 23.3% | 0% | 0.64% | 6.2% |
 
 Everything else is a skip.
 
@@ -98,10 +99,10 @@ Everything else is a skip.
 | 2+ pairs | *DRM Subsets Meta*; tseitsei89, [[T9325]] | 26.0% | 8.0% | 20.4% | 42.8% | 0.413 |
 | 2+ pairs, or 1 pair with 4d corners | tseitsei89, [[T9321]] | 27.7% | 2.4% | 16.6% | 39.2% | 0.381 |
 | 2+ pairs; 1 pair with ARM 21; 0 pairs with JZP or ARM 42 | Fanti, [[D15160]] | 35.2% | 1.4% | 5.8% | 27.0% | 0.345 |
-| **the card** | this page | 24.9% | 0% | 8.8% | 35.4% | 0.299 |
-| the card with its *if you have time* groups | this page | 38.8% | 0% | 4.7% | 19.1% | 0.326 |
+| **the card** | this page | 26.0% | 0% | 5.3% | 32.8% | 0.282 |
+| the card with its *if you have time* groups | this page | 36.4% | 0% | 3.4% | 20.3% | 0.304 |
 
-So it beats 2+ pairs at every length for no more switches. Against the pairs + ARM list (2+ pairs, 1 pair with ARM 21, 0 pairs with JZP or ARM 42) it's a trade, fewer switches for more missed 5- and 6-movers, and with the two *if you have time* rows it misses less at every length for 3.6 points more switches.
+So it beats 2+ pairs at every length for no more switches. Against the pairs + ARM list (2+ pairs, 1 pair with ARM 21, 0 pairs with JZP or ARM 42) it switches 9.3 points less, misses no 4-or-less and a few 5-movers fewer, and leaves more 6-movers. With the two *if you have time* rows it misses less at every length for 1.1 points more switches.
 
 **The other DRMs.** What to switch, one row per group ([section 5](eo-switch/#5-the-cards) has the full cards, with the groups to add if you have time):
 
@@ -147,7 +148,7 @@ So it beats 2+ pairs at every length for no more switches. Against the pairs + A
 
 For 4c6e, 3c4e, 3c6e, 5c4e, 5c6e and 6c6e these are small pockets in DRMs that are 5% to 10% sub-7 overall. A short DR out of them costs about four times the tracing it costs on 4c4e, so they're for when the good DRMs have run dry.
 
-**Half turns to two bars** (how many R2, L2, F2, B2 until each layer has a bar and both stuck E-slice edges are on that R/L side, U and D turns free) is a good read on a cube you can see: 2 or fewer is 74.1% sub-7 and holds every 4-or-less. Before switching it needs the place of all eight bad pieces on the inverse and then a search, and nobody has shown that done in a few seconds, so it's not on this card. If you can read it, *2 or fewer: switch* on top of the card takes the missed 5-movers from 8.8% to 3.2% ([section 7](eo-switch/#7-two-bars-evaluated)).
+**Half turns to two bars** (how many R2, L2, F2, B2 until each layer has a bar and both stuck E-slice edges are on that R/L side, U and D turns free) is a good read on a cube you can see: 2 or fewer is 74.1% sub-7 and holds every 4-or-less. Before switching it needs the place of all eight bad pieces on the inverse and then a search, and nobody has shown that done in a few seconds, so it's not on this card. If you can read it, *2 or fewer: switch* on top of the card takes the missed 5-movers from 5.3% to 3.2% ([section 7](eo-switch/#7-two-bars-evaluated)).
 
 One more thing after you switch: checking the other DR axis beats turning the EO's last move the other way. On 4c4e it adds 5.9 percentage points to the share of switched cases with a DR in 6 or less, against 2.1 for the last move.
 

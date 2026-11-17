@@ -69,6 +69,20 @@
   "holes": 2,
   "hbar": 3
  },
+ "bar_fake2_5mover": {
+  "ix": 34375,
+  "setup": "L' D F2 D' L'",
+  "dr": "L D F2 D' L",
+  "d": 5,
+  "pairs": 2,
+  "fake": 2,
+  "side": 1,
+  "arm": "31",
+  "case": "4c-1",
+  "paired_edges": 1,
+  "holes": 2,
+  "hbar": 2
+ },
  "bar_holes_good_5mover": {
   "ix": 12502,
   "setup": "L' D' L2 U R2",
@@ -264,6 +278,48 @@
   "paired_edges": 1,
   "holes": 0,
   "hbar": 2
+ },
+ "1p_4a_cols_arm22_5mover": {
+  "ix": 125905,
+  "setup": "L' B2 D' F2 U'",
+  "dr": "U F2 D B2 L",
+  "d": 5,
+  "pairs": 1,
+  "fake": 1,
+  "side": 2,
+  "arm": "22",
+  "case": "4a-2",
+  "paired_edges": 1,
+  "holes": 0,
+  "hbar": 2
+ },
+ "1p_4a_cols_arm20_5mover": {
+  "ix": 125738,
+  "setup": "L' F2 U' B2 U'",
+  "dr": "U B2 U F2 L",
+  "d": 5,
+  "pairs": 1,
+  "fake": 1,
+  "side": 2,
+  "arm": "20",
+  "case": "4a-2",
+  "paired_edges": 1,
+  "holes": 0,
+  "hbar": 2
+ },
+ "1p_4a_cols_noside_8mover": {
+  "ix": 21782,
+  "setup": "L' D' L' F2 U2 R D2 U'",
+  "dr": "U D2 R' U2 F2 L D L",
+  "d": 8,
+  "pairs": 1,
+  "fake": 2,
+  "side": 0,
+  "arm": "21",
+  "case": "4a-2",
+  "paired_edges": 1,
+  "holes": 0,
+  "hbar": 3
  },
  "1p_4a_nocols": {
   "ix": 54714,

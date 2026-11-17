@@ -11,7 +11,8 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
   - rodneykinney's corner cases 4a to 4d ([*DR - 4c4e Theory*](https://docs.google.com/document/d/1DsxAAB2WRfpgDR-VWZZrXq2W4y_YMXBufRRYNLAGGoU)), the [*DRM corner variant+pair stats*](https://docs.google.com/spreadsheets/d/174ClwBFl-T2zJAq8MVyK1bKsIIuzxQU0_XmQGv82LPQ) sheet and the rule that came with it ([13 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383069263530692730)).
   - rodneykinney's read for 0 pairs: "To catch this case, you can switch 4a-0 and 4d-2, but only if there also are no fake pairs" ([13 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383075044682633366)).
   - tseitsei89's working list ([25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409579685716689018)), wen's and Jay's own versions ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418235860729462835), [21 Jun 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1385890589886775387)).
-  - Evan's split of 1 pair + ARM 21 by corner type: "b corners - 29%", "d corners - 89%", "a corners - ~34% if corners are stacked, < 5% otherwise" ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418283868007436308)). That split is on the card as it stands.
+  - Evan's split of 1 pair + ARM 21 by corner type: "b corners - 29%", "d corners - 89%", "a corners - ~34% if corners are stacked, < 5% otherwise" ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418283868007436308)), and "interestingly 4a corners are basically the same for all ar-2X" ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418248145262874785)). That split is the base of the card's 1-pair rows.
+  - wen's check on 1 pair: "1 pair then I check if it's 4d or one U/D turn away from 4d" ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418235860729462835)).
 - **Pairs + ARM.**
   - Louis's [*DRM/ARM average optimals*](https://docs.google.com/spreadsheets/d/13fSwUROzP0hZQV1Cn96GndWbPy4UrsHiYTaWFSeWtJs) and Evan's [*arm/pairs*](https://docs.google.com/spreadsheets/d/1YZYyokxYXwDdBTgN7ojpPAFHKKz48hCyNO2l6-iwmVk) sheet.
   - caycala's chart ([25 Apr 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1365334546035245227)): for 4c4e it already has 1 pair with ARM 21 and 0 pairs with ARM 42, and its 7c8e list is this page's 7c8e card.
@@ -30,10 +31,12 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 - **A yardstick that counts misses by length.** For every policy: how much it switches, and which share of the 4-or-less, the 5-movers and the 6-movers it leaves on the table. The current rules hadn't been broken down that way.
 - **A switch card per DRM**: pairs first, then one or two more looks that depend on the pair count. On 4c4e, 4c2e, 3c2e and 7c8e together it switches a little less than the pairs policy and misses less at every length.
-- **Three reads that I didn't find in anyone's rule**:
-  - for 2 pairs on one edge, where the two holes are;
+- **Four reads that I didn't find in anyone's rule**:
+  - for 2 pairs on one edge, where the two holes are, and whether there are 2 fake pairs;
   - for 1 pair with ARM 21 and 4b corners, whether there's exactly one side pair;
+  - for 1 pair with Evan's stacked 4a corners, whether there's a side pair, which also makes them a switch at ARM 20 and 22;
   - for 0 pairs and no fake pairs (rodneykinney's read), that the corners are 2 and 2 in the layers.
+- **How often each read is needed.** ARM, the fast one, on every 1-pair case. The slower ones (the corners, the side pairs) on a minority, with what the card is worth if you drop any of them.
 - **New cards for 8c8e and 2c2e**, and side pairs in the 5c pockets.
 - **The half-turn count judged as a switch test**, on what it catches and on what it takes to read.
 - **What doesn't help**, and **how far any rule could go** from the quick reads, so you know what's left on the table.
@@ -72,7 +75,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 ## 1. The short version
 
-**Is there a better switch policy than pairs? Yes, a bit better, and it stays a matter of seconds.** Keep counting pairs first. What changes is the one extra look you take after it, which depends on the pair count. No quick read beats pairs as the first look: I tried every relation between two bad pieces, points systems, corner-only counts and trees that don't start from pairs, and pairs stays the first split every time (section 8).
+**Is there a better switch policy than pairs? Yes, and it stays a matter of seconds.** On 4c4e it switches as much as 2+ pairs and misses no case of 4 or less and 5.3% of the 5-movers, where 2+ pairs misses 8.0% and 20.4%. Keep counting pairs first. What changes is the look you take after it, which depends on the pair count: ARM on 1 pair, which is fast, then the corners and the side pairs on the few ARMs where they matter. No quick read beats pairs as the first look: I tried every relation between two bad pieces, points systems, corner-only counts and trees that don't start from pairs, and pairs stays the first split every time (section 8).
 
 **The yardstick.** After a 5-move RZP a case is *good* if the DR after the switch is 6 or less. A policy is graded on four numbers: how much it switches, and the share of the 4-or-less, of the 5-movers and of the 6-movers that it doesn't switch. When one number is needed, a declined 6-mover costs 3 wasted switches, a 5-mover 9 and a 4-or-less 27 (section 3 says where that comes from, section 10 what happens with other prices).
 
@@ -83,14 +86,15 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 | 3 or 4 pairs | **switch** | 3.6% | 79.9% | 57.4% | 21.0% | 11.0% |
 | 2 pairs on two edges | **switch** | 11.9% | 53.9% | 31.1% | 46.5% | 30.4% |
 | 2 pairs on one edge (a bar), holes on one R/L face | **switch** | 3.5% | 43.7% | 3.5% | 9.8% | 7.8% |
+| 2 pairs on one edge (a bar), holes not on one R/L face, 2 fake pairs | **switch** | 0.68% | 41.7% | 0% | 0.97% | 1.7% |
 | 1 pair, ARM 21, 4d corners | **switch** | 0.82% | 88.9% | 5.5% | 3.9% | 3.7% |
 | 1 pair, ARM 21, 4b corners, 0 or 2 side pairs | **switch** | 2.8% | 50.4% | 0% | 6.4% | 8.0% |
-| 1 pair, ARM 21, 4a corners in two columns | **switch** | 1.5% | 34.8% | 0% | 2.6% | 2.9% |
+| 1 pair, ARM 20, 21 or 22, 4a corners in two columns, 1+ side pairs | **switch** | 1.8% | 40.7% | 0% | 5.1% | 3.8% |
 | 0 pairs, no fake pairs, corners 2 and 2 in the layers | **switch** | 0.82% | 21.9% | 2.4% | 0.97% | 0.84% |
-| 2 pairs on one edge (a bar), holes not on one R/L face | if you have time | 7.0% | 18.1% | 0% | 2.3% | 8.0% |
-| 1 pair, not ARM 21, 2+ side pairs, not 4b corners | if you have time | 6.8% | 19.2% | 0% | 1.9% | 8.4% |
+| 2 pairs on one edge (a bar), holes not on one R/L face, 0 or 1 fake pairs | if you have time | 6.3% | 15.5% | 0% | 1.3% | 6.3% |
+| 1 pair, ARM 10 or 11, 2 or 3 side pairs | if you have time | 4.1% | 23.3% | 0% | 0.64% | 6.2% |
 
-Everything else is a skip: 1 pair without ARM 21, 0 pairs with a fake pair, and the two exceptions inside 1 pair + ARM 21 (4b corners with exactly one side pair, 5.6% sub-7; 4a corners that aren't in two columns, 2.5%).
+Everything else is a skip: 1 pair with any other ARM, 0 pairs with a fake pair, and the exceptions inside the 1-pair rows: 4b corners with exactly one side pair (5.6% sub-7), 4a corners that aren't in two columns (2.3%) or that have no side pair (11.1%).
 
 **What it's worth on 4c4e.** Each row is a policy. *Cost per case* is the one-number version: misses and wasted switches, priced as above, per 4c4e case.
 
@@ -102,10 +106,10 @@ Everything else is a skip: 1 pair without ARM 21, 0 pairs with a fake pair, and 
 | 2+ pairs; 1 pair if 4d or one U/D turn from 4d; 0 pairs if anti-AR or the D F2 B2 R case | wen, [18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418235860729462835) | 29.4% | 0.35% | 11.0% | 37.1% | 0.362 |
 | 3-4 pairs; 2 pairs with ARM 10, 11, 20, 21, 31, 32 or 42a; 1 pair with ARM 21; 0 pairs with ARM 42 | caycala, [25 Apr 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1365334546035245227) | 29.5% | 9.3% | 13.1% | 35.4% | 0.381 |
 | 2+ pairs; 1 pair with ARM 21; 0 pairs with JZP or ARM 42 | Fanti, [6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436034830046466069) | 35.2% | 1.4% | 5.8% | 27.0% | 0.345 |
-| **the card** | this page | 24.9% | 0% | 8.8% | 35.4% | 0.299 |
-| the card with its *if you have time* groups | this page | 38.8% | 0% | 4.7% | 19.1% | 0.326 |
+| **the card** | this page | 26.0% | 0% | 5.3% | 32.8% | 0.282 |
+| the card with its *if you have time* groups | this page | 36.4% | 0% | 3.4% | 20.3% | 0.304 |
 
-So against **2+ pairs** the card switches a little less and misses less at every length: no 4-or-less at all (pairs: 46 of 578), 8.8% of the 5-movers instead of 20.4%, 35.4% of the 6-movers instead of 42.8%. Against **pairs + ARM** (Fanti's list) it's a trade: 10.3 points fewer switches, for more missed 5- and 6-movers. Take the two *if you have time* groups as well and you miss less than Fanti's list at every length, for 3.6 points more switches. Honestly, at that end Fanti's list is already about as good as a short list gets. The card's gain is at the pairs end.
+So against **2+ pairs** the card switches the same share of 4c4e (18,312 cases against 18,360) and misses less at every length: no 4-or-less at all (pairs: 46 of 578), 5.3% of the 5-movers instead of 20.4%, 32.8% of the 6-movers instead of 42.8%. Against **pairs + ARM** (Fanti's list) it switches 9.3 points less, misses no 4-or-less (Fanti's list: 8) and a few 5-movers fewer, and leaves more 6-movers (32.8% against 27.0%). Take the two *if you have time* groups as well and you miss less than Fanti's list at every length, for 1.1 points more switches. Fanti's list is exactly the best rule there is on the pair count and ARM alone (section 9). What the card adds to those two reads is where the pairs sit, a look at the corners on 1 pair with ARM 20, 21 or 22, and the edges out of the slice on a bar. Leave that last read out and switch every 2-pair case, and the card still misses less than Fanti's list at every length (0%, 4.0% and 26.5%) for 2.9 points fewer switches (section 6).
 
 **The four DRMs people switch, together.** 4c4e, 4c2e, 3c2e and 7c8e, every case once (111,104 cases):
 
@@ -113,13 +117,14 @@ So against **2+ pairs** the card switches a little less and misses less at every
 |---|---|---|---|---|---|
 | pairs only (the *DRM Subsets Meta* table) | 27.6% | 5.1% | 12.8% | 37.0% | 0.363 |
 | the best list on the server for each DRM (Fanti's pairs + ARM for 4c4e, caycala's chart for 7c8e, 1.5+ pairs for 4c2e, wen's rule for 3c2e) | 32.6% | 0.88% | 3.8% | 27.7% | 0.314 |
-| **the cards** | 26.3% | 0% | 5.4% | 31.9% | 0.282 |
-| the cards with their *if you have time* groups | 38.3% | 0% | 2.9% | 17.7% | 0.304 |
+| **the cards** | 27.0% | 0% | 3.3% | 30.3% | 0.270 |
+| the cards with their *if you have time* groups | 36.7% | 0% | 2.1% | 18.5% | 0.290 |
 
 **What's in the card, and whose it is.**
 
-- **2 pairs on one edge is not 2 pairs on two edges** (new here). Two edges: 53.9% sub-7. A bar: it depends on the two holes. Holes on one R/L face (the two E-slice edges that are out of the slice share red or orange): 43.7%. Otherwise 18.1%, which is 7.0% of 4c4e that the pairs rule switches at a 1-pair rate. bpaul asked about pairs per edge and Yura Riabov said a bar is worse. The holes are what makes it a rule.
-- **1 pair + ARM 21, by corner type** (Evan's split, exact: 4d 88.9%, 4b 28.8%, 4a in two columns 34.8% and 2.5% otherwise). New here is what splits the 4b cases, the side pairs: with none it's 36.3%, with exactly one 5.6%, with two 64.5%.
+- **2 pairs on one edge is not 2 pairs on two edges** (new here). Two edges: 53.9% sub-7. A bar: it depends on the two holes. Holes on one R/L face (the two E-slice edges that are out of the slice share red or orange): 43.7%. Otherwise 18.1%, which is 7.0% of 4c4e that the pairs rule switches at a 1-pair rate. The exception is a bar with 2 fake pairs: 41.7% even with the holes off. bpaul asked about pairs per edge and Yura Riabov said a bar is worse. The holes are what makes it a rule.
+- **1 pair + ARM 21, by corner type** (Evan's split, exact: 4d 88.9%, 4b 28.8%, 4a in two columns 34.8% and 2.5% otherwise). New here is what the side pairs do inside it. They split the 4b cases: with none it's 36.3%, with exactly one 5.6%, with two 64.5%. And they split Evan's stacked 4a: 47.7% with a side pair, 10.9% without.
+- **Stacked 4a with a side pair is a switch at ARM 20 and 22 too.** Evan saw it: "interestingly 4a corners are basically the same for all ar-2X" ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418248145262874785)). And wen's check on 1 pair, "4d or one U/D turn away from 4d" ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418235860729462835)), has the short ones: all 128 5-movers with 1 pair and 4a corners are one U/D turn from 4d. 1 pair with ARM 20 or 22 is 5.6% sub-7 overall and the ARM lists skip it, but its 4a corners in two columns with a side pair are 608 cases at 32.9%, with every one of its 64 5-movers. New here are the side pair and the exact numbers. With 4d corners ARM 20 and 22 are 0%, as Evan said.
 - **0 pairs: no fake pairs either, and the corners 2 and 2.** No fake pairs with 0 pairs is rodneykinney's read for the `F2 B2 R` setups, and wen has it for `D F2 B2 R` ("there are 2 'columns' of corners and no fake pairs", [18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418241461048049796)). Adding that the misoriented corners are two white and two yellow gives 0.82% of 4c4e that holds every 0-pair case of 4 moves or less:
 
 ```
@@ -131,7 +136,7 @@ U F2 B2 R   // DR in 4. The pairs rule says discard
 
 | DRM | Sub-7 rate | Card switches | Sub-7 rate of what it switches | Missed: 4 or less | Missed: 5-movers | Missed: 6-movers |
 |---|---|---|---|---|---|---|
-| 4c4e | 19.2% | 24.9% | 54.8% | 0% | 8.8% | 35.4% |
+| 4c4e | 19.2% | 26.0% | 54.6% | 0% | 5.3% | 32.8% |
 | 4c2e | 18.7% | 24.8% | 56.3% | 0% | 0% | 31.0% |
 | 3c2e | 61.6% | 82.1% | 71.2% | 0% | 0% | 7.4% |
 | 7c8e | 16.4% | 23.0% | 52.6% | 0% | 0% | 32.6% |
@@ -148,15 +153,15 @@ U F2 B2 R   // DR in 4. The pairs rule says discard
 - **3c2e**: wen's rule is the card (a pair, a fake pair or a split pair). What it skips is 17.9% of 3c2e at 17.5%, with no 5-mover in it, as wen said.
 - **7c8e**: caycala's chart is the card. Fanti's list is the same thing without the chart's ban on edge ARM 0 and 4.
 - **8c8e and 2c2e**: new cards (section 5.5). The 8c8e one costs 0.291 per case against 0.348 for the tree rule.
-- **The low DRMs hold 42.3% of the 5-movers.** Counting the 12 DRMs of this page, 4c6e, 3c4e, 3c6e, 5c4e, 5c6e and 6c6e hold 21.8% of the 4-or-less, 42.3% of the 5-movers and 58.9% of the 6-movers. Small pockets hold a good part of them (5c4e with 3 pairs and 2 side pairs is 38.3%), but a short DR out of 5c4e costs about 3.9 times the tracing and switching it costs out of 4c4e (section 5.6).
+- **The low DRMs hold 42.3% of the 5-movers.** Counting the 12 DRMs of this page, 4c6e, 3c4e, 3c6e, 5c4e, 5c6e and 6c6e hold 21.8% of the 4-or-less, 42.3% of the 5-movers and 58.9% of the 6-movers. Small pockets hold a good part of them (5c4e with 3 pairs and 2 side pairs is 38.3%), but a short DR out of 5c4e costs about 4.0 times the tracing and switching it costs out of 4c4e (section 5.6).
 
-**How long it takes.** Every read on the card is a count or a colour match on the pieces you already look at for the pair trace: the U/D edges in the E slice, the misoriented corners, and the E-slice edges that are out. None of them needs you to work out where a piece sits on the inverse. On 42.2% of 4c4e cases the pair trace settles it, and on average the card asks for 0.75 extra looks per 4c4e RZP, ARM being most of that. The longest branch (1 pair, ARM 21, 4b corners: 5.4% of cases) adds the corner case and the side pairs to the pairs + ARM check that Yura Riabov puts at "Like 5 seconds" ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417786183135526954)). I haven't timed anyone, and not everybody reads ARM that fast, so that's an argument and not a measurement (section 6).
+**How long it takes.** Every read on the card is a count or a colour match on the pieces you already look at for the pair trace: the U/D edges in the E slice, the misoriented corners, and the E-slice edges that are out. None of them needs you to work out where a piece sits on the inverse. On 43.2% of 4c4e cases the pair trace settles it. ARM, the fast read ("Arm is very fast to check for me", Yura Riabov, [17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417787132914696302)), is asked for on every 1-pair case, 44.2% of them. The slower reads come up much less: a look at the corners on 1 pair with ARM 20, 21 or 22 (17.3% of cases), and the side pairs after it on 8.3%. That's 0.82 extra looks per 4c4e RZP on average, on top of a pairs + ARM check that Yura Riabov puts at "Like 5 seconds" ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417786183135526954)). I haven't timed anyone on the card itself, so that's an argument from what the reads are and how often they come up, not a measurement (section 6).
 
-**Two bars: a good read, not a switch test yet.** The numbers are good. Switch at 2 half turns or fewer and you switch 14.2% of 4c4e, with every 4-or-less in it, including all 46 that the pairs rule misses and 248 of the 508 5-movers it misses. Its cost per case is 0.332: better than any list on the server, behind the card (0.299), because it leaves 54.8% of the 6-movers. On top of the card it would help: the card plus *2 or fewer* costs 0.266.
+**Two bars: a good read, not a switch test yet.** The numbers are good. Switch at 2 half turns or fewer and you switch 14.2% of 4c4e, with every 4-or-less in it, including all 46 that the pairs rule misses and 248 of the 508 5-movers it misses. Its cost per case is 0.332: better than any list on the server, behind the card (0.282), because it leaves 54.8% of the 6-movers. On top of the card it would help: the card plus *2 or fewer* costs 0.264.
 
 The problem is reading it. The count needs the place of all eight bad pieces on the inverse and then a search, where the card needs colour matches. Zagros is convinced full NISS tracing of 4c4e is the way ("I think the optimal system is 100% niss tracing 4c4e", [6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436040007654838402)), tried it, "did it for like four solves and gave up", because "I niss trace and then I just don't know if it has a 6 move DR or not. I need to actually do a few moves to check" ([19 Jan 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1462981640702656729)). caycala timed a whole switch at about 20 seconds and concluded about tracing instead: "tldr i dont think it’s worth it + it is much more mistake prone" ([16 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1395178375114653788)). The count is exactly a way to judge the DR after a trace, so it might be what Zagros was missing, but nobody has shown it done in a few seconds. Until someone does, I don't recommend it as the test before switching. If you can read it, add *2 or fewer: switch* to the card (section 7).
 
-**How much is left.** **Computer only**: the best rule that uses every quick read at once (3,757 cells for 4c4e) would switch 24.4%, miss no 5-mover and 9.5% of the 6-movers. So the information is in the colours. It just doesn't fit in a rule you can carry: going from the card's 13 groups to 40 only moves the cost from 0.299 to 0.267 (section 9).
+**How much is left.** **Computer only**: the best rule that uses every quick read at once (3,757 cells for 4c4e) would switch 24.4%, miss no 5-mover and 9.5% of the 6-movers. So the information is in the colours. It just doesn't fit in a rule you can carry: going from the card's 15 groups to 40 only moves the cost from 0.282 to 0.267 (section 9).
 
 **Other RZP lengths.** After a 4-move RZP a DR in 7 is enough, and 59.4% of 4c4e has one. At the same prices every group of the card is then worth a switch, the 0-pair leftovers included, so "It seems like you should pretty much always switch a 4 move DR-4c4e." (Zagros, [7 Jul 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1524175174507692245)) holds. After a 6-move RZP only 3 or 4 pairs and 1 pair with ARM 21 and 4d corners are left (section 10).
 
@@ -172,9 +177,9 @@ The problem is reading it. The count needs the place of all eight bad pieces on 
 
 - wen ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418248619374678247)): "Interestingly now we have basically 3 criteria for NISS that we can trace, >1pair/ARM/corner structure", "if we pick 2 out of 3 to stick to, which gives the lowest false negative rate?" *Answer*, with the best rule each pair of reads allows (section 9, **computer only**): on 4c4e pairs + ARM misses the least of the short ones (5.8% of the 5-movers, against 17.2% for pairs + corner case), and it switches more to do it. Nothing without pairs is close.
 - wen ([13 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383079417881821314)): "I personally think that the false positive rate isn't that important because switching something that ends up being bad isnt the worst thing, it's much worse to not switch something that is actually good, but the method says don't switch". And later: "false negative are more important because it will be the one that has an 18 then you will be sad" ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418282250230825144)). That's the yardstick of this page. The other side, for the record: "false positives are more important because i only have time to fully check a few EOs, and if im switching an RZP then i damn well better get a short DR out of it, lmao" (compLex, [18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418290226895257621)), and rodneykinney on 2+ pairs: "It does miss some good cases, but I never have enough time to NISS every EO, so I'm mostly looking for excuses to avoid NISSing, and this is a pretty good one." ([20 Sep 2023](https://discord.com/channels/1007840975726575667/1007841335434285126/1154070313554956380)). The tables give all four numbers, so you can read them your own way.
-- tseitsei89 ([25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409607396103290960)): "It would be really nice to find a way to filter out good 1 pair cases but there doesnt seem to be one currently". *Answer*: ARM 21 first, then Evan's corner types, then the side pairs for 4b (section 5.1). That takes the switched 1-pair cases from 31.2% sub-7 (all of 1 pair + ARM 21) to 52.0%.
+- tseitsei89 ([25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409607396103290960)): "It would be really nice to find a way to filter out good 1 pair cases but there doesnt seem to be one currently". *Answer*: ARM 21 first, then Evan's corner types, then the side pairs for 4b (section 5.1). That takes the switched 1-pair cases from 31.2% sub-7 (all of 1 pair + ARM 21) to 56.7%.
 - bpaul ([21 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1397028793960370187)): "random thought i wonder whether looking at pair stats not just on the count but also based on the number of pairs per edge could be good". *Answer*: yes for 2 pairs on 4c4e, once you add where the holes are (section 5.1).
-- Zagros ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418250491120320532)), on not wanting to miss anything when switching: "seems like that would cause an absurd amount of rescrambling, maybe I'm just far too slow at solving at 3x3". *Answer*: here's the number. Missing no case of 5 or less on 4c4e by pairs and ARM alone means switching 59.8% of the cases. The card with its *if you have time* groups gets to 4.7% of the 5-movers missed at 38.8%.
+- Zagros ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418250491120320532)), on not wanting to miss anything when switching: "seems like that would cause an absurd amount of rescrambling, maybe I'm just far too slow at solving at 3x3". *Answer*: here's the number. Missing no case of 5 or less on 4c4e by pairs and ARM alone means switching 59.8% of the cases. The card with its *if you have time* groups gets to 3.4% of the 5-movers missed at 36.4%.
 
 What's left open is in section 12.
 
@@ -232,7 +237,7 @@ Three kinds of rule are in use. Here's each as its author wrote it, graded on 4c
 | 2+ pairs; 1 pair if 4d or one U/D turn from 4d; 0 pairs if anti-AR or the D F2 B2 R case | wen, [18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418235860729462835) | 29.4% | 0.35% | 11.0% | 37.1% | 0.362 |
 | 3-4 pairs; 2 pairs with ARM 10, 11, 20, 21, 31, 32 or 42a; 1 pair with ARM 21; 0 pairs with ARM 42 | caycala, [25 Apr 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1365334546035245227) | 29.5% | 9.3% | 13.1% | 35.4% | 0.381 |
 | 2+ pairs; 1 pair with ARM 21; 0 pairs with JZP or ARM 42 | Fanti, [6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436034830046466069) | 35.2% | 1.4% | 5.8% | 27.0% | 0.345 |
-| **the card** | this page | 24.9% | 0% | 8.8% | 35.4% | 0.299 |
+| **the card** | this page | 26.0% | 0% | 5.3% | 32.8% | 0.282 |
 
 **Pairs only.** 2+ pairs switches 26.0% of 4c4e at 46.4% sub-7. What it leaves behind: 46 of the 578 cases of 4 or less, 508 of the 2,486 5-movers and 4,500 of the 10,512 6-movers. So a fifth of the 5-movers have 0 or 1 pair. Here's one with 1 pair, ARM 21 and 4d corners:
 
@@ -250,7 +255,7 @@ L2 D' F2 L   // DR in 4
 - *Inside 2 pairs.* Most people switch every 2-pair case ("2 pairs I just always switch.", tseitsei89, [17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417807554448195655); "I just switch regardless", wen, [18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418281333838446723)). rodneykinney's rule and compLex drop 4b-0, and caycala's chart keeps 2 pairs only with some ARMs. 7.0% of 4c4e is a bar with the holes off the R/L faces, at 18.1%.
 - *Inside 1 pair + ARM 21.* It's 9.1% of 4c4e, and 4.0% of 4c4e inside it is under 6% sub-7.
 
-Both are places where a list *switches too much*. Dropping them is what pays for switching the good 0- and 1-pair groups without more switches in total.
+Both are places where a list *switches too much*. Dropping them is what pays for switching the good 0- and 1-pair groups without more switches in total. The one place where every list switches too little is 1 pair with ARM 20 or 22: 5.6% sub-7 overall, with 64 5-movers that all sit in one small group (section 5.1).
 
 The same grading for the other DRMs is in section 5 and appendix A.
 
@@ -269,23 +274,44 @@ How the cards were found: a search over short rule lists on the quick reads, sco
 | 3 or 4 pairs | **switch** | 3.6% | 79.9% | 57.4% | 21.0% | 11.0% |
 | 2 pairs on two edges | **switch** | 11.9% | 53.9% | 31.1% | 46.5% | 30.4% |
 | 2 pairs on one edge (a bar), holes on one R/L face | **switch** | 3.5% | 43.7% | 3.5% | 9.8% | 7.8% |
+| 2 pairs on one edge (a bar), holes not on one R/L face, 2 fake pairs | **switch** | 0.68% | 41.7% | 0% | 0.97% | 1.7% |
 | 1 pair, ARM 21, 4d corners | **switch** | 0.82% | 88.9% | 5.5% | 3.9% | 3.7% |
 | 1 pair, ARM 21, 4b corners, 0 or 2 side pairs | **switch** | 2.8% | 50.4% | 0% | 6.4% | 8.0% |
-| 1 pair, ARM 21, 4a corners in two columns | **switch** | 1.5% | 34.8% | 0% | 2.6% | 2.9% |
+| 1 pair, ARM 20, 21 or 22, 4a corners in two columns, 1+ side pairs | **switch** | 1.8% | 40.7% | 0% | 5.1% | 3.8% |
 | 0 pairs, no fake pairs, corners 2 and 2 in the layers | **switch** | 0.82% | 21.9% | 2.4% | 0.97% | 0.84% |
-| 2 pairs on one edge (a bar), holes not on one R/L face | if you have time | 7.0% | 18.1% | 0% | 2.3% | 8.0% |
-| 1 pair, not ARM 21, 2+ side pairs, not 4b corners | if you have time | 6.8% | 19.2% | 0% | 1.9% | 8.4% |
-| 1 pair, ARM 21, 4a corners not in two columns | skip | 1.4% | 2.5% | 0% | 0% | 0.23% |
+| 2 pairs on one edge (a bar), holes not on one R/L face, 0 or 1 fake pairs | if you have time | 6.3% | 15.5% | 0% | 1.3% | 6.3% |
+| 1 pair, ARM 10 or 11, 2 or 3 side pairs | if you have time | 4.1% | 23.3% | 0% | 0.64% | 6.2% |
+| 1 pair, ARM 20, 21 or 22, 4a corners in two columns, no side pair | skip | 1.0% | 11.1% | 0% | 0% | 0.76% |
+| 1 pair, ARM 20, 21 or 22, 4a corners not in two columns | skip | 2.4% | 2.3% | 0% | 0% | 0.38% |
 | 1 pair, ARM 21, 4b corners, exactly 1 side pair | skip | 2.6% | 5.6% | 0% | 0.97% | 0.76% |
-| 1 pair, anything else | skip | 28.3% | 6.1% | 0% | 2.3% | 11.0% |
+| 1 pair, anything else | skip | 28.6% | 6.0% | 0% | 0.97% | 11.3% |
 | 0 pairs, anything else | skip | 28.9% | 3.8% | 0% | 1.4% | 7.1% |
 
 Read it top down:
 
 - **3 or 4 pairs**: switch.
-- **2 pairs**: on two edges, switch. On one edge, look at the two E-slice edges that are out of the slice. If they share red or orange, switch. If not, it's an *if you have time* case.
-- **1 pair**: check ARM. Not 21: skip (the one *if you have time* pocket is 2 or more side pairs without 4b corners). ARM 21: look at the corners. 4d: switch. 4b: switch unless there's exactly one side pair. 4a: switch if the corners are in two columns.
+- **2 pairs**: on two edges, switch. On one edge with 2 fake pairs, switch. On one edge otherwise, look at the two E-slice edges that are out of the slice. If they share red or orange, switch. If not, it's an *if you have time* case.
+- **1 pair**: check ARM.
+  - ARM 21: look at the corners. 4d: switch. 4b: switch unless there's exactly one side pair. 4a: switch if the corners are in two columns and there's a side pair.
+  - ARM 20 or 22: only the last of those. 4a corners in two columns with a side pair: switch. Anything else: skip.
+  - Any other ARM: skip. The one *if you have time* pocket is ARM 10 or 11 with 2 or 3 side pairs.
 - **0 pairs**: switch only if there's no fake pair either and the misoriented corners are two white and two yellow.
+
+**The bar.** 2 pairs on one edge, by where the holes are and the fake pairs. Each row is a group:
+
+| 2 pairs on one edge | Share of 4c4e | Sub-7 rate | 5-movers |
+|---|---|---|---|
+| holes on one R/L face | 3.5% | 43.7% | 244 |
+| holes not on one R/L face, 2 fake pairs | 0.68% | 41.7% | 24 |
+| holes not on one R/L face, 1 fake pair | 3.6% | 16.9% | 16 |
+| holes not on one R/L face, no fake pair | 2.7% | 13.8% | 16 |
+
+A bar with the holes off and 2 fake pairs, 5 moves:
+
+```
+L' D F2 D' L'   // setup: 4c4e, 2 pairs on one edge, 2 fake pairs, holes on one F/B face
+L D F2 D' L   // DR in 5
+```
 
 **The side pairs on 4b.** 1 pair, ARM 21, 4b corners, by the number of side pairs. Each row is a count:
 
@@ -302,11 +328,38 @@ L' U B2 R2 F2   // setup: 4c4e, 1 pair, ARM 21, 4b corners, 2 side pairs
 F2 R2 B2 U' L   // DR in 5
 ```
 
-Evan's stacked 4a corners, 5 moves:
+**Stacked 4a corners.** 1 pair and 4a corners, by ARM, by whether the corners are in two columns (Evan's stacked corners) and by side pairs. Each row is a group:
+
+| 1 pair, 4a corners | Share of 4c4e | Sub-7 rate | 5-movers |
+|---|---|---|---|
+| ARM 21, in two columns, 1+ side pairs | 0.98% | 47.7% | 64 |
+| ARM 21, in two columns, no side pair | 0.52% | 10.9% | 0 |
+| ARM 21, not in two columns | 1.4% | 2.5% | 0 |
+| ARM 20 or 22, in two columns, 1+ side pairs | 0.86% | 32.9% | 64 |
+| ARM 20 or 22, in two columns, no side pair | 0.50% | 11.4% | 0 |
+| ARM 20 or 22, not in two columns | 1.1% | 2.1% | 0 |
+
+The 4a corners that are one U/D turn from 4d (wen's check) are all in two columns, and they hold all 128 of these 5-movers: 768 cases with ARM 20, 21 or 22 at 33.3%. The card's row is wider. It also takes the stacked corners that aren't one turn from 4d when there's a side pair (784 cases at 42.9%, 336 6-movers and nothing shorter).
+
+Evan's stacked 4a corners with ARM 21, 5 moves:
 
 ```
-L' F2 U B2 U'   // setup: 4c4e, 1 pair, ARM 21, 4a corners in two columns
+L' F2 U B2 U'   // setup: 4c4e, 1 pair, ARM 21, 4a corners in two columns, 2 side pairs
 U B2 U' F2 L   // DR in 5
+```
+
+The same with ARM 22, which every ARM list skips, 5 moves:
+
+```
+L' B2 D' F2 U'   // setup: 4c4e, 1 pair, ARM 22, 4a corners in two columns, 2 side pairs
+U F2 D B2 L   // DR in 5
+```
+
+And stacked 4a corners with no side pair, 8 moves:
+
+```
+L' D' L' F2 U2 R D2 U'   // setup: 4c4e, 1 pair, ARM 21, 4a corners in two columns, no side pair
+U D2 R' U2 F2 L D L   // DR in 8, and nothing shorter
 ```
 
 A 2-pair case the pairs rule switches and the card leaves for later, 8 moves:
@@ -525,7 +578,7 @@ L' D F2 L   // DR in 4
 
 | DRM | Card switches | Sub-7 rate of what it switches | Seconds per short DR found (5 s a trace, 20 s a switch) |
 |---|---|---|---|
-| 4c4e | 24.9% | 54.8% | 73 |
+| 4c4e | 26.0% | 54.6% | 72 |
 | 4c2e | 24.8% | 56.3% | 71 |
 | 3c2e | 82.1% | 71.2% | 37 |
 | 7c8e | 23.0% | 52.6% | 79 |
@@ -602,24 +655,36 @@ Pairs: white-blue needs a corner with white and blue on its sides, and there's n
 **How long.** I haven't timed anyone, so here's what the card asks for and what people have said the pieces of it take.
 
 - *The pair trace is the base.* Everyone who switches by pairs does it already.
-- *ARM is the big addition, and people differ on it.* With pairs it takes Yura Riabov "Like 5 seconds", "±2", "That's for 4c4e btw, for 7c8e it's longer" ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417786183135526954), [17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417786220435738704), [17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417787071405490237)), and "Arm is very fast to check for me", "It's like, just look at the cube" ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417787132914696302), [17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417787214472941661)). Daichi: "7c8e is probably just double my 4c4e times" ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418007108577923226)). In the same exchange Dunni says "I take longer to check only for pairs" ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417786899900268594)) and dropped ARM: "Saves me from misrecognizing arm-2c1e, which definitely did not happen, ever" ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417787480404393984)). And wen: "I don't even count ARM for 4c4e tbh" ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418234619014283346)). So if you don't read ARM now, the card adds it on every 1-pair case, 44.2% of your 4c4e RZPs.
-- *What the card adds on 4c4e*, by how often you need it. It comes to 0.75 extra looks per RZP on average:
+- *ARM is the fast read, and the card leans on it.* With pairs it takes Yura Riabov "Like 5 seconds", "±2", "That's for 4c4e btw, for 7c8e it's longer" ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417786183135526954), [17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417786220435738704), [17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417787071405490237)), and "Arm is very fast to check for me", "It's like, just look at the cube" ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417787132914696302), [17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417787214472941661)). ben kyle switches 1 pair + ARM 21 blind "since it's so fast to check" ([11 Aug 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1404499232806932480)). Daichi: "7c8e is probably just double my 4c4e times" ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418007108577923226)). Not everybody reads it, though. In the same exchange Dunni says "I take longer to check only for pairs" ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417786899900268594)) and dropped ARM: "Saves me from misrecognizing arm-2c1e, which definitely did not happen, ever" ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417787480404393984)). And wen: "I don't even count ARM for 4c4e tbh" ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418234619014283346)). The card asks for ARM on every 1-pair case, 44.2% of 4c4e RZPs, and nowhere else.
+- *The slower reads are the corners and the side pairs, and the card keeps them to a minority of cases.* What it adds on 4c4e, by how often you need it. It comes to 0.82 extra looks per RZP on average, 0.44 of that being ARM:
 
 | Extra look (4c4e) | When | Share of 4c4e cases |
 |---|---|---|
-| none: the pair trace settles it | 3 or 4 pairs, 2 pairs on two edges, 0 pairs with a fake pair | 42.2% |
-| the two E-slice edges out of the slice: do they share red or orange? | 2 pairs on one edge | 10.5% |
+| none: the pair trace settles it | 3 or 4 pairs, 2 pairs on two edges, 2 pairs on one edge with 2 fake pairs, 0 pairs with a fake pair | 43.2% |
 | ARM | 1 pair | 44.2% |
-| the corner case | 1 pair and ARM 21 | 9.1% |
-| the side pairs | 1 pair, ARM 21 and 4b corners | 5.4% |
-| are the corners two twins? | 1 pair, ARM 21 and 4a corners | 2.9% |
+| the corners: 4d, 4b or 4a, and if 4a, are they two twins? (with ARM 20 or 22 only the twins matter) | 1 pair and ARM 20, 21 or 22 | 17.3% |
+| the side pairs | 1 pair, ARM 21 and 4b corners; or 1 pair, ARM 20, 21 or 22 and 4a corners that are two twins | 8.3% |
+| the two E-slice edges out of the slice: do they share red or orange? | 2 pairs on one edge, fewer than 2 fake pairs | 9.5% |
 | white and yellow on the four corners | 0 pairs and no fake pair | 3.1% |
 
+- *You can run the card with fewer reads, and here's what each one is worth.* Each row is a policy on 4c4e. Dropping the corner look at ARM 20 and 22 halves the cases that need it (9.1% instead of 17.3%) and gives back 64 5-movers. The edges out of the slice are the one read on the card that nobody on the server uses yet. If you'd rather not learn it, read the bar with ARM: switch a bar with ARM 00, 11, 21 or 31, or with 2 fake pairs. Or keep switching every 2-pair case.
+
+| Policy (4c4e) | Switched | Missed 4-or-less | Missed 5-movers | Missed 6-movers | Cost per case |
+|---|---|---|---|---|---|
+| the card | 26.0% | 0% | 5.3% | 32.8% | 0.282 |
+| the card, stacked 4a only at ARM 21 | 25.1% | 0% | 7.9% | 34.1% | 0.290 |
+| the card, bar read with ARM instead of the edges out of the slice | 26.7% | 0% | 6.6% | 32.4% | 0.291 |
+| the card, every 2-pair case switched | 32.3% | 0% | 4.0% | 26.5% | 0.303 |
+| pairs + ARM (Fanti's list) | 35.2% | 1.4% | 5.8% | 27.0% | 0.345 |
+| 2+ pairs | 26.0% | 8.0% | 20.4% | 42.8% | 0.413 |
+
+- *More ARM doesn't help.* Reading ARM on every row of the card, not just on 1 pair, and switching the best ARMs of each row would bring the cost from 0.282 to 0.274 at best, with 94 row-and-ARM combinations to know. Nothing in there is worth a line.
+
 - *Nothing on the card needs a place on the inverse.* Every read is of the kind *does this piece have these colours, and which one is on top*. That's the difference with a full NISS trace, where you work out where each piece goes.
-- *The corner case is the slowest read on the card*, and it's only asked for on 1 pair + ARM 21. People check corners on 1 pair today. tseitsei89: "I often check that if I trace 1 pair. It is usually very fast to see that it is NOT d  corners since if you see 3 of any one color or you see any 2 corners that share more than 1 color you instantly know it wont be d corners." ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417807431786037319)). Evan, on checking the corner type with 1 pair + ARM 21: "I only started to recently but i think it's been beneficial" ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418286352360804442)). With ARM 21 the corner ARM is 2, so the flow chart is two questions.
+- *The corner case is the slowest read on the card*, and it's only asked for on 1 pair with ARM 20, 21 or 22. People check corners on 1 pair today. tseitsei89: "I often check that if I trace 1 pair. It is usually very fast to see that it is NOT d  corners since if you see 3 of any one color or you see any 2 corners that share more than 1 color you instantly know it wont be d corners." ([17 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1417807431786037319)). Evan, on checking the corner type with 1 pair + ARM 21: "I only started to recently but i think it's been beneficial" ([18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418286352360804442)). With ARM 21 the corner ARM is 2, so the flow chart is two questions.
 - *More reads, more chances to misread.* Dunni's ARM 21 is the example. I have no numbers on how often a read goes wrong, and a wrong read costs what a miss or a wasted switch costs.
 
-If you only take one thing from the card, take 1 pair + ARM 21 with 4d corners, or with 4b corners and 0 or 2 side pairs. Those two rows are worth the most. The 2-pair split is what pays for them in switches.
+If you only take one thing from the card, take 1 pair + ARM 21 with 4d corners, or with 4b corners and 0 or 2 side pairs. Those two rows are worth the most, then the stacked 4a row. The 2-pair split is what pays for them in switches.
 
 ---
 
@@ -646,10 +711,10 @@ That's a clean scale. 0 to 2 holds every case of 4 or less and 83.9% of the 5-mo
 | pairs + ARM (Fanti) | 35.2% | 1.4% | 5.8% | 27.0% | 0.345 |
 | 2 half turns or fewer | 14.2% | 0% | 16.1% | 54.8% | 0.332 |
 | 3 half turns or fewer | 65.2% | 0% | 0.16% | 3.8% | 0.483 |
-| the card | 24.9% | 0% | 8.8% | 35.4% | 0.299 |
-| the card, or 2 half turns or fewer | 27.7% | 0% | 3.2% | 28.5% | 0.266 |
+| the card | 26.0% | 0% | 5.3% | 32.8% | 0.282 |
+| the card, or 2 half turns or fewer | 28.3% | 0% | 3.2% | 27.2% | 0.264 |
 
-So the count cut at 2 beats every list on the server on cost, with far fewer switches. It finds a lot of what pairs miss: of the cases with 0 or 1 pair, 1,248 are at 2 or fewer (1.8% of 4c4e) and 74.2% of them are sub-7. That's all 46 of the 4-or-less that 2+ pairs misses, 248 of the 508 5-movers and 632 of the 4,500 6-movers. It also holds 140 of the 220 5-movers the card misses, which is why the last row is the best of the table.
+So the count cut at 2 beats every list on the server on cost, with far fewer switches. It finds a lot of what pairs miss: of the cases with 0 or 1 pair, 1,248 are at 2 or fewer (1.8% of 4c4e) and 74.2% of them are sub-7. That's all 46 of the 4-or-less that 2+ pairs misses, 248 of the 508 5-movers and 632 of the 4,500 6-movers. It also holds 52 of the 132 5-movers the card misses, which is why the last row is the best of the table.
 
 Where it's weak is the 6-movers: more than half of them are at 3, and a 3 is 16.0% sub-7 on average. The count has nothing more to say about which 3s are the good ones. Cut at 3 it misses almost nothing and switches two thirds of 4c4e.
 
@@ -691,15 +756,17 @@ So: on what it catches, the count deserves a place on top of the card. On what i
 | 3 or 4 pairs | **switch** | 81.0% | 88.5% | 19.0% | 43.3% | 0% |
 | 2 pairs on two edges | **switch** | 54.9% | 76.2% | 44.0% | 27.1% | 1.1% |
 | 2 pairs on one edge (a bar), holes on one R/L face | **switch** | 28.4% | 95.5% | 65.8% | 24.3% | 5.8% |
+| 2 pairs on one edge (a bar), holes not on one R/L face, 2 fake pairs | **switch** | 53.3% | 62.5% | 40.0% | 20.8% | 6.7% |
 | 1 pair, ARM 21, 4d corners | **switch** | 66.7% | 91.7% | 33.3% | 83.3% | 0% |
 | 1 pair, ARM 21, 4b corners, 0 or 2 side pairs | **switch** | 0% | - | 100% | 50.4% | 0% |
-| 1 pair, ARM 21, 4a corners in two columns | **switch** | 18.2% | 66.7% | 63.6% | 35.7% | 18.2% |
+| 1 pair, ARM 20, 21 or 22, 4a corners in two columns, 1+ side pairs | **switch** | 19.8% | 75.0% | 50.6% | 51.2% | 29.6% |
 | 0 pairs, no fake pairs, corners 2 and 2 in the layers | **switch** | 16.7% | 81.3% | 66.7% | 12.5% | 16.7% |
-| 2 pairs on one edge (a bar), holes not on one R/L face | if you have time | 28.4% | 35.8% | 65.8% | 11.5% | 5.8% |
-| 1 pair, not ARM 21, 2+ side pairs, not 4b corners | if you have time | 3.3% | 70.0% | 67.5% | 23.5% | 29.1% |
-| 1 pair, ARM 21, 4a corners not in two columns | skip | 0% | - | 90.0% | 2.8% | 10.0% |
+| 2 pairs on one edge (a bar), holes not on one R/L face, 0 or 1 fake pairs | if you have time | 25.7% | 29.9% | 68.6% | 10.9% | 5.7% |
+| 1 pair, ARM 10 or 11, 2 or 3 side pairs | if you have time | 3.3% | 83.3% | 73.3% | 25.8% | 23.3% |
+| 1 pair, ARM 20, 21 or 22, 4a corners in two columns, no side pair | skip | 17.8% | 50.0% | 55.6% | 4.0% | 26.7% |
+| 1 pair, ARM 20, 21 or 22, 4a corners not in two columns | skip | 0% | - | 83.3% | 2.8% | 16.7% |
 | 1 pair, ARM 21, 4b corners, exactly 1 side pair | skip | 0% | - | 100% | 5.6% | 0% |
-| 1 pair, anything else | skip | 2.1% | 61.5% | 66.5% | 6.7% | 31.5% |
+| 1 pair, anything else | skip | 1.4% | 55.6% | 66.7% | 7.3% | 31.9% |
 | 0 pairs, anything else | skip | 0% | - | 21.9% | 12.0% | 78.1% |
 
 Two things in there. A bar is at 2 or fewer in 28.4% of its cases wherever the holes are, so the holes are not the count in disguise: at the same count, a bar with the holes on one R/L face is 95.5% and one without is 35.8%. And 1 pair + ARM 21 with 4b corners is always a 3, good or bad, so there the side pairs see something the count doesn't.
@@ -708,7 +775,7 @@ Two things in there. A bar is at 2 or fewer in 28.4% of its cases wherever the h
 
 ## 8. What didn't help
 
-Briefly, on 4c4e unless said otherwise. *Cost per case* of the best rule that uses the pair count and the read. Pairs alone is 0.413, the card 0.299. Each row is a read:
+Briefly, on 4c4e unless said otherwise. *Cost per case* of the best rule that uses the pair count and the read. Pairs alone is 0.413, the card 0.282. Each row is a read:
 
 | Read added to the pair count (4c4e) | Cost per case, best rule on pairs + this read | Switched | Missed: 5-movers | Missed: 6-movers |
 |---|---|---|---|---|
@@ -742,9 +809,11 @@ Briefly, on 4c4e unless said otherwise. *Cost per case* of the best rule that us
 - **Points systems.** rodneykinney's old estimate 12 − 2 × top pairs − 2 × side pairs ([*Domino Setup Theory*](https://docs.google.com/document/d/1Z3O8BY1LbAMF6m55ufXtSdtBVwSJpMArtRrDT-p_CwM)), which switches at 3 pairs of any kind: 0.464. A top pair as 2 points and a side pair as 1, switch at 4: 0.389. The best weighted sum of pairs, side pairs, fake pairs, ARM, corner case, holes and layers (22 terms, fitted to these prices): 0.320. A sum can't do it because the reads don't add up: one side pair is worse than none for 4b corners.
 - **Corner-only counts.** The moves to orient the corners alone, and that number plus the missing pairs (the bones of the lower bound in *DR - 4c4e Theory*, used as a switch rule at 6): 0.569. It's a bound for finding the DR, not a predictor.
 - **Corners not in a pair** (Zagros's question, [5 Mar 2026](https://discord.com/channels/1007840975726575667/1007841335434285126/1479199955444043899)): the same thing as pairs once you know the DRM.
-- **Fake pairs, on 4c4e with at least one pair**, and **AR bars**: nothing. Fake pairs matter with 0 pairs (the card), for 3c2e (wen's rule), and in 3c6e and 6c6e.
+- **Fake pairs, on 4c4e with 1 pair or with 2 pairs on two edges**, and **AR bars**: nothing. Fake pairs matter with 0 pairs and on a bar (the card), for 3c2e (wen's rule), and in 3c6e and 6c6e.
 - **The bad edges' layers.** Both bad edges in one layer splits 1 pair + ARM 21 with 4a corners into 30.3% and 7.5%. Evan's stacked corners do it better (34.8% and 2.5%), so that's what the card uses.
-- **wen's "one U/D turn away from 4d"**: a little, less than ARM does for the same effort.
+- **wen's "one U/D turn away from 4d"**, as a read next to pairs: a little, less than ARM does for the same effort. It does hold every 5-mover with 1 pair and 4a corners, and those are inside the card's stacked 4a row (section 5.1).
+- **ARM on the bar, instead of the edges out of the slice.** Edge ARM 1 is the good one (31.7% against 20.9% and 17.5% for edge ARM 0 and 2), but the holes split a bar better: 43.7% against 18.1%. The best short ARM version of the row is in section 6.
+- **ARM for 0 pairs.** 0 pairs with ARM 00 or 42 is 72 cases at 75.0%, but it has only 6 of the 14 zero-pair cases of 4 or less. The others are ARM 21, so you'd still need the card's row there.
 - **Leading with something other than pairs.** A tree that's free to split on any quick read first still splits on pairs first (2 or more against fewer), then ARM 21. With 8 leaves it costs 0.315, with 16 0.303.
 - **Bigger lists.** 40 leaves: 0.267. The card is where the curve flattens.
 
@@ -762,14 +831,28 @@ Briefly, on 4c4e unless said otherwise. *Cost per case* of the best rule that us
 | pairs and side pairs | 23 | 36.2% | 2.1% | 9.8% | 29.9% | 0.387 |
 | pairs, ARM, corner case and side pairs | 206 | 30.3% | 0% | 3.9% | 27.0% | 0.285 |
 | every quick read together | 3,757 | 24.4% | 0% | 0% | 9.5% | 0.109 |
-| **the card** | 13 groups | 24.9% | 0% | 8.8% | 35.4% | 0.299 |
+| **the card** | 15 groups | 26.0% | 0% | 5.3% | 32.8% | 0.282 |
 | the exact DR length | 70,560 | 19.2% | 0% | 0% | 0% | 0 |
 
 Three things in there.
 
 - *Pairs + ARM at its best is Fanti's list.* Same cells, same numbers.
-- *The card beats every two-read ceiling* and sits a little above the four-read one, with 13 groups against 206 cells.
+- *The card beats every two-read ceiling and the four-read one* (pairs, ARM, corner case and side pairs: 0.285 with 206 cells, the card 0.282 with 15 groups). It can, because it also reads where the pairs sit, the columns and the edges out of the slice.
 - *The quick reads together know almost everything about the short cases.* All of them at once miss no 5-mover and 9.5% of the 6-movers at 24.4% switched. That's a table of 3,757 cells. The gap between it and the card is what a much better memory, or a trainer, could still get.
+
+**Where the slower reads pay.** Say the pair trace (pairs, where they sit, fake pairs) and ARM are read on every case, and the slower reads only on the groups where they help most per case. The best possible cost on 4c4e, by how many cases get the slower reads. Each row is a budget:
+
+| Slower reads on | Corner case and side pairs | Those two, the columns, the corner layers and the edges out of the slice |
+|---|---|---|
+| no case (pair trace and ARM only) | 0.325 | 0.325 |
+| the best 5% of cases | 0.311 | 0.294 |
+| the best 10% of cases | 0.289 | 0.268 |
+| the best 15% of cases | 0.286 | 0.249 |
+| the best 20% of cases | 0.272 | 0.239 |
+| the best 30% of cases | 0.260 | 0.202 |
+| every case | 0.250 | 0.148 |
+
+The card asks for a slower read on 29.9% of cases and costs 0.282. The numbers in the table are lookups again (508 cells for the middle column, 2,639 for the last), so they say what a perfect memory would get on the same budget, not what a card can. With the corner case and the side pairs alone there's little beyond the card even then: 0.250 if you read them on every case. And the first place the slower reads pay is the one everybody found: 1 pair with ARM 21. After the card, the best single row a search can still add (one pair count, up to two conditions on the pair trace and ARM, up to two on the slower reads) is worth 0.005 a case, against 0.132 for the whole card over the pairs rule. The rows left are small and take four or five conditions each.
 
 **Which second read helps most**, per DRM. Cost per case of the best rule on pairs and one more read, the best one in bold:
 
@@ -823,15 +906,17 @@ The same ceilings for 4c2e and 7c8e:
 | 3 or 4 pairs | 99.4% | **switch** | 79.9% | **switch** | 33.9% | **switch** |
 | 2 pairs on two edges | 95.1% | **switch** | 53.9% | **switch** | 15.9% | skip |
 | 2 pairs on one edge (a bar), holes on one R/L face | 87.4% | **switch** | 43.7% | **switch** | 10.6% | skip |
+| 2 pairs on one edge (a bar), holes not on one R/L face, 2 fake pairs | 87.5% | **switch** | 41.7% | **switch** | 5.0% | skip |
 | 1 pair, ARM 21, 4d corners | 100% | **switch** | 88.9% | **switch** | 22.2% | **switch** |
 | 1 pair, ARM 21, 4b corners, 0 or 2 side pairs | 90.3% | **switch** | 50.4% | **switch** | 8.1% | skip |
-| 1 pair, ARM 21, 4a corners in two columns | 80.3% | **switch** | 34.8% | **switch** | 6.1% | skip |
+| 1 pair, ARM 20, 21 or 22, 4a corners in two columns, 1+ side pairs | 82.7% | **switch** | 40.7% | **switch** | 9.9% | skip |
 | 0 pairs, no fake pairs, corners 2 and 2 in the layers | 66.7% | **switch** | 21.9% | **switch** | 6.6% | skip |
-| 2 pairs on one edge (a bar), holes not on one R/L face | 81.5% | **switch** | 18.1% | skip | 1.1% | skip |
-| 1 pair, not ARM 21, 2+ side pairs, not 4b corners | 69.5% | **switch** | 19.2% | skip | 0.99% | skip |
-| 1 pair, ARM 21, 4a corners not in two columns | 68.3% | **switch** | 2.5% | skip | 0% | skip |
+| 2 pairs on one edge (a bar), holes not on one R/L face, 0 or 1 fake pairs | 80.9% | **switch** | 15.5% | skip | 0.71% | skip |
+| 1 pair, ARM 10 or 11, 2 or 3 side pairs | 76.9% | **switch** | 23.3% | skip | 0.56% | skip |
+| 1 pair, ARM 20, 21 or 22, 4a corners in two columns, no side pair | 48.9% | **switch** | 11.1% | skip | 0% | skip |
+| 1 pair, ARM 20, 21 or 22, 4a corners not in two columns | 56.9% | **switch** | 2.3% | skip | 0% | skip |
 | 1 pair, ARM 21, 4b corners, exactly 1 side pair | 76.7% | **switch** | 5.6% | skip | 1.3% | skip |
-| 1 pair, anything else | 49.7% | **switch** | 6.1% | skip | 0.28% | skip |
+| 1 pair, anything else | 50.3% | **switch** | 6.0% | skip | 0.12% | skip |
 | 0 pairs, anything else | 30.7% | **switch** | 3.8% | skip | 0.18% | skip |
 
 - *4-move RZP*: every row is a switch at these prices, even 0 pairs (30.7% of the leftovers have a DR in 7 or less). That's "It seems like you should pretty much always switch a 4 move DR-4c4e." (Zagros, [7 Jul 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1524175174507692245)) and "yeah 4 is almost always a switch on normal scramble" (tseitsei89, [25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409604711069388970)). If you want to trim, trim from the bottom: Daichi's 4-move list ([7 Jul 2026](https://discord.com/channels/1007840975726575667/1007841273111117924/1524192731432353853)) drops a few 0-pair and 1-pair ARMs.
@@ -843,26 +928,26 @@ The other DRMs are in appendix A.
 
 | DRM | Real 5-move attempts | Switched: exact | Switched: real attempts | Missed 5-movers: exact | Missed 5-movers: real | Missed 6-movers: exact | Missed 6-movers: real |
 |---|---|---|---|---|---|---|---|
-| 4c4e | 560,822 | 24.9% | 24.9% | 8.8% | 8.6% | 35.4% | 35.1% |
+| 4c4e | 560,822 | 26.0% | 25.9% | 5.3% | 5.1% | 32.8% | 32.6% |
 | 4c2e | 112,330 | 24.8% | 25.1% | 0% | 0% | 31.0% | 30.7% |
 | 3c2e | 31,340 | 82.1% | 82.0% | 0% | 0% | 7.4% | 7.9% |
 | 7c8e | 189,338 | 23.0% | 22.8% | 0% | 0% | 32.6% | 33.0% |
 
-Same thing. For the four DRMs together the cards switch 26.5% of the real attempts and miss 0%, 5.2% and 31.6%; the pairs policy switches 27.6% and misses 4.2%, 12.5% and 36.4%.
+Same thing. For the four DRMs together the cards switch 27.1% of the real attempts and miss 0%, 3.1% and 30.1%; the pairs policy switches 27.6% and misses 4.2%, 12.5% and 36.4%.
 
 **Other prices.** Cost per case on 4c4e when a declined 6-mover costs 2, 3 or 5 wasted switches and each move shorter counts 2, 3 or 4.5 times as much. The page uses 3 and 3.
 
 | A declined 6-mover costs | Each move shorter multiplies by | Pairs only | Pairs + corner case | Pairs + ARM | The card | The card, wider |
 |---|---|---|---|---|---|---|
-| 2 wasted switches | 2 | 0.301 | 0.290 | 0.292 | 0.231 | 0.289 |
-| 2 wasted switches | 3 | 0.322 | 0.304 | 0.297 | 0.237 | 0.292 |
-| 2 wasted switches | 4.5 | 0.358 | 0.326 | 0.306 | 0.246 | 0.297 |
-| 3 wasted switches | 2 | 0.382 | 0.361 | 0.337 | 0.290 | 0.321 |
-| 3 wasted switches | 3 | 0.413 | 0.381 | 0.345 | 0.299 | 0.326 |
-| 3 wasted switches | 4.5 | 0.468 | 0.414 | 0.358 | 0.313 | 0.333 |
-| 5 wasted switches | 2 | 0.543 | 0.503 | 0.426 | 0.408 | 0.384 |
-| 5 wasted switches | 3 | 0.596 | 0.537 | 0.439 | 0.423 | 0.392 |
-| 5 wasted switches | 4.5 | 0.686 | 0.592 | 0.461 | 0.447 | 0.405 |
+| 2 wasted switches | 2 | 0.301 | 0.290 | 0.292 | 0.223 | 0.268 |
+| 2 wasted switches | 3 | 0.322 | 0.304 | 0.297 | 0.227 | 0.270 |
+| 2 wasted switches | 4.5 | 0.358 | 0.326 | 0.306 | 0.233 | 0.274 |
+| 3 wasted switches | 2 | 0.382 | 0.361 | 0.337 | 0.276 | 0.301 |
+| 3 wasted switches | 3 | 0.413 | 0.381 | 0.345 | 0.282 | 0.304 |
+| 3 wasted switches | 4.5 | 0.468 | 0.414 | 0.358 | 0.290 | 0.310 |
+| 5 wasted switches | 2 | 0.543 | 0.503 | 0.426 | 0.381 | 0.366 |
+| 5 wasted switches | 3 | 0.596 | 0.537 | 0.439 | 0.391 | 0.372 |
+| 5 wasted switches | 4.5 | 0.686 | 0.592 | 0.461 | 0.405 | 0.381 |
 
 The card is the cheapest in every row but the last three, where a 6-mover at 5 wasted switches makes switching more the right call and the wider card takes over. Only one verdict on the card flips anywhere in that grid: with a 6-mover at 2 and a factor of 2, the 0-pair group drops to *if you have time*.
 
@@ -876,10 +961,12 @@ Things people said about these rules, with the exact numbers. The one that doesn
 |---|---|
 | tseitsei89, [25 Aug 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1409579685716689018): "4c4e: >1 pairs = switch (43%), 1 pair and d corners = switch (44%)" | 2+ pairs is 46.4% sub-7 (the 43% is rodneykinney's findable sub-7). 1 pair with 4d corners is 44.4%. |
 | Evan, [18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418247728328212585): "4d+1 is extremely good for AR-21 (~90% sub-7) but 0% for other AR" | 88.9% with ARM 21, 0% with ARM 20 or 22. |
-| Evan, [18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418283868007436308), on 1 pair + ARM 21: "b corners - 29%", "d corners - 89%", "a corners - ~34% if corners are stacked, < 5% otherwise" | All three right: 4b 28.8%, 4d 88.9%, 4a in two columns 34.8% and 2.5% otherwise. |
+| Evan, [18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418283868007436308), on 1 pair + ARM 21: "b corners - 29%", "d corners - 89%", "a corners - ~34% if corners are stacked, < 5% otherwise" | All three right: 4b 28.8%, 4d 88.9%, 4a in two columns 34.8% and 2.5% otherwise. The stacked ones split again on side pairs: 47.7% with one or more, 10.9% with none. |
+| Evan, [18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418248145262874785): "interestingly 4a corners are basically the same for all ar-2X" | With 1 pair: in two columns 34.8% for ARM 21 and 25.0% for ARM 20 and 22, not in two columns 2.5% and 2.1%. Close enough that the card's stacked 4a row takes all three ARMs. |
+| wen, [18 Sep 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1418235860729462835): "1 pair then I check if it's 4d or one U/D turn away from 4d" | 1 pair with 4a corners one U/D turn from 4d is 1,152 cases at 28.5%, with all 128 5-movers that 1 pair and 4a corners have. The other 4a corners are 13.5%. |
 | rodneykinney, [13 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383075044682633366), for 0 pairs: "To catch this case, you can switch 4a-0 and 4d-2, but only if there also are no fake pairs" | Those are 120 cases at 23.3%, with 6 of the 14 zero-pair cases of 4 or less. No fake pairs with the corners 2 and 2, any corner case, is 576 cases at 21.9% with all 14. |
 | rodneykinney, [21 Jun 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1385965585833267210): "Zero pairs + zero pseudo-pairs would be a likely setup to F2 B2 R. But I don't have stats that include the pseudo-pair count." | The stats: 0 pairs and 0 fake pairs is 2,160 cases at 13.2%, against 4.3% for 0 pairs overall. |
-| rodneykinney, [13 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383069263530692730): "2 pairs: Switch unless 4b-0" | 2 pairs with 4b-0 corners is 15.3% sub-7, a skip at these prices too. 960 of its 1,728 cases are bars with the holes off the R/L faces, so the card's *if you have time* row has most of it. |
+| rodneykinney, [13 Jun 2025](https://discord.com/channels/1007840975726575667/1007841335434285126/1383069263530692730): "2 pairs: Switch unless 4b-0" | 2 pairs with 4b-0 corners is 15.3% sub-7, a skip at these prices too. 768 of its 1,728 cases are in the card's *if you have time* row (a bar with the holes off the R/L faces and fewer than 2 fake pairs). |
 | compLex, [11 Aug 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1404500827628113920): "you only need to actually learn to spot 4d (the only case worth switching 1 pair) and 4b (the only case not worth switching 2 pairs)" | By pairs and corner case alone the 4d half holds: 1 pair is 44.4% with 4d and 17.0% or less otherwise. The 4b half holds for 4b-0 (15.3% with 2 pairs), not for 4b-2 (51.9%). |
 | Fanti, *armpairs_1.txt* ([6 Nov 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1436034830046466069)): "35.2% switches", "42.6% sub-7 switch success (15.0% total)", "4.3% of cases will be discarded with sub-7" | 35.2%, 42.6%, 4.2% with the EO kept. |
 | Yura Riabov, [22 Jul 2025](https://discord.com/channels/1007840975726575667/1007841273111117924/1397110208685146265): "From my experience with pairs 1 bar is worse than 2 pairs for most arms" | True in 9 of the 9 ARMs that have both. Overall a bar is 26.6%, two edges 53.9%. |
@@ -909,7 +996,7 @@ Things people said about these rules, with the exact numbers. The one that doesn
 
 | DRM | Pairs policy | Its cost per case | Best list on the server | Its cost per case | The card's cost per case |
 |---|---|---|---|---|---|
-| 4c4e | 2+ pairs | 0.413 | 2+ pairs; 1 pair with ARM 21; 0 pairs with JZP or ARM 42 | 0.345 | 0.299 |
+| 4c4e | 2+ pairs | 0.413 | 2+ pairs; 1 pair with ARM 21; 0 pairs with JZP or ARM 42 | 0.345 | 0.282 |
 | 4c2e | 1.5+ pairs (2 side pairs = 1 pair) | 0.280 | the same | 0.280 | 0.251 |
 | 3c2e | always | 0.384 | a pair, a fake pair or a split pair | 0.330 | 0.330 |
 | 7c8e | 5+ pairs, counting edge ARM under 2 as a pair | 0.259 | 5-6 pairs; 4 pairs with ARM 21, 31, 43; 3 pairs with ARM 21; never edge ARM 0 or 4, except ARM 10 | 0.238 | 0.238 |
@@ -1079,7 +1166,7 @@ R' B2 R U2 B2 R   // DR in 6
 
 **The reads.** Defined from stickers, on the switched case. Pairs, fake pairs, side pairs and ARM agree with rodneykinney's own code on every case. The normal-side versions are the ones of section 6, checked there.
 
-**The search for the cards.** Per DRM, over the quick reads (ARM, corner case, side pairs, fake pairs, edges with a pair, holes, layers, columns): a greedy list of rules of up to two conditions inside a pair count, and a small tree grown to rank well at three prices of a wasted switch. Both score with the prices of section 3. I then wrote each card by hand from what they agreed on, in as few groups as kept the cost, took the server's rule wherever it did as well or better (wen's for 3c2e, caycala's chart for 7c8e, Evan's stacked corners for 4a), and graded the written card from scratch. The ceilings of section 9 come from the same code with every combination of values as its own group.
+**The search for the cards.** Per DRM, over the quick reads (ARM, corner case, side pairs, fake pairs, edges with a pair, holes, layers, columns): a greedy list of rules of up to two conditions inside a pair count, and a small tree grown to rank well at three prices of a wasted switch. Both score with the prices of section 3. I then wrote each card by hand from what they agreed on, in as few groups as kept the cost, took the server's rule wherever it did as well or better (wen's for 3c2e, caycala's chart for 7c8e, Evan's stacked corners for 4a), and graded the written card from scratch. A second search starts from the written 4c4e card, with the pair trace and ARM free on every case and the slower reads priced by how many cases need them, and lists the single rows still worth adding. The bar with 2 fake pairs and the stacked 4a row at ARM 20 and 22 come from that pass, and it's where the *0.005 a case* of section 9 comes from. The ceilings of section 9 come from the same code with every combination of values as its own group.
 
 **What *the best list on the server* is.** For each DRM, the rule with the lowest cost per case among the ones I found stated: the *DRM Subsets Meta* row, Fanti's lists, caycala's chart, tseitsei89's, rodneykinney's, wen's, Jay's and Radek B's. Appendix A names it per DRM.
 
@@ -1091,7 +1178,7 @@ R' B2 R U2 B2 R   // DR in 6
 
 | Policy (4c4e) | Cases switched | Missed: 4 or less | Missed: 5-movers | Missed: 6-movers | Switched with a DR of 7 or more |
 |---|---|---|---|---|---|
-| the card | 17,592 | 0 | 220 | 3,724 | 7,960 |
+| the card | 18,312 | 0 | 132 | 3,452 | 8,320 |
 | 2+ pairs | 18,360 | 46 | 508 | 4,500 | 9,838 |
 | pairs + ARM (Fanti) | 24,864 | 8 | 144 | 2,840 | 14,280 |
 

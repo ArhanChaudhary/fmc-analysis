@@ -101,7 +101,7 @@ theorem cards_ref_shape :
     (ALL.all fun (c, e, _, _) => (refGroups c e).length ≥ 2 && (refPolicies c e).length ≥ 3) = true := by
   native_decide
 
-/-- 4c4e.  The card's thirteen groups, with label, verdict and group row, are the research's; the groups are
+/-- 4c4e.  The card's fifteen groups, with label, verdict and group row, are the research's; the groups are
 disjoint as written (apart from the two "anything else" rows) and no 4c4e state is left out. -/
 theorem card_4c4e_matches_study :
     cardRows 4 4 CARD44 = refGroups 4 4 ∧ overlap 4 4 CARD44 = 0 ∧ uncovered 4 4 CARD44 = 0 := by native_decide
@@ -184,23 +184,23 @@ def addRows (rs : List (List Nat)) : List Nat :=
   rs.foldl (fun acc r => List.zipWith (· + ·) acc r) (List.replicate 5 0)
 
 /-- 4c4e has 70,560 states: 578 with a DR in 4 or less, 2,486 in 5, 10,512 in 6.
-The card switches 17,592 of them (24.9%) and misses 0 of the 578, 220 of the 2,486 (8.8%) and 3,724 of the 10,512
-(35.4%); 7,960 of its switches have no DR in 6.  2+ pairs switches 18,360 (26.0%) and misses 46 (8.0%), 508
+The card switches 18,312 of them (26.0%) and misses 0 of the 578, 132 of the 2,486 (5.3%) and 3,452 of the 10,512
+(32.8%); 8,320 of its switches have no DR in 6.  2+ pairs switches 18,360 (26.0%) and misses 46 (8.0%), 508
 (20.4%) and 4,500 (42.8%).  Fanti's pairs + ARM list switches 24,864 (35.2%) and misses 8, 144 and 2,840.  The card
-with its two "time" groups switches 27,384 (38.8%) and misses 0, 116 and 2,004.
+with its two "time" groups switches 25,672 (36.4%) and misses 0, 84 and 2,132.
 Over 4c4e, 4c2e, 3c2e and 7c8e together, each state once (111,104 states; 906 with a DR in 4 or less, 4,038 in 5,
-17,208 in 6): the cards switch 29,264 and miss 0, 220 and 5,492; the pairs policies (2+ pairs, 1.5+ pairs, always,
+17,208 in 6): the cards switch 29,984 and miss 0, 132 and 5,220; the pairs policies (2+ pairs, 1.5+ pairs, always,
 and for 7c8e 5+ pairs counting edge ARM under 2 as a pair) switch 30,616 and miss 46, 516 and 6,364. -/
 theorem card_headline :
     row 4 4 (fun _ => true) = [70560, 578, 2486, 10512, 28350, 28634] ∧
-    pol 4 4 (cardSet CARD44 ["switch"]) = [17592, 0, 220, 3724, 7960] ∧
+    pol 4 4 (cardSet CARD44 ["switch"]) = [18312, 0, 132, 3452, 8320] ∧
     pol 4 4 (fun f => f.pairs ≥ 2) = [18360, 46, 508, 4500, 9838] ∧
     pol 4 4 (fun f => f.pairs ≥ 2 || (f.pairs == 1 && armIs 21 f) || (f.pairs == 0 && (f.jzp || armIs 42 f))) =
       [24864, 8, 144, 2840, 14280] ∧
-    pol 4 4 (cardSet CARD44 ["switch", "time"]) = [27384, 0, 116, 2004, 15928] ∧
+    pol 4 4 (cardSet CARD44 ["switch", "time"]) = [25672, 0, 84, 2132, 14312] ∧
     ((ALL.take 4).map fun (c, e, _, _) => (row c e fun _ => true).take 4).foldl
       (fun acc r => List.zipWith (· + ·) acc r) [0, 0, 0, 0] = [111104, 906, 4038, 17208] ∧
-    addRows ((ALL.take 4).map fun (c, e, gs, _) => pol c e (cardSet gs ["switch"])) = [29264, 0, 220, 5492, 12824] ∧
+    addRows ((ALL.take 4).map fun (c, e, gs, _) => pol c e (cardSet gs ["switch"])) = [29984, 0, 132, 5220, 13184] ∧
     addRows ((ALL.take 4).map fun (c, e, _, base) => pol c e base[0]!.2) = [30616, 46, 516, 6364, 15390] ∧
     (ALL.take 4).map (fun (_, _, _, base) => base[0]!.1) = ["pairs", "pairs", "pairs", "pairs"] := by
   native_decide

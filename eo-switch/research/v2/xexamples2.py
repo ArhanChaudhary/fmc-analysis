@@ -277,9 +277,11 @@ out += ['', f'**Replay check.** Every move sequence here was replayed on a stick
         '| Verdict | Examples | DR in 4 or less | DR in 5 | DR in 6 | DR in 7 or more | DR in 6 or less, expected from the groups\' exact rates |', '|---|---|---|---|---|---|---|']
 def expected(sel):
     return sum(next(g['rate'] for g in RES['drm'][e['drm']]['groups'] if g['label'] == e['label']) for e in EX if sel(e))
+_t = TALLY['Card: if you have time']; _e = expected(lambda e: e['verdict'] == 'time'); _g = _t[0] + _t[1] + _t[2]
+DRAWNOTE = (' This draw is short on the *if you have time* row.' if _g <= _e - 3 else ' This draw is long on the *if you have time* row.' if _g >= _e + 3 else '')
 for name, sel in rows:
     c = TALLY[name]; out.append(f'| {name} | {sum(c)} | {c[0]} | {c[1]} | {c[2]} | {c[3]} | {expected(sel):.0f} |')
-out += ['', 'The examples are spread over the groups, not drawn the way attempts come up, so read the rows as what each verdict looks like, not as how often you get it. The last column is how many of the row\'s examples would have a DR in 6 or less if every group came out at its exact rate. This draw is short on the *if you have time* row.', '',
+out += ['', 'The examples are spread over the groups, not drawn the way attempts come up, so read the rows as what each verdict looks like, not as how often you get it. The last column is how many of the row\'s examples would have a DR in 6 or less if every group came out at its exact rate.' + DRAWNOTE, '',
         '**Where the card and the pairs rule disagree.**', '',
         f"- Card switches, pairs rule skips ({pl(len(DIS['card_switch_pairs_skip']), 'example')}, {good(DIS['card_switch_pairs_skip'])} with a DR in 6 or less): {', '.join(map(str, DIS['card_switch_pairs_skip'])) or 'none'}.",
         f"- Card says if you have time, pairs rule switches ({pl(len(DIS['card_time_pairs_switch']), 'example')}, {good(DIS['card_time_pairs_switch'])} with a DR in 6 or less): {', '.join(map(str, DIS['card_time_pairs_switch'])) or 'none'}.",

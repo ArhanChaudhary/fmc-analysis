@@ -257,19 +257,23 @@ def CARD44 : List Group :=
   [G "3 or 4 pairs" "switch" fun f => f.pairs ≥ 3,
    G "2 pairs on two edges" "switch" fun f => f.pairs == 2 && f.ep == 2,
    G "2 pairs on one edge (a bar), holes on one R/L face" "switch" fun f => f.pairs == 2 && f.ep == 1 && f.hc == 0,
+   G "2 pairs on one edge (a bar), holes not on one R/L face, 2 fake pairs" "switch" fun f =>
+     f.pairs == 2 && f.ep == 1 && f.hc ≥ 1 && f.fake == 2,
    G "1 pair, ARM 21, 4d corners" "switch" fun f => f.pairs == 1 && armIs 21 f && f.cc == 3,
    G "1 pair, ARM 21, 4b corners, 0 or 2 side pairs" "switch" fun f =>
      f.pairs == 1 && armIs 21 f && f.cc == 1 && f.side != 1,
-   G "1 pair, ARM 21, 4a corners in two columns" "switch" fun f =>
-     f.pairs == 1 && armIs 21 f && f.cc == 0 && f.cols == 2,
+   G "1 pair, ARM 20, 21 or 22, 4a corners in two columns, 1+ side pairs" "switch" fun f =>
+     f.pairs == 1 && f.carm == 2 && f.cc == 0 && f.cols == 2 && f.side ≥ 1,
    G "0 pairs, no fake pairs, corners 2 and 2 in the layers" "switch" fun f =>
      f.pairs == 0 && f.fake == 0 && f.uds == 2,
-   G "2 pairs on one edge (a bar), holes not on one R/L face" "time" fun f =>
-     f.pairs == 2 && f.ep == 1 && f.hc ≥ 1,
-   G "1 pair, not ARM 21, 2+ side pairs, not 4b corners" "time" fun f =>
-     f.pairs == 1 && !armIs 21 f && f.side ≥ 2 && f.cc != 1,
-   G "1 pair, ARM 21, 4a corners not in two columns" "skip" fun f =>
-     f.pairs == 1 && armIs 21 f && f.cc == 0 && f.cols != 2,
+   G "2 pairs on one edge (a bar), holes not on one R/L face, 0 or 1 fake pairs" "time" fun f =>
+     f.pairs == 2 && f.ep == 1 && f.hc ≥ 1 && f.fake ≤ 1,
+   G "1 pair, ARM 10 or 11, 2 or 3 side pairs" "time" fun f =>
+     f.pairs == 1 && armIn [10, 11] f && f.side ≥ 2,
+   G "1 pair, ARM 20, 21 or 22, 4a corners in two columns, no side pair" "skip" fun f =>
+     f.pairs == 1 && f.carm == 2 && f.cc == 0 && f.cols == 2 && f.side == 0,
+   G "1 pair, ARM 20, 21 or 22, 4a corners not in two columns" "skip" fun f =>
+     f.pairs == 1 && f.carm == 2 && f.cc == 0 && f.cols != 2,
    G "1 pair, ARM 21, 4b corners, exactly 1 side pair" "skip" fun f =>
      f.pairs == 1 && armIs 21 f && f.cc == 1 && f.side == 1,
    G' "1 pair, anything else" "skip" fun f => f.pairs == 1,

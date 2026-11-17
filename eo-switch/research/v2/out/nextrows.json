@@ -1,0 +1,205 @@
+{
+ "card_loss": 0.2815192743764172,
+ "rows": [
+  {
+   "gain": 0.004988664295524359,
+   "footprint": 0.03775510204081633,
+   "fast": "pairs=2 & carm>=3 & fake=0",
+   "slow": "side=0 & cols_bad=1",
+   "verdict": "skip",
+   "cases": 864
+  },
+  {
+   "gain": 0.004875281825661659,
+   "footprint": 0.08163265306122448,
+   "fast": "pairs=1 & carm=1 & earm<=1",
+   "slow": "side>=2 & cols_bad=0",
+   "verdict": "switch",
+   "cases": 648
+  },
+  {
+   "gain": 0.004761904012411833,
+   "footprint": 0.254421768707483,
+   "fast": "pairs=1 & earm<=1 & fake>=1",
+   "slow": "cc=2 & side=3",
+   "verdict": "switch",
+   "cases": 384
+  },
+  {
+   "gain": 0.004648525733500719,
+   "footprint": 0.345578231292517,
+   "fast": "pairs=1 & earm<=1 & fake<=2",
+   "slow": "cc=2 & side=3",
+   "verdict": "switch",
+   "cases": 520
+  },
+  {
+   "gain": 0.004535147454589605,
+   "footprint": 0.0380952380952381,
+   "fast": "pairs=0 & arm=21 & fake<=1",
+   "slow": "side>=2 & cols_bad=1",
+   "verdict": "switch",
+   "cases": 384
+  },
+  {
+   "gain": 0.004535146988928318,
+   "footprint": 0.08163265306122448,
+   "fast": "pairs=1 & carm=1 & earm<=1",
+   "slow": "side=3",
+   "verdict": "switch",
+   "cases": 528
+  },
+  {
+   "gain": 0.004308389499783516,
+   "footprint": 0.11428571428571428,
+   "fast": "pairs=2 & carm>=1 & earm=1",
+   "slow": "side>=1 & ud_split=2",
+   "verdict": "switch",
+   "cases": 592
+  },
+  {
+   "gain": 0.004195010755211115,
+   "footprint": 0.11496598639455782,
+   "fast": "pairs=0 & carm>=2 & earm=1",
+   "slow": "cc=1 & side=2",
+   "verdict": "switch",
+   "cases": 664
+  },
+  {
+   "gain": 0.004081632010638714,
+   "footprint": 0.12551020408163266,
+   "fast": "pairs=0 & earm<=1 & fake<=1",
+   "slow": "ccs=12 & side=2",
+   "verdict": "switch",
+   "cases": 512
+  },
+  {
+   "gain": 0.004081632010638714,
+   "footprint": 0.061224489795918366,
+   "fast": "pairs=1 & arm=11",
+   "slow": "side>=2 & cols_bad=0",
+   "verdict": "switch",
+   "cases": 480
+  },
+  {
+   "gain": 0.004081632010638714,
+   "footprint": 0.11428571428571428,
+   "fast": "pairs=2 & carm>=1 & earm=1",
+   "slow": "cols_bad>=1 & ud_split=2",
+   "verdict": "switch",
+   "cases": 800
+  },
+  {
+   "gain": 0.003854874987155199,
+   "footprint": 0.16326530612244897,
+   "fast": "pairs=0 & earm=1 & fake<=3",
+   "slow": "ccs=12 & side=2",
+   "verdict": "switch",
+   "cases": 656
+  },
+  {
+   "gain": 0.0036281184293329716,
+   "footprint": 0.16394557823129252,
+   "fast": "pairs=2 & earm>=1 & fake<=1",
+   "slow": "ccs=10",
+   "verdict": "skip",
+   "cases": 480
+  },
+  {
+   "gain": 0.0036281179636716843,
+   "footprint": 0.1523809523809524,
+   "fast": "pairs=0 & earm=1 & fake<=2",
+   "slow": "ccs=12 & side=2",
+   "verdict": "switch",
+   "cases": 608
+  },
+  {
+   "gain": 0.003628117498010397,
+   "footprint": 0.06258503401360545,
+   "fast": "pairs=2 & earm=1 & fake=1",
+   "slow": "cc=2 & ud_split=2",
+   "verdict": "switch",
+   "cases": 384
+  },
+  {
+   "gain": 0.003628117498010397,
+   "footprint": 0.2108843537414966,
+   "fast": "pairs=2 & fake<=1",
+   "slow": "ccs=10 & side<=1",
+   "verdict": "skip",
+   "cases": 448
+  },
+  {
+   "gain": 0.0036281165666878223,
+   "footprint": 0.10612244897959183,
+   "fast": "pairs=1 & carm=1",
+   "slow": "side>=2 & cols_bad=0",
+   "verdict": "switch",
+   "cases": 864
+  },
+  {
+   "gain": 0.0035147389862686396,
+   "footprint": 0.10476190476190476,
+   "fast": "pairs=1 & carm=1 & fake<=2",
+   "slow": "side=3",
+   "verdict": "switch",
+   "cases": 664
+  },
+  {
+   "gain": 0.003514738753437996,
+   "footprint": 0.08571428571428572,
+   "fast": "pairs=2 & carm>=2 & earm=1",
+   "slow": "side>=1 & cols_bad>=1",
+   "verdict": "switch",
+   "cases": 632
+  },
+  {
+   "gain": 0.0035147382877767086,
+   "footprint": 0.05986394557823129,
+   "fast": "pairs=1 & arm=11 & fake<=2",
+   "slow": "side>=2 & cols_bad=0",
+   "verdict": "switch",
+   "cases": 456
+  },
+  {
+   "gain": 0.003401361405849457,
+   "footprint": 0.02585034013605442,
+   "fast": "pairs=2 & carm=1 & fake=0",
+   "slow": "side<=1 & ud_split=2",
+   "verdict": "skip",
+   "cases": 496
+  },
+  {
+   "gain": 0.003401360707357526,
+   "footprint": 0.16870748299319727,
+   "fast": "pairs=1 & earm<=1 & fake=1",
+   "slow": "ccs=21 & side=3",
+   "verdict": "switch",
+   "cases": 288
+  },
+  {
+   "gain": 0.003401360474526882,
+   "footprint": 0.044897959183673466,
+   "fast": "pairs=1 & arm=11 & fake>=1",
+   "slow": "side=3",
+   "verdict": "switch",
+   "cases": 304
+  },
+  {
+   "gain": 0.0034013602416962385,
+   "footprint": 0.10612244897959183,
+   "fast": "pairs=1 & carm=1",
+   "slow": "side=3",
+   "verdict": "switch",
+   "cases": 672
+  },
+  {
+   "gain": 0.0034013602416962385,
+   "footprint": 0.08571428571428572,
+   "fast": "pairs=2 & carm>=2 & earm=1",
+   "slow": "cols_bad>=1 & hole_cfg=1",
+   "verdict": "switch",
+   "cases": 608
+  }
+ ]
+}

@@ -11,7 +11,8 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
   - rodneykinney's corner cases 4a to 4d ([*DR - 4c4e Theory*](https://docs.google.com/document/d/1DsxAAB2WRfpgDR-VWZZrXq2W4y_YMXBufRRYNLAGGoU)), the [*DRM corner variant+pair stats*](https://docs.google.com/spreadsheets/d/174ClwBFl-T2zJAq8MVyK1bKsIIuzxQU0_XmQGv82LPQ) sheet and the rule that came with it ([[T8108]]).
   - rodneykinney's read for 0 pairs: "To catch this case, you can switch 4a-0 and 4d-2, but only if there also are no fake pairs" ([[T8123]]).
   - tseitsei89's working list ([[T9321]]), wen's and Jay's own versions ([[D14328]], [[D12085]]).
-  - Evan's split of 1 pair + ARM 21 by corner type: "b corners - 29%", "d corners - 89%", "a corners - ~34% if corners are stacked, < 5% otherwise" ([[D14402]]). That split is on the card as it stands.
+  - Evan's split of 1 pair + ARM 21 by corner type: "b corners - 29%", "d corners - 89%", "a corners - ~34% if corners are stacked, < 5% otherwise" ([[D14402]]), and "interestingly 4a corners are basically the same for all ar-2X" ([[D14348]]). That split is the base of the card's 1-pair rows.
+  - wen's check on 1 pair: "1 pair then I check if it's 4d or one U/D turn away from 4d" ([[D14328]]).
 - **Pairs + ARM.**
   - Louis's [*DRM/ARM average optimals*](https://docs.google.com/spreadsheets/d/13fSwUROzP0hZQV1Cn96GndWbPy4UrsHiYTaWFSeWtJs) and Evan's [*arm/pairs*](https://docs.google.com/spreadsheets/d/1YZYyokxYXwDdBTgN7ojpPAFHKKz48hCyNO2l6-iwmVk) sheet.
   - caycala's chart ([[D11016]]): for 4c4e it already has 1 pair with ARM 21 and 0 pairs with ARM 42, and its 7c8e list is this page's 7c8e card.
@@ -30,10 +31,12 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 - **A yardstick that counts misses by length.** For every policy: how much it switches, and which share of the 4-or-less, the 5-movers and the 6-movers it leaves on the table. The current rules hadn't been broken down that way.
 - **A switch card per DRM**: pairs first, then one or two more looks that depend on the pair count. On 4c4e, 4c2e, 3c2e and 7c8e together it switches a little less than the pairs policy and misses less at every length.
-- **Three reads that I didn't find in anyone's rule**:
-  - for 2 pairs on one edge, where the two holes are;
+- **Four reads that I didn't find in anyone's rule**:
+  - for 2 pairs on one edge, where the two holes are, and whether there are 2 fake pairs;
   - for 1 pair with ARM 21 and 4b corners, whether there's exactly one side pair;
+  - for 1 pair with Evan's stacked 4a corners, whether there's a side pair, which also makes them a switch at ARM 20 and 22;
   - for 0 pairs and no fake pairs (rodneykinney's read), that the corners are 2 and 2 in the layers.
+- **How often each read is needed.** ARM, the fast one, on every 1-pair case. The slower ones (the corners, the side pairs) on a minority, with what the card is worth if you drop any of them.
 - **New cards for 8c8e and 2c2e**, and side pairs in the 5c pockets.
 - **The half-turn count judged as a switch test**, on what it catches and on what it takes to read.
 - **What doesn't help**, and **how far any rule could go** from the quick reads, so you know what's left on the table.
@@ -56,7 +59,7 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 ## 1. The short version
 
-**Is there a better switch policy than pairs? Yes, a bit better, and it stays a matter of seconds.** Keep counting pairs first. What changes is the one extra look you take after it, which depends on the pair count. No quick read beats pairs as the first look: I tried every relation between two bad pieces, points systems, corner-only counts and trees that don't start from pairs, and pairs stays the first split every time (section 8).
+**Is there a better switch policy than pairs? Yes, and it stays a matter of seconds.** On 4c4e it switches as much as 2+ pairs and misses no case of 4 or less and {= pc(X44['card']['miss_d5']) =} of the 5-movers, where 2+ pairs misses {= pc(B('4c4e', 'pairs')['miss_le4']) =} and {= pc(B('4c4e', 'pairs')['miss_d5']) =}. Keep counting pairs first. What changes is the look you take after it, which depends on the pair count: ARM on 1 pair, which is fast, then the corners and the side pairs on the few ARMs where they matter. No quick read beats pairs as the first look: I tried every relation between two bad pieces, points systems, corner-only counts and trees that don't start from pairs, and pairs stays the first split every time (section 8).
 
 **The yardstick.** After a 5-move RZP a case is *good* if the DR after the switch is 6 or less. A policy is graded on four numbers: how much it switches, and the share of the 4-or-less, of the 5-movers and of the 6-movers that it doesn't switch. When one number is needed, a declined 6-mover costs 3 wasted switches, a 5-mover 9 and a 4-or-less 27 (section 3 says where that comes from, section 10 what happens with other prices).
 
@@ -64,13 +67,13 @@ November 2026. A date in brackets is a link to that message on the FMC solvers D
 
 {{ t_card('4c4e', ('switch', 'time')) }}
 
-Everything else is a skip: 1 pair without ARM 21, 0 pairs with a fake pair, and the two exceptions inside 1 pair + ARM 21 (4b corners with exactly one side pair, {= grate('4c4e', '1 pair, ARM 21, 4b corners, exactly 1 side pair') =} sub-7; 4a corners that aren't in two columns, {= grate('4c4e', '1 pair, ARM 21, 4a corners not in two columns') =}).
+Everything else is a skip: 1 pair with any other ARM, 0 pairs with a fake pair, and the exceptions inside the 1-pair rows: 4b corners with exactly one side pair ({= grate('4c4e', '1 pair, ARM 21, 4b corners, exactly 1 side pair') =} sub-7), 4a corners that aren't in two columns ({= grate('4c4e', '1 pair, ARM 20, 21 or 22, 4a corners not in two columns') =}) or that have no side pair ({= grate('4c4e', '1 pair, ARM 20, 21 or 22, 4a corners in two columns, no side pair') =}).
 
 **What it's worth on 4c4e.** Each row is a policy. *Cost per case* is the one-number version: misses and wasted switches, priced as above, per 4c4e case.
 
 {{ t_cmp('4c4e') }}
 
-So against **2+ pairs** the card switches a little less and misses less at every length: no 4-or-less at all (pairs: {= n(B('4c4e', 'pairs')['missn_le4']) =} of {= n(X44['n_le4']) =}), {= pc(X44['card']['miss_d5']) =} of the 5-movers instead of {= pc(B('4c4e', 'pairs')['miss_d5']) =}, {= pc(X44['card']['miss_d6']) =} of the 6-movers instead of {= pc(B('4c4e', 'pairs')['miss_d6']) =}. Against **pairs + ARM** (Fanti's list) it's a trade: {= pts(B('4c4e', 'pairs+arm')['switch'] - X44['card']['switch']) =} fewer switches, for more missed 5- and 6-movers. Take the two *if you have time* groups as well and you miss less than Fanti's list at every length, for {= pts(X44['card_time']['switch'] - B('4c4e', 'pairs+arm')['switch']) =} more switches. Honestly, at that end Fanti's list is already about as good as a short list gets. The card's gain is at the pairs end.
+So against **2+ pairs** the card switches the same share of 4c4e ({= n(X44['card']['switch'] * X44['n']) =} cases against {= n(B('4c4e', 'pairs')['switch'] * X44['n']) =}) and misses less at every length: no 4-or-less at all (pairs: {= n(B('4c4e', 'pairs')['missn_le4']) =} of {= n(X44['n_le4']) =}), {= pc(X44['card']['miss_d5']) =} of the 5-movers instead of {= pc(B('4c4e', 'pairs')['miss_d5']) =}, {= pc(X44['card']['miss_d6']) =} of the 6-movers instead of {= pc(B('4c4e', 'pairs')['miss_d6']) =}. Against **pairs + ARM** (Fanti's list) it switches {= pts(B('4c4e', 'pairs+arm')['switch'] - X44['card']['switch']) =} less, misses no 4-or-less (Fanti's list: {= n(B('4c4e', 'pairs+arm')['missn_le4']) =}) and a few 5-movers fewer, and leaves more 6-movers ({= pc(X44['card']['miss_d6']) =} against {= pc(B('4c4e', 'pairs+arm')['miss_d6']) =}). Take the two *if you have time* groups as well and you miss less than Fanti's list at every length, for {= pts(X44['card_time']['switch'] - B('4c4e', 'pairs+arm')['switch']) =} more switches. Fanti's list is exactly the best rule there is on the pair count and ARM alone (section 9). What the card adds to those two reads is where the pairs sit, a look at the corners on 1 pair with ARM 20, 21 or 22, and the edges out of the slice on a bar. Leave that last read out and switch every 2-pair case, and the card still misses less than Fanti's list at every length ({= pc(AF['no_bar_split']['miss_le4']) =}, {= pc(AF['no_bar_split']['miss_d5']) =} and {= pc(AF['no_bar_split']['miss_d6']) =}) for {= pts(B('4c4e', 'pairs+arm')['switch'] - AF['no_bar_split']['switch']) =} fewer switches (section 6).
 
 **The four DRMs people switch, together.** 4c4e, 4c2e, 3c2e and 7c8e, every case once ({= n(nmain()) =} cases):
 
@@ -78,8 +81,9 @@ So against **2+ pairs** the card switches a little less and misses less at every
 
 **What's in the card, and whose it is.**
 
-- **2 pairs on one edge is not 2 pairs on two edges** (new here). Two edges: {= grate('4c4e', '2 pairs on two edges') =} sub-7. A bar: it depends on the two holes. Holes on one R/L face (the two E-slice edges that are out of the slice share red or orange): {= grate('4c4e', '2 pairs on one edge (a bar), holes on one R/L face') =}. Otherwise {= grate('4c4e', '2 pairs on one edge (a bar), holes not on one R/L face') =}, which is {= gshare('4c4e', '2 pairs on one edge (a bar), holes not on one R/L face') =} of 4c4e that the pairs rule switches at a 1-pair rate. bpaul asked about pairs per edge and Yura Riabov said a bar is worse. The holes are what makes it a rule.
-- **1 pair + ARM 21, by corner type** (Evan's split, exact: 4d {= pc(EX['p1_arm21_by_cc']['d']['rate']) =}, 4b {= pc(EX['p1_arm21_by_cc']['b']['rate']) =}, 4a in two columns {= grate('4c4e', '1 pair, ARM 21, 4a corners in two columns') =} and {= grate('4c4e', '1 pair, ARM 21, 4a corners not in two columns') =} otherwise). New here is what splits the 4b cases, the side pairs: with none it's {= pc(EX['4b_side']['0']['rate']) =}, with exactly one {= pc(EX['4b_side']['1']['rate']) =}, with two {= pc(EX['4b_side']['2']['rate']) =}.
+- **2 pairs on one edge is not 2 pairs on two edges** (new here). Two edges: {= grate('4c4e', '2 pairs on two edges') =} sub-7. A bar: it depends on the two holes. Holes on one R/L face (the two E-slice edges that are out of the slice share red or orange): {= grate('4c4e', '2 pairs on one edge (a bar), holes on one R/L face') =}. Otherwise {= pc(AF['bar_off']['rate']) =}, which is {= pc(AF['bar_off']['share']) =} of 4c4e that the pairs rule switches at a 1-pair rate. The exception is a bar with 2 fake pairs: {= grate('4c4e', '2 pairs on one edge (a bar), holes not on one R/L face, 2 fake pairs') =} even with the holes off. bpaul asked about pairs per edge and Yura Riabov said a bar is worse. The holes are what makes it a rule.
+- **1 pair + ARM 21, by corner type** (Evan's split, exact: 4d {= pc(EX['p1_arm21_by_cc']['d']['rate']) =}, 4b {= pc(EX['p1_arm21_by_cc']['b']['rate']) =}, 4a in two columns {= pc(AF['stacked']['21']['rate']) =} and {= pc(AF['stacked']['not_stacked_21']['rate']) =} otherwise). New here is what the side pairs do inside it. They split the 4b cases: with none it's {= pc(EX['4b_side']['0']['rate']) =}, with exactly one {= pc(EX['4b_side']['1']['rate']) =}, with two {= pc(EX['4b_side']['2']['rate']) =}. And they split Evan's stacked 4a: {= pc(AF['stacked']['21_side']['rate']) =} with a side pair, {= pc(AF['stacked']['21_noside']['rate']) =} without.
+- **Stacked 4a with a side pair is a switch at ARM 20 and 22 too.** Evan saw it: "interestingly 4a corners are basically the same for all ar-2X" ([[D14348]]). And wen's check on 1 pair, "4d or one U/D turn away from 4d" ([[D14328]]), has the short ones: all {= n(AF['one_from_4d']['yes']['d5']) =} 5-movers with 1 pair and 4a corners are one U/D turn from 4d. 1 pair with ARM 20 or 22 is {= pc(AF['stacked']['p1_2022']['rate']) =} sub-7 overall and the ARM lists skip it, but its 4a corners in two columns with a side pair are {= n(AF['stacked']['2022_side']['n']) =} cases at {= pc(AF['stacked']['2022_side']['rate']) =}, with every one of its {= n(AF['stacked']['p1_2022']['d5']) =} 5-movers. New here are the side pair and the exact numbers. With 4d corners ARM 20 and 22 are {= pc(AF['stacked']['p1_2022_4d']['rate']) =}, as Evan said.
 - **0 pairs: no fake pairs either, and the corners 2 and 2.** No fake pairs with 0 pairs is rodneykinney's read for the `F2 B2 R` setups, and wen has it for `D F2 B2 R` ("there are 2 'columns' of corners and no fake pairs", [[D14333]]). Adding that the misoriented corners are two white and two yellow gives {= gshare('4c4e', '0 pairs, no fake pairs, corners 2 and 2 in the layers') =} of 4c4e that holds every 0-pair case of 4 moves or less:
 
 {{ wit('0p_4mover', '4c4e, 0 pairs, no fake pairs, 2 white and 2 yellow corners', 'DR in 4. The pairs rule says discard') }}
@@ -94,7 +98,7 @@ So against **2+ pairs** the card switches a little less and misses less at every
 - **8c8e and 2c2e**: new cards (section 5.5). The 8c8e one costs {= f3(D('8c8e')['card']['loss']) =} per case against {= f3(B('8c8e', 'pairs')['loss']) =} for the tree rule.
 - **The low DRMs hold {= lowshare('d5') =} of the 5-movers.** Counting the 12 DRMs of this page, 4c6e, 3c4e, 3c6e, 5c4e, 5c6e and 6c6e hold {= lowshare('le4') =} of the 4-or-less, {= lowshare('d5') =} of the 5-movers and {= lowshare('d6') =} of the 6-movers. Small pockets hold a good part of them (5c4e with 3 pairs and 2 side pairs is {= grate('5c4e', '3 pairs, 2+ side pairs') =}), but a short DR out of 5c4e costs about {= timeratio('5c4e') =} times the tracing and switching it costs out of 4c4e (section 5.6).
 
-**How long it takes.** Every read on the card is a count or a colour match on the pieces you already look at for the pair trace: the U/D edges in the E slice, the misoriented corners, and the E-slice edges that are out. None of them needs you to work out where a piece sits on the inverse. On {= pc(EX['reads44']['two_plus'] - EX['reads44']['bar'] + EX['reads44']['zero'] - EX['reads44']['zero_nofake']) =} of 4c4e cases the pair trace settles it, and on average the card asks for {= extra_looks() =} extra looks per 4c4e RZP, ARM being most of that. The longest branch (1 pair, ARM 21, 4b corners: {= pc(EX['reads44']['one_pair_arm21_4b']) =} of cases) adds the corner case and the side pairs to the pairs + ARM check that Yura Riabov puts at "Like 5 seconds" ([[D14244]]). I haven't timed anyone, and not everybody reads ARM that fast, so that's an argument and not a measurement (section 6).
+**How long it takes.** Every read on the card is a count or a colour match on the pieces you already look at for the pair trace: the U/D edges in the E slice, the misoriented corners, and the E-slice edges that are out. None of them needs you to work out where a piece sits on the inverse. On {= pc(EX['reads44']['two_plus'] - EX['reads44']['bar_lt2fake'] + EX['reads44']['zero'] - EX['reads44']['zero_nofake']) =} of 4c4e cases the pair trace settles it. ARM, the fast read ("Arm is very fast to check for me", Yura Riabov, [[D14249]]), is asked for on every 1-pair case, {= pc(EX['reads44']['one_pair']) =} of them. The slower reads come up much less: a look at the corners on 1 pair with ARM 20, 21 or 22 ({= pc(EX['reads44']['one_pair_arm2x']) =} of cases), and the side pairs after it on {= pc(EX['reads44']['one_pair_arm21_4b'] + EX['reads44']['stacked_2x']) =}. That's {= extra_looks() =} extra looks per 4c4e RZP on average, on top of a pairs + ARM check that Yura Riabov puts at "Like 5 seconds" ([[D14244]]). I haven't timed anyone on the card itself, so that's an argument from what the reads are and how often they come up, not a measurement (section 6).
 
 **Two bars: a good read, not a switch test yet.** The numbers are good. Switch at 2 half turns or fewer and you switch {= pc(TB['le2']['switch']) =} of 4c4e, with every 4-or-less in it, including all {= n(TB['pairs_missed_le2']['le4'][0]) =} that the pairs rule misses and {= frac(TB['pairs_missed_le2']['d5']) =} 5-movers it misses. Its cost per case is {= f3(TB['le2']['loss']) =}: better than any list on the server, behind the card ({= f3(X44['card']['loss']) =}), because it leaves {= pc(TB['le2']['miss_d6']) =} of the 6-movers. On top of the card it would help: the card plus *2 or fewer* costs {= f3(TB['card_or_le2']['loss']) =}.
 
@@ -180,10 +184,10 @@ Three kinds of rule are in use. Here's each as its author wrote it, graded on 4c
 
 **Where the room is.** Two places.
 
-- *Inside 2 pairs.* Most people switch every 2-pair case ("2 pairs I just always switch.", tseitsei89, [[D14265]]; "I just switch regardless", wen, [[D14395]]). rodneykinney's rule and compLex drop 4b-0, and caycala's chart keeps 2 pairs only with some ARMs. {= gshare('4c4e', '2 pairs on one edge (a bar), holes not on one R/L face') =} of 4c4e is a bar with the holes off the R/L faces, at {= grate('4c4e', '2 pairs on one edge (a bar), holes not on one R/L face') =}.
-- *Inside 1 pair + ARM 21.* It's {= pc(EX['reads44']['one_pair_arm21']) =} of 4c4e, and {= pc(grp('4c4e','1 pair, ARM 21, 4b corners, exactly 1 side pair')['share'] + grp('4c4e','1 pair, ARM 21, 4a corners not in two columns')['share']) =} of 4c4e inside it is under 6% sub-7.
+- *Inside 2 pairs.* Most people switch every 2-pair case ("2 pairs I just always switch.", tseitsei89, [[D14265]]; "I just switch regardless", wen, [[D14395]]). rodneykinney's rule and compLex drop 4b-0, and caycala's chart keeps 2 pairs only with some ARMs. {= pc(AF['bar_off']['share']) =} of 4c4e is a bar with the holes off the R/L faces, at {= pc(AF['bar_off']['rate']) =}.
+- *Inside 1 pair + ARM 21.* It's {= pc(EX['reads44']['one_pair_arm21']) =} of 4c4e, and {= pc(grp('4c4e','1 pair, ARM 21, 4b corners, exactly 1 side pair')['share'] + AF['stacked']['not_stacked_21']['share']) =} of 4c4e inside it is under 6% sub-7.
 
-Both are places where a list *switches too much*. Dropping them is what pays for switching the good 0- and 1-pair groups without more switches in total.
+Both are places where a list *switches too much*. Dropping them is what pays for switching the good 0- and 1-pair groups without more switches in total. The one place where every list switches too little is 1 pair with ARM 20 or 22: {= pc(AF['stacked']['p1_2022']['rate']) =} sub-7 overall, with {= n(AF['stacked']['p1_2022']['d5']) =} 5-movers that all sit in one small group (section 5.1).
 
 The same grading for the other DRMs is in section 5 and appendix A.
 
@@ -202,9 +206,25 @@ How the cards were found: a search over short rule lists on the quick reads, sco
 Read it top down:
 
 - **3 or 4 pairs**: switch.
-- **2 pairs**: on two edges, switch. On one edge, look at the two E-slice edges that are out of the slice. If they share red or orange, switch. If not, it's an *if you have time* case.
-- **1 pair**: check ARM. Not 21: skip (the one *if you have time* pocket is 2 or more side pairs without 4b corners). ARM 21: look at the corners. 4d: switch. 4b: switch unless there's exactly one side pair. 4a: switch if the corners are in two columns.
+- **2 pairs**: on two edges, switch. On one edge with 2 fake pairs, switch. On one edge otherwise, look at the two E-slice edges that are out of the slice. If they share red or orange, switch. If not, it's an *if you have time* case.
+- **1 pair**: check ARM.
+  - ARM 21: look at the corners. 4d: switch. 4b: switch unless there's exactly one side pair. 4a: switch if the corners are in two columns and there's a side pair.
+  - ARM 20 or 22: only the last of those. 4a corners in two columns with a side pair: switch. Anything else: skip.
+  - Any other ARM: skip. The one *if you have time* pocket is ARM 10 or 11 with 2 or 3 side pairs.
 - **0 pairs**: switch only if there's no fake pair either and the misoriented corners are two white and two yellow.
+
+**The bar.** 2 pairs on one edge, by where the holes are and the fake pairs. Each row is a group:
+
+| 2 pairs on one edge | Share of 4c4e | Sub-7 rate | 5-movers |
+|---|---|---|---|
+| holes on one R/L face | {= pc(AF['bar_on']['share']) =} | {= pc(AF['bar_on']['rate']) =} | {= n(AF['bar_on']['d5']) =} |
+| holes not on one R/L face, 2 fake pairs | {= pc(AF['bar_off_fake']['2']['share']) =} | {= pc(AF['bar_off_fake']['2']['rate']) =} | {= n(AF['bar_off_fake']['2']['d5']) =} |
+| holes not on one R/L face, 1 fake pair | {= pc(AF['bar_off_fake']['1']['share']) =} | {= pc(AF['bar_off_fake']['1']['rate']) =} | {= n(AF['bar_off_fake']['1']['d5']) =} |
+| holes not on one R/L face, no fake pair | {= pc(AF['bar_off_fake']['0']['share']) =} | {= pc(AF['bar_off_fake']['0']['rate']) =} | {= n(AF['bar_off_fake']['0']['d5']) =} |
+
+A bar with the holes off and 2 fake pairs, 5 moves:
+
+{{ wit('bar_fake2_5mover', '4c4e, 2 pairs on one edge, 2 fake pairs, holes on one F/B face', 'DR in 5') }}
 
 **The side pairs on 4b.** 1 pair, ARM 21, 4b corners, by the number of side pairs. Each row is a count:
 
@@ -218,9 +238,30 @@ A 1-pair case the card switches and the pairs rule doesn't, 5 moves:
 
 {{ wit('1p_4b_side2_5mover', '4c4e, 1 pair, ARM 21, 4b corners, 2 side pairs', 'DR in 5') }}
 
-Evan's stacked 4a corners, 5 moves:
+**Stacked 4a corners.** 1 pair and 4a corners, by ARM, by whether the corners are in two columns (Evan's stacked corners) and by side pairs. Each row is a group:
 
-{{ wit('1p_4a_cols_5mover', '4c4e, 1 pair, ARM 21, 4a corners in two columns', 'DR in 5') }}
+| 1 pair, 4a corners | Share of 4c4e | Sub-7 rate | 5-movers |
+|---|---|---|---|
+| ARM 21, in two columns, 1+ side pairs | {= pc(AF['stacked']['21_side']['share']) =} | {= pc(AF['stacked']['21_side']['rate']) =} | {= n(AF['stacked']['21_side']['d5']) =} |
+| ARM 21, in two columns, no side pair | {= pc(AF['stacked']['21_noside']['share']) =} | {= pc(AF['stacked']['21_noside']['rate']) =} | {= n(AF['stacked']['21_noside']['d5']) =} |
+| ARM 21, not in two columns | {= pc(AF['stacked']['not_stacked_21']['share']) =} | {= pc(AF['stacked']['not_stacked_21']['rate']) =} | {= n(AF['stacked']['not_stacked_21']['d5']) =} |
+| ARM 20 or 22, in two columns, 1+ side pairs | {= pc(AF['stacked']['2022_side']['share']) =} | {= pc(AF['stacked']['2022_side']['rate']) =} | {= n(AF['stacked']['2022_side']['d5']) =} |
+| ARM 20 or 22, in two columns, no side pair | {= pc(AF['stacked']['2022_noside']['share']) =} | {= pc(AF['stacked']['2022_noside']['rate']) =} | {= n(AF['stacked']['2022_noside']['d5']) =} |
+| ARM 20 or 22, not in two columns | {= pc(AF['stacked']['not_stacked_2022']['share']) =} | {= pc(AF['stacked']['not_stacked_2022']['rate']) =} | {= n(AF['stacked']['not_stacked_2022']['d5']) =} |
+
+The 4a corners that are one U/D turn from 4d (wen's check) are all in two columns, and they hold all {= n(AF['one_from_4d']['yes']['d5']) =} of these 5-movers: {= n(AF['one_from_4d']['yes_2x']['n']) =} cases with ARM 20, 21 or 22 at {= pc(AF['one_from_4d']['yes_2x']['rate']) =}. The card's row is wider. It also takes the stacked corners that aren't one turn from 4d when there's a side pair ({= n(AF['one_from_4d']['row_not']['n']) =} cases at {= pc(AF['one_from_4d']['row_not']['rate']) =}, {= n(AF['one_from_4d']['row_not']['d6']) =} 6-movers and nothing shorter).
+
+Evan's stacked 4a corners with ARM 21, 5 moves:
+
+{{ wit('1p_4a_cols_5mover', '4c4e, 1 pair, ARM 21, 4a corners in two columns, 2 side pairs', 'DR in 5') }}
+
+The same with ARM 22, which every ARM list skips, 5 moves:
+
+{{ wit('1p_4a_cols_arm22_5mover', '4c4e, 1 pair, ARM 22, 4a corners in two columns, 2 side pairs', 'DR in 5') }}
+
+And stacked 4a corners with no side pair, 8 moves:
+
+{{ wit('1p_4a_cols_noside_8mover', '4c4e, 1 pair, ARM 21, 4a corners in two columns, no side pair', 'DR in 8, and nothing shorter') }}
 
 A 2-pair case the pairs rule switches and the card leaves for later, 8 moves:
 
@@ -372,24 +413,29 @@ Pairs: white-blue needs a corner with white and blue on its sides, and there's n
 **How long.** I haven't timed anyone, so here's what the card asks for and what people have said the pieces of it take.
 
 - *The pair trace is the base.* Everyone who switches by pairs does it already.
-- *ARM is the big addition, and people differ on it.* With pairs it takes Yura Riabov "Like 5 seconds", "±2", "That's for 4c4e btw, for 7c8e it's longer" ([[D14244]], [[D14245]], [[D14248]]), and "Arm is very fast to check for me", "It's like, just look at the cube" ([[D14249]], [[D14251]]). Daichi: "7c8e is probably just double my 4c4e times" ([[D14324]]). In the same exchange Dunni says "I take longer to check only for pairs" ([[D14247]]) and dropped ARM: "Saves me from misrecognizing arm-2c1e, which definitely did not happen, ever" ([[D14255]]). And wen: "I don't even count ARM for 4c4e tbh" ([[D14326]]). So if you don't read ARM now, the card adds it on every 1-pair case, {= pc(EX['reads44']['one_pair']) =} of your 4c4e RZPs.
-- *What the card adds on 4c4e*, by how often you need it. It comes to {= extra_looks() =} extra looks per RZP on average:
+- *ARM is the fast read, and the card leans on it.* With pairs it takes Yura Riabov "Like 5 seconds", "±2", "That's for 4c4e btw, for 7c8e it's longer" ([[D14244]], [[D14245]], [[D14248]]), and "Arm is very fast to check for me", "It's like, just look at the cube" ([[D14249]], [[D14251]]). ben kyle switches 1 pair + ARM 21 blind "since it's so fast to check" ([[D13420]]). Daichi: "7c8e is probably just double my 4c4e times" ([[D14324]]). Not everybody reads it, though. In the same exchange Dunni says "I take longer to check only for pairs" ([[D14247]]) and dropped ARM: "Saves me from misrecognizing arm-2c1e, which definitely did not happen, ever" ([[D14255]]). And wen: "I don't even count ARM for 4c4e tbh" ([[D14326]]). The card asks for ARM on every 1-pair case, {= pc(EX['reads44']['one_pair']) =} of 4c4e RZPs, and nowhere else.
+- *The slower reads are the corners and the side pairs, and the card keeps them to a minority of cases.* What it adds on 4c4e, by how often you need it. It comes to {= extra_looks() =} extra looks per RZP on average, {= f2(EX['reads44']['one_pair']) =} of that being ARM:
 
 | Extra look (4c4e) | When | Share of 4c4e cases |
 |---|---|---|
-| none: the pair trace settles it | 3 or 4 pairs, 2 pairs on two edges, 0 pairs with a fake pair | {= pc(EX['reads44']['two_plus'] - EX['reads44']['bar'] + EX['reads44']['zero'] - EX['reads44']['zero_nofake']) =} |
-| the two E-slice edges out of the slice: do they share red or orange? | 2 pairs on one edge | {= pc(EX['reads44']['bar']) =} |
+| none: the pair trace settles it | 3 or 4 pairs, 2 pairs on two edges, 2 pairs on one edge with 2 fake pairs, 0 pairs with a fake pair | {= pc(EX['reads44']['two_plus'] - EX['reads44']['bar_lt2fake'] + EX['reads44']['zero'] - EX['reads44']['zero_nofake']) =} |
 | ARM | 1 pair | {= pc(EX['reads44']['one_pair']) =} |
-| the corner case | 1 pair and ARM 21 | {= pc(EX['reads44']['one_pair_arm21']) =} |
-| the side pairs | 1 pair, ARM 21 and 4b corners | {= pc(EX['reads44']['one_pair_arm21_4b']) =} |
-| are the corners two twins? | 1 pair, ARM 21 and 4a corners | {= pc(EX['reads44']['one_pair_arm21_4a']) =} |
+| the corners: 4d, 4b or 4a, and if 4a, are they two twins? (with ARM 20 or 22 only the twins matter) | 1 pair and ARM 20, 21 or 22 | {= pc(EX['reads44']['one_pair_arm2x']) =} |
+| the side pairs | 1 pair, ARM 21 and 4b corners; or 1 pair, ARM 20, 21 or 22 and 4a corners that are two twins | {= pc(EX['reads44']['one_pair_arm21_4b'] + EX['reads44']['stacked_2x']) =} |
+| the two E-slice edges out of the slice: do they share red or orange? | 2 pairs on one edge, fewer than 2 fake pairs | {= pc(EX['reads44']['bar_lt2fake']) =} |
 | white and yellow on the four corners | 0 pairs and no fake pair | {= pc(EX['reads44']['zero_nofake']) =} |
 
+- *You can run the card with fewer reads, and here's what each one is worth.* Each row is a policy on 4c4e. Dropping the corner look at ARM 20 and 22 halves the cases that need it ({= pc(EX['reads44']['one_pair_arm21']) =} instead of {= pc(EX['reads44']['one_pair_arm2x']) =}) and gives back {= n(AF['stacked']['2022_side']['d5']) =} 5-movers. The edges out of the slice are the one read on the card that nobody on the server uses yet. If you'd rather not learn it, read the bar with ARM: switch a bar with ARM 00, 11, 21 or 31, or with 2 fake pairs. Or keep switching every 2-pair case.
+
+{{ t_variants() }}
+
+- *More ARM doesn't help.* Reading ARM on every row of the card, not just on 1 pair, and switching the best ARMs of each row would bring the cost from {= f3(X44['card']['loss']) =} to {= f3(AF['card_arm']['loss']) =} at best, with {= n(AF['card_arm']['cells']) =} row-and-ARM combinations to know. Nothing in there is worth a line.
+
 - *Nothing on the card needs a place on the inverse.* Every read is of the kind *does this piece have these colours, and which one is on top*. That's the difference with a full NISS trace, where you work out where each piece goes.
-- *The corner case is the slowest read on the card*, and it's only asked for on 1 pair + ARM 21. People check corners on 1 pair today. tseitsei89: "I often check that if I trace 1 pair. It is usually very fast to see that it is NOT d  corners since if you see 3 of any one color or you see any 2 corners that share more than 1 color you instantly know it wont be d corners." ([[D14264]]). Evan, on checking the corner type with 1 pair + ARM 21: "I only started to recently but i think it's been beneficial" ([[D14405]]). With ARM 21 the corner ARM is 2, so the flow chart is two questions.
+- *The corner case is the slowest read on the card*, and it's only asked for on 1 pair with ARM 20, 21 or 22. People check corners on 1 pair today. tseitsei89: "I often check that if I trace 1 pair. It is usually very fast to see that it is NOT d  corners since if you see 3 of any one color or you see any 2 corners that share more than 1 color you instantly know it wont be d corners." ([[D14264]]). Evan, on checking the corner type with 1 pair + ARM 21: "I only started to recently but i think it's been beneficial" ([[D14405]]). With ARM 21 the corner ARM is 2, so the flow chart is two questions.
 - *More reads, more chances to misread.* Dunni's ARM 21 is the example. I have no numbers on how often a read goes wrong, and a wrong read costs what a miss or a wasted switch costs.
 
-If you only take one thing from the card, take 1 pair + ARM 21 with 4d corners, or with 4b corners and 0 or 2 side pairs. Those two rows are worth the most. The 2-pair split is what pays for them in switches.
+If you only take one thing from the card, take 1 pair + ARM 21 with 4d corners, or with 4b corners and 0 or 2 side pairs. Those two rows are worth the most, then the stacked 4a row. The 2-pair split is what pays for them in switches.
 
 ---
 
@@ -445,7 +491,7 @@ So: on what it catches, the count deserves a place on top of the card. On what i
 
 {{ t_count_groups() }}
 
-Two things in there. A bar is at 2 or fewer in {= pc(TB['groups'][2]['le2']['n'] / (TB['groups'][2]['le2']['n'] + TB['groups'][2]['eq3']['n'] + TB['groups'][2]['ge4']['n'])) =} of its cases wherever the holes are, so the holes are not the count in disguise: at the same count, a bar with the holes on one R/L face is {= pc(TB['groups'][2]['le2']['rate']) =} and one without is {= pc(TB['groups'][7]['le2']['rate']) =}. And 1 pair + ARM 21 with 4b corners is always a 3, good or bad, so there the side pairs see something the count doesn't.
+Two things in there. A bar is at 2 or fewer in {= pc(TB['bar']['on']['le2_share']) =} of its cases wherever the holes are, so the holes are not the count in disguise: at the same count, a bar with the holes on one R/L face is {= pc(TB['bar']['on']['le2']['rate']) =} and one without is {= pc(TB['bar']['off']['le2']['rate']) =}. And 1 pair + ARM 21 with 4b corners is always a 3, good or bad, so there the side pairs see something the count doesn't.
 
 ---
 
@@ -462,9 +508,11 @@ Briefly, on 4c4e unless said otherwise. *Cost per case* of the best rule that us
 - **Points systems.** rodneykinney's old estimate 12 − 2 × top pairs − 2 × side pairs ([*Domino Setup Theory*](https://docs.google.com/document/d/1Z3O8BY1LbAMF6m55ufXtSdtBVwSJpMArtRrDT-p_CwM)), which switches at 3 pairs of any kind: {= f3(EX['any3']['loss']) =}. A top pair as 2 points and a side pair as 1, switch at 4: {= f3(EX['pts_2p_s_ge4']['loss']) =}. The best weighted sum of pairs, side pairs, fake pairs, ARM, corner case, holes and layers ({= EX['lin_big']['terms'] =} terms, fitted to these prices): {= f3(EX['lin_big']['loss']) =}. A sum can't do it because the reads don't add up: one side pair is worse than none for 4b corners.
 - **Corner-only counts.** The moves to orient the corners alone, and that number plus the missing pairs (the bones of the lower bound in *DR - 4c4e Theory*, used as a switch rule at 6): {= f3(EX['lb6']['loss']) =}. It's a bound for finding the DR, not a predictor.
 - **Corners not in a pair** (Zagros's question, [[T11345]]): the same thing as pairs once you know the DRM.
-- **Fake pairs, on 4c4e with at least one pair**, and **AR bars**: nothing. Fake pairs matter with 0 pairs (the card), for 3c2e (wen's rule), and in 3c6e and 6c6e.
-- **The bad edges' layers.** Both bad edges in one layer splits 1 pair + ARM 21 with 4a corners into {= pc(EX['4a_layer']['same']['rate']) =} and {= pc(EX['4a_layer']['diff']['rate']) =}. Evan's stacked corners do it better ({= grate('4c4e', '1 pair, ARM 21, 4a corners in two columns') =} and {= grate('4c4e', '1 pair, ARM 21, 4a corners not in two columns') =}), so that's what the card uses.
-- **wen's "one U/D turn away from 4d"**: a little, less than ARM does for the same effort.
+- **Fake pairs, on 4c4e with 1 pair or with 2 pairs on two edges**, and **AR bars**: nothing. Fake pairs matter with 0 pairs and on a bar (the card), for 3c2e (wen's rule), and in 3c6e and 6c6e.
+- **The bad edges' layers.** Both bad edges in one layer splits 1 pair + ARM 21 with 4a corners into {= pc(EX['4a_layer']['same']['rate']) =} and {= pc(EX['4a_layer']['diff']['rate']) =}. Evan's stacked corners do it better ({= pc(AF['stacked']['21']['rate']) =} and {= pc(AF['stacked']['not_stacked_21']['rate']) =}), so that's what the card uses.
+- **wen's "one U/D turn away from 4d"**, as a read next to pairs: a little, less than ARM does for the same effort. It does hold every 5-mover with 1 pair and 4a corners, and those are inside the card's stacked 4a row (section 5.1).
+- **ARM on the bar, instead of the edges out of the slice.** Edge ARM 1 is the good one ({= pc(AF['bar_earm']['1']['rate']) =} against {= pc(AF['bar_earm']['0']['rate']) =} and {= pc(AF['bar_earm']['2']['rate']) =} for edge ARM 0 and 2), but the holes split a bar better: {= pc(AF['bar_on']['rate']) =} against {= pc(AF['bar_off']['rate']) =}. The best short ARM version of the row is in section 6.
+- **ARM for 0 pairs.** 0 pairs with ARM 00 or 42 is {= n(AF['zero_arm']['n']) =} cases at {= pc(AF['zero_arm']['rate']) =}, but it has only {= n(AF['zero_arm']['le4']) =} of the {= n(EX['zero_pairs']['le4']) =} zero-pair cases of 4 or less. The others are ARM 21, so you'd still need the card's row there.
 - **Leading with something other than pairs.** A tree that's free to split on any quick read first still splits on pairs first (2 or more against fewer), then ARM 21. With 8 leaves it costs {= f3(EX['trees_free']['8']['loss']) =}, with 16 {= f3(EX['trees_free']['16']['loss']) =}.
 - **Bigger lists.** 40 leaves: {= f3(EX['trees_free']['40']['loss']) =}. The card is where the curve flattens.
 
@@ -479,8 +527,14 @@ Briefly, on 4c4e unless said otherwise. *Cost per case* of the best rule that us
 Three things in there.
 
 - *Pairs + ARM at its best is Fanti's list.* Same cells, same numbers.
-- *The card beats every two-read ceiling* and sits a little above the four-read one, with {= len(X44['groups']) =} groups against {= n(X44['ceil']['pairs+arm+case+side']['cells']) =} cells.
+- *The card beats every two-read ceiling and the four-read one* (pairs, ARM, corner case and side pairs: {= f3(X44['ceil']['pairs+arm+case+side']['loss']) =} with {= n(X44['ceil']['pairs+arm+case+side']['cells']) =} cells, the card {= f3(X44['card']['loss']) =} with {= len(X44['groups']) =} groups). It can, because it also reads where the pairs sit, the columns and the edges out of the slice.
 - *The quick reads together know almost everything about the short cases.* All of them at once miss no 5-mover and {= pc(X44['ceil']['quick']['miss_d6']) =} of the 6-movers at {= pc(X44['ceil']['quick']['switch']) =} switched. That's a table of {= n(X44['ceil']['quick']['cells']) =} cells. The gap between it and the card is what a much better memory, or a trainer, could still get.
+
+**Where the slower reads pay.** Say the pair trace (pairs, where they sit, fake pairs) and ARM are read on every case, and the slower reads only on the groups where they help most per case. The best possible cost on 4c4e, by how many cases get the slower reads. Each row is a budget:
+
+{{ t_budget() }}
+
+The card asks for a slower read on {= pc(EX['reads44']['one_pair_arm2x'] + EX['reads44']['bar_lt2fake'] + EX['reads44']['zero_nofake']) =} of cases and costs {= f3(X44['card']['loss']) =}. The numbers in the table are lookups again ({= n(AF['budget_cc_side']['all_cells']) =} cells for the middle column, {= n(AF['budget_all']['all_cells']) =} for the last), so they say what a perfect memory would get on the same budget, not what a card can. With the corner case and the side pairs alone there's little beyond the card even then: {= f3(AF['budget_cc_side']['everywhere']) =} if you read them on every case. And the first place the slower reads pay is the one everybody found: 1 pair with ARM 21. After the card, the best single row a search can still add (one pair count, up to two conditions on the pair trace and ARM, up to two on the slower reads) is worth {= f3(NX['rows'][0]['gain']) =} a case, against {= f3(B('4c4e', 'pairs')['loss'] - X44['card']['loss']) =} for the whole card over the pairs rule. The rows left are small and take four or five conditions each.
 
 **Which second read helps most**, per DRM. Cost per case of the best rule on pairs and one more read, the best one in bold:
 
@@ -529,10 +583,12 @@ Things people said about these rules, with the exact numbers. The one that doesn
 |---|---|
 | tseitsei89, [[T9321]]: "4c4e: >1 pairs = switch (43%), 1 pair and d corners = switch (44%)" | 2+ pairs is {= pc(B('4c4e','pairs')['precision']) =} sub-7 (the 43% is rodneykinney's findable sub-7). 1 pair with 4d corners is {= pc(EX['p1_4d']['rate']) =}. |
 | Evan, [[D14342]]: "4d+1 is extremely good for AR-21 (~90% sub-7) but 0% for other AR" | {= grate('4c4e', '1 pair, ARM 21, 4d corners') =} with ARM 21, 0% with ARM 20 or 22. |
-| Evan, [[D14402]], on 1 pair + ARM 21: "b corners - 29%", "d corners - 89%", "a corners - ~34% if corners are stacked, < 5% otherwise" | All three right: 4b {= pc(EX['p1_arm21_by_cc']['b']['rate']) =}, 4d {= pc(EX['p1_arm21_by_cc']['d']['rate']) =}, 4a in two columns {= grate('4c4e', '1 pair, ARM 21, 4a corners in two columns') =} and {= grate('4c4e', '1 pair, ARM 21, 4a corners not in two columns') =} otherwise. |
+| Evan, [[D14402]], on 1 pair + ARM 21: "b corners - 29%", "d corners - 89%", "a corners - ~34% if corners are stacked, < 5% otherwise" | All three right: 4b {= pc(EX['p1_arm21_by_cc']['b']['rate']) =}, 4d {= pc(EX['p1_arm21_by_cc']['d']['rate']) =}, 4a in two columns {= pc(AF['stacked']['21']['rate']) =} and {= pc(AF['stacked']['not_stacked_21']['rate']) =} otherwise. The stacked ones split again on side pairs: {= pc(AF['stacked']['21_side']['rate']) =} with one or more, {= pc(AF['stacked']['21_noside']['rate']) =} with none. |
+| Evan, [[D14348]]: "interestingly 4a corners are basically the same for all ar-2X" | With 1 pair: in two columns {= pc(AF['stacked']['21']['rate']) =} for ARM 21 and {= pc(AF['stacked']['2022']['rate']) =} for ARM 20 and 22, not in two columns {= pc(AF['stacked']['not_stacked_21']['rate']) =} and {= pc(AF['stacked']['not_stacked_2022']['rate']) =}. Close enough that the card's stacked 4a row takes all three ARMs. |
+| wen, [[D14328]]: "1 pair then I check if it's 4d or one U/D turn away from 4d" | 1 pair with 4a corners one U/D turn from 4d is {= n(AF['one_from_4d']['yes']['n']) =} cases at {= pc(AF['one_from_4d']['yes']['rate']) =}, with all {= n(AF['one_from_4d']['yes']['d5']) =} 5-movers that 1 pair and 4a corners have. The other 4a corners are {= pc(AF['one_from_4d']['no']['rate']) =}. |
 | rodneykinney, [[T8123]], for 0 pairs: "To catch this case, you can switch 4a-0 and 4d-2, but only if there also are no fake pairs" | Those are {= n(EX['rk_0p']['n']) =} cases at {= pc(EX['rk_0p']['rate']) =}, with {= n(EX['rk_0p']['le4']) =} of the {= n(EX['zero_pairs']['le4']) =} zero-pair cases of 4 or less. No fake pairs with the corners 2 and 2, any corner case, is {= n(grp('4c4e', '0 pairs, no fake pairs, corners 2 and 2 in the layers')['n']) =} cases at {= grate('4c4e', '0 pairs, no fake pairs, corners 2 and 2 in the layers') =} with all {= n(EX['zero_pairs']['le4']) =}. |
 | rodneykinney, [[D12098]]: "Zero pairs + zero pseudo-pairs would be a likely setup to F2 B2 R. But I don't have stats that include the pseudo-pair count." | The stats: 0 pairs and 0 fake pairs is {= n(EX['nofake0']['n']) =} cases at {= pc(EX['nofake0']['rate']) =}, against {= pc(EX['zero_pairs']['rate']) =} for 0 pairs overall. |
-| rodneykinney, [[T8108]]: "2 pairs: Switch unless 4b-0" | 2 pairs with 4b-0 corners is {= pc(EX['p2_4b0']['rate']) =} sub-7, a skip at these prices too. {= n(EX['p2_4b0_in_bar_off']) =} of its {= n(EX['p2_4b0']['n']) =} cases are bars with the holes off the R/L faces, so the card's *if you have time* row has most of it. |
+| rodneykinney, [[T8108]]: "2 pairs: Switch unless 4b-0" | 2 pairs with 4b-0 corners is {= pc(EX['p2_4b0']['rate']) =} sub-7, a skip at these prices too. {= n(EX['p2_4b0_in_bar_off']) =} of its {= n(EX['p2_4b0']['n']) =} cases are in the card's *if you have time* row (a bar with the holes off the R/L faces and fewer than 2 fake pairs). |
 | compLex, [[D13425]]: "you only need to actually learn to spot 4d (the only case worth switching 1 pair) and 4b (the only case not worth switching 2 pairs)" | By pairs and corner case alone the 4d half holds: 1 pair is {= pc(EX['p1_4d']['rate']) =} with 4d and {= pc(EX['p1_other_max']) =} or less otherwise. The 4b half holds for 4b-0 ({= pc(EX['p2_4b0']['rate']) =} with 2 pairs), not for 4b-2 ({= pc(EX['p2_4b2']['rate']) =}). |
 | Fanti, *armpairs_1.txt* ([[D15160]]): "35.2% switches", "42.6% sub-7 switch success (15.0% total)", "4.3% of cases will be discarded with sub-7" | {= pc(B('4c4e', 'pairs+arm')['switch']) =}, {= pc(B('4c4e', 'pairs+arm')['precision']) =}, {= pc(B('4c4e','pairs+arm')['miss_good'] * X44['sub7']) =} with the EO kept. |
 | Yura Riabov, [[D12993]]: "From my experience with pairs 1 bar is worse than 2 pairs for most arms" | True in {= EX['bar_arms'][0] =} of the {= EX['bar_arms'][1] =} ARMs that have both. Overall a bar is {= bar_rate() =}, two edges {= grate('4c4e', '2 pairs on two edges') =}. |
@@ -614,7 +670,7 @@ More pockets, one example each:
 
 **The reads.** Defined from stickers, on the switched case. Pairs, fake pairs, side pairs and ARM agree with rodneykinney's own code on every case. The normal-side versions are the ones of section 6, checked there.
 
-**The search for the cards.** Per DRM, over the quick reads (ARM, corner case, side pairs, fake pairs, edges with a pair, holes, layers, columns): a greedy list of rules of up to two conditions inside a pair count, and a small tree grown to rank well at three prices of a wasted switch. Both score with the prices of section 3. I then wrote each card by hand from what they agreed on, in as few groups as kept the cost, took the server's rule wherever it did as well or better (wen's for 3c2e, caycala's chart for 7c8e, Evan's stacked corners for 4a), and graded the written card from scratch. The ceilings of section 9 come from the same code with every combination of values as its own group.
+**The search for the cards.** Per DRM, over the quick reads (ARM, corner case, side pairs, fake pairs, edges with a pair, holes, layers, columns): a greedy list of rules of up to two conditions inside a pair count, and a small tree grown to rank well at three prices of a wasted switch. Both score with the prices of section 3. I then wrote each card by hand from what they agreed on, in as few groups as kept the cost, took the server's rule wherever it did as well or better (wen's for 3c2e, caycala's chart for 7c8e, Evan's stacked corners for 4a), and graded the written card from scratch. A second search starts from the written 4c4e card, with the pair trace and ARM free on every case and the slower reads priced by how many cases need them, and lists the single rows still worth adding. The bar with 2 fake pairs and the stacked 4a row at ARM 20 and 22 come from that pass, and it's where the *0.005 a case* of section 9 comes from. The ceilings of section 9 come from the same code with every combination of values as its own group.
 
 **What *the best list on the server* is.** For each DRM, the rule with the lowest cost per case among the ones I found stated: the *DRM Subsets Meta* row, Fanti's lists, caycala's chart, tseitsei89's, rodneykinney's, wen's, Jay's and Radek B's. Appendix A names it per DRM.
 

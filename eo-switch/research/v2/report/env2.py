@@ -16,6 +16,7 @@ def pc(x, d=None):
     if d is None: d = 1 if v >= 1 else 2
     s = f'{hu(x, d, 100):.{d}f}%'
     return '100%' if float(x) == 1.0 else s
+def pc0(x): return f'{round(100 * x):d}%'
 def pts(x): return f'{hu(x, 1, 100):.1f} points'
 def p0(x): return f'{hu(x, 0, 100):.0f}%'
 def n(x): return f'{int(round(float(x))):,}'
@@ -161,7 +162,8 @@ def wit(key, comment_setup, comment_dr=None):
 ENV = dict(globals())
 # ------------------------------------------------------------------ shortcuts for the text
 def B(drm, key): return D(drm)['base'][key]
-X44 = D('4c4e'); M4 = R['main4']['uniform']; M4R = R['main4']['real']; TB = R['twobars']; EX = R['extra']; ALLU = R['all']['uniform']
+NX = json.load(open(os.path.join(V2, 'out', 'nextrows.json')))
+X44 = D('4c4e'); M4 = R['main4']['uniform']; M4R = R['main4']['real']; TB = R['twobars']; EX = R['extra']; AF = EX['armfree']; ALLU = R['all']['uniform']
 def held(drm, label, key):
     g = grp(drm, label); return pc(g[key] / D(drm)['n_' + key])
 LOW = ('4c6e', '3c4e', '3c6e', '5c4e', '5c6e', '6c6e')
@@ -175,10 +177,25 @@ def timeratio(drm, other='4c4e'):
     return f1(sec(drm) / sec(other))
 def frac(pair): return f"{n(pair[0])} of the {n(pair[1])}"
 def extra_looks():
-    r = EX['reads44']; return f2(r['bar'] + r['one_pair'] + r['one_pair_arm21'] + r['one_pair_arm21_4b'] + r['one_pair_arm21_4a'] + r['zero_nofake'])
+    r = EX['reads44']; return f2(r['bar_lt2fake'] + r['one_pair'] + r['one_pair_arm2x'] + r['one_pair_arm21_4b'] + r['stacked_2x'] + r['zero_nofake'])
 def bar_rate():
-    a = grp('4c4e', '2 pairs on one edge (a bar), holes on one R/L face'); b = grp('4c4e', '2 pairs on one edge (a bar), holes not on one R/L face')
+    a = AF['bar_on']; b = AF['bar_off']
     return pc((a['good'] + b['good']) / (a['n'] + b['n']))
+def t_budget():
+    """The slower reads spent where they pay most: share of cases that get them -> best possible cost."""
+    out = ['| Slower reads on | Corner case and side pairs | Those two, the columns, the corner layers and the edges out of the slice |', '|---|---|---|',
+           f"| no case (pair trace and ARM only) | {f3(AF['budget_cc_side']['fast_only'])} | {f3(AF['budget_all']['fast_only'])} |"]
+    for a, b in zip(AF['budget_cc_side']['steps'], AF['budget_all']['steps']):
+        out.append(f"| the best {pc0(a['mark'])} of cases | {f3(a['loss'])} | {f3(b['loss'])} |")
+    out.append(f"| every case | {f3(AF['budget_cc_side']['everywhere'])} | {f3(AF['budget_all']['everywhere'])} |")
+    return '\n'.join(out)
+def t_variants():
+    """The 4c4e card and the versions of it with fewer reads."""
+    rows = [('the card', X44['card']), ('the card, stacked 4a only at ARM 21', AF['card_arm21_only']), ('the card, bar read with ARM instead of the edges out of the slice', AF['bar_by_arm']),
+            ('the card, every 2-pair case switched', AF['no_bar_split']), ('pairs + ARM (Fanti\'s list)', B('4c4e', 'pairs+arm')), ('2+ pairs', B('4c4e', 'pairs'))]
+    out = ['| Policy (4c4e) | Switched | Missed 4-or-less | Missed 5-movers | Missed 6-movers | Cost per case |', '|---|---|---|---|---|---|']
+    for nm, p_ in rows: out.append(f"| {nm} | {pc(p_['switch'])} | {pc(p_['miss_le4'])} | {pc(p_['miss_d5'])} | {pc(p_['miss_d6'])} | {f3(p_['loss'])} |")
+    return '\n'.join(out)
 def nmain(): return sum(D(x)['n'] for x in ('4c4e', '4c2e', '3c2e', '7c8e'))
 def t_k_short(drm):
     return t_k(drm)

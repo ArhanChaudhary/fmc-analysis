@@ -111,6 +111,11 @@ for label, g, v in CARDS[(4, 4)]:
     for key, sel in (('le2', hb <= 2), ('eq3', hb == 3), ('ge4', hb >= 4)):
         gg = g & sel; row[key] = grp(m, gg) if gg.any() else None
     T['groups'].append(row)
+# the bar by where its holes are: share at 2 half turns or fewer, and the sub-7 rate there
+T['bar'] = {}
+for key, sel in (('on', C.HC == 0), ('off', C.HC >= 1)):
+    gg = m & (C.P == 2) & (C.EP == 1) & sel
+    T['bar'][key] = {'le2_share': float((gg & (hb <= 2)).sum() / gg.sum()), 'le2': grp(m, gg & (hb <= 2))}
 # by pairs: share of each pair count with 2 half turns or fewer, and of the good cases there
 T['by_pairs'] = []
 for p in range(5):
@@ -202,7 +207,7 @@ EX['pairs_arm_no_miss5'] = prof(m, m & np.isin(F['pairs'].astype(np.int64) * 100
 # numbers for the claims table and the text
 g2 = m & (C.P == 2)
 EX['p2_4b0'] = grp(m, g2 & (C.CCS == 10)); EX['p2_4b2'] = grp(m, g2 & (C.CCS == 12))
-EX['p2_4b0_in_bar_off'] = int((g2 & (C.CCS == 10) & (C.EP == 1) & (C.HC >= 1)).sum())
+EX['p2_4b0_in_bar_off'] = int((g2 & (C.CCS == 10) & (C.EP == 1) & (C.HC >= 1) & (C.FAKE <= 1)).sum())
 EX['p1_4d'] = grp(m, m & (C.P == 1) & (C.CC == 3))
 EX['p1_other_max'] = max(grp(m, m & (C.P == 1) & (C.CC == k))['rate'] for k in (0, 1, 2))
 bars = []; 
@@ -223,6 +228,67 @@ m42 = drm_mask(4, 2)
 EX['42_jzp_4a'] = grp(m42, m42 & (C.P == 0) & (C.ARM == 0) & (C.CC == 0)); EX['42_jzp_4b'] = grp(m42, m42 & (C.P == 0) & (C.ARM == 0) & (C.CC == 1))
 m88 = drm_mask(8, 8)
 EX['88_twist'] = {'44': grp(m88, m88 & (F['twist_major'] == 4)), '71': grp(m88, m88 & (F['twist_major'] == 7))}
+# ---------------------------------------------------------------- what ARM on every case, and the slower reads on more cases, would add (4c4e)
+card44 = card_mask((4, 4)) & m; n44 = int(m.sum())
+leaf = np.full(N0, -1)
+for i_, (label, g, v) in enumerate(CARDS[(4, 4)]): leaf[g] = i_
+F['leaf'] = leaf
+AF = {}
+sw_, nc_, nt_ = best_cells(m, ['leaf', 'arm']); AF['card_arm'] = dict(cells=nc_, **prof(m, sw_))                       # ARM read on every group of the card
+sw_, nc_, nt_ = best_cells(m, ['pairs', 'arm']); AF['pairs_arm'] = dict(cells=nc_, switched=nt_, **prof(m, sw_))        # the best rule on pairs + ARM alone
+AF['pairs_arm_is_fanti'] = bool((sw_ == ([b for b in BASE[(4, 4)] if b[0] == 'pairs+arm'][0][3] & m)).all())
+sw_, nc_, nt_ = best_cells(m, ['pairs', 'edges_paired', 'fake', 'arm']); AF['trace_arm'] = dict(cells=nc_, switched=nt_, **prof(m, sw_))
+bar = m & (C.P == 2) & (C.EP == 1)
+AF['no_bar_split'] = prof(m, card44 | bar)                                                                                # every 2-pair case, no look at the edges out of the slice
+bar_arm = bar & (np.isin(C.ARM, (0, 11, 21, 31)) | (C.FAKE == 2))
+AF['bar_by_arm'] = prof(m, (card44 & ~bar) | bar_arm); AF['bar_by_arm_grp'] = grp(m, bar_arm)                             # the bar row read with ARM instead
+AF['bar_earm'] = {str(k): grp(m, bar & (C.EA == k)) for k in (0, 1, 2)}
+AF['bar_fake2'] = grp(m, bar & (C.FAKE == 2)); AF['bar_off_fake'] = {str(k): grp(m, bar & (C.HC >= 1) & (C.FAKE == k)) for k in (0, 1, 2)}
+AF['bar_on'] = grp(m, bar & (C.HC == 0)); AF['bar_off'] = grp(m, bar & (C.HC >= 1))
+AF['bar_off_arm'] = grp(m, bar & (C.HC >= 1) & (C.FAKE <= 1) & np.isin(C.ARM, (21, 31)))
+z0 = m & (C.P == 0)
+AF['zero_arm'] = grp(m, z0 & np.isin(C.ARM, (0, 42))); AF['zero_arm21_row'] = grp(m, z0 & (C.ARM == 21) & (C.FAKE == 0) & (C.UDS == 2))
+AF['zero_by_arm'] = prof(m, (card44 & ~z0) | (z0 & (np.isin(C.ARM, (0, 42)) | ((C.ARM == 21) & (C.FAKE == 0) & (C.UDS == 2)))))
+# the slower reads, spent on the groups (pairs, where the pairs are, fake pairs, ARM) where they pay most per case
+def budget(fast, slow, marks=(0.05, 0.10, 0.15, 0.20, 0.30)):
+    idx_, uf, invf = cells(m, fast); _, us, invs = cells(m, fast + slow)
+    wd = W0[d[idx_]]; bd = (d[idx_] > 6).astype(float)
+    cd = np.bincount(invf, weights=wd, minlength=len(uf)); cs_ = np.bincount(invf, weights=bd, minlength=len(uf)); cnt = np.bincount(invf, minlength=len(uf))
+    sd = np.bincount(invs, weights=wd, minlength=len(us)); ss = np.bincount(invs, weights=bd, minlength=len(us))
+    first_ = np.zeros(len(us), np.int64); first_[invs] = invf
+    direct = np.minimum(cd, cs_); fine = np.bincount(first_, weights=np.minimum(sd, ss), minlength=len(uf)); gain = direct - fine
+    out = {'fast_only': float(direct.sum() / n44), 'everywhere': float(fine.sum() / n44), 'fast_cells': len(uf), 'all_cells': len(us), 'steps': []}
+    tot = direct.sum(); used = 0; mi = 0
+    for j in np.argsort(-(gain / cnt)):
+        if gain[j] <= 0: break
+        if mi < len(marks) and (used + cnt[j]) / n44 > marks[mi]:
+            out['steps'].append({'mark': marks[mi], 'share': float(used / n44), 'loss': float(tot / n44)}); mi += 1
+        tot -= gain[j]; used += cnt[j]
+    out['any_gain'] = {'share': float(used / n44), 'loss': float(tot / n44)}
+    return out
+AF['budget_cc_side'] = budget(['pairs', 'edges_paired', 'fake', 'arm'], ['cc', 'side'])
+AF['budget_all'] = budget(['pairs', 'edges_paired', 'fake', 'arm'], ['cc', 'side', 'cols_bad', 'ud_split', 'hole_cfg'])
+# the card's own use of the slower reads: where it asks for the corner case, the side pairs, the columns, the edges out of the slice, the corner layers
+# the stacked 4a row: by ARM and by side pairs; the card with that row kept to ARM 21
+st4a = m & (C.P == 1) & (C.CC == 0) & (C.COLS == 2) & (C.CA == 2)
+AF['stacked'] = {'21': grp(m, st4a & (C.ARM == 21)), '2022': grp(m, st4a & (C.ARM != 21)), '2022_side': grp(m, st4a & (C.ARM != 21) & (C.SIDE >= 1)),
+                 '2022_noside': grp(m, st4a & (C.ARM != 21) & (C.SIDE == 0)), '21_side': grp(m, st4a & (C.ARM == 21) & (C.SIDE >= 1)),
+                 '21_noside': grp(m, st4a & (C.ARM == 21) & (C.SIDE == 0)), 'side': grp(m, st4a & (C.SIDE >= 1)), 'noside': grp(m, st4a & (C.SIDE == 0)),
+                 'not_stacked_21': grp(m, m & (C.P == 1) & (C.CC == 0) & (C.COLS != 2) & (C.ARM == 21)),
+                 'not_stacked_2022': grp(m, m & (C.P == 1) & (C.CC == 0) & (C.COLS != 2) & (C.CA == 2) & (C.ARM != 21)),
+                 'p1_2022': grp(m, m & (C.P == 1) & (C.CA == 2) & (C.ARM != 21)), 'p1_2022_4d': grp(m, m & (C.P == 1) & (C.CA == 2) & (C.ARM != 21) & (C.CC == 3)),
+                 'p1_2022_4b': grp(m, m & (C.P == 1) & (C.CA == 2) & (C.ARM != 21) & (C.CC == 1))}
+ofd = F['a_one_from_d'].astype(bool); p4a = m & (C.P == 1) & (C.CC == 0)
+AF['one_from_4d'] = {'yes': grp(m, p4a & ofd), 'no': grp(m, p4a & ~ofd), 'yes_2x': grp(m, p4a & ofd & (C.CA == 2)), 'yes_in_row': grp(m, p4a & ofd & st4a & (C.SIDE >= 1)),
+                     'row_not': grp(m, st4a & (C.SIDE >= 1) & ~ofd), 'yes_stacked': bool((C.COLS[p4a & ofd] == 2).all())}
+AF['card_arm21_only'] = prof(m, card44 & ~(st4a & (C.ARM != 21)))                                                         # the card without the ARM 20 / 22 part of that row
+AF['card_old_4a'] = prof(m, (card44 & ~st4a) | (st4a & (C.ARM == 21)))                                                    # ... and without the side pair on it (Evan's split as he gave it)
+AF['time_pocket'] = grp(m, m & (C.P == 1) & np.isin(C.ARM, (10, 11)) & (C.SIDE == 3))
+EX['reads44'].update({'one_pair_arm2x': float((m & (C.P == 1) & (C.CA == 2)).sum() / n44), 'one_pair_arm2022': float((m & (C.P == 1) & (C.CA == 2) & (C.ARM != 21)).sum() / n44),
+                      'stacked_2x': float(st4a.sum() / n44), 'bar_lt2fake': float((bar & (C.FAKE <= 1)).sum() / n44), 'bar_fake2': float((bar & (C.FAKE == 2)).sum() / n44)})
+EX['armfree'] = AF
+print('ARM on every case:', {k: round(v['loss'], 4) for k, v in AF.items() if isinstance(v, dict) and 'loss' in v}, 'pairs+ARM best = Fanti:', AF['pairs_arm_is_fanti'])
+print('budget cc+side', AF['budget_cc_side']); print('budget all', AF['budget_all']); print('stacked', {k: (v['n'], round(v['rate'], 3), v['d5']) for k, v in AF['stacked'].items()})
 R['extra'] = EX
 json.dump(R, open(os.path.join(HERE, 'out', 'results.json'), 'w'), indent=1)
 print('extras', {k: (round(v['loss'], 4) if isinstance(v, dict) and 'loss' in v else v) for k, v in EX.items() if k not in ('trees_free', 'trees_pairs')})
