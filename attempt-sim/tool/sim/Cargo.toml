@@ -1,0 +1,16 @@
+[package]
+name = "attempt-sim"
+version = "0.2.0"
+edition = "2021"
+description = "Simulator of human FMC attempts (EO, RZP, DR, HTR, finish) with a time cost per state examined"
+
+[dependencies]
+libm = "0.2"
+serde = { version = "1", features = ["derive"] }
+
+# prints the time of each layer of the finish table (examples/build_table.rs)
+[features]
+profile = []
+
+[dev-dependencies]
+serde_json = "1"

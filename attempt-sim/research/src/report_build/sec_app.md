@@ -28,6 +28,8 @@
 
 **The program.** `research/attemptsim`, written in Rust. It reads judging-a-dr's exact optimal finish of every DR state (1.3 GB, proved in Lean in that study), htr-routes' checklist per subset, and the EO-to-DR tables. It plays one attempt per plan and scramble, with every random draw (misses, step times, the day's pace) fixed per scramble, so plans differ only by their decisions. Every solution the simulated solver writes is replayed on the cube, and a run fails if one doesn't solve its scramble; no run has failed.
 
+**The simulator page.** [The page](tool/) runs a port of the program, a separate Rust crate (`tool/sim`) compiled to WebAssembly. A web page can't load the 1.3 GB table, so the port finds each optimal finish by search, with a 56 MB table of the corners and U/D edges alone as the bound (the browser builds it once, in a few seconds). On 3,000 random DR states the search gives the exact table's optimum every time. On the same scrambles with the same plans, the port gives the research program's results exactly: 73,034 attempts (scrambles 0 to 2,199 and the 609 official ones, each with the 26 plans of section 11) with every output column the same, and every step of the 520 attempts whose logs were compared.
+
 **The runs.** All with the costs of section 4 (`research/costs.toml`), on uniformly random states written as scrambles (`research/data/scrambles_uniform.txt`):
 
 - *Round 1* tried the five experiments around the baseline with the first costs. Two calibration rounds then tried spreads of the pace and of the form from attempt to attempt. A pace spread of 0.15 gives the top 5's DNF rate. A form spread adds DNFs and bad results but no sub-20s, so it stayed at 0. The costs did not change after that.

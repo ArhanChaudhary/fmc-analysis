@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Attempt simulator</title>
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="tool.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../../">FMC case studies</a>
+  <nav>
+    <a href="../">Write-up</a>
+    <a href="./" class="here">Simulator</a>
+    <a href="../../search.html">Search</a>
+    <a href="https://github.com/ArhanChaudhary/fmc-analysis/tree/main/attempt-sim/tool">Source</a>
+  </nav>
+</header>
+
+<div class="layout notoc">
+<main class="tool">
+  <h1 class="title">Attempt simulator</h1>
+  <p class="lede">
+    Play a simulated hour on a scramble: EOs, RZPs, DRs, HTR routes and the finish, with a time cost for everything the
+    solver looks at and the misses a person makes. You get the solution it wrote down, every backup it found on the way,
+    and the whole attempt step by step. It's the program behind <a href="../">How to spend the hour</a>; the costs and
+    limits below are that write-up's (section 4 says where each one comes from).
+  </p>
+
+  <div id="status" class="status" role="status">
+    <div class="status-text">Loading the simulator…</div>
+    <div class="bar"><div class="fill" style="width: 0%"></div></div>
+  </div>
+
+  <form id="run-form" class="run" autocomplete="off">
+    <label class="field scramble">
+      <span>Scramble</span>
+      <textarea id="scramble" rows="2" spellcheck="false" placeholder="R' U' F …"></textarea>
+    </label>
+    <div class="row">
+      <button type="button" id="random-scramble">Random scramble</button>
+      <label class="field inline">
+        <span>Attempt number</span>
+        <input id="attempt" type="number" min="0" step="1" value="0">
+      </label>
+      <button type="button" id="next-attempt" title="Same scramble, other random draws">Another attempt</button>
+      <label class="field inline">
+        <span>Plan</span>
+        <select id="preset">
+          <option value="tuned">Tuned plan</option>
+          <option value="baseline">Baseline (the guides' plan)</option>
+          <option value="custom" hidden>Custom</option>
+        </select>
+      </label>
+      <button type="submit" id="run" class="primary" disabled>Run</button>
+    </div>
+    <p class="hint" id="scramble-hint">Face turns only. The attempt number picks the random draws (what the solver
+      happens to see, how long each step takes): the same scramble, number and settings always give the same attempt.</p>
+    <div id="error" class="error" hidden></div>
+
+    <details class="settings" id="settings-costs">
+      <summary>Time costs <span class="sub">seconds per thing looked at</span></summary>
+      <div class="fields" data-group="costs"></div>
+    </details>
+    <details class="settings" id="settings-human">
+      <summary>Human limits <span class="sub">what the solver sees and misses</span></summary>
+      <div class="fields" data-group="human"></div>
+    </details>
+    <details class="settings" id="settings-plan">
+      <summary>Plan <span class="sub">how the hour is spent</span></summary>
+      <div class="fields" data-group="plan"></div>
+    </details>
+    <div class="row small">
+      <button type="button" id="reset">Reset everything to the defaults</button>
+      <button type="button" id="copy-link">Copy a link to this attempt</button>
+      <span id="copied" class="hint" hidden>Copied.</span>
+    </div>
+  </form>
+
+  <section id="results" hidden>
+    <h2 id="result-title">Result</h2>
+    <div id="result-card" class="card"></div>
+
+    <h2>Every solution found</h2>
+    <p class="hint">In the order the finishes were written out. The written-down one counts; the others are the backups
+      and the improvements that came later. <span class="co">Computer only</span> marks what no solver sees during an
+      attempt.</p>
+    <div class="tablewrap"><table id="solutions"></table></div>
+
+    <h2>Where the hour went</h2>
+    <div id="hour-bar" class="hour-bar" title="Click to jump to that moment in the timeline"></div>
+    <div id="hour-axis" class="hour-axis"></div>
+    <div id="legend" class="legend"></div>
+
+    <h2>Timeline</h2>
+    <div class="row filters">
+      <label><input type="checkbox" id="key-only"> Key events only</label>
+      <span id="kind-filters" class="chips"></span>
+    </div>
+    <p class="hint">Click a step for its details.</p>
+    <ol id="timeline" class="timeline"></ol>
+  </section>
+</main>
+</div>
+</body>
+</html>

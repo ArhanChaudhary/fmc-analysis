@@ -60,6 +60,14 @@ for writeup in */report/WRITEUP.md; do
         render "$study/report/BUGS.md" "$study/errata.html" ../ --variable study "${pages[@]}" --variable is-errata
         cp "$study/report/BUGS.md" "$output/$study/"
     fi
+    # an interactive tool that comes with the study (static files: a page, scripts, a WebAssembly module, built by the
+    # study's tool/build-web.sh and committed), served at /<study>/tool/
+    if [ -f "$study/tool/web/index.html" ]; then
+        mkdir -p "$output/$study/tool"
+        (cd "$study/tool/web" && find . -type f \( -name '*.html' -o -name '*.js' -o -name '*.css' -o -name '*.wasm' -o -name '*.txt' \) \
+            -exec cp --parents {} "$output/$study/tool/" \;)
+        grep -q 'href="tool/"' "$output/$study/index.html" || { echo "build-pages: $study/report/WRITEUP.md does not link to its tool/" >&2; exit 1; }
+    fi
     # every study must be reachable from the front page, and an unlisted one must not be
     if [ -f "$study/UNLISTED" ]; then
         if grep -q "href=\"$study/\"" "$output/index.html"; then echo "build-pages: $study/ is UNLISTED but site/index.md links to it" >&2; exit 1; fi

@@ -16,6 +16,7 @@ the result files into the report's tables.
 | `src/` | `make_policies.py` (policy files), `simstats.py` (statistics, paired differences), `tables.py` (every table and number of the report), `analyze.py` (quick look at one result file), `wca_extract.py`, `wca_top.py` (real results from the WCA export), `report_build/` (the write-up's sources and `assemble.py`) |
 | `out/` | small results: `wca_top_summary.tsv`, `wca_top_attempts.tsv`, the answer key `key_eo5_cap11.tsv`, the Lean export; `out/big/` (not in git) holds every run's result file |
 | `run_all.sh` | every run and table, in order |
+| `../tool/` | the simulator ported to a library, a command-line program and a web page that runs it in the browser; it gives this program's results exactly (`../tool/README.md`) |
 | `remote_batch.sh`, `run_local.sh` | run a job list on another machine / one job here |
 
 ## Build

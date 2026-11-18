@@ -44,6 +44,7 @@ November 2026. A date in brackets links to that message on the FMC solvers Disco
 - **Start with [section 1](#1-the-short-version)**: the answers, a paragraph or a table each. Section 4 is the table of costs, with the questions that would tune them.
 - **Sections 6 to 10** take one question each, and **section 11** tests every conclusion against the costs. **Section 12** is what the simulator leaves out.
 - Anything marked **computer only** is something the simulated solver can do and you can't, or an answer key.
+- **[Try it yourself](tool/)**: the simulator runs in your browser. Give it a scramble, change any cost, limit or plan, and scroll through the attempt it plays step by step, with the solution it wrote down and every backup it found on the way.
 
 ---
 

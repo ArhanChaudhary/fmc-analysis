@@ -1,0 +1,12 @@
+[workspace]
+members = ["sim", "cli", "wasm"]
+resolver = "2"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+
+# the tests build the finish table, which wants an optimised build
+[profile.test]
+opt-level = 3

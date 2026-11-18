@@ -44,6 +44,7 @@ November 2026. A date in brackets links to that message on the FMC solvers Disco
 - **Start with [section 1](#1-the-short-version)**: the answers, a paragraph or a table each. Section 4 is the table of costs, with the questions that would tune them.
 - **Sections 6 to 10** take one question each, and **section 11** tests every conclusion against the costs. **Section 12** is what the simulator leaves out.
 - Anything marked **computer only** is something the simulated solver can do and you can't, or an answer key.
+- **[Try it yourself](tool/)**: the simulator runs in your browser. Give it a scramble, change any cost, limit or plan, and scroll through the attempt it plays step by step, with the solution it wrote down and every backup it found on the way.
 
 ---
 
@@ -941,6 +942,8 @@ The simulated solver is a DR solver with a fixed toolbox. Here's what it leaves 
 ## Appendix B: how it was computed, and what checks it
 
 **The program.** `research/attemptsim`, written in Rust. It reads judging-a-dr's exact optimal finish of every DR state (1.3 GB, proved in Lean in that study), htr-routes' checklist per subset, and the EO-to-DR tables. It plays one attempt per plan and scramble, with every random draw (misses, step times, the day's pace) fixed per scramble, so plans differ only by their decisions. Every solution the simulated solver writes is replayed on the cube, and a run fails if one doesn't solve its scramble; no run has failed.
+
+**The simulator page.** [The page](tool/) runs a port of the program, a separate Rust crate (`tool/sim`) compiled to WebAssembly. A web page can't load the 1.3 GB table, so the port finds each optimal finish by search, with a 56 MB table of the corners and U/D edges alone as the bound (the browser builds it once, in a few seconds). On 3,000 random DR states the search gives the exact table's optimum every time. On the same scrambles with the same plans, the port gives the research program's results exactly: 73,034 attempts (scrambles 0 to 2,199 and the 609 official ones, each with the 26 plans of section 11) with every output column the same, and every step of the 520 attempts whose logs were compared.
 
 **The runs.** All with the costs of section 4 (`research/costs.toml`), on uniformly random states written as scrambles (`research/data/scrambles_uniform.txt`):
 
