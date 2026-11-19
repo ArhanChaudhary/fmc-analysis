@@ -1,0 +1,52 @@
+✔ [2/30] Built Corners3D.Cube (342ms)
+✔ [3/30] Built Corners3D.Search (415ms)
+✔ [4/30] Built Corners3D.Cube:c.o (448ms)
+✔ [5/30] Built Corners3D.Cube:dynlib (30ms)
+✔ [6/30] Built Corners3D.Pieces (437ms)
+✔ [7/30] Built Corners3D.Search:c.o (835ms)
+✔ [8/30] Built Corners3D.Search:dynlib (31ms)
+✔ [9/30] Built Corners3D.Pieces:c.o (744ms)
+✔ [10/30] Built Corners3D.Pieces:dynlib (30ms)
+✔ [11/30] Built Corners3D.Corners (654ms)
+✔ [12/30] Built Corners3D.Corners:c.o (934ms)
+✔ [13/30] Built Corners3D.Corners:dynlib (31ms)
+✔ [14/30] Built Corners3D.Witness (10s)
+✔ [15/30] Built Corners3D.Witness:c.o (142ms)
+✔ [16/30] Built Corners3D.Witness:dynlib (33ms)
+✔ [17/30] Built Corners3D.Checks (10s)
+✔ [18/30] Built Corners3D.Checks:c.o (1.0s)
+✔ [19/30] Built Corners3D.Checks:dynlib (32ms)
+✔ [20/30] Built Corners3D.Examples (10s)
+✔ [21/30] Built Corners3D.Examples:c.o (43ms)
+✔ [22/30] Built Corners3D.Examples:dynlib (31ms)
+✔ [23/30] Built Corners3D.Theorems (48s)
+✔ [24/30] Built Corners3D.Theorems:c.o (43ms)
+✔ [25/30] Built Corners3D.Theorems:dynlib (29ms)
+✔ [26/30] Built Corners3D.Proofs (10s)
+✔ [27/30] Built Corners3D.Proofs:c.o (43ms)
+✔ [28/30] Built Corners3D.Proofs:dynlib (28ms)
+✔ [29/30] Built Corners3D (10s)
+Build completed successfully (30 jobs).
+	Command being timed: "lake build"
+	User time (seconds): 108.00
+	System time (seconds): 1.95
+	Percent of CPU this job got: 129%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:25.22
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 907040
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 11
+	Minor (reclaiming a frame) page faults: 549564
+	Voluntary context switches: 45797
+	Involuntary context switches: 1482
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 14592
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,21 @@
+/* The lookup page; colours and type come from the site's style.css. */
+main.tool { max-width: 56rem; }
+main.tool h2 { margin-top: 1.8rem; font-size: 1.15rem; }
+.status { margin: 1rem 0; padding: .6rem .9rem; border: 1px solid var(--line); border-radius: 6px; background: var(--soft);
+  font-size: .92rem; }
+.status.done { display: none; }
+.field { display: flex; flex-direction: column; gap: .2rem; font-size: .9rem; }
+.field > span { color: var(--muted); }
+textarea { width: 100%; box-sizing: border-box; font: 1rem/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: .3rem .5rem; }
+textarea:focus { outline: 2px solid var(--link); outline-offset: -1px; }
+.row { display: flex; flex-wrap: wrap; gap: .6rem; margin: .6rem 0; }
+button { font: inherit; font-size: .92rem; color: var(--fg); background: var(--soft); border: 1px solid var(--line);
+  border-radius: 6px; padding: .35rem .8rem; cursor: pointer; }
+button:hover:not(:disabled) { border-color: var(--link); }
+button:disabled { opacity: .55; cursor: default; }
+button.primary { background: var(--link); border-color: var(--link); color: var(--bg); font-weight: 650; padding: .35rem 1.4rem; }
+.hint { color: var(--muted); font-size: .88rem; }
+.error { color: #b3261e; margin: .5rem 0; }
+.note { padding: .5rem .8rem; border-left: 3px solid var(--link); background: var(--soft); }
+@media (prefers-color-scheme: dark) { .error { color: #ff8a80; } }

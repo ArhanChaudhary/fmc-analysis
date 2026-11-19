@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corners in 3D: look up a state</title>
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="tool.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../../">FMC case studies</a>
+  <nav>
+    <a href="../">Write-up</a>
+    <a href="../examples.html">Worked examples</a>
+    <a href="../errata.html">Errata</a>
+    <a href="./" class="here">Look up a state</a>
+    <a href="../../search.html">Search</a>
+    <a href="https://github.com/ArhanChaudhary/fmc-analysis/tree/main/corners-3d/tool">Source</a>
+  </nav>
+</header>
+
+<div class="layout notoc">
+<main class="tool">
+  <h1 class="title">Corners in 3D: look up a state</h1>
+  <p class="lede">
+    Type a scramble and get what <a href="../">the write-up</a> is about, for that state: the type of every corner, the
+    counts, the floors, how far the corners really are from HTR, and which turns get closer. Corners only, and
+    <em>solved</em> means HTR.
+  </p>
+
+  <div id="status" class="status" role="status">Building the tables (a few seconds)…</div>
+
+  <form id="form" autocomplete="off">
+    <label class="field">
+      <span>Scramble</span>
+      <textarea id="scramble" rows="2" spellcheck="false" placeholder="R U2 F' …">R' U2 R2 F2 R'</textarea>
+    </label>
+    <div class="row">
+      <button type="submit" id="go" class="primary" disabled>Look up</button>
+      <button type="button" id="random" disabled>Random state</button>
+    </div>
+    <p class="hint">Any face turns. The study holds DBL still and turns only R, U and F. If your scramble moves the DBL
+      corner, the page turns the whole cube until that corner is back in its place and reads the state from there, and
+      it tells you so.</p>
+    <div id="error" class="error" hidden></div>
+  </form>
+
+  <div id="result" hidden>
+    <h2>What you can read</h2>
+    <p id="turned" class="note" hidden>This scramble moves the DBL corner. Turn the whole cube so that the DBL corner
+      piece is solved in the DBL place: everything below is for the cube held that way.</p>
+    <p>Types <code id="line"></code> <span class="hint">(UFR UFL UBL UBR DFR DFL DBR)</span></p>
+    <table id="corners"><thead><tr><th>Place</th><th>Corner there</th><th>Type</th></tr></thead><tbody></tbody></table>
+    <ul id="reads"></ul>
+
+    <h2>Floors</h2>
+    <table id="floors"><thead><tr><th>Floor</th><th>Moves</th><th>Quarter turns</th><th>How you'd get it</th></tr></thead><tbody></tbody></table>
+
+    <h2>The answer</h2>
+    <ul id="answer"></ul>
+  </div>
+</main>
+</div>
+</body>
+</html>

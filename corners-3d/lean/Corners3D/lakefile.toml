@@ -1,0 +1,7 @@
+name = "Corners3D"
+version = "0.1.0"
+defaultTargets = ["Corners3D"]
+
+[[lean_lib]]
+name = "Corners3D"
+precompileModules = true

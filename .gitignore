@@ -53,3 +53,5 @@ htr-routes/research/verify/vhtr/target/
 /dr-variants/research/out/meta/run*.tsv
 /dr-variants/research/out/meta/niss*.tsv
 /dr-variants/research/out/meta/*.log
+/corners-3d/research/c3d/target/
+/corners-3d/research/out/big/

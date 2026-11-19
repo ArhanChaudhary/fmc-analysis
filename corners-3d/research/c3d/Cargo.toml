@@ -1,0 +1,15 @@
+[package]
+name = "c3d"
+version = "0.1.0"
+edition = "2021"
+description = "Corners with DBL fixed and R, U, F turns: every state, what a human sees on it, and how far it is"
+
+[dependencies]
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+lto = true
