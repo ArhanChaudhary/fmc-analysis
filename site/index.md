@@ -14,6 +14,10 @@ Single tables that answer one question, too small for a study.
 
 - [Half turns before the first quarter turn](tables/half-turns-before-first-qt.html): per subset × edges, how often an optimal finish needs 0, 1, 2 or more half turns before its first qt on the better side, for all DRs and for DRs with an optimal of 13 or less and 12 or less.
 
+## HTR cases
+
+[Every HTR case of a DR](htr-cases/), up to rotations, mirrors and the E slice: 1,272 cases by subset, bad edges and moves to HTR. Each is drawn in 3D with its bad pieces, with every HTR of 8 moves or less, its lookalikes and how to tell them apart (4b2 parity, 2c3 direction, a corner test). Type a scramble and your moves to find your own DR's case, with its HTRs in your orientation. For other programs: [a shortest generator of every case](htr-cases/htr-cases.txt).
+
 ## Judging a DR by hand
 
 What a solver can read off a domino reduction before solving it, how much each read says about the finish, and which lower bounds hold. Measured on the exact optimal finish of all 19,508,428,800 DR states.

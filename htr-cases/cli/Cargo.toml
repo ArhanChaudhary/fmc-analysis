@@ -1,0 +1,12 @@
+[package]
+name = "htr-cases-cli"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "htr-cases"
+path = "src/main.rs"
+
+[dependencies]
+htr-cases = { path = "../cases" }
+serde_json = "1"

@@ -43,6 +43,7 @@ Shared by all studies:
 |---|---|
 | `scripts/build-pages.sh`, `site/` | The website: a front page (`site/index.md`) and each study's reports as pages. Needs pandoc. |
 | `tables/` | Reference tables: single pages that answer one question, too small for a study (`tables/*.md`, each written by a script in `tables/src/`). |
+| `htr-cases/` | The HTR case index: every HTR case of a DR in 3D with its short HTRs, as a Rust library, a WebAssembly module and a page at `/htr-cases/`, and a shortest generator of every case (`htr-cases/web/htr-cases.txt`). |
 | `.github/workflows/pages.yml` | Builds the site with that script on every push to `main` and deploys it to GitHub Pages. |
 | `env.sh` | Tool paths on the machine the studies are built on. |
 

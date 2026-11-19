@@ -95,6 +95,15 @@ if [ -f cards/decision-cards.md ]; then
     grep -q 'href="decision-cards.html"' "$output/index.html" || { echo "build-pages: site/index.md does not link to decision-cards.html" >&2; exit 1; }
 fi
 
+# the HTR case index: a static page (htr-cases/web: the page, its scripts, the WebAssembly module and the generators file,
+# built by htr-cases/build-web.sh and committed), served at /htr-cases/ and linked from the front page
+if [ -f htr-cases/web/index.html ]; then
+    mkdir -p "$output/htr-cases"
+    (cd htr-cases/web && find . -type f \( -name '*.html' -o -name '*.js' -o -name '*.css' -o -name '*.wasm' -o -name '*.txt' \) \
+        -exec cp --parents {} "$output/htr-cases/" \;)
+    grep -q 'href="htr-cases/"' "$output/index.html" || { echo "build-pages: site/index.md does not link to htr-cases/" >&2; exit 1; }
+fi
+
 # search: a page with the box (site/search.md, site/search.js) and an index of every listed page, section by section
 # (scripts/search-index.py; unlisted studies stay out of it, so the index can't lead to them)
 render site/search.md search.html ./ --variable is-home --variable is-search

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTR cases</title>
+<meta name="description" content="Every HTR case of a DR up to symmetry and the E slice, with its bad pieces in 3D and every HTR of 8 moves or less.">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="cases.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../">FMC case studies</a>
+  <nav>
+    <a href="./" class="here">HTR cases</a>
+    <a href="../search.html">Search</a>
+    <a href="https://github.com/ArhanChaudhary/fmc-analysis/tree/main/htr-cases">Source</a>
+  </nav>
+</header>
+
+<div class="layout notoc">
+<main class="tool">
+  <h1 class="title">HTR cases</h1>
+  <p class="lede">
+    Every HTR case of a DR on U/D, up to rotations, mirrors and the E slice: <b>1,272 cases</b>, grouped by subset, then
+    bad edges, then the fewest moves to HTR. On each cube the bad pieces are solid,
+    <span class="swatch corner"></span>corners and <span class="swatch edge"></span>edges, and the rest is glass.
+    Click a case for every HTR of 8 moves or less (or the shortest ones, when none is that short). Drag a cube to turn it.
+  </p>
+
+  <details class="about">
+    <summary>What counts as a case, and how the HTRs are listed</summary>
+    <ul>
+      <li><b>Bad pieces.</b> A corner is bad when it sits in the other tetrad (where no half turn can take it); an edge is
+        bad when an M-slice edge (UF UB DF DB) sits on an S-slice place (UL UR DL DR), or the other way. They are
+        counted in the frame with few of them, as subsets are named: 2c3 2e and 6c3 6e are one case.</li>
+      <li><b>One case.</b> Everything that decides which move sequences take a DR to HTR: two DRs are the same case when
+        exactly the same sequences take them to HTR. Rotations and mirrors that keep U/D on top and bottom count as the
+        same case (the picture shows one of them), and so does the E slice: turning it makes every bad piece good and
+        every good one bad (2c3 2e becomes 6c3 6e). Both are the same number of moves from HTR, for every case but HTR
+        itself (case 1 below). Their shortest HTRs are the same with the last quarter turn moved to the other layer (U
+        for D, D for U), and so are 98% of all the HTRs listed (every one on 1,231 of the 1,271 cases); the rest end in
+        U D or pass through the other one's HTR on the way. Each case has a switch to show the other one.</li>
+      <li><b>Lookalikes.</b> Several cases have the same bad pieces: they look the same here and on the cube. Each case
+        lists its lookalikes, and has a <i>corner test</i>: a shortest sequence that puts its corners in HTR. On any of
+        its lookalikes the same sequence leaves fake HTR. Every 4b2 and 2c3 case also carries the label solvers tell such
+        lookalikes apart by:
+        <ul>
+          <li><b>4b2: no parity / parity.</b> Set the corners up for a two-quarter-turn trigger (Q X2 Q) with half turns,
+            counting every U2 or D2 done while the bad corners are split 3/1 between U and D. An even count and the
+            trigger gives real HTR: no parity. An odd count: parity.</li>
+          <li><b>2c3: clockwise / anticlockwise.</b> From the position shown, the quarter turn (U or D, each seen from its
+            own face) that brings it to 4b2 with no parity. Every half turn done before it flips the direction.</li>
+        </ul>
+        The 4b2 rule is the one in the <a href="https://docs.google.com/document/d/1_NMlyPh2Ifd1E0ivos-15Sp-by-KPxoOsj9JD4pJuHI/edit">Hitchhiker's
+        Guide to HTR</a> (Yurii Riabov, July 2024, "How to solve 4b2"). The 2c3 one puts together the guide's "How to
+        solve 2c3" (with parity after the quarter turn, turn the other way) and count quackula's "every half turn you
+        do on a 2c3 changes the qt direction" (<a href="https://discord.com/channels/1007840975726575667/1007841335434285126/1545083500913238026">3 Sep
+        2026</a>). Both give one answer on every route, the guide's own examples come out as it says, and the two 4b2
+        lookalikes of each shape are one with parity and one without.</li>
+      <li><b>The HTRs listed.</b> DR moves only (U, D, R2, L2, F2, B2); turns of opposite faces in the order U D, R L,
+        F B; none that is in HTR before its end, or that has a half turn among its last turns (that half turn could go
+        last, where it does nothing for HTR). So each one ends in a quarter turn, or in U D, that can go either way: U and
+        U′ both reach HTR, and only the clockwise one is written.</li>
+      <li><b>For other programs.</b> <a href="htr-cases.txt">htr-cases.txt</a>: a shortest generator of every case (DR
+        moves that make it from a solved cube, as drawn), with its subset, edges, moves, label and bad pieces,
+        numbered as here.</li>
+    </ul>
+  </details>
+
+  <div id="status" class="status" role="status">Loading the cases…</div>
+
+  <section class="find">
+    <h2>Find your case</h2>
+    <form id="find-form" autocomplete="off">
+      <label class="field"><span>Scramble</span>
+        <input id="find-scramble" type="text" spellcheck="false" placeholder="R' U' F D2 L2 F …"></label>
+      <label class="field"><span>Moves to your DR (inverse-side moves in brackets)</span>
+        <textarea id="find-moves" rows="2" spellcheck="false" placeholder="(F L') // EO&#10;R2 U' D R // DR"></textarea></label>
+      <div class="row"><button type="submit" class="primary" disabled>Find</button>
+        <span class="hint">On any axis. The HTRs come out in your orientation.</span></div>
+    </form>
+    <div id="find-result"></div>
+  </section>
+
+  <nav id="subset-nav" class="subset-nav" aria-label="Subsets"></nav>
+  <div id="cases"></div>
+</main>
+</div>
+</body>
+</html>

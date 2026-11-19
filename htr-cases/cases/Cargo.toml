@@ -1,0 +1,13 @@
+[package]
+name = "htr-cases"
+version = "0.1.0"
+edition = "2021"
+description = "Every HTR case of a DR up to symmetry and the E slice: its bad pieces, its shortest HTR, every HTR of 8 moves or less"
+
+[dependencies]
+# the DR model, the HTR cosets and the whole-cube model of the attempt simulator
+attempt-sim = { path = "../../attempt-sim/tool/sim" }
+serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+serde_json = "1"
