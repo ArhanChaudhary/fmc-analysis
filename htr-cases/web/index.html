@@ -24,8 +24,8 @@
   <h1 class="title">HTR cases</h1>
   <p class="lede">
     Every HTR case of a DR on U/D, up to rotations, mirrors and the E slice: <b>1,272 cases</b>, grouped by subset, then
-    bad edges, then the fewest moves to HTR. On each cube the bad pieces are solid,
-    <span class="swatch corner"></span>corners and <span class="swatch edge"></span>edges, and the rest is glass.
+    bad edges, then the fewest moves to HTR. On each cube the bad pieces are solid <span class="swatch bad"></span>red
+    and the rest is glass.
     Click a case for every HTR of 8 moves or less (or the shortest ones, when none is that short). Drag a cube to turn it.
   </p>
 
@@ -39,9 +39,8 @@
         exactly the same sequences take them to HTR. Rotations and mirrors that keep U/D on top and bottom count as the
         same case (the picture shows one of them), and so does the E slice: turning it makes every bad piece good and
         every good one bad (2c3 2e becomes 6c3 6e). Both are the same number of moves from HTR, for every case but HTR
-        itself (case 1 below). Their shortest HTRs are the same with the last quarter turn moved to the other layer (U
-        for D, D for U), and so are 98% of all the HTRs listed (every one on 1,231 of the 1,271 cases); the rest end in
-        U D or pass through the other one's HTR on the way. Each case has a switch to show the other one.</li>
+        itself (case 1 below), and they have the same HTRs, with the last quarter turn on the other layer (U for D, D for
+        U). Each case has a switch to show the other one.</li>
       <li><b>Lookalikes.</b> Several cases have the same bad pieces: they look the same here and on the cube. Each case
         lists its lookalikes, and has a <i>corner test</i>: a shortest sequence that puts its corners in HTR. On any of
         its lookalikes the same sequence leaves fake HTR. Every 4b2 and 2c3 case also carries the label solvers tell such
@@ -59,10 +58,20 @@
         do on a 2c3 changes the qt direction" (<a href="https://discord.com/channels/1007840975726575667/1007841335434285126/1545083500913238026">3 Sep
         2026</a>). Both give one answer on every route, the guide's own examples come out as it says, and the two 4b2
         lookalikes of each shape are one with parity and one without.</li>
-      <li><b>The HTRs listed.</b> DR moves only (U, D, R2, L2, F2, B2); turns of opposite faces in the order U D, R L,
-        F B; none that is in HTR before its end, or that has a half turn among its last turns (that half turn could go
-        last, where it does nothing for HTR). So each one ends in a quarter turn, or in U D, that can go either way: U and
-        U′ both reach HTR, and only the clockwise one is written.</li>
+      <li><b>Pairs a U2 apart.</b> Some cases are another case after U2, and on both a shortest HTR starts with a U
+        quarter turn: U on one is U′ on the other (U2 U′ is U), so after that turn they are the same case. There are 192
+        such pairs, like cases 310 and 311. Each case names its pair, and the switch above the list shows every pair as
+        one entry (1,080 entries instead of 1,272). The symmetries swap U and D, so pairs a D2 apart are among
+        them.</li>
+      <li><b>The HTRs listed.</b> DR moves only (U, D, R2, L2, F2, B2), turns of opposite faces in the order U D, R L,
+        F B, and none that is in HTR before its end, even with the E slice a quarter turn off (from there the rest only
+        turns the slice back), or that has a half turn among its last turns (that half turn could go last, where it does
+        nothing for HTR). So each one ends in a single quarter turn that can go either way: U and U′ both reach HTR, and
+        only the clockwise one is written. HTRs that are the same up to the E slice are written once, the shortest of
+        them: with the E slice ignored, a D turn is the U turn the same way with the cube turned a quarter with it, so
+        the turns after it are on the next faces round (R to F, F to L, L to B, B to R). Case 310's U R2 U R2 U,
+        U R2 D B2 D, D B2 U B2 D and D B2 D L2 U are one HTR. That leaves about one HTR in fifteen: 27,888 over all the
+        cases. Case 1, HTR up to the E slice, lists only U D.</li>
       <li><b>For other programs.</b> <a href="htr-cases.txt">htr-cases.txt</a>: a shortest generator of every case (DR
         moves that make it from a solved cube, as drawn), with its subset, edges, moves, label and bad pieces,
         numbered as here.</li>
@@ -84,6 +93,8 @@
     <div id="find-result"></div>
   </section>
 
+  <label class="merge-switch"><input type="checkbox" id="merge"> Merge each pair of cases a U2 apart whose
+    shortest HTRs start with U (they meet after it)</label>
   <nav id="subset-nav" class="subset-nav" aria-label="Subsets"></nav>
   <div id="cases"></div>
 </main>

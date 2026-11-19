@@ -26,8 +26,8 @@ as the same case:
 What the tests check about the E slice (`cases/tests/checks.rs`):
 - the two versions are the same number of moves from HTR, for every case except HTR itself, which a turned E slice
   puts 2 moves away (case 1);
-- their shortest HTRs are the same, with the last quarter turn moved to the other layer;
-- so are 405,992 of the 414,848 HTRs listed.
+- their HTRs are the same, with the last quarter turn moved to the other layer (all 405,992 of them, before the
+  dedupe below).
 
 That leaves 1,272 cases. Every one shares its bad pieces with 3 to 5 other cases. Every case lists its *lookalikes* and
 has a *corner test*: a shortest sequence that puts its corners in HTR. The same sequence leaves any lookalike in fake
@@ -45,11 +45,20 @@ route, each gives a single answer on every corner coset. The guide's own example
 
 The HTRs listed are canonical DR-move sequences:
 - turns of opposite faces go in the order U D, R L, F B;
-- none is in HTR before its end;
+- none is in HTR before its end, or in HTR with the E slice turned (the rest would only turn the slice back);
 - none has a half turn among its last turns.
 
-So each ends in a quarter turn that can go either way, and only the clockwise one is written. 782 cases have no HTR of
-8 moves or less (most need 9 to 11; two need 13), and for those the page lists the shortest ones.
+So each ends in a single quarter turn that can go either way, and only the clockwise one is written. Then one is kept
+of each set that is the same up to the E slice, the shortest (`cosets::modulo_e`): ignoring the E slice, D is U with
+the cube turned a quarter, so every D turn is written as a U turn and the faces after it are moved round (R to F, F to
+L, L to B, B to R). Case 310's `U R2 U R2 U`, `U R2 D B2 D`, `D B2 U B2 D` and `D B2 D L2 U` are one HTR. That keeps
+27,888 of about 406,000. 782 cases have no HTR of 8 moves or less (most need 9 to 11; two need 13), and for those the
+page lists the shortest ones. Case 1, HTR up to the E slice, lists only `U D`.
+
+**Pairs a U2 apart.** 192 pairs of cases are one case after U2 (or D2), with a shortest HTR on both that starts with a
+quarter turn of that layer: U on one is U′ on the other, so after it they are the same case (`classes::u2_mates`; 310
+and 311 are one pair). Both cases of a pair always have the same subset, edges and length. The page names each case's
+pair, and a switch shows each pair as one entry (1,080 entries).
 
 ## Layout
 
@@ -84,10 +93,12 @@ geometry of the turns and doesn't use the coset tables:
 - 1,272 cases cover the 29,400 cosets.
 - Every coset of a case is as far from HTR as the others, except HTR itself.
 - Every generator makes its case, as drawn, in as many moves as the case's distance.
-- Every listed HTR of every case and of its E-turned version (more than 800,000) reaches HTR at its end and not before.
-  The shortest has the case's length.
+- Every HTR of every case and of its E-turned version, before the dedupe (811,985), reaches HTR at its end and not
+  before, not even with the E slice turned. The shortest has the case's length.
+- The dedupe keeps one HTR of each set with the same form up to the E slice. The members of a set end with the same
+  corners and U/D-layer edges up to U D' (checked on the DR model), and case 310's four 5-movers are one set.
 - The lists are complete: a brute-force search over every DR-move sequence from the cube finds exactly the listed ones,
-  up to 7 moves on 24 cases and 8 moves on 3.
+  up to 7 moves on 23 cases, 8 moves on 3, and case 1.
 - The guide's setups have the subsets the guide gives them, and its 4b2 and 2c3 examples have the parity and the
   direction it says.
 - NISS moves in brackets count on the inverse.

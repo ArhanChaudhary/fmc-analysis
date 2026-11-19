@@ -71,9 +71,9 @@ function htrList(list, moves, max, faces = ['U', 'D']) {
   box.append(
     el('p', {},
       moves <= max
-        ? `${plural(list.length, 'HTR')} of ${max} moves or less. `
-        : `No HTR of ${max} moves or less. The shortest are ${moves} moves: ${fmt(list.length)} of them. `,
-      el('span', { class: 'hint' }, `Each ends in a quarter turn that can go either way (${faces[0]} or ${faces[0]}′, ${faces[1]} or ${faces[1]}′); only the clockwise one is written.`)),
+        ? `${plural(list.length, 'HTR')} of ${max} moves or less, up to the E slice. `
+        : `No HTR of ${max} moves or less. The shortest are ${moves} moves: ${fmt(list.length)} of them, up to the E slice. `,
+      el('span', { class: 'hint' }, `HTRs that differ only by the E slice (a ${faces[1]} turn for a ${faces[0]} turn, and the faces after it turned with it) are written once. Each ends in a quarter turn that can go either way (${faces[0]} or ${faces[0]}′, ${faces[1]} or ${faces[1]}′); only the clockwise one is written.`)),
   );
   const lengths = [...byLength.keys()].sort((a, b) => a - b);
   for (const n of lengths) {
@@ -121,7 +121,22 @@ function lookalikeLinks(c) {
   return out;
 }
 
+// the pair of a case a U2 away (see the page's notes): in the merged index both live on the first one's card
+function pairRow(c, card) {
+  if (!c.u2_mates.length) return [];
+  const link = (n) => el('a', { href: `#case-${n}`, onclick: (e) => { e.preventDefault(); openCase(n); } }, `#${n}`);
+  const pick = merge
+    ? el('span', { class: 'switch' }, ...[c.number, ...c.u2_mates].sort((a, b) => a - b).map((n) =>
+        el('label', {}, el('input', { type: 'radio', name: `pair-${card.id}`, checked: n === c.number,
+          onchange: () => { card.querySelector('.detail').remove(); renderDetail(byNumber.get(n), card); history.replaceState(null, '', `#case-${n}`); } }),
+          ` #${n}${byNumber.get(n).label ? ` (${byNumber.get(n).label})` : ''}`)))
+    : el('span', {}, ...c.u2_mates.flatMap((n, i) => [i ? ' · ' : '', link(n)]));
+  return [el('span', { class: 'k' }, 'A U2 away'), el('span', {}, pick,
+    el('div', { class: 'hint' }, 'The other is this one after U2, seen from some side; a shortest HTR of each starts with a quarter turn of that layer, U on one and U′ on the other, and after it they are the same case.'))];
+}
+
 function renderDetail(c, card, startTurned = false) {
+  card.dataset.shown = c.number;
   const special = c.number === 1; // HTR with the E slice turned
   const canvas = el('canvas', { width: 300, height: 300, 'aria-label': `Case ${c.number}, bad pieces` });
   const view = el('div', { class: 'view' }, canvas, el('div', { class: 'hint' }, 'Drag to turn · double-click to reset'));
@@ -161,6 +176,7 @@ function renderDetail(c, card, startTurned = false) {
       el('span', { class: 'k' }, 'Corner test'), el('span', {}, code(v.corner_test),
         el('span', { class: 'hint' }, special ? ' puts the corners in HTR' : ' puts these corners in HTR; on a lookalike it leaves fake HTR')),
       el('span', { class: 'k' }, 'Lookalikes'), el('span', {}, ...lookText),
+      ...pairRow(c, card),
     );
     htrs.replaceChildren(el('p', { class: 'hint' }, 'Listing the HTRs…'));
     const shown = turned;
@@ -186,7 +202,7 @@ function closeCase(card) {
 }
 
 function openCase(n, turned = false) {
-  const card = document.getElementById(`case-${n}`);
+  const card = document.getElementById(`case-${merge ? leaderOf(n) : n}`);
   if (!card) return;
   if (openCard) closeCase(openCard);
   card.classList.add('open');
@@ -198,11 +214,21 @@ function openCase(n, turned = false) {
 
 // ---- the index --------------------------------------------------------------------------------------------------
 
+let merge = false;
+let observer = null;
+const leaderOf = (n) => Math.min(n, ...byNumber.get(n).u2_mates);
+const membersOf = (c) => (merge ? [c.number, ...c.u2_mates].sort((a, b) => a - b) : [c.number]);
+
 function buildIndex() {
   const root = $('#cases');
   const nav = $('#subset-nav');
+  root.replaceChildren();
+  nav.replaceChildren();
+  observer?.disconnect();
+  openCard = null;
   const groups = new Map();
   for (const c of cases) {
+    if (merge && leaderOf(c.number) !== c.number) continue;
     if (!groups.has(c.subset)) groups.set(c.subset, new Map());
     const g = groups.get(c.subset);
     if (!g.has(c.edges)) g.set(c.edges, new Map());
@@ -210,29 +236,32 @@ function buildIndex() {
     if (!h.has(c.moves)) h.set(c.moves, []);
     h.get(c.moves).push(c);
   }
-  const draw = new IntersectionObserver((entries) => {
+  const draw = (observer = new IntersectionObserver((entries) => {
     for (const e of entries) {
       if (!e.isIntersecting) continue;
       draw.unobserve(e.target);
       const c = byNumber.get(Number(e.target.dataset.n));
       new CubeView(e.target).set({ corners: c.bad_corners, edges: c.bad_edges });
     }
-  }, { rootMargin: '300px' });
+  }, { rootMargin: '300px' }));
+  const casesIn = (list) => list.reduce((t, c) => t + membersOf(c).length, 0);
+  const counted = (list) => (merge ? `${plural(casesIn(list), 'case')} · ${fmt(list.length)} entries` : plural(list.length, 'case'));
 
   for (const [subset, byEdges] of groups) {
-    const count = [...byEdges.values()].reduce((s, m) => s + [...m.values()].reduce((t, l) => t + l.length, 0), 0);
-    nav.append(el('a', { href: `#subset-${subset}` }, subset, el('span', { class: 'n' }, fmt(count))));
-    const section = el('section', { class: 'subset', id: `subset-${subset}` }, el('h2', {}, subset, el('span', { class: 'n' }, plural(count, 'case'))));
+    const all = [...byEdges.values()].flatMap((m) => [...m.values()].flat());
+    nav.append(el('a', { href: `#subset-${subset}` }, subset, el('span', { class: 'n' }, fmt(all.length))));
+    const section = el('section', { class: 'subset', id: `subset-${subset}` }, el('h2', {}, subset, el('span', { class: 'n' }, counted(all))));
     for (const [edges, byMoves] of byEdges) {
-      const n = [...byMoves.values()].reduce((t, l) => t + l.length, 0);
       const groupsBox = el('div', { class: 'groups' });
-      const block = el('div', { class: 'edges' }, el('h3', {}, `${subset} ${edges}e`, el('span', { class: 'n' }, plural(n, 'case'))), groupsBox);
+      const block = el('div', { class: 'edges' }, el('h3', {}, `${subset} ${edges}e`, el('span', { class: 'n' }, counted([...byMoves.values()].flat()))), groupsBox);
       for (const [moves, list] of byMoves) {
         const grid = el('div', { class: 'grid' });
         for (const c of list) {
           const canvas = el('canvas', { 'data-n': c.number, 'aria-hidden': 'true' });
-          const thumb = el('button', { type: 'button', class: 'thumb', title: `Case ${c.number}: ${c.subset} ${c.edges}e, ${plural(c.moves, 'move')}`, onclick: () => openCase(c.number) },
-            canvas, el('div', { class: 'cap' }, el('b', {}, `#${c.number}`), tag(c.label)));
+          const members = membersOf(c);
+          const labels = [...new Set(members.map((n) => byNumber.get(n).label).filter(Boolean))];
+          const thumb = el('button', { type: 'button', class: 'thumb', title: `Case ${members.join(' and ')}: ${c.subset} ${c.edges}e, ${plural(c.moves, 'move')}`, onclick: () => openCase(c.number) },
+            canvas, el('div', { class: 'cap' }, el('b', {}, members.map((n) => `#${n}`).join(' · ')), ...labels.map(tag)));
           grid.append(el('div', { class: 'case', id: `case-${c.number}` }, thumb));
           draw.observe(canvas);
         }
@@ -247,6 +276,7 @@ function buildIndex() {
 // ---- find your case ---------------------------------------------------------------------------------------------
 
 const STORE = 'htr-cases-find';
+const MERGE = 'htr-cases-merge';
 
 async function find(e) {
   e?.preventDefault();
@@ -302,6 +332,16 @@ async function start() {
     return;
   }
   for (const c of cases) byNumber.set(c.number, c);
+  const box = $('#merge');
+  try { merge = localStorage.getItem(MERGE) === '1'; } catch { /* storage may be off */ }
+  box.checked = merge;
+  box.addEventListener('change', () => {
+    const shown = openCard ? Number(openCard.dataset.shown) : null;
+    merge = box.checked;
+    try { localStorage.setItem(MERGE, merge ? '1' : '0'); } catch { /* storage may be off */ }
+    buildIndex();
+    if (shown) openCase(shown);
+  });
   buildIndex();
   status.classList.add('done');
   $('#find-form').addEventListener('submit', find);

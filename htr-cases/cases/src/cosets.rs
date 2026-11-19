@@ -41,8 +41,9 @@ pub struct Cosets {
     pub corner_dist: Vec<u8>,
     /// the corner coset after each move
     pub corner_mv: Vec<[usize; NMOVES]>,
-    /// the HTR coset
+    /// the HTR coset, and HTR with the E slice turned (H·U D')
     pub solved: usize,
+    pub turned_solved: usize,
 }
 
 impl Cosets {
@@ -75,7 +76,7 @@ impl Cosets {
         });
 
         let ud = St::ID.apply_move(0).apply_move(5); // U D'
-        let eslice = rep
+        let eslice: Vec<u16> = rep
             .iter()
             .map(|&(c, e)| {
                 let renamed = ud.then(St::unrank(c, e, 0));
@@ -117,7 +118,21 @@ impl Cosets {
             }
         }
 
-        Cosets { mv, dist, sym, move_sym, eslice, corner_mask, edge_mask, subset, corner_dist, corner_mv, solved }
+        let turned_solved = eslice[solved] as usize;
+        Cosets {
+            mv,
+            dist,
+            sym,
+            move_sym,
+            eslice,
+            corner_mask,
+            edge_mask,
+            subset,
+            corner_dist,
+            corner_mv,
+            solved,
+            turned_solved,
+        }
     }
 
     /// Bad corners and bad edges, relative to the centres.
@@ -134,12 +149,13 @@ impl Cosets {
     /// Every HTR of at most `max_len` DR moves from coset `x`, each once:
     ///
     /// * no two turns of one face in a row, and turns of opposite faces in the order U D, R L, F B;
-    /// * nothing that is in HTR before its end;
+    /// * nothing that is in HTR before its end, or in HTR with the E slice turned (HTR up to the E slice: what follows
+    ///   only turns the slice back);
     /// * no half turn in its last turn, or in its last two when they are on opposite faces (such a half turn could go
     ///   last, where it does nothing for HTR).
     ///
-    /// So it ends in a quarter turn, or in U D with both quarter turns, and that quarter turn can go either way: only
-    /// the clockwise one is listed.
+    /// So it ends in a single quarter turn (an ending U D passes through HTR with the E slice turned), and that quarter
+    /// turn can go either way: only the clockwise one is listed.
     pub fn solutions(&self, x: usize, max_len: usize) -> Vec<Vec<u8>> {
         let mut out = Vec::new();
         if x != self.solved {
@@ -154,6 +170,9 @@ impl Cosets {
             if last.iter().all(|m| CLOCKWISE.contains(m)) {
                 out.push(path.clone());
             }
+            return;
+        }
+        if x == self.turned_solved && !path.is_empty() {
             return;
         }
         if self.dist[x] as usize > budget {
@@ -220,4 +239,58 @@ pub fn last_block(path: &[u8]) -> &[u8] {
 /// Does the sequence end the way a listed HTR does: no half turn in its last block?
 pub fn ends_in_quarter_turns(path: &[u8]) -> bool {
     !path.is_empty() && last_block(path).iter().all(|&m| MOVE_IS_QUARTER[m as usize])
+}
+
+/// A DR-move sequence up to the E slice, as (face, quarter turns) with the faces U R L F B = 0 2 3 4 5.
+///
+/// Once the E slice is ignored, D is U with the cube turned a quarter the same way (D = U followed by a quarter turn
+/// of the E slice and the whole cube), so every D turn is written as the U turn of the same direction, and the turns
+/// after it as the faces they now are: each D quarter turn takes R to F, F to L, L to B and B to R.  Turns of one face
+/// are then merged (also across the opposite face) and turns of opposite faces put in the order R L, F B.  Two HTRs
+/// with the same form are the same up to the E slice: `U R2 U R2 U`, `U R2 D B2 D`, `D B2 U B2 D` and `D B2 D L2 U`.
+pub fn modulo_e(path: &[u8]) -> Vec<(u8, u8)> {
+    // the face a side face becomes after one D quarter turn (U and D unused)
+    const NEXT: [u8; 6] = [0, 1, 4, 5, 3, 2];
+    let mut turned = 0u8;
+    let mut out: Vec<(u8, u8)> = Vec::with_capacity(path.len());
+    for &m in path {
+        let (face, quarters) = match m {
+            0..=2 => (0, m + 1),
+            3..=5 => (0, m - 2),
+            _ => ((0..turned).fold(MOVE_FACE[m as usize], |f, _| NEXT[f as usize]), 2),
+        };
+        if (3..=5).contains(&m) {
+            turned = (turned + m - 2) % 4;
+        }
+        // merge with the last turn of the same face, looking past a turn of the opposite face
+        let mut j = out.len();
+        let mut merged = false;
+        while j > 0 {
+            let (f, q) = out[j - 1];
+            if f == face {
+                let total = (q + quarters) % 4;
+                if total == 0 {
+                    out.remove(j - 1);
+                } else {
+                    out[j - 1].1 = total;
+                }
+                merged = true;
+                break;
+            }
+            if face == 0 || f / 2 != face / 2 {
+                break;
+            }
+            j -= 1;
+        }
+        if !merged {
+            out.push((face, quarters));
+        }
+    }
+    for i in 1..out.len() {
+        let (f, g) = (out[i - 1].0, out[i].0);
+        if f != 0 && f / 2 == g / 2 && g < f {
+            out.swap(i - 1, i);
+        }
+    }
+    out
 }

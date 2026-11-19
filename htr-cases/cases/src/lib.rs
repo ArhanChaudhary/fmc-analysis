@@ -39,6 +39,8 @@ pub struct Index {
     pub cases: Vec<Class>,
     /// the case (index into `cases`) of each coset
     case_of: Vec<u16>,
+    /// the cases each case meets after its first quarter turn ([`classes::u2_mates`])
+    u2_mates: Vec<Vec<usize>>,
 }
 
 /// A case as the page and the text file show it.  Everything is for the coset drawn, except `turned`.
@@ -58,6 +60,8 @@ pub struct CaseInfo {
     pub bad_edges: Vec<&'static str>,
     /// numbers of the cases whose bad pieces look the same
     pub lookalikes: Vec<usize>,
+    /// numbers of the cases a U2 away that it meets after its first quarter turn ([`classes::u2_mates`])
+    pub u2_mates: Vec<usize>,
     /// a shortest sequence that puts the corners alone in HTR (it leaves the lookalikes' corners in fake HTR)
     pub corner_test: String,
     /// a shortest sequence that makes the case from a solved cube
@@ -129,17 +133,37 @@ impl Index {
                 case_of[x] = i as u16;
             }
         }
-        Index { htr, cube: MoveTables::new(), cosets, labels, cases, case_of }
+        let u2_mates = classes::u2_mates(&cosets, &cases);
+        Index { htr, cube: MoveTables::new(), cosets, labels, cases, case_of, u2_mates }
     }
 
     pub fn case_of(&self, coset: usize) -> usize {
         self.case_of[coset] as usize
     }
 
-    /// Every listed HTR of a coset (see [`Cosets::solutions`]), as DR moves: those of up to [`MAX_LEN`] moves, or
-    /// if there are none, the shortest ones.
+    /// Every HTR of a coset in the listed form (see [`Cosets::solutions`]), as DR moves: those of up to [`MAX_LEN`]
+    /// moves, or if there are none, the shortest ones.
+    /// (HTR with the E slice turned, case 1, is HTR up to the E slice: only its shortest, the E slice itself.)
+    pub fn all_solutions(&self, coset: usize) -> Vec<Vec<u8>> {
+        let dist = self.cosets.dist[coset] as usize;
+        let longest = if coset == self.cosets.turned_solved { dist } else { MAX_LEN.max(dist) };
+        self.cosets.solutions(coset, longest)
+    }
+
+    /// The listed HTRs: [`Index::all_solutions`] with one of each set that is the same up to the E slice
+    /// ([`cosets::modulo_e`]), the shortest (then the first in move order), shortest first.
     pub fn solutions(&self, coset: usize) -> Vec<Vec<u8>> {
-        self.cosets.solutions(coset, MAX_LEN.max(self.cosets.dist[coset] as usize))
+        let all = self.all_solutions(coset);
+        let mut seen = std::collections::HashSet::new();
+        let mut kept: Vec<Vec<u8>> = Vec::new();
+        let mut by_length: Vec<&Vec<u8>> = all.iter().collect();
+        by_length.sort_by_key(|s| s.len()); // stable: move order within a length
+        for s in by_length {
+            if seen.insert(cosets::modulo_e(s)) {
+                kept.push(s.clone());
+            }
+        }
+        kept
     }
 
     pub fn solution_texts(&self, coset: usize) -> Vec<String> {
@@ -172,6 +196,7 @@ impl Index {
                 .collect(),
             bad_edges: (0..8).filter(|&p| self.cosets.edge_mask[x] >> p & 1 == 1).map(|p| EDGE_PLACES[p]).collect(),
             lookalikes: c.lookalikes.iter().map(|&j| j + 1).collect(),
+            u2_mates: self.u2_mates[i].iter().map(|&j| j + 1).collect(),
             corner_test: dr_text(&self.cosets.corner_solution(x)),
             generator: dr_text(&self.generator(x)),
             solutions: self.solutions(x).len(),

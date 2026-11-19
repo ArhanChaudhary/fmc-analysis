@@ -98,3 +98,40 @@ pub fn classes(cs: &Cosets) -> Vec<Class> {
     }
     out
 }
+
+/// Cases that meet after their first quarter turn: B is A after U2 (or D2: the symmetries swap U and D), and on both
+/// a shortest HTR starts with a quarter turn of that layer.  A with that turn one way and B with it the other way
+/// reach the same coset (U2 then U' is U), so after it they are one case.  For each case, the others joined to it this
+/// way, directly or through others (indices into `cases`).
+pub fn u2_mates(cs: &Cosets, cases: &[Class]) -> Vec<Vec<usize>> {
+    let mut case_of = vec![0usize; NCOSETS];
+    for (i, c) in cases.iter().enumerate() {
+        for &x in &c.members {
+            case_of[x] = i;
+        }
+    }
+    // does a shortest HTR from x start with one of these two quarter turns?
+    let starts_with = |x: usize, turns: [usize; 2]| {
+        cs.dist[x] > 0 && turns.iter().any(|&q| cs.dist[cs.mv[x][q] as usize] + 1 == cs.dist[x])
+    };
+    let mut parent: Vec<usize> = (0..cases.len()).collect();
+    fn root(parent: &mut [usize], mut i: usize) -> usize {
+        while parent[i] != i {
+            parent[i] = parent[parent[i]];
+            i = parent[i];
+        }
+        i
+    }
+    // (U, U') with U2, and (D, D') with D2, as DR moves
+    for (turns, half) in [([0, 2], 1), ([3, 5], 4)] {
+        for x in 0..NCOSETS {
+            let y = cs.mv[x][half] as usize;
+            if starts_with(x, turns) && starts_with(y, turns) {
+                let (a, b) = (root(&mut parent, case_of[x]), root(&mut parent, case_of[y]));
+                parent[a.max(b)] = a.min(b);
+            }
+        }
+    }
+    let roots: Vec<usize> = (0..cases.len()).map(|i| root(&mut parent, i)).collect();
+    (0..cases.len()).map(|i| (0..cases.len()).filter(|&j| j != i && roots[j] == roots[i]).collect()).collect()
+}

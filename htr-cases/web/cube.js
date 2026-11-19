@@ -25,7 +25,7 @@ const AXES = [[0, 1, 2], [1, 2, 0], [2, 0, 1]];
 function colors() {
   const css = getComputedStyle(document.documentElement);
   const v = (name) => css.getPropertyValue(name).trim();
-  return { corner: v('--bad-corner'), edge: v('--bad-edge'), ghost: v('--ghost'), line: v('--ghost-line'),
+  return { bad: v('--bad-piece'), ghost: v('--ghost'), line: v('--ghost-line'),
     solidLine: v('--solid-line'), label: v('--muted') };
 }
 
@@ -98,8 +98,7 @@ export class CubeView {
     };
 
     const solid = new Map();
-    for (const n of this.model.corners) solid.set(placeOf(n).join(), col.corner);
-    for (const n of this.model.edges) solid.set(placeOf(n).join(), col.edge);
+    for (const n of [...this.model.corners, ...this.model.edges]) solid.set(placeOf(n).join(), col.bad);
     const light = [-0.35, 0.8, 0.5];
 
     // every face facing the camera, drawn far to near
