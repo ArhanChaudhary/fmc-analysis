@@ -3,9 +3,9 @@
 An interactive index of every HTR case of a DR, live at <https://fmc.arhan.sh/htr-cases/>:
 
 - 1,272 cases, up to rotations, mirrors and the E slice;
-- grouped by subset, then bad edges, then the fewest moves to HTR;
-- each drawn in 3D with only its bad pieces solid, and with every HTR up to a length set by a slider (8 moves by
-  default, at most 4 over the case's shortest; the shortest ones when none is that short).
+- grouped by subset, then bad edges, then the optimal (the fewest moves to HTR; "6-optimal" on the page);
+- each drawn in 3D with only its bad pieces solid, and with its HTRs up to 0 to 4 moves over its optimal (a slider, 2
+  by default).
 
 Alongside it, [`web/htr-cases.txt`](web/htr-cases.txt) has a shortest generator of every case, for other programs.
 
@@ -63,13 +63,14 @@ The HTRs listed are canonical DR-move sequences:
 So each ends in a single quarter turn that can go either way, and only the clockwise one is written. Then one is kept
 of each set that is the same up to the E slice, the shortest (`cosets::modulo_e`): ignoring the E slice, D is U with
 the cube turned a quarter, so every D turn is written as a U turn and the faces after it are moved round (R to F, F to
-L, L to B, B to R). Case 310's `U R2 U R2 U`, `U R2 D B2 D`, `D B2 U B2 D` and `D B2 D L2 U` are one HTR. That keeps
-27,342 of about 400,000 at the default length. 782 cases have no HTR of 8 moves or less (most need 9 to 11; two need
-13), and for those the page lists the shortest ones. Case 1, HTR up to the E slice, lists only `U D`.
+L, L to B, B to R). Case 310's `U R2 U R2 U`, `U R2 D B2 D`, `D B2 U B2 D` and `D B2 D L2 U` are one HTR. Of the HTRs
+of 8 moves or less (or the optimal ones, for the 782 cases with none that short), that keeps 27,888 of about 406,000.
+Case 1, HTR up to the E slice, lists only `U D`.
 
-How long the lists go is the page's slider (1 to 12 moves, 8 by default), but never more than 4 moves over the case's
-shortest (`Index::longest`): at 12 moves, a 5-mover would have about 900,000 HTRs before the dedupe. With the bound, the
-most any case lists at 12 is about 375,000 before the dedupe (18,472 after), a quarter of a second in the browser.
+How long the lists go is a slider in the case's panel: 0 to 4 moves over its optimal, 2 by default (418,657 HTRs over
+all the cases), but never past 12 moves; a case whose optimal is longer lists its optimal ones (`Index::longest`). At
+optimal + 4, a 10-optimal case would have about 5.8 million HTRs before the dedupe. With the bound, the most any case
+lists is about 375,000 before the dedupe (18,472 after), a quarter of a second in the browser.
 
 **Pairs a U2 apart.** 192 pairs of cases are one case after U2 (or D2), with a shortest HTR on both that starts with a
 quarter turn of that layer: U on one is U′ on the other, so after it they are the same case (`classes::u2_mates`; 310
@@ -77,9 +78,11 @@ and 311 are one pair). Both cases of a pair always have the same subset, edges a
 pair, and a switch shows each pair as one entry (1,080 entries).
 
 **The page.** The list of cases on the left; a click opens a case in the panel on its right (over the list, on a
-phone), and nothing in the list moves: the card is only marked. The panel has the case's lookalikes, its pair a U2
-apart and its HTRs. *Find your case* takes one text: the scramble on the first line and the moves to DR after it, or
-just a setup (`find::split_attempt`).
+phone, where "Show in list" goes back), and nothing in the list moves: the card is only marked. The panel's title bar
+has the case, its subset, its optimal and its label; under the cube are its lookalikes, its pair a U2 apart, the
+slider for how far over the optimal and its HTRs. Over the list, a second slider shows only the cases with optimal
+that or less. *Find your case* takes one text: the scramble on the first line and the moves to DR after it, or just a
+setup (`find::split_attempt`).
 
 ## Layout
 
@@ -87,7 +90,7 @@ just a setup (`find::split_attempt`).
 |---|---|
 | `cases/` | the library (crate `htr-cases`): `cosets.rs` (the cosets, moves, symmetries, E slice, the HTR search), `classes.rs` (the cases, how each is drawn, lookalikes), `labels.rs` (4b2 parity, 2c3 direction, 2c4 and 4a3 good or bad), `find.rs` (a solver's own DR from a scramble and NISS moves), `lib.rs` (`Index`, what the page and the text file show) |
 | `cases/tests/checks.rs` | the checks (below) |
-| `cli/` | `htr-cases text FILE`, `list`, `case N [--turned] [--max L]`, `find SCRAMBLE MOVES [--max L]` |
+| `cli/` | `htr-cases text FILE`, `list`, `case N [--turned] [--above K]`, `find SCRAMBLE MOVES [--above K]` |
 | `wasm/` | the WebAssembly API the page uses (wasm-bindgen) |
 | `web/` | the page: `index.html`, `app.js`, `cube.js` (the 3D drawing, canvas 2D), `worker.js`, `cases.css`, `pkg/` (the built module, committed), `htr-cases.txt` (generated) |
 | `build-web.sh` | rebuilds `web/pkg/` and `web/htr-cases.txt` |
@@ -114,18 +117,16 @@ geometry of the turns and doesn't use the coset tables:
 - 1,272 cases cover the 29,400 cosets.
 - Every coset of a case is as far from HTR as the others, except HTR itself.
 - Every generator makes its case, as drawn, in as many moves as the case's distance.
-- Every HTR of every case and of its E-turned version, before the dedupe (801,385), reaches HTR at its end and not
+- Every HTR of 8 moves or less (or the optimal ones) of every case and of its E-turned version, before the dedupe
+  (811,985), reaches HTR at its end and not
   before, not even with the E slice turned. The shortest has the case's length.
 - The dedupe keeps one HTR of each set with the same form up to the E slice. The members of a set end with the same
   corners and U/D-layer edges up to U D' (checked on the DR model), and case 310's four 5-movers are one set.
 - The lists are complete: a brute-force search over every DR-move sequence from the cube finds exactly the listed ones,
-  up to 7 moves on 23 cases (or 4 over their shortest), 8 moves on 3, and case 1.
+  up to 7 moves on 23 cases, 8 moves on 3, and case 1.
 - The guide's setups have the subsets the guide gives them, and its 4b2 and 2c3 examples have the parity and the
   direction it says.
 - NISS moves in brackets count on the inverse; the page's one field reads a scramble with moves, or a setup.
-- 2c4 and 4a3: every case has its label but the 4a3s on diagonals, the same on both versions of a case. And the check
-  asked for on the rules, whether a good case has more HTRs than each bad lookalike of its subset (both counted to the
-  same length: the longer distance, 8 at least). Mostly, not always: of 160 such 2c4 pairs, the good case has more
-  in 121, as many in 23 and fewer in 16 (#824 has 4 HTRs of 9 moves, its lookalike #822 has 8); of 50 4a3 pairs, more
-  in 42, as many in 2 and fewer in 6 (#553, 10 moves from HTR, has 8 HTRs of 10 moves; #521, 9 moves, has 24).
+- 2c4 and 4a3: every case has its label but the 4a3s on diagonals, the same on both versions of a case.
+- The panel's slider: up to 4 over the optimal, not past 12 moves unless the optimal is; case 1 lists only `U D`.
 - What the page says about the E slice (counted above).

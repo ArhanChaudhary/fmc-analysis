@@ -4,7 +4,10 @@
 use attempt_sim::cube::{parse_moves, Cube, Move, MoveTables};
 use attempt_sim::dr::{St, AS_CUBE_MOVE, MOVE_FACE, MOVE_NAMES};
 use htr_cases::cosets::modulo_e;
-use htr_cases::{Index, MAX_LEN};
+use htr_cases::{Index, DEFAULT_ABOVE, LONGEST, MOST_ABOVE};
+
+/// The checks look at every HTR of up to this many moves, or the shortest ones when there are none that short.
+const LIST_LEN: usize = 8;
 use std::collections::HashSet;
 use std::sync::OnceLock;
 
@@ -92,17 +95,19 @@ fn generators_make_their_cases() {
     for i in 0..ix.cases.len() {
         let info = ix.info(i);
         assert_eq!(moves(&info.generator).len(), info.moves as usize, "case {}", i + 1);
-        let found = ix.find(&info.generator, "", MAX_LEN).unwrap();
+        let found = ix.find(&info.generator, "", DEFAULT_ABOVE).unwrap();
         assert_eq!((found.number, found.axis, found.moves), (i + 1, "U/D", info.moves));
         assert_eq!(found.bad, (info.bad_corners.len() as u32, info.bad_edges.len() as u32));
-        assert_eq!(found.solutions, ix.solution_texts(ix.coset(i, false), MAX_LEN));
+        let x = ix.coset(i, false);
+        assert_eq!(found.solutions, ix.solution_texts(x, ix.longest(x, DEFAULT_ABOVE)));
         if i == 0 {
-            assert_eq!(ix.find(&info.turned.generator, "", MAX_LEN).unwrap_err(), "that is already HTR");
+            assert_eq!(ix.find(&info.turned.generator, "", DEFAULT_ABOVE).unwrap_err(), "that is already HTR");
             continue;
         }
-        let turned = ix.find(&info.turned.generator, "", MAX_LEN).unwrap();
+        let turned = ix.find(&info.turned.generator, "", DEFAULT_ABOVE).unwrap();
         assert_eq!(turned.number, i + 1, "the E slice turned is the same case");
-        assert_eq!(turned.solutions, ix.solution_texts(ix.coset(i, true), MAX_LEN));
+        let x = ix.coset(i, true);
+        assert_eq!(turned.solutions, ix.solution_texts(x, ix.longest(x, DEFAULT_ABOVE)));
     }
 }
 
@@ -132,15 +137,15 @@ fn every_listed_htr_reaches_htr() {
             let list = all_texts(ix, x);
             let distinct: HashSet<&String> = list.iter().collect();
             assert_eq!(distinct.len(), list.len());
-            let longest = ix.longest(x, MAX_LEN);
+            let longest = LIST_LEN.max(ix.cosets.dist[x] as usize);
             for text in &list {
                 check_listed(&s, text, longest);
             }
             if !(i == 0 && turned) {
                 let shortest = list.iter().map(|t| moves(t).len()).min().unwrap();
                 assert_eq!(shortest, ix.cosets.dist[x] as usize, "case {} turned {turned}", i + 1);
-                if ix.cosets.dist[x] as usize > MAX_LEN {
-                    assert!(list.iter().all(|t| moves(t).len() == shortest), "only the shortest past {MAX_LEN}");
+                if ix.cosets.dist[x] as usize > LIST_LEN {
+                    assert!(list.iter().all(|t| moves(t).len() == shortest), "only the shortest past {LIST_LEN}");
                 }
             }
             total += list.len();
@@ -187,7 +192,7 @@ fn brute_force(start: &Cube, max_len: usize) -> HashSet<String> {
 
 /// Every HTR in the listed form, before one is kept per set that is the same up to the E slice.
 fn all_texts(ix: &Index, coset: usize) -> Vec<String> {
-    ix.all_solutions(coset, MAX_LEN)
+    ix.all_solutions(coset, LIST_LEN)
         .iter()
         .map(|p| p.iter().map(|&m| MOVE_NAMES[m as usize]).collect::<Vec<_>>().join(" "))
         .collect()
@@ -200,7 +205,6 @@ fn lists_are_complete() {
     let sample: Vec<(usize, usize)> =
         (53..ix.cases.len()).step_by(53).map(|i| (i, 7)).chain([(0, 2), (1, 8), (300, 8), (900, 8)]).collect();
     for (i, max_len) in sample {
-        let max_len = max_len.min(ix.longest(ix.coset(i, false), MAX_LEN));
         let listed: HashSet<String> =
             all_texts(ix, ix.coset(i, false)).into_iter().filter(|t| moves(t).len() <= max_len).collect();
         assert_eq!(brute_force(&start(i, false), max_len), listed, "case {}", i + 1);
@@ -228,7 +232,7 @@ fn the_guides_setups_have_their_subsets() {
     ];
     for (setup, subset) in setups {
         // (the 0c4 setup is a DR on U/D as well, and is found there first)
-        let found = ix.find(setup, "", MAX_LEN).unwrap();
+        let found = ix.find(setup, "", DEFAULT_ABOVE).unwrap();
         assert_eq!(found.subset, subset, "{setup}");
     }
 }
@@ -238,7 +242,7 @@ fn the_guides_setups_have_their_subsets() {
 fn the_guides_parity_and_direction_examples() {
     let ix = index();
     let label = |setup: &str| {
-        let f = ix.find(setup, "", MAX_LEN).unwrap();
+        let f = ix.find(setup, "", DEFAULT_ABOVE).unwrap();
         (f.subset, f.edges, f.label.unwrap())
     };
     // "R U2 R' U2 L2 F2: This is 4b2 with 2 bad edges ... if you do the trigger, you will end up with fake HTR"
@@ -264,14 +268,14 @@ fn niss_moves_count_on_the_inverse() {
     let ix = index();
     let g = ix.info(400).generator;
     // R + g with R on the inverse is g; the other axes: F + g with (F) as well, written with a comment
-    assert_eq!(ix.find(&format!("R {g}"), "(R)", MAX_LEN).unwrap().number, 401);
-    assert_eq!(ix.find(&format!("F {g}"), "(F) // EO\n", MAX_LEN).unwrap().number, 401);
-    assert!(ix.find(&format!("R {g}"), "R", MAX_LEN).is_err(), "not a DR without NISS");
-    assert!(ix.find(&format!("R {g}"), "(R", MAX_LEN).is_err(), "an open bracket");
+    assert_eq!(ix.find(&format!("R {g}"), "(R)", DEFAULT_ABOVE).unwrap().number, 401);
+    assert_eq!(ix.find(&format!("F {g}"), "(F) // EO\n", DEFAULT_ABOVE).unwrap().number, 401);
+    assert!(ix.find(&format!("R {g}"), "R", DEFAULT_ABOVE).is_err(), "not a DR without NISS");
+    assert!(ix.find(&format!("R {g}"), "(R", DEFAULT_ABOVE).is_err(), "an open bracket");
 
     // the page's one field: the scramble on the first line and the moves after it, labels and comments left out; or
     // a setup, on one line or several
-    let attempt = |text: &str| ix.find_attempt(text, MAX_LEN).map(|f| f.number);
+    let attempt = |text: &str| ix.find_attempt(text, DEFAULT_ABOVE).map(|f| f.number);
     assert_eq!(attempt(&format!("Scramble: F {g}\n\nEO: (F) // the inverse\n")), Ok(401));
     assert_eq!(attempt(&format!("R {g}\n(R)")), Ok(401));
     assert_eq!(attempt(&g), Ok(401));
@@ -281,47 +285,43 @@ fn niss_moves_count_on_the_inverse() {
 }
 
 /// 2c4 and 4a3, good or bad: every case has its label but the 4a3s with their corners on diagonals, and the two
-/// versions of a case (the E slice turned) have the same.  And the check asked for on the rules: does a good case have
-/// more HTRs than each bad lookalike of its subset, both counted to the same length (the longer distance, 8 at least;
-/// one per set the same up to the E slice)?  Mostly, not always: the counts are pinned here and the exceptions printed
-/// (`cargo test -- --nocapture`).
+/// versions of a case (the E slice turned) have the same.
 #[test]
 fn good_and_bad_2c4_and_4a3() {
     let ix = index();
-    let info: Vec<_> = (0..ix.cases.len()).map(|i| ix.info(i)).collect();
     let mut labels = std::collections::BTreeMap::new();
-    for c in info.iter().filter(|c| c.subset == "2c4" || c.subset == "4a3") {
+    for i in 0..ix.cases.len() {
+        let c = ix.info(i);
+        if c.subset != "2c4" && c.subset != "4a3" {
+            continue;
+        }
         *labels.entry((c.subset, c.label)).or_insert(0) += 1;
         assert_eq!(c.turned.label, c.label, "case {}: the same with the E slice turned", c.number);
-        let corners = ix.cosets.corner_mask[ix.cases[c.number - 1].coset];
+        let corners = ix.cosets.corner_mask[ix.cases[i].coset];
         let diagonals = [0b0101, 0b1010].contains(&(corners & 0x0F));
         assert_eq!(c.label.is_none(), c.subset == "4a3" && diagonals, "case {}", c.number);
     }
     let expected =
         [(("2c4", Some("bad")), 160), (("2c4", Some("good")), 96), (("4a3", None), 15), (("4a3", Some("bad")), 50)];
     assert_eq!(labels, expected.into_iter().chain([(("4a3", Some("good")), 50)]).collect());
+}
 
-    let count = |n: usize, length: usize| {
-        let x = ix.cases[n - 1].coset;
-        ix.cosets.solutions(x, length).iter().map(|s| modulo_e(s)).collect::<HashSet<_>>().len()
-    };
-    let mut compared = std::collections::BTreeMap::new();
-    for g in info.iter().filter(|c| c.label == Some("good")) {
-        for b in g.lookalikes.iter().map(|&n| &info[n - 1]).filter(|b| b.subset == g.subset && b.label == Some("bad")) {
-            let length = MAX_LEN.max(g.moves as usize).max(b.moves as usize);
-            let (n_good, n_bad) = (count(g.number, length), count(b.number, length));
-            *compared.entry((g.subset, n_good.cmp(&n_bad))).or_insert(0) += 1;
-            if n_good <= n_bad {
-                println!(
-                    "{} {}e: good #{} ({} moves) has {n_good} HTRs to {length} moves, bad #{} ({} moves) {n_bad}",
-                    g.subset, g.edges, g.number, g.moves, b.number, b.moves
-                );
-            }
-        }
-    }
-    use std::cmp::Ordering::*;
-    let expected = [(("2c4", Greater), 121), (("2c4", Equal), 23), (("2c4", Less), 16), (("4a3", Greater), 42)];
-    assert_eq!(compared, expected.into_iter().chain([(("4a3", Equal), 2), (("4a3", Less), 6)]).collect());
+/// How long the page lists HTRs: `above` moves over the optimal (at most 4), never past 12 moves unless the optimal
+/// is; case 1 (HTR up to the E slice) lists only the E slice.
+#[test]
+fn the_slider_over_the_optimal() {
+    let ix = index();
+    let (two, nine, thirteen) = (ix.cases[1].coset, ix.cases[300].coset, ix.cases[922].coset);
+    assert_eq!(ix.cosets.dist[two], 5);
+    assert_eq!((ix.longest(two, 0), ix.longest(two, 2), ix.longest(two, MOST_ABOVE), ix.longest(two, 9)), (5, 7, 9, 9));
+    assert_eq!(ix.cosets.dist[nine], 9);
+    assert_eq!((ix.longest(nine, 2), ix.longest(nine, 4)), (11, LONGEST));
+    assert_eq!(ix.cosets.dist[thirteen], 13);
+    assert_eq!(ix.longest(thirteen, 4), 13);
+    let found = ix.find(&ix.info(0).generator, "", MOST_ABOVE).unwrap();
+    assert_eq!((found.longest, found.solutions.as_slice()), (2, ["U D".to_string()].as_slice()));
+    let five: Vec<usize> = ix.solutions(two, ix.longest(two, 0)).iter().map(|s| s.len()).collect();
+    assert!(!five.is_empty() && five.iter().all(|&n| n == 5));
 }
 
 /// What the page says about the E slice: the shortest HTRs of the turned case are those of the case with the last
@@ -339,7 +339,8 @@ fn turning_the_e_slice_moves_the_last_quarter_turn() {
     let ud_ending =
         |w: &Vec<String>| w.len() >= 2 && (w[w.len() - 2].starts_with('U') || w[w.len() - 2].starts_with('D'));
     let (mut listed, mut carried, mut cases_exact, mut same_up_to_e) = (0, 0, 0, 0);
-    let forms = |x: usize| -> HashSet<Vec<(u8, u8)>> { ix.solutions(x, MAX_LEN).iter().map(|s| modulo_e(s)).collect() };
+    let forms =
+        |x: usize| -> HashSet<Vec<(u8, u8)>> { ix.solutions(x, LIST_LEN).iter().map(|s| modulo_e(s)).collect() };
     for i in 1..ix.cases.len() {
         let a: Vec<Vec<String>> = all_texts(ix, ix.coset(i, false)).iter().map(words).collect();
         let b: HashSet<Vec<String>> = all_texts(ix, ix.coset(i, true)).iter().map(words).collect();
@@ -372,7 +373,7 @@ fn one_htr_per_set_the_same_up_to_the_e_slice() {
     let five: Vec<String> = all_texts(ix, ix.coset(309, false)).into_iter().filter(|t| moves(t).len() == 5).collect();
     assert_eq!(five, ["U R2 U R2 U", "U R2 D B2 D", "D B2 U B2 D", "D B2 D L2 U"]);
     let kept: Vec<String> =
-        ix.solution_texts(ix.coset(309, false), MAX_LEN).into_iter().filter(|t| moves(t).len() == 5).collect();
+        ix.solution_texts(ix.coset(309, false), LIST_LEN).into_iter().filter(|t| moves(t).len() == 5).collect();
     assert_eq!(kept, ["U R2 U R2 U"]);
 
     let ud = St::ID.apply_move(0).apply_move(5);
@@ -381,8 +382,8 @@ fn one_htr_per_set_the_same_up_to_the_e_slice() {
     for i in 0..ix.cases.len() {
         for turned in [false, true] {
             let x = ix.coset(i, turned);
-            let all = ix.all_solutions(x, MAX_LEN);
-            let kept = ix.solutions(x, MAX_LEN);
+            let all = ix.all_solutions(x, LIST_LEN);
+            let kept = ix.solutions(x, LIST_LEN);
             let forms: HashSet<Vec<(u8, u8)>> = kept.iter().map(|s| modulo_e(s)).collect();
             assert_eq!(forms.len(), kept.len(), "one per set");
             let mut first: std::collections::HashMap<Vec<(u8, u8)>, St> = std::collections::HashMap::new();

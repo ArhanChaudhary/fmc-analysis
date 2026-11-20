@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HTR cases</title>
-<meta name="description" content="Every HTR case of a DR up to symmetry and the E slice, with its bad pieces in 3D and every HTR up to a length you choose.">
+<meta name="description" content="Every HTR case of a DR up to symmetry and the E slice, with its bad pieces in 3D and its HTRs up to a few moves over the optimal.">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="cases.css">
 <script type="module" src="app.js"></script>
@@ -17,8 +17,6 @@
     <a href="../search.html">Search</a>
     <a href="https://github.com/ArhanChaudhary/fmc-analysis/tree/main/htr-cases">Source</a>
   </nav>
-  <label class="cap" title="HTRs are listed up to this many moves, and at most 4 over the case's shortest; the shortest ones when none is that short">
-    HTRs up to <input type="range" id="cap" min="1" max="12" step="1" value="8"> <output id="cap-value" for="cap">8</output> moves</label>
 </header>
 
 <main class="panels">
@@ -26,10 +24,10 @@
   <h1 class="title">HTR cases</h1>
   <p class="lede">
     Every HTR case of a DR on U/D, up to rotations, mirrors and the E slice: <b>1,272 cases</b>, grouped by subset, then
-    bad edges, then the fewest moves to HTR. On each cube the bad pieces are solid <span class="swatch bad"></span>gray
-    and the rest is glass.
-    Click a case to open it in the side panel, with every HTR up to the length set at the top: 8 moves unless you change
-    it, at most 4 over the case's shortest, and the shortest ones when none is that short. Drag a cube there to turn it.
+    bad edges, then the optimal (the fewest moves to HTR). On each cube the bad pieces are solid
+    <span class="swatch bad"></span>gray and the rest is glass.
+    Click a case to open it in the side panel, with its HTRs up to 0 to 4 moves over its optimal (a slider there sets
+    it). Drag a cube there to turn it.
   </p>
 
   <details class="about">
@@ -82,9 +80,11 @@
         only the clockwise one is written. HTRs that are the same up to the E slice are written once, the shortest of
         them: with the E slice ignored, a D turn is the U turn the same way with the cube turned a quarter with it, so
         the turns after it are on the next faces round (R to F, F to L, L to B, B to R). Case 310's U R2 U R2 U,
-        U R2 D B2 D, D B2 U B2 D and D B2 D L2 U are one HTR. That leaves about one HTR in fifteen: 27,342 over all the
-        cases at the default length. Case 1, HTR up to the E slice, lists only U D. A case lists HTRs at most 4 moves
-        longer than its shortest, whatever the length set: past that, a short case has hundreds of thousands.</li>
+        U R2 D B2 D, D B2 U B2 D and D B2 D L2 U are one HTR. That leaves about one HTR in fifteen: at the panel's default,
+        2 moves over the optimal, 418,657 over all the cases, at most 4,880 for one. Case 1, HTR up to the E slice,
+        lists only U D. The panel lists a case's HTRs up to 0 to 4 moves over its optimal, 2 unless you change it, and
+        never past 12 moves (a case whose optimal is longer lists its optimal ones): at optimal + 4, a 10-optimal case
+        has millions.</li>
       <li><b>For other programs.</b> <a href="htr-cases.txt">htr-cases.txt</a>: a shortest generator of every case (DR
         moves that make it from a solved cube, as drawn), with its subset, edges, moves, label and bad pieces,
         numbered as here.</li>
@@ -105,6 +105,9 @@
     <p id="find-error" class="error" hidden></p>
   </section>
 
+  <label class="filter"><span>Show cases with optimal</span>
+    <input type="range" id="optimal" min="1" max="13" step="1" value="13">
+    <output id="optimal-value" for="optimal">13</output> <span>or less</span></label>
   <label class="merge-switch"><input type="checkbox" id="merge"> Merge each pair of cases a U2 apart whose
     shortest HTRs start with U (they meet after it)</label>
   <nav id="subset-nav" class="subset-nav" aria-label="Subsets"></nav>
@@ -113,17 +116,21 @@
 
 <aside class="side-panel" id="side" aria-label="The case open">
   <div class="side-bar">
-    <span class="name" id="side-name">No case open</span>
+    <div class="name" id="side-name"><b>No case open</b></div>
     <button type="button" id="side-locate" hidden>Show in list</button>
-    <button type="button" id="side-close" hidden>Close</button>
   </div>
   <div class="side-main">
     <div class="view">
       <canvas id="side-canvas" aria-label="The open case, bad pieces"></canvas>
       <div class="hint" id="side-view-hint">Drag to turn · double-click to reset</div>
     </div>
-    <h2 class="heading" id="side-heading"></h2>
     <div class="facts" id="side-facts"></div>
+    <div class="over" id="side-over" hidden>
+      <label><span>Moves over optimal</span>
+        <input type="range" id="above" min="0" max="4" step="1" value="2">
+        <output id="above-value" for="above">+2</output></label>
+      <div class="hint" id="side-count"></div>
+    </div>
     <div class="htrs" id="side-htrs">
       <p class="hint">Click a case in the list to open it here, with its lookalikes and its HTRs.</p>
     </div>

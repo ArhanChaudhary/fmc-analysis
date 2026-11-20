@@ -7,22 +7,23 @@
 //! htr-cases find SCRAMBLE MOVES       the case of a DR (NISS moves in brackets), as JSON
 //! ```
 //!
-//! `case` and `find` list HTRs of up to 8 moves (or the shortest ones); `--max L` sets another length.
+//! `case` and `find` list HTRs up to 2 moves over the optimal, as the page does by default; `--above K` (0 to 4) sets
+//! another number.
 
-use htr_cases::{Index, MAX_LEN};
+use htr_cases::{Index, DEFAULT_ABOVE};
 use std::fmt::Write as _;
 
 fn usage() -> ! {
-    eprintln!("usage: htr-cases text FILE | list | case N [--turned] [--max L] | find SCRAMBLE MOVES [--max L]");
+    eprintln!("usage: htr-cases text FILE | list | case N [--turned] [--above K] | find SCRAMBLE MOVES [--above K]");
     std::process::exit(2);
 }
 
 fn main() {
     let args: Vec<String> = std::env::args().skip(1).collect();
     let index = Index::new();
-    let max_len = match args.iter().position(|a| a == "--max") {
+    let above = match args.iter().position(|a| a == "--above") {
         Some(k) => args.get(k + 1).and_then(|s| s.parse().ok()).unwrap_or_else(|| usage()),
-        None => MAX_LEN,
+        None => DEFAULT_ABOVE,
     };
     match args.first().map(String::as_str) {
         Some("text") => {
@@ -42,13 +43,14 @@ fn main() {
                 .unwrap_or_else(|| usage());
             let turned = args.iter().any(|a| a == "--turned");
             let info = index.info(n - 1);
-            let solutions = index.solution_texts(index.coset(n - 1, turned), max_len);
+            let x = index.coset(n - 1, turned);
+            let solutions = index.solution_texts(x, index.longest(x, above));
             println!("{}", serde_json::json!({ "case": info, "turned": turned, "solutions": solutions }));
         }
         Some("find") => {
             let (scramble, moves) =
                 (args.get(1).unwrap_or_else(|| usage()), args.get(2).map(String::as_str).unwrap_or(""));
-            match index.find(scramble, moves, max_len) {
+            match index.find(scramble, moves, above) {
                 Ok(found) => println!("{}", serde_json::to_string(&found).unwrap()),
                 Err(e) => {
                     eprintln!("{e}");
@@ -81,7 +83,7 @@ fn text(index: &Index) -> String {
     .unwrap();
     writeln!(
         out,
-        "# The HTRs of every case: on the page, or `htr-cases case N [--max L]` (up to {MAX_LEN} moves by default)."
+        "# The HTRs of every case: on the page, or `htr-cases case N [--above K]` (up to K moves over the optimal, {DEFAULT_ABOVE} by default)."
     )
     .unwrap();
     writeln!(out, "case\tsubset\tedges\thtr\tlabel\tbad_corners\tbad_edges\tgenerator").unwrap();

@@ -28,15 +28,16 @@ export class Index {
     }
     /**
      * A solver's own DR from one text: the scramble, then the moves so far (NISS moves in brackets); or a setup.
+     * Its HTRs go up to `above` moves over its optimal.
      * @param {string} text
-     * @param {number} max_len
+     * @param {number} above
      * @returns {string}
      */
-    find(text, max_len) {
+    find(text, above) {
         let deferred4_0;
         let deferred4_1;
         try {
-            const val2 = +max_len;
+            const val2 = +above;
             const ptr0 = passStringToWasm0(text, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
             const len0 = WASM_VECTOR_LEN;
             const ret = wasm.index_find(this.__wbg_ptr, ptr0, len0, val2);
@@ -60,18 +61,18 @@ export class Index {
         return this;
     }
     /**
-     * The HTRs of up to `max_len` moves (at most [`LONGEST`], and 4 over the shortest) of case `number` (1-based),
-     * or of the case with the E slice turned; the shortest ones if there are none that short.
+     * The HTRs of case `number` (1-based), or of the case with the E slice turned, up to `above` moves over its
+     * optimal (`Index::longest`): `{longest, htrs}`.
      * @param {number} number
      * @param {boolean} turned
-     * @param {number} max_len
+     * @param {number} above
      * @returns {string}
      */
-    solutions(number, turned, max_len) {
+    solutions(number, turned, above) {
         let deferred2_0;
         let deferred2_1;
         try {
-            const ret = wasm.index_solutions(this.__wbg_ptr, number, turned, max_len);
+            const ret = wasm.index_solutions(this.__wbg_ptr, number, turned, above);
             var ptr1 = ret[0];
             var len1 = ret[1];
             if (ret[3]) {
