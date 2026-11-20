@@ -37,7 +37,7 @@ function el(tag, attrs = {}, ...children) {
 
 const fmt = (n) => n.toLocaleString('en');
 const plural = (n, one, many = one + 's') => `${fmt(n)} ${n === 1 ? one : many}`;
-const LABEL_TEXT = { 'no parity': 'no parity', parity: 'parity', clockwise: '↻ clockwise', anticlockwise: '↺ anticlockwise' };
+const LABEL_TEXT = { 'no parity': 'no parity', parity: 'parity', clockwise: '↻ clockwise', anticlockwise: '↺ anticlockwise', good: 'good', bad: 'bad' };
 
 function tag(label) {
   return label ? el('span', { class: 'tag', title: label }, LABEL_TEXT[label]) : null;
@@ -49,13 +49,17 @@ const byNumber = new Map();
 // ---- the list of HTRs -------------------------------------------------------------------------------------------
 
 const SHOW_FIRST = 400;
+const ABOVE_SHORTEST = 4; // a case lists HTRs at most this many moves over its shortest (as htr_cases::ABOVE_SHORTEST)
 
-function htrList(list, moves, max, faces = ['U', 'D']) {
+// The HTRs of a case, `moves` from HTR, listed up to `max` moves (see the slider; at most ABOVE_SHORTEST over the
+// shortest, and the shortest when none is that short).
+function htrList(list, moves, max) {
   const box = el('div', { class: 'htrs' });
   if (moves === 0) {
     box.append(el('p', {}, 'This is HTR.'));
     return box;
   }
+  const longest = Math.min(max, moves + ABOVE_SHORTEST);
   const byLength = new Map();
   for (const s of list) {
     const n = s.split(' ').length;
@@ -64,10 +68,9 @@ function htrList(list, moves, max, faces = ['U', 'D']) {
   }
   box.append(
     el('p', {},
-      moves <= max
-        ? `${plural(list.length, 'HTR')} of ${max} moves or less, up to the E slice. `
-        : `No HTR of ${max} moves or less. The shortest are ${moves} moves: ${fmt(list.length)} of them, up to the E slice. `,
-      el('span', { class: 'hint' }, `Each ends in a quarter turn that can go either way (${faces[0]} or ${faces[0]}′, ${faces[1]} or ${faces[1]}′); only the clockwise one is written.`)),
+      moves > max
+        ? `No HTR of ${plural(max, 'move')} or less. The shortest are ${moves} moves: ${fmt(list.length)} of them, up to the E slice.`
+        : `${plural(list.length, 'HTR')} of ${plural(longest, 'move')} or less${longest < max ? ` (${ABOVE_SHORTEST} over the shortest)` : ''}, up to the E slice.`),
   );
   const lengths = [...byLength.keys()].sort((a, b) => a - b);
   for (const n of lengths) {
@@ -189,37 +192,34 @@ async function renderCase(c, fresh) {
   side.htrs.replaceChildren(el('p', { class: 'hint' }, 'Listing the HTRs…'));
   showSide(fresh);
   try {
-    const list = await call('solutions', c.number, false);
-    if (token === renderToken) side.htrs.replaceChildren(...htrList(list, c.moves, 8).childNodes);
+    const list = await call('solutions', c.number, false, cap);
+    // (case 1, HTR up to the E slice, lists only its shortest: the E slice itself)
+    if (token === renderToken) side.htrs.replaceChildren(...htrList(list, c.moves, c.number === 1 ? c.moves : cap).childNodes);
   } catch (err) {
     if (token === renderToken) side.htrs.replaceChildren(el('p', { class: 'error' }, err.message));
   }
 }
 
-function renderFound(f) {
+function renderFound(f, text, fresh = true) {
   renderToken++;
-  selection = { found: f };
+  selection = { found: f, text };
   markCard(f.number);
   history.replaceState(null, '', location.pathname + location.search);
   side.name.textContent = 'Your DR';
   side.viewHint.textContent = 'Your cube as you hold it · drag to turn';
-  sideCube.view = { ...DEFAULT_VIEW };
+  if (fresh) sideCube.view = { ...DEFAULT_VIEW };
   sideCube.set({ corners: f.corners, edges: f.edge_pieces });
   side.heading.replaceChildren(`${f.subset} ${f.edges}e · ${plural(f.moves, 'move')} to HTR `, ...[tag(f.label)].filter(Boolean));
-  const which = f.highlighted_are_bad
-    ? `the solid ones (${f.bad[0]}c ${f.bad[1]}e)`
-    : `every piece but the solid ones (${f.bad[0]}c ${f.bad[1]}e: the slice between your DR faces is a quarter turn off)`;
   side.facts.replaceChildren(
     el('span', { class: 'k' }, 'DR axis'), el('span', {}, f.axis),
-    el('span', { class: 'k' }, 'Which are bad'), el('span', {}, which),
     el('span', { class: 'k' }, 'In the index'), el('span', {},
       caseLink(f.number, `case ${f.number}`),
       el('span', { class: 'hint' }, f.turned
         ? ' with the slice between your DR faces turned: its bad pieces are your good ones'
         : ' (drawn with the DR on U/D, maybe turned or mirrored)')),
   );
-  side.htrs.replaceChildren(...htrList(f.solutions, f.moves, 8, { 'R/L': ['R', 'L'], 'U/D': ['U', 'D'], 'F/B': ['F', 'B'] }[f.axis]).childNodes);
-  showSide(true);
+  side.htrs.replaceChildren(...htrList(f.solutions, f.moves, f.number === 1 ? f.moves : cap).childNodes);
+  showSide(fresh);
 }
 
 // ---- the index --------------------------------------------------------------------------------------------------
@@ -290,19 +290,37 @@ function buildIndex() {
 const STORE = 'htr-cases-find';
 const MERGE = 'htr-cases-merge';
 
-async function find(e) {
+async function find(e, text = $('#find-text').value, fresh = true) {
   e?.preventDefault();
-  const scramble = $('#find-scramble').value;
-  const moves = $('#find-moves').value;
-  try { localStorage.setItem(STORE, JSON.stringify({ scramble, moves })); } catch { /* storage may be off */ }
+  try { localStorage.setItem(STORE, JSON.stringify({ text })); } catch { /* storage may be off */ }
   const error = $('#find-error');
   try {
-    renderFound(await call('find', scramble, moves));
+    renderFound(await call('find', text, cap), text, fresh);
     error.hidden = true;
   } catch (err) {
     error.textContent = err.message;
     error.hidden = false;
   }
+}
+
+// ---- the length HTRs are listed to ------------------------------------------------------------------------------
+
+const CAP = 'htr-cases-cap';
+let cap = 8;
+let capTimer = null;
+
+function setCap(value, { redraw = true } = {}) {
+  cap = value;
+  $('#cap').value = String(cap);
+  $('#cap-value').textContent = String(cap);
+  try { localStorage.setItem(CAP, String(cap)); } catch { /* storage may be off */ }
+  if (!redraw) return;
+  // the open case or DR again, at the new length (after the slider rests a moment)
+  clearTimeout(capTimer);
+  capTimer = setTimeout(() => {
+    if (selection?.n) renderCase(byNumber.get(selection.n), false);
+    else if (selection?.found) find(null, selection.text, false);
+  }, 150);
 }
 
 // ---- start ------------------------------------------------------------------------------------------------------
@@ -311,10 +329,7 @@ async function start() {
   const status = $('#status');
   try {
     const saved = JSON.parse(localStorage.getItem(STORE) || 'null');
-    if (saved) {
-      $('#find-scramble').value = saved.scramble || '';
-      $('#find-moves').value = saved.moves || '';
-    }
+    if (saved) $('#find-text').value = saved.text ?? [saved.scramble, saved.moves].filter(Boolean).join('\n');
   } catch { /* storage may be off */ }
   try {
     cases = await call('cases');
@@ -333,6 +348,11 @@ async function start() {
   new ResizeObserver(() => sideCube.draw()).observe($('#side-canvas'));
   side.locate.addEventListener('click', () => locate());
   side.close.addEventListener('click', closeSide);
+  let savedCap = NaN;
+  try { savedCap = Number(localStorage.getItem(CAP)); } catch { /* storage may be off */ }
+  const slider = $('#cap');
+  setCap(savedCap >= Number(slider.min) && savedCap <= Number(slider.max) ? savedCap : 8, { redraw: false });
+  slider.addEventListener('input', () => setCap(Number(slider.value)));
   const box = $('#merge');
   try { merge = localStorage.getItem(MERGE) === '1'; } catch { /* storage may be off */ }
   box.checked = merge;

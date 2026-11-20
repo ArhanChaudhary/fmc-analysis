@@ -8,8 +8,8 @@ const ready = init().then(() => {
 
 const ops = {
   cases: () => index.cases(),
-  solutions: (number, turned) => index.solutions(number, turned),
-  find: (scramble, moves) => index.find(scramble, moves),
+  solutions: (number, turned, maxLen) => index.solutions(number, turned, maxLen),
+  find: (text, maxLen) => index.find(text, maxLen),
 };
 
 self.onmessage = async (e) => {

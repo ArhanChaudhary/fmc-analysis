@@ -27,27 +27,19 @@ export class Index {
         }
     }
     /**
-     * A solver's own DR: the scramble and the moves so far (NISS moves in brackets).
-     * @param {string} scramble
-     * @param {string} moves
+     * A solver's own DR from one text: the scramble, then the moves so far (NISS moves in brackets); or a setup.
+     * @param {string} text
+     * @param {number} max_len
      * @returns {string}
      */
-    find(scramble, moves) {
+    find(text, max_len) {
         let deferred4_0;
         let deferred4_1;
         try {
-            let ptr0, len0, ptr1, len1;
-            try {
-                ptr0 = passStringToWasm0(scramble, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
-                len0 = WASM_VECTOR_LEN;
-                ptr1 = passStringToWasm0(moves, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
-                len1 = WASM_VECTOR_LEN;
-            } catch (e) {
-                if (ptr1) { wasm.__wbindgen_free(ptr1, len1 * 1, 1); }
-                if (ptr0) { wasm.__wbindgen_free(ptr0, len0 * 1, 1); }
-                throw e;
-            }
-            const ret = wasm.index_find(this.__wbg_ptr, ptr0, len0, ptr1, len1);
+            const val2 = +max_len;
+            const ptr0 = passStringToWasm0(text, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len0 = WASM_VECTOR_LEN;
+            const ret = wasm.index_find(this.__wbg_ptr, ptr0, len0, val2);
             var ptr3 = ret[0];
             var len3 = ret[1];
             if (ret[3]) {
@@ -68,16 +60,18 @@ export class Index {
         return this;
     }
     /**
-     * The HTRs of up to 8 moves of case `number` (1-based), or of the case with the E slice turned.
+     * The HTRs of up to `max_len` moves (at most [`LONGEST`], and 4 over the shortest) of case `number` (1-based),
+     * or of the case with the E slice turned; the shortest ones if there are none that short.
      * @param {number} number
      * @param {boolean} turned
+     * @param {number} max_len
      * @returns {string}
      */
-    solutions(number, turned) {
+    solutions(number, turned, max_len) {
         let deferred2_0;
         let deferred2_1;
         try {
-            const ret = wasm.index_solutions(this.__wbg_ptr, number, turned);
+            const ret = wasm.index_solutions(this.__wbg_ptr, number, turned, max_len);
             var ptr1 = ret[0];
             var len1 = ret[1];
             if (ret[3]) {

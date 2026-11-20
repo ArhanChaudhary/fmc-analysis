@@ -24,8 +24,11 @@ use cosets::{Cosets, NCOSETS};
 use labels::Labels;
 use serde::Serialize;
 
-/// HTRs are listed up to this length, or, for a case with none that short, at the shortest length.
+/// HTRs are listed up to a length the page sets (this by default), but never more than [`ABOVE_SHORTEST`] moves over
+/// the case's shortest; for a case with none that short, at the shortest length.
 pub const MAX_LEN: usize = 8;
+/// How many moves over the shortest HTR the listed ones go at most (past it, a short case has millions).
+pub const ABOVE_SHORTEST: usize = 4;
 
 pub const CORNER_PLACES: [&str; 8] = ["UFR", "UFL", "UBL", "UBR", "DFR", "DFL", "DBL", "DBR"];
 pub const EDGE_PLACES: [&str; 8] = ["UF", "UL", "UB", "UR", "DF", "DL", "DB", "DR"];
@@ -66,7 +69,7 @@ pub struct CaseInfo {
     pub corner_test: String,
     /// a shortest sequence that makes the case from a solved cube
     pub generator: String,
-    /// how many HTRs are listed (of at most MAX_LEN moves, or the shortest ones if there are none that short)
+    /// how many HTRs are listed by default (see [`Index::longest`] with MAX_LEN)
     pub solutions: usize,
     /// the same case with the E slice turned: every other piece bad
     pub turned: Turned,
@@ -141,20 +144,28 @@ impl Index {
         self.case_of[coset] as usize
     }
 
-    /// Every HTR of a coset in the listed form (see [`Cosets::solutions`]), as DR moves: those of up to [`MAX_LEN`]
-    /// moves, or if there are none, the shortest ones.
-    /// (HTR itself, case 1, has none; turned, HTR with the E slice off is HTR up to the E slice: only its shortest, the
-    /// E slice itself.)
-    pub fn all_solutions(&self, coset: usize) -> Vec<Vec<u8>> {
+    /// How long the listed HTRs of a coset go: up to `max_len` moves but at most [`ABOVE_SHORTEST`] over its
+    /// shortest, and the shortest if there are none that short.
+    /// (HTR with the E slice turned, case 1, is HTR up to the E slice: only its shortest, the E slice itself.)
+    pub fn longest(&self, coset: usize, max_len: usize) -> usize {
         let dist = self.cosets.dist[coset] as usize;
-        let longest = if coset == self.cosets.turned_solved { dist } else { MAX_LEN.max(dist) };
-        self.cosets.solutions(coset, longest)
+        if coset == self.cosets.turned_solved {
+            dist
+        } else {
+            dist.max(max_len.min(dist + ABOVE_SHORTEST))
+        }
+    }
+
+    /// Every HTR of a coset in the listed form (see [`Cosets::solutions`]), as DR moves, as long as
+    /// [`Index::longest`] says.
+    pub fn all_solutions(&self, coset: usize, max_len: usize) -> Vec<Vec<u8>> {
+        self.cosets.solutions(coset, self.longest(coset, max_len))
     }
 
     /// The listed HTRs: [`Index::all_solutions`] with one of each set that is the same up to the E slice
     /// ([`cosets::modulo_e`]), the shortest (then the first in move order), shortest first.
-    pub fn solutions(&self, coset: usize) -> Vec<Vec<u8>> {
-        let all = self.all_solutions(coset);
+    pub fn solutions(&self, coset: usize, max_len: usize) -> Vec<Vec<u8>> {
+        let all = self.all_solutions(coset, max_len);
         let mut seen = std::collections::HashSet::new();
         let mut kept: Vec<Vec<u8>> = Vec::new();
         let mut by_length: Vec<&Vec<u8>> = all.iter().collect();
@@ -167,8 +178,8 @@ impl Index {
         kept
     }
 
-    pub fn solution_texts(&self, coset: usize) -> Vec<String> {
-        self.solutions(coset).iter().map(|s| dr_text(s)).collect()
+    pub fn solution_texts(&self, coset: usize, max_len: usize) -> Vec<String> {
+        self.solutions(coset, max_len).iter().map(|s| dr_text(s)).collect()
     }
 
     /// A shortest sequence that makes the coset from a solved cube: the inverse of its first shortest HTR.
@@ -200,7 +211,7 @@ impl Index {
             u2_mates: self.u2_mates[i].iter().map(|&j| j + 1).collect(),
             corner_test: dr_text(&self.cosets.corner_solution(x)),
             generator: dr_text(&self.generator(x)),
-            solutions: self.solutions(x).len(),
+            solutions: self.solutions(x, MAX_LEN).len(),
             turned: Turned {
                 corners: 8 - corners,
                 edges: 8 - edges,
@@ -222,8 +233,19 @@ impl Index {
         }
     }
 
-    /// Read a solver's DR from a scramble and the moves so far (NISS moves in brackets).
-    pub fn find(&self, scramble: &str, solution: &str) -> Result<FoundInfo, String> {
+    /// Read a solver's DR from one text: a scramble and the moves to DR after it, or a setup
+    /// ([`find::split_attempt`]).
+    pub fn find_attempt(&self, text: &str, max_len: usize) -> Result<FoundInfo, String> {
+        let (scramble, moves) = find::split_attempt(text);
+        if scramble.is_empty() {
+            return Err("enter a scramble and your moves to DR, or a setup".into());
+        }
+        self.find(&scramble, &moves, max_len)
+    }
+
+    /// Read a solver's DR from a scramble and the moves so far (NISS moves in brackets), with its HTRs of up to
+    /// `max_len` moves.
+    pub fn find(&self, scramble: &str, solution: &str, max_len: usize) -> Result<FoundInfo, String> {
         let scramble: Vec<Move> = parse_moves(scramble.split("//").next().unwrap_or(""))?;
         let (normal, inverse) = find::parse_solution(solution)?;
         let found = find::find(&self.htr, &self.cube, &find::state_moves(&scramble, &normal, &inverse))?;
@@ -253,7 +275,7 @@ impl Index {
             highlighted_are_bad: few,
             bad: self.cosets.bad(x),
             corner_test: in_frame(&self.cosets.corner_solution(x)),
-            solutions: self.solutions(x).iter().map(|s| in_frame(s)).collect(),
+            solutions: self.solutions(x, max_len).iter().map(|s| in_frame(s)).collect(),
         })
     }
 }

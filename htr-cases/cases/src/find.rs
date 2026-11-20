@@ -12,6 +12,18 @@ pub struct Found {
     pub view: View,
 }
 
+/// An attempt as one text: the scramble on the first line and the moves to DR on the lines after it, or just a setup
+/// that makes the DR (on more lines, it is the same: moves after the scramble continue it).  Comments after `//`
+/// and labels before a colon ("Scramble:", "EO:") are left out.  Returns (scramble, moves).
+pub fn split_attempt(text: &str) -> (String, String) {
+    let mut lines = text
+        .lines()
+        .map(|line| line.split("//").next().unwrap_or("").rsplit(':').next().unwrap_or("").trim())
+        .filter(|line| !line.is_empty());
+    let scramble = lines.next().unwrap_or("").to_string();
+    (scramble, lines.collect::<Vec<_>>().join("\n"))
+}
+
 /// The moves of a solution so far, as written in a solve: moves on the normal side, and moves in brackets on the
 /// inverse side (NISS); everything after `//` on a line is a comment.  Returns (normal, inverse).
 pub fn parse_solution(text: &str) -> Result<(Vec<Move>, Vec<Move>), String> {
