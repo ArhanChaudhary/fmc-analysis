@@ -64,69 +64,68 @@ How to read the columns:
 - **HTRs to finish per DR.** The variants the search finishes, as a median over all the case's DRs, within-goal or not.
 - **Within goal.** The share of those HTRs whose finish fits the goal.
 - **Chance of missing a within-goal finish.** The share of within-goal DRs where none of them does.
-- **Found within K finishes.** The share of within-goal DRs where one of the first K HTRs finished, in the meta's order, is within goal.
 
 ### 2qt DRs (goal 12)
 
-**4a2** · 376 DRs, 120 within-goal · 76 routes to 2qt per DR (median, both searches). The bound finishes 27× fewer HTRs with no change in the chance of missing. It finds a within-goal finish in the first 10 for 62% of within-goal DRs against 39%.
+**4a2** · 376 DRs, 120 within-goal · 76 routes to 2qt per DR (median, both searches). The bound finishes 27× fewer HTRs with no change in the chance of missing.
 
-| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 878 | 1 in 738 | 4.2% | 25% | 39% |
-| **Corner-case-aware** | 32 | 1 in 54 | 4.2% | 40% | 62% |
+| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 878 | 1 in 738 | 4.2% |
+| **Corner-case-aware** | 32 | 1 in 54 | 4.2% |
 
-**4b2** · 1,584 DRs, 953 within-goal · 77 routes to 2qt per DR (median, both searches). The bound finishes 12× fewer HTRs with a chance of missing 0.2 points higher. It finds a within-goal finish in the first 10 for 58% of within-goal DRs against 49%.
+**4b2** · 1,584 DRs, 953 within-goal · 77 routes to 2qt per DR (median, both searches). The bound finishes 12× fewer HTRs with a chance of missing 0.2 points higher.
 
-| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 756 | 1 in 388 | 8.0% | 40% | 49% |
-| **Corner-case-aware** | 64 | 1 in 36 | 8.2% | 49% | 58% |
+| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 756 | 1 in 388 | 8.0% |
+| **Corner-case-aware** | 64 | 1 in 36 | 8.2% |
 
 ### 3qt DRs (goal 13)
 
-**0c3** · 101 DRs, 15 within-goal (a small sample) · 27 routes to 2qt per DR (median, both searches). The bound finishes 24× fewer HTRs with no change in the chance of missing. It finds a within-goal finish in the first 10 for 21% of within-goal DRs against 6%.
+**0c3** · 101 DRs, 15 within-goal (a small sample) · 27 routes to 2qt per DR (median, both searches). The bound finishes 24× fewer HTRs with no change in the chance of missing.
 
-| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 760 | 1 in 1,940 | 6.7% | 4% | 6% |
-| **Corner-case-aware** | 32 | 1 in 112 | 6.7% | 15% | 21% |
+| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 760 | 1 in 1,940 | 6.7% |
+| **Corner-case-aware** | 32 | 1 in 112 | 6.7% |
 
-**2c3** · 1,048 DRs, 901 within-goal · 169 routes to 2qt per DR (median, both searches). The bound finishes 11× fewer HTRs with a chance of missing 0.2 points higher. It finds a within-goal finish in the first 10 for 47% of within-goal DRs against 36%.
+**2c3** · 1,048 DRs, 901 within-goal · 169 routes to 2qt per DR (median, both searches). The bound finishes 11× fewer HTRs with a chance of missing 0.2 points higher.
 
-| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 1,602 | 1 in 411 | 6.7% | 28% | 36% |
-| **Corner-case-aware** | 143 | 1 in 37 | 6.9% | 36% | 47% |
+| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 1,602 | 1 in 411 | 6.7% |
+| **Corner-case-aware** | 143 | 1 in 37 | 6.9% |
 
-**4c3** · 851 DRs, 511 within-goal · 236 routes to 2qt per DR (median, both searches). The bound finishes 16× fewer HTRs with no change in the chance of missing. It finds a within-goal finish in the first 10 for 40% of within-goal DRs against 22%.
+**4c3** · 851 DRs, 511 within-goal · 236 routes to 2qt per DR (median, both searches). The bound finishes 16× fewer HTRs with no change in the chance of missing.
 
-| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 1,948 | 1 in 891 | 2.2% | 15% | 22% |
-| **Corner-case-aware** | 122 | 1 in 60 | 2.2% | 26% | 40% |
+| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 1,948 | 1 in 891 | 2.2% |
+| **Corner-case-aware** | 122 | 1 in 60 | 2.2% |
 
 ### 4qt DRs (goal 14)
 
-**0c4** · 66 DRs, 66 within-goal (a small sample) · 755 routes to 2qt per DR (median, both searches). The bound finishes 16× fewer HTRs with no change in the chance of missing. It finds a within-goal finish in the first 10 for 23% of within-goal DRs against 11%.
+**0c4** · 66 DRs, 66 within-goal (a small sample) · 755 routes to 2qt per DR (median, both searches). The bound finishes 16× fewer HTRs with no change in the chance of missing.
 
-| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 8,444 | 1 in 1,252 | 1.5% | 8% | 11% |
-| **Corner-case-aware** | 538 | 1 in 82 | 1.5% | 16% | 23% |
+| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 8,444 | 1 in 1,252 | 1.5% |
+| **Corner-case-aware** | 538 | 1 in 82 | 1.5% |
 
-**2c4** · 1,243 DRs, 1,123 within-goal · 428 routes to 2qt per DR (median, both searches). The bound finishes 13× fewer HTRs with no change in the chance of missing. It finds a within-goal finish in the first 10 for 40% of within-goal DRs against 27%.
+**2c4** · 1,243 DRs, 1,123 within-goal · 428 routes to 2qt per DR (median, both searches). The bound finishes 13× fewer HTRs with no change in the chance of missing.
 
-| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 2,569 | 1 in 680 | 4.5% | 18% | 27% |
-| **Corner-case-aware** | 203 | 1 in 51 | 4.5% | 28% | 40% |
+| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 2,569 | 1 in 680 | 4.5% |
+| **Corner-case-aware** | 203 | 1 in 51 | 4.5% |
 
-**4c4** · 691 DRs, 397 within-goal · 505 routes to 2qt per DR (median, both searches). The bound finishes 17× fewer HTRs with no change in the chance of missing. It finds a within-goal finish in the first 10 for 27% of within-goal DRs against 10%.
+**4c4** · 691 DRs, 397 within-goal · 505 routes to 2qt per DR (median, both searches). The bound finishes 17× fewer HTRs with no change in the chance of missing.
 
-| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 2,081 | 1 in 1,217 | 4.5% | 7% | 10% |
-| **Corner-case-aware** | 126 | 1 in 76 | 4.5% | 17% | 27% |
+| Search | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 2,081 | 1 in 1,217 | 4.5% |
+| **Corner-case-aware** | 126 | 1 in 76 | 4.5% |
 
 ### Where the misses come from
 
@@ -147,6 +146,23 @@ Each missed DR the bound didn't lose is filed under its cheapest within-goal HTR
 | 2c4 | 6.5% | 4.5% | 0.4% | 4.1% | 0.0% | 0.0% | 0.0% |
 | 4c4 | 31.0% | 4.5% | 0.0% | 4.5% | 0.0% | 0.0% | 0.0% |
 
+### Found within K finishes
+
+With the corner-case-aware bound, a within-goal finish comes up within 20 finishes for 37–76% of within-goal DRs, against 9–55% without DR Bounding.
+
+The order is a solver's. Skeletons go shortest first, and each skeleton's variants fewest extra moves first. A first pass finishes at most 3 variants per skeleton, then you come back for the rest in the same order, so the chance of missing stays as in the tables above. Ties are taken in random order, averaged over 20 orders. Each cell is the share of within-goal DRs where one of the first K finishes is within goal.
+
+| Corner case | Meta, within 5 | Meta, within 10 | Meta, within 20 | Baseline, within 5 | Baseline, within 10 | Baseline, within 20 |
+|---|---|---|---|---|---|---|
+| 4b2 | 48% | 60% | 76% | 42% | 49% | 55% |
+| 4a2 | 38% | 53% | 74% | 23% | 29% | 39% |
+| 2c3 | 33% | 48% | 64% | 26% | 39% | 50% |
+| 4c3 | 26% | 41% | 59% | 13% | 20% | 28% |
+| 2c4 | 26% | 43% | 58% | 18% | 31% | 40% |
+| 0c3 | 17% | 23% | 38% | 5% | 7% | 9% |
+| 0c4 | 14% | 24% | 37% | 6% | 11% | 17% |
+| 4c4 | 17% | 31% | 49% | 7% | 11% | 17% |
+
 ## Appendix A. Varying the bound
 
 [*Advanced DR Bounding*](https://docs.google.com/document/d/13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0) doc 
@@ -158,79 +174,79 @@ but the biggest jump is between using any type of DR Bounding vs. none.
 
 **4a2** · 376 DRs, 120 within-goal. Corner-case-aware makes a finished HTR 13.6× likelier to be within goal than the baseline does; comprehensive adds 2.0× on top.
 
-| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 878 | 1 in 738 | 4.2% | 25% | 39% |
-| Simple | 80 | 1 in 140 | 4.2% | 32% | 49% |
-| **Corner-case-aware** | 32 | 1 in 54 | 4.2% | 40% | 62% |
-| Comprehensive | 16 | 1 in 27 | 4.2% | 49% | 73% |
+| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 878 | 1 in 738 | 4.2% |
+| Simple | 80 | 1 in 140 | 4.2% |
+| **Corner-case-aware** | 32 | 1 in 54 | 4.2% |
+| Comprehensive | 16 | 1 in 27 | 4.2% |
 
 **4b2** · 1,584 DRs, 953 within-goal. Corner-case-aware makes a finished HTR 10.8× likelier to be within goal than the baseline does; comprehensive adds 1.9× on top.
 
-| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 756 | 1 in 388 | 8.0% | 40% | 49% |
-| Simple | 141 | 1 in 79 | 8.0% | 44% | 54% |
-| **Corner-case-aware** | 64 | 1 in 36 | 8.2% | 49% | 58% |
-| Comprehensive | 33 | 1 in 19 | 8.0% | 54% | 68% |
+| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 756 | 1 in 388 | 8.0% |
+| Simple | 141 | 1 in 79 | 8.0% |
+| **Corner-case-aware** | 64 | 1 in 36 | 8.2% |
+| Comprehensive | 33 | 1 in 19 | 8.0% |
 
 ### 3qt DRs (goal 13)
 
 **0c3** · 101 DRs, 15 within-goal (a small sample). Corner-case-aware makes a finished HTR 17.3× likelier to be within goal than the baseline does; comprehensive adds 1.9× on top.
 
-| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 760 | 1 in 1,940 | 6.7% | 4% | 6% |
-| Simple | 96 | 1 in 282 | 6.7% | 10% | 15% |
-| **Corner-case-aware** | 32 | 1 in 112 | 6.7% | 15% | 21% |
-| Comprehensive | 8 | 1 in 58 | 6.7% | 24% | 36% |
+| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 760 | 1 in 1,940 | 6.7% |
+| Simple | 96 | 1 in 282 | 6.7% |
+| **Corner-case-aware** | 32 | 1 in 112 | 6.7% |
+| Comprehensive | 8 | 1 in 58 | 6.7% |
 
 **2c3** · 1,048 DRs, 901 within-goal. Corner-case-aware makes a finished HTR 11.0× likelier to be within goal than the baseline does; comprehensive adds 1.9× on top.
 
-| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 1,602 | 1 in 411 | 6.7% | 28% | 36% |
-| Simple | 325 | 1 in 82 | 6.9% | 31% | 41% |
-| **Corner-case-aware** | 143 | 1 in 37 | 6.9% | 36% | 47% |
-| Comprehensive | 75 | 1 in 20 | 6.7% | 41% | 57% |
+| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 1,602 | 1 in 411 | 6.7% |
+| Simple | 325 | 1 in 82 | 6.9% |
+| **Corner-case-aware** | 143 | 1 in 37 | 6.9% |
+| Comprehensive | 75 | 1 in 20 | 6.7% |
 
 **4c3** · 851 DRs, 511 within-goal. Corner-case-aware makes a finished HTR 14.9× likelier to be within goal than the baseline does; comprehensive adds 2.0× on top.
 
-| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 1,948 | 1 in 891 | 2.2% | 15% | 22% |
-| Simple | 302 | 1 in 149 | 3.3% | 20% | 30% |
-| **Corner-case-aware** | 122 | 1 in 60 | 2.2% | 26% | 40% |
-| Comprehensive | 58 | 1 in 30 | 2.2% | 34% | 51% |
+| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 1,948 | 1 in 891 | 2.2% |
+| Simple | 302 | 1 in 149 | 3.3% |
+| **Corner-case-aware** | 122 | 1 in 60 | 2.2% |
+| Comprehensive | 58 | 1 in 30 | 2.2% |
 
 ### 4qt DRs (goal 14)
 
 **0c4** · 66 DRs, 66 within-goal (a small sample). Corner-case-aware makes a finished HTR 15.2× likelier to be within goal than the baseline does; comprehensive adds 1.9× on top.
 
-| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 8,444 | 1 in 1,252 | 1.5% | 8% | 11% |
-| Simple | 1,266 | 1 in 205 | 1.5% | 11% | 16% |
-| **Corner-case-aware** | 538 | 1 in 82 | 1.5% | 16% | 23% |
-| Comprehensive | 260 | 1 in 43 | 1.5% | 22% | 32% |
+| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 8,444 | 1 in 1,252 | 1.5% |
+| Simple | 1,266 | 1 in 205 | 1.5% |
+| **Corner-case-aware** | 538 | 1 in 82 | 1.5% |
+| Comprehensive | 260 | 1 in 43 | 1.5% |
 
 **2c4** · 1,243 DRs, 1,123 within-goal. Corner-case-aware makes a finished HTR 13.4× likelier to be within goal than the baseline does; comprehensive adds 1.9× on top.
 
-| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 2,569 | 1 in 680 | 4.5% | 18% | 27% |
-| Simple | 492 | 1 in 123 | 5.2% | 22% | 32% |
-| **Corner-case-aware** | 203 | 1 in 51 | 4.5% | 28% | 40% |
-| Comprehensive | 105 | 1 in 26 | 4.5% | 34% | 50% |
+| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 2,569 | 1 in 680 | 4.5% |
+| Simple | 492 | 1 in 123 | 5.2% |
+| **Corner-case-aware** | 203 | 1 in 51 | 4.5% |
+| Comprehensive | 105 | 1 in 26 | 4.5% |
 
 **4c4** · 691 DRs, 397 within-goal. Corner-case-aware makes a finished HTR 16.1× likelier to be within goal than the baseline does; comprehensive adds 2.0× on top.
 
-| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish | Found within 5 finishes | Found within 10 finishes |
-|---|---|---|---|---|---|
-| Baseline (no DR Bounding) | 2,081 | 1 in 1,217 | 4.5% | 7% | 10% |
-| Simple | 338 | 1 in 186 | 4.5% | 11% | 18% |
-| **Corner-case-aware** | 126 | 1 in 76 | 4.5% | 17% | 27% |
-| Comprehensive | 60 | 1 in 38 | 4.5% | 27% | 43% |
+| Bound | HTRs to finish per DR (median) | Within goal | Chance of missing a within-goal finish |
+|---|---|---|---|
+| Baseline (no DR Bounding) | 2,081 | 1 in 1,217 | 4.5% |
+| Simple | 338 | 1 in 186 | 4.5% |
+| **Corner-case-aware** | 126 | 1 in 76 | 4.5% |
+| Comprehensive | 60 | 1 in 38 | 4.5% |
 
 ## Appendix B. Varying S+T and the pre-2qt moves
 
@@ -415,7 +431,7 @@ Every number above comes from an exhaustive search of random DRs, with each HTR'
 - **Sample.** 2,000 uniformly random DR states each with 2, 3 and 4 quarter turns to HTR. 40 of the 2qt states are 0c0 up to a turn of both layers and are dropped, leaving 1,960.
 - **Search.** On both sides, every HTR in reach of every skeleton with the DR's quarter turns or two more, up to 6. In reach means S+T+L ≤ G. The S+T and pre-2qt limits of each table are applied on top.
 - **Finish.** The shortest leave-slice finish in DR moves from that HTR, from an exact table. An HTR is within goal when its moves plus that finish fit the goal.
-- **Order of finishing.** Shortest skeleton first, then fewest extra moves. Ties are taken in random order, and the found-within-K shares are expected values over that order.
+- **Order of finishing.** Skeletons shortest first, each skeleton's variants fewest extra moves first. A first pass finishes at most 3 variants per skeleton, then the rest follow in the same order. Ties are taken in random order, and the found-within-K shares are averages over 20 such orders.
 - **Routes to 2qt.** Distinct move sequences, on either side, up to the point where the skeleton has 2 quarter turns left, that lead to at least one HTR the table's limits allow. They're counted before any bound, so they don't depend on it.
 
 ### Left out of the meta
