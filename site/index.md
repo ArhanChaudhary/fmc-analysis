@@ -79,6 +79,12 @@ Which HTRs are worth finishing when you look for a leave-slice solution from a 2
 
 - [Write-up](dr-variants/): the two floors, the order of finishing, skeletons, NISS, abandoning, the meta step by step, ten worked scrambles and the claims check. It opens with the short version.
 
+## The skeleton/variant meta
+
+A search meta for DR finishes built on Advanced DR Bounding. Sort the DRs by corner case and the skeletons by length, check the variants with S+T ≤ 5 and at most 1 extra move before 2qt on normal and inverse, and finish only the ones whose corner-case-aware bound fits the goal. Per corner case, from 4b2 to 4c4: how often it misses a within-goal finish (1.5–8.2%), how many fewer HTRs it finishes than a search without DR Bounding (11–27×), and what other bounds and limits would change. About 2,000 uniformly random DRs of each kind, every HTR in reach finished exactly.
+
+- [Write-up](skeleton-variant-meta/): the meta, its stats per corner case, where the misses come from, the other bounds, other S+T and pre-2qt limits, and the data and method.
+
 ## Corners in 3D
 
 The corners of any state, not just a DR, with DBL held and R, U, F turns: what you can see on them, what you can prove from it about the distance to HTR, and whether it tells you the turn that gets closer. A corner shows one of six types and a quarter turn changes them by one rule. Types alone find real HTR exactly 1 time in 6, with parity 1 in 3, with the D-colour corners 1 in 2, and the three together fix the case: HTR is every corner good, D-colour corners in a 4a picture, parity even. A fake HTR is exactly 9 moves from HTR even with off-axis turns. Floors with how tight each is (a count table read at a glance, the distance to triple DR, the parity and colour upgrades, which ones survive NISS), every rule for the next turn graded by distance, what the twist costs on top of the subset number of the placement (0, 2, 4, 6 or 8 quarter turns), and DR corner cases solved with and without leaving DR. Exact over all 3,674,160 corner states, proved in Lean.
