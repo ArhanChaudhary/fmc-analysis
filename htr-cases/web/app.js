@@ -1,5 +1,5 @@
 // The HTR case index: the list of cases from the WebAssembly module (worker.js), drawn with cube.js.
-import { CubeView } from './cube.js';
+import { CubeView, DEFAULT_VIEW } from './cube.js';
 
 // ---- the worker -------------------------------------------------------------------------------------------------
 
@@ -37,16 +37,10 @@ function el(tag, attrs = {}, ...children) {
 
 const fmt = (n) => n.toLocaleString('en');
 const plural = (n, one, many = one + 's') => `${fmt(n)} ${n === 1 ? one : many}`;
-const CORNERS = ['UFR', 'UFL', 'UBL', 'UBR', 'DFR', 'DFL', 'DBL', 'DBR'];
-const EDGES = ['UF', 'UL', 'UB', 'UR', 'DF', 'DL', 'DB', 'DR'];
 const LABEL_TEXT = { 'no parity': 'no parity', parity: 'parity', clockwise: '↻ clockwise', anticlockwise: '↺ anticlockwise' };
 
 function tag(label) {
   return label ? el('span', { class: 'tag', title: label }, LABEL_TEXT[label]) : null;
-}
-
-function code(text) {
-  return text ? el('code', {}, text) : el('span', { class: 'hint' }, 'nothing');
 }
 
 let cases = [];
@@ -73,7 +67,7 @@ function htrList(list, moves, max, faces = ['U', 'D']) {
       moves <= max
         ? `${plural(list.length, 'HTR')} of ${max} moves or less, up to the E slice. `
         : `No HTR of ${max} moves or less. The shortest are ${moves} moves: ${fmt(list.length)} of them, up to the E slice. `,
-      el('span', { class: 'hint' }, `HTRs that differ only by the E slice (a ${faces[1]} turn for a ${faces[0]} turn, and the faces after it turned with it) are written once. Each ends in a quarter turn that can go either way (${faces[0]} or ${faces[0]}′, ${faces[1]} or ${faces[1]}′); only the clockwise one is written.`)),
+      el('span', { class: 'hint' }, `Each ends in a quarter turn that can go either way (${faces[0]} or ${faces[0]}′, ${faces[1]} or ${faces[1]}′); only the clockwise one is written.`)),
   );
   const lengths = [...byLength.keys()].sort((a, b) => a - b);
   for (const n of lengths) {
@@ -99,117 +93,133 @@ function htrList(list, moves, max, faces = ['U', 'D']) {
   return box;
 }
 
-// ---- one case, opened -------------------------------------------------------------------------------------------
+// ---- the side panel --------------------------------------------------------------------------------------------
+// The list never moves when a case is opened: the case opens in the panel beside it (over it, on a phone), and the
+// card is only marked.  "Show in list" scrolls the list to the card.
 
-function piecesText(corners, edges) {
-  const part = (list, what) => (list.length ? `${list.join(' ')}` : `no bad ${what}`);
-  return `${part(corners, 'corners')} · ${part(edges, 'edges')}`;
-}
+const side = {};
+let sideCube = null;
+let selection = null; // { n }: a case of the index; { found }: a solver's own DR
+let selectedCard = null;
+let renderToken = 0;
+const narrow = () => matchMedia('(max-width: 44rem)').matches;
 
-function complement(list, all) {
-  return all.filter((p) => !list.includes(p));
-}
+const caseLink = (n, text = `#${n}`) => el('a', { href: `#case-${n}`, onclick: (e) => { e.preventDefault(); selectCase(n); } }, text);
 
 function lookalikeLinks(c) {
-  const items = c.lookalikes.map((n) => {
-    const o = byNumber.get(n);
-    return el('span', {}, `${o.subset} ${o.edges}e `, el('a', { href: `#case-${n}`, onclick: (e) => { e.preventDefault(); openCase(n); } }, `#${n}`),
-      ` (${o.moves}${o.label ? ', ' + o.label : ''})`);
-  });
   const out = el('span', { class: 'lookalikes' });
-  items.forEach((it, i) => out.append(i ? ' · ' : '', it));
+  c.lookalikes.forEach((n, i) => {
+    const o = byNumber.get(n);
+    out.append(i ? ' · ' : '', el('span', {}, `${o.subset} ${o.edges}e `, caseLink(n), ` (${o.moves}${o.label ? ', ' + o.label : ''})`));
+  });
   return out;
 }
 
-// the pair of a case a U2 away (see the page's notes): in the merged index both live on the first one's card
-function pairRow(c, card) {
+// the pair of a case a U2 away (see the page's notes): in the merged index both are one card
+function pairRow(c) {
   if (!c.u2_mates.length) return [];
-  const link = (n) => el('a', { href: `#case-${n}`, onclick: (e) => { e.preventDefault(); openCase(n); } }, `#${n}`);
   const pick = merge
     ? el('span', { class: 'switch' }, ...[c.number, ...c.u2_mates].sort((a, b) => a - b).map((n) =>
-        el('label', {}, el('input', { type: 'radio', name: `pair-${card.id}`, checked: n === c.number,
-          onchange: () => { card.querySelector('.detail').remove(); renderDetail(byNumber.get(n), card); history.replaceState(null, '', `#case-${n}`); } }),
+        el('label', {}, el('input', { type: 'radio', name: 'pair', checked: n === c.number, onchange: () => selectCase(n) }),
           ` #${n}${byNumber.get(n).label ? ` (${byNumber.get(n).label})` : ''}`)))
-    : el('span', {}, ...c.u2_mates.flatMap((n, i) => [i ? ' · ' : '', link(n)]));
+    : el('span', {}, ...c.u2_mates.flatMap((n, i) => [i ? ' · ' : '', caseLink(n)]));
   return [el('span', { class: 'k' }, 'A U2 away'), el('span', {}, pick,
     el('div', { class: 'hint' }, 'The other is this one after U2, seen from some side; a shortest HTR of each starts with a quarter turn of that layer, U on one and U′ on the other, and after it they are the same case.'))];
 }
 
-function renderDetail(c, card, startTurned = false) {
-  card.dataset.shown = c.number;
-  const special = c.number === 1; // HTR with the E slice turned
-  const canvas = el('canvas', { width: 300, height: 300, 'aria-label': `Case ${c.number}, bad pieces` });
-  const view = el('div', { class: 'view' }, canvas, el('div', { class: 'hint' }, 'Drag to turn · double-click to reset'));
-  const facts = el('div', { class: 'facts' });
-  const htrs = el('div', { class: 'htrs' }, el('p', { class: 'hint' }, 'Listing the HTRs…'));
-  const title = el('h3', {});
-  const info = el('div', { class: 'info' }, title, facts);
-  const detail = el('div', { class: 'detail' }, view, info, htrs);
-  card.append(detail);
-  const cube = new CubeView(canvas, { interactive: true });
-
-  let turned = startTurned && c.number !== 1;
-  const show = async () => {
-    const v = turned ? c.turned : c;
-    const corners = turned ? complement(c.bad_corners, CORNERS) : c.bad_corners;
-    const edges = turned ? complement(c.bad_edges, EDGES) : c.bad_edges;
-    const moves = turned ? c.turned.moves : c.moves;
-    cube.set({ corners, edges });
-    title.replaceChildren(
-      ...[`Case ${c.number} · ${c.subset} ${c.edges}e · ${plural(moves, 'move')} `, tag(v.label),
-        el('button', { type: 'button', class: 'close', onclick: () => closeCase(card) }, 'Close')].filter(Boolean));
-    const switcher = special
-      ? el('span', {}, 'Every corner and edge is bad: HTR with the E slice a quarter turn off. With it turned back, this is HTR itself.')
-      : el('span', { class: 'switch' },
-          ...[false, true].map((t) =>
-            el('label', {},
-              el('input', { type: 'radio', name: `turn-${c.number}`, checked: t === turned, onchange: () => { turned = t; show(); } }),
-              t ? ` every other piece (${c.turned.corners}c ${c.turned.edges}e: the E slice turned)`
-                : ` the solid ones (${c.bad_corners.length}c ${c.bad_edges.length}e)`)));
-    const lookText = special
-      ? [el('span', { class: 'hint' }, 'Nothing is bad in the frame with few bad pieces, as in these fake HTRs: '), lookalikeLinks(c)]
-      : [lookalikeLinks(c), el('div', { class: 'hint' }, 'Same bad pieces, other cases. The corner test tells them apart.')];
-    facts.replaceChildren(
-      el('span', { class: 'k' }, 'Bad pieces'), el('span', {}, piecesText(corners, edges)),
-      el('span', { class: 'k' }, 'Which are bad'), switcher,
-      el('span', { class: 'k' }, 'Make it'), el('span', {}, code(v.generator), el('span', { class: 'hint' }, ' from solved')),
-      el('span', { class: 'k' }, 'Corner test'), el('span', {}, code(v.corner_test),
-        el('span', { class: 'hint' }, special ? ' puts the corners in HTR' : ' puts these corners in HTR; on a lookalike it leaves fake HTR')),
-      el('span', { class: 'k' }, 'Lookalikes'), el('span', {}, ...lookText),
-      ...pairRow(c, card),
-    );
-    htrs.replaceChildren(el('p', { class: 'hint' }, 'Listing the HTRs…'));
-    const shown = turned;
-    try {
-      const list = await call('solutions', c.number, turned);
-      if (shown === turned) htrs.replaceChildren(...htrList(list, moves, 8).childNodes);
-    } catch (err) {
-      htrs.replaceChildren(el('p', { class: 'error' }, err.message));
-    }
-  };
-  show();
+function markCard(n) {
+  selectedCard?.classList.remove('selected');
+  selectedCard?.querySelector('.thumb')?.removeAttribute('aria-current');
+  selectedCard = n ? document.getElementById(`case-${merge ? leaderOf(n) : n}`) : null;
+  selectedCard?.classList.add('selected');
+  selectedCard?.querySelector('.thumb')?.setAttribute('aria-current', 'true');
 }
 
-// ---- opening and closing ----------------------------------------------------------------------------------------
+function showSide(fresh) {
+  side.locate.hidden = !selectedCard;
+  side.close.hidden = false;
+  side.panel.classList.add('active');
+  if (fresh) side.panel.scrollTop = 0;
+}
 
-let openCard = null;
-
-function closeCase(card) {
-  card.classList.remove('open');
-  card.querySelector('.detail')?.remove();
-  if (openCard === card) openCard = null;
+function closeSide() {
+  renderToken++;
+  selection = null;
+  markCard(null);
+  side.name.textContent = 'No case open';
+  side.locate.hidden = side.close.hidden = true;
+  side.viewHint.textContent = 'Drag to turn · double-click to reset';
+  sideCube.reset();
+  sideCube.set({ corners: [], edges: [] });
+  side.heading.replaceChildren();
+  side.facts.replaceChildren();
+  side.htrs.replaceChildren(side.emptyText);
+  side.panel.classList.remove('active');
+  side.panel.scrollTop = 0;
   history.replaceState(null, '', location.pathname + location.search);
 }
 
-function openCase(n, turned = false) {
-  const card = document.getElementById(`case-${merge ? leaderOf(n) : n}`);
-  if (!card) return;
-  if (openCard) closeCase(openCard);
-  card.classList.add('open');
-  renderDetail(byNumber.get(n), card, turned);
-  openCard = card;
+// scroll the list to the open case's card (the only time the list moves)
+function locate(instant = false) {
+  if (!selectedCard) return;
+  if (narrow()) side.panel.classList.remove('active');
+  selectedCard.scrollIntoView({ behavior: instant ? 'instant' : 'smooth', block: 'center' });
+  selectedCard.querySelector('.thumb').focus({ preventScroll: true });
+}
+
+function selectCase(n) {
+  const fresh = selection?.n !== n;
+  selection = { n };
+  markCard(n);
   history.replaceState(null, '', `#case-${n}`);
-  card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  renderCase(byNumber.get(n), fresh);
+}
+
+async function renderCase(c, fresh) {
+  const token = ++renderToken;
+  side.name.textContent = `Case ${c.number}`;
+  side.viewHint.textContent = 'Drag to turn · double-click to reset';
+  if (fresh) sideCube.view = { ...DEFAULT_VIEW };
+  sideCube.set({ corners: c.bad_corners, edges: c.bad_edges });
+  side.heading.replaceChildren(`${c.subset} ${c.edges}e · ${plural(c.moves, 'move')} to HTR `, ...[tag(c.label)].filter(Boolean));
+  side.facts.replaceChildren(
+    el('span', { class: 'k' }, 'Lookalikes'), el('span', {}, lookalikeLinks(c)),
+    ...pairRow(c),
+  );
+  side.htrs.replaceChildren(el('p', { class: 'hint' }, 'Listing the HTRs…'));
+  showSide(fresh);
+  try {
+    const list = await call('solutions', c.number, false);
+    if (token === renderToken) side.htrs.replaceChildren(...htrList(list, c.moves, 8).childNodes);
+  } catch (err) {
+    if (token === renderToken) side.htrs.replaceChildren(el('p', { class: 'error' }, err.message));
+  }
+}
+
+function renderFound(f) {
+  renderToken++;
+  selection = { found: f };
+  markCard(f.number);
+  history.replaceState(null, '', location.pathname + location.search);
+  side.name.textContent = 'Your DR';
+  side.viewHint.textContent = 'Your cube as you hold it · drag to turn';
+  sideCube.view = { ...DEFAULT_VIEW };
+  sideCube.set({ corners: f.corners, edges: f.edge_pieces });
+  side.heading.replaceChildren(`${f.subset} ${f.edges}e · ${plural(f.moves, 'move')} to HTR `, ...[tag(f.label)].filter(Boolean));
+  const which = f.highlighted_are_bad
+    ? `the solid ones (${f.bad[0]}c ${f.bad[1]}e)`
+    : `every piece but the solid ones (${f.bad[0]}c ${f.bad[1]}e: the slice between your DR faces is a quarter turn off)`;
+  side.facts.replaceChildren(
+    el('span', { class: 'k' }, 'DR axis'), el('span', {}, f.axis),
+    el('span', { class: 'k' }, 'Which are bad'), el('span', {}, which),
+    el('span', { class: 'k' }, 'In the index'), el('span', {},
+      caseLink(f.number, `case ${f.number}`),
+      el('span', { class: 'hint' }, f.turned
+        ? ' with the slice between your DR faces turned: its bad pieces are your good ones'
+        : ' (drawn with the DR on U/D, maybe turned or mirrored)')),
+  );
+  side.htrs.replaceChildren(...htrList(f.solutions, f.moves, 8, { 'R/L': ['R', 'L'], 'U/D': ['U', 'D'], 'F/B': ['F', 'B'] }[f.axis]).childNodes);
+  showSide(true);
 }
 
 // ---- the index --------------------------------------------------------------------------------------------------
@@ -225,7 +235,7 @@ function buildIndex() {
   root.replaceChildren();
   nav.replaceChildren();
   observer?.disconnect();
-  openCard = null;
+  selectedCard = null;
   const groups = new Map();
   for (const c of cases) {
     if (merge && leaderOf(c.number) !== c.number) continue;
@@ -243,7 +253,7 @@ function buildIndex() {
       const c = byNumber.get(Number(e.target.dataset.n));
       new CubeView(e.target).set({ corners: c.bad_corners, edges: c.bad_edges });
     }
-  }, { rootMargin: '300px' }));
+  }, { root: $('#list'), rootMargin: '300px' }));
   const casesIn = (list) => list.reduce((t, c) => t + membersOf(c).length, 0);
   const counted = (list) => (merge ? `${plural(casesIn(list), 'case')} · ${fmt(list.length)} entries` : plural(list.length, 'case'));
 
@@ -260,7 +270,9 @@ function buildIndex() {
           const canvas = el('canvas', { 'data-n': c.number, 'aria-hidden': 'true' });
           const members = membersOf(c);
           const labels = [...new Set(members.map((n) => byNumber.get(n).label).filter(Boolean))];
-          const thumb = el('button', { type: 'button', class: 'thumb', title: `Case ${members.join(' and ')}: ${c.subset} ${c.edges}e, ${plural(c.moves, 'move')}`, onclick: () => openCase(c.number) },
+          // a card already open (in the merged index, either case of it) stays as it is; on a phone it opens the panel again
+          const open = () => (selection?.n && members.includes(selection.n) ? showSide(false) : selectCase(c.number));
+          const thumb = el('button', { type: 'button', class: 'thumb', title: `Case ${members.join(' and ')}: ${c.subset} ${c.edges}e, ${plural(c.moves, 'move')}`, onclick: open },
             canvas, el('div', { class: 'cap' }, el('b', {}, members.map((n) => `#${n}`).join(' · ')), ...labels.map(tag)));
           grid.append(el('div', { class: 'case', id: `case-${c.number}` }, thumb));
           draw.observe(canvas);
@@ -283,34 +295,14 @@ async function find(e) {
   const scramble = $('#find-scramble').value;
   const moves = $('#find-moves').value;
   try { localStorage.setItem(STORE, JSON.stringify({ scramble, moves })); } catch { /* storage may be off */ }
-  const out = $('#find-result');
-  out.replaceChildren(el('p', { class: 'hint' }, 'Looking…'));
-  let f;
+  const error = $('#find-error');
   try {
-    f = await call('find', scramble, moves);
+    renderFound(await call('find', scramble, moves));
+    error.hidden = true;
   } catch (err) {
-    out.replaceChildren(el('p', { class: 'error' }, err.message));
-    return;
+    error.textContent = err.message;
+    error.hidden = false;
   }
-  const canvas = el('canvas', { width: 300, height: 300, 'aria-label': 'Your DR, bad pieces' });
-  const which = f.highlighted_are_bad
-    ? `the solid ones (${f.bad[0]}c ${f.bad[1]}e)`
-    : `every piece but the solid ones (${f.bad[0]}c ${f.bad[1]}e: the slice between your DR faces is a quarter turn off)`;
-  const facts = el('div', { class: 'facts' },
-    el('span', { class: 'k' }, 'DR axis'), el('span', {}, f.axis),
-    el('span', { class: 'k' }, 'Which are bad'), el('span', {}, which),
-    el('span', { class: 'k' }, 'Corner test'), el('span', {}, code(f.corner_test), el('span', { class: 'hint' }, ' puts your corners in HTR')),
-    el('span', { class: 'k' }, 'In the index'), el('span', {}, el('a', { href: `#case-${f.number}`, onclick: (ev) => { ev.preventDefault(); openCase(f.number, f.turned); } }, `case ${f.number}`),
-      el('span', { class: 'hint' }, f.turned
-        ? ' with the slice between your DR faces turned: its bad pieces are your good ones (the case\'s switch shows yours)'
-        : ' (drawn with the DR on U/D, maybe turned or mirrored)')),
-  );
-  const detail = el('div', { class: 'detail' },
-    el('div', { class: 'view' }, canvas, el('div', { class: 'hint' }, 'Your cube as you hold it · drag to turn')),
-    el('div', { class: 'info' }, el('h3', {}, `${f.subset} ${f.edges}e · ${plural(f.moves, 'move')} to HTR `, tag(f.label)), facts),
-    htrList(f.solutions, f.moves, 8, { 'R/L': ['R', 'L'], 'U/D': ['U', 'D'], 'F/B': ['F', 'B'] }[f.axis]));
-  out.replaceChildren(el('div', { class: 'case open' }, detail));
-  new CubeView(canvas, { interactive: true }).set({ corners: f.corners, edges: f.edge_pieces });
 }
 
 // ---- start ------------------------------------------------------------------------------------------------------
@@ -332,22 +324,36 @@ async function start() {
     return;
   }
   for (const c of cases) byNumber.set(c.number, c);
+  Object.assign(side, {
+    panel: $('#side'), name: $('#side-name'), locate: $('#side-locate'), close: $('#side-close'), viewHint: $('#side-view-hint'),
+    heading: $('#side-heading'), facts: $('#side-facts'), htrs: $('#side-htrs'),
+  });
+  side.emptyText = side.htrs.firstElementChild;
+  sideCube = new CubeView($('#side-canvas'), { interactive: true });
+  new ResizeObserver(() => sideCube.draw()).observe($('#side-canvas'));
+  side.locate.addEventListener('click', () => locate());
+  side.close.addEventListener('click', closeSide);
   const box = $('#merge');
   try { merge = localStorage.getItem(MERGE) === '1'; } catch { /* storage may be off */ }
   box.checked = merge;
   box.addEventListener('change', () => {
-    const shown = openCard ? Number(openCard.dataset.shown) : null;
     merge = box.checked;
     try { localStorage.setItem(MERGE, merge ? '1' : '0'); } catch { /* storage may be off */ }
     buildIndex();
-    if (shown) openCase(shown);
+    if (selection?.n) {
+      markCard(selection.n);
+      renderCase(byNumber.get(selection.n), false); // its pair is shown one way or the other
+    } else if (selection?.found) markCard(selection.found.number);
   });
   buildIndex();
   status.classList.add('done');
   $('#find-form').addEventListener('submit', find);
   $('#find-form button[type=submit]').disabled = false;
   const m = location.hash.match(/^#case-(\d+)$/);
-  if (m) openCase(Number(m[1]));
+  if (m && byNumber.has(Number(m[1]))) {
+    selectCase(Number(m[1]));
+    if (!narrow()) locate(true); // opened from a link: the list starts at its card
+  }
 }
 
 start();

@@ -21,7 +21,8 @@ as the same case:
 - **Rotations and mirrors** that keep the U/D axis: the 16 symmetries, acting by conjugation.
 - **The E slice.** Renaming every piece by U D' (which normalises H) turns every bad piece good and every good one bad,
   so 2c3 2e becomes 6c3 6e. In the frame with few bad pieces, where subsets are named, the bad pieces are the same.
-  Up to a y rotation, this is the same as turning the E slice.
+  Up to a y rotation, this is the same as turning the E slice. Each case is drawn the way with fewer bad pieces: 2c
+  rather than 6c, 0c rather than 8c (with 4 bad corners either way, the fewer bad edges), and case 1 as HTR itself.
 
 What the tests check about the E slice (`cases/tests/checks.rs`):
 - the two versions are the same number of moves from HTR, for every case except HTR itself, which a turned E slice
@@ -29,9 +30,9 @@ What the tests check about the E slice (`cases/tests/checks.rs`):
 - their HTRs are the same, with the last quarter turn moved to the other layer (all 405,992 of them, before the
   dedupe below).
 
-That leaves 1,272 cases. Every one shares its bad pieces with 3 to 5 other cases. Every case lists its *lookalikes* and
-has a *corner test*: a shortest sequence that puts its corners in HTR. The same sequence leaves any lookalike in fake
-HTR. Lookalikes in the same subset also get the label the guides use (`cases/src/labels.rs`):
+That leaves 1,272 cases. Every one shares its bad pieces with 3 to 5 other cases, its *lookalikes*, which the page
+lists. The CLI also gives a *corner test*: a shortest sequence that puts its corners in HTR, which leaves any lookalike
+in fake HTR. Lookalikes in the same subset also get the label the guides use (`cases/src/labels.rs`):
 
 - **4b2 parity.** Set the corners up for a Q X2 Q trigger with half turns, counting every U2 or D2 done while the bad
   corners split 3/1 between U and D. An even count gives real HTR (no parity); an odd count, parity.
@@ -52,13 +53,18 @@ So each ends in a single quarter turn that can go either way, and only the clock
 of each set that is the same up to the E slice, the shortest (`cosets::modulo_e`): ignoring the E slice, D is U with
 the cube turned a quarter, so every D turn is written as a U turn and the faces after it are moved round (R to F, F to
 L, L to B, B to R). Case 310's `U R2 U R2 U`, `U R2 D B2 D`, `D B2 U B2 D` and `D B2 D L2 U` are one HTR. That keeps
-27,888 of about 406,000. 782 cases have no HTR of 8 moves or less (most need 9 to 11; two need 13), and for those the
-page lists the shortest ones. Case 1, HTR up to the E slice, lists only `U D`.
+27,887 of about 406,000. 782 cases have no HTR of 8 moves or less (most need 9 to 11; two need 13), and for those the
+page lists the shortest ones. Case 1 is HTR itself; with the E slice turned (HTR up to the E slice) it lists only
+`U D`.
 
 **Pairs a U2 apart.** 192 pairs of cases are one case after U2 (or D2), with a shortest HTR on both that starts with a
 quarter turn of that layer: U on one is U′ on the other, so after it they are the same case (`classes::u2_mates`; 310
 and 311 are one pair). Both cases of a pair always have the same subset, edges and length. The page names each case's
 pair, and a switch shows each pair as one entry (1,080 entries).
+
+**The page.** The list of cases on the left; a click opens a case in the panel on its right (over the list, on a
+phone), and nothing in the list moves: the card is only marked. The panel has the case's lookalikes, its pair a U2
+apart and its HTRs.
 
 ## Layout
 
@@ -98,7 +104,7 @@ geometry of the turns and doesn't use the coset tables:
 - The dedupe keeps one HTR of each set with the same form up to the E slice. The members of a set end with the same
   corners and U/D-layer edges up to U D' (checked on the DR model), and case 310's four 5-movers are one set.
 - The lists are complete: a brute-force search over every DR-move sequence from the cube finds exactly the listed ones,
-  up to 7 moves on 23 cases, 8 moves on 3, and case 1.
+  up to 7 moves on 23 cases, 8 moves on 3, and case 1 with the E slice turned.
 - The guide's setups have the subsets the guide gives them, and its 4b2 and 2c3 examples have the parity and the
   direction it says.
 - NISS moves in brackets count on the inverse.

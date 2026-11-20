@@ -8,10 +8,10 @@
 #   bad_corners  the bad corners of the state the generator makes
 #   bad_edges    its bad U/D-layer edges
 #   generator    a shortest sequence of DR moves that makes the case from a solved cube (as many moves as htr)
-# Case 1 is HTR with the E slice a quarter turn off (every corner and edge bad); HTR itself is not listed.
+# Case 1 is HTR itself (with the E slice a quarter turn off it is the same case, 2 moves away): its generator is -.
 # HTRs of up to 8 moves for every case: on the page, or `htr-cases case N`.
 case	subset	edges	htr	label	bad_corners	bad_edges	generator
-1	0c0	0e	2	-	UFR UFL UBL UBR DFR DFL DBL DBR	UF UL UB UR DF DL DB DR	U' D'
+1	0c0	0e	0	-	-	-	-
 2	0c0	2e	5	-	-	UL DF	U' R2 F2 R2 U
 3	0c0	2e	6	-	-	UF UL	D' B2 R2 F2 U' L2
 4	0c0	4e	4	-	-	UL UR DF DB	D' R2 L2 U'

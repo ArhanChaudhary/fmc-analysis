@@ -143,7 +143,8 @@ impl Index {
 
     /// Every HTR of a coset in the listed form (see [`Cosets::solutions`]), as DR moves: those of up to [`MAX_LEN`]
     /// moves, or if there are none, the shortest ones.
-    /// (HTR with the E slice turned, case 1, is HTR up to the E slice: only its shortest, the E slice itself.)
+    /// (HTR itself, case 1, has none; turned, HTR with the E slice off is HTR up to the E slice: only its shortest, the
+    /// E slice itself.)
     pub fn all_solutions(&self, coset: usize) -> Vec<Vec<u8>> {
         let dist = self.cosets.dist[coset] as usize;
         let longest = if coset == self.cosets.turned_solved { dist } else { MAX_LEN.max(dist) };

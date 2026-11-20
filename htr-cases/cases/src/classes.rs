@@ -73,11 +73,8 @@ pub fn classes(cs: &Cosets) -> Vec<Class> {
         .into_iter()
         .map(|m| {
             let want = drawn[&key(&m)];
-            let mut coset = *m.iter().find(|&&x| layout(x) == want).expect("a case has the layout it is drawn with");
-            if coset == cs.solved {
-                // HTR itself looks like HTR with the E slice turned; the second is the case
-                coset = cs.eslice[coset] as usize;
-            }
+            // (HTR itself and HTR with the E slice turned are one case, drawn as HTR: no bad pieces)
+            let coset = *m.iter().find(|&&x| layout(x) == want).expect("a case has the layout it is drawn with");
             let (c, e) = cs.bad(coset);
             let edges = if c < 4 || (c == 4 && e <= 4) { e } else { 8 - e };
             Class {

@@ -92,14 +92,19 @@ fn generators_make_their_cases() {
     for i in 0..ix.cases.len() {
         let info = ix.info(i);
         assert_eq!(moves(&info.generator).len(), info.moves as usize, "case {}", i + 1);
+        if i == 0 {
+            // HTR itself; turned, HTR with the E slice off, whose only HTR is the E slice
+            assert_eq!((info.moves, info.bad_corners.len(), info.bad_edges.len()), (0, 0, 0));
+            assert_eq!(ix.find(&info.generator, "").unwrap_err(), "that is already HTR");
+            let turned = ix.find(&info.turned.generator, "").unwrap();
+            assert_eq!((turned.number, turned.turned, turned.moves), (1, true, 2));
+            assert_eq!(turned.solutions, ["U D"]);
+            continue;
+        }
         let found = ix.find(&info.generator, "").unwrap();
         assert_eq!((found.number, found.axis, found.moves), (i + 1, "U/D", info.moves));
         assert_eq!(found.bad, (info.bad_corners.len() as u32, info.bad_edges.len() as u32));
         assert_eq!(found.solutions, ix.solution_texts(ix.coset(i, false)));
-        if i == 0 {
-            assert_eq!(ix.find(&info.turned.generator, "").unwrap_err(), "that is already HTR");
-            continue;
-        }
         let turned = ix.find(&info.turned.generator, "").unwrap();
         assert_eq!(turned.number, i + 1, "the E slice turned is the same case");
         assert_eq!(turned.solutions, ix.solution_texts(ix.coset(i, true)));
@@ -136,7 +141,7 @@ fn every_listed_htr_reaches_htr() {
             for text in &list {
                 check_listed(&s, text, longest);
             }
-            if !(i == 0 && turned) {
+            if !(i == 0 && !turned) {
                 let shortest = list.iter().map(|t| moves(t).len()).min().unwrap();
                 assert_eq!(shortest, ix.cosets.dist[x] as usize, "case {} turned {turned}", i + 1);
                 if ix.cosets.dist[x] as usize > MAX_LEN {
@@ -196,13 +201,17 @@ fn all_texts(ix: &Index, coset: usize) -> Vec<String> {
 #[test]
 fn lists_are_complete() {
     let ix = index();
-    // a spread of cases up to 7 moves, and three to the full 8; case 1 (HTR up to the E slice) lists its 2-movers only
-    let sample: Vec<(usize, usize)> =
-        (53..ix.cases.len()).step_by(53).map(|i| (i, 7)).chain([(0, 2), (1, 8), (300, 8), (900, 8)]).collect();
-    for (i, max_len) in sample {
+    // a spread of cases up to 7 moves, and three to the full 8; case 1 is HTR (nothing to list), and turned it is HTR
+    // up to the E slice, which lists its 2-movers only
+    let sample: Vec<(usize, usize, bool)> = (53..ix.cases.len())
+        .step_by(53)
+        .map(|i| (i, 7, false))
+        .chain([(0, 2, true), (1, 8, false), (300, 8, false), (900, 8, false)])
+        .collect();
+    for (i, max_len, turned) in sample {
         let listed: HashSet<String> =
-            all_texts(ix, ix.coset(i, false)).into_iter().filter(|t| moves(t).len() <= max_len).collect();
-        assert_eq!(brute_force(&start(i, false), max_len), listed, "case {}", i + 1);
+            all_texts(ix, ix.coset(i, turned)).into_iter().filter(|t| moves(t).len() <= max_len).collect();
+        assert_eq!(brute_force(&start(i, turned), max_len), listed, "case {} turned {turned}", i + 1);
     }
 }
 

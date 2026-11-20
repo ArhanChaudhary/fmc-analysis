@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="cases.css">
 <script type="module" src="app.js"></script>
 </head>
-<body>
+<body class="app">
 <header class="top">
   <a class="brand" href="../">FMC case studies</a>
   <nav>
@@ -19,14 +19,15 @@
   </nav>
 </header>
 
-<div class="layout notoc">
-<main class="tool">
+<main class="panels">
+<div class="list-panel" id="list">
   <h1 class="title">HTR cases</h1>
   <p class="lede">
     Every HTR case of a DR on U/D, up to rotations, mirrors and the E slice: <b>1,272 cases</b>, grouped by subset, then
-    bad edges, then the fewest moves to HTR. On each cube the bad pieces are solid <span class="swatch bad"></span>red
+    bad edges, then the fewest moves to HTR. On each cube the bad pieces are solid <span class="swatch bad"></span>gray
     and the rest is glass.
-    Click a case for every HTR of 8 moves or less (or the shortest ones, when none is that short). Drag a cube to turn it.
+    Click a case to open it in the side panel, with every HTR of 8 moves or less (or the shortest ones, when none is that
+    short). Drag a cube there to turn it.
   </p>
 
   <details class="about">
@@ -39,12 +40,11 @@
         exactly the same sequences take them to HTR. Rotations and mirrors that keep U/D on top and bottom count as the
         same case (the picture shows one of them), and so does the E slice: turning it makes every bad piece good and
         every good one bad (2c3 2e becomes 6c3 6e). Both are the same number of moves from HTR, for every case but HTR
-        itself (case 1 below), and they have the same HTRs, with the last quarter turn on the other layer (U for D, D for
-        U). Each case has a switch to show the other one.</li>
+        itself (case 1, which a turned E slice puts 2 moves away: U D), and they have the same HTRs, with the last quarter
+        turn on the other layer (U for D, D for U). Each case is drawn the way with fewer bad pieces: 2c rather than 6c,
+        0c rather than 8c, and with 4 bad corners either way, the fewer bad edges.</li>
       <li><b>Lookalikes.</b> Several cases have the same bad pieces: they look the same here and on the cube. Each case
-        lists its lookalikes, and has a <i>corner test</i>: a shortest sequence that puts its corners in HTR. On any of
-        its lookalikes the same sequence leaves fake HTR. Every 4b2 and 2c3 case also carries the label solvers tell such
-        lookalikes apart by:
+        lists its lookalikes. Every 4b2 and 2c3 case also carries the label solvers tell such lookalikes apart by:
         <ul>
           <li><b>4b2: no parity / parity.</b> Set the corners up for a two-quarter-turn trigger (Q X2 Q) with half turns,
             counting every U2 or D2 done while the bad corners are split 3/1 between U and D. An even count and the
@@ -70,8 +70,8 @@
         only the clockwise one is written. HTRs that are the same up to the E slice are written once, the shortest of
         them: with the E slice ignored, a D turn is the U turn the same way with the cube turned a quarter with it, so
         the turns after it are on the next faces round (R to F, F to L, L to B, B to R). Case 310's U R2 U R2 U,
-        U R2 D B2 D, D B2 U B2 D and D B2 D L2 U are one HTR. That leaves about one HTR in fifteen: 27,888 over all the
-        cases. Case 1, HTR up to the E slice, lists only U D.</li>
+        U R2 D B2 D, D B2 U B2 D and D B2 D L2 U are one HTR. That leaves about one HTR in fifteen: 27,887 over all the
+        cases.</li>
       <li><b>For other programs.</b> <a href="htr-cases.txt">htr-cases.txt</a>: a shortest generator of every case (DR
         moves that make it from a solved cube, as drawn), with its subset, edges, moves, label and bad pieces,
         numbered as here.</li>
@@ -88,16 +88,36 @@
       <label class="field"><span>Moves to your DR (inverse-side moves in brackets)</span>
         <textarea id="find-moves" rows="2" spellcheck="false" placeholder="(F L') // EO&#10;R2 U' D R // DR"></textarea></label>
       <div class="row"><button type="submit" class="primary" disabled>Find</button>
-        <span class="hint">On any axis. The HTRs come out in your orientation.</span></div>
+        <span class="hint">On any axis. It opens in the side panel, with the HTRs in your orientation.</span></div>
     </form>
-    <div id="find-result"></div>
+    <p id="find-error" class="error" hidden></p>
   </section>
 
   <label class="merge-switch"><input type="checkbox" id="merge"> Merge each pair of cases a U2 apart whose
     shortest HTRs start with U (they meet after it)</label>
   <nav id="subset-nav" class="subset-nav" aria-label="Subsets"></nav>
   <div id="cases"></div>
-</main>
 </div>
+
+<aside class="side-panel" id="side" aria-label="The case open">
+  <div class="side-bar">
+    <span class="name" id="side-name">No case open</span>
+    <button type="button" id="side-locate" hidden>Show in list</button>
+    <button type="button" id="side-close" hidden>Close</button>
+  </div>
+  <div class="side-main">
+    <div class="view">
+      <canvas id="side-canvas" aria-label="The open case, bad pieces"></canvas>
+      <div class="hint" id="side-view-hint">Drag to turn · double-click to reset</div>
+    </div>
+    <h2 class="heading" id="side-heading"></h2>
+    <div class="facts" id="side-facts"></div>
+    <div class="htrs" id="side-htrs">
+      <p class="hint">Click a case in the list to open it here, with its lookalikes and every HTR of 8 moves or
+        less.</p>
+    </div>
+  </div>
+</aside>
+</main>
 </body>
 </html>

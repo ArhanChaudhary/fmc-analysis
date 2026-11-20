@@ -134,12 +134,12 @@ export class CubeView {
         ctx.fillStyle = shade(f.fill, f.brightness * 0.35);
         ctx.fill();
         ctx.strokeStyle = col.solidLine;
-        ctx.lineWidth = Math.max(0.6, size / 220);
+        ctx.lineWidth = 1.5 * Math.max(0.6, size / 220);
       } else {
         ctx.fillStyle = col.ghost;
         ctx.fill();
         ctx.strokeStyle = col.line;
-        ctx.lineWidth = Math.max(0.5, size / 300);
+        ctx.lineWidth = 1.5 * Math.max(0.5, size / 300);
       }
       ctx.stroke();
       if (f.label && size >= 90) {

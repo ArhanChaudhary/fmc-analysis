@@ -70,7 +70,7 @@ fn text(index: &Index) -> String {
     writeln!(out, "#   generator    a shortest sequence of DR moves that makes the case from a solved cube (as many moves as htr)").unwrap();
     writeln!(
         out,
-        "# Case 1 is HTR with the E slice a quarter turn off (every corner and edge bad); HTR itself is not listed."
+        "# Case 1 is HTR itself (with the E slice a quarter turn off it is the same case, 2 moves away): its generator is -."
     )
     .unwrap();
     writeln!(out, "# HTRs of up to {MAX_LEN} moves for every case: on the page, or `htr-cases case N`.").unwrap();
@@ -88,7 +88,7 @@ fn text(index: &Index) -> String {
             c.label.unwrap_or("-"),
             list(&c.bad_corners),
             list(&c.bad_edges),
-            c.generator
+            if c.generator.is_empty() { "-" } else { &c.generator }
         )
         .unwrap();
     }
