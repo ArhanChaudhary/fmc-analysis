@@ -136,16 +136,16 @@ Each missed DR the bound didn't lose is filed under its cheapest within-goal HTR
 
 **Error in DR Bound** counts DRs lost because the corner-case-aware table asks +5 for RD or FD corners with 1 bad slice and cs/fr 1/1, where +4 is enough. For example, on the 2c3 DR `U L2 U2 B2 D2 F2 L2 U' B2 D' R2 U2`, `R2 U' R2 B2 U' R2 B2 U'` reaches HTR in that case in 8 moves and `B2 U2 L2 F2 D2` finishes in 5, 13 in all, but the bound says 8 + 1 + 5 = 14.
 
-| Corner case | Missed | Needs 1 more S+T | Needs a second pre-2qt move | Needs 2 or more S+T beyond the limit | Error in DR Bound | Needs four more quarter turns |
-|---|---|---|---|---|---|---|
-| 4a2 | 4.2% | 0.8% | 0.8% | 0.0% | 0.0% | 2.5% |
-| 4b2 | 8.2% | 1.9% | 5.7% | 0.2% | 0.2% | 0.2% |
-| 0c3 | 6.7% | 0.0% | 0.0% | 0.0% | 0.0% | 6.7% |
-| 2c3 | 6.9% | 1.6% | 4.8% | 0.3% | 0.2% | 0.0% |
-| 4c3 | 2.2% | 0.2% | 1.8% | 0.0% | 0.0% | 0.2% |
-| 0c4 | 1.5% | 0.0% | 1.5% | 0.0% | 0.0% | 0.0% |
-| 2c4 | 4.5% | 0.4% | 4.1% | 0.0% | 0.0% | 0.0% |
-| 4c4 | 4.5% | 0.0% | 4.5% | 0.0% | 0.0% | 0.0% |
+| Corner case | Missed with only the DR's own quarter turns | Missed | Needs 1 more S+T | Needs a second pre-2qt move | Needs 2 or more S+T beyond the limit | Error in DR Bound | Needs four more quarter turns |
+|---|---|---|---|---|---|---|---|
+| 4a2 | 21.7% | 4.2% | 0.8% | 0.8% | 0.0% | 0.0% | 2.5% |
+| 4b2 | 36.4% | 8.2% | 1.9% | 5.7% | 0.2% | 0.2% | 0.2% |
+| 0c3 | 6.7% | 6.7% | 0.0% | 0.0% | 0.0% | 0.0% | 6.7% |
+| 2c3 | 12.5% | 6.9% | 1.6% | 4.8% | 0.3% | 0.2% | 0.0% |
+| 4c3 | 25.0% | 2.2% | 0.2% | 1.8% | 0.0% | 0.0% | 0.2% |
+| 0c4 | 6.1% | 1.5% | 0.0% | 1.5% | 0.0% | 0.0% | 0.0% |
+| 2c4 | 6.5% | 4.5% | 0.4% | 4.1% | 0.0% | 0.0% | 0.0% |
+| 4c4 | 31.0% | 4.5% | 0.0% | 4.5% | 0.0% | 0.0% | 0.0% |
 
 ## Appendix A. Varying the bound
 
