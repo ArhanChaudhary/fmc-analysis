@@ -24,10 +24,15 @@ impl Index {
     }
 
     /// Every case, in the order of the index: `[{number, subset, edges, moves, label, bad_corners, bad_edges,
-    /// lookalikes, corner_test, generator, solutions, turned}]`.
+    /// lookalikes, u2_mates, corner_test, turned}]`.
     pub fn cases(&self) -> String {
         let all: Vec<_> = (0..self.inner.cases.len()).map(|i| self.inner.info(i)).collect();
         serde_json::to_string(&all).unwrap()
+    }
+
+    /// Build the search with every face turn now (it is built anyway the first time it is needed).
+    pub fn prepare(&self) {
+        self.inner.allmoves();
     }
 
     /// The HTRs of case `number` (1-based), or of the case with the E slice turned, up to `above` moves over its

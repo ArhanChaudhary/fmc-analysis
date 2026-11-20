@@ -57,7 +57,7 @@ const byNumber = new Map();
 let merge = false; // pairs a U2 apart as one entry
 let maxOptimal = 13; // the list shows cases with optimal this or less
 let above = 2; // the panel lists HTRs up to this many moves over the optimal
-const LONGEST = 12; // ... but not past this many (htr_cases::LONGEST)
+const LONGEST = 11; // ... but not past this many (htr_cases::LONGEST)
 
 const debounce = (f, ms = 120) => {
   let timer = null;
@@ -347,6 +347,7 @@ async function start() {
     return;
   }
   for (const c of cases) byNumber.set(c.number, c);
+  call('prepare').catch(() => {}); // the search's tables, built while the list is looked at
   Object.assign(side, {
     panel: $('#side'), name: $('#side-name'), locate: $('#side-locate'), viewHint: $('#side-view-hint'),
     facts: $('#side-facts'), over: $('#side-over'), count: $('#side-count'), htrs: $('#side-htrs'),

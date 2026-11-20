@@ -8,6 +8,7 @@ const ready = init().then(() => {
 
 const ops = {
   cases: () => index.cases(),
+  prepare: () => (index.prepare(), 'null'),
   solutions: (number, turned, maxLen) => index.solutions(number, turned, maxLen),
   find: (text, maxLen) => index.find(text, maxLen),
 };

@@ -1,10 +1,10 @@
 //! Checks of the case index against the whole-cube model of `attempt_sim::cube` (built from the geometry of the
 //! turns, independent of the coset tables) and against the examples in the *Hitchhiker's Guide to HTR*.
 
-use attempt_sim::cube::{parse_moves, Cube, Move, MoveTables};
-use attempt_sim::dr::{St, AS_CUBE_MOVE, MOVE_FACE, MOVE_NAMES};
+use attempt_sim::cube::{format_moves, parse_moves, Cube, Move, MoveTables};
+use attempt_sim::dr::{St, AS_CUBE_MOVE, MOVE_FACE};
 use htr_cases::cosets::modulo_e;
-use htr_cases::{Index, DEFAULT_ABOVE, LONGEST, MOST_ABOVE};
+use htr_cases::{allmoves, dr_text, Index, DEFAULT_ABOVE, LONGEST, MOST_ABOVE};
 
 /// The checks look at every HTR of up to this many moves, or the shortest ones when there are none that short.
 const LIST_LEN: usize = 8;
@@ -63,10 +63,20 @@ fn moves(text: &str) -> Vec<Move> {
 
 /// The coset drawn for a case is made by its generator from solved; the turned one by U D' and then the generator.
 fn start(i: usize, turned: bool) -> Cube {
-    let info = index().info(i);
+    let ix = index();
     let mut seq = if turned { moves("U D'") } else { Vec::new() };
-    seq.extend(moves(&info.generator));
+    seq.extend(moves(&ix.generator_text(ix.coset(i, false))));
     cube().state(&seq)
+}
+
+/// The case a setup makes (its index in `cases`).
+fn case_of_setup(setup: &str) -> usize {
+    index().find(setup, "", 0).unwrap().number - 1
+}
+
+/// Does a sequence leave DR on the way (a quarter turn of R, L, F or B)?
+fn breaks_dr(text: &str) -> bool {
+    moves(text).iter().any(|m| m.axis() != 1 && !m.is_half_turn())
 }
 
 #[test]
@@ -76,9 +86,13 @@ fn case_count() {
     assert_eq!(ix.cases.iter().map(|c| c.members.len()).sum::<usize>(), 29_400);
 }
 
+/// With DR moves, every coset of a case is as far from HTR as the others, except HTR itself (case 1).  With every
+/// face turn, the symmetric copies still are, but for 25 more cases the two versions (the E slice turned) are not: 23
+/// a move apart, 2 two moves apart.
 #[test]
 fn every_member_of_a_case_is_as_far_from_htr() {
     let ix = index();
+    let mut apart = std::collections::BTreeMap::new();
     for (i, c) in ix.cases.iter().enumerate() {
         let lengths: HashSet<u8> = c.members.iter().map(|&x| ix.cosets.dist[x]).collect();
         if i == 0 {
@@ -86,7 +100,41 @@ fn every_member_of_a_case_is_as_far_from_htr() {
         } else {
             assert_eq!(lengths.len(), 1, "case {}", i + 1);
         }
+        let (x, t) = (ix.coset(i, false), ix.coset(i, true));
+        for &y in &c.members {
+            let twin_side = !(0..attempt_sim::dr::NSYM).any(|s| ix.cosets.sym[x][s] as usize == y);
+            assert_eq!(ix.dist[y], ix.dist[if twin_side { t } else { x }], "case {}: symmetric copies", i + 1);
+        }
+        if i > 0 && ix.dist[x] != ix.dist[t] {
+            *apart.entry(ix.dist[x].abs_diff(ix.dist[t])).or_insert(0) += 1;
+        }
     }
+    assert_eq!(apart, [(1, 23), (2, 2)].into());
+    // and with every face turn, never further than with DR moves; shorter for 155 cases
+    assert!((0..ix.dist.len()).all(|x| ix.dist[x] <= ix.cosets.dist[x]));
+    let shorter = ix.cases.iter().filter(|c| ix.dist[c.coset] < ix.cosets.dist[c.coset]).count();
+    assert_eq!(shorter, 155);
+}
+
+/// The distances shipped in `all_dist.bin` are the ones the search finds now.
+#[test]
+fn the_distance_table_is_right() {
+    let ix = index();
+    assert_eq!(ix.fresh_distances(), ix.dist);
+}
+
+/// The example asked about: the case of U' L2 U' F2 U L2 U' L2 is 8 moves from HTR with DR moves, 7 with
+/// F U B' U2 F U' B, which leaves DR on the way.
+#[test]
+fn a_dr_breaking_htr_is_shorter() {
+    let ix = index();
+    let i = case_of_setup("U' L2 U' F2 U L2 U' L2");
+    let x = ix.coset(i, false);
+    assert_eq!((ix.cosets.dist[x], ix.dist[x]), (8, 7));
+    let start = cube().state(&moves("U' L2 U' F2 U L2 U' L2"));
+    let found = ix.find("U' L2 U' F2 U L2 U' L2", "", 0).unwrap();
+    assert!(found.solutions.iter().any(|t| t == "F U B' U2 F U' B"), "{:?}", found.solutions);
+    assert!(in_htr(&cube().apply(&start, &moves("F U B' U2 F U' B"))));
 }
 
 #[test]
@@ -94,24 +142,27 @@ fn generators_make_their_cases() {
     let ix = index();
     for i in 0..ix.cases.len() {
         let info = ix.info(i);
-        assert_eq!(moves(&info.generator).len(), info.moves as usize, "case {}", i + 1);
-        let found = ix.find(&info.generator, "", DEFAULT_ABOVE).unwrap();
+        let generator = ix.generator_text(ix.coset(i, false));
+        assert_eq!(moves(&generator).len(), info.moves as usize, "case {}", i + 1);
+        let found = ix.find(&generator, "", 0).unwrap();
         assert_eq!((found.number, found.axis, found.moves), (i + 1, "U/D", info.moves));
         assert_eq!(found.bad, (info.bad_corners.len() as u32, info.bad_edges.len() as u32));
         let x = ix.coset(i, false);
-        assert_eq!(found.solutions, ix.solution_texts(x, ix.longest(x, DEFAULT_ABOVE)));
+        assert_eq!(found.solutions, ix.solution_texts(x, ix.longest(x, 0)));
+        let turned_generator = ix.generator_text(ix.coset(i, true));
         if i == 0 {
-            assert_eq!(ix.find(&info.turned.generator, "", DEFAULT_ABOVE).unwrap_err(), "that is already HTR");
+            assert_eq!(ix.find(&turned_generator, "", 0).unwrap_err(), "that is already HTR");
             continue;
         }
-        let turned = ix.find(&info.turned.generator, "", DEFAULT_ABOVE).unwrap();
-        assert_eq!(turned.number, i + 1, "the E slice turned is the same case");
+        let turned = ix.find(&turned_generator, "", 0).unwrap();
+        assert_eq!((turned.number, turned.moves), (i + 1, info.turned.moves), "the E slice turned is the same case");
         let x = ix.coset(i, true);
-        assert_eq!(turned.solutions, ix.solution_texts(x, ix.longest(x, DEFAULT_ABOVE)));
+        assert_eq!(turned.solutions, ix.solution_texts(x, ix.longest(x, 0)));
     }
 }
 
-/// A listed HTR: at most `max_len` moves, reaches HTR at its end and not before, ends in U or D (or U D).
+/// A listed HTR: at most `max_len` moves, reaches HTR at its end and not before (nor HTR up to the E slice), and its
+/// last block (the last turn, or the last two on one axis) is quarter turns, all clockwise.
 fn check_listed(start: &Cube, text: &str, max_len: usize) {
     let seq = moves(text);
     assert!(!seq.is_empty() && seq.len() <= max_len, "{text}");
@@ -122,14 +173,15 @@ fn check_listed(start: &Cube, text: &str, max_len: usize) {
         c = cube().turn(&c, m);
     }
     assert!(in_htr(&c), "{text} does not reach HTR");
-    let last = *seq.last().unwrap();
-    assert!(last == Move::new(0, 1) || last == Move::new(1, 1), "{text} ends in {last}");
+    let n = seq.len();
+    let block = if n >= 2 && seq[n - 2].axis() == seq[n - 1].axis() { 2 } else { 1 };
+    assert!(seq[n - block..].iter().all(|m| m.quarter_turns() == 1), "{text} ends in a half turn or anticlockwise");
 }
 
 #[test]
 fn every_listed_htr_reaches_htr() {
     let ix = index();
-    let mut total = 0;
+    let (mut total, mut breaking) = (0, 0);
     for i in 0..ix.cases.len() {
         for turned in [false, true] {
             let s = start(i, turned);
@@ -137,22 +189,53 @@ fn every_listed_htr_reaches_htr() {
             let list = all_texts(ix, x);
             let distinct: HashSet<&String> = list.iter().collect();
             assert_eq!(distinct.len(), list.len());
-            let longest = LIST_LEN.max(ix.cosets.dist[x] as usize);
+            let longest = LIST_LEN.max(ix.dist[x] as usize);
             for text in &list {
                 check_listed(&s, text, longest);
             }
+            breaking += list.iter().filter(|t| breaks_dr(t)).count();
             if !(i == 0 && turned) {
                 let shortest = list.iter().map(|t| moves(t).len()).min().unwrap();
-                assert_eq!(shortest, ix.cosets.dist[x] as usize, "case {} turned {turned}", i + 1);
-                if ix.cosets.dist[x] as usize > LIST_LEN {
+                assert_eq!(shortest, ix.dist[x] as usize, "case {} turned {turned}", i + 1);
+                if ix.dist[x] as usize > LIST_LEN {
                     assert!(list.iter().all(|t| moves(t).len() == shortest), "only the shortest past {LIST_LEN}");
                 }
             }
             total += list.len();
         }
     }
-    println!("listed HTRs checked, both versions: {total}");
-    assert!(total > 100_000);
+    println!("listed HTRs checked, both versions: {total}, of them leaving DR on the way {breaking}");
+    assert!(total > 100_000 && breaking > 10_000);
+}
+
+/// Every HTR of up to `max_len` face turns, by trying every sequence on the whole cube, in the listed form.
+fn brute_force_all(start: &Cube, max_len: usize) -> HashSet<String> {
+    fn go(c: &Cube, path: &mut Vec<Move>, max_len: usize, out: &mut HashSet<String>) {
+        let oriented = c.co == [0; 8] && c.eo == [0; 12];
+        if !path.is_empty() && oriented && in_htr_up_to_e(c) {
+            if in_htr(c) {
+                let n = path.len();
+                let block = if n >= 2 && path[n - 2].axis() == path[n - 1].axis() { 2 } else { 1 };
+                if path[n - block..].iter().all(|m| m.quarter_turns() == 1) {
+                    out.insert(format_moves(path));
+                }
+            }
+            return;
+        }
+        if path.len() == max_len {
+            return;
+        }
+        for m in Move::all() {
+            if attempt_sim::cube::canonical_after(path.last().copied(), m) {
+                path.push(m);
+                go(&cube().turn(c, m), path, max_len, out);
+                path.pop();
+            }
+        }
+    }
+    let mut out = HashSet::new();
+    go(start, &mut Vec::new(), max_len, &mut out);
+    out
 }
 
 /// Every HTR of up to `max_len` DR moves, by trying every sequence on the whole cube, in the listed form.
@@ -192,23 +275,51 @@ fn brute_force(start: &Cube, max_len: usize) -> HashSet<String> {
 
 /// Every HTR in the listed form, before one is kept per set that is the same up to the E slice.
 fn all_texts(ix: &Index, coset: usize) -> Vec<String> {
-    ix.all_solutions(coset, LIST_LEN)
-        .iter()
-        .map(|p| p.iter().map(|&m| MOVE_NAMES[m as usize]).collect::<Vec<_>>().join(" "))
-        .collect()
+    ix.all_solutions(coset, LIST_LEN).iter().map(|p| format_moves(p)).collect()
+}
+
+/// The same with DR moves only.
+fn dr_texts(ix: &Index, coset: usize) -> Vec<String> {
+    ix.dr_solutions(coset, LIST_LEN).iter().map(|p| dr_text(p)).collect()
 }
 
 #[test]
 fn lists_are_complete() {
     let ix = index();
-    // a spread of cases up to 7 moves, and three to the full 8; case 1 (HTR up to the E slice) lists its 2-movers only
+    // every face turn: a spread of cases up to 6 moves, and two to 7 (one of them with a DR-breaking 7-mover)
+    let breaking = case_of_setup("U' L2 U' F2 U L2 U' L2");
+    let sample: Vec<(usize, usize)> =
+        (53..ix.cases.len()).step_by(53).map(|i| (i, 6)).chain([(1, 7), (breaking, 7)]).collect();
+    for (i, max_len) in sample {
+        let listed: HashSet<String> =
+            all_texts(ix, ix.coset(i, false)).into_iter().filter(|t| moves(t).len() <= max_len).collect();
+        assert_eq!(brute_force_all(&start(i, false), max_len), listed, "case {}", i + 1);
+    }
+    // DR moves only: the spread to 7, three to the full 8; case 1 (HTR up to the E slice) lists its 2-movers only
     let sample: Vec<(usize, usize)> =
         (53..ix.cases.len()).step_by(53).map(|i| (i, 7)).chain([(0, 2), (1, 8), (300, 8), (900, 8)]).collect();
     for (i, max_len) in sample {
         let listed: HashSet<String> =
-            all_texts(ix, ix.coset(i, false)).into_iter().filter(|t| moves(t).len() <= max_len).collect();
+            dr_texts(ix, ix.coset(i, false)).into_iter().filter(|t| moves(t).len() <= max_len).collect();
         assert_eq!(brute_force(&start(i, false), max_len), listed, "case {}", i + 1);
     }
+}
+
+/// Pairs a U2 apart: 185, never more than two cases together, and the two always have the same subset, edges and
+/// optimal (they are one case after their first quarter turn).
+#[test]
+fn pairs_a_u2_apart() {
+    let ix = index();
+    let infos: Vec<_> = (0..ix.cases.len()).map(|i| ix.info(i)).collect();
+    assert_eq!(infos.iter().map(|c| c.u2_mates.len()).sum::<usize>(), 2 * 185);
+    for c in &infos {
+        assert!(c.u2_mates.len() <= 1);
+        for &m in &c.u2_mates {
+            let o = &infos[m - 1];
+            assert_eq!((o.subset, o.edges, o.moves), (c.subset, c.edges, c.moves), "#{} and #{m}", c.number);
+        }
+    }
+    assert_eq!(infos[309].u2_mates, [311]);
 }
 
 /// The setups of the *Hitchhiker's Guide to HTR* ("How to recognize HTR"), DR on R/L.
@@ -266,7 +377,7 @@ fn the_guides_parity_and_direction_examples() {
 #[test]
 fn niss_moves_count_on_the_inverse() {
     let ix = index();
-    let g = ix.info(400).generator;
+    let g = ix.generator_text(ix.coset(400, false));
     // R + g with R on the inverse is g; the other axes: F + g with (F) as well, written with a comment
     assert_eq!(ix.find(&format!("R {g}"), "(R)", DEFAULT_ABOVE).unwrap().number, 401);
     assert_eq!(ix.find(&format!("F {g}"), "(F) // EO\n", DEFAULT_ABOVE).unwrap().number, 401);
@@ -306,27 +417,29 @@ fn good_and_bad_2c4_and_4a3() {
     assert_eq!(labels, expected.into_iter().chain([(("4a3", Some("good")), 50)]).collect());
 }
 
-/// How long the page lists HTRs: `above` moves over the optimal (at most 4), never past 12 moves unless the optimal
-/// is; case 1 (HTR up to the E slice) lists only the E slice.
+/// How long the page lists HTRs: `above` moves over the optimal (at most 4), never past the longest listed unless the
+/// optimal is; case 1 (HTR up to the E slice) lists only the E slice.
 #[test]
 fn the_slider_over_the_optimal() {
     let ix = index();
-    let (two, nine, thirteen) = (ix.cases[1].coset, ix.cases[300].coset, ix.cases[922].coset);
-    assert_eq!(ix.cosets.dist[two], 5);
-    assert_eq!((ix.longest(two, 0), ix.longest(two, 2), ix.longest(two, MOST_ABOVE), ix.longest(two, 9)), (5, 7, 9, 9));
-    assert_eq!(ix.cosets.dist[nine], 9);
-    assert_eq!((ix.longest(nine, 2), ix.longest(nine, 4)), (11, LONGEST));
-    assert_eq!(ix.cosets.dist[thirteen], 13);
-    assert_eq!(ix.longest(thirteen, 4), 13);
-    let found = ix.find(&ix.info(0).generator, "", MOST_ABOVE).unwrap();
-    assert_eq!((found.longest, found.solutions.as_slice()), (2, ["U D".to_string()].as_slice()));
-    let five: Vec<usize> = ix.solutions(two, ix.longest(two, 0)).iter().map(|s| s.len()).collect();
-    assert!(!five.is_empty() && five.iter().all(|&n| n == 5));
+    let optimal = |d: u8| ix.cases.iter().map(|c| c.coset).find(|&x| ix.dist[x] == d).unwrap();
+    let (five, nine, eleven) = (optimal(5), optimal(9), optimal(11));
+    assert_eq!(
+        (ix.longest(five, 0), ix.longest(five, 2), ix.longest(five, MOST_ABOVE), ix.longest(five, 9)),
+        (5, 7, 9, 9)
+    );
+    assert_eq!((ix.longest(nine, 1), ix.longest(nine, 4)), (10, (9 + 4).clamp(9, LONGEST)));
+    assert_eq!(ix.longest(eleven, 4), (11 + 4).clamp(11, LONGEST));
+    let found = ix.find("U' D'", "", MOST_ABOVE).unwrap();
+    assert_eq!((found.number, found.longest, found.solutions.as_slice()), (1, 2, ["U D".to_string()].as_slice()));
+    let shortest: Vec<usize> = ix.solutions(five, ix.longest(five, 0)).iter().map(|s| s.len()).collect();
+    assert!(!shortest.is_empty() && shortest.iter().all(|&n| n == 5));
 }
 
-/// What the page says about the E slice: the shortest HTRs of the turned case are those of the case with the last
-/// quarter turn moved to the other layer (U for D, D for U), so up to the E slice the two lists have the same shortest
-/// HTRs.  Counted here and printed (`cargo test -- --nocapture`): how often the whole lists agree.
+/// What the page says about the E slice, with DR moves: the shortest HTRs of the turned case are those of the case with
+/// the last quarter turn moved to the other layer (U for D, D for U), so up to the E slice the two lists have the same
+/// shortest HTRs.  Counted here and printed (`cargo test -- --nocapture`): how often the whole lists agree.  (With
+/// DR-breaking HTRs it fails for 25 cases: see `every_member_of_a_case_is_as_far_from_htr`.)
 #[test]
 fn turning_the_e_slice_moves_the_last_quarter_turn() {
     let ix = index();
@@ -340,10 +453,10 @@ fn turning_the_e_slice_moves_the_last_quarter_turn() {
         |w: &Vec<String>| w.len() >= 2 && (w[w.len() - 2].starts_with('U') || w[w.len() - 2].starts_with('D'));
     let (mut listed, mut carried, mut cases_exact, mut same_up_to_e) = (0, 0, 0, 0);
     let forms =
-        |x: usize| -> HashSet<Vec<(u8, u8)>> { ix.solutions(x, LIST_LEN).iter().map(|s| modulo_e(s)).collect() };
+        |x: usize| -> HashSet<Vec<(u8, u8)>> { ix.dr_solutions(x, LIST_LEN).iter().map(|s| modulo_e(s)).collect() };
     for i in 1..ix.cases.len() {
-        let a: Vec<Vec<String>> = all_texts(ix, ix.coset(i, false)).iter().map(words).collect();
-        let b: HashSet<Vec<String>> = all_texts(ix, ix.coset(i, true)).iter().map(words).collect();
+        let a: Vec<Vec<String>> = dr_texts(ix, ix.coset(i, false)).iter().map(words).collect();
+        let b: HashSet<Vec<String>> = dr_texts(ix, ix.coset(i, true)).iter().map(words).collect();
         let shortest = a.iter().map(|w| w.len()).min().unwrap();
         let mut exact = a.len() == b.len();
         for w in &a {
@@ -364,32 +477,35 @@ fn turning_the_e_slice_moves_the_last_quarter_turn() {
     );
 }
 
-/// The listed HTRs: one per set that is the same up to the E slice.  The four 5-movers of case 310 are one; and HTRs
-/// with the same form end with the same corners and U/D-layer edges up to U D' (a quarter turn of U and D together),
-/// which is what the E slice and a rotation of the cube do to them.
+/// The listed HTRs: one per set that is the same up to the E slice.  The four 5-movers of U' R2 U' R2 U' are one;
+/// with DR moves, HTRs with the same form end with the same corners and U/D-layer edges up to U D' (a quarter turn of U
+/// and D together), which is what the E slice and a rotation of the cube do to them; and the form of every face turn
+/// (`allmoves::modulo_e`) is the DR-move one (`cosets::modulo_e`) on DR moves.
 #[test]
 fn one_htr_per_set_the_same_up_to_the_e_slice() {
     let ix = index();
-    let five: Vec<String> = all_texts(ix, ix.coset(309, false)).into_iter().filter(|t| moves(t).len() == 5).collect();
+    let x = ix.coset(case_of_setup("U' R2 U' R2 U'"), false);
+    let five: Vec<String> = all_texts(ix, x).into_iter().filter(|t| moves(t).len() == 5).collect();
     assert_eq!(five, ["U R2 U R2 U", "U R2 D B2 D", "D B2 U B2 D", "D B2 D L2 U"]);
-    let kept: Vec<String> =
-        ix.solution_texts(ix.coset(309, false), LIST_LEN).into_iter().filter(|t| moves(t).len() == 5).collect();
+    let kept: Vec<String> = ix.solution_texts(x, LIST_LEN).into_iter().filter(|t| moves(t).len() == 5).collect();
     assert_eq!(kept, ["U R2 U R2 U"]);
 
     let ud = St::ID.apply_move(0).apply_move(5);
     let state = |p: &[u8]| p.iter().fold(St::ID, |s, &m| s.apply_move(m as usize));
+    let as_moves = |p: &[u8]| p.iter().map(|&m| Move(AS_CUBE_MOVE[m as usize])).collect::<Vec<_>>();
     let (mut sets, mut dropped) = (0, 0);
     for i in 0..ix.cases.len() {
         for turned in [false, true] {
             let x = ix.coset(i, turned);
-            let all = ix.all_solutions(x, LIST_LEN);
-            let kept = ix.solutions(x, LIST_LEN);
-            let forms: HashSet<Vec<(u8, u8)>> = kept.iter().map(|s| modulo_e(s)).collect();
-            assert_eq!(forms.len(), kept.len(), "one per set");
+            // (the DR-move ones as long as the page's list goes: a DR-breaking optimal can be shorter)
+            let reach = LIST_LEN.max(ix.dist[x] as usize);
+            let all: Vec<Vec<u8>> = ix.dr_solutions(x, LIST_LEN).into_iter().filter(|s| s.len() <= reach).collect();
+            let mut forms: HashSet<Vec<(u8, u8)>> = HashSet::new();
             let mut first: std::collections::HashMap<Vec<(u8, u8)>, St> = std::collections::HashMap::new();
             for s in &all {
                 let f = modulo_e(s);
-                assert!(forms.contains(&f), "every HTR's set is listed");
+                assert_eq!(allmoves::modulo_e(&as_moves(s)), f, "the two forms agree on DR moves");
+                forms.insert(f.clone());
                 let st = state(s);
                 let mut r = *first.entry(f).or_insert(st);
                 let same = (0..4).any(|_| {
@@ -399,8 +515,13 @@ fn one_htr_per_set_the_same_up_to_the_e_slice() {
                 });
                 assert!(same, "case {}: {s:?} does not end like its set's first, up to U D'", i + 1);
             }
+            // the page's list: one per form, every face turn
+            let kept = ix.solutions(x, LIST_LEN);
+            let kept_forms: HashSet<Vec<(u8, u8)>> = kept.iter().map(|s| allmoves::modulo_e(s)).collect();
+            assert_eq!(kept_forms.len(), kept.len(), "one per set");
+            assert!(forms.is_subset(&kept_forms), "case {}: every DR-move set is listed", i + 1);
             sets += kept.len();
-            dropped += all.len() - kept.len();
+            dropped += ix.all_solutions(x, LIST_LEN).len() - kept.len();
         }
     }
     println!("up to the E slice: {sets} HTRs listed, {dropped} left out as the same as one of them");

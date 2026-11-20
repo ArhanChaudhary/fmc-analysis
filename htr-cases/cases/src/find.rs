@@ -77,6 +77,11 @@ impl Found {
         self.view.from_view(Move(AS_CUBE_MOVE[dr_move as usize]))
     }
 
+    /// A face turn of the view as a turn of the solver's cube.
+    pub fn turn_move(&self, m: Move) -> Move {
+        self.view.from_view(m)
+    }
+
     /// A piece named by its view faces (`UFR`), named by the solver's faces, in the order U/D, F/B, R/L.
     pub fn place_name(&self, view_name: &str) -> String {
         let mut faces: Vec<usize> = view_name

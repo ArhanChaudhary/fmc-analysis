@@ -14,7 +14,7 @@ pub struct Class {
     /// the corner subset (index into `SUBSET_NAMES`) and the bad edges, in the frame with few bad pieces
     pub subset: u8,
     pub edges: u8,
-    /// fewest moves to HTR
+    /// the optimal: fewest face turns to HTR, DR-breaking HTRs included
     pub moves: u8,
     /// every coset of the case: its symmetric copies and theirs with the E slice turned
     pub members: Vec<usize>,
@@ -29,8 +29,9 @@ fn view_score((corners, edges): Layout) -> (u8, std::cmp::Reverse<u32>, Layout) 
     (hidden, std::cmp::Reverse((corners & 0x0F).count_ones()), (corners, edges))
 }
 
-/// Every case, sorted by subset (in the order of `SUBSET_NAMES`), bad edges, moves to HTR, then how it is drawn.
-pub fn classes(cs: &Cosets) -> Vec<Class> {
+/// Every case, sorted by subset (in the order of `SUBSET_NAMES`), bad edges, optimal (`dist`: the fewest face turns to
+/// HTR of each coset), then how it is drawn.
+pub fn classes(cs: &Cosets, dist: &[u8]) -> Vec<Class> {
     // a case is a coset with everything it is joined to by a symmetry or the E slice
     let mut class_of = vec![usize::MAX; NCOSETS];
     let mut members: Vec<Vec<usize>> = Vec::new();
@@ -84,7 +85,7 @@ pub fn classes(cs: &Cosets) -> Vec<Class> {
                 coset,
                 subset: cs.subset[coset],
                 edges: edges as u8,
-                moves: cs.dist[coset],
+                moves: dist[coset],
                 members: m,
                 lookalikes: Vec::new(),
             }
@@ -102,18 +103,22 @@ pub fn classes(cs: &Cosets) -> Vec<Class> {
 /// Cases that meet after their first quarter turn: B is A after U2 (or D2: the symmetries swap U and D), and on both
 /// a shortest HTR starts with a quarter turn of that layer.  A with that turn one way and B with it the other way
 /// reach the same coset (U2 then U' is U), so after it they are one case.  For each case, the others joined to it this
-/// way, directly or through others (indices into `cases`).
-pub fn u2_mates(cs: &Cosets, cases: &[Class]) -> Vec<Vec<usize>> {
+/// way, directly or through others (indices into `cases`).  Only the versions drawn count (a case's cosets that are its
+/// drawn coset seen from some side): with DR-breaking HTRs, the two versions of a case can be at different optima.
+pub fn u2_mates(cs: &Cosets, cases: &[Class], dist: &[u8]) -> Vec<Vec<usize>> {
     let mut case_of = vec![0usize; NCOSETS];
+    let mut drawn_side = vec![false; NCOSETS];
     for (i, c) in cases.iter().enumerate() {
         for &x in &c.members {
             case_of[x] = i;
         }
+        for s in 0..NSYM {
+            drawn_side[cs.sym[c.coset][s] as usize] = true;
+        }
     }
     // does a shortest HTR from x start with one of these two quarter turns?
-    let starts_with = |x: usize, turns: [usize; 2]| {
-        cs.dist[x] > 0 && turns.iter().any(|&q| cs.dist[cs.mv[x][q] as usize] + 1 == cs.dist[x])
-    };
+    let starts_with =
+        |x: usize, turns: [usize; 2]| dist[x] > 0 && turns.iter().any(|&q| dist[cs.mv[x][q] as usize] + 1 == dist[x]);
     let mut parent: Vec<usize> = (0..cases.len()).collect();
     fn root(parent: &mut [usize], mut i: usize) -> usize {
         while parent[i] != i {
@@ -126,7 +131,7 @@ pub fn u2_mates(cs: &Cosets, cases: &[Class]) -> Vec<Vec<usize>> {
     for (turns, half) in [([0, 2], 1), ([3, 5], 4)] {
         for x in 0..NCOSETS {
             let y = cs.mv[x][half] as usize;
-            if starts_with(x, turns) && starts_with(y, turns) {
+            if drawn_side[x] && drawn_side[y] && starts_with(x, turns) && starts_with(y, turns) {
                 let (a, b) = (root(&mut parent, case_of[x]), root(&mut parent, case_of[y]));
                 parent[a.max(b)] = a.min(b);
             }

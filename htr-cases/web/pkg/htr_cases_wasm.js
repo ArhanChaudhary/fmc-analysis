@@ -11,7 +11,7 @@ export class Index {
     }
     /**
      * Every case, in the order of the index: `[{number, subset, edges, moves, label, bad_corners, bad_edges,
-     * lookalikes, corner_test, generator, solutions, turned}]`.
+     * lookalikes, u2_mates, corner_test, turned}]`.
      * @returns {string}
      */
     cases() {
@@ -59,6 +59,12 @@ export class Index {
         this.__wbg_ptr = ret;
         IndexFinalization.register(this, this.__wbg_ptr, this);
         return this;
+    }
+    /**
+     * Build the search with every face turn now (it is built anyway the first time it is needed).
+     */
+    prepare() {
+        wasm.index_prepare(this.__wbg_ptr);
     }
     /**
      * The HTRs of case `number` (1-based), or of the case with the E slice turned, up to `above` moves over its
