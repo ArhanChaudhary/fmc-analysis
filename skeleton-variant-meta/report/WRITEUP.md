@@ -148,9 +148,9 @@ Each missed DR the bound didn't lose is filed under its cheapest within-goal HTR
 
 ### Found within K finishes
 
-With the corner-case-aware bound, a within-goal finish comes up within 20 finishes for 37–76% of within-goal DRs, against 9–55% without DR Bounding.
+Here are the chances of finding a within-goal solution within the first several HTRs. The order of HTRs is by skeleton length first, then HTR length, checking up to 3 HTRs per skeleton in a first pass, then looping back through the skeletons until the limit is reached. Except for 4a2 and 0c3, the first pass usually hits 20 HTRs.
 
-The order is a solver's. Skeletons go shortest first, and each skeleton's variants fewest extra moves first. A first pass finishes at most 3 variants per skeleton, then you come back for the rest in the same order, so the chance of missing stays as in the tables above. Ties are taken in random order, averaged over 20 orders. Each cell is the share of within-goal DRs where one of the first K finishes is within goal.
+Compared to the baseline, using DR bounding boosts the chances of success by about 1.5x-2x.
 
 | Corner case | Meta, within 5 | Meta, within 10 | Meta, within 20 | Baseline, within 5 | Baseline, within 10 | Baseline, within 20 |
 |---|---|---|---|---|---|---|
