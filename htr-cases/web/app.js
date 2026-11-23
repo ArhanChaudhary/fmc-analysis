@@ -123,9 +123,11 @@ const caseLink = (n, text = `#${n}`) => el('a', { href: `#case-${n}`, onclick: (
 
 function lookalikeLinks(c) {
   const out = el('span', { class: 'lookalikes' });
+  const same = new Map(c.siblings); // the same case seen another way: how
   c.lookalikes.forEach((n, i) => {
     const o = byNumber.get(n);
-    out.append(i ? ' · ' : '', el('span', {}, `${o.subset} ${o.edges}e `, caseLink(n), ` (${[optimal(o.moves), ...o.labels].join(', ')})`));
+    const how = same.has(n) ? [`this one ${same.get(n)}`] : [];
+    out.append(i ? ' · ' : '', el('span', {}, `${o.subset} ${o.edges}e `, caseLink(n), ` (${[optimal(o.moves), ...o.labels, ...how].join(', ')})`));
   });
   return out;
 }
@@ -134,7 +136,7 @@ function lookalikeLinks(c) {
 function pairRow(c) {
   if (!c.u2_mates.length) return [];
   const pick = merge
-    ? el('span', { class: 'switch' }, ...[c.number, ...c.u2_mates].sort((a, b) => a - b).map((n) =>
+    ? el('span', { class: 'switch' }, ...[c.number, ...c.u2_group].sort((a, b) => a - b).map((n) =>
         el('label', {}, el('input', { type: 'radio', name: 'pair', checked: n === c.number, onchange: () => selectCase(n) }),
           ` #${n}${byNumber.get(n).labels.length ? ` (${byNumber.get(n).labels.join(', ')})` : ''}`)))
     : el('span', {}, ...c.u2_mates.flatMap((n, i) => [i ? ' · ' : '', caseLink(n)]));
@@ -237,8 +239,8 @@ function setAbove(value, redraw = true) {
 // ---- the index --------------------------------------------------------------------------------------------------
 
 let observer = null;
-const leaderOf = (n) => Math.min(n, ...byNumber.get(n).u2_mates);
-const membersOf = (c) => (merge ? [c.number, ...c.u2_mates].sort((a, b) => a - b) : [c.number]);
+const leaderOf = (n) => Math.min(n, ...byNumber.get(n).u2_group);
+const membersOf = (c) => (merge ? [c.number, ...c.u2_group].sort((a, b) => a - b) : [c.number]);
 
 function buildIndex() {
   const root = $('#cases');

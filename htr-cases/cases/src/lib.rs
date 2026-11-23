@@ -4,10 +4,12 @@
 //! A DR on U/D goes to HTR with the DR moves U, D, R2, L2, F2, B2, or with any face turns, leaving DR on the way.  What
 //! decides the HTRs of a DR state is its coset of the half-turn group H = `<U2, D2, R2, L2, F2, B2>` ([`cosets`]):
 //! 29,400 of them.  Taking rotations and mirrors that keep the U/D axis as the same case, and also the E slice (2c3 2e
-//! and 6c3 6e: the same pieces are bad in the frame with few bad pieces), leaves 1,272 cases ([`classes`]).  A case's
-//! optimal counts every face turn ([`allmoves`]): for 155 cases a DR-breaking HTR is shorter than any with DR moves.
+//! and 6c3 6e: the same pieces are bad in the frame with few bad pieces), leaves 1,272 classes ([`classes`]), listed as
+//! 1,446 cases: every coset with its class's picture ([`classes::entries`]; one picture can hide two or four, mirror
+//! images say, that take different HTRs).  A case's optimal counts every face turn ([`allmoves`]): for 155 classes a
+//! DR-breaking HTR is shorter than any with DR moves.
 //! With DR moves only, turning the E slice keeps the number of moves to HTR (but for HTR itself, which a turned E slice
-//! puts 2 moves away); with every face turn, it changes it by one for 25 more cases.  Several cases have the same bad
+//! puts 2 moves away); with every face turn, it changes it for 25 more classes.  Several cases have the same bad
 //! pieces; [`labels`] has the properties solvers tell such cases apart by, and every case has a corner test.  [`find`]
 //! reads a solver's own DR.
 //!
@@ -21,9 +23,9 @@ pub mod labels;
 
 use allmoves::AllMoves;
 use attempt_sim::cube::{format_moves, parse_moves, Move, MoveTables};
-use attempt_sim::dr::{DrTables, MOVE_NAMES};
+use attempt_sim::dr::{DrTables, MOVE_NAMES, NSYM};
 use attempt_sim::htr::{Htr, SUBSET_NAMES};
-use classes::Class;
+use classes::{Class, Entry};
 use cosets::{Cosets, NCOSETS};
 use labels::Labels;
 use serde::Serialize;
@@ -52,11 +54,15 @@ pub struct Index {
     cube: MoveTables,
     pub cosets: Cosets,
     pub labels: Labels,
-    pub cases: Vec<Class>,
-    /// the case (index into `cases`) of each coset
-    case_of: Vec<u16>,
-    /// the cases each case meets after its first quarter turn ([`classes::u2_mates`])
+    /// the classes: cosets up to the symmetries and the E slice
+    pub classes: Vec<Class>,
+    /// the list: every coset with its class's picture ([`classes::entries`])
+    pub cases: Vec<Entry>,
+    /// the entry (index into `cases`) each coset is, seen from some side, and whether with the E slice turned
+    entry_of: Vec<(u16, bool)>,
+    /// the entries each entry meets after its first quarter turn, and the groups they make ([`classes::u2_mates`])
     u2_mates: Vec<Vec<usize>>,
+    u2_groups: Vec<Vec<usize>>,
     /// the fewest face turns from each coset to HTR, DR-breaking HTRs included
     pub dist: Vec<u8>,
     /// the search with every face turn, built when first needed
@@ -85,6 +91,11 @@ pub struct CaseInfo {
     pub lookalikes: Vec<usize>,
     /// numbers of the cases a U2 away that it meets after its first quarter turn ([`classes::u2_mates`])
     pub u2_mates: Vec<usize>,
+    /// the others of its group: cases joined that way, directly or through others (the merged list shows a group as one)
+    pub u2_group: Vec<usize>,
+    /// the other cases with this picture that are this one seen another way, and how ("in a mirror", "turned", "with
+    /// the E slice turned")
+    pub siblings: Vec<(usize, &'static str)>,
     /// a shortest sequence of DR moves that puts the corners alone in HTR (it leaves the lookalikes' corners in fake
     /// HTR)
     pub corner_test: String,
@@ -149,15 +160,40 @@ impl Index {
         let labels = Labels::new(&cosets, &htr);
         let dist = ALL_DIST.to_vec();
         assert_eq!(dist.len(), NCOSETS);
-        let cases = classes::classes(&cosets, &dist);
-        let mut case_of = vec![0u16; NCOSETS];
-        for (i, c) in cases.iter().enumerate() {
-            for &x in &c.members {
-                case_of[x] = i as u16;
-            }
+        let classes = classes::classes(&cosets, &dist);
+        let cases = classes::entries(&cosets, &classes, &dist);
+        // each coset as an entry: itself if it is one, else turned (a solver can turn the cube), else mirrored (the
+        // first such entry), else with the E slice turned
+        let mut index = vec![u16::MAX; NCOSETS];
+        for (i, e) in cases.iter().enumerate() {
+            index[e.coset] = i as u16;
         }
-        let u2_mates = classes::u2_mates(&cosets, &cases, &dist);
-        Index { htr, cube: MoveTables::new(), cosets, labels, cases, case_of, u2_mates, dist, all: OnceLock::new() }
+        let among = |x: usize, syms: std::ops::Range<usize>| {
+            syms.map(|s| index[cosets.sym[x][s] as usize]).min().filter(|&i| i != u16::MAX)
+        };
+        let first = |x: usize| {
+            Some(index[x]).filter(|&i| i != u16::MAX).or_else(|| among(x, 0..8)).or_else(|| among(x, 8..NSYM))
+        };
+        let entry_of: Vec<(u16, bool)> = (0..NCOSETS)
+            .map(|x| match first(x) {
+                Some(i) => (i, false),
+                None => (first(cosets.eslice[x] as usize).unwrap_or(u16::MAX), true),
+            })
+            .collect();
+        let (u2_mates, u2_groups) = classes::u2_mates(&cosets, &cases, &dist);
+        Index {
+            htr,
+            cube: MoveTables::new(),
+            cosets,
+            labels,
+            classes,
+            cases,
+            entry_of,
+            u2_mates,
+            u2_groups,
+            dist,
+            all: OnceLock::new(),
+        }
     }
 
     /// The search with every face turn (its tables take a moment: built the first time they are needed).
@@ -175,8 +211,9 @@ impl Index {
         AllMoves::dr_cube(&self.htr, coset)
     }
 
+    /// The entry a coset is, seen from some side (turned or mirrored; else with the E slice turned).
     pub fn case_of(&self, coset: usize) -> usize {
-        self.case_of[coset] as usize
+        self.entry_of[coset].0 as usize
     }
 
     /// How long the page lists a coset's HTRs with the slider at `above`: up to that many moves over its optimal
@@ -257,6 +294,8 @@ impl Index {
             bad_edges: (0..8).filter(|&p| self.cosets.edge_mask[x] >> p & 1 == 1).map(|p| EDGE_PLACES[p]).collect(),
             lookalikes: c.lookalikes.iter().map(|&j| j + 1).collect(),
             u2_mates: self.u2_mates[i].iter().map(|&j| j + 1).collect(),
+            u2_group: self.u2_groups[i].iter().map(|&j| j + 1).collect(),
+            siblings: c.siblings.iter().map(|&(j, how)| (j + 1, how)).collect(),
             corner_test: dr_text(&self.cosets.corner_solution(x)),
             turned: Turned { corners: 8 - corners, edges: 8 - edges, moves: self.dist[t], labels: self.labels.of(t) },
         }
@@ -292,9 +331,8 @@ impl Index {
         if x == self.cosets.solved {
             return Err("that is already HTR".into());
         }
-        let i = self.case_of(x);
+        let (i, turned) = (self.case_of(x), self.entry_of[x].1);
         let c = &self.cases[i];
-        let turned = !(0..attempt_sim::dr::NSYM).any(|s| self.cosets.sym[c.coset][s] as usize == x);
         let few = self.cosets.few_frame(x);
         let flip = if few { 0 } else { 0xFF };
         let names = |mask: u8, places: &[&str; 8]| -> Vec<String> {

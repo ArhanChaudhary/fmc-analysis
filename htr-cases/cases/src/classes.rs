@@ -1,9 +1,9 @@
-//! The cases: cosets up to the 16 symmetries and the E slice, the bad pieces each one is drawn with, and which
-//! cases look the same.
+//! The cases: cosets up to the 16 symmetries and the E slice (the classes), the bad pieces each one is drawn with,
+//! which cases look the same, and the list: every coset with its class's picture ([`entries`]).
 
 use crate::cosets::{Cosets, NCOSETS};
 use attempt_sim::dr::NSYM;
-use std::collections::HashMap;
+use std::collections::{BTreeMap, HashMap};
 
 /// Bad corners and bad edges as place masks.
 pub type Layout = (u8, u8);
@@ -100,26 +100,82 @@ pub fn classes(cs: &Cosets, dist: &[u8]) -> Vec<Class> {
     out
 }
 
-/// Cases that meet after their first quarter turn: B is A after U2 (or D2: the symmetries swap U and D), and on both
-/// a shortest HTR starts with a quarter turn of that layer.  A with that turn one way and B with it the other way
-/// reach the same coset (U2 then U' is U), so after it they are one case.  For each case, the others joined to it this
-/// way, directly or through others (indices into `cases`).  Only the versions drawn count (a case's cosets that are its
-/// drawn coset seen from some side): with DR-breaking HTRs, the two versions of a case can be at different optima.
-pub fn u2_mates(cs: &Cosets, cases: &[Class], dist: &[u8]) -> Vec<Vec<usize>> {
-    let mut case_of = vec![0usize; NCOSETS];
-    let mut drawn_side = vec![false; NCOSETS];
-    for (i, c) in cases.iter().enumerate() {
-        for &x in &c.members {
-            case_of[x] = i;
-        }
-        for s in 0..NSYM {
-            drawn_side[cs.sym[c.coset][s] as usize] = true;
+/// A case as listed: one coset with its class's picture.  A class whose picture a symmetry maps onto itself while
+/// moving the coset (its mirror image looks the same, say), or a 4-corner 4-edge class whose E-slice twin looks the
+/// same, is listed once for each coset with that picture: they look alike and take different HTRs.
+pub struct Entry {
+    pub coset: usize,
+    /// its class (index into the classes)
+    pub class: usize,
+    pub subset: u8,
+    pub edges: u8,
+    /// the optimal: fewest face turns to HTR, DR-breaking HTRs included
+    pub moves: u8,
+    /// the other entries whose bad pieces look the same, its siblings included (indices into the entries)
+    pub lookalikes: Vec<usize>,
+    /// the other entries of its class (the same picture), and what each is of this one: "in a mirror", "turned", "with
+    /// the E slice turned"
+    pub siblings: Vec<(usize, &'static str)>,
+}
+
+/// The list: every coset with its class's picture (HTR itself aside), sorted by subset, bad edges, optimal, picture,
+/// class, coset.  Seen from some side, every DR state is one of them, and every coset that looks like a listed picture
+/// is listed (`cargo test` checks both).
+pub fn entries(cs: &Cosets, classes: &[Class], dist: &[u8]) -> Vec<Entry> {
+    let layout = |x: usize| -> Layout { (cs.corner_mask[x], cs.edge_mask[x]) };
+    let mut list: Vec<(usize, usize)> = Vec::new();
+    for (k, c) in classes.iter().enumerate() {
+        let picture = layout(c.coset);
+        for &y in c.members.iter().filter(|&&y| y != cs.solved && layout(y) == picture) {
+            list.push((y, k));
         }
     }
+    list.sort_by_key(|&(y, k)| (cs.subset[y], classes[k].edges, dist[y], layout(y), k, y));
+    let mut by_picture: BTreeMap<Layout, Vec<usize>> = BTreeMap::new();
+    for (i, &(y, _)) in list.iter().enumerate() {
+        by_picture.entry(layout(y)).or_default().push(i);
+    }
+    // how another coset of the class is this one seen: turned (a rotation), in a mirror, or with the E slice turned
+    let relation = |x: usize, y: usize| -> &'static str {
+        let by = |from: usize, syms: std::ops::Range<usize>| syms.into_iter().any(|s| cs.sym[from][s] as usize == y);
+        if by(x, 0..8) {
+            "turned"
+        } else if by(x, 8..NSYM) {
+            "in a mirror"
+        } else {
+            "with the E slice turned"
+        }
+    };
+    list.iter()
+        .enumerate()
+        .map(|(i, &(y, k))| Entry {
+            coset: y,
+            class: k,
+            subset: cs.subset[y],
+            edges: classes[k].edges,
+            moves: dist[y],
+            lookalikes: by_picture[&layout(y)].iter().copied().filter(|&j| j != i).collect(),
+            siblings: by_picture[&layout(y)]
+                .iter()
+                .copied()
+                .filter(|&j| j != i && list[j].1 == k)
+                .map(|j| (j, relation(y, list[j].0)))
+                .collect(),
+        })
+        .collect()
+}
+
+/// Cases that meet after their first quarter turn: B is A after U2 (or D2: the symmetries swap U and D), seen from
+/// some side, and on both a shortest HTR starts with a quarter turn of that layer.  A with that turn one way and B with
+/// it the other way reach the same coset (U2 then U' is U), so after it they are one case.  For each entry, the others
+/// joined to it this way directly, and those joined directly or through others: its group (indices into `entries`).
+pub fn u2_mates(cs: &Cosets, entries: &[Entry], dist: &[u8]) -> (Vec<Vec<usize>>, Vec<Vec<usize>>) {
+    let index: HashMap<usize, usize> = entries.iter().enumerate().map(|(i, e)| (e.coset, i)).collect();
     // does a shortest HTR from x start with one of these two quarter turns?
     let starts_with =
         |x: usize, turns: [usize; 2]| dist[x] > 0 && turns.iter().any(|&q| dist[cs.mv[x][q] as usize] + 1 == dist[x]);
-    let mut parent: Vec<usize> = (0..cases.len()).collect();
+    let mut parent: Vec<usize> = (0..entries.len()).collect();
+    let mut direct: Vec<Vec<usize>> = vec![Vec::new(); entries.len()];
     fn root(parent: &mut [usize], mut i: usize) -> usize {
         while parent[i] != i {
             parent[i] = parent[parent[i]];
@@ -129,14 +185,28 @@ pub fn u2_mates(cs: &Cosets, cases: &[Class], dist: &[u8]) -> Vec<Vec<usize>> {
     }
     // (U, U') with U2, and (D, D') with D2, as DR moves
     for (turns, half) in [([0, 2], 1), ([3, 5], 4)] {
-        for x in 0..NCOSETS {
-            let y = cs.mv[x][half] as usize;
-            if drawn_side[x] && drawn_side[y] && starts_with(x, turns) && starts_with(y, turns) {
-                let (a, b) = (root(&mut parent, case_of[x]), root(&mut parent, case_of[y]));
-                parent[a.max(b)] = a.min(b);
+        for (i, e) in entries.iter().enumerate() {
+            let y = cs.mv[e.coset][half] as usize;
+            if !(starts_with(e.coset, turns) && starts_with(y, turns)) {
+                continue;
+            }
+            for s in 0..NSYM {
+                if let Some(&j) = index.get(&(cs.sym[y][s] as usize)) {
+                    let (a, b) = (root(&mut parent, i), root(&mut parent, j));
+                    parent[a.max(b)] = a.min(b);
+                    for (p, q) in [(i, j), (j, i)] {
+                        if p != q && !direct[p].contains(&q) {
+                            direct[p].push(q);
+                        }
+                    }
+                }
             }
         }
     }
-    let roots: Vec<usize> = (0..cases.len()).map(|i| root(&mut parent, i)).collect();
-    (0..cases.len()).map(|i| (0..cases.len()).filter(|&j| j != i && roots[j] == roots[i]).collect()).collect()
+    let roots: Vec<usize> = (0..entries.len()).map(|i| root(&mut parent, i)).collect();
+    for d in direct.iter_mut() {
+        d.sort_unstable();
+    }
+    let groups = (0..entries.len()).map(|i| (0..entries.len()).filter(|&j| j != i && roots[j] == roots[i]).collect());
+    (direct, groups.collect())
 }

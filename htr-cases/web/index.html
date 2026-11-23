@@ -23,7 +23,7 @@
 <div class="list-panel" id="list">
   <h1 class="title">HTR cases</h1>
   <p class="lede">
-    Every HTR case of a DR on U/D, up to rotations, mirrors and the E slice: <b>1,272 cases</b>, grouped by subset, then
+    Every HTR case of a DR on U/D, up to rotations, mirrors and the E slice: <b>1,446 cases</b>, grouped by subset, then
     bad edges, then the optimal: the fewest moves to HTR, leaving DR on the way or not. On each cube the bad pieces are solid
     <span class="swatch bad"></span>gray and the rest is glass.
     Click a case to open it in the side panel, with its HTRs up to 0 to 4 moves over its optimal (a slider there sets
@@ -41,11 +41,16 @@
         same case (the picture shows one of them), and so does the E slice: turning it makes every bad piece good and
         every good one bad (2c3 2e becomes 6c3 6e). With DR moves both are the same number of moves from HTR, and they
         have the same HTRs, with the last quarter turn on the other layer (U for D, D for U). HTRs that leave DR on the
-        way can tell them apart: for 25 cases the version drawn has a different optimal from the other (by one move,
-        two for cases 674 and 732), which is what this page shows. Each case is drawn the way with fewer bad
+        way can tell them apart: for 32 cases the version drawn has a different optimal from the other (by one move or
+        two), which is what this page shows. Each case is drawn the way with fewer bad
         pieces: 2c rather than 6c, 0c rather than 8c, and with 4 bad corners either way, the fewer bad edges. Case 1 is
         the one exception: HTR with the E slice a quarter turn off, every piece bad, 2 moves (U D) from HTR, while turning
-        the slice back makes it HTR itself.</li>
+        the slice back makes it HTR itself.
+        <br>Some pictures are kept by a turn or a mirror of the cube (or, with 4 bad corners and 4 bad edges, by the E
+        slice) while the case is not: the one picture then hides two or four versions that take different HTRs (2c3 cases
+        323 and 324 are one case in a mirror, clockwise and anticlockwise). Each is listed, so a DR turned to look like a
+        picture is always one of the cases shown with it: 1,272 cases up to symmetry, listed as 1,446. Their lookalikes
+        say which of them is the same case turned, in a mirror or with the E slice turned.</li>
       <li><b>Lookalikes.</b> Several cases have the same bad pieces: they look the same here and on the cube. Each case
         lists its lookalikes. Every 4b2, 2c3, 0c3, 2c4 and 4a3 case also carries the labels solvers tell such
         lookalikes apart by:
@@ -59,7 +64,7 @@
             4a4), each read with that axis as the DR axis. A 0c3's corners are twisted right on every axis, and the
             three types are its three corner arrangements. R and F are read on the case as drawn: turning the whole cube
             a quarter about U/D swaps them, but turns the bad edges with them, so with the edges the letter tells cases
-            apart: cases 288 and 289, both 0c3 4e with the same bad edges, are R and F.</li>
+            apart: cases 292 and 293, both 0c3 4e with the same bad edges, are R and F.</li>
           <li><b>2c4: Swap-U / Swap-R / Swap-F, and good / mid / bad.</b> Swapping the two bad corners makes a 0c3; the
             swap type is its type. With the bad corners in opposite layers, the case is good if U brings it to 4b3 (D
             does the same), bad if to 4b5. With both in one layer (on U, at UFR and UFL), it is good if U and B2 U both
@@ -78,21 +83,22 @@
         rules are the ones solvers give, read as above; each gives one answer from every side it can be read from (R
         and F as the case is drawn), and the same on both versions of a case.</li>
       <li><b>Pairs a U2 apart.</b> Some cases are another case after U2, and on both a shortest HTR starts with a U
-        quarter turn: U on one is U′ on the other (U2 U′ is U), so after that turn they are the same case. There are 185
-        such pairs, like cases 310 and 311. Each case names its pair, and the switch above the list shows every pair as
-        one entry (1,087 entries instead of 1,272). The symmetries swap U and D, so pairs a D2 apart are among
+        quarter turn: U on one is U′ on the other (U2 U′ is U), so after that turn they are the same case. There are 197
+        such pairs, like cases 323 and 325, and 18 groups of four (a case after U2 can look like two cases with one
+        picture). Each case names the others, and the switch above the list shows each group as one entry (1,195 entries
+        instead of 1,446). The symmetries swap U and D, so pairs a D2 apart are among
         them.</li>
       <li><b>The HTRs listed.</b> Any face turns: the DR moves (U, D, R2, L2, F2, B2), and quarter turns of R, L, F and
-        B, which leave DR on the way. For 155 cases such an HTR is shorter than any with DR moves (case 675 is 8 moves
+        B, which leave DR on the way. For 201 cases such an HTR is shorter than any with DR moves (case 742 is 8 moves
         from HTR with DR moves, 7 with F U B′ U2 F U′ B). Turns of opposite faces go in the order U D, R L, F B, and none
         is in HTR before its end, even with the E slice a quarter turn off (from there the rest only turns the slice
         back), or has a half turn among its last turns (that half turn could go last, where it does nothing for HTR). So
         each one ends in a quarter turn that can go either way (X and X′ both reach HTR), and only the clockwise one is
         written. HTRs that are the same up to the E slice are written once, the shortest of
         them: with the E slice ignored, a D turn is the U turn the same way with the cube turned a quarter with it, so
-        the turns after it are on the next faces round (R to F, F to L, L to B, B to R). Case 310's U R2 U R2 U,
+        the turns after it are on the next faces round (R to F, F to L, L to B, B to R). Case 323's U R2 U R2 U,
         U R2 D B2 D, D B2 U B2 D and D B2 D L2 U are one HTR. At the panel's default, 2 moves over the optimal, that leaves
-        307,628 over all the cases, 121,345 of them leaving DR. Case 1, HTR up to the E slice, lists only U D. The panel
+        382,048 over all the cases, 178,110 of them leaving DR. Case 1, HTR up to the E slice, lists only U D. The panel
         lists a case's HTRs up to 0 to 4 moves over its optimal, 2 unless you change it, and never past 11 moves (a case
         whose optimal is longer lists its optimal ones): a 7-optimal case has about 100,000 HTRs of 11 moves.</li>
       <li><b>For other programs.</b> <a href="htr-cases.txt">htr-cases.txt</a>: a shortest generator of every case (moves
