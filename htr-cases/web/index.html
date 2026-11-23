@@ -27,7 +27,7 @@
     bad edges, then the optimal: the fewest moves to HTR, leaving DR on the way or not. On each cube the bad pieces are solid
     <span class="swatch bad"></span>gray and the rest is glass.
     Click a case to open it in the side panel, with its HTRs up to 0 to 4 moves over its optimal (a slider there sets
-    it). Drag a cube there to turn it.
+    it). Drag a cube there to rotate it.
   </p>
 
   <details class="about">
@@ -46,11 +46,11 @@
         pieces: 2c rather than 6c, 0c rather than 8c, and with 4 bad corners either way, the fewer bad edges. Case 1 is
         the one exception: HTR with the E slice a quarter turn off, every piece bad, 2 moves (U D) from HTR, while turning
         the slice back makes it HTR itself.
-        <br>Some pictures are kept by a turn or a mirror of the cube (or, with 4 bad corners and 4 bad edges, by the E
+        <br>Some pictures are kept by a rotation or a mirror of the cube (or, with 4 bad corners and 4 bad edges, by the E
         slice) while the case is not: the one picture then hides two or four versions that take different HTRs (2c3 cases
-        323 and 324 are one case in a mirror, clockwise and anticlockwise). Each is listed, so a DR turned to look like a
+        323 and 324 are one case in a mirror, clockwise and anticlockwise). Each is listed, so a DR rotated to look like a
         picture is always one of the cases shown with it: 1,272 cases up to symmetry, listed as 1,446. Their lookalikes
-        say which of them is the same case turned, in a mirror or with the E slice turned.</li>
+        say which of them is the same case rotated, in a mirror or with the E slice turned.</li>
       <li><b>Lookalikes.</b> Several cases have the same bad pieces: they look the same here and on the cube. Each case
         lists its lookalikes. Every 4b2, 2c3, 0c3, 2c4 and 4a3 case also carries the labels solvers tell such
         lookalikes apart by:
@@ -62,8 +62,8 @@
             own face) that brings it to 4b2 with no parity. Every half turn done before it flips the direction.</li>
           <li><b>0c3: U / R / F.</b> The axis whose quarter turn brings the corners to 4a2 (the other two axes bring them to
             4a4), each read with that axis as the DR axis. A 0c3's corners are twisted right on every axis, and the
-            three types are its three corner arrangements. R and F are read on the case as drawn: turning the whole cube
-            a quarter about U/D swaps them, but turns the bad edges with them, so with the edges the letter tells cases
+            three types are its three corner arrangements. R and F are read on the case as drawn: a y rotation of the
+            whole cube swaps them, but moves the bad edges with them, so with the edges the letter tells cases
             apart: cases 292 and 293, both 0c3 4e with the same bad edges, are R and F.</li>
           <li><b>2c4: Swap-U / Swap-R / Swap-F, and good / mid / bad.</b> Swapping the two bad corners makes a 0c3; the
             swap type is its type. With the bad corners in opposite layers, the case is good if U brings it to 4b3 (D
@@ -138,7 +138,7 @@
   <div class="side-main">
     <div class="view">
       <canvas id="side-canvas" aria-label="The open case, bad pieces"></canvas>
-      <div class="hint" id="side-view-hint">Drag to turn · double-click to reset</div>
+      <div class="hint" id="side-view-hint">Drag to rotate · double-click to reset</div>
     </div>
     <div class="facts" id="side-facts"></div>
     <div class="over" id="side-over" hidden>

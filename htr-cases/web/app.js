@@ -183,7 +183,7 @@ function selectCase(n) {
 async function renderCase(c, fresh) {
   const token = ++renderToken;
   title(`Case ${c.number}`, c);
-  side.viewHint.textContent = 'Drag to turn · double-click to reset';
+  side.viewHint.textContent = 'Drag to rotate · double-click to reset';
   if (fresh) sideCube.view = { ...DEFAULT_VIEW };
   sideCube.set({ corners: c.bad_corners, edges: c.bad_edges });
   side.facts.replaceChildren(el('span', { class: 'k' }, 'Lookalikes'), el('span', {}, lookalikeLinks(c)), ...pairRow(c));
@@ -206,7 +206,7 @@ function renderFound(f, text, fresh = true) {
   markCard(f.number);
   history.replaceState(null, '', location.pathname + location.search);
   title('Your DR', f);
-  side.viewHint.textContent = 'Your cube as you hold it · drag to turn';
+  side.viewHint.textContent = 'Your cube as you hold it · drag to rotate';
   if (fresh) sideCube.view = { ...DEFAULT_VIEW };
   sideCube.set({ corners: f.corners, edges: f.edge_pieces });
   side.facts.replaceChildren(
@@ -215,7 +215,7 @@ function renderFound(f, text, fresh = true) {
       caseLink(f.number, `case ${f.number}`),
       el('span', { class: 'hint' }, f.turned
         ? ' with the slice between your DR faces turned: its bad pieces are your good ones'
-        : ' (drawn with the DR on U/D, maybe turned or mirrored)')),
+        : ' (drawn with the DR on U/D, maybe rotated or mirrored)')),
   );
   side.count.textContent = countText(f.solutions.length, f.longest, f.moves, f.number === 1);
   side.htrs.replaceChildren(...htrList(f.solutions));

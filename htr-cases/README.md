@@ -37,12 +37,12 @@ What the tests check about the E slice (`cases/tests/checks.rs`):
 
 That leaves 1,272 classes.
 
-**The list.** Some pictures are kept by a turn or a mirror of the cube (or, for 4 bad corners and 4 bad edges, by the
+**The list.** Some pictures are kept by a rotation or a mirror of the cube (or, for 4 bad corners and 4 bad edges, by the
 E slice) while the class is not: one picture then hides two or four cosets that take different HTRs. 2c3 cases 323
 and 324 are one class, mirror images of each other with the same bad pieces, one clockwise and one anticlockwise.
 So the page lists every coset with its class's picture (`classes::entries`): 1,446 cases, 174 more than the
-classes, in 0c3, 0c4, 2c3, 2c4, 4a3, 4a4 and 4b5. A DR turned to look like a picture is then always one of the cases
-shown with it, and its HTRs are listed as written. The lookalikes of a case say which are the same class turned, in a
+classes, in 0c3, 0c4, 2c3, 2c4, 4a3, 4a4 and 4b5. A DR rotated to look like a picture is then always one of the cases
+shown with it, and its HTRs are listed as written. The lookalikes of a case say which are the same class rotated, in a
 mirror or with the E slice turned. In 0c3, 2c3 and 2c4 the labels tell them apart (R or F, the direction, the swap
 type); in 0c4, 4a3, 4a4 and 4b5 (192 cases) no label does yet.
 
@@ -56,7 +56,7 @@ in fake HTR. Lookalikes in the same subset also get the label the guides use (`c
   direction.
 - **0c3 type: U, R or F.** The axis whose quarter turn brings the corners to 4a2 (the other two bring them to 4a4),
   each read with that axis as the DR axis (`cube::DR_VIEW`). A 0c3's corners are twisted right on every axis, and the
-  three types are its three corner cosets. R and F are read on the case as drawn: a y rotation swaps them, but turns
+  three types are its three corner cosets. R and F are read on the case as drawn: a y rotation swaps them, but moves
   the bad edges with them, so with the edges the letter tells cases apart (cases 292 and 293, both 0c3 4e with the same bad edges, are R and F; 25 pairs of
   lookalikes differ only so).
 - **2c4 swap type and good, mid or bad.** Swapping the two bad corners makes a 0c3; the swap type (Swap-U, Swap-R,

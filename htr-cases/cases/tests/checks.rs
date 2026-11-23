@@ -90,7 +90,7 @@ fn case_count() {
 }
 
 /// The list is exhaustive.  Every DR state, turned or mirrored (or with the E slice turned), is one of the listed
-/// cases, and "Find your case" shows it as one it can be turned into when there is one.  And a lookalike of a listed case, with the same bad corners and edges in the same places and the same
+/// cases, and "Find your case" shows it as one it can be rotated into when there is one.  And a lookalike of a listed case, with the same bad corners and edges in the same places and the same
 /// subset, is listed itself: if it is not that case, it takes other HTRs (on the cube, independent of the coset tables,
 /// some optimal HTR of the listed case does not solve it).
 #[test]
@@ -112,11 +112,11 @@ fn the_list_is_exhaustive() {
             sym(x).chain(sym(cs.eslice[x] as usize)).any(|y| listed.contains_key(&y)),
             "coset {x} is no listed case from any side"
         );
-        // and the case a DR is found to be is one it turns into, if there is one (a solver turns the cube; a mirror
+        // and the case a DR is found to be is one it can be rotated into, if there is one (a solver can rotate the cube; a mirror
         // would turn a clockwise 2c3 anticlockwise)
-        let turned = |x: usize| (0..8).map(move |s| cs.sym[x][s] as usize);
-        if turned(x).any(|y| listed.contains_key(&y)) {
-            assert!(turned(x).any(|y| y == ix.cases[ix.case_of(x)].coset), "coset {x} is found as a mirror image");
+        let rotated = |x: usize| (0..8).map(move |s| cs.sym[x][s] as usize);
+        if rotated(x).any(|y| listed.contains_key(&y)) {
+            assert!(rotated(x).any(|y| y == ix.cases[ix.case_of(x)].coset), "coset {x} is found as a mirror image");
         }
         let Some(same) = pictures.get(&picture(x)) else { continue };
         let i =
@@ -501,8 +501,8 @@ fn labels_of_0c3_2c4_and_4a3() {
     ];
     assert_eq!(labels, expected.iter().map(|&(s, l, n)| ((s, l.to_string()), n)).collect());
 
-    // in a solver's own frame: the case of R U2 R2 F2 R F2 R2 U2 R (DR on R/L) is a 0c3; the same moves turned onto U/D
-    // (R to U, U to F, F to R: a rotation about the UFR corner), its type letter turns with it
+    // in a solver's own frame: the case of R U2 R2 F2 R F2 R2 U2 R (DR on R/L) is a 0c3; the same moves rotated onto U/D
+    // (R to U, U to F, F to R: a rotation about the UFR corner), its type letter rotates with it
     let on_rl = ix.find("R U2 R2 F2 R F2 R2 U2 R", "", 0).unwrap();
     let on_ud = ix.find("U F2 U2 R2 U R2 U2 F2 U", "", 0).unwrap();
     assert_eq!((on_rl.subset, on_ud.subset, on_rl.number), ("0c3", "0c3", on_ud.number));

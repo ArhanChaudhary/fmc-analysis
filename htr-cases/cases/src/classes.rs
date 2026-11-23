@@ -113,7 +113,7 @@ pub struct Entry {
     pub moves: u8,
     /// the other entries whose bad pieces look the same, its siblings included (indices into the entries)
     pub lookalikes: Vec<usize>,
-    /// the other entries of its class (the same picture), and what each is of this one: "in a mirror", "turned", "with
+    /// the other entries of its class (the same picture), and what each is of this one: "in a mirror", "rotated", "with
     /// the E slice turned"
     pub siblings: Vec<(usize, &'static str)>,
 }
@@ -135,11 +135,11 @@ pub fn entries(cs: &Cosets, classes: &[Class], dist: &[u8]) -> Vec<Entry> {
     for (i, &(y, _)) in list.iter().enumerate() {
         by_picture.entry(layout(y)).or_default().push(i);
     }
-    // how another coset of the class is this one seen: turned (a rotation), in a mirror, or with the E slice turned
+    // how another coset of the class is this one seen: rotated, in a mirror, or with the E slice turned
     let relation = |x: usize, y: usize| -> &'static str {
         let by = |from: usize, syms: std::ops::Range<usize>| syms.into_iter().any(|s| cs.sym[from][s] as usize == y);
         if by(x, 0..8) {
-            "turned"
+            "rotated"
         } else if by(x, 8..NSYM) {
             "in a mirror"
         } else {

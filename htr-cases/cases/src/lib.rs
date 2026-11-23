@@ -93,7 +93,7 @@ pub struct CaseInfo {
     pub u2_mates: Vec<usize>,
     /// the others of its group: cases joined that way, directly or through others (the merged list shows a group as one)
     pub u2_group: Vec<usize>,
-    /// the other cases with this picture that are this one seen another way, and how ("in a mirror", "turned", "with
+    /// the other cases with this picture that are this one seen another way, and how ("in a mirror", "rotated", "with
     /// the E slice turned")
     pub siblings: Vec<(usize, &'static str)>,
     /// a shortest sequence of DR moves that puts the corners alone in HTR (it leaves the lookalikes' corners in fake
@@ -162,7 +162,7 @@ impl Index {
         assert_eq!(dist.len(), NCOSETS);
         let classes = classes::classes(&cosets, &dist);
         let cases = classes::entries(&cosets, &classes, &dist);
-        // each coset as an entry: itself if it is one, else turned (a solver can turn the cube), else mirrored (the
+        // each coset as an entry: itself if it is one, else rotated (a solver can rotate the cube), else mirrored (the
         // first such entry), else with the E slice turned
         let mut index = vec![u16::MAX; NCOSETS];
         for (i, e) in cases.iter().enumerate() {
@@ -211,7 +211,7 @@ impl Index {
         AllMoves::dr_cube(&self.htr, coset)
     }
 
-    /// The entry a coset is, seen from some side (turned or mirrored; else with the E slice turned).
+    /// The entry a coset is, seen from some side (rotated or mirrored; else with the E slice turned).
     pub fn case_of(&self, coset: usize) -> usize {
         self.entry_of[coset].0 as usize
     }
