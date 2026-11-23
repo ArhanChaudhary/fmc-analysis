@@ -47,29 +47,36 @@
         the one exception: HTR with the E slice a quarter turn off, every piece bad, 2 moves (U D) from HTR, while turning
         the slice back makes it HTR itself.</li>
       <li><b>Lookalikes.</b> Several cases have the same bad pieces: they look the same here and on the cube. Each case
-        lists its lookalikes. Every 4b2, 2c3, 2c4 and 4a3 case also carries the label solvers tell such lookalikes apart
-        by:
+        lists its lookalikes. Every 4b2, 2c3, 0c3, 2c4 and 4a3 case also carries the labels solvers tell such
+        lookalikes apart by:
         <ul>
           <li><b>4b2: no parity / parity.</b> Set the corners up for a two-quarter-turn trigger (Q X2 Q) with half turns,
             counting every U2 or D2 done while the bad corners are split 3/1 between U and D. An even count and the
             trigger gives real HTR: no parity. An odd count: parity.</li>
           <li><b>2c3: clockwise / anticlockwise.</b> From the position shown, the quarter turn (U or D, each seen from its
             own face) that brings it to 4b2 with no parity. Every half turn done before it flips the direction.</li>
-          <li><b>2c4 and 4a3: good / bad.</b> A sequence <i>progresses</i> when it brings the corners a quarter turn closer to
-            HTR, half turns counting nothing: the subset's number goes down. A 2c4 is good when, with its bad corners on
-            UFR and UFL, U and B2 U both progress; on UBL and DFR, F2 U and R2 U; stacked on UFR and DFR, U2 R2 U and
-            U2 F2 U. Then both lead to 2c3; on a bad 2c4 one leads to 2c3 and the other to 2c5. A 4a3 is good when,
-            with its bad corners as bars on U and D, U progresses (it leads to 4b2, where a bad one's leads to 4b4); all
-            on U, F2 U. A 4a3 with its bad corners on diagonals of U and D is neither. U or U′ makes no difference
-            here, and the rules give one answer from every side they can be read from.</li>
+          <li><b>0c3: U / R / F.</b> The axis whose quarter turn brings the corners to 4a2 (the other two axes bring them to
+            4a4), each read with that axis as the DR axis. A 0c3's corners are twisted right on every axis, and the
+            three types are its three corner arrangements. R and F are read on the case as drawn: turning the whole cube
+            a quarter about U/D swaps them, but turns the bad edges with them, so with the edges the letter tells cases
+            apart: cases 288 and 289, both 0c3 4e with the same bad edges, are R and F.</li>
+          <li><b>2c4: Swap-U / Swap-R / Swap-F, and good / mid / bad.</b> Swapping the two bad corners makes a 0c3; the
+            swap type is its type. With the bad corners in opposite layers, the case is good if U brings it to 4b3 (D
+            does the same), bad if to 4b5. With both in one layer (on U, at UFR and UFL), it is good if U and B2 U both
+            bring it to 2c3, mid if only U does, bad if only B2 U does.</li>
+          <li><b>4a3: good / bad.</b> A sequence <i>progresses</i> when it brings the corners a quarter turn closer to
+            HTR, half turns counting nothing: the subset's number goes down. A 4a3 is good when, with its bad corners as
+            bars on U and D, U progresses (it leads to 4b2, where a bad one's leads to 4b4); all on U, F2 U. A 4a3 with
+            its bad corners on diagonals of U and D is neither. U or U′ makes no difference here.</li>
         </ul>
         The 4b2 rule is the one in the <a href="https://docs.google.com/document/d/1_NMlyPh2Ifd1E0ivos-15Sp-by-KPxoOsj9JD4pJuHI/edit">Hitchhiker's
         Guide to HTR</a> (Yurii Riabov, July 2024, "How to solve 4b2"). The 2c3 one puts together the guide's "How to
         solve 2c3" (with parity after the quarter turn, turn the other way) and count quackula's "every half turn you
         do on a 2c3 changes the qt direction" (<a href="https://discord.com/channels/1007840975726575667/1007841335434285126/1545083500913238026">3 Sep
         2026</a>). Both give one answer on every route, the guide's own examples come out as it says, and the two 4b2
-        lookalikes of each shape are one with parity and one without. Good and bad are the rules solvers give for 2c4
-        and 4a3, read as above.</li>
+        lookalikes of each shape are one with parity and one without. The 0c3 type, the swap and the 2c4 and 4a3
+        rules are the ones solvers give, read as above; each gives one answer from every side it can be read from (R
+        and F as the case is drawn), and the same on both versions of a case.</li>
       <li><b>Pairs a U2 apart.</b> Some cases are another case after U2, and on both a shortest HTR starts with a U
         quarter turn: U on one is U′ on the other (U2 U′ is U), so after that turn they are the same case. There are 185
         such pairs, like cases 310 and 311. Each case names its pair, and the switch above the list shows every pair as

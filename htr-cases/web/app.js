@@ -38,11 +38,12 @@ function el(tag, attrs = {}, ...children) {
 const fmt = (n) => n.toLocaleString('en');
 const plural = (n, one, many = one + 's') => `${fmt(n)} ${n === 1 ? one : many}`;
 const optimal = (moves) => `${moves}-optimal`;
-const LABEL_TEXT = { 'no parity': 'no parity', parity: 'parity', clockwise: '↻ clockwise', anticlockwise: '↺ anticlockwise', good: 'good', bad: 'bad' };
+const LABEL_TEXT = { clockwise: '↻ clockwise', anticlockwise: '↺ anticlockwise' };
 
 function tag(label) {
-  return label ? el('span', { class: 'tag', title: label }, LABEL_TEXT[label]) : null;
+  return label ? el('span', { class: 'tag', title: label }, LABEL_TEXT[label] ?? label) : null;
 }
+const tags = (labels) => labels.map(tag);
 
 // settings kept in this browser only (each a convenience: the page works without them)
 const load = (key) => { try { return localStorage.getItem(key); } catch { return null; } };
@@ -124,7 +125,7 @@ function lookalikeLinks(c) {
   const out = el('span', { class: 'lookalikes' });
   c.lookalikes.forEach((n, i) => {
     const o = byNumber.get(n);
-    out.append(i ? ' · ' : '', el('span', {}, `${o.subset} ${o.edges}e `, caseLink(n), ` (${optimal(o.moves)}${o.label ? ', ' + o.label : ''})`));
+    out.append(i ? ' · ' : '', el('span', {}, `${o.subset} ${o.edges}e `, caseLink(n), ` (${[optimal(o.moves), ...o.labels].join(', ')})`));
   });
   return out;
 }
@@ -135,7 +136,7 @@ function pairRow(c) {
   const pick = merge
     ? el('span', { class: 'switch' }, ...[c.number, ...c.u2_mates].sort((a, b) => a - b).map((n) =>
         el('label', {}, el('input', { type: 'radio', name: 'pair', checked: n === c.number, onchange: () => selectCase(n) }),
-          ` #${n}${byNumber.get(n).label ? ` (${byNumber.get(n).label})` : ''}`)))
+          ` #${n}${byNumber.get(n).labels.length ? ` (${byNumber.get(n).labels.join(', ')})` : ''}`)))
     : el('span', {}, ...c.u2_mates.flatMap((n, i) => [i ? ' · ' : '', caseLink(n)]));
   return [el('span', { class: 'k' }, 'A U2 away'), pick];
 }
@@ -151,7 +152,7 @@ function markCard(n) {
 
 // the title bar: the case, its subset and edges, its optimal and its label
 function title(name, c) {
-  side.name.replaceChildren(el('b', {}, name), el('span', { class: 'sub' }, `${c.subset} ${c.edges}e · ${optimal(c.moves)}`), ...[tag(c.label)].filter(Boolean));
+  side.name.replaceChildren(el('b', {}, name), el('span', { class: 'sub' }, `${c.subset} ${c.edges}e · ${optimal(c.moves)}`), ...tags(c.labels));
 }
 
 function showSide(fresh) {
@@ -247,7 +248,7 @@ function buildIndex() {
   observer?.disconnect();
   selectedCard = null;
   // subsets where some case has a label: there every card has a row for them, so the cubes line up
-  const labelled = new Set(cases.filter((c) => c.label).map((c) => c.subset));
+  const labelled = new Set(cases.filter((c) => c.labels.length).map((c) => c.subset));
   const groups = new Map();
   for (const c of cases) {
     if (merge && leaderOf(c.number) !== c.number) continue;
@@ -282,7 +283,7 @@ function buildIndex() {
         for (const c of list) {
           const canvas = el('canvas', { 'data-n': c.number, 'aria-hidden': 'true' });
           const members = membersOf(c);
-          const labels = [...new Set(members.map((n) => byNumber.get(n).label).filter(Boolean))];
+          const labels = [...new Set(members.flatMap((n) => byNumber.get(n).labels))];
           // a card already open (in the merged index, either case of it) stays as it is; on a phone it opens the panel again
           const open = () => (selection?.n && members.includes(selection.n) ? showSide(false) : selectCase(c.number));
           const thumb = el('button', { type: 'button', class: 'thumb', title: `Case ${members.join(' and ')}: ${c.subset} ${c.edges}e, ${optimal(c.moves)}`, onclick: open },

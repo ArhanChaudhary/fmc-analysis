@@ -44,20 +44,28 @@ in fake HTR. Lookalikes in the same subset also get the label the guides use (`c
 - **2c3 direction.** From the position shown, the quarter turn that brings it to 4b2 with no parity goes either
   clockwise or anticlockwise. U and D are each seen from their own face, and every half turn before it flips the
   direction.
-- **2c4 and 4a3, good or bad.** A sequence *progresses* when it brings the corners a quarter turn closer to HTR, half
-  turns counting nothing (`labels::quarter_turns`; this is the number in the subset's name, for every subset). A 2c4
-  is good when, with its bad corners on UFR and UFL, U and B2 U both progress; on UBL and DFR, F2 U and R2 U; stacked
-  on UFR and DFR, U2 R2 U and U2 F2 U. A 4a3 is good when, with its bad corners as bars on U and D, U progresses; all
-  on U, F2 U. Otherwise bad; a 4a3 with its bad corners on diagonals is neither. U or U' makes no difference (they are
-  a free U2 apart).
+- **0c3 type: U, R or F.** The axis whose quarter turn brings the corners to 4a2 (the other two bring them to 4a4),
+  each read with that axis as the DR axis (`cube::DR_VIEW`). A 0c3's corners are twisted right on every axis, and the
+  three types are its three corner cosets. R and F are read on the case as drawn: a y rotation swaps them, but turns
+  the bad edges with them, so with the edges the letter tells cases apart (cases 288 and 289, both 0c3 4e with the same bad edges, are R and F; 25 pairs of
+  lookalikes differ only so).
+- **2c4 swap type and good, mid or bad.** Swapping the two bad corners makes a 0c3; the swap type (Swap-U, Swap-R,
+  Swap-F) is its type. With the bad corners in opposite layers, good if U brings it to 4b3 (D does the same), bad if
+  to 4b5; with both on U (at UFR and UFL), good if U and B2 U both bring it to 2c3, mid if only U does, bad if only
+  B2 U does.
+- **4a3, good or bad.** A sequence *progresses* when it brings the corners a quarter turn closer to HTR, half turns
+  counting nothing (`labels::quarter_turns`; this is the number in the subset's name, for every subset). A 4a3 is good
+  when, with its bad corners as bars on U and D, U progresses; all on U, F2 U. Otherwise bad; with its bad corners on
+  diagonals, neither. U or U' makes no difference (they are a free U2 apart).
 
 The first two rules come from the *Hitchhiker's Guide to HTR* (Yurii Riabov, 2024) and the server. Computed over every
 half-turn route, each gives a single answer on every corner coset. The guide's own examples come out as it says. The
-70 pairs of 4b2 lookalikes are each one with parity and one without. Good and bad give one answer from every side
-that puts the bad corners where a rule wants them (a 2c4 with 6 bad corners is read from its 2, as the index draws
-it), and the same answer on both versions of a case. What they come to: on a good 2c4 both sequences lead to 2c3, and
-on a bad one, one leads to 2c3 and the other to 2c5. A good 4a3's turn leads to 4b2 and a bad one's to 4b4. Over the
-cases: 96 good and 160 bad 2c4, 50 good, 50 bad and 15 neither 4a3.
+70 pairs of 4b2 lookalikes are each one with parity and one without. The 0c3, 2c4 and 4a3 rules give one answer from
+every side that puts the bad corners where a rule wants them (a 2c4 with 6 bad corners, or a 0c3 with 8, is read from
+its version with few, as the index draws it), and the same answer on both versions of a case. A good 4a3's turn leads
+to 4b2 and a bad one's to 4b4. Over the cases: 0c3, 13 U, 13 R, 3 F; 2c4, Swap-U 54 good and 42 bad, Swap-R 11 good,
+31 mid and 49 bad, Swap-F 31 good, 11 mid and 27 bad (mid never with Swap-U); 4a3, 50 good, 50 bad and 15 neither.
+*Find your case* gives U, R and F on the solver's own axes.
 
 The HTRs listed are canonical sequences of face turns: the DR moves, and quarter turns of R, L, F and B, which leave
 DR on the way (`cases/src/allmoves.rs`):
@@ -100,7 +108,7 @@ setup (`find::split_attempt`).
 
 | Where | What |
 |---|---|
-| `cases/` | the library (crate `htr-cases`): `cosets.rs` (the cosets, moves, symmetries, E slice, the HTR search), `classes.rs` (the cases, how each is drawn, lookalikes), `labels.rs` (4b2 parity, 2c3 direction, 2c4 and 4a3 good or bad), `allmoves.rs` (the HTRs with every face turn; `all_dist.bin`, the distance of every DR coset), `find.rs` (a solver's own DR from a scramble and NISS moves), `lib.rs` (`Index`, what the page and the text file show) |
+| `cases/` | the library (crate `htr-cases`): `cosets.rs` (the cosets, moves, symmetries, E slice, the HTR search), `classes.rs` (the cases, how each is drawn, lookalikes), `labels.rs` (4b2 parity, 2c3 direction, 0c3 type, 2c4 swap type and good, mid or bad, 4a3 good or bad), `allmoves.rs` (the HTRs with every face turn; `all_dist.bin`, the distance of every DR coset), `find.rs` (a solver's own DR from a scramble and NISS moves), `lib.rs` (`Index`, what the page and the text file show) |
 | `cases/tests/checks.rs` | the checks (below) |
 | `cli/` | `htr-cases text FILE`, `list`, `case N [--turned] [--above K]`, `find SCRAMBLE MOVES [--above K]`, `all-dist FILE` |
 | `wasm/` | the WebAssembly API the page uses (wasm-bindgen) |
@@ -145,7 +153,8 @@ geometry of the turns and doesn't use the coset tables:
 - The guide's setups have the subsets the guide gives them, and its 4b2 and 2c3 examples have the parity and the
   direction it says.
 - NISS moves in brackets count on the inverse; the page's one field reads a scramble with moves, or a setup.
-- 2c4 and 4a3: every case has its label but the 4a3s on diagonals, the same on both versions of a case.
+- 0c3, 2c4 and 4a3: every case has its labels but the 4a3s on diagonals, the same on both versions of a case; U and
+  Swap-U the same from every side, R and F swapping with a y rotation (which turns the edges too); a 0c3 found on R/L has its letter on R/L's axes.
 - The panel's slider: up to 4 over the optimal, not past 11 moves unless the optimal is; case 1 lists only `U D`.
 - Pairs a U2 apart: 185, each two cases with the same subset, edges and optimal; 310 with 311.
 - What the page says about the E slice (counted above).

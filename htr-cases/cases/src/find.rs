@@ -77,6 +77,22 @@ impl Found {
         self.view.from_view(Move(AS_CUBE_MOVE[dr_move as usize]))
     }
 
+    /// A label with an axis letter (`U`, `R`, `F`, `Swap-R`, ...) on the solver's own axes; other labels as they are.
+    pub fn in_own_axes(&self, label: &str) -> String {
+        let (prefix, letter) = match label.strip_prefix("Swap-") {
+            Some(rest) => ("Swap-", rest),
+            None => ("", label),
+        };
+        let face = match letter {
+            "U" => 0,
+            "R" => 2,
+            "F" => 4,
+            _ => return label.to_string(),
+        };
+        let axis = self.view.from_view(Move::new(face, 1)).axis();
+        format!("{prefix}{}", ["R", "U", "F"][axis])
+    }
+
     /// A face turn of the view as a turn of the solver's cube.
     pub fn turn_move(&self, m: Move) -> Move {
         self.view.from_view(m)

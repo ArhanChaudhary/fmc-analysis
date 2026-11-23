@@ -75,8 +75,9 @@ pub struct CaseInfo {
     pub moves: u8,
     /// with DR moves only
     pub dr_moves: u8,
-    /// 4b2 parity, 2c3 direction, 2c4 or 4a3 good or bad
-    pub label: Option<&'static str>,
+    /// what tells it from its lookalikes ([`Labels::of`]): 4b2 parity, 2c3 direction, 0c3 type, 2c4 swap type and
+    /// good, mid or bad, 4a3 good or bad
+    pub labels: Vec<&'static str>,
     /// the highlighted pieces: the bad ones, relative to the centres
     pub bad_corners: Vec<&'static str>,
     pub bad_edges: Vec<&'static str>,
@@ -96,7 +97,7 @@ pub struct Turned {
     pub corners: u32,
     pub edges: u32,
     pub moves: u8,
-    pub label: Option<&'static str>,
+    pub labels: Vec<&'static str>,
 }
 
 /// A solver's own DR, read by [`Index::find`].  Moves and pieces are in the solver's own frame.
@@ -110,7 +111,8 @@ pub struct FoundInfo {
     pub subset: &'static str,
     pub edges: u8,
     pub moves: u8,
-    pub label: Option<&'static str>,
+    /// as [`CaseInfo::labels`], with the axis letters (0c3 type, 2c4 swap type) on the solver's own axes
+    pub labels: Vec<String>,
     /// the pieces to highlight: the bad ones if there are few, else the good ones
     pub corners: Vec<String>,
     pub edge_pieces: Vec<String>,
@@ -144,7 +146,7 @@ impl Index {
         let dr = DrTables::new();
         let htr = Htr::new(&dr);
         let cosets = Cosets::new(&dr, &htr);
-        let labels = Labels::new(&cosets);
+        let labels = Labels::new(&cosets, &htr);
         let dist = ALL_DIST.to_vec();
         assert_eq!(dist.len(), NCOSETS);
         let cases = classes::classes(&cosets, &dist);
@@ -247,7 +249,7 @@ impl Index {
             edges: c.edges,
             moves: c.moves,
             dr_moves: self.cosets.dist[x],
-            label: self.labels.of(x),
+            labels: self.labels.of(x),
             bad_corners: (0..8)
                 .filter(|&p| self.cosets.corner_mask[x] >> p & 1 == 1)
                 .map(|p| CORNER_PLACES[p])
@@ -256,7 +258,7 @@ impl Index {
             lookalikes: c.lookalikes.iter().map(|&j| j + 1).collect(),
             u2_mates: self.u2_mates[i].iter().map(|&j| j + 1).collect(),
             corner_test: dr_text(&self.cosets.corner_solution(x)),
-            turned: Turned { corners: 8 - corners, edges: 8 - edges, moves: self.dist[t], label: self.labels.of(t) },
+            turned: Turned { corners: 8 - corners, edges: 8 - edges, moves: self.dist[t], labels: self.labels.of(t) },
         }
     }
 
@@ -308,7 +310,7 @@ impl Index {
             subset: SUBSET_NAMES[c.subset as usize],
             edges: c.edges,
             moves: self.dist[x],
-            label: self.labels.of(x),
+            labels: self.labels.of(x).iter().map(|l| found.in_own_axes(l)).collect(),
             corners: names(self.cosets.corner_mask[x], &CORNER_PLACES),
             edge_pieces: names(self.cosets.edge_mask[x], &EDGE_PLACES),
             highlighted_are_bad: few,

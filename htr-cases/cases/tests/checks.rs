@@ -354,12 +354,12 @@ fn the_guides_parity_and_direction_examples() {
     let ix = index();
     let label = |setup: &str| {
         let f = ix.find(setup, "", DEFAULT_ABOVE).unwrap();
-        (f.subset, f.edges, f.label.unwrap())
+        (f.subset, f.edges, f.labels.join(" "))
     };
     // "R U2 R' U2 L2 F2: This is 4b2 with 2 bad edges ... if you do the trigger, you will end up with fake HTR"
-    assert_eq!(label("R U2 R' U2 L2 F2"), ("4b2", 2, "parity"));
+    assert_eq!(label("R U2 R' U2 L2 F2"), ("4b2", 2, "parity".to_string()));
     // "... B2 U2 L2 B2 R2 U2 ... you can do B2 L B2 L' or F2 R B2 R' to see that this 4b2 has parity"
-    assert_eq!(label("R U2 R' U2 L2 F2 B2 U2 L2 B2 R2 U2"), ("4b2", 2, "parity"));
+    assert_eq!(label("R U2 R' U2 L2 F2 B2 U2 L2 B2 R2 U2"), ("4b2", 2, "parity".to_string()));
     // the trigger shape itself
     assert_eq!(label("R U2 R").2, "no parity");
     // "L' B2 R' U2 R' U2 F2 R2 B2 ... do a F2. Then you can do L or L' ... Let's do L ... In this case we have parity
@@ -367,8 +367,8 @@ fn the_guides_parity_and_direction_examples() {
     // direction is the other one (every half turn flips it), clockwise
     let setup = "L' B2 R' U2 R' U2 F2 R2 B2";
     assert_eq!(label(setup).0, "2c3");
-    assert_eq!(label(&format!("{setup} F2 L")), ("4b2", 2, "parity"));
-    assert_eq!(label(&format!("{setup} F2 L'")), ("4b2", 2, "no parity"));
+    assert_eq!(label(&format!("{setup} F2 L")), ("4b2", 2, "parity".to_string()));
+    assert_eq!(label(&format!("{setup} F2 L'")), ("4b2", 2, "no parity".to_string()));
     assert_eq!(label(&format!("{setup} F2")).2, "anticlockwise");
     assert_eq!(label(setup).2, "clockwise");
 }
@@ -395,26 +395,64 @@ fn niss_moves_count_on_the_inverse() {
     assert!(attempt("  // nothing\n").is_err());
 }
 
-/// 2c4 and 4a3, good or bad: every case has its label but the 4a3s with their corners on diagonals, and the two
-/// versions of a case (the E slice turned) have the same.
+/// The labels of 0c3, 2c4 and 4a3: one type for a 0c3, a swap type and good, mid or bad for a 2c4, good or bad for a
+/// 4a3 (none for one with its corners on diagonals); the same on both versions of a case (the E slice turned).  U and
+/// Swap-U are the same from every side; R and F are read on the case as drawn (a y rotation swaps them, and turns the
+/// bad edges with them: every R or F case has both among its copies, with the same good, mid or bad).
 #[test]
-fn good_and_bad_2c4_and_4a3() {
+fn labels_of_0c3_2c4_and_4a3() {
     let ix = index();
     let mut labels = std::collections::BTreeMap::new();
     for i in 0..ix.cases.len() {
         let c = ix.info(i);
-        if c.subset != "2c4" && c.subset != "4a3" {
+        if !["0c3", "2c4", "4a3"].contains(&c.subset) {
             continue;
         }
-        *labels.entry((c.subset, c.label)).or_insert(0) += 1;
-        assert_eq!(c.turned.label, c.label, "case {}: the same with the E slice turned", c.number);
+        assert_eq!(c.turned.labels, c.labels, "case {}: the same with the E slice turned", c.number);
+        *labels.entry((c.subset, c.labels.join(" "))).or_insert(0) += 1;
         let corners = ix.cosets.corner_mask[ix.cases[i].coset];
         let diagonals = [0b0101, 0b1010].contains(&(corners & 0x0F));
-        assert_eq!(c.label.is_none(), c.subset == "4a3" && diagonals, "case {}", c.number);
+        assert_eq!(c.labels.is_empty(), c.subset == "4a3" && diagonals, "case {}", c.number);
+
+        let sides: HashSet<Vec<&str>> =
+            (0..attempt_sim::dr::NSYM).map(|s| ix.labels.of(ix.cosets.sym[ix.cases[i].coset][s] as usize)).collect();
+        let letter = c.labels.first().map(|l| l.trim_start_matches("Swap-")).unwrap_or("");
+        let expected = match letter {
+            "R" | "F" => 2,
+            _ => 1,
+        };
+        assert_eq!(sides.len(), expected, "case {}: {sides:?}", c.number);
     }
-    let expected =
-        [(("2c4", Some("bad")), 160), (("2c4", Some("good")), 96), (("4a3", None), 15), (("4a3", Some("bad")), 50)];
-    assert_eq!(labels, expected.into_iter().chain([(("4a3", Some("good")), 50)]).collect());
+    let expected = [
+        ("0c3", "F", 3),
+        ("0c3", "R", 13),
+        ("0c3", "U", 13),
+        ("2c4", "Swap-F bad", 27),
+        ("2c4", "Swap-F good", 31),
+        ("2c4", "Swap-F mid", 11),
+        ("2c4", "Swap-R bad", 49),
+        ("2c4", "Swap-R good", 11),
+        ("2c4", "Swap-R mid", 31),
+        ("2c4", "Swap-U bad", 42),
+        ("2c4", "Swap-U good", 54),
+        ("4a3", "", 15),
+        ("4a3", "bad", 50),
+        ("4a3", "good", 50),
+    ];
+    assert_eq!(labels, expected.iter().map(|&(s, l, n)| ((s, l.to_string()), n)).collect());
+
+    // in a solver's own frame: the case of R U2 R2 F2 R F2 R2 U2 R (DR on R/L) is a 0c3; the same moves turned onto U/D
+    // (R to U, U to F, F to R: a rotation about the UFR corner), its type letter turns with it
+    let on_rl = ix.find("R U2 R2 F2 R F2 R2 U2 R", "", 0).unwrap();
+    let on_ud = ix.find("U F2 U2 R2 U R2 U2 F2 U", "", 0).unwrap();
+    assert_eq!((on_rl.subset, on_ud.subset, on_rl.number), ("0c3", "0c3", on_ud.number));
+    let turn = |l: &str| match l {
+        "R" => "U".to_string(),
+        "U" => "F".to_string(),
+        "F" => "R".to_string(),
+        other => other.to_string(),
+    };
+    assert_eq!(on_rl.labels.iter().map(|l| turn(l)).collect::<Vec<_>>(), on_ud.labels);
 }
 
 /// How long the page lists HTRs: `above` moves over the optimal (at most 4), never past the longest listed unless the

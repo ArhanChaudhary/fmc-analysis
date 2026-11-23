@@ -82,7 +82,7 @@ fn text(index: &Index) -> String {
     writeln!(out, "#   subset       corner subset (4a3 and 4b3 apart: the shape is the one on this side)").unwrap();
     writeln!(out, "#   edges        bad edges, counted like the corners in the frame with few bad pieces").unwrap();
     writeln!(out, "#   htr          the optimal: fewest face turns to HTR, DR-breaking HTRs included").unwrap();
-    writeln!(out, "#   label        4b2: no parity / parity; 2c3: clockwise / anticlockwise (the quarter turn to 4b2 with no parity); 2c4, 4a3: good / bad (see the page); else -").unwrap();
+    writeln!(out, "#   label        4b2: no parity / parity; 2c3: clockwise / anticlockwise (the quarter turn to 4b2 with no parity); 0c3: U / R / F; 2c4: Swap-U / Swap-R / Swap-F and good / mid / bad; 4a3: good / bad (see the page; U, R and F as the case is drawn); else -").unwrap();
     writeln!(out, "#   bad_corners  the bad corners of the state the generator makes").unwrap();
     writeln!(out, "#   bad_edges    its bad U/D-layer edges").unwrap();
     writeln!(out, "#   generator    a shortest sequence that makes the case from a solved cube (as many moves as htr; for some cases it leaves DR on the way)").unwrap();
@@ -108,7 +108,7 @@ fn text(index: &Index) -> String {
             c.subset,
             c.edges,
             c.moves,
-            c.label.unwrap_or("-"),
+            if c.labels.is_empty() { "-".to_string() } else { c.labels.join(" ") },
             list(&c.bad_corners),
             list(&c.bad_edges),
             index.generator_text(index.cases[i].coset),
