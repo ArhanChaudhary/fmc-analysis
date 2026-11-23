@@ -1,0 +1,3 @@
+out/
+data/examples-doc-*.txt
+__pycache__/
