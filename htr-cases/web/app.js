@@ -38,6 +38,8 @@ function el(tag, attrs = {}, ...children) {
 const fmt = (n) => n.toLocaleString('en');
 const plural = (n, one, many = one + 's') => `${fmt(n)} ${n === 1 ? one : many}`;
 const optimal = (moves) => `${moves}-optimal`;
+// "a, b and c"
+const sentence = (parts) => (parts.length < 2 ? parts.join('') : `${parts.slice(0, -1).join(', ')} and ${parts.at(-1)}`);
 const LABEL_TEXT = { clockwise: '↻ clockwise', anticlockwise: '↺ anticlockwise' };
 
 function tag(label) {
@@ -123,11 +125,9 @@ const caseLink = (n, text = `#${n}`) => el('a', { href: `#case-${n}`, onclick: (
 
 function lookalikeLinks(c) {
   const out = el('span', { class: 'lookalikes' });
-  const same = new Map(c.siblings); // the same case seen another way: how
   c.lookalikes.forEach((n, i) => {
     const o = byNumber.get(n);
-    const how = same.has(n) ? [`this one ${same.get(n)}`] : [];
-    out.append(i ? ' · ' : '', el('span', {}, `${o.subset} ${o.edges}e `, caseLink(n), ` (${[optimal(o.moves), ...o.labels, ...how].join(', ')})`));
+    out.append(i ? ' · ' : '', el('span', {}, `${o.subset} ${o.edges}e `, caseLink(n), ` (${[optimal(o.moves), ...o.labels].join(', ')})`));
   });
   return out;
 }
@@ -213,9 +213,9 @@ function renderFound(f, text, fresh = true) {
     el('span', { class: 'k' }, 'DR axis'), el('span', {}, f.axis),
     el('span', { class: 'k' }, 'In the index'), el('span', {},
       caseLink(f.number, `case ${f.number}`),
-      el('span', { class: 'hint' }, f.turned
-        ? ' with the slice between your DR faces turned: its bad pieces are your good ones'
-        : ' (drawn with the DR on U/D, maybe rotated or mirrored)')),
+      f.relation.length
+        ? el('span', {}, `: ${sentence(f.relation)}, and your cube is that case exactly as drawn`)
+        : el('span', {}, ', exactly as drawn')),
   );
   side.count.textContent = countText(f.solutions.length, f.longest, f.moves, f.number === 1);
   side.htrs.replaceChildren(...htrList(f.solutions));

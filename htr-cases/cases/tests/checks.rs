@@ -79,66 +79,92 @@ fn breaks_dr(text: &str) -> bool {
     moves(text).iter().any(|m| m.axis() != 1 && !m.is_half_turn())
 }
 
-/// 1,272 classes (cosets up to the symmetries and the E slice) cover the 29,400 cosets; listed as 1,446 cases, one for
-/// each coset with its class's picture.
+/// 1,272 classes (cosets up to the symmetries and the E slice) cover the 29,400 cosets, one listed case each.
 #[test]
 fn case_count() {
     let ix = index();
     assert_eq!(ix.classes.len(), 1272);
     assert_eq!(ix.classes.iter().map(|c| c.members.len()).sum::<usize>(), 29_400);
-    assert_eq!(ix.cases.len(), 1446);
+    assert_eq!(ix.cases.len(), 1272);
 }
 
-/// The list is exhaustive.  Every DR state, turned or mirrored (or with the E slice turned), is one of the listed
-/// cases, and "Find your case" shows it as one it can be rotated into when there is one.  And a lookalike of a listed case, with the same bad corners and edges in the same places and the same
-/// subset, is listed itself: if it is not that case, it takes other HTRs (on the cube, independent of the coset tables,
-/// some optimal HTR of the listed case does not solve it).
+/// The list is exhaustive: every DR state is a listed case, rotated, mirrored or with the E slice turned, and "Find
+/// your case" finds how, on the whole-cube model (a rotation and a mirror rename the turns that make the state; the E
+/// slice is E).  Every coset, made from solved by DR moves (a breadth-first tree), is related so to the listed case of
+/// its class, and is that case as it is (no step) exactly when it is the listed coset.  A lookalike of a listed case
+/// (the same bad corners and edges in the same places, the same subset) that is not listed takes other HTRs (some
+/// optimal HTR of the listed case does not solve it, on the cube) and is related to its case by at least one step.
 #[test]
 fn the_list_is_exhaustive() {
     let ix = index();
     let cs = &ix.cosets;
-    let listed: std::collections::HashMap<usize, usize> =
-        ix.cases.iter().enumerate().map(|(i, c)| (c.coset, i)).collect();
-    let picture = |x: usize| (cs.corner_mask[x], cs.edge_mask[x], cs.subset[x]);
-    let mut pictures: std::collections::HashMap<(u8, u8, u8), Vec<usize>> = std::collections::HashMap::new();
-    for (i, c) in ix.cases.iter().enumerate() {
-        pictures.entry(picture(c.coset)).or_default().push(i);
-    }
-    let sym = |x: usize| (0..attempt_sim::dr::NSYM).map(move |s| cs.sym[x][s] as usize);
-    let mut optimal: std::collections::HashMap<usize, Vec<String>> = std::collections::HashMap::new();
-    let (mut lookalikes, mut by_subset) = (0, std::collections::BTreeMap::new());
-    for x in (0..cs.dist.len()).filter(|&x| x != cs.solved) {
-        assert!(
-            sym(x).chain(sym(cs.eslice[x] as usize)).any(|y| listed.contains_key(&y)),
-            "coset {x} is no listed case from any side"
-        );
-        // and the case a DR is found to be is one it can be rotated into, if there is one (a solver can rotate the cube; a mirror
-        // would turn a clockwise 2c3 anticlockwise)
-        let rotated = |x: usize| (0..8).map(move |s| cs.sym[x][s] as usize);
-        if rotated(x).any(|y| listed.contains_key(&y)) {
-            assert!(rotated(x).any(|y| y == ix.cases[ix.case_of(x)].coset), "coset {x} is found as a mirror image");
+    // a path of DR moves from HTR to every coset
+    let mut path: Vec<Option<(usize, u8)>> = vec![None; cs.dist.len()];
+    let mut seen = vec![false; cs.dist.len()];
+    seen[cs.solved] = true;
+    let mut queue = std::collections::VecDeque::from([cs.solved]);
+    while let Some(x) = queue.pop_front() {
+        for m in 0..10u8 {
+            let y = cs.mv[x][m as usize] as usize;
+            if !seen[y] {
+                seen[y] = true;
+                path[y] = Some((x, m));
+                queue.push_back(y);
+            }
         }
-        let Some(same) = pictures.get(&picture(x)) else { continue };
-        let i =
-            *listed.get(&x).unwrap_or_else(|| panic!("coset {x} looks like case {} but is not listed", same[0] + 1));
-        let start = ix.cube_of(x);
-        for &j in same.iter().filter(|&&j| j != i) {
-            let y = ix.cases[j].coset;
-            let htrs = optimal.entry(j).or_insert_with(|| ix.solution_texts(y, ix.longest(y, 0)));
-            let fails = htrs.iter().find(|t| !in_htr(&cube().apply(&start, &moves(t))));
-            assert!(fails.is_some(), "cases {} and {} take the same HTRs", i + 1, j + 1);
+    }
+    let moves_to = |mut x: usize| {
+        let mut out = Vec::new();
+        while let Some((from, m)) = path[x] {
+            out.push(Move(AS_CUBE_MOVE[m as usize]));
+            x = from;
+        }
+        out.reverse();
+        out
+    };
+    let listed: HashSet<usize> = ix.cases.iter().map(|c| c.coset).collect();
+    let picture = |x: usize| (cs.corner_mask[x], cs.edge_mask[x], cs.subset[x]);
+    let (mut kinds, mut lookalikes) = (std::collections::BTreeMap::new(), 0);
+    let mut optimal: std::collections::HashMap<usize, Vec<String>> = std::collections::HashMap::new();
+    for x in (0..cs.dist.len()).filter(|&x| x != cs.solved) {
+        let seq = moves_to(x);
+        let (i, relation) = ix.relation(&seq).unwrap_or_else(|| panic!("coset {x} is no listed case from any side"));
+        assert_eq!(i, ix.case_of(x));
+        assert_eq!(relation.identical(), listed.contains(&x), "coset {x}: {relation:?}");
+        *kinds.entry((!relation.rotation.is_empty(), relation.mirror, relation.slice)).or_insert(0) += 1;
+        let y = ix.cases[i].coset;
+        if !listed.contains(&x) && picture(x) == picture(y) {
+            let htrs = optimal.entry(i).or_insert_with(|| ix.solution_texts(y, ix.longest(y, 0)));
+            let start = cube().state(&seq);
+            assert!(
+                htrs.iter().any(|t| !in_htr(&cube().apply(&start, &moves(t)))),
+                "coset {x} takes case {}'s HTRs",
+                i + 1
+            );
             lookalikes += 1;
         }
-        if !ix.cases[i].siblings.is_empty() {
-            *by_subset.entry(attempt_sim::htr::SUBSET_NAMES[ix.cases[i].subset as usize]).or_insert(0) += 1;
-        }
     }
-    println!("{lookalikes} lookalike pairs of the same subset, each with HTRs one has and the other has not");
-    println!("cases listed more than once (a picture some symmetry or the E slice keeps): {by_subset:?}");
-    assert_eq!(
-        by_subset,
-        [("0c3", 20), ("0c4", 20), ("2c3", 72), ("2c4", 64), ("4a3", 18), ("4a4", 90), ("4b5", 64)].into()
-    );
+    println!("relations (rotation, mirror, E slice): {kinds:?}; unlisted lookalikes of a listed case: {lookalikes}");
+}
+
+/// "Find your case" says how a DR is the listed case: the anticlockwise 2c3 U R2 U R2 U is the clockwise
+/// U' R2 U' R2 U' rotated y2 and mirrored; the guide's DR on R/L is its case rotated z'; a 4a4 4e is another with the
+/// E slice turned (and rotated y2).
+#[test]
+fn find_says_how_a_dr_is_its_case() {
+    let ix = index();
+    let relation = |setup: &str| {
+        let f = ix.find(setup, "", 0).unwrap();
+        (f.number, f.relation)
+    };
+    let steps = |list: &[&str]| list.iter().map(|s| s.to_string()).collect::<Vec<_>>();
+    let clockwise = relation("U' R2 U' R2 U'");
+    assert_eq!(clockwise.1, steps(&[]));
+    assert_eq!(relation("U R2 U R2 U"), (clockwise.0, steps(&["rotate y2", "mirror it (left and right swapped)"])));
+    assert_eq!(relation("R U2 R' U2 L2 F2").1, steps(&["rotate z'"]));
+    let drawn = relation("D' L' F' L B2 L' F L' U");
+    assert_eq!(drawn.1, steps(&[]));
+    assert_eq!(relation("U' R' B' R F2 R' B R' U"), (drawn.0, steps(&["rotate y2", "turn the E slice a quarter (E)"])));
 }
 
 /// With DR moves, every coset of a case is as far from HTR as the others, except HTR itself (case 1).  With every
@@ -209,9 +235,9 @@ fn generators_make_their_cases() {
             assert_eq!(ix.find(&turned_generator, "", 0).unwrap_err(), "that is already HTR");
             continue;
         }
+        assert!(found.relation.is_empty(), "case {} is itself: {:?}", i + 1, found.relation);
         let turned = ix.find(&turned_generator, "", 0).unwrap();
-        let class = |n: usize| ix.cases[n - 1].class;
-        assert_eq!((class(turned.number), turned.moves), (class(i + 1), info.turned.moves), "the same class");
+        assert_eq!((turned.number, turned.moves), (i + 1, info.turned.moves), "the E slice turned is the same case");
         let x = ix.coset(i, true);
         assert_eq!(turned.solutions, ix.solution_texts(x, ix.longest(x, 0)));
     }
@@ -361,8 +387,8 @@ fn lists_are_complete() {
     }
 }
 
-/// Cases a U2 apart: 197 pairs and 18 groups of four (a case seen after U2 can be two cases with one picture), and the
-/// cases of a group always have the same subset, edges and optimal (they are one case after their first quarter turn).
+/// Pairs a U2 apart: 185, never more than two cases together, and the two always have the same subset, edges and
+/// optimal (they are one case after their first quarter turn).
 #[test]
 fn pairs_a_u2_apart() {
     let ix = index();
@@ -376,7 +402,7 @@ fn pairs_a_u2_apart() {
             assert_eq!((o.subset, o.edges, o.moves), (c.subset, c.edges, c.moves), "#{} and #{m}", c.number);
         }
     }
-    assert_eq!(sizes, [(1, 980), (2, 2 * 197), (4, 4 * 18)].into());
+    assert_eq!(sizes, [(1, 1272 - 2 * 185), (2, 2 * 185)].into());
     // the first pair found: U' R2 U' R2 U' and U' F2 U F2 U'
     let (a, b) = (case_of_setup("U' R2 U' R2 U'"), case_of_setup("U' F2 U F2 U'"));
     assert!(infos[a].u2_mates.contains(&(b + 1)), "#{} {:?}", a + 1, infos[a].u2_mates);
@@ -484,18 +510,18 @@ fn labels_of_0c3_2c4_and_4a3() {
         assert_eq!(sides.len(), expected, "case {}: {sides:?}", c.number);
     }
     let expected = [
-        ("0c3", "F", 13),
+        ("0c3", "F", 3),
         ("0c3", "R", 13),
         ("0c3", "U", 13),
-        ("2c4", "Swap-F bad", 54),
+        ("2c4", "Swap-F bad", 27),
         ("2c4", "Swap-F good", 31),
         ("2c4", "Swap-F mid", 11),
-        ("2c4", "Swap-R bad", 54),
+        ("2c4", "Swap-R bad", 49),
         ("2c4", "Swap-R good", 11),
         ("2c4", "Swap-R mid", 31),
         ("2c4", "Swap-U bad", 42),
         ("2c4", "Swap-U good", 54),
-        ("4a3", "", 24),
+        ("4a3", "", 15),
         ("4a3", "bad", 50),
         ("4a3", "good", 50),
     ];

@@ -1,5 +1,5 @@
 //! The cases: cosets up to the 16 symmetries and the E slice (the classes), the bad pieces each one is drawn with,
-//! which cases look the same, and the list: every coset with its class's picture ([`entries`]).
+//! which cases look the same, and the list ([`entries`]).
 
 use crate::cosets::{Cosets, NCOSETS};
 use attempt_sim::dr::NSYM;
@@ -100,9 +100,8 @@ pub fn classes(cs: &Cosets, dist: &[u8]) -> Vec<Class> {
     out
 }
 
-/// A case as listed: one coset with its class's picture.  A class whose picture a symmetry maps onto itself while
-/// moving the coset (its mirror image looks the same, say), or a 4-corner 4-edge class whose E-slice twin looks the
-/// same, is listed once for each coset with that picture: they look alike and take different HTRs.
+/// A case as listed: one per class, the coset its class is drawn with.  A DR that is not exactly a listed case is one
+/// of them rotated, mirrored or with the E slice turned ([`crate::orient`] says which).
 pub struct Entry {
     pub coset: usize,
     /// its class (index into the classes)
@@ -111,56 +110,27 @@ pub struct Entry {
     pub edges: u8,
     /// the optimal: fewest face turns to HTR, DR-breaking HTRs included
     pub moves: u8,
-    /// the other entries whose bad pieces look the same, its siblings included (indices into the entries)
+    /// the other entries whose bad pieces look the same (indices into the entries)
     pub lookalikes: Vec<usize>,
-    /// the other entries of its class (the same picture), and what each is of this one: "in a mirror", "rotated", "with
-    /// the E slice turned"
-    pub siblings: Vec<(usize, &'static str)>,
 }
 
-/// The list: every coset with its class's picture (HTR itself aside), sorted by subset, bad edges, optimal, picture,
-/// class, coset.  Seen from some side, every DR state is one of them, and every coset that looks like a listed picture
-/// is listed (`cargo test` checks both).
-pub fn entries(cs: &Cosets, classes: &[Class], dist: &[u8]) -> Vec<Entry> {
+/// The list: one case per class, in the classes' order (subset, bad edges, optimal, picture).
+pub fn entries(cs: &Cosets, classes: &[Class]) -> Vec<Entry> {
     let layout = |x: usize| -> Layout { (cs.corner_mask[x], cs.edge_mask[x]) };
-    let mut list: Vec<(usize, usize)> = Vec::new();
-    for (k, c) in classes.iter().enumerate() {
-        let picture = layout(c.coset);
-        for &y in c.members.iter().filter(|&&y| y != cs.solved && layout(y) == picture) {
-            list.push((y, k));
-        }
-    }
-    list.sort_by_key(|&(y, k)| (cs.subset[y], classes[k].edges, dist[y], layout(y), k, y));
     let mut by_picture: BTreeMap<Layout, Vec<usize>> = BTreeMap::new();
-    for (i, &(y, _)) in list.iter().enumerate() {
-        by_picture.entry(layout(y)).or_default().push(i);
+    for (k, c) in classes.iter().enumerate() {
+        by_picture.entry(layout(c.coset)).or_default().push(k);
     }
-    // how another coset of the class is this one seen: rotated, in a mirror, or with the E slice turned
-    let relation = |x: usize, y: usize| -> &'static str {
-        let by = |from: usize, syms: std::ops::Range<usize>| syms.into_iter().any(|s| cs.sym[from][s] as usize == y);
-        if by(x, 0..8) {
-            "rotated"
-        } else if by(x, 8..NSYM) {
-            "in a mirror"
-        } else {
-            "with the E slice turned"
-        }
-    };
-    list.iter()
+    classes
+        .iter()
         .enumerate()
-        .map(|(i, &(y, k))| Entry {
-            coset: y,
+        .map(|(k, c)| Entry {
+            coset: c.coset,
             class: k,
-            subset: cs.subset[y],
-            edges: classes[k].edges,
-            moves: dist[y],
-            lookalikes: by_picture[&layout(y)].iter().copied().filter(|&j| j != i).collect(),
-            siblings: by_picture[&layout(y)]
-                .iter()
-                .copied()
-                .filter(|&j| j != i && list[j].1 == k)
-                .map(|j| (j, relation(y, list[j].0)))
-                .collect(),
+            subset: c.subset,
+            edges: c.edges,
+            moves: c.moves,
+            lookalikes: by_picture[&layout(c.coset)].iter().copied().filter(|&j| j != k).collect(),
         })
         .collect()
 }
