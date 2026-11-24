@@ -40,6 +40,8 @@ const SCHEMA = {
       help: 'From the EO\'s own state, when the DR is that many EO-keeping moves away.' },
     { k: 'dr_see_work', label: 'Chance to see the DR from a worked RZP state', arr: 'moves away', chance: true },
     { k: 'route_see', label: 'Chance to find a route\'s finish', chance: true, help: 'That a route which has a short finish is finished that well when it is tried.' },
+    { k: 'finish_see', label: 'Sees a cube this close to solved', unit: 'moves', int: true, help: 'At the look (the scramble itself) and as each DR goes onto the page: a finish this short is seen and written out at once.' },
+    { k: 'htr_extra', label: 'Longest HTR a route takes, over the shortest with NISS', unit: 'moves', int: true, help: 'The research value is 2. More lets a long HTR with a short finish count (slower to work out).' },
     { k: 'read_sd', label: 'Reading error', unit: 'moves',
       help: 'How well the solver judges how far the DR is (DRM, pairs, ARM): the true distance plus a normal error with this spread. 1 is about the EO-switch cards; 0 is a solver who knows.' },
     { k: 'rzp_depth_weight', label: 'Depth weight of RZP states', help: 'RZP states are worked in the order of this × moves so far + their read.' },
@@ -63,7 +65,7 @@ const SCHEMA = {
     { k: 'rzp_depth', label: 'Most RZP moves', int: true },
     { k: 'switch_pen', label: 'Switch penalty', unit: 'moves', help: 'How much worse a state on the other side is ranked. 50 or more: never switch.' },
     { k: 'dr_cap', label: 'Longest DR written down', unit: 'moves', int: true },
-    { k: 'dr_per_line', label: 'DRs taken per line', int: true, help: 'A line is one EO ending with one DR axis.' },
+    { k: 'dr_per_line', label: 'DRs taken per line', int: true, help: 'A line is one EO ending with one DR axis. More than one: the solver goes on past a DR it sees and takes the other ways to a DR from there (one turn longer included), most promising first.' },
     { k: 'read_on_find', label: 'Read a DR\'s subset when writing it down', bool: true, help: 'Otherwise only when it is its turn to be finished.' },
     { k: 't_dr', label: 'Stop looking for DRs at', unit: S },
     { k: 't_dr_rich', label: '… or at this time with many EOs', unit: S, help: 'If at least the number below of EOs were written (0 = off).' },
@@ -86,8 +88,8 @@ const SCHEMA = {
     { k: 'backup_time', label: 'No solution yet at this time: finish the best DR', unit: S, help: '0 = off.' },
     { k: 'bank_first', label: 'Write the first solution down at once', bool: true },
     { k: 'bank_always', label: 'Write every improvement down at once', bool: true },
-    { k: 'bank_at', label: 'Write a solution down at once if at most', unit: 'moves', int: true, help: '0 = off.' },
-    { k: 'stop_at', label: 'Stop once a solution of at most this is written', unit: 'moves', int: true, help: '0 = off.' },
+    { k: 'bank_at', label: 'Write a solution down at once if at most', unit: 'moves', int: true, help: '0 = off. The default, 12, only ever fires on a scramble a few turns deep.' },
+    { k: 'stop_at', label: 'Stop once a solution of at most this is written', unit: 'moves', int: true, help: '0 = off. The default, 12, ends the attempt once a scramble a few turns deep is solved.' },
   ],
 };
 
@@ -334,7 +336,8 @@ function rzpMoves(n) {
 function describe(s) {
   switch (s.type) {
     case 'look':
-      return `Counted the bad edges: R/L ${s.bad_edges[0]}, U/D ${s.bad_edges[1]}, F/B ${s.bad_edges[2]}.`;
+      return `Counted the bad edges: R/L ${s.bad_edges[0]}, U/D ${s.bad_edges[1]}, F/B ${s.bad_edges[2]}.` +
+        (s.seen === undefined ? '' : s.seen === '' ? ' The cube is already solved.' : ` The cube is ${s.seen.split(' ').length} turn${s.seen.split(' ').length > 1 ? 's' : ''} from solved: ${s.seen}.`);
     case 'eo_scan': {
       const where = s.niss ? 'normal, inverse and NISS' : 'normal and inverse';
       const found = s.spotted.length ? `spotted ${s.spotted.map(code).join(', ')}` : 'nothing new';

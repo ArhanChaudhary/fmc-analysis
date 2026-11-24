@@ -236,7 +236,7 @@ fn run(o: &Opts) -> Result<(), String> {
             let (t, plans, costs, human) = (&t, &plans, &costs, &human);
             sc.spawn(move || {
                 for ((id, moves), slot) in part.iter().zip(out.iter_mut()) {
-                    let w = Scramble::new(t, moves, seed, *id, max_eo);
+                    let w = Scramble::new(t, moves, seed, *id, max_eo).with_htr_extra(human.htr_extra);
                     let mut b = w.bad;
                     b.sort();
                     let feat = format!("{}-{}-{}\t{}\t{}\t{}", b[0], b[1], b[2], w.eo_min, w.n_eo4, w.n_eo4_lin);
@@ -273,7 +273,7 @@ fn run(o: &Opts) -> Result<(), String> {
             let (feat, res) = &rows[si];
             let o = &res[pi].0;
             failures += o.replay_failures;
-            let subset = if o.len > 0 { t.htr.sub48_names[o.res_subset.unwrap()].as_str() } else { "-" };
+            let subset = if o.len > 0 { o.res_subset.map_or("-", |k| t.htr.sub48_names[k].as_str()) } else { "-" };
             write!(
                 out,
                 "{name}\t{id}\t{feat}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{subset}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}",

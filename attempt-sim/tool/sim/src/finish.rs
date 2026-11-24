@@ -14,7 +14,7 @@ use crate::routes::readings;
 use crate::tables::Tables;
 use std::collections::HashMap;
 
-/// A route's HTR may be this many moves longer than the shortest NISS HTR.
+/// A route's HTR may be this many moves longer than the shortest NISS HTR (the research value; `Human::htr_extra`).
 pub const HTR_BUDGET: u8 = 2;
 /// Finishes up to this many moves over the optimum are found by a route.
 pub const EXTRA: usize = 2;
@@ -29,8 +29,9 @@ pub struct RouteTable {
     pub best: HashMap<Vec<u8>, (u8, Vec<u8>)>,
 }
 
-/// Every route that finds a finish of at most optimal + EXTRA on the state, with that finish.
-pub fn route_table(t: &Tables, x: DrState) -> RouteTable {
+/// Every route that finds a finish of at most optimal + EXTRA on the state, with that finish; a route's HTR is at
+/// most `htr_extra` moves over the shortest NISS HTR.
+pub fn route_table(t: &Tables, x: DrState, htr_extra: u8) -> RouteTable {
     let noe = t.noe();
     let optimal = noe.optimal(&t.dr, x);
     let niss = t.htr.niss_htr(&t.dr, x.0, x.1);
@@ -39,7 +40,7 @@ pub fn route_table(t: &Tables, x: DrState) -> RouteTable {
     let complete = noe.for_each_finish(&t.dr, x, optimal as usize + EXTRA, CAP, &mut |moves, path| {
         readings(&t.dr, &t.htr, moves, path, &mut found);
         for r in &found {
-            if r.htr_len > niss + HTR_BUDGET {
+            if r.htr_len > niss + htr_extra {
                 continue;
             }
             match best.get_mut(&r.route) {

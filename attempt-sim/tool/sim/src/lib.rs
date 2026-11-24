@@ -29,6 +29,7 @@ pub use tables::Tables;
 /// Play one attempt on a scramble with everything recorded.  The tables need their finish bound
 /// ([`Tables::build_prune`]).
 pub fn simulate(tables: &Tables, scramble: &[cube::Move], settings: &Settings) -> Report {
-    let s = Scramble::new(tables, scramble, settings.seed, settings.attempt, settings.plan.max_eo_len());
+    let s = Scramble::new(tables, scramble, settings.seed, settings.attempt, settings.plan.max_eo_len())
+        .with_htr_extra(settings.human.htr_extra);
     Attempt::new(&s, &settings.costs, &settings.human, &settings.plan, true).run()
 }

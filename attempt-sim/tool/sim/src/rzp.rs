@@ -19,9 +19,10 @@ use crate::cube::{cancel, canonical_after, Cube, Move, View, DR_VIEW};
 use crate::eo::{view_state, Ending};
 use crate::rng::{h2, hash_bytes, normal, uniform};
 use crate::settings::Human;
+use crate::dr::rank_perm;
 use crate::tables::{Tables, EO_KEEPING, N_SLICE};
 use std::cmp::Reverse;
-use std::collections::BinaryHeap;
+use std::collections::{BinaryHeap, HashSet, VecDeque};
 
 /// A DR found from a line.
 #[derive(Clone, Debug)]
@@ -96,7 +97,25 @@ pub struct LineSearch {
     read_sd: f64,
     depth_weight: f64,
     switch_pen: f64,
+    /// past a DR that was seen: the other ways from that state to a DR, still to be written down
+    pending: VecDeque<Pending>,
+    /// the DRs (view states) this line gave, so another way to the same one is not taken twice
+    given: HashSet<Cube>,
 }
+
+/// Another way to a DR from a worked state.
+struct Pending {
+    a: Vec<Move>,
+    b: Vec<Move>,
+    switched: bool,
+    tail: Vec<Move>,
+    info: NodeInfo,
+}
+
+/// Past a DR that was seen, at most this many other ways to a DR are kept per state (taken in an order a hash picks
+/// from every way, up to `TAIL_LEAVES` looked at).
+const TAIL_CAP: usize = 24;
+const TAIL_LEAVES: usize = 20_000;
 
 impl LineSearch {
     #[allow(clippy::too_many_arguments)]
@@ -136,6 +155,8 @@ impl LineSearch {
             read_sd: human.read_sd,
             depth_weight: human.rzp_depth_weight,
             switch_pen: 0.0,
+            pending: VecDeque::new(),
+            given: HashSet::new(),
         };
         let r = line.read(t, &[], false, &[], twist, slice);
         line.first_read = r as f32;
@@ -183,9 +204,16 @@ impl LineSearch {
         self.view.seq_from_view(q)
     }
 
-    /// Work the next state.  `depth`: most RZP moves; `cap`: longest DR accepted.
-    pub fn step(&mut self, t: &Tables, human: &Human, depth: usize, switch_pen: f64, cap: usize) -> LineStep {
+    /// Work the next state.  `depth`: most RZP moves; `cap`: longest DR accepted; `past`: keep the states past a DR that
+    /// is seen (a solver who takes more than one DR per line goes on from there; one who takes one stops).
+    pub fn step(&mut self, t: &Tables, human: &Human, depth: usize, switch_pen: f64, cap: usize, past: bool) -> LineStep {
         self.switch_pen = switch_pen;
+        if past {
+            if let Some(p) = self.pending.pop_front() {
+                let dr = self.candidate(&p.a, &p.b, p.switched, &p.tail, p.tail.len());
+                return LineStep::Looked { switch: false, node: p.info, dr: Some(dr) };
+            }
+        }
         let Some((_, ni)) = self.heap.pop() else { return LineStep::Exhausted };
         self.examined += 1;
         let (state, a, b, switched, twist, slice, read) = {
@@ -208,9 +236,29 @@ impl LineSearch {
         let at_root = g == 0 && !switched;
         let see = if at_root { &human.dr_see_glance } else { &human.dr_see_work };
         let seen = self.eo_len + g + d <= cap && d < 8 && uniform(h2(hk, 1)) < see[d];
-        if seen {
+        if seen && !past {
             let dr = self.complete(t, &a, &b, switched, twist, slice, d, hk);
             return LineStep::Looked { switch: was_switch, node: info, dr: Some(dr) };
+        }
+        // a solver who goes on past a DR sees the other ways to a DR from here too, and takes them one at a time
+        let mut dr = None;
+        if seen {
+            let last = if switched { b.last().copied().or(self.last_other) } else { a.last().copied().or(self.last_start) };
+            let side = if switched { 1 - self.start_side } else { self.start_side };
+            let room = cap.saturating_sub(self.eo_len + g);
+            let mut tails = tails(t, &state, twist, slice, d, room, last, side == 1, hk);
+            tails.retain(|(end, _)| !self.given.contains(end));
+            for (i, (end, tail)) in tails.into_iter().enumerate() {
+                self.given.insert(end);
+                if i == 0 {
+                    dr = Some(self.candidate(&a, &b, switched, &tail, tail.len()));
+                } else {
+                    self.pending.push_back(Pending { a: a.clone(), b: b.clone(), switched, tail, info: info.clone() });
+                }
+            }
+            if dr.is_none() && self.given.is_empty() {
+                dr = Some(self.complete(t, &a, &b, switched, twist, slice, d, hk));
+            }
         }
         // children: one more turn on this side, and the switch
         if d > 0 && g < depth {
@@ -242,7 +290,7 @@ impl LineSearch {
             let rank = human.rzp_depth_weight * g as f64 + self.read(t, &a, true, &[], tw2, sl2) + switch_pen;
             self.push(Node { read: 0.0, state: inv, a: a.clone(), b: Vec::new(), switched: true, twist: tw2 as u16, slice: sl2 as u16 }, rank);
         }
-        LineStep::Looked { switch: was_switch, node: info, dr: None }
+        LineStep::Looked { switch: was_switch, node: info, dr }
     }
 
     /// The DR seen from a node: one optimal completion on the current side (at each step, among the turns that get
@@ -278,11 +326,16 @@ impl LineSearch {
             tw = tw2;
             sl = sl2;
         }
+        self.candidate(a, b, switched, &tail, d)
+    }
+
+    /// The DR reached by `tail` from the node (a, b, switched), seen `d` moves away, as a candidate of the attempt.
+    fn candidate(&mut self, a: &[Move], b: &[Move], switched: bool, tail: &[Move], d: usize) -> DrCandidate {
         let (mut va, mut vb) = (a.to_vec(), b.to_vec());
         if switched {
-            vb.extend(&tail);
+            vb.extend(tail);
         } else {
-            va.extend(&tail);
+            va.extend(tail);
         }
         let (mut n, mut i) = (self.root.normal.clone(), self.root.inverse.clone());
         if self.start_side == 0 {
@@ -315,4 +368,56 @@ impl LineSearch {
             switched,
         }
     }
+}
+
+/// The ways from a state `d` EO-keeping turns from DR to a DR in `d` turns or one more (canonical, after `last`, at
+/// most `room` turns, not through a DR on the way), one per DR reached (view state).  The solver writes them in the
+/// order of what they promise, turns + the mean optimal finish of the subset reached (`inverted`: the state is the
+/// inverse of the attempt's), a hash breaking ties: at most `TAIL_CAP`, out of at most `TAIL_LEAVES` looked at.
+#[allow(clippy::too_many_arguments)]
+fn tails(t: &Tables, state: &Cube, twist: usize, slice: usize, d: usize, room: usize, last: Option<Move>, inverted: bool, hk: u64) -> Vec<(Cube, Vec<Move>)> {
+    #[allow(clippy::too_many_arguments)]
+    fn go(t: &Tables, s: &Cube, tw: usize, sl: usize, left: usize, last: Option<Move>, path: &mut Vec<Move>, out: &mut Vec<(Cube, Vec<Move>)>, leaves: &mut usize) {
+        if *leaves >= TAIL_LEAVES {
+            return;
+        }
+        if left == 0 {
+            *leaves += 1;
+            out.push((*s, path.clone()));
+            return;
+        }
+        for m in EO_KEEPING {
+            if !canonical_after(last, m) {
+                continue;
+            }
+            let (tw2, sl2) = (t.twist_move[tw][m.index()] as usize, t.slice_move[sl][m.index()] as usize);
+            let d2 = t.dr_dist[tw2 * N_SLICE + sl2] as usize;
+            // still reachable in the turns left, and not a DR before the last turn
+            if d2 > left - 1 || (d2 == 0 && left > 1) {
+                continue;
+            }
+            path.push(m);
+            go(t, &t.moves.turn(s, m), tw2, sl2, left - 1, Some(m), path, out, leaves);
+            path.pop();
+        }
+    }
+    let mut all = Vec::new();
+    for len in d..=(d + 1).min(room.max(d)) {
+        let mut leaves = 0;
+        go(t, state, twist, slice, len, last, &mut Vec::new(), &mut all, &mut leaves);
+    }
+    let mut by_end: std::collections::HashMap<Cube, (f64, u64, Vec<Move>)> = std::collections::HashMap::new();
+    for (end, path) in all {
+        let w = hash_bytes(hk, &path.iter().map(|m| m.0).collect::<Vec<u8>>());
+        let own = if inverted { end.inverse() } else { end };
+        let Some((c, e, _)) = own.dr_perms() else { continue };
+        let promise = path.len() as f64 + t.subset_mean[t.htr.subset(rank_perm(&c), rank_perm(&e))];
+        let entry = by_end.entry(end).or_insert((promise, w, path.clone()));
+        if (promise, w) < (entry.0, entry.1) {
+            *entry = (promise, w, path);
+        }
+    }
+    let mut v: Vec<(f64, u64, Cube, Vec<Move>)> = by_end.into_iter().map(|(end, (p, w, path))| (p, w, end, path)).collect();
+    v.sort_by(|x, y| x.0.total_cmp(&y.0).then(x.1.cmp(&y.1)));
+    v.into_iter().take(TAIL_CAP).map(|(_, _, end, p)| (end, p)).collect()
 }

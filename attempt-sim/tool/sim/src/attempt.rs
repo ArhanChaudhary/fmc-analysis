@@ -19,7 +19,7 @@
 //! The plan only uses what those steps reveal: lengths, bad edges per axis, DRMs, the subset of a DR that has been
 //! read, the finishes found.  When asked to, the attempt keeps a [`Step`] for each of them, saying what it was.
 
-use crate::cube::{cancel, format_moves, invert, Cube, Move, View, DR_VIEW, EO_VIEW};
+use crate::cube::{cancel, canonical_after, format_moves, invert, Cube, Move, View, DR_VIEW, EO_VIEW};
 use crate::dr::{rank_perm, DrState};
 use crate::eo::{enumerate, niss_text, view_state, Eo, EoKind};
 use crate::finish::{dr_moves_to_cube, route_table, RouteTable};
@@ -78,6 +78,8 @@ pub struct Scramble<'t> {
     pub n_eo4_lin: usize,
     routes: RefCell<HashMap<DrState, Rc<RouteTable>>>,
     optimal: RefCell<HashMap<DrState, u8>>,
+    /// how much longer than the shortest NISS HTR a route's HTR may be (`Human::htr_extra`)
+    htr_extra: u8,
 }
 
 impl<'t> Scramble<'t> {
@@ -102,7 +104,14 @@ impl<'t> Scramble<'t> {
             n_eo4_lin,
             routes: RefCell::new(HashMap::new()),
             optimal: RefCell::new(HashMap::new()),
+            htr_extra: crate::finish::HTR_BUDGET,
         }
+    }
+
+    /// Routes may take an HTR this many moves over the shortest NISS HTR (`Human::htr_extra`; 2 unless set).
+    pub fn with_htr_extra(mut self, x: u8) -> Self {
+        self.htr_extra = x;
+        self
     }
 
     /// The routes of a DR state (computed once per scramble).
@@ -110,7 +119,7 @@ impl<'t> Scramble<'t> {
         if let Some(r) = self.routes.borrow().get(&st) {
             return r.clone();
         }
-        let r = Rc::new(route_table(self.t, st));
+        let r = Rc::new(route_table(self.t, st, self.htr_extra));
         self.optimal.borrow_mut().insert(st, r.optimal);
         self.routes.borrow_mut().insert(st, r.clone());
         r
@@ -191,7 +200,12 @@ pub struct RouteTry {
 #[derive(Clone, Debug, Serialize)]
 #[serde(tag = "type", rename_all = "snake_case")]
 pub enum Action {
-    Look { bad_edges: [u32; 3] },
+    /// `seen`: a solution seen at the look, when the scramble leaves the cube at most `finish_see` turns from solved
+    Look {
+        bad_edges: [u32; 3],
+        #[serde(skip_serializing_if = "Option::is_none")]
+        seen: Option<String>,
+    },
     EoScan { axis: &'static str, length: usize, niss: bool, spotted: Vec<String> },
     EoWrite { eo: EoRef },
     EoGlance { eo: EoRef, lines: Vec<LineGlance> },
@@ -330,7 +344,8 @@ struct Sol {
     len: usize,
     moves: Vec<Move>,
     dr_len: u32,
-    subset: usize,
+    /// none for a solution seen at the look
+    subset: Option<usize>,
     optimal: u32,
     fin: u32,
     dr_t: u64,
@@ -568,11 +583,13 @@ impl<'s, 't> Attempt<'s, 't> {
             self.pay(StepKind::EoEval, self.cost.eo_eval, eo.key, move |a| Action::EoGlance { eo: a.eo_ref(g), lines: glance });
             for li in 0..lines.len() {
                 if let LineStep::Looked { dr: Some(cand), .. } =
-                    lines[li].search.step(t, &self.hum, plan.rzp_depth, plan.switch_pen, plan.dr_cap)
+                    lines[li].search.step(t, &self.hum, plan.rzp_depth, plan.switch_pen, plan.dr_cap, plan.dr_per_line > 1)
                 {
                     let key = h2(eo.key, (li as u64) << 32);
                     self.find_dr(cand, g, key);
-                    lines[li].done = true;
+                    if lines[li].search.found >= plan.dr_per_line {
+                        lines[li].done = true;
+                    }
                 }
             }
             let budget = self.rzp_budget(g);
@@ -588,7 +605,7 @@ impl<'s, 't> Attempt<'s, 't> {
             self.eos[ei].done = true;
             return;
         };
-        let result = self.eos[ei].lines[li].search.step(t, &self.hum, plan.rzp_depth, plan.switch_pen, plan.dr_cap);
+        let result = self.eos[ei].lines[li].search.step(t, &self.hum, plan.rzp_depth, plan.switch_pen, plan.dr_cap, plan.dr_per_line > 1);
         self.eos[ei].worked += 1;
         match result {
             LineStep::Exhausted => self.eos[ei].lines[li].done = true,
@@ -751,6 +768,7 @@ impl<'s, 't> Attempt<'s, 't> {
         if self.plan.read_on_find {
             self.read_dr(j);
         }
+        self.see_finish(j);
         (j + 1, if replaced { "a shorter way to a DR already found" } else { "new" })
     }
 
@@ -847,7 +865,6 @@ impl<'s, 't> Attempt<'s, 't> {
         let finish = routes.best.get(&checklist_route.route).map(|(_, fin)| fin.clone());
         let seen = finish.is_some() && uniform(h2(vkey, 1000 + step as u64)) < self.hum.route_see;
         let cube_finish = finish.as_ref().map(|fin| dr_moves_to_cube(&self.drs[j].view, fin));
-        let dr_len = self.drs[j].cand.len;
         let attempt = RouteTry {
             route: checklist_route.name.clone(),
             subset: t.htr.sub48_names[subset].clone(),
@@ -860,70 +877,141 @@ impl<'s, 't> Attempt<'s, 't> {
         self.pay(StepKind::Htr, self.cost.htr, h2(vkey, step as u64), |a| Action::Htr { dr: a.dr_ref(j), attempt });
         self.drs[j].tries += 1;
         if let (true, Some(fin), Some(own)) = (seen, finish, cube_finish) {
-            let v = &self.drs[j].variants[vi];
-            let mut full = v.normal.clone();
-            full.extend(&own);
-            full.extend(invert(&v.inverse));
-            let full = cancel(&full);
-            if self.record {
-                if let Some(Step { action: Action::Htr { attempt, .. }, .. }) = self.steps.last_mut() {
-                    attempt.total = Some(full.len());
-                }
-            }
-            let improves = self.best.as_ref().is_none_or(|b| full.len() < b.len);
-            let text = format_moves(&full);
-            let len = full.len();
-            self.pay(StepKind::Tail, self.cost.tail, h2(vkey, step as u64), |a| Action::Tail {
-                dr: a.dr_ref(j),
-                solution: text,
-                len,
-                best_so_far: improves,
-            });
-            if t.moves.apply(&w.state, &full) != Cube::SOLVED {
-                self.out.replay_failures += 1;
-            } else {
-                let d = &self.drs[j];
-                let v = &d.variants[vi];
-                let eo = &w.eos[d.eo];
-                self.solutions.push(Solution {
-                    found_at: self.clock,
-                    len,
-                    moves: format_moves(&full),
-                    eo: eo.text(),
-                    eo_len: eo.len,
-                    dr_normal: format_moves(&v.normal),
-                    dr_inverse: format_moves(&v.inverse),
-                    dr_len,
-                    dr_axis: crate::cube::AXIS_NAMES[d.cand.dr_axis],
-                    subset: t.htr.sub48_names[subset].clone(),
-                    route: checklist_route.name.clone(),
-                    finish: format_moves(&own),
-                    finish_len: fin.len(),
-                    optimal_finish: routes.optimal,
-                    dr_found_at: d.found_at,
-                    written_at: None,
-                });
-                if self.out.first_sol_len == 0 {
-                    self.out.first_sol_len = len as u32;
-                    self.out.first_sol_t = self.clock;
-                }
-                if improves {
-                    self.best = Some(Sol {
-                        len,
-                        moves: full,
-                        dr_len: dr_len as u32,
-                        subset,
-                        optimal: routes.optimal as u32,
-                        fin: fin.len() as u32,
-                        dr_t: self.drs[j].found_at,
-                        index: self.solutions.len() - 1,
-                    });
-                }
-            }
+            self.take_finish(j, vi, own, fin.len(), checklist_route.name.clone(), routes.optimal, h2(vkey, step as u64), true);
         }
         if self.drs[j].tries >= self.plan.htr_per_dr {
             self.drs[j].done = true;
         }
+    }
+
+    /// Write out a finish of variant `vi` of DR `j` (cube turns `own`) as a full solution, and keep it if it is the
+    /// best so far.  `route`: how it was found; `on_htr`: it came from the route just tried (the timeline shows the
+    /// total on that step).
+    #[allow(clippy::too_many_arguments)]
+    fn take_finish(&mut self, j: usize, vi: usize, own: Vec<Move>, fin_len: usize, route: String, optimal: u8, key: u64, on_htr: bool) {
+        let (t, w) = (self.t, self.w);
+        let dr_len = self.drs[j].cand.len;
+        let v = &self.drs[j].variants[vi];
+        let subset = v.subset;
+        let mut full = v.normal.clone();
+        full.extend(&own);
+        full.extend(invert(&v.inverse));
+        let full = cancel(&full);
+        if on_htr && self.record {
+            if let Some(Step { action: Action::Htr { attempt, .. }, .. }) = self.steps.last_mut() {
+                attempt.total = Some(full.len());
+            }
+        }
+        let improves = self.best.as_ref().is_none_or(|b| full.len() < b.len);
+        let text = format_moves(&full);
+        let len = full.len();
+        self.pay(StepKind::Tail, self.cost.tail, key, |a| Action::Tail { dr: a.dr_ref(j), solution: text, len, best_so_far: improves });
+        if t.moves.apply(&w.state, &full) != Cube::SOLVED {
+            self.out.replay_failures += 1;
+            return;
+        }
+        let d = &self.drs[j];
+        let v = &d.variants[vi];
+        let eo = &w.eos[d.eo];
+        self.solutions.push(Solution {
+            found_at: self.clock,
+            len,
+            moves: format_moves(&full),
+            eo: eo.text(),
+            eo_len: eo.len,
+            dr_normal: format_moves(&v.normal),
+            dr_inverse: format_moves(&v.inverse),
+            dr_len,
+            dr_axis: crate::cube::AXIS_NAMES[d.cand.dr_axis],
+            subset: t.htr.sub48_names[subset].clone(),
+            route,
+            finish: format_moves(&own),
+            finish_len: fin_len,
+            optimal_finish: optimal,
+            dr_found_at: d.found_at,
+            written_at: None,
+        });
+        if self.out.first_sol_len == 0 {
+            self.out.first_sol_len = len as u32;
+            self.out.first_sol_t = self.clock;
+        }
+        if improves {
+            self.best = Some(Sol {
+                len,
+                moves: full,
+                dr_len: dr_len as u32,
+                subset: Some(subset),
+                optimal: optimal as u32,
+                fin: fin_len as u32,
+                dr_t: self.drs[j].found_at,
+                index: self.solutions.len() - 1,
+            });
+        }
+    }
+
+    /// A scramble that leaves the cube at most `finish_see` turns from solved: the solver sees the solution at the look.
+    fn take_seen(&mut self, moves: Vec<Move>) {
+        let len = moves.len();
+        self.solutions.push(Solution {
+            found_at: self.clock,
+            len,
+            moves: format_moves(&moves),
+            eo: String::new(),
+            eo_len: 0,
+            dr_normal: String::new(),
+            dr_inverse: String::new(),
+            dr_len: 0,
+            dr_axis: "",
+            subset: String::new(),
+            route: "seen at the look".to_string(),
+            finish: format_moves(&moves),
+            finish_len: len,
+            optimal_finish: len as u8,
+            dr_found_at: self.clock,
+            written_at: None,
+        });
+        if self.out.first_sol_len == 0 {
+            self.out.first_sol_len = len as u32;
+            self.out.first_sol_t = self.clock;
+        }
+        self.best = Some(Sol {
+            len,
+            moves,
+            dr_len: 0,
+            subset: None,
+            optimal: len as u32,
+            fin: len as u32,
+            dr_t: self.clock,
+            index: self.solutions.len() - 1,
+        });
+    }
+
+    /// A DR that leaves the cube at most `finish_see` moves from solved: the solver sees the finish as the DR goes
+    /// onto the page and writes it out at once (its shortest finish over the routes; the DR is then done with).
+    fn see_finish(&mut self, j: usize) {
+        let (t, w) = (self.t, self.w);
+        let lim = self.hum.finish_see;
+        let mut pick: Option<(usize, u8)> = None;
+        for (vi, v) in self.drs[j].variants.iter().enumerate() {
+            if t.noe().bound(&t.dr, v.st) as usize > lim {
+                continue;
+            }
+            let o = w.optimal(v.st);
+            if o as usize <= lim && pick.is_none_or(|p| o < p.1) {
+                pick = Some((vi, o));
+            }
+        }
+        let Some((vi, optimal)) = pick else { return };
+        let routes = w.routes(self.drs[j].variants[vi].st);
+        let Some((_, fin)) = routes.best.values().min() else { return };
+        let own = dr_moves_to_cube(&self.drs[j].view, fin);
+        if !self.drs[j].started {
+            self.drs[j].started = true;
+            self.out.drs_finished += 1;
+        }
+        let key = h2(self.drs[j].key, 0x5EE);
+        self.take_finish(j, vi, own, fin.len(), "seen with the DR".to_string(), optimal, key, false);
+        self.drs[j].done = true;
     }
 
     /// Write the best solution down.
@@ -931,7 +1019,9 @@ impl<'s, 't> Attempt<'s, 't> {
         let s = self.best.clone().unwrap();
         let in_time_if = self.budget;
         let text = format_moves(&s.moves);
-        self.pay(StepKind::Write, self.cost.write, self.out.writes.len() as u64 + 1, |a| Action::Write {
+        // a solution shorter than WRITE_FULL moves takes its share of the time (no research solution is that short)
+        let nominal = self.cost.write * (s.len.max(1) as f64 / WRITE_FULL).min(1.0);
+        self.pay(StepKind::Write, nominal, self.out.writes.len() as u64 + 1, |a| Action::Write {
             len: s.len,
             solution: text,
             in_time: a.clock <= in_time_if,
@@ -956,7 +1046,12 @@ impl<'s, 't> Attempt<'s, 't> {
     pub fn run(mut self) -> Report {
         let p = self.plan;
         let bad = self.w.bad;
-        self.pay(StepKind::Look, self.cost.look, 0, |_| Action::Look { bad_edges: bad });
+        let seen = shortest_within(self.t, &self.w.state, self.hum.finish_see);
+        let text = seen.as_ref().map(|m| format_moves(m));
+        self.pay(StepKind::Look, self.cost.look, 0, |_| Action::Look { bad_edges: bad, seen: text });
+        if let Some(moves) = seen {
+            self.take_seen(moves);
+        }
         let write_ms = (self.cost.write * 1000.0) as u64;
         let tk = self.time_scale;
         let mut guard = 0u32;
@@ -1073,7 +1168,7 @@ impl<'s, 't> Attempt<'s, 't> {
             out.len = b.len;
             out.moves = b.moves.clone();
             out.res_dr_len = b.dr_len;
-            out.res_subset = Some(b.subset);
+            out.res_subset = b.subset;
             out.res_optimal = b.optimal;
             out.res_fin = b.fin;
             out.res_dr_t = b.dr_t;
@@ -1092,6 +1187,37 @@ impl<'s, 't> Attempt<'s, 't> {
         out.oracle_page = oracle;
         Report { outcome: out, steps: self.steps, solutions: self.solutions }
     }
+}
+
+/// Writing a solution down takes `Costs::write` for this many moves or more, and its share for fewer.
+const WRITE_FULL: f64 = 12.0;
+
+/// The shortest turn sequence of at most `lim` turns that solves `s`, if there is one.
+fn shortest_within(t: &Tables, s: &Cube, lim: usize) -> Option<Vec<Move>> {
+    fn go(t: &Tables, s: &Cube, left: usize, last: Option<Move>, path: &mut Vec<Move>) -> bool {
+        if *s == Cube::SOLVED {
+            return true;
+        }
+        if left == 0 {
+            return false;
+        }
+        for i in 0..Move::COUNT {
+            let m = Move(i as u8);
+            if !canonical_after(last, m) {
+                continue;
+            }
+            path.push(m);
+            if go(t, &t.moves.turn(s, m), left - 1, Some(m), path) {
+                return true;
+            }
+            path.pop();
+        }
+        false
+    }
+    (0..=lim).find_map(|d| {
+        let mut path = Vec::new();
+        go(t, s, d, None, &mut path).then_some(path)
+    })
 }
 
 /// What the glance shows of one line: the ending, the DR axis, the DRM and the read.

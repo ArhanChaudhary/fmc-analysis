@@ -151,6 +151,9 @@ fn check_settings(s: &Settings) -> Result<(), String> {
     if !(h.read_sd >= 0.0 && h.read_sd <= 10.0 && h.rzp_depth_weight >= 0.0 && h.form_sigma >= 0.0 && h.form_sigma <= 3.0) {
         return Err("read_sd must be between 0 and 10, form_sigma between 0 and 3, rzp_depth_weight 0 or more".into());
     }
+    if h.finish_see > 5 || h.htr_extra > 6 {
+        return Err("finish_see is at most 5 and htr_extra at most 6".into());
+    }
     let p = &s.plan;
     if p.eo_len > 7 || p.eo_len_poor > 7 {
         return Err("EOs are searched up to 7 moves at most".into());

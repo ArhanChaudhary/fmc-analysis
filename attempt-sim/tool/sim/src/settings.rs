@@ -42,7 +42,7 @@ pub struct Costs {
     pub htr: f64,
     /// write out the finish a route gave
     pub tail: f64,
-    /// write the full solution down and check it on the cube
+    /// write the full solution down and check it on the cube (a solution shorter than 12 moves takes its share, n/12)
     pub write: f64,
 }
 
@@ -82,6 +82,12 @@ pub struct Human {
     pub dr_see_work: [f64; 8],
     /// chance that a route that has a short finish is finished that well when tried
     pub route_see: f64,
+    /// a cube at most this many turns from solved is seen to be: at the look (the scramble itself) and as a DR goes
+    /// onto the page (its finish is written out at once, ahead of the finishing phase)
+    pub finish_see: usize,
+    /// a route's HTR may be this many moves longer than the shortest HTR with NISS (the research value is 2; more
+    /// lets a long HTR with a short finish count)
+    pub htr_extra: u8,
     /// the read of how far the DR is: the true EO-keeping distance plus a normal error with this spread, in moves
     pub read_sd: f64,
     /// RZP states are ranked by this * moves so far + their read
@@ -99,6 +105,8 @@ impl Default for Human {
             dr_see_glance: [1.0, 1.0, 1.0, 0.9, 0.6, 0.25, 0.05, 0.0],
             dr_see_work: [1.0, 1.0, 1.0, 1.0, 0.95, 0.8, 0.5, 0.15],
             route_see: 0.9,
+            finish_see: 3,
+            htr_extra: 2,
             read_sd: 1.0,
             rzp_depth_weight: 0.6,
             form_sigma: 0.0,
@@ -121,6 +129,8 @@ impl Human {
             dr_see_glance: arr(self.dr_see_glance),
             dr_see_work: arr(self.dr_see_work),
             route_see: see(self.route_see),
+            finish_see: self.finish_see,
+            htr_extra: self.htr_extra,
             read_sd: self.read_sd / f,
             rzp_depth_weight: self.rzp_depth_weight,
             form_sigma: self.form_sigma,
@@ -163,7 +173,8 @@ pub struct Plan {
     pub switch_pen: f64,
     /// ignore DRs longer than this
     pub dr_cap: usize,
-    /// DRs taken from one line (EO ending and DR axis) before it is dropped
+    /// DRs taken from one line (EO ending and DR axis) before it is dropped; with more than one, the RZP states past a
+    /// DR that was seen are worked too (other DRs from the same EO)
     pub dr_per_line: usize,
     /// read a DR's subset when it is written down (otherwise only when it is its turn to be finished)
     pub read_on_find: bool,
@@ -199,18 +210,21 @@ pub struct Plan {
     pub bank_first: bool,
     /// write every improvement down as soon as it is found
     pub bank_always: bool,
-    /// write a solution down as soon as one of at most this length is found (0 = off)
+    /// write a solution down as soon as one of at most this length is found (0 = off; the default, 12, is far below
+    /// any competition result and only ever fires on a scramble a few turns deep)
     pub bank_at: usize,
     /// time kept at the end for writing the solution down
     pub reserve: f64,
     /// ... once a solution is already on the sheet (a rewrite that runs over leaves the old one); none = `reserve`
     pub reserve_rewrite: Option<f64>,
-    /// stop as soon as a solution of at most this many moves is written down (0 = off)
+    /// stop as soon as a solution of at most this many moves is written down (0 = off; default 12, as `bank_at`)
     pub stop_at: usize,
 }
 
 impl Default for Plan {
-    /// The defaults of the research program (the baseline plan differs only in `reserve`, see [`Plan::baseline`]).
+    /// The defaults of the research program (the baseline plan differs only in `reserve`, see [`Plan::baseline`]),
+    /// except `bank_at` and `stop_at`: 12 here, off there.  No research attempt comes near 12 moves, so its results are
+    /// the same; a scramble a few turns deep is written down and done with as soon as it is solved.
     fn default() -> Self {
         Plan {
             eo_len: 5,
@@ -247,10 +261,10 @@ impl Default for Plan {
             backup_time: 0.0,
             bank_first: false,
             bank_always: false,
-            bank_at: 0,
+            bank_at: 12,
             reserve: 240.0,
             reserve_rewrite: None,
-            stop_at: 0,
+            stop_at: 12,
         }
     }
 }
