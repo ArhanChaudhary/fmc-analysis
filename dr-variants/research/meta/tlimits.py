@@ -1,29 +1,31 @@
-"""The three sections of "HTR search order and limits": the order the HTRs are finished in, which HTRs are finished,
-and how much NISS to use.  Nothing uses a lower bound for N or step 4, and every HTR is at most G-1 moves away (the
-page's step 3).
+"""The three sections of "HTR search order and limits": how many HTRs to check on a skeleton before moving on, which
+HTRs to check, and when to NISS.  H = P+S+T, the moves added to the corner skeleton to reach HTR; H+L here is the
+number of moves at which HTR is reached (a start made before a NISS counted; the skeleton's corner moves after HTR
+not counted).  Nothing uses a lower bound for N or step 4.
+
+Always: H+L <= G-1, and at most 1 extra move before 2qt (P <= 1).
 
 The HTRs are read from a list that has, for each one, the linear skeleton its whole solution is on (`drvar
 metastdlist`, ../out/meta/stdn{M}.r40): every HTR at most G-1 moves away on normal, on inverse, or with one NISS
-after a start of 1 to 3 moves, the start's moves counted; kept here when the whole path has the DR's quarter turns or
-two more, as the page's records are.  After a start, P, S, T are read on the skeleton of what is left, as in the
-premove pass.  The list is checked against the page's records, DR by DR: on normal and inverse it is the records'
-HTRs, and its HTRs after a single quarter turn, with 3 or more quarter turns in all and a finish of at least one
-move, are the records' premove pass.
+after a start of 1 to 3 moves; kept here when the whole path has the DR's quarter turns or two more, as the page's
+records are.  After a start, P, S, T are read on the skeleton of what is left.  The list is checked against the
+page's records, DR by DR: on normal and inverse it is the records' HTRs, and its HTRs after a single quarter turn,
+with 3 or more quarter turns in all and a finish of at least one move, are the records' premove pass.
 
-A skeleton at a time (torder.tier_places): skeletons shortest first; a skeleton's HTRs are those of its premove (a
-NISS after a single quarter turn) first, then the linear ones, then those after a longer start; each by moves to HTR,
-most pairs first.  Two passes: at most k HTRs per skeleton in the first, then the rest in the same order.
+A skeleton at a time (torder.tier_places): skeletons shortest first; a skeleton's HTRs are those after a single
+quarter turn (a NISS after 1 move) first, then the linear ones, then those after a longer start, which are never in
+the first pass; each by H+L, most pairs first.  Two passes: at most k HTRs per skeleton in the first, then the rest in
+the same order.
 
-  order   section 1: the HTRs with P <= 1, P+S+T <= 5 (normal, inverse, premove pass) by HTR length, one skeleton at a
-          time, and in two passes with k = 2..6, 8, 10
-  abs, grid   section 2, with FIRST per skeleton: `abs` c = every HTR at most c moves away (c = G-5 .. G-1); `grid`
-          k, c = P <= 1, P+S+T <= k (k = 3..6 or none) and at most c moves away (c = G-1: that cap alone)
-  niss    section 3, with FIRST per skeleton, for the cap on the moves alone (`abs`) and with P <= 1, P+S+T <= 5 as
-          well (`pen`): no NISS, the premove pass, a NISS after 1 move, after up to 2, after up to 3.  `late`: the
-          same with the HTRs after a longer start never in the first pass.
+  order   section 1: the HTRs with H <= 5 (normal, inverse, NISS after 1 move) breadth first (by H+L), depth first
+          (one skeleton at a time), and in two passes with k = 2..6, 8, 10
+  grid    section 2, with FIRST per skeleton (normal, inverse, NISS after 1 move): k, c = H <= k (k = 3..6 or none)
+          and H+L <= c (c = G-5 .. G-1)
+  niss    section 3, with FIRST per skeleton, H <= 5 and H+L <= G-2: no NISS, a NISS after 1 move, after 1-2, after 1-3
 
-Per entry: HTRs per DR, reach, and how many HTRs are finished before 50% and 95% of within-goal DRs have a
-within-goal finish (None where the kept HTRs don't reach that share), over the DRs and 20 random tie orders.
+Per entry: HTRs per DR, reach (within-goal DRs with a within-goal HTR among the kept ones), and how many HTRs are
+finished before 50% and 95% of within-goal DRs have a within-goal finish (None where the kept HTRs don't reach that
+share), over the DRs and 20 random tie orders.
 
 usage: tlimits.py [M ...] -> ../out/meta/tlimits.json"""
 import sys, json
@@ -98,16 +100,16 @@ if __name__ == '__main__':
         pst = o.P + o.S + o.T
         pen = {k: (o.P <= 1) & ((pst <= k) if k is not None else True) for k in PENK}
         lin = o.lev == 0
-        page = lin | o.passed            # normal, inverse and the premove pass
+        one = o.lev <= 1                 # normal, inverse and a NISS after a single quarter turn
         tpst = t.P + t.S + t.T; tpen5 = (t.P <= 1) & (tpst <= 5)
         for case in BYQT[m]:
             sel = t.case == case; w = sel & t.wg; oc = o.rcase == case; kc = t.rcase == case
             # the list against the records, DR by DR: normal and inverse, the premove pass; any extra moves, and the page's cap
             for a, b in ((oc & lin, kc & ~t.pre), (oc & o.passed, kc & t.pre), (oc & lin & pen[5], kc & ~t.pre & tpen5), (oc & o.passed & pen[5], kc & t.pre & tpen5)):
                 assert (o.per_dr(a)[sel] == t.per_dr(b)[sel]).all() and (o.per_dr(a & o.ok)[sel] == t.per_dr(b & t.ok)[sel]).all(), ('the list is not the records', case)
-            R = dict(m=m, goal=g, cap=g - 1, first=FIRST, drs=int(sel.sum()), wg=int(w.sum()), abs={}, grid={}, niss={})
+            R = dict(m=m, goal=g, cap=g - 1, first=FIRST, drs=int(sel.sum()), wg=int(w.sum()), grid={}, niss={})
             # ---- section 1: the order
-            base = oc & page & pen[5]
+            base = oc & one & pen[5]
             fl = places(o, [base])[0]
             ft = tier_places(o, [base], firsts=FIRSTS)[0]
             R['order'] = dict(htr_med=float(np.median(o.per_dr(base)[sel])), reach=float(o.found(base)[w].mean()) if w.any() else 0.0,
@@ -115,21 +117,23 @@ if __name__ == '__main__':
                               len=dict(p50=needed(fl, w, 0.5), p95=needed(fl, w, 0.95)),
                               **{('skel' if k == 0 else f'two{k}'): dict(p50=needed(ft[i], w, 0.5), p95=needed(ft[i], w, 0.95)) for i, k in enumerate(FIRSTS)})
             # ---- section 2: the caps
-            names = [('abs', str(c)) for c in caps] + [('grid', f'{kname(k)}_{c}') for k in PENK for c in caps]
-            masks = [oc & page & (o.wl <= c) for c in caps] + [oc & page & pen[k] & (o.wl <= c) for k in PENK for c in caps]
+            names = [f'{kname(k)}_{c}' for k in PENK for c in caps]
+            masks = [oc & one & pen[k] & (o.wl <= c) for k in PENK for c in caps]
             fl = places(o, masks); ft = tier_places(o, masks, firsts=(FIRST,))
-            for (kind, key), mk, a, b in zip(names, masks, fl, ft): R[kind][key] = summary(o, mk, sel, w, b[0], a)
-            # ---- section 3: NISS
-            for name, cap in (('abs', oc), ('pen', oc & pen[5])):
-                opts = [('none', lin), ('premove', page), ('n1', o.lev <= 1), ('n2', o.lev <= 2), ('n3', o.lev <= 3)]
-                masks = [cap & k for _, k in opts]
-                ft = tier_places(o, masks, firsts=(FIRST,)); fl2 = tier_places(o, masks, firsts=(FIRST,), late2=True)
-                R['niss'][name] = {nm: summary(o, mk, sel, w, b[0]) for (nm, _), mk, b in zip(opts, masks, ft)}
-                R['niss'][name]['late'] = {nm: summary(o, mk, sel, w, b[0]) for (nm, _), mk, b in zip(opts, masks, fl2)}
+            for key, mk, a, b in zip(names, masks, fl, ft): R['grid'][key] = summary(o, mk, sel, w, b[0], a)
+            # what the limit of 1 extra move before 2qt takes out: the same with any number of them (H+L <= G-1, any H)
+            anyp = oc & one
+            R['anyp'] = dict(htr_med=float(np.median(o.per_dr(anyp)[sel])), reach=float(o.found(anyp)[w].mean()) if w.any() else 0.0, found=int(o.found(anyp)[w].sum()))
+            # ---- section 3: NISS, under H <= 5 and H+L <= G-2; a longer start's HTRs never in the first pass
+            cap = oc & pen[5] & (o.wl <= g - 2)
+            opts = [('none', lin), ('n1', o.lev <= 1), ('n2', o.lev <= 2), ('n3', o.lev <= 3)]
+            masks = [cap & k for _, k in opts]
+            ft = tier_places(o, masks, firsts=(FIRST,), late2=True)
+            R['niss'] = {nm: summary(o, mk, sel, w, b[0]) for (nm, _), mk, b in zip(opts, masks, ft)}
             out[case] = R
-            x = R['order']; a = R['abs'][str(g - 1)]; b = R['grid'][f'5_{g - 1}']
+            x = R['order']; b = R['grid'][f'5_{g - 1}']; c2 = R['grid'][f'5_{g - 2}']
             print(case, 'order', x['htr_med'], round(x['reach'], 4), {k: (x[k]['p50'], x[k]['p95']) for k in ('len', 'skel', 'two3', 'two5', 'two10')},
-                  '| abs', a['htr_med'], round(a['reach'], 4), a['p50'], '| pen5', b['htr_med'], round(b['reach'], 4), b['p50'],
-                  '| niss pen', [(R['niss']['pen'][k]['htr_med'], R['niss']['pen'][k]['p50'], R['niss']['pen']['late'][k]['p50']) for k in ('none', 'premove', 'n1', 'n2', 'n3')], flush=True)
+                  '| H<=5', b['htr_med'], round(b['reach'], 4), b['p50'], '| H<=5, G-2', c2['htr_med'], round(c2['reach'], 4), c2['p50'],
+                  '| niss', [(R['niss'][k]['htr_med'], round(R['niss'][k]['reach'], 4), R['niss'][k]['p50']) for k in ('none', 'n1', 'n2', 'n3')], flush=True)
         del t, o, pen
     json.dump(out, open(path('tlimits.json' if len(ms) == 3 else f"tlimits_part{''.join(map(str, ms))}.json"), 'w'), indent=1)
