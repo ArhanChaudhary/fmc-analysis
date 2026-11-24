@@ -256,7 +256,7 @@ Here are the chances of finding a within-goal solution within the first several 
 
 Compared to the baseline, using DR bounding boosts the chances of success within 10 or 20 finishes by 1.1x-1.8x.
 
-The order is the same in every table of this page, and it is the standard meta's; only what is discarded changes. [HTR search order and limits](STANDARD-META.md) compares it with going through one skeleton at a time, compares the caps of step 3 with a cap on the moves to HTR alone, and looks at what more NISS would add.
+The order is the same in every table of this page, and it is the standard meta's; only what is discarded changes. [HTR search order and limits](ORDER-AND-LIMITS.md) compares it with going through one skeleton at a time, compares the caps of step 3 with a cap on the moves to HTR alone, and looks at what more NISS would add.
 
 | Corner case | Meta, within 5 | Meta, within 10 | Meta, within 20 | Baseline, within 5 | Baseline, within 10 | Baseline, within 20 |
 |---|---|---|---|---|---|---|
