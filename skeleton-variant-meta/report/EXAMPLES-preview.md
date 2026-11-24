@@ -62,21 +62,21 @@ One row per example: what the meta finds on the skeletons it goes through, and h
 | [4b2, scramble 4](#4b2-scramble-4) | 4b2 0e | 12 | 13 | 8 | 32 | 0 |  | 0 |
 | [4b2, scramble 5](#4b2-scramble-5) | 4b2 6e | 12 | 12 | 8 | 126 | 2 | 12 | 0 |
 | [4b2, scramble 6](#4b2-scramble-6) | 4b2 6e | 12 | 12 | 8 | 98 | 3 | 12 | 2 |
-| [4b3, scramble 1](#4b3-scramble-1) | 4b3 6e | 13 | 13 | 8 | 59 | 3 | 13 | 0 |
+| [4b3, scramble 1](#4b3-scramble-1) | 4b3 6e | 13 | 13 | 8 | 59 | 2 | 13 | 0 |
 | [4b3, scramble 2](#4b3-scramble-2) | 4b3 6e | 13 | 14 | 8 | 8 | 0 |  | 0 |
 | [4b3, scramble 3](#4b3-scramble-3) | 4b3 4e | 13 | 14 | 8 | 87 | 0 |  | 0 |
 | [4b3, scramble 4](#4b3-scramble-4) | 4b3 6e | 13 | 14 | 8 | 281 | 0 |  | 0 |
 | [4b3, scramble 5](#4b3-scramble-5) | 4b3 2e | 13 | 13 | 8 | 44 | 1 | 13 | 0 |
 | [4b3, scramble 6](#4b3-scramble-6) | 4b3 4e | 13 | 14 | 8 | 57 | 0 |  | 0 |
 | [4b3, scramble 7](#4b3-scramble-7) | 4b3 4e | 13 | 14 | 8 | 61 | 0 |  | 0 |
-| [4b3, scramble 8](#4b3-scramble-8) | 4b3 4e | 13 | 13 | 6 | 522 | 14 | 13 | 0 |
+| [4b3, scramble 8](#4b3-scramble-8) | 4b3 4e | 13 | 13 | 6 | 522 | 13 | 13 | 0 |
 | [0c0, scramble 1](#0c0-scramble-1) | 0c0 6e | 12 | 13 | 8 | 39 | 0 |  | 0 |
 | [0c0, scramble 2](#0c0-scramble-2) | 0c0 2e | 12 | 11 | 8 | 135 | 11 | 11 | 0 |
-| [2c3, scramble 1](#2c3-scramble-1) | 2c3 2e | 13 | 12 | 8 | 82 | 7 | 12 | 1 |
+| [2c3, scramble 1](#2c3-scramble-1) | 2c3 2e | 13 | 12 | 8 | 82 | 7 | 12 | 0 |
 | [2c3, scramble 2](#2c3-scramble-2) | 2c3 4e | 13 | 13 | 8 | 103 | 2 | 13 | 0 |
-| [2c3, scramble 3](#2c3-scramble-3) | 2c3 2e | 13 | 12 | 8 | 198 | 10 | 12 | 0 |
-| [2c3, scramble 4](#2c3-scramble-4) | 2c3 2e | 13 | 12 | 8 | 325 | 6 | 12 | 3 |
-| [2c3, scramble 5](#2c3-scramble-5) | 2c3 6e | 13 | 13 | 8 | 155 | 0 |  | 3 |
+| [2c3, scramble 3](#2c3-scramble-3) | 2c3 2e | 13 | 12 | 8 | 198 | 9 | 12 | 0 |
+| [2c3, scramble 4](#2c3-scramble-4) | 2c3 2e | 13 | 12 | 8 | 325 | 6 | 12 | 1 |
+| [2c3, scramble 5](#2c3-scramble-5) | 2c3 6e | 13 | 13 | 8 | 155 | 0 |  | 2 |
 | [2c3, scramble 6](#2c3-scramble-6) | 2c3 6e | 13 | 12 | 8 | 147 | 6 | 12 | 1 |
 | [2c3, scramble 7](#2c3-scramble-7) | 2c3 2e | 13 | 14 | 8 | 109 | 0 |  | 0 |
 | [2c3, scramble 8](#2c3-scramble-8) | 2c3 6e | 13 | 13 | 8 | 126 | 2 | 13 | 0 |
@@ -86,10 +86,10 @@ One row per example: what the meta finds on the skeletons it goes through, and h
 | [2c3, scramble 12](#2c3-scramble-12) | 2c3 6e | 13 | 14 | 8 | 110 | 0 |  | 0 |
 | [2c4, scramble 1](#2c4-scramble-1) | 2c4 6e | 14 | 14 | 8 | 212 | 5 | 14 | 0 |
 | [2c4, scramble 2](#2c4-scramble-2) | 2c4 6e | 14 | 15 | 8 | 144 | 0 |  | 0 |
-| [2c4, scramble 3](#2c4-scramble-3) | 2c4 0e | 14 | 14 | 8 | 196 | 2 | 14 | 3 |
+| [2c4, scramble 3](#2c4-scramble-3) | 2c4 0e | 14 | 14 | 8 | 196 | 2 | 14 | 2 |
 | [2c4, scramble 4](#2c4-scramble-4) | 2c4 2e | 14 | 14 | 8 | 185 | 2 | 14 | 0 |
 | [2c4, scramble 5](#2c4-scramble-5) | 2c4 6e | 14 | 14 | 8 | 125 | 2 | 14 | 0 |
-| [2c4, scramble 6](#2c4-scramble-6) | 2c4 4e | 14 | 14 | 8 | 457 | 2 | 14 | 0 |
+| [2c4, scramble 6](#2c4-scramble-6) | 2c4 4e | 14 | 14 | 8 | 457 | 1 | 14 | 0 |
 
 22 of the 34 DRs have a finish within goal. The meta finds one on 21 of them on the skeletons it goes through, and on 20 of those it finds the DR's optimal. On 1 more the only ones it has are hard to find.
 
@@ -657,7 +657,6 @@ The same skeleton in full, for the solutions that go on after its last quarter t
 - B2 U2 R2 D
     - After F2, 1qt edges will be RH (good) and FH (good): +0+0+3(+0)
         - F2 U B2 U2 R2 F2 L2 F2 D' // no good: 16 pairs, the most of 13
-        - **F2 U F2 U2 R2 F2 R2 F2 U // 13**
 
 Check inverse. Skeleton (D L2 U2 F2 D' F2 U R2 U2 F2) has DD corners.
 
@@ -749,7 +748,7 @@ Check inverse. Skeleton (D' B2 U F2 U' L2 D' F2 U L2 U2) has RV corners.
 
 - No variant passes the meta.
 
-8 skeletons gone through, 59 HTRs: 3 finishes within goal (13, 13, 13). This DR's optimal is 13.
+8 skeletons gone through, 59 HTRs: 2 finishes within goal (13, 13). This DR's optimal is 13.
 
 ### 4b3, scramble 2
 
@@ -1368,9 +1367,6 @@ The same skeleton in full, for the solutions that go on after its last quarter t
 - U2 F2 U
     - After R2 U2 L2 B2, 1qt edges will be RH (good) and FH (good): +0+1+3(+0)
         - R2 U2 L2 B2 U R2 L2 B2 R2 U // no good: 8 pairs, the most of 81
-- U2 B2 D
-    - After L2 U2 R2 F2, 1qt edges will be RH (good) and FH (good): +0+1+3(+0)
-        - **L2 U2 R2 F2 U F2 R2 F2 R2 U // 13**
 
 Check inverse. Skeleton (U' R2 U B2 U2 L2 U' F2 U2) has FV corners.
 
@@ -1413,7 +1409,7 @@ Skeleton U2 B2 U R2 U D L2 D' F2 U has HH corners, L=10, 3 spare moves. Apply (U
 
 - No variant passes the meta.
 
-6 skeletons gone through, 522 HTRs: 14 finishes within goal (13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13). This DR's optimal is 13.
+6 skeletons gone through, 522 HTRs: 13 finishes within goal (13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13). This DR's optimal is 13.
 
 ## 0c0
 
@@ -1674,9 +1670,6 @@ Hard to find, on skeletons that are not gone through:
 
 Skeleton B2 U2 R2 U L2 D' F2 U R2 D' U has HH corners, L=11, 2 spare moves. Apply (U') and NISS: HH corners.
 
-- B2 L2 U2 R2 U' L2 D'
-    - After F2 L2, 1qt edges will be RH (good) and FH (good): +1+1+0(+0)
-        - **F2 L2 U' B2 U2 // 12**
 
 8 skeletons gone through, 82 HTRs: 7 finishes within goal (12, 12, 13, 13, 13, 13, 13). This DR's optimal is 12.
 
@@ -1825,7 +1818,6 @@ Skeleton (B2 U' B2 U F2 U' L2 U D) on inverse has HH corners, L=9, 4 spare moves
 - (B2 U' F2 D)
     - After (F2), 1qt edges will be RH (good) and FH (good): +0+0+4(+0)
         - **(F2 U' R2 B2 L2 F2 R2 U2) // 12**
-        - **(F2 U' L2 F2 L2 B2 L2 U2) // 12**
 - (L2 F2 D R2 U')
     - After (F2), 1qt edges will be RH (good) and FH (good): +1+0+1(+0)
         - (F2 U R2 F2 U') // no good: 8 pairs, the most of 23
@@ -1858,7 +1850,7 @@ The same skeleton in full, for the solutions that go on after its last quarter t
     - After R2, 1qt edges will be RH (good) and FH (good): +1+0+3(+0)
         - R2 U' F2 R2 B2 D // no good: 8 pairs, the most of 12
 
-8 skeletons gone through, 198 HTRs: 10 finishes within goal (12, 12, 12, 12, 12, 12, 12, 13, 13, 13). This DR's optimal is 12.
+8 skeletons gone through, 198 HTRs: 9 finishes within goal (12, 12, 12, 12, 12, 12, 13, 13, 13). This DR's optimal is 12.
 
 ### 2c3, scramble 4
 
@@ -1887,7 +1879,6 @@ Check inverse. Skeleton (L2 U2 F2 U' L2 U R2 D) has HH corners. Apply D' and NIS
 
 The same skeleton in full, for the solutions that go on after its last quarter turn.
 
-- (L2 U2 F2 U)
 - (B2 U2 F2 L2 U)
     - After (F2), 1qt edges will be RH (good) and FD (bad): +1+0+1(+3)
         - (F2 U F2 R2 U) // no good: 10 pairs, the most of 135
@@ -1962,9 +1953,6 @@ Hard to find, on skeletons that are not gone through:
 
 Skeleton (B2 U' F2 U R2 U R2 U D) on inverse has HH corners, L=9, 4 spare moves. Apply D' and NISS: HH corners.
 
-- (F2 D' B2 U)
-    - After (R2 F2 R2 B2), 1qt edges will be RH (good) and FH (good): +0+3+1(+0)
-        - **(R2 F2 R2 B2 U' F2 R2 U2) // 12**
 
 Skeleton (L2 U' R2 U L2 U L2 U' R2 D') on inverse has HH corners, L=10, 3 spare moves. Apply D and NISS: FD corners.
 
@@ -1974,9 +1962,6 @@ Skeleton (L2 U' R2 U L2 U L2 U' R2 D') on inverse has HH corners, L=10, 3 spare 
 
 Skeleton (L2 D' F2 U B2 U B2 U' F2 D) on inverse has HH corners, L=10, 3 spare moves.
 
-- (L2 D' B2 D B2 D)
-    - After (F2), 1qt edges will be RH (good) and FH (good): +0+0+3(+0)
-        - **(F2 U' B2 L2 B2 L2 U') // 13**
 
 8 skeletons gone through, 325 HTRs: 6 finishes within goal (12, 12, 13, 13, 13, 13). This DR's optimal is 12.
 
@@ -2084,9 +2069,6 @@ Skeleton L2 D' F2 D' B2 U' L2 U B2 U' has HH corners, L=10, 3 spare moves. Apply
 
 Skeleton L2 U' R2 D' L2 U' F2 U L2 D has HH corners, L=10, 3 spare moves.
 
-- L2 U' R2 D' L2 U'
-    - After F2 R2 B2 L2, 1qt edges will be RH (good) and FH (good): +0+3+0(+0)
-        - **F2 R2 B2 L2 U' R2 U' // 13**
 
 Skeleton (U R2 D F2 U' F2 D' R2 U' F2) on inverse has RD corners, L=10, 3 spare moves.
 
@@ -3062,9 +3044,6 @@ Skeleton (F2 U2 R2 D R2 U' L2 D L2 U' R2 U' L2 U') on inverse has HH corners, L=
 
 Skeleton (F2 U2 R2 U F2 U' B2 D B2 U' F2 U' B2 D') on inverse has HH corners, L=14, 0 spare moves.
 
-- (F2 U2 R2 U B2 U' L2 D F2 D')
-    - After (B2), 1qt edges will be RH (good) and FH (good): +0+0+0(+0)
-        - **(B2 U' L2 U') // 14**
 
 8 skeletons gone through, 196 HTRs: 2 finishes within goal (14, 14). This DR's optimal is 14.
 
@@ -3277,7 +3256,6 @@ The same skeleton in full, for the solutions that go on after its last quarter t
 
 - (U2 B2 U' L2 U)
     - After (R2 F2 B2), 1qt edges will be RH (good) and FH (good): +0+2+3(+0)
-        - **(R2 F2 B2 U' L2 B2 R2 B2 D') // 14**
         - (R2 F2 B2 U' L2 F2 L2 B2 U) // no good: 8 pairs, the most of 63
 
 Skeleton D' F2 U B2 D' L2 U L2 U2 B2 has DD corners, L=10, 4 spare moves.
@@ -3366,4 +3344,4 @@ The same skeleton in full, for the solutions that go on after its last quarter t
     - After B2, 1qt edges will be RH (good) and FH (good): +1+0+3(+0)
         - B2 U' F2 R2 B2 D // no good: 0 pairs, the most of 4
 
-8 skeletons gone through, 457 HTRs: 2 finishes within goal (14, 14). This DR's optimal is 14.
+8 skeletons gone through, 457 HTRs: one finish within goal (14). This DR's optimal is 14.
