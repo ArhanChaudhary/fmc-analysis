@@ -111,6 +111,10 @@ def main():
         for name, kind in KIND.items():
             if os.path.exists(os.path.join(site, study, name)):
                 index_page(site, f'{study}/{name}', kind, entries)
+        # a study's other reports (report/NAME.md, built as name.html)
+        for name in sorted(os.listdir(os.path.join(site, study))):
+            if name.endswith('.html') and name not in KIND:
+                index_page(site, f'{study}/{name}', 'Report', entries)
     if os.path.exists(os.path.join(site, 'decision-cards.html')):
         index_page(site, 'decision-cards.html', 'Decision cards', entries)
     tables = os.path.join(site, 'tables')

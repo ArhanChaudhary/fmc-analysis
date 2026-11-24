@@ -55,3 +55,10 @@ htr-routes/research/verify/vhtr/target/
 /dr-variants/research/out/meta/*.log
 /corners-3d/research/c3d/target/
 /corners-3d/research/out/big/
+# The skeleton/variant meta's records and lists (dr-variants/README.md: how to regenerate them).
+/dr-variants/research/out/meta/*.t48
+/dr-variants/research/out/meta/*.t50
+/dr-variants/research/out/meta/*.r12
+/dr-variants/research/out/meta/*.r28
+/dr-variants/research/out/meta/*.r40
+/dr-variants/research/out/meta/*.npz

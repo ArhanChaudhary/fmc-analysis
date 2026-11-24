@@ -1,0 +1,29 @@
+{
+ "2": {
+  "htrs": 7170533,
+  "within_goal_htrs": 7778,
+  "no_mirror": 10,
+  "dp_routes": 2948,
+  "dp_differ": 0,
+  "mirror": 438,
+  "mirror_bad": 0
+ },
+ "3": {
+  "htrs": 16976082,
+  "within_goal_htrs": 15500,
+  "no_mirror": 0,
+  "dp_routes": 6534,
+  "dp_differ": 0,
+  "mirror": 938,
+  "mirror_bad": 0
+ },
+ "4": {
+  "htrs": 29508136,
+  "within_goal_htrs": 23844,
+  "no_mirror": 0,
+  "dp_routes": 11483,
+  "dp_differ": 0,
+  "mirror": 1522,
+  "mirror_bad": 0
+ }
+}

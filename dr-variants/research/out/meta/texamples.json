@@ -1,0 +1,183 @@
+{
+ "swap": {
+  "case": "2c3",
+  "scramble": "F2 L2 F2 L2 R2 D' F2 D2 U' B2 D' R2",
+  "solution": "B2 R2 U' B2 U R2 L2 F2 D' R2 L2 F2 B2",
+  "L": 6,
+  "tuple": "1, 0, 2, 4",
+  "inverse": "B2 F2 L2 R2 D F2 L2 R2 U' B2 U R2 B2",
+  "inv_tuple": "4, 2, 0, 1"
+ },
+ "pair": {
+  "case": "4b2",
+  "scramble": "F2 D' L2 R2 U B2 D R2 D U2 L2",
+  "solution": "L2 U B2 U' F2 D' F2 B2 U F2",
+  "skeleton": "L2 U B2 U' F2 D' U F2",
+  "L": 8,
+  "T": 2,
+  "slice": "F2 B2"
+ },
+ "step": {
+  "case": "4b2",
+  "scramble": "R2 F2 D F2 R2 D U R2 U R2 B2",
+  "side": "the inverse of ",
+  "L": 5,
+  "st": "(S, T) = (1, 3)",
+  "nb": 1,
+  "moves": 8,
+  "hi_path": "R2 F2 U L2 F2 D2 R2 U",
+  "hi_cut": "R2 F2 U L2 F2 D2 R2",
+  "hi_pairs": 8,
+  "hi_finish": "R2 B2",
+  "hi_total": 10,
+  "lo_path": "R2 F2 U R2 B2 U2 R2 D'",
+  "lo_cut": "R2 F2 U R2 B2 U2 R2",
+  "lo_pairs": 6,
+  "lo_total": 17
+ },
+ "lostpairs": null,
+ "missed": {
+  "case": "2c3",
+  "scramble": "U L2 U B2 D2 B2 F2 L2 D L2 U F2 U' R2",
+  "n_total": 13,
+  "n_solution": "L2 U2 F2 L2 U R2 U L2 U' F2 D2 F2 B2",
+  "n_tuple": "2, 0, 0, 2",
+  "n_L": 9,
+  "i_solution": "F2 B2 U2 B2 U R2 U' L2 U' R2 B2 D2 L2",
+  "i_tuple": "2, 0, 0, 2",
+  "i_L": 9
+ },
+ "bound": {
+  "case": "2c3",
+  "scramble": "B2 D' R2 D L2 R2 B2 D R2 D2 B2 R2 U2",
+  "side": "the inverse of ",
+  "path": "B2 U' B2 U R2 L2 B2 D",
+  "len": 8,
+  "finish": "R2 U2 F2 L2 D2",
+  "fin": 5,
+  "total": 13,
+  "kind": "F-D",
+  "L": 7,
+  "tuple": "0, 0, 2, 4",
+  "nb": 5,
+  "says": 14
+ },
+ "premove": {
+  "case": "4b2",
+  "scramble": "U F2 D2 L2 U2 R2 D' L2 D' L2 B2 R2 U'",
+  "total": 12,
+  "solution": "U R2 B2 L2 U B2 D F2 R2 D2 F2 D",
+  "side": "normal",
+  "q": 4,
+  "full": "(P, P, S, T, N) = (0, 3, 0, 3, 0)",
+  "same": true,
+  "other": "(P, P, S, T, N) = (0, 3, 0, 3, 0)",
+  "other_side": "inverse",
+  "why": "3 extra moves before 2qt either way",
+  "turn": "D",
+  "rest": "(P, S, T, N) = (0, 3, 0, 2)",
+  "rest_q": 3,
+  "rest_L": 7
+ },
+ "premove_lost": {
+  "case": "4c3",
+  "scramble": "B2 U' R2 B2 D2 F2 D' R2 B2 U' L2 R2",
+  "side": "inverse",
+  "solution": "B2 U' R2 B2 D2 F2 U' B2 L2 D' R2 L2",
+  "total": 12,
+  "tuple": "(P, S, T, N) = (0, 1, 1, 2)",
+  "turn": "D'",
+  "after": "R2 L2",
+  "after_kind": "the slice",
+  "other_side": "normal",
+  "other": "(P, S, T, N) = (2, 1, 1, 0)",
+  "other_P": 2
+ },
+ "boost": "1.1x-1.8x",
+ "boost_all": [
+  1.28,
+  1.23,
+  1.18,
+  1.2,
+  1.13,
+  1.11,
+  1.33,
+  1.37,
+  1.18,
+  1.16,
+  1.75,
+  1.79
+ ],
+ "opt": {
+  "rows": [
+   {
+    "name": "Step 4",
+    "work": "81%",
+    "mean": "+0.0 points",
+    "worst": "+0.0 points"
+   },
+   {
+    "name": "Step 4, P+S+T ≤ 6",
+    "work": "76%",
+    "mean": "+0.0 points",
+    "worst": "+0.1 points (4b2)"
+   },
+   {
+    "name": "**Step 4, P+S+T ≤ 5**",
+    "work": "68%",
+    "mean": "+0.5 points",
+    "worst": "+1.3 points (4b2)"
+   },
+   {
+    "name": "Step 4, P+S+T ≤ 4",
+    "work": "56%",
+    "mean": "+1.2 points",
+    "worst": "+3.1 points (4b2)"
+   },
+   {
+    "name": "Step 4, the best two caps that miss no more than the meta in any corner case (S ≤ 3, T ≤ 5)",
+    "work": "65%",
+    "mean": "+0.5 points",
+    "worst": "+1.0 points (2c3)"
+   },
+   {
+    "name": "Step 4, the best three caps that miss no more than the meta in any corner case (S ≤ 3, T ≤ 5, S+T ≤ 6)",
+    "work": "65%",
+    "mean": "+0.5 points",
+    "worst": "+1.0 points (2c3)"
+   },
+   {
+    "name": "Step 4, the best single cap that includes N and misses no more than the meta (S+T+N ≤ 7)",
+    "work": "79%",
+    "mean": "+0.2 points",
+    "worst": "+1.2 points (4b2)"
+   },
+   {
+    "name": "Step 4, S+T+N ≤ 5",
+    "work": "64%",
+    "mean": "+3.0 points",
+    "worst": "+11.1 points (4b2)"
+   },
+   {
+    "name": "Step 4, T+N ≤ 4",
+    "work": "65%",
+    "mean": "+3.0 points",
+    "worst": "+11.3 points (4b2)"
+   },
+   {
+    "name": "P+S+T+N ≤ 5, without step 4 (the doc's S+T+N ≤ min(G−L, 5) − P)",
+    "work": "75%",
+    "mean": "+2.8 points",
+    "worst": "+10.1 points (4b2)"
+   }
+  ],
+  "nrules": 128468,
+  "floor_cut": "19%",
+  "floor_lost_n": 0,
+  "floor_lost": "no within-goal DR",
+  "after": "",
+  "meta_work": 0.6820358037948608,
+  "best2": 0.6543528437614441,
+  "best3": 0.6481332182884216
+ }
+}

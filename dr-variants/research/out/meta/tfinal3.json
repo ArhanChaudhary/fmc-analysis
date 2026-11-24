@@ -1,0 +1,3212 @@
+{
+ "m": 3,
+ "goal": 13,
+ "meta": "P \u2264 1, P+S+T \u2264 5, mirror floor",
+ "baseline_pairs": true,
+ "pairs_mode": "first",
+ "uniss": "add",
+ "rest_both": true,
+ "cases": {
+  "0c3": {
+   "drs": 101,
+   "wg": 15,
+   "lmin": 9,
+   "bounds": {
+    "none": {
+     "htr_med": 320.0,
+     "htr_mean": 570.5544554455446,
+     "n": 57626,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 320.0,
+     "htr_mean0": 570.5544554455446,
+     "n0": 57626,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14
+    },
+    "simple": {
+     "htr_med": 64.0,
+     "htr_mean": 115.1980198019802,
+     "n": 11635,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 64.0,
+     "htr_mean0": 115.1980198019802,
+     "n0": 11635,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14
+    },
+    "cca": {
+     "htr_med": 18.0,
+     "htr_mean": 42.9009900990099,
+     "n": 4333,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 18.0,
+     "htr_mean0": 42.9009900990099,
+     "n0": 4333,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14
+    },
+    "comp": {
+     "htr_med": 4.0,
+     "htr_mean": 21.613861386138613,
+     "n": 2183,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 4.0,
+     "htr_mean0": 21.613861386138613,
+     "n0": 2183,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14
+    }
+   },
+   "var": {
+    "pmax1": {
+     "htr_med": 24.0,
+     "htr_mean": 47.01980198019802,
+     "n": 4749,
+     "nok": 72,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 24.0,
+     "htr_mean0": 47.01980198019802,
+     "n0": 4749,
+     "nok0": 72,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 16.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, no floor"
+    },
+    "floor": {
+     "htr_med": 18.0,
+     "htr_mean": 42.9009900990099,
+     "n": 4333,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 18.0,
+     "htr_mean0": 42.9009900990099,
+     "n0": 4333,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 14.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, mirror floor"
+    },
+    "pst3": {
+     "htr_med": 18.0,
+     "htr_mean": 41.633663366336634,
+     "n": 4205,
+     "nok": 67,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 18.0,
+     "htr_mean0": 41.633663366336634,
+     "n0": 4205,
+     "nok0": 67,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 14.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, P+S+T \u2264 3, mirror floor"
+    },
+    "pst4": {
+     "htr_med": 18.0,
+     "htr_mean": 42.9009900990099,
+     "n": 4333,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 18.0,
+     "htr_mean0": 42.9009900990099,
+     "n0": 4333,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 14.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, P+S+T \u2264 4, mirror floor"
+    },
+    "pst5": {
+     "htr_med": 18.0,
+     "htr_mean": 42.9009900990099,
+     "n": 4333,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 18.0,
+     "htr_mean0": 42.9009900990099,
+     "n0": 4333,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 14.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "pst6": {
+     "htr_med": 18.0,
+     "htr_mean": 42.9009900990099,
+     "n": 4333,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 18.0,
+     "htr_mean0": 42.9009900990099,
+     "n0": 4333,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 14.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, P+S+T \u2264 6, mirror floor"
+    },
+    "nofloor": {
+     "htr_med": 24.0,
+     "htr_mean": 47.01980198019802,
+     "n": 4749,
+     "nok": 72,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 24.0,
+     "htr_mean0": 47.01980198019802,
+     "n0": 4749,
+     "nok0": 72,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 16.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, no floor"
+    },
+    "nopairs": {
+     "htr_med": 18.0,
+     "htr_mean": 42.9009900990099,
+     "n": 4333,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 18.0,
+     "htr_mean0": 42.9009900990099,
+     "n0": 4333,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 14.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "p0": {
+     "htr_med": 16.0,
+     "htr_mean": 40.00990099009901,
+     "n": 4041,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 16.0,
+     "htr_mean0": 40.00990099009901,
+     "n0": 4041,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 8.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 0, P+S+T \u2264 5, mirror floor"
+    },
+    "p2": {
+     "htr_med": 18.0,
+     "htr_mean": 42.98019801980198,
+     "n": 4341,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 18.0,
+     "htr_mean0": 42.98019801980198,
+     "n0": 4341,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 14.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 2, P+S+T \u2264 5, mirror floor"
+    },
+    "pany": {
+     "htr_med": 18.0,
+     "htr_mean": 42.98019801980198,
+     "n": 4341,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 18.0,
+     "htr_mean0": 42.98019801980198,
+     "n0": 4341,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 14.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "any P, P+S+T \u2264 5, mirror floor"
+    },
+    "tn4": {
+     "htr_med": 18.0,
+     "htr_mean": 42.9009900990099,
+     "n": 4333,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 18.0,
+     "htr_mean0": 42.9009900990099,
+     "n0": 4333,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 14.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, T+N \u2264 4, mirror floor"
+    },
+    "stn5": {
+     "htr_med": 18.0,
+     "htr_mean": 42.9009900990099,
+     "n": 4333,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 18.0,
+     "htr_mean0": 42.9009900990099,
+     "n0": 4333,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 14.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, S+T+N \u2264 5, mirror floor"
+    },
+    "doc": {
+     "htr_med": 24.0,
+     "htr_mean": 47.01980198019802,
+     "n": 4749,
+     "nok": 72,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 24.0,
+     "htr_mean0": 47.01980198019802,
+     "n0": 4749,
+     "nok0": 72,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 16.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, P+S+T+N \u2264 5, no floor"
+    },
+    "s3t5": {
+     "htr_med": 18.0,
+     "htr_mean": 42.9009900990099,
+     "n": 4333,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 18.0,
+     "htr_mean0": 42.9009900990099,
+     "n0": 4333,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 14.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, S \u2264 3, T \u2264 5, mirror floor"
+    },
+    "spare2": {
+     "htr_med": 0.0,
+     "htr_mean": 33.99009900990099,
+     "n": 3433,
+     "nok": 64,
+     "miss": 0.1333333333333333,
+     "found": 13,
+     "step": false,
+     "htr_med0": 0.0,
+     "htr_mean0": 33.99009900990099,
+     "n0": 3433,
+     "nok0": 64,
+     "miss0": 0.1333333333333333,
+     "found0": 13,
+     "routes_med": 6.0,
+     "skel_med": 1.0,
+     "skel_finish_med": 0.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, G\u2212L \u2265 2, mirror floor"
+    },
+    "p1own": {
+     "htr_med": 18.0,
+     "htr_mean": 42.7029702970297,
+     "n": 4313,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 18.0,
+     "htr_mean0": 42.7029702970297,
+     "n0": 4313,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 14.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "nopair": {
+     "htr_med": 16.0,
+     "htr_mean": 41.445544554455445,
+     "n": 4186,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 16.0,
+     "htr_mean0": 41.445544554455445,
+     "n0": 4186,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 8.0,
+     "skel_med": 2.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "own": {
+     "htr_med": 16.0,
+     "htr_mean": 41.20792079207921,
+     "n": 4162,
+     "nok": 68,
+     "miss": 0.06666666666666665,
+     "found": 14,
+     "step": false,
+     "htr_med0": 16.0,
+     "htr_mean0": 41.20792079207921,
+     "n0": 4162,
+     "nok0": 68,
+     "miss0": 0.06666666666666665,
+     "found0": 14,
+     "routes_med": 8.0,
+     "skel_med": 2.0,
+     "skel_finish_med": 1.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    }
+   },
+   "orders": {
+    "cca_len": [
+     0.7333333333333333,
+     0.7333333333333333,
+     0.8
+    ],
+    "none_len": [
+     0.52,
+     0.6,
+     0.7200000000000001
+    ],
+    "cca_before": [
+     0.5166666666666667,
+     0.6066666666666668,
+     0.6933333333333334
+    ],
+    "cca_len_nopairs": [
+     0.5833333333333334,
+     0.7333333333333333,
+     0.7933333333333332
+    ]
+   },
+   "effort": {
+    "routes_med": 14.0,
+    "skel_med": 4.0,
+    "skel_finish_med": 1.0
+   },
+   "own_miss": 0.06666666666666665,
+   "pairs": {
+    "htrs": 4333,
+    "groups": 406,
+    "alone": 17,
+    "shared": 4316,
+    "dropped": 2150,
+    "ok": 68,
+    "ok_dropped": 3,
+    "ok_kept_share": 0.02977553825011452,
+    "ok_dropped_share": 0.0013953488372093023,
+    "group_max": 64
+   },
+   "step4": {
+    "lost": 0,
+    "gained": 0,
+    "lost0": 0,
+    "gained0": 0
+   },
+   "uniss": {
+    "lost": 0,
+    "gained": 1,
+    "found0": 13,
+    "lost_drs": [],
+    "gained_drs": [
+     1495
+    ],
+    "miss0": 0.1333333333333333,
+    "htr_med0": 16.0,
+    "htr_mean0": 36.73267326732673,
+    "n0": 3710,
+    "nok0": 42,
+    "within0": [
+     0.4,
+     0.4,
+     0.5933333333333334
+    ],
+    "routes_med0": 8.0,
+    "skel_med0": 4.0,
+    "pre": 623,
+    "pre_ok": 26
+   },
+   "hcap": {
+    "lost": 0,
+    "lost_base": 0,
+    "within0": [
+     0.7333333333333333,
+     0.7333333333333333,
+     0.8
+    ],
+    "htr_med0": 28.0,
+    "htr_mean0": 70.48514851485149,
+    "n0": 7119,
+    "nok0": 83,
+    "base_htr_med0": 606.0,
+    "miss0": 0.06666666666666665,
+    "lost_nopass": 1,
+    "miss_nopass0": 0.06666666666666665,
+    "routes_med_nopass0": 16.0
+   },
+   "miss": {
+    "counts": {
+     "outside": 1,
+     "bound": 0,
+     "several": 0,
+     "pairs": 0,
+     "P": 0,
+     "P+S+T": 0,
+     "floor": 0
+    },
+    "lost": 1,
+    "detail": []
+   }
+  },
+  "2c3": {
+   "drs": 1048,
+   "wg": 901,
+   "lmin": 5,
+   "bounds": {
+    "none": {
+     "htr_med": 2224.5,
+     "htr_mean": 2194.5152671755727,
+     "n": 2299852,
+     "nok": 6198,
+     "miss": 0.017758046614872347,
+     "found": 885,
+     "step": false,
+     "htr_med0": 2224.5,
+     "htr_mean0": 2194.5152671755727,
+     "n0": 2299852,
+     "nok0": 6198,
+     "miss0": 0.017758046614872347,
+     "found0": 885
+    },
+    "simple": {
+     "htr_med": 451.0,
+     "htr_mean": 472.54007633587787,
+     "n": 495222,
+     "nok": 6150,
+     "miss": 0.018867924528301883,
+     "found": 884,
+     "step": false,
+     "htr_med0": 451.0,
+     "htr_mean0": 472.54007633587787,
+     "n0": 495222,
+     "nok0": 6150,
+     "miss0": 0.018867924528301883,
+     "found0": 884
+    },
+    "cca": {
+     "htr_med": 195.0,
+     "htr_mean": 210.17843511450383,
+     "n": 220267,
+     "nok": 6186,
+     "miss": 0.019977802441731418,
+     "found": 883,
+     "step": false,
+     "htr_med0": 195.0,
+     "htr_mean0": 210.17843511450383,
+     "n0": 220267,
+     "nok0": 6186,
+     "miss0": 0.019977802441731418,
+     "found0": 883
+    },
+    "comp": {
+     "htr_med": 100.0,
+     "htr_mean": 110.29961832061069,
+     "n": 115594,
+     "nok": 6198,
+     "miss": 0.017758046614872347,
+     "found": 885,
+     "step": false,
+     "htr_med0": 100.0,
+     "htr_mean0": 110.29961832061069,
+     "n0": 115594,
+     "nok0": 6198,
+     "miss0": 0.017758046614872347,
+     "found0": 885
+    }
+   },
+   "var": {
+    "pmax1": {
+     "htr_med": 288.0,
+     "htr_mean": 354.0562977099237,
+     "n": 371051,
+     "nok": 8466,
+     "miss": 0.01220865704772478,
+     "found": 890,
+     "step": false,
+     "htr_med0": 288.0,
+     "htr_mean0": 354.0562977099237,
+     "n0": 371051,
+     "nok0": 8466,
+     "miss0": 0.01220865704772478,
+     "found0": 890,
+     "routes_med": 590.5,
+     "skel_med": 55.0,
+     "skel_finish_med": 20.0,
+     "text": "P \u2264 1, no floor"
+    },
+    "floor": {
+     "htr_med": 266.0,
+     "htr_mean": 328.76908396946567,
+     "n": 344550,
+     "nok": 8004,
+     "miss": 0.01220865704772478,
+     "found": 890,
+     "step": false,
+     "htr_med0": 266.0,
+     "htr_mean0": 328.76908396946567,
+     "n0": 344550,
+     "nok0": 8004,
+     "miss0": 0.01220865704772478,
+     "found0": 890,
+     "routes_med": 521.0,
+     "skel_med": 53.0,
+     "skel_finish_med": 18.0,
+     "text": "P \u2264 1, mirror floor"
+    },
+    "pst3": {
+     "htr_med": 89.0,
+     "htr_mean": 92.76908396946565,
+     "n": 97222,
+     "nok": 3374,
+     "miss": 0.09988901220865709,
+     "found": 811,
+     "step": false,
+     "htr_med0": 89.0,
+     "htr_mean0": 92.76908396946565,
+     "n0": 97222,
+     "nok0": 3374,
+     "miss0": 0.09988901220865709,
+     "found0": 811,
+     "routes_med": 449.0,
+     "skel_med": 51.0,
+     "skel_finish_med": 17.0,
+     "text": "P \u2264 1, P+S+T \u2264 3, mirror floor"
+    },
+    "pst4": {
+     "htr_med": 141.0,
+     "htr_mean": 150.25954198473283,
+     "n": 157472,
+     "nok": 4908,
+     "miss": 0.04328523862375133,
+     "found": 862,
+     "step": false,
+     "htr_med0": 141.0,
+     "htr_mean0": 150.25954198473283,
+     "n0": 157472,
+     "nok0": 4908,
+     "miss0": 0.04328523862375133,
+     "found0": 862,
+     "routes_med": 515.0,
+     "skel_med": 52.0,
+     "skel_finish_med": 18.0,
+     "text": "P \u2264 1, P+S+T \u2264 4, mirror floor"
+    },
+    "pst5": {
+     "htr_med": 195.0,
+     "htr_mean": 210.17843511450383,
+     "n": 220267,
+     "nok": 6186,
+     "miss": 0.019977802441731418,
+     "found": 883,
+     "step": false,
+     "htr_med0": 195.0,
+     "htr_mean0": 210.17843511450383,
+     "n0": 220267,
+     "nok0": 6186,
+     "miss0": 0.019977802441731418,
+     "found0": 883,
+     "routes_med": 520.0,
+     "skel_med": 53.0,
+     "skel_finish_med": 18.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "pst6": {
+     "htr_med": 245.5,
+     "htr_mean": 275.1393129770992,
+     "n": 288346,
+     "nok": 7317,
+     "miss": 0.01220865704772478,
+     "found": 890,
+     "step": false,
+     "htr_med0": 245.5,
+     "htr_mean0": 275.1393129770992,
+     "n0": 288346,
+     "nok0": 7317,
+     "miss0": 0.01220865704772478,
+     "found0": 890,
+     "routes_med": 521.0,
+     "skel_med": 53.0,
+     "skel_finish_med": 18.0,
+     "text": "P \u2264 1, P+S+T \u2264 6, mirror floor"
+    },
+    "nofloor": {
+     "htr_med": 210.0,
+     "htr_mean": 226.40362595419847,
+     "n": 237271,
+     "nok": 6472,
+     "miss": 0.019977802441731418,
+     "found": 883,
+     "step": false,
+     "htr_med0": 210.0,
+     "htr_mean0": 226.40362595419847,
+     "n0": 237271,
+     "nok0": 6472,
+     "miss0": 0.019977802441731418,
+     "found0": 883,
+     "routes_med": 589.5,
+     "skel_med": 55.0,
+     "skel_finish_med": 20.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, no floor"
+    },
+    "nopairs": {
+     "htr_med": 195.0,
+     "htr_mean": 210.17843511450383,
+     "n": 220267,
+     "nok": 6186,
+     "miss": 0.019977802441731418,
+     "found": 883,
+     "step": false,
+     "htr_med0": 195.0,
+     "htr_mean0": 210.17843511450383,
+     "n0": 220267,
+     "nok0": 6186,
+     "miss0": 0.019977802441731418,
+     "found0": 883,
+     "routes_med": 520.0,
+     "skel_med": 53.0,
+     "skel_finish_med": 18.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "p0": {
+     "htr_med": 138.0,
+     "htr_mean": 153.14885496183206,
+     "n": 160500,
+     "nok": 4782,
+     "miss": 0.08213096559378463,
+     "found": 827,
+     "step": false,
+     "htr_med0": 138.0,
+     "htr_mean0": 153.14885496183206,
+     "n0": 160500,
+     "nok0": 4782,
+     "miss0": 0.08213096559378463,
+     "found0": 827,
+     "routes_med": 230.0,
+     "skel_med": 50.5,
+     "skel_finish_med": 14.0,
+     "text": "P \u2264 0, P+S+T \u2264 5, mirror floor"
+    },
+    "p2": {
+     "htr_med": 213.0,
+     "htr_mean": 229.8645038167939,
+     "n": 240898,
+     "nok": 6662,
+     "miss": 0.009988901220865709,
+     "found": 892,
+     "step": false,
+     "htr_med0": 213.0,
+     "htr_mean0": 229.8645038167939,
+     "n0": 240898,
+     "nok0": 6662,
+     "miss0": 0.009988901220865709,
+     "found0": 892,
+     "routes_med": 695.5,
+     "skel_med": 58.0,
+     "skel_finish_med": 19.0,
+     "text": "P \u2264 2, P+S+T \u2264 5, mirror floor"
+    },
+    "pany": {
+     "htr_med": 231.0,
+     "htr_mean": 247.85687022900763,
+     "n": 259754,
+     "nok": 7054,
+     "miss": 0.009988901220865709,
+     "found": 892,
+     "step": false,
+     "htr_med0": 231.0,
+     "htr_mean0": 247.85687022900763,
+     "n0": 259754,
+     "nok0": 7054,
+     "miss0": 0.009988901220865709,
+     "found0": 892,
+     "routes_med": 904.0,
+     "skel_med": 58.0,
+     "skel_finish_med": 19.0,
+     "text": "any P, P+S+T \u2264 5, mirror floor"
+    },
+    "tn4": {
+     "htr_med": 226.5,
+     "htr_mean": 253.16125954198472,
+     "n": 265313,
+     "nok": 6272,
+     "miss": 0.02885682574916759,
+     "found": 875,
+     "step": false,
+     "htr_med0": 226.5,
+     "htr_mean0": 253.16125954198472,
+     "n0": 265313,
+     "nok0": 6272,
+     "miss0": 0.02885682574916759,
+     "found0": 875,
+     "routes_med": 521.0,
+     "skel_med": 53.0,
+     "skel_finish_med": 18.0,
+     "text": "P \u2264 1, T+N \u2264 4, mirror floor"
+    },
+    "stn5": {
+     "htr_med": 162.0,
+     "htr_mean": 177.85591603053436,
+     "n": 186393,
+     "nok": 4943,
+     "miss": 0.05549389567147611,
+     "found": 851,
+     "step": false,
+     "htr_med0": 162.0,
+     "htr_mean0": 177.85591603053436,
+     "n0": 186393,
+     "nok0": 4943,
+     "miss0": 0.05549389567147611,
+     "found0": 851,
+     "routes_med": 521.0,
+     "skel_med": 53.0,
+     "skel_finish_med": 18.0,
+     "text": "P \u2264 1, S+T+N \u2264 5, mirror floor"
+    },
+    "doc": {
+     "htr_med": 172.5,
+     "htr_mean": 185.54961832061068,
+     "n": 194456,
+     "nok": 5085,
+     "miss": 0.06104328523862379,
+     "found": 846,
+     "step": false,
+     "htr_med0": 172.5,
+     "htr_mean0": 185.54961832061068,
+     "n0": 194456,
+     "nok0": 5085,
+     "miss0": 0.06104328523862379,
+     "found0": 846,
+     "routes_med": 589.5,
+     "skel_med": 55.0,
+     "skel_finish_med": 19.0,
+     "text": "P \u2264 1, P+S+T+N \u2264 5, no floor"
+    },
+    "s3t5": {
+     "htr_med": 185.5,
+     "htr_mean": 207.4885496183206,
+     "n": 217448,
+     "nok": 5814,
+     "miss": 0.02219755826859049,
+     "found": 881,
+     "step": false,
+     "htr_med0": 185.5,
+     "htr_mean0": 207.4885496183206,
+     "n0": 217448,
+     "nok0": 5814,
+     "miss0": 0.02219755826859049,
+     "found0": 881,
+     "routes_med": 520.5,
+     "skel_med": 53.0,
+     "skel_finish_med": 18.0,
+     "text": "P \u2264 1, S \u2264 3, T \u2264 5, mirror floor"
+    },
+    "spare2": {
+     "htr_med": 187.0,
+     "htr_mean": 202.4303435114504,
+     "n": 212147,
+     "nok": 6014,
+     "miss": 0.02219755826859049,
+     "found": 881,
+     "step": false,
+     "htr_med0": 187.0,
+     "htr_mean0": 202.4303435114504,
+     "n0": 212147,
+     "nok0": 6014,
+     "miss0": 0.02219755826859049,
+     "found0": 881,
+     "routes_med": 453.5,
+     "skel_med": 35.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, G\u2212L \u2265 2, mirror floor"
+    },
+    "p1own": {
+     "htr_med": 166.5,
+     "htr_mean": 180.41698473282443,
+     "n": 189077,
+     "nok": 5707,
+     "miss": 0.035516093229744694,
+     "found": 869,
+     "step": false,
+     "htr_med0": 166.5,
+     "htr_mean0": 180.41698473282443,
+     "n0": 189077,
+     "nok0": 5707,
+     "miss0": 0.035516093229744694,
+     "found0": 869,
+     "routes_med": 275.0,
+     "skel_med": 51.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "nopair": {
+     "htr_med": 164.0,
+     "htr_mean": 178.1583969465649,
+     "n": 186710,
+     "nok": 5669,
+     "miss": 0.0455049944506104,
+     "found": 860,
+     "step": false,
+     "htr_med0": 164.0,
+     "htr_mean0": 178.1583969465649,
+     "n0": 186710,
+     "nok0": 5669,
+     "miss0": 0.0455049944506104,
+     "found0": 860,
+     "routes_med": 360.0,
+     "skel_med": 37.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "own": {
+     "htr_med": 124.0,
+     "htr_mean": 137.17461832061068,
+     "n": 143759,
+     "nok": 4809,
+     "miss": 0.10321864594894559,
+     "found": 808,
+     "step": false,
+     "htr_med0": 124.0,
+     "htr_mean0": 137.17461832061068,
+     "n0": 143759,
+     "nok0": 4809,
+     "miss0": 0.10321864594894559,
+     "found0": 808,
+     "routes_med": 64.0,
+     "skel_med": 6.0,
+     "skel_finish_med": 6.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    }
+   },
+   "orders": {
+    "cca_len": [
+     0.5529411764705883,
+     0.6907325194228635,
+     0.7959489456159822
+    ],
+    "none_len": [
+     0.498723640399556,
+     0.6089345172031077,
+     0.7155382907880133
+    ],
+    "cca_before": [
+     0.368534961154273,
+     0.5258046614872364,
+     0.6779134295227525
+    ],
+    "cca_len_nopairs": [
+     0.5115982241953385,
+     0.6396781354051053,
+     0.7477802441731409
+    ]
+   },
+   "effort": {
+    "routes_med": 520.0,
+    "skel_med": 53.0,
+    "skel_finish_med": 18.0
+   },
+   "own_miss": 0.10321864594894559,
+   "pairs": {
+    "htrs": 220267,
+    "groups": 85802,
+    "alone": 34850,
+    "shared": 185417,
+    "dropped": 79019,
+    "ok": 6186,
+    "ok_dropped": 636,
+    "ok_kept_share": 0.039292591753511553,
+    "ok_dropped_share": 0.008048697148787,
+    "group_max": 64
+   },
+   "step4": {
+    "lost": 0,
+    "gained": 0,
+    "lost0": 0,
+    "gained0": 0
+   },
+   "uniss": {
+    "lost": 0,
+    "gained": 29,
+    "found0": 854,
+    "lost_drs": [],
+    "gained_drs": [
+     31,
+     231,
+     413,
+     441,
+     473,
+     499,
+     574,
+     619,
+     696,
+     741,
+     769,
+     791,
+     906,
+     921,
+     948,
+     965,
+     1041,
+     1148,
+     1242,
+     1375,
+     1389,
+     1406,
+     1419,
+     1424,
+     1678,
+     1866,
+     1881,
+     1938,
+     1962
+    ],
+    "miss0": 0.05216426193118762,
+    "htr_med0": 135.0,
+    "htr_mean0": 148.4408396946565,
+    "n0": 155566,
+    "nok0": 4500,
+    "within0": [
+     0.510488346281909,
+     0.6573806881243063,
+     0.7715871254162042
+    ],
+    "routes_med0": 355.0,
+    "skel_med0": 53.0,
+    "pre": 64701,
+    "pre_ok": 1686
+   },
+   "hcap": {
+    "lost": 0,
+    "lost_base": 0,
+    "within0": [
+     0.5518312985571587,
+     0.689400665926748,
+     0.7961709211986682
+    ],
+    "htr_med0": 264.5,
+    "htr_mean0": 282.44083969465646,
+    "n0": 295998,
+    "nok0": 6544,
+    "base_htr_med0": 3587.0,
+    "miss0": 0.019977802441731418,
+    "lost_nopass": 15,
+    "miss_nopass0": 0.035516093229744694,
+    "routes_med_nopass0": 578.5
+   },
+   "miss": {
+    "counts": {
+     "outside": 0,
+     "bound": 2,
+     "several": 0,
+     "pairs": 0,
+     "P": 9,
+     "P+S+T": 7,
+     "floor": 0
+    },
+    "lost": 18,
+    "detail": [
+     [
+      120,
+      "P+S+T",
+      [
+       "P+S+T"
+      ],
+      492967
+     ],
+     [
+      500,
+      "P",
+      [
+       "P"
+      ],
+      1934123
+     ],
+     [
+      522,
+      "P",
+      [
+       "P"
+      ],
+      2033435
+     ],
+     [
+      722,
+      "P+S+T",
+      [
+       "P+S+T"
+      ],
+      2809420
+     ],
+     [
+      883,
+      "P",
+      [
+       "P"
+      ],
+      8867001
+     ],
+     [
+      901,
+      "P+S+T",
+      [
+       "P+S+T"
+      ],
+      3553291
+     ],
+     [
+      1035,
+      "P",
+      [
+       "P"
+      ],
+      9020321
+     ],
+     [
+      1053,
+      "P+S+T",
+      [
+       "P+S+T"
+      ],
+      4085496
+     ],
+     [
+      1237,
+      "P",
+      [
+       "P"
+      ],
+      4834322
+     ],
+     [
+      1364,
+      "P",
+      [
+       "P"
+      ],
+      5323801
+     ],
+     [
+      1521,
+      "P+S+T",
+      [
+       "P+S+T"
+      ],
+      5878652
+     ],
+     [
+      1702,
+      "P",
+      [
+       "P"
+      ],
+      6626305
+     ],
+     [
+      1734,
+      "P+S+T",
+      [
+       "P+S+T"
+      ],
+      6760264
+     ],
+     [
+      1839,
+      "bound",
+      [
+       "bound"
+      ],
+      7149249
+     ],
+     [
+      1854,
+      "P+S+T",
+      [
+       "P+S+T"
+      ],
+      7212352
+     ],
+     [
+      1896,
+      "bound",
+      [
+       "bound"
+      ],
+      7363053
+     ],
+     [
+      1947,
+      "P",
+      [
+       "P"
+      ],
+      7550714
+     ],
+     [
+      1949,
+      "P",
+      [
+       "P"
+      ],
+      10126180
+     ]
+    ]
+   }
+  },
+  "4c3": {
+   "drs": 851,
+   "wg": 511,
+   "lmin": 7,
+   "bounds": {
+    "none": {
+     "htr_med": 1645.0,
+     "htr_mean": 1916.4841363102232,
+     "n": 1630928,
+     "nok": 3043,
+     "miss": 0.007827788649706457,
+     "found": 507,
+     "step": false,
+     "htr_med0": 1645.0,
+     "htr_mean0": 1916.4841363102232,
+     "n0": 1630928,
+     "nok0": 3043,
+     "miss0": 0.007827788649706457,
+     "found0": 507
+    },
+    "simple": {
+     "htr_med": 286.0,
+     "htr_mean": 399.22914218566393,
+     "n": 339744,
+     "nok": 3014,
+     "miss": 0.015655577299412915,
+     "found": 503,
+     "step": false,
+     "htr_med0": 286.0,
+     "htr_mean0": 399.22914218566393,
+     "n0": 339744,
+     "nok0": 3014,
+     "miss0": 0.015655577299412915,
+     "found0": 503
+    },
+    "cca": {
+     "htr_med": 108.0,
+     "htr_mean": 152.81198589894242,
+     "n": 130043,
+     "nok": 3043,
+     "miss": 0.007827788649706457,
+     "found": 507,
+     "step": false,
+     "htr_med0": 108.0,
+     "htr_mean0": 152.81198589894242,
+     "n0": 130043,
+     "nok0": 3043,
+     "miss0": 0.007827788649706457,
+     "found0": 507
+    },
+    "comp": {
+     "htr_med": 53.0,
+     "htr_mean": 78.54876615746181,
+     "n": 66845,
+     "nok": 3043,
+     "miss": 0.007827788649706457,
+     "found": 507,
+     "step": false,
+     "htr_med0": 53.0,
+     "htr_mean0": 78.54876615746181,
+     "n0": 66845,
+     "nok0": 3043,
+     "miss0": 0.007827788649706457,
+     "found0": 507
+    }
+   },
+   "var": {
+    "pmax1": {
+     "htr_med": 119.0,
+     "htr_mean": 169.21974148061105,
+     "n": 144006,
+     "nok": 3296,
+     "miss": 0.007827788649706457,
+     "found": 507,
+     "step": false,
+     "htr_med0": 119.0,
+     "htr_mean0": 169.21974148061105,
+     "n0": 144006,
+     "nok0": 3296,
+     "miss0": 0.007827788649706457,
+     "found0": 507,
+     "routes_med": 339.0,
+     "skel_med": 33.0,
+     "skel_finish_med": 12.0,
+     "text": "P \u2264 1, no floor"
+    },
+    "floor": {
+     "htr_med": 108.0,
+     "htr_mean": 157.8202115158637,
+     "n": 134305,
+     "nok": 3157,
+     "miss": 0.007827788649706457,
+     "found": 507,
+     "step": false,
+     "htr_med0": 108.0,
+     "htr_mean0": 157.8202115158637,
+     "n0": 134305,
+     "nok0": 3157,
+     "miss0": 0.007827788649706457,
+     "found0": 507,
+     "routes_med": 301.0,
+     "skel_med": 31.0,
+     "skel_finish_med": 11.0,
+     "text": "P \u2264 1, mirror floor"
+    },
+    "pst3": {
+     "htr_med": 78.0,
+     "htr_mean": 87.7262044653349,
+     "n": 74655,
+     "nok": 2092,
+     "miss": 0.0332681017612525,
+     "found": 494,
+     "step": false,
+     "htr_med0": 78.0,
+     "htr_mean0": 87.7262044653349,
+     "n0": 74655,
+     "nok0": 2092,
+     "miss0": 0.0332681017612525,
+     "found0": 494,
+     "routes_med": 284.0,
+     "skel_med": 31.0,
+     "skel_finish_med": 11.0,
+     "text": "P \u2264 1, P+S+T \u2264 3, mirror floor"
+    },
+    "pst4": {
+     "htr_med": 104.0,
+     "htr_mean": 125.75793184488836,
+     "n": 107020,
+     "nok": 2678,
+     "miss": 0.007827788649706457,
+     "found": 507,
+     "step": false,
+     "htr_med0": 104.0,
+     "htr_mean0": 125.75793184488836,
+     "n0": 107020,
+     "nok0": 2678,
+     "miss0": 0.007827788649706457,
+     "found0": 507,
+     "routes_med": 300.0,
+     "skel_med": 31.0,
+     "skel_finish_med": 11.0,
+     "text": "P \u2264 1, P+S+T \u2264 4, mirror floor"
+    },
+    "pst5": {
+     "htr_med": 108.0,
+     "htr_mean": 152.81198589894242,
+     "n": 130043,
+     "nok": 3043,
+     "miss": 0.007827788649706457,
+     "found": 507,
+     "step": false,
+     "htr_med0": 108.0,
+     "htr_mean0": 152.81198589894242,
+     "n0": 130043,
+     "nok0": 3043,
+     "miss0": 0.007827788649706457,
+     "found0": 507,
+     "routes_med": 301.0,
+     "skel_med": 31.0,
+     "skel_finish_med": 11.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "pst6": {
+     "htr_med": 108.0,
+     "htr_mean": 157.8202115158637,
+     "n": 134305,
+     "nok": 3157,
+     "miss": 0.007827788649706457,
+     "found": 507,
+     "step": false,
+     "htr_med0": 108.0,
+     "htr_mean0": 157.8202115158637,
+     "n0": 134305,
+     "nok0": 3157,
+     "miss0": 0.007827788649706457,
+     "found0": 507,
+     "routes_med": 301.0,
+     "skel_med": 31.0,
+     "skel_finish_med": 11.0,
+     "text": "P \u2264 1, P+S+T \u2264 6, mirror floor"
+    },
+    "nofloor": {
+     "htr_med": 118.0,
+     "htr_mean": 164.21151586368978,
+     "n": 139744,
+     "nok": 3182,
+     "miss": 0.007827788649706457,
+     "found": 507,
+     "step": false,
+     "htr_med0": 118.0,
+     "htr_mean0": 164.21151586368978,
+     "n0": 139744,
+     "nok0": 3182,
+     "miss0": 0.007827788649706457,
+     "found0": 507,
+     "routes_med": 339.0,
+     "skel_med": 33.0,
+     "skel_finish_med": 12.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, no floor"
+    },
+    "nopairs": {
+     "htr_med": 108.0,
+     "htr_mean": 152.81198589894242,
+     "n": 130043,
+     "nok": 3043,
+     "miss": 0.007827788649706457,
+     "found": 507,
+     "step": false,
+     "htr_med0": 108.0,
+     "htr_mean0": 152.81198589894242,
+     "n0": 130043,
+     "nok0": 3043,
+     "miss0": 0.007827788649706457,
+     "found0": 507,
+     "routes_med": 301.0,
+     "skel_med": 31.0,
+     "skel_finish_med": 11.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "p0": {
+     "htr_med": 78.0,
+     "htr_mean": 123.84723854289072,
+     "n": 105394,
+     "nok": 2591,
+     "miss": 0.09393346379647749,
+     "found": 463,
+     "step": false,
+     "htr_med0": 78.0,
+     "htr_mean0": 123.84723854289072,
+     "n0": 105394,
+     "nok0": 2591,
+     "miss0": 0.09393346379647749,
+     "found0": 463,
+     "routes_med": 134.0,
+     "skel_med": 30.0,
+     "skel_finish_med": 8.0,
+     "text": "P \u2264 0, P+S+T \u2264 5, mirror floor"
+    },
+    "p2": {
+     "htr_med": 117.0,
+     "htr_mean": 159.55581668625146,
+     "n": 135782,
+     "nok": 3160,
+     "miss": 0.003913894324853229,
+     "found": 509,
+     "step": false,
+     "htr_med0": 117.0,
+     "htr_mean0": 159.55581668625146,
+     "n0": 135782,
+     "nok0": 3160,
+     "miss0": 0.003913894324853229,
+     "found0": 509,
+     "routes_med": 351.0,
+     "skel_med": 32.0,
+     "skel_finish_med": 11.0,
+     "text": "P \u2264 2, P+S+T \u2264 5, mirror floor"
+    },
+    "pany": {
+     "htr_med": 118.0,
+     "htr_mean": 163.91539365452408,
+     "n": 139492,
+     "nok": 3237,
+     "miss": 0.00195694716242667,
+     "found": 510,
+     "step": false,
+     "htr_med0": 118.0,
+     "htr_mean0": 163.91539365452408,
+     "n0": 139492,
+     "nok0": 3237,
+     "miss0": 0.00195694716242667,
+     "found0": 510,
+     "routes_med": 375.0,
+     "skel_med": 32.0,
+     "skel_finish_med": 11.0,
+     "text": "any P, P+S+T \u2264 5, mirror floor"
+    },
+    "tn4": {
+     "htr_med": 107.0,
+     "htr_mean": 142.02820211515865,
+     "n": 120866,
+     "nok": 2814,
+     "miss": 0.011741682974559686,
+     "found": 505,
+     "step": false,
+     "htr_med0": 107.0,
+     "htr_mean0": 142.02820211515865,
+     "n0": 120866,
+     "nok0": 2814,
+     "miss0": 0.011741682974559686,
+     "found0": 505,
+     "routes_med": 301.0,
+     "skel_med": 31.0,
+     "skel_finish_med": 11.0,
+     "text": "P \u2264 1, T+N \u2264 4, mirror floor"
+    },
+    "stn5": {
+     "htr_med": 107.0,
+     "htr_mean": 148.88366627497064,
+     "n": 126700,
+     "nok": 2901,
+     "miss": 0.011741682974559686,
+     "found": 505,
+     "step": false,
+     "htr_med0": 107.0,
+     "htr_mean0": 148.88366627497064,
+     "n0": 126700,
+     "nok0": 2901,
+     "miss0": 0.011741682974559686,
+     "found0": 505,
+     "routes_med": 301.0,
+     "skel_med": 31.0,
+     "skel_finish_med": 11.0,
+     "text": "P \u2264 1, S+T+N \u2264 5, mirror floor"
+    },
+    "doc": {
+     "htr_med": 117.0,
+     "htr_mean": 160.28319623971797,
+     "n": 136401,
+     "nok": 3040,
+     "miss": 0.011741682974559686,
+     "found": 505,
+     "step": false,
+     "htr_med0": 117.0,
+     "htr_mean0": 160.28319623971797,
+     "n0": 136401,
+     "nok0": 3040,
+     "miss0": 0.011741682974559686,
+     "found0": 505,
+     "routes_med": 339.0,
+     "skel_med": 33.0,
+     "skel_finish_med": 12.0,
+     "text": "P \u2264 1, P+S+T+N \u2264 5, no floor"
+    },
+    "s3t5": {
+     "htr_med": 100.0,
+     "htr_mean": 135.76498237367804,
+     "n": 115536,
+     "nok": 2798,
+     "miss": 0.007827788649706457,
+     "found": 507,
+     "step": false,
+     "htr_med0": 100.0,
+     "htr_mean0": 135.76498237367804,
+     "n0": 115536,
+     "nok0": 2798,
+     "miss0": 0.007827788649706457,
+     "found0": 507,
+     "routes_med": 300.0,
+     "skel_med": 31.0,
+     "skel_finish_med": 11.0,
+     "text": "P \u2264 1, S \u2264 3, T \u2264 5, mirror floor"
+    },
+    "spare2": {
+     "htr_med": 103.0,
+     "htr_mean": 147.0235017626322,
+     "n": 125117,
+     "nok": 2982,
+     "miss": 0.0332681017612525,
+     "found": 494,
+     "step": false,
+     "htr_med0": 103.0,
+     "htr_mean0": 147.0235017626322,
+     "n0": 125117,
+     "nok0": 2982,
+     "miss0": 0.0332681017612525,
+     "found0": 494,
+     "routes_med": 266.0,
+     "skel_med": 20.0,
+     "skel_finish_med": 9.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, G\u2212L \u2265 2, mirror floor"
+    },
+    "p1own": {
+     "htr_med": 89.0,
+     "htr_mean": 135.32549941245594,
+     "n": 115162,
+     "nok": 2791,
+     "miss": 0.052837573385518644,
+     "found": 484,
+     "step": false,
+     "htr_med0": 89.0,
+     "htr_mean0": 135.32549941245594,
+     "n0": 115162,
+     "nok0": 2791,
+     "miss0": 0.052837573385518644,
+     "found0": 484,
+     "routes_med": 149.0,
+     "skel_med": 30.0,
+     "skel_finish_med": 9.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "nopair": {
+     "htr_med": 98.0,
+     "htr_mean": 142.19741480611046,
+     "n": 121010,
+     "nok": 2905,
+     "miss": 0.048923679060665415,
+     "found": 486,
+     "step": false,
+     "htr_med0": 98.0,
+     "htr_mean0": 142.19741480611046,
+     "n0": 121010,
+     "nok0": 2905,
+     "miss0": 0.048923679060665415,
+     "found0": 486,
+     "routes_med": 237.0,
+     "skel_med": 26.0,
+     "skel_finish_med": 10.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "own": {
+     "htr_med": 62.0,
+     "htr_mean": 109.96592244418332,
+     "n": 93581,
+     "nok": 2356,
+     "miss": 0.24266144814090018,
+     "found": 387,
+     "step": false,
+     "htr_med0": 62.0,
+     "htr_mean0": 109.96592244418332,
+     "n0": 93581,
+     "nok0": 2356,
+     "miss0": 0.24266144814090018,
+     "found0": 387,
+     "routes_med": 24.0,
+     "skel_med": 4.0,
+     "skel_finish_med": 3.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    }
+   },
+   "orders": {
+    "cca_len": [
+     0.48101761252446185,
+     0.6050880626223093,
+     0.7787671232876712
+    ],
+    "none_len": [
+     0.3552837573385519,
+     0.45371819960861054,
+     0.5701565557729942
+    ],
+    "cca_before": [
+     0.3564579256360078,
+     0.487279843444227,
+     0.6405088062622308
+    ],
+    "cca_len_nopairs": [
+     0.4026418786692759,
+     0.5386497064579256,
+     0.6971624266144814
+    ]
+   },
+   "effort": {
+    "routes_med": 301.0,
+    "skel_med": 31.0,
+    "skel_finish_med": 11.0
+   },
+   "own_miss": 0.24266144814090018,
+   "pairs": {
+    "htrs": 130043,
+    "groups": 34134,
+    "alone": 12209,
+    "shared": 117834,
+    "dropped": 60100,
+    "ok": 3043,
+    "ok_dropped": 259,
+    "ok_kept_share": 0.03980384026993409,
+    "ok_dropped_share": 0.004309484193011647,
+    "group_max": 180
+   },
+   "step4": {
+    "lost": 0,
+    "gained": 0,
+    "lost0": 0,
+    "gained0": 0
+   },
+   "uniss": {
+    "lost": 0,
+    "gained": 26,
+    "found0": 481,
+    "lost_drs": [],
+    "gained_drs": [
+     152,
+     203,
+     242,
+     246,
+     320,
+     404,
+     440,
+     469,
+     478,
+     491,
+     537,
+     801,
+     811,
+     991,
+     1054,
+     1060,
+     1132,
+     1160,
+     1269,
+     1274,
+     1316,
+     1337,
+     1423,
+     1877,
+     1973,
+     1981
+    ],
+    "miss0": 0.05870841487279843,
+    "htr_med0": 78.0,
+    "htr_mean0": 108.74383078730905,
+    "n0": 92541,
+    "nok0": 1982,
+    "within0": [
+     0.39285714285714285,
+     0.546771037181996,
+     0.7269080234833659
+    ],
+    "routes_med0": 212.0,
+    "skel_med0": 31.0,
+    "pre": 37502,
+    "pre_ok": 1061
+   },
+   "hcap": {
+    "lost": 0,
+    "lost_base": 0,
+    "within0": [
+     0.4786692759295499,
+     0.6070450097847359,
+     0.777495107632094
+    ],
+    "htr_med0": 152.0,
+    "htr_mean0": 210.97884841363103,
+    "n0": 179543,
+    "nok0": 3347,
+    "base_htr_med0": 2489.0,
+    "miss0": 0.007827788649706457,
+    "lost_nopass": 23,
+    "miss_nopass0": 0.013698630136986356,
+    "routes_med_nopass0": 310.0
+   },
+   "miss": {
+    "counts": {
+     "outside": 1,
+     "bound": 0,
+     "several": 0,
+     "pairs": 0,
+     "P": 3,
+     "P+S+T": 0,
+     "floor": 0
+    },
+    "lost": 4,
+    "detail": [
+     [
+      773,
+      "P",
+      [
+       "P"
+      ],
+      3030357
+     ],
+     [
+      920,
+      "P",
+      [
+       "P"
+      ],
+      3634285
+     ],
+     [
+      1933,
+      "P",
+      [
+       "P"
+      ],
+      7489363
+     ]
+    ]
+   }
+  }
+ },
+ "rule": {
+  "htrs_full": 7728294,
+  "taken_off": 1878415,
+  "left_over": 2439272,
+  "sides_worse": [
+   [
+    8,
+    0,
+    12,
+    13
+   ],
+   [
+    9,
+    0,
+    12,
+    13
+   ],
+   [
+    16,
+    0,
+    11,
+    14
+   ],
+   [
+    24,
+    1,
+    12,
+    13
+   ],
+   [
+    34,
+    0,
+    13,
+    14
+   ],
+   [
+    42,
+    1,
+    13,
+    14
+   ],
+   [
+    49,
+    1,
+    13,
+    14
+   ],
+   [
+    68,
+    1,
+    13,
+    14
+   ],
+   [
+    69,
+    1,
+    13,
+    14
+   ],
+   [
+    85,
+    0,
+    13,
+    14
+   ],
+   [
+    106,
+    1,
+    13,
+    14
+   ],
+   [
+    109,
+    0,
+    13,
+    14
+   ],
+   [
+    121,
+    1,
+    12,
+    13
+   ],
+   [
+    130,
+    0,
+    13,
+    15
+   ],
+   [
+    132,
+    0,
+    13,
+    15
+   ],
+   [
+    145,
+    1,
+    11,
+    13
+   ],
+   [
+    148,
+    1,
+    13,
+    14
+   ],
+   [
+    156,
+    0,
+    13,
+    14
+   ],
+   [
+    157,
+    1,
+    12,
+    13
+   ],
+   [
+    165,
+    0,
+    13,
+    14
+   ],
+   [
+    189,
+    1,
+    11,
+    13
+   ],
+   [
+    193,
+    0,
+    13,
+    14
+   ],
+   [
+    194,
+    1,
+    13,
+    14
+   ],
+   [
+    196,
+    0,
+    13,
+    14
+   ],
+   [
+    205,
+    1,
+    12,
+    13
+   ],
+   [
+    210,
+    1,
+    13,
+    14
+   ],
+   [
+    224,
+    1,
+    13,
+    14
+   ],
+   [
+    229,
+    1,
+    11,
+    13
+   ],
+   [
+    232,
+    1,
+    13,
+    14
+   ],
+   [
+    237,
+    0,
+    13,
+    15
+   ],
+   [
+    239,
+    1,
+    13,
+    17
+   ],
+   [
+    245,
+    0,
+    13,
+    14
+   ],
+   [
+    276,
+    1,
+    12,
+    13
+   ],
+   [
+    305,
+    0,
+    12,
+    15
+   ],
+   [
+    308,
+    0,
+    13,
+    15
+   ],
+   [
+    313,
+    0,
+    13,
+    14
+   ],
+   [
+    316,
+    1,
+    12,
+    14
+   ],
+   [
+    321,
+    1,
+    12,
+    13
+   ],
+   [
+    337,
+    1,
+    13,
+    14
+   ],
+   [
+    338,
+    1,
+    12,
+    13
+   ],
+   [
+    339,
+    0,
+    11,
+    13
+   ],
+   [
+    339,
+    1,
+    13,
+    14
+   ],
+   [
+    382,
+    1,
+    13,
+    16
+   ],
+   [
+    383,
+    1,
+    12,
+    13
+   ],
+   [
+    391,
+    1,
+    13,
+    14
+   ],
+   [
+    392,
+    1,
+    12,
+    13
+   ],
+   [
+    417,
+    1,
+    12,
+    13
+   ],
+   [
+    419,
+    0,
+    13,
+    14
+   ],
+   [
+    432,
+    1,
+    10,
+    12
+   ],
+   [
+    433,
+    1,
+    13,
+    14
+   ],
+   [
+    434,
+    1,
+    13,
+    14
+   ],
+   [
+    451,
+    1,
+    13,
+    14
+   ],
+   [
+    464,
+    1,
+    12,
+    13
+   ],
+   [
+    467,
+    1,
+    13,
+    15
+   ],
+   [
+    476,
+    1,
+    13,
+    15
+   ],
+   [
+    487,
+    1,
+    13,
+    14
+   ],
+   [
+    500,
+    0,
+    13,
+    14
+   ],
+   [
+    506,
+    1,
+    12,
+    13
+   ],
+   [
+    513,
+    0,
+    13,
+    15
+   ],
+   [
+    515,
+    0,
+    13,
+    15
+   ],
+   [
+    521,
+    0,
+    12,
+    13
+   ],
+   [
+    530,
+    1,
+    13,
+    14
+   ],
+   [
+    557,
+    0,
+    12,
+    13
+   ],
+   [
+    557,
+    1,
+    13,
+    14
+   ],
+   [
+    560,
+    0,
+    12,
+    13
+   ],
+   [
+    565,
+    1,
+    13,
+    16
+   ],
+   [
+    580,
+    1,
+    13,
+    14
+   ],
+   [
+    612,
+    0,
+    13,
+    16
+   ],
+   [
+    617,
+    1,
+    13,
+    14
+   ],
+   [
+    623,
+    0,
+    12,
+    14
+   ],
+   [
+    624,
+    0,
+    12,
+    14
+   ],
+   [
+    643,
+    1,
+    12,
+    13
+   ],
+   [
+    679,
+    1,
+    12,
+    14
+   ],
+   [
+    688,
+    1,
+    13,
+    14
+   ],
+   [
+    705,
+    0,
+    12,
+    13
+   ],
+   [
+    705,
+    1,
+    12,
+    13
+   ],
+   [
+    706,
+    1,
+    11,
+    13
+   ],
+   [
+    708,
+    0,
+    13,
+    15
+   ],
+   [
+    714,
+    1,
+    13,
+    14
+   ],
+   [
+    715,
+    1,
+    11,
+    12
+   ],
+   [
+    732,
+    0,
+    13,
+    14
+   ],
+   [
+    738,
+    0,
+    12,
+    13
+   ],
+   [
+    751,
+    1,
+    13,
+    14
+   ],
+   [
+    755,
+    0,
+    11,
+    12
+   ],
+   [
+    773,
+    1,
+    13,
+    14
+   ],
+   [
+    775,
+    1,
+    13,
+    14
+   ],
+   [
+    779,
+    1,
+    13,
+    14
+   ],
+   [
+    783,
+    1,
+    13,
+    14
+   ],
+   [
+    784,
+    0,
+    13,
+    14
+   ],
+   [
+    808,
+    1,
+    13,
+    15
+   ],
+   [
+    821,
+    1,
+    13,
+    14
+   ],
+   [
+    823,
+    1,
+    13,
+    14
+   ],
+   [
+    832,
+    0,
+    13,
+    15
+   ],
+   [
+    833,
+    1,
+    13,
+    14
+   ],
+   [
+    855,
+    0,
+    13,
+    14
+   ],
+   [
+    863,
+    0,
+    11,
+    12
+   ],
+   [
+    865,
+    0,
+    13,
+    14
+   ],
+   [
+    878,
+    1,
+    11,
+    13
+   ],
+   [
+    889,
+    0,
+    12,
+    14
+   ],
+   [
+    889,
+    1,
+    13,
+    15
+   ],
+   [
+    893,
+    0,
+    12,
+    13
+   ],
+   [
+    897,
+    1,
+    13,
+    14
+   ],
+   [
+    905,
+    0,
+    12,
+    13
+   ],
+   [
+    905,
+    1,
+    13,
+    14
+   ],
+   [
+    911,
+    0,
+    10,
+    11
+   ],
+   [
+    920,
+    1,
+    12,
+    14
+   ],
+   [
+    924,
+    0,
+    13,
+    15
+   ],
+   [
+    937,
+    0,
+    12,
+    13
+   ],
+   [
+    937,
+    1,
+    10,
+    12
+   ],
+   [
+    949,
+    0,
+    12,
+    13
+   ],
+   [
+    968,
+    0,
+    13,
+    14
+   ],
+   [
+    980,
+    1,
+    12,
+    13
+   ],
+   [
+    1018,
+    1,
+    13,
+    15
+   ],
+   [
+    1024,
+    1,
+    11,
+    14
+   ],
+   [
+    1028,
+    1,
+    11,
+    14
+   ],
+   [
+    1049,
+    0,
+    13,
+    14
+   ],
+   [
+    1055,
+    1,
+    13,
+    14
+   ],
+   [
+    1076,
+    1,
+    11,
+    12
+   ],
+   [
+    1097,
+    0,
+    13,
+    14
+   ],
+   [
+    1097,
+    1,
+    12,
+    14
+   ],
+   [
+    1110,
+    1,
+    13,
+    14
+   ],
+   [
+    1114,
+    1,
+    13,
+    16
+   ],
+   [
+    1116,
+    1,
+    12,
+    13
+   ],
+   [
+    1123,
+    1,
+    13,
+    14
+   ],
+   [
+    1144,
+    0,
+    11,
+    13
+   ],
+   [
+    1144,
+    1,
+    12,
+    13
+   ],
+   [
+    1150,
+    1,
+    13,
+    14
+   ],
+   [
+    1164,
+    0,
+    13,
+    14
+   ],
+   [
+    1167,
+    0,
+    13,
+    16
+   ],
+   [
+    1170,
+    1,
+    12,
+    13
+   ],
+   [
+    1172,
+    1,
+    13,
+    15
+   ],
+   [
+    1177,
+    1,
+    13,
+    14
+   ],
+   [
+    1192,
+    1,
+    12,
+    14
+   ],
+   [
+    1193,
+    1,
+    13,
+    14
+   ],
+   [
+    1194,
+    1,
+    13,
+    14
+   ],
+   [
+    1198,
+    1,
+    12,
+    13
+   ],
+   [
+    1202,
+    1,
+    13,
+    15
+   ],
+   [
+    1204,
+    0,
+    9,
+    13
+   ],
+   [
+    1209,
+    0,
+    13,
+    14
+   ],
+   [
+    1210,
+    1,
+    12,
+    13
+   ],
+   [
+    1212,
+    0,
+    12,
+    14
+   ],
+   [
+    1215,
+    1,
+    13,
+    14
+   ],
+   [
+    1226,
+    0,
+    12,
+    13
+   ],
+   [
+    1227,
+    1,
+    11,
+    12
+   ],
+   [
+    1231,
+    1,
+    13,
+    14
+   ],
+   [
+    1234,
+    0,
+    12,
+    13
+   ],
+   [
+    1238,
+    1,
+    13,
+    15
+   ],
+   [
+    1254,
+    0,
+    13,
+    15
+   ],
+   [
+    1258,
+    0,
+    13,
+    16
+   ],
+   [
+    1275,
+    1,
+    11,
+    13
+   ],
+   [
+    1279,
+    1,
+    13,
+    15
+   ],
+   [
+    1296,
+    0,
+    13,
+    14
+   ],
+   [
+    1305,
+    0,
+    12,
+    13
+   ],
+   [
+    1306,
+    1,
+    13,
+    15
+   ],
+   [
+    1308,
+    0,
+    13,
+    14
+   ],
+   [
+    1314,
+    0,
+    13,
+    14
+   ],
+   [
+    1315,
+    1,
+    13,
+    14
+   ],
+   [
+    1320,
+    1,
+    13,
+    14
+   ],
+   [
+    1332,
+    0,
+    13,
+    14
+   ],
+   [
+    1342,
+    1,
+    13,
+    14
+   ],
+   [
+    1344,
+    0,
+    13,
+    15
+   ],
+   [
+    1356,
+    1,
+    12,
+    13
+   ],
+   [
+    1364,
+    1,
+    13,
+    14
+   ],
+   [
+    1372,
+    0,
+    12,
+    13
+   ],
+   [
+    1377,
+    0,
+    12,
+    13
+   ],
+   [
+    1387,
+    1,
+    12,
+    15
+   ],
+   [
+    1388,
+    0,
+    13,
+    14
+   ],
+   [
+    1396,
+    0,
+    11,
+    12
+   ],
+   [
+    1410,
+    1,
+    13,
+    14
+   ],
+   [
+    1416,
+    1,
+    13,
+    15
+   ],
+   [
+    1417,
+    1,
+    12,
+    15
+   ],
+   [
+    1420,
+    0,
+    12,
+    13
+   ],
+   [
+    1434,
+    1,
+    12,
+    13
+   ],
+   [
+    1443,
+    1,
+    13,
+    14
+   ],
+   [
+    1444,
+    1,
+    13,
+    14
+   ],
+   [
+    1456,
+    1,
+    13,
+    14
+   ],
+   [
+    1465,
+    1,
+    11,
+    13
+   ],
+   [
+    1472,
+    1,
+    13,
+    14
+   ],
+   [
+    1484,
+    1,
+    12,
+    13
+   ],
+   [
+    1489,
+    1,
+    12,
+    14
+   ],
+   [
+    1496,
+    1,
+    13,
+    14
+   ],
+   [
+    1523,
+    1,
+    13,
+    14
+   ],
+   [
+    1533,
+    1,
+    12,
+    13
+   ],
+   [
+    1535,
+    0,
+    12,
+    14
+   ],
+   [
+    1547,
+    0,
+    9,
+    10
+   ],
+   [
+    1547,
+    1,
+    11,
+    13
+   ],
+   [
+    1558,
+    1,
+    12,
+    13
+   ],
+   [
+    1569,
+    0,
+    12,
+    13
+   ],
+   [
+    1579,
+    1,
+    12,
+    14
+   ],
+   [
+    1581,
+    0,
+    13,
+    15
+   ],
+   [
+    1622,
+    0,
+    13,
+    14
+   ],
+   [
+    1627,
+    1,
+    12,
+    13
+   ],
+   [
+    1637,
+    0,
+    13,
+    14
+   ],
+   [
+    1649,
+    0,
+    13,
+    14
+   ],
+   [
+    1652,
+    1,
+    12,
+    13
+   ],
+   [
+    1664,
+    1,
+    12,
+    13
+   ],
+   [
+    1669,
+    1,
+    12,
+    13
+   ],
+   [
+    1677,
+    0,
+    13,
+    14
+   ],
+   [
+    1693,
+    1,
+    11,
+    13
+   ],
+   [
+    1701,
+    0,
+    10,
+    12
+   ],
+   [
+    1709,
+    1,
+    13,
+    14
+   ],
+   [
+    1719,
+    1,
+    12,
+    14
+   ],
+   [
+    1732,
+    1,
+    13,
+    14
+   ],
+   [
+    1733,
+    0,
+    13,
+    14
+   ],
+   [
+    1735,
+    1,
+    13,
+    14
+   ],
+   [
+    1749,
+    0,
+    13,
+    14
+   ],
+   [
+    1762,
+    1,
+    13,
+    14
+   ],
+   [
+    1774,
+    0,
+    13,
+    14
+   ],
+   [
+    1774,
+    1,
+    13,
+    14
+   ],
+   [
+    1776,
+    0,
+    12,
+    13
+   ],
+   [
+    1783,
+    0,
+    10,
+    12
+   ],
+   [
+    1783,
+    1,
+    12,
+    14
+   ],
+   [
+    1787,
+    1,
+    13,
+    14
+   ],
+   [
+    1804,
+    1,
+    12,
+    15
+   ],
+   [
+    1828,
+    1,
+    13,
+    15
+   ],
+   [
+    1835,
+    0,
+    12,
+    13
+   ],
+   [
+    1847,
+    0,
+    11,
+    13
+   ],
+   [
+    1850,
+    0,
+    12,
+    13
+   ],
+   [
+    1884,
+    1,
+    13,
+    14
+   ],
+   [
+    1899,
+    1,
+    11,
+    12
+   ],
+   [
+    1928,
+    1,
+    13,
+    14
+   ],
+   [
+    1933,
+    1,
+    13,
+    14
+   ],
+   [
+    1943,
+    1,
+    12,
+    13
+   ],
+   [
+    1947,
+    1,
+    13,
+    14
+   ],
+   [
+    1966,
+    1,
+    12,
+    14
+   ],
+   [
+    1969,
+    1,
+    11,
+    14
+   ],
+   [
+    1979,
+    0,
+    13,
+    16
+   ],
+   [
+    1995,
+    0,
+    12,
+    15
+   ],
+   [
+    1995,
+    1,
+    13,
+    16
+   ]
+  ]
+ },
+ "hcap": {
+  "on": true,
+  "reach": 16976082,
+  "reach_pre": 3672083,
+  "kept": 7728294,
+  "kept_pre": 2439272
+ }
+}

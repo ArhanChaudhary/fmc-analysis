@@ -81,9 +81,11 @@ Which HTRs are worth finishing when you look for a leave-slice solution from a 2
 
 ## The skeleton/variant meta
 
-A search meta for DR finishes built on Advanced DR Bounding. Sort the DRs by corner case and the skeletons by length, check the variants with S+T ≤ 5 and at most 1 extra move before 2qt on normal and inverse, and finish only the ones whose corner-case-aware bound fits the goal. Per corner case, from 4b2 to 4c4: how often it misses a within-goal finish (1.5–8.2%), how many fewer HTRs it finishes than a search without DR Bounding (11–27×), and what other bounds and limits would change. About 2,000 uniformly random DRs of each kind, every HTR in reach finished exactly.
+A search meta for DR finishes built on Advanced DR Bounding. On normal and inverse, take the variants of each corner skeleton with P+S+T ≤ 5, at most 1 extra move before 2qt and an HTR at least one move under the goal. Discard the ones whose corner-case-aware bound doesn't fit the goal, and finish the rest shortest HTR first, most pairs first among HTRs equally far. A skeleton that ends in HH gets a premove pass as well. Per corner case, from 4b2 to 4c4: how often it misses a within-goal finish (0–6.7%), how many fewer HTRs it finishes than a search without DR Bounding (11–18×), how soon a finish is found, and what other bounds and caps would change. About 2,000 uniformly random DRs of each kind, every HTR in reach finished exactly.
 
-- [Write-up](skeleton-variant-meta/): the meta, its stats per corner case, where the misses come from, the other bounds, other S+T and pre-2qt limits, and the data and method.
+- [Write-up](skeleton-variant-meta/): the meta step by step, its stats per corner case, where the misses come from, what the cap on the moves to HTR and the premove pass change, the other bounds and caps, and the data and method.
+- [Example solves](skeleton-variant-meta/examples.html): 46 scrambles from 2c4 to 4a1 solved with the meta, skeleton by skeleton: the 8 skeletons with the fewest moves to HTR, the variants checked on each, the solutions found and some near-misses.
+- [HTR search order and limits](skeleton-variant-meta/order-and-limits.html): what going one skeleton at a time costs against finishing the shortest HTR first, which caps on HTR length keep 95% of the solutions for the fewest HTRs, and how much NISS is needed.
 
 ## Corners in 3D
 

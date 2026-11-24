@@ -1,0 +1,2404 @@
+{
+ "m": 4,
+ "goal": 14,
+ "meta": "P \u2264 1, P+S+T \u2264 5, mirror floor",
+ "baseline_pairs": true,
+ "pairs_mode": "first",
+ "uniss": "add",
+ "rest_both": true,
+ "cases": {
+  "0c4": {
+   "drs": 66,
+   "wg": 66,
+   "lmin": 9,
+   "bounds": {
+    "none": {
+     "htr_med": 7609.0,
+     "htr_mean": 7662.530303030303,
+     "n": 505727,
+     "nok": 638,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 7609.0,
+     "htr_mean0": 7662.530303030303,
+     "n0": 505727,
+     "nok0": 638,
+     "miss0": 0.0,
+     "found0": 66
+    },
+    "simple": {
+     "htr_med": 1402.0,
+     "htr_mean": 1618.9848484848485,
+     "n": 106853,
+     "nok": 628,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 1402.0,
+     "htr_mean0": 1618.9848484848485,
+     "n0": 106853,
+     "nok0": 628,
+     "miss0": 0.0,
+     "found0": 66
+    },
+    "cca": {
+     "htr_med": 489.5,
+     "htr_mean": 551.3030303030303,
+     "n": 36386,
+     "nok": 638,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 489.5,
+     "htr_mean0": 551.3030303030303,
+     "n0": 36386,
+     "nok0": 638,
+     "miss0": 0.0,
+     "found0": 66
+    },
+    "comp": {
+     "htr_med": 241.0,
+     "htr_mean": 278.8636363636364,
+     "n": 18405,
+     "nok": 638,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 241.0,
+     "htr_mean0": 278.8636363636364,
+     "n0": 18405,
+     "nok0": 638,
+     "miss0": 0.0,
+     "found0": 66
+    }
+   },
+   "var": {
+    "pmax1": {
+     "htr_med": 529.0,
+     "htr_mean": 590.5454545454545,
+     "n": 38976,
+     "nok": 665,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 529.0,
+     "htr_mean0": 590.5454545454545,
+     "n0": 38976,
+     "nok0": 665,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1714.5,
+     "skel_med": 107.5,
+     "skel_finish_med": 43.0,
+     "text": "P \u2264 1, no floor"
+    },
+    "floor": {
+     "htr_med": 489.5,
+     "htr_mean": 551.3030303030303,
+     "n": 36386,
+     "nok": 638,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 489.5,
+     "htr_mean0": 551.3030303030303,
+     "n0": 36386,
+     "nok0": 638,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1425.5,
+     "skel_med": 104.0,
+     "skel_finish_med": 39.0,
+     "text": "P \u2264 1, mirror floor"
+    },
+    "pst3": {
+     "htr_med": 381.0,
+     "htr_mean": 384.27272727272725,
+     "n": 25362,
+     "nok": 469,
+     "miss": 0.015151515151515138,
+     "found": 65,
+     "step": false,
+     "htr_med0": 381.0,
+     "htr_mean0": 384.27272727272725,
+     "n0": 25362,
+     "nok0": 469,
+     "miss0": 0.015151515151515138,
+     "found0": 65,
+     "routes_med": 1392.0,
+     "skel_med": 104.0,
+     "skel_finish_med": 38.5,
+     "text": "P \u2264 1, P+S+T \u2264 3, mirror floor"
+    },
+    "pst4": {
+     "htr_med": 489.5,
+     "htr_mean": 510.8181818181818,
+     "n": 33714,
+     "nok": 595,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 489.5,
+     "htr_mean0": 510.8181818181818,
+     "n0": 33714,
+     "nok0": 595,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1424.5,
+     "skel_med": 104.0,
+     "skel_finish_med": 39.0,
+     "text": "P \u2264 1, P+S+T \u2264 4, mirror floor"
+    },
+    "pst5": {
+     "htr_med": 489.5,
+     "htr_mean": 551.3030303030303,
+     "n": 36386,
+     "nok": 638,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 489.5,
+     "htr_mean0": 551.3030303030303,
+     "n0": 36386,
+     "nok0": 638,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1425.5,
+     "skel_med": 104.0,
+     "skel_finish_med": 39.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "pst6": {
+     "htr_med": 489.5,
+     "htr_mean": 551.3030303030303,
+     "n": 36386,
+     "nok": 638,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 489.5,
+     "htr_mean0": 551.3030303030303,
+     "n0": 36386,
+     "nok0": 638,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1425.5,
+     "skel_med": 104.0,
+     "skel_finish_med": 39.0,
+     "text": "P \u2264 1, P+S+T \u2264 6, mirror floor"
+    },
+    "nofloor": {
+     "htr_med": 529.0,
+     "htr_mean": 590.5454545454545,
+     "n": 38976,
+     "nok": 665,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 529.0,
+     "htr_mean0": 590.5454545454545,
+     "n0": 38976,
+     "nok0": 665,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1714.5,
+     "skel_med": 107.5,
+     "skel_finish_med": 43.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, no floor"
+    },
+    "nopairs": {
+     "htr_med": 489.5,
+     "htr_mean": 551.3030303030303,
+     "n": 36386,
+     "nok": 638,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 489.5,
+     "htr_mean0": 551.3030303030303,
+     "n0": 36386,
+     "nok0": 638,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1425.5,
+     "skel_med": 104.0,
+     "skel_finish_med": 39.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "p0": {
+     "htr_med": 288.5,
+     "htr_mean": 365.8787878787879,
+     "n": 24148,
+     "nok": 435,
+     "miss": 0.06060606060606055,
+     "found": 62,
+     "step": false,
+     "htr_med0": 288.5,
+     "htr_mean0": 365.8787878787879,
+     "n0": 24148,
+     "nok0": 435,
+     "miss0": 0.06060606060606055,
+     "found0": 62,
+     "routes_med": 602.5,
+     "skel_med": 99.0,
+     "skel_finish_med": 29.0,
+     "text": "P \u2264 0, P+S+T \u2264 5, mirror floor"
+    },
+    "p2": {
+     "htr_med": 535.0,
+     "htr_mean": 602.7878787878788,
+     "n": 39784,
+     "nok": 719,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 535.0,
+     "htr_mean0": 602.7878787878788,
+     "n0": 39784,
+     "nok0": 719,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1818.5,
+     "skel_med": 124.0,
+     "skel_finish_med": 42.0,
+     "text": "P \u2264 2, P+S+T \u2264 5, mirror floor"
+    },
+    "pany": {
+     "htr_med": 578.5,
+     "htr_mean": 645.6363636363636,
+     "n": 42612,
+     "nok": 754,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 578.5,
+     "htr_mean0": 645.6363636363636,
+     "n0": 42612,
+     "nok0": 754,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 2006.5,
+     "skel_med": 124.0,
+     "skel_finish_med": 44.0,
+     "text": "any P, P+S+T \u2264 5, mirror floor"
+    },
+    "tn4": {
+     "htr_med": 489.5,
+     "htr_mean": 541.3333333333334,
+     "n": 35728,
+     "nok": 620,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 489.5,
+     "htr_mean0": 541.3333333333334,
+     "n0": 35728,
+     "nok0": 620,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1425.5,
+     "skel_med": 104.0,
+     "skel_finish_med": 39.0,
+     "text": "P \u2264 1, T+N \u2264 4, mirror floor"
+    },
+    "stn5": {
+     "htr_med": 489.5,
+     "htr_mean": 551.3030303030303,
+     "n": 36386,
+     "nok": 638,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 489.5,
+     "htr_mean0": 551.3030303030303,
+     "n0": 36386,
+     "nok0": 638,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1425.5,
+     "skel_med": 104.0,
+     "skel_finish_med": 39.0,
+     "text": "P \u2264 1, S+T+N \u2264 5, mirror floor"
+    },
+    "doc": {
+     "htr_med": 529.0,
+     "htr_mean": 590.5454545454545,
+     "n": 38976,
+     "nok": 665,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 529.0,
+     "htr_mean0": 590.5454545454545,
+     "n0": 38976,
+     "nok0": 665,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1714.5,
+     "skel_med": 107.5,
+     "skel_finish_med": 43.0,
+     "text": "P \u2264 1, P+S+T+N \u2264 5, no floor"
+    },
+    "s3t5": {
+     "htr_med": 470.0,
+     "htr_mean": 505.74242424242425,
+     "n": 33379,
+     "nok": 583,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 470.0,
+     "htr_mean0": 505.74242424242425,
+     "n0": 33379,
+     "nok0": 583,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1425.0,
+     "skel_med": 104.0,
+     "skel_finish_med": 39.0,
+     "text": "P \u2264 1, S \u2264 3, T \u2264 5, mirror floor"
+    },
+    "spare2": {
+     "htr_med": 452.0,
+     "htr_mean": 522.1212121212121,
+     "n": 34460,
+     "nok": 619,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 452.0,
+     "htr_mean0": 522.1212121212121,
+     "n0": 34460,
+     "nok0": 619,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1081.0,
+     "skel_med": 38.0,
+     "skel_finish_med": 26.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, G\u2212L \u2265 2, mirror floor"
+    },
+    "p1own": {
+     "htr_med": 445.0,
+     "htr_mean": 504.40909090909093,
+     "n": 33291,
+     "nok": 582,
+     "miss": 0.015151515151515138,
+     "found": 65,
+     "step": false,
+     "htr_med0": 445.0,
+     "htr_mean0": 504.40909090909093,
+     "n0": 33291,
+     "nok0": 582,
+     "miss0": 0.015151515151515138,
+     "found0": 65,
+     "routes_med": 859.0,
+     "skel_med": 99.0,
+     "skel_finish_med": 31.5,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "nopair": {
+     "htr_med": 479.5,
+     "htr_mean": 536.1969696969697,
+     "n": 35389,
+     "nok": 612,
+     "miss": 0.0,
+     "found": 66,
+     "step": false,
+     "htr_med0": 479.5,
+     "htr_mean0": 536.1969696969697,
+     "n0": 35389,
+     "nok0": 612,
+     "miss0": 0.0,
+     "found0": 66,
+     "routes_med": 1234.5,
+     "skel_med": 104.0,
+     "skel_finish_med": 39.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "own": {
+     "htr_med": 395.5,
+     "htr_mean": 455.06060606060606,
+     "n": 30034,
+     "nok": 535,
+     "miss": 0.06060606060606055,
+     "found": 62,
+     "step": false,
+     "htr_med0": 395.5,
+     "htr_mean0": 455.06060606060606,
+     "n0": 30034,
+     "nok0": 535,
+     "miss0": 0.06060606060606055,
+     "found0": 62,
+     "routes_med": 391.5,
+     "skel_med": 22.0,
+     "skel_finish_med": 18.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    }
+   },
+   "orders": {
+    "cca_len": [
+     0.2840909090909091,
+     0.36742424242424243,
+     0.5462121212121211
+    ],
+    "none_len": [
+     0.21363636363636362,
+     0.2803030303030303,
+     0.38333333333333336
+    ],
+    "cca_before": [
+     0.1537878787878788,
+     0.31363636363636355,
+     0.4772727272727273
+    ],
+    "cca_len_nopairs": [
+     0.20833333333333334,
+     0.30454545454545456,
+     0.4681818181818182
+    ]
+   },
+   "effort": {
+    "routes_med": 1425.5,
+    "skel_med": 104.0,
+    "skel_finish_med": 39.0
+   },
+   "own_miss": 0.06060606060606055,
+   "pairs": {
+    "htrs": 36386,
+    "groups": 10076,
+    "alone": 3272,
+    "shared": 33114,
+    "dropped": 16325,
+    "ok": 638,
+    "ok_dropped": 47,
+    "ok_kept_share": 0.02946014655301331,
+    "ok_dropped_share": 0.002879019908116386,
+    "group_max": 136
+   },
+   "step4": {
+    "lost": 0,
+    "gained": 0,
+    "lost0": 0,
+    "gained0": 0
+   },
+   "uniss": {
+    "lost": 0,
+    "gained": 4,
+    "found0": 62,
+    "lost_drs": [],
+    "gained_drs": [
+     842,
+     938,
+     1169,
+     1381
+    ],
+    "miss0": 0.06060606060606055,
+    "htr_med0": 325.0,
+    "htr_mean0": 325.57575757575756,
+    "n0": 21488,
+    "nok0": 332,
+    "within0": [
+     0.21969696969696967,
+     0.3401515151515152,
+     0.4962121212121212
+    ],
+    "routes_med0": 911.0,
+    "skel_med0": 104.0,
+    "pre": 14898,
+    "pre_ok": 306
+   },
+   "hcap": {
+    "lost": 0,
+    "lost_base": 0,
+    "within0": [
+     0.2727272727272727,
+     0.3696969696969697,
+     0.5507575757575758
+    ],
+    "htr_med0": 766.5,
+    "htr_mean0": 841.060606060606,
+    "n0": 55510,
+    "nok0": 764,
+    "base_htr_med0": 12549.5,
+    "miss0": 0.0,
+    "lost_nopass": 4,
+    "miss_nopass0": 0.0,
+    "routes_med_nopass0": 1423.0
+   },
+   "miss": {
+    "counts": {
+     "outside": 0,
+     "bound": 0,
+     "several": 0,
+     "pairs": 0,
+     "P": 0,
+     "P+S+T": 0,
+     "floor": 0
+    },
+    "lost": 0,
+    "detail": []
+   }
+  },
+  "2c4": {
+   "drs": 1243,
+   "wg": 1123,
+   "lmin": 7,
+   "bounds": {
+    "none": {
+     "htr_med": 4109.0,
+     "htr_mean": 4731.7827835880935,
+     "n": 5881606,
+     "nok": 11197,
+     "miss": 0.0044523597506678225,
+     "found": 1118,
+     "step": false,
+     "htr_med0": 4109.0,
+     "htr_mean0": 4731.7827835880935,
+     "n0": 5881606,
+     "nok0": 11197,
+     "miss0": 0.0044523597506678225,
+     "found0": 1118
+    },
+    "simple": {
+     "htr_med": 864.0,
+     "htr_mean": 997.0836685438455,
+     "n": 1239375,
+     "nok": 11107,
+     "miss": 0.00801424755120217,
+     "found": 1114,
+     "step": false,
+     "htr_med0": 864.0,
+     "htr_mean0": 997.0836685438455,
+     "n0": 1239375,
+     "nok0": 11107,
+     "miss0": 0.00801424755120217,
+     "found0": 1114
+    },
+    "cca": {
+     "htr_med": 338.0,
+     "htr_mean": 387.25341914722446,
+     "n": 481356,
+     "nok": 11180,
+     "miss": 0.0044523597506678225,
+     "found": 1118,
+     "step": false,
+     "htr_med0": 338.0,
+     "htr_mean0": 387.25341914722446,
+     "n0": 481356,
+     "nok0": 11180,
+     "miss0": 0.0044523597506678225,
+     "found0": 1118
+    },
+    "comp": {
+     "htr_med": 175.0,
+     "htr_mean": 200.0402252614642,
+     "n": 248650,
+     "nok": 11197,
+     "miss": 0.0044523597506678225,
+     "found": 1118,
+     "step": false,
+     "htr_med0": 175.0,
+     "htr_mean0": 200.0402252614642,
+     "n0": 248650,
+     "nok0": 11197,
+     "miss0": 0.0044523597506678225,
+     "found0": 1118
+    }
+   },
+   "var": {
+    "pmax1": {
+     "htr_med": 398.0,
+     "htr_mean": 476.3467417538214,
+     "n": 592099,
+     "nok": 12956,
+     "miss": 0.003561887800534236,
+     "found": 1119,
+     "step": false,
+     "htr_med0": 398.0,
+     "htr_mean0": 476.3467417538214,
+     "n0": 592099,
+     "nok0": 12956,
+     "miss0": 0.003561887800534236,
+     "found0": 1119,
+     "routes_med": 1242.0,
+     "skel_med": 78.0,
+     "skel_finish_med": 28.0,
+     "text": "P \u2264 1, no floor"
+    },
+    "floor": {
+     "htr_med": 374.0,
+     "htr_mean": 451.77232502011265,
+     "n": 561553,
+     "nok": 12487,
+     "miss": 0.003561887800534236,
+     "found": 1119,
+     "step": false,
+     "htr_med0": 374.0,
+     "htr_mean0": 451.77232502011265,
+     "n0": 561553,
+     "nok0": 12487,
+     "miss0": 0.003561887800534236,
+     "found0": 1119,
+     "routes_med": 1080.0,
+     "skel_med": 76.0,
+     "skel_finish_med": 26.0,
+     "text": "P \u2264 1, mirror floor"
+    },
+    "pst3": {
+     "htr_med": 194.0,
+     "htr_mean": 215.8238133547868,
+     "n": 268269,
+     "nok": 7134,
+     "miss": 0.034728406055209216,
+     "found": 1084,
+     "step": false,
+     "htr_med0": 194.0,
+     "htr_mean0": 215.8238133547868,
+     "n0": 268269,
+     "nok0": 7134,
+     "miss0": 0.034728406055209216,
+     "found0": 1084,
+     "routes_med": 980.0,
+     "skel_med": 76.0,
+     "skel_finish_med": 25.0,
+     "text": "P \u2264 1, P+S+T \u2264 3, mirror floor"
+    },
+    "pst4": {
+     "htr_med": 271.0,
+     "htr_mean": 307.8350764279968,
+     "n": 382639,
+     "nok": 9397,
+     "miss": 0.007123775601068583,
+     "found": 1115,
+     "step": false,
+     "htr_med0": 271.0,
+     "htr_mean0": 307.8350764279968,
+     "n0": 382639,
+     "nok0": 9397,
+     "miss0": 0.007123775601068583,
+     "found0": 1115,
+     "routes_med": 1060.0,
+     "skel_med": 76.0,
+     "skel_finish_med": 26.0,
+     "text": "P \u2264 1, P+S+T \u2264 4, mirror floor"
+    },
+    "pst5": {
+     "htr_med": 338.0,
+     "htr_mean": 387.25341914722446,
+     "n": 481356,
+     "nok": 11180,
+     "miss": 0.0044523597506678225,
+     "found": 1118,
+     "step": false,
+     "htr_med0": 338.0,
+     "htr_mean0": 387.25341914722446,
+     "n0": 481356,
+     "nok0": 11180,
+     "miss0": 0.0044523597506678225,
+     "found0": 1118,
+     "routes_med": 1078.0,
+     "skel_med": 76.0,
+     "skel_finish_med": 26.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "pst6": {
+     "htr_med": 374.0,
+     "htr_mean": 439.2614641995173,
+     "n": 546002,
+     "nok": 12196,
+     "miss": 0.003561887800534236,
+     "found": 1119,
+     "step": false,
+     "htr_med0": 374.0,
+     "htr_mean0": 439.2614641995173,
+     "n0": 546002,
+     "nok0": 12196,
+     "miss0": 0.003561887800534236,
+     "found0": 1119,
+     "routes_med": 1080.0,
+     "skel_med": 76.0,
+     "skel_finish_med": 26.0,
+     "text": "P \u2264 1, P+S+T \u2264 6, mirror floor"
+    },
+    "nofloor": {
+     "htr_med": 358.0,
+     "htr_mean": 410.26870474658085,
+     "n": 509964,
+     "nok": 11600,
+     "miss": 0.0044523597506678225,
+     "found": 1118,
+     "step": false,
+     "htr_med0": 358.0,
+     "htr_mean0": 410.26870474658085,
+     "n0": 509964,
+     "nok0": 11600,
+     "miss0": 0.0044523597506678225,
+     "found0": 1118,
+     "routes_med": 1241.0,
+     "skel_med": 78.0,
+     "skel_finish_med": 28.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, no floor"
+    },
+    "nopairs": {
+     "htr_med": 338.0,
+     "htr_mean": 387.25341914722446,
+     "n": 481356,
+     "nok": 11180,
+     "miss": 0.0044523597506678225,
+     "found": 1118,
+     "step": false,
+     "htr_med0": 338.0,
+     "htr_mean0": 387.25341914722446,
+     "n0": 481356,
+     "nok0": 11180,
+     "miss0": 0.0044523597506678225,
+     "found0": 1118,
+     "routes_med": 1078.0,
+     "skel_med": 76.0,
+     "skel_finish_med": 26.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "p0": {
+     "htr_med": 191.0,
+     "htr_mean": 233.21962992759453,
+     "n": 289892,
+     "nok": 7050,
+     "miss": 0.08548530721282277,
+     "found": 1027,
+     "step": false,
+     "htr_med0": 191.0,
+     "htr_mean0": 233.21962992759453,
+     "n0": 289892,
+     "nok0": 7050,
+     "miss0": 0.08548530721282277,
+     "found0": 1027,
+     "routes_med": 464.0,
+     "skel_med": 74.0,
+     "skel_finish_med": 20.0,
+     "text": "P \u2264 0, P+S+T \u2264 5, mirror floor"
+    },
+    "p2": {
+     "htr_med": 389.0,
+     "htr_mean": 446.0603378921963,
+     "n": 554453,
+     "nok": 12793,
+     "miss": 0.0008904719501335867,
+     "found": 1122,
+     "step": false,
+     "htr_med0": 389.0,
+     "htr_mean0": 446.0603378921963,
+     "n0": 554453,
+     "nok0": 12793,
+     "miss0": 0.0008904719501335867,
+     "found0": 1122,
+     "routes_med": 1434.0,
+     "skel_med": 81.0,
+     "skel_finish_med": 27.0,
+     "text": "P \u2264 2, P+S+T \u2264 5, mirror floor"
+    },
+    "pany": {
+     "htr_med": 423.0,
+     "htr_mean": 491.0716009654063,
+     "n": 610402,
+     "nok": 13986,
+     "miss": 0.0008904719501335867,
+     "found": 1122,
+     "step": false,
+     "htr_med0": 423.0,
+     "htr_mean0": 491.0716009654063,
+     "n0": 610402,
+     "nok0": 13986,
+     "miss0": 0.0008904719501335867,
+     "found0": 1122,
+     "routes_med": 1751.0,
+     "skel_med": 81.0,
+     "skel_finish_med": 27.0,
+     "text": "any P, P+S+T \u2264 5, mirror floor"
+    },
+    "tn4": {
+     "htr_med": 347.0,
+     "htr_mean": 400.7658889782784,
+     "n": 498152,
+     "nok": 11104,
+     "miss": 0.00801424755120217,
+     "found": 1114,
+     "step": false,
+     "htr_med0": 347.0,
+     "htr_mean0": 400.7658889782784,
+     "n0": 498152,
+     "nok0": 11104,
+     "miss0": 0.00801424755120217,
+     "found0": 1114,
+     "routes_med": 1080.0,
+     "skel_med": 76.0,
+     "skel_finish_med": 26.0,
+     "text": "P \u2264 1, T+N \u2264 4, mirror floor"
+    },
+    "stn5": {
+     "htr_med": 338.0,
+     "htr_mean": 382.66773934030573,
+     "n": 475656,
+     "nok": 10641,
+     "miss": 0.006233303650934996,
+     "found": 1116,
+     "step": false,
+     "htr_med0": 338.0,
+     "htr_mean0": 382.66773934030573,
+     "n0": 475656,
+     "nok0": 10641,
+     "miss0": 0.006233303650934996,
+     "found0": 1116,
+     "routes_med": 1080.0,
+     "skel_med": 76.0,
+     "skel_finish_med": 26.0,
+     "text": "P \u2264 1, S+T+N \u2264 5, mirror floor"
+    },
+    "doc": {
+     "htr_med": 341.0,
+     "htr_mean": 384.6830249396621,
+     "n": 478161,
+     "nok": 10563,
+     "miss": 0.009795191451469232,
+     "found": 1112,
+     "step": false,
+     "htr_med0": 341.0,
+     "htr_mean0": 384.6830249396621,
+     "n0": 478161,
+     "nok0": 10563,
+     "miss0": 0.009795191451469232,
+     "found0": 1112,
+     "routes_med": 1241.0,
+     "skel_med": 78.0,
+     "skel_finish_med": 28.0,
+     "text": "P \u2264 1, P+S+T+N \u2264 5, no floor"
+    },
+    "s3t5": {
+     "htr_med": 317.0,
+     "htr_mean": 368.065164923572,
+     "n": 457505,
+     "nok": 10621,
+     "miss": 0.007123775601068583,
+     "found": 1115,
+     "step": false,
+     "htr_med0": 317.0,
+     "htr_mean0": 368.065164923572,
+     "n0": 457505,
+     "nok0": 10621,
+     "miss0": 0.007123775601068583,
+     "found0": 1115,
+     "routes_med": 1078.0,
+     "skel_med": 76.0,
+     "skel_finish_med": 26.0,
+     "text": "P \u2264 1, S \u2264 3, T \u2264 5, mirror floor"
+    },
+    "spare2": {
+     "htr_med": 318.0,
+     "htr_mean": 364.6926790024135,
+     "n": 453313,
+     "nok": 10719,
+     "miss": 0.011576135351736405,
+     "found": 1110,
+     "step": false,
+     "htr_med0": 318.0,
+     "htr_mean0": 364.6926790024135,
+     "n0": 453313,
+     "nok0": 10719,
+     "miss0": 0.011576135351736405,
+     "found0": 1110,
+     "routes_med": 836.0,
+     "skel_med": 37.0,
+     "skel_finish_med": 18.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, G\u2212L \u2265 2, mirror floor"
+    },
+    "p1own": {
+     "htr_med": 311.0,
+     "htr_mean": 357.6556717618665,
+     "n": 444566,
+     "nok": 10641,
+     "miss": 0.007123775601068583,
+     "found": 1115,
+     "step": false,
+     "htr_med0": 311.0,
+     "htr_mean0": 357.6556717618665,
+     "n0": 444566,
+     "nok0": 10641,
+     "miss0": 0.007123775601068583,
+     "found0": 1115,
+     "routes_med": 739.0,
+     "skel_med": 74.0,
+     "skel_finish_med": 22.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "nopair": {
+     "htr_med": 319.0,
+     "htr_mean": 367.52695092518104,
+     "n": 456836,
+     "nok": 10855,
+     "miss": 0.00801424755120217,
+     "found": 1114,
+     "step": false,
+     "htr_med0": 319.0,
+     "htr_mean0": 367.52695092518104,
+     "n0": 456836,
+     "nok0": 10855,
+     "miss0": 0.00801424755120217,
+     "found0": 1114,
+     "routes_med": 927.0,
+     "skel_med": 65.0,
+     "skel_finish_med": 24.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "own": {
+     "htr_med": 274.0,
+     "htr_mean": 318.55671761866455,
+     "n": 395966,
+     "nok": 9820,
+     "miss": 0.027604630454140744,
+     "found": 1092,
+     "step": false,
+     "htr_med0": 274.0,
+     "htr_mean0": 318.55671761866455,
+     "n0": 395966,
+     "nok0": 9820,
+     "miss0": 0.027604630454140744,
+     "found0": 1092,
+     "routes_med": 417.0,
+     "skel_med": 15.0,
+     "skel_finish_med": 13.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    }
+   },
+   "orders": {
+    "cca_len": [
+     0.4579697239536954,
+     0.6270258236865539,
+     0.7690560997328584
+    ],
+    "none_len": [
+     0.40008904719501337,
+     0.5302315227070348,
+     0.6605966162065895
+    ],
+    "cca_before": [
+     0.27649154051647373,
+     0.43214603739982194,
+     0.6393588601959038
+    ],
+    "cca_len_nopairs": [
+     0.42622439893143366,
+     0.5735084594835262,
+     0.7067230632235084
+    ]
+   },
+   "effort": {
+    "routes_med": 1078.0,
+    "skel_med": 76.0,
+    "skel_finish_med": 26.0
+   },
+   "own_miss": 0.027604630454140744,
+   "pairs": {
+    "htrs": 481356,
+    "groups": 168889,
+    "alone": 59502,
+    "shared": 421854,
+    "dropped": 180907,
+    "ok": 11180,
+    "ok_dropped": 834,
+    "ok_kept_share": 0.03443512875729325,
+    "ok_dropped_share": 0.004610103533859939,
+    "group_max": 152
+   },
+   "step4": {
+    "lost": 0,
+    "gained": 0,
+    "lost0": 0,
+    "gained0": 0
+   },
+   "uniss": {
+    "lost": 0,
+    "gained": 28,
+    "found0": 1090,
+    "lost_drs": [],
+    "gained_drs": [
+     47,
+     70,
+     149,
+     160,
+     192,
+     198,
+     206,
+     229,
+     241,
+     259,
+     370,
+     376,
+     382,
+     490,
+     583,
+     585,
+     824,
+     831,
+     856,
+     1033,
+     1084,
+     1095,
+     1165,
+     1192,
+     1514,
+     1538,
+     1672,
+     1836
+    ],
+    "miss0": 0.029385574354407806,
+    "htr_med0": 237.0,
+    "htr_mean0": 271.15285599356395,
+    "n0": 337043,
+    "nok0": 7487,
+    "within0": [
+     0.40565449688334826,
+     0.5635351736420302,
+     0.7227515583259128
+    ],
+    "routes_med0": 722.0,
+    "skel_med0": 76.0,
+    "pre": 144313,
+    "pre_ok": 3693
+   },
+   "hcap": {
+    "lost": 0,
+    "lost_base": 0,
+    "within0": [
+     0.46099732858414966,
+     0.6272039180765805,
+     0.7691896705253785
+    ],
+    "htr_med0": 483.0,
+    "htr_mean0": 552.8399034593725,
+    "n0": 687180,
+    "nok0": 12445,
+    "base_htr_med0": 6935.0,
+    "miss0": 0.0044523597506678225,
+    "lost_nopass": 20,
+    "miss_nopass0": 0.011576135351736405,
+    "routes_med_nopass0": 1230.0
+   },
+   "miss": {
+    "counts": {
+     "outside": 0,
+     "bound": 0,
+     "several": 0,
+     "pairs": 0,
+     "P": 4,
+     "P+S+T": 1,
+     "floor": 0
+    },
+    "lost": 5,
+    "detail": [
+     [
+      299,
+      "P",
+      [
+       "P"
+      ],
+      1940485
+     ],
+     [
+      545,
+      "P+S+T",
+      [
+       "P+S+T"
+      ],
+      3392960
+     ],
+     [
+      652,
+      "P",
+      [
+       "P"
+      ],
+      4073468
+     ],
+     [
+      888,
+      "P",
+      [
+       "P"
+      ],
+      5522602
+     ],
+     [
+      1849,
+      "P",
+      [
+       "P"
+      ],
+      11709858
+     ]
+    ]
+   }
+  },
+  "4c4": {
+   "drs": 691,
+   "wg": 397,
+   "lmin": 9,
+   "bounds": {
+    "none": {
+     "htr_med": 1796.0,
+     "htr_mean": 2150.1823444283646,
+     "n": 1485776,
+     "nok": 2020,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 1796.0,
+     "htr_mean0": 2150.1823444283646,
+     "n0": 1485776,
+     "nok0": 2020,
+     "miss0": 0.0,
+     "found0": 397
+    },
+    "simple": {
+     "htr_med": 353.0,
+     "htr_mean": 443.821997105644,
+     "n": 306681,
+     "nok": 2018,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 353.0,
+     "htr_mean0": 443.821997105644,
+     "n0": 306681,
+     "nok0": 2018,
+     "miss0": 0.0,
+     "found0": 397
+    },
+    "cca": {
+     "htr_med": 117.0,
+     "htr_mean": 152.616497829233,
+     "n": 105458,
+     "nok": 2018,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 117.0,
+     "htr_mean0": 152.616497829233,
+     "n0": 105458,
+     "nok0": 2018,
+     "miss0": 0.0,
+     "found0": 397
+    },
+    "comp": {
+     "htr_med": 59.0,
+     "htr_mean": 76.5412445730825,
+     "n": 52890,
+     "nok": 2020,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 59.0,
+     "htr_mean0": 76.5412445730825,
+     "n0": 52890,
+     "nok0": 2020,
+     "miss0": 0.0,
+     "found0": 397
+    }
+   },
+   "var": {
+    "pmax1": {
+     "htr_med": 131.0,
+     "htr_mean": 165.03183791606367,
+     "n": 114037,
+     "nok": 2171,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 131.0,
+     "htr_mean0": 165.03183791606367,
+     "n0": 114037,
+     "nok0": 2171,
+     "miss0": 0.0,
+     "found0": 397,
+     "routes_med": 774.0,
+     "skel_med": 58.0,
+     "skel_finish_med": 16.0,
+     "text": "P \u2264 1, no floor"
+    },
+    "floor": {
+     "htr_med": 117.0,
+     "htr_mean": 152.616497829233,
+     "n": 105458,
+     "nok": 2018,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 117.0,
+     "htr_mean0": 152.616497829233,
+     "n0": 105458,
+     "nok0": 2018,
+     "miss0": 0.0,
+     "found0": 397,
+     "routes_med": 667.0,
+     "skel_med": 56.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 1, mirror floor"
+    },
+    "pst3": {
+     "htr_med": 114.0,
+     "htr_mean": 123.24457308248914,
+     "n": 85162,
+     "nok": 1706,
+     "miss": 0.010075566750629705,
+     "found": 393,
+     "step": false,
+     "htr_med0": 114.0,
+     "htr_mean0": 123.24457308248914,
+     "n0": 85162,
+     "nok0": 1706,
+     "miss0": 0.010075566750629705,
+     "found0": 393,
+     "routes_med": 664.0,
+     "skel_med": 56.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 1, P+S+T \u2264 3, mirror floor"
+    },
+    "pst4": {
+     "htr_med": 117.0,
+     "htr_mean": 146.6888567293777,
+     "n": 101362,
+     "nok": 1957,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 117.0,
+     "htr_mean0": 146.6888567293777,
+     "n0": 101362,
+     "nok0": 1957,
+     "miss0": 0.0,
+     "found0": 397,
+     "routes_med": 667.0,
+     "skel_med": 56.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 1, P+S+T \u2264 4, mirror floor"
+    },
+    "pst5": {
+     "htr_med": 117.0,
+     "htr_mean": 152.616497829233,
+     "n": 105458,
+     "nok": 2018,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 117.0,
+     "htr_mean0": 152.616497829233,
+     "n0": 105458,
+     "nok0": 2018,
+     "miss0": 0.0,
+     "found0": 397,
+     "routes_med": 667.0,
+     "skel_med": 56.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "pst6": {
+     "htr_med": 117.0,
+     "htr_mean": 152.616497829233,
+     "n": 105458,
+     "nok": 2018,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 117.0,
+     "htr_mean0": 152.616497829233,
+     "n0": 105458,
+     "nok0": 2018,
+     "miss0": 0.0,
+     "found0": 397,
+     "routes_med": 667.0,
+     "skel_med": 56.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 1, P+S+T \u2264 6, mirror floor"
+    },
+    "nofloor": {
+     "htr_med": 131.0,
+     "htr_mean": 165.03183791606367,
+     "n": 114037,
+     "nok": 2171,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 131.0,
+     "htr_mean0": 165.03183791606367,
+     "n0": 114037,
+     "nok0": 2171,
+     "miss0": 0.0,
+     "found0": 397,
+     "routes_med": 774.0,
+     "skel_med": 58.0,
+     "skel_finish_med": 16.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, no floor"
+    },
+    "nopairs": {
+     "htr_med": 117.0,
+     "htr_mean": 152.616497829233,
+     "n": 105458,
+     "nok": 2018,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 117.0,
+     "htr_mean0": 152.616497829233,
+     "n0": 105458,
+     "nok0": 2018,
+     "miss0": 0.0,
+     "found0": 397,
+     "routes_med": 667.0,
+     "skel_med": 56.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "p0": {
+     "htr_med": 70.0,
+     "htr_mean": 103.50651230101302,
+     "n": 71523,
+     "nok": 1410,
+     "miss": 0.10579345088161207,
+     "found": 355,
+     "step": false,
+     "htr_med0": 70.0,
+     "htr_mean0": 103.50651230101302,
+     "n0": 71523,
+     "nok0": 1410,
+     "miss0": 0.10579345088161207,
+     "found0": 355,
+     "routes_med": 314.0,
+     "skel_med": 54.0,
+     "skel_finish_med": 11.0,
+     "text": "P \u2264 0, P+S+T \u2264 5, mirror floor"
+    },
+    "p2": {
+     "htr_med": 128.0,
+     "htr_mean": 166.9435600578871,
+     "n": 115358,
+     "nok": 2183,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 128.0,
+     "htr_mean0": 166.9435600578871,
+     "n0": 115358,
+     "nok0": 2183,
+     "miss0": 0.0,
+     "found0": 397,
+     "routes_med": 796.0,
+     "skel_med": 59.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 2, P+S+T \u2264 5, mirror floor"
+    },
+    "pany": {
+     "htr_med": 133.0,
+     "htr_mean": 176.3820549927641,
+     "n": 121880,
+     "nok": 2308,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 133.0,
+     "htr_mean0": 176.3820549927641,
+     "n0": 121880,
+     "nok0": 2308,
+     "miss0": 0.0,
+     "found0": 397,
+     "routes_med": 850.0,
+     "skel_med": 59.0,
+     "skel_finish_med": 15.0,
+     "text": "any P, P+S+T \u2264 5, mirror floor"
+    },
+    "tn4": {
+     "htr_med": 117.0,
+     "htr_mean": 150.39363241678726,
+     "n": 103922,
+     "nok": 1983,
+     "miss": 0.0025188916876573986,
+     "found": 396,
+     "step": false,
+     "htr_med0": 117.0,
+     "htr_mean0": 150.39363241678726,
+     "n0": 103922,
+     "nok0": 1983,
+     "miss0": 0.0025188916876573986,
+     "found0": 396,
+     "routes_med": 667.0,
+     "skel_med": 56.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 1, T+N \u2264 4, mirror floor"
+    },
+    "stn5": {
+     "htr_med": 117.0,
+     "htr_mean": 152.616497829233,
+     "n": 105458,
+     "nok": 2018,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 117.0,
+     "htr_mean0": 152.616497829233,
+     "n0": 105458,
+     "nok0": 2018,
+     "miss0": 0.0,
+     "found0": 397,
+     "routes_med": 667.0,
+     "skel_med": 56.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 1, S+T+N \u2264 5, mirror floor"
+    },
+    "doc": {
+     "htr_med": 131.0,
+     "htr_mean": 165.03183791606367,
+     "n": 114037,
+     "nok": 2171,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 131.0,
+     "htr_mean0": 165.03183791606367,
+     "n0": 114037,
+     "nok0": 2171,
+     "miss0": 0.0,
+     "found0": 397,
+     "routes_med": 774.0,
+     "skel_med": 58.0,
+     "skel_finish_med": 16.0,
+     "text": "P \u2264 1, P+S+T+N \u2264 5, no floor"
+    },
+    "s3t5": {
+     "htr_med": 117.0,
+     "htr_mean": 145.73371924746743,
+     "n": 100702,
+     "nok": 1922,
+     "miss": 0.0,
+     "found": 397,
+     "step": false,
+     "htr_med0": 117.0,
+     "htr_mean0": 145.73371924746743,
+     "n0": 100702,
+     "nok0": 1922,
+     "miss0": 0.0,
+     "found0": 397,
+     "routes_med": 667.0,
+     "skel_med": 56.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 1, S \u2264 3, T \u2264 5, mirror floor"
+    },
+    "spare2": {
+     "htr_med": 93.0,
+     "htr_mean": 125.6396526772793,
+     "n": 86817,
+     "nok": 1711,
+     "miss": 0.128463476070529,
+     "found": 346,
+     "step": false,
+     "htr_med0": 93.0,
+     "htr_mean0": 125.6396526772793,
+     "n0": 86817,
+     "nok0": 1711,
+     "miss0": 0.128463476070529,
+     "found0": 346,
+     "routes_med": 383.0,
+     "skel_med": 14.0,
+     "skel_finish_med": 8.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, G\u2212L \u2265 2, mirror floor"
+    },
+    "p1own": {
+     "htr_med": 92.0,
+     "htr_mean": 130.30824891461648,
+     "n": 90043,
+     "nok": 1736,
+     "miss": 0.055415617128463435,
+     "found": 375,
+     "step": false,
+     "htr_med0": 92.0,
+     "htr_mean0": 130.30824891461648,
+     "n0": 90043,
+     "nok0": 1736,
+     "miss0": 0.055415617128463435,
+     "found0": 375,
+     "routes_med": 375.0,
+     "skel_med": 54.0,
+     "skel_finish_med": 11.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "nopair": {
+     "htr_med": 116.0,
+     "htr_mean": 149.54992764109986,
+     "n": 103339,
+     "nok": 1986,
+     "miss": 0.005037783375314908,
+     "found": 395,
+     "step": false,
+     "htr_med0": 116.0,
+     "htr_mean0": 149.54992764109986,
+     "n0": 103339,
+     "nok0": 1986,
+     "miss0": 0.005037783375314908,
+     "found0": 395,
+     "routes_med": 627.0,
+     "skel_med": 56.0,
+     "skel_finish_med": 15.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    },
+    "own": {
+     "htr_med": 68.0,
+     "htr_mean": 102.97539797395079,
+     "n": 71156,
+     "nok": 1372,
+     "miss": 0.3073047858942065,
+     "found": 275,
+     "step": false,
+     "htr_med0": 68.0,
+     "htr_mean0": 102.97539797395079,
+     "n0": 71156,
+     "nok0": 1372,
+     "miss0": 0.3073047858942065,
+     "found0": 275,
+     "routes_med": 106.0,
+     "skel_med": 6.0,
+     "skel_finish_med": 4.0,
+     "text": "P \u2264 1, P+S+T \u2264 5, mirror floor"
+    }
+   },
+   "orders": {
+    "cca_len": [
+     0.3532745591939547,
+     0.5096977329974811,
+     0.7113350125944584
+    ],
+    "none_len": [
+     0.20604534005037783,
+     0.2913098236775819,
+     0.3983627204030226
+    ],
+    "cca_before": [
+     0.2036523929471033,
+     0.32808564231738035,
+     0.5070528967254408
+    ],
+    "cca_len_nopairs": [
+     0.242191435768262,
+     0.3891687657430731,
+     0.5797229219143577
+    ]
+   },
+   "effort": {
+    "routes_med": 667.0,
+    "skel_med": 56.0,
+    "skel_finish_med": 15.0
+   },
+   "own_miss": 0.3073047858942065,
+   "pairs": {
+    "htrs": 105458,
+    "groups": 33561,
+    "alone": 13239,
+    "shared": 92219,
+    "dropped": 42050,
+    "ok": 2018,
+    "ok_dropped": 107,
+    "ok_kept_share": 0.030138152914458743,
+    "ok_dropped_share": 0.002544589774078478,
+    "group_max": 136
+   },
+   "step4": {
+    "lost": 0,
+    "gained": 0,
+    "lost0": 0,
+    "gained0": 0
+   },
+   "uniss": {
+    "lost": 0,
+    "gained": 53,
+    "found0": 344,
+    "lost_drs": [],
+    "gained_drs": [
+     19,
+     54,
+     98,
+     126,
+     249,
+     356,
+     467,
+     568,
+     595,
+     622,
+     646,
+     684,
+     739,
+     748,
+     762,
+     822,
+     871,
+     889,
+     923,
+     929,
+     970,
+     976,
+     985,
+     990,
+     1117,
+     1137,
+     1178,
+     1190,
+     1197,
+     1212,
+     1279,
+     1337,
+     1367,
+     1373,
+     1387,
+     1399,
+     1401,
+     1410,
+     1412,
+     1480,
+     1484,
+     1493,
+     1498,
+     1716,
+     1745,
+     1806,
+     1835,
+     1839,
+     1863,
+     1870,
+     1906,
+     1946,
+     1961
+    ],
+    "miss0": 0.1335012594458438,
+    "htr_med0": 78.0,
+    "htr_mean0": 88.58031837916063,
+    "n0": 61209,
+    "nok0": 1069,
+    "within0": [
+     0.27997481108312344,
+     0.44269521410579343,
+     0.636272040302267
+    ],
+    "routes_med0": 402.0,
+    "skel_med0": 56.0,
+    "pre": 44249,
+    "pre_ok": 949
+   },
+   "hcap": {
+    "lost": 0,
+    "lost_base": 0,
+    "within0": [
+     0.35226700251889165,
+     0.5090680100755668,
+     0.7102015113350125
+    ],
+    "htr_med0": 178.0,
+    "htr_mean0": 244.96671490593343,
+    "n0": 169272,
+    "nok0": 2492,
+    "base_htr_med0": 2883.0,
+    "miss0": 0.0,
+    "lost_nopass": 47,
+    "miss_nopass0": 0.015113350125944613,
+    "routes_med_nopass0": 777.0
+   },
+   "miss": {
+    "counts": {
+     "outside": 0,
+     "bound": 0,
+     "several": 0,
+     "pairs": 0,
+     "P": 0,
+     "P+S+T": 0,
+     "floor": 0
+    },
+    "lost": 0,
+    "detail": []
+   }
+  }
+ },
+ "rule": {
+  "htrs_full": 12725705,
+  "taken_off": 2938727,
+  "left_over": 4957054,
+  "sides_worse": [
+   [
+    1,
+    1,
+    13,
+    14
+   ],
+   [
+    3,
+    0,
+    13,
+    15
+   ],
+   [
+    12,
+    0,
+    14,
+    16
+   ],
+   [
+    50,
+    1,
+    14,
+    15
+   ],
+   [
+    82,
+    0,
+    14,
+    15
+   ],
+   [
+    103,
+    0,
+    12,
+    13
+   ],
+   [
+    132,
+    0,
+    13,
+    14
+   ],
+   [
+    133,
+    1,
+    13,
+    15
+   ],
+   [
+    160,
+    0,
+    13,
+    14
+   ],
+   [
+    162,
+    1,
+    12,
+    14
+   ],
+   [
+    167,
+    1,
+    12,
+    13
+   ],
+   [
+    171,
+    1,
+    13,
+    14
+   ],
+   [
+    193,
+    1,
+    12,
+    13
+   ],
+   [
+    287,
+    1,
+    13,
+    14
+   ],
+   [
+    296,
+    1,
+    13,
+    14
+   ],
+   [
+    299,
+    1,
+    14,
+    15
+   ],
+   [
+    325,
+    0,
+    14,
+    15
+   ],
+   [
+    344,
+    1,
+    13,
+    14
+   ],
+   [
+    358,
+    0,
+    13,
+    14
+   ],
+   [
+    392,
+    1,
+    13,
+    15
+   ],
+   [
+    468,
+    0,
+    14,
+    15
+   ],
+   [
+    480,
+    1,
+    14,
+    15
+   ],
+   [
+    497,
+    1,
+    13,
+    14
+   ],
+   [
+    512,
+    1,
+    13,
+    14
+   ],
+   [
+    515,
+    1,
+    13,
+    14
+   ],
+   [
+    539,
+    1,
+    14,
+    15
+   ],
+   [
+    540,
+    1,
+    14,
+    15
+   ],
+   [
+    558,
+    0,
+    14,
+    18
+   ],
+   [
+    569,
+    1,
+    12,
+    13
+   ],
+   [
+    591,
+    0,
+    13,
+    14
+   ],
+   [
+    600,
+    1,
+    13,
+    15
+   ],
+   [
+    607,
+    0,
+    14,
+    15
+   ],
+   [
+    611,
+    1,
+    13,
+    14
+   ],
+   [
+    612,
+    1,
+    14,
+    15
+   ],
+   [
+    621,
+    0,
+    14,
+    15
+   ],
+   [
+    626,
+    0,
+    14,
+    15
+   ],
+   [
+    645,
+    1,
+    14,
+    15
+   ],
+   [
+    652,
+    0,
+    14,
+    15
+   ],
+   [
+    657,
+    1,
+    13,
+    14
+   ],
+   [
+    678,
+    0,
+    14,
+    15
+   ],
+   [
+    711,
+    0,
+    12,
+    13
+   ],
+   [
+    730,
+    1,
+    11,
+    12
+   ],
+   [
+    751,
+    1,
+    13,
+    14
+   ],
+   [
+    752,
+    1,
+    12,
+    13
+   ],
+   [
+    753,
+    0,
+    14,
+    15
+   ],
+   [
+    784,
+    1,
+    13,
+    14
+   ],
+   [
+    793,
+    0,
+    13,
+    14
+   ],
+   [
+    798,
+    1,
+    14,
+    16
+   ],
+   [
+    810,
+    1,
+    14,
+    15
+   ],
+   [
+    818,
+    1,
+    14,
+    15
+   ],
+   [
+    833,
+    1,
+    13,
+    14
+   ],
+   [
+    885,
+    0,
+    12,
+    13
+   ],
+   [
+    887,
+    1,
+    13,
+    14
+   ],
+   [
+    935,
+    1,
+    12,
+    13
+   ],
+   [
+    943,
+    1,
+    14,
+    15
+   ],
+   [
+    977,
+    0,
+    14,
+    15
+   ],
+   [
+    1020,
+    0,
+    13,
+    14
+   ],
+   [
+    1036,
+    0,
+    13,
+    14
+   ],
+   [
+    1039,
+    1,
+    14,
+    15
+   ],
+   [
+    1090,
+    0,
+    13,
+    14
+   ],
+   [
+    1100,
+    1,
+    13,
+    14
+   ],
+   [
+    1108,
+    1,
+    14,
+    16
+   ],
+   [
+    1136,
+    1,
+    13,
+    14
+   ],
+   [
+    1143,
+    1,
+    11,
+    14
+   ],
+   [
+    1201,
+    1,
+    13,
+    14
+   ],
+   [
+    1208,
+    0,
+    13,
+    16
+   ],
+   [
+    1259,
+    0,
+    14,
+    15
+   ],
+   [
+    1276,
+    1,
+    12,
+    13
+   ],
+   [
+    1294,
+    1,
+    14,
+    15
+   ],
+   [
+    1361,
+    1,
+    12,
+    14
+   ],
+   [
+    1370,
+    1,
+    14,
+    15
+   ],
+   [
+    1396,
+    0,
+    14,
+    15
+   ],
+   [
+    1404,
+    1,
+    13,
+    14
+   ],
+   [
+    1406,
+    1,
+    14,
+    15
+   ],
+   [
+    1416,
+    0,
+    13,
+    15
+   ],
+   [
+    1426,
+    1,
+    13,
+    14
+   ],
+   [
+    1437,
+    1,
+    13,
+    14
+   ],
+   [
+    1440,
+    0,
+    14,
+    15
+   ],
+   [
+    1449,
+    1,
+    13,
+    14
+   ],
+   [
+    1460,
+    1,
+    13,
+    14
+   ],
+   [
+    1462,
+    1,
+    12,
+    14
+   ],
+   [
+    1474,
+    0,
+    14,
+    15
+   ],
+   [
+    1477,
+    0,
+    14,
+    15
+   ],
+   [
+    1490,
+    0,
+    13,
+    14
+   ],
+   [
+    1517,
+    0,
+    14,
+    15
+   ],
+   [
+    1520,
+    0,
+    14,
+    15
+   ],
+   [
+    1522,
+    1,
+    14,
+    15
+   ],
+   [
+    1528,
+    1,
+    13,
+    14
+   ],
+   [
+    1565,
+    1,
+    11,
+    12
+   ],
+   [
+    1613,
+    1,
+    13,
+    14
+   ],
+   [
+    1616,
+    0,
+    13,
+    14
+   ],
+   [
+    1631,
+    1,
+    12,
+    13
+   ],
+   [
+    1632,
+    1,
+    14,
+    15
+   ],
+   [
+    1663,
+    0,
+    12,
+    13
+   ],
+   [
+    1700,
+    1,
+    13,
+    14
+   ],
+   [
+    1730,
+    1,
+    14,
+    15
+   ],
+   [
+    1746,
+    0,
+    13,
+    14
+   ],
+   [
+    1753,
+    1,
+    12,
+    14
+   ],
+   [
+    1758,
+    1,
+    14,
+    15
+   ],
+   [
+    1817,
+    0,
+    14,
+    15
+   ],
+   [
+    1824,
+    1,
+    14,
+    15
+   ],
+   [
+    1864,
+    1,
+    11,
+    13
+   ],
+   [
+    1867,
+    0,
+    14,
+    15
+   ],
+   [
+    1892,
+    1,
+    12,
+    13
+   ],
+   [
+    1902,
+    1,
+    13,
+    14
+   ],
+   [
+    1915,
+    1,
+    14,
+    15
+   ],
+   [
+    1931,
+    1,
+    13,
+    14
+   ],
+   [
+    1942,
+    0,
+    14,
+    15
+   ],
+   [
+    1953,
+    1,
+    13,
+    14
+   ],
+   [
+    1966,
+    1,
+    14,
+    15
+   ],
+   [
+    1994,
+    0,
+    14,
+    15
+   ]
+  ]
+ },
+ "hcap": {
+  "on": true,
+  "reach": 29508136,
+  "reach_pre": 6313568,
+  "kept": 12725705,
+  "kept_pre": 4957054
+ }
+}

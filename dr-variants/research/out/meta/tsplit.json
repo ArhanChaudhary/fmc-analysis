@@ -1,0 +1,306 @@
+{
+ "4a2": {
+  "all": {
+   "skeletons": 10.0,
+   "routes": 42.5,
+   "htrs": 20.0,
+   "miss": 0.033333333333333326
+  },
+  "own": {
+   "skeletons": 2.0,
+   "routes": 2.0,
+   "htrs": 7.0,
+   "miss": 0.21666666666666667
+  },
+  "more": {
+   "skeletons": 8.0,
+   "routes": 41.5,
+   "htrs": 6.0,
+   "miss": 0.75
+  },
+  "more_plain": {
+   "skeletons": 0.0,
+   "routes": 0.0,
+   "htrs": 0.0,
+   "miss": 0.9916666666666667
+  },
+  "more_pair": {
+   "skeletons": 8.0,
+   "routes": 39.0,
+   "htrs": 5.0,
+   "miss": 0.7583333333333333
+  },
+  "no_pair": {
+   "skeletons": 2.0,
+   "routes": 2.0,
+   "htrs": 8.0,
+   "miss": 0.20833333333333337
+  }
+ },
+ "4b2": {
+  "all": {
+   "skeletons": 24.0,
+   "routes": 159.0,
+   "htrs": 61.5,
+   "miss": 0.023084994753410304
+  },
+  "own": {
+   "skeletons": 2.0,
+   "routes": 2.0,
+   "htrs": 13.0,
+   "miss": 0.3641133263378804
+  },
+  "more": {
+   "skeletons": 22.0,
+   "routes": 157.0,
+   "htrs": 43.0,
+   "miss": 0.39034627492130114
+  },
+  "more_plain": {
+   "skeletons": 14.0,
+   "routes": 98.0,
+   "htrs": 24.0,
+   "miss": 0.5886673662119623
+  },
+  "more_pair": {
+   "skeletons": 9.0,
+   "routes": 54.0,
+   "htrs": 14.0,
+   "miss": 0.7082896117523609
+  },
+  "no_pair": {
+   "skeletons": 16.0,
+   "routes": 99.0,
+   "htrs": 42.0,
+   "miss": 0.1332633788037776
+  }
+ },
+ "0c3": {
+  "all": {
+   "skeletons": 4.0,
+   "routes": 14.0,
+   "htrs": 18.0,
+   "miss": 0.06666666666666665
+  },
+  "own": {
+   "skeletons": 2.0,
+   "routes": 8.0,
+   "htrs": 16.0,
+   "miss": 0.06666666666666665
+  },
+  "more": {
+   "skeletons": 0.0,
+   "routes": 0.0,
+   "htrs": 0.0,
+   "miss": 1.0
+  },
+  "more_plain": {
+   "skeletons": 0.0,
+   "routes": 0.0,
+   "htrs": 0.0,
+   "miss": 1.0
+  },
+  "more_pair": {
+   "skeletons": 0.0,
+   "routes": 0.0,
+   "htrs": 0.0,
+   "miss": 1.0
+  },
+  "no_pair": {
+   "skeletons": 2.0,
+   "routes": 8.0,
+   "htrs": 16.0,
+   "miss": 0.06666666666666665
+  }
+ },
+ "2c3": {
+  "all": {
+   "skeletons": 53.0,
+   "routes": 520.0,
+   "htrs": 195.0,
+   "miss": 0.019977802441731418
+  },
+  "own": {
+   "skeletons": 6.0,
+   "routes": 64.0,
+   "htrs": 124.0,
+   "miss": 0.10321864594894559
+  },
+  "more": {
+   "skeletons": 47.0,
+   "routes": 458.5,
+   "htrs": 66.5,
+   "miss": 0.47391786903440625
+  },
+  "more_plain": {
+   "skeletons": 31.0,
+   "routes": 292.0,
+   "htrs": 40.0,
+   "miss": 0.6481687014428412
+  },
+  "more_pair": {
+   "skeletons": 16.0,
+   "routes": 154.0,
+   "htrs": 23.0,
+   "miss": 0.7069922308546059
+  },
+  "no_pair": {
+   "skeletons": 37.0,
+   "routes": 360.0,
+   "htrs": 164.0,
+   "miss": 0.0455049944506104
+  }
+ },
+ "4c3": {
+  "all": {
+   "skeletons": 31.0,
+   "routes": 301.0,
+   "htrs": 108.0,
+   "miss": 0.007827788649706457
+  },
+  "own": {
+   "skeletons": 4.0,
+   "routes": 24.0,
+   "htrs": 62.0,
+   "miss": 0.24266144814090018
+  },
+  "more": {
+   "skeletons": 27.0,
+   "routes": 278.0,
+   "htrs": 33.0,
+   "miss": 0.4833659491193738
+  },
+  "more_plain": {
+   "skeletons": 23.0,
+   "routes": 208.0,
+   "htrs": 25.0,
+   "miss": 0.5694716242661448
+  },
+  "more_pair": {
+   "skeletons": 4.0,
+   "routes": 64.0,
+   "htrs": 6.0,
+   "miss": 0.8708414872798435
+  },
+  "no_pair": {
+   "skeletons": 26.0,
+   "routes": 237.0,
+   "htrs": 98.0,
+   "miss": 0.048923679060665415
+  }
+ },
+ "0c4": {
+  "all": {
+   "skeletons": 104.0,
+   "routes": 1425.5,
+   "htrs": 489.5,
+   "miss": 0.0
+  },
+  "own": {
+   "skeletons": 22.0,
+   "routes": 391.5,
+   "htrs": 395.5,
+   "miss": 0.06060606060606055
+  },
+  "more": {
+   "skeletons": 81.5,
+   "routes": 1015.5,
+   "htrs": 97.5,
+   "miss": 0.4696969696969697
+  },
+  "more_plain": {
+   "skeletons": 81.5,
+   "routes": 846.5,
+   "htrs": 81.0,
+   "miss": 0.5454545454545454
+  },
+  "more_pair": {
+   "skeletons": 0.0,
+   "routes": 176.0,
+   "htrs": 13.0,
+   "miss": 0.7878787878787878
+  },
+  "no_pair": {
+   "skeletons": 104.0,
+   "routes": 1234.5,
+   "htrs": 479.5,
+   "miss": 0.0
+  }
+ },
+ "2c4": {
+  "all": {
+   "skeletons": 76.0,
+   "routes": 1078.0,
+   "htrs": 338.0,
+   "miss": 0.0044523597506678225
+  },
+  "own": {
+   "skeletons": 15.0,
+   "routes": 417.0,
+   "htrs": 274.0,
+   "miss": 0.027604630454140744
+  },
+  "more": {
+   "skeletons": 61.0,
+   "routes": 644.0,
+   "htrs": 60.0,
+   "miss": 0.5574354407836153
+  },
+  "more_plain": {
+   "skeletons": 49.0,
+   "routes": 507.0,
+   "htrs": 45.0,
+   "miss": 0.6527159394479074
+  },
+  "more_pair": {
+   "skeletons": 12.0,
+   "routes": 141.0,
+   "htrs": 14.0,
+   "miss": 0.8227960819234195
+  },
+  "no_pair": {
+   "skeletons": 65.0,
+   "routes": 927.0,
+   "htrs": 319.0,
+   "miss": 0.00801424755120217
+  }
+ },
+ "4c4": {
+  "all": {
+   "skeletons": 56.0,
+   "routes": 667.0,
+   "htrs": 117.0,
+   "miss": 0.0
+  },
+  "own": {
+   "skeletons": 6.0,
+   "routes": 106.0,
+   "htrs": 68.0,
+   "miss": 0.3073047858942065
+  },
+  "more": {
+   "skeletons": 50.0,
+   "routes": 562.0,
+   "htrs": 50.0,
+   "miss": 0.46599496221662473
+  },
+  "more_plain": {
+   "skeletons": 50.0,
+   "routes": 526.0,
+   "htrs": 46.0,
+   "miss": 0.48614609571788414
+  },
+  "more_pair": {
+   "skeletons": 0.0,
+   "routes": 10.0,
+   "htrs": 0.0,
+   "miss": 0.9596977329974811
+  },
+  "no_pair": {
+   "skeletons": 56.0,
+   "routes": 627.0,
+   "htrs": 116.0,
+   "miss": 0.005037783375314908
+  }
+ }
+}

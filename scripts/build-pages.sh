@@ -2,7 +2,8 @@
 # Build the public site (GitHub Pages, see .github/workflows/pages.yml): a front page that lists the
 # case studies and the reference tables (site/index.md), for every study folder with a report/WRITEUP.md its reports
 # as HTML pages with a shared navigation bar and a table of contents per page, plus the Markdown sources, and one
-# page per reference table (tables/*.md).
+# page per reference table (tables/*.md).  Besides WRITEUP.md, EXAMPLES.md and BUGS.md, any other report/NAME.md is
+# a page of its own (name.html), with a link in the study's navigation bar.
 # Needs pandoc.
 # usage: scripts/build-pages.sh OUTPUT_DIRECTORY
 set -euo pipefail
@@ -48,6 +49,18 @@ for writeup in */report/WRITEUP.md; do
     [ -f "$study/UNLISTED" ] && pages+=(--variable noindex)
     [ -f "$study/report/EXAMPLES.md" ] && pages+=(--variable has-examples)
     [ -f "$study/report/BUGS.md" ] && pages+=(--variable has-errata)
+    # other reports of the study: report/NAME.md becomes name.html, and its link in the navigation bar is the file's
+    # name in words ("Order and limits" for ORDER-AND-LIMITS.md)
+    extra=()
+    extranav=
+    for other in "$study"/report/*.md; do
+        name=$(basename "$other" .md)
+        case $name in WRITEUP|EXAMPLES|BUGS) continue ;; esac
+        label=$(printf '%s' "$name" | tr 'A-Z-' 'a-z ')
+        extra+=("$name")
+        extranav+="<a href=\"${name,,}.html\">${label^}</a>"
+    done
+    [ -n "$extranav" ] && pages+=(--variable "extranav=$extranav")
     render "$study/report/WRITEUP.md" "$study/index.html" ../ --variable study "${pages[@]}" --variable is-writeup
     cp "$study/report/WRITEUP.md" "$output/$study/"
     if [ -f "$study/report/EXAMPLES.md" ]; then
@@ -60,6 +73,18 @@ for writeup in */report/WRITEUP.md; do
         render "$study/report/BUGS.md" "$study/errata.html" ../ --variable study "${pages[@]}" --variable is-errata
         cp "$study/report/BUGS.md" "$output/$study/"
     fi
+    for name in ${extra[@]+"${extra[@]}"}; do
+        render "$study/report/$name.md" "$study/${name,,}.html" ../ --variable study "${pages[@]}"
+        cp "$study/report/$name.md" "$output/$study/"
+        sed -i "s|<a href=\"${name,,}.html\">|<a href=\"${name,,}.html\" class=\"here\">|" "$output/$study/${name,,}.html"
+    done
+    # links between the study's own reports: on the site they go to the pages, not to the Markdown sources
+    for page in "$output/$study"/*.html; do
+        sed -i -E 's|href="WRITEUP\.md(#[^"]*)?"|href="./\1"|g; s|href="EXAMPLES\.md(#[^"]*)?"|href="examples.html\1"|g; s|href="BUGS\.md(#[^"]*)?"|href="errata.html\1"|g' "$page"
+        for name in ${extra[@]+"${extra[@]}"}; do
+            sed -i -E "s|href=\"$name\.md(#[^\"]*)?\"|href=\"${name,,}.html\1\"|g" "$page"
+        done
+    done
     # an interactive tool that comes with the study (static files: a page, scripts, a WebAssembly module, built by the
     # study's tool/build-web.sh and committed), served at /<study>/tool/
     if [ -f "$study/tool/web/index.html" ]; then
