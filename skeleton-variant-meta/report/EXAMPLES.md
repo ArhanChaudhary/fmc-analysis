@@ -4,7 +4,7 @@
 
 Example solves using the [skeleton/variant meta](WRITEUP.md), generated using JTuu's [subset generator](https://jtuu.be/subsets.html).
 
-Every scramble is a DR on U/D. The goal is 12/13/14 moves from DR to a leave-slice finish for a 2qt/3qt/4qt DR; the 0c0 DRs are solved as 2qt ones, with goal 12.
+Every scramble is a DR on U/D. The goal is 12/13/14 moves from DR to a leave-slice finish for a 2qt/3qt/4qt DR; the 0c0 DRs are solved as 2qt ones, with goal 12. The 4a1 DRs also have goal 12; a skeleton with one quarter turn has no 2qt trigger, so its variants read +T(+N).
 
 The solutions are found with an automated solver that implements the meta.
 
@@ -2803,13 +2803,13 @@ Skeleton B2 U D R2 U D has HH corners, L=6, 6 spare moves. Apply (D') and NISS: 
 
 Optimal is 13. Found none.
 
-## 4b3
+## 4c3
 
-### 4b3, scramble 1
+### 4c3, scramble 1
 
 `R' U' F D R B2 R B2 R' B2 R' U2 B2 R B2 F L' R B U R' U F2 R' U' F`
 
-4b3 6e, goal 13.
+4c3 6e, goal 13.
 
 Skeleton F2 U2 R2 D L2 D B2 U2 L2 D' has HH corners, L=10, 3 spare moves. Apply (D) and NISS: DD corners.
 
@@ -2916,11 +2916,11 @@ Check inverse linearly. Skeleton (D' B2 U F2 U' L2 D' F2 U L2 U2) has RV corners
 
 Optimal is 13. Found 13.
 
-### 4b3, scramble 2
+### 4c3, scramble 2
 
 `R' U' F U R F R' B2 U2 D' F' U R2 U L2 D' L2 D2 B2 R2 U2 B2 R' U' F`
 
-4b3 2e, goal 13.
+4c3 2e, goal 13.
 
 Skeleton L2 U B2 U2 R2 D' L2 D R2 has FD corners, L=9, 4 spare moves. Check linearly.
 
@@ -3005,11 +3005,11 @@ Check inverse linearly. Skeleton (R2 D R2 D B2 U F2 U' F2 U L2) has RD corners.
 
 Optimal is 13. Found 13.
 
-### 4b3, scramble 3
+### 4c3, scramble 3
 
 `R' U' F R' U2 L2 U' F D' L D2 L U' F R2 L2 U2 R2 B2 U' R2 U2 F2 R' U' F`
 
-4b3 4e, goal 13.
+4c3 4e, goal 13.
 
 Skeleton U2 B2 U R2 U2 B2 U' F2 U has HH corners, L=9, 4 spare moves. Apply (U') and NISS: RD corners.
 
@@ -3077,11 +3077,11 @@ Skeleton U2 B2 U R2 U D L2 D' F2 U has HH corners, L=10, 3 spare moves. Apply (U
 
 Optimal is 13. Found 13.
 
-### 4b3, scramble 4
+### 4c3, scramble 4
 
 `R' U' F U F' R D F L F' R' U2 L2 D2 B2 U R2 U L2 D2 F' L' F' R' U' F`
 
-4b3 6e, goal 13.
+4c3 6e, goal 13.
 
 Skeleton R2 U F2 U2 L2 U' F2 D' has HH corners, L=8, 5 spare moves. Apply (D) and NISS: FD corners.
 
@@ -3171,11 +3171,11 @@ Check inverse linearly.
 
 Optimal is 13. Found 13.
 
-### 4b3, scramble 5
+### 4c3, scramble 5
 
 `R' U' F R2 B2 R' U F2 U' F' U2 L' F2 R' U2 L' D2 F2 R F2 D' B2 D2 R' U' F`
 
-4b3 6e, goal 13.
+4c3 6e, goal 13.
 
 Skeleton F2 D R2 U B2 U2 L2 D' R2 U2 has RV corners, L=10, 3 spare moves. Check linearly.
 
@@ -3709,3 +3709,1217 @@ Skeleton U2 R2 U D L2 D L2 U has HH corners, L=8, 4 spare moves. Apply (U') and 
         - L2 B2 R2 U R2 U' // no good
 
 Optimal is 13. Found none.
+
+## 4a2
+
+### 4a2, scramble 1
+
+`R' U' F R' F' U' L2 D' F2 D2 B2 D L2 U' B2 R D L2 R' F2 U F U R' U' F`
+
+4a2 4e, goal 12.
+
+Skeleton (L2 U R2 U2 F2 U' F2) on inverse has RD corners, L=7, 5 spare moves. Check linearly.
+
+- After (R2), 1qt edges will be RV (bad) and FH (good): +0+1(+3)
+    - (R2 U' L2 U2 L2 B2 D) // no good
+
+Skeleton R2 D' L2 U D L2 U F2 has RD corners, L=8, 4 spare moves. Check linearly.
+
+- L2 U' R2 U'
+    - After F2 R2 B2, 1qt edges will be RD (good) and FH (good): +0+3+1(+0)
+        - F2 R2 B2 U R2 B2 U // no good
+
+Check inverse linearly. Skeleton (L2 U R2 U D R2 D' F2) has RD corners.
+
+- (F2 L2 U' F2 D)
+    - After (F2 B2), 1qt edges will be RD (good) and FH (good): +1+2+0(+0)
+        - (F2 B2 U L2 U') // no good
+
+Skeleton R2 D F2 D U B2 U' B2 has RD corners, L=8, 4 spare moves. Check linearly.
+
+- R2 D B2 U
+    - After R2 B2 L2, 1qt edges will be RD (good) and FH (good): +0+3+1(+0)
+        - R2 B2 L2 U' B2 R2 U' // no good
+
+Check inverse linearly. Skeleton (L2 U' F2 U D B2 D B2) has RD corners.
+
+- (L2 U' F2 U)
+    - After (R2 L2), 1qt edges will be RD (good) and FH (good): +0+2+1(+0)
+        - (R2 L2 U L2 B2 D) // no good
+
+Skeleton R2 D' F2 D U B2 U R2 has RD corners, L=8, 4 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (R2 U' B2 U D B2 D L2) has RD corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton R2 D R2 U D R2 U' L2 has RD corners, L=8, 4 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (R2 U L2 D U R2 D' R2) has RD corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton R2 U R2 U2 F2 U' R2 D' U' has HH corners, L=9, 3 spare moves. Apply (U) and NISS: HH corners.
+
+- All variants have lower bound > spare moves.
+
+Check linearly.
+
+- R2 D L2 B2 U2 F2 U
+    - After L2, 1qt edges will be RH (good) and FH (good): +1+0+2(+0)
+        - L2 U' F2 B2 D' // no good
+
+Skeleton (L2 U R2 U2 F2 U' B2 D' U') on inverse has HH corners, L=9, 3 spare moves. Apply U and NISS: HH corners.
+
+- (L2 U)
+    - After (R2 U2 F2), 1qt edges will be RH (good) and FD (bad): +0+0+0(+3)
+        - **(R2 U2 F2 U' B2 U' L2 F2 L2 U') // 12**
+- (L2 U')
+    - After (F2 U2 R2), 1qt edges will be RH (good) and FD (bad): +0+0+0(+3)
+        - **(F2 U2 R2 U B2 U' L2 F2 L2 U') // 12**
+- (R2 D')
+    - After (B2 U2 B2 R2), 1qt edges will be RH (good) and FH (good): +0+1+2(+0)
+        - (B2 U2 B2 R2 U' F2 B2 R2 D') // no good
+
+Check inverse linearly.
+
+- (L2 U R2 U2 F2 U')
+    - After (B2), 1qt edges will be RH (good) and FH (good): +0+0+3(+0)
+        - (B2 U' R2 B2 L2 D) // no good
+
+Optimal is 12. Found 12.
+
+### 4a2, scramble 2
+
+`R' U' F L' R' D2 B2 D2 F2 L U2 R' U L2 D R2 B2 L2 U2 F' D2 R' D2 R' U' F`
+
+4a2 4e, goal 12.
+
+Skeleton (L2 U B2 U2 R2 U' R2) on inverse has RD corners, L=7, 5 spare moves. Check linearly.
+
+- After (R2), 1qt edges will be RV (bad) and FH (good): +0+2(+3)
+    - (R2 U L2 F2 U2 R2 F2 D') // no good
+- After (F2 L2), 1qt edges will be RH (bad) and FH (good): +1+1(+3)
+    - **(F2 L2 U' B2 U2 F2 L2 D' F2 R2 F2 R2) // 12**
+
+Skeleton L2 D' F2 D U F2 U R2 has RD corners, L=8, 4 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (L2 U' R2 U D L2 D L2) has RD corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton L2 D F2 D U F2 U' B2 has RD corners, L=8, 4 spare moves. Check linearly.
+
+- L2 D R2 B2 U
+    - After R2 L2, 1qt edges will be RD (good) and FH (good): +1+2+0(+0)
+        - R2 L2 U R2 U' // no good
+
+Check inverse linearly. Skeleton (L2 U' B2 U D B2 D B2) has RD corners.
+
+- (L2 U' B2 U')
+    - After (R2 L2), 1qt edges will be RD (good) and FH (good): +0+2+1(+0)
+        - (R2 L2 U' L2 F2 D) // no good
+
+Skeleton L2 D R2 U D L2 U' L2 has RD corners, L=8, 4 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (L2 U F2 D U F2 D' R2) has RD corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton L2 D' R2 U D L2 U F2 has RD corners, L=8, 4 spare moves. Check linearly.
+
+- L2 D' R2 U'
+    - After R2 B2 L2, 1qt edges will be RD (good) and FH (good): +0+3+1(+0)
+        - R2 B2 L2 U L2 B2 U // no good
+
+Check inverse linearly. Skeleton (L2 U R2 U D L2 D' F2) has RD corners.
+
+- (R2 U B2 U)
+    - After (B2 L2 F2), 1qt edges will be RD (good) and FH (good): +0+3+1(+0)
+        - (B2 L2 F2 U' F2 L2 U') // no good
+
+Skeleton (L2 D R2 U2 B2 U' L2 D U') on inverse has HH corners, L=9, 3 spare moves. Apply U and NISS: HH corners.
+
+- (R2 U)
+    - After (B2 U2 B2 L2), 1qt edges will be RH (good) and FH (good): +0+1+2(+0)
+        - (B2 U2 B2 L2 U R2 F2 B2 D') // no good
+
+Check inverse linearly.
+
+- (L2 U L2 U2 B2 D')
+    - After (F2), 1qt edges will be RH (good) and FH (good): +0+0+3(+0)
+        - (F2 U' B2 L2 B2 U) // no good
+
+Skeleton L2 D F2 U2 L2 U' R2 U' D' has HH corners, L=9, 3 spare moves. Apply (D) and NISS: HH corners.
+
+- L2 D
+    - After B2 U2 L2 F2 L2 F2, 1qt edges will be RH (good) and FH (good): +0+3+0(+0)
+        - B2 U2 L2 F2 L2 F2 U L2 U' // no good
+
+Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Optimal is 12. Found 12.
+
+### 4a2, scramble 3
+
+`R' U' F R B2 R' F' R D R2 D L' F' D L U2 L B2 R F2 U2 R2 D2 R' U' F`
+
+4a2 4e, goal 12.
+
+Skeleton U R2 U2 F2 U has HH corners, L=5, 7 spare moves. Check linearly.
+
+- After R2 L2, 1qt edges will be RH (good) and FV (bad): +2+1(+3)
+    - R2 L2 U' F2 U2 F2 L2 U' // no good
+- After R2 B2 L2, 1qt edges will be RH (good) and FD (bad): +3+1(+3)
+    - **R2 B2 L2 U' F2 U2 F2 L2 U R2 F2 R2 // 12**
+- After L2 B2 R2, 1qt edges will be RH (good) and FD (bad): +3+1(+3)
+    - **L2 B2 R2 U' F2 U2 F2 L2 U L2 F2 L2 // 12**
+
+Check inverse linearly. Skeleton (U B2 U2 R2 U) has HH corners.
+
+- After (R2 B2 R2), 1qt edges will be RH (good) and FD (bad): +3+1(+3)
+    - (R2 B2 R2 U B2 R2 U2 R2 U) // no good
+    - **(R2 B2 R2 U' R2 B2 U2 B2 U L2 F2 R2) // 12**
+- After (L2 B2 L2), 1qt edges will be RH (good) and FD (bad): +3+1(+3)
+    - **(L2 B2 L2 U' R2 B2 U2 B2 U R2 F2 L2) // 12**
+
+Skeleton D B2 U D B2 U has HH corners, L=6, 6 spare moves. Apply (U') and NISS: RD corners.
+
+- D
+    - After B2, 1qt edges will be RD (good) and FD (good), fr=1: +0+0+2(+3)
+        - **B2 U F2 B2 D' F2 R2 U2 R2 F2 U' // 12**
+- D'
+    - After B2 U2 F2, 1qt edges will be RD (good) and FD (good): +0+2+2(+1)
+        - B2 U2 F2 U' F2 B2 D // no good
+
+Check linearly.
+
+- U R2 U
+    - After R2 L2, 1qt edges will be RH (good) and FH (good): +0+2+3(+0)
+        - R2 L2 U' R2 U2 F2 R2 U // no good
+    - After R2 L2, 1qt edges will be RH (good) and FH (good): +0+2+4(+0)
+        - **R2 L2 U' B2 L2 U2 R2 F2 U' // 12**
+
+Check inverse. Skeleton (D' F2 U D B2 U') has HH corners. Apply U and NISS: RD corners.
+
+- (D')
+    - After (L2 F2), 1qt edges will be RD (good) and FH (good), fr=1: +0+1+2(+2)
+        - (L2 F2 U F2 B2 D') // no good
+- (D)
+    - After (R2 B2 U2 B2 R2), 1qt edges will be RD (good) and FH (good): +0+4+2(+0)
+        - **(R2 B2 U2 B2 R2 U F2 B2 D' R2 U') // 12**
+    - After (L2 F2 U2 B2 R2), 1qt edges will be RD (good) and FH (good): +0+4+2(+0)
+        - **(L2 F2 U2 B2 R2 U F2 B2 D' L2 U') // 12**
+
+Check inverse linearly.
+
+- (U' B2 L2 D')
+    - After (F2 B2), 1qt edges will be RH (good) and FH (good): +1+2+2(+0)
+        - (F2 B2 U L2 U2 L2 U') // no good
+
+Skeleton D' L2 U D R2 U' has HH corners, L=6, 6 spare moves. Apply (U) and NISS: FD corners.
+
+- All variants have lower bound > spare moves.
+
+Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse. Skeleton (D L2 U D L2 U) has HH corners. Apply U' and NISS: FD corners.
+
+- (D)
+    - After (R2), 1qt edges will be FD (good) and RH (good): +0+0+6(+0)
+        - (R2 U R2 U2 B2 R2 U2 F2 D) // no good
+
+Check inverse linearly.
+
+- (U B2 U)
+    - After (R2 B2 L2), 1qt edges will be RH (good) and FH (good): +0+3+3(+0)
+        - (R2 B2 L2 U L2 U2 F2 L2 D') // no good
+
+Skeleton D R2 U D L2 U' has HH corners, L=6, 6 spare moves. Apply (U) and NISS: RD corners.
+
+- All variants have lower bound > spare moves.
+
+Check linearly.
+
+- U B2 U
+    - After R2 L2, 1qt edges will be RH (good) and FH (good): +0+2+3(+0)
+        - R2 L2 U R2 B2 R2 L2 D // no good
+
+Check inverse. Skeleton (D B2 U D F2 U') has HH corners. Apply U and NISS: FD corners.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly.
+
+- (U F2 R2 U')
+    - After (F2 L2 B2), 1qt edges will be RH (good) and FH (good): +1+3+1(+0)
+        - (F2 L2 B2 U B2 R2 D) // no good
+
+Skeleton D' B2 D U B2 U has HH corners, L=6, 6 spare moves. Apply (U') and NISS: FD corners.
+
+- All variants have lower bound > spare moves.
+
+Check linearly.
+
+- U' R2 U'
+    - After R2 F2 L2 B2 L2 B2, 1qt edges will be RH (good) and FH (good): +0+6+0(+0)
+        - R2 F2 L2 B2 L2 B2 U' R2 U' // no good
+
+Check inverse. Skeleton (D' L2 D U L2 U) has HH corners. Apply U' and NISS: RD corners.
+
+- (D')
+    - After (F2 L2), 1qt edges will be RV (bad) and FH (good): +0+1+2(+3)
+        - (F2 L2 U' F2 B2 D) // no good
+
+Check inverse linearly.
+
+- (U' R2 F2 U')
+    - After (R2 L2), 1qt edges will be RH (good) and FH (good): +1+2+2(+0)
+        - (R2 L2 U' F2 B2 L2 D) // no good
+
+Skeleton D B2 U2 R2 U D U' has HH corners, L=7, 5 spare moves. Apply (U) and NISS: HH corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton D U D B2 U2 L2 U' has HH corners, L=7, 5 spare moves. Apply (U) and NISS: DD corners.
+
+- All variants have lower bound > spare moves.
+
+Check inverse. Skeleton (D L2 U2 B2 U D U') has HH corners. Apply U and NISS: HH corners.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly.
+
+- All variants have lower bound > spare moves.
+
+Skeleton R2 U D' B2 D F2 U2 R2 U has HH corners, L=9, 3 spare moves. Apply (U') and NISS: DD corners.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (U B2 U2 R2 U R2 U D' F2) has RD corners.
+
+- All variants have lower bound > spare moves.
+
+Optimal is 12. Found 12.
+
+### 4a2, scramble 4
+
+`R' U' F U' D2 F D2 L2 F R2 L2 D' R' U2 L D2 F2 R2 D2 B2 D' L2 D' R' U' F`
+
+4a2 2e, goal 12.
+
+Skeleton L2 D L2 U2 B2 D' R2 U2 has FV corners, L=8, 4 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (U2 B2 U B2 U2 L2 U' F2) has RD corners.
+
+- After (U2 B2), 1qt edges will be RD (good) and FD (good): +0+3(+1)
+    - **(U2 B2 U' F2 R2 B2 R2 U2 B2 U' L2 B2) // 12**
+    - (U2 B2 U' B2 L2 F2 R2 U2 F2 D) // no good
+
+Skeleton L2 D' F2 U D B2 U R2 U2 has FV corners, L=9, 3 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (U2 B2 U B2 U D F2 D' F2) has RD corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton R2 U' L2 U D L2 D B2 U2 has FV corners, L=9, 3 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (U2 F2 U' R2 U D L2 D L2) has RD corners.
+
+- (U2 B2 U' F2 U)
+    - After (L2 B2 R2), 1qt edges will be RD (good) and FH (good): +0+3+0(+0)
+        - (L2 B2 R2 U' L2 U') // no good
+
+Skeleton R2 U F2 U D B2 D' F2 U2 has FV corners, L=9, 3 spare moves. Check linearly.
+
+- L2 D F2 D'
+    - After L2 F2 R2, 1qt edges will be FV (good) and RH (good): +0+3+0(+0)
+        - L2 F2 R2 U B2 U // no good
+
+Check inverse linearly. Skeleton (U2 F2 U F2 U D F2 D' R2) has RD corners.
+
+- (U2 F2 U B2 U)
+    - After (R2 B2 L2), 1qt edges will be RD (good) and FH (good): +0+3+0(+0)
+        - (R2 B2 L2 U' R2 U) // no good
+
+Skeleton L2 D R2 U D R2 U' L2 U2 has FV corners, L=9, 3 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (U2 B2 U' L2 U D L2 D B2) has RD corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton L2 U F2 U2 R2 U' F2 D' U has HH corners, L=9, 3 spare moves. Apply (U') and NISS: HH corners.
+
+- R2 U
+    - After B2 U2 L2, 1qt edges will be RV (bad) and FH (good): +0+0+0(+3)
+        - B2 U2 L2 U' B2 U' // no good
+
+Check linearly.
+
+- R2 U B2 U2 L2 U'
+    - After B2, 1qt edges will be RH (good) and FH (good): +0+0+3(+0)
+        - B2 U F2 R2 B2 D' // no good
+
+Skeleton L2 D L2 U2 B2 D R2 U D F2 has FD corners, L=10, 2 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Skeleton (U2 B2 U B2 U2 L2 U' F2 D' U') on inverse has HH corners, L=10, 2 spare moves. Apply U and NISS: HH corners.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly.
+
+- All variants have lower bound > spare moves.
+
+Optimal is 12. Found 12.
+
+### 4a2, scramble 5
+
+`R' U' F D' L' U' B2 R2 U2 R2 F U' D2 F2 B2 L F2 R' B2 L' B2 R2 D2 R' U' F`
+
+4a2 4e, goal 12.
+
+Skeleton U2 F2 U B2 U2 R2 U' R2 U2 has RV corners, L=9, 3 spare moves. Check linearly.
+
+- After F2 U2 B2, 1qt edges will be RV (good) and FH (good), fr=1: +1+1(+1)
+    - F2 U2 B2 U R2 U2 L2 B2 D' // no good
+
+Check inverse linearly. Skeleton (U2 R2 U L2 U2 B2 U' R2 U2) has FV corners.
+
+- After (U2 L2), 1qt edges will be FV (good) and RH (good): +0+1(+0)
+    - (U2 L2 U' R2 U2 L2 B2 U') // no good
+
+Skeleton U2 F2 U L2 U2 B2 U' L2 D' U has HH corners, L=10, 2 spare moves. Apply (U') and NISS: HH corners.
+
+- U2 F2 U
+    - After L2 U2 B2, 1qt edges will be RH (good) and FH (good): +0+0+0(+0)
+        - L2 U2 B2 U' L2 U' // no good
+
+Skeleton (U2 R2 U L2 U2 B2 U' R2 D' U) on inverse has HH corners, L=10, 2 spare moves. Apply U' and NISS: HH corners.
+
+- (U2 L2 U')
+    - After (B2 L2 U2 B2 L2), 1qt edges will be RH (good) and FH (good): +0+2+0(+0)
+        - (B2 L2 U2 B2 L2 U B2 U') // no good
+
+Optimal is 14. Found none.
+
+## 4a1
+
+### 4a1, scramble 1
+
+`R' U' F R U L U2 L' D2 B' U R2 B R2 F2 U L2 D L2 F2 U2 R' U' F`
+
+4a1 6e, goal 12.
+
+Skeleton F2 U D U B2 U2 has FV corners, L=6, 6 spare moves. Check linearly.
+
+- F2 U
+    - After F2 B2, 1qt edges will be FV (good) and RH (good), fr=1: +0+2+3(+1)
+        - **F2 B2 U F2 R2 F2 U B2 D2 B2 // 12**
+- F2 U'
+    - After F2 B2, 1qt edges will be FV (good) and RH (good), fr=1: +0+2+3(+1)
+        - **F2 B2 U F2 R2 F2 U' B2 D2 F2 // 12**
+- B2 D
+    - After R2 B2 R2, 1qt edges will be FV (good) and RH (good), fr=1: +0+3+2(+1)
+        - **R2 B2 R2 U R2 L2 D' F2 D2 B2 // 12**
+    - After R2 F2 L2, 1qt edges will be FV (good) and RH (good), fr=1: +0+3+2(+1)
+        - R2 F2 L2 U' F2 B2 D // no good
+
+Check inverse linearly. Skeleton (U2 B2 U D U B2) has FD corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton U D' L2 D' L2 U2 has FV corners, L=6, 6 spare moves. Check linearly.
+
+- U'
+    - After R2 F2 R2, 1qt edges will be FH (bad) and RV (good), fr=1: +0+3+1(+2)
+        - R2 F2 R2 U' B2 R2 U // no good
+
+Check inverse. Skeleton (U2 B2 D' F2 D' U') has HH corners. Apply U and NISS: HH corners.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly.
+
+- All variants have lower bound > spare moves.
+
+Skeleton F2 U' L2 D' U has HH corners, L=5, 7 spare moves. Apply (U') and NISS: HH corners.
+
+- After R2 F2, 1qt edges will be RD (bad) and FH (good): +1+2(+3)
+    - R2 F2 U' F2 U2 B2 U' // no good
+
+Check linearly.
+
+- R2 F2 U'
+    - After F2 U2 B2, 1qt edges will be RH (good) and FH (good): +1+2+3(+0)
+        - F2 U2 B2 U F2 R2 F2 U // no good
+
+Check inverse linearly. Skeleton (U D L2 D' R2) has FD corners.
+
+- (U')
+    - After (F2 B2), 1qt edges will be FD (good) and RV (bad): +0+2+2(+3)
+        - (F2 B2 U R2 U2 L2 U) // no good
+
+Skeleton R2 U D' L2 D F2 U2 has FV corners, L=7, 5 spare moves. Check linearly.
+
+- R2 U'
+    - After R2 F2 L2, 1qt edges will be FV (good) and RH (good), fr=1: +0+3+1(+1)
+        - **R2 F2 L2 U' L2 F2 D' F2 D2 F2 // 12**
+        - R2 F2 L2 U' R2 B2 U // no good
+
+Check inverse linearly. Skeleton (U2 B2 U' F2 D U' B2) has RD corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton F2 U' F2 D U' B2 U2 has RV corners, L=7, 5 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (U2 R2 U D' R2 D F2) has FD corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton F2 U B2 U D B2 U2 R2 has DD corners, L=8, 4 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (F2 U2 R2 D U' L2 D' F2) has FD corners.
+
+- (F2 U2 R2 D)
+    - After (R2 B2 L2), 1qt edges will be FD (good) and RD (good): +0+3+0(+1)
+        - **(R2 B2 L2 U L2 U B2 L2) // 12**
+- (F2 U2 L2 U')
+    - After (L2 B2 R2), 1qt edges will be FD (good) and RH (good): +0+3+1(+0)
+        - (L2 B2 R2 U' L2 F2 U') // no good
+
+Skeleton F2 U L2 D U B2 has FD corners, L=6, 6 spare moves. Check linearly.
+
+- F2 U
+    - After R2, 1qt edges will be FV (bad) and RD (good): +0+0+3(+3)
+        - R2 U' L2 B2 L2 U' // no good
+- L2 F2 U'
+    - After F2 R2 L2, 1qt edges will be FD (good) and RH (good): +1+2+2(+0)
+        - **F2 R2 L2 U R2 L2 D B2 // 11**
+
+Check inverse linearly. Skeleton (F2 U D L2 D L2) has FD corners.
+
+- (B2 U')
+    - After (F2 B2), 1qt edges will be FD (good) and RD (good): +0+2+0(+1)
+        - (F2 B2 U' L2 U') // no good
+    - After (F2 B2), 1qt edges will be FD (good) and RD (good): +0+2+2(+1)
+        - **(F2 B2 U' F2 B2 R2 D B2 R2) // 11**
+
+Skeleton R2 U2 B2 U D R2 D' F2 U2 has FV corners, L=9, 3 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (U2 B2 U B2 U D R2 U2 B2) has DD corners.
+
+- All variants have lower bound > spare moves.
+
+Hard to find solutions:
+
+Skeleton F2 U L2 U2 F2 D U' B2 has RD corners, L=8, 4 spare moves. Check linearly.
+
+- F2 U
+    - After R2 U2 F2, 1qt edges will be RD (good) and FD (good): +0+0+3(+1)
+        - **R2 U2 F2 U L2 B2 L2 U R2 B2 // 12**
+- F2 U'
+    - After F2 U2 R2, 1qt edges will be RD (good) and FD (good): +0+0+3(+1)
+        - **F2 U2 R2 U' L2 B2 L2 U R2 B2 // 12**
+    - After F2 U2 B2 L2, 1qt edges will be RD (good) and FH (good): +0+1+3(+0)
+        - **F2 U2 B2 L2 U F2 R2 F2 U' L2 // 12**
+
+Optimal is 11. Found 11.
+
+### 4a1, scramble 2
+
+`R' U' F U' R D2 R2 U F U' F L' F U2 R2 F R2 F2 U2 R2 F B D2 R' U' F`
+
+4a1 6e, goal 12.
+
+Skeleton D U D R2 U2 has FV corners, L=5, 7 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse. Skeleton (U2 F2 D U D') has HH corners. Apply D and NISS: HH corners.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly.
+
+- All variants have lower bound > spare moves.
+
+Skeleton U' R2 D U has HH corners, L=4, 8 spare moves. Apply (U') and NISS: HH corners.
+
+- With no setup, 1qt edges will be RH (good) and FD (bad): +0+5(+3)
+    - U' F2 L2 U2 B2 L2 F2 U' // no good
+
+Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse. Skeleton (U D R2 D) has HH corners. Apply D' and NISS: FD corners.
+
+- With no setup, 1qt edges will be FV (bad) and RD (good): +0+5(+3)
+    - (U' L2 F2 R2 F2 B2 U) // no good
+
+Check inverse linearly.
+
+- (U)
+    - After (R2 B2 L2), 1qt edges will be RH (good) and FV (bad): +0+3+1(+3)
+        - (R2 B2 L2 U' L2 F2 U) // no good
+
+Skeleton D B2 U D R2 has FD corners, L=5, 7 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse. Skeleton (B2 U D R2 D') has HH corners. Apply D and NISS: FD corners.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly.
+
+- (B2 U')
+    - After (R2 B2 L2), 1qt edges will be RH (good) and FH (good): +0+3+3(+0)
+        - (R2 B2 L2 U' R2 B2 U2 L2 D) // no good
+
+Skeleton D' L2 U D' L2 U2 has RV corners, L=6, 6 spare moves. Check linearly.
+
+- D'
+    - After F2 L2, 1qt edges will be RV (good) and FH (good): +0+1+5(+0)
+        - F2 L2 U F2 B2 L2 F2 L2 D // no good
+
+Check inverse. Skeleton (U2 R2 U D' L2 D) has HH corners. Apply D' and NISS: RD corners.
+
+- After (U2 L2), 1qt edges will be RD (good) and FD (good): +0+5(+1)
+    - (U2 L2 U L2 F2 R2 F2 B2 U) // no good
+
+Check inverse linearly.
+
+- (U2 R2 D')
+    - After (F2 L2 F2 L2 B2 L2), 1qt edges will be RH (good) and FH (good): +0+6+0(+0)
+        - (F2 L2 F2 L2 B2 L2 U L2 U') // no good
+
+Skeleton D R2 U D R2 U2 B2 has DD corners, L=7, 5 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse. Skeleton (R2 U2 F2 D U B2 D') has HH corners. Apply D and NISS: RD corners.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly.
+
+- (R2 U2 F2 D')
+    - After (R2 L2), 1qt edges will be RH (good) and FH (good): +0+2+0(+0)
+        - **(R2 L2 U' R2 U' B2 F2) // 11**
+- (L2 U2 B2 U')
+    - After (R2 L2), 1qt edges will be RH (good) and FH (good): +0+2+3(+0)
+        - (R2 L2 U R2 L2 U2 B2 D') // no good
+- (U2 F2 U2 R2 D)
+    - After (R2 L2), 1qt edges will be RH (good) and FH (good): +1+2+0(+0)
+        - **(R2 L2 U' L2 U' F2 B2) // 12**
+
+Skeleton B2 U D' L2 D' B2 U2 has FV corners, L=7, 5 spare moves. Check linearly.
+
+- F2 U'
+    - After F2 B2, 1qt edges will be FV (good) and RH (good): +0+2+3(+0)
+        - F2 B2 U R2 U2 F2 B2 D // no good
+
+Check inverse linearly. Skeleton (U2 F2 U F2 U D' L2) has FD corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton R2 U D' F2 U' F2 U2 has FV corners, L=7, 5 spare moves. Check linearly.
+
+- R2 U
+    - After B2 R2 F2, 1qt edges will be FV (good) and RH (good): +0+3+1(+0)
+        - B2 R2 F2 U B2 R2 D' // no good
+
+Check inverse linearly. Skeleton (U2 F2 U R2 D U' B2) has RD corners.
+
+- (U2 F2 U)
+    - After (L2), 1qt edges will be RH (bad) and FD (good): +0+0+2(+3)
+        - (L2 U' R2 L2 D') // no good
+
+Skeleton U2 R2 U D' B2 D F2 U2 has FV corners, L=8, 4 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (U2 F2 U' R2 D U' B2 U2) has RV corners.
+
+- All variants have lower bound > spare moves.
+
+Optimal is 11. Found 11.
+
+### 4a1, scramble 3
+
+`R' U' F D' L U' L F U2 F2 R B2 U2 D2 L2 B R2 F L2 F' D2 R D R' U' F`
+
+4a1 2e, goal 12.
+
+Skeleton U D U B2 U2 R2 has DD corners, L=6, 6 spare moves. Check linearly.
+
+- U
+    - After F2 R2 F2, 1qt edges will be FD (good) and RV (good): +0+3+3(+0)
+        - F2 R2 F2 U' F2 R2 F2 U // no good
+
+Check inverse. Skeleton (R2 U2 B2 U D' U) has HH corners. Apply U' and NISS: HH corners.
+
+- After (R2 U2 B2), 1qt edges will be RH (good) and FV (bad): +0+3(+3)
+    - (R2 U2 B2 U F2 L2 F2 U') // no good
+
+Check inverse linearly.
+
+- (R2 U2 B2 D)
+    - After (R2 B2 L2), 1qt edges will be RH (good) and FH (good): +0+3+3(+0)
+        - (R2 B2 L2 U' R2 B2 L2 D) // no good
+
+Skeleton U B2 U D B2 U2 has FV corners, L=6, 6 spare moves. Check linearly.
+
+- U
+    - After F2, 1qt edges will be FV (good) and RD (bad): +0+0+3(+3)
+        - F2 U L2 F2 L2 U' // no good
+
+Check inverse. Skeleton (U2 B2 U D B2 U') has HH corners. Apply U and NISS: FD corners.
+
+- After (U2 B2), 1qt edges will be FD (good) and RV (bad): +0+3(+3)
+    - (U2 B2 U F2 L2 F2 U') // no good
+
+Check inverse linearly.
+
+- (U2 B2 U)
+    - After (B2 R2 F2), 1qt edges will be RH (good) and FH (good): +0+3+1(+0)
+        - (B2 R2 F2 U' F2 R2 U) // no good
+
+Skeleton U' R2 U D R2 has RD corners, L=5, 7 spare moves. Check linearly.
+
+- U'
+    - After L2, 1qt edges will be RH (bad) and FD (good): +0+0+3(+3)
+        - **L2 U' F2 L2 F2 U F2 R2 F2 R2 F2 // 12**
+        - **L2 U' B2 L2 B2 U F2 L2 B2 L2 B2 // 12**
+    - After F2 L2, 1qt edges will be RH (bad) and FH (good): +0+1+3(+3)
+        - **F2 L2 U' F2 L2 F2 U B2 R2 B2 R2 // 12**
+        - **F2 L2 U' B2 L2 B2 U F2 R2 F2 R2 // 12**
+    - After B2 R2, 1qt edges will be RH (bad) and FH (good): +0+1+3(+3)
+        - **B2 R2 U R2 B2 R2 U' B2 L2 F2 R2 // 12**
+        - **B2 R2 U L2 B2 L2 U' F2 L2 B2 R2 // 12**
+    - After L2 F2 R2 F2, 1qt edges will be RD (good) and FD (good): +0+3+3(+1)
+        - **L2 F2 R2 F2 U' F2 L2 F2 U R2 F2 // 12**
+    - After L2 F2 L2 B2, 1qt edges will be RD (good) and FD (good): +0+3+3(+1)
+        - **L2 F2 L2 B2 U L2 B2 L2 U' L2 B2 // 12**
+    - After L2 B2 R2 B2, 1qt edges will be RD (good) and FD (good): +0+3+3(+1)
+        - **L2 B2 R2 B2 U' B2 L2 B2 U R2 F2 // 12**
+    - After L2 B2 L2 F2, 1qt edges will be RD (good) and FD (good): +0+3+3(+1)
+        - **L2 B2 L2 F2 U R2 B2 R2 U' L2 B2 // 12**
+    - After F2 L2 F2 R2 F2, 1qt edges will be RD (good) and FH (good): +0+4+3(+0)
+        - **F2 L2 F2 R2 F2 U' B2 L2 B2 U R2 // 12**
+    - After F2 L2 B2 R2 B2, 1qt edges will be RD (good) and FH (good): +0+4+3(+0)
+        - **F2 L2 B2 R2 B2 U' F2 L2 F2 U R2 // 12**
+    - After B2 R2 F2 L2 B2, 1qt edges will be RD (good) and FH (good): +0+4+3(+0)
+        - **B2 R2 F2 L2 B2 U' B2 L2 B2 U R2 // 12**
+    - After B2 R2 B2 L2 F2, 1qt edges will be RD (good) and FH (good): +0+4+3(+0)
+        - **B2 R2 B2 L2 F2 U' F2 L2 F2 U R2 // 12**
+    - After F2 L2 F2 L2 B2, 1qt edges will be RD (good) and FH (good): +0+4+3(+0)
+        - F2 L2 F2 L2 B2 U L2 B2 L2 U' // no good
+
+Check inverse. Skeleton (R2 U D R2 U) has HH corners. Apply U' and NISS: RD corners.
+
+- After (R2), 1qt edges will be RH (bad) and FD (good): +0+3(+3)
+    - **(R2 U' F2 L2 F2 U F2 L2 B2 R2 B2 U) // 12**
+    - **(R2 U' B2 L2 B2 U F2 R2 F2 L2 F2 U) // 12**
+- After (F2 R2), 1qt edges will be RH (bad) and FH (good): +1+3(+3)
+    - **(F2 R2 U' F2 L2 F2 U F2 R2 F2 L2 U) // 12**
+    - **(F2 R2 U' B2 L2 B2 U B2 R2 B2 L2 U) // 12**
+- After (B2 L2), 1qt edges will be RH (bad) and FH (good): +1+3(+3)
+    - **(B2 L2 U R2 B2 R2 U' F2 L2 B2 L2 U) // 12**
+    - **(B2 L2 U L2 B2 L2 U' B2 L2 F2 L2 U) // 12**
+- After (R2 F2 R2 F2), 1qt edges will be RD (good) and FD (good): +3+3(+1)
+    - **(R2 F2 R2 F2 U' B2 L2 B2 U L2 F2 U) // 12**
+- After (R2 F2 L2 B2), 1qt edges will be RD (good) and FD (good): +3+3(+1)
+    - **(R2 F2 L2 B2 U R2 B2 R2 U' R2 B2 U) // 12**
+- After (R2 B2 R2 B2), 1qt edges will be RD (good) and FD (good): +3+3(+1)
+    - **(R2 B2 R2 B2 U' F2 L2 F2 U L2 F2 U) // 12**
+- After (R2 B2 L2 F2), 1qt edges will be RD (good) and FD (good): +3+3(+1)
+    - **(R2 B2 L2 F2 U L2 B2 L2 U' R2 B2 U) // 12**
+- After (F2 R2 F2 R2 F2), 1qt edges will be RD (good) and FH (good): +4+3(+0)
+    - **(F2 R2 F2 R2 F2 U' F2 L2 F2 U L2 U) // 12**
+- After (F2 R2 B2 R2 B2), 1qt edges will be RD (good) and FH (good): +4+3(+0)
+    - **(F2 R2 B2 R2 B2 U' B2 L2 B2 U L2 U) // 12**
+- After (B2 L2 F2 L2 B2), 1qt edges will be RD (good) and FH (good): +4+3(+0)
+    - **(B2 L2 F2 L2 B2 U' F2 L2 F2 U L2 U) // 12**
+- After (B2 L2 B2 L2 F2), 1qt edges will be RD (good) and FH (good): +4+3(+0)
+    - **(B2 L2 B2 L2 F2 U' B2 L2 B2 U L2 U) // 12**
+- After (F2 R2 F2 L2 B2), 1qt edges will be RD (good) and FH (good): +4+3(+0)
+    - (F2 R2 F2 L2 B2 U R2 B2 R2 U') // no good
+
+Check inverse linearly.
+
+- (R2 D')
+    - After (R2 L2), 1qt edges will be RH (good) and FD (bad): +0+2+2(+3)
+        - **(R2 L2 U' R2 L2 F2 D' L2 B2 R2) // 12**
+    - After (L2 B2 L2), 1qt edges will be RH (good) and FH (good): +0+3+4(+0)
+        - **(L2 B2 L2 U R2 F2 R2 B2 L2 D) // 12**
+    - After (R2 B2 R2), 1qt edges will be RH (good) and FH (good): +0+3+4(+0)
+        - **(R2 B2 R2 U R2 B2 L2 F2 R2 D) // 12**
+- (F2 L2 U')
+    - After (F2 B2), 1qt edges will be RH (good) and FH (good): +1+2+2(+0)
+        - (F2 B2 U' R2 L2 B2 D') // no good
+- (B2 R2 D')
+    - After (L2 B2 L2), 1qt edges will be RH (good) and FD (bad): +1+3+0(+3)
+        - **(L2 B2 L2 U R2 U' L2 F2 R2) // 12**
+
+Skeleton U' B2 U D B2 U2 has RV corners, L=6, 6 spare moves. Check linearly.
+
+- U'
+    - After R2 B2, 1qt edges will be RH (bad) and FH (good), fr=1: +0+1+3(+2)
+        - R2 B2 U L2 F2 R2 D' // no good
+
+Check inverse. Skeleton (U2 R2 U D R2 U) has HH corners. Apply U' and NISS: FD corners.
+
+- After (U2 R2), 1qt edges will be FD (good) and RV (bad), fr=1: +0+3(+3)
+    - (U2 R2 U F2 R2 B2 D) // no good
+
+Check inverse linearly.
+
+- (U2 R2 U)
+    - After (F2 R2 B2), 1qt edges will be RH (good) and FH (good): +0+3+3(+0)
+        - (F2 R2 B2 U F2 U2 R2 F2 U') // no good
+
+Skeleton U R2 U D R2 has FD corners, L=5, 7 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse. Skeleton (F2 U D B2 U') has HH corners. Apply U and NISS: RD corners.
+
+- After (R2 F2), 1qt edges will be RH (bad) and FH (good), fr=1: +1+3(+3)
+    - (R2 F2 U' B2 R2 F2 D') // no good
+
+Check inverse linearly.
+
+- (F2 U')
+    - After (F2 B2), 1qt edges will be RV (bad) and FH (good): +0+2+2(+3)
+        - (F2 B2 U F2 U2 F2 U) // no good
+
+Skeleton L2 U D' F2 U L2 U2 B2 has DD corners, L=8, 4 spare moves. Check linearly.
+
+- R2 U'
+    - After F2 B2, 1qt edges will be FD (good) and RV (good): +0+2+2(+0)
+        - F2 B2 U R2 L2 F2 D' // no good
+
+Check inverse linearly. Skeleton (R2 U2 B2 D' B2 U D' L2) has RD corners.
+
+- (B2 R2 U2 R2 D)
+    - After (L2), 1qt edges will be RD (good) and FH (good): +1+0+2(+0)
+        - (L2 U R2 L2 D) // no good
+
+Skeleton B2 U D' R2 D R2 U2 F2 has DD corners, L=8, 4 spare moves. Check linearly.
+
+- F2 U
+    - After F2 L2 B2, 1qt edges will be FD (good) and RV (good): +0+3+1(+0)
+        - F2 L2 B2 U R2 B2 D // no good
+
+Check inverse linearly. Skeleton (R2 U2 B2 D' L2 D U' B2) has FD corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton U B2 U2 L2 D' U has HH corners, L=6, 6 spare moves. Apply (U') and NISS: HH corners.
+
+- With no setup, 1qt edges will be RD (bad) and FH (good): +0+2(+3)
+    - **U R2 B2 U2 R2 B2 D' B2 L2 F2 U // 11**
+- With no setup, 1qt edges will be RD (bad) and FH (good): +0+3(+3)
+    - U B2 U2 R2 L2 F2 R2 U // no good
+
+Check linearly.
+
+- U
+    - After R2 F2 U2 L2 F2, 1qt edges will be RH (good) and FH (good): +0+2+3(+0)
+        - R2 F2 U2 L2 F2 U' B2 L2 F2 D' // no good
+
+Check inverse. Skeleton (U D B2 U2 R2 U) has HH corners. Apply U' and NISS: DD corners.
+
+- With no setup, 1qt edges will be FD (good) and RD (good): +0+3(+1)
+    - (U' F2 L2 F2 U') // no good
+    - **(U' B2 R2 F2 D F2 L2 D2 B2 R2 U') // 11**
+
+Check inverse linearly.
+
+- (U')
+    - After (F2 R2 B2), 1qt edges will be RH (good) and FH (good): +0+3+2(+0)
+        - (F2 R2 B2 U L2 F2 U2 R2 F2 U) // no good
+
+Optimal is 11. Found 11.
+
+### 4a1, scramble 4
+
+`R' U' F L2 B' D2 F2 D2 U2 F2 R2 F' D' B' L2 D' R F2 D B2 F2 R' U' F`
+
+4a1 2e, goal 12.
+
+Skeleton U D L2 U R2 has FD corners, L=5, 7 spare moves. Check linearly.
+
+- U
+    - After L2 F2 R2, 1qt edges will be FD (good) and RV (bad): +0+3+1(+3)
+        - L2 F2 R2 U' L2 F2 U' // no good
+
+Check inverse. Skeleton (B2 D F2 D' U) has HH corners. Apply U' and NISS: HH corners.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly.
+
+- (F2 D)
+    - After (L2), 1qt edges will be RH (good) and FV (bad): +0+0+2(+3)
+        - **(L2 U' R2 L2 D R2 F2 L2 D2) // 11**
+- (B2 U)
+    - After (F2 R2 F2 R2 B2), 1qt edges will be RH (good) and FH (good): +0+4+3(+0)
+        - (F2 R2 F2 R2 B2 U' L2 F2 R2 D') // no good
+
+Skeleton U2 B2 D U D' B2 has FD corners, L=6, 6 spare moves. Check linearly.
+
+- U2 B2 D
+    - After L2 F2 R2, 1qt edges will be FD (good) and RH (good): +0+3+2(+0)
+        - L2 F2 R2 U' R2 L2 D' // no good
+
+Check inverse linearly. Skeleton (F2 D U D' B2 U2) has FV corners.
+
+- (B2 U')
+    - After (R2 L2), 1qt edges will be FV (good) and RH (good): +0+2+3(+0)
+        - (R2 L2 U F2 R2 B2 D') // no good
+
+Skeleton U2 B2 D L2 D' U' has HH corners, L=6, 6 spare moves. Apply (U) and NISS: HH corners.
+
+- After U2 F2, 1qt edges will be RH (good) and FD (bad): +0+0(+3)
+    - **U2 F2 U R2 U' L2 B2 R2 F2 B2 U' // 11**
+- After U2 B2 L2 F2 R2, 1qt edges will be RH (good) and FH (good): +3+0(+0)
+    - U2 B2 L2 F2 R2 U' B2 U // no good
+
+Check linearly.
+
+- U2 F2 U
+    - After R2, 1qt edges will be RH (good) and FH (good): +0+0+5(+0)
+        - **R2 U' F2 B2 R2 B2 L2 U' // 11**
+    - After R2, 1qt edges will be RH (good) and FH (good): +0+0+6(+0)
+        - R2 U F2 B2 U2 L2 B2 L2 D // no good
+
+Check inverse linearly. Skeleton (U D' L2 U L2 U2) has FV corners.
+
+- (U)
+    - After (L2 B2 R2 F2 B2), 1qt edges will be FV (good) and RH (good): +0+5+0(+0)
+        - **(L2 B2 R2 F2 B2 U R2 U' F2 U2) // 11**
+    - After (F2 B2 R2 B2 L2), 1qt edges will be FV (good) and RH (good): +0+5+0(+0)
+        - **(F2 B2 R2 B2 L2 U R2 U' F2 U2) // 11**
+    - After (L2 F2 L2 U2 F2 B2), 1qt edges will be FV (good) and RH (good): +0+6+0(+0)
+        - (L2 F2 L2 U2 F2 B2 U' F2 U') // no good
+
+Skeleton F2 U D L2 U' L2 has FD corners, L=6, 6 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (B2 U' L2 U D B2) has FD corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton U2 R2 U D' R2 U' F2 has FD corners, L=7, 5 spare moves. Check linearly.
+
+- U2 R2 U'
+    - After L2 F2 R2, 1qt edges will be FD (good) and RH (good): +0+3+1(+0)
+        - **L2 F2 R2 U' R2 B2 D' B2 // 11**
+        - L2 F2 R2 U' L2 F2 U // no good
+
+Check inverse linearly. Skeleton (F2 D F2 U D' B2 U2) has RV corners.
+
+- (B2 U)
+    - After (R2 F2), 1qt edges will be RV (good) and FH (good): +0+1+3(+0)
+        - **(R2 F2 U F2 L2 B2 D R2 U2) // 11**
+- (R2 F2 D')
+    - After (R2), 1qt edges will be RV (good) and FV (good): +1+0+3(+1)
+        - (R2 U' R2 B2 R2 U') // no good
+
+Skeleton U2 B2 D F2 D U' F2 has RD corners, L=7, 5 spare moves. Check linearly.
+
+- U2 B2 D
+    - After B2, 1qt edges will be RH (bad) and FD (good): +0+0+2(+3)
+        - B2 U' F2 B2 D' // no good
+
+Check inverse linearly. Skeleton (R2 U D' L2 U' F2 U2) has FV corners.
+
+- (R2 U)
+    - After (L2 F2 R2), 1qt edges will be FV (good) and RH (good): +0+3+1(+0)
+        - (L2 F2 R2 U R2 F2 U') // no good
+
+Skeleton R2 U2 B2 U D F2 D' R2 has FD corners, L=8, 4 spare moves. Check linearly.
+
+- L2 U2 B2 U'
+    - After F2 B2, 1qt edges will be FD (good) and RD (good): +0+2+0(+1)
+        - F2 B2 U' F2 U' // no good
+
+Check inverse linearly. Skeleton (B2 U' F2 U D B2 U2 R2) has DD corners.
+
+- (L2 F2 D)
+    - After (L2), 1qt edges will be FV (good) and RD (good): +1+0+2(+0)
+        - (L2 U' R2 L2 D) // no good
+
+Skeleton U2 B2 D' R2 U D F2 U2 has FV corners, L=8, 4 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (U2 B2 U D R2 U' L2 U2) has FV corners.
+
+- (U2 F2 U)
+    - After (R2 L2), 1qt edges will be FD (bad) and RH (good), fr=1: +0+2+0(+2)
+        - (R2 L2 U L2 U) // no good
+
+Optimal is 11. Found 11.
+
+### 4a1, scramble 5
+
+`R' U' F U R U' D' L' F U2 B U R2 F' R2 F2 B' D2 R2 F' R2 B2 U2 R' U' F`
+
+4a1 6e, goal 12.
+
+Skeleton U2 R2 D U D B2 has RD corners, L=6, 6 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (L2 D U D' B2 U2) has RV corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton D U B2 U' L2 has RD corners, L=5, 7 spare moves. Check linearly.
+
+- D
+    - After B2 L2 B2, 1qt edges will be RD (good) and FH (good): +0+3+4(+0)
+        - B2 L2 B2 U' L2 U2 B2 R2 F2 D // no good
+
+Check inverse. Skeleton (L2 U F2 U D) has HH corners. Apply D' and NISS: HH corners.
+
+- After (F2 L2 B2 R2 B2), 1qt edges will be RH (good) and FD (bad): +4+0(+3)
+    - (F2 L2 B2 R2 B2 U F2 U) // no good
+
+Check inverse linearly.
+
+- (F2 L2 D')
+    - After (F2), 1qt edges will be RV (bad) and FH (good): +1+0+3(+3)
+        - (F2 U R2 F2 R2 U) // no good
+
+Skeleton U2 R2 U' B2 D U' has HH corners, L=6, 6 spare moves. Apply (U) and NISS: HH corners.
+
+- All variants have lower bound > spare moves.
+
+Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (U D' B2 U L2 U2) has RV corners.
+
+- (U)
+    - After (L2 B2 R2), 1qt edges will be RV (good) and FV (good): +0+3+1(+1)
+        - (L2 B2 R2 U F2 R2 U) // no good
+
+Skeleton R2 U D B2 U R2 has RD corners, L=6, 6 spare moves. Check linearly.
+
+- R2 U
+    - After R2 B2 R2, 1qt edges will be RD (good) and FH (good): +0+3+3(+0)
+        - **R2 B2 R2 U R2 B2 U2 R2 D' L2 // 12**
+    - After L2 B2 L2, 1qt edges will be RD (good) and FH (good): +0+3+3(+0)
+        - L2 B2 L2 U R2 F2 U2 L2 U // no good
+
+Check inverse linearly. Skeleton (L2 D' L2 U D F2) has RD corners.
+
+- (L2 D)
+    - After (R2 U2 B2 R2), 1qt edges will be RD (good) and FH (good): +0+3+3(+0)
+        - **(R2 U2 B2 R2 U' R2 B2 R2 U' R2) // 12**
+    - After (L2 U2 F2 L2), 1qt edges will be RD (good) and FH (good): +0+3+3(+0)
+        - (L2 U2 F2 L2 U' B2 L2 B2 U) // no good
+
+Skeleton R2 U2 F2 U D' B2 D' B2 has RD corners, L=8, 4 spare moves. Check linearly.
+
+- B2 U2 R2 U'
+    - After B2 R2 B2, 1qt edges will be RD (good) and FH (good): +0+3+1(+0)
+        - B2 R2 B2 U F2 L2 U // no good
+- B2 U2 F2 L2 U
+    - After R2 L2, 1qt edges will be RD (good) and FD (good): +1+2+0(+1)
+        - **R2 L2 U F2 U' L2 B2 // 12**
+
+Check inverse linearly. Skeleton (L2 D' F2 U D F2 U2 L2) has DD corners.
+
+- (B2 L2 D)
+    - After (R2), 1qt edges will be FV (good) and RV (good): +1+0+2(+1)
+        - **(R2 U' F2 B2 D' L2 F2 U2 B2) // 12**
+        - (R2 U F2 B2 D) // no good
+
+Skeleton U2 F2 U D' B2 D F2 has RD corners, L=7, 5 spare moves. Check linearly.
+
+- U2 B2 D'
+    - After R2 L2, 1qt edges will be RD (good) and FH (good): +0+2+2(+0)
+        - R2 L2 U F2 B2 L2 D // no good
+
+Check inverse linearly. Skeleton (L2 D B2 U D' B2 U2) has FV corners.
+
+- (F2 R2 U')
+    - After (R2), 1qt edges will be FV (good) and RV (good): +1+0+2(+1)
+        - (R2 U' R2 L2 D) // no good
+
+Skeleton U2 R2 D' F2 U D' F2 has FD corners, L=7, 5 spare moves. Check linearly.
+
+- U2 F2 L2 U
+    - After R2, 1qt edges will be FD (good) and RH (good): +1+0+3(+0)
+        - R2 U' R2 F2 L2 D' // no good
+
+Check inverse linearly. Skeleton (B2 U D' F2 D' B2 U2) has RV corners.
+
+- (B2 U')
+    - After (R2 L2), 1qt edges will be RV (good) and FH (good): +0+2+2(+0)
+        - (R2 L2 U R2 L2 B2 D') // no good
+
+Skeleton U2 R2 D R2 U D B2 U2 has RV corners, L=8, 4 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (U2 L2 D U F2 U' L2 U2) has RV corners.
+
+- All variants have lower bound > spare moves.
+
+Optimal is 12. Found 12.
+
+### 4a1, scramble 6
+
+`R' U' F U2 R2 U2 R' U' D2 B' D L' U2 L2 U' L2 D L2 D L2 F2 U F2 R' U' F`
+
+4a1 4e, goal 12.
+
+Skeleton U2 L2 D F2 U2 R2 has DD corners, L=6, 6 spare moves. Check linearly.
+
+- After B2 R2 U2 B2, 1qt edges are FD (good) and RD (good): +2(+2)
+    - **B2 R2 U2 B2 U L2 F2 U2 R2 B2 D2 // 11**
+- After F2 L2 U2 F2, 1qt edges are FD (good) and RD (good): +2(+2)
+    - **F2 L2 U2 F2 D' R2 F2 R2 F2 U2 F2 L2 // 12**
+- After B2 U2 B2 U2 R2, 1qt edges are FD (good) and RD (good): +3(+2)
+    - **B2 U2 B2 U2 R2 U' L2 F2 U2 R2 B2 D2 // 12**
+- After R2 L2 F2 L2 U2 B2, 1qt edges are FD (good) and RD (good): +4(+2)
+    - R2 L2 F2 L2 U2 B2 U' // no good
+- After B2 U2 B2 L2 U2 R2, 1qt edges are FD (good) and RD (good): +4(+2)
+    - **B2 U2 B2 L2 U2 R2 U' L2 F2 U2 B2 D2 // 12**
+
+Check inverse linearly. Skeleton (R2 U2 F2 U' R2 U2) has RV corners.
+
+- After (U2 L2 U2 L2 F2), 1qt edges are RD (bad) and FV (good), fr=1: +2(+2)
+    - (U2 L2 U2 L2 F2 D) // no good
+- After (U2 F2 U2 B2 R2), 1qt edges are RD (bad) and FV (good): +2(+3)
+    - **(U2 F2 U2 B2 R2 U L2 U2 R2 F2 D2 B2) // 12**
+- After (U2 F2 L2 U2 B2 R2), 1qt edges are RD (bad) and FV (good), fr=1: +3(+2)
+    - **(U2 F2 L2 U2 B2 R2 U' F2 D2 R2 B2) // 11**
+- After (R2 B2 U2 F2 R2 B2 L2), 1qt edges are RD (bad) and FV (good), fr=1: +4(+2)
+    - **(R2 B2 U2 F2 R2 B2 L2 D B2 D2 L2 F2) // 12**
+- After (L2 F2 U2 F2 R2 F2 R2), 1qt edges are RD (bad) and FV (good), fr=1: +4(+2)
+    - **(L2 F2 U2 F2 R2 F2 R2 D F2 U2 L2 F2) // 12**
+
+Skeleton U D F2 U F2 U2 R2 has DD corners, L=7, 5 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse. Skeleton (L2 U2 F2 U' F2 D U) has HH corners. Apply U' and NISS: HH corners.
+
+- After (U2 L2 B2 U2 L2 F2), 1qt edges will be RH (good) and FH (good): +3+1(+0)
+    - (U2 L2 B2 U2 L2 F2 U R2 B2 U') // no good
+
+Check inverse linearly.
+
+- All variants have lower bound > spare moves.
+
+Skeleton U2 L2 D B2 U D B2 has RD corners, L=7, 5 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (R2 U D R2 D' R2 U2) has RV corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton R2 U D B2 D B2 U2 L2 has DD corners, L=8, 4 spare moves. Check linearly.
+
+- L2 D
+    - After B2 R2 F2, 1qt edges will be FD (good) and RV (good): +0+3+0(+0)
+        - **B2 R2 F2 U' B2 U' R2 D2 B2 // 11**
+- R2 U
+    - After F2 L2 B2, 1qt edges will be FD (good) and RV (good): +0+3+0(+0)
+        - F2 L2 B2 U' L2 U' // no good
+
+Check inverse linearly. Skeleton (L2 U2 F2 D L2 U D B2) has RD corners.
+
+- (B2 U2 L2 U)
+    - After (F2), 1qt edges will be RD (good) and FH (good): +0+0+3(+0)
+        - **(F2 U B2 L2 F2 D' R2) // 11**
+- (F2 U2 L2 D)
+    - After (B2), 1qt edges will be RD (good) and FD (good): +0+0+3(+1)
+        - (B2 U R2 F2 R2 U') // no good
+
+Skeleton U2 L2 D' F2 D U F2 has FD corners, L=7, 5 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Check inverse linearly. Skeleton (F2 D U F2 U' B2 U2) has RV corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton U2 L2 D' R2 D U L2 U2 has FV corners, L=8, 4 spare moves. Check linearly.
+
+- U2 R2 U'
+    - After F2 R2, 1qt edges will be FV (good) and RV (good): +0+1+2(+1)
+        - **F2 R2 U' R2 L2 D' B2 L2 U2 // 12**
+        - F2 R2 U R2 L2 D // no good
+
+Check inverse linearly. Skeleton (U2 F2 U D B2 D L2 U2) has RV corners.
+
+- All variants have lower bound > spare moves.
+
+Skeleton (U2 L2 U D R2 U F2 U2) on inverse has RV corners, L=8, 4 spare moves. Check linearly.
+
+- All variants have lower bound > spare moves.
+
+Skeleton U2 L2 U R2 U2 B2 D U' has HH corners, L=8, 4 spare moves. Apply (U) and NISS: HH corners.
+
+- After U2 L2, 1qt edges will be RH (good) and FH (good): +0+2(+0)
+    - **U2 L2 U F2 R2 U2 B2 L2 U' L2 R2 U // 12**
+- After L2 U2 L2, 1qt edges will be RH (good) and FH (good): +1+1(+0)
+    - L2 U2 L2 U' R2 F2 U2 F2 D // no good
+
+Check linearly.
+
+- U2 L2 D
+    - After B2 U2 B2 R2, 1qt edges will be RH (good) and FH (good): +0+1+2(+0)
+        - B2 U2 B2 R2 U R2 L2 D' // no good
+
+Check inverse linearly. Skeleton (U D R2 U2 B2 D L2 U2) has RV corners.
+
+- (U)
+    - After (R2 L2), 1qt edges will be RV (good) and FH (good), fr=1: +0+2+1(+1)
+        - (R2 L2 U B2 U2 F2 L2 D) // no good
+- (U')
+    - After (R2 L2), 1qt edges will be RV (good) and FH (good): +0+2+2(+0)
+        - **(R2 L2 U R2 F2 U2 L2 B2 U' R2 D2) // 12**
+
+Optimal is 11. Found 11.
