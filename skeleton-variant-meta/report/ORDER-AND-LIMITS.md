@@ -4,37 +4,37 @@
 
 This is an analysis of different metas for prioritizing HTRs when searching for a DR finish.
 The key decisions that the meta needs to make are:
- - Breadth vs depth: how many HTRs to check on a skeleton before moving to another skeleton
- - Length restriction: limits on the HTRs to check
- - NISS strategy: when to use NISS
+ - **Breadth vs depth**: how many HTRs to check on a skeleton before moving to another skeleton
+ - **Length restriction**: limits on the HTRs to check
+ - **NISS strategy**: when to use NISS
 
 The analysis uses a sample of 2,000 random DRs each for 2qt, 3qt and 4qt (1,960 for 2qt), split by corner case. The success criterion is
 finding a 12/13/14 move finish for a 0-2qt/3qt/4qt DR.
 
 The analysis uses the following definitions:
- - **G** the goal (12/13/14)
- - **L** the length of the corner skeleton
- - **H** the moves that must be added to the corner skeleton to reach HTR
- - **L+H** the total moves to reach HTR. A skeleton's moves after its last quarter turn come after HTR and are not counted here; the moves made before a NISS are
+ - **G** goal total move count to leave-slice: 12, 13, or 14
+ - **L** length of the corner skeleton
+ - **E** extra moves that must be added to the corner skeleton to reach HTR
+ - **H** total moves to reach HTR
 
-See [Advanced DR Bounding](https://docs.google.com/document/d/13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0/edit?usp=sharing) for definition of a corner skeleton, its length, and extra moves. In that doc's notation, H=P+S+T
+See [Advanced DR Bounding](https://docs.google.com/document/d/13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0/edit?usp=sharing) for definition of a corner skeleton, its length, and extra moves. In that doc's notation, E=P+S+T
 
 ## Conclusions
 
-- **Narrow first pass, then depth first** Check up to 5 HTRs on each skeleton before moving to the next one. Against breadth first, the median place is 1.3x to 2.2x and the HTRs to finish for 95% 1.4x to 3.6x
-- **Use both a relative and an absolute cap on HTR length** Restrict to H ≤ 5 and H+L ≤ G−2. That keeps 25% to 47% of the HTRs of H ≤ 5 alone, with 95% reach or more except on 4c3, 0c3 and 4c4. Those need H+L ≤ G−1 or more NISS
-- **NISS after a single QT is enough for the first solution, and a NISS after 1-2 moves adds reach** More NISS leaves the median place where it is. With H ≤ 5 and H+L ≤ G−2, a NISS after 1-2 moves adds 1.3 to 8.1 points of reach for 12% to 27% more HTRs, and reaches 95% in every corner case but 0c3
+- **Narrow first pass, then depth first** Check up to 5 HTRs on each skeleton before moving to the next one
+- **Use both a relative and an absolute cap on HTR length** Restrict to E ≤ 5 and H ≤ G−2
+- **NISS after a single QT is enough for all but 0c3, 4c3, and 4c4**
 
 ## 1. Breadth vs Depth
 
 Finishing the shortest HTR first should find a solution soonest. But that order mixes the skeletons, and by hand it is easier to go through one skeleton at a time.
 This section measures what that costs by comparing three strategies:
 
-- **Breadth first** Strict ordering by H+L, mixing together all skeletons on both sides. The a-priori optimal ordering
+- **Breadth first** Strict ordering by H, mixing together all skeletons on both sides. The a-priori optimal ordering
 - **Depth first** Order skeletons by L, then check all of a skeleton's HTRs before moving to the next: its NISS after a single qt first, then linear, shortest first in each
 - **Two pass** Order skeletons by L, then check up to k HTRs per skeleton (NISS and linear combined). Finish with a depth-first second pass through the skeletons
 
-The HTRs checked are the same in all three: H ≤ 5 and H+L ≤ G−1, with at most 1 extra move before 2qt, on normal, on inverse and with a NISS after a single qt. HTRs with the same H+L are taken most pairs first, and skeletons of one length in random order.
+The HTRs checked are the same in all three: E ≤ 5 and H ≤ G−1, with at most 1 extra move before 2qt, on normal, on inverse and with a NISS after a single qt. HTRs with the same H are taken most pairs first, and skeletons of one length in random order.
 
 For all DRs that have a within-goal solution, we compute
 
@@ -45,7 +45,7 @@ Across the corner cases with at least 100 within-goal DRs, a two-pass strategy w
 
 ### 2qt DRs (goal 12)
 
-**4a2** · 376 DRs, 120 within-goal · H ≤ 5, H+L ≤ 11 · 573 HTRs and 12 skeletons per DR (median) · reach 97.5%. Depth first puts the first solution at place 13 instead of 7. Of the two-pass orders, 4 per skeleton has the best median place (9), and 8 per skeleton needs the fewest HTRs for 95% (203, against 188 breadth first).
+**4a2** · 376 DRs, 120 within-goal · E ≤ 5, H ≤ 11 · 573 HTRs and 12 skeletons per DR (median) · reach 97.5%. Depth first puts the first solution at place 13 instead of 7. Of the two-pass orders, 4 per skeleton has the best median place (9), and 8 per skeleton needs the fewest HTRs for 95% (203, against 188 breadth first).
 
 | Order | Median place | HTRs to finish for 95% |
 |---|---|---|
@@ -59,7 +59,7 @@ Across the corner cases with at least 100 within-goal DRs, a two-pass strategy w
 | Two pass, 8 per skeleton | 10 | 203 |
 | Two pass, 10 per skeleton | 11 | 207 |
 
-**4b2** · 1,584 DRs, 953 within-goal · H ≤ 5, H+L ≤ 11 · 990.5 HTRs and 26 skeletons per DR (median) · reach 98.0%. Depth first puts the first solution at place 23 instead of 4. Of the two-pass orders, 3 per skeleton has the best median place (7), and 10 per skeleton needs the fewest HTRs for 95% (332, against 206 breadth first).
+**4b2** · 1,584 DRs, 953 within-goal · E ≤ 5, H ≤ 11 · 990.5 HTRs and 26 skeletons per DR (median) · reach 98.0%. Depth first puts the first solution at place 23 instead of 4. Of the two-pass orders, 3 per skeleton has the best median place (7), and 10 per skeleton needs the fewest HTRs for 95% (332, against 206 breadth first).
 
 | Order | Median place | HTRs to finish for 95% |
 |---|---|---|
@@ -75,7 +75,7 @@ Across the corner cases with at least 100 within-goal DRs, a two-pass strategy w
 
 ### 3qt DRs (goal 13)
 
-**0c3** · 101 DRs, 15 within-goal (a small sample) · H ≤ 5, H+L ≤ 12 · 512 HTRs and 4 skeletons per DR (median) · reach 93.3%. Depth first puts the first solution at place 17 instead of 5. Of the two-pass orders, 3 per skeleton has the best median place (4).
+**0c3** · 101 DRs, 15 within-goal (a small sample) · E ≤ 5, H ≤ 12 · 512 HTRs and 4 skeletons per DR (median) · reach 93.3%. Depth first puts the first solution at place 17 instead of 5. Of the two-pass orders, 3 per skeleton has the best median place (4).
 
 The analysis only extends skeletons to 2 extra qt, and 1 of the 15 within-goal DRs needs more, so the success rate stops at 93.3% and 95% is never reached.
 
@@ -91,7 +91,7 @@ The analysis only extends skeletons to 2 extra qt, and 1 of the 15 within-goal D
 | Two pass, 8 per skeleton | 9 | — |
 | Two pass, 10 per skeleton | 11 | — |
 
-**2c3** · 1,048 DRs, 901 within-goal · H ≤ 5, H+L ≤ 12 · 2,486.5 HTRs and 63 skeletons per DR (median) · reach 98.2%. Depth first puts the first solution at place 69 instead of 6. Of the two-pass orders, 2 per skeleton has the best median place (10), and 10 per skeleton needs the fewest HTRs for 95% (685, against 427 breadth first).
+**2c3** · 1,048 DRs, 901 within-goal · E ≤ 5, H ≤ 12 · 2,486.5 HTRs and 63 skeletons per DR (median) · reach 98.2%. Depth first puts the first solution at place 69 instead of 6. Of the two-pass orders, 2 per skeleton has the best median place (10), and 10 per skeleton needs the fewest HTRs for 95% (685, against 427 breadth first).
 
 | Order | Median place | HTRs to finish for 95% |
 |---|---|---|
@@ -105,7 +105,7 @@ The analysis only extends skeletons to 2 extra qt, and 1 of the 15 within-goal D
 | Two pass, 8 per skeleton | 17 | 858 |
 | Two pass, 10 per skeleton | 20 | 685 |
 
-**4c3** · 851 DRs, 511 within-goal · H ≤ 5, H+L ≤ 12 · 1,846 HTRs and 37 skeletons per DR (median) · reach 99.2%. Depth first puts the first solution at place 118 instead of 15. Of the two-pass orders, 4 per skeleton has the best median place (30), and 10 per skeleton needs the fewest HTRs for 95% (1,142, against 565 breadth first).
+**4c3** · 851 DRs, 511 within-goal · E ≤ 5, H ≤ 12 · 1,846 HTRs and 37 skeletons per DR (median) · reach 99.2%. Depth first puts the first solution at place 118 instead of 15. Of the two-pass orders, 4 per skeleton has the best median place (30), and 10 per skeleton needs the fewest HTRs for 95% (1,142, against 565 breadth first).
 
 | Order | Median place | HTRs to finish for 95% |
 |---|---|---|
@@ -121,7 +121,7 @@ The analysis only extends skeletons to 2 extra qt, and 1 of the 15 within-goal D
 
 ### 4qt DRs (goal 14)
 
-**0c4** · 66 DRs, 66 within-goal (a small sample) · H ≤ 5, H+L ≤ 13 · 8,235 HTRs and 134 skeletons per DR (median) · reach 100.0%. Depth first puts the first solution at place 894 instead of 40. Of the two-pass orders, 2 per skeleton has the best median place (72), and 5 per skeleton needs the fewest HTRs for 95% (2,790, against 600 breadth first).
+**0c4** · 66 DRs, 66 within-goal (a small sample) · E ≤ 5, H ≤ 13 · 8,235 HTRs and 134 skeletons per DR (median) · reach 100.0%. Depth first puts the first solution at place 894 instead of 40. Of the two-pass orders, 2 per skeleton has the best median place (72), and 5 per skeleton needs the fewest HTRs for 95% (2,790, against 600 breadth first).
 
 | Order | Median place | HTRs to finish for 95% |
 |---|---|---|
@@ -135,7 +135,7 @@ The analysis only extends skeletons to 2 extra qt, and 1 of the 15 within-goal D
 | Two pass, 8 per skeleton | 98 | 3,022 |
 | Two pass, 10 per skeleton | 96 | 3,162 |
 
-**2c4** · 1,243 DRs, 1,123 within-goal · H ≤ 5, H+L ≤ 13 · 4,431 HTRs and 98 skeletons per DR (median) · reach 99.6%. Depth first puts the first solution at place 241 instead of 9. Of the two-pass orders, 2 per skeleton has the best median place (16), and 10 per skeleton needs the fewest HTRs for 95% (950, against 350 breadth first).
+**2c4** · 1,243 DRs, 1,123 within-goal · E ≤ 5, H ≤ 13 · 4,431 HTRs and 98 skeletons per DR (median) · reach 99.6%. Depth first puts the first solution at place 241 instead of 9. Of the two-pass orders, 2 per skeleton has the best median place (16), and 10 per skeleton needs the fewest HTRs for 95% (950, against 350 breadth first).
 
 | Order | Median place | HTRs to finish for 95% |
 |---|---|---|
@@ -149,7 +149,7 @@ The analysis only extends skeletons to 2 extra qt, and 1 of the 15 within-goal D
 | Two pass, 8 per skeleton | 25 | 1,013 |
 | Two pass, 10 per skeleton | 29 | 950 |
 
-**4c4** · 691 DRs, 397 within-goal · H ≤ 5, H+L ≤ 13 · 2,022 HTRs and 73 skeletons per DR (median) · reach 100.0%. Depth first puts the first solution at place 236 instead of 39. Of the two-pass orders, 3 per skeleton has the best median place (67), and 10 per skeleton needs the fewest HTRs for 95% (1,128, against 584 breadth first).
+**4c4** · 691 DRs, 397 within-goal · E ≤ 5, H ≤ 13 · 2,022 HTRs and 73 skeletons per DR (median) · reach 100.0%. Depth first puts the first solution at place 236 instead of 39. Of the two-pass orders, 3 per skeleton has the best median place (67), and 10 per skeleton needs the fewest HTRs for 95% (1,128, against 584 breadth first).
 
 | Order | Median place | HTRs to finish for 95% |
 |---|---|---|
@@ -166,13 +166,13 @@ The analysis only extends skeletons to 2 extra qt, and 1 of the 15 within-goal D
 ## 2. Length Restrictions
 
 An HTR too close to the goal has a very small chance of hitting the goal. We enforce these limits always:
- - **H+L < G** Must reach HTR with at least one move to spare
+ - **H < G** Must reach HTR with at least one move to spare
  - **≤ 1 extra move before 2qt** Allowing more adds 8% to 84% to the HTR count for 0.0 to 1.0 points of reach, and is usually unnecessary because we are checking both directions
 
 We use the k=5, two-pass strategy from section 1 and consider three kinds of restrictions
 
-- **H+L** Cap on the total moves to reach HTR
-- **H alone** Cap on the extra moves to reach HTR
+- **H** Cap on the total moves to reach HTR
+- **E** Cap on the extra moves to reach HTR
 - **Combined** Cap both separately
 
 For each corner case, the tables below show
@@ -183,44 +183,44 @@ For each corner case, the tables below show
 
 The rows in bold are, for each kind of restriction, the one with the fewest HTRs per DR that still has 95% reach.
 
-Across corner cases, a combined restriction gives the best tradeoff: H ≤ 5, H+L ≤ G−2.
-Next to H ≤ 5 alone, it keeps 25% to 47% of the HTRs in the corner cases with at least 100 within-goal DRs and moves the median place by 3 at most. Reach stays at 95% or more in 5 of the 8 corner cases (4b2, 4a2, 2c3, 2c4 and 0c4). It falls to 91.8% on 4c3, 80.0% on 0c3 and 86.9% on 4c4. There H+L ≤ G−1 keeps 95% (except on 0c3, which never reaches it), and so does more NISS (section 3).
+Across corner cases, a combined restriction gives the best tradeoff: E ≤ 5, H ≤ G−2.
+Next to E ≤ 5 alone, it keeps 25% to 47% of the HTRs in the corner cases with at least 100 within-goal DRs and moves the median place by 3 at most. Reach stays at 95% or more in 5 of the 8 corner cases (4b2, 4a2, 2c3, 2c4 and 0c4). It falls to 91.8% on 4c3, 80.0% on 0c3 and 86.9% on 4c4. There H ≤ G−1 keeps 95% (except on 0c3, which never reaches it), and so does more NISS (section 3).
 
 ### 2qt DRs (goal 12)
 
-**4a2** · 376 DRs, 120 within-goal. The tightest restrictions with 95% reach: H+L ≤ 10 (272 HTRs per DR); H ≤ 4 (476); and H ≤ 4 with H+L ≤ 10 (239).
+**4a2** · 376 DRs, 120 within-goal. The tightest restrictions with 95% reach: H ≤ 10 (272 HTRs per DR); E ≤ 4 (476); and E ≤ 4 with H ≤ 10 (239).
 
 | Restriction | HTRs per DR (median) | Reach | Median place |
 |---|---|---|---|
-| H+L ≤ 7 | 0 | 42.5% | — |
-| H+L ≤ 8 | 8 | 70.8% | 11 |
-| H+L ≤ 9 | 72 | 87.5% | 10 |
-| **H+L ≤ 10** | **272** | **95.8%** | **9** |
-| H+L ≤ 11 | 573 | 97.5% | 9 |
-| H ≤ 3 | 228.5 | 92.5% | 9 |
-| **H ≤ 4** | **476** | **97.5%** | **9** |
-| H ≤ 5 | 573 | 97.5% | 9 |
-| H ≤ 6 | 573 | 97.5% | 9 |
-| **H ≤ 4, H+L ≤ 10** | **239** | **95.8%** | **9** |
-| H ≤ 5, H+L ≤ 10 | 272 | 95.8% | 9 |
-| H ≤ 6, H+L ≤ 10 | 272 | 95.8% | 9 |
+| H ≤ 7 | 0 | 42.5% | — |
+| H ≤ 8 | 8 | 70.8% | 11 |
+| H ≤ 9 | 72 | 87.5% | 10 |
+| **H ≤ 10** | **272** | **95.8%** | **9** |
+| H ≤ 11 | 573 | 97.5% | 9 |
+| E ≤ 3 | 228.5 | 92.5% | 9 |
+| **E ≤ 4** | **476** | **97.5%** | **9** |
+| E ≤ 5 | 573 | 97.5% | 9 |
+| E ≤ 6 | 573 | 97.5% | 9 |
+| **E ≤ 4, H ≤ 10** | **239** | **95.8%** | **9** |
+| E ≤ 5, H ≤ 10 | 272 | 95.8% | 9 |
+| E ≤ 6, H ≤ 10 | 272 | 95.8% | 9 |
 
-**4b2** · 1,584 DRs, 953 within-goal. The tightest restrictions with 95% reach: H+L ≤ 10 (600 HTRs per DR); H ≤ 4 (675.5); and H ≤ 5 with H+L ≤ 10 (411).
+**4b2** · 1,584 DRs, 953 within-goal. The tightest restrictions with 95% reach: H ≤ 10 (600 HTRs per DR); E ≤ 4 (675.5); and E ≤ 5 with H ≤ 10 (411).
 
 | Restriction | HTRs per DR (median) | Reach | Median place |
 |---|---|---|---|
-| H+L ≤ 7 | 7 | 56.0% | 6 |
-| H+L ≤ 8 | 33 | 71.7% | 7 |
-| H+L ≤ 9 | 151 | 87.2% | 8 |
-| **H+L ≤ 10** | **600** | **96.2%** | **8** |
-| H+L ≤ 11 | 1,650.5 | 99.1% | 8 |
-| H ≤ 3 | 376 | 87.9% | 8 |
-| **H ≤ 4** | **675.5** | **96.3%** | **7** |
-| H ≤ 5 | 990.5 | 98.0% | 8 |
-| H ≤ 6 | 1,435 | 99.0% | 8 |
-| H ≤ 4, H+L ≤ 10 | 280.5 | 93.7% | 7 |
-| **H ≤ 5, H+L ≤ 10** | **411** | **95.2%** | **8** |
-| H ≤ 6, H+L ≤ 10 | 555 | 96.2% | 8 |
+| H ≤ 7 | 7 | 56.0% | 6 |
+| H ≤ 8 | 33 | 71.7% | 7 |
+| H ≤ 9 | 151 | 87.2% | 8 |
+| **H ≤ 10** | **600** | **96.2%** | **8** |
+| H ≤ 11 | 1,650.5 | 99.1% | 8 |
+| E ≤ 3 | 376 | 87.9% | 8 |
+| **E ≤ 4** | **675.5** | **96.3%** | **7** |
+| E ≤ 5 | 990.5 | 98.0% | 8 |
+| E ≤ 6 | 1,435 | 99.0% | 8 |
+| E ≤ 4, H ≤ 10 | 280.5 | 93.7% | 7 |
+| **E ≤ 5, H ≤ 10** | **411** | **95.2%** | **8** |
+| E ≤ 6, H ≤ 10 | 555 | 96.2% | 8 |
 
 ### 3qt DRs (goal 13)
 
@@ -228,106 +228,106 @@ Next to H ≤ 5 alone, it keeps 25% to 47% of the HTRs in the corner cases with 
 
 | Restriction | HTRs per DR (median) | Reach | Median place |
 |---|---|---|---|
-| H+L ≤ 8 | 0 | 33.3% | — |
-| H+L ≤ 9 | 0 | 66.7% | 6 |
-| H+L ≤ 10 | 32 | 66.7% | 7 |
-| H+L ≤ 11 | 188 | 80.0% | 6 |
-| H+L ≤ 12 | 512 | 93.3% | 6 |
-| H ≤ 3 | 512 | 93.3% | 6 |
-| H ≤ 4 | 512 | 93.3% | 6 |
-| H ≤ 5 | 512 | 93.3% | 6 |
-| H ≤ 6 | 512 | 93.3% | 6 |
-| H ≤ 4, H+L ≤ 11 | 188 | 80.0% | 6 |
-| H ≤ 5, H+L ≤ 11 | 188 | 80.0% | 6 |
-| H ≤ 6, H+L ≤ 11 | 188 | 80.0% | 6 |
+| H ≤ 8 | 0 | 33.3% | — |
+| H ≤ 9 | 0 | 66.7% | 6 |
+| H ≤ 10 | 32 | 66.7% | 7 |
+| H ≤ 11 | 188 | 80.0% | 6 |
+| H ≤ 12 | 512 | 93.3% | 6 |
+| E ≤ 3 | 512 | 93.3% | 6 |
+| E ≤ 4 | 512 | 93.3% | 6 |
+| E ≤ 5 | 512 | 93.3% | 6 |
+| E ≤ 6 | 512 | 93.3% | 6 |
+| E ≤ 4, H ≤ 11 | 188 | 80.0% | 6 |
+| E ≤ 5, H ≤ 11 | 188 | 80.0% | 6 |
+| E ≤ 6, H ≤ 11 | 188 | 80.0% | 6 |
 
-**2c3** · 1,048 DRs, 901 within-goal. The tightest restrictions with 95% reach: H+L ≤ 11 (1,364.5 HTRs per DR); H ≤ 4 (1,612.5); and H ≤ 5 with H+L ≤ 11 (1,080).
-
-| Restriction | HTRs per DR (median) | Reach | Median place |
-|---|---|---|---|
-| H+L ≤ 8 | 14 | 61.9% | 10 |
-| H+L ≤ 9 | 74 | 78.6% | 11 |
-| H+L ≤ 10 | 340.5 | 89.9% | 12 |
-| **H+L ≤ 11** | **1,364.5** | **96.6%** | **12** |
-| H+L ≤ 12 | 4,376 | 99.0% | 12 |
-| H ≤ 3 | 952 | 90.2% | 12 |
-| **H ≤ 4** | **1,612.5** | **95.9%** | **12** |
-| H ≤ 5 | 2,486.5 | 98.2% | 12 |
-| H ≤ 6 | 3,396 | 99.0% | 12 |
-| H ≤ 4, H+L ≤ 11 | 644 | 93.6% | 12 |
-| **H ≤ 5, H+L ≤ 11** | **1,080** | **96.2%** | **12** |
-| H ≤ 6, H+L ≤ 11 | 1,356 | 96.6% | 12 |
-
-**4c3** · 851 DRs, 511 within-goal. The tightest restrictions with 95% reach: H+L ≤ 12 (1,846 HTRs per DR); and H ≤ 3 (983). With H+L ≤ 11 nothing reaches 95%.
+**2c3** · 1,048 DRs, 901 within-goal. The tightest restrictions with 95% reach: H ≤ 11 (1,364.5 HTRs per DR); E ≤ 4 (1,612.5); and E ≤ 5 with H ≤ 11 (1,080).
 
 | Restriction | HTRs per DR (median) | Reach | Median place |
 |---|---|---|---|
-| H+L ≤ 8 | 2 | 32.3% | — |
-| H+L ≤ 9 | 23 | 55.6% | 22 |
-| H+L ≤ 10 | 137 | 77.5% | 20 |
-| H+L ≤ 11 | 569 | 91.8% | 27 |
-| **H+L ≤ 12** | **1,846** | **99.2%** | **31** |
-| **H ≤ 3** | **983** | **96.7%** | **31** |
-| H ≤ 4 | 1,659 | 99.2% | 31 |
-| H ≤ 5 | 1,846 | 99.2% | 30 |
-| H ≤ 6 | 1,846 | 99.2% | 31 |
-| H ≤ 4, H+L ≤ 11 | 565 | 91.8% | 27 |
-| H ≤ 5, H+L ≤ 11 | 566 | 91.8% | 27 |
-| H ≤ 6, H+L ≤ 11 | 569 | 91.8% | 27 |
+| H ≤ 8 | 14 | 61.9% | 10 |
+| H ≤ 9 | 74 | 78.6% | 11 |
+| H ≤ 10 | 340.5 | 89.9% | 12 |
+| **H ≤ 11** | **1,364.5** | **96.6%** | **12** |
+| H ≤ 12 | 4,376 | 99.0% | 12 |
+| E ≤ 3 | 952 | 90.2% | 12 |
+| **E ≤ 4** | **1,612.5** | **95.9%** | **12** |
+| E ≤ 5 | 2,486.5 | 98.2% | 12 |
+| E ≤ 6 | 3,396 | 99.0% | 12 |
+| E ≤ 4, H ≤ 11 | 644 | 93.6% | 12 |
+| **E ≤ 5, H ≤ 11** | **1,080** | **96.2%** | **12** |
+| E ≤ 6, H ≤ 11 | 1,356 | 96.6% | 12 |
+
+**4c3** · 851 DRs, 511 within-goal. The tightest restrictions with 95% reach: H ≤ 12 (1,846 HTRs per DR); and E ≤ 3 (983). With H ≤ 11 nothing reaches 95%.
+
+| Restriction | HTRs per DR (median) | Reach | Median place |
+|---|---|---|---|
+| H ≤ 8 | 2 | 32.3% | — |
+| H ≤ 9 | 23 | 55.6% | 22 |
+| H ≤ 10 | 137 | 77.5% | 20 |
+| H ≤ 11 | 569 | 91.8% | 27 |
+| **H ≤ 12** | **1,846** | **99.2%** | **31** |
+| **E ≤ 3** | **983** | **96.7%** | **31** |
+| E ≤ 4 | 1,659 | 99.2% | 31 |
+| E ≤ 5 | 1,846 | 99.2% | 30 |
+| E ≤ 6 | 1,846 | 99.2% | 31 |
+| E ≤ 4, H ≤ 11 | 565 | 91.8% | 27 |
+| E ≤ 5, H ≤ 11 | 566 | 91.8% | 27 |
+| E ≤ 6, H ≤ 11 | 569 | 91.8% | 27 |
 
 ### 4qt DRs (goal 14)
 
-**0c4** · 66 DRs, 66 within-goal (a small sample). The tightest restrictions with 95% reach: H+L ≤ 12 (2,204.5 HTRs per DR); H ≤ 3 (5,502); and H ≤ 3 with H+L ≤ 12 (2,118.5).
+**0c4** · 66 DRs, 66 within-goal (a small sample). The tightest restrictions with 95% reach: H ≤ 12 (2,204.5 HTRs per DR); E ≤ 3 (5,502); and E ≤ 3 with H ≤ 12 (2,118.5).
 
 | Restriction | HTRs per DR (median) | Reach | Median place |
 |---|---|---|---|
-| H+L ≤ 9 | 6 | 18.2% | — |
-| H+L ≤ 10 | 70 | 51.5% | 79 |
-| H+L ≤ 11 | 461.5 | 75.8% | 64 |
-| **H+L ≤ 12** | **2,204.5** | **98.5%** | **85** |
-| H+L ≤ 13 | 8,235 | 100.0% | 86 |
-| **H ≤ 3** | **5,502** | **98.5%** | **86** |
-| H ≤ 4 | 7,724 | 100.0% | 86 |
-| H ≤ 5 | 8,235 | 100.0% | 86 |
-| H ≤ 6 | 8,235 | 100.0% | 86 |
-| **H ≤ 3, H+L ≤ 12** | **2,118.5** | **98.5%** | **79** |
-| H ≤ 4, H+L ≤ 12 | 2,204.5 | 98.5% | 85 |
-| H ≤ 5, H+L ≤ 12 | 2,204.5 | 98.5% | 85 |
-| H ≤ 6, H+L ≤ 12 | 2,204.5 | 98.5% | 85 |
+| H ≤ 9 | 6 | 18.2% | — |
+| H ≤ 10 | 70 | 51.5% | 79 |
+| H ≤ 11 | 461.5 | 75.8% | 64 |
+| **H ≤ 12** | **2,204.5** | **98.5%** | **85** |
+| H ≤ 13 | 8,235 | 100.0% | 86 |
+| **E ≤ 3** | **5,502** | **98.5%** | **86** |
+| E ≤ 4 | 7,724 | 100.0% | 86 |
+| E ≤ 5 | 8,235 | 100.0% | 86 |
+| E ≤ 6 | 8,235 | 100.0% | 86 |
+| **E ≤ 3, H ≤ 12** | **2,118.5** | **98.5%** | **79** |
+| E ≤ 4, H ≤ 12 | 2,204.5 | 98.5% | 85 |
+| E ≤ 5, H ≤ 12 | 2,204.5 | 98.5% | 85 |
+| E ≤ 6, H ≤ 12 | 2,204.5 | 98.5% | 85 |
 
-**2c4** · 1,243 DRs, 1,123 within-goal. The tightest restrictions with 95% reach: H+L ≤ 12 (1,612 HTRs per DR); H ≤ 3 (2,351); and H ≤ 4 with H+L ≤ 12 (1,328).
-
-| Restriction | HTRs per DR (median) | Reach | Median place |
-|---|---|---|---|
-| H+L ≤ 9 | 11 | 54.2% | 16 |
-| H+L ≤ 10 | 71 | 76.9% | 16 |
-| H+L ≤ 11 | 385 | 90.0% | 19 |
-| **H+L ≤ 12** | **1,612** | **97.9%** | **20** |
-| H+L ≤ 13 | 5,327 | 99.6% | 21 |
-| **H ≤ 3** | **2,351** | **96.5%** | **20** |
-| H ≤ 4 | 3,521 | 99.3% | 21 |
-| H ≤ 5 | 4,431 | 99.6% | 21 |
-| H ≤ 6 | 5,325 | 99.6% | 21 |
-| **H ≤ 4, H+L ≤ 12** | **1,328** | **97.8%** | **20** |
-| H ≤ 5, H+L ≤ 12 | 1,609 | 97.9% | 20 |
-| H ≤ 6, H+L ≤ 12 | 1,612 | 97.9% | 20 |
-
-**4c4** · 691 DRs, 397 within-goal. The tightest restrictions with 95% reach: H+L ≤ 13 (2,022 HTRs per DR); and H ≤ 3 (1,887). With H+L ≤ 12 nothing reaches 95%.
+**2c4** · 1,243 DRs, 1,123 within-goal. The tightest restrictions with 95% reach: H ≤ 12 (1,612 HTRs per DR); E ≤ 3 (2,351); and E ≤ 4 with H ≤ 12 (1,328).
 
 | Restriction | HTRs per DR (median) | Reach | Median place |
 |---|---|---|---|
-| H+L ≤ 9 | 0 | 7.1% | — |
-| H+L ≤ 10 | 8 | 30.0% | — |
-| H+L ≤ 11 | 84 | 56.7% | 75 |
-| H+L ≤ 12 | 503 | 86.9% | 80 |
-| **H+L ≤ 13** | **2,022** | **100.0%** | **81** |
-| **H ≤ 3** | **1,887** | **99.0%** | **82** |
-| H ≤ 4 | 2,022 | 100.0% | 81 |
-| H ≤ 5 | 2,022 | 100.0% | 81 |
-| H ≤ 6 | 2,022 | 100.0% | 81 |
-| H ≤ 4, H+L ≤ 12 | 503 | 86.9% | 80 |
-| H ≤ 5, H+L ≤ 12 | 503 | 86.9% | 80 |
-| H ≤ 6, H+L ≤ 12 | 503 | 86.9% | 80 |
+| H ≤ 9 | 11 | 54.2% | 16 |
+| H ≤ 10 | 71 | 76.9% | 16 |
+| H ≤ 11 | 385 | 90.0% | 19 |
+| **H ≤ 12** | **1,612** | **97.9%** | **20** |
+| H ≤ 13 | 5,327 | 99.6% | 21 |
+| **E ≤ 3** | **2,351** | **96.5%** | **20** |
+| E ≤ 4 | 3,521 | 99.3% | 21 |
+| E ≤ 5 | 4,431 | 99.6% | 21 |
+| E ≤ 6 | 5,325 | 99.6% | 21 |
+| **E ≤ 4, H ≤ 12** | **1,328** | **97.8%** | **20** |
+| E ≤ 5, H ≤ 12 | 1,609 | 97.9% | 20 |
+| E ≤ 6, H ≤ 12 | 1,612 | 97.9% | 20 |
+
+**4c4** · 691 DRs, 397 within-goal. The tightest restrictions with 95% reach: H ≤ 13 (2,022 HTRs per DR); and E ≤ 3 (1,887). With H ≤ 12 nothing reaches 95%.
+
+| Restriction | HTRs per DR (median) | Reach | Median place |
+|---|---|---|---|
+| H ≤ 9 | 0 | 7.1% | — |
+| H ≤ 10 | 8 | 30.0% | — |
+| H ≤ 11 | 84 | 56.7% | 75 |
+| H ≤ 12 | 503 | 86.9% | 80 |
+| **H ≤ 13** | **2,022** | **100.0%** | **81** |
+| **E ≤ 3** | **1,887** | **99.0%** | **82** |
+| E ≤ 4 | 2,022 | 100.0% | 81 |
+| E ≤ 5 | 2,022 | 100.0% | 81 |
+| E ≤ 6 | 2,022 | 100.0% | 81 |
+| E ≤ 4, H ≤ 12 | 503 | 86.9% | 80 |
+| E ≤ 5, H ≤ 12 | 503 | 86.9% | 80 |
+| E ≤ 6, H ≤ 12 | 503 | 86.9% | 80 |
 
 ## 3. NISS Strategy
 
@@ -339,10 +339,10 @@ This section shows the effect of different NISS strategies:
 - **After 1-2 moves** Also NISS after `X2 U`
 - **After 1-3 moves** Also NISS after `U X2 U`
 
-The table uses the restrictions of section 2, H ≤ 5 and H+L ≤ G−2, and the two-pass order with 5 per skeleton. An HTR found with a NISS belongs to the skeleton of its whole solution, and the moves before the NISS count in H+L. A NISS after a single qt is checked before the linear HTRs of its skeleton. A NISS after more moves is checked after all of them, in the second pass.
+The table uses the restrictions of section 2, E ≤ 5 and H ≤ G−2, and the two-pass order with 5 per skeleton. A NISS after a single qt is checked before the linear HTRs of its skeleton. A NISS after more moves is checked after all of them, in the second pass.
 
-A NISS after 1 move is what brings the first solution early. Against no NISS it adds 3.4 to 17.6 points of reach in the corner cases with at least 100 within-goal DRs, and the median place drops on 7 of the 8 corner cases.
-More NISS adds reach and leaves the first solution where it is: the median place moves by 1 at most. A NISS after 1-2 moves adds 1.3 to 8.1 points for 12% to 27% more HTRs, and a NISS after 1-3 moves 1.5 to 10.1 points for 15% to 46% more, both against a NISS after 1 move. With a NISS after 1-2 moves, H ≤ 5 and H+L ≤ G−2 reach 95% in every corner case but 0c3; with a NISS after 1 move only, 4c3, 0c3 and 4c4 fall short.
+A NISS after 1 move is important. For most corner cases, it's enough to get the reach above 95%.
+The exceptions are 0c3, 4c3, and 4c4, which require 1-2 moves (0c3 then reaches 93.3%, its ceiling).
 
 | Corner case | NISS | HTRs per DR (median) | Reach | Median place |
 |---|---|---|---|---|

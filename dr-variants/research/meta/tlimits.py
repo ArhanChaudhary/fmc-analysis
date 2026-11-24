@@ -1,9 +1,9 @@
 """The three sections of "HTR search order and limits": how many HTRs to check on a skeleton before moving on, which
-HTRs to check, and when to NISS.  H = P+S+T, the moves added to the corner skeleton to reach HTR; H+L here is the
-number of moves at which HTR is reached (a start made before a NISS counted; the skeleton's corner moves after HTR
-not counted).  Nothing uses a lower bound for N or step 4.
+HTRs to check, and when to NISS.  The report's notation: E = P+S+T, the extra moves added to the corner skeleton to
+reach HTR; H = the number of moves at which HTR is reached (a start made before a NISS counted; the skeleton's corner
+moves after HTR not counted).  Nothing uses a lower bound for N or step 4.
 
-Always: H+L <= G-1, and at most 1 extra move before 2qt (P <= 1).
+Always: H <= G-1, and at most 1 extra move before 2qt (P <= 1).
 
 The HTRs are read from a list that has, for each one, the linear skeleton its whole solution is on (`drvar
 metastdlist`, ../out/meta/stdn{M}.r40): every HTR at most G-1 moves away on normal, on inverse, or with one NISS
@@ -14,14 +14,14 @@ with 3 or more quarter turns in all and a finish of at least one move, are the r
 
 A skeleton at a time (torder.tier_places): skeletons shortest first; a skeleton's HTRs are those after a single
 quarter turn (a NISS after 1 move) first, then the linear ones, then those after a longer start, which are never in
-the first pass; each by H+L, most pairs first.  Two passes: at most k HTRs per skeleton in the first, then the rest in
+the first pass; each by H, most pairs first.  Two passes: at most k HTRs per skeleton in the first, then the rest in
 the same order.
 
-  order   section 1: the HTRs with H <= 5 (normal, inverse, NISS after 1 move) breadth first (by H+L), depth first
+  order   section 1: the HTRs with E <= 5 (normal, inverse, NISS after 1 move) breadth first (by H), depth first
           (one skeleton at a time), and in two passes with k = 2..6, 8, 10
-  grid    section 2, with FIRST per skeleton (normal, inverse, NISS after 1 move): k, c = H <= k (k = 3..6 or none)
-          and H+L <= c (c = G-5 .. G-1)
-  niss    section 3, with FIRST per skeleton, H <= 5 and H+L <= G-2: no NISS, a NISS after 1 move, after 1-2, after 1-3
+  grid    section 2, with FIRST per skeleton (normal, inverse, NISS after 1 move): k, c = E <= k (k = 3..6 or none)
+          and H <= c (c = G-5 .. G-1)
+  niss    section 3, with FIRST per skeleton, E <= 5 and H <= G-2: no NISS, a NISS after 1 move, after 1-2, after 1-3
 
 Per entry: HTRs per DR, reach (within-goal DRs with a within-goal HTR among the kept ones), and how many HTRs are
 finished before 50% and 95% of within-goal DRs have a within-goal finish (None where the kept HTRs don't reach that
