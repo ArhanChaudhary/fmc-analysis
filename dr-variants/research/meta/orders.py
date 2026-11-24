@@ -1,4 +1,5 @@
-"""Within a fixed generation depth (S+T <= K, at most 1 extra move before 2qt, both sides): which order of finishing?"""
+"""Within a fixed generation depth (S+T <= K, at most 1 extra move before 2qt, both sides): which order of finishing?
+The baseline is the pairs-aware one: the pair floor, shortest HTR first, most pairs first among equals."""
 import sys, json
 from common import *
 PF = {0: 4, 2: 5, 4: 3, 6: 3, 8: 2, 10: 3, 12: 1, 16: 0}
@@ -15,8 +16,13 @@ for m in [2, 3, 4]:
         pols = {
             'no floors: by moves to HTR, random': (reg, ['len']),
             'no floors: by moves to HTR, most pairs': (reg, ['len', 'np0']),
+            'no floors: most pairs first (look at all first)': (reg, ['np0', 'len']),
+            'rule only: random': (reg & df.rlive, ['zero']),
             'rule only: by moves to HTR, most pairs': (reg & df.rlive, ['len', 'np0']),
+            'rule only: most pairs first (look at all first)': (reg & df.rlive, ['np0', 'len']),
+            'pair floor only: random': (reg & df.plive, ['zero']),
             'pair floor only: by moves to HTR, most pairs': (reg & df.plive, ['len', 'np0']),
+            'pair floor only: most pairs first (look at all first)': (reg & df.plive, ['np0', 'len']),
             'both floors: random': (reg & df.both, ['zero']),
             'both floors: level by level, most pairs': (reg & df.both, ['ex', 'np0']),
             'both floors: by moves to HTR, most pairs': (reg & df.both, ['len', 'np0']),

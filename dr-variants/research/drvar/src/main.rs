@@ -23,10 +23,15 @@ mod quot;
 #[path = "../../../../judging-a-dr/research/drtools/src/reduced.rs"]
 mod reduced;
 mod model;
+mod split;
 mod search;
 mod crisp;
 mod crisp3;
 mod meta;
+mod tuple;
+mod stdcmp;
+mod stdord;
+mod annot;
 
 use crate::core::{perm_parity, St};
 use model::*;
@@ -541,7 +546,27 @@ fn main() {
         "metacheck" => meta::check(&md, args[2].parse().unwrap(), args[3].parse().unwrap(), args[4].parse().unwrap()),
         "metaniss" => meta::run_niss(&md, args[2].parse().unwrap(), args[3].parse().unwrap(), args[4].parse().unwrap(), &args[5]),
         "metahtrpairs" => meta::htr_pairs(&md),
-        "metax" => meta::explain(&md, &args[2]),
+        "metahtable" => meta::htable(&md),
+        "metarule" => meta::run_rule(&md, args[2].parse().unwrap(), args[3].parse().unwrap(), args[4].parse().unwrap(), &args[5], &args[6]),
+        "metacasemin" => meta::case_min(&md, args[2].parse().unwrap()),
+        "metahcheck" => meta::hcheck(&md, args[2].parse().unwrap(), args[3].parse().unwrap()),
+        "metastates" => meta::run_states(&md, args[2].parse().unwrap(), args[3].parse().unwrap(), args[4].parse().unwrap(), &args[5]),
+        "metasplit" => split::run(&md, &args[2], &args[3]),
+        "metatuple" => tuple::run(&md, args[2].parse().unwrap(), args[3].parse().unwrap(), args[4].parse().unwrap(), &args[5], &args[6], args.get(7).map_or(100, |a| a.parse().unwrap())),
+        "metarest1" => tuple::rest_cmd(&md, &args[2], &args[3]),
+        "metarest" => tuple::run_rest(&md, args[2].parse().unwrap(), args[3].parse().unwrap(), args[4].parse().unwrap(), &args[5], &args[6]),
+        "metaskel" => tuple::skeletons_cmd(&md, &args[2], args.get(3).map(|a| a.parse().unwrap())),
+        "metasec" => tuple::sections_cmd(),
+        "metaread" => tuple::read_cmd(&md, &args[2], &args[3], args.get(4).is_some_and(|a| a == "inverse")),
+        "metastd" => stdcmp::run(&md, args[2].parse().unwrap(), args[3].parse().unwrap(), args[4].parse().unwrap(), &args[5], &args[6]),
+        "metastd1" => stdcmp::explain(&md, &args[2], &args[3]),
+        "metaud" => stdord::udcheck(&md, args[2].parse().unwrap(), args[3].parse().unwrap(), args[4].parse().unwrap()),
+        "metastdlist" => stdord::run(&md, args[2].parse().unwrap(), args[3].parse().unwrap(), args[4].parse().unwrap(), args[5].parse().unwrap(), &args[6]),
+        "metaway" => stdcmp::way(&md),
+        "metaannot" => annot::run(&md, &args[2..]),
+        "metapairs" => annot::run_pairs(&md, args[2].parse().unwrap(), args[3].parse().unwrap(), args[4].parse().unwrap(), &args[5]),
+        "metax2" => tuple::explain(&md, &args[2], &args[3], args.get(4).map(|a| a.parse().unwrap())),
+        "metax" => meta::explain(&md, &args[2], args.get(3).map(|a| a.parse().unwrap())),
         "metarun" => {
             // drvar metarun N SEED M OUTPREFIX [niss] : the search-meta records for N random M-qt DRs
             meta::run(&md, args[2].parse().unwrap(), args[3].parse().unwrap(), args[4].parse().unwrap(), &args[5], args.len() > 6);

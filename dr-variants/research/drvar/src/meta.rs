@@ -3,8 +3,10 @@
 //! Setting (leave-slice solutions in DR moves, goals 12 / 13 / 14 for 2qt / 3qt / 4qt DRs):
 //!
 //! * A *variant* is a canonical DR move sequence P that ends with a quarter turn and lands in HTR, on the
-//!   normal scramble (state x) or on the inverse scramble (state x^-1).  Checking it means finishing the HTR
-//!   state z it lands on: the solution through P has |P| + ls(z) moves, ls = leave-slice half-turn finish.
+//!   normal scramble (state x) or on the inverse scramble (state x^-1), and does not come through an HTR
+//!   before that (an HTR up to a turn of both layers together: what follows it is its finish, not a new
+//!   variant).  Checking it means finishing the HTR state z it lands on: the solution through P has
+//!   |P| + ls(z) moves, ls = leave-slice half-turn finish.
 //! * Its *skeleton* is (side, quarter turns q, NISS@1qt corner kind of z); the skeleton length L is the
 //!   shortest corner-only path of that family (`rem[kind][q][corners]`).  *Extra moves* = |P| - L (the doc's
 //!   S + T).  For a prefix A with j quarter turns: extra(A) = |A| + rem[kind][q-j][corners after A] - L, so the
@@ -46,6 +48,76 @@ pub fn pairs(s: &St) -> u8 {
     pair_mask(s).count_ones() as u8
 }
 
+/// Bit i set = the corner and edge at the touching positions ADJ[i] form an HTR-equivalent pair: the two
+/// stickers on their shared side face are of the same colour or of opposite colours (a true pair, or what
+/// Rodney Kinney calls a pseudo-pair).  A corner out of its tetrad shows its other side colour there and an
+/// edge out of its slice orbit shows the other axis, so this holds exactly when the corner and the edge are
+/// both in their own half-turn orbit or both out of it.
+pub fn hpair_mask(s: &St) -> u16 {
+    let mut m = 0u16;
+    for (i, &(p, q)) in ADJ.iter().enumerate() {
+        let (cpiece, epiece) = (s.c[p] as usize, s.e[q] as usize);
+        let cbad = TETRAD[cpiece] != TETRAD[p];
+        let ebad = (EDGE_FACE[epiece] ^ EDGE_FACE[q]) & 1 == 1;
+        if cbad == ebad {
+            m |= 1 << i;
+        }
+    }
+    m
+}
+/// HTR-equivalent pairs in the U and D layers (0..=16; 16 in HTR and one quarter turn before it).
+pub fn hpairs(s: &St) -> u8 {
+    hpair_mask(s).count_ones() as u8
+}
+/// The same read off the stickers, as a check of `hpair_mask`: the colour the corner shows on the shared
+/// side face against the edge's side colour, opposite colours counted as the same.
+pub fn hpairs_by_sticker(s: &St) -> u8 {
+    let mut n = 0u8;
+    for &(p, q) in &ADJ {
+        let (cpiece, epiece) = (s.c[p] as usize, s.e[q] as usize);
+        let good = TETRAD[cpiece] == TETRAD[p];
+        let axis = (EDGE_FACE[q] & 1) as usize ^ usize::from(!good);
+        if CORNER_COL[cpiece][axis] % 2 == EDGE_FACE[epiece] % 2 {
+            n += 1;
+        }
+    }
+    n
+}
+/// Corners out of their tetrad and U/D-layer edges out of their slice orbit (the numbers of a subset name).
+pub fn bad_counts(s: &St) -> (u8, u8) {
+    let bc = (0..8).filter(|&p| TETRAD[s.c[p] as usize] != TETRAD[p]).count() as u8;
+    let be = (0..8).filter(|&q| (EDGE_FACE[s.e[q] as usize] ^ EDGE_FACE[q]) & 1 == 1).count() as u8;
+    (bc, be)
+}
+
+/// Fewest DR moves to HTR when a turn of both layers together is free (U and D are the same quarter turn for
+/// a leave-slice solution, so a solver's HTR is an HTR state up to such a turn).
+pub fn htrd_free(md: &Model, s: &St) -> u8 {
+    let y = word(&[2, 3]);
+    let mut t = *s;
+    let mut best = 255u8;
+    for _ in 0..4 {
+        best = best.min(md.htrd(&t));
+        t = t.mul(y);
+    }
+    best
+}
+/// Is the state an HTR up to a turn of both layers together?
+pub fn htr_like(md: &Model, s: &St) -> bool {
+    htrd_free(md, s) == 0
+}
+/// Does the path from `y` come through an HTR (up to a turn of both layers) before its last move?
+pub fn passes_htr(md: &Model, y: &St, w: &[usize]) -> bool {
+    let mut s = *y;
+    for &mv in &w[..w.len().saturating_sub(1)] {
+        s = s.apply_move(mv);
+        if is_qt(mv) && htr_like(md, &s) {
+            return true;
+        }
+    }
+    false
+}
+
 /// Fewest quarter turns that bring the corners to HTR (the number in the corner subset's name).
 pub fn qt_count(md: &Model, x: &St) -> usize {
     let c = rank_perm(&x.c);
@@ -76,6 +148,9 @@ pub fn variants<F: FnMut(&Var)>(md: &Model, x: &St, goal: usize, lencap: usize, 
                     if w.len() + LC[kind] as usize <= goal {
                         f(&Var { w, z: zi });
                     }
+                }
+                if htr_like(md, &s) {
+                    return;
                 }
             }
         }
@@ -230,6 +305,11 @@ impl Imager {
     /// The D-free image: D^a written as U^a with the rest renamed, cancelled, commuting side pairs ordered.
     pub fn image(&self, w: &[usize]) -> Vec<usize> {
         let mut rho: [usize; 10] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        self.image_from(&mut rho, w)
+    }
+    /// The same for a stretch that comes after others in one word: `rho` is the renaming so far (the identity at
+    /// the start of the word) and is carried on.  The stretch is cancelled and ordered on its own.
+    pub fn image_from(&self, rho: &mut [usize; 10], w: &[usize]) -> Vec<usize> {
         let mut out = Vec::with_capacity(w.len());
         for &mv in w {
             if mv < 3 {
@@ -335,6 +415,10 @@ pub fn real_variants<F: FnMut(&[usize], usize, u32)>(md: &Model, y: &St, u: &Uni
                         f(w, q, zi);
                     }
                 }
+                // a route stops at the first HTR it reaches: what follows is that HTR's finish, not a new HTR
+                if htr_like(md, &s) {
+                    return;
+                }
             }
         }
         if w.len() >= u.goal {
@@ -400,6 +484,8 @@ pub struct Cls {
     /// bad slices and cs | fr << 1 of the member with the smallest rule bound
     pub bad: u8,
     pub csfr: u8,
+    /// lower bounds on path + finish by up to four other rules (`Ctx::xpen`, one N per case), over the members
+    pub lbx: [u8; 4],
 }
 
 pub struct Ctx<'a> {
@@ -407,6 +493,8 @@ pub struct Ctx<'a> {
     pub im: Imager,
     /// smallest finish over each case's states, minus the kind's corner moves
     pub tpen: Vec<u8>,
+    /// up to four other rules to try: N for each case (all four default to the sheet's rule)
+    pub xpen: Vec<[u8; 4]>,
 }
 impl<'a> Ctx<'a> {
     pub fn new(md: &'a Model) -> Ctx<'a> {
@@ -415,7 +503,8 @@ impl<'a> Ctx<'a> {
             tfin[c as usize] = tfin[c as usize].min(md.fin[i]);
         }
         let tpen = tfin.iter().zip(&md.cases).map(|(&f, c)| f - LC[c.kind as usize]).collect();
-        Ctx { md, im: Imager::new(), tpen }
+        let xpen = md.cases.iter().map(|c| [c.heur; 4]).collect();
+        Ctx { md, im: Imager::new(), tpen, xpen }
     }
 
     /// The classes of a side, keyed by image.
@@ -429,13 +518,14 @@ impl<'a> Ctx<'a> {
             let tot = len + md.fin[zi as usize];
             let lbc = len + LC[cs.kind as usize];
             let (lbr, lbt) = (lbc + cs.heur, lbc + self.tpen[ci]);
+            let lbx = self.xpen[ci].map(|n| lbc + n);
             let key = self.im.key(w, true);
             let e = map.entry(key).or_insert_with(|| {
                 let mut a = [0u8; 16];
                 for (d, &m) in a.iter_mut().zip(w) {
                     *d = m as u8;
                 }
-                Cls { w: a, wl: len, q: q as u8, z: zi, wtot: tot, total: tot, tz: zi, tw: a, tl: len, lbc, lbr, lbt, bad: cs.bad(), csfr: cs.cs | cs.fr << 1 }
+                Cls { w: a, wl: len, q: q as u8, z: zi, wtot: tot, total: tot, tz: zi, tw: a, tl: len, lbc, lbr, lbt, bad: cs.bad(), csfr: cs.cs | cs.fr << 1, lbx }
             });
             if (len, tot) < (e.wl, e.wtot) {
                 e.w = [0u8; 16];
@@ -453,6 +543,9 @@ impl<'a> Ctx<'a> {
             }
             e.lbc = e.lbc.min(lbc);
             e.lbt = e.lbt.min(lbt);
+            for (a, b) in e.lbx.iter_mut().zip(lbx) {
+                *a = (*a).min(b);
+            }
             if lbr < e.lbr {
                 (e.lbr, e.bad, e.csfr) = (lbr, cs.bad(), cs.cs | cs.fr << 1);
             }
@@ -559,6 +652,46 @@ impl Rec {
     }
 }
 
+/// The second record of the main run, one per HTR in the same order (32 bytes, file `.ext`): what a solver
+/// can read at the states with 1, 2 and 3 quarter turns left on the way to this HTR.  255 = no such state.
+#[derive(Clone, Copy)]
+pub struct Ext {
+    /// class keys of the path up to the states with 2 and 3 quarter turns left (0 = none)
+    pub key2: u64,
+    pub key3: u64,
+    /// moves made up to the states with 1, 2 and 3 quarter turns left
+    pub a1: u8,
+    pub a2: u8,
+    pub a3: u8,
+    /// extra moves so far at the state with 3 quarter turns left, and its true pairs
+    pub e3: u8,
+    pub pn3: u8,
+    /// HTR-equivalent pairs on the state and on its inverse, with 1, 2 and 3 quarter turns left
+    pub hn1: u8,
+    pub hi1: u8,
+    pub hn2: u8,
+    pub hi2: u8,
+    pub hn3: u8,
+    pub hi3: u8,
+    /// fewest DR moves to HTR (`htrd_free`) from the state and from its inverse, with 2 and 3 quarter turns left
+    pub d2n: u8,
+    pub d2i: u8,
+    pub d3n: u8,
+    pub d3i: u8,
+    /// optimal leave-slice finish of the state with 2 quarter turns left
+    pub ls2: u8,
+}
+impl Ext {
+    pub fn bytes(&self) -> [u8; 32] {
+        let mut b = [0u8; 32];
+        b[0..8].copy_from_slice(&self.key2.to_le_bytes());
+        b[8..16].copy_from_slice(&self.key3.to_le_bytes());
+        let t = [self.a1, self.a2, self.a3, self.e3, self.pn3, self.hn1, self.hi1, self.hn2, self.hi2, self.hn3, self.hi3, self.d2n, self.d2i, self.d3n, self.d3i, self.ls2];
+        b[16..32].copy_from_slice(&t);
+        b
+    }
+}
+
 /// Corners that form a block with the E-slice edge next to them (judging-a-dr's `slice_pairs`).
 pub fn slice_pairs(s: &St) -> u8 {
     const E_ADJ: [usize; 8] = [0, 1, 2, 3, 0, 1, 2, 3];
@@ -587,7 +720,7 @@ fn nodes(start: &St, w: &[usize]) -> Vec<(St, usize)> {
 impl<'a> Ctx<'a> {
     /// Full record of a class on side `side` whose paths start at `y`.
     #[allow(clippy::too_many_arguments)]
-    pub fn record(&self, y: &St, c: &Cls, dr: u32, side: u8, m: usize, goal: usize, ids2: &mut std::collections::HashMap<u64, u32>, ids1: &mut std::collections::HashMap<u64, u32>) -> Rec {
+    pub fn record(&self, y: &St, c: &Cls, dr: u32, side: u8, m: usize, goal: usize, ids2: &mut std::collections::HashMap<u64, u32>, ids1: &mut std::collections::HashMap<u64, u32>) -> (Rec, Ext) {
         let md = self.md;
         let w: Vec<usize> = c.w[..c.wl as usize].iter().map(|&m| m as usize).collect();
         let q = c.q as usize;
@@ -608,7 +741,35 @@ impl<'a> Ctx<'a> {
         };
         let pre2 = id(ids2, nd[n2].1);
         let pre1 = id(ids1, nd[q - 1].1);
-        Rec {
+        let s2i = s2.inv();
+        let mut ext = Ext {
+            key2: self.im.key(&w[..nd[n2].1], false),
+            key3: 0,
+            a1: nd[q - 1].1 as u8,
+            a2: nd[n2].1 as u8,
+            a3: 255,
+            e3: 255,
+            pn3: 255,
+            hn1: hpairs(&s1),
+            hi1: hpairs(&s1.inv()),
+            hn2: hpairs(&s2),
+            hi2: hpairs(&s2i),
+            hn3: 255,
+            hi3: 255,
+            d2n: htrd_free(md, &s2),
+            d2i: htrd_free(md, &s2i),
+            d3n: 255,
+            d3i: 255,
+            ls2: md.lsopt(&s2),
+        };
+        if q >= 3 {
+            let (s3, a3) = nd[q - 3];
+            let s3i = s3.inv();
+            ext.key3 = self.im.key(&w[..a3], false);
+            (ext.a3, ext.e3, ext.pn3) = (a3 as u8, ex[q - 3], pairs(&s3));
+            (ext.hn3, ext.hi3, ext.d3n, ext.d3i) = (hpairs(&s3), hpairs(&s3i), htrd_free(md, &s3), htrd_free(md, &s3i));
+        }
+        let rec = Rec {
             dr,
             pre2,
             pre1,
@@ -640,7 +801,8 @@ impl<'a> Ctx<'a> {
             goal: goal as u8,
             sn0: slice_pairs(&s0),
             si0: slice_pairs(&s0.inv()),
-        }
+        };
+        (rec, ext)
     }
 }
 
@@ -680,7 +842,7 @@ pub fn niss_prefixes(cx: &Ctx, x: &St, m: usize, j: usize, emax: usize) -> Vec<(
 }
 
 /// The main run on one DR: records of both sides, and the mid-skeleton NISS histogram lines.
-pub fn run_one(cx: &Ctx, x: &St, dr: u32, niss: bool) -> (Vec<Rec>, Vec<String>) {
+pub fn run_one(cx: &Ctx, x: &St, dr: u32, niss: bool) -> (Vec<(Rec, Ext)>, Vec<String>) {
     let md = cx.md;
     let m = qt_count(md, x);
     let goal = goal_of(m);
@@ -745,16 +907,18 @@ pub fn run(md: &Model, n: usize, seed: u64, mwant: usize, out: &str, niss: bool)
         }
     }
     let mut fb = std::io::BufWriter::new(std::fs::File::create(format!("{out}.rec")).unwrap());
+    let mut fx = std::io::BufWriter::new(std::fs::File::create(format!("{out}.ext")).unwrap());
     let mut ft = std::io::BufWriter::new(std::fs::File::create(format!("{out}.tsv")).unwrap());
     writeln!(ft, "# D: dr m goal ls_optimal subset lmin_normal classes_normal lmin_inverse classes_inverse scramble").unwrap();
     writeln!(ft, "# Q: dr m niss_after_qt prefixes_extra0 prefixes_extra1").unwrap();
     writeln!(ft, "# M: dr m niss_after_qt prefix_extra path_extra rule_slack(-1 = fails) classes within_goal").unwrap();
     let t0 = std::time::Instant::now();
     for (b, chunk) in xs.chunks(64).enumerate() {
-        let res: Vec<(Vec<Rec>, Vec<String>)> = chunk.par_iter().enumerate().map(|(i, x)| run_one(&cx, x, (b * 64 + i) as u32, niss)).collect();
+        let res: Vec<(Vec<(Rec, Ext)>, Vec<String>)> = chunk.par_iter().enumerate().map(|(i, x)| run_one(&cx, x, (b * 64 + i) as u32, niss)).collect();
         for (recs, lines) in res {
-            for r in recs {
+            for (r, e) in recs {
                 fb.write_all(&r.bytes()).unwrap();
+                fx.write_all(&e.bytes()).unwrap();
             }
             for l in lines {
                 writeln!(ft, "{l}").unwrap();
@@ -792,27 +956,29 @@ pub fn cases(md: &Model) {
 
 /// drvar metax "SCRAMBLE" : every HTR a solver could check on this DR, one line each (TSV), both sides, plus
 /// the within-goal solutions a NISS after 1, 2, ... quarter turns finds with at most 1 extra move before it.
-pub fn explain(md: &Model, scr: &str) {
+pub fn explain(md: &Model, scr: &str, mwant: Option<usize>) {
     let cx = Ctx::new(md);
     let x = word(&crate::core::parse_moves(scr.as_bytes(), 64).unwrap_or_else(|| fatal!("not DR moves")));
-    let m = qt_count(md, &x);
+    // the DR's quarter-turn count sets the goal and the skeletons searched; a 0c0 DR (corners in HTR up to a turn of
+    // both layers) counts as 0, and can be read as a 2qt DR by passing 2
+    let m = mwant.unwrap_or_else(|| qt_count(md, &x));
     let goal = goal_of(m);
     println!("# scramble {scr}\n# subset {}  quarter turns {m}  goal {goal}  optimal leave-slice {}", md.subset(&x), md.lsopt(&x));
-    println!("side\tpath\tfinish\tq\tkind\tL\textra\te2\tS\tT\tcase\tbad\trule_N\tcorner_bound\trule_bound\ttable_bound\ttotal\tpairs_htr\tpairs_htr_inv\tpairs_2qt\tpairs_2qt_inv\tkept_trigger\tkept_finish");
+    println!("side\tpath\tfinish\tq\tkind\tL\textra\te2\tS\tT\tcase\tbad\trule_N\tcorner_bound\trule_bound\ttable_bound\ttotal\tpairs_htr\tpairs_htr_inv\tpairs_2qt\tpairs_2qt_inv\tkept_trigger\tkept_finish\thtrpairs_2qt\thtrpairs_2qt_inv\thtrpairs_3qt\thtrpairs_3qt_inv\tmoves_2qt\thtr_from_2qt\thtr_from_2qt_inv");
     let qmax = (m + 2).min(6);
     for (side, y) in [(0u8, x), (1u8, x.inv())] {
         let lmin = lmin_any(md, rank_perm(&y.c), qmax) as usize;
         let u = Uni { goal, cap_any: (goal - 1).min(lmin + 3), qmax };
         let cl = cx.classes(&y, &u);
         let (mut i2, mut i1) = (std::collections::HashMap::new(), std::collections::HashMap::new());
-        let mut rows: Vec<(Rec, &Cls)> = cl.values().map(|c| (cx.record(&y, c, 0, side, m, goal, &mut i2, &mut i1), c)).collect();
-        rows.sort_by_key(|(r, c)| (r.lbr, r.len - r.lsk, 255 - r.pn0, c.w));
-        for (r, c) in rows {
+        let mut rows: Vec<((Rec, Ext), &Cls)> = cl.values().map(|c| (cx.record(&y, c, 0, side, m, goal, &mut i2, &mut i1), c)).collect();
+        rows.sort_by_key(|((r, _), c)| (r.lbr, r.len - r.lsk, 255 - r.pn0, c.w));
+        for ((r, x2), c) in rows {
             let tw: Vec<usize> = c.tw[..c.tl as usize].iter().map(|&m| m as usize).collect();
             let cs = &md.cases[md.hcase[c.tz as usize] as usize];
             let fin = crate::crisp::ls_finish(md, c.tz);
             println!(
-                "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}",
+                "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}",
                 ["N", "I"][side as usize],
                 wname(&tw),
                 wname(&fin),
@@ -835,7 +1001,14 @@ pub fn explain(md: &Model, scr: &str) {
                 r.pn2,
                 r.pi2,
                 r.keep20,
-                if r.keptfin == 255 { "-".to_string() } else { format!("{}/{}", r.keptfin, r.sp0) }
+                if r.keptfin == 255 { "-".to_string() } else { format!("{}/{}", r.keptfin, r.sp0) },
+                x2.hn2,
+                x2.hi2,
+                if x2.hn3 == 255 { "-".to_string() } else { x2.hn3.to_string() },
+                if x2.hi3 == 255 { "-".to_string() } else { x2.hi3.to_string() },
+                x2.a2,
+                x2.d2n,
+                x2.d2i
             );
         }
     }
@@ -983,6 +1156,9 @@ pub fn check(md: &Model, n: usize, seed: u64, mwant: usize) {
                 let sols = crate::search::paths(md, &y, goal, qmax, |s, _, _| md.lsopt(s) as usize, |_, _, _, b| b as usize <= goal);
                 let mut keys: std::collections::HashMap<u64, u8> = std::collections::HashMap::new();
                 for p in &sols {
+                    if passes_htr(md, &y, &p.w) {
+                        continue;
+                    }
                     let e = keys.entry(cx.im.key(&p.w, true)).or_insert(255);
                     *e = (*e).min(p.best);
                 }
@@ -992,7 +1168,7 @@ pub fn check(md: &Model, n: usize, seed: u64, mwant: usize) {
                 }
                 let nwithin = cl.values().filter(|c| c.total as usize <= goal).count();
                 assert_eq!(nwithin, keys.len(), "within-goal classes differ");
-                tot.0 += sols.len();
+                tot.0 += sols.iter().filter(|p| !passes_htr(md, &y, &p.w)).count();
                 tot.1 += keys.len();
             }
             tot
@@ -1029,4 +1205,295 @@ pub fn witnesses(md: &Model) {
     // a zero-penalty rule case (zero bad slices, good parity) with the longest finish
     let i = (0..md.hg.st.len()).filter(|&i| md.cases[md.hcase[i] as usize].heur == 0 && md.cases[md.hcase[i] as usize].kind == 0).max_by_key(|&i| md.fin[i]).unwrap();
     show("H-H, rule +0, longest finish", i);
+}
+
+// ---------------------------------------------------------------------------------------------------------
+// The states on the way: what a solver can read with 2 or 3 quarter turns left, before any trigger is found.
+
+/// Classes of paths from `y` that end with their `j`-th quarter turn (the empty path for j = 0) and lie on a
+/// corner route with `q` quarter turns to a corner kind whose skeleton fits the goal, with at most `emax`
+/// extra moves over that skeleton so far.  Only the shortest paths of a class are kept (a path whose D-free
+/// image cancels is a longer way to the same state).  Returns (key, path, fewest extra moves over the kinds).
+pub fn route_states(cx: &Ctx, y: &St, goal: usize, q: usize, j: usize, emax: usize) -> Vec<(u64, Vec<usize>, u8)> {
+    let md = cx.md;
+    let c0 = rank_perm(&y.c);
+    let kinds: Vec<(usize, usize)> = (0..6).filter(|&k| md.rem[k][q][c0] != 255 && md.rem[k][q][c0] as usize + LC[k] as usize <= goal).map(|k| (k, md.rem[k][q][c0] as usize)).collect();
+    let mut seen: std::collections::HashMap<u64, (Vec<usize>, u8)> = std::collections::HashMap::new();
+    if kinds.is_empty() {
+        return Vec::new();
+    }
+    let extra = |s: &St, len: usize, qd: usize| -> Option<usize> {
+        let c = rank_perm(&s.c);
+        kinds.iter().filter(|&&(k, _)| md.rem[k][q - qd][c] != 255).map(|&(k, l)| len + md.rem[k][q - qd][c] as usize - l).min()
+    };
+    if j == 0 {
+        return vec![(cx.im.key(&[], false), Vec::new(), 0)];
+    }
+    #[allow(clippy::too_many_arguments)]
+    fn dfs<E: Fn(&St, usize, usize) -> Option<usize>>(cx: &Ctx, s: St, w: &mut Vec<usize>, qd: usize, lf: usize, j: usize, emax: usize, extra: &E, seen: &mut std::collections::HashMap<u64, (Vec<usize>, u8)>) {
+        for mv in 0..10 {
+            if !allowed(lf, mv) {
+                continue;
+            }
+            let qd2 = qd + usize::from(is_qt(mv));
+            if qd2 > j {
+                continue;
+            }
+            let s2 = s.apply_move(mv);
+            let Some(e) = extra(&s2, w.len() + 1, qd2) else { continue };
+            if e > emax || (is_qt(mv) && htr_like(cx.md, &s2)) {
+                continue;
+            }
+            w.push(mv);
+            if qd2 == j {
+                if cx.im.image(w).len() == w.len() {
+                    let v = seen.entry(cx.im.key(w, false)).or_insert_with(|| (w.clone(), e as u8));
+                    if (e as u8) < v.1 {
+                        *v = (w.clone(), e as u8);
+                    }
+                }
+            } else {
+                dfs(cx, s2, w, qd2, FACE[mv], j, emax, extra, seen);
+            }
+            w.pop();
+        }
+    }
+    let mut w = Vec::new();
+    dfs(cx, *y, &mut w, 0, 6, j, emax, &extra, &mut seen);
+    let mut v: Vec<(u64, Vec<usize>, u8)> = seen.into_iter().map(|(k, (w, e))| (k, w, e)).collect();
+    v.sort();
+    v
+}
+
+/// drvar metastates N SEED M OUT : for the DRs of `metarun N SEED M`, every state with 2 or 3 quarter turns
+/// left that a route with M or M + 2 quarter turns passes through with at most 1 extra move so far, on both
+/// sides.  One 28-byte record per state: dr u32, key u64 (the class key of the path, as in the `.ext` file),
+/// then side, q (quarter turns of the route), t (quarter turns left), moves made, extra moves, true pairs,
+/// HTR-equivalent pairs, the same on the inverse, fewest moves to HTR (`htrd_free`), the same from the inverse, optimal
+/// leave-slice finish, then, in the frame with the fewest quarter turns left (a turn of both layers together
+/// is free): quarter turns of the corners, bad corners, bad edges, subset number; and the goal.  The subset
+/// names are written to OUT.sub, one per line.
+pub fn run_states(md: &Model, n: usize, seed: u64, mwant: usize, out: &str) {
+    use rayon::prelude::*;
+    use std::io::Write;
+    let cx = Ctx::new(md);
+    let mut rng = crate::Rng(seed);
+    let mut xs = Vec::new();
+    while xs.len() < n {
+        let x = crate::random_dr(md, &mut rng);
+        if qt_count(md, &x) == mwant {
+            xs.push(x);
+        }
+    }
+    let goal = goal_of(mwant);
+    let mut fb = std::io::BufWriter::new(std::fs::File::create(out).unwrap());
+    std::fs::write(format!("{out}.sub"), md.cls.sub48_name.join("\n") + "\n").unwrap();
+    let t0 = std::time::Instant::now();
+    let mut total = 0usize;
+    for (b, chunk) in xs.chunks(64).enumerate() {
+        let res: Vec<Vec<[u8; 28]>> = chunk
+            .par_iter()
+            .enumerate()
+            .map(|(i, x)| {
+                let dr = (b * 64 + i) as u32;
+                let mut rows = Vec::new();
+                for (side, y) in [(0u8, *x), (1u8, x.inv())] {
+                    for q in [mwant, mwant + 2] {
+                        if q > 6 {
+                            continue;
+                        }
+                        for t in [2usize, 3] {
+                            if t > q {
+                                continue;
+                            }
+                            for (key, w, e) in route_states(&cx, &y, goal, q, q - t, 1) {
+                                let s = y.mul(word(&w));
+                                let si = s.inv();
+                                // the frame a solver reads the state in: the turn of both layers with the fewest quarter turns left
+                                let yturn = word(&[2, 3]);
+                                let mut fr = s;
+                                let mut best = (qt_count(md, &s), bad_counts(&s).1, s);
+                                for _ in 1..4 {
+                                    fr = fr.mul(yturn);
+                                    let cand = (qt_count(md, &fr), bad_counts(&fr).1, fr);
+                                    if (cand.0, cand.1) < (best.0, best.1) {
+                                        best = cand;
+                                    }
+                                }
+                                let (cq, sb) = (best.0, best.2);
+                                let (bc, be) = bad_counts(&sb);
+                                let sub = md.cls.sub48[md.cls.ccos[rank_perm(&sb.c)] as usize][md.cls.epat[rank_perm(&sb.e)] as usize];
+                                let mut r = [0u8; 28];
+                                r[0..4].copy_from_slice(&dr.to_le_bytes());
+                                r[4..12].copy_from_slice(&key.to_le_bytes());
+                                let f = [side, q as u8, t as u8, w.len() as u8, e, pairs(&s), hpairs(&s), hpairs(&si), htrd_free(md, &s), htrd_free(md, &si), md.lsopt(&s), cq as u8, bc, be, sub as u8, goal as u8];
+                                r[12..28].copy_from_slice(&f);
+                                rows.push(r);
+                            }
+                        }
+                    }
+                }
+                rows
+            })
+            .collect();
+        for rows in res {
+            total += rows.len();
+            for r in rows {
+                fb.write_all(&r).unwrap();
+            }
+        }
+        eprintln!("{} / {n}  {:.0}s  {total} states", (b * 64 + chunk.len()).min(n), t0.elapsed().as_secs_f64());
+    }
+}
+
+/// drvar metahcheck N SEED : checks of the HTR-equivalent pair count.
+/// 1. Every one of the 663,552 HTR states has 16, and so has its inverse.
+/// 2. On N random DR states: the orbit form agrees with the sticker form; every true pair is an HTR-equivalent
+///    pair; U and D moves keep the count; a side half turn changes it by at most 4; the fewest moves to HTR
+///    are at least (quarter turns of the corners) + (16 - count) / 4 rounded up, on the state and its inverse.
+///    An HTR state played first changes neither the count nor the fewest moves to HTR.
+/// 3. Prints how the count on a state and on its inverse differ.
+pub fn hcheck(md: &Model, n: usize, seed: u64) {
+    for s in &md.hg.st {
+        assert_eq!(hpairs(s), 16);
+        assert_eq!(hpairs(&s.inv()), 16);
+    }
+    println!("all {} HTR states: 16 HTR-equivalent pairs, on the state and on its inverse", md.hg.st.len());
+    let mut rng = crate::Rng(seed);
+    let (mut differ, mut tight, mut tighti) = (0usize, 0usize, 0usize);
+    let mut hist = [[0u32; 17]; 17];
+    for _ in 0..n {
+        let x = crate::random_dr(md, &mut rng);
+        let (h, hi) = (hpairs(&x), hpairs(&x.inv()));
+        assert_eq!(h, hpairs_by_sticker(&x));
+        assert_eq!(pair_mask(&x) & !hpair_mask(&x), 0, "a true pair that is not an HTR-equivalent pair");
+        assert_eq!(pairs(&x), pairs(&x.inv()), "true pairs differ on the inverse");
+        for mv in 0..10 {
+            let h2 = hpairs(&x.apply_move(mv));
+            if mv < 6 {
+                assert_eq!(h2, h, "a U or D move changed the count");
+            } else {
+                assert!(h2.abs_diff(h) <= 4, "a side half turn changed the count by more than 4");
+            }
+        }
+        let fl = |s: &St, k: u8| qt_count(md, s) as u8 + (16 - k).div_ceil(4);
+        assert!(md.htrd(&x) >= fl(&x, h), "floor broken on a state");
+        assert!(md.htrd(&x.inv()) >= fl(&x.inv(), hi), "floor broken on an inverse");
+        // an HTR state played first changes nothing: the count only sees which orbit each piece is in
+        let hs = md.hg.st[rng.below(md.hg.st.len() as u64) as usize];
+        assert_eq!(hpairs(&hs.mul(x)), h, "an HTR state played first changed the count");
+        assert_eq!(md.htrd(&hs.mul(x)), md.htrd(&x), "an HTR state played first changed the distance to HTR");
+        tight += usize::from(md.htrd(&x) == fl(&x, h));
+        tighti += usize::from(md.htrd(&x.inv()) == fl(&x.inv(), hi));
+        differ += usize::from(h != hi);
+        hist[h as usize][hi as usize] += 1;
+    }
+    println!("{n} random DR states: all checks hold; the count differs on the inverse for {differ}; the floor is the exact distance to HTR for {tight} states and {tighti} inverses");
+    println!("count on the state (row) against count on the inverse (column), 0 2 4 .. 16:");
+    for (h, row) in hist.iter().enumerate() {
+        if h % 2 == 0 {
+            println!("{h}\t{}", row.iter().step_by(2).map(u32::to_string).collect::<Vec<_>>().join("\t"));
+        }
+    }
+}
+
+/// drvar metahtable : HTR-equivalent pairs against the fewest moves to HTR, exactly, over all DR states.
+/// Both are the same on every state of a class "an HTR state, then g" (29,400 classes of equal size: corner
+/// coset x which positions hold the F/B edges), so one state per class gives the exact distribution over
+/// uniformly random DR states.  Rows: subset (in the frame with the fewest quarter turns left), quarter turns
+/// of the corners, HTR-equivalent pairs, fewest moves to HTR (a turn of both layers together is free), classes.
+pub fn htable(md: &Model) {
+    use std::collections::{BTreeMap, HashSet, VecDeque};
+    let id = |s: &St| (md.cls.ccos[rank_perm(&s.c)] as usize, md.cls.epat[rank_perm(&s.e)] as usize);
+    let mut seen: HashSet<(usize, usize)> = HashSet::new();
+    let mut queue: VecDeque<St> = VecDeque::new();
+    seen.insert(id(&St::ID));
+    queue.push_back(St::ID);
+    let mut h: BTreeMap<(String, u8, u8, u8), u32> = BTreeMap::new();
+    let yturn = word(&[2, 3]);
+    while let Some(s) = queue.pop_front() {
+        let mut fr = s;
+        let mut best = (qt_count(md, &s), bad_counts(&s).1, s);
+        for _ in 1..4 {
+            fr = fr.mul(yturn);
+            let cand = (qt_count(md, &fr), bad_counts(&fr).1, fr);
+            if (cand.0, cand.1) < (best.0, best.1) {
+                best = cand;
+            }
+        }
+        let k = hpairs(&s);
+        let dist = htrd_free(md, &s);
+        assert!(dist as usize >= best.0 + (16 - k as usize).div_ceil(4), "floor broken");
+        *h.entry((md.subset(&best.2), best.0 as u8, k, dist)).or_insert(0) += 1;
+        for mv in 0..10 {
+            let t = s.apply_move(mv);
+            if seen.insert(id(&t)) {
+                queue.push_back(t);
+            }
+        }
+    }
+    println!("# {} classes", seen.len());
+    println!("subset\tqt\thtr_pairs\tmoves_to_htr\tclasses");
+    for ((sub, cq, k, dist), n) in h {
+        println!("{sub}\t{cq}\t{k}\t{dist}\t{n}");
+    }
+}
+
+/// drvar metarule N SEED M RULEFILE OUT : the HTRs of `metarun N SEED M`, in the same order, bounded by other
+/// rules.  RULEFILE has one line per case, in the order of `metacases`, with the N of up to four rules separated
+/// by tabs.  OUT gets k + 1 bytes per HTR for k rules: the bound on path + finish by each rule (smallest over the
+/// class's members) and the best total (to align with the main records).
+pub fn run_rule(md: &Model, n: usize, seed: u64, mwant: usize, rulefile: &str, out: &str) {
+    use rayon::prelude::*;
+    use std::io::Write;
+    let mut cx = Ctx::new(md);
+    let txt = std::fs::read_to_string(rulefile).unwrap_or_else(|e| fatal!("{rulefile}: {e}"));
+    let rows: Vec<Vec<u8>> = txt.lines().map(|l| l.split('\t').map(|v| v.trim().parse::<u8>().unwrap_or_else(|_| fatal!("{rulefile}: not a number: {l}"))).collect()).collect();
+    assert_eq!(rows.len(), md.cases.len(), "one line per case");
+    let k = rows[0].len();
+    assert!((1..=4).contains(&k) && rows.iter().all(|r| r.len() == k), "1 to 4 rules, the same number on every line");
+    cx.xpen = rows.iter().map(|r| std::array::from_fn(|i| r[i.min(k - 1)])).collect();
+    let mut rng = crate::Rng(seed);
+    let mut xs = Vec::new();
+    while xs.len() < n {
+        let x = crate::random_dr(md, &mut rng);
+        if qt_count(md, &x) == mwant {
+            xs.push(x);
+        }
+    }
+    let mut fb = std::io::BufWriter::new(std::fs::File::create(out).unwrap());
+    for chunk in xs.chunks(64) {
+        let res: Vec<Vec<u8>> = chunk
+            .par_iter()
+            .map(|x| {
+                let m = qt_count(md, x);
+                let goal = goal_of(m);
+                let qmax = (m + 2).min(6);
+                let mut b = Vec::new();
+                for y in [*x, x.inv()] {
+                    let lmin = lmin_any(md, rank_perm(&y.c), qmax) as usize;
+                    let cl = cx.classes(&y, &Uni { goal, cap_any: (goal - 1).min(lmin + 3), qmax });
+                    let mut keys: Vec<&u64> = cl.keys().collect();
+                    keys.sort();
+                    for key in keys {
+                        b.extend_from_slice(&cl[key].lbx[..k]);
+                        b.push(cl[key].total);
+                    }
+                }
+                b
+            })
+            .collect();
+        for b in res {
+            fb.write_all(&b).unwrap();
+        }
+    }
+}
+
+/// drvar metacasemin CASE : the HTR state of case number CASE (order of `metacases`) with the shortest
+/// leave-slice finish, as a half-turn scramble, with that finish.
+pub fn case_min(md: &Model, c: usize) {
+    let i = (0..md.hg.st.len()).filter(|&i| md.hcase[i] as usize == c).min_by_key(|&i| (md.fin[i], md.hg.d3[i])).unwrap();
+    let cs = &md.cases[c];
+    let fin = crate::crisp::ls_finish(md, i as u32);
+    println!("case {}\tscramble {}\tleave-slice finish {} ({})\tcorner moves {}\tsheet rule +{}", cs.name(), wname(&md.hg.word_of(i as u32)), md.fin[i], wname(&fin), LC[cs.kind as usize], cs.heur);
 }
