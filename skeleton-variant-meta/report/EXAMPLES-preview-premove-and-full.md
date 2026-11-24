@@ -32,7 +32,7 @@ Check inverse. Skeleton starting with (U2 B2 U) has FD corners.
 - **Check inverse.** The skeleton the inverse scramble reads the same solutions on, with the same L. Moves in parentheses are on the inverse. Normal always goes first.
 - **Approach to 2qt** (first-level bullet): the moves up to 2qt, with P ≤ 1. Approaches with no extra move come first. A 2qt skeleton has no approach, so its variants are the first level.
 - **Variant line.** `After B2 L2` is the setup. The 1qt edges are the F and R edge cases at NISS@1qt as in [*Advanced DR Bounding*](https://docs.google.com/document/d/13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0), each with whether that slice is bad for these corners, and `fr=1` when the F/R parity is odd. Then the extra moves `+P+S+T(+N)`, or `+S+T(+N)` on a 2qt skeleton, where N is the corner-case-aware bound.
-- **Moves.** Under a variant, the moves from the setup on (put the approach in front for the whole solution). A finish within goal is written out with its length; anything else stops at HTR with `// no good`. A skeleton's variants are taken in the meta's order across its approaches: fewest P+S+T first, then (P, S, T, N), then most pairs. The ones taken in the second pass are marked `second pass`.
+- **Moves.** Under a variant, the moves from the setup on (put the approach in front for the whole solution). A finish within goal is in bold, written out with its length; anything else stops at HTR with `// no good`. A skeleton's variants are taken in the meta's order across its approaches: fewest P+S+T first, then (P, S, T, N), then most pairs. The ones taken in the second pass are marked `second pass`.
 - **Pairs.** `2 pairs` is the number of corner-edge pairs right after the variant's last insertion. It is shown when another variant of the skeleton has the same (P, S, T, N): of those, the one with more pairs goes first.
 - **`more variants ... not reached before the stop`.** Variants of the skeleton that pass the meta and were still waiting when the example stopped.
 - **A variant line with no moves under it.** A variant the meta does not let through. An approach (on a 2qt skeleton: the skeleton) shows at most 3 failed variants, counting the ones taken to HTR: the one with the smallest S+T, the one with the smallest N and the one with the smallest S+T+N, with ties drawn at random. `left to the inverse` (or `the normal scramble`) means it is only dropped because it comes earlier on the other side (step 4).
@@ -43,14 +43,15 @@ Check inverse. Skeleton starting with (U2 B2 U) has FD corners.
 A skeleton of 3 or more quarter turns that ends with its last one (HH corners) is gone through twice. First as [*Advanced DR Bounding*](https://docs.google.com/document/d/13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0) suggests: its last quarter turn is made first, on the other side, and the solve goes on from what is left. Then as it stands, under `The same skeleton in full`, for the solutions that go on after that quarter turn.
 
 ```
-Skeleton starting with R2 U2 F2 U has HH corners, L=10, 3 spare moves. Apply (D) and NISS: DD corners.
+Skeleton R2 U2 F2 D B2 U B2 U2 R2 D' has HH corners, L=10, 3 spare moves. Apply (D) and NISS: DD corners.
 
 - After B2 U2 R2, 1qt edges will be FH (bad) and RD (good): +0+0(+3)
     - B2 U2 R2 U L2 U L2 D2 B2 R2 B2 R2 D // 13
 ```
 
-- **`Apply (D) and NISS`.** The premove, in parentheses when it is made on the inverse. What is left is a DR with one quarter turn fewer and one move less to spend, and the line names the corners its skeleton leaves. The variants under it are that DR's, with `+S+T(+N)` when 2 quarter turns are left.
-- **Moves after a premove.** They are written as turned after the premove, so a setup can sit on other faces than in the skeleton's name. A finish ends with the premove's quarter turn, turned the other way when that saves a U2 before it.
+- **Skeleton line.** The whole skeleton, in one of the ways it can be written, ending with the quarter turn that becomes the premove. A variant under it can start on other faces that do the same to the corners.
+- **`Apply (D) and NISS`.** The premove, in parentheses when it is made on the inverse. What is left is a DR with one quarter turn fewer and one move less to spend, and the line names the corners its skeleton leaves: HH again when the skeleton ends with two quarter turns in a row. The variants under it are that DR's, with `+S+T(+N)` when 2 quarter turns are left.
+- **Moves after a premove.** A finish ends with the premove's quarter turn, turned the other way when that saves a U2 before it.
 
 Left out, compared with the doc's own solves: fixable/unfixable, locked and reflected slices, the name of the insertion (a variant is given by its setup and its moves instead), cs parity, and a NISS in the middle of a skeleton.
 
@@ -118,8 +119,8 @@ Skeleton starting with U2 F2 has HH corners, L=5, 7 spare moves.
 Check inverse. Skeleton starting with (U) has FV corners.
 
 - With no setup, 1qt edges will be FV (good) and RV (good): +0+3(+1)
-    - (U L2 F2 R2 B2 U' R2 F2 D2 F2 L2 B2) // 2 pairs, 12
-    - (U L2 F2 L2 F2 D' R2 F2 U2 L2 B2 R2) // 2 pairs, 12
+    - **(U L2 F2 R2 B2 U' R2 F2 D2 F2 L2 B2) // 2 pairs, 12**
+    - **(U L2 F2 L2 F2 D' R2 F2 U2 L2 B2 R2) // 2 pairs, 12**
 - 18 more variants of this skeleton pass the meta, not reached before the stop.
 
 Stop: 2 finishes within goal (12, 12), after 5 HTRs. This DR's optimal is 12.
@@ -133,7 +134,7 @@ Stop: 2 finishes within goal (12, 12), after 5 HTRs. This DR's optimal is 12.
 Skeleton starting with F2 has RV corners, L=6, 6 spare moves.
 
 - After R2 L2 B2, 1qt edges will be RV (good) and FD (bad): +2+0(+3)
-    - R2 L2 B2 U' B2 U R2 B2 R2 U2 R2 U2 // 12
+    - **R2 L2 B2 U' B2 U R2 B2 R2 U2 R2 U2 // 12**
 - After B2 L2 B2 L2, 1qt edges will be RV (good) and FH (good): +3+0(+0)
     - B2 L2 B2 L2 U R2 U // no good
 - After R2 L2 B2, 1qt edges will be RV (good) and FD (bad), fr=1: +2+2(+2)
@@ -150,7 +151,7 @@ Check inverse. Skeleton starting with (U2 R2) has FD corners.
     - (U2 B2 L2 U F2 B2 R2 D') // no good
 - 2 more variants of this skeleton pass the meta, not reached before the stop.
 
-Skeleton starting with D B2 D has HH corners, L=7, 5 spare moves. Apply (U') and NISS: RD corners.
+Skeleton D B2 D L2 U B2 U' has HH corners, L=7, 5 spare moves. Apply (U') and NISS: RD corners.
 
 - U
     - After R2, 1qt edges will be RH (bad) and FH (good): +0+0+0(+3)
@@ -212,7 +213,7 @@ Skeleton starting with B2 U2 R2 has HH corners, L=6, 6 spare moves.
     - U2 R2 U2 B2 U F2 R2 U' // 8 pairs, no good
 - 117 more variants of this skeleton pass the meta, not reached before the stop.
 
-Skeleton starting with R2 U D has HH corners, L=7, 5 spare moves. Apply (U') and NISS: RD corners.
+Skeleton R2 U D R2 U' F2 D' has HH corners, L=7, 5 spare moves. Apply (U') and NISS: RD corners.
 
 - L2 U'
     - After R2 L2, 1qt edges will be RV (bad) and FH (good): +0+2+3(+3)
@@ -226,7 +227,7 @@ Check inverse. Skeleton starting with (U' L2 D') has RD corners.
 - (U' R2 U')
     - After (L2), 1qt edges will be RV (bad) and FV (bad), fr=1: +0+0+5(+5)
 
-Skeleton starting with F2 D U has HH corners, L=7, 5 spare moves. Apply (U') and NISS: RD corners.
+Skeleton F2 D U B2 U' L2 U has HH corners, L=7, 5 spare moves. Apply (U') and NISS: RD corners.
 
 - B2 U'
     - After F2 B2 L2 B2 R2, 1qt edges will be RD (good) and FD (good): +0+5+0(+1)
@@ -252,7 +253,7 @@ Check inverse. Skeleton starting with (U' L2 D) has FD corners.
 - (U' R2 U)
     - After (R2), 1qt edges will be FH (bad) and RV (bad): +0+0+5(+5)
 
-Skeleton starting with U D has HH corners, L=8, 4 spare moves. Apply (U') and NISS: RD corners.
+Skeleton U D B2 U2 R2 U L2 U has HH corners, L=8, 4 spare moves. Apply (U') and NISS: RD corners.
 
 - U
     - After R2 F2 R2, 1qt edges will be RD (good) and FH (good): +0+3+0(+0)
@@ -264,7 +265,7 @@ Skeleton starting with U D has HH corners, L=8, 4 spare moves. Apply (U') and NI
     - After R2 L2, 1qt edges will be RH (bad) and FH (good): +0+2+0(+3)
 - 21 more variants of this skeleton pass the meta, not reached before the stop.
 
-Skeleton starting with (U' R2 U) on inverse has HH corners, L=8, 4 spare moves. Apply U and NISS: HH corners.
+Skeleton (U' R2 U R2 U2 F2 D U') on inverse has HH corners, L=8, 4 spare moves. Apply U and NISS: HH corners.
 
 - (U')
     - After (R2), 1qt edges will be RD (bad) and FH (good): +0+0+1(+3)
@@ -291,39 +292,39 @@ Check inverse. Skeleton starting with (U2 R2) has FD corners.
 
 - After (U2 R2), 1qt edges will be FV (bad) and RV (bad): +0+3(+5)
 
-Skeleton starting with F2 U' R2 U has HH corners, L=7, 5 spare moves. Apply (U) and NISS: HH corners.
+Skeleton F2 U' R2 U F2 D U has HH corners, L=7, 5 spare moves. Apply (U') and NISS: HH corners.
 
 - B2 U
-    - After B2 U2 L2 F2, 1qt edges will be RD (bad) and FV (bad), fr=1: +0+3+1(+6)
-    - After B2 L2 F2 U2 L2, 1qt edges will be RH (good) and FV (bad): +0+4+1(+3)
+    - After B2 U2 L2 F2, 1qt edges will be RV (bad) and FD (bad), fr=1: +0+3+1(+6)
+    - After B2 L2 F2 U2 L2, 1qt edges will be RH (good) and FD (bad): +0+4+1(+3)
 - F2 U
-    - After R2 U2 B2 R2, 1qt edges will be RV (bad) and FD (bad), fr=1: +0+3+1(+6)
-    - After R2 B2 R2 U2 B2, 1qt edges will be RV (bad) and FH (good): +0+4+1(+3)
+    - After R2 U2 B2 R2, 1qt edges will be RD (bad) and FV (bad), fr=1: +0+3+1(+6)
+    - After R2 B2 R2 U2 B2, 1qt edges will be RD (bad) and FH (good): +0+4+1(+3)
 - R2 F2 U
-    - After R2 F2, 1qt edges will be RD (bad) and FV (bad): +1+1+0(+6)
+    - After R2 F2, 1qt edges will be RV (bad) and FD (bad): +1+1+0(+6)
     - After F2 R2 F2 R2, 1qt edges will be RH (good) and FH (good): +1+3+0(+0)
-        - F2 R2 F2 R2 U B2 U // 6 pairs, no good
+        - F2 R2 F2 R2 U B2 U' // 6 pairs, no good
 - L2 B2 D
-    - After R2 L2 B2, 1qt edges will be RH (good) and FD (bad): +1+2+0(+3)
+    - After R2 L2 B2, 1qt edges will be RH (good) and FV (bad): +1+2+0(+3)
     - After B2 L2 B2 L2, 1qt edges will be RH (good) and FH (good): +1+3+0(+0)
-        - B2 L2 B2 L2 U R2 U // 6 pairs, no good
+        - B2 L2 B2 L2 U R2 U' // 6 pairs, no good
 - L2 F2 D
-    - After R2 F2 B2, 1qt edges will be RD (bad) and FH (good): +1+2+0(+3)
+    - After R2 F2 B2, 1qt edges will be RV (bad) and FH (good): +1+2+0(+3)
     - After L2 B2 L2 B2, 1qt edges will be RH (good) and FH (good): +1+3+0(+0)
-        - L2 B2 L2 B2 U R2 U // 6 pairs, no good
+        - L2 B2 L2 B2 U R2 U' // 6 pairs, no good
 - R2 B2 U'
-    - After L2 U2 R2, 1qt edges will be RV (bad) and FH (good), fr=1: +1+2+0(+5)
-    - After R2 L2 U2 R2, 1qt edges will be RV (bad) and FH (good): +1+3+0(+3)
-    - After L2 U2 R2, 1qt edges will be RV (bad) and FH (good): +1+2+2(+3)
+    - After L2 U2 R2, 1qt edges will be RD (bad) and FH (good), fr=1: +1+2+0(+5)
+    - After R2 L2 U2 R2, 1qt edges will be RD (bad) and FH (good): +1+3+0(+3)
+    - After L2 U2 R2, 1qt edges will be RD (bad) and FH (good): +1+2+2(+3)
 - L2 B2 D'
-    - After L2 B2 U2 L2, 1qt edges will be RV (bad) and FV (bad), fr=1: +1+3+0(+6)
-    - After F2 R2 F2 U2 R2, 1qt edges will be RV (bad) and FH (good): +1+4+0(+3)
+    - After L2 B2 U2 L2, 1qt edges will be RD (bad) and FD (bad), fr=1: +1+3+0(+6)
+    - After F2 R2 F2 U2 R2, 1qt edges will be RD (bad) and FH (good): +1+4+0(+3)
 - L2 F2 D'
-    - After R2 U2 F2 L2, 1qt edges will be RD (bad) and FV (bad), fr=1: +1+3+0(+6)
-    - After R2 F2 L2 U2 F2, 1qt edges will be RH (good) and FV (bad): +1+4+0(+3)
+    - After R2 U2 F2 L2, 1qt edges will be RV (bad) and FD (bad), fr=1: +1+3+0(+6)
+    - After R2 F2 L2 U2 F2, 1qt edges will be RH (good) and FD (bad): +1+4+0(+3)
 - R2 F2 U'
-    - After B2 U2 R2 F2, 1qt edges will be RD (bad) and FV (bad), fr=1: +1+3+0(+6)
-    - After B2 L2 B2 U2 R2, 1qt edges will be RD (bad) and FH (good): +1+4+0(+3)
+    - After B2 U2 R2 F2, 1qt edges will be RV (bad) and FD (bad), fr=1: +1+3+0(+6)
+    - After B2 L2 B2 U2 R2, 1qt edges will be RV (bad) and FH (good): +1+4+0(+3)
 - 25 more variants of this skeleton pass the meta, not reached before the stop.
 
 The same skeleton in full, for the solutions that go on after its last quarter turn.
@@ -369,7 +370,7 @@ Skeleton starting with D B2 D has RD corners, L=8, 4 spare moves.
     - After F2 U2 B2 R2 L2, 1qt edges will be RD (good) and FH (good): +0+4+0(+0)
         - F2 U2 B2 R2 L2 U' F2 U' // 4 pairs, no good
 
-Check inverse. Skeleton starting with (R2 U' R2 U) has HH corners. Apply D and NISS: FD corners.
+Check inverse. Skeleton (R2 U' R2 U R2 U R2 U) has HH corners. Apply D and NISS: FD corners.
 
 - (R2 U')
     - After (R2 B2 R2 B2), 1qt edges will be FH (bad) and RH (good), fr=1: +0+3+0(+3)
@@ -452,7 +453,7 @@ Skeleton starting with B2 U' F2 U' has RD corners, L=8, 4 spare moves.
 - R2 F2 U F2 U
     - After R2, 1qt edges will be RV (bad) and FD (good), fr=1: +1+0+3(+5)
 
-Skeleton starting with (U2 R2 U R2 U') on inverse has HH corners, L=8, 4 spare moves. Apply D and NISS: HH corners.
+Skeleton (U2 R2 U R2 U' R2 U D') on inverse has HH corners, L=8, 4 spare moves. Apply D and NISS: HH corners.
 
 - (U2 L2 U)
     - After (F2), 1qt edges will be RH (good) and FV (bad), fr=1: +0+0+3(+5)
@@ -598,13 +599,13 @@ Skeleton starting with U2 F2 has FV corners, L=7, 5 spare moves.
 - After L2 B2 U2 L2, 1qt edges will be FV (good) and RH (good): +2+0(+0)
     - L2 B2 U2 L2 U' R2 D // no good
 - After B2 U2 L2 B2, 1qt edges will be FV (good) and RV (good): +2+0(+1)
-    - B2 U2 L2 B2 U' R2 D B2 R2 U2 R2 L2 // 12
+    - **B2 U2 L2 B2 U' R2 D B2 R2 U2 R2 L2 // 12**
 - 4 more variants of this skeleton pass the meta, not reached before the stop.
 
 Check inverse. Skeleton starting with (U2 B2) has FV corners.
 
 - After (U2 B2), 1qt edges will be FD (bad) and RV (good), fr=1: +0+0(+2)
-    - (U2 B2 U B2 D' R2 B2 R2 F2 L2 U2 F2) // 12
+    - **(U2 B2 U B2 D' R2 B2 R2 F2 L2 U2 F2) // 12**
 - After (F2 U2 B2), 1qt edges will be FD (bad) and RV (good): +1+2(+3)
 - After (U2 B2), 1qt edges will be FD (bad) and RV (good), fr=1: +0+5(+2)
 - 9 more variants of this skeleton pass the meta, not reached before the stop.
@@ -622,7 +623,7 @@ Skeleton starting with L2 has RV corners, L=6, 6 spare moves.
 - After R2 B2 L2 B2, 1qt edges will be RV (good) and FH (good), fr=1: +3+0(+1)
     - R2 B2 L2 B2 U B2 D' // 4 pairs, no good
 - After U2 R2 U2 L2, 1qt edges will be RV (good) and FV (good): +3+0(+1)
-    - U2 R2 U2 L2 U B2 D R2 F2 U2 F2 B2 // 2 pairs, 12
+    - **U2 R2 U2 L2 U B2 D R2 F2 U2 F2 B2 // 2 pairs, 12**
 - After B2 L2 F2 B2, 1qt edges will be RD (bad) and FV (good), fr=1: +3+0(+2)
     - B2 L2 F2 B2 U B2 D' // 3 pairs, no good
 - 22 more variants of this skeleton pass the meta, not reached before the stop.
@@ -634,7 +635,7 @@ Check inverse. Skeleton starting with (U2 L2) has RD corners.
 - After (B2 R2 U2 F2), 1qt edges will be RD (good) and FD (good): +2+0(+1)
     - (B2 R2 U2 F2 U L2 D) // no good
 - After (R2 U2 L2), 1qt edges will be RH (bad) and FH (good): +1+2(+3)
-    - (R2 U2 L2 U' R2 L2 B2 U' B2 R2 B2 L2) // 12
+    - **(R2 U2 L2 U' R2 L2 B2 U' B2 R2 B2 L2) // 12**
 - 6 more variants of this skeleton pass the meta, not reached before the stop.
 
 Stop: 2 finishes within goal (12, 12), after 6 HTRs. This DR's optimal is 12.
@@ -652,7 +653,7 @@ Skeleton starting with D' has RV corners, L=9, 4 spare moves.
 - D'
     - After L2, 1qt edges will be RD (bad) and FV (good), fr=1: +0+0+3(+2)
 
-Check inverse. Skeleton starting with (U2 R2 D) has HH corners. Apply D' and NISS: RD corners.
+Check inverse. Skeleton (U2 R2 U R2 U2 F2 D R2 D) has HH corners. Apply D' and NISS: RD corners.
 
 - After (U2 R2), 1qt edges will be RH (bad) and FD (good): +0+3(+3)
 
@@ -711,10 +712,10 @@ The same skeleton in full, for the solutions that go on after its last quarter t
     - After (R2 B2 U2 B2), 1qt edges will be RV (bad) and FV (bad): +1+1+1(+6)
 - 5 more variants of this skeleton pass the meta, not reached before the stop.
 
-Skeleton starting with R2 U2 F2 U has HH corners, L=10, 3 spare moves. Apply (D) and NISS: DD corners.
+Skeleton R2 U2 F2 D B2 U B2 U2 R2 D' has HH corners, L=10, 3 spare moves. Apply (D) and NISS: DD corners.
 
 - After B2 U2 R2, 1qt edges will be FH (bad) and RD (good): +0+0(+3)
-    - B2 U2 R2 U L2 U L2 D2 B2 R2 B2 R2 D // 13
+    - **B2 U2 R2 U L2 U L2 D2 B2 R2 B2 R2 D // 13**
 - After R2 U2 R2 B2, 1qt edges will be FV (good) and RD (good): +1+0(+0)
     - R2 U2 R2 B2 U' L2 U' // no good
 - After U2 R2 U2 B2, 1qt edges will be FH (bad) and RD (good): +1+0(+3)
@@ -862,7 +863,7 @@ Skeleton starting with U' F2 D' R2 U' has RV corners, L=11, 2 spare moves.
 - U' L2 F2 D B2 U
     - After F2 L2, 1qt edges will be RV (good) and FD (bad): +1+1+0(+3)
 
-Check inverse. Skeleton starting with (U2 R2 U' F2 D R2 U') has HH corners. Apply U' and NISS: FD corners.
+Check inverse. Skeleton (U2 R2 U' F2 D R2 U' R2 U' B2 D') has HH corners. Apply U' and NISS: FD corners.
 
 - (U2 L2 D' F2 U)
     - After (R2 F2), 1qt edges will be FH (bad) and RD (good): +0+1+1(+3)
@@ -929,7 +930,7 @@ Skeleton starting with U' R2 D' B2 U' has RV corners, L=11, 2 spare moves.
 - U' R2 D' F2 U
     - After L2 U2 R2, 1qt edges will be RH (bad) and FH (good): +0+2+0(+3)
 
-Check inverse. Skeleton starting with (U2 R2 U F2 U' F2 D) has HH corners. Apply U' and NISS: RD corners.
+Check inverse. Skeleton (U2 R2 U F2 D' L2 U L2 D R2 U) has HH corners. Apply U' and NISS: RD corners.
 
 - (U2 R2 U B2 D')
     - After (R2 L2 B2), 1qt edges will be RD (good) and FD (good), fr=1: +0+2+0(+4)
@@ -997,49 +998,49 @@ Skeleton starting with F2 D L2 U' R2 U' has RV corners, L=11, 2 spare moves.
 - F2 D L2 U' R2 U'
     - After R2 L2, 1qt edges will be RV (good) and FV (good): +0+2+0(+1)
 
-Skeleton starting with F2 D R2 U B2 U2 L2 D' has HH corners, L=11, 2 spare moves. Apply (U) and NISS: HH corners.
+Skeleton F2 U F2 U R2 U2 B2 U' R2 D U has HH corners, L=11, 2 spare moves. Apply (U') and NISS: HH corners.
 
 - B2 U L2 U
     - After L2 U2 B2, 1qt edges will be RH (good) and FH (good), fr=1: +0+0+1(+5)
-    - After L2 U2 F2, 1qt edges will be RV (bad) and FD (bad), fr=1: +0+0+1(+6)
+    - After L2 U2 F2, 1qt edges will be RD (bad) and FV (bad), fr=1: +0+0+1(+6)
 - B2 U L2 U'
     - After B2 U2 L2, 1qt edges will be RH (good) and FH (good), fr=1: +0+0+1(+5)
-    - After F2 U2 L2, 1qt edges will be RV (bad) and FD (bad), fr=1: +0+0+1(+6)
+    - After F2 U2 L2, 1qt edges will be RD (bad) and FV (bad), fr=1: +0+0+1(+6)
 - F2 U F2 U
-    - After R2 U2 B2, 1qt edges will be RH (good) and FV (bad), fr=1: +0+0+1(+5)
+    - After R2 U2 B2, 1qt edges will be RH (good) and FD (bad), fr=1: +0+0+1(+5)
 - F2 U F2 U'
-    - After F2 U2 L2, 1qt edges will be RH (good) and FV (bad), fr=1: +0+0+1(+5)
+    - After F2 U2 L2, 1qt edges will be RH (good) and FD (bad), fr=1: +0+0+1(+5)
 - R2 B2 D' L2 U
-    - After R2 U2 B2, 1qt edges will be RH (good) and FV (bad): +1+0+0(+3)
+    - After R2 U2 B2, 1qt edges will be RH (good) and FD (bad): +1+0+0(+3)
 - R2 B2 D' L2 U'
-    - After B2 U2 R2, 1qt edges will be RH (good) and FV (bad): +1+0+0(+3)
+    - After B2 U2 R2, 1qt edges will be RH (good) and FD (bad): +1+0+0(+3)
 - L2 F2 U' R2 D
-    - After L2 U2 F2, 1qt edges will be RV (bad) and FD (bad), fr=1: +1+0+0(+6)
+    - After L2 U2 F2, 1qt edges will be RD (bad) and FV (bad), fr=1: +1+0+0(+6)
 - L2 F2 U' R2 D'
-    - After B2 U2 R2, 1qt edges will be RV (bad) and FD (bad), fr=1: +1+0+0(+6)
+    - After B2 U2 R2, 1qt edges will be RD (bad) and FV (bad), fr=1: +1+0+0(+6)
 - B2 U B2 R2 U
-    - After L2 U2 B2, 1qt edges will be RH (good) and FV (bad): +1+0+1(+3)
-    - After R2 U2 B2, 1qt edges will be RV (bad) and FD (bad): +1+0+1(+6)
+    - After L2 U2 B2, 1qt edges will be RH (good) and FD (bad): +1+0+1(+3)
+    - After R2 U2 B2, 1qt edges will be RD (bad) and FV (bad): +1+0+1(+6)
 - B2 U B2 R2 U'
-    - After B2 U2 L2, 1qt edges will be RH (good) and FV (bad): +1+0+1(+3)
+    - After B2 U2 L2, 1qt edges will be RH (good) and FD (bad): +1+0+1(+3)
 - F2 U R2 B2 U
-    - After R2 U2 B2, 1qt edges will be RH (good) and FV (bad): +1+0+1(+3)
-    - After R2 U2 F2, 1qt edges will be RV (bad) and FD (bad): +1+0+1(+6)
+    - After R2 U2 B2, 1qt edges will be RH (good) and FD (bad): +1+0+1(+3)
+    - After R2 U2 F2, 1qt edges will be RD (bad) and FV (bad): +1+0+1(+6)
 - F2 U R2 B2 U'
-    - After F2 U2 L2, 1qt edges will be RH (good) and FV (bad): +1+0+1(+3)
-    - After B2 U2 L2, 1qt edges will be RV (bad) and FD (bad): +1+0+1(+6)
+    - After F2 U2 L2, 1qt edges will be RH (good) and FD (bad): +1+0+1(+3)
+    - After B2 U2 L2, 1qt edges will be RD (bad) and FV (bad): +1+0+1(+6)
 - B2 U B2 L2 U
-    - After L2 U2 B2, 1qt edges will be RD (bad) and FH (good), fr=1: +1+0+1(+5)
-    - After R2 U2 B2, 1qt edges will be RV (bad) and FD (bad), fr=1: +1+0+1(+6)
+    - After L2 U2 B2, 1qt edges will be RV (bad) and FH (good), fr=1: +1+0+1(+5)
+    - After R2 U2 B2, 1qt edges will be RD (bad) and FV (bad), fr=1: +1+0+1(+6)
 - B2 U B2 L2 U'
-    - After B2 U2 L2, 1qt edges will be RD (bad) and FH (good), fr=1: +1+0+1(+5)
+    - After B2 U2 L2, 1qt edges will be RV (bad) and FH (good), fr=1: +1+0+1(+5)
 - F2 U R2 F2 U
-    - After R2 U2 F2, 1qt edges will be RD (bad) and FH (good), fr=1: +1+0+1(+5)
+    - After R2 U2 F2, 1qt edges will be RV (bad) and FH (good), fr=1: +1+0+1(+5)
 - F2 U R2 F2 U'
-    - After F2 U2 L2, 1qt edges will be RH (good) and FV (bad), fr=1: +1+0+1(+5)
+    - After F2 U2 L2, 1qt edges will be RH (good) and FD (bad), fr=1: +1+0+1(+5)
 - L2 B2 U' B2 U'
-    - After F2 L2 U2 R2, 1qt edges will be RV (bad) and FH (good): +1+1+0(+3)
-    - After L2 U2 L2 F2, 1qt edges will be RV (bad) and FV (bad): +1+1+0(+6)
+    - After F2 L2 U2 R2, 1qt edges will be RD (bad) and FH (good): +1+1+0(+3)
+    - After L2 U2 L2 F2, 1qt edges will be RD (bad) and FD (bad): +1+1+0(+6)
 - R2 F2 D' B2 D'
     - After F2 R2 U2 R2, 1qt edges will be RH (good) and FH (good), fr=1: +1+1+0(+5)
 
@@ -1076,7 +1077,7 @@ Skeleton starting with U' F2 D R2 U has DD corners, L=12, 1 spare move.
 - U' F2 D R2 U
     - After L2 F2, 1qt edges will be FD (good) and RH (bad): +0+1+0(+3)
 
-Check inverse. Skeleton starting with (R2 U2 F2 U R2 U R2 U') has HH corners. Apply U' and NISS: FD corners.
+Check inverse. Skeleton (R2 U2 F2 U R2 D B2 U' B2 D' F2 U) has HH corners. Apply U' and NISS: FD corners.
 
 - (L2 U2 F2 D L2 U)
     - After (R2 B2), 1qt edges will be FD (good) and RH (good): +0+1+0(+0)
@@ -1132,7 +1133,7 @@ Stop: 10 HTRs done, nothing within goal. This DR's optimal is 14, over the goal.
 
 4b3 4e, goal 13.
 
-Skeleton starting with D has HH corners, L=7, 6 spare moves. Apply (D) and NISS: DD corners.
+Skeleton U R2 D B2 U2 R2 D' has HH corners, L=7, 6 spare moves. Apply (D) and NISS: DD corners.
 
 - With no setup, 1qt edges will be FV (good) and RH (bad): +0+3(+3)
     - U L2 F2 R2 B2 D // 6 pairs, no good
@@ -1152,7 +1153,7 @@ The same skeleton in full, for the solutions that go on after its last quarter t
     - After B2 U2 B2, 1qt edges will be RH (good) and FV (bad), fr=1: +0+2+3(+5)
 - 5 more variants of this skeleton pass the meta, not reached before the stop.
 
-Check inverse. Skeleton starting with (D) has HH corners. Apply D and NISS: FD corners.
+Check inverse. Skeleton (U R2 U2 F2 D' F2 D') has HH corners. Apply D and NISS: FD corners.
 
 - With no setup, 1qt edges will be FH (bad) and RH (good): +0+3(+3)
     - (U' R2 U2 B2 L2 F2 R2 D') // 6 pairs, no good
@@ -1188,7 +1189,7 @@ Skeleton starting with U has RD corners, L=8, 5 spare moves.
         - R2 U L2 U2 L2 B2 U // 2 pairs, no good
 - 65 more variants of this skeleton pass the meta, not reached before the stop.
 
-Check inverse. Skeleton starting with (R2 U) has HH corners. Apply U and NISS: RD corners.
+Check inverse. Skeleton (R2 U R2 U2 F2 U' B2 U) has HH corners. Apply U and NISS: RD corners.
 
 - After (F2 L2), 1qt edges will be RD (good) and FD (good): +1+1(+1)
     - (F2 L2 U' F2 U2 F2 R2 D') // 2 pairs, no good
@@ -1260,7 +1261,7 @@ Skeleton starting with U R2 U B2 U has RD corners, L=9, 4 spare moves.
 - U R2 U L2 F2 U'
     - After F2 B2, 1qt edges will be RD (good) and FV (bad), fr=1: +1+2+1(+5)
 
-Check inverse. Skeleton starting with (R2 U' F2 U D) has HH corners. Apply U and NISS: RD corners.
+Check inverse. Skeleton (R2 U' F2 U D B2 D F2 U) has HH corners. Apply U and NISS: RD corners.
 
 - (L2 D' F2 U)
     - After (F2 B2), 1qt edges will be RH (bad) and FH (good), fr=1: +0+2+0(+3)
@@ -1397,7 +1398,7 @@ Skeleton starting with (B2 U B2 U L2 D) on inverse has RD corners, L=10, 3 spare
 
 - (B2 U B2 U L2 D)
     - After (F2 L2 F2), 1qt edges will be RD (good) and FH (good): +0+3+0(+0)
-        - (F2 L2 F2 U' B2 U R2) // 10 pairs, 13
+        - **(F2 L2 F2 U' B2 U R2) // 10 pairs, 13**
     - After (L2 F2 L2), 1qt edges will be RH (bad) and FD (good): +0+3+0(+3)
 - (B2 U B2 U R2 D)
     - After (B2 R2 B2), 1qt edges will be RD (good) and FH (good): +0+3+0(+0)
@@ -1590,7 +1591,7 @@ Skeleton starting with U has FV corners, L=9, 4 spare moves.
         - F2 U F2 U2 L2 F2 R2 F2 D // 2 pairs, no good
 - 5 more variants of this skeleton pass the meta, not reached before the stop.
 
-Check inverse. Skeleton starting with (U2 F2 U) has HH corners. Apply U and NISS: FD corners.
+Check inverse. Skeleton (U2 F2 U R2 U2 F2 U' B2 U) has HH corners. Apply U and NISS: FD corners.
 
 - After (U2 R2 F2), 1qt edges will be FD (good) and RH (good): +1+3(+0)
     - (U2 R2 F2 U F2 U2 L2 F2 R2 B2 D') // 4 pairs, no good
@@ -1654,7 +1655,7 @@ Skeleton starting with U B2 U' F2 U' has FV corners, L=10, 3 spare moves.
 - U B2 U' R2 B2 D
     - After R2 L2, 1qt edges will be FH (bad) and RD (bad): +1+2+0(+5)
 
-Check inverse. Skeleton starting with (U2 F2 U' R2 D U) has HH corners. Apply U and NISS: FD corners.
+Check inverse. Skeleton (U2 F2 D' F2 D U F2 D F2 U') has HH corners. Apply U and NISS: FD corners.
 
 - (U2 B2 U' B2 U)
     - After (F2 B2), 1qt edges will be FH (bad) and RH (good): +0+2+1(+3)
@@ -1690,7 +1691,7 @@ Skeleton starting with U B2 U' L2 U' has FV corners, L=10, 3 spare moves.
 - U L2 F2 D F2 D'
     - After F2 B2, 1qt edges will be FH (bad) and RD (bad), fr=1: +1+2+0(+5)
 
-Check inverse. Skeleton starting with (U2 F2 U R2 D U) has HH corners. Apply U and NISS: FD corners.
+Check inverse. Skeleton (U2 F2 U R2 D U R2 D' B2 U) has HH corners. Apply U and NISS: FD corners.
 
 - (U2 F2 D B2 D)
     - After (R2 B2 R2), 1qt edges will be FD (good) and RV (bad), fr=1: +0+3+0(+5)
@@ -1714,7 +1715,7 @@ Skeleton starting with U B2 U R2 U has FV corners, L=10, 3 spare moves.
 - U L2 F2 D' B2 D'
     - After F2 B2, 1qt edges will be FD (bad) and RD (bad): +1+2+0(+5)
 
-Check inverse. Skeleton starting with (U2 F2 U F2 D U) has HH corners. Apply U and NISS: FD corners.
+Check inverse. Skeleton (U2 F2 D R2 D U L2 D' F2 U') has HH corners. Apply U and NISS: FD corners.
 
 - (U2 B2 U L2 U)
     - After (F2 R2 B2), 1qt edges will be FD (good) and RH (good): +0+3+0(+0)
@@ -1744,7 +1745,7 @@ Stop: 10 HTRs done, nothing within goal. This DR's optimal is 14, over the goal.
 
 4b3 4e, goal 13.
 
-Skeleton starting with U2 F2 U has HH corners, L=9, 4 spare moves. Apply (U') and NISS: RD corners.
+Skeleton U2 F2 U R2 U2 F2 U' L2 U has HH corners, L=9, 4 spare moves. Apply (U') and NISS: RD corners.
 
 - After U2 F2, 1qt edges will be RD (good) and FD (good): +0+1(+1)
     - U2 F2 U' F2 U2 F2 R2 U // 2 pairs, no good
@@ -1793,24 +1794,24 @@ Check inverse. Skeleton starting with (U') has FV corners.
         - (L2 U R2 U2 B2 U') // 2 pairs, no good
         - (L2 U' B2 U2 R2 U) // 2 pairs, no good
     - After (R2), 1qt edges will be FD (bad) and RH (good), fr=1: +0+0+0(+2)
-        - (R2 U L2 U2 F2 D R2 B2 R2 F2 D2 F2) // 4 pairs, 13
+        - **(R2 U L2 U2 F2 D R2 B2 R2 F2 D2 F2) // 4 pairs, 13**
 - 179 more variants of this skeleton pass the meta, not reached before the stop.
 
-Skeleton starting with (U' R2 U R2 U2 F2 U') on inverse has HH corners, L=10, 3 spare moves. Apply D and NISS: HH corners.
+Skeleton (D' F2 D R2 U2 F2 U' R2 U D) on inverse has HH corners, L=10, 3 spare moves. Apply D' and NISS: HH corners.
 
 - (D' F2 D)
     - After (R2 U2 B2), 1qt edges will be RH (good) and FH (good), fr=1: +0+0+0(+5)
     - After (R2 F2 U2 B2), 1qt edges will be RH (good) and FH (good): +0+1+0(+0)
-        - (R2 F2 U2 B2 U B2 U) // 0 pairs, no good
+        - (R2 F2 U2 B2 U B2 U') // 0 pairs, no good
 - (D' B2 U')
     - After (L2 F2 U2 B2), 1qt edges will be RH (good) and FH (good), fr=1: +0+1+1(+5)
-    - After (L2 F2 U2 F2), 1qt edges will be RV (bad) and FD (bad), fr=1: +0+1+1(+6)
+    - After (L2 F2 U2 F2), 1qt edges will be RD (bad) and FV (bad), fr=1: +0+1+1(+6)
     - After (L2 U2 B2), 1qt edges will be RH (good) and FH (good), fr=1: +0+0+3(+5)
 - (D' B2 U)
-    - After (L2 F2 U2 L2 B2), 1qt edges will be RV (bad) and FH (good): +0+2+1(+3)
+    - After (L2 F2 U2 L2 B2), 1qt edges will be RD (bad) and FH (good): +0+2+1(+3)
 - (D' L2 B2 U)
     - After (F2 L2 U2 R2), 1qt edges will be RH (good) and FH (good), fr=1: +1+1+1(+5)
-    - After (F2 R2 U2 L2), 1qt edges will be RD (bad) and FD (bad), fr=1: +1+1+1(+6)
+    - After (F2 R2 U2 L2), 1qt edges will be RV (bad) and FV (bad), fr=1: +1+1+1(+6)
 - (D' L2 B2 U')
     - After (L2 F2 U2 B2), 1qt edges will be RH (good) and FH (good), fr=1: +1+1+1(+5)
 - 21 more variants of this skeleton pass the meta, not reached before the stop.
@@ -1857,16 +1858,16 @@ Check inverse. Skeleton starting with (R2) has RV corners.
     - (R2 U' R2 L2 F2 L2 F2 D) // 2 pairs, no good
 - 5 more variants of this skeleton pass the meta, not reached before the stop.
 
-Skeleton starting with U D has HH corners, L=5, 7 spare moves. Apply (D) and NISS: HH corners.
+Skeleton U D R2 D D' has HH corners, L=5, 7 spare moves. Apply (D) and NISS: HH corners.
 
 - U
     - After L2 B2 R2, 1qt edges will be RH (good) and FH (good), fr=1: +0+3+1(+5)
     - After L2 B2 L2, 1qt edges will be RV (bad) and FV (bad), fr=1: +0+3+1(+6)
 
-Check inverse. Skeleton starting with (D U') has HH corners. Apply U and NISS: HH corners.
+Check inverse. Skeleton (U D' L2 U U) has HH corners. Apply U' and NISS: HH corners.
 
 - (U')
-    - After (F2 B2), 1qt edges will be RD (bad) and FV (bad): +0+2+3(+6)
+    - After (F2 B2), 1qt edges will be RV (bad) and FD (bad): +0+2+3(+6)
 
 Skeleton starting with L2 has DD corners, L=6, 6 spare moves.
 
@@ -1884,24 +1885,24 @@ Check inverse. Skeleton starting with (L2 U2 B2) has RD corners.
     - (L2 U2 B2 U R2 F2 R2 F2 B2 D') // 6 pairs, no good
 - 13 more variants of this skeleton pass the meta, not reached before the stop.
 
-Skeleton starting with F2 D U has HH corners, L=6, 6 spare moves. Apply (D) and NISS: HH corners.
+Skeleton F2 D U R2 D D has HH corners, L=6, 6 spare moves. Apply (D') and NISS: HH corners.
 
 - F2 D'
-    - After R2 L2, 1qt edges will be RD (bad) and FV (bad): +0+2+0(+6)
-    - After F2 L2 B2, 1qt edges will be RH (good) and FV (bad): +0+3+0(+3)
+    - After R2 L2, 1qt edges will be RV (bad) and FD (bad): +0+2+0(+6)
+    - After F2 L2 B2, 1qt edges will be RH (good) and FD (bad): +0+3+0(+3)
         - F2 L2 B2 U R2 U // no good
-    - After F2 L2 B2, 1qt edges will be RH (good) and FV (bad): +0+3+2(+3)
+    - After F2 L2 B2, 1qt edges will be RH (good) and FD (bad): +0+3+2(+3)
 - F2 D
-    - After F2 L2 F2, 1qt edges will be RV (bad) and FV (bad): +0+3+0(+6)
-    - After R2 F2 L2 F2 B2, 1qt edges will be RD (bad) and FH (good): +0+5+0(+3)
+    - After F2 L2 F2, 1qt edges will be RD (bad) and FD (bad): +0+3+0(+6)
+    - After R2 F2 L2 F2 B2, 1qt edges will be RV (bad) and FH (good): +0+5+0(+3)
 - L2 F2 D
-    - After L2 B2 R2, 1qt edges will be RV (bad) and FH (good): +1+3+0(+3)
+    - After L2 B2 R2, 1qt edges will be RD (bad) and FH (good): +1+3+0(+3)
 - R2 B2 U'
-    - After L2 B2 R2, 1qt edges will be RV (bad) and FH (good): +1+3+0(+3)
+    - After L2 B2 R2, 1qt edges will be RD (bad) and FH (good): +1+3+0(+3)
 - L2 F2 D'
-    - After L2 B2 L2, 1qt edges will be RV (bad) and FD (bad): +1+3+0(+6)
+    - After L2 B2 L2, 1qt edges will be RD (bad) and FV (bad): +1+3+0(+6)
 - R2 B2 U
-    - After L2 B2 L2, 1qt edges will be RV (bad) and FD (bad): +1+3+0(+6)
+    - After L2 B2 L2, 1qt edges will be RD (bad) and FV (bad): +1+3+0(+6)
 - 6 more variants of this skeleton pass the meta, not reached before the stop.
 
 Stop: 10 HTRs done, nothing within goal. This DR's optimal is 13, over the goal.
@@ -1931,9 +1932,9 @@ Check inverse. Skeleton starting with (L2) has RD corners.
 Skeleton starting with U has DD corners, L=5, 7 spare moves.
 
 - With no setup, 1qt edges will be FH (bad) and RD (good): +0+3(+3)
-    - U F2 R2 F2 U R2 U2 B2 L2 B2 L2 D2 // 4 pairs, 12
+    - **U F2 R2 F2 U R2 U2 B2 L2 B2 L2 D2 // 4 pairs, 12**
     - U F2 L2 B2 D // 4 pairs, no good
-    - U B2 R2 B2 U R2 U2 B2 R2 B2 R2 D2 // 4 pairs, 12
+    - **U B2 R2 B2 U R2 U2 B2 R2 B2 R2 D2 // 4 pairs, 12**
 - 1 more variant of this skeleton passes the meta, not reached before the stop.
 
 Stop: 2 finishes within goal (12, 12), after 9 HTRs. This DR's optimal is 11.
@@ -2039,7 +2040,7 @@ Skeleton starting with (F2 U' R2 U L2 D) on inverse has RD corners, L=9, 4 spare
 - (F2 U' R2 U R2 U')
     - After (R2 L2), 1qt edges will be RD (good) and FD (good), fr=1: +0+2+2(+4)
 
-Skeleton starting with R2 U R2 U' F2 U has HH corners, L=9, 4 spare moves. Apply (U) and NISS: HH corners.
+Skeleton R2 D B2 U' R2 U R2 U U' has HH corners, L=9, 4 spare moves. Apply (U) and NISS: HH corners.
 
 - L2 U B2 D'
     - After R2 F2, 1qt edges will be RV (bad) and FD (bad), fr=1: +0+1+0(+6)
@@ -2172,7 +2173,7 @@ The same skeleton in full, for the solutions that go on after its last quarter t
 - L2 U B2 U' F2 L2 D'
     - After F2 R2, 1qt edges will be RV (bad) and FV (bad), fr=1: +1+1+2(+6)
 
-Skeleton starting with (F2 U' R2 U R2 U') on inverse has HH corners, L=9, 4 spare moves. Apply D and NISS: HH corners.
+Skeleton (F2 U' R2 U R2 U' R2 U D') on inverse has HH corners, L=9, 4 spare moves. Apply D and NISS: HH corners.
 
 - (F2 U' R2 U)
     - After (L2), 1qt edges will be RV (bad) and FD (bad), fr=1: +0+0+1(+6)
@@ -2397,7 +2398,7 @@ Skeleton starting with F2 U' has FV corners, L=8, 5 spare moves.
 
 - F2 U'
     - After B2 L2, 1qt edges will be FV (good) and RV (good): +0+1+0(+1)
-        - B2 L2 U' B2 U B2 L2 U2 R2 L2 // 12
+        - **B2 L2 U' B2 U B2 L2 U2 R2 L2 // 12**
     - After R2 F2 R2 B2, 1qt edges will be FH (bad) and RH (good): +0+3+0(+3)
     - After B2 L2, 1qt edges will be FV (good) and RV (good): +0+1+4(+1)
 - B2 U'
@@ -2419,7 +2420,7 @@ Check inverse. Skeleton starting with (U2 B2 U) has FD corners.
 
 - (U2 B2 U)
     - After (B2), 1qt edges will be FD (good) and RD (good): +0+0+1(+1)
-        - (B2 U' R2 B2 U R2 L2 U2 F2 L2) // 4 pairs, 13
+        - **(B2 U' R2 B2 U R2 L2 U2 F2 L2) // 4 pairs, 13**
     - After (B2 R2 L2), 1qt edges will be FH (bad) and RV (bad): +0+2+1(+5)
     - After (B2), 1qt edges will be FD (good) and RD (good): +0+0+5(+1)
 - (U2 B2 U')
@@ -2465,7 +2466,7 @@ Skeleton starting with D' has DD corners, L=8, 5 spare moves.
         - L2 F2 U L2 U2 R2 U // 4 pairs, no good
 - 44 more variants of this skeleton pass the meta, not reached before the stop.
 
-Check inverse. Skeleton starting with (R2 U2 F2 U') has HH corners. Apply D' and NISS: FD corners.
+Check inverse. Skeleton (R2 U2 F2 U' F2 U F2 U') has HH corners. Apply D' and NISS: FD corners.
 
 - After (L2 U2 F2), 1qt edges will be FH (bad) and RH (good), fr=1: +0+0(+3)
     - (L2 U2 F2 U' L2 U') // no good
@@ -2644,7 +2645,7 @@ Stop: 10 HTRs done, nothing within goal. This DR's optimal is 12.
 
 2c3 6e, goal 13.
 
-Skeleton starting with U has HH corners, L=5, 8 spare moves. Apply (U') and NISS: RD corners.
+Skeleton U R2 U' F2 U' has HH corners, L=5, 8 spare moves. Apply (U') and NISS: RD corners.
 
 - With no setup, 1qt edges will be RD (good) and FV (bad), fr=1: +0+4(+3)
     - U R2 U2 F2 R2 F2 U // 4 pairs, no good
@@ -2664,7 +2665,7 @@ The same skeleton in full, for the solutions that go on after its last quarter t
         - R2 U2 R2 U L2 F2 R2 L2 D // 4 pairs, no good
 - 17 more variants of this skeleton pass the meta, not reached before the stop.
 
-Check inverse. Skeleton starting with (U') has HH corners. Apply U and NISS: RD corners.
+Check inverse. Skeleton (U' R2 U' F2 U) has HH corners. Apply U and NISS: RD corners.
 
 - After (F2 B2), 1qt edges will be RD (good) and FV (bad): +2+3(+3)
     - (F2 B2 U R2 B2 U2 L2 U') // 4 pairs, no good
@@ -2689,10 +2690,10 @@ Stop: 10 HTRs done, nothing within goal. This DR's optimal is 13.
 
 2c3 6e, goal 13.
 
-Skeleton starting with U has HH corners, L=5, 8 spare moves. Apply (D) and NISS: FD corners.
+Skeleton U F2 U' F2 D' has HH corners, L=5, 8 spare moves. Apply (D) and NISS: FD corners.
 
 - After R2 L2, 1qt edges will be FD (good) and RH (good): +2+0(+0)
-    - R2 L2 U R2 U R2 U2 R2 B2 D2 R2 F2 D // 13
+    - **R2 L2 U R2 U R2 U2 R2 B2 D2 R2 F2 D // 13**
 - After F2 L2 B2, 1qt edges will be FD (good) and RV (bad): +3+0(+3)
     - F2 L2 B2 U' B2 U // no good
 - After R2 L2, 1qt edges will be FD (good) and RH (good): +2+2(+0)
@@ -2708,7 +2709,7 @@ The same skeleton in full, for the solutions that go on after its last quarter t
         - F2 U' B2 L2 F2 L2 D' // 6 pairs, no good
 - 21 more variants of this skeleton pass the meta, not reached before the stop.
 
-Check inverse. Skeleton starting with (D) has HH corners. Apply U and NISS: FD corners.
+Check inverse. Skeleton (D B2 U B2 U') has HH corners. Apply U and NISS: FD corners.
 
 - After (U2 R2 F2 R2), 1qt edges will be FV (bad) and RD (good): +4+1(+3)
     - (U2 R2 F2 R2 U R2 F2 D') // 4 pairs, no good
@@ -2719,7 +2720,7 @@ The same skeleton in full, for the solutions that go on after its last quarter t
 
 - (D)
     - After (R2 F2), 1qt edges will be RV (bad) and FH (good): +0+1+2(+3)
-        - (R2 F2 U' B2 R2 L2 D' F2 L2 F2 U2) // 12
+        - **(R2 F2 U' B2 R2 L2 D' F2 L2 F2 U2) // 12**
     - After (L2 U2 F2 U2 B2), 1qt edges will be RV (bad) and FH (good), fr=1: +0+4+0(+5)
     - After (R2 B2 L2 B2 R2), 1qt edges will be RV (bad) and FV (bad): +0+4+0(+6)
     - After (R2 F2), 1qt edges will be RV (bad) and FH (good), fr=1: +0+1+4(+5)
@@ -2923,11 +2924,11 @@ Skeleton starting with U has FD corners, L=6, 7 spare moves.
 - U'
     - After F2 R2 F2 U2 L2, 1qt edges will be FD (good) and RH (good), fr=1: +0+4+1(+3)
 
-Check inverse. Skeleton starting with (F2 U) has HH corners. Apply U and NISS: FD corners.
+Check inverse. Skeleton (F2 U R2 D B2 D) has HH corners. Apply U and NISS: FD corners.
 
 - After (L2 F2), 1qt edges will be FV (bad) and RD (good), fr=1: +1+1(+3)
     - (L2 F2 U' R2 B2 U) // 4 pairs, no good
-    - (L2 F2 U' L2 F2 D' R2 F2 B2 D2 B2 R2 U) // 2 pairs, 13
+    - **(L2 F2 U' L2 F2 D' R2 F2 B2 D2 B2 R2 U) // 2 pairs, 13**
 - After (B2), 1qt edges will be FH (bad) and RD (good), fr=1: +0+3(+3)
     - (B2 U L2 F2 R2 L2 U') // 6 pairs, no good
 - 17 more variants of this skeleton pass the meta, not reached before the stop.
@@ -2962,7 +2963,7 @@ The same skeleton in full, for the solutions that go on after its last quarter t
     - After (R2 F2 U2 R2), 1qt edges will be RD (bad) and FH (good): +1+3+1(+3)
 - 18 more variants of this skeleton pass the meta, not reached before the stop.
 
-Skeleton starting with R2 U' has HH corners, L=6, 7 spare moves. Apply (U') and NISS: RD corners.
+Skeleton R2 U' F2 D' L2 D' has HH corners, L=6, 7 spare moves. Apply (U') and NISS: RD corners.
 
 - After F2 B2 L2, 1qt edges will be RD (good) and FV (bad): +2+3(+3)
 
@@ -3046,7 +3047,7 @@ Skeleton starting with U' has RD corners, L=6, 7 spare moves.
         - F2 U2 L2 F2 U B2 U // no good
 - 36 more variants of this skeleton pass the meta, not reached before the stop.
 
-Check inverse. Skeleton starting with (R2 D') has HH corners. Apply U' and NISS: FD corners.
+Check inverse. Skeleton (R2 D' L2 D' B2 U) has HH corners. Apply U' and NISS: FD corners.
 
 - After (R2 F2 B2), 1qt edges will be FD (good) and RD (good): +2+0(+1)
     - (R2 F2 B2 U' R2 U') // no good
@@ -3060,7 +3061,7 @@ The same skeleton in full, for the solutions that go on after its last quarter t
 
 - (L2 U')
     - After (B2 L2), 1qt edges will be RH (good) and FH (good): +0+1+3(+0)
-        - (B2 L2 U F2 L2 F2 B2 D' F2 B2 U2) // 8 pairs, 13
+        - **(B2 L2 U F2 L2 F2 B2 D' F2 B2 U2) // 8 pairs, 13**
     - After (B2 R2), 1qt edges will be RD (bad) and FV (bad): +0+1+3(+6)
     - After (F2 R2 B2 L2 B2), 1qt edges will be RD (bad) and FH (good): +0+4+1(+3)
 - (R2 D)
@@ -3080,7 +3081,7 @@ The same skeleton in full, for the solutions that go on after its last quarter t
     - After (F2 L2 U2 B2), 1qt edges will be RH (good) and FV (bad), fr=1: +1+3+1(+5)
 - 26 more variants of this skeleton pass the meta, not reached before the stop.
 
-Skeleton starting with U2 R2 U' has HH corners, L=7, 6 spare moves. Apply (D) and NISS: RD corners.
+Skeleton U2 R2 U' F2 D' L2 D' has HH corners, L=7, 6 spare moves. Apply (D) and NISS: RD corners.
 
 - After U2 F2 B2 L2, 1qt edges will be RH (bad) and FH (good): +2+0(+3)
     - U2 F2 B2 L2 U' L2 U' // no good
@@ -3279,7 +3280,7 @@ Check inverse. Skeleton starting with (F2 U) has RD corners.
 
 - (F2 U)
     - After (F2 B2 L2), 1qt edges will be RV (bad) and FH (good): +0+2+0(+3)
-        - (F2 B2 L2 U' F2 U' B2 R2 F2 D2 R2) // 13
+        - **(F2 B2 L2 U' F2 U' B2 R2 F2 D2 R2) // 13**
     - After (B2 L2 U2 F2 B2), 1qt edges will be RV (bad) and FD (good): +0+4+0(+3)
 - (B2 D)
     - After (F2 R2), 1qt edges will be RV (bad) and FD (good): +0+1+0(+3)
@@ -3393,7 +3394,7 @@ Check inverse. Skeleton starting with (F2 U) has RD corners.
     - After (B2 L2 F2 U2 L2), 1qt edges will be RD (good) and FV (bad): +1+4+0(+3)
 - 32 more variants of this skeleton pass the meta, not reached before the stop.
 
-Skeleton starting with R2 U' F2 U R2 U' has HH corners, L=9, 4 spare moves. Apply (U) and NISS: HH corners.
+Skeleton R2 U' F2 D B2 U' R2 D U' has HH corners, L=9, 4 spare moves. Apply (U) and NISS: HH corners.
 
 - L2 D' B2 U
     - After B2, 1qt edges will be RD (bad) and FV (bad): +0+0+2(+6)
@@ -4385,7 +4386,7 @@ Check inverse. Skeleton starting with (U2 F2 D' L2 D') has FD corners.
 
 - (U2 B2 U' L2 U')
     - After (F2 R2), 1qt edges will be FH (bad) and RH (good): +0+1+0(+3)
-        - (F2 R2 U' L2 U L2 F2 L2 B2) // 14
+        - **(F2 R2 U' L2 U L2 F2 L2 B2) // 14**
     - After (F2 R2), 1qt edges will be FH (bad) and RH (good): +0+1+2(+3)
     - After (F2 R2), 1qt edges will be FH (bad) and RH (good), fr=1: +0+1+2(+5)
     - After (B2 R2 F2 L2 F2), 1qt edges will be FH (bad) and RD (good): +0+4+0(+3)
@@ -4832,11 +4833,11 @@ Skeleton starting with D B2 U' has FV corners, L=9, 5 spare moves.
     - After F2 U2 F2, 1qt edges will be FD (bad) and RD (bad), fr=1: +1+2+2(+5)
 - 23 more variants of this skeleton pass the meta, not reached before the stop.
 
-Check inverse. Skeleton starting with (U2 F2 D' L2 D) has HH corners. Apply D and NISS: FD corners.
+Check inverse. Skeleton (U2 F2 D' L2 D F2 D' F2 D) has HH corners. Apply D and NISS: FD corners.
 
 - (U2 B2 D')
     - After (B2), 1qt edges will be FH (bad) and RH (good): +0+0+2(+3)
-        - (B2 U F2 R2 L2 D' R2 F2 L2 F2 D') // 14
+        - **(B2 U F2 R2 L2 D' R2 F2 L2 F2 D') // 14**
     - After (B2), 1qt edges will be FH (bad) and RH (good): +0+0+3(+3)
 - (U2 F2 U')
     - After (R2 B2), 1qt edges will be FD (good) and RD (good): +0+1+3(+1)
