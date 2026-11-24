@@ -3,9 +3,13 @@ import numpy as np, pandas as pd
 from math import comb
 from load import *
 
-def frame(m, pref=None):
+def frame(m, pref=None, ext=False):
     r, d, q, mm = load(pref or f'../out/meta/run{m}')
     df = pd.DataFrame(r)
+    if ext:
+        x = load_ext(pref or f'../out/meta/run{m}')
+        assert len(x) == len(df)
+        for c in x.dtype.names: df[c] = x[c] if c.startswith('key') else x[c].astype(np.int16)
     # a 2qt DR is a 4a2 or 4b2: drop the few states whose corners are 0c0 up to a turn of both layers
     # (two quarter turns in the fixed frame, but a 0qt corner case to a solver)
     keep = ~d.subset.str.startswith('0c0')
