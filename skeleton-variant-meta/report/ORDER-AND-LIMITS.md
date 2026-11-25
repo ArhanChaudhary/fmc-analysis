@@ -9,7 +9,7 @@ The key decisions that the meta needs to make are:
  - **NISS strategy**: when to use NISS
 
 The analysis is based on a sample of 2,000 random DRs for each of 2qt, 3qt and 4qt, split by corner case. The goal is
-finding leave-slice in 12/13/14 for 2qt/3qt/4qt.
+to find leave-slice in 12/13/14 for 2qt/3qt/4qt.
 
 The analysis uses the following definitions:
  - **G** goal total move count to leave-slice: 12, 13, or 14
@@ -21,7 +21,7 @@ See [Advanced DR Bounding](https://docs.google.com/document/d/13F8HonrKJyHjU9Ewf
 
 ## Conclusions
 
-- **Narrow first pass, then depth first** Check up to 5 HTRs on each skeleton before moving to the next one
+- **Shallow first pass** Check up to 5 HTRs on each skeleton before moving to the next one. Then make a second depth-first pass
 - **Use both a relative and an absolute cap on HTR length** Restrict to E ≤ 5 and H ≤ G−2
 - **NISS after a single QT is enough for all but 0c3, 4c3, and 4c4**
 
