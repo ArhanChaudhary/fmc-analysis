@@ -22,7 +22,7 @@ See [Advanced DR Bounding](https://docs.google.com/document/d/13F8HonrKJyHjU9Ewf
 ## Conclusions
 
 - **Shallow first pass** Check up to 5 HTRs on each skeleton before moving to the next one. Then make a second depth-first pass
-- **Both relative and absolute cap on HTR length** Restrict to E ≤ 5 and H ≤ G−2
+- **Both relative and absolute cap on HTR length** Restrict to E ≤ 5 and H ≤ G−2, with ≤ 1 extra move before 2qt
 - **NISS after a single QT is enough for all but 0c3, 4c3, and 4c4**
 
 ## 1. Breadth vs Depth
@@ -31,17 +31,18 @@ Finishing the shortest HTR first should find a solution soonest. But that order 
 This section measures what that costs by comparing three strategies:
 
 - **Breadth first** Strict ordering by H, mixing together all skeletons on both sides. The a-priori optimal ordering
-- **Depth first** Order skeletons by L, then check all of a skeleton's HTRs before moving to the next: its NISS after a single qt first, then linear, shortest first in each
-- **Two pass** Order skeletons by L, then check up to k HTRs per skeleton (NISS and linear combined). Finish with a depth-first second pass through the skeletons
+- **Depth first** Order skeletons by L, then check all of a skeleton's HTRs before moving to the next
+- **Two pass** Order skeletons by L, then check up to k HTRs per skeleton. Finish with a depth-first second pass through the skeletons
 
-The HTRs checked are the same in all three: E ≤ 5 and H ≤ G−1, with at most 1 extra move before 2qt, on normal, on inverse and with a NISS after a single qt. HTRs with the same H are taken most pairs first, and skeletons of one length in random order.
+The HTRs found include linear in both directions, plus NISS after an initial U move.
 
 For all DRs that have a within-goal solution, we compute
 
-- **Median place.** How many HTRs must be checked to find the first within-goal finish, as a median over those DRs
-- **HTRs to finish for 95%.** How many HTRs have to be finished to have a 95% chance of finding a within-goal finish. A dash means the HTRs checked don't reach 95% of those DRs
+- **Median place.** How many HTRs must be checked to find the first within-goal finish, median over all DRs
+- **HTRs to finish for 95%.** How many HTRs have to be finished to have a 95% chance of finding a within-goal finish. 0c3 never reaches 95%.
 
-Across the corner cases with at least 100 within-goal DRs, a two-pass strategy with 5 HTRs per skeleton puts the median place at 1.3x to 2.2x that of breadth first and takes 1.4x to 3.6x as many HTRs for 95%. Depth first puts the median place at 2x to 27x and takes 4x to 7x as many HTRs for 95%. A smaller first pass helps the median and a larger one the 95% point, so 5 is the trade-off.
+Across all corner cases, a two-pass strategy works best, but the depth matters. Too deep is wasteful,
+while too shallow falls back to overall depth-first. Trying 5 HTRs per skeleton gives the best trade-off, roughly doubling both numbers compared to the optimal.
 
 ### 2qt DRs (goal 12)
 
@@ -165,11 +166,11 @@ The analysis only extends skeletons to 2 extra qt, and 1 of the 15 within-goal D
 
 ## 2. Length Restrictions
 
-An HTR too close to the goal has a very small chance of hitting the goal. We enforce these limits always:
+An HTR too close to the goal has a very small chance of hitting the goal. We enforce these limits always, including for the analysis in Section 1:
  - **H < G** Must reach HTR with at least one move to spare
- - **≤ 1 extra move before 2qt** Allowing more adds 8% to 84% to the HTR count for 0.0 to 1.0 points of reach, and is usually unnecessary because we are checking both directions
+ - **≤ 1 extra move before 2qt** Usually unnecessary because we are checking both directions
 
-We use the k=5, two-pass strategy from section 1 and consider three kinds of restrictions
+We use the k=5, two-pass strategy from section 1 and consider three kinds of additional restrictions
 
 - **H** Cap on the total moves to reach HTR
 - **E** Cap on the extra moves to reach HTR
@@ -178,13 +179,13 @@ We use the k=5, two-pass strategy from section 1 and consider three kinds of res
 For each corner case, the tables below show
 
 - **HTRs per DR.** The median number of HTRs that satisfy the restriction. As before, ratios are most important
-- **Reach.** The fraction of within-goal DRs that still have a within-goal HTR under the restriction
+- **Reach.** The fraction of within-goal finishes that satisfy the restriction
 - **Median place.** How many HTRs must be checked to find the first within-goal finish. A dash means fewer than half of the within-goal DRs are reached
 
-The rows in bold are, for each kind of restriction, the one with the fewest HTRs per DR that still has 95% reach.
+The rows in bold are, the loosest restriction that still has 95% reach.
 
-Across corner cases, a combined restriction gives the best tradeoff: E ≤ 5, H ≤ G−2.
-Next to E ≤ 5 alone, it keeps 25% to 47% of the HTRs in the corner cases with at least 100 within-goal DRs and moves the median place by 3 at most. Reach stays at 95% or more in 5 of the 8 corner cases (4b2, 4a2, 2c3, 2c4 and 0c4). It falls to 91.8% on 4c3, 80.0% on 0c3 and 86.9% on 4c4. There H ≤ G−1 keeps 95% (except on 0c3, which never reaches it), and so does more NISS (section 3).
+Across corner cases, a combined restriction gives the best tradeoff: E ≤ 5, H ≤ G−2, which trims the HTR count
+by 2x-4x while keeping reach above 95%.
 
 ### 2qt DRs (goal 12)
 
@@ -339,7 +340,8 @@ This section shows the effect of different NISS strategies:
 - **After 1-2 moves** Also NISS after `X2 U`
 - **After 1-3 moves** Also NISS after `U X2 U`
 
-The table uses the restrictions of section 2, E ≤ 5 and H ≤ G−2, and the two-pass order with 5 per skeleton. A NISS after a single qt is checked before the linear HTRs of its skeleton. A NISS after more moves is checked after all of them, in the second pass.
+The statistics use the ordering of Section 1 and the restrictions of Section 2. 
+Within each skeleton, the order is: 1) after-1 NISS 2) linear 3) after-2 NISS 4) after-3 NISS 
 
 A NISS after 1 move is important. For most corner cases, it's enough to get the reach above 95%.
 The exceptions are 0c3, 4c3, and 4c4, which get another boost at 1-2 moves.
