@@ -8,7 +8,7 @@ The key decisions that the meta needs to make are:
  - **Length restriction**: limits on the HTRs to check
  - **NISS strategy**: when to use NISS
 
-The analysis is based on a sample of 2,000 random DRs for each of 2qt, 3qt and 4qt, split by corner case. The goal is
+The analysis is based on a sample of 2,000 random DRs for each 2qt/3qt/4qt corner case. The goal is
 to find leave-slice in 12/13/14 for 2qt/3qt/4qt.
 
 The analysis uses the following definitions:
