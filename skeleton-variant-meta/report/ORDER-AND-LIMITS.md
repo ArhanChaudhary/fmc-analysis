@@ -22,7 +22,7 @@ See [Advanced DR Bounding](https://docs.google.com/document/d/13F8HonrKJyHjU9Ewf
 ## Conclusions
 
 - **Shallow first pass** Check up to 5 HTRs on each skeleton before moving to the next one. Then make a second depth-first pass
-- **Use both a relative and an absolute cap on HTR length** Restrict to E ≤ 5 and H ≤ G−2
+- **Both relative and absolute cap on HTR length** Restrict to E ≤ 5 and H ≤ G−2
 - **NISS after a single QT is enough for all but 0c3, 4c3, and 4c4**
 
 ## 1. Breadth vs Depth
