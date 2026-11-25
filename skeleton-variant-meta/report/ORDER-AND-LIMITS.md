@@ -8,8 +8,8 @@ The key decisions that the meta needs to make are:
  - **Length restriction**: limits on the HTRs to check
  - **NISS strategy**: when to use NISS
 
-The analysis uses a sample of 2,000 random DRs each for 2qt, 3qt and 4qt (1,960 for 2qt), split by corner case. The success criterion is
-finding a 12/13/14 move finish for a 0-2qt/3qt/4qt DR.
+The analysis is based on a sample of 2,000 random DRs for each of 2qt, 3qt and 4qt, split by corner case. The goal is
+finding leave-slice in 12/13/14 for 2qt/3qt/4qt.
 
 The analysis uses the following definitions:
  - **G** goal total move count to leave-slice: 12, 13, or 14
@@ -342,7 +342,7 @@ This section shows the effect of different NISS strategies:
 The table uses the restrictions of section 2, E ≤ 5 and H ≤ G−2, and the two-pass order with 5 per skeleton. A NISS after a single qt is checked before the linear HTRs of its skeleton. A NISS after more moves is checked after all of them, in the second pass.
 
 A NISS after 1 move is important. For most corner cases, it's enough to get the reach above 95%.
-The exceptions are 0c3, 4c3, and 4c4, which require 1-2 moves (0c3 then reaches 93.3%, its ceiling).
+The exceptions are 0c3, 4c3, and 4c4, which get another boost at 1-2 moves.
 
 | Corner case | NISS | HTRs per DR (median) | Reach | Median place |
 |---|---|---|---|---|

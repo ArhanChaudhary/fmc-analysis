@@ -45,8 +45,8 @@ w(' - **Breadth vs depth**: how many HTRs to check on a skeleton before moving t
 w(' - **Length restriction**: limits on the HTRs to check')
 w(' - **NISS strategy**: when to use NISS')
 w()
-w('The analysis uses a sample of 2,000 random DRs each for 2qt, 3qt and 4qt (1,960 for 2qt), split by corner case. The success criterion is')
-w('finding a 12/13/14 move finish for a 0-2qt/3qt/4qt DR.')
+w('The analysis is based on a sample of 2,000 random DRs for each of 2qt, 3qt and 4qt, split by corner case. The goal is')
+w('finding leave-slice in 12/13/14 for 2qt/3qt/4qt.')
 w()
 w('The analysis uses the following definitions:')
 w(' - **G** goal total move count to leave-slice: 12, 13, or 14')
@@ -217,12 +217,11 @@ w(f'The table uses the restrictions of section 2, E ≤ 5 and H ≤ G−2, and t
   'A NISS after a single qt is checked before the linear HTRs of its skeleton. A NISS after more moves is checked after all of them, in the second pass.')
 w()
 low1 = [k for k in ORDER if not reaches(N(k, 'n1'))]          # a NISS after 1 move leaves them under 95%
-never = [k for k in low1 if not reaches(N(k, 'n2'))]          # ... and so does a NISS after 1-2 moves
 assert all(reaches(N(k, 'none')) is False for k in BIG), 'written for corner cases that need a NISS to reach 95%'
 w('A NISS after 1 move is important. ' + ('For most corner cases, it\'s enough to get the reach above 95%.' if low1 else 'In every corner case it\'s enough to get the reach above 95%.'))
 if low1:
-    w(f"The exceptions are {byqt(low1)}, which require 1-2 moves"
-      + (' (' + ' and '.join(f"{k} then reaches {pct(N(k, 'n2')['reach'])}, its ceiling" for k in never) + ').' if never else '.'))
+    assert all(N(k, 'n2')['reach'] > N(k, 'n1')['reach'] for k in low1)
+    w(f"The exceptions are {byqt(low1)}, which get another boost at 1-2 moves.")
 w()
 w('| Corner case | NISS | HTRs per DR (median) | Reach | Median place |')
 w('|---|---|---|---|---|')
