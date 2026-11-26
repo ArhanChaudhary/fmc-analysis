@@ -88,6 +88,7 @@ PAIR_END = True
 ORDER = ['2c4', '2c3', '0c0', '4b3', '4b2', '4a2', '4a1']
 REVERSE = True            # False: the corner cases in the order of the scramble lists
 UNSOLVED = 1
+EASY_FIRST = True         # the examples of a corner case by the skeleton their shortest solution is first found on
 # a section of the scramble lists under the name it has in the document: the "4b3" scrambles of the Advanced DR
 # Bounding Examples doc are the subset generator's 4c3 (4a3 and 4b3 together)
 NAME = {'4b3': '4c3'}
@@ -155,11 +156,26 @@ class Variant:
         self.passno = 0           # 1, 2: the pass this variant is taken to HTR in; 0: it is not
         self.red = c.get('red')   # after a premove (a skeleton that ends with its last quarter turn): how it goes
 
+    def reading(self):
+        """(L, P, S, T, N, moves to HTR) as the variant's line reads them: its own, or after a premove the other
+        way's when that is the way its printed moves go."""
+        sh = (self.red or {}).get('show')
+        if not sh:
+            return self.L, self.P, self.S, self.T, self.N, self.c['wl']
+        q, e = self.q, sh['e']
+        P, S, T = (0, 0, e[0]) if q == 1 else (sum(e[:q - 2]), e[q - 2], e[q - 1])
+        return sh['L'], P, S, T, sh['nb'][BOUND], sh['wl']
+
     def tuple(self):
+        _, P, S, T, N, _ = self.reading()
         if self.q == 1:
-            return f'+{self.T}(+{self.N})'
-        head = f'+{self.P}' if self.q > 2 else ''
-        return f'{head}+{self.S}+{self.T}(+{self.N})'
+            return f'+{T}(+{N})'
+        head = f'+{P}' if self.q > 2 else ''
+        return f'{head}+{S}+{T}(+{N})'
+
+    def premove(self):
+        """After a premove: that quarter turn, on the other side."""
+        return self.red['pre'] if self.red else None
 
     def approach(self):
         return ' '.join(self.c['h'].split()[:self.c['ha2']])
@@ -183,7 +199,8 @@ class Variant:
             if not self.within:
                 f = short[0]
                 assert (c['hfe'], c['hre'], c['hbf'], c['hbr'], c['hfr']) == (f['fe'], f['re'], f['bf'], f['br'], f['fr'])
-        return dict(w=c['h'], finish=c['hfin'], len=n, kind=c['hkind'], fe=c['hfe'], re=c['hre'], bf=c['hbf'], br=c['hbr'], fr=c['hfr'])
+        r = (self.red or {}).get('show') or c
+        return dict(w=c['h'], finish=c['hfin'], len=n, kind=r['hkind'], fe=r['hfe'], re=r['hre'], bf=r['hbf'], br=r['hbr'], fr=r['hfr'])
 
 
 def group_sizes(vs):
@@ -269,7 +286,12 @@ def reduced(rows):
                 for f in ('h', 'hfin', 'htot', 'hrot', 'hcut', 'ha2', 'hL', 'he', 'hread'):
                     c[f] = ds[df][f]
                 assert c['htot'] == c['total']
-            c['red'] = dict(pre=rdr[(side, dstar)]['pre'], last=rdr[(side, df)]['last'], lead=rdr[(side, dstar)]['last'], same=df == dstar)
+            # `pre`: the premove these moves are made after (the other way's when its finish is the one printed);
+            # `show`: the reading after that premove (its corner case, edges and extra moves can differ from the
+            # other way's), for the variant's line
+            c['red'] = dict(pre=rdr[(side, df)]['pre'], last=rdr[(side, df)]['last'], lead=rdr[(side, dstar)]['last'], same=df == dstar)
+            if df != dstar:
+                c['red']['show'] = {f: ds[df][f] for f in ('L', 'e', 'nb', 'wl', 'hkind', 'hfe', 'hre', 'hbf', 'hbr', 'hfr', 'hcsp')}
             out[k]['classes'].append(c)
     return out
 
@@ -454,135 +476,200 @@ def render(x, rows, max_skeletons=SKELETONS, min_spare=SPARE, hard=HARD, log=sys
     start_of = fc.parse(x['scramble'])
     solved = []
 
-    def head(b, alone):
-        """The summary line of a skeleton side.  `alone`: a block shown on its own (hard to find), never as the
-        second side of a pair."""
-        side, k = b['side'], b['k']
-        s = skel[k]
-        pm = red[k] if b['mode'] == 'premove' else None
-        kind = 'HH' if pm else b['apps'][0][0].c['kind'].replace('-', '')
-        name = pm['full'] if pm else s['form']
+    def ghead(bs, num):
+        """The line over a skeleton's list: the skeleton as the first of its sides that is gone through reads it
+        (after a premove, written as what is left of it then that quarter turn), and how the other side reads it.
+        `num`: its place among the skeletons gone through (None: hard to find)."""
+        first = {}
+        for b in bs:
+            first.setdefault(b['side'], b)
+
+        def name_kind(b):
+            pm = red[b['k']] if b['mode'] == 'premove' else None
+            kind = 'HH' if pm else b['apps'][0][0].c['kind'].replace('-', '')
+            return par(pm['full'] if pm else skel[b['k']]['form'], b['side']), kind
+        b0 = bs[0]
+        s = skel[b0['k']]
         spare = goal - s['L']
-        if b['again'] and not alone:
-            line = 'Check linearly.' if side == 'N' else 'Check inverse linearly.'
-        elif b['si'] == 0 or alone:
-            where = '' if side == 'N' else ' on inverse'
-            line = f"Skeleton {par(name, side)}{where} has {kind} corners, L={s['L']}, {spare} spare move{'s' * (spare != 1)}."
-            if not pm:
-                line += ' Check linearly.'
-        else:
-            line = f"Check inverse{'' if pm else ' linearly'}. Skeleton {par(name, side)} has {kind} corners."
-        if pm:
-            # the premove is made on the other side
-            line += f" Apply {par(pm['pre'], 'NI'[side == 'N'])} and NISS: {pm['kind'].replace('-', '')} corners."
+        name, kind = name_kind(b0)
+        where = '' if b0['side'] == 'N' else ' on inverse'
+        line = f"Skeleton{f' #{num}' if num else ''} {name}{where} has {kind} corners, L={s['L']}, {spare} spare move{'s' * (spare != 1)}."
+        if b0['side'] == 'N' and 'I' in first:
+            name, kind = name_kind(first['I'])
+            line += f" On inverse, {name} has {kind} corners."
         return line
 
-    def lines(b, show, note):
+    def lines(b, show, note, num):
         """The approaches of a block with the variants in `show`: variant line, moves, and the checks of the moves.
-        A finish that is already printed for this side (the same moves up to which of U and D is turned) is not
-        printed again."""
+        After a premove, the premove (the skeleton's last quarter turn, on the other side) starts the approach; an
+        approach is bold when a within-goal solution is printed under it.  A finish that is already printed for this
+        side (the same moves up to which of U and D is turned) is not printed again."""
         side, k = b['side'], b['k']
-        q = skel[k]['q'] - (b['mode'] == 'premove')
+        pm = b['mode'] == 'premove'
+        q = skel[k]['q'] - pm
+        head_line = q > 2 or pm         # an approach line over the variants (after a premove: at least the premove)
+        ind = '    ' if head_line else ''
+        other = 'NI'[side == 'N']
         out = []
         for g in b['apps']:
-            ind = '    ' if q > 2 else ''
-            sub, last = [], None
-            for v in (v for v in g if v in show):
-                m = v.member()
-                w = m['w'].split()
-                _, setup, rest_ = split(m, v.c['ha2'])
-                own_side = start_of if side == 'N' else fc.invert(start_of)
-                if v.within:
-                    # after a premove the solution ends with that quarter turn
-                    full = w + m['finish'].split() + ([v.red['last']] if v.red else [])
-                    assert len(full) == v.total + bool(v.red) <= goal and ls_solved_turn(state(x['scramble'], side, full)) is not None, ('not a leave-slice solution', x['id'], full)
-                    read_check(x, v, m, w + m['finish'].split())
-                    if v.red and not m['finish'] and full[-2] in QT:
-                        # the premove follows a quarter turn directly: the two are one half turn, or nothing
-                        full = full[:-2] + (['U2'] if full[-2][1:] == full[-1][1:] else [])
-                        assert ls_solved_turn(state(x['scramble'], side, full)) is not None, ('not a leave-slice solution', x['id'], full)
-                    if (side, image(full)) in seen:
-                        stats['repeats'] += 1
-                        continue
-                    seen.add((side, image(full)))
-                    move_line = f"{ind}    - **{par(full[v.c['ha2']:], side)} // {len(full)}**"
-                    solved.append((side, full, v, m))
-                else:
-                    # the state the moves reach: after a premove, the premove's turn comes before the scramble
-                    lead = fc.parse(v.red['lead']) if v.red else []
-                    assert on_axis(fc.apply(fc.solved(), lead + own_side + fc.parse(' '.join(w)))), ('not an HTR', x['id'], m['w'])
-                    move_line = f"{ind}    - {par(setup + rest_, side)} // {note[id(v)]}"
-                after = f'After {par(setup, side)}' if setup else 'With no setup'
-                # with one quarter turn the setup ends on the state the edges are read on
-                line = f"{ind}- {after}, 1qt edges {'are' if v.q == 1 else 'will be'} {edges(m)}: {v.tuple()}"
-                if line != last:          # variants with one setup, one edge case and one tuple share a line
-                    sub.append(line)
-                last = line
-                sub.append(move_line)
-            if sub:
-                out += ([f"- {par(g[0].approach(), side)}"] if q > 2 else []) + sub
+            # the variants of one approach, by the premove their moves are made after (the skeleton's own first)
+            pres = []
+            for v in g:
+                if v in show and v.premove() not in pres:
+                    pres.append(v.premove())
+            pres.sort(key=lambda p: p != (red[k]['pre'] if pm else None))
+            for pre in pres:
+                sub, last, bold = [], None, False
+                for v in (v for v in g if v in show and v.premove() == pre):
+                    m = v.member()
+                    w = m['w'].split()
+                    _, setup, rest_ = split(m, v.c['ha2'])
+                    own_side = start_of if side == 'N' else fc.invert(start_of)
+                    if v.within:
+                        # after a premove the solution ends with that quarter turn
+                        moves = w + m['finish'].split()
+                        full = moves + ([v.red['last']] if v.red else [])
+                        assert len(full) == v.total + bool(v.red) <= goal and ls_solved_turn(state(x['scramble'], side, full)) is not None, ('not a leave-slice solution', x['id'], full)
+                        read_check(x, v, m, moves)
+                        merged = ''
+                        if v.red and not m['finish'] and full[-2] in QT:
+                            # the premove follows a quarter turn directly: the two are one half turn, or nothing
+                            two = full[-2][1:] == full[-1][1:]
+                            full = full[:-2] + (['U2'] if two else [])
+                            assert ls_solved_turn(state(x['scramble'], side, full)) is not None, ('not a leave-slice solution', x['id'], full)
+                            merged = f" (the premove makes the last {w[-1]} a {w[-1][0]}2)" if two else f" (the premove cancels the last {w[-1]})"
+                            stats['merged'] += 1
+                        if (side, image(full)) in seen:
+                            stats['repeats'] += 1
+                            continue
+                        seen.add((side, image(full)))
+                        move_line = f"{ind}    - **{par(moves[v.c['ha2']:], side)} // {len(full)}**{merged}"
+                        solved.append((side, full, v, m))
+                        where.append(num)
+                        bold = True
+                    else:
+                        # the state the moves reach: after a premove, the premove's turn comes before the scramble
+                        lead = fc.parse(v.red['lead']) if v.red else []
+                        assert on_axis(fc.apply(fc.solved(), lead + own_side + fc.parse(' '.join(w)))), ('not an HTR', x['id'], m['w'])
+                        move_line = f"{ind}    - {par(setup + rest_, side)} // {note[id(v)]}"
+                    if setup:
+                        after = f'After {par(setup, side)}'
+                    else:
+                        after = 'With no setup' + (' on inverse' if side == 'I' and not head_line else '')
+                    # with one quarter turn the setup ends on the state the edges are read on
+                    line = f"{ind}- {after}, 1qt edges {'are' if v.q == 1 else 'will be'} {edges(m)}: {v.tuple()}"
+                    if line != last:          # variants with one setup, one edge case and one tuple share a line
+                        sub.append(line)
+                    last = line
+                    sub.append(move_line)
+                if sub:
+                    if head_line:
+                        a = ' '.join(([par(pre, other)] if pre else []) + ([par(g[0].approach(), side)] if g[0].approach() else []))
+                        out.append(f"- **{a}**" if bold else f"- {a}")
+                    out += sub
         return out
 
+    def empty(b, show):
+        """What a block with nothing printed says."""
+        if show:
+            return 'Only solutions already found above.'
+        if any(v.bound_ok for g in b['apps'] for v in g):
+            # the bound lets some through, and every one of those reaches HTR with no move left for a finish
+            stats['empty_cap'] += 1
+            return 'All variants have lower bound > spare moves, or reach HTR with no move left.'
+        return 'No variants have lower bound < spare moves.' if SLACK else 'All variants have lower bound > spare moves.'
+
+    def part_name(b):
+        """A block among the others of its skeleton: which side, and with the premove or linearly."""
+        side = b['side']
+        if b['mode'] == 'premove':
+            pre = par(red[b['k']]['pre'], 'NI'[side == 'N'])
+            return f'With the premove {pre}' if side == 'N' else f'On inverse, with the premove {pre}'
+        lin = b['mode'] == 'full'
+        return ('Linearly' if lin else 'On normal') if side == 'N' else ('On inverse, linearly' if lin else 'On inverse')
+
+    def by_group(bs):
+        gs = {}
+        for b in bs:
+            gs.setdefault(b['gi'], []).append(b)
+        return list(gs.values())
+
+    where = []        # per printed within-goal solution: the number of the skeleton it is on (None: hard to find)
     out = [x['scramble'] + f"  // {label(x, dr)}, goal {goal}", '']
-    # the skeletons gone through: every variant the meta lets through is taken to HTR; shown are the finishes within
-    # goal and, per approach, the one that is no good with the most pairs right after its last insertion
-    for b in blocks_of(tried):
-        show, note = [], {}
-        # NOGOOD: one no-good shown per approach to 2qt, or one for the whole skeleton side
-        for part in ([[v for g in b['apps'] for v in g]] if NOGOOD == 'side' else b['apps']):
-            taken = [v for v in part if v.finished]
-            for v in taken:
-                v.passno = 1
-            stats['finished'] += len(taken)
-            stats['premove'] += sum(bool(v.red) for v in taken)
-            bad = [v for v in taken if not v.within]
-            show += [v for v in taken if v.within]
-            if bad:
-                one = min(bad, key=lambda v: (-v.pairs, v.order, v.c['key']))
-                show.append(one)
-                note[id(one)] = 'no good'
-        out.append(head(b, False))
+    # the skeletons gone through, each with one list: every variant the meta lets through is taken to HTR; shown are
+    # the finishes within goal and, per skeleton side, the one that is no good with the most pairs right after its
+    # last insertion
+    for num, bs in enumerate(by_group(blocks_of(tried)), 1):
+        parts_out = []
+        for b in bs:
+            show, note = [], {}
+            # NOGOOD: one no-good shown per approach to 2qt, or one for the whole skeleton side
+            for part in ([[v for g in b['apps'] for v in g]] if NOGOOD == 'side' else b['apps']):
+                taken = [v for v in part if v.finished]
+                for v in taken:
+                    v.passno = 1
+                stats['finished'] += len(taken)
+                stats['premove'] += sum(bool(v.red) for v in taken)
+                bad = [v for v in taken if not v.within]
+                show += [v for v in taken if v.within]
+                if bad:
+                    one = min(bad, key=lambda v: (-v.pairs, v.order, v.c['key']))
+                    show.append(one)
+                    note[id(one)] = 'no good'
+            parts_out.append((b, show, lines(b, show, note, num)))
+        out.append(ghead(bs, num))
         out.append('')
-        body = lines(b, show, note)
-        if not body:
+        if not any(body for _, _, body in parts_out):
             # nothing passes the bound, or (rarely) everything that does is a solution already printed
-            stats['empty_repeat'] += bool(show)
-            none = '- No variants have lower bound < spare moves.' if SLACK else '- All variants have lower bound > spare moves.'
-            if any(v.bound_ok for g in b['apps'] for v in g):
-                # the bound lets some through, and every one of those reaches HTR with no move left for a finish
-                stats['empty_cap'] += 1
-                none = '- All variants have lower bound > spare moves, or reach HTR with no move left.'
-            body = ['- Only solutions already found above.' if show else none]
-        out += body
+            stats['empty_repeat'] += any(bool(show) for _, show, _ in parts_out)
+            shows = [v for _, show, _ in parts_out for v in show]
+            msg = empty(dict(apps=[[v for b, _, _ in parts_out for g in b['apps'] for v in g]]), shows)
+            out.append(f'- {msg}')
+        else:
+            for b, show, body in parts_out:
+                if body:
+                    out += body
+                else:
+                    stats['empty_part'] += 1
+                    msg = empty(b, show)
+                    out.append(f'- {part_name(b)}: {msg[0].lower()}{msg[1:]}')
         out.append('')
     found = len(solved)
     # hard to find: finishes within goal on the skeletons that are not gone through
-    extra = []
-    for b in blocks_of(rest):
-        vs = [v for v in b['run'] if v.within][:hard - len(extra)]
-        if vs:
-            if not extra:
-                out += ['Hard to find solutions:', '']
+    extra, hard_head = [], False
+    for bs in by_group(blocks_of(rest)):
+        chosen = []
+        for b in bs:
+            vs = [v for v in b['run'] if v.within][:hard - len(extra)]
             extra += vs
-            out.append(head(b, True))
+            if vs:
+                chosen.append((b, vs))
+        body = [l for b, vs in chosen for l in lines(b, vs, {}, None)]
+        if body:
+            if not hard_head:
+                out += ['Hard to find solutions:', '']
+                hard_head = True
+            out.append(ghead([b for b, _ in chosen], None))
             out.append('')
-            out += lines(b, vs, {})
+            out += body
             out.append('')
         if len(extra) >= hard:
             break
     lens, hlens = sorted(len(t[1]) for t in solved[:found]), sorted(len(t[1]) for t in solved[found:])
     n, k = stats['finished'], len(tried)
+    # the skeleton the shortest solution found is first found on
+    first = next((where[i] for i in range(found) if len(solved[i][1]) == min(lens)), None) if lens else None
 
     # the DR's optimal, the shortest solution on the skeletons gone through, and the shortest hard-to-find one
     # when it is shorter than that
     opt = dr['lsopt_turn']
-    end = f"Optimal is {opt}. Found {min(lens) if lens else 'none'}."
+    end = f"Optimal is {opt}. Found {min(lens)} on skeleton #{first}." if lens else f"Optimal is {opt}. Found none."
     if hlens and (not lens or min(hlens) < min(lens)):
         end += f' Findable but hard {min(hlens)}.'
     out.append(end)
     info = dict(id=x['id'], section=x['section'], subset=label(x, dr), goal=goal, optimal=opt, htrs=n, lens=lens, hard=hlens,
                 skeletons=k, listed=len(ordered), premove=stats['premove'], tried=[sorted(g[1].values()) for g in tried],
-                half_turn=sum(v.c['hrot'] == 2 for _, _, v, _ in solved))
+                half_turn=sum(v.c['hrot'] == 2 for _, _, v, _ in solved), first=first)
     print(x['id'], dict(stats), 'optimal', opt, 'found', lens, 'hard to find', hlens, file=log)
     return '\n'.join(out).rstrip() + '\n', info, solved
 
@@ -594,13 +681,14 @@ def read_check(x, v, m, full):
     q = len(ex) - 1
     got = (L, 0, 0, ex[0], ex[1]) if q == 1 else (L, sum(ex[:q - 2]), ex[q - 2], ex[q - 1], ex[q])
     assert L + sum(ex) == len(full), (x['id'], full, v.c['hread'])
-    if m['len'] == v.c['wl'] and (not v.red or v.red['same']):
+    rL, rP, rS, rT, rN, rwl = v.reading()
+    if m['len'] == rwl:
         # the line's N is the table's for the case the finish is read from, and the finish cannot beat it, but for
         # the table's one known error: the corner-case-aware table asks +5 for RD or FD corners with 1 bad slice and
         # cs/fr 1/1, where +4 is enough (the write-up's "Error in DR Bound").  The line keeps the table's +5
-        known = (BOUND == 1 and m['kind'] in ('R-D', 'F-D') and m['bf'] + m['br'] == 1 and (v.c['hcsp'], m['fr']) == (1, 1)
-                 and (v.N, got[4]) == (5, 4))
-        assert got[:4] == (v.L, v.P, v.S, v.T) and (got[4] >= v.N or known), (x['id'], full, got, v.tuple())
+        known = (BOUND == 1 and m['kind'] in ('R-D', 'F-D') and m['bf'] + m['br'] == 1 and (((v.red or {}).get('show') or v.c)['hcsp'], m['fr']) == (1, 1)
+                 and (rN, got[4]) == (5, 4))
+        assert got[:4] == (rL, rP, rS, rT) and (got[4] >= rN or known), (x['id'], full, got, v.tuple())
     return got
 
 
@@ -617,23 +705,26 @@ def reread(x, solved):
         assert got == read_check(x, v, m, full) and int(d['moves']) == len(full), (x['id'], full, got)
 
 
-DATE = '24 Nov 2026'
+DATE = '26 Nov 2026'
 
-# the block shown under "How to read an example": two blocks of one example, as they are printed (SAMPLE_ID)
+# the block shown under "How to read an example": one skeleton's list of one example, as it is printed (SAMPLE_ID)
 SAMPLE_ID = '4b2-02'
-SAMPLE = """Skeleton U R2 U R2 U F2 U has HH corners, L=7, 5 spare moves. Apply (U') and NISS: RD corners.
+SAMPLE = """Skeleton #8 U R2 U R2 U F2 U has HH corners, L=7, 5 spare moves. On inverse, (D' B2 U L2 D R2 D') has HH corners.
 
-- U
+- (U') U
     - After L2 B2 L2 F2, 1qt edges will be RD (good) and FH (good): +0+3+2(+0)
         - L2 B2 L2 F2 U' F2 R2 L2 D // no good
-
-Check linearly.
-
-- D B2 D
+- **D B2 D**
     - After L2, 1qt edges will be RH (good) and FH (good): +0+0+3(+0)
         - L2 U B2 L2 B2 L2 U' // no good
     - After R2, 1qt edges will be RH (good) and FH (good): +0+0+3(+0)
         - **R2 U L2 B2 L2 B2 U L2 R2 // 12**
+- D (D')
+    - After (B2 L2 B2 L2), 1qt edges will be FD (good) and RH (good): +0+3+2(+0)
+        - (B2 L2 B2 L2 U' F2 R2 L2 D) // no good
+- (U' L2 U)
+    - After (F2 R2 B2 R2), 1qt edges will be RH (good) and FH (good): +0+3+0(+0)
+        - (F2 R2 B2 R2 U' B2 U) // no good
 """
 
 INTRO = """# The skeleton/variant meta: example solves
@@ -644,7 +735,7 @@ Example solves using the [skeleton/variant meta](WRITEUP.md), generated using JT
 
 Every scramble is a DR on U/D. The goal is 12/13/14 moves from DR to a leave-slice finish for a 2qt/3qt/4qt DR; the 0c0 DRs are solved as 2qt ones, with goal 12.{onequarter}
 
-The solutions are found with an automated solver that implements the meta.
+The solutions are found with an automated solver that implements the meta, and in each corner case the scrambles run from easiest to hardest: by the skeleton on which the solver first finds its shortest solution.
 
 For each scramble:
  - Choose the {skeletons} skeletons with the fewest moves to HTR
@@ -665,10 +756,10 @@ For each skeleton:
 {sample}
 ```
 
-**Skeleton ...** solves corners up to a possible corner swap. NISS after 1 qt is allowed on both sides
-  - **... U**: the approach to 2qt (if any). Up to one extra move is allowed
+**Skeleton #n ...** solves corners up to a possible corner swap; #n is its place in the order the skeletons are tried. NISS after 1 qt is allowed on both sides, and the variants of both sides are in one list
+  - **(U') ... U**: the approach to 2qt (if any), in bold when it leads to a within-goal solution. Up to one extra move is allowed. With HH corners it can start with the skeleton's last quarter turn as a premove on the other side, like (U') or D
     - **After ...** setup to a 2qt trigger and the full penalty's lower bound
-      - **X2 U Y2 D ...** the within-goal full solution, or the near-miss approach to HTR"""
+      - **X2 U Y2 D ...** the rest of the within-goal solution with the length of the whole, or the near-miss approach to HTR"""
 
 
 def document(done, max_skeletons=SKELETONS, min_spare=SPARE, hard=HARD):
@@ -684,17 +775,23 @@ def document(done, max_skeletons=SKELETONS, min_spare=SPARE, hard=HARD):
     o = [INTRO.format(date=DATE, skeletons=max_skeletons, sample=SAMPLE.rstrip('\n'), onequarter=onequarter, under='<' if SLACK else '<=',
                      capline='\n - Skip variants that reach HTR with no move left for a finish' if HCAP else '')]
     # the corner cases in the document's order (ORDER; as they come in with REVERSE off); in each, the examples with
-    # a within-goal solution as they come, then the first UNSOLVED of the ones without (the others are left out)
+    # a within-goal solution from easiest to hardest (EASY_FIRST: by the skeleton the shortest solution found is
+    # first found on; the ones with none found after them), then the first UNSOLVED of the ones without (the others
+    # are left out)
     by = {}
     for item in done:
         by.setdefault(item[0]['section'], []).append(item)
     done = []
+    ease = lambda t: (t[1]['first'] is None, t[1]['first'] or 0)
     for sec in ([s for s in ORDER if s in by] + [s for s in by if s not in ORDER] if REVERSE else by):
         none = [t for t in by[sec] if t[1]['optimal'] > t[1]['goal']]
+        some = [t for t in by[sec] if t not in none]
+        if EASY_FIRST:
+            some.sort(key=ease)
         if UNSOLVED is None:
-            done += by[sec]
+            done += some + none
         else:
-            done += [t for t in by[sec] if t not in none] + none[:UNSOLVED]
+            done += some + none[:UNSOLVED]
     num, counts = {}, collections.Counter()
     for x, info, _ in done:
         counts[x['section']] += 1
