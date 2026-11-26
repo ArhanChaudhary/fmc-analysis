@@ -479,7 +479,7 @@ def render(x, rows, max_skeletons=SKELETONS, min_spare=SPARE, hard=HARD, log=sys
     def ghead(bs, num):
         """The line over a skeleton's list: the skeleton as the first of its sides that is gone through reads it
         (after a premove, written as what is left of it then that quarter turn), and how the other side reads it.
-        `num`: its place among the skeletons gone through (None: hard to find)."""
+        `num`: its place in the order the skeletons are gone through (hard to find: after them)."""
         first = {}
         for b in bs:
             first.setdefault(b['side'], b)
@@ -594,7 +594,7 @@ def render(x, rows, max_skeletons=SKELETONS, min_spare=SPARE, hard=HARD, log=sys
             gs.setdefault(b['gi'], []).append(b)
         return list(gs.values())
 
-    where = []        # per printed within-goal solution: the number of the skeleton it is on (None: hard to find)
+    where = []        # per printed within-goal solution: the number of the skeleton it is on
     out = [x['scramble'] + f"  // {label(x, dr)}, goal {goal}", '']
     # the skeletons gone through, each with one list: every variant the meta lets through is taken to HTR; shown are
     # the finishes within goal and, per skeleton side, the one that is no good with the most pairs right after its
@@ -637,19 +637,21 @@ def render(x, rows, max_skeletons=SKELETONS, min_spare=SPARE, hard=HARD, log=sys
     found = len(solved)
     # hard to find: finishes within goal on the skeletons that are not gone through
     extra, hard_head = [], False
+    # numbered on from the skeletons gone through, in the same order
     for bs in by_group(blocks_of(rest)):
+        num = len(tried) + bs[0]['gi'] + 1
         chosen = []
         for b in bs:
             vs = [v for v in b['run'] if v.within][:hard - len(extra)]
             extra += vs
             if vs:
                 chosen.append((b, vs))
-        body = [l for b, vs in chosen for l in lines(b, vs, {}, None)]
+        body = [l for b, vs in chosen for l in lines(b, vs, {}, num)]
         if body:
             if not hard_head:
                 out += ['Hard to find solutions:', '']
                 hard_head = True
-            out.append(ghead([b for b, _ in chosen], None))
+            out.append(ghead([b for b, _ in chosen], num))
             out.append('')
             out += body
             out.append('')
@@ -657,19 +659,20 @@ def render(x, rows, max_skeletons=SKELETONS, min_spare=SPARE, hard=HARD, log=sys
             break
     lens, hlens = sorted(len(t[1]) for t in solved[:found]), sorted(len(t[1]) for t in solved[found:])
     n, k = stats['finished'], len(tried)
-    # the skeleton the shortest solution found is first found on
+    # the skeleton the shortest solution found is first found on, and the one of the shortest hard-to-find one
     first = next((where[i] for i in range(found) if len(solved[i][1]) == min(lens)), None) if lens else None
+    hfirst = next((where[i] for i in range(found, len(solved)) if len(solved[i][1]) == min(hlens)), None) if hlens else None
 
     # the DR's optimal, the shortest solution on the skeletons gone through, and the shortest hard-to-find one
     # when it is shorter than that
     opt = dr['lsopt_turn']
     end = f"Optimal is {opt}. Found {min(lens)} on skeleton #{first}." if lens else f"Optimal is {opt}. Found none."
     if hlens and (not lens or min(hlens) < min(lens)):
-        end += f' Findable but hard {min(hlens)}.'
+        end += f' Findable but hard {min(hlens)} on skeleton #{hfirst}.'
     out.append(end)
     info = dict(id=x['id'], section=x['section'], subset=label(x, dr), goal=goal, optimal=opt, htrs=n, lens=lens, hard=hlens,
                 skeletons=k, listed=len(ordered), premove=stats['premove'], tried=[sorted(g[1].values()) for g in tried],
-                half_turn=sum(v.c['hrot'] == 2 for _, _, v, _ in solved), first=first)
+                half_turn=sum(v.c['hrot'] == 2 for _, _, v, _ in solved), first=first, hfirst=hfirst)
     print(x['id'], dict(stats), 'optimal', opt, 'found', lens, 'hard to find', hlens, file=log)
     return '\n'.join(out).rstrip() + '\n', info, solved
 
@@ -731,14 +734,12 @@ INTRO = """# The skeleton/variant meta: example solves
 
 {date}
 
-Example solves using the [skeleton/variant meta](WRITEUP.md), generated using JTuu's [subset generator](https://jtuu.be/subsets.html).
+Example solves using the meta from [Advanced DR Bounding](https://docs.google.com/document/d/13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0), using a computer implementation of the meta. The goal is 12/13/14 moves to leave-slice for a 0-2qt/3qt/4qt DR.
 
-Every scramble is a DR on U/D. The goal is 12/13/14 moves from DR to a leave-slice finish for a 2qt/3qt/4qt DR; the 0c0 DRs are solved as 2qt ones, with goal 12.{onequarter}
-
-The solutions are found with an automated solver that implements the meta, and in each corner case the scrambles run from easiest to hardest: by the skeleton on which the solver first finds its shortest solution.
+Every scramble is a DR on U/D, generated using JTuu's [subset generator](https://jtuu.be/subsets.html). For each corner case, the scrambles are given from easiest to hardest: by the skeleton on which the solver first finds its shortest solution.
 
 For each scramble:
- - Choose the {skeletons} skeletons with the fewest moves to HTR
+ - Check up to {skeletons} skeletons, ordered by the length of their shortest HTR.
  - Include extensions to extra qt (if they are among the top {skeletons})
    - Include extensions using null insertions such as U U'
    - These are treated like any other skeleton
@@ -767,22 +768,18 @@ def document(done, max_skeletons=SKELETONS, min_spare=SPARE, hard=HARD):
     # the block of the reading guide is in the examples as it stands
     shown = [text for x, _, text in done if x['id'] == SAMPLE_ID]
     assert not shown or SAMPLE.strip('\n') in shown[0], 'the block under "How to read an example" is no longer in its example'
-    # the 4a1 DRs, when there are any; their one-quarter-turn reading only when an example shows it
-    onequarter = ''
-    if any(x['section'] == '4a1' for x, _, _ in done):
-        one = any(', 1qt edges are ' in text for x, _, text in done if x['section'] == '4a1')
-        onequarter = ' The 4a1 DRs also have goal 12' + ('; a skeleton with one quarter turn has no 2qt trigger, so its variants read +T(+N).' if one else '.')
-    o = [INTRO.format(date=DATE, skeletons=max_skeletons, sample=SAMPLE.rstrip('\n'), onequarter=onequarter, under='<' if SLACK else '<=',
+    o = [INTRO.format(date=DATE, skeletons=max_skeletons, sample=SAMPLE.rstrip('\n'), under='<' if SLACK else '<=',
                      capline='\n - Skip variants that reach HTR with no move left for a finish' if HCAP else '')]
     # the corner cases in the document's order (ORDER; as they come in with REVERSE off); in each, the examples with
     # a within-goal solution from easiest to hardest (EASY_FIRST: by the skeleton the shortest solution found is
-    # first found on; the ones with none found after them), then the first UNSOLVED of the ones without (the others
+    # first found on; with none found, the one of the shortest hard-to-find solution, numbered after the skeletons
+    # gone through; with neither, last), then the first UNSOLVED of the ones without (the others
     # are left out)
     by = {}
     for item in done:
         by.setdefault(item[0]['section'], []).append(item)
     done = []
-    ease = lambda t: (t[1]['first'] is None, t[1]['first'] or 0)
+    ease = lambda t: t[1]['first'] or t[1]['hfirst'] or float('inf')
     for sec in ([s for s in ORDER if s in by] + [s for s in by if s not in ORDER] if REVERSE else by):
         none = [t for t in by[sec] if t[1]['optimal'] > t[1]['goal']]
         some = [t for t in by[sec] if t not in none]

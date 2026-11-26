@@ -2,14 +2,12 @@
 
 26 Nov 2026
 
-Example solves using the [skeleton/variant meta](WRITEUP.md), generated using JTuu's [subset generator](https://jtuu.be/subsets.html).
+Example solves using the meta from [Advanced DR Bounding](https://docs.google.com/document/d/13F8HonrKJyHjU9EwfiHDRyY4X77vPriYeaVSrh5guq0), using a computer implementation of the meta. The goal is 12/13/14 moves to leave-slice for a 0-2qt/3qt/4qt DR.
 
-Every scramble is a DR on U/D. The goal is 12/13/14 moves from DR to a leave-slice finish for a 2qt/3qt/4qt DR; the 0c0 DRs are solved as 2qt ones, with goal 12. The 4a1 DRs also have goal 12; a skeleton with one quarter turn has no 2qt trigger, so its variants read +T(+N).
-
-The solutions are found with an automated solver that implements the meta, and in each corner case the scrambles run from easiest to hardest: by the skeleton on which the solver first finds its shortest solution.
+Every scramble is a DR on U/D, generated using JTuu's [subset generator](https://jtuu.be/subsets.html). For each corner case, the scrambles are given from easiest to hardest: by the skeleton on which the solver first finds its shortest solution.
 
 For each scramble:
- - Choose the 8 skeletons with the fewest moves to HTR
+ - Check up to 8 skeletons, ordered by the length of their shortest HTR.
  - Include extensions to extra qt (if they are among the top 8)
    - Include extensions using null insertions such as U U'
    - These are treated like any other skeleton
@@ -286,7 +284,7 @@ Skeleton #8 L2 U' R2 U' F2 U F2 U2 R2 U R2 has RD corners, L=11, 3 spare moves. 
 
 Hard to find solutions:
 
-Skeleton D L2 U F2 D B2 U L2 U' L2 U' B2 has RD corners, L=12, 2 spare moves. On inverse, (L2 U' B2 D' R2 U F2 D L2 U F2 D') has HH corners.
+Skeleton #60 D L2 U F2 D B2 U L2 U' L2 U' B2 has RD corners, L=12, 2 spare moves. On inverse, (L2 U' B2 D' R2 U F2 D L2 U F2 D') has HH corners.
 
 - **D L2 U F2 D F2 D**
     - After R2, 1qt edges will be RD (good) and FD (good): +0+0+0(+1)
@@ -446,7 +444,7 @@ Skeleton #8 B2 D' B2 D B2 D' B2 D R2 D U R2 has RD corners, L=12, 2 spare moves.
 
 Hard to find solutions:
 
-Skeleton U R2 U F2 D B2 D' R2 U F2 U R2 U2 F2 has DD corners, L=14, 0 spare moves. On inverse, (F2 U2 R2 D R2 U' L2 D L2 U' R2 U' L2 U') has HH corners.
+Skeleton #24 U R2 U F2 D B2 D' R2 U F2 U R2 U2 F2 has DD corners, L=14, 0 spare moves. On inverse, (F2 U2 R2 D R2 U' L2 D L2 U' R2 U' L2 U') has HH corners.
 
 - **U R2 U F2 D B2 D'**
     - After R2, 1qt edges will be FD (good) and RV (good): +0+0+0(+0)
@@ -455,7 +453,7 @@ Skeleton U R2 U F2 D B2 D' R2 U F2 U R2 U2 F2 has DD corners, L=14, 0 spare move
     - After (L2), 1qt edges will be RD (good) and FH (good): +0+0+0(+0)
         - **(L2 U' B2 U' L2) // 14**
 
-Skeleton B2 D' B2 D' F2 U F2 U' L2 U' B2 U L2 U2 has RV corners, L=14, 0 spare moves.
+Skeleton #38 B2 D' B2 D' F2 U F2 U' L2 U' B2 U L2 U2 has RV corners, L=14, 0 spare moves.
 
 - **B2 D' F2 D' L2 U B2 U'**
     - After F2, 1qt edges will be RV (good) and FH (good): +0+0+0(+0)
@@ -679,7 +677,7 @@ Skeleton #8 (L2 D' L2 U L2 D' L2 U D U) on inverse has HH corners, L=10, 4 spare
 
 Hard to find solutions:
 
-Skeleton R2 U L2 U2 F2 U R2 U B2 U R2 U2 F2 has DD corners, L=13, 1 spare move.
+Skeleton #9 R2 U L2 U2 F2 U R2 U B2 U R2 U2 F2 has DD corners, L=13, 1 spare move.
 
 - **R2 U F2 U2 R2 D**
     - After B2, 1qt edges will be FV (good) and RV (good): +0+0+0(+1)
@@ -1202,7 +1200,7 @@ Skeleton #8 U' F2 U D R2 D B2 D' has HH corners, L=8, 5 spare moves. On inverse,
 
 Hard to find solutions:
 
-Skeleton U R2 U D' L2 D R2 D' has HH corners, L=8, 5 spare moves.
+Skeleton #10 U R2 U D' L2 D R2 D' has HH corners, L=8, 5 spare moves.
 
 - **(D) U R2 U'**
     - After F2 L2 B2, 1qt edges will be FD (good) and RH (good): +0+3+0(+0)
@@ -1364,7 +1362,7 @@ Skeleton #8 U2 R2 U B2 U D L2 D L2 D' has HH corners, L=10, 3 spare moves. On in
 
 Hard to find solutions:
 
-Skeleton U2 R2 U' B2 D' F2 D' B2 D U' L2 has FD corners, L=11, 2 spare moves.
+Skeleton #41 U2 R2 U' B2 D' F2 D' B2 D U' L2 has FD corners, L=11, 2 spare moves.
 
 - **U2 R2 U' B2 D' F2 D'**
     - After F2, 1qt edges will be FD (good) and RH (good): +0+0+2(+0)
@@ -1590,7 +1588,7 @@ Skeleton #8 D' B2 D F2 U R2 U D R2 has FD corners, L=9, 4 spare moves.
 
 Hard to find solutions:
 
-Skeleton (L2 U' R2 U L2 U L2 U' R2 D') on inverse has HH corners, L=10, 3 spare moves.
+Skeleton #17 (L2 U' R2 U L2 U L2 U' R2 D') on inverse has HH corners, L=10, 3 spare moves.
 
 - **D (L2 U' L2 U)**
     - After (B2), 1qt edges will be FH (bad) and RH (good): +0+0+0(+3)
@@ -1733,7 +1731,7 @@ Skeleton #8 U' L2 U D B2 D B2 U has HH corners, L=8, 5 spare moves. On inverse, 
 
 Hard to find solutions:
 
-Skeleton L2 D' F2 D' B2 U' L2 U B2 U' has HH corners, L=10, 3 spare moves. On inverse, (U R2 D F2 U' F2 D' R2 U' F2) has RD corners.
+Skeleton #27 L2 D' F2 D' B2 U' L2 U B2 U' has HH corners, L=10, 3 spare moves. On inverse, (U R2 D F2 U' F2 D' R2 U' F2) has RD corners.
 
 - **(U) L2 D' F2 D'**
     - After B2, 1qt edges will be RD (good) and FH (good): +0+0+3(+0)
@@ -1742,7 +1740,7 @@ Skeleton L2 D' F2 D' B2 U' L2 U B2 U' has HH corners, L=10, 3 spare moves. On in
     - After (R2 B2), 1qt edges will be RD (good) and FD (good): +0+1+1(+1)
         - **(R2 B2 U B2 L2 D' R2 B2) // 13**
 
-Optimal is 13. Found none. Findable but hard 13.
+Optimal is 13. Found none. Findable but hard 13 on skeleton #27.
 
 ### 2c3, scramble 10
 
@@ -1985,7 +1983,7 @@ Skeleton #8 U D' B2 U' D' has HH corners, L=5, 7 spare moves. On inverse, (U D' 
 
 Hard to find solutions:
 
-Skeleton (R2 U D' R2 U D') on inverse has HH corners, L=6, 6 spare moves.
+Skeleton #10 (R2 U D' R2 U D') on inverse has HH corners, L=6, 6 spare moves.
 
 - **D (L2 U')**
     - After (B2 R2 B2), 1qt edges will be RH (good) and FD (bad): +0+3+0(+3)
@@ -2626,13 +2624,13 @@ Skeleton #8 U R2 U R2 U F2 U has HH corners, L=7, 5 spare moves. On inverse, (D'
 
 Hard to find solutions:
 
-Skeleton (U2 R2 U' R2 U' B2 U D' F2) on inverse has RD corners, L=9, 3 spare moves.
+Skeleton #12 (U2 R2 U' R2 U' B2 U D' F2) on inverse has RD corners, L=9, 3 spare moves.
 
 - **(U2 R2 U' L2 D')**
     - After (F2), 1qt edges will be RD (good) and FH (good): +0+0+2(+0)
         - **(F2 U F2 B2 D' R2) // 11**
 
-Optimal is 11. Found 12 on skeleton #1. Findable but hard 11.
+Optimal is 11. Found 12 on skeleton #1. Findable but hard 11 on skeleton #12.
 
 ### 4b2, scramble 3
 
@@ -2772,7 +2770,7 @@ Skeleton #8 U2 R2 U B2 U' B2 U' R2 U' has HH corners, L=9, 3 spare moves. On inv
 
 Hard to find solutions:
 
-Skeleton U R2 U L2 U F2 U F2 U2 R2 has DD corners, L=10, 2 spare moves. On inverse, (B2 U2 L2 U' L2 U F2 U F2 U') has HH corners.
+Skeleton #9 U R2 U L2 U F2 U F2 U2 R2 has DD corners, L=10, 2 spare moves. On inverse, (B2 U2 L2 U' L2 U F2 U F2 U') has HH corners.
 
 - **U L2 D**
     - After B2 L2, 1qt edges will be FD (good) and RV (good): +0+1+0(+0)
@@ -3535,7 +3533,7 @@ Skeleton #8 R2 U2 B2 U D R2 D' F2 U2 has FV corners, L=9, 3 spare moves. On inve
 
 Hard to find solutions:
 
-Skeleton F2 U L2 U2 F2 D U' B2 has RD corners, L=8, 4 spare moves.
+Skeleton #10 F2 U L2 U2 F2 D U' B2 has RD corners, L=8, 4 spare moves.
 
 - **F2 U**
     - After R2 U2 F2, 1qt edges will be RD (good) and FD (good): +0+0+3(+1)
