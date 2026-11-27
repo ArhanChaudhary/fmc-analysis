@@ -17,7 +17,6 @@ Any solutions that use a different skeleton are listed as "hard to find"
 For each skeleton:
  - Check all approaches to 2qt that use <= 1 extra move
  - Check all variants whose lower bound is <= spare moves
- - Skip variants that reach HTR with no move left for a finish
  - Show any successes and some near-misses
 
 ## How to read an example
@@ -41,10 +40,10 @@ Skeleton #8 U R2 U R2 U F2 U has HH corners, L=7, 5 spare moves. On inverse, (D'
         - (F2 R2 B2 R2 U' B2 U) // no good
 ```
 
-**Skeleton #n ...** solves corners up to a possible corner swap; #n is its place in the order the skeletons are tried. NISS after 1 qt is allowed on both sides, and the variants of both sides are in one list
-  - **(U') ... U**: the approach to 2qt (if any), in bold when it leads to a within-goal solution. Up to one extra move is allowed. With HH corners it can start with the skeleton's last quarter turn as a premove on the other side, like (U') or D
+**Skeleton #n ...** solves corners up to a possible corner swap. Variants are searched in both directions, with a possible U/D pre-move.
+  - **(U') ... U**: the approach to 2qt. Up to one extra move is allowed.
     - **After ...** setup to a 2qt trigger and the full penalty's lower bound
-      - **X2 U Y2 D ...** the rest of the within-goal solution with the length of the whole, or the near-miss approach to HTR
+      - **X2 U Y2 D ...** the rest of the within-goal solution, or the near-miss approach to HTR
 
 ## 2c4
 
